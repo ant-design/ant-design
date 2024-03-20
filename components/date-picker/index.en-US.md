@@ -19,6 +19,7 @@ By clicking the input box, you can select a date from a popup calendar.
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/range-picker.tsx">Range Picker</code>
 <code src="./demo/multiple.tsx" version="5.14.0">Multiple</code>
+<code src="./demo/multiple-debug.tsx" debug>Multiple Debug</code>
 <code src="./demo/needConfirm.tsx" version="5.14.0">Need Confirm</code>
 <code src="./demo/switchable.tsx">Switchable picker</code>
 <code src="./demo/format.tsx">Date Format</code>
@@ -66,7 +67,7 @@ If there are special needs (only modifying single component language), Please us
 
 <!-- prettier-ignore -->
 :::warning
-When use with Nextjs App Router, make sure to add `'use client'` before import locale file of dayjs. It's because all components of Ant Design only works in client, importing locale in RSC will not work.
+When use with Next.js App Router, make sure to add `'use client'` before import locale file of dayjs. It's because all components of Ant Design only works in client, importing locale in RSC will not work.
 :::
 
 ```jsx
@@ -79,6 +80,7 @@ import 'dayjs/locale/zh-cn';
 
 ```jsx
 // The default locale is en-US, if you want to use other locale, just set locale in entry file globally.
+// Make sure you import the relevant dayjs file as well, otherwise the locale won't change for all texts (e.g. range picker months)
 import locale from 'antd/locale/zh_CN';
 import dayjs from 'dayjs';
 

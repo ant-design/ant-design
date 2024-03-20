@@ -182,7 +182,7 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
       </div>,
     );
   }
-  return typeof children !== 'undefined' ? (children as React.ReactElement) : null;
+  return children ?? null;
 };
 
 Skeleton.Button = SkeletonButton;
