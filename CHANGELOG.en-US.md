@@ -17,7 +17,7 @@ timeline: true
 
 ## 4.24.16
 
-`2024-03-18`
+`2024-03-19`
 
 - 🐞 Fix Select that scrollbar is not displayed when there are few options. [#47050](https://github.com/ant-design/ant-design/pull/47050)
 - 🐞 Fix Transfer cannot invert current page correctly. [#47134](https://github.com/ant-design/ant-design/pull/47134) [@linxianxi](https://github.com/linxianxi)
