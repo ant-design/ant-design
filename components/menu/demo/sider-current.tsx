@@ -75,22 +75,19 @@ const App: React.FC = () => {
   const [stateOpenKeys, setStateOpenKeys] = useState(['2', '23']);
 
   const onOpenChange = (openKeys: string[]) => {
+    console.log('openKeys', openKeys);
     const countData: Record<number, number> = {};
-    let repeatIndex: number[] = [];
+    let repeatIndex: number = -1;
     openKeys.forEach((key, index) => {
       const level = levelKeys[key];
       if (countData[level] !== undefined) {
-        repeatIndex = [countData[level], index];
+        repeatIndex = countData[level];
       }
       countData[level] = index;
     });
-    if (repeatIndex.length) {
-      const [oldIndex, newIndex] = repeatIndex;
-      setStateOpenKeys(
-        openKeys
-          .map((item, index) => (index === oldIndex ? openKeys[newIndex] : item))
-          .filter((_, index) => index !== newIndex),
-      );
+    console.log('repeatIndex', repeatIndex);
+    if (repeatIndex !== -1) {
+      setStateOpenKeys(openKeys.filter((_, index) => index !== repeatIndex));
     } else {
       setStateOpenKeys(openKeys);
     }
