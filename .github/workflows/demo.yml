@@ -1,0 +1,23 @@
+name: image-preview
+
+on: [push, pull_request]
+
+jobs:
+  image-preview-2:
+    name: image-preview-3
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: image-preview-4
+        id: report
+        env:
+          ALI_OSS_AK_ID: ${{ secrets.ALI_OSS_AK_ID }}
+          ALI_OSS_AK_SECRET: ${{ secrets.ALI_OSS_AK_SECRET }}
+        run: |
+          npm i ali-oss --no-save
+          echo "✅ Install `ali-oss` Finished"
+
+          echo "🤖 Uploading"
+          node scripts/visual-regression/upload-demo.js
+          echo "✅ Uploaded"
