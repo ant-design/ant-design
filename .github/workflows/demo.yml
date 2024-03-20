@@ -1,6 +1,6 @@
 name: image-preview
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   # setup:
