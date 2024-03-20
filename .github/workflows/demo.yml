@@ -3,41 +3,41 @@ name: image-preview
 on: [push, pull_request]
 
 jobs:
-  setup:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v4
+  # setup:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: checkout
+  #       uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
+  #     - uses: actions/setup-node@v4
+  #       with:
+  #         node-version: 18
 
-      - name: cache package-lock.json
-        uses: actions/cache@v4
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
+  #     - name: cache package-lock.json
+  #       uses: actions/cache@v4
+  #       with:
+  #         path: package-temp-dir
+  #         key: lock-${{ github.sha }}
 
-      - name: create package-lock.json
-        run: npm i --package-lock-only --ignore-scripts
+  #     - name: create package-lock.json
+  #       run: npm i --package-lock-only --ignore-scripts
 
-      - name: hack for single file
-        run: |
-          if [ ! -d "package-temp-dir" ]; then
-            mkdir package-temp-dir
-          fi
-          cp package-lock.json package-temp-dir
-      - name: cache node_modules
-        id: node_modules_cache_id
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+  #     - name: hack for single file
+  #       run: |
+  #         if [ ! -d "package-temp-dir" ]; then
+  #           mkdir package-temp-dir
+  #         fi
+  #         cp package-lock.json package-temp-dir
+  #     - name: cache node_modules
+  #       id: node_modules_cache_id
+  #       uses: actions/cache@v4
+  #       with:
+  #         path: node_modules
+  #         key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
-      - name: install
-        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: npm ci
+  #     - name: install
+  #       if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
+  #       run: npm ci
   image-preview-2:
     name: image-preview-3
     runs-on: ubuntu-latest
@@ -60,7 +60,7 @@ jobs:
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-          
+
       - name: image-preview-4
         id: report
         env:
