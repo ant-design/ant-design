@@ -440,6 +440,8 @@ const theme = {
 | inherit | 继承上层 ConfigProvider 中配置的主题。 | boolean | true |
 | algorithm | 用于修改 Seed Token 到 Map Token 的算法 | `(token: SeedToken) => MapToken` \| `((token: SeedToken) => MapToken)[]` | `defaultAlgorithm` |
 | components | 用于修改各个组件的 Component Token 以及覆盖该组件消费的 Alias Token | `ComponentsConfig` | - |
+| cssVar | 开启 CSS 变量 | boolean \| { prefix?: string; key?: string } 参考 [使用 CSS 变量](/docs/react/css-variables-cn#api) | false |
+| hashed | 组件 class Hash 值 | boolean [参考](/docs/react/css-variables-cn#关闭-hash) | true |
 
 ### ComponentsConfig
 
