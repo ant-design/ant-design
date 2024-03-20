@@ -639,7 +639,12 @@ describe('Form', () => {
     const App: React.FC = () => {
       return (
         <Form>
-          <Form.Item label="hello" help={() => 'bamboo'}>
+          <Form.Item
+            label="hello"
+            help={() => {
+              return 'bamboo';
+            }}
+          >
             <Input />
           </Form.Item>
         </Form>
