@@ -17,7 +17,7 @@ timeline: true
 
 ## 4.24.16
 
-`2024-03-18`
+`2024-03-19`
 
 - 🐞 修复 Select 组件在选项较少时不显示滚动条的问题。[#47050](https://github.com/ant-design/ant-design/pull/47050)
 - 🐞 修复 Transfer 反选当页错误的问题。[#47134](https://github.com/ant-design/ant-design/pull/47134) [@linxianxi](https://github.com/linxianxi)
