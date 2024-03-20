@@ -17,7 +17,7 @@ async function uploadFile() {
   };
   // https://antd-visual-diff.oss-cn-shanghai.aliyuncs.com/pr-47859/visualRegressionReport/images/current/menu-sider-current.compact.png
   try {
-    const r1 = await client.put(`demo/image/demo.png`, 'demo.png', {
+    const r1 = await client.put(`demo/image/demo2.png`, 'demo.png', {
       headers,
       timeout: 60000 * 2,
     });
