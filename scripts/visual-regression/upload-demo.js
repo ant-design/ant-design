@@ -11,7 +11,8 @@ async function uploadFile() {
   const headers = {
     'x-oss-object-acl': 'public-read',
     'x-oss-forbid-overwrite': 'false',
-    'Content-Disposition': 'inline',
+    // 'Content-Disposition': 'inline',
+    'x-oss-meta-Content-Disposition': 'inline',
     'Content-Type': 'image/png',
   };
   // https://antd-visual-diff.oss-cn-shanghai.aliyuncs.com/pr-47859/visualRegressionReport/images/current/menu-sider-current.compact.png
