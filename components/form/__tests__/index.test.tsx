@@ -635,21 +635,14 @@ describe('Form', () => {
     expect(container.querySelector('.ant-form-item-explain')).toHaveTextContent('bamboo');
   });
 
-  it('should render help when render type', async () => {
-    const App: React.FC = () => {
-      return (
-        <Form>
-          <Form.Item
-            label="hello"
-            help={() => {
-              return 'bamboo';
-            }}
-          >
-            <Input />
-          </Form.Item>
-        </Form>
-      );
-    };
+  it('should render help when render type', () => {
+    const App: React.FC = () => (
+      <Form>
+        <Form.Item label="hello" help={() => 'bamboo'}>
+          <Input />
+        </Form.Item>
+      </Form>
+    );
 
     const { container } = render(<App />);
     expect(container.querySelector('.ant-form-item-explain')).toHaveTextContent('bamboo');
