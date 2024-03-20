@@ -8,7 +8,6 @@ const App: React.FC = () => (
     <Button type="dashed">Dashed Button</Button>
     <Button type="text">Text Button</Button>
     <Button type="link">Link Button</Button>
-    <Button type="link">test</Button>
   </Flex>
 );
 
