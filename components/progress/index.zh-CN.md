@@ -33,7 +33,7 @@ demo:
 <code src="./demo/linecap.tsx">边缘形状</code>
 <code src="./demo/gradient-line.tsx">自定义进度条渐变色</code>
 <code src="./demo/steps.tsx">步骤进度条</code>
-<code src="./demo/circle-steps.tsx">步骤进度圈</code>
+<code src="./demo/circle-steps.tsx" version="5.16.0">步骤进度圈</code>
 <code src="./demo/size.tsx">尺寸</code>
 
 ## API
