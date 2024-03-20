@@ -99,14 +99,8 @@ describe('Popover', () => {
     const onOpenChange = jest.fn((e?: any) => {
       e?.persist?.();
     });
-    const content = (
-      <div>
-        <p>Content</p>
-        <p>Content</p>
-      </div>
-    );
     const wrapper = render(
-      <Popover content={content} title="Title" trigger="click" onOpenChange={onOpenChange}>
+      <Popover title="Title" trigger="click" onOpenChange={onOpenChange}>
         <span>Delete</span>
       </Popover>,
     );
