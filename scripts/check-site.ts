@@ -13,7 +13,7 @@ const components = uniq(
   globSync('components/!(overview)/*.md', { cwd: join(process.cwd()), dot: false }).map((path) =>
     path.replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, ''),
   ),
-);
+).filter((component) => !component.includes('_util'));
 
 describe('site test', () => {
   let server: http.Server | https.Server;
