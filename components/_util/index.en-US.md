@@ -10,7 +10,7 @@ group:
   order: 99
 ---
 
-工具类用于辅助开发，提供一些常用的工具方法。
+Utilities are used to assist development and provide some common utility methods.
 
 ## GetRef
 
