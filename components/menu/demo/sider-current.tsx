@@ -74,7 +74,7 @@ const levelKeys = getLevelKeys(items as LevelKeysProps[]);
 const App: React.FC = () => {
   const [stateOpenKeys, setStateOpenKeys] = useState(['2', '23']);
 
-  const onOpenChange = (openKeys: string[]) => {
+  const onOpenChange: MenuProps['onOpenChange'] = (openKeys) => {
     console.log('openKeys', openKeys);
     const countData: Record<number, number> = {};
     let repeatIndex: number = -1;
@@ -98,7 +98,7 @@ const App: React.FC = () => {
       mode="inline"
       defaultSelectedKeys={['231']}
       openKeys={stateOpenKeys}
-      onOpenChange={(openKeys) => onOpenChange(openKeys as string[])}
+      onOpenChange={onOpenChange}
       style={{ width: 256 }}
       items={items}
     />
