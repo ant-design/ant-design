@@ -76,12 +76,15 @@ const Popconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props, ref) =>
     props.onCancel?.call(this, e);
   };
 
-  const onInternalOpenChange = (value: boolean) => {
+  const onInternalOpenChange = (
+    value: boolean,
+    e?: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLDivElement>,
+  ) => {
     const { disabled = false } = props;
     if (disabled) {
       return;
     }
-    settingOpen(value);
+    settingOpen(value, e);
   };
 
   const prefixCls = getPrefixCls('popconfirm', customizePrefixCls);
