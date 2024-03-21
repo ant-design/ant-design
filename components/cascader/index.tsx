@@ -102,13 +102,13 @@ const defaultSearchRender: ShowSearchType['render'] = (inputValue, path, prefixC
   return optionList;
 };
 
-type SingleCascaderProps<OptionType extends BaseOptionType> = Omit<
+export type SingleCascaderProps<OptionType extends BaseOptionType = any> = Omit<
   RcSingleCascaderProps<OptionType>,
   'checkable' | 'options'
 > & {
   multiple?: false;
 };
-type MultipleCascaderProps<OptionType extends BaseOptionType> = Omit<
+export type MultipleCascaderProps<OptionType extends BaseOptionType = any> = Omit<
   RcMultipleCascaderProps<OptionType>,
   'checkable' | 'options'
 > & {
