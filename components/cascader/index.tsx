@@ -56,7 +56,10 @@ function highlightKeyword(str: string, lowerKeyword: string, prefixCls?: string)
   const cells = str
     .toLowerCase()
     .split(lowerKeyword)
-    .reduce((list, cur, index) => (index === 0 ? [cur] : [...list, lowerKeyword, cur]) as any, []);
+    .reduce(
+      (list: string[], cur, index) => (index === 0 ? [cur] : [...list, lowerKeyword, cur]),
+      [],
+    );
   const fillCells: React.ReactNode[] = [];
   let start = 0;
 
