@@ -16,21 +16,18 @@ rootPropsTest(
   ),
   {
     beforeRender: () => {
-      spyElementPrototype(
-        HTMLElement,
-        'getBoundingClientRect',
-        function getBoundingClientRect(this: any) {
-          if (this.id === 'holder') {
-            return { top: 0, bottom: 100 };
-          }
+      spyElementPrototype(HTMLElement, 'getBoundingClientRect', function getBoundingClientRect() {
+        // @ts-ignore
+        if (this.id === 'holder') {
+          return { top: 0, bottom: 100 };
+        }
+        // @ts-ignore
+        if (this.className === 'fixed') {
+          return { top: -100, bottom: -100 };
+        }
 
-          if (this.className === 'fixed') {
-            return { top: -100, bottom: -100 };
-          }
-
-          return { top: 0, bottom: 0 };
-        },
-      );
+        return { top: 0, bottom: 0 };
+      });
     },
     findRootElements: () => document.querySelectorAll('.ant-affix'),
     expectCount: 1,

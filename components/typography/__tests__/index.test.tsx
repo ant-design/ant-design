@@ -48,7 +48,8 @@ describe('Typography', () => {
         return lines * 16;
       },
     });
-    mockGetBoundingClientRect.mockImplementation(function fn(this: any) {
+    mockGetBoundingClientRect.mockImplementation(function fn() {
+      // @ts-ignore
       let html = this.innerHTML;
       html = html.replace(/<[^>]*>/g, '');
       const lines = Math.ceil(html.length / LINE_STR_COUNT);

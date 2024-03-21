@@ -73,8 +73,10 @@ describe('Upload List', () => {
     open = jest.spyOn(window, 'open').mockImplementation(() => null);
     mockWidthGet.mockImplementation(() => size.width);
     mockHeightGet.mockImplementation(() => size.height);
-    mockSrcSet.mockImplementation(function fn(this: any) {
+    mockSrcSet.mockImplementation(function fn() {
+      // @ts-ignore
       if (this.onload) {
+        // @ts-ignore
         this.onload();
       }
     });

@@ -14,7 +14,8 @@ describe('Watermark', () => {
   const mockSrcSet = jest.spyOn(Image.prototype, 'src', 'set');
 
   beforeAll(() => {
-    mockSrcSet.mockImplementation(function fn(this: any) {
+    mockSrcSet.mockImplementation(function fn() {
+      // @ts-ignore
       this.onload?.();
     });
   });
@@ -76,7 +77,8 @@ describe('Watermark', () => {
   });
 
   it('Invalid image watermark', () => {
-    mockSrcSet.mockImplementation(function fn(this: any) {
+    mockSrcSet.mockImplementation(function fn() {
+      // @ts-ignore
       this.onerror?.();
     });
     const { container } = render(
