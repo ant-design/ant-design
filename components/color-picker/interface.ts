@@ -1,12 +1,14 @@
 import type { ReactNode } from 'react';
-import type { ColorPickerProps } from './ColorPicker';
+
 import type { Color } from './color';
+import type { ColorPickerProps } from './ColorPicker';
 
 export enum ColorFormat {
   hex = 'hex',
   rgb = 'rgb',
   hsb = 'hsb',
 }
+export type ColorFormatType = keyof typeof ColorFormat;
 
 export interface PresetsItem {
   label: ReactNode;
@@ -30,7 +32,7 @@ export type TriggerPlacement =
 export interface ColorPickerBaseProps {
   color?: Color;
   prefixCls: string;
-  format?: keyof typeof ColorFormat;
+  format?: ColorFormatType;
   allowClear?: boolean;
   colorCleared?: boolean;
   disabled?: boolean;

@@ -59,8 +59,8 @@ describe('DropdownButton', () => {
 
     const { rerender } = render(<DropdownButton {...props} />);
 
-    Object.keys(props).forEach((key) => {
-      expect(dropdownProps[key as keyof DropdownProps]).toBe(props[key as keyof DropdownProps]);
+    (Object.keys(props) as (keyof DropdownProps)[]).forEach((key) => {
+      expect(dropdownProps[key]).toBe(props[key]);
     });
 
     rerender(<DropdownButton menu={{ items }} open />);

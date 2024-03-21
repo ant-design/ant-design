@@ -24,7 +24,7 @@ import ColorPickerPanel from './ColorPickerPanel';
 import ColorTrigger from './components/ColorTrigger';
 import useColorState from './hooks/useColorState';
 import type {
-  ColorFormat,
+  ColorFormatType,
   ColorPickerBaseProps,
   ColorValueType,
   PresetsItem,
@@ -45,8 +45,8 @@ export type ColorPickerProps = Omit<
   disabled?: boolean;
   placement?: TriggerPlacement;
   trigger?: TriggerType;
-  format?: keyof typeof ColorFormat;
-  defaultFormat?: keyof typeof ColorFormat;
+  format?: ColorFormatType;
+  defaultFormat?: ColorFormatType;
   allowClear?: boolean;
   presets?: PresetsItem[];
   arrow?: boolean | { pointAtCenter: boolean };
@@ -61,7 +61,7 @@ export type ColorPickerProps = Omit<
   disabledAlpha?: boolean;
   [key: `data-${string}`]: string;
   onOpenChange?: (open: boolean) => void;
-  onFormatChange?: (format: ColorFormat) => void;
+  onFormatChange?: (format?: ColorFormatType) => void;
   onChange?: (value: Color, hex: string) => void;
   onClear?: () => void;
   onChangeComplete?: (value: Color) => void;
@@ -118,9 +118,9 @@ const ColorPicker: CompoundedComponent = (props) => {
     postState: (openData) => !mergedDisabled && openData,
     onChange: onOpenChange,
   });
-  const [formatValue, setFormatValue] = useMergedState(format as any, {
-    value: format as any,
-    defaultValue: defaultFormat as any,
+  const [formatValue, setFormatValue] = useMergedState(format, {
+    value: format,
+    defaultValue: defaultFormat,
     onChange: onFormatChange,
   });
 

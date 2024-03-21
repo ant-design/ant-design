@@ -48,7 +48,7 @@ type Task =
   | TypeTask
   | {
       type: 'destroy';
-      key: React.Key;
+      key?: React.Key;
       skipped?: boolean;
     };
 
@@ -289,7 +289,7 @@ function typeOpen(type: NoticeType, args: Parameters<TypeOpen>): MessageType {
 const destroy: BaseMethods['destroy'] = (key) => {
   taskQueue.push({
     type: 'destroy',
-    key: key as any,
+    key,
   });
   flushNotice();
 };

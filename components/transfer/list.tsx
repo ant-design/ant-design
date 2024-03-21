@@ -146,7 +146,8 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
       : null;
     const customize: boolean = !!bodyContent;
     if (!customize) {
-      bodyContent = <DefaultListBody ref={listBodyRef} {...(listProps as any)} />;
+      // @ts-ignore
+      bodyContent = <DefaultListBody ref={listBodyRef} {...listProps} />;
     }
     return { customize, bodyContent };
   };

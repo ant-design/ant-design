@@ -52,10 +52,10 @@ export default function useTheme(
         ...parentThemeConfig.components,
       };
 
-      Object.keys(theme.components || {}).forEach((componentName) => {
-        mergedComponents[componentName as keyof OverrideToken] = {
-          ...mergedComponents[componentName as keyof OverrideToken],
-          ...theme.components![componentName as keyof OverrideToken],
+      (Object.keys(theme.components || {}) as (keyof OverrideToken)[]).forEach((componentName) => {
+        mergedComponents[componentName] = {
+          ...mergedComponents[componentName],
+          ...theme.components![componentName],
         } as any;
       });
 

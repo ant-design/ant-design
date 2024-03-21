@@ -117,8 +117,9 @@ const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, ref) => 
 
   return wrapCSSVar(
     <Wave component="Switch">
+      {/* @ts-ignore */}
       <RcSwitch
-        {...(restProps as any)}
+        {...restProps}
         checked={checked}
         onChange={changeHandler as any}
         prefixCls={prefixCls}

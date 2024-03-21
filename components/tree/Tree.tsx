@@ -234,11 +234,12 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
   );
 
   return wrapCSSVar(
+    // @ts-ignore
     <RcTree
       itemHeight={itemHeight}
       ref={ref}
       virtual={virtual}
-      {...(newProps as any)}
+      {...newProps}
       // newProps may contain style so declare style below it
       style={{ ...tree?.style, ...style }}
       prefixCls={prefixCls}

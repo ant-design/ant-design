@@ -159,10 +159,10 @@ describe('Collapse', () => {
       .spyOn(window, 'requestAnimationFrame')
       .mockImplementation((cb) => setTimeout(cb, 16.66));
 
-    let setActiveKeyOuter: React.Dispatch<React.SetStateAction<React.Key>>;
+    let setActiveKeyOuter: React.Dispatch<React.SetStateAction<React.Key | undefined>>;
     const Test: React.FC = () => {
       const [activeKey, setActiveKey] = React.useState<React.Key>();
-      setActiveKeyOuter = setActiveKey as any;
+      setActiveKeyOuter = setActiveKey;
       return (
         <div hidden>
           <Collapse activeKey={activeKey}>

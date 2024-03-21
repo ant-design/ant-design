@@ -26,7 +26,7 @@ type Task =
     }
   | {
       type: 'destroy';
-      key: React.Key;
+      key?: React.Key;
     };
 
 let taskQueue: Task[] = [];
@@ -202,7 +202,7 @@ function open(config: ArgsProps) {
 const destroy: BaseMethods['destroy'] = (key) => {
   taskQueue.push({
     type: 'destroy',
-    key: key as any,
+    key,
   });
   flushNotice();
 };
