@@ -44,6 +44,7 @@ module.exports = {
         'no-unused-expressions': 'off',
         '@typescript-eslint/no-unused-expressions': 2,
         '@typescript-eslint/consistent-type-imports': [2, { disallowTypeAnnotations: false }],
+        '@typescript-eslint/no-explicit-any': 'error',
       },
     },
     {
@@ -98,12 +99,6 @@ module.exports = {
         'import/no-extraneous-dependencies': 0,
         'react/jsx-no-constructed-context-values': 0,
         'react/no-unstable-nested-components': 0,
-        '@typescript-eslint/no-explicit-any': 'error',
-        '@typescript-eslint/no-unsafe-argument': 'error',
-        '@typescript-eslint/no-unsafe-assignment': 'error',
-        '@typescript-eslint/no-unsafe-call': 'error',
-        '@typescript-eslint/no-unsafe-member-access': 'error',
-        '@typescript-eslint/no-unsafe-return': 'error',
       },
     },
     {
