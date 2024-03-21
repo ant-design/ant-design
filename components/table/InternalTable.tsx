@@ -28,7 +28,7 @@ import { useToken } from '../theme/internal';
 import type { TooltipProps } from '../tooltip';
 import renderExpandIcon from './ExpandIcon';
 import useContainerWidth from './hooks/useContainerWidth';
-import type { FilterState } from './hooks/useFilter';
+import type { FilterConfig, FilterState } from './hooks/useFilter';
 import useFilter, { getFilterData } from './hooks/useFilter';
 import useLazyKVMap from './hooks/useLazyKVMap';
 import usePagination, { DEFAULT_PAGE_SIZE, getPaginationParam } from './hooks/usePagination';
@@ -334,18 +334,8 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   changeEventInfo.sorterStates = sortStates;
 
   // ============================ Filter ============================
-  const onFilterChange = (
-    filters: Record<string, FilterValue>,
-    filterStates: FilterState<RecordType>[],
-  ) => {
-    triggerOnChange(
-      {
-        filters,
-        filterStates,
-      },
-      'filter',
-      true,
-    );
+  const onFilterChange: FilterConfig<RecordType>['onFilterChange'] = (filters, filterStates) => {
+    triggerOnChange({ filters, filterStates }, 'filter', true);
   };
 
   const [transformFilterColumns, filterStates, filters] = useFilter<RecordType>({
@@ -353,7 +343,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     locale: tableLocale,
     dropdownPrefixCls,
     mergedColumns,
-    onFilterChange: onFilterChange as any,
+    onFilterChange,
     getPopupContainer: getPopupContainer || getContextPopupContainer,
     rootClassName: classNames(rootClassName, rootCls),
   });

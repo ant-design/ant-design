@@ -4,7 +4,7 @@ import React from 'react';
 import type { ColumnType, TableProps } from '..';
 import Table from '..';
 import { act, fireEvent, render } from '../../../tests/utils';
-import type { ColumnsType, SortOrder, TablePaginationConfig } from '../interface';
+import type { SortOrder, TablePaginationConfig } from '../interface';
 
 describe('Table.sorter', () => {
   const sorterFn: ColumnType<any>['sorter'] = (a, b) =>
@@ -438,17 +438,17 @@ describe('Table.sorter', () => {
 
   // https://github.com/ant-design/ant-design/issues/11246#issuecomment-405009167
   it('Allow column title as render props with sortOrder argument', () => {
-    const title = ({ sortOrder }: { sortOrder: SortOrder }) => (
+    const title: NonNullable<TableProps['columns']>[number]['title'] = ({ sortOrder }) => (
       <div className="custom-title">{sortOrder}</div>
     );
-    const columns = [{ title, key: 'group', sorter: true }];
+    const columns: TableProps['columns'] = [{ title, key: 'group', sorter: true }];
     const testData = [
       { key: 0, name: 'Jack', age: 11 },
       { key: 1, name: 'Lucy', age: 20 },
       { key: 2, name: 'Tom', age: 21 },
       { key: 3, name: 'Jerry', age: 22 },
     ];
-    const { container } = render(<Table columns={columns as any} dataSource={testData} />);
+    const { container } = render(<Table columns={columns} dataSource={testData} />);
     expect(container.querySelector('.custom-title')?.textContent).toEqual('');
     fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
     expect(container.querySelector('.custom-title')?.textContent).toEqual('ascend');
@@ -921,7 +921,7 @@ describe('Table.sorter', () => {
   });
 
   it('controlled multiple group', () => {
-    const groupColumns: ColumnsType = [
+    const groupColumns: TableProps['columns'] = [
       {
         title: 'Math Score',
         dataIndex: 'math1',
@@ -952,7 +952,7 @@ describe('Table.sorter', () => {
       },
     ];
     const dataProp = { data: groupData };
-    const { container } = render(<Table columns={groupColumns as any} {...dataProp} />);
+    const { container } = render(<Table columns={groupColumns} {...dataProp} />);
 
     expect(
       container
