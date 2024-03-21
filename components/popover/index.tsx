@@ -18,6 +18,10 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 export interface PopoverProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
   content?: React.ReactNode | RenderFunction;
+  onOpenChange?: (
+    open: boolean,
+    e?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLDivElement>,
+  ) => void;
 }
 
 interface OverlayProps {
@@ -59,14 +63,17 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
     value: props.open ?? props.visible,
   });
 
-  const settingOpen = (value: boolean) => {
+  const settingOpen = (
+    value: boolean,
+    e?: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLDivElement>,
+  ) => {
     setOpen(value, true);
-    onOpenChange?.(value);
+    onOpenChange?.(value, e);
   };
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.keyCode === KeyCode.ESC) {
-      settingOpen(false);
+      settingOpen(false, e);
     }
   };
 

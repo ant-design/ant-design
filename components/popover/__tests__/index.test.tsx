@@ -11,6 +11,11 @@ const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPanelDoNotUseOrYouWillBe
 describe('Popover', () => {
   mountTest(Popover);
 
+  const eventObject = expect.objectContaining({
+    target: expect.anything(),
+    preventDefault: expect.any(Function),
+  });
+
   it('should show overlay when trigger is clicked', () => {
     const ref = React.createRef<TooltipRef>();
     const { container } = render(
@@ -106,8 +111,8 @@ describe('Popover', () => {
     );
     const triggerNode = wrapper.container.querySelectorAll('span')[0];
     fireEvent.click(triggerNode);
-    expect(onOpenChange).toHaveBeenLastCalledWith(true);
+    expect(onOpenChange).toHaveBeenLastCalledWith(true, undefined);
     fireEvent.keyDown(triggerNode, { key: 'Escape', keyCode: 27 });
-    expect(onOpenChange).toHaveBeenLastCalledWith(false);
+    expect(onOpenChange).toHaveBeenLastCalledWith(false, eventObject);
   });
 });
