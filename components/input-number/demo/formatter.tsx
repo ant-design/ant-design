@@ -8,10 +8,10 @@ const onChange: InputNumberProps['onChange'] = (value) => {
 
 const App: React.FC = () => (
   <Space>
-    <InputNumber
+    <InputNumber<number>
       defaultValue={1000}
       formatter={(value) => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-      parser={(value) => value?.replace(/\$\s?|(,*)/g, '') as unknown as 1000}
+      parser={(value) => value?.replace(/\$\s?|(,*)/g, '') as unknown as number}
       onChange={onChange}
     />
     <InputNumber<number>
