@@ -352,7 +352,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     beforeUpload: mergedBeforeUpload,
     onChange: undefined,
     hasControlInside,
-  } as RcUploadProps;
+  } as any;
 
   delete rcUploadProps.className;
   delete rcUploadProps.style;

@@ -1,5 +1,6 @@
-import { spyElementPrototype } from 'rc-util/lib/test/domHook';
 import * as React from 'react';
+import { spyElementPrototype } from 'rc-util/lib/test/domHook';
+
 import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 
 demoTest('affix', {
@@ -15,17 +16,21 @@ rootPropsTest(
   ),
   {
     beforeRender: () => {
-      spyElementPrototype(HTMLElement, 'getBoundingClientRect', function getBoundingClientRect() {
-        if (this.id === 'holder') {
-          return { top: 0, bottom: 100 };
-        }
+      spyElementPrototype(
+        HTMLElement,
+        'getBoundingClientRect',
+        function getBoundingClientRect(this: any) {
+          if (this.id === 'holder') {
+            return { top: 0, bottom: 100 };
+          }
 
-        if (this.className === 'fixed') {
-          return { top: -100, bottom: -100 };
-        }
+          if (this.className === 'fixed') {
+            return { top: -100, bottom: -100 };
+          }
 
-        return { top: 0, bottom: 0 };
-      });
+          return { top: 0, bottom: 0 };
+        },
+      );
     },
     findRootElements: () => document.querySelectorAll('.ant-affix'),
     expectCount: 1,

@@ -85,7 +85,7 @@ const ThemePicker: React.FC<ThemePickerProps> = (props) => {
   const [locale] = useLocale(locales);
   return (
     <Flex gap="large" wrap="wrap">
-      {Object.keys(THEMES).map<React.ReactNode>((theme: THEME, index) => (
+      {Object.keys(THEMES).map<React.ReactNode>((theme, index) => (
         <Flex vertical gap="small" justify="center" align="center" key={theme}>
           <label
             onClick={() => onChange?.(theme)}
@@ -94,9 +94,9 @@ const ThemePicker: React.FC<ThemePickerProps> = (props) => {
             })}
           >
             <input type="radio" name="theme" id={index === 0 ? id : undefined} />
-            <img src={THEMES[theme]} alt={theme} />
+            <img src={(THEMES as any)[theme]} alt={theme} />
           </label>
-          <span>{locale[theme]}</span>
+          <span>{(locale as any)[theme]}</span>
         </Flex>
       ))}
     </Flex>

@@ -48,8 +48,8 @@ const onChange = (value: string[]) => {
 
 const App: React.FC = () => (
   <Flex vertical gap="small" align="flex-start">
-    <Cascader.Panel options={options} onChange={onChange} />
-    <Cascader.Panel multiple options={options} onChange={onChange} />
+    <Cascader.Panel options={options} onChange={onChange as any} />
+    <Cascader.Panel multiple options={options} onChange={onChange as any} />
     <Cascader.Panel />
   </Flex>
 );

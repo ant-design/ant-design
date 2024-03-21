@@ -41,7 +41,7 @@ const App: React.FC = () => {
     <span>
       {text}
       &nbsp;
-      <Cascader options={options} onChange={onChange}>
+      <Cascader options={options} onChange={onChange as any}>
         <a>Change city</a>
       </Cascader>
     </span>

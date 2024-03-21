@@ -9,7 +9,7 @@ import { type Locale } from '../../locale';
 import Tooltip from '../../tooltip';
 import { getNode, toList } from './util';
 
-export interface CopyBtnProps extends CopyConfig {
+export interface CopyBtnProps extends Omit<CopyConfig, 'onCopy'> {
   prefixCls: string;
   copied: boolean;
   locale: Locale['Text'];
@@ -38,7 +38,7 @@ export default function CopyBtn(props: CopyBtnProps) {
           [`${prefixCls}-copy-success`]: copied,
           [`${prefixCls}-copy-icon-only`]: iconOnly,
         })}
-        onClick={onCopy}
+        onClick={onCopy as any}
         aria-label={ariaLabel}
       >
         {copied

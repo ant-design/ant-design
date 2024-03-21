@@ -13,7 +13,6 @@ import Menu from '../../menu';
 import type { SelectProps } from '../../select';
 import Select from '../../select';
 import Tooltip from '../../tooltip';
-import type { TreeColumnFilterItem } from '../hooks/useFilter/FilterDropdown';
 import type {
   ColumnFilterItem,
   ColumnsType,
@@ -586,7 +585,7 @@ describe('Table.filter', () => {
           {
             ...column,
             defaultFilteredValue: ['Jim', 'Tom'],
-            onFilter: (value: string, record) => {
+            onFilter: (value, record) => {
               if (record.children && record.children.length) {
                 return true;
               }
@@ -1901,7 +1900,7 @@ describe('Table.filter', () => {
         ],
         // specify the condition of filtering result
         // here is that finding the name started with `value`
-        onFilter: (value: string, record) => record.name?.indexOf(value) === 0,
+        onFilter: (value, record) => record.name?.indexOf(value as string) === 0,
         sorter: (a, b) => a.name!.length - b.name!.length,
         sortDirections: ['descend'],
       },
@@ -1924,7 +1923,7 @@ describe('Table.filter', () => {
             value: 'New York',
           },
         ],
-        onFilter: (value: string, record) => record.address?.indexOf(value) === 0,
+        onFilter: (value, record) => record.address?.indexOf(value as string) === 0,
       },
     ];
 
@@ -1976,7 +1975,7 @@ describe('Table.filter', () => {
                 value: 'New York',
               },
             ],
-            onFilter: (value: string, record) => record.address?.indexOf(value) === 0,
+            onFilter: (value, record) => record.address?.indexOf(value as string) === 0,
           },
         ]);
         setData([
@@ -2179,8 +2178,7 @@ describe('Table.filter', () => {
                 { text: '节点二', value: 'node2' },
                 { text: '节点三', value: 'node3' },
               ],
-              filterSearch: (input: any, record: TreeColumnFilterItem) =>
-                (record.title as string).includes(input),
+              filterSearch: (input, record) => ((record as any).title as string).includes(input),
             },
           ],
         }),

@@ -24,8 +24,8 @@ const App: React.FC = () => {
   }, []);
   return (
     <Space size={12} direction="vertical">
-      <DatePicker cellRender={cellRender} />
-      <DatePicker.RangePicker cellRender={cellRender} />
+      <DatePicker cellRender={cellRender as any} />
+      <DatePicker.RangePicker cellRender={cellRender as any} />
     </Space>
   );
 };

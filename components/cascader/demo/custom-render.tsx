@@ -74,7 +74,7 @@ const App: React.FC = () => (
   <Cascader
     options={options}
     defaultValue={['zhejiang', 'hangzhou', 'xihu']}
-    displayRender={displayRender}
+    displayRender={displayRender as any}
     style={{ width: '100%' }}
   />
 );

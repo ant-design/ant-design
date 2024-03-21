@@ -303,7 +303,7 @@ function generateCalendar<DateType extends AnyObject>(generateConfig: GenerateCo
           prefixCls={prefixCls}
           locale={contextLocale?.lang}
           generateConfig={generateConfig}
-          cellRender={mergedCellRender}
+          cellRender={mergedCellRender as any}
           onSelect={(nextDate) => {
             onInternalSelect(nextDate, panelMode);
           }}

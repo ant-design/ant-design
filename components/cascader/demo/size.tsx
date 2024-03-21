@@ -48,13 +48,13 @@ const onChange = (value: string[]) => {
 
 const App: React.FC = () => (
   <>
-    <Cascader size="large" options={options} onChange={onChange} />
+    <Cascader size="large" options={options} onChange={onChange as any} />
     <br />
     <br />
-    <Cascader options={options} onChange={onChange} />
+    <Cascader options={options} onChange={onChange as any} />
     <br />
     <br />
-    <Cascader size="small" options={options} onChange={onChange} />
+    <Cascader size="small" options={options} onChange={onChange as any} />
     <br />
     <br />
   </>

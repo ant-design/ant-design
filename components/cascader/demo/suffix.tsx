@@ -52,23 +52,33 @@ const App: React.FC = () => (
     <Cascader
       suffixIcon={<SmileOutlined />}
       options={options}
-      onChange={onChange}
+      onChange={onChange as any}
       placeholder="Please select"
     />
     <br />
     <br />
-    <Cascader suffixIcon="ab" options={options} onChange={onChange} placeholder="Please select" />
+    <Cascader
+      suffixIcon="ab"
+      options={options}
+      onChange={onChange as any}
+      placeholder="Please select"
+    />
     <br />
     <br />
     <Cascader
       expandIcon={<SmileOutlined />}
       options={options}
-      onChange={onChange}
+      onChange={onChange as any}
       placeholder="Please select"
     />
     <br />
     <br />
-    <Cascader expandIcon="ab" options={options} onChange={onChange} placeholder="Please select" />
+    <Cascader
+      expandIcon="ab"
+      options={options}
+      onChange={onChange as any}
+      placeholder="Please select"
+    />
   </>
 );
 

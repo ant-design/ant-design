@@ -156,7 +156,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
       >
         <RcCheckbox
           aria-checked={ariaChecked}
-          {...checkboxProps}
+          {...(checkboxProps as any)}
           prefixCls={prefixCls}
           className={checkboxClass}
           disabled={mergedDisabled}

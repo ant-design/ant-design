@@ -5,7 +5,7 @@ export function toLowercaseSeparator(key: string) {
 
 export function getStyleStr(style: React.CSSProperties): string {
   return Object.keys(style)
-    .map((key: keyof React.CSSProperties) => `${toLowercaseSeparator(key)}: ${style[key]};`)
+    .map((key) => `${toLowercaseSeparator(key)}: ${style[key as keyof React.CSSProperties]};`)
     .join(' ');
 }
 

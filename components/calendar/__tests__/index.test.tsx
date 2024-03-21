@@ -336,7 +336,7 @@ describe('Calendar', () => {
     const wrapper = render(
       <Header
         prefixCls="ant-picker-calendar"
-        generateConfig={dayjsGenerateConfig}
+        generateConfig={dayjsGenerateConfig as any}
         onModeChange={onTypeChange}
         locale={{ year: '年', month: '月', locale: 'zh_CN' } as any}
         value={value}

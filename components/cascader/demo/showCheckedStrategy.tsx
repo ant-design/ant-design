@@ -51,7 +51,7 @@ const App: React.FC = () => {
       <Cascader
         style={{ width: '100%' }}
         options={options}
-        onChange={onChange}
+        onChange={onChange as any}
         multiple
         maxTagCount="responsive"
         showCheckedStrategy={SHOW_CHILD}
@@ -66,7 +66,7 @@ const App: React.FC = () => {
       <Cascader
         style={{ width: '100%' }}
         options={options}
-        onChange={onChange}
+        onChange={onChange as any}
         multiple
         maxTagCount="responsive"
         defaultValue={['bamboo']}

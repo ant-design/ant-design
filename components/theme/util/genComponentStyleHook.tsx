@@ -227,8 +227,8 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
             iconCls: `.${iconPrefixCls}`,
             antCls: `.${rootPrefixCls}`,
             calc,
-            max,
-            min,
+            max: max as any,
+            min: min as any,
           },
           cssVar ? defaultComponentToken : componentToken,
         );
@@ -247,7 +247,7 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
       },
     );
 
-    return [wrapSSR, hashId];
+    return [wrapSSR as any, hashId];
   };
 }
 
@@ -316,8 +316,8 @@ const genCSSVarRegister = <C extends OverrideComponent>(
   const compUnitless: any = {
     [prefixToken('zIndexPopup')]: true,
   };
-  Object.keys(originUnitless).forEach((key: keyof ComponentTokenKey<C>) => {
-    compUnitless[prefixToken(key)] = originUnitless[key];
+  Object.keys(originUnitless).forEach((key) => {
+    compUnitless[prefixToken(key)] = originUnitless[key as keyof ComponentTokenKey<C>];
   });
 
   const CSSVarRegister: FC<CSSVarRegisterProps> = ({ rootCls, cssVar }) => {

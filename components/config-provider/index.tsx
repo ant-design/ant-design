@@ -449,9 +449,9 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     ...parentContext,
   };
 
-  Object.keys(baseConfig).forEach((key: keyof typeof baseConfig) => {
-    if (baseConfig[key] !== undefined) {
-      (config as any)[key] = baseConfig[key];
+  Object.keys(baseConfig).forEach((key) => {
+    if (baseConfig[key as keyof typeof baseConfig] !== undefined) {
+      (config as any)[key] = baseConfig[key as keyof typeof baseConfig];
     }
   });
 

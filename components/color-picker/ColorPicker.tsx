@@ -118,9 +118,9 @@ const ColorPicker: CompoundedComponent = (props) => {
     postState: (openData) => !mergedDisabled && openData,
     onChange: onOpenChange,
   });
-  const [formatValue, setFormatValue] = useMergedState(format, {
-    value: format,
-    defaultValue: defaultFormat,
+  const [formatValue, setFormatValue] = useMergedState(format as any, {
+    value: format as any,
+    defaultValue: defaultFormat as any,
     onChange: onFormatChange,
   });
 
@@ -248,7 +248,7 @@ const ColorPicker: CompoundedComponent = (props) => {
         <NoFormStyle override status>
           <ColorPickerPanel
             {...colorBaseProps}
-            onChange={handleChange}
+            onChange={handleChange as any}
             onChangeComplete={handleChangeComplete}
             onClear={handleClear}
           />

@@ -262,7 +262,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
 
   return wrapCSSVar(
     <RcSlider
-      {...restProps}
+      {...(restProps as any)}
       step={restProps.step}
       range={mergedRange}
       draggableTrack={draggableTrack}

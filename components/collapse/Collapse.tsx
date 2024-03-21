@@ -158,7 +158,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     <RcCollapse
       ref={ref}
       openMotion={openMotion}
-      {...omit(props, ['rootClassName'])}
+      {...(omit(props, ['rootClassName']) as any)}
       expandIcon={renderExpandIcon}
       prefixCls={prefixCls}
       className={collapseClassName}

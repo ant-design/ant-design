@@ -54,7 +54,7 @@ const App: React.FC = () => (
     options={options}
     expandTrigger="hover"
     displayRender={displayRender}
-    onChange={onChange}
+    onChange={onChange as any}
   />
 );
 

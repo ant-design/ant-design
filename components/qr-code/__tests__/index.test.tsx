@@ -7,8 +7,8 @@ import { fireEvent, render } from '../../../tests/utils';
 import type { QRCodeProps } from '../interface';
 
 describe('QRCode test', () => {
-  mountTest(QRCode);
-  rtlTest(QRCode);
+  mountTest(QRCode as any);
+  rtlTest(QRCode as any);
 
   it('should correct render', () => {
     const { container } = render(<QRCode value="test" />);

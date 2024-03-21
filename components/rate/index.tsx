@@ -1,8 +1,9 @@
+import * as React from 'react';
 import StarFilled from '@ant-design/icons/StarFilled';
 import classNames from 'classnames';
 import RcRate from 'rc-rate';
 import type { RateRef, RateProps as RcRateProps } from 'rc-rate/lib/Rate';
-import * as React from 'react';
+
 import { ConfigContext } from '../config-provider';
 import Tooltip from '../tooltip';
 import useStyle from './style';
@@ -46,7 +47,7 @@ const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
     <RcRate
       ref={ref}
       character={character}
-      characterRender={characterRender}
+      characterRender={characterRender as any}
       {...rest}
       className={classNames(className, rootClassName, hashId, cssVarCls, rate?.className)}
       style={mergedStyle}

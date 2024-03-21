@@ -1,4 +1,5 @@
 import React from 'react';
+
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, waitFakeTimer } from '../../../tests/utils';
@@ -16,8 +17,8 @@ jest.mock('../dropdown', () => {
     Button: typeof ActualDropdownComponent.Button;
   } = (props) => {
     const clone: Record<string, any> = {};
-    Object.keys(props).forEach((key: keyof typeof props) => {
-      clone[key] = props[key];
+    Object.keys(props).forEach((key) => {
+      clone[key] = props[key as keyof typeof props];
     });
 
     dropdownProps = clone;
@@ -58,8 +59,8 @@ describe('DropdownButton', () => {
 
     const { rerender } = render(<DropdownButton {...props} />);
 
-    Object.keys(props).forEach((key: keyof DropdownProps) => {
-      expect(dropdownProps[key]).toBe(props[key]);
+    Object.keys(props).forEach((key) => {
+      expect(dropdownProps[key as keyof DropdownProps]).toBe(props[key as keyof DropdownProps]);
     });
 
     rerender(<DropdownButton menu={{ items }} open />);

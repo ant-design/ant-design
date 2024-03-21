@@ -1,6 +1,6 @@
 import React from 'react';
 import { Cascader } from 'antd';
-import type { GetProp, CascaderProps } from 'antd';
+import type { CascaderProps, GetProp } from 'antd';
 
 type DefaultOptionType = GetProp<CascaderProps, 'options'>[number];
 
@@ -63,7 +63,7 @@ const filter = (inputValue: string, path: DefaultOptionType[]) =>
 const App: React.FC = () => (
   <Cascader
     options={options}
-    onChange={onChange}
+    onChange={onChange as any}
     placeholder="Please select"
     showSearch={{ filter }}
     onSearch={(value) => console.log(value)}

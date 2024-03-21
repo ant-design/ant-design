@@ -1,5 +1,6 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
+
 import type { ColumnType, TableProps } from '..';
 import Table from '..';
 import { act, fireEvent, render } from '../../../tests/utils';
@@ -447,7 +448,7 @@ describe('Table.sorter', () => {
       { key: 2, name: 'Tom', age: 21 },
       { key: 3, name: 'Jerry', age: 22 },
     ];
-    const { container } = render(<Table columns={columns} dataSource={testData} />);
+    const { container } = render(<Table columns={columns as any} dataSource={testData} />);
     expect(container.querySelector('.custom-title')?.textContent).toEqual('');
     fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
     expect(container.querySelector('.custom-title')?.textContent).toEqual('ascend');
@@ -951,7 +952,7 @@ describe('Table.sorter', () => {
       },
     ];
     const dataProp = { data: groupData };
-    const { container } = render(<Table columns={groupColumns} {...dataProp} />);
+    const { container } = render(<Table columns={groupColumns as any} {...dataProp} />);
 
     expect(
       container

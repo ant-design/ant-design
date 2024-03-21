@@ -1,9 +1,8 @@
 import React from 'react';
-
 import { act } from 'react-dom/test-utils';
 
-import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 
 describe('Collapse', () => {
   // eslint-disable-next-line global-require
@@ -163,7 +162,7 @@ describe('Collapse', () => {
     let setActiveKeyOuter: React.Dispatch<React.SetStateAction<React.Key>>;
     const Test: React.FC = () => {
       const [activeKey, setActiveKey] = React.useState<React.Key>();
-      setActiveKeyOuter = setActiveKey;
+      setActiveKeyOuter = setActiveKey as any;
       return (
         <div hidden>
           <Collapse activeKey={activeKey}>

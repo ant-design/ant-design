@@ -1,6 +1,7 @@
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { FC } from 'react';
 import React, { useMemo } from 'react';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+
 import Select from '../../select';
 import type { Color } from '../color';
 import type { ColorPickerBaseProps } from '../interface';
@@ -24,7 +25,7 @@ const selectOptions = [ColorFormat.hex, ColorFormat.hsb, ColorFormat.rgb].map((f
 const ColorInput: FC<ColorInputProps> = (props) => {
   const { prefixCls, format, value, disabledAlpha, onFormatChange, onChange } = props;
   const [colorFormat, setColorFormat] = useMergedState(ColorFormat.hex, {
-    value: format,
+    value: format as any,
     onChange: onFormatChange,
   });
 

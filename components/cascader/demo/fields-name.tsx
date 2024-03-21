@@ -50,7 +50,7 @@ const App: React.FC = () => (
   <Cascader
     fieldNames={{ label: 'name', value: 'code', children: 'items' }}
     options={options}
-    onChange={onChange}
+    onChange={onChange as any}
     placeholder="Please select"
   />
 );

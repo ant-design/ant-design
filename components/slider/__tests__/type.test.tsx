@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import Slider from '..';
 
 describe('Slider.typescript', () => {
@@ -19,8 +20,8 @@ describe('Slider.typescript', () => {
         range
         defaultValue={value}
         value={value}
-        onChange={onChange}
-        onChangeComplete={onChange}
+        onChange={onChange as any}
+        onChangeComplete={onChange as any}
       />
     );
     expect(result).toBeTruthy();

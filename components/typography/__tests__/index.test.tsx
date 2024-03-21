@@ -1,8 +1,9 @@
+import React from 'react';
 import { CheckOutlined, HighlightOutlined, LikeOutlined, SmileOutlined } from '@ant-design/icons';
 import copy from 'copy-to-clipboard';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { resetWarned } from 'rc-util/lib/warning';
-import React from 'react';
+
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
@@ -47,7 +48,7 @@ describe('Typography', () => {
         return lines * 16;
       },
     });
-    mockGetBoundingClientRect.mockImplementation(function fn() {
+    mockGetBoundingClientRect.mockImplementation(function fn(this: any) {
       let html = this.innerHTML;
       html = html.replace(/<[^>]*>/g, '');
       const lines = Math.ceil(html.length / LINE_STR_COUNT);

@@ -177,7 +177,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const screens = useBreakpoint(needResponsive);
 
   const mergedColumns = React.useMemo(() => {
-    const matched = new Set(Object.keys(screens).filter((m: Breakpoint) => screens[m]));
+    const matched = new Set(Object.keys(screens).filter((m) => screens[m as Breakpoint]));
 
     return baseColumns.filter(
       (c) => !c.responsive || c.responsive.some((r: Breakpoint) => matched.has(r)),
@@ -353,7 +353,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     locale: tableLocale,
     dropdownPrefixCls,
     mergedColumns,
-    onFilterChange,
+    onFilterChange: onFilterChange as any,
     getPopupContainer: getPopupContainer || getContextPopupContainer,
     rootClassName: classNames(rootClassName, rootCls),
   });
@@ -620,7 +620,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           // Internal
           internalHooks={INTERNAL_HOOKS}
           internalRefs={internalRefs as any}
-          transformColumns={transformColumns as RcTableProps<RecordType>['transformColumns']}
+          transformColumns={transformColumns as any}
           getContainerWidth={getContainerWidth}
         />
         {bottomPaginationNode}
@@ -629,4 +629,4 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   );
 };
 
-export default React.forwardRef(InternalTable) as RefInternalTable;
+export default React.forwardRef(InternalTable as any) as RefInternalTable;
