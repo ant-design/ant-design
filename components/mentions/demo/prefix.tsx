@@ -13,7 +13,7 @@ const App: React.FC = () => {
   const [prefix, setPrefix] = useState<PrefixType>('@');
 
   const onSearch: MentionsProps['onSearch'] = (_, newPrefix) => {
-    setPrefix(newPrefix as any);
+    setPrefix(newPrefix as PrefixType);
   };
 
   return (

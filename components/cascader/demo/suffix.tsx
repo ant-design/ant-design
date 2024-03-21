@@ -1,6 +1,7 @@
 import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 import { Cascader } from 'antd';
+import type { SingleCascaderProps } from 'rc-cascader';
 
 interface Option {
   value: string;
@@ -43,7 +44,7 @@ const options: Option[] = [
   },
 ];
 
-const onChange = (value: string[]) => {
+const onChange: SingleCascaderProps<Option>['onChange'] = (value) => {
   console.log(value);
 };
 
@@ -52,33 +53,23 @@ const App: React.FC = () => (
     <Cascader
       suffixIcon={<SmileOutlined />}
       options={options}
-      onChange={onChange as any}
+      onChange={onChange}
       placeholder="Please select"
     />
     <br />
     <br />
-    <Cascader
-      suffixIcon="ab"
-      options={options}
-      onChange={onChange as any}
-      placeholder="Please select"
-    />
+    <Cascader suffixIcon="ab" options={options} onChange={onChange} placeholder="Please select" />
     <br />
     <br />
     <Cascader
       expandIcon={<SmileOutlined />}
       options={options}
-      onChange={onChange as any}
+      onChange={onChange}
       placeholder="Please select"
     />
     <br />
     <br />
-    <Cascader
-      expandIcon="ab"
-      options={options}
-      onChange={onChange as any}
-      placeholder="Please select"
-    />
+    <Cascader expandIcon="ab" options={options} onChange={onChange} placeholder="Please select" />
   </>
 );
 

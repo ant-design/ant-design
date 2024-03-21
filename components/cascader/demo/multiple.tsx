@@ -1,5 +1,6 @@
 import React from 'react';
 import { Cascader } from 'antd';
+import type { MultipleCascaderProps } from 'rc-cascader';
 
 interface Option {
   value: string | number;
@@ -43,7 +44,7 @@ const options: Option[] = [
   },
 ];
 
-const onChange = (value: string[][]) => {
+const onChange: MultipleCascaderProps<Option>['onChange'] = (value) => {
   console.log(value);
 };
 
@@ -51,7 +52,7 @@ const App: React.FC = () => (
   <Cascader
     style={{ width: '100%' }}
     options={options}
-    onChange={onChange as any}
+    onChange={onChange}
     multiple
     maxTagCount="responsive"
   />

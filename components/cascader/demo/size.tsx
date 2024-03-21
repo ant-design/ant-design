@@ -1,5 +1,6 @@
 import React from 'react';
 import { Cascader } from 'antd';
+import type { SingleCascaderProps } from 'rc-cascader';
 
 interface Option {
   value: string;
@@ -42,19 +43,19 @@ const options: Option[] = [
   },
 ];
 
-const onChange = (value: string[]) => {
+const onChange: SingleCascaderProps<Option>['onChange'] = (value) => {
   console.log(value);
 };
 
 const App: React.FC = () => (
   <>
-    <Cascader size="large" options={options} onChange={onChange as any} />
+    <Cascader size="large" options={options} onChange={onChange} />
     <br />
     <br />
-    <Cascader options={options} onChange={onChange as any} />
+    <Cascader options={options} onChange={onChange} />
     <br />
     <br />
-    <Cascader size="small" options={options} onChange={onChange as any} />
+    <Cascader size="small" options={options} onChange={onChange} />
     <br />
     <br />
   </>

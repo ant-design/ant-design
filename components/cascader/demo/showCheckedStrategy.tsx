@@ -1,5 +1,6 @@
 import React from 'react';
 import { Cascader } from 'antd';
+import type { MultipleCascaderProps } from 'rc-cascader';
 
 const { SHOW_CHILD } = Cascader;
 
@@ -43,7 +44,7 @@ const options: Option[] = [
 ];
 
 const App: React.FC = () => {
-  const onChange = (value: string[][]) => {
+  const onChange: MultipleCascaderProps<Option>['onChange'] = (value) => {
     console.log(value);
   };
   return (
@@ -51,7 +52,7 @@ const App: React.FC = () => {
       <Cascader
         style={{ width: '100%' }}
         options={options}
-        onChange={onChange as any}
+        onChange={onChange}
         multiple
         maxTagCount="responsive"
         showCheckedStrategy={SHOW_CHILD}
@@ -66,7 +67,7 @@ const App: React.FC = () => {
       <Cascader
         style={{ width: '100%' }}
         options={options}
-        onChange={onChange as any}
+        onChange={onChange}
         multiple
         maxTagCount="responsive"
         defaultValue={['bamboo']}

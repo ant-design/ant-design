@@ -62,7 +62,7 @@ const App: React.FC = () => {
 
   const onCheck: TreeProps['onCheck'] = (checkedKeysValue) => {
     console.log('onCheck', checkedKeysValue);
-    setCheckedKeys(checkedKeysValue as any);
+    setCheckedKeys(checkedKeysValue as React.Key[]);
   };
 
   const onSelect: TreeProps['onSelect'] = (selectedKeysValue, info) => {

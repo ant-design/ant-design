@@ -1,7 +1,7 @@
 import React from 'react';
+import type { DatePickerProps } from 'antd';
 import { DatePicker, Space, theme } from 'antd';
 import type { Dayjs } from 'dayjs';
-import type { CellRenderInfo } from 'rc-picker/es/interface';
 
 const App: React.FC = () => {
   const { token } = theme.useToken();
@@ -9,11 +9,11 @@ const App: React.FC = () => {
     border: `1px solid ${token.colorPrimary}`,
     borderRadius: '50%',
   };
-  const cellRender = React.useCallback((current: number | Dayjs, info: CellRenderInfo<Dayjs>) => {
+  const cellRender: DatePickerProps<Dayjs>['cellRender'] = (current, info) => {
     if (info.type !== 'date') {
       return info.originNode;
     }
-    if (typeof current === 'number') {
+    if (typeof current === 'number' || typeof current === 'string') {
       return <div className="ant-picker-cell-inner">{current}</div>;
     }
     return (
@@ -21,11 +21,11 @@ const App: React.FC = () => {
         {current.date()}
       </div>
     );
-  }, []);
+  };
   return (
     <Space size={12} direction="vertical">
-      <DatePicker cellRender={cellRender as any} />
-      <DatePicker.RangePicker cellRender={cellRender as any} />
+      <DatePicker cellRender={cellRender} />
+      <DatePicker.RangePicker cellRender={cellRender} />
     </Space>
   );
 };
