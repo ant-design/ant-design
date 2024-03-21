@@ -274,7 +274,7 @@ describe('Popconfirm', () => {
     fireEvent.click(triggerNode);
     expect(onOpenChange).toHaveBeenLastCalledWith(true, undefined);
     fireEvent.keyDown(triggerNode, { key: 'Escape', keyCode: 27 });
-    expect(onOpenChange).toHaveBeenLastCalledWith(false, eventObject);
+    expect(onOpenChange).toHaveBeenLastCalledWith(false, undefined);
   });
 
   it('should not warn memory leaking if setState in async callback', async () => {
