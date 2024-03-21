@@ -101,7 +101,7 @@ describe('Popover', () => {
   });
 
   it('should be closed by pressing ESC', () => {
-    const onOpenChange = jest.fn((e?: any) => {
+    const onOpenChange = jest.fn((_, e) => {
       e?.persist?.();
     });
     const wrapper = render(
