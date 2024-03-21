@@ -65,6 +65,22 @@ describe('type', () => {
 
       expect(<RefFC ref={ref} />).toBeTruthy();
     });
+
+    it('Support ForwardRefExoticComponent type', () => {
+      interface InnerProps {
+        test: number;
+      }
+      interface InnerRef {
+        bamboo: number;
+      }
+      type TestComponent = React.ForwardRefExoticComponent<
+        InnerProps & React.RefAttributes<InnerRef>
+      >;
+      type ExtractedTestRef = GetRef<TestComponent>;
+
+      const a: ExtractedTestRef = { bamboo: 123 };
+      expect(a).toBeTruthy();
+    });
   });
 
   describe('GetProp', () => {
