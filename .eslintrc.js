@@ -98,6 +98,7 @@ module.exports = {
         'import/no-extraneous-dependencies': 0,
         'react/jsx-no-constructed-context-values': 0,
         'react/no-unstable-nested-components': 0,
+        '@typescript-eslint/no-explicit-any': 'error',
       },
     },
     {

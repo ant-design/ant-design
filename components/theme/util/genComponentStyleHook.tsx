@@ -227,8 +227,10 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
             iconCls: `.${iconPrefixCls}`,
             antCls: `.${rootPrefixCls}`,
             calc,
-            max: max as any,
-            min: min as any,
+            // @ts-ignore
+            max,
+            // @ts-ignore
+            min,
           },
           cssVar ? defaultComponentToken : componentToken,
         );
