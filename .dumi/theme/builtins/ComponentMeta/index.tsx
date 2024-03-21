@@ -1,7 +1,7 @@
 /* eslint-disable lodash/import-scope */
 import React from 'react';
 import { GithubOutlined } from '@ant-design/icons';
-import { Descriptions, theme, Tooltip, Typography } from 'antd';
+import { Descriptions, theme, Tooltip, Typography, type GetProp } from 'antd';
 import { createStyles, css } from 'antd-style';
 import { kebabCase } from 'lodash';
 import CopyToClipboard from 'react-copy-to-clipboard';
@@ -40,7 +40,7 @@ const useStyle = createStyles(({ token }) => ({
 
 export interface ComponentMetaProps {
   component: string;
-  source: string;
+  source: string | true;
 }
 
 const ComponentMeta = (props: ComponentMetaProps) => {
@@ -73,8 +73,13 @@ const ComponentMeta = (props: ComponentMetaProps) => {
         `components/${kebabComponent}`,
       ];
     }
+
+    if (typeof source !== 'string') {
+      return [null, null];
+    }
+
     return [source, source];
-  }, [source]);
+  }, [component, source]);
 
   // ======================== Render ========================
   const importList = [
@@ -102,34 +107,36 @@ const ComponentMeta = (props: ComponentMetaProps) => {
       labelStyle={{
         paddingInlineEnd: token.padding,
       }}
-      items={[
-        {
-          label: locale.import,
-          children: (
-            <Tooltip
-              placement="right"
-              title={copied ? locale.copied : locale.copy}
-              onOpenChange={onOpenChange}
-            >
-              <span>
-                <CopyToClipboard text={`import { ${component} } from 'antd';`} onCopy={onCopy}>
-                  <Typography.Text className={styles.code} onClick={onCopy}>
-                    {importList.map((txt, index) => (index === 0 ? txt : [' ', txt]))}
-                  </Typography.Text>
-                </CopyToClipboard>
-              </span>
-            </Tooltip>
-          ),
-        },
-        {
-          label: locale.source,
-          children: (
-            <Typography.Link className={styles.code} href={filledSource} target="_blank">
-              <GithubOutlined /> {abbrSource}
-            </Typography.Link>
-          ),
-        },
-      ]}
+      items={
+        [
+          {
+            label: locale.import,
+            children: (
+              <Tooltip
+                placement="right"
+                title={copied ? locale.copied : locale.copy}
+                onOpenChange={onOpenChange}
+              >
+                <span>
+                  <CopyToClipboard text={`import { ${component} } from 'antd';`} onCopy={onCopy}>
+                    <Typography.Text className={styles.code} onClick={onCopy}>
+                      {importList.map((txt, index) => (index === 0 ? txt : [' ', txt]))}
+                    </Typography.Text>
+                  </CopyToClipboard>
+                </span>
+              </Tooltip>
+            ),
+          },
+          filledSource && {
+            label: locale.source,
+            children: (
+              <Typography.Link className={styles.code} href={filledSource} target="_blank">
+                <GithubOutlined /> {abbrSource}
+              </Typography.Link>
+            ),
+          },
+        ].filter((v) => v) as GetProp<typeof Descriptions, 'items'>
+      }
     />
   );
 };

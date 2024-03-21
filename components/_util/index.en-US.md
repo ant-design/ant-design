@@ -1,6 +1,7 @@
 ---
 category: Components
 title: Util
+description: Utilities are used to assist development and provide some common utility methods.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*rRDlT7ST8DUAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*rRDlT7ST8DUAAAAAAAAAAAAADrJ8AQ/original
 demo:
@@ -9,8 +10,6 @@ group:
   title: Other
   order: 99
 ---
-
-Utilities are used to assist development and provide some common utility methods.
 
 ## GetRef
 

@@ -2,13 +2,12 @@
 category: Components
 group: Data Entry
 title: Input
+description: Through mouse or keyboard input content, it is the most basic form field wrapper.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Y3R0RowXHlAAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sBqqTatJ-AkAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-A basic widget for getting the user input is a text field. Keyboard and mouse can be used for providing or changing data.
 
 ## When To Use
 

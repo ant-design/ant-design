@@ -95,9 +95,11 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
           {!meta.frontmatter.__autoDescription && meta.frontmatter.description}
 
           {/* Import Info */}
-          {meta.frontmatter.source && (
-            <ComponentMeta component={meta.frontmatter.title} source={meta.frontmatter.source} />
-          )}
+          {meta.frontmatter.category === 'Components' &&
+            !meta.frontmatter.title?.includes('Util') &&
+            !meta.frontmatter.title?.includes('Icon') && (
+              <ComponentMeta component={meta.frontmatter.title} source />
+            )}
 
           <div style={{ minHeight: 'calc(100vh - 64px)' }}>{children}</div>
           <InViewSuspense>
