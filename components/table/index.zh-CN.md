@@ -140,10 +140,11 @@ const columns = [
 | summary | 总结栏 | (currentData) => ReactNode | - |  |
 | tableLayout | 表格元素的 [table-layout](https://developer.mozilla.org/zh-CN/docs/Web/CSS/table-layout) 属性，设为 `fixed` 表示内容不会影响列的布局 | - \| `auto` \| `fixed` | 无<hr />固定表头/列或使用了 `column.ellipsis` 时，默认值为 `fixed` |  |
 | title | 表格标题 | function(currentPageData) | - |  |
+| virtual | 支持虚拟列表 | boolean | - | 5.9.0 |
 | onChange | 分页、排序、筛选变化时触发 | function(pagination, filters, sorter, extra: { currentDataSource: \[], action: `paginate` \| `sort` \| `filter` }) | - |  |
 | onHeaderRow | 设置头部行属性 | function(columns, index) | - |  |
 | onRow | 设置行属性 | function(record, index) | - |  |
-| virtual | 支持虚拟列表 | boolean | - | 5.9.0 |
+| onScroll | 表单内容滚动时触发（虚拟滚动下只有垂直滚动会触发事件） | function(event) | - | 5.16.0 |
 
 ### Table ref
 
