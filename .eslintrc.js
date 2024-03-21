@@ -99,6 +99,11 @@ module.exports = {
         'react/jsx-no-constructed-context-values': 0,
         'react/no-unstable-nested-components': 0,
         '@typescript-eslint/no-explicit-any': 'error',
+        '@typescript-eslint/no-unsafe-argument': 'error',
+        '@typescript-eslint/no-unsafe-assignment': 'error',
+        '@typescript-eslint/no-unsafe-call': 'error',
+        '@typescript-eslint/no-unsafe-member-access': 'error',
+        '@typescript-eslint/no-unsafe-return': 'error',
       },
     },
     {
