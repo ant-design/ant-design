@@ -406,7 +406,7 @@ describe('Progress', () => {
   });
 
   it('circle progress should accept steps', () => {
-    const { container } = render(<Progress percent={70} steps={{ count: 5, space: 5 }} />);
+    const { container } = render(<Progress percent={70} steps={{ count: 5, gap: 5 }} />);
     expect(container.firstChild).toMatchSnapshot();
   });
 
