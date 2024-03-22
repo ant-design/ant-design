@@ -13,10 +13,7 @@ const App: React.FC = () => (
     <Progress
       type="circle"
       percent={100}
-      steps={{
-        count: 5,
-        gap: 12,
-      }}
+      steps={{ count: 5, gap: 12 }}
       trailColor="rgba(0, 0, 0, 0.06)"
       strokeWidth={20}
     />
