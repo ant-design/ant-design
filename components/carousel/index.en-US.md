@@ -2,13 +2,12 @@
 category: Components
 group: Data Display
 title: Carousel
+description: A set of carousel areas.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*bPMSSqbaTMkAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a-58QpYnqOsAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-A carousel component. Scales with its container.
 
 ## When To Use
 

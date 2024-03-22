@@ -1,7 +1,8 @@
 ---
 category: Components
-subtitle: 警告提示
 title: Alert
+subtitle: 警告提示
+description: 警告提示，展现需要关注的信息。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*QsvtS41m45UAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*gOTISoMFZV0AAAAAAAAAAAAADrJ8AQ/original
 demo:
@@ -10,8 +11,6 @@ group:
   title: 反馈
   order: 6
 ---
-
-警告提示，展现需要关注的信息。
 
 ## 何时使用
 

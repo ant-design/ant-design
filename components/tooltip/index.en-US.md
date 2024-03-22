@@ -2,13 +2,12 @@
 category: Components
 group: Data Display
 title: Tooltip
+description: Simple text popup box.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*9LKlRbWytugAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*bCbPTJ7LQngAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-A simple text popup tip.
 
 ## When To Use
 

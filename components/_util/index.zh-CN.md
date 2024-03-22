@@ -2,6 +2,8 @@
 category: Components
 title: Util
 subtitle: 工具类
+description: 辅助开发，提供一些常用的工具方法。
+showImport: false
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*rRDlT7ST8DUAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*rRDlT7ST8DUAAAAAAAAAAAAADrJ8AQ/original
 demo:
@@ -10,8 +12,6 @@ group:
   title: 其他
   order: 99
 ---
-
-工具类用于辅助开发，提供一些常用的工具方法。
 
 ## GetRef
 

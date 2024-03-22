@@ -6,6 +6,7 @@ import { FormattedMessage, useRouteMeta } from 'dumi';
 
 import useLayoutState from '../../../hooks/useLayoutState';
 import useLocation from '../../../hooks/useLocation';
+import ComponentMeta from '../../builtins/ComponentMeta';
 import type { DemoContextProps } from '../DemoContext';
 import DemoContext from '../DemoContext';
 import SiteContext from '../SiteContext';
@@ -92,6 +93,13 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
             <DocMeta />
           </InViewSuspense>
           {!meta.frontmatter.__autoDescription && meta.frontmatter.description}
+
+          {/* Import Info */}
+          {meta.frontmatter.category === 'Components' &&
+            String(meta.frontmatter.showImport) !== 'false' && (
+              <ComponentMeta component={meta.frontmatter.title} source />
+            )}
+
           <div style={{ minHeight: 'calc(100vh - 64px)' }}>{children}</div>
           <InViewSuspense>
             <ColumnCard

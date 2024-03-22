@@ -2,13 +2,12 @@
 category: Components
 group: Navigation
 title: Dropdown
+description: A dropdown list.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*gTBySYX11WcAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*k619RJ_7bKEAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-A dropdown list.
 
 ## When To Use
 
