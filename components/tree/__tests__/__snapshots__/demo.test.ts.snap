@@ -1613,7 +1613,7 @@ Array [
   <div
     style="margin-bottom:16px"
   >
-    showLine:
+    showLine: 
     <button
       aria-checked="true"
       class="ant-switch ant-switch-checked"
@@ -1636,7 +1636,7 @@ Array [
     </button>
     <br />
     <br />
-    showIcon:
+    showIcon: 
     <button
       aria-checked="true"
       class="ant-switch ant-switch-checked"
@@ -1659,7 +1659,7 @@ Array [
     </button>
     <br />
     <br />
-    showLeafIcon:
+    showLeafIcon: 
     <button
       aria-checked="true"
       class="ant-switch ant-switch-checked"
@@ -3223,7 +3223,7 @@ exports[`renders components/tree/demo/line.tsx correctly 1`] = `
   <div
     style="margin-bottom:16px"
   >
-    showLine:
+    showLine: 
     <button
       aria-checked="true"
       class="ant-switch ant-switch-checked"
@@ -3246,7 +3246,7 @@ exports[`renders components/tree/demo/line.tsx correctly 1`] = `
     </button>
     <br />
     <br />
-    showIcon:
+    showIcon: 
     <button
       aria-checked="false"
       class="ant-switch"

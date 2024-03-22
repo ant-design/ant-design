@@ -44,7 +44,7 @@ exports[`renders components/typography/demo/basic.tsx correctly 1`] = `
         Sketch
       </code>
     </span>
-     and
+     and 
     <span
       class="ant-typography"
     >
@@ -87,7 +87,7 @@ exports[`renders components/typography/demo/basic.tsx correctly 1`] = `
   <div
     class="ant-typography"
   >
-    Press
+    Press 
     <span
       class="ant-typography"
     >
@@ -260,7 +260,7 @@ exports[`renders components/typography/demo/componentToken-debug.tsx correctly 1
         Sketch
       </code>
     </span>
-     and
+     and 
     <span
       class="ant-typography"
     >
@@ -303,7 +303,7 @@ exports[`renders components/typography/demo/componentToken-debug.tsx correctly 1
   <div
     class="ant-typography"
   >
-    Press
+    Press 
     <span
       class="ant-typography"
     >
@@ -634,7 +634,7 @@ Array [
     aria-label="This is a loooooooooooooooooooooooooooooooong editable text with suffix."
     class="ant-typography ant-typography-ellipsis ant-typography-single-line"
   >
-    This is a loooooooooooooooooooooooooooooooong editable text
+    This is a loooooooooooooooooooooooooooooooong editable text 
     <!-- -->
     with suffix.
     <div
@@ -1452,7 +1452,7 @@ exports[`renders components/typography/demo/ellipsis-middle.tsx correctly 1`] = 
   class="ant-typography ant-typography-ellipsis ant-typography-single-line"
   style="max-width:100%"
 >
-  In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of
+  In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of 
   <!-- -->
   development.
 </span>
@@ -1499,7 +1499,7 @@ Array [
         Sketch
       </code>
     </span>
-     and
+     and 
     <span
       class="ant-typography"
     >
