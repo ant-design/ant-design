@@ -157,7 +157,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
             label: locale.source,
             children: (
               <Typography.Link className={styles.code} href={filledSource} target="_blank">
-                <GithubOutlined style={{ marginInlineEnd: 3 }} /> {abbrSource}
+                <GithubOutlined style={{ marginInlineEnd: 4 }} />{abbrSource}
               </Typography.Link>
             ),
           },
@@ -169,7 +169,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
                 href={`${branchUrl}${filename}`}
                 target="_blank"
               >
-                <EditOutlined style={{ marginInlineEnd: 3 }} /> {locale.edit}
+                <EditOutlined style={{ marginInlineEnd: 4 }} />{locale.edit}
               </Typography.Link>
             ),
           },
