@@ -97,9 +97,12 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
           {/* Import Info */}
           {meta.frontmatter.category === 'Components' &&
             String(meta.frontmatter.showImport) !== 'false' && (
-              <ComponentMeta component={meta.frontmatter.title} source />
+              <ComponentMeta
+                component={meta.frontmatter.title}
+                source
+                filename={meta.frontmatter.filename}
+              />
             )}
-
           <div style={{ minHeight: 'calc(100vh - 64px)' }}>{children}</div>
           <InViewSuspense>
             <ColumnCard
