@@ -6,19 +6,50 @@ import { useFullSidebarData, useSidebarData } from 'dumi';
 import Link from '../theme/common/Link';
 import useLocation from './useLocation';
 
-const ItemTag: React.FC<{ tag?: string; show?: boolean }> = (props) => {
-  const { tag, show = true } = props;
-  if (!show || !tag) {
-    return null;
+const MenuItemLabelWithTag: React.FC<{
+  before?: React.ReactNode;
+  after?: React.ReactNode;
+  link: string;
+  title: React.ReactNode;
+  subtitle?: React.ReactNode;
+  search?: string;
+  tag?: string;
+  className?: string;
+}> = ({ before, after, link, title, subtitle, search, tag = '', className }) => {
+  if (!before && !after) {
+    return (
+      <Link
+        to={`${link}${search}`}
+        style={
+          tag
+            ? { display: 'flex', alignItems: 'center', justifyContent: 'space-between' }
+            : undefined
+        }
+        className={className}
+      >
+        <span>
+          {title}
+          {subtitle && <span className="chinese">{subtitle}</span>}
+        </span>
+        {tag && (
+          <Tag
+            bordered={false}
+            color={tag === 'New' ? 'success' : 'processing'}
+            style={{ marginBlockEnd: 0 }}
+          >
+            {tag.replace('VERSION', version)}
+          </Tag>
+        )}
+      </Link>
+    );
   }
   return (
-    <Tag
-      bordered={false}
-      color={tag === 'New' ? 'success' : 'processing'}
-      style={{ marginInlineStart: 'auto', marginInlineEnd: 0, marginTop: -2 }}
-    >
-      {tag.replace('VERSION', version)}
-    </Tag>
+    <Link to={`${link}${search}`} className={className}>
+      {before}
+      {title}
+      {subtitle && <span className="chinese">{subtitle}</span>}
+      {after}
+    </Link>
   );
 };
 
@@ -120,18 +151,15 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
               key: group?.title,
               children: group.children?.map((item) => ({
                 label: (
-                  <Link
-                    to={`${item.link}${search}`}
-                    style={{ display: 'flex', alignItems: 'center' }}
-                  >
-                    {before}
-                    <span key="english">{item?.title}</span>
-                    <span className="chinese" key="chinese">
-                      {item.frontmatter?.subtitle}
-                    </span>
-                    <ItemTag tag={item.frontmatter?.tag} show={!before && !after} />
-                    {after}
-                  </Link>
+                  <MenuItemLabelWithTag
+                    before={before}
+                    after={after}
+                    link={item.link}
+                    title={item?.title}
+                    subtitle={item.frontmatter?.subtitle}
+                    search={search}
+                    tag={item.frontmatter?.tag}
+                  />
                 ),
                 key: item.link.replace(/(-cn$)/g, ''),
               })),
@@ -146,15 +174,14 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
           result.push(
             ...list.map((item) => ({
               label: (
-                <Link
-                  to={`${item.link}${search}`}
-                  style={{ display: 'flex', alignItems: 'center' }}
-                >
-                  {before}
-                  {item?.title}
-                  <ItemTag tag={item.frontmatter?.tag} show={!before && !after} />
-                  {after}
-                </Link>
+                <MenuItemLabelWithTag
+                  before={before}
+                  after={after}
+                  link={item.link}
+                  title={item?.title}
+                  search={search}
+                  tag={item.frontmatter?.tag}
+                />
               ),
               key: item.link.replace(/(-cn$)/g, ''),
             })),

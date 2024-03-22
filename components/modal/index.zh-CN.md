@@ -1,15 +1,14 @@
 ---
 group: 反馈
 category: Components
-subtitle: 对话框
 title: Modal
+subtitle: 对话框
+description: 展示一个对话框，提供标题、内容区、操作区。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Z9vzQZAdJDQAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WtgsSLPa1Z4AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-模态对话框。
 
 ## 何时使用
 

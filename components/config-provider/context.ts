@@ -53,8 +53,16 @@ export interface ThemeConfig {
   token?: Partial<AliasToken>;
   components?: ComponentsConfig;
   algorithm?: MappingAlgorithm | MappingAlgorithm[];
-  hashed?: boolean;
   inherit?: boolean;
+  /**
+   * @descCN 是否开启 `hashed` 属性。如果你的应用中只存在一个版本的 antd，你可以设置为 `false` 来进一步减小样式体积。默认值为 `ture`。
+   * @descEN Whether to enable the `hashed` attribute. If there is only one version of antd in your application, you can set `false` to reduce the bundle size. defaults to `true`.
+   */
+  hashed?: boolean;
+  /**
+   * @descCN 通过 `cssVar` 配置来开启 CSS 变量模式，这个配置会被继承。默认值为 `false`。
+   * @descEN Enable CSS variable mode through `cssVar` configuration, This configuration will be inherited. defaults to `false`.
+   */
   cssVar?:
     | {
         /**

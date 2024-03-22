@@ -2,11 +2,10 @@
 category: Components
 group: Data Entry
 title: Transfer
+description: Double column transfer choice box.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*fkfzT5BbwNIAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g9vUQq2nkpEAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-Double column transfer choice box.
 
 ## When To Use
 
