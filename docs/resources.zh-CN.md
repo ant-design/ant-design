@@ -15,7 +15,7 @@ toc: false
 - Sketch 组件包
   - https://gw.alipayobjects.com/zos/basement_prod/048ee28f-2c80-4d15-9aa3-4f5ddac50465.svg
   - 桌面组件 Sketch 模板包
-  - https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Components.5.0.Beta.sketch
+  - https://github.com/ant-design/ant-design/releases/download/5.13.3/AntDesign5.0_UI.KIT_202401.sketch
   - 官方
 - Mobile Components
   - https://gw.alipayobjects.com/zos/basement_prod/c0c3852c-d245-4330-886b-cb02ef49eb6d.svg

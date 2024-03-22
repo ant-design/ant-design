@@ -1,15 +1,14 @@
 ---
 category: Components
-subtitle: 输入框
 group: 数据录入
 title: Input
+subtitle: 输入框
+description: 通过鼠标或键盘输入内容，是最基础的表单域的包装。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Y3R0RowXHlAAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sBqqTatJ-AkAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-通过鼠标或键盘输入内容，是最基础的表单域的包装。
 
 ## 何时使用
 
@@ -108,7 +107,7 @@ interface CountConfig {
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| enterButton | 是否有确认按钮，可设为按钮文字。该属性会与 `addonAfter` 冲突。 | boolean \| ReactNode | false |
+| enterButton | 是否有确认按钮，可设为按钮文字。该属性会与 `addonAfter` 冲突。 | ReactNode | false |
 | loading | 搜索 loading | boolean | false |
 | onSearch | 点击搜索图标、清除图标，或按下回车键时的回调 | function(value, event, { source: "input" \| "clear" }) | - |
 
@@ -139,19 +138,11 @@ interface CountConfig {
 
 #### Input
 
-| 名称   | 说明               | 版本  |
-| ------ | ------------------ | ----- |
-| input  | `input` 元素       | 5.4.0 |
-| prefix | 所有前缀的包裹元素 | 5.4.0 |
-| suffix | 所有后缀的包裹元素 | 5.4.0 |
-| count  | 文字计数元素       | 5.4.0 |
+<code src="./demo/_semantic_input.tsx" simplify="true"></code>
 
 #### Input.TextArea
 
-| 名称     | 说明            | 版本  |
-| -------- | --------------- | ----- |
-| textarea | `textarea` 元素 | 5.4.0 |
-| count    | 文字计数元素    | 5.4.0 |
+<code src="./demo/_semantic_textarea.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

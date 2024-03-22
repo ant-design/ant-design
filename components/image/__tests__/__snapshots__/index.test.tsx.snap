@@ -254,19 +254,24 @@ exports[`Image Default Group preview props 1`] = `
             tabindex="0"
           />
           <div
-            class="ant-image-preview-content"
+            style="outline: none;"
+            tabindex="-1"
           >
             <div
-              class="ant-image-preview-body"
+              class="ant-image-preview-content"
             >
               <div
-                class="ant-image-preview-img-wrapper"
+                class="ant-image-preview-body"
               >
-                <img
-                  class="ant-image-preview-img"
-                  src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                  style="transform: translate3d(0px, 0px, 0) scale3d(1, 1, 1) rotate(0deg);"
-                />
+                <div
+                  class="ant-image-preview-img-wrapper"
+                >
+                  <img
+                    class="ant-image-preview-img"
+                    src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                    style="transform: translate3d(0px, 0px, 0) scale3d(1, 1, 1) rotate(0deg);"
+                  />
+                </div>
               </div>
             </div>
           </div>

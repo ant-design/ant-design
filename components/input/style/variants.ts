@@ -16,6 +16,10 @@ export const genDisabledStyle = (token: InputToken): CSSObject => ({
   cursor: 'not-allowed',
   opacity: 1,
 
+  'input[disabled]': {
+    cursor: 'not-allowed',
+  },
+
   '&:hover:not([disabled])': {
     ...genHoverStyle(
       mergeToken<InputToken>(token, {
@@ -78,8 +82,8 @@ export const genOutlinedStyle = (token: InputToken, extraStyles?: CSSObject): CS
   '&-outlined': {
     ...genBaseOutlinedStyle(token, {
       borderColor: token.colorBorder,
-      hoverBorderColor: token.colorPrimaryHover,
-      activeBorderColor: token.colorPrimary,
+      hoverBorderColor: token.hoverBorderColor,
+      activeBorderColor: token.activeBorderColor,
       activeShadow: token.activeShadow,
     }),
 

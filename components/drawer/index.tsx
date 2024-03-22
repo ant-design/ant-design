@@ -157,6 +157,9 @@ const Drawer: React.FC<DrawerProps> & {
   const [zIndex, contextZIndex] = useZIndex('Drawer', rest.zIndex);
 
   // =========================== Render ===========================
+  const { classNames: propClassNames = {}, styles: propStyles = {} } = rest;
+  const { classNames: contextClassNames = {}, styles: contextStyles = {} } = drawer || {};
+
   return wrapCSSVar(
     <NoCompactStyle>
       <NoFormStyle status override>
@@ -168,24 +171,24 @@ const Drawer: React.FC<DrawerProps> & {
             motion={panelMotion}
             {...rest}
             classNames={{
-              mask: classNames(rest.classNames?.mask, drawer?.classNames?.mask),
-              content: classNames(rest.classNames?.content, drawer?.classNames?.content),
+              mask: classNames(propClassNames.mask, contextClassNames.mask),
+              content: classNames(propClassNames.content, contextClassNames.content),
             }}
             styles={{
               mask: {
-                ...rest.styles?.mask,
+                ...propStyles.mask,
                 ...maskStyle,
-                ...drawer?.styles?.mask,
+                ...contextStyles.mask,
               },
               content: {
-                ...rest.styles?.content,
+                ...propStyles.content,
                 ...drawerStyle,
-                ...drawer?.styles?.content,
+                ...contextStyles.content,
               },
               wrapper: {
-                ...rest.styles?.wrapper,
+                ...propStyles.wrapper,
                 ...contentWrapperStyle,
-                ...drawer?.styles?.wrapper,
+                ...contextStyles.wrapper,
               },
             }}
             open={open ?? visible}

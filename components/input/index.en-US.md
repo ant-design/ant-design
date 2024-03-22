@@ -2,13 +2,12 @@
 category: Components
 group: Data Entry
 title: Input
+description: Through mouse or keyboard input content, it is the most basic form field wrapper.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Y3R0RowXHlAAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sBqqTatJ-AkAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-A basic widget for getting the user input is a text field. Keyboard and mouse can be used for providing or changing data.
 
 ## When To Use
 
@@ -107,7 +106,7 @@ The rest of the props of `Input.TextArea` are the same as the original [textarea
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| enterButton | Whether to show an enter button after input. This property conflicts with the `addonAfter` property | boolean \| ReactNode | false |
+| enterButton | Whether to show an enter button after input. This property conflicts with the `addonAfter` property | ReactNode | false |
 | loading | Search box with loading | boolean | false |
 | onSearch | The callback function triggered when you click on the search-icon, the clear-icon or press the Enter key | function(value, event, { source: "input" \| "clear" }) | - |
 
@@ -138,21 +137,11 @@ Supports all props of `Input`.
 
 #### Input
 
-<!-- prettier-ignore -->
-| Property | Description | Version |
-| --- | --- | --- |
-| input | `input` element | 5.4.0 |
-| prefix | Wrapper of prefix | 5.4.0 |
-| suffix | Wrapper of suffix | 5.4.0 |
-| count | Text count element | 5.4.0 |
+<code src="./demo/_semantic_input.tsx" simplify="true"></code>
 
 #### Input.TextArea
 
-<!-- prettier-ignore -->
-| Property | Description | Version |
-| --- | --- | --- |
-| textarea | `textarea` element | 5.4.0 |
-| count | Text count element | 5.4.0 |
+<code src="./demo/_semantic_textarea.tsx" simplify="true"></code>
 
 ## Design Token
 

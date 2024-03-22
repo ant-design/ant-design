@@ -3,7 +3,6 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 
-import { isValidElement } from '../_util/reactNode';
 import { groupKeysMap } from '../_util/transKeys';
 import Checkbox from '../checkbox';
 import Dropdown from '../dropdown';
@@ -26,7 +25,7 @@ const defaultRender = () => null;
 function isRenderResultPlainObject(result: RenderResult): result is RenderResultObject {
   return !!(
     result &&
-    !isValidElement(result) &&
+    !React.isValidElement(result) &&
     Object.prototype.toString.call(result) === '[object Object]'
   );
 }
@@ -343,22 +342,19 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
         key: 'selectInvert',
         label: selectInvert,
         onClick() {
-          const availableKeys = getEnabledItemKeys(
-            pagination
-              ? (listBodyRef.current?.items || []).map((entity) => entity.item)
-              : filteredItems,
+          const availablePageItemKeys = getEnabledItemKeys(
+            (listBodyRef.current?.items || []).map((entity) => entity.item),
           );
-          const checkedKeySet = new Set<string>(checkedKeys);
-          const newCheckedKeys: string[] = [];
-          const newUnCheckedKeys: string[] = [];
-          availableKeys.forEach((key) => {
+          const checkedKeySet = new Set(checkedKeys);
+          const newCheckedKeysSet = new Set(checkedKeySet);
+          availablePageItemKeys.forEach((key) => {
             if (checkedKeySet.has(key)) {
-              newUnCheckedKeys.push(key);
+              newCheckedKeysSet.delete(key);
             } else {
-              newCheckedKeys.push(key);
+              newCheckedKeysSet.add(key);
             }
           });
-          onItemSelectAll?.(newCheckedKeys, 'replace');
+          onItemSelectAll?.(Array.from(newCheckedKeysSet), 'replace');
         },
       },
     ];

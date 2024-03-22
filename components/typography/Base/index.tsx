@@ -1,6 +1,4 @@
 import * as React from 'react';
-import CheckOutlined from '@ant-design/icons/CheckOutlined';
-import CopyOutlined from '@ant-design/icons/CopyOutlined';
 import EditOutlined from '@ant-design/icons/EditOutlined';
 import classNames from 'classnames';
 import copy from 'copy-to-clipboard';
@@ -23,12 +21,13 @@ import useMergedConfig from '../hooks/useMergedConfig';
 import useUpdatedEffect from '../hooks/useUpdatedEffect';
 import type { TypographyProps } from '../Typography';
 import Typography from '../Typography';
+import CopyBtn from './CopyBtn';
 import Ellipsis from './Ellipsis';
 import EllipsisTooltip from './EllipsisTooltip';
 
 export type BaseType = 'secondary' | 'success' | 'warning' | 'danger';
 
-interface CopyConfig {
+export interface CopyConfig {
   text?: string;
   onCopy?: (event?: React.MouseEvent<HTMLDivElement>) => void;
   icon?: React.ReactNode;
@@ -102,20 +101,6 @@ function wrapperDecorations(
   wrap('i', italic);
 
   return currentContent;
-}
-
-function getNode(dom: React.ReactNode, defaultNode: React.ReactNode, needDom?: boolean) {
-  if (dom === true || dom === undefined) {
-    return defaultNode;
-  }
-  return dom || (needDom && defaultNode);
-}
-
-function toList<T extends any>(val: T | T[]): T[] {
-  if (val === false) {
-    return [false, false] as T[];
-  }
-  return Array.isArray(val) ? val : [val];
 }
 
 const ELLIPSIS_STR = '...';
@@ -288,10 +273,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   };
 
   const [ellipsisWidth, setEllipsisWidth] = React.useState(0);
-  const [ellipsisFontSize, setEllipsisFontSize] = React.useState(0);
-  const onResize = ({ offsetWidth }: { offsetWidth: number }, element: HTMLElement) => {
+  const onResize = ({ offsetWidth }: { offsetWidth: number }) => {
     setEllipsisWidth(offsetWidth);
-    setEllipsisFontSize(parseInt(window.getComputedStyle?.(element).fontSize, 10) || 0);
   };
 
   // >>>>> JS Ellipsis
@@ -455,32 +438,16 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
       return null;
     }
 
-    const { tooltips, icon } = copyConfig;
-
-    const tooltipNodes = toList(tooltips);
-    const iconNodes = toList(icon);
-
-    const copyTitle = copied
-      ? getNode(tooltipNodes[1], textLocale?.copied)
-      : getNode(tooltipNodes[0], textLocale?.copy);
-    const systemStr = copied ? textLocale?.copied : textLocale?.copy;
-    const ariaLabel = typeof copyTitle === 'string' ? copyTitle : systemStr;
-
     return (
-      <Tooltip key="copy" title={copyTitle}>
-        <TransButton
-          className={classNames(`${prefixCls}-copy`, {
-            [`${prefixCls}-copy-success`]: copied,
-            [`${prefixCls}-copy-icon-only`]: children === null || children === undefined,
-          })}
-          onClick={onCopyClick}
-          aria-label={ariaLabel}
-        >
-          {copied
-            ? getNode(iconNodes[1], <CheckOutlined />, true)
-            : getNode(iconNodes[0], <CopyOutlined />, true)}
-        </TransButton>
-      </Tooltip>
+      <CopyBtn
+        key="copy"
+        {...copyConfig}
+        prefixCls={prefixCls}
+        copied={copied}
+        locale={textLocale}
+        onCopy={onCopyClick}
+        iconOnly={children === null || children === undefined}
+      />
     );
   };
 
@@ -505,7 +472,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
       {(resizeRef: React.RefObject<HTMLElement>) => (
         <EllipsisTooltip
           tooltipProps={tooltipProps}
-          enabledEllipsis={mergedEnableEllipsis}
+          enableEllipsis={mergedEnableEllipsis}
           isEllipsis={isMergedEllipsis}
         >
           <Typography
@@ -534,12 +501,12 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
             {...textProps}
           >
             <Ellipsis
-              enabledMeasure={mergedEnableEllipsis && !cssEllipsis}
+              enableMeasure={mergedEnableEllipsis && !cssEllipsis}
               text={children}
               rows={rows}
               width={ellipsisWidth}
-              fontSize={ellipsisFontSize}
               onEllipsis={onJsEllipsis}
+              miscDeps={[copied, expanded]}
             >
               {(node, needEllipsis) => {
                 let renderNode: React.ReactNode = node;

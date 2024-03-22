@@ -81,9 +81,6 @@ const localeValues: Locale = {
     copied: 'Copied',
     expand: 'Expand',
   },
-  PageHeader: {
-    back: 'Back',
-  },
   Form: {
     optional: '(optional)',
     defaultValidateMessages: {

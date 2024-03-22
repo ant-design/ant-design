@@ -39,13 +39,14 @@ title: 社区精选组件
 | 图片裁切 | [antd-img-crop](https://github.com/nanxiaobei/antd-img-crop) [react-image-crop](https://github.com/DominicTobias/react-image-crop) |
 | 关键字高亮 | [react-highlight-words](https://github.com/bvaughn/react-highlight-words) |
 | 文字轮播 | [react-text-loop-next](https://github.com/samarmohan/react-text-loop-next) [react-fast-marquee](https://github.com/justin-chu/react-fast-marquee) |
-| 动画 | [react-move](https://github.com/react-tools/react-move) [Ant Motion](https://motion.ant.design/components/tween-one) [react-spring](https://www.react-spring.io) |
+| 动画 | [framer-motion](https://github.com/framer/motion) [Ant Motion](https://motion.ant.design/components/tween-one) [react-spring](https://github.com/pmndrs/react-spring) |
 | 页脚 | [rc-footer](https://github.com/react-component/footer) |
 | 数字/金额 | [react-number-format](https://github.com/s-yadav/react-number-format) [react-currency-input-fiel](https://github.com/cchanxzy/react-currency-input-field) |
 | 移动端探测 | [react-device-detect](https://github.com/duskload/react-device-detect) |
-| 应用程序框架 | [umi](https://github.com/umijs/umi/) [remix](https://github.com/remix-run/remix) [refine](https://github.com/pankod/refine) |
-| Flow 流 | [react-flow](https://github.com/wbkd/react-flow) [x6](https://github.com/antvis/x6) |
+| 应用程序框架 | [umi](https://github.com/umijs/umi) [remix](https://github.com/remix-run/remix) [refine](https://github.com/pankod/refine) |
+| Flow 流 | [pro-flow](https://github.com/ant-design/pro-flow) [react-flow](https://github.com/wbkd/react-flow) [x6](https://github.com/antvis/x6) |
 | 电话输入 | [react-phone-number-input](https://gitlab.com/catamphetamine/react-phone-number-input) [antd-phone-input](https://github.com/ArtyomVancyan/antd-phone-input/) |
+| AI 对话界面 | [pro-chat](https://github.com/ant-design/pro-chat) |
 
 ## 推荐产品 ✨
 

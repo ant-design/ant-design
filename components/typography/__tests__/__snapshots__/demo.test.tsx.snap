@@ -664,50 +664,6 @@ Array [
         </svg>
       </span>
     </div>
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;word-break:keep-all;white-space:nowrap"
-    >
-      lg
-    </span>
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;width:0;white-space:normal;margin:0;padding:0"
-    >
-      <span
-        aria-hidden="true"
-      >
-        ...
-      </span>
-      with suffix.
-      <div
-        aria-label="Edit"
-        class="ant-typography-edit"
-        role="button"
-        style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
-        tabindex="0"
-      >
-        <span
-          aria-label="edit"
-          class="anticon anticon-edit"
-          role="button"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="edit"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
-            />
-          </svg>
-        </span>
-      </div>
-    </span>
   </div>,
   <div
     class="ant-typography"
@@ -1161,50 +1117,12 @@ Array [
     class="ant-typography ant-typography-ellipsis ant-typography-single-line"
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;word-break:keep-all;white-space:nowrap"
-    >
-      lg
-    </span>
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;width:0;white-space:normal;margin:0;padding:0"
-    >
-      <span
-        aria-hidden="true"
-      >
-        ...
-      </span>
-    </span>
   </div>,
   <div
     aria-label="Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team."
     class="ant-typography ant-typography-ellipsis"
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;word-break:keep-all;white-space:nowrap"
-    >
-      lg
-    </span>
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;width:0;white-space:normal;margin:0;padding:0"
-    >
-      <span
-        aria-hidden="true"
-      >
-        ...
-      </span>
-      <a
-        aria-label="Expand"
-        class="ant-typography-expand"
-      >
-        more
-      </a>
-    </span>
   </div>,
   <span
     aria-label="Ant Design, a design language for background applications, is refined by Ant UED Team."
@@ -1212,22 +1130,6 @@ Array [
     style="width:200px"
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team.
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;word-break:keep-all;white-space:nowrap"
-    >
-      lg
-    </span>
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;width:0;white-space:normal;margin:0;padding:0"
-    >
-      <span
-        aria-hidden="true"
-      >
-        ...
-      </span>
-    </span>
   </span>,
   <span
     aria-label="Ant Design, a design language for background applications, is refined by Ant UED Team."
@@ -1237,24 +1139,6 @@ Array [
     <code>
       Ant Design, a design language for background applications, is refined by Ant UED Team.
     </code>
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;word-break:keep-all;white-space:nowrap"
-    >
-      lg
-    </span>
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;width:0;white-space:normal;margin:0;padding:0"
-    >
-      <code>
-        <span
-          aria-hidden="true"
-        >
-          ...
-        </span>
-      </code>
-    </span>
   </span>,
 ]
 `;
@@ -1386,22 +1270,6 @@ Array [
     </span>
     <!-- -->
     case. Bnt Design, a design language for background applications, is refined by Ant UED Team. Cnt Design, a design language for background applications, is refined by Ant UED Team. Dnt Design, a design language for background applications, is refined by Ant UED Team. Ent Design, a design language for background applications, is refined by Ant UED Team.
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;word-break:keep-all;white-space:nowrap"
-    >
-      lg
-    </span>
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;width:0;white-space:normal;margin:0;padding:0"
-    >
-      <span
-        aria-hidden="true"
-      >
-        ...
-      </span>
-    </span>
   </div>,
   <span
     aria-label="In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development."
@@ -1436,49 +1304,6 @@ Array [
         </svg>
       </span>
     </div>
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;word-break:keep-all;white-space:nowrap"
-    >
-      lg
-    </span>
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;width:0;white-space:normal;margin:0;padding:0"
-    >
-      <span
-        aria-hidden="true"
-      >
-        ...
-      </span>
-      <div
-        aria-label="Copy"
-        class="ant-typography-copy"
-        role="button"
-        style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
-        tabindex="0"
-      >
-        <span
-          aria-label="copy"
-          class="anticon anticon-copy"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="copy"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-            />
-          </svg>
-        </span>
-      </div>
-    </span>
   </span>,
   <br />,
   <span
@@ -1514,49 +1339,6 @@ Array [
         </svg>
       </span>
     </div>
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;word-break:keep-all;white-space:nowrap"
-    >
-      lg
-    </span>
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;width:0;white-space:normal;margin:0;padding:0"
-    >
-      <span
-        aria-hidden="true"
-      >
-        ...
-      </span>
-      <div
-        aria-label="Copy"
-        class="ant-typography-copy"
-        role="button"
-        style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
-        tabindex="0"
-      >
-        <span
-          aria-label="copy"
-          class="anticon anticon-copy"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="copy"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-            />
-          </svg>
-        </span>
-      </div>
-    </span>
   </span>,
   <br />,
   <span
@@ -1592,49 +1374,6 @@ Array [
         </svg>
       </span>
     </div>
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;word-break:keep-all;white-space:nowrap"
-    >
-      lg
-    </span>
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;width:0;white-space:normal;margin:0;padding:0"
-    >
-      <span
-        aria-hidden="true"
-      >
-        ...
-      </span>
-      <div
-        aria-label="Copy"
-        class="ant-typography-copy"
-        role="button"
-        style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
-        tabindex="0"
-      >
-        <span
-          aria-label="copy"
-          class="anticon anticon-copy"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="copy"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-            />
-          </svg>
-        </span>
-      </div>
-    </span>
   </span>,
   <br />,
   <span
@@ -1670,49 +1409,6 @@ Array [
         </svg>
       </span>
     </div>
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;word-break:keep-all;white-space:nowrap"
-    >
-      lg
-    </span>
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;width:0;white-space:normal;margin:0;padding:0"
-    >
-      <span
-        aria-hidden="true"
-      >
-        ...
-      </span>
-      <div
-        aria-label="Copy"
-        class="ant-typography-copy"
-        role="button"
-        style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
-        tabindex="0"
-      >
-        <span
-          aria-label="copy"
-          class="anticon anticon-copy"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="copy"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-            />
-          </svg>
-        </span>
-      </div>
-    </span>
   </span>,
   <p>
     [Before]
@@ -1721,22 +1417,6 @@ Array [
       class="ant-typography ant-typography-ellipsis ant-typography-single-line"
     >
       not ellipsis
-      <span
-        aria-hidden="true"
-        style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;word-break:keep-all;white-space:nowrap"
-      >
-        lg
-      </span>
-      <span
-        aria-hidden="true"
-        style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;width:0;white-space:normal;margin:0;padding:0"
-      >
-        <span
-          aria-hidden="true"
-        >
-          ...
-        </span>
-      </span>
     </span>
     [After]
   </p>,
@@ -1749,53 +1429,32 @@ Array [
       style="width:100px"
     >
       默认display none 样式的超长文字， 悬停tooltip失效了
-      <span
-        aria-hidden="true"
-        style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;word-break:keep-all;white-space:nowrap"
-      >
-        lg
-      </span>
-      <span
-        aria-hidden="true"
-        style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;width:0;white-space:normal;margin:0;padding:0"
-      >
-        <span
-          aria-hidden="true"
-        >
-          ...
-        </span>
-      </span>
     </span>
+  </div>,
+  <div
+    class="ant-typography ant-typography-ellipsis"
+    style="width:300px"
+  >
+    In the process of internal desktop applications development,
+    <span
+      style="font-size:5em"
+    >
+      ANTD
+    </span>
+     many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
   </div>,
 ]
 `;
 
 exports[`renders components/typography/demo/ellipsis-middle.tsx correctly 1`] = `
 <span
-  aria-label="In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of"
+  aria-label="In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of "
   class="ant-typography ant-typography-ellipsis ant-typography-single-line"
   style="max-width:100%"
 >
   In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of
   <!-- -->
   development.
-  <span
-    aria-hidden="true"
-    style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;word-break:keep-all;white-space:nowrap"
-  >
-    lg
-  </span>
-  <span
-    aria-hidden="true"
-    style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;width:0;white-space:normal;margin:0;padding:0"
-  >
-    <span
-      aria-hidden="true"
-    >
-      ...
-    </span>
-    development.
-  </span>
 </span>
 `;
 
@@ -2028,36 +1687,13 @@ Array [
     />
   </div>,
   <div
-    aria-label="To be, or not to be, that is a question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life"
+    aria-label="To be, or not to be, that is the question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life"
     class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-    title="To be, or not to be, that is a question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life--William Shakespeare"
+    title="To be, or not to be, that is the question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life--William Shakespeare"
   >
-    To be, or not to be, that is a question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life
+    To be, or not to be, that is the question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life
     <!-- -->
     --William Shakespeare
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;word-break:keep-all;white-space:nowrap"
-    >
-      lg
-    </span>
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;width:0;white-space:normal;margin:0;padding:0"
-    >
-      <span
-        aria-hidden="true"
-      >
-        ...
-      </span>
-      --William Shakespeare
-      <a
-        aria-label="Expand"
-        class="ant-typography-expand"
-      >
-        Expand
-      </a>
-    </span>
   </div>,
 ]
 `;

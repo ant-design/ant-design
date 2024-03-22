@@ -1,13 +1,16 @@
 import classNames from 'classnames';
 import * as React from 'react';
+import pickAttrs from 'rc-util/lib/pickAttrs';
+
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import Skeleton from '../skeleton';
 import StatisticNumber from './Number';
 import useStyle from './style';
 import type { FormatConfig, valueType } from './utils';
+import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
 
-export interface StatisticProps extends FormatConfig {
+interface StatisticReactProps extends FormatConfig {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
@@ -23,7 +26,9 @@ export interface StatisticProps extends FormatConfig {
   onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
 }
 
-const Statistic: React.FC<StatisticProps> = (props) => {
+export type StatisticProps = HTMLAriaDataAttributes & StatisticReactProps;
+
+const Statistic: React.FC<StatisticProps & HTMLAriaDataAttributes> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -36,10 +41,15 @@ const Statistic: React.FC<StatisticProps> = (props) => {
     prefix,
     suffix,
     loading = false,
-    onMouseEnter,
-    onMouseLeave,
+    /* --- FormatConfig starts --- */
+    formatter,
+    precision,
     decimalSeparator = '.',
     groupSeparator = ',',
+    /* --- FormatConfig starts --- */
+    onMouseEnter,
+    onMouseLeave,
+    ...rest
   } = props;
 
   const { getPrefixCls, direction, statistic } =
@@ -54,7 +64,8 @@ const Statistic: React.FC<StatisticProps> = (props) => {
       decimalSeparator={decimalSeparator}
       groupSeparator={groupSeparator}
       prefixCls={prefixCls}
-      {...props}
+      formatter={formatter}
+      precision={precision}
       value={value}
     />
   );
@@ -71,8 +82,11 @@ const Statistic: React.FC<StatisticProps> = (props) => {
     cssVarCls,
   );
 
+  const restProps = pickAttrs(rest, { aria: true, data: true });
+
   return wrapCSSVar(
     <div
+      {...restProps}
       className={cls}
       style={{ ...statistic?.style, ...style }}
       onMouseEnter={onMouseEnter}

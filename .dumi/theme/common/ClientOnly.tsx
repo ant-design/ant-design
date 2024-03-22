@@ -1,18 +1,14 @@
-import type { FC, ReactElement, ReactNode } from 'react';
+import type React from 'react';
 import { useLayoutEffect, useState } from 'react';
 
-export type ClientOnlyProps = {
-  children: ReactNode;
-};
-
-const ClientOnly: FC<ClientOnlyProps> = ({ children }) => {
+const ClientOnly: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [clientReady, setClientReady] = useState<boolean>(false);
 
   useLayoutEffect(() => {
     setClientReady(true);
   }, []);
 
-  return clientReady ? (children as ReactElement) : null;
+  return clientReady ? (children as React.ReactElement) : null;
 };
 
 export default ClientOnly;

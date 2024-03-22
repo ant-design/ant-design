@@ -19,12 +19,12 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
 
       - name: cache package-lock.json
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: package-temp-dir
           key: lock-${{ github.sha }}
@@ -40,7 +40,7 @@ jobs:
           cp package-lock.json package-temp-dir
       - name: cache node_modules
         id: node_modules_cache_id
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
@@ -55,18 +55,18 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
 
       - name: restore cache from package-lock.json
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: package-temp-dir
           key: lock-${{ github.sha }}
 
       - name: restore cache from node_modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
@@ -75,8 +75,8 @@ jobs:
         run: npm run lint
 
       - name: lint:react-16
-        run: npm run compile && npm run install-react-16 && npm run tsc:old  
-        
+        run: npm run compile && npm run install-react-16 && npm run tsc:old
+
       - name: lint:react-17
         run: npm run compile && npm run install-react-17 && npm run tsc:old
     needs: setup
@@ -87,18 +87,18 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
 
       - name: restore cache from package-lock.json
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: package-temp-dir
           key: lock-${{ github.sha }}
 
       - name: restore cache from node_modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
@@ -112,24 +112,24 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
 
       - name: restore cache from package-lock.json
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: package-temp-dir
           key: lock-${{ github.sha }}
 
       - name: restore cache from node_modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
       - name: cache dist
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: dist
           key: dist-${{ github.sha }}
@@ -156,18 +156,18 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
 
       - name: restore cache from package-lock.json
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: package-temp-dir
           key: lock-${{ github.sha }}
 
       - name: restore cache from node_modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
@@ -186,7 +186,7 @@ jobs:
 
       - name: restore cache from dist
         if: ${{ matrix.module == 'dist' || matrix.module == 'dist-min' }}
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: dist
           key: dist-${{ github.sha }}
@@ -207,16 +207,16 @@ jobs:
         run: npm test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
 
       - name: persist coverages
-        if: ${{ matrix.module == 'dom' && matrix.react == '17' }}
+        if: ${{ matrix.module == 'dom' && matrix.react == '18' }}
         run: |
           mkdir persist-coverage
           mv coverage/coverage-final.json persist-coverage/react-${{matrix.react}}-test-${{matrix.module}}-${{strategy.job-index}}.json
 
-      - uses: actions/upload-artifact@v3
-        if: ${{ matrix.module == 'dom' && matrix.react == '17' }}
+      - uses: actions/upload-artifact@v4
+        if: ${{ matrix.module == 'dom' && matrix.react == '18' }}
         name: upload coverages
         with:
-          name: coverage-artifacts
+          name: coverage-artifacts-${{ matrix.module }}-${{ matrix.react }}-${{ strategy.job-index }}
           path: persist-coverage/
 
       # node test
@@ -247,13 +247,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
-          name: coverage-artifacts
+          pattern: coverage-artifacts-*
+          merge-multiple: true
           path: persist-coverage
       - name: Merge Code Coverage
         run: |
@@ -261,7 +262,7 @@ jobs:
           npx nyc report --reporter text -t coverage --report-dir coverage
           rm -rf persist-coverage
       - name: Upload coverage to codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           # use own token to upload coverage reports
           token: ${{ secrets.CODECOV_TOKEN }}
@@ -273,30 +274,30 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
 
       - name: restore cache from package-lock.json
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: package-temp-dir
           key: lock-${{ github.sha }}
 
       - name: restore cache from node_modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
       - name: cache lib
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: lib
           key: lib-${{ github.sha }}
 
       - name: cache es
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: es
           key: es-${{ github.sha }}
@@ -328,14 +329,14 @@ jobs:
         if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
         uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
 
       - name: restore cache from package-lock.json
         # lib only run in master branch not in pull request
         if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: package-temp-dir
           key: lock-${{ github.sha }}
@@ -343,7 +344,7 @@ jobs:
       - name: restore cache from node_modules
         # lib only run in master branch not in pull request
         if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
@@ -351,7 +352,7 @@ jobs:
       - name: restore cache from ${{ matrix.module }}
         # lib only run in master branch not in pull request
         if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ matrix.module }}
           key: ${{ matrix.module }}-${{ github.sha }}

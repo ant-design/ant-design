@@ -1,8 +1,9 @@
 /* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/by_BY';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/by_BY';
 import DatePicker from '../date-picker/locale/by_BY';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/by_BY';
 
 const typeTemplate: string = "${label} не з'яўляецца тыпам ${type}";
@@ -74,9 +75,6 @@ const localeValues: Locale = {
     copy: 'Капіяваць',
     copied: 'Капіяванне завершана',
     expand: 'Разгарнуць',
-  },
-  PageHeader: {
-    back: 'Назад',
   },
   Form: {
     optional: '(не абавязкова)',

@@ -1,7 +1,53 @@
 import type { CSSProperties } from 'react';
 import type { FullToken, GetDefaultToken } from 'antd/es/theme/util/genComponentStyleHook';
 
-export interface ComponentToken {
+export interface MultipleSelectorToken {
+  /**
+   * @desc 多选标签背景色
+   * @descEN Background color of multiple tag
+   */
+  multipleItemBg: string;
+  /**
+   * @desc 多选标签边框色
+   * @descEN Border color of multiple tag
+   */
+  multipleItemBorderColor: string;
+  /**
+   * @desc 多选标签高度
+   * @descEN Height of multiple tag
+   */
+  multipleItemHeight: number;
+  /**
+   * @desc 小号多选标签高度
+   * @descEN Height of multiple tag with small size
+   */
+  multipleItemHeightSM: number;
+  /**
+   * @desc 大号多选标签高度
+   * @descEN Height of multiple tag with large size
+   */
+  multipleItemHeightLG: number;
+  /**
+   * @desc 多选框禁用背景
+   * @descEN Background color of multiple selector when disabled
+   */
+  multipleSelectorBgDisabled: string;
+  /**
+   * @desc 多选标签禁用文本颜色
+   * @descEN Text color of multiple tag when disabled
+   */
+  multipleItemColorDisabled: string;
+  /**
+   * @desc 多选标签禁用边框色
+   * @descEN Border color of multiple tag when disabled
+   */
+  multipleItemBorderColorDisabled: string;
+  /**
+   * @internal
+   */
+}
+
+export interface ComponentToken extends MultipleSelectorToken {
   /**
    * @desc 下拉菜单 z-index
    * @descEN z-index of dropdown
@@ -62,59 +108,31 @@ export interface ComponentToken {
    * @descEN Height of single selected item with large size
    */
   singleItemHeightLG: number;
-  /**
-   * @desc 多选标签背景色
-   * @descEN Background color of multiple tag
-   */
-  multipleItemBg: string;
-  /**
-   * @desc 多选标签边框色
-   * @descEN Border color of multiple tag
-   */
-  multipleItemBorderColor: string;
-  /**
-   * @desc 多选标签高度
-   * @descEN Height of multiple tag
-   */
-  multipleItemHeight: number;
-  /**
-   * @desc 大号多选标签高度
-   * @descEN Height of multiple tag with large size
-   */
-  multipleItemHeightLG: number;
-  /**
-   * @desc 多选框禁用背景
-   * @descEN Background color of multiple selector when disabled
-   */
-  multipleSelectorBgDisabled: string;
-  /**
-   * @desc 多选标签禁用文本颜色
-   * @descEN Text color of multiple tag when disabled
-   */
-  multipleItemColorDisabled: string;
-  /**
-   * @desc 多选标签禁用边框色
-   * @descEN Border color of multiple tag when disabled
-   */
-  multipleItemBorderColorDisabled: string;
-  /**
-   * @internal
-   */
+
   showArrowPaddingInlineEnd: number;
 }
 
-export interface SelectToken extends FullToken<'Select'> {
-  rootPrefixCls: string;
+export interface SelectorToken {
   inputPaddingHorizontalBase: number | string;
   multipleSelectItemHeight: number;
   selectHeight: number;
+}
+
+export interface SelectToken extends FullToken<'Select'>, SelectorToken {
+  rootPrefixCls: string;
 }
 
 export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
   const {
     fontSize,
     lineHeight,
+
     controlHeight,
+    controlHeightSM,
+    controlHeightLG,
+
+    paddingXXS,
+
     controlPaddingHorizontal,
     zIndexPopupBase,
     colorText,
@@ -123,11 +141,14 @@ export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
     controlItemBgHover,
     colorBgContainer,
     colorFillSecondary,
-    controlHeightLG,
-    controlHeightSM,
+
     colorBgContainerDisabled,
     colorTextDisabled,
   } = token;
+
+  const multipleItemHeight = controlHeight - paddingXXS * 2;
+  const multipleItemHeightSM = controlHeightSM - paddingXXS * 2;
+  const multipleItemHeightLG = controlHeightLG - paddingXXS * 2;
 
   return {
     zIndexPopup: zIndexPopupBase + 50,
@@ -144,8 +165,9 @@ export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
     singleItemHeightLG: controlHeightLG,
     multipleItemBg: colorFillSecondary,
     multipleItemBorderColor: 'transparent',
-    multipleItemHeight: controlHeightSM,
-    multipleItemHeightLG: controlHeight,
+    multipleItemHeight,
+    multipleItemHeightSM,
+    multipleItemHeightLG,
     multipleSelectorBgDisabled: colorBgContainerDisabled,
     multipleItemColorDisabled: colorTextDisabled,
     multipleItemBorderColorDisabled: 'transparent',

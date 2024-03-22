@@ -599,11 +599,10 @@ Array [
       class="ant-picker-input"
     >
       <input
+        aria-invalid="false"
         autocomplete="off"
         placeholder="Select date"
-        readonly=""
         size="12"
-        title=""
         value=""
       />
       <span
@@ -639,11 +638,10 @@ Array [
       class="ant-picker-input"
     >
       <input
+        aria-invalid="false"
         autocomplete="off"
         placeholder="Select time"
-        readonly=""
         size="10"
-        title=""
         value=""
       />
       <span
@@ -996,12 +994,13 @@ Array [
     class="ant-picker ant-picker-range ant-picker-outlined"
   >
     <div
-      class="ant-picker-input ant-picker-input-active"
+      class="ant-picker-input"
     >
       <input
+        aria-invalid="false"
         autocomplete="off"
+        date-range="start"
         placeholder="Start date"
-        readonly=""
         size="12"
         value=""
       />
@@ -1038,16 +1037,17 @@ Array [
       class="ant-picker-input"
     >
       <input
+        aria-invalid="false"
         autocomplete="off"
+        date-range="end"
         placeholder="End date"
-        readonly=""
         size="12"
         value=""
       />
     </div>
     <div
       class="ant-picker-active-bar"
-      style="left:0;width:0;position:absolute"
+      style="position:absolute;width:0;left:0"
     />
     <span
       class="ant-picker-suffix"
@@ -1080,11 +1080,10 @@ Array [
       class="ant-picker-input"
     >
       <input
+        aria-invalid="false"
         autocomplete="off"
         placeholder="Select month"
-        readonly=""
         size="12"
-        title=""
         value=""
       />
       <span
@@ -2954,11 +2953,10 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
-          readonly=""
           size="12"
-          title=""
           value=""
         />
         <span
@@ -3002,12 +3000,13 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       style="width:70%"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Start date"
-          readonly=""
           size="12"
           value=""
         />
@@ -3044,16 +3043,17 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder="End date"
-          readonly=""
           size="12"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"

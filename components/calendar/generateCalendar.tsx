@@ -3,37 +3,15 @@ import classNames from 'classnames';
 import { PickerPanel as RCPickerPanel } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate';
 import type { CellRenderInfo } from 'rc-picker/lib/interface';
-import type {
-  PickerPanelBaseProps as RCPickerPanelBaseProps,
-  PickerPanelDateProps as RCPickerPanelDateProps,
-  PickerPanelTimeProps as RCPickerPanelTimeProps,
-} from 'rc-picker/lib/PickerPanel';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
+import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import CalendarHeader from './Header';
 import enUS from './locale/en_US';
 import useStyle from './style';
-
-type InjectDefaultProps<Props> = Omit<
-  Props,
-  'locale' | 'generateConfig' | 'prevIcon' | 'nextIcon' | 'superPrevIcon' | 'superNextIcon'
-> & {
-  locale?: typeof enUS;
-  size?: 'large' | 'default' | 'small';
-};
-
-// Picker Props
-export type PickerPanelBaseProps<DateType> = InjectDefaultProps<RCPickerPanelBaseProps<DateType>>;
-export type PickerPanelDateProps<DateType> = InjectDefaultProps<RCPickerPanelDateProps<DateType>>;
-export type PickerPanelTimeProps<DateType> = InjectDefaultProps<RCPickerPanelTimeProps<DateType>>;
-
-export type PickerProps<DateType> =
-  | PickerPanelBaseProps<DateType>
-  | PickerPanelDateProps<DateType>
-  | PickerPanelTimeProps<DateType>;
 
 export type CalendarMode = 'year' | 'month';
 export type HeaderRender<DateType> = (config: {
@@ -75,7 +53,7 @@ export interface CalendarProps<DateType> {
   onSelect?: (date: DateType, selectInfo: SelectInfo) => void;
 }
 
-function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
+function generateCalendar<DateType extends AnyObject>(generateConfig: GenerateConfig<DateType>) {
   function isSameYear(date1: DateType, date2: DateType) {
     return date1 && date2 && generateConfig.getYear(date1) === generateConfig.getYear(date2);
   }

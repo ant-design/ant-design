@@ -342,9 +342,9 @@ exports[`renders components/tour/demo/render-panel.tsx correctly 1`] = `
           <div
             class="ant-tour-inner"
           >
-            <span
-              aria-label="Close"
+            <button
               class="ant-tour-close"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -366,7 +366,7 @@ exports[`renders components/tour/demo/render-panel.tsx correctly 1`] = `
                   />
                 </svg>
               </span>
-            </span>
+            </button>
             <div
               class="ant-tour-header"
             >
@@ -443,9 +443,9 @@ exports[`renders components/tour/demo/render-panel.tsx correctly 1`] = `
           <div
             class="ant-tour-inner"
           >
-            <span
-              aria-label="Close"
+            <button
               class="ant-tour-close"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -467,7 +467,7 @@ exports[`renders components/tour/demo/render-panel.tsx correctly 1`] = `
                   />
                 </svg>
               </span>
-            </span>
+            </button>
             <div
               class="ant-tour-cover"
             >
@@ -563,9 +563,9 @@ exports[`renders components/tour/demo/render-panel.tsx correctly 1`] = `
           <div
             class="ant-tour-inner"
           >
-            <span
-              aria-label="Close"
+            <button
               class="ant-tour-close"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -587,7 +587,7 @@ exports[`renders components/tour/demo/render-panel.tsx correctly 1`] = `
                   />
                 </svg>
               </span>
-            </span>
+            </button>
             <div
               class="ant-tour-header"
             >

@@ -55,7 +55,7 @@ const genClearStyle = (
   size: number,
   extraStyle?: CSSObject,
 ): CSSObject => {
-  const { componentCls, borderRadiusSM, lineWidth, colorSplit, red6 } = token;
+  const { componentCls, borderRadiusSM, lineWidth, colorSplit, colorBorder, red6 } = token;
 
   return {
     [`${componentCls}-clear`]: {
@@ -64,8 +64,10 @@ const genClearStyle = (
       borderRadius: borderRadiusSM,
       border: `${unit(lineWidth)} solid ${colorSplit}`,
       position: 'relative',
-      cursor: 'pointer',
       overflow: 'hidden',
+      cursor: 'pointer',
+      transition: `all ${token.motionDurationFast}`,
+
       ...extraStyle,
       '&::after': {
         content: '""',
@@ -78,6 +80,10 @@ const genClearStyle = (
         transformOrigin: 'right',
         transform: 'rotate(-45deg)',
         backgroundColor: red6,
+      },
+
+      '&:hover': {
+        borderColor: colorBorder,
       },
     },
   };

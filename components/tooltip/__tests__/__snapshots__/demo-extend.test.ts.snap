@@ -508,11 +508,7 @@ exports[`renders components/tooltip/demo/arrow-point-at-center.tsx extend contex
 </div>
 `;
 
-exports[`renders components/tooltip/demo/arrow-point-at-center.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Tooltip] \`arrowPointAtCenter\` is deprecated. Please use \`arrow={{ pointAtCenter: true }}\` instead.",
-]
-`;
+exports[`renders components/tooltip/demo/arrow-point-at-center.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx extend context correctly 1`] = `
 <div

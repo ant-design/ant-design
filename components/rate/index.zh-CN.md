@@ -1,15 +1,14 @@
 ---
 category: Components
-subtitle: 评分
 group: 数据录入
 title: Rate
+subtitle: 评分
+description: 用于对事物进行评分操作。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*oyOcTrB12_YAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*M7_ER7GJr6wAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-评分组件。
 
 ## 何时使用
 
