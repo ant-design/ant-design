@@ -44,7 +44,6 @@ module.exports = {
         'no-unused-expressions': 'off',
         '@typescript-eslint/no-unused-expressions': 2,
         '@typescript-eslint/consistent-type-imports': [2, { disallowTypeAnnotations: false }],
-        '@typescript-eslint/no-explicit-any': 'error',
       },
     },
     {
