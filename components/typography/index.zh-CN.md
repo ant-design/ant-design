@@ -1,13 +1,12 @@
 ---
 category: Components
-subtitle: 排版
 group: 通用
 title: Typography
+subtitle: 排版
+description: 文本的基本格式。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*MLt3R6m9huoAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-文本的基本格式。
 
 ## 何时使用
 

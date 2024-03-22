@@ -1,15 +1,14 @@
 ---
 category: Components
-subtitle: 气泡确认框
 group: 反馈
 title: Popconfirm
+subtitle: 气泡确认框
+description: 点击元素，弹出气泡式的确认框。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a7tqQ6wrdeAAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*iwYsQpeFcB0AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-点击元素，弹出气泡式的确认框。
 
 ## 何时使用
 

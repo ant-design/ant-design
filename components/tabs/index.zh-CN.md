@@ -1,13 +1,12 @@
 ---
 category: Components
-subtitle: 标签页
 group: 数据展示
 title: Tabs
+subtitle: 标签页
+description: 选项卡切换组件。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*72NDQqXkyOEAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8HMoTZUoSGoAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-选项卡切换组件。
 
 ## 何时使用
 
