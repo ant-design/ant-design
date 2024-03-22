@@ -97,6 +97,33 @@ describe('Mentions', () => {
     expect(textareaInstance.value).toEqual('');
   });
 
+  it('should delete last item when Delete key is pressed', () => {
+    const { getByRole } = render(
+      <Mentions
+        style={{ width: '100%' }}
+        defaultValue="@afc163@zombieJ"
+        itemOnceDelete={true}
+        options={[
+          {
+            value: 'afc163',
+            label: 'afc163',
+          },
+          {
+            value: 'zombieJ',
+            label: 'zombieJ',
+          },
+          {
+            value: 'yesmeck',
+            label: 'yesmeck',
+          },
+        ]}
+      />,
+    );
+    const textarea = getByRole('textbox') as HTMLTextAreaElement;
+    fireEvent.keyDown(textarea, { key: 'Delete', keyCode: KeyCode.BACKSPACE });
+    expect(textarea.value).toBe('@afc163');
+  });
+
   it('should support custom clearIcon', () => {
     const { container } = render(<Mentions allowClear={{ clearIcon: 'clear' }} />);
     expect(container.querySelector('.ant-mentions-clear-icon')?.textContent).toBe('clear');
