@@ -96,8 +96,7 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
 
           {/* Import Info */}
           {meta.frontmatter.category === 'Components' &&
-            !meta.frontmatter.title?.includes('Util') &&
-            !meta.frontmatter.title?.includes('Icon') && (
+            String(meta.frontmatter.showImport) !== 'false' && (
               <ComponentMeta component={meta.frontmatter.title} source />
             )}
 
