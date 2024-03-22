@@ -15,6 +15,9 @@ module.exports = {
     jest: true,
     es6: true,
   },
+  parserOptions: {
+    project: './tsconfig.json',
+  },
   settings: {
     react: {
       version: 'detect',
@@ -34,6 +37,7 @@ module.exports = {
     'unicorn',
     'markdown',
     'lodash',
+    '@typescript-eslint',
   ],
   // https://github.com/typescript-eslint/typescript-eslint/issues/46#issuecomment-470486034
   overrides: [
@@ -222,6 +226,12 @@ module.exports = {
     // https://github.com/typescript-eslint/typescript-eslint/issues/2528#issuecomment-689369395
     'no-undef': 0,
     'import/order': 0,
+    '@typescript-eslint/no-explicit-any': 'error',
+    '@typescript-eslint/no-unsafe-argument': 'error',
+    '@typescript-eslint/no-unsafe-assignment': 'error',
+    '@typescript-eslint/no-unsafe-call': 'error',
+    '@typescript-eslint/no-unsafe-member-access': 'error',
+    '@typescript-eslint/no-unsafe-return': 'error',
   },
   globals: {
     gtag: true,

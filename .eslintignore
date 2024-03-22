@@ -22,3 +22,4 @@ coverage
 # Scripts
 scripts/previewEditor/**/*
 jest-stare
+.eslintrc.js
