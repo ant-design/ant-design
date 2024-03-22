@@ -1,10 +1,11 @@
 import type { FC } from 'react';
 import React, { useRef } from 'react';
-import { createStyles } from 'antd-style';
 import { CheckOutlined, SketchOutlined } from '@ant-design/icons';
-import { nodeToGroup } from 'html2sketch';
-import copy from 'copy-to-clipboard';
 import { App } from 'antd';
+import { createStyles } from 'antd-style';
+import copy from 'copy-to-clipboard';
+import { nodeToGroup } from 'html2sketch';
+
 import type { AntdPreviewerProps } from './Previewer';
 
 const useStyle = createStyles(({ token, css }) => ({
@@ -60,14 +61,15 @@ const DesignPreviewer: FC<AntdPreviewerProps> = ({ children, title, description,
 
   const handleCopy = async () => {
     try {
-      const group = await nodeToGroup(demoRef.current);
-      copy(JSON.stringify(group.toSketchJSON()));
-      setCopied(true);
-      setTimeout(() => {
-        setCopied(false);
-      }, 5000);
-    } catch (e) {
-      console.error(e);
+      if (demoRef.current) {
+        const group = await nodeToGroup(demoRef.current);
+        copy(JSON.stringify(group.toSketchJSON()));
+        setCopied(true);
+        setTimeout(() => {
+          setCopied(false);
+        }, 5000);
+      }
+    } catch {
       message.error('复制失败');
     }
   };
@@ -77,7 +79,9 @@ const DesignPreviewer: FC<AntdPreviewerProps> = ({ children, title, description,
       <a className={styles.title} href={`#${asset.id}`}>
         {title}
       </a>
-      <div className={styles.description} dangerouslySetInnerHTML={{ __html: description }} />
+      {description && (
+        <div className={styles.description} dangerouslySetInnerHTML={{ __html: description }} />
+      )}
       <div className={styles.copy}>
         {copied ? (
           <div className={styles.copiedTip}>

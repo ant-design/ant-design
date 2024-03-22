@@ -147,7 +147,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('row', customizePrefixCls);
 
-  const [wrapCSSVar, hashId] = useRowStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useRowStyle(prefixCls);
 
   const gutters = getGutter();
   const classes = classNames(
@@ -160,6 +160,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     },
     className,
     hashId,
+    cssVarCls,
   );
 
   // Add gutter related style
@@ -171,11 +172,11 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     rowStyle.marginRight = horizontalGutter;
   }
 
-  [, rowStyle.rowGap] = gutters;
-
   // "gutters" is a new array in each rendering phase, it'll make 'React.useMemo' effectless.
   // So we deconstruct "gutters" variable here.
   const [gutterH, gutterV] = gutters;
+
+  rowStyle.rowGap = gutterV;
 
   const rowContext = React.useMemo<RowContextState>(
     () => ({ gutter: [gutterH, gutterV] as [number, number], wrap }),

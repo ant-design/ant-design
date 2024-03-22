@@ -128,7 +128,6 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
       ? {
           width: currentSize,
           height: currentSize,
-          lineHeight: `${currentSize}px`,
           fontSize: currentSize && (icon || children) ? currentSize / 2 : 18,
         }
       : {};
@@ -145,8 +144,8 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
   }
 
   const prefixCls = getPrefixCls('avatar', customizePrefixCls);
-  const cssVarCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const sizeCls = classNames({
     [`${prefixCls}-lg`]: size === 'large',
@@ -167,6 +166,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
       [`${prefixCls}-icon`]: !!icon,
     },
     cssVarCls,
+    rootCls,
     className,
     rootClassName,
     hashId,
@@ -177,7 +177,6 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
       ? {
           width: size,
           height: size,
-          lineHeight: `${size}px`,
           fontSize: icon ? size / 2 : 18,
         }
       : {};
@@ -199,26 +198,19 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
   } else if (icon) {
     childrenToRender = icon;
   } else if (mounted || scale !== 1) {
-    const transformString = `scale(${scale}) translateX(-50%)`;
+    const transformString = `scale(${scale})`;
     const childrenStyle: React.CSSProperties = {
       msTransform: transformString,
       WebkitTransform: transformString,
       transform: transformString,
     };
 
-    const sizeChildrenStyle: React.CSSProperties =
-      typeof size === 'number'
-        ? {
-            lineHeight: `${size}px`,
-          }
-        : {};
-
     childrenToRender = (
       <ResizeObserver onResize={setScaleParam}>
         <span
           className={`${prefixCls}-string`}
           ref={avatarChildrenRef}
-          style={{ ...sizeChildrenStyle, ...childrenStyle }}
+          style={{ ...childrenStyle }}
         >
           {children}
         </span>

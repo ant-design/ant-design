@@ -1,15 +1,18 @@
 import React from 'react';
-import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+
 import notification from '..';
-import { fireEvent, pureRender, render } from '../../../tests/utils';
+import { act, fireEvent, pureRender, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 describe('notification.hooks', () => {
   beforeEach(() => {
+    document.body.innerHTML = '';
     jest.useFakeTimers();
   });
 
   afterEach(() => {
+    jest.clearAllTimers();
     jest.useRealTimers();
   });
 
@@ -188,5 +191,48 @@ describe('notification.hooks', () => {
     render(<Demo />);
 
     expect(document.querySelector('.ant-notification-stack')).toBeFalsy();
+  });
+
+  it('support duration', () => {
+    const Demo = () => {
+      const [api, holder] = notification.useNotification({ duration: 1.5 });
+
+      return (
+        <>
+          <a
+            onClick={() => {
+              api.info({
+                message: null,
+                description: 'test',
+              });
+            }}
+          >
+            Show
+          </a>
+          {holder}
+        </>
+      );
+    };
+
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelector('a')!);
+
+    function getNoticeCount() {
+      return Array.from(document.querySelectorAll('.ant-notification-notice-wrapper')).filter(
+        (node) => !node.classList.contains('ant-notification-fade-leave'),
+      ).length;
+    }
+
+    // Pass 1s
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
+    expect(getNoticeCount()).toBe(1);
+
+    // Pass 2s
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
+    expect(getNoticeCount()).toBe(0);
   });
 });

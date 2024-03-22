@@ -12,7 +12,9 @@ import {
   Table,
   Tabs,
 } from 'antd';
-import type { SizeType } from 'antd/es/config-provider/SizeContext';
+import type { ConfigProviderProps } from 'antd';
+
+type SizeType = ConfigProviderProps['componentSize'];
 
 const { TabPane } = Tabs;
 

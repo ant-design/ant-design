@@ -77,10 +77,11 @@ const BackTop: React.FC<BackTopProps> = (props) => {
 
   const rootPrefixCls = getPrefixCls();
 
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const classString = classNames(
     hashId,
+    cssVarCls,
     prefixCls,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',

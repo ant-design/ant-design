@@ -1,4 +1,4 @@
-import type { ButtonToken } from '.';
+import type { ButtonToken } from './token';
 import type { GenerateStyle } from '../../theme/internal';
 
 const genButtonBorderStyle = (buttonTypeCls: string, borderColor: string) => ({

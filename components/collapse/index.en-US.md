@@ -94,7 +94,10 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### Collapse.Panel
 
-<Alert message="&gt;= 5.6.0 configure the panel by `items`."></Alert>
+<!-- prettier-ignore -->
+:::info{title=Deprecated}
+When using version >= 5.6.0, we prefer to configuring the panel by `items`.
+:::
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |

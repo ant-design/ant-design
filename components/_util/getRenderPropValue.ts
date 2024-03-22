@@ -9,9 +9,5 @@ export const getRenderPropValue = (
     return null;
   }
 
-  if (typeof propValue === 'function') {
-    return propValue();
-  }
-
-  return propValue;
+  return typeof propValue === 'function' ? propValue() : propValue;
 };

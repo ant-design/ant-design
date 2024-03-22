@@ -1,4 +1,5 @@
 import { unit } from '@ant-design/cssinjs';
+import { TinyColor } from '@ctrl/tinycolor';
 
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
@@ -7,7 +8,7 @@ import { genStyleHooks, mergeToken } from '../../theme/internal';
 export interface ComponentToken {}
 
 interface QRCodeToken extends FullToken<'QRCode'> {
-  QRCodeExpiredTextColor: string;
+  QRCodeTextColor: string;
   QRCodeMaskBackgroundColor: string;
 }
 
@@ -41,8 +42,8 @@ const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
         lineHeight: token.lineHeight,
         background: token.QRCodeMaskBackgroundColor,
         textAlign: 'center',
-        [`& > ${componentCls}-expired`]: {
-          color: token.QRCodeExpiredTextColor,
+        [`& > ${componentCls}-expired, & > ${componentCls}-scanned`]: {
+          color: token.QRCodeTextColor,
         },
       },
 
@@ -63,15 +64,17 @@ const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
   };
 };
 
-export const prepareComponentToken: GetDefaultToken<'QRCode'> = () => ({});
+export const prepareComponentToken: GetDefaultToken<'QRCode'> = (token) => ({
+  QRCodeMaskBackgroundColor: new TinyColor(token.colorBgContainer).setAlpha(0.96).toRgbString(),
+});
 
 export default genStyleHooks<'QRCode'>(
   'QRCode',
   (token) => {
     const mergedToken = mergeToken<QRCodeToken>(token, {
-      QRCodeExpiredTextColor: 'rgba(0, 0, 0, 0.88)',
-      QRCodeMaskBackgroundColor: 'rgba(255, 255, 255, 0.96)',
+      QRCodeTextColor: token.colorText,
     });
+
     return genQRCodeStyle(mergedToken);
   },
   prepareComponentToken,

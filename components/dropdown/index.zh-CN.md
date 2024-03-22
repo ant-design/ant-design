@@ -3,8 +3,8 @@ category: Components
 subtitle: 下拉菜单
 group: 导航
 title: Dropdown
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*mBBcQ6goljkAAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5qm4S4Zgh2QAAAAAAAAAAAAADrJ8AQ/original
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*gTBySYX11WcAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*k619RJ_7bKEAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -31,6 +31,7 @@ demo:
 <code src="./demo/dropdown-button.tsx">带下拉框的按钮</code>
 <code src="./demo/custom-dropdown.tsx">扩展菜单</code>
 <code src="./demo/sub-menu.tsx">多级菜单</code>
+<code src="./demo/sub-menu-debug.tsx" debug>多级菜单</code>
 <code src="./demo/overlay-open.tsx">菜单隐藏方式</code>
 <code src="./demo/context-menu.tsx">右键菜单</code>
 <code src="./demo/loading.tsx">加载中状态</code>

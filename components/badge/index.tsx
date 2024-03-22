@@ -76,7 +76,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
   const { getPrefixCls, direction, badge } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('badge', customizePrefixCls);
 
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   // ================================ Misc ================================
   const numberedDisplayCount = (
@@ -183,6 +183,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
     badge?.classNames?.root,
     classNames?.root,
     hashId,
+    cssVarCls,
   );
 
   // <Badge status="success" />

@@ -22,7 +22,7 @@ jobs:
             package.json
 
       - name: setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
 
@@ -42,7 +42,7 @@ jobs:
 
       - name: create pull request
         id: cpr
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }} # Cannot be default!!!
           assignees: 'afc163, zombieJ, xrkffgg, MadCcc'

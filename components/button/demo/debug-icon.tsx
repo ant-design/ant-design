@@ -1,7 +1,16 @@
 import React from 'react';
 import { SearchOutlined } from '@ant-design/icons';
-import { Button, ConfigProvider, Divider, Flex, Radio, Tooltip } from 'antd';
-import type { SizeType } from 'antd/es/config-provider/SizeContext';
+import {
+  Button,
+  ConfigProvider,
+  Divider,
+  Flex,
+  Radio,
+  Tooltip,
+  type ConfigProviderProps,
+} from 'antd';
+
+type SizeType = ConfigProviderProps['componentSize'];
 
 const App: React.FC = () => {
   const [size, setSize] = React.useState<SizeType>('large');

@@ -23,7 +23,7 @@ const SkeletonButton: React.FC<SkeletonButtonProps> = (props) => {
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const otherProps = omit(props, ['prefixCls']);
   const cls = classNames(
@@ -36,6 +36,7 @@ const SkeletonButton: React.FC<SkeletonButtonProps> = (props) => {
     className,
     rootClassName,
     hashId,
+    cssVarCls,
   );
 
   return wrapCSSVar(

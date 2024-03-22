@@ -94,7 +94,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     typeof dots === 'boolean' ? false : dots?.className,
   );
 
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const className = classNames(
     prefixCls,
@@ -103,6 +103,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
       [`${prefixCls}-vertical`]: newProps.vertical,
     },
     hashId,
+    cssVarCls,
     rootClassName,
   );
 

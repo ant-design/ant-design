@@ -25,7 +25,9 @@ export interface PushState {
 }
 
 // Drawer diff props: 'open' | 'motion' | 'maskMotion' | 'wrapperClassName'
-export interface DrawerProps extends RcDrawerProps, Omit<DrawerPanelProps, 'prefixCls'> {
+export interface DrawerProps
+  extends Omit<RcDrawerProps, 'maskStyle'>,
+    Omit<DrawerPanelProps, 'prefixCls'> {
   size?: sizeType;
 
   open?: boolean;
@@ -64,6 +66,9 @@ const Drawer: React.FC<DrawerProps> & {
     // Deprecated
     visible,
     afterVisibleChange,
+    maskStyle,
+    drawerStyle,
+    contentWrapperStyle,
 
     ...rest
   } = props;
@@ -72,7 +77,7 @@ const Drawer: React.FC<DrawerProps> & {
 
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
 
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const getContainer =
     // 有可能为 false，所以不能直接判断
@@ -87,6 +92,7 @@ const Drawer: React.FC<DrawerProps> & {
     },
     rootClassName,
     hashId,
+    cssVarCls,
   );
 
   // ========================== Warning ===========================
@@ -99,6 +105,9 @@ const Drawer: React.FC<DrawerProps> & {
       ['headerStyle', 'styles.header'],
       ['bodyStyle', 'styles.body'],
       ['footerStyle', 'styles.footer'],
+      ['contentWrapperStyle', 'styles.wrapper'],
+      ['maskStyle', 'styles.mask'],
+      ['drawerStyle', 'styles.content'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
@@ -148,6 +157,9 @@ const Drawer: React.FC<DrawerProps> & {
   const [zIndex, contextZIndex] = useZIndex('Drawer', rest.zIndex);
 
   // =========================== Render ===========================
+  const { classNames: propClassNames = {}, styles: propStyles = {} } = rest;
+  const { classNames: contextClassNames = {}, styles: contextStyles = {} } = drawer || {};
+
   return wrapCSSVar(
     <NoCompactStyle>
       <NoFormStyle status override>
@@ -159,17 +171,24 @@ const Drawer: React.FC<DrawerProps> & {
             motion={panelMotion}
             {...rest}
             classNames={{
-              mask: classNames(rest.classNames?.mask, drawer?.classNames?.mask),
-              content: classNames(rest.classNames?.content, drawer?.classNames?.content),
+              mask: classNames(propClassNames.mask, contextClassNames.mask),
+              content: classNames(propClassNames.content, contextClassNames.content),
             }}
             styles={{
               mask: {
-                ...rest.styles?.mask,
-                ...drawer?.styles?.mask,
+                ...propStyles.mask,
+                ...maskStyle,
+                ...contextStyles.mask,
               },
               content: {
-                ...rest.styles?.content,
-                ...drawer?.styles?.content,
+                ...propStyles.content,
+                ...drawerStyle,
+                ...contextStyles.content,
+              },
+              wrapper: {
+                ...propStyles.wrapper,
+                ...contentWrapperStyle,
+                ...contextStyles.wrapper,
               },
             }}
             open={open ?? visible}
@@ -213,13 +232,14 @@ const PurePanel: React.FC<Omit<DrawerPanelProps, 'prefixCls'> & PurePanelInterfa
 
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
 
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const cls = classNames(
     prefixCls,
     `${prefixCls}-pure`,
     `${prefixCls}-${placement}`,
     hashId,
+    cssVarCls,
     className,
   );
 

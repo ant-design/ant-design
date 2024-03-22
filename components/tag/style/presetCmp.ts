@@ -5,7 +5,7 @@ import { genPresetColor, genSubStyleComponent } from '../../theme/internal';
 // ============================== Preset ==============================
 const genPresetStyle = (token: TagToken) =>
   genPresetColor(token, (colorKey, { textColor, lightBorderColor, lightColor, darkColor }) => ({
-    [`${token.componentCls}-${colorKey}`]: {
+    [`${token.componentCls}${token.componentCls}-${colorKey}`]: {
       color: textColor,
       background: lightColor,
       borderColor: lightBorderColor,

@@ -169,47 +169,41 @@ antd 默认内置了一些组件交互动效让企业级页面更加富有细节
 
 ```sandpack
 import React from 'react';
-import { Switch, ConfigProvider, Space, Checkbox, Radio, Row, Col } from 'antd';
+import { Checkbox, Col, ConfigProvider, Flex, Radio, Row, Switch } from 'antd';
 
-export default () => {
-  const [checked, setChecked] = React.useState(false);
-
+const App: React.FC = () => {
+  const [checked, setChecked] = React.useState<boolean>(false);
+  const timerRef = React.useRef<ReturnType<typeof setInterval>>();
   React.useEffect(() => {
-    const id = setInterval(() => {
+    timerRef.current = setInterval(() => {
       setChecked((prev) => !prev);
-    }, 1000);
-
+    }, 500);
     return () => {
-      clearInterval(id);
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
     };
   }, []);
 
   const nodes = (
-    <Space>
+    <Flex gap="small">
       <Checkbox checked={checked}>Checkbox</Checkbox>
       <Radio checked={checked}>Radio</Radio>
       <Switch checked={checked} />
-    </Space>
+    </Flex>
   );
 
   return (
     <Row gutter={[24, 24]}>
       <Col span={24}>{nodes}</Col>
-
       <Col span={24}>
-        <ConfigProvider
-          theme={{
-            token: {
-              motion: false,
-            },
-          }}
-        >
-          {nodes}
-        </ConfigProvider>
+        <ConfigProvider theme={{ token: { motion: false } }}>{nodes}</ConfigProvider>
       </Col>
     </Row>
   );
 };
+
+export default App;
 ```
 
 ## 进阶使用

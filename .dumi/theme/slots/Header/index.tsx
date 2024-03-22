@@ -16,7 +16,6 @@ import type { SiteContextProps } from '../SiteContext';
 import SiteContext from '../SiteContext';
 import type { SharedProps } from './interface';
 import Logo from './Logo';
-import More from './More';
 import Navigation from './Navigation';
 import SwitchBtn from './SwitchBtn';
 
@@ -25,10 +24,10 @@ const RESPONSIVE_SM = 1200;
 
 const locales = {
   cn: {
-    message: 'Galacean Effects · 所见即所得的动效新方案。',
-    shortMessage: 'Galacean Effects · 所见即所得的动效新方案。',
+    message: '语雀征文 · 说说你和开源的故事，赢取 Ant Design 精美周边 🎁',
+    shortMessage: '语雀征文 · 说说你和开源的故事，赢取 Ant Design 精美周边 🎁',
     more: '前往了解',
-    link: 'https://galacean.antgroup.com/effects/',
+    link: 'https://www.yuque.com/opensource2023',
   },
   en: {
     message: '',
@@ -223,9 +222,11 @@ const Header: React.FC = () => {
     // Mirror url must have `/`, we add this for compatible
     const urlObj = new URL(currentUrl.replace(window.location.origin, url));
     if (urlObj.host.includes('antgroup')) {
-      window.location.href = `${urlObj.href.replace(/\/$/, '')}/`;
+      urlObj.pathname = `${urlObj.pathname.replace(/\/$/, '')}/`;
+      window.location.href = urlObj.toString();
+    } else {
+      window.location.href = urlObj.href.replace(/\/$/, '');
     }
-    window.location.href = urlObj.href.replace(/\/$/, '');
   }, []);
 
   const onLangChange = useCallback(() => {
@@ -307,7 +308,6 @@ const Header: React.FC = () => {
       getPopupContainer={(trigger) => trigger.parentNode}
       options={versionOptions}
     />,
-    <More key="more" {...sharedProps} />,
     <SwitchBtn
       key="lang"
       onClick={onLangChange}
@@ -360,7 +360,7 @@ const Header: React.FC = () => {
           content={menu}
           trigger="click"
           open={menuVisible}
-          arrow={{ arrowPointAtCenter: true }}
+          arrow={{ pointAtCenter: true }}
           onOpenChange={onMenuVisibleChange}
         >
           <MenuOutlined className="nav-phone-icon" onClick={handleShowMenu} />

@@ -4,8 +4,8 @@ group: 反馈
 noinstant: true
 title: Notification
 subtitle: 通知提醒框
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*6RWNQ78WtvEAAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*9hTIToR-3YYAAAAAAAAAAAAADrJ8AQ/original
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cRmqTY4nKPEAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*W3RmSov-xVMAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -52,13 +52,13 @@ config 参数如下：
 | --- | --- | --- | --- | --- |
 | btn | 自定义关闭按钮 | ReactNode | - | - |
 | className | 自定义 CSS class | string | - | - |
-| closeIcon | 自定义关闭图标 | boolean \| ReactNode | true | 5.7.0：设置为 null 或 false 时隐藏关闭按钮 |
+| closeIcon | 自定义关闭图标 | ReactNode | true | 5.7.0：设置为 null 或 false 时隐藏关闭按钮 |
 | description | 通知提醒内容，必选 | ReactNode | - | - |
 | duration | 默认 4.5 秒后自动关闭，配置为 null 则不自动关闭 | number | 4.5 | - |
 | icon | 自定义图标 | ReactNode | - | - |
 | key | 当前通知唯一标志 | string | - | - |
 | message | 通知提醒标题，必选 | ReactNode | - | - |
-| placement | 弹出位置，可选 `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` | - |
+| placement | 弹出位置，可选 `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | string | `topRight` | - |
 | style | 自定义内联样式 | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - | - |
 | role | 供屏幕阅读器识别的通知内容语义，默认为 `alert`。此情况下屏幕阅读器会立即打断当前正在阅读的其他内容，转而阅读通知内容 | `alert \| status` | `alert` | 5.6.0 |
 | onClick | 点击通知时触发的回调函数 | function | - | - |
@@ -72,7 +72,7 @@ config 参数如下：
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | bottom | 消息从底部弹出时，距离底部的位置，单位像素 | number | 24 |  |
-| closeIcon | 自定义关闭图标 | boolean \| ReactNode | true | 5.7.0：设置为 null 或 false 时隐藏关闭按钮 |
+| closeIcon | 自定义关闭图标 | ReactNode | true | 5.7.0：设置为 null 或 false 时隐藏关闭按钮 |
 | getContainer | 配置渲染节点的输出位置 | () => HTMLNode | () => document.body |  |
 | placement | 弹出位置，可选 `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | string | `topRight` |  |
 | rtl | 是否开启 RTL 模式 | boolean | false |  |
@@ -104,7 +104,7 @@ notification.config({
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | bottom | 消息从底部弹出时，距离底部的位置，单位像素 | number | 24 |  |
-| closeIcon | 自定义关闭图标 | boolean \| ReactNode | true | 5.7.0：设置为 null 或 false 时隐藏关闭按钮 |
+| closeIcon | 自定义关闭图标 | ReactNode | true | 5.7.0：设置为 null 或 false 时隐藏关闭按钮 |
 | duration | 默认自动关闭延时，单位秒 | number | 4.5 |  |
 | getContainer | 配置渲染节点的输出位置，但依旧为全屏展示 | () => HTMLNode | () => document.body |  |
 | placement | 弹出位置，可选 `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | string | `topRight` |  |

@@ -1,8 +1,9 @@
 /* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/sk_SK';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/sk_SK';
 import DatePicker from '../date-picker/locale/sk_SK';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/sk_SK';
 
 const typeTemplate = '${label} nie je platný ${type}';
@@ -74,9 +75,6 @@ const localeValues: Locale = {
     copy: 'Kopírovať',
     copied: 'Skopírované',
     expand: 'Zväčšiť',
-  },
-  PageHeader: {
-    back: 'Späť',
   },
   Form: {
     optional: '(nepovinné)',

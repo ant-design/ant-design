@@ -9,7 +9,6 @@ import { formatCountdown } from './utils';
 const REFRESH_INTERVAL = 1000 / 30;
 
 export interface CountdownProps extends StatisticProps {
-  value?: valueType;
   format?: string;
   onFinish?: () => void;
   onChange?: (value?: valueType) => void;
@@ -20,7 +19,7 @@ function getTime(value?: valueType) {
 }
 
 const Countdown: React.FC<CountdownProps> = (props) => {
-  const { value, format = 'HH:mm:ss', onChange, onFinish } = props;
+  const { value, format = 'HH:mm:ss', onChange, onFinish, ...rest } = props;
 
   const forceUpdate = useForceUpdate();
 
@@ -63,7 +62,7 @@ const Countdown: React.FC<CountdownProps> = (props) => {
   const valueRender = (node: React.ReactElement<HTMLDivElement>) =>
     cloneElement(node, { title: undefined });
 
-  return <Statistic {...props} valueRender={valueRender} formatter={formatter} />;
+  return <Statistic {...rest} value={value} valueRender={valueRender} formatter={formatter} />;
 };
 
 export default React.memo(Countdown);

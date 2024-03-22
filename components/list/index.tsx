@@ -141,7 +141,7 @@ function List<T>({
   const prefixCls = getPrefixCls('list', customizePrefixCls);
 
   // Style
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   let loadingProp = loading;
   if (typeof loadingProp === 'boolean') {
@@ -183,6 +183,7 @@ function List<T>({
     className,
     rootClassName,
     hashId,
+    cssVarCls,
   );
 
   const paginationProps = extendsObject<PaginationConfig>(

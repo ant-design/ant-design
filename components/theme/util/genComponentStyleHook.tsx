@@ -3,12 +3,12 @@ import type { ComponentType, FC, ReactElement } from 'react';
 import React, { useContext } from 'react';
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { token2CSSVar, useCSSVarRegister, useStyleRegister } from '@ant-design/cssinjs';
-import classNames from 'classnames';
 import { warning } from 'rc-util';
 
 import { ConfigContext } from '../../config-provider/context';
 import { genCommonStyle, genLinkStyle } from '../../style';
 import type {
+  AliasToken,
   ComponentTokenMap,
   GlobalToken,
   OverrideToken,
@@ -65,11 +65,9 @@ export type GenStyleFn<C extends OverrideComponent> = (
 export type GetDefaultToken<C extends OverrideComponent> =
   | null
   | OverrideTokenWithoutDerivative[C]
-  | ((token: GlobalToken) => OverrideTokenWithoutDerivative[C]);
-
-export type FormatComponentToken<C extends OverrideComponent> = (
-  token: NonNullable<OverrideTokenWithoutDerivative[C]>,
-) => NonNullable<OverrideTokenWithoutDerivative[C]>;
+  | ((
+      token: AliasToken & Partial<OverrideTokenWithoutDerivative[C]>,
+    ) => OverrideTokenWithoutDerivative[C]);
 
 const getDefaultComponentToken = <C extends OverrideComponent>(
   component: C,
@@ -77,7 +75,7 @@ const getDefaultComponentToken = <C extends OverrideComponent>(
   getDefaultToken: GetDefaultToken<C>,
 ) => {
   if (typeof getDefaultToken === 'function') {
-    return getDefaultToken(mergeToken<GlobalToken>(token, token[component] ?? {}));
+    return getDefaultToken(mergeToken<any>(token, token[component] ?? {}));
   }
   return getDefaultToken ?? {};
 };
@@ -88,7 +86,6 @@ const getComponentToken = <C extends OverrideComponent>(
   defaultToken: OverrideTokenWithoutDerivative[C],
   options?: {
     deprecatedTokens?: [ComponentTokenKey<C>, ComponentTokenKey<C>][];
-    format?: FormatComponentToken<C>;
   },
 ) => {
   const customToken = { ...(token[component] as ComponentToken<C>) };
@@ -98,9 +95,9 @@ const getComponentToken = <C extends OverrideComponent>(
       if (process.env.NODE_ENV !== 'production') {
         warning(
           !customToken?.[oldTokenKey],
-          `The token '${String(oldTokenKey)}' of ${component} had deprecated, use '${String(
-            newTokenKey,
-          )}' instead.`,
+          `Component Token \`${String(
+            oldTokenKey,
+          )}\` of ${component} is deprecated. Please use \`${String(newTokenKey)}\` instead.`,
         );
       }
 
@@ -110,10 +107,7 @@ const getComponentToken = <C extends OverrideComponent>(
       }
     });
   }
-  let mergedToken: any = { ...defaultToken, ...customToken };
-  if (options?.format) {
-    mergedToken = options.format(mergedToken);
-  }
+  const mergedToken: any = { ...defaultToken, ...customToken };
 
   // Remove same value as global token to minimize size
   Object.keys(mergedToken).forEach((key) => {
@@ -136,10 +130,7 @@ const getCompVarPrefix = (component: string, prefix?: string) =>
 export default function genComponentStyleHook<C extends OverrideComponent>(
   componentName: C | [C, string],
   styleFn: GenStyleFn<C>,
-  getDefaultToken?:
-    | null
-    | OverrideTokenWithoutDerivative[C]
-    | ((token: GlobalToken) => OverrideTokenWithoutDerivative[C]),
+  getDefaultToken?: GetDefaultToken<C>,
   options: {
     resetStyle?: boolean;
     // Deprecated token key map [["oldTokenKey", "newTokenKey"], ["oldTokenKey", "newTokenKey"]]
@@ -152,7 +143,6 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
      * Set order of component style. Default is -999.
      */
     order?: number;
-    format?: FormatComponentToken<C>;
     injectStyle?: boolean;
   } = {},
 ) {
@@ -164,7 +154,7 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
   const [component] = cells;
   const concatComponent = cells.join('-');
 
-  return (prefixCls: string): UseComponentStyleResult => {
+  return (prefixCls: string, rootCls: string = prefixCls): UseComponentStyleResult => {
     const [theme, realToken, hashId, token, cssVar] = useToken();
     const { getPrefixCls, iconPrefixCls, csp } = useContext(ConfigContext);
     const rootPrefixCls = getPrefixCls();
@@ -217,7 +207,6 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
         const componentCls = `.${prefixCls}`;
         const componentToken = getComponentToken(component, realToken, defaultComponentToken, {
           deprecatedTokens: options.deprecatedTokens,
-          format: options.format,
         });
 
         if (cssVar) {
@@ -252,18 +241,19 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
         });
         flush(component, componentToken);
         return [
-          options.resetStyle === false ? null : genCommonStyle(mergedToken, prefixCls),
+          options.resetStyle === false ? null : genCommonStyle(mergedToken, prefixCls, rootCls),
           styleInterpolation,
         ];
       },
     );
 
-    return [wrapSSR, classNames(hashId, cssVar?.key)];
+    return [wrapSSR, hashId];
   };
 }
 
 export interface SubStyleComponentProps {
   prefixCls: string;
+  rootCls?: string;
 }
 
 // Get from second argument
@@ -283,8 +273,9 @@ export const genSubStyleComponent: <C extends OverrideComponent>(
 
   const StyledComponent: ComponentType<SubStyleComponentProps> = ({
     prefixCls,
+    rootCls = prefixCls,
   }: SubStyleComponentProps) => {
-    useStyle(prefixCls);
+    useStyle(prefixCls, rootCls);
     return null;
   };
 
@@ -314,7 +305,6 @@ const genCSSVarRegister = <C extends OverrideComponent>(
       [key in ComponentTokenKey<C>]: boolean;
     };
     deprecatedTokens?: [ComponentTokenKey<C>, ComponentTokenKey<C>][];
-    format?: FormatComponentToken<C>;
     injectStyle?: boolean;
   },
 ) => {
@@ -348,7 +338,6 @@ const genCSSVarRegister = <C extends OverrideComponent>(
       () => {
         const defaultToken = getDefaultComponentToken(component, realToken, getDefaultToken);
         const componentToken = getComponentToken(component, realToken, defaultToken, {
-          format: options?.format,
           deprecatedTokens: options?.deprecatedTokens,
         });
         Object.keys(defaultToken).forEach((key) => {
@@ -364,32 +353,30 @@ const genCSSVarRegister = <C extends OverrideComponent>(
   const useCSSVar = (rootCls: string) => {
     const [, , , , cssVar] = useToken();
 
-    return (node: ReactElement): ReactElement =>
-      injectStyle && cssVar ? (
-        <>
-          <CSSVarRegister rootCls={rootCls} cssVar={cssVar} component={component} />
-          {node}
-        </>
-      ) : (
-        node
-      );
+    return [
+      (node: ReactElement): ReactElement =>
+        injectStyle && cssVar ? (
+          <>
+            <CSSVarRegister rootCls={rootCls} cssVar={cssVar} component={component} />
+            {node}
+          </>
+        ) : (
+          node
+        ),
+      cssVar?.key,
+    ] as const;
   };
 
   return useCSSVar;
 };
 
 export const genStyleHooks = <C extends OverrideComponent>(
-  component: C,
+  component: C | [C, string],
   styleFn: GenStyleFn<C>,
   getDefaultToken?: GetDefaultToken<C>,
   options?: {
     resetStyle?: boolean;
     deprecatedTokens?: [ComponentTokenKey<C>, ComponentTokenKey<C>][];
-    /**
-     * Chance to format component token with user input.
-     * Useful when need calculated token as css variables.
-     */
-    format?: FormatComponentToken<C>;
     /**
      * Component tokens that do not need unit.
      */
@@ -414,12 +401,16 @@ export const genStyleHooks = <C extends OverrideComponent>(
 ) => {
   const useStyle = genComponentStyleHook(component, styleFn, getDefaultToken, options);
 
-  const useCSSVar = genCSSVarRegister(component, getDefaultToken, options);
+  const useCSSVar = genCSSVarRegister(
+    Array.isArray(component) ? component[0] : component,
+    getDefaultToken,
+    options,
+  );
 
   return (prefixCls: string, rootCls: string = prefixCls) => {
-    const [, hashId] = useStyle(prefixCls);
-    const wrapCSSVar = useCSSVar(rootCls);
+    const [, hashId] = useStyle(prefixCls, rootCls);
+    const [wrapCSSVar, cssVarCls] = useCSSVar(rootCls);
 
-    return [wrapCSSVar, hashId] as const;
+    return [wrapCSSVar, hashId, cssVarCls] as const;
   };
 };

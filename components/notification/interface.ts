@@ -1,4 +1,5 @@
 import type * as React from 'react';
+import type { ClosableType } from '../_util/hooks/useClosable';
 
 interface DivProps extends React.HTMLProps<HTMLDivElement> {
   'data-testid'?: string;
@@ -12,7 +13,7 @@ export const NotificationPlacements = [
   'bottomLeft',
   'bottomRight',
 ] as const;
-export type NotificationPlacement = typeof NotificationPlacements[number];
+export type NotificationPlacement = (typeof NotificationPlacements)[number];
 
 export type IconType = 'success' | 'info' | 'error' | 'warning';
 
@@ -29,7 +30,8 @@ export interface ArgsProps {
   className?: string;
   readonly type?: IconType;
   onClick?: () => void;
-  closeIcon?: boolean | React.ReactNode;
+  closeIcon?: React.ReactNode;
+  closable?: ClosableType;
   props?: DivProps;
   role?: 'alert' | 'status';
 }
@@ -53,6 +55,7 @@ export interface GlobalConfigProps {
   getContainer?: () => HTMLElement | ShadowRoot;
   placement?: NotificationPlacement;
   closeIcon?: React.ReactNode;
+  closable?: ClosableType;
   rtl?: boolean;
   maxCount?: number;
   props?: DivProps;
@@ -67,4 +70,5 @@ export interface NotificationConfig {
   maxCount?: number;
   rtl?: boolean;
   stack?: boolean | { threshold?: number };
+  duration?: number;
 }

@@ -86,15 +86,15 @@ export default App;
 ## 链接
 
 - [首页](/index-cn)
-- [组件库](/components/overview-cn)
+- [所有组件](/components/overview-cn)
 - [国内镜像](https://github.com/ant-design/ant-design/issues/25661)
 - [Ant Design Pro](https://pro.ant.design/)
 - [Ant Design Pro Components](https://procomponents.ant.design/)
 - [Ant Design Charts](https://charts.ant.design)
 - [更新日志](/changelog)
 - [React 底层基础组件](https://react-component.github.io/)
-- [移动端组件库](https://mobile.ant.design)
-- [小程序组件库](https://mini.ant.design)
+- [Ant Design Mobile](https://mobile.ant.design)
+- [Ant Design Mini](https://mini.ant.design)
 - [Ant Design 图标](https://github.com/ant-design/ant-design-icons)
 - [Ant Design 色彩](https://github.com/ant-design/ant-design-colors)
 - [首页模板集](https://landing.ant.design)
@@ -109,18 +109,13 @@ export default App;
 - [定制主题](/docs/react/customize-theme)
 - [成为社区协作成员](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
 
+## 非 React 的实现
+
+我们采用 React 封装了一套 Ant Design 的组件库，其他语言的 UI 实现可以参考[此处](/docs/spec/introduce-cn#%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0)。
+
 ## 谁在使用
 
-- [蚂蚁集团](https://www.antgroup.com/)
-- [阿里巴巴](https://www.alibaba.com/)
-- [腾讯](https://www.tencent.com)
-- [百度](https://www.baidu.com)
-- [口碑](https://www.koubei.com/)
-- [美团](https://www.meituan.com)
-- [滴滴](https://www.xiaojukeji.com/)
-- [饿了么](https://www.ele.me/)
-
-> 如果你的公司和产品使用了 Ant Design，欢迎到 [这里](https://github.com/ant-design/ant-design/issues/477) 留言。
+Ant Design 广泛用于国内外的企业级网站搭建，可以查看 [wappalyzer](https://www.wappalyzer.com/technologies/ui-frameworks/ant-design) 作为参考数据。如果你的公司和产品使用了 Ant Design，欢迎到 [这里](https://github.com/ant-design/ant-design/issues/477) 留言。
 
 ## 如何贡献
 

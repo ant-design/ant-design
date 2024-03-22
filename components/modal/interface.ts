@@ -1,8 +1,9 @@
 import type { FC } from 'react';
+import type { DialogProps } from 'rc-dialog';
 
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import type { DirectionType } from '../config-provider';
-import type { DialogProps } from 'rc-dialog';
+import type { ClosableType } from '../_util/hooks/useClosable';
 
 export type ModalFooterRender = (
   originNode: React.ReactNode,
@@ -19,7 +20,7 @@ export interface ModalProps extends ModalCommonProps {
   /** The modal dialog's title */
   title?: React.ReactNode;
   /** Whether a close (x) button is visible on top right of the modal dialog or not. Recommend to use closeIcon instead. */
-  closable?: boolean;
+  closable?: ClosableType;
   /** Specify a function that will be called when a user clicks the OK button */
   onOk?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   /** Specify a function that will be called when a user clicks mask, close button on top right or Cancel button */
@@ -52,7 +53,7 @@ export interface ModalProps extends ModalCommonProps {
   transitionName?: string;
   className?: string;
   rootClassName?: string;
-  classNames?: Omit<NonNullable<DialogProps['classNames']>, 'wrapper'>;
+  classNames?: NonNullable<DialogProps['classNames']>;
   getContainer?: string | HTMLElement | getContainerFunc | false;
   zIndex?: number;
   /** @deprecated Please use `styles.body` instead */
@@ -63,7 +64,7 @@ export interface ModalProps extends ModalCommonProps {
   keyboard?: boolean;
   wrapProps?: any;
   prefixCls?: string;
-  closeIcon?: boolean | React.ReactNode;
+  closeIcon?: React.ReactNode;
   modalRender?: (node: React.ReactNode) => React.ReactNode;
   focusTriggerAfterClose?: boolean;
   children?: React.ReactNode;
@@ -84,7 +85,7 @@ export interface ModalFuncProps extends ModalCommonProps {
   /** @deprecated Please use `open` instead. */
   visible?: boolean;
   title?: React.ReactNode;
-  closable?: boolean;
+  closable?: ClosableType;
   content?: React.ReactNode;
   // TODO: find out exact types
   onOk?: (...args: any[]) => any;

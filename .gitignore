@@ -63,9 +63,11 @@ __image_snapshots__/
 /jest-stare
 /imageSnapshots*
 /imageDiffSnapshots
+/visualRegressionReport*
 
 .devcontainer*
 .husky/prepare-commit-msg
 
 .eslintcache
 .node-version
+.node

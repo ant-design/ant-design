@@ -1,11 +1,14 @@
 import Dayjs from 'dayjs';
+
 import 'dayjs/locale/zh-cn';
+
+import React from 'react';
 import MockDate from 'mockdate';
 import { type PickerPanelProps } from 'rc-picker';
 import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 import type { Locale } from 'rc-picker/lib/interface';
 import { resetWarned } from 'rc-util/lib/warning';
-import React from 'react';
+
 import Calendar from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -16,7 +19,7 @@ import Select from '../../select';
 import Header, { type CalendarHeaderProps } from '../Header';
 
 const ref: {
-  calendarProps?: PickerPanelProps<unknown>;
+  calendarProps?: PickerPanelProps;
   calendarHeaderProps?: CalendarHeaderProps<unknown>;
 } = {};
 
@@ -34,7 +37,7 @@ jest.mock('rc-picker', () => {
   const PickerPanelComponent = RcPicker.PickerPanel;
   return {
     ...RcPicker,
-    PickerPanel: (props: PickerPanelProps<unknown>) => {
+    PickerPanel: (props: PickerPanelProps) => {
       ref.calendarProps = props;
       return <PickerPanelComponent {...props} />;
     },
@@ -149,8 +152,8 @@ describe('Calendar', () => {
   it('getDateRange should returns a disabledDate function', () => {
     const validRange: [Dayjs.Dayjs, Dayjs.Dayjs] = [Dayjs('2018-02-02'), Dayjs('2018-05-18')];
     render(<Calendar validRange={validRange} defaultValue={Dayjs('2018-02-02')} />);
-    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-06-02'))).toBe(true);
-    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-04-02'))).toBe(false);
+    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-06-02'), {} as any)).toBe(true);
+    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-04-02'), {} as any)).toBe(false);
   });
 
   it('validRange should work with disabledDate function', () => {
@@ -162,11 +165,11 @@ describe('Calendar', () => {
       />,
     );
 
-    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-02-01'))).toBe(true);
-    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-02-02'))).toBe(false);
-    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-02-03'))).toBe(true);
-    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-02-04'))).toBe(false);
-    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-06-01'))).toBe(true);
+    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-02-01'), {} as any)).toBe(true);
+    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-02-02'), {} as any)).toBe(false);
+    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-02-03'), {} as any)).toBe(true);
+    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-02-04'), {} as any)).toBe(false);
+    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-06-01'), {} as any)).toBe(true);
   });
 
   it('Calendar MonthSelect should display correct label', () => {

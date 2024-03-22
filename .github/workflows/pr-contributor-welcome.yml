@@ -2,14 +2,20 @@
 name: PullRequest Contributor Welcome
 
 on:
-  pull_request:
+  pull_request_target:
     types:
       - closed
     paths:
       - 'components/**'
 
+permissions:
+  contents: read
+
 jobs:
   comment:
+    permissions:
+      issues: write  # for actions-cool/maintain-one-comment to modify or create issue comments
+      pull-requests: write  # for actions-cool/maintain-one-comment to modify or create PR comments
     if: github.event.pull_request.merged == true && github.repository == 'ant-design/ant-design'
     runs-on: ubuntu-latest
     steps:

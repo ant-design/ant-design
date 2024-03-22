@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Space, Switch, Table, Tag, Transfer } from 'antd';
-import type { ColumnsType, TableRowSelection } from 'antd/es/table/interface';
-import type { TransferItem, TransferProps } from 'antd/es/transfer';
+import type { GetProp, TableColumnsType, TableProps, TransferProps } from 'antd';
 import difference from 'lodash/difference';
+
+type TransferItem = GetProp<TransferProps, 'dataSource'>[number];
+type TableRowSelection<T extends object> = TableProps<T>['rowSelection'];
 
 interface RecordType {
   key: string;
@@ -22,8 +24,8 @@ interface DataType {
 
 interface TableTransferProps extends TransferProps<TransferItem> {
   dataSource: DataType[];
-  leftColumns: ColumnsType<DataType>;
-  rightColumns: ColumnsType<DataType>;
+  leftColumns: TableColumnsType<DataType>;
+  rightColumns: TableColumnsType<DataType>;
 }
 
 // Customize Table Transfer
@@ -89,7 +91,7 @@ const originTargetKeys = mockData
   .filter((item) => Number(item.key) % 3 > 1)
   .map((item) => item.key);
 
-const leftTableColumns: ColumnsType<DataType> = [
+const leftTableColumns: TableColumnsType<DataType> = [
   {
     dataIndex: 'title',
     title: 'Name',
@@ -105,7 +107,7 @@ const leftTableColumns: ColumnsType<DataType> = [
   },
 ];
 
-const rightTableColumns: ColumnsType<Pick<DataType, 'title'>> = [
+const rightTableColumns: TableColumnsType<Pick<DataType, 'title'>> = [
   {
     dataIndex: 'title',
     title: 'Name',

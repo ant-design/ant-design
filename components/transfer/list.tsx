@@ -3,7 +3,6 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 
-import { isValidElement } from '../_util/reactNode';
 import { groupKeysMap } from '../_util/transKeys';
 import Checkbox from '../checkbox';
 import Dropdown from '../dropdown';
@@ -16,7 +15,7 @@ import type {
   TransferDirection,
   TransferLocale,
 } from './index';
-import type { PaginationType } from './interface';
+import type { PaginationType, TransferKey } from './interface';
 import type { ListBodyRef, TransferListBodyProps } from './ListBody';
 import DefaultListBody, { OmitProps } from './ListBody';
 import Search from './search';
@@ -26,7 +25,7 @@ const defaultRender = () => null;
 function isRenderResultPlainObject(result: RenderResult): result is RenderResultObject {
   return !!(
     result &&
-    !isValidElement(result) &&
+    !React.isValidElement(result) &&
     Object.prototype.toString.call(result) === '[object Object]'
   );
 }
@@ -51,11 +50,15 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   dataSource: RecordType[];
   filterOption?: (filterText: string, item: RecordType, direction: TransferDirection) => boolean;
   style?: React.CSSProperties;
-  checkedKeys: string[];
+  checkedKeys: TransferKey[];
   handleFilter: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onItemSelect: (key: string, check: boolean, e?: React.MouseEvent<Element, MouseEvent>) => void;
-  onItemSelectAll: (dataSource: string[], checkAll: boolean | 'replace') => void;
-  onItemRemove?: (keys: string[]) => void;
+  onItemSelect: (
+    key: TransferKey,
+    check: boolean,
+    e?: React.MouseEvent<Element, MouseEvent>,
+  ) => void;
+  onItemSelectAll: (dataSource: TransferKey[], checkAll: boolean | 'replace') => void;
+  onItemRemove?: (keys: TransferKey[]) => void;
   handleClear: () => void;
   /** Render item */
   render?: (item: RecordType) => RenderResult;
@@ -343,22 +346,19 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
         key: 'selectInvert',
         label: selectInvert,
         onClick() {
-          const availableKeys = getEnabledItemKeys(
-            pagination
-              ? (listBodyRef.current?.items || []).map((entity) => entity.item)
-              : filteredItems,
+          const availablePageItemKeys = getEnabledItemKeys(
+            (listBodyRef.current?.items || []).map((entity) => entity.item),
           );
-          const checkedKeySet = new Set<string>(checkedKeys);
-          const newCheckedKeys: string[] = [];
-          const newUnCheckedKeys: string[] = [];
-          availableKeys.forEach((key) => {
+          const checkedKeySet = new Set(checkedKeys);
+          const newCheckedKeysSet = new Set(checkedKeySet);
+          availablePageItemKeys.forEach((key) => {
             if (checkedKeySet.has(key)) {
-              newUnCheckedKeys.push(key);
+              newCheckedKeysSet.delete(key);
             } else {
-              newCheckedKeys.push(key);
+              newCheckedKeysSet.add(key);
             }
           });
-          onItemSelectAll?.(newCheckedKeys, 'replace');
+          onItemSelectAll?.(Array.from(newCheckedKeysSet), 'replace');
         },
       },
     ];

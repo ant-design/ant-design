@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import type { RadioChangeEvent } from 'antd';
+import type { GetProp, RadioChangeEvent, TreeSelectProps } from 'antd';
 import { Radio, TreeSelect } from 'antd';
-import type { SelectCommonPlacement } from 'antd/es/_util/motion';
+
+type SelectCommonPlacement = GetProp<TreeSelectProps, 'placement'>;
 
 const treeData = [
   {

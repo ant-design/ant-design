@@ -137,7 +137,7 @@ exports[`Table rtl render component should be rendered correctly in RTL directio
                 class="ant-table-thead"
               >
                 <tr>
-                  <td
+                  <th
                     class="ant-table-cell"
                   />
                 </tr>

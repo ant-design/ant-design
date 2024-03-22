@@ -1,6 +1,7 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import * as React from 'react';
-import { Space } from 'antd';
-import { createStyles, useTheme } from 'antd-style';
+import { Flex } from 'antd';
+import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 
 import useLocale from '../../../../hooks/useLocale';
@@ -65,7 +66,6 @@ const useStyle = createStyles(({ token, css }) => ({
     box-shadow:
       0 0 0 1px ${token.colorBgContainer},
       0 0 0 ${token.controlOutlineWidth * 2 + 1}px ${token.colorPrimary};
-
     &,
     &:hover:not(:focus-within) {
       transform: scale(1);
@@ -79,35 +79,28 @@ export interface ThemePickerProps {
   onChange?: (value: string) => void;
 }
 
-export default function ThemePicker(props: ThemePickerProps) {
-  const { value, onChange, id } = props;
-
-  const token = useTheme();
+const ThemePicker: React.FC<ThemePickerProps> = (props) => {
+  const { value, id, onChange } = props;
   const { styles } = useStyle();
-
   const [locale] = useLocale(locales);
-
   return (
-    <Space size={token.paddingLG}>
-      {Object.keys(THEMES).map((theme, index) => {
-        const url = THEMES[theme as THEME];
-
-        return (
-          <Space key={theme} direction="vertical" align="center">
-            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-            <label
-              className={classNames(styles.themeCard, value === theme && styles.themeCardActive)}
-              onClick={() => {
-                onChange?.(theme);
-              }}
-            >
-              <input type="radio" name="theme" id={index === 0 ? id : undefined} />
-              <img src={url} alt={theme} />
-            </label>
-            <span>{locale[theme as keyof typeof locale]}</span>
-          </Space>
-        );
-      })}
-    </Space>
+    <Flex gap="large" wrap="wrap">
+      {Object.keys(THEMES).map<React.ReactNode>((theme: THEME, index) => (
+        <Flex vertical gap="small" justify="center" align="center" key={theme}>
+          <label
+            onClick={() => onChange?.(theme)}
+            className={classNames(styles.themeCard, {
+              [styles.themeCardActive]: value === theme,
+            })}
+          >
+            <input type="radio" name="theme" id={index === 0 ? id : undefined} />
+            <img src={THEMES[theme]} alt={theme} />
+          </label>
+          <span>{locale[theme]}</span>
+        </Flex>
+      ))}
+    </Flex>
   );
-}
+};
+
+export default ThemePicker;

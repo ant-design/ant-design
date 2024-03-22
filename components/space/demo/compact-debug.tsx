@@ -81,6 +81,17 @@ const App: React.FC = () => {
         />
         <Button type="primary">Submit</Button>
       </Space.Compact>
+      <Space.Compact>
+        <Input addonBefore="Prefix" defaultValue="mysite" showCount />
+        <Button type="primary">Submit</Button>
+        <Input
+          addonBefore="Prefix"
+          defaultValue="mysite"
+          showCount
+          addonAfter={<SettingOutlined />}
+        />
+        <Input addonBefore="Prefix" defaultValue="mysite" showCount />
+      </Space.Compact>
       <br />
       <Space.Compact>
         <Button onClick={() => setShowModal(true)}>debug Modal context</Button>

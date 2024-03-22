@@ -25,7 +25,6 @@ import Pagination from '../pagination';
 import type { SpinProps } from '../spin';
 import Spin from '../spin';
 import { useToken } from '../theme/internal';
-import type { TooltipProps } from '../tooltip';
 import renderExpandIcon from './ExpandIcon';
 import useContainerWidth from './hooks/useContainerWidth';
 import type { FilterState } from './hooks/useFilter';
@@ -47,6 +46,7 @@ import type {
   GetRowKey,
   RefInternalTable,
   SorterResult,
+  SorterTooltipProps,
   SortOrder,
   TableAction,
   TableCurrentDataSource,
@@ -82,7 +82,7 @@ export interface InternalTableProps<RecordType> extends TableProps<RecordType> {
   _renderTimes: number;
 }
 
-export interface TableProps<RecordType>
+export interface TableProps<RecordType = any>
   extends Omit<
     RcTableProps<RecordType>,
     | 'transformColumns'
@@ -116,7 +116,7 @@ export interface TableProps<RecordType>
     scrollToFirstRowOnChange?: boolean;
   };
   sortDirections?: SortOrder[];
-  showSorterTooltip?: boolean | TooltipProps;
+  showSorterTooltip?: boolean | SorterTooltipProps;
   virtual?: boolean;
 }
 
@@ -151,7 +151,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     scroll,
     sortDirections,
     locale,
-    showSorterTooltip = true,
+    showSorterTooltip = { target: 'full-header' },
     virtual,
   } = props;
 
@@ -202,10 +202,15 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const prefixCls = getPrefixCls('table', customizePrefixCls);
   const dropdownPrefixCls = getPrefixCls('dropdown', customizeDropdownPrefixCls);
 
+  const [, token] = useToken();
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+
   const mergedExpandable: ExpandableConfig<RecordType> = {
     childrenColumnName: legacyChildrenColumnName,
     expandIconColumnIndex,
     ...expandable,
+    expandIcon: expandable?.expandIcon ?? table?.expandable?.expandIcon,
   };
   const { childrenColumnName = 'children' } = mergedExpandable;
 
@@ -285,6 +290,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
       currentDataSource: getFilterData(
         getSortData(rawData, changeInfo.sorterStates!, childrenColumnName),
         changeInfo.filterStates!,
+        childrenColumnName,
       ),
       action,
     });
@@ -349,8 +355,9 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     mergedColumns,
     onFilterChange,
     getPopupContainer: getPopupContainer || getContextPopupContainer,
+    rootClassName: classNames(rootClassName, rootCls),
   });
-  const mergedData = getFilterData(sortedData, filterStates);
+  const mergedData = getFilterData(sortedData, filterStates, childrenColumnName);
 
   changeEventInfo.filters = filters;
   changeEventInfo.filterStates = filterStates;
@@ -538,11 +545,8 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     };
   }
 
-  const [, token] = useToken();
-  const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
-
   const wrapperClassNames = classNames(
+    cssVarCls,
     rootCls,
     `${prefixCls}-wrapper`,
     table?.className,
@@ -605,6 +609,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
               [`${prefixCls}-bordered`]: bordered,
               [`${prefixCls}-empty`]: rawData.length === 0,
             },
+            cssVarCls,
             rootCls,
             hashId,
           )}
@@ -624,4 +629,4 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   );
 };
 
-export default (React.forwardRef(InternalTable) as RefInternalTable);
+export default React.forwardRef(InternalTable) as RefInternalTable;

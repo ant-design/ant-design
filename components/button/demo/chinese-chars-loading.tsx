@@ -2,9 +2,9 @@ import React from 'react';
 import { PoweroffOutlined } from '@ant-design/icons';
 import { Button, Flex } from 'antd';
 
-const Text1 = () => '部署';
+const Text1 = () => <>部署</>;
 const Text2 = () => <span>部署</span>;
-const Text3 = () => 'Submit';
+const Text3 = () => <>Submit</>;
 
 const App: React.FC = () => (
   <Flex wrap="wrap" gap="small">

@@ -127,7 +127,7 @@ describe('Form', () => {
 
           try {
             await form.validateFields();
-          } catch (err) {
+          } catch {
             // do nothing
           }
         };
@@ -179,7 +179,7 @@ describe('Form', () => {
 
     // https://github.com/ant-design/ant-design/issues/41620
     it('should not throw error when `help=false` and `noStyle=true`', async () => {
-      const App = (props: { help?: boolean | React.ReactNode }) => {
+      const App: React.FC<{ help?: React.ReactNode }> = (props) => {
         const { help = false } = props || {};
         return (
           <Form>
@@ -1089,16 +1089,44 @@ describe('Form', () => {
     });
   });
 
-  it('legacy hideRequiredMark', () => {
-    const { container } = render(
-      <Form hideRequiredMark role="form">
-        <Form.Item name="light" label="light" required>
-          <Input />
-        </Form.Item>
-      </Form>,
-    );
+  describe('legacy hideRequiredMark', () => {
+    it('should work', () => {
+      const { container } = render(
+        <Form hideRequiredMark role="form">
+          <Form.Item name="light" label="light" required>
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
 
-    expect(container.querySelector('form')!).toHaveClass('ant-form-hide-required-mark');
+      expect(container.querySelector('form')!).toHaveClass('ant-form-hide-required-mark');
+    });
+
+    it('priority should be higher than CP', () => {
+      const { container, rerender } = render(
+        <ConfigProvider form={{ requiredMark: true }}>
+          <Form hideRequiredMark role="form">
+            <Form.Item name="light" label="light" required>
+              <Input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+
+      expect(container.querySelector('form')!).toHaveClass('ant-form-hide-required-mark');
+
+      rerender(
+        <ConfigProvider form={{ requiredMark: undefined }}>
+          <Form hideRequiredMark role="form">
+            <Form.Item name="light" label="light" required>
+              <Input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+
+      expect(container.querySelector('form')!).toHaveClass('ant-form-hide-required-mark');
+    });
   });
 
   it('form should support disabled', () => {
@@ -1749,7 +1777,9 @@ describe('Form', () => {
       const form = useRef<FormInstance<any>>(null);
 
       useEffect(() => {
-        if (!trigger) return;
+        if (!trigger) {
+          return;
+        }
         form.current?.validateFields();
       }, [trigger]);
 
@@ -1857,7 +1887,9 @@ describe('Form', () => {
       const form = useRef<FormInstance<any>>(null);
 
       useEffect(() => {
-        if (!trigger) return;
+        if (!trigger) {
+          return;
+        }
         form.current?.validateFields();
       }, [trigger]);
 
@@ -2147,5 +2179,24 @@ describe('Form', () => {
     expect(submit).toHaveBeenCalledWith({
       foo: false,
     });
+  });
+
+  it('getValueProps should trigger update', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item
+          name="remember"
+          getValueProps={(val) => ({ checked: val })}
+          getValueFromEvent={(e) => e.target.checked}
+        >
+          <Checkbox />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(container.querySelector('input')?.checked).toBeFalsy();
+
+    fireEvent.click(container.querySelector('input')!);
+    expect(container.querySelector('input')?.checked).toBeTruthy();
   });
 });

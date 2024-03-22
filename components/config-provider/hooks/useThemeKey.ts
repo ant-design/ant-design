@@ -1,4 +1,9 @@
-import { useId } from 'react';
+import * as React from 'react';
+
+const fullClone = {
+  ...React,
+};
+const { useId } = fullClone;
 
 const useEmptyId = () => '';
 

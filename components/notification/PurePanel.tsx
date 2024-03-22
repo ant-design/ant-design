@@ -27,13 +27,7 @@ export function getCloseIcon(prefixCls: string, closeIcon?: React.ReactNode): Re
   if (closeIcon === null || closeIcon === false) {
     return null;
   }
-  return (
-    closeIcon || (
-      <span className={`${prefixCls}-close-x`}>
-        <CloseOutlined className={`${prefixCls}-close-icon`} />
-      </span>
-    )
-  );
+  return closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />;
 }
 
 export interface PureContentProps {
@@ -100,10 +94,12 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const noticePrefixCls = `${prefixCls}-notice`;
 
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   return wrapCSSVar(
-    <div className={classNames(`${noticePrefixCls}-pure-panel`, hashId, className, rootCls)}>
+    <div
+      className={classNames(`${noticePrefixCls}-pure-panel`, hashId, className, cssVarCls, rootCls)}
+    >
       <PurePanelStyle prefixCls={prefixCls} />
       <Notice
         {...restProps}

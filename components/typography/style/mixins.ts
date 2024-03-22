@@ -222,13 +222,16 @@ export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = (tok
 };
 
 export const getCopyableStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => ({
-  '&-copy-success': {
+  [`${token.componentCls}-copy-success`]: {
     [`
     &,
     &:hover,
     &:focus`]: {
       color: token.colorSuccess,
     },
+  },
+  [`${token.componentCls}-copy-icon-only`]: {
+    marginInlineStart: 0,
   },
 });
 

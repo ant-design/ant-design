@@ -44,7 +44,7 @@ const ColorPaletteTool: React.FC = () => {
         text += locale.saturation((s * 100).toFixed(2));
       }
       if (b * 100 < primaryMinBrightness) {
-        text += locale.brightness((s * 100).toFixed(2));
+        text += locale.brightness((b * 100).toFixed(2));
       }
     }
     return (

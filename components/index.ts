@@ -1,4 +1,5 @@
 export type { Breakpoint } from './_util/responsiveObserver';
+export type { GetProps, GetRef, GetProp } from './_util/type';
 export { default as Affix } from './affix';
 export type { AffixProps } from './affix';
 export { default as Alert } from './alert';
@@ -36,7 +37,7 @@ export type { CollapsePanelProps, CollapseProps } from './collapse';
 export { default as ColorPicker } from './color-picker';
 export type { ColorPickerProps } from './color-picker';
 export { default as ConfigProvider } from './config-provider';
-export type { ThemeConfig } from './config-provider';
+export type { ConfigProviderProps, ThemeConfig } from './config-provider';
 export { default as DatePicker } from './date-picker';
 export type { DatePickerProps } from './date-picker';
 export { default as Descriptions } from './descriptions';

@@ -6,6 +6,22 @@ import { useFullSidebarData, useSidebarData } from 'dumi';
 import Link from '../theme/common/Link';
 import useLocation from './useLocation';
 
+const ItemTag: React.FC<{ tag?: string; show?: boolean }> = (props) => {
+  const { tag, show = true } = props;
+  if (!show || !tag) {
+    return null;
+  }
+  return (
+    <Tag
+      bordered={false}
+      color={tag === 'New' ? 'success' : 'processing'}
+      style={{ marginInlineStart: 'auto', marginInlineEnd: 0, marginTop: -2 }}
+    >
+      {tag.replace('VERSION', version)}
+    </Tag>
+  );
+};
+
 export interface UseMenuOptions {
   before?: React.ReactNode;
   after?: React.ReactNode;
@@ -44,18 +60,6 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
         sidebarItems.push(...reactDocData.slice(1));
       }
     }
-
-    const getItemTag = (tag: string, show = true) =>
-      tag &&
-      show && (
-        <Tag
-          color={tag === 'New' ? 'success' : 'processing'}
-          bordered={false}
-          style={{ marginInlineStart: 'auto', marginInlineEnd: 0, marginTop: -2 }}
-        >
-          {tag.replace('VERSION', version)}
-        </Tag>
-      );
 
     return (
       sidebarItems?.reduce<Exclude<MenuProps['items'], undefined>>((result, group) => {
@@ -125,7 +129,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
                     <span className="chinese" key="chinese">
                       {item.frontmatter?.subtitle}
                     </span>
-                    {getItemTag(item.frontmatter?.tag, !before && !after)}
+                    <ItemTag tag={item.frontmatter?.tag} show={!before && !after} />
                     {after}
                   </Link>
                 ),
@@ -139,7 +143,6 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
           if (list.every((info) => info?.frontmatter?.date)) {
             list.sort((a, b) => (a.frontmatter?.date > b.frontmatter?.date ? -1 : 1));
           }
-
           result.push(
             ...list.map((item) => ({
               label: (
@@ -149,7 +152,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
                 >
                   {before}
                   {item?.title}
-                  {getItemTag((item.frontmatter as any).tag, !before && !after)}
+                  <ItemTag tag={item.frontmatter?.tag} show={!before && !after} />
                   {after}
                 </Link>
               ),

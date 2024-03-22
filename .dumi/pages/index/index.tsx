@@ -4,7 +4,7 @@ import { createStyles, css } from 'antd-style';
 
 import useDark from '../../hooks/useDark';
 import useLocale from '../../hooks/useLocale';
-import BannerRecommends, { BannerRecommendsFallback } from './components/BannerRecommends';
+import BannerRecommends from './components/BannerRecommends';
 import PreviewBanner from './components/PreviewBanner';
 import Group from './components/Group';
 
@@ -46,9 +46,7 @@ const Homepage: React.FC = () => {
   return (
     <section>
       <PreviewBanner>
-        <Suspense fallback={<BannerRecommendsFallback />}>
-          <BannerRecommends />
-        </Suspense>
+        <BannerRecommends />
       </PreviewBanner>
 
       <div>

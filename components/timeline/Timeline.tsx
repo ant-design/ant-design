@@ -43,14 +43,14 @@ const Timeline: CompoundedComponent = (props) => {
 
   // Style
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const mergedItems: TimelineItemProps[] = useItems(items, children);
 
   return wrapCSSVar(
     <TimelineItemList
       {...restProps}
-      className={classNames(timeline?.className, className, rootCls)}
+      className={classNames(timeline?.className, className, cssVarCls, rootCls)}
       style={{ ...timeline?.style, ...style }}
       prefixCls={prefixCls}
       direction={direction}

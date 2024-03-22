@@ -13,7 +13,7 @@ Ant Design 支持最近 2 个版本的现代浏览器。如果你需要兼容旧
 
 ## `:where` 选择器
 
-Ant Design 的 CSS-in-JS 默认通过 `:where` 选择器降低 CSS Selector 优先级，以减少用户升级时额外调整自定义样式的成本，不过 `:where` 语法的[兼容性](https://developer.mozilla.org/en-US/docs/Web/CSS/:where#browser_compatibility)在低版本浏览器比较差。在某些场景下你如果需要支持旧版浏览器（或者如 TailwindCSS 优先级冲突），你可以使用 `@ant-design/cssinjs` 取消默认的降权操作（请注意版本保持与 antd 一致）：
+Ant Design 的 CSS-in-JS 默认通过 `:where` 选择器降低 CSS Selector 优先级，以减少用户升级时额外调整自定义样式的成本，不过 `:where` 语法的[兼容性](https://developer.mozilla.org/en-US/docs/Web/CSS/:where#browser_compatibility)在低版本浏览器比较差。在某些场景下你如果需要支持旧版浏览器（或与 [TailwindCSS 优先级冲突](https://github.com/ant-design/ant-design/issues/38794#issuecomment-1328262525)），你可以使用 `@ant-design/cssinjs` 取消默认的降权操作（请注意版本保持与 antd 一致）：
 
 ```tsx
 import { StyleProvider } from '@ant-design/cssinjs';

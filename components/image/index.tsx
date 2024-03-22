@@ -7,10 +7,10 @@ import type { ImageProps } from 'rc-image';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import defaultLocale from '../locale/en_US';
 import PreviewGroup, { icons } from './PreviewGroup';
 import useStyle from './style';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export interface CompositionImage<P> extends React.FC<P> {
   PreviewGroup: typeof PreviewGroup;
@@ -38,9 +38,9 @@ const Image: CompositionImage<ImageProps> = (props) => {
   const imageLocale = contextLocale.Image || defaultLocale.Image;
   // Style
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const mergedRootClassName = classNames(rootClassName, hashId, rootCls);
+  const mergedRootClassName = classNames(rootClassName, hashId, cssVarCls, rootCls);
 
   const mergedClassName = classNames(className, hashId, image?.className);
 
@@ -49,12 +49,12 @@ const Image: CompositionImage<ImageProps> = (props) => {
     typeof preview === 'object' ? preview.zIndex : undefined,
   );
 
-  const mergedPreview = React.useMemo(() => {
+  const mergedPreview = React.useMemo<ImageProps['preview']>(() => {
     if (preview === false) {
       return preview;
     }
     const _preview = typeof preview === 'object' ? preview : {};
-    const { getContainer, ...restPreviewProps } = _preview;
+    const { getContainer, closeIcon, ...restPreviewProps } = _preview;
     return {
       mask: (
         <div className={`${prefixCls}-mask-info`}>
@@ -64,12 +64,13 @@ const Image: CompositionImage<ImageProps> = (props) => {
       ),
       icons,
       ...restPreviewProps,
-      getContainer: getContainer || getContextPopupContainer,
+      getContainer: getContainer ?? getContextPopupContainer,
       transitionName: getTransitionName(rootPrefixCls, 'zoom', _preview.transitionName),
       maskTransitionName: getTransitionName(rootPrefixCls, 'fade', _preview.maskTransitionName),
       zIndex,
+      closeIcon: closeIcon ?? image?.preview?.closeIcon,
     };
-  }, [preview, imageLocale]);
+  }, [preview, imageLocale, image?.preview?.closeIcon]);
 
   const mergedStyle: React.CSSProperties = { ...image?.style, ...style };
 

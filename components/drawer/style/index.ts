@@ -1,5 +1,6 @@
 import { unit } from '@ant-design/cssinjs';
 
+import { genFocusStyle } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genMotionStyle from './motion';
@@ -27,12 +28,14 @@ export interface DrawerToken extends FullToken<'Drawer'> {}
 // =============================== Base ===============================
 const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
   const {
+    borderRadiusSM,
     componentCls,
     zIndexPopup,
     colorBgMask,
     colorBgElevated,
     motionDurationSlow,
     motionDurationMid,
+    paddingXS,
     padding,
     paddingLG,
     fontSizeLG,
@@ -40,13 +43,16 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
     lineWidth,
     lineType,
     colorSplit,
-    marginSM,
+    marginXS,
     colorIcon,
     colorIconHover,
+    colorBgTextHover,
+    colorBgTextActive,
     colorText,
     fontWeightStrong,
     footerPaddingBlock,
     footerPaddingInline,
+    calc,
   } = token;
 
   const wrapperCls = `${componentCls}-content-wrapper`;
@@ -61,6 +67,8 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
       '&-pure': {
         position: 'relative',
         background: colorBgElevated,
+        display: 'flex',
+        flexDirection: 'column',
 
         [`&${componentCls}-left`]: {
           boxShadow: token.boxShadowDrawerLeft,
@@ -132,19 +140,13 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
       },
 
       [`${componentCls}-content`]: {
+        display: 'flex',
+        flexDirection: 'column',
         width: '100%',
         height: '100%',
         overflow: 'auto',
         background: colorBgElevated,
         pointerEvents: 'auto',
-      },
-
-      // ===================== Panel ======================
-      [`${componentCls}-wrapper-body`]: {
-        display: 'flex',
-        flexDirection: 'column',
-        width: '100%',
-        height: '100%',
       },
 
       // Header
@@ -171,8 +173,13 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
       },
 
       [`${componentCls}-close`]: {
-        display: 'inline-block',
-        marginInlineEnd: marginSM,
+        display: 'inline-flex',
+        width: calc(fontSizeLG).add(paddingXS).equal(),
+        height: calc(fontSizeLG).add(paddingXS).equal(),
+        borderRadius: borderRadiusSM,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginInlineEnd: marginXS,
         color: colorIcon,
         fontWeight: fontWeightStrong,
         fontSize: fontSizeLG,
@@ -183,15 +190,21 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         textDecoration: 'none',
         background: 'transparent',
         border: 0,
-        outline: 0,
         cursor: 'pointer',
-        transition: `color ${motionDurationMid}`,
+        transition: `all ${motionDurationMid}`,
         textRendering: 'auto',
 
-        '&:focus, &:hover': {
+        '&:hover': {
           color: colorIconHover,
+          backgroundColor: colorBgTextHover,
           textDecoration: 'none',
         },
+
+        '&:active': {
+          backgroundColor: colorBgTextActive,
+        },
+
+        ...genFocusStyle(token),
       },
 
       [`${componentCls}-title`]: {

@@ -26,6 +26,7 @@ Checkbox component.
 <code src="./demo/layout.tsx">Use with Grid</code>
 <code src="./demo/debug-line.tsx" debug>Same line</code>
 <code src="./demo/debug-disable-popover.tsx" debug>Disabled to show Tooltip</code>
+<code src="./demo/custom-line-width.tsx" debug>customize lineWidth</code>
 
 ## API
 

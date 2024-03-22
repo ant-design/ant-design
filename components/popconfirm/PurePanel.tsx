@@ -73,7 +73,7 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
       <div className={`${prefixCls}-buttons`}>
         {showCancel && (
           <Button onClick={onCancel} size="small" {...cancelButtonProps}>
-            {cancelText ?? contextLocale?.cancelText}
+            {cancelText || contextLocale?.cancelText}
           </Button>
         )}
         <ActionButton
@@ -88,7 +88,7 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
           quitOnNullishReturnValue
           emitEvent
         >
-          {okText ?? contextLocale?.okText}
+          {okText || contextLocale?.okText}
         </ActionButton>
       </div>
     </div>

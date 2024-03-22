@@ -879,7 +879,7 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
         class="ant-col ant-col-4"
       >
         <div
-          class="ant-input-number"
+          class="ant-input-number ant-input-number-outlined"
           style="margin: 0px 16px;"
         >
           <div
@@ -1016,7 +1016,7 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
         class="ant-col ant-col-4"
       >
         <div
-          class="ant-input-number"
+          class="ant-input-number ant-input-number-outlined"
           style="margin: 0px 16px;"
         >
           <div

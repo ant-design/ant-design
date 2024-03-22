@@ -1,5 +1,4 @@
 import React from 'react';
-
 import type { TabsProps } from 'antd';
 import { Tabs, theme } from 'antd';
 import StickyBox from 'react-sticky-box';
@@ -19,7 +18,7 @@ const App: React.FC = () => {
     token: { colorBgContainer },
   } = theme.useToken();
   const renderTabBar: TabsProps['renderTabBar'] = (props, DefaultTabBar) => (
-    <StickyBox offsetTop={0} offsetBottom={20} style={{ zIndex: 1 }}>
+    <StickyBox offsetTop={64} offsetBottom={20} style={{ zIndex: 1 }}>
       <DefaultTabBar {...props} style={{ background: colorBgContainer }} />
     </StickyBox>
   );

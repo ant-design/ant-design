@@ -35,7 +35,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('qrcode', customizePrefixCls);
 
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const imageSettings: QRProps['imageSettings'] = {
     src: icon,
@@ -74,7 +74,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     return null;
   }
 
-  const mergedCls = classNames(prefixCls, className, rootClassName, hashId, {
+  const mergedCls = classNames(prefixCls, className, rootClassName, hashId, cssVarCls, {
     [`${prefixCls}-borderless`]: !bordered,
   });
 
@@ -96,6 +96,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
               )}
             </>
           )}
+          {status === 'scanned' && <p className={`${prefixCls}-scanned`}>{locale?.scanned}</p>}
         </div>
       )}
       {type === 'canvas' ? <QRCodeCanvas {...qrCodeProps} /> : <QRCodeSVG {...qrCodeProps} />}

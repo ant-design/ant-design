@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { DownOutlined } from '@ant-design/icons';
-import type { RadioChangeEvent } from 'antd';
+import type { GetProp, RadioChangeEvent, TableProps } from 'antd';
 import { Form, Radio, Space, Switch, Table } from 'antd';
-import type { SizeType } from 'antd/es/config-provider/SizeContext';
-import type { ColumnsType, TableProps, TablePaginationConfig } from 'antd/es/table';
-import type { ExpandableConfig, TableRowSelection } from 'antd/es/table/interface';
+
+type SizeType = TableProps['size'];
+type ColumnsType<T extends object> = GetProp<TableProps<T>, 'columns'>;
+type TablePagination<T extends object> = NonNullable<Exclude<TableProps<T>['pagination'], boolean>>;
+type TablePaginationPosition = NonNullable<TablePagination<any>['position']>[number];
+type ExpandableConfig<T extends object> = TableProps<T>['expandable'];
+type TableRowSelection<T extends object> = TableProps<T>['rowSelection'];
 
 interface DataType {
   key: number;
@@ -13,8 +17,6 @@ interface DataType {
   address: string;
   description: string;
 }
-
-type TablePaginationPosition = NonNullable<TablePaginationConfig['position']>[number];
 
 const columns: ColumnsType<DataType> = [
   {

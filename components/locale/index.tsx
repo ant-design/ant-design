@@ -34,13 +34,13 @@ export interface Locale {
   Upload?: UploadLocale;
   Empty?: TransferLocaleForEmpty;
   global?: Record<string, any>;
-  PageHeader?: { back: string };
   Icon?: Record<string, any>;
   Text?: {
     edit?: any;
     copy?: any;
     copied?: any;
     expand?: any;
+    collapse?: any;
   };
   Form?: {
     optional?: string;
@@ -50,8 +50,9 @@ export interface Locale {
     preview: string;
   };
   QRCode?: {
-    expired: string;
-    refresh: string;
+    expired?: string;
+    refresh?: string;
+    scanned?: string;
   };
   ColorPicker?: {
     presetEmpty: string;

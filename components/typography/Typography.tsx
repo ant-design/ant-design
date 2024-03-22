@@ -64,7 +64,7 @@ const Typography = React.forwardRef<
   const prefixCls = getPrefixCls('typography', customizePrefixCls);
 
   // Style
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const componentClassName = classNames(
     prefixCls,
@@ -75,6 +75,7 @@ const Typography = React.forwardRef<
     className,
     rootClassName,
     hashId,
+    cssVarCls,
   );
 
   const mergedStyle: React.CSSProperties = { ...typography?.style, ...style };

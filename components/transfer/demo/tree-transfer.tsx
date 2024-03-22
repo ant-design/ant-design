@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import { theme, Transfer, Tree } from 'antd';
-import type { TransferDirection, TransferItem } from 'antd/es/transfer';
-import type { DataNode } from 'antd/es/tree';
+import type { GetProp, TransferProps, TreeDataNode } from 'antd';
+
+type TransferItem = GetProp<TransferProps, 'dataSource'>[number];
 
 interface TreeTransferProps {
-  dataSource: DataNode[];
+  dataSource: TreeDataNode[];
   targetKeys: string[];
-  onChange: (targetKeys: string[], direction: TransferDirection, moveKeys: string[]) => void;
+  onChange: TransferProps['onChange'];
 }
 
 // Customize Table Transfer
 const isChecked = (selectedKeys: React.Key[], eventKey: React.Key) =>
   selectedKeys.includes(eventKey);
 
-const generateTree = (treeNodes: DataNode[] = [], checkedKeys: string[] = []): DataNode[] =>
+const generateTree = (treeNodes: TreeDataNode[] = [], checkedKeys: string[] = []): TreeDataNode[] =>
   treeNodes.map(({ children, ...props }) => ({
     ...props,
     disabled: checkedKeys.includes(props.key as string),
@@ -24,7 +25,7 @@ const TreeTransfer: React.FC<TreeTransferProps> = ({ dataSource, targetKeys, ...
   const { token } = theme.useToken();
 
   const transferDataSource: TransferItem[] = [];
-  function flatten(list: DataNode[] = []) {
+  function flatten(list: TreeDataNode[] = []) {
     list.forEach((item) => {
       transferDataSource.push(item as TransferItem);
       flatten(item.children);
@@ -68,7 +69,7 @@ const TreeTransfer: React.FC<TreeTransferProps> = ({ dataSource, targetKeys, ...
   );
 };
 
-const treeData: DataNode[] = [
+const treeData: TreeDataNode[] = [
   { key: '0-0', title: '0-0' },
   {
     key: '0-1',

@@ -153,7 +153,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   const prefixCls = getPrefixCls('anchor', customPrefixCls);
 
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const getCurrentContainer = getContainer ?? getTargetContainer ?? getDefaultContainer;
 
@@ -199,7 +199,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
       const target = document.getElementById(sharpLinkMatch[1]);
       if (target) {
         const top = getOffsetTop(target, container);
-        if (top < _offsetTop + _bounds) {
+        if (top <= _offsetTop + _bounds) {
           linkSections.push({ link, top });
         }
       }
@@ -273,6 +273,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
 
   const wrapperClass = classNames(
     hashId,
+    cssVarCls,
     rootCls,
     rootClassName,
     `${prefixCls}-wrapper`,

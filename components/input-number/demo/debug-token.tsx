@@ -25,6 +25,20 @@ export default () => (
       >
         <InputNumber />
       </ConfigProvider>
+
+      <ConfigProvider
+        theme={{
+          components: {
+            InputNumber: {
+              paddingBlockLG: 12,
+              paddingInlineLG: 16,
+            },
+          },
+        }}
+      >
+        <InputNumber size="large" />
+        <InputNumber size="large" prefix="$" />
+      </ConfigProvider>
     </Space>
   </ConfigProvider>
 );

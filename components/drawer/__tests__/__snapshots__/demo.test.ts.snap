@@ -51,57 +51,53 @@ exports[`renders components/drawer/demo/component-token.tsx correctly 1`] = `
     style="height:300px"
   >
     <div
-      class="ant-drawer-wrapper-body"
+      class="ant-drawer-header"
     >
       <div
-        class="ant-drawer-header"
+        class="ant-drawer-header-title"
       >
-        <div
-          class="ant-drawer-header-title"
+        <button
+          aria-label="Close"
+          class="ant-drawer-close"
+          type="button"
         >
-          <button
-            aria-label="Close"
-            class="ant-drawer-close"
-            type="button"
+          <span
+            aria-label="close"
+            class="anticon anticon-close"
+            role="img"
           >
-            <span
-              aria-label="close"
-              class="anticon anticon-close"
-              role="img"
+            <svg
+              aria-hidden="true"
+              data-icon="close"
+              fill="currentColor"
+              fill-rule="evenodd"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="close"
-                fill="currentColor"
-                fill-rule="evenodd"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                />
-              </svg>
-            </span>
-          </button>
-          <div
-            class="ant-drawer-title"
-          >
-            Hello Title
-          </div>
+              <path
+                d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+              />
+            </svg>
+          </span>
+        </button>
+        <div
+          class="ant-drawer-title"
+        >
+          Hello Title
         </div>
       </div>
-      <div
-        class="ant-drawer-body"
-      >
-        Hello Content
-      </div>
-      <div
-        class="ant-drawer-footer"
-      >
-        Footer!
-      </div>
+    </div>
+    <div
+      class="ant-drawer-body"
+    >
+      Hello Content
+    </div>
+    <div
+      class="ant-drawer-footer"
+    >
+      Footer!
     </div>
   </div>
 </div>
@@ -391,7 +387,7 @@ exports[`renders components/drawer/demo/placement.tsx correctly 1`] = `
 
 exports[`renders components/drawer/demo/render-in-current.tsx correctly 1`] = `
 <div
-  style="position:relative;height:200px;padding:48px;overflow:hidden;text-align:center;background:rgba(0, 0, 0, 0.02);border:1px solid #f0f0f0;border-radius:8px"
+  style="position:relative;height:200px;padding:48px;overflow:hidden;background:rgba(0, 0, 0, 0.02);border:1px solid #f0f0f0;border-radius:8px"
 >
   Render in this
   <div
@@ -418,57 +414,53 @@ exports[`renders components/drawer/demo/render-panel.tsx correctly 1`] = `
     style="height:300px"
   >
     <div
-      class="ant-drawer-wrapper-body"
+      class="ant-drawer-header"
     >
       <div
-        class="ant-drawer-header"
+        class="ant-drawer-header-title"
       >
-        <div
-          class="ant-drawer-header-title"
+        <button
+          aria-label="Close"
+          class="ant-drawer-close"
+          type="button"
         >
-          <button
-            aria-label="Close"
-            class="ant-drawer-close"
-            type="button"
+          <span
+            aria-label="close"
+            class="anticon anticon-close"
+            role="img"
           >
-            <span
-              aria-label="close"
-              class="anticon anticon-close"
-              role="img"
+            <svg
+              aria-hidden="true"
+              data-icon="close"
+              fill="currentColor"
+              fill-rule="evenodd"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="close"
-                fill="currentColor"
-                fill-rule="evenodd"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                />
-              </svg>
-            </span>
-          </button>
-          <div
-            class="ant-drawer-title"
-          >
-            Hello Title
-          </div>
+              <path
+                d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+              />
+            </svg>
+          </span>
+        </button>
+        <div
+          class="ant-drawer-title"
+        >
+          Hello Title
         </div>
       </div>
-      <div
-        class="ant-drawer-body"
-      >
-        Hello Content
-      </div>
-      <div
-        class="ant-drawer-footer"
-      >
-        Footer!
-      </div>
+    </div>
+    <div
+      class="ant-drawer-body"
+    >
+      Hello Content
+    </div>
+    <div
+      class="ant-drawer-footer"
+    >
+      Footer!
     </div>
   </div>
 </div>

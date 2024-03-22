@@ -1,4 +1,4 @@
-import { type CSSObject, unit } from '@ant-design/cssinjs';
+import { unit, type CSSObject } from '@ant-design/cssinjs';
 
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
@@ -94,7 +94,7 @@ const genGridColStyle: GenerateStyle<GridColToken> = (token): CSSObject => {
 };
 
 const genLoopGridColumnsStyle = (token: GridColToken, sizeCls: string): CSSObject => {
-  const { componentCls, gridColumns } = token;
+  const { prefixCls, componentCls, gridColumns } = token;
 
   const gridColumnsStyle: CSSObject = {};
   for (let i = gridColumns; i >= 0; i--) {
@@ -150,6 +150,11 @@ const genLoopGridColumnsStyle = (token: GridColToken, sizeCls: string): CSSObjec
       };
     }
   }
+
+  // Flex CSS Var
+  gridColumnsStyle[`${componentCls}${sizeCls}-flex`] = {
+    flex: `var(--${prefixCls}${sizeCls}-flex)`,
+  };
 
   return gridColumnsStyle;
 };

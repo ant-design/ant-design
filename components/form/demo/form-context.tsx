@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { SmileOutlined, UserOutlined } from '@ant-design/icons';
 import { Avatar, Button, Form, Input, InputNumber, Modal, Space, Typography } from 'antd';
-import type { FormInstance } from 'antd/es/form';
+import type { GetRef } from 'antd';
+
+type FormInstance = GetRef<typeof Form>;
 
 const layout = {
   labelCol: { span: 8 },

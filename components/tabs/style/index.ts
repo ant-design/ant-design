@@ -939,6 +939,7 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
 
         [`${componentCls}-nav-add`]: {
           minWidth: cardHeight,
+          minHeight: cardHeight,
           marginLeft: {
             _skip_check_: true,
             value: cardGutter,

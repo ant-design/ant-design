@@ -75,7 +75,6 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
         alignItems: 'center',
         flexDirection: 'column',
         justifyContent: 'center',
-        pointerEvents: 'none',
         opacity: 0,
         visibility: 'hidden',
         transition: `all ${token.motionDurationMid}`,
