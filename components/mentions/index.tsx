@@ -23,6 +23,7 @@ import useVariant from '../form/hooks/useVariants';
 import KeyCode from 'rc-util/lib/KeyCode';
 import Spin from '../spin';
 import useStyle from './style';
+import KeyCode from 'rc-util/lib/KeyCode';
 
 export const { Option } = RcMentions;
 
