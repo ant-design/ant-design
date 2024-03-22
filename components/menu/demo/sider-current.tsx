@@ -75,20 +75,16 @@ const App: React.FC = () => {
   const [stateOpenKeys, setStateOpenKeys] = useState(['2', '23']);
 
   const onOpenChange: MenuProps['onOpenChange'] = (openKeys) => {
-    console.log('openKeys', openKeys);
-    const countData: Record<number, number> = {};
-    let repeatIndex: number = -1;
-    openKeys.forEach((key, index) => {
-      const level = levelKeys[key];
-      if (countData[level] !== undefined) {
-        repeatIndex = countData[level];
-      }
-      countData[level] = index;
-    });
-    console.log('repeatIndex', repeatIndex);
-    if (repeatIndex !== -1) {
+    const currentOpenKey = openKeys.find((key) => stateOpenKeys.indexOf(key) === -1);
+    // open
+    if (currentOpenKey !== undefined) {
+      const repeatIndex = openKeys
+        .filter((key) => key !== currentOpenKey)
+        .findIndex((key) => levelKeys[key] === levelKeys[currentOpenKey]);
+
       setStateOpenKeys(openKeys.filter((_, index) => index !== repeatIndex));
     } else {
+      // close
       setStateOpenKeys(openKeys);
     }
   };
