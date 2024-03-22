@@ -12,7 +12,7 @@ interface ImageSettings {
 export interface QRProps {
   value: string;
   type?: 'canvas' | 'svg';
-  size?: number;
+  size?: number | string;
   color?: string;
   style?: CSSProperties;
   includeMargin?: boolean;
