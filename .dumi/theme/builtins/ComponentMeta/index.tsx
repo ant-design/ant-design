@@ -1,9 +1,8 @@
-/* eslint-disable lodash/import-scope */
 import React from 'react';
 import { GithubOutlined } from '@ant-design/icons';
 import { Descriptions, theme, Tooltip, Typography, type GetProp } from 'antd';
 import { createStyles, css } from 'antd-style';
-import { kebabCase } from 'lodash';
+import kebabCase from 'lodash/kebabCase';
 import CopyToClipboard from 'react-copy-to-clipboard';
 
 import useLocale from '../../../hooks/useLocale';
@@ -27,14 +26,30 @@ const useStyle = createStyles(({ token }) => ({
   code: css`
     cursor: pointer;
     position: relative;
-    display: inline-block;
-    border-radius: 3px;
+    display: inline-flex;
+    align-items: center;
+    column-gap: 4px;
+    border-radius: 4px;
     padding-inline: ${token.paddingXS}px;
     transition: all ${token.motionDurationSlow} !important;
-
     &:hover {
       background: ${token.controlItemBgHover};
     }
+  `,
+  import: css`
+    color: ${token.magenta8};
+  `,
+  component: css`
+    color: ${token.colorText};
+  `,
+  from: css`
+    color: ${token.magenta8};
+  `,
+  antd: css`
+    color: ${token.green8};
+  `,
+  semicolon: css`
+    color: ${token.colorText};
   `,
 }));
 
@@ -43,10 +58,9 @@ export interface ComponentMetaProps {
   source: string | true;
 }
 
-const ComponentMeta = (props: ComponentMetaProps) => {
+const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
   const { component, source } = props;
   const { token } = theme.useToken();
-
   const [locale] = useLocale(locales);
 
   const { styles } = useStyle();
@@ -83,17 +97,17 @@ const ComponentMeta = (props: ComponentMetaProps) => {
 
   // ======================== Render ========================
   const importList = [
-    <span key="import" style={{ color: token.magenta8 }}>
+    <span key="import" className={styles.import}>
       import
     </span>,
-    <span key="component" style={{ color: token.colorText }}>{` { ${component} } `}</span>,
-    <span key="from" style={{ color: token.magenta8 }}>
+    <span key="component" className={styles.component}>{`{ ${component} }`}</span>,
+    <span key="from" className={styles.from}>
       from
     </span>,
-    <span key="antd" style={{ color: token.green8 }}>
-      {`'antd'`}
+    <span key="antd" className={styles.antd}>
+      {`"antd"`}
     </span>,
-    <span key="semicolon" style={{ color: token.colorText }}>
+    <span key="semicolon" className={styles.semicolon}>
       ;
     </span>,
   ];
@@ -104,9 +118,7 @@ const ComponentMeta = (props: ComponentMetaProps) => {
       colon={false}
       column={1}
       style={{ marginTop: token.margin }}
-      labelStyle={{
-        paddingInlineEnd: token.padding,
-      }}
+      labelStyle={{ paddingInlineEnd: token.padding }}
       items={
         [
           {
@@ -118,9 +130,9 @@ const ComponentMeta = (props: ComponentMetaProps) => {
                 onOpenChange={onOpenChange}
               >
                 <span>
-                  <CopyToClipboard text={`import { ${component} } from 'antd';`} onCopy={onCopy}>
+                  <CopyToClipboard text={`import { ${component} } from "antd";`} onCopy={onCopy}>
                     <Typography.Text className={styles.code} onClick={onCopy}>
-                      {importList.map((txt, index) => (index === 0 ? txt : [' ', txt]))}
+                      {importList}
                     </Typography.Text>
                   </CopyToClipboard>
                 </span>
