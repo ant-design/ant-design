@@ -15,7 +15,7 @@ const App: React.FC = () => (
       percent={100}
       steps={{
         count: 5,
-        space: 12,
+        gap: 12,
       }}
       trailColor="rgba(0, 0, 0, 0.06)"
       strokeWidth={20}
