@@ -440,8 +440,8 @@ const theme = {
 | inherit | Inherit theme configured in upper ConfigProvider | boolean | true |
 | algorithm | Modify the algorithms of theme | `(token: SeedToken) => MapToken` \| `((token: SeedToken) => MapToken)[]` | `defaultAlgorithm` |
 | components | Modify Component Token and Alias Token applied to components | `ComponentsConfig` | - |
-| cssVar | Toggle CSS Variables | boolean \| { prefix?: string; key?: string } [CSS Variables](/docs/react/css-variables-cn#api) | false |
-| hashed | Component class Hash value | boolean [Refer](/docs/react/css-variables#disable-hash) | true |
+| cssVar | Toggle CSS Variables, refer [CSS Variables](/docs/react/css-variables#api) | `boolean \| { prefix?: string; key?: string }` | false |
+| hashed | Component class Hash value, refer [CSS Variables](/docs/react/css-variables#disable-hash) | boolean | true |
 
 ### ComponentsConfig
 

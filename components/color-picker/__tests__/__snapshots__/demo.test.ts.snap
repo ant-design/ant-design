@@ -130,7 +130,7 @@ exports[`renders components/color-picker/demo/format.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <span>
-          HEX:
+          HEX: 
           <!-- -->
           #1677ff
         </span>
@@ -163,7 +163,7 @@ exports[`renders components/color-picker/demo/format.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <span>
-          HSB:
+          HSB: 
           <!-- -->
           hsb(215, 91%, 100%)
         </span>
@@ -196,7 +196,7 @@ exports[`renders components/color-picker/demo/format.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <span>
-          RGB:
+          RGB: 
           <!-- -->
           rgb(22, 119, 255)
         </span>
