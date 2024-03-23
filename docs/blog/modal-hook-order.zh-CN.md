@@ -110,7 +110,7 @@ useLayoutEffect(() => {
 ```
 
 ```html
-<!-- Child `useLayoutEffect` is run before parent. Which makes inject dom before parent -->
+<!-- Child `useLayoutEffect` is run before parent. Which makes inject DOM before parent -->
 <div data-title="Hello 2"></div>
 <div data-title="Hello 1"></div>
 ```
@@ -138,7 +138,7 @@ useLayoutEffect(() => {
 
 ### 问题分析
 
-由于上述的队列操作，使得 portal 的 dom 在嵌套下会在下一个 `useLayoutEffect` 触发。这导致添加节点行为后于 `rc-dialog` 启动动画的 `uesLayoutEffect` 时机，导致元素不在 document 中而无法获取正确的坐标信息。
+由于上述的队列操作，使得 portal 的 DOM 在嵌套下会在下一个 `useLayoutEffect` 触发。这导致添加节点行为后于 `rc-dialog` 启动动画的 `uesLayoutEffect` 时机，导致元素不在 document 中而无法获取正确的坐标信息。
 
 由于 Modal 已经是开启状态，其实不需要通过 `queue` 异步执行，所以我们只需要加一个判断如果是开启状态，直接执行 `append` 即可：
 

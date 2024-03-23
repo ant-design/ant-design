@@ -79,4 +79,4 @@ type DomRefType = GetRef<typeof Div>; // HTMLDivElement
 
 ### 最后
 
-以上就是我们推出的工具类型，希望能够帮助到大家。如果你有更好的想法，欢迎在 Github 上提出 issue 或者 PR。
+以上就是我们推出的工具类型，希望能够帮助到大家。如果你有更好的想法，欢迎在 GitHub 上提出 issue 或者 PR。

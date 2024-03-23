@@ -8,11 +8,11 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { FloatButtonGroupProvider } from './context';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
 import type { FloatButtonGroupProps, FloatButtonRef } from './interface';
 import useStyle from './style';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
   const {
@@ -22,7 +22,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
     shape = 'circle',
     type = 'default',
     icon = <FileTextOutlined />,
-    closeIcon = <CloseOutlined />,
+    closeIcon,
     description,
     trigger,
     children,
@@ -31,7 +31,11 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
     ...floatButtonProps
   } = props;
 
-  const { direction, getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
+  const { direction, getPrefixCls, floatButtonGroup } =
+    useContext<ConfigConsumerProps>(ConfigContext);
+
+  const mergedCloseIcon = closeIcon ?? floatButtonGroup?.closeIcon ?? <CloseOutlined />;
+
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
@@ -120,7 +124,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
               ref={floatButtonRef}
               type={type}
               shape={shape}
-              icon={open ? closeIcon : icon}
+              icon={open ? mergedCloseIcon : icon}
               description={description}
               aria-label={props['aria-label']}
               {...floatButtonProps}
