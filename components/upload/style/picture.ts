@@ -136,10 +136,9 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
 
       // list
       [`${listCls}${listCls}-picture-card, ${listCls}${listCls}-picture-circle`]: {
-        display: 'grid',
-        gridTemplateColumns: `repeat(auto-fill, ${uploadPictureCardSize})`,
-        rowGap: token.marginXS,
-        columnGap: token.marginXS,
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: `${token.marginXS} ${token.marginXS}`,
 
         [`${listCls}-item-container`]: {
           display: 'inline-block',
