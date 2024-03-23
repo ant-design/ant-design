@@ -153,11 +153,7 @@ describe('Table', () => {
   it('should not crash when dataSource is array with none-object items', () => {
     render(
       <Table
-        columns={[
-          {
-            title: 'name',
-          },
-        ]}
+        columns={[{ title: 'name' }]}
         dataSource={['1', 2, undefined, {}, null, true, false, 0] as TableProps<any>['dataSource']}
       />,
     );
@@ -245,28 +241,28 @@ describe('Table', () => {
 
   it('warn about rowKey when using index parameter', () => {
     warnSpy.mockReset();
-    const columns = [
+    const columns: TableProps<any>['columns'] = [
       {
         title: 'Name',
         key: 'name',
         dataIndex: 'name',
       },
     ];
-    render(<Table columns={columns} rowKey={(record, index) => record.key + index} />);
+    render(<Table columns={columns} rowKey={(record, index) => `${record.key}${index}`} />);
     expect(warnSpy).toHaveBeenCalledWith(
       'Warning: [antd: Table] `index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
     );
   });
   it('not warn about rowKey', () => {
     warnSpy.mockReset();
-    const columns = [
+    const columns: TableProps<any>['columns'] = [
       {
         title: 'Name',
         key: 'name',
         dataIndex: 'name',
       },
     ];
-    render(<Table columns={columns} rowKey={(record) => record.key} />);
+    render(<Table columns={columns} rowKey={(record) => record.key as string} />);
     expect(warnSpy).not.toHaveBeenCalled();
   });
 

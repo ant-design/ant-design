@@ -53,7 +53,7 @@ interface AffixState {
   prevTarget: Window | HTMLElement | null;
 }
 
-interface AffixRef {
+export interface AffixRef {
   updatePosition: ReturnType<typeof throttleByAnimationFrame>;
 }
 

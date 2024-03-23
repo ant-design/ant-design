@@ -1,7 +1,9 @@
 import '@testing-library/jest-dom';
+
 import { toHaveNoViolations } from 'jest-axe';
 import jsdom from 'jsdom';
 import format, { plugins } from 'pretty-format';
+
 import { defaultConfig } from '../components/theme/internal';
 
 // Not use dynamic hashed for test env since version will change hash dynamically.
@@ -49,9 +51,8 @@ function formatHTML(nodes: any) {
   });
 
   const filtered = htmlContent
-    .split(/[\n\r]+/)
+    .split('\n')
     .filter((line) => line.trim())
-    .map((line) => line.replace(/\s+$/, ''))
     .join('\n');
 
   return filtered;

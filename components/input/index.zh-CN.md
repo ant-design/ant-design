@@ -1,15 +1,14 @@
 ---
 category: Components
-subtitle: 输入框
 group: 数据录入
 title: Input
+subtitle: 输入框
+description: 通过鼠标或键盘输入内容，是最基础的表单域的包装。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Y3R0RowXHlAAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sBqqTatJ-AkAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-通过鼠标或键盘输入内容，是最基础的表单域的包装。
 
 ## 何时使用
 

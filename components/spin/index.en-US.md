@@ -2,13 +2,12 @@
 category: Components
 group: Feedback
 title: Spin
+description: Used for the loading status of a page or a block.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5mC5TomY4B0AAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*i43_ToFrL8YAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-A spinner for displaying loading state of a page or a section.
 
 ## When To Use
 
