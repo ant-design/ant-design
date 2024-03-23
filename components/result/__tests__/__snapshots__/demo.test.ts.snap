@@ -1228,7 +1228,7 @@ exports[`renders components/result/demo/error.tsx correctly 1`] = `
             />
           </svg>
         </span>
-         Your account has been frozen.
+         Your account has been frozen. 
         <a>
           Thaw immediately &gt;
         </a>
@@ -1256,7 +1256,7 @@ exports[`renders components/result/demo/error.tsx correctly 1`] = `
             />
           </svg>
         </span>
-         Your account is not yet eligible to apply.
+         Your account is not yet eligible to apply. 
         <a>
           Apply Unlock &gt;
         </a>

@@ -552,7 +552,7 @@ exports[`renders components/notification/demo/stack.tsx extend context correctly
           class="ant-space-item"
         >
           <span>
-            Enabled:
+            Enabled: 
           </span>
         </div>
         <div
@@ -592,7 +592,7 @@ exports[`renders components/notification/demo/stack.tsx extend context correctly
           class="ant-space-item"
         >
           <span>
-            Threshold:
+            Threshold: 
           </span>
         </div>
         <div
