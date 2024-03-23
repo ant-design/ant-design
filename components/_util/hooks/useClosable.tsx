@@ -32,7 +32,7 @@ function useInnerClosable(
   closeIcon?: ReactNode,
   defaultClosable?: boolean,
   defaultCloseIcon?: ReactNode,
-) {
+): [closable: boolean, closeIcon: React.ReactNode] {
   if (typeof closable === 'boolean') {
     return [closable, closable ? getMergedCloseIcon(closeIcon, defaultCloseIcon) : null];
   }
