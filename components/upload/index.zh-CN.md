@@ -154,8 +154,11 @@ demo:
 
 与 `antd` 无关，原生上传也会失败。请重启 `Chrome` 浏览器，让其完成升级工作。
 
+![](https://github.com/ant-design/ant-design/assets/507615/1509b25f-4cd3-41b2-9415-90394ad08273)
+
 相关 `issue`：
 
+- [#48007](https://github.com/ant-design/ant-design/issues/48007)
 - [#32672](https://github.com/ant-design/ant-design/issues/32672)
 - [#32913](https://github.com/ant-design/ant-design/issues/32913)
 - [#33988](https://github.com/ant-design/ant-design/issues/33988)
