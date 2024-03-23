@@ -138,7 +138,7 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
       [`${listCls}${listCls}-picture-card, ${listCls}${listCls}-picture-circle`]: {
         display: 'flex',
         flexWrap: 'wrap',
-        gap: `${token.marginXS} ${token.marginXS}`,
+        gap: token.marginXS,
 
         [`${listCls}-item-container`]: {
           display: 'inline-block',
