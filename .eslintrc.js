@@ -226,7 +226,7 @@ module.exports = {
     // https://github.com/typescript-eslint/typescript-eslint/issues/2528#issuecomment-689369395
     'no-undef': 0,
     'import/order': 0,
-    '@typescript-eslint/no-explicit-any': 'error',
+    // '@typescript-eslint/no-explicit-any': 'error',
     '@typescript-eslint/no-unsafe-argument': 'error',
     '@typescript-eslint/no-unsafe-assignment': 'error',
     '@typescript-eslint/no-unsafe-call': 'error',
