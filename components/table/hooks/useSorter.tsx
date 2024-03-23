@@ -262,12 +262,17 @@ const stateToInfo = <RecordType extends any>(
   sorterStates: SortState<RecordType>,
 ): SorterResult<RecordType> => {
   const { column, sortOrder } = sorterStates;
-  return { column, order: sortOrder, field: column.dataIndex, columnKey: column.key };
+  return {
+    column,
+    order: sortOrder,
+    field: column.dataIndex as SorterResult<RecordType>['field'],
+    columnKey: column.key,
+  };
 };
 
-function generateSorterInfo<RecordType>(
+const generateSorterInfo = <RecordType extends any>(
   sorterStates: SortState<RecordType>[],
-): SorterResult<RecordType> | SorterResult<RecordType>[] {
+): SorterResult<RecordType> | SorterResult<RecordType>[] => {
   const list = sorterStates
     .filter(({ sortOrder }) => sortOrder)
     .map<SorterResult<RecordType>>(stateToInfo);
@@ -287,7 +292,7 @@ function generateSorterInfo<RecordType>(
   }
 
   return list;
-}
+};
 
 export function getSortData<RecordType>(
   data: readonly RecordType[],
