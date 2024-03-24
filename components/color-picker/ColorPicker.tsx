@@ -138,19 +138,19 @@ const ColorPicker: CompoundedComponent = (props) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   const rtlCls = { [`${prefixCls}-rtl`]: direction };
-  const mergeRootCls = classNames(rootClassName, cssVarCls, rootCls, rtlCls);
-  const mergeCls = classNames(
+  const mergedRootCls = classNames(rootClassName, cssVarCls, rootCls, rtlCls);
+  const mergedCls = classNames(
     getStatusClassNames(prefixCls, contextStatus),
     {
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-lg`]: mergedSize === 'large',
     },
     colorPicker?.className,
-    mergeRootCls,
+    mergedRootCls,
     className,
     hashId,
   );
-  const mergePopupCls = classNames(prefixCls, mergeRootCls);
+  const mergedPopupCls = classNames(prefixCls, mergedRootCls);
 
   const popupAllowCloseRef = useRef(true);
 
@@ -254,13 +254,13 @@ const ColorPicker: CompoundedComponent = (props) => {
           />
         </NoFormStyle>
       }
-      overlayClassName={mergePopupCls}
+      overlayClassName={mergedPopupCls}
       {...popoverProps}
     >
       {children || (
         <ColorTrigger
           open={popupOpen}
-          className={mergeCls}
+          className={mergedCls}
           style={mergedStyle}
           color={value ? generateColor(value) : colorValue}
           prefixCls={prefixCls}

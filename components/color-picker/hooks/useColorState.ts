@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import type { Color } from '../color';
 import type { ColorValueType } from '../interface';
 import { generateColor } from '../util';
@@ -13,15 +14,15 @@ const useColorState = (
 ): readonly [Color, React.Dispatch<React.SetStateAction<Color>>] => {
   const { defaultValue, value } = option;
   const [colorValue, setColorValue] = useState<Color>(() => {
-    let mergeState: ColorValueType | undefined;
+    let mergedState: ColorValueType | undefined;
     if (hasValue(value)) {
-      mergeState = value;
+      mergedState = value;
     } else if (hasValue(defaultValue)) {
-      mergeState = defaultValue;
+      mergedState = defaultValue;
     } else {
-      mergeState = defaultStateValue;
+      mergedState = defaultStateValue;
     }
-    return generateColor(mergeState || '');
+    return generateColor(mergedState || '');
   });
 
   useEffect(() => {
