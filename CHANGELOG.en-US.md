@@ -18,7 +18,7 @@ tag: vVERSION
 
 ## 5.15.4
 
-`2024-03-24`
+`2024-03-25`
 
 - 🐞 Fix GetRef ts util can not get correct ref type for some component. [#47983](https://github.com/ant-design/ant-design/pull/47983)
 - 💄 Fix Radio disabled hover style. [#47972](https://github.com/ant-design/ant-design/pull/47972) [@madocto](https://github.com/madocto)
