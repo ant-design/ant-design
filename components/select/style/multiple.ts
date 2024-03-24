@@ -86,6 +86,11 @@ export const genOverflowStyle = (
     | 'multipleItemBorderColorDisabled'
     | 'colorIcon'
     | 'colorIconHover'
+    | 'max'
+    | 'calc'
+    | 'multipleSelectItemHeight'
+    | 'paddingXXS'
+    | 'lineWidth'
   >,
 ): CSSObject => {
   const {
@@ -102,6 +107,8 @@ export const genOverflowStyle = (
 
   const selectOverflowPrefixCls = `${componentCls}-selection-overflow`;
 
+  const multipleSelectorUnit = getMultipleSelectorUnit(token);
+
   return {
     /**
      * Do not merge `height` & `line-height` under style with `selection` & `search`, since chrome
@@ -109,7 +116,7 @@ export const genOverflowStyle = (
      */
     // =========================== Overflow ===========================
     [selectOverflowPrefixCls]: {
-      position: 'relative',
+      position: 'absolute',
       display: 'flex',
       flex: 'auto',
       flexWrap: 'wrap',
@@ -119,6 +126,7 @@ export const genOverflowStyle = (
         flex: 'none',
         alignSelf: 'center',
         maxWidth: '100%',
+        height: '100%',
         display: 'inline-flex',
       },
 
@@ -129,6 +137,8 @@ export const genOverflowStyle = (
         flex: 'none',
         boxSizing: 'border-box',
         maxWidth: '100%',
+        height: multipleSelectorUnit.itemHeight,
+        lineHeight: unit(multipleSelectorUnit.itemLineHeight),
         marginBlock: FIXED_ITEM_MARGIN,
         borderRadius: borderRadiusSM,
         cursor: 'default',
@@ -293,6 +303,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSInterpolation {
   const rawStyle: CSSObject = {
     [`${componentCls}-multiple${suffixCls}`]: {
       fontSize: token.fontSize,
+      height: token.controlHeight,
 
       // ========================= Selector =========================
       [`${componentCls}-selector`]: {
