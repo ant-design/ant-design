@@ -18,7 +18,7 @@ tag: vVERSION
 
 ## 5.15.4
 
-`2024-03-24`
+`2024-03-25`
 
 - 🐞 修复 GetRef 工具类型不能正确获得某些组件 ref 类型的问题。[#47983](https://github.com/ant-design/ant-design/pull/47983)
 - 💄 修复 Radio 禁用状态 hover 样式。[#47972](https://github.com/ant-design/ant-design/pull/47972) [@madocto](https://github.com/madocto)
