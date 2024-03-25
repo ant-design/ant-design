@@ -25,8 +25,8 @@ const useColorState = (
   });
 
   useEffect(() => {
-    if (value) {
-      setColorValue(generateColor(value));
+    if (typeof value !== 'undefined') {
+      setColorValue(generateColor(value || ''));
     }
   }, [value]);
 

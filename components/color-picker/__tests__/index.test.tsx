@@ -611,7 +611,6 @@ describe('ColorPicker', () => {
 
   it('When controlled and without an initial value, then changing the controlled value to valid color should be reflected correctly on the DOM.', async () => {
     const Demo = () => {
-      // FIXME: How to cover '', null/undefined, generateColor('') at the same time?
       const [color, setColor] = useState<ColorValueType>();
       useEffect(() => {
         setColor(generateColor('red'));
