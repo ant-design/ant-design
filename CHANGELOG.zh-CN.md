@@ -25,7 +25,7 @@ tag: vVERSION
 - 🐞 修复 Watermark 在特定屏幕缩放下会不断重复渲染的问题。[#47895](https://github.com/ant-design/ant-design/pull/47895)
 - TypeScript
   - 🤖 Affix 导出 AffixRef 类型。[#47982](https://github.com/ant-design/ant-design/pull/47982) [@li-jia-nan](https://github.com/li-jia-nan)
-  - 🤖 修复 GetRef 工具类型不能正确获得某些组件 ref 类型的问题。[#47983](https://github.com/ant-design/ant-design/pull/47983)
+  - 🤖 MISC: 修复 GetRef 工具类型不能正确获得某些组件 ref 类型的问题。[#47983](https://github.com/ant-design/ant-design/pull/47983)
 
 ## 5.15.3
 
