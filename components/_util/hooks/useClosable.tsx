@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import React, { useMemo } from 'react';
+import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
@@ -53,26 +53,51 @@ function getAriaProps(closable: UseClosableParams['closable']) {
   return null;
 }
 
-function getCloseIconByClosable(closable: ClosableType | undefined, closeIcon: ReactNode) {
-  if (typeof closable === 'object' && closable.closeIcon) {
-    return closable.closeIcon;
-  }
-  if (closable === false) {
+function getCloseIcon(closeIcon: ReactNode, defaultCloseIcon: ReactNode) {
+  if (closeIcon === false) {
     return null;
+  }
+  if (closeIcon === true) {
+    return defaultCloseIcon;
   }
   return closeIcon;
 }
 
-function useClosable({
-  closable,
-  closeIcon,
-  customCloseIconRender,
-  defaultCloseIcon = <CloseOutlined />,
-  defaultClosable = false,
-  context,
-}: UseClosableParams): [closable: boolean, closeIcon: React.ReactNode | null] {
-  const contextCloseIcon = getCloseIconByClosable(context?.closable, context?.closeIcon);
-  const propCloseIcon = getCloseIconByClosable(closable, closeIcon);
+function getCloseIconByClosable(
+  closable: ClosableType | undefined,
+  closeIcon: ReactNode,
+  defaultCloseIcon: ReactNode,
+  preset = true,
+) {
+  if (typeof closable === 'object' && closable.closeIcon) {
+    return getCloseIcon(closable.closeIcon, defaultCloseIcon);
+  }
+  if (closable === false) {
+    return null;
+  }
+  return preset ? getCloseIcon(closeIcon, defaultCloseIcon) : closeIcon;
+}
+
+type ClosableConfig = {
+  closeIcon: ReactNode;
+  ariaProps: React.AriaAttributes;
+};
+
+function getClosableConfig(props: UseClosableParams): ClosableConfig | null {
+  const {
+    closable,
+    closeIcon,
+    defaultCloseIcon = <CloseOutlined />,
+    defaultClosable = false,
+    context,
+  } = props;
+  const contextCloseIcon = getCloseIconByClosable(
+    context?.closable,
+    context?.closeIcon,
+    defaultCloseIcon,
+    true,
+  );
+  const propCloseIcon = getCloseIconByClosable(closable, closeIcon, defaultCloseIcon, false);
 
   const curCloseIcon = typeof propCloseIcon !== 'undefined' ? propCloseIcon : contextCloseIcon;
 
@@ -83,26 +108,41 @@ function useClosable({
     defaultCloseIcon,
   );
 
-  const ariaProps = useMemo(
-    () => getAriaProps(closable) ?? getAriaProps(context?.closable) ?? {},
-    [closable, context?.closable],
-  );
-
   if (!mergedClosable) {
-    return [false, null];
+    return null;
   }
 
-  const plainCloseIcon = customCloseIconRender
-    ? customCloseIconRender(mergedCloseIcon)
-    : mergedCloseIcon;
+  const ariaProps = getAriaProps(closable) ?? getAriaProps(context?.closable) ?? {};
+  return {
+    closeIcon: mergedCloseIcon,
+    ariaProps,
+  };
+}
+
+function getDisplayCloseIcon(props: UseClosableParams, closableConfig: ClosableConfig) {
+  const { customCloseIconRender } = props;
+  const { closeIcon, ariaProps } = closableConfig;
+
+  const plainCloseIcon = customCloseIconRender ? customCloseIconRender(closeIcon) : closeIcon;
 
   const closeIconWithAria = React.isValidElement(plainCloseIcon) ? (
     React.cloneElement(plainCloseIcon, ariaProps)
   ) : (
     <span {...ariaProps}>{plainCloseIcon}</span>
   );
+  return closeIconWithAria;
+}
 
-  return [true, closeIconWithAria];
+function useClosable(
+  props: UseClosableParams,
+): [closable: boolean, closeIcon: React.ReactNode | null] {
+  const closableConfig = getClosableConfig(props);
+  if (!closableConfig) {
+    return [false, null];
+  }
+  const mergedCloseIcon = getDisplayCloseIcon(props, closableConfig);
+
+  return [true, mergedCloseIcon];
 }
 
 export default useClosable;
