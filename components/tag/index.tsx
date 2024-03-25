@@ -112,9 +112,6 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     closable,
     closeIcon,
     customCloseIconRender: (iconNode: React.ReactNode) => {
-      if (iconNode === null) {
-        return <CloseOutlined className={`${prefixCls}-close-icon`} onClick={handleCloseClick} />;
-      }
       if (React.isValidElement(iconNode)) {
         return React.cloneElement(iconNode as React.ReactElement<any>, {
           onClick: (e: React.MouseEvent<HTMLElement>) => {
