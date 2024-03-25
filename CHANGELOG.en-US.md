@@ -25,7 +25,7 @@ tag: vVERSION
 - 🐞 Fix Watermark sometime repeat re-render when browser set scale. [#47895](https://github.com/ant-design/ant-design/pull/47895)
 - TypeScript
   - 🤖 Export AffixRef interface. [#47982](https://github.com/ant-design/ant-design/pull/47982) [@li-jia-nan](https://github.com/li-jia-nan)
-  - 🤖 Fix GetRef ts util can not get correct ref type for some component. [#47983](https://github.com/ant-design/ant-design/pull/47983)
+  - 🤖 Fix the ts util `GetRef` can not get correct ref type for some component. [#47983](https://github.com/ant-design/ant-design/pull/47983)
 
 ## 5.15.3
 
