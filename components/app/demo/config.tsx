@@ -17,7 +17,7 @@ const MyPage = () => {
   };
 
   return (
-    <Space>
+    <Space wrap>
       <Button type="primary" onClick={showMessage}>
         Message for only one
       </Button>
