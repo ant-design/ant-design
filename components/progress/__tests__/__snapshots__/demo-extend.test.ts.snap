@@ -701,7 +701,7 @@ Array [
             opacity="1"
             r="40"
             stroke-width="20"
-            style="stroke-dasharray: 251.32741228718345px 251.32741228718345; stroke-dashoffset: 201.06192982974676; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+            style="stroke-dasharray: 251.32741228718345px 251.32741228718345; stroke-dashoffset: 208.06192982974676; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
           />
           <circle
             class="ant-progress-circle-path"
@@ -710,7 +710,7 @@ Array [
             opacity="1"
             r="40"
             stroke-width="20"
-            style="stroke-dasharray: 251.32741228718345px 251.32741228718345; stroke-dashoffset: 201.06192982974676; transform: rotate(NaNdeg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+            style="stroke-dasharray: 251.32741228718345px 251.32741228718345; stroke-dashoffset: 208.06192982974676; transform: rotate(-18deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
           />
           <circle
             class="ant-progress-circle-path"
@@ -719,7 +719,7 @@ Array [
             opacity="1"
             r="40"
             stroke-width="20"
-            style="stroke-dasharray: 251.32741228718345px 251.32741228718345; stroke-dashoffset: 201.06192982974676; transform: rotate(NaNdeg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+            style="stroke-dasharray: 251.32741228718345px 251.32741228718345; stroke-dashoffset: 208.06192982974676; transform: rotate(54deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
           />
           <circle
             class="ant-progress-circle-path"
@@ -728,7 +728,7 @@ Array [
             opacity="1"
             r="40"
             stroke-width="20"
-            style="stroke-dasharray: 251.32741228718345px 251.32741228718345; stroke-dashoffset: 201.06192982974676; transform: rotate(NaNdeg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+            style="stroke-dasharray: 251.32741228718345px 251.32741228718345; stroke-dashoffset: 208.06192982974676; transform: rotate(126deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
           />
           <circle
             class="ant-progress-circle-path"
@@ -737,7 +737,7 @@ Array [
             opacity="1"
             r="40"
             stroke-width="20"
-            style="stroke-dasharray: 251.32741228718345px 251.32741228718345; stroke-dashoffset: 201.06192982974676; transform: rotate(NaNdeg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+            style="stroke-dasharray: 251.32741228718345px 251.32741228718345; stroke-dashoffset: 208.06192982974676; transform: rotate(198deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
           />
         </svg>
         <span
