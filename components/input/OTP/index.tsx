@@ -80,23 +80,9 @@ const OTP = (props: OTPProps) => {
   // ======================== Change ========================
   const onInputChange: OTPInputProps['onChange'] = (index, txt) => {
     const nextCells = patchValue(index, txt);
-    console.log('>>>', nextCells);
 
-    // let nextValue = `${mergedValue.slice(0, index)}${txt}`;
-
-    // nextValue = nextValue.slice(0, length);
-
-    // const nextIndex = Math.min(index + txt.length, length - 1);
-
-    // if (nextIndex !== index) {
-    //   refs.current[nextIndex]?.focus();
-    // }
-
-    // setMergedValue(nextValue);
-
-    // Auto offset if input is not empty
-    if (txt) {
-      const nextIndex = Math.min(nextCells.length, length - 1);
+    const nextIndex = Math.min(index + txt.length, length - 1);
+    if (nextIndex !== index) {
       refs.current[nextIndex]?.focus();
     }
 

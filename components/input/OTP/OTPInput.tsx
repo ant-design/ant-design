@@ -43,7 +43,7 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
       {...restProps}
       ref={ref}
       value={value}
-      onChange={onInternalChange}
+      onInput={onInternalChange}
       onFocus={onInternalFocus}
       onKeyDown={onInternalKeyDown}
       onKeyUp={onInternalKeyUp}
