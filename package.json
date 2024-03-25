@@ -314,7 +314,7 @@
     "remark-preset-lint-recommended": "^6.1.3",
     "runes2": "^1.1.4",
     "semver": "^7.6.0",
-    "sharp": "^0.33.2",
+    "sharp": "^0.33.3",
     "simple-git": "^3.23.0",
     "size-limit": "^11.1.2",
     "stylelint": "^16.2.1",
