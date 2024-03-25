@@ -244,7 +244,7 @@ describe('Drawer', () => {
       errorSpy.mockRestore();
     });
 
-    it('should hide close button when closeIcon is null or false', async () => {
+    it('should hide close button when closeIcon is null or false', () => {
       const { baseElement, rerender } = render(
         <Drawer open closeIcon={null}>
           Here is content of Drawer
@@ -311,7 +311,7 @@ describe('Drawer', () => {
       expect(baseElement.querySelector('.anticon-close')).not.toBeNull();
     });
 
-    it('match between styles and deprecated style prop', async () => {
+    it('match between styles and deprecated style prop', () => {
       const initialFontSize = 10;
       let fontSize1 = initialFontSize;
       let fontSize2 = initialFontSize;

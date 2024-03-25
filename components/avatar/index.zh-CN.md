@@ -1,7 +1,8 @@
 ---
 category: Components
-subtitle: 头像
 title: Avatar
+subtitle: 头像
+description: 用来代表用户或事物，支持图片、图标或字符展示。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JJBSS5lBG4IAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*YbgyQaRGz-UAAAAAAAAAAAAADrJ8AQ/original
 demo:
@@ -10,8 +11,6 @@ group:
   title: 数据展示
   order: 5
 ---
-
-用来代表用户或事物，支持图片、图标或字符展示。
 
 ## 设计师专属
 

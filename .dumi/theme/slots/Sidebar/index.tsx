@@ -111,6 +111,8 @@ const useStyle = createStyles(({ token, css }) => {
         height: 100%;
         max-height: calc(100vh - ${token.headerHeight + token.contentMarginTop}px);
         overflow: hidden;
+        scrollbar-width: thin;
+        scrollbar-color: unset;
       }
 
       &:hover .main-menu-inner {

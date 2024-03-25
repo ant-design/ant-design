@@ -1,15 +1,13 @@
 ---
 group: Feedback
 category: Components
-subtitle:
 title: Drawer
+description: A panel that slides out from the edge of the screen.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*BD2JSKm8I-kAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*r29rQ51bNdwAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-A panel which slides in from the edge of the screen.
 
 ## When To Use
 

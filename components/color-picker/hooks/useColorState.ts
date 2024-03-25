@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+
 import type { Color } from '../color';
 import type { ColorValueType } from '../interface';
 import { generateColor } from '../util';
@@ -14,15 +15,15 @@ const useColorState = (
   const { defaultValue, value } = option;
   const prevColor = useRef<Color>(generateColor(''));
   const [colorValue, _setColorValue] = useState<Color>(() => {
-    let mergeState: ColorValueType | undefined;
+    let mergedState: ColorValueType | undefined;
     if (hasValue(value)) {
-      mergeState = value;
+      mergedState = value;
     } else if (hasValue(defaultValue)) {
-      mergeState = defaultValue;
+      mergedState = defaultValue;
     } else {
-      mergeState = defaultStateValue;
+      mergedState = defaultStateValue;
     }
-    const color = generateColor(mergeState || '');
+    const color = generateColor(mergedState || '');
     prevColor.current = color;
     return color;
   });
