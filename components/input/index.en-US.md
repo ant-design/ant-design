@@ -29,6 +29,7 @@ A basic widget for getting the user input is a text field. Keyboard and mouse ca
 <code src="./demo/search-input-loading.tsx">Search box with loading</code>
 <code src="./demo/textarea.tsx">TextArea</code>
 <code src="./demo/autosize-textarea.tsx">Autosizing the height to fit the content</code>
+<code src="./demo/otp.tsx" version="5.16.0">OTP</code>
 <code src="./demo/tooltip.tsx">Format Tooltip Input</code>
 <code src="./demo/presuffix.tsx">prefix and suffix</code>
 <code src="./demo/password-input.tsx">Password box</code>

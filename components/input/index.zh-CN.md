@@ -30,6 +30,7 @@ demo:
 <code src="./demo/search-input-loading.tsx">搜索框 loading</code>
 <code src="./demo/textarea.tsx">文本域</code>
 <code src="./demo/autosize-textarea.tsx">适应文本高度的文本域</code>
+<code src="./demo/otp.tsx" version="5.16.0">一次性密码框</code>
 <code src="./demo/tooltip.tsx">输入时格式化展示</code>
 <code src="./demo/presuffix.tsx">前缀和后缀</code>
 <code src="./demo/password-input.tsx">密码框</code>
