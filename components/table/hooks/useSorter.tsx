@@ -276,21 +276,31 @@ function injectSorter<RecordType>(
   });
 }
 
-function stateToInfo<RecordType>(sorterStates: SortState<RecordType>) {
+const stateToInfo = <RecordType extends any>(
+  sorterStates: SortState<RecordType>,
+): SorterResult<RecordType> => {
   const { column, sortOrder } = sorterStates;
-  return { column, order: sortOrder, field: column.dataIndex, columnKey: column.key };
-}
+  return {
+    column,
+    order: sortOrder,
+    field: column.dataIndex as SorterResult<RecordType>['field'],
+    columnKey: column.key,
+  };
+};
 
-function generateSorterInfo<RecordType>(
+const generateSorterInfo = <RecordType extends any>(
   sorterStates: SortState<RecordType>[],
-): SorterResult<RecordType> | SorterResult<RecordType>[] {
-  const list = sorterStates.filter(({ sortOrder }) => sortOrder).map(stateToInfo);
+): SorterResult<RecordType> | SorterResult<RecordType>[] => {
+  const list = sorterStates
+    .filter(({ sortOrder }) => sortOrder)
+    .map<SorterResult<RecordType>>(stateToInfo);
 
   // =========== Legacy compatible support ===========
   // https://github.com/ant-design/ant-design/pull/19226
   if (list.length === 0 && sorterStates.length) {
+    const lastIndex = sorterStates.length - 1;
     return {
-      ...stateToInfo(sorterStates[sorterStates.length - 1]),
+      ...stateToInfo(sorterStates[lastIndex]),
       column: undefined,
     };
   }
@@ -300,7 +310,7 @@ function generateSorterInfo<RecordType>(
   }
 
   return list;
-}
+};
 
 export function getSortData<RecordType>(
   data: readonly RecordType[],
@@ -385,7 +395,7 @@ export default function useFilterSorter<RecordType>({
     collectSortStates(mergedColumns, true),
   );
 
-  const mergedSorterStates = React.useMemo(() => {
+  const mergedSorterStates = React.useMemo<SortState<RecordType>[]>(() => {
     let validate = true;
     const collectedStates = collectSortStates(mergedColumns, false);
 
@@ -445,9 +455,8 @@ export default function useFilterSorter<RecordType>({
     };
   }, [mergedSorterStates]);
 
-  function triggerSorter(sortState: SortState<RecordType>) {
-    let newSorterStates;
-
+  const triggerSorter = (sortState: SortState<RecordType>) => {
+    let newSorterStates: SortState<RecordType>[];
     if (
       sortState.multiplePriority === false ||
       !mergedSorterStates.length ||
@@ -460,10 +469,9 @@ export default function useFilterSorter<RecordType>({
         sortState,
       ];
     }
-
     setSortStates(newSorterStates);
     onSorterChange(generateSorterInfo(newSorterStates), newSorterStates);
-  }
+  };
 
   const transformColumns = (innerColumns: ColumnsType<RecordType>) =>
     injectSorter(

@@ -3,11 +3,10 @@ category: Components
 group: 数据展示
 title: Table
 subtitle: 表格
+description: 展示行列数据。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3yz3QqMlShYAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Sv8XQ50NB40AAAAAAAAAAAAADrJ8AQ/original
 ---
-
-展示行列数据。
 
 ## 何时使用
 

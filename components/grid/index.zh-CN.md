@@ -1,13 +1,12 @@
 ---
 category: Components
-subtitle: 栅格
 group: 布局
 title: Grid
+subtitle: 栅格
+description: 24 栅格系统。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*mfJeS6cqZrEAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*DLUwQ4B2_zQAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-24 栅格系统。
 
 ## 设计理念
 
