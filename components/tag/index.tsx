@@ -109,17 +109,24 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
   };
 
   const [, mergedCloseIcon] = useClosable({
-    closable: closable ?? tag?.closable,
+    closable,
     closeIcon,
     customCloseIconRender: (iconNode: React.ReactNode) =>
       iconNode === null ? (
         <CloseOutlined className={`${prefixCls}-close-icon`} onClick={handleCloseClick} />
+      ) : React.isValidElement(iconNode) ? (
+        React.cloneElement(iconNode as React.ReactElement<any>, {
+          onClick: (e: React.MouseEvent<HTMLElement>) => {
+            iconNode.props.onClick?.(e);
+            handleCloseClick(e);
+          },
+          className: classNames(iconNode.props.className, `${prefixCls}-close-icon`),
+        })
       ) : (
         <span className={`${prefixCls}-close-icon`} onClick={handleCloseClick}>
           {iconNode}
         </span>
       ),
-    defaultCloseIcon: null,
     defaultClosable: false,
     context: tag,
   });

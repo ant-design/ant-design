@@ -33,6 +33,7 @@ function getClosable(
   defaultClosable?: boolean,
   defaultCloseIcon?: ReactNode,
 ): [closable: boolean, closeIcon: React.ReactNode] {
+  const mergedDefaultClosableIcon = defaultClosable ? defaultCloseIcon : null;
   if (typeof closable === 'boolean') {
     return [closable, closable ? getMergedCloseIcon(closeIcon, defaultCloseIcon) : null];
   }
@@ -40,7 +41,7 @@ function getClosable(
     return [true, getMergedCloseIcon(closeIcon, defaultCloseIcon)];
   }
   if (closeIcon === undefined) {
-    return [!!defaultClosable, defaultClosable ? defaultCloseIcon : null];
+    return [!!defaultClosable, mergedDefaultClosableIcon];
   }
   const curClosable = closeIcon !== false && closeIcon !== null;
   return [curClosable, curClosable ? getMergedCloseIcon(closeIcon, defaultCloseIcon) : null];
@@ -67,7 +68,7 @@ function getCloseIconByClosable(
   closable: ClosableType | undefined,
   closeIcon: ReactNode,
   defaultCloseIcon: ReactNode,
-  preset = true,
+  preset: boolean,
 ) {
   if (typeof closable === 'object' && closable.closeIcon) {
     return getCloseIcon(closable.closeIcon, defaultCloseIcon);
