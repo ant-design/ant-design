@@ -27,7 +27,7 @@ function getMergedCloseIcon(closeIcon: ReactNode, defaultCloseIcon: ReactNode) {
     : closeIcon;
 }
 
-function useInnerClosable(
+function getClosable(
   closable?: UseClosableParams['closable'],
   closeIcon?: ReactNode,
   defaultClosable?: boolean,
@@ -101,7 +101,7 @@ function getClosableConfig(props: UseClosableParams): ClosableConfig | null {
 
   const curCloseIcon = typeof propCloseIcon !== 'undefined' ? propCloseIcon : contextCloseIcon;
 
-  const [mergedClosable, mergedCloseIcon] = useInnerClosable(
+  const [mergedClosable, mergedCloseIcon] = getClosable(
     closable,
     curCloseIcon,
     defaultClosable,
