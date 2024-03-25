@@ -26,6 +26,7 @@ const useStyle = createStyles(({ token, css }) => {
       backdrop-filter: blur(8px);
       border-radius: ${token.borderRadius}px;
       box-sizing: border-box;
+      margin-inline-end: calc(16px - 100vw + 100%);
       z-index: 1000;
 
       .toc-debug {
