@@ -12,7 +12,7 @@ export interface Color
     RcColor,
     'toHsb' | 'toHsbString' | 'toHex' | 'toHexString' | 'toRgb' | 'toRgbString'
   > {
-  cleared: boolean;
+  cleared: boolean | 'controlled';
 }
 
 export class ColorFactory implements Color {

@@ -64,7 +64,7 @@ const ColorPicker: CompoundedComponent = (props) => {
   const contextDisabled = useContext(DisabledContext);
   const mergedDisabled = disabled ?? contextDisabled;
 
-  const [colorValue, setColorValue] = useColorState('', {
+  const [colorValue, setColorValue, prevValue] = useColorState('', {
     value,
     defaultValue,
   });
@@ -118,7 +118,6 @@ const ColorPicker: CompoundedComponent = (props) => {
     );
   }
 
-  const prevValue = useRef<Color>(colorValue);
   const handleChange = (data: Color, type?: HsbaColorType, pickColor?: boolean) => {
     let color: Color = generateColor(data);
 
@@ -144,7 +143,6 @@ const ColorPicker: CompoundedComponent = (props) => {
     }
 
     setColorValue(color);
-    prevValue.current = color;
     onChange?.(color, color.toHexString());
   };
 

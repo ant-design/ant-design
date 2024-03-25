@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { Color } from '../color';
 import type { ColorValueType } from '../interface';
 import { generateColor } from '../util';
@@ -12,7 +12,8 @@ const useColorState = (
   option: { defaultValue?: ColorValueType; value?: ColorValueType },
 ) => {
   const { defaultValue, value } = option;
-  const [colorValue, setColorValue] = useState<Color>(() => {
+  const prevColor = useRef<Color>(generateColor(''));
+  const [colorValue, _setColorValue] = useState<Color>(() => {
     let mergeState: ColorValueType | undefined;
     if (hasValue(value)) {
       mergeState = value;
@@ -21,16 +22,27 @@ const useColorState = (
     } else {
       mergeState = defaultStateValue;
     }
-    return generateColor(mergeState || '');
+    const color = generateColor(mergeState || '');
+    prevColor.current = color;
+    return color;
   });
 
+  const setColorValue: typeof _setColorValue = (color: Color) => {
+    _setColorValue(color);
+    prevColor.current = color;
+  };
+
   useEffect(() => {
-    if (typeof value !== 'undefined') {
-      setColorValue(generateColor(value || ''));
+    if (hasValue(value)) {
+      const newColor = generateColor(value || '');
+      if (prevColor.current.cleared === true) {
+        newColor.cleared = 'controlled';
+      }
+      setColorValue(newColor);
     }
   }, [value]);
 
-  return [colorValue, setColorValue] as const;
+  return [colorValue, setColorValue, prevColor] as const;
 };
 
 export default useColorState;
