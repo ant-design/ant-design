@@ -33,7 +33,7 @@
   "app.demo.code.hide": "Hide code",
   "app.demo.code.hide.simplify": "Hide",
   "app.demo.codepen": "Open in CodePen",
-  "app.demo.codesandbox": "Open in CodeSandbox",
+  "app.demo.codesandbox": "Open in CodeSandbox(Not recommended, please use Stackblitz)",
   "app.demo.stackblitz": "Open in Stackblitz",
   "app.demo.riddle": "Open in Riddle",
   "app.demo.separate": "Open in a new window",
