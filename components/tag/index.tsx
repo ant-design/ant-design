@@ -3,7 +3,8 @@ import classNames from 'classnames';
 
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { isPresetColor, isPresetStatusColor } from '../_util/colors';
-import useClosable from '../_util/hooks/useClosable';
+import useClosable, { pickClosable } from '../_util/hooks/useClosable';
+import { replaceElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -111,23 +112,21 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     closable,
     closeIcon,
     customCloseIconRender: (iconNode: React.ReactNode) => {
-      if (React.isValidElement(iconNode)) {
-        return React.cloneElement(iconNode as React.ReactElement<any>, {
-          onClick: (e: React.MouseEvent<HTMLElement>) => {
-            iconNode.props.onClick?.(e);
-            handleCloseClick(e);
-          },
-          className: classNames(iconNode.props.className, `${prefixCls}-close-icon`),
-        });
-      }
-      return (
+      const replacement = (
         <span className={`${prefixCls}-close-icon`} onClick={handleCloseClick}>
           {iconNode}
         </span>
       );
+      return replaceElement(iconNode, replacement, (originProps) => ({
+        onClick: (e: React.MouseEvent<HTMLElement>) => {
+          originProps?.onClick?.(e);
+          handleCloseClick(e);
+        },
+        className: classNames(originProps?.className, `${prefixCls}-close-icon`),
+      }));
     },
     defaultClosable: false,
-    context: tag,
+    context: pickClosable(tag),
   });
 
   const isNeedWave =

@@ -3,14 +3,22 @@ import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
-import type {
-  AlertConfig,
-  DrawerConfig,
-  ModalConfig,
-  TagConfig,
-} from '../../config-provider/context';
-
 export type ClosableType = boolean | ({ closeIcon?: React.ReactNode } & React.AriaAttributes);
+
+export type ContextClosable<T extends { closable?: ClosableType; closeIcon?: ReactNode } = any> =
+  Partial<Pick<T, 'closable' | 'closeIcon'>>;
+
+export function pickClosable<T extends { closable?: ClosableType; closeIcon?: ReactNode }>(
+  context?: ContextClosable<T>,
+): ContextClosable<T> | undefined {
+  if (!context) {
+    return undefined;
+  }
+  return {
+    closable: context.closable,
+    closeIcon: context.closeIcon,
+  };
+}
 
 export type UseClosableParams = {
   closable?: ClosableType;
@@ -18,7 +26,7 @@ export type UseClosableParams = {
   defaultClosable?: boolean;
   defaultCloseIcon?: ReactNode;
   customCloseIconRender?: (closeIcon: ReactNode) => ReactNode;
-  context?: TagConfig | DrawerConfig | ModalConfig | AlertConfig;
+  context?: ContextClosable;
 };
 
 function getMergedCloseIcon(closeIcon: ReactNode, defaultCloseIcon: ReactNode) {
