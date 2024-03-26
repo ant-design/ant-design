@@ -62,6 +62,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     variant,
     disabled,
     status,
+    autoFocus,
     ...restProps
   } = props;
 
@@ -214,6 +215,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
             onChange={onInputChange}
             value={singleValue}
             onActiveChange={onInputActiveChange}
+            autoFocus={index === 0 && autoFocus}
             {...inputSharedProps}
           />
         );
