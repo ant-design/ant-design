@@ -129,6 +129,13 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   const patchValue = useEvent((index: number, txt: string) => {
     let nextCells = [...valueCells];
 
+    // Fill cells till index
+    for (let i = 0; i < index; i += 1) {
+      if (!nextCells[i]) {
+        nextCells[i] = '';
+      }
+    }
+
     if (txt.length <= 1) {
       nextCells[index] = txt;
     } else {
