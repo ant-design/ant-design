@@ -27,7 +27,7 @@ const useStyle = createStyles(({ token, css }) => {
       border-radius: ${token.borderRadius}px;
       box-sizing: border-box;
       margin-inline-end: calc(16px - 100vw + 100%);
-      z-index: 999;
+      z-index: 10;
 
       .toc-debug {
         color: ${token.purple6};
