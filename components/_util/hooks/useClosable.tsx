@@ -3,7 +3,8 @@ import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
-export type ClosableType = boolean | ({ closeIcon?: React.ReactNode } & React.AriaAttributes);
+export type BaseClosableType = { closeIcon?: React.ReactNode } & React.AriaAttributes;
+export type ClosableType = boolean | BaseClosableType;
 
 export type ContextClosable<T extends { closable?: ClosableType; closeIcon?: ReactNode } = any> =
   Partial<Pick<T, 'closable' | 'closeIcon'>>;
@@ -55,11 +56,8 @@ function getClosable(
   return [curClosable, curClosable ? getMergedCloseIcon(closeIcon, defaultCloseIcon) : null];
 }
 
-function getAriaProps(closable: UseClosableParams['closable'] | null) {
-  if (typeof closable === 'object' && closable !== null) {
-    return pickAttrs(closable, true);
-  }
-  return null;
+function getAriaProps(closable: BaseClosableType) {
+  return pickAttrs(closable, true);
 }
 
 function getCloseIcon(closeIcon: ReactNode, defaultCloseIcon: ReactNode) {
@@ -142,7 +140,7 @@ function getClosableConfig(props: UseClosableParams): ClosableConfig | null {
     return null;
   }
 
-  const ariaProps = getAriaProps(propConfig ?? contextConfig) ?? {};
+  const ariaProps = getAriaProps(propConfig ?? contextConfig ?? {}) ?? {};
   return {
     closeIcon: mergedCloseIcon,
     ariaProps,
