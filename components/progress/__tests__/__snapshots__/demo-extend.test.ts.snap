@@ -487,9 +487,11 @@ exports[`renders components/progress/demo/circle-mini.tsx extend context correct
 
 exports[`renders components/progress/demo/circle-steps.tsx extend context correctly 1`] = `
 Array [
-  <p>
+  <h5
+    class="ant-typography"
+  >
     Custom count:
-  </p>,
+  </h5>,
   <div
     class="ant-slider ant-slider-horizontal"
   >
@@ -534,9 +536,11 @@ Array [
       </div>
     </div>
   </div>,
-  <p>
+  <h5
+    class="ant-typography"
+  >
     Custom gap:
-  </p>,
+  </h5>,
   <div
     class="ant-slider ant-slider-horizontal"
   >
