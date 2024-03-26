@@ -72,19 +72,35 @@ function getCloseIcon(closeIcon: ReactNode, defaultCloseIcon: ReactNode) {
   return closeIcon;
 }
 
-function getCloseIconByClosable(
+function notUndefined(val: any) {
+  return val !== undefined;
+}
+
+function getConfigByClosable(
   closable: ClosableType | undefined,
   closeIcon: ReactNode,
   defaultCloseIcon: ReactNode,
   preset: boolean,
 ) {
   if (typeof closable === 'object' && closable.closeIcon) {
-    return getCloseIcon(closable.closeIcon, defaultCloseIcon);
+    return {
+      closeIcon: getCloseIcon(closable.closeIcon, defaultCloseIcon),
+      ...closable,
+    };
   }
   if (closable === false) {
     return null;
   }
-  return preset ? getCloseIcon(closeIcon, defaultCloseIcon) : closeIcon;
+  if (preset) {
+    return {
+      closeIcon: getCloseIcon(closeIcon, defaultCloseIcon),
+    };
+  }
+  return notUndefined(closeIcon)
+    ? {
+        closeIcon,
+      }
+    : null;
 }
 
 type ClosableConfig = {
@@ -100,18 +116,23 @@ function getClosableConfig(props: UseClosableParams): ClosableConfig | null {
     defaultClosable = false,
     context,
   } = props;
-  const contextCloseIcon = getCloseIconByClosable(
+  const contextConfig = getConfigByClosable(
     context?.closable,
     context?.closeIcon,
     defaultCloseIcon,
     true,
   );
-  const propCloseIcon = getCloseIconByClosable(closable, closeIcon, defaultCloseIcon, false);
+  const propConfig = getConfigByClosable(closable, closeIcon, defaultCloseIcon, false);
 
-  const curCloseIcon = typeof propCloseIcon !== 'undefined' ? propCloseIcon : contextCloseIcon;
+  let curCloseIcon: ReactNode = null;
+  if (propConfig) {
+    curCloseIcon = propConfig.closeIcon;
+  } else if (contextConfig) {
+    curCloseIcon = contextConfig.closeIcon;
+  }
 
   const [mergedClosable, mergedCloseIcon] = getClosable(
-    closable,
+    closable ?? context?.closable,
     curCloseIcon,
     defaultClosable,
     defaultCloseIcon,
@@ -121,7 +142,7 @@ function getClosableConfig(props: UseClosableParams): ClosableConfig | null {
     return null;
   }
 
-  const ariaProps = getAriaProps(closable) ?? getAriaProps(context?.closable) ?? {};
+  const ariaProps = getAriaProps(propConfig ?? contextConfig ?? {}) ?? {};
   return {
     closeIcon: mergedCloseIcon,
     ariaProps,
