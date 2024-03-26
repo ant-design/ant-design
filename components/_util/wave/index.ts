@@ -5,6 +5,7 @@ import { composeRef, supportRef } from 'rc-util/lib/ref';
 
 import type { ConfigConsumerProps } from '../../config-provider';
 import { ConfigContext } from '../../config-provider';
+import { useToken } from '../../theme/internal';
 import { cloneElement } from '../reactNode';
 import useStyle from './style';
 import useWave from './useWave';
@@ -19,6 +20,7 @@ const Wave: React.FC<WaveProps> = (props) => {
   const { children, disabled, component } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const containerRef = useRef<HTMLElement>(null);
+  const [, token] = useToken();
 
   // ============================== Style ===============================
   const prefixCls = getPrefixCls('wave');
@@ -44,11 +46,11 @@ const Wave: React.FC<WaveProps> = (props) => {
         node.getAttribute('disabled') ||
         (node as HTMLInputElement).disabled ||
         node.className.includes('disabled') ||
-        node.className.includes('-leave')
+        node.className.includes('-leave') ||
+        token.motion === false
       ) {
         return;
       }
-
       showWave(e);
     };
 
