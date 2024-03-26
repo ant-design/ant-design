@@ -10,6 +10,7 @@ interface PaletteGenerators {
 export default function genColorMapToken(
   seed: SeedToken,
   { generateColorPalettes, generateNeutralColorPalettes }: PaletteGenerators,
+  theme?: 'dark' | 'default',
 ): ColorMapToken {
   const {
     colorSuccess: colorSuccessBase,
@@ -35,7 +36,7 @@ export default function genColorMapToken(
   return {
     ...neutralColors,
 
-    colorPrimaryBg: primaryColors[1],
+    colorPrimaryBg: theme === 'dark' ? primaryColors[3] : primaryColors[1],
     colorPrimaryBgHover: primaryColors[2],
     colorPrimaryBorder: primaryColors[3],
     colorPrimaryBorderHover: primaryColors[4],
