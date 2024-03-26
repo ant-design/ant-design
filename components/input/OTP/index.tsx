@@ -175,6 +175,11 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     refs.current[nextIndex]?.focus();
   };
 
+  const onInputNext: OTPInputProps['onNext'] = (index) => {
+    const nextIndex = index + 1;
+    refs.current[nextIndex]?.focus();
+  };
+
   // ======================== Render ========================
   return wrapCSSVar(
     <div
@@ -208,6 +213,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
             onChange={onInputChange}
             value={singleValue}
             onBack={onInputBack}
+            onNext={onInputNext}
             {...inputSharedProps}
           />
         );
