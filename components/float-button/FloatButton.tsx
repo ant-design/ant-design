@@ -6,6 +6,7 @@ import { devUseWarning } from '../_util/warning';
 import Badge from '../badge';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import Tooltip from '../tooltip';
 import FloatButtonGroupContext from './context';
 import Content from './FloatButtonContent';
@@ -18,7 +19,6 @@ import type {
   FloatButtonShape,
 } from './interface';
 import useStyle from './style';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export const floatButtonPrefixCls = 'float-btn';
 
@@ -41,7 +41,7 @@ const FloatButton = React.forwardRef<FloatButtonElement, FloatButtonProps>((prop
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const mergeShape = groupShape || shape;
+  const mergedShape = groupShape || shape;
 
   const classString = classNames(
     hashId,
@@ -51,7 +51,7 @@ const FloatButton = React.forwardRef<FloatButtonElement, FloatButtonProps>((prop
     className,
     rootClassName,
     `${prefixCls}-${type}`,
-    `${prefixCls}-${mergeShape}`,
+    `${prefixCls}-${mergedShape}`,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
