@@ -55,7 +55,7 @@ function getClosable(
   return [curClosable, curClosable ? getMergedCloseIcon(closeIcon, defaultCloseIcon) : null];
 }
 
-function getAriaProps(closable: UseClosableParams['closable']) {
+function getAriaProps(closable: UseClosableParams['closable'] | null) {
   if (typeof closable === 'object' && closable !== null) {
     return pickAttrs(closable, true);
   }
@@ -142,7 +142,7 @@ function getClosableConfig(props: UseClosableParams): ClosableConfig | null {
     return null;
   }
 
-  const ariaProps = getAriaProps(propConfig ?? contextConfig ?? {}) ?? {};
+  const ariaProps = getAriaProps(propConfig ?? contextConfig) ?? {};
   return {
     closeIcon: mergedCloseIcon,
     ariaProps,
