@@ -19,12 +19,22 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
     onChange(index, e.target.value);
   };
 
+  // ========================== Ref ===========================
+  const inputRef = React.useRef<InputRef>(null);
+  React.useImperativeHandle(ref, () => inputRef.current!);
+
   // ========================= Focus ==========================
+  const syncSelection = () => {
+    raf(() => {
+      const inputEle = inputRef.current?.input;
+      if (document.activeElement === inputEle && inputEle) {
+        inputEle.select();
+      }
+    });
+  };
 
   const onInternalFocus: React.FocusEventHandler<HTMLInputElement> = (e) => {
-    raf(() => {
-      e.target.select();
-    });
+    syncSelection();
   };
 
   // ======================== Keyboard ========================
@@ -34,24 +44,30 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
     } else if (key === 'ArrowRight') {
       onNext(index);
     }
+
+    syncSelection();
   };
 
   const onInternalKeyUp: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
     if (e.key === 'Backspace' && !value) {
       onBack(index);
     }
+
+    syncSelection();
   };
 
   // ========================= Render =========================
   return (
     <Input
       {...restProps}
-      ref={ref}
+      ref={inputRef}
       value={value}
       onInput={onInternalChange}
       onFocus={onInternalFocus}
       onKeyDown={onInternalKeyDown}
       onKeyUp={onInternalKeyUp}
+      onMouseDown={syncSelection}
+      onMouseUp={syncSelection}
     />
   );
 });
