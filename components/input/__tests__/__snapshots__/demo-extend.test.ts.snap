@@ -10114,6 +10114,263 @@ exports[`renders components/input/demo/group.tsx extend context correctly 2`] = 
 ]
 `;
 
+exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <div
+          class="ant-segmented"
+        >
+          <div
+            class="ant-segmented-group"
+          >
+            <label
+              class="ant-segmented-item ant-segmented-item-selected"
+            >
+              <input
+                checked=""
+                class="ant-segmented-item-input"
+                type="radio"
+              />
+              <div
+                class="ant-segmented-item-label"
+                title="default"
+              >
+                default
+              </div>
+            </label>
+            <label
+              class="ant-segmented-item"
+            >
+              <input
+                class="ant-segmented-item-input"
+                type="radio"
+              />
+              <div
+                class="ant-segmented-item-label"
+                title="disabled"
+              >
+                disabled
+              </div>
+            </label>
+            <label
+              class="ant-segmented-item"
+            >
+              <input
+                class="ant-segmented-item-input"
+                type="radio"
+              />
+              <div
+                class="ant-segmented-item-label"
+                title="warning"
+              >
+                warning
+              </div>
+            </label>
+            <label
+              class="ant-segmented-item"
+            >
+              <input
+                class="ant-segmented-item-input"
+                type="radio"
+              />
+              <div
+                class="ant-segmented-item-label"
+                title="error"
+              >
+                error
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <h5
+      class="ant-typography"
+    >
+      With formatter (Upcase)
+    </h5>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-otp"
+    >
+      <input
+        class="ant-input ant-input-outlined ant-otp-input"
+        size="1"
+        type="text"
+        value=""
+      />
+      <input
+        class="ant-input ant-input-outlined ant-otp-input"
+        size="1"
+        type="text"
+        value=""
+      />
+      <input
+        class="ant-input ant-input-outlined ant-otp-input"
+        size="1"
+        type="text"
+        value=""
+      />
+      <input
+        class="ant-input ant-input-outlined ant-otp-input"
+        size="1"
+        type="text"
+        value=""
+      />
+      <input
+        class="ant-input ant-input-outlined ant-otp-input"
+        size="1"
+        type="text"
+        value=""
+      />
+      <input
+        class="ant-input ant-input-outlined ant-otp-input"
+        size="1"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <h5
+      class="ant-typography"
+    >
+      With count
+    </h5>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-otp"
+    >
+      <input
+        class="ant-input ant-input-outlined ant-otp-input"
+        size="1"
+        type="text"
+        value=""
+      />
+      <input
+        class="ant-input ant-input-outlined ant-otp-input"
+        size="1"
+        type="text"
+        value=""
+      />
+      <input
+        class="ant-input ant-input-outlined ant-otp-input"
+        size="1"
+        type="text"
+        value=""
+      />
+      <input
+        class="ant-input ant-input-outlined ant-otp-input"
+        size="1"
+        type="text"
+        value=""
+      />
+      <input
+        class="ant-input ant-input-outlined ant-otp-input"
+        size="1"
+        type="text"
+        value=""
+      />
+      <input
+        class="ant-input ant-input-outlined ant-otp-input"
+        size="1"
+        type="text"
+        value=""
+      />
+      <input
+        class="ant-input ant-input-outlined ant-otp-input"
+        size="1"
+        type="text"
+        value=""
+      />
+      <input
+        class="ant-input ant-input-outlined ant-otp-input"
+        size="1"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <h5
+      class="ant-typography"
+    >
+      With variant
+    </h5>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-otp"
+    >
+      <input
+        class="ant-input ant-input-filled ant-otp-input"
+        size="1"
+        type="text"
+        value=""
+      />
+      <input
+        class="ant-input ant-input-filled ant-otp-input"
+        size="1"
+        type="text"
+        value=""
+      />
+      <input
+        class="ant-input ant-input-filled ant-otp-input"
+        size="1"
+        type="text"
+        value=""
+      />
+      <input
+        class="ant-input ant-input-filled ant-otp-input"
+        size="1"
+        type="text"
+        value=""
+      />
+      <input
+        class="ant-input ant-input-filled ant-otp-input"
+        size="1"
+        type="text"
+        value=""
+      />
+      <input
+        class="ant-input ant-input-filled ant-otp-input"
+        size="1"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/input/demo/otp.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/input/demo/password-input.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
