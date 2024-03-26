@@ -36,10 +36,13 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   wrap?: boolean;
 }
 
-function useMergePropByScreen(oriProp: RowProps['align'] | RowProps['justify'], screen: ScreenMap) {
+function useMergedPropByScreen(
+  oriProp: RowProps['align'] | RowProps['justify'],
+  screen: ScreenMap,
+) {
   const [prop, setProp] = React.useState(typeof oriProp === 'string' ? oriProp : '');
 
-  const calcMergeAlignOrJustify = () => {
+  const calcMergedAlignOrJustify = () => {
     if (typeof oriProp === 'string') {
       setProp(oriProp);
     }
@@ -61,7 +64,7 @@ function useMergePropByScreen(oriProp: RowProps['align'] | RowProps['justify'], 
   };
 
   React.useEffect(() => {
-    calcMergeAlignOrJustify();
+    calcMergedAlignOrJustify();
   }, [JSON.stringify(oriProp), screen]);
 
   return prop;
@@ -101,9 +104,9 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   });
 
   // ================================== calc responsive data ==================================
-  const mergeAlign = useMergePropByScreen(align, curScreens);
+  const mergedAlign = useMergedPropByScreen(align, curScreens);
 
-  const mergeJustify = useMergePropByScreen(justify, curScreens);
+  const mergedJustify = useMergedPropByScreen(justify, curScreens);
 
   const gutterRef = React.useRef<Gutter | [Gutter, Gutter]>(gutter);
 
@@ -154,8 +157,8 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     prefixCls,
     {
       [`${prefixCls}-no-wrap`]: wrap === false,
-      [`${prefixCls}-${mergeJustify}`]: mergeJustify,
-      [`${prefixCls}-${mergeAlign}`]: mergeAlign,
+      [`${prefixCls}-${mergedJustify}`]: mergedJustify,
+      [`${prefixCls}-${mergedAlign}`]: mergedAlign,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,

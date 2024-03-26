@@ -1,5 +1,5 @@
 import React from 'react';
-import { GithubOutlined } from '@ant-design/icons';
+import { EditOutlined, GithubOutlined } from '@ant-design/icons';
 import { Descriptions, theme, Tooltip, Typography, type GetProp } from 'antd';
 import { createStyles, css } from 'antd-style';
 import kebabCase from 'lodash/kebabCase';
@@ -13,14 +13,20 @@ const locales = {
     copy: '复制',
     copied: '已复制',
     source: '源码',
+    docs: '文档',
+    edit: '编辑此页',
   },
   en: {
     import: 'Import',
     copy: 'Copy',
     copied: 'Copied',
     source: 'Source',
+    docs: 'Docs',
+    edit: 'Edit this page',
   },
 };
+
+const branchUrl = 'https://github.com/ant-design/ant-design/edit/master/';
 
 const useStyle = createStyles(({ token }) => ({
   code: css`
@@ -32,8 +38,15 @@ const useStyle = createStyles(({ token }) => ({
     border-radius: 4px;
     padding-inline: ${token.paddingXS}px;
     transition: all ${token.motionDurationSlow} !important;
+    font-family: ${token.codeFamily};
+    color: ${token.colorTextSecondary} !important;
+
     &:hover {
       background: ${token.controlItemBgHover};
+    }
+
+    a&:hover {
+      text-decoration: underline !important;
     }
   `,
   import: css`
@@ -56,10 +69,11 @@ const useStyle = createStyles(({ token }) => ({
 export interface ComponentMetaProps {
   component: string;
   source: string | true;
+  filename?: string;
 }
 
 const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
-  const { component, source } = props;
+  const { component, source, filename } = props;
   const { token } = theme.useToken();
   const [locale] = useLocale(locales);
 
@@ -118,7 +132,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
       colon={false}
       column={1}
       style={{ marginTop: token.margin }}
-      labelStyle={{ paddingInlineEnd: token.padding }}
+      labelStyle={{ paddingInlineEnd: token.padding, width: 54 }}
       items={
         [
           {
@@ -143,7 +157,21 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
             label: locale.source,
             children: (
               <Typography.Link className={styles.code} href={filledSource} target="_blank">
-                <GithubOutlined /> {abbrSource}
+                <GithubOutlined style={{ marginInlineEnd: 4 }} />
+                <span>{abbrSource}</span>
+              </Typography.Link>
+            ),
+          },
+          filename && {
+            label: locale.docs,
+            children: (
+              <Typography.Link
+                className={styles.code}
+                href={`${branchUrl}${filename}`}
+                target="_blank"
+              >
+                <EditOutlined style={{ marginInlineEnd: 4 }} />
+                <span>{locale.edit}</span>
               </Typography.Link>
             ),
           },
