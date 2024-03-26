@@ -1,11 +1,6 @@
-import type { CSSObject } from '@ant-design/cssinjs';
-import { unit } from '@ant-design/cssinjs';
-
-import { clearFix, resetComponent } from '../../style';
-import { genCompactItemStyle } from '../../style/compact-item';
 import type { GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
-import type { ComponentToken, InputToken } from './token';
+import type { InputToken } from './token';
 import { initComponentToken, initInputToken } from './token';
 
 // =============================== OTP ================================
@@ -17,8 +12,11 @@ const genOTPStyle: GenerateStyle<InputToken> = (token) => {
       display: 'inline-flex',
       alignItems: 'center',
       flexWrap: 'nowrap',
-
       columnGap: paddingXS,
+
+      '&-rtl': {
+        direction: 'rtl',
+      },
 
       [`${componentCls}-input`]: {
         textAlign: 'center',
