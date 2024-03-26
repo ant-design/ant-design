@@ -177,13 +177,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     triggerValueCellsChange(nextCells);
   };
 
-  const onInputBack: OTPInputProps['onBack'] = (index) => {
-    const nextIndex = index - 1;
-    refs.current[nextIndex]?.focus();
-  };
-
-  const onInputNext: OTPInputProps['onNext'] = (index) => {
-    const nextIndex = index + 1;
+  const onInputActiveChange: OTPInputProps['onActiveChange'] = (nextIndex) => {
     refs.current[nextIndex]?.focus();
   };
 
@@ -219,8 +213,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
             className={`${prefixCls}-input`}
             onChange={onInputChange}
             value={singleValue}
-            onBack={onInputBack}
-            onNext={onInputNext}
+            onActiveChange={onInputActiveChange}
             {...inputSharedProps}
           />
         );

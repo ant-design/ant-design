@@ -6,14 +6,11 @@ import Input, { type InputProps, type InputRef } from '../Input';
 export interface OTPInputProps extends Omit<InputProps, 'onChange'> {
   index: number;
   onChange: (index: number, txt: string) => void;
-  /** Switch to previous input */
-  onBack: (index: number) => void;
-  /** Switch to next input */
-  onNext: (index: number) => void;
+  onActiveChange: (nextIndex: number) => void;
 }
 
 const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
-  const { value, onChange, onBack, onNext, index, ...restProps } = props;
+  const { value, onChange, onActiveChange, index, ...restProps } = props;
 
   const onInternalChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     onChange(index, e.target.value);
@@ -33,16 +30,12 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
     });
   };
 
-  const onInternalFocus: React.FocusEventHandler<HTMLInputElement> = (e) => {
-    syncSelection();
-  };
-
   // ======================== Keyboard ========================
   const onInternalKeyDown: React.KeyboardEventHandler<HTMLInputElement> = ({ key }) => {
     if (key === 'ArrowLeft') {
-      onBack(index);
+      onActiveChange(index - 1);
     } else if (key === 'ArrowRight') {
-      onNext(index);
+      onActiveChange(index + 1);
     }
 
     syncSelection();
@@ -50,7 +43,7 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
 
   const onInternalKeyUp: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
     if (e.key === 'Backspace' && !value) {
-      onBack(index);
+      onActiveChange(index - 1);
     }
 
     syncSelection();
@@ -63,7 +56,7 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
       ref={inputRef}
       value={value}
       onInput={onInternalChange}
-      onFocus={onInternalFocus}
+      onFocus={syncSelection}
       onKeyDown={onInternalKeyDown}
       onKeyUp={onInternalKeyUp}
       onMouseDown={syncSelection}
