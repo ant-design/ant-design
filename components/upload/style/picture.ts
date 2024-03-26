@@ -113,8 +113,6 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
       [`${componentCls}${componentCls}-select`]: {
         width: uploadPictureCardSize,
         height: uploadPictureCardSize,
-        marginInlineEnd: token.marginXS,
-        marginBottom: token.marginXS,
         textAlign: 'center',
         verticalAlign: 'top',
         backgroundColor: token.colorFillAlter,
@@ -138,16 +136,30 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
 
       // list
       [`${listCls}${listCls}-picture-card, ${listCls}${listCls}-picture-circle`]: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        '& > *': {
+          margin: `${token.marginXS} ${token.marginXS}`,
+        },
+        '@supports (gap: 1px)': {
+          gap: `${token.marginXS} ${token.marginXS}`,
+          '& > *': {
+            margin: 0,
+          },
+        },
+
         [`${listCls}-item-container`]: {
           display: 'inline-block',
           width: uploadPictureCardSize,
           height: uploadPictureCardSize,
-          marginBlock: `0 ${unit(token.marginXS)}`,
-          marginInline: `0 ${unit(token.marginXS)}`,
           verticalAlign: 'top',
         },
 
         '&::after': {
+          display: 'none',
+        },
+
+        '&::before': {
           display: 'none',
         },
 
