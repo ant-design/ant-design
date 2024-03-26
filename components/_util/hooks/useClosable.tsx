@@ -3,8 +3,10 @@ import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
+export type ClosableType = boolean | ({ closeIcon?: React.ReactNode } & React.AriaAttributes);
+
 export type UseClosableParams = {
-  closable?: boolean | ({ closeIcon?: React.ReactNode } & React.AriaAttributes);
+  closable?: ClosableType;
   closeIcon?: ReactNode;
   defaultClosable?: boolean;
   defaultCloseIcon?: ReactNode;

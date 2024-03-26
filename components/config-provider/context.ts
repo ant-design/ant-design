@@ -9,6 +9,7 @@ import type { CardProps } from '../card';
 import type { CollapseProps } from '../collapse';
 import type { DrawerProps } from '../drawer';
 import type { FlexProps } from '../flex/interface';
+import type { FloatButtonGroupProps } from '../float-button/interface';
 import type { FormProps } from '../form/Form';
 import type { InputProps, TextAreaProps } from '../input';
 import type { Locale } from '../locale';
@@ -132,6 +133,8 @@ export type TransferConfig = ComponentStyleConfig & Pick<TransferProps, 'selecti
 export type FormConfig = ComponentStyleConfig &
   Pick<FormProps, 'requiredMark' | 'colon' | 'scrollToFirstError' | 'validateMessages'>;
 
+export type FloatButtonGroupConfig = Pick<FloatButtonGroupProps, 'closeIcon'>;
+
 export type PaginationConfig = ComponentStyleConfig & Pick<PaginationProps, 'showSizeChanger'>;
 
 export type SelectConfig = ComponentStyleConfig & Pick<SelectProps, 'showSearch'>;
@@ -175,6 +178,7 @@ export interface ConfigConsumerProps {
   carousel?: ComponentStyleConfig;
   cascader?: ComponentStyleConfig;
   collapse?: CollapseConfig;
+  floatButtonGroup?: FloatButtonGroupConfig;
   typography?: ComponentStyleConfig;
   skeleton?: ComponentStyleConfig;
   spin?: ComponentStyleConfig;

@@ -29,6 +29,7 @@ const Circle: React.FC<CircleProps> = (props) => {
     children,
     success,
     size = originWidth,
+    steps,
   } = props;
 
   const [width, height] = getSize(size, 'circle');
@@ -51,6 +52,7 @@ const Circle: React.FC<CircleProps> = (props) => {
     return undefined;
   }, [gapDegree, type]);
 
+  const percentArray = getPercentage(props);
   const gapPos = gapPosition || (type === 'dashboard' && 'bottom') || undefined;
 
   // using className to style stroke color
@@ -63,10 +65,11 @@ const Circle: React.FC<CircleProps> = (props) => {
 
   const circleContent = (
     <RCCircle
-      percent={getPercentage(props)}
+      steps={steps}
+      percent={steps ? percentArray[1] : percentArray}
       strokeWidth={strokeWidth}
       trailWidth={strokeWidth}
-      strokeColor={strokeColor}
+      strokeColor={steps ? strokeColor[1] : strokeColor}
       strokeLinecap={strokeLinecap}
       trailColor={trailColor}
       prefixCls={prefixCls}
