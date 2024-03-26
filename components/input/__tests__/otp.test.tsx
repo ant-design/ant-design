@@ -18,7 +18,7 @@ describe('Input.OTP', () => {
     return Array.from(inputList)
       .map((input) => input.value || ' ')
       .join('')
-      .trim();
+      .replace(/\s*$/, '');
   }
 
   beforeEach(() => {
@@ -96,5 +96,36 @@ describe('Input.OTP', () => {
     await waitFakeTimer();
 
     expect(selectSpy).toHaveBeenCalled();
+  });
+
+  it('arrow key to switch', () => {
+    const { container } = render(<OTP autoFocus />);
+
+    const inputList = Array.from(container.querySelectorAll('input'));
+    expect(document.activeElement).toEqual(inputList[0]);
+
+    fireEvent.keyDown(document.activeElement!, { key: 'ArrowRight' });
+    expect(document.activeElement).toEqual(inputList[1]);
+
+    fireEvent.keyDown(document.activeElement!, { key: 'ArrowLeft' });
+    expect(document.activeElement).toEqual(inputList[0]);
+  });
+
+  it('fill last cell', () => {
+    const { container } = render(<OTP />);
+    fireEvent.input(container.querySelectorAll('input')[5], { target: { value: '1' } });
+
+    expect(getText(container)).toBe('     1');
+  });
+
+  it('formatter', () => {
+    const { container } = render(
+      <OTP defaultValue="bamboo" formatter={(val) => val.toUpperCase()} />,
+    );
+    expect(getText(container)).toBe('BAMBOO');
+
+    // Type to trigger formatter
+    fireEvent.input(container.querySelector('input')!, { target: { value: 'little' } });
+    expect(getText(container)).toBe('LITTLE');
   });
 });

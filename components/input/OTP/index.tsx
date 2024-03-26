@@ -104,8 +104,13 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     nativeElement: containerRef.current!,
   }));
 
+  // ======================= Formatter ======================
+  const internalFormatter = (txt: string) => (formatter ? formatter(txt) : txt);
+
   // ======================== Values ========================
-  const [valueCells, setValueCells] = React.useState<string[]>(strToArr(defaultValue || ''));
+  const [valueCells, setValueCells] = React.useState<string[]>(
+    strToArr(internalFormatter(defaultValue || '')),
+  );
 
   React.useEffect(() => {
     if (value) {
@@ -153,15 +158,13 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     }
 
     // Format if needed
-    if (formatter) {
-      const formattedValue = formatter(nextCells.map((c) => c || ' ').join(''));
-      nextCells = strToArr(formattedValue).map((c, i) => {
-        if (c === ' ' && !nextCells[i]) {
-          return nextCells[i];
-        }
-        return c;
-      });
-    }
+    const formattedValue = internalFormatter(nextCells.map((c) => c || ' ').join(''));
+    nextCells = strToArr(formattedValue).map((c, i) => {
+      if (c === ' ' && !nextCells[i]) {
+        return nextCells[i];
+      }
+      return c;
+    });
 
     return nextCells;
   });
