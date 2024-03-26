@@ -139,10 +139,10 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
         display: 'flex',
         flexWrap: 'wrap',
         '& > *': {
-          margin: `${token.marginXS} ${token.marginXS}`,
+          margin: token.marginXS,
         },
         '@supports (gap: 1px)': {
-          gap: `${token.marginXS} ${token.marginXS}`,
+          gap: token.marginXS,
           '& > *': {
             margin: 0,
           },
