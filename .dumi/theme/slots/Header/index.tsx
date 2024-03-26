@@ -126,7 +126,7 @@ const useStyle = createStyles(({ token, css }) => {
       user-select: none;
     `,
     link: css`
-      margin-inline-start: 100px;
+      margin-inline-start: 10px;
       @media only screen and (max-width: ${token.mobileMaxWidth}px) {
         margin-inline-start: 0;
       }
