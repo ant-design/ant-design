@@ -6,6 +6,9 @@ const { Text, Link } = Typography;
 const App: React.FC = () => (
   <Space direction="vertical">
     <Text>Ant Design (default)</Text>
+    <Text size="small">Ant Design (small)</Text>
+    <Text size="large">Ant Design (large)</Text>
+    <Text size="extraLarge">Ant Design (extraLarge)</Text>
     <Text type="secondary">Ant Design (secondary)</Text>
     <Text type="success">Ant Design (success)</Text>
     <Text type="warning">Ant Design (warning)</Text>

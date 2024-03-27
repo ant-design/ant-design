@@ -48,6 +48,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | italic | Italic style | boolean | false | 4.16.0 |
 | type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | Underlined style | boolean | false |  |
+| size | Font size | `default` \| `small` \| `large` \| `extraLarge` | - |  |
 
 ### Typography.Title
 
