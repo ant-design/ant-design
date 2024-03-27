@@ -127,11 +127,25 @@ export interface ConfigProviderProps {
   textArea?: TextAreaConfig;
   select?: SelectConfig;
   pagination?: PaginationConfig;
+  /**
+   * @descCN 语言包配置，语言包可到 `antd/locale` 目录下寻找。
+   * @descEN Language package setting, you can find the packages in `antd/locale`.
+   */
   locale?: Locale;
   componentSize?: SizeType;
   componentDisabled?: boolean;
+  /**
+   * @descCN 设置布局展示方向。
+   * @descEN Set direction of layout.
+   * @default ltr
+   */
   direction?: DirectionType;
   space?: SpaceConfig;
+  /**
+   * @descCN 设置 `false` 时关闭虚拟滚动。
+   * @descEN Close the virtual scrolling when setting `false`.
+   * @default true
+   */
   virtual?: boolean;
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean;
