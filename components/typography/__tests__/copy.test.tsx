@@ -262,6 +262,31 @@ describe('Typography copy', () => {
       fireEvent.click(copyBtn);
       expect(spy.mock.calls[0][0]).toEqual(nextText);
       jest.useRealTimers();
+      spy.mockReset();
+    });
+    it('copy by async', async () => {
+      const spy = jest.spyOn(copyObj, 'default');
+      jest.useFakeTimers();
+      const { container: wrapper } = render(
+        <Base
+          component="p"
+          copyable={{
+            text: async () =>
+              new Promise((resolve) => {
+                setTimeout(() => {
+                  resolve('Request text');
+                }, 500);
+              }),
+          }}
+        >
+          test copy
+        </Base>,
+      );
+      fireEvent.click(wrapper.querySelectorAll('.ant-typography-copy')[0]);
+      await waitFakeTimer();
+      expect(spy.mock.calls[0][0]).toEqual('Request text');
+      spy.mockReset();
+      jest.useRealTimers();
     });
   });
 });
