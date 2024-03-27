@@ -21,7 +21,7 @@ export interface OTPRef {
 
 export interface OTPProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
   prefixCls?: string;
-  count?: number;
+  length?: number;
 
   // Style
   variant?: Variant;
@@ -48,7 +48,7 @@ function strToArr(str: string) {
 const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
-    count = 6,
+    length = 6,
     size: customSize,
     defaultValue,
     value,
@@ -119,7 +119,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     // Trigger if all cells are filled
     if (
       onChange &&
-      nextValueCells.length === count &&
+      nextValueCells.length === length &&
       nextValueCells.every((c) => c) &&
       nextValueCells.some((c, index) => valueCells[index] !== c)
     ) {
@@ -142,7 +142,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     } else {
       nextCells = nextCells.slice(0, index).concat(strToArr(txt));
     }
-    nextCells = nextCells.slice(0, count);
+    nextCells = nextCells.slice(0, length);
 
     // Clean the last empty cell
     for (let i = nextCells.length - 1; i >= 0; i -= 1) {
@@ -168,7 +168,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   const onInputChange: OTPInputProps['onChange'] = (index, txt) => {
     const nextCells = patchValue(index, txt);
 
-    const nextIndex = Math.min(index + txt.length, count - 1);
+    const nextIndex = Math.min(index + txt.length, length - 1);
     if (nextIndex !== index) {
       refs.current[nextIndex]?.focus();
     }
@@ -196,7 +196,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
         hashId,
       )}
     >
-      {new Array(count).fill(0).map((_, index) => {
+      {new Array(length).fill(0).map((_, index) => {
         const key = `otp-${index}`;
         const singleValue = valueCells[index] || '';
 

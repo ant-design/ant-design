@@ -127,10 +127,10 @@ Added in `5.16.0`.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| count | The number of input elements | number | 6 |  |
 | defaultValue | Default value | string | - |  |
 | disabled | Whether the input is disabled | boolean | false |  |
 | formatter | Format display, blank fields will be filled with ` ` | (value: string) => string | - |  |
+| length | The number of input elements | number | 6 |  |
 | status | Set validation status | 'error' \| 'warning' | - |  |
 | size | The size of the input box | `small` \| `middle` \| `large` | `middle` |  |
 | variant | Variants of Input | `outlined` \| `borderless` \| `filled` | `outlined` |  |

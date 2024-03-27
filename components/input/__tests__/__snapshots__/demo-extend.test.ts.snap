@@ -10254,7 +10254,7 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
     <h5
       class="ant-typography"
     >
-      With count
+      With Length
     </h5>
   </div>
   <div

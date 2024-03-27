@@ -128,10 +128,10 @@ interface CountConfig {
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| count | 输入元素数量 | number | 6 |  |
 | defaultValue | 默认值 | string | - |  |
 | disabled | 是否禁用 | boolean | false |  |
 | formatter | 格式化展示，留空字段会被 ` ` 填充 | (value: string) => string | - |  |
+| length | 输入元素数量 | number | 6 |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - |  |
 | size | 输入框大小 | `small` \| `middle` \| `large` | `middle` |  |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` |  |

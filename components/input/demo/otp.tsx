@@ -30,8 +30,8 @@ const App: React.FC = () => {
 
       <Title level={5}>With formatter (Upcase)</Title>
       <Input.OTP formatter={(str) => str.toUpperCase()} {...sharedProps} />
-      <Title level={5}>With count</Title>
-      <Input.OTP count={8} {...sharedProps} />
+      <Title level={5}>With Length</Title>
+      <Input.OTP length={8} {...sharedProps} />
       <Title level={5}>With variant</Title>
       <Input.OTP variant="filled" {...sharedProps} />
     </Space>
