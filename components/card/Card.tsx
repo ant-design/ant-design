@@ -93,6 +93,8 @@ const ActionNode: React.FC<{
 };
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
+  const cpCard = React.useContext(ConfigContext).card ?? {};
+
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -103,7 +105,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     bodyStyle = {},
     title,
     loading,
-    bordered = true,
+    bordered = cpCard.bordered ?? true,
     size: customizeSize,
     type,
     cover,
@@ -120,7 +122,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     ...others
   } = props;
 
-  const { getPrefixCls, direction, card } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
   // =================Warning===================
   if (process.env.NODE_ENV !== 'production') {
@@ -138,10 +140,10 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   };
 
   const moduleClass = (moduleName: CardClassNamesModule) =>
-    classNames(card?.classNames?.[moduleName], customClassNames?.[moduleName]);
+    classNames(cpCard?.classNames?.[moduleName], customClassNames?.[moduleName]);
 
   const moduleStyle = (moduleName: CardStylesModule) => ({
-    ...card?.styles?.[moduleName],
+    ...cpCard?.styles?.[moduleName],
     ...customStyles?.[moduleName],
   });
 
@@ -242,7 +244,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
 
   const classString = classNames(
     prefixCls,
-    card?.className,
+    cpCard?.className,
     {
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-bordered`]: bordered,
@@ -259,7 +261,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     cssVarCls,
   );
 
-  const mergedStyle: React.CSSProperties = { ...card?.style, ...style };
+  const mergedStyle: React.CSSProperties = { ...cpCard?.style, ...style };
 
   return wrapCSSVar(
     <div ref={ref} {...divProps} className={classString} style={mergedStyle}>
