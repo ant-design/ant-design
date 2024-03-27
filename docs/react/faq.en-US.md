@@ -135,6 +135,8 @@ type InputRef = GetRef<typeof Input>;
 Please check whether you have imported dayjs locale correctly.
 
 ```jsx
+import dayjs from 'dayjs';
+
 import 'dayjs/locale/zh-cn';
 
 dayjs.locale('zh-cn');
