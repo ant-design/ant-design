@@ -11,6 +11,10 @@ import useStyle from './style/index';
 
 const SpinSizes = ['small', 'default', 'large'] as const;
 export type SpinSize = (typeof SpinSizes)[number];
+
+const SpinVisibilityies = ['soft', 'default', 'heavy'] as const;
+export type SpinVisibility = (typeof SpinVisibilityies)[number];
+
 export type SpinIndicator = React.ReactElement<HTMLElement>;
 
 export interface SpinProps {
@@ -26,6 +30,7 @@ export interface SpinProps {
   indicator?: SpinIndicator;
   children?: React.ReactNode;
   fullscreen?: boolean;
+  visibility?: SpinVisibility;
 }
 
 export type SpinType = React.FC<SpinProps> & {
@@ -83,6 +88,7 @@ const Spin: SpinType = (props) => {
     style,
     children,
     fullscreen = false,
+    visibility,
     ...restProps
   } = props;
 
@@ -147,6 +153,8 @@ const Spin: SpinType = (props) => {
 
   const containerClassName = classNames(`${prefixCls}-container`, {
     [`${prefixCls}-blur`]: spinning,
+    [`${prefixCls}-blur-heavy`]: visibility === 'heavy',
+    [`${prefixCls}-blur-soft`]: visibility === 'soft',
   });
 
   // fix https://fb.me/react-unknown-prop

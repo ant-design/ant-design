@@ -170,6 +170,14 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
           userSelect: 'none',
           pointerEvents: 'none',
 
+          [`&-heavy`]: {
+            opacity: 0.2,
+          },
+
+          [`&-soft`]: {
+            opacity: 0.9,
+          },
+
           [`&::after`]: {
             opacity: 0.4,
             pointerEvents: 'auto',
