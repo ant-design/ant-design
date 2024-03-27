@@ -185,7 +185,7 @@ const Dropdown: CompoundedComponent = (props) => {
       },
       child.props.className,
     ),
-    disabled,
+    disabled: child.props.disabled ?? disabled,
   });
 
   const triggerActions = disabled ? [] : trigger;
