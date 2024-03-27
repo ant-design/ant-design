@@ -14,8 +14,8 @@ import useStyle from '../style/otp';
 import OTPInput, { type OTPInputProps } from './OTPInput';
 
 export interface OTPRef {
-  focus?: VoidFunction;
-  blur?: VoidFunction;
+  focus: VoidFunction;
+  blur: VoidFunction;
   nativeElement: HTMLDivElement;
 }
 
@@ -40,11 +40,6 @@ export interface OTPProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'on
   disabled?: boolean;
   status?: InputStatus;
 }
-
-/**
- * 需求：
- * - 验证颜色
- */
 
 function strToArr(str: string) {
   return str.split('');

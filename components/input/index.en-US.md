@@ -104,7 +104,7 @@ Same as Input, and more:
 
 The rest of the props of `Input.TextArea` are the same as the original [textarea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea).
 
-#### Input.Search
+### Input.Search
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
@@ -114,12 +114,28 @@ The rest of the props of `Input.TextArea` are the same as the original [textarea
 
 Supports all props of `Input`.
 
-#### Input.Password
+### Input.Password
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | iconRender | Custom toggle button | (visible) => ReactNode | (visible) => (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | 4.3.0 |
 | visibilityToggle | Whether show toggle button or control password visible | boolean \| [VisibilityToggle](#visibilitytoggle) | true |  |
+
+### Input.OTP
+
+Added in `5.16.0`.
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| count | The number of input elements | number | 6 |  |
+| defaultValue | Default value | string | - |  |
+| disabled | Whether the input is disabled | boolean | false |  |
+| formatter | Format display, blank fields will be filled with ` ` | (value: string) => string | - |  |
+| status | Set validation status | 'error' \| 'warning' | - |  |
+| size | The size of the input box | `small` \| `middle` \| `large` | `middle` |  |
+| variant | Variants of Input | `outlined` \| `borderless` \| `filled` | `outlined` |  |
+| value | The input content value | string | - |  |
+| onChange | Trigger when all the fields are filled | function(value: string) | - |  |
 
 #### VisibilityToggle
 

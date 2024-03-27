@@ -105,7 +105,7 @@ interface CountConfig {
 
 `Input.TextArea` 的其他属性和浏览器自带的 [textarea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea) 一致。
 
-#### Input.Search
+### Input.Search
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -115,12 +115,28 @@ interface CountConfig {
 
 其余属性和 Input 一致。
 
-#### Input.Password
+### Input.Password
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | iconRender | 自定义切换按钮 | (visible) => ReactNode | (visible) => (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | 4.3.0 |
 | visibilityToggle | 是否显示切换按钮或者控制密码显隐 | boolean \| [VisibilityToggle](#visibilitytoggle) | true |  |
+
+### Input.OTP
+
+`5.16.0` 新增。
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| count | 输入元素数量 | number | 6 |  |
+| defaultValue | 默认值 | string | - |  |
+| disabled | 是否禁用 | boolean | false |  |
+| formatter | 格式化展示，留空字段会被 ` ` 填充 | (value: string) => string | - |  |
+| status | 设置校验状态 | 'error' \| 'warning' | - |  |
+| size | 输入框大小 | `small` \| `middle` \| `large` | `middle` |  |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` |  |
+| value | 输入框内容 | string | - |  |
+| onChange | 当输入框内容全部填充时触发回调 | function(value: string) | - |  |
 
 #### VisibilityToggle
 
