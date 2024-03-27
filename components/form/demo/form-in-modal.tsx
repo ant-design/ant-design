@@ -1,5 +1,48 @@
-import React, { useState, useEffect } from 'react';
-import { Button, Form, Input, Modal, Radio, type FormInstance } from 'antd';
+import React, { cloneElement, useEffect, useLayoutEffect, useState } from 'react';
+import { Button, Form, Input, Modal, Radio } from 'antd';
+
+export interface ModalCloseDestroyChildrenContextProps {
+  open?: boolean;
+  onCancel?: () => void;
+  onDestroy?: () => void;
+}
+
+export interface ModalCloseDestroyChildrenProps extends ModalCloseDestroyChildrenContextProps {
+  children: React.ReactElement;
+}
+
+const ModalCloseDestroyChildren = (props: ModalCloseDestroyChildrenProps) => {
+  const { children, open: propsOpen, onCancel } = props;
+
+  const [load, setLoad] = useState<Record<string, any>>();
+  const [open, setOpen] = useState<boolean>();
+
+  useLayoutEffect(() => {
+    if (propsOpen) {
+      setLoad({});
+    } else {
+      setOpen(false);
+    }
+  }, [propsOpen]);
+
+  useLayoutEffect(() => {
+    setOpen(!!load);
+  }, [load]);
+
+  return (
+    <div>
+      {(load || propsOpen) &&
+        cloneElement(children, {
+          open,
+          onCancel: () => {
+            onCancel?.();
+            setOpen(false);
+          },
+          onDestroy: () => setLoad(undefined),
+        })}
+    </div>
+  );
+};
 
 interface Values {
   title?: string;
@@ -7,27 +50,50 @@ interface Values {
   modifier?: string;
 }
 
-interface CollectionCreateFormProps {
+interface CollectionCreateFormModalProps extends ModalCloseDestroyChildrenContextProps {
+  onCreate: (values: Values) => void;
   initialValues: Values;
-  onFormInstanceReady: (instance: FormInstance<Values>) => void;
 }
 
-const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
-  initialValues,
-  onFormInstanceReady,
-}) => {
+const CollectionCreateFormModal: React.FC<CollectionCreateFormModalProps> = (props) => {
+  const { open, onCancel, onDestroy, onCreate, initialValues } = props;
+
   const [form] = Form.useForm();
+
   useEffect(() => {
-    onFormInstanceReady(form);
+    console.log('mount');
+    return () => {
+      console.log('unmount');
+    };
   }, []);
+
   return (
-    <Form layout="vertical" form={form} name="form_in_modal" initialValues={initialValues}>
+    <Modal
+      open={open}
+      title="Create a new collection"
+      okText="Create"
+      destroyOnClose
+      onCancel={onCancel}
+      okButtonProps={{ htmlType: 'submit' }}
+      afterClose={() => onDestroy?.()}
+      modalRender={(node) => (
+        <Form
+          layout="vertical"
+          form={form}
+          name="form_in_modal"
+          initialValues={initialValues}
+          onFinish={onCreate}
+        >
+          {node}
+        </Form>
+      )}
+    >
       <Form.Item
         name="title"
         label="Title"
         rules={[{ required: true, message: 'Please input the title of collection!' }]}
       >
-        <Input />
+        <Input autoFocus />
       </Form.Item>
       <Form.Item name="description" label="Description">
         <Input type="textarea" />
@@ -38,49 +104,6 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
           <Radio value="private">Private</Radio>
         </Radio.Group>
       </Form.Item>
-    </Form>
-  );
-};
-
-interface CollectionCreateFormModalProps {
-  open: boolean;
-  onCreate: (values: Values) => void;
-  onCancel: () => void;
-  initialValues: Values;
-}
-
-const CollectionCreateFormModal: React.FC<CollectionCreateFormModalProps> = ({
-  open,
-  onCreate,
-  onCancel,
-  initialValues,
-}) => {
-  const [formInstance, setFormInstance] = useState<FormInstance>();
-  return (
-    <Modal
-      open={open}
-      title="Create a new collection"
-      okText="Create"
-      cancelText="Cancel"
-      okButtonProps={{ autoFocus: true }}
-      onCancel={onCancel}
-      destroyOnClose
-      onOk={async () => {
-        try {
-          const values = await formInstance?.validateFields();
-          formInstance?.resetFields();
-          onCreate(values);
-        } catch (error) {
-          console.log('Failed:', error);
-        }
-      }}
-    >
-      <CollectionCreateForm
-        initialValues={initialValues}
-        onFormInstanceReady={(instance) => {
-          setFormInstance(instance);
-        }}
-      />
     </Modal>
   );
 };
@@ -101,12 +124,12 @@ const App: React.FC = () => {
         New Collection
       </Button>
       <pre>{JSON.stringify(formValues, null, 2)}</pre>
-      <CollectionCreateFormModal
-        open={open}
-        onCreate={onCreate}
-        onCancel={() => setOpen(false)}
-        initialValues={{ modifier: 'public' }}
-      />
+      <ModalCloseDestroyChildren open={open} onCancel={() => setOpen(false)}>
+        <CollectionCreateFormModal
+          onCreate={onCreate}
+          initialValues={{ title: 'title', modifier: 'public' }}
+        />
+      </ModalCloseDestroyChildren>
     </>
   );
 };
