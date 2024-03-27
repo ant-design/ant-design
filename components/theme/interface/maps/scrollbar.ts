@@ -14,8 +14,8 @@ export interface ScrollBarToken {
    */
   scrollbarWidth: string;
   /**
-   * @desc 设置滚动条出现的时候内容不晃动
-   * @descEN Set the content not to shake when the scrollbar appears
+   * @desc 预留的滚动条空间，以避免滚动条出现时布局变化
+   * @descEN Reserved space for scrollbar to avoid layout changes when scrollbar appears
    * @default auto
    * @since 5.16.0
    */
