@@ -215,6 +215,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
       copyConfig.onCopy?.(e);
     } catch (error) {
+      console.error(error);
       setCopyLoading(false);
     }
   };
