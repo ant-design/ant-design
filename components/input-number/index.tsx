@@ -54,6 +54,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   const {
     className,
     rootClassName,
+    classNames: classes,
     size: customizeSize,
     disabled: customDisabled,
     prefixCls: customizePrefixCls,
@@ -155,12 +156,15 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
         )
       }
       classNames={{
-        input: inputNumberClass,
+        prefix: classes?.prefix,
+        handlerWrapper: classes?.handlerWrapper,
+        upHandler: classes?.upHandler,
+        downHandler: classes?.downHandler,
+        input: classNames(inputNumberClass, classes?.input),
         variant: classNames(
           {
             [`${prefixCls}-${variant}`]: enableVariantCls,
           },
-
           getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
         ),
         affixWrapper: classNames(

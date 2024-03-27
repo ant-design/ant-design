@@ -71,6 +71,32 @@ describe('InputNumber', () => {
     ).toBe(true);
   });
 
+  it('should support classNames', () => {
+    const { container } = render(
+      <InputNumber
+        prefix="$"
+        classNames={{
+          input: 'my-class-name-input',
+          prefix: 'my-class-name-prefix',
+          handlerWrapper: 'my-class-name-handler-wrapper',
+          upHandler: 'my-class-name-up-handler',
+          downHandler: 'my-class-name-down-handler',
+        }}
+      />,
+    );
+    expect(container.querySelector('.ant-input-number')).toHaveClass('my-class-name-input');
+    expect(container.querySelector('.ant-input-number-prefix')).toHaveClass('my-class-name-prefix');
+    expect(container.querySelector('.ant-input-number-handler-wrap')).toHaveClass(
+      'my-class-name-handler-wrapper',
+    );
+    expect(container.querySelector('.ant-input-number-handler-up')).toHaveClass(
+      'my-class-name-up-handler',
+    );
+    expect(container.querySelector('.ant-input-number-handler-down')).toHaveClass(
+      'my-class-name-down-handler',
+    );
+  });
+
   it('renders correctly when the controlled mode number is out of range', () => {
     const App: React.FC = () => {
       const [value, setValue] = React.useState<number | null>(1);

@@ -43,6 +43,7 @@ demo:
 | addonAfter | 带标签的 input，设置后置标签 | ReactNode | - | 4.17.0 |
 | addonBefore | 带标签的 input，设置前置标签 | ReactNode | - | 4.17.0 |
 | autoFocus | 自动获取焦点 | boolean | false | - |
+| classNames | 语义化结构 class | Record<[SemanticDOM](#inputnumber), string> | - | 5.13.0 |
 | changeOnBlur | 是否在失去焦点时，触发 `onChange` 事件（例如值超出范围时，重新限制回范围并触发事件） | boolean | true | 5.11.0 |
 | changeOnWheel | 允许鼠标滚轮改变数值 | boolean | - | 5.14.0 |
 | controls | 是否显示增减按钮，也可设置自定义箭头图标 | boolean \| { upIcon?: React.ReactNode; downIcon?: React.ReactNode; } | - | 4.19.0 |
@@ -67,6 +68,18 @@ demo:
 | onChange | 变化回调 | function(value: number \| string \| null) | - | - |
 | onPressEnter | 按下回车的回调 | function(e) | - | - |
 | onStep | 点击上下箭头的回调 | (value: number, info: { offset: number, type: 'up' \| 'down' }) => void | - | 4.7.0 |
+
+### Semantic DOM
+
+#### InputNumber
+
+| 名称           | 说明                 | 版本   |
+| -------------- | -------------------- | ------ |
+| input          | `input` 元素包裹元素 | 5.13.0 |
+| prefix         | 所有前缀的包裹元素   | 5.13.0 |
+| handlerWrapper | 增减按钮的包裹元素   | 5.13.0 |
+| upHandler      | 增大按钮             | 5.13.0 |
+| downHandler    | 减小按钮             | 5.13.0 |
 
 ## 方法
 
