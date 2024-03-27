@@ -28,7 +28,7 @@ import EllipsisTooltip from './EllipsisTooltip';
 export type BaseType = 'secondary' | 'success' | 'warning' | 'danger';
 
 export interface CopyConfig {
-  text?: string;
+  text?: string | (() => string | Promise<string>);
   onCopy?: (event?: React.MouseEvent<HTMLDivElement>) => void;
   icon?: React.ReactNode;
   tooltips?: React.ReactNode;
@@ -194,11 +194,11 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     }
   };
 
-  const onCopyClick = (e?: React.MouseEvent<HTMLDivElement>) => {
+  const onCopyClick = async (e?: React.MouseEvent<HTMLDivElement>) => {
     e?.preventDefault();
     e?.stopPropagation();
-
-    copy(copyConfig.text || String(children) || '', copyOptions);
+    const text = typeof copyConfig.text === 'function' ? await copyConfig.text() : copyConfig.text;
+    copy(text || String(children) || '', copyOptions);
 
     setCopied(true);
 
