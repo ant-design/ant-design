@@ -2,6 +2,7 @@ import type { ColorPalettes, LegacyColorPalettes } from '../presetColors';
 import type { SeedToken } from '../seeds';
 import type { ColorMapToken } from './colors';
 import type { FontMapToken } from './font';
+import type { ScrollBarToken } from './scrollbar';
 import type { HeightMapToken, SizeMapToken } from './size';
 import type { StyleMapToken } from './style';
 
@@ -9,6 +10,7 @@ export * from './colors';
 export * from './font';
 export * from './size';
 export * from './style';
+export * from './scrollbar';
 
 export interface CommonMapToken extends StyleMapToken {
   // Motion
@@ -43,4 +45,5 @@ export interface MapToken
     HeightMapToken,
     StyleMapToken,
     FontMapToken,
+    ScrollBarToken,
     CommonMapToken {}
