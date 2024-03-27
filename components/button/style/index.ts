@@ -18,7 +18,10 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
     [componentCls]: {
       outline: 'none',
       position: 'relative',
-      display: 'inline-block',
+      display: 'inline-flex',
+      gap: token.marginXS,
+      alignItems: 'center',
+      justifyContent: 'center',
       fontWeight,
       whiteSpace: 'nowrap',
       textAlign: 'center',
@@ -41,17 +44,6 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
 
       [`${componentCls}-icon`]: {
         lineHeight: 0,
-      },
-
-      // Leave a space between icon and text.
-      [`> ${iconCls} + span, > span + ${iconCls}`]: {
-        marginInlineStart: token.marginXS,
-      },
-
-      [`&:not(${componentCls}-icon-only) > ${componentCls}-icon`]: {
-        [`&${componentCls}-loading-icon, &:not(:last-child)`]: {
-          marginInlineEnd: token.marginXS,
-        },
       },
 
       '> a': {
