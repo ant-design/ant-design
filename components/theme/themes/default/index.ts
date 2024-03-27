@@ -1,5 +1,6 @@
 import { generate } from '@ant-design/colors';
-
+import genControlHeight from '../shared/genControlHeight';
+import genSizeMapToken from '../shared/genSizeMapToken';
 import type {
   ColorPalettes,
   LegacyColorPalettes,
@@ -10,11 +11,8 @@ import type {
 import { defaultPresetColors } from '../seed';
 import genColorMapToken from '../shared/genColorMapToken';
 import genCommonMapToken from '../shared/genCommonMapToken';
-import genControlHeight from '../shared/genControlHeight';
-import genFontMapToken from '../shared/genFontMapToken';
-import genScrollbarToken from '../shared/genScrollbarToken';
-import genSizeMapToken from '../shared/genSizeMapToken';
 import { generateColorPalettes, generateNeutralColorPalettes } from './colors';
+import genFontMapToken from '../shared/genFontMapToken';
 
 export default function derivative(token: SeedToken): MapToken {
   const colorPalettes = Object.keys(defaultPresetColors)
@@ -52,8 +50,6 @@ export default function derivative(token: SeedToken): MapToken {
     ...genSizeMapToken(token),
     // Height
     ...genControlHeight(token),
-    // Scrollbar
-    ...genScrollbarToken(),
     // Others
     ...genCommonMapToken(token),
   };
