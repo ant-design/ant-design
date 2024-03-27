@@ -5,7 +5,8 @@ import Input, { type InputProps, type InputRef } from '../Input';
 
 export interface OTPInputProps extends Omit<InputProps, 'onChange'> {
   index: number;
-  onChange: (index: number, txt: string) => void;
+  onChange: (index: number, value: string) => void;
+  /** Tell parent to do active offset */
   onActiveChange: (nextIndex: number) => void;
 }
 
