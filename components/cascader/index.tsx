@@ -92,30 +92,39 @@ const defaultSearchRender: ShowSearchType['render'] = (inputValue, path, prefixC
   return optionList;
 };
 
-type SingleCascaderProps = Omit<RcSingleCascaderProps, 'checkable' | 'options'> & {
+type SingleCascaderProps<T extends BaseOptionType> = Omit<
+  RcSingleCascaderProps<T>,
+  'checkable' | 'options'
+> & {
   multiple?: false;
 };
-type MultipleCascaderProps = Omit<RcMultipleCascaderProps, 'checkable' | 'options'> & {
+type MultipleCascaderProps<T extends BaseOptionType> = Omit<
+  RcMultipleCascaderProps<T>,
+  'checkable' | 'options'
+> & {
   multiple: true;
 };
 
-type UnionCascaderProps = SingleCascaderProps | MultipleCascaderProps;
+type UnionCascaderProps<T extends BaseOptionType> =
+  | SingleCascaderProps<T>
+  | MultipleCascaderProps<T>;
 
-export type CascaderProps<DataNodeType = any> = UnionCascaderProps & {
-  multiple?: boolean;
-  size?: SizeType;
-  disabled?: boolean;
-  bordered?: boolean;
-  placement?: SelectCommonPlacement;
-  suffixIcon?: React.ReactNode;
-  options?: DataNodeType[];
-  status?: InputStatus;
-  /**
-   * @deprecated `dropdownClassName` is deprecated which will be removed in next major
-   *   version.Please use `popupClassName` instead.
-   */
-  dropdownClassName?: string;
-};
+export type CascaderProps<DataNodeType extends BaseOptionType = any> =
+  UnionCascaderProps<DataNodeType> & {
+    multiple?: boolean;
+    size?: SizeType;
+    disabled?: boolean;
+    bordered?: boolean;
+    placement?: SelectCommonPlacement;
+    suffixIcon?: React.ReactNode;
+    options?: DataNodeType[];
+    status?: InputStatus;
+    /**
+     * @deprecated `dropdownClassName` is deprecated which will be removed in next major
+     *   version.Please use `popupClassName` instead.
+     */
+    dropdownClassName?: string;
+  };
 
 export interface CascaderRef {
   focus: () => void;
