@@ -1898,7 +1898,7 @@ exports[`renders components/select/demo/maxCount.tsx correctly 1`] = `
     <span>
       1
       <!-- -->
-       /
+       / 
       <!-- -->
       3
     </span>

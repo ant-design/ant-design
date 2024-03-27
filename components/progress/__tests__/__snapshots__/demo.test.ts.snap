@@ -455,6 +455,256 @@ exports[`renders components/progress/demo/circle-mini.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/progress/demo/circle-steps.tsx correctly 1`] = `
+Array [
+  <h5
+    class="ant-typography"
+  >
+    Custom count:
+  </h5>,
+  <div
+    class="ant-slider ant-slider-horizontal"
+  >
+    <div
+      class="ant-slider-rail"
+    />
+    <div
+      class="ant-slider-track"
+      style="left:0%;width:37.5%"
+    />
+    <div
+      class="ant-slider-step"
+    />
+    <div
+      aria-disabled="false"
+      aria-orientation="horizontal"
+      aria-valuemax="10"
+      aria-valuemin="2"
+      aria-valuenow="5"
+      class="ant-slider-handle"
+      role="slider"
+      style="left:37.5%;transform:translateX(-50%)"
+      tabindex="0"
+    />
+  </div>,
+  <h5
+    class="ant-typography"
+  >
+    Custom gap:
+  </h5>,
+  <div
+    class="ant-slider ant-slider-horizontal"
+  >
+    <div
+      class="ant-slider-rail"
+    />
+    <div
+      class="ant-slider-track"
+      style="left:0%;width:20%"
+    />
+    <div
+      class="ant-slider-step"
+    />
+    <div
+      aria-disabled="false"
+      aria-orientation="horizontal"
+      aria-valuemax="40"
+      aria-valuemin="0"
+      aria-valuenow="8"
+      class="ant-slider-handle"
+      role="slider"
+      style="left:20%;transform:translateX(-50%)"
+      tabindex="0"
+    />
+  </div>,
+  <div
+    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
+    style="margin-top:16px"
+  >
+    <div
+      aria-valuenow="50"
+      class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-steps ant-progress-show-info ant-progress-default"
+      role="progressbar"
+    >
+      <div
+        class="ant-progress-inner"
+        style="width:120px;height:120px;font-size:24px"
+      >
+        <svg
+          class="ant-progress-circle"
+          role="presentation"
+          viewBox="0 0 100 100"
+        >
+          <circle
+            class="ant-progress-circle-path"
+            cx="50"
+            cy="50"
+            opacity="1"
+            r="40"
+            stroke-width="20"
+            style="stroke-dasharray:198.96753472735355px 251.32741228718345;stroke-dashoffset:176.09659288643437;transform:rotate(127.5deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+          />
+          <circle
+            class="ant-progress-circle-path"
+            cx="50"
+            cy="50"
+            opacity="1"
+            r="40"
+            stroke-width="20"
+            style="stroke-dasharray:198.96753472735355px 251.32741228718345;stroke-dashoffset:176.09659288643437;transform:rotate(163.125deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+          />
+          <circle
+            class="ant-progress-circle-path"
+            cx="50"
+            cy="50"
+            opacity="1"
+            r="40"
+            stroke-width="20"
+            style="stroke-dasharray:198.96753472735355px 251.32741228718345;stroke-dashoffset:176.09659288643437;transform:rotate(198.74999999999997deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+          />
+          <circle
+            class="ant-progress-circle-path"
+            cx="50"
+            cy="50"
+            opacity="1"
+            r="40"
+            stroke-width="20"
+            style="stroke-dasharray:198.96753472735355px 251.32741228718345;stroke-dashoffset:176.09659288643437;transform:rotate(234.37499999999994deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+          />
+          <circle
+            class="ant-progress-circle-path"
+            cx="50"
+            cy="50"
+            opacity="1"
+            r="40"
+            stroke-width="20"
+            style="stroke:rgba(0, 0, 0, 0.06);stroke-dasharray:198.96753472735355px 251.32741228718345;stroke-dashoffset:176.09659288643437;transform:rotate(269.99999999999994deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+          />
+          <circle
+            class="ant-progress-circle-path"
+            cx="50"
+            cy="50"
+            opacity="1"
+            r="40"
+            stroke-width="20"
+            style="stroke:rgba(0, 0, 0, 0.06);stroke-dasharray:198.96753472735355px 251.32741228718345;stroke-dashoffset:176.09659288643437;transform:rotate(305.625deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+          />
+          <circle
+            class="ant-progress-circle-path"
+            cx="50"
+            cy="50"
+            opacity="1"
+            r="40"
+            stroke-width="20"
+            style="stroke:rgba(0, 0, 0, 0.06);stroke-dasharray:198.96753472735355px 251.32741228718345;stroke-dashoffset:176.09659288643437;transform:rotate(341.24999999999994deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+          />
+          <circle
+            class="ant-progress-circle-path"
+            cx="50"
+            cy="50"
+            opacity="1"
+            r="40"
+            stroke-width="20"
+            style="stroke:rgba(0, 0, 0, 0.06);stroke-dasharray:198.96753472735355px 251.32741228718345;stroke-dashoffset:176.09659288643437;transform:rotate(376.87499999999994deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+          />
+        </svg>
+        <span
+          class="ant-progress-text"
+          title="50%"
+        >
+          50%
+        </span>
+      </div>
+    </div>
+    <div
+      aria-valuenow="100"
+      class="ant-progress ant-progress-status-success ant-progress-circle ant-progress-steps ant-progress-show-info ant-progress-default"
+      role="progressbar"
+    >
+      <div
+        class="ant-progress-inner"
+        style="width:120px;height:120px;font-size:24px"
+      >
+        <svg
+          class="ant-progress-circle"
+          role="presentation"
+          viewBox="0 0 100 100"
+        >
+          <circle
+            class="ant-progress-circle-path"
+            cx="50"
+            cy="50"
+            opacity="1"
+            r="40"
+            stroke-width="20"
+            style="stroke-dasharray:251.32741228718345px 251.32741228718345;stroke-dashoffset:208.06192982974676;transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+          />
+          <circle
+            class="ant-progress-circle-path"
+            cx="50"
+            cy="50"
+            opacity="1"
+            r="40"
+            stroke-width="20"
+            style="stroke-dasharray:251.32741228718345px 251.32741228718345;stroke-dashoffset:208.06192982974676;transform:rotate(-18deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+          />
+          <circle
+            class="ant-progress-circle-path"
+            cx="50"
+            cy="50"
+            opacity="1"
+            r="40"
+            stroke-width="20"
+            style="stroke-dasharray:251.32741228718345px 251.32741228718345;stroke-dashoffset:208.06192982974676;transform:rotate(54deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+          />
+          <circle
+            class="ant-progress-circle-path"
+            cx="50"
+            cy="50"
+            opacity="1"
+            r="40"
+            stroke-width="20"
+            style="stroke-dasharray:251.32741228718345px 251.32741228718345;stroke-dashoffset:208.06192982974676;transform:rotate(126deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+          />
+          <circle
+            class="ant-progress-circle-path"
+            cx="50"
+            cy="50"
+            opacity="1"
+            r="40"
+            stroke-width="20"
+            style="stroke-dasharray:251.32741228718345px 251.32741228718345;stroke-dashoffset:208.06192982974676;transform:rotate(198deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+          />
+        </svg>
+        <span
+          class="ant-progress-text"
+        >
+          <span
+            aria-label="check"
+            class="anticon anticon-check"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="check"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
 exports[`renders components/progress/demo/component-token.tsx correctly 1`] = `
 Array [
   <div

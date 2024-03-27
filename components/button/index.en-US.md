@@ -1,6 +1,7 @@
 ---
 category: Components
 title: Button
+description: To trigger an operation.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*7va7RKs3YzIAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3T4cRqxH9-8AAAAAAAAAAAAADrJ8AQ/original
 demo:
@@ -9,8 +10,6 @@ group:
   title: General
   order: 1
 ---
-
-To trigger an operation.
 
 ## When To Use
 
