@@ -95,7 +95,9 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
 
   const compactItemContext = React.useContext(SpaceCompactItemContext);
 
-  const childNodes = toArray(children);
+  const childNodes = toArray(children, {
+    keepEmpty: true,
+  });
   const nodes = React.useMemo(
     () =>
       childNodes.map((child, i) => {
