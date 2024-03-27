@@ -3,11 +3,12 @@ import classNames from 'classnames';
 import { useEvent } from 'rc-util';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
-import type { InputStatus } from '../../_util/statusUtils';
+import { getMergedStatus, type InputStatus } from '../../_util/statusUtils';
 import { ConfigContext } from '../../config-provider';
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 import useSize from '../../config-provider/hooks/useSize';
 import { type SizeType } from '../../config-provider/SizeContext';
+import { FormItemInputContext } from '../../form/context';
 import type { Variant } from '../../form/hooks/useVariants';
 import { type InputRef } from '../Input';
 import useStyle from '../style/otp';
@@ -56,7 +57,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     formatter,
     variant,
     disabled,
-    status,
+    status: customStatus,
     autoFocus,
     ...restProps
   } = props;
@@ -70,12 +71,6 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     attr: true,
   });
 
-  const inputSharedProps = {
-    variant,
-    disabled,
-    status,
-  };
-
   // ========================= Root =========================
   // Style
   const rootCls = useCSSVarCls(prefixCls);
@@ -83,6 +78,20 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
 
   // ========================= Size =========================
   const mergedSize = useSize((ctx) => customSize ?? ctx);
+
+  // ======================== Status ========================
+  const formContext = React.useContext(FormItemInputContext);
+  const mergedStatus = getMergedStatus(formContext.status, customStatus);
+
+  const proxyFormContext = React.useMemo(
+    () => ({
+      ...formContext,
+      status: mergedStatus,
+      hasFeedback: false,
+      feedbackIcon: null,
+    }),
+    [formContext, mergedStatus],
+  );
 
   // ========================= Refs =========================
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -94,7 +103,9 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
       refs.current[0]?.focus();
     },
     blur: () => {
-      refs.current[0]?.blur();
+      for (let i = 0; i < length; i += 1) {
+        refs.current[i]?.blur();
+      }
     },
     nativeElement: containerRef.current!,
   }));
@@ -181,6 +192,12 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   };
 
   // ======================== Render ========================
+  const inputSharedProps = {
+    variant,
+    disabled,
+    status: mergedStatus as InputStatus,
+  };
+
   return wrapCSSVar(
     <div
       {...domAttrs}
@@ -196,28 +213,30 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
         hashId,
       )}
     >
-      {new Array(length).fill(0).map((_, index) => {
-        const key = `otp-${index}`;
-        const singleValue = valueCells[index] || '';
+      <FormItemInputContext.Provider value={proxyFormContext}>
+        {new Array(length).fill(0).map((_, index) => {
+          const key = `otp-${index}`;
+          const singleValue = valueCells[index] || '';
 
-        return (
-          <OTPInput
-            ref={(inputEle) => {
-              refs.current[index] = inputEle;
-            }}
-            key={key}
-            index={index}
-            size={mergedSize}
-            htmlSize={1}
-            className={`${prefixCls}-input`}
-            onChange={onInputChange}
-            value={singleValue}
-            onActiveChange={onInputActiveChange}
-            autoFocus={index === 0 && autoFocus}
-            {...inputSharedProps}
-          />
-        );
-      })}
+          return (
+            <OTPInput
+              ref={(inputEle) => {
+                refs.current[index] = inputEle;
+              }}
+              key={key}
+              index={index}
+              size={mergedSize}
+              htmlSize={1}
+              className={`${prefixCls}-input`}
+              onChange={onInputChange}
+              value={singleValue}
+              onActiveChange={onInputActiveChange}
+              autoFocus={index === 0 && autoFocus}
+              {...inputSharedProps}
+            />
+          );
+        })}
+      </FormItemInputContext.Provider>
     </div>,
   );
 });
