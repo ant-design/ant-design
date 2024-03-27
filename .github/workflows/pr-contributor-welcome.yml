@@ -27,7 +27,7 @@ jobs:
           DATA_LENGTH=$(echo $RESULT_DATA | jq 'if type == "array" then length else 0 end')
           echo "COUNT=$DATA_LENGTH" >> $GITHUB_OUTPUT
       - name: Comment on PR
-        if: steps.get_commit_count.outputs.COUNT < 2
+        if: steps.get_commit_count.outputs.COUNT < 3
         uses: actions-cool/maintain-one-comment@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
