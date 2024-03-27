@@ -134,6 +134,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     if (event) {
       changeInfo.event = event;
     }
+
     if (
       !exceedMaxCount ||
       file.status === 'removed' ||
