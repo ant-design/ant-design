@@ -349,7 +349,7 @@ describe('ConfigProvider', () => {
         {...props}
         itemLayout="horizontal"
         dataSource={['']}
-        renderItem={() => (
+        itemRender={() => (
           <List.Item {...props}>
             <List.Item.Meta
               {...props}

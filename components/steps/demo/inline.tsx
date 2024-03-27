@@ -42,7 +42,7 @@ const App: React.FC = () => (
     <List
       itemLayout="horizontal"
       dataSource={data}
-      renderItem={(item, index) => (
+      itemRender={(item, index) => (
         <List.Item>
           <List.Item.Meta
             avatar={<Avatar src={`https://api.dicebear.com/7.x/miniavs/svg?seed=${index}`} />}

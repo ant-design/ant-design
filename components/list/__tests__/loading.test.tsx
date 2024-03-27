@@ -8,7 +8,7 @@ describe('List', () => {
   it('renders empty loading', () => {
     const loading = { spinning: true };
     const { container: wrapper } = render(
-      <List loading={loading} dataSource={[]} renderItem={() => <List.Item />} />,
+      <List loading={loading} dataSource={[]} itemRender={() => <List.Item />} />,
     );
     expect(wrapper.querySelectorAll('.ant-list-empty-text')).toHaveLength(0);
   });
@@ -18,7 +18,7 @@ describe('List', () => {
       spinning: true,
     };
     const { container: wrapper } = render(
-      <List loading={loading} dataSource={[1]} renderItem={() => <List.Item />} />,
+      <List loading={loading} dataSource={[1]} itemRender={() => <List.Item />} />,
     );
     expect(wrapper.querySelectorAll('.ant-spin-spinning')).toHaveLength(1);
   });
@@ -31,7 +31,7 @@ describe('List', () => {
       indicator: antIcon,
     };
     const { container: wrapper } = render(
-      <List loading={loading} dataSource={[1]} renderItem={() => <List.Item />} />,
+      <List loading={loading} dataSource={[1]} itemRender={() => <List.Item />} />,
     );
     expect(wrapper.querySelectorAll('.anticon-loading')).toHaveLength(1);
   });

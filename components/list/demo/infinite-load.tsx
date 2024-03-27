@@ -62,7 +62,7 @@ const App: React.FC = () => {
       >
         <List
           dataSource={data}
-          renderItem={(item) => (
+          itemRender={(item) => (
             <List.Item key={item.email}>
               <List.Item.Meta
                 avatar={<Avatar src={item.picture.large} />}

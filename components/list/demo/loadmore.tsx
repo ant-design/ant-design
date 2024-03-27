@@ -77,7 +77,7 @@ const App: React.FC = () => {
       itemLayout="horizontal"
       loadMore={loadMore}
       dataSource={list}
-      renderItem={(item) => (
+      itemRender={(item) => (
         <List.Item
           actions={[<a key="list-loadmore-edit">edit</a>, <a key="list-loadmore-more">more</a>]}
         >

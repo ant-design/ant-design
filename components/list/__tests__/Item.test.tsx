@@ -22,7 +22,7 @@ describe('List Item Layout', () => {
     const { container: wrapper } = render(
       <List
         dataSource={data}
-        renderItem={(item) => (
+        itemRender={(item) => (
           <List.Item key={item.title}>
             I am <span>ant</span> design list item
           </List.Item>
@@ -38,7 +38,7 @@ describe('List Item Layout', () => {
     const { container: wrapper } = render(
       <List
         dataSource={data}
-        renderItem={(item) => (
+        itemRender={(item) => (
           <List.Item key={item.title}>
             <List.Item.Meta
               title={<a href={item.href}>{item.title}</a>}
@@ -58,7 +58,7 @@ describe('List Item Layout', () => {
       <List
         itemLayout="vertical"
         dataSource={data}
-        renderItem={(item) => (
+        itemRender={(item) => (
           <List.Item key={item.title} extra={item.extra}>
             <List.Item.Meta
               title={<a href={item.href}>{item.title}</a>}
@@ -78,7 +78,7 @@ describe('List Item Layout', () => {
       <List
         itemLayout="vertical"
         dataSource={data}
-        renderItem={(item) => (
+        itemRender={(item) => (
           <List.Item key={item.title}>
             <List.Item.Meta
               title={<a href={item.href}>{item.title}</a>}
@@ -97,7 +97,7 @@ describe('List Item Layout', () => {
     const { container: wrapper } = render(
       <List
         dataSource={data}
-        renderItem={(item) => (
+        itemRender={(item) => (
           <List.Item
             key={item.title}
             actions={[<a key="action">Action</a>]}
@@ -119,7 +119,7 @@ describe('List Item Layout', () => {
       <ConfigProvider direction="rtl">
         <List
           dataSource={data}
-          renderItem={(item) => (
+          itemRender={(item) => (
             <List.Item
               key={item.title}
               actions={[<a key="action">Action</a>]}
@@ -156,7 +156,7 @@ describe('List Item Layout', () => {
       <List
         dataSource={dataWithId}
         rowKey="id"
-        renderItem={(item) => <List.Item>{item.title}</List.Item>}
+        itemRender={(item) => <List.Item>{item.title}</List.Item>}
       />,
     );
     expect(wrapper.firstChild).toMatchSnapshot();
@@ -181,7 +181,7 @@ describe('List Item Layout', () => {
       <List
         dataSource={dataWithId}
         rowKey={(item) => item.id}
-        renderItem={(item) => <List.Item>{item.title}</List.Item>}
+        itemRender={(item) => <List.Item>{item.title}</List.Item>}
       />,
     );
     expect(wrapper.firstChild).toMatchSnapshot();
@@ -218,7 +218,7 @@ describe('List Item Layout', () => {
       <List
         dataSource={[{ id, title: `ant design` }]}
         rowKey={(item) => item.id}
-        renderItem={(item) => (
+        itemRender={(item) => (
           <List.Item>
             <Demo id={item.id} />
           </List.Item>
@@ -235,7 +235,7 @@ describe('List Item Layout', () => {
     const { container } = render(
       <List
         dataSource={[{ id: 1, title: `ant design` }]}
-        renderItem={(item) => (
+        itemRender={(item) => (
           <List.Item>
             <List.Item.Meta title={item.title} />
           </List.Item>

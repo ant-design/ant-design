@@ -4,7 +4,7 @@ import { render } from '../../../tests/utils';
 
 describe('List', () => {
   it('renders empty list', () => {
-    const { container } = render(<List dataSource={[]} renderItem={() => <List.Item />} />);
+    const { container } = render(<List dataSource={[]} itemRender={() => <List.Item />} />);
     expect(container.firstChild).toMatchSnapshot();
   });
 });
