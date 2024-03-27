@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { LoadingOutlined } from '@ant-design/icons';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CopyOutlined from '@ant-design/icons/CopyOutlined';
 import classNames from 'classnames';
@@ -15,10 +16,11 @@ export interface CopyBtnProps extends CopyConfig {
   locale: Locale['Text'];
   onCopy: React.MouseEventHandler<HTMLDivElement>;
   iconOnly: boolean;
+  loading: boolean;
 }
 
 export default function CopyBtn(props: CopyBtnProps) {
-  const { prefixCls, copied, locale = {}, onCopy, iconOnly, tooltips, icon } = props;
+  const { prefixCls, copied, locale = {}, onCopy, iconOnly, tooltips, icon, loading } = props;
 
   const tooltipNodes = toList(tooltips);
   const iconNodes = toList(icon);
@@ -43,7 +45,7 @@ export default function CopyBtn(props: CopyBtnProps) {
       >
         {copied
           ? getNode(iconNodes[1], <CheckOutlined />, true)
-          : getNode(iconNodes[0], <CopyOutlined />, true)}
+          : getNode(iconNodes[0], loading ? <LoadingOutlined /> : <CopyOutlined />, true)}
       </TransButton>
     </Tooltip>
   );

@@ -193,22 +193,30 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
       clearTimeout(copyIdRef.current);
     }
   };
+  const [copyLoading, setCopyLoading] = React.useState(false);
 
   const onCopyClick = async (e?: React.MouseEvent<HTMLDivElement>) => {
     e?.preventDefault();
     e?.stopPropagation();
-    const text = typeof copyConfig.text === 'function' ? await copyConfig.text() : copyConfig.text;
-    copy(text || String(children) || '', copyOptions);
+    setCopyLoading(true);
+    try {
+      const text =
+        typeof copyConfig.text === 'function' ? await copyConfig.text() : copyConfig.text;
+      copy(text || String(children) || '', copyOptions);
+      setCopyLoading(false);
 
-    setCopied(true);
+      setCopied(true);
 
-    // Trigger tips update
-    cleanCopyId();
-    copyIdRef.current = setTimeout(() => {
-      setCopied(false);
-    }, 3000);
+      // Trigger tips update
+      cleanCopyId();
+      copyIdRef.current = setTimeout(() => {
+        setCopied(false);
+      }, 3000);
 
-    copyConfig.onCopy?.(e);
+      copyConfig.onCopy?.(e);
+    } catch (error) {
+      setCopyLoading(false);
+    }
   };
 
   React.useEffect(() => cleanCopyId, []);
@@ -446,6 +454,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
         copied={copied}
         locale={textLocale}
         onCopy={onCopyClick}
+        loading={copyLoading}
         iconOnly={children === null || children === undefined}
       />
     );
@@ -508,7 +517,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               width={ellipsisWidth}
               onEllipsis={onJsEllipsis}
               expanded={expanded}
-              miscDeps={[copied, expanded]}
+              miscDeps={[copied, expanded, copyLoading]}
             >
               {(node, canEllipsis) => {
                 let renderNode: React.ReactNode = node;

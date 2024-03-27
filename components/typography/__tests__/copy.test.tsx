@@ -283,10 +283,12 @@ describe('Typography copy', () => {
         </Base>,
       );
       fireEvent.click(wrapper.querySelectorAll('.ant-typography-copy')[0]);
+      expect(wrapper.querySelectorAll('.anticon-loading')[0]).toBeTruthy();
       await waitFakeTimer();
       expect(spy.mock.calls[0][0]).toEqual('Request text');
       spy.mockReset();
       jest.useRealTimers();
+      expect(wrapper.querySelectorAll('.anticon-loading')[0]).toBeFalsy();
     });
   });
 });
