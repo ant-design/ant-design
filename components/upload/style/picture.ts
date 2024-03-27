@@ -138,14 +138,13 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
       [`${listCls}${listCls}-picture-card, ${listCls}${listCls}-picture-circle`]: {
         display: 'flex',
         flexWrap: 'wrap',
-        '& > *': {
-          margin: token.marginXS,
+        '@supports not (gap: 1px)': {
+          '& > *': {
+            margin: token.marginXS,
+          },
         },
         '@supports (gap: 1px)': {
           gap: token.marginXS,
-          '& > *': {
-            margin: 0,
-          },
         },
 
         [`${listCls}-item-container`]: {
