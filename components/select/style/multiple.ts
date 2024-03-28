@@ -116,7 +116,7 @@ export const genOverflowStyle = (
      */
     // =========================== Overflow ===========================
     [selectOverflowPrefixCls]: {
-      position: 'absolute',
+      position: 'relative',
       display: 'flex',
       flex: 'auto',
       flexWrap: 'wrap',
