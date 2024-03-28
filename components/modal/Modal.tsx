@@ -1,7 +1,7 @@
-import * as React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import Dialog from 'rc-dialog';
+import * as React from 'react';
 
 import useClosable from '../_util/hooks/useClosable';
 import { useZIndex } from '../_util/hooks/useZIndex';
@@ -144,6 +144,13 @@ const Modal: React.FC<ModalProps> = (props) => {
             maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
             className={classNames(hashId, className, modal?.className)}
             style={{ ...modal?.style, ...style }}
+            bodyStyle={{
+              maxHeight: 'calc(70vh - 60px)',
+              overflowY: 'auto',
+              paddingRight: 16,
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+            }}
             classNames={{
               ...modal?.classNames,
               ...modalClassNames,
