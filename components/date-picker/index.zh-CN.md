@@ -66,19 +66,6 @@ demo:
 
 如有特殊需求（仅修改单一组件的语言），请使用 locale 参数，参考：[默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)。
 
-<!-- prettier-ignore -->
-:::warning
-在搭配 Next.js 的 App Router 使用时，注意在引入 dayjs 的 locale 文件时加上 `'use client'`。这是由于 Ant Design 的组件都是客户端组件，在 RSC 中引入 dayjs 的 locale 文件将不会在客户端生效。
-:::
-
-```jsx
-import locale from 'antd/es/date-picker/locale/zh_CN';
-
-import 'dayjs/locale/zh-cn';
-
-<DatePicker locale={locale} />;
-```
-
 ```jsx
 // 默认语言为 en-US，如果你需要设置其他语言，推荐在入口文件全局设置 locale
 // 确保还导入相关的 dayjs 文件，否则所有文本的区域设置都不会更改（例如范围选择器月份）
@@ -87,10 +74,17 @@ import dayjs from 'dayjs';
 
 import 'dayjs/locale/zh-cn';
 
+dayjs.locale('zh-cn');
+
 <ConfigProvider locale={locale}>
   <DatePicker defaultValue={dayjs('2015-01-01', 'YYYY-MM-DD')} />
 </ConfigProvider>;
 ```
+
+<!-- prettier-ignore -->
+:::warning
+在搭配 Next.js 的 App Router 使用时，注意在引入 dayjs 的 locale 文件时加上 `'use client'`。这是由于 Ant Design 的组件都是客户端组件，在 RSC 中引入 dayjs 的 locale 文件将不会在客户端生效。
+:::
 
 ### 共同的 API
 
