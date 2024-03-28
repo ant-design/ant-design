@@ -87,7 +87,7 @@ Common props ref：[Common props](/docs/react/common-props)
 ### copyable
 
     {
-      text: string,
+      text: string | (() => string | Promise<string>),
       onCopy: function(event),
       icon: ReactNode,
       tooltips: false | [ReactNode, ReactNode],

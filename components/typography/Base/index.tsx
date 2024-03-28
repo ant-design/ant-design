@@ -1,7 +1,6 @@
 import * as React from 'react';
 import EditOutlined from '@ant-design/icons/EditOutlined';
 import classNames from 'classnames';
-import copy from 'copy-to-clipboard';
 import ResizeObserver from 'rc-resize-observer';
 import type { AutoSizeType } from 'rc-textarea';
 import toArray from 'rc-util/lib/Children/toArray';
@@ -17,6 +16,7 @@ import useLocale from '../../locale/useLocale';
 import type { TooltipProps } from '../../tooltip';
 import Tooltip from '../../tooltip';
 import Editable from '../Editable';
+import useCopyClick from '../hooks/useCopyClick';
 import useMergedConfig from '../hooks/useMergedConfig';
 import useUpdatedEffect from '../hooks/useUpdatedEffect';
 import type { TypographyProps } from '../Typography';
@@ -28,7 +28,7 @@ import EllipsisTooltip from './EllipsisTooltip';
 export type BaseType = 'secondary' | 'success' | 'warning' | 'danger';
 
 export interface CopyConfig {
-  text?: string;
+  text?: string | (() => string | Promise<string>);
   onCopy?: (event?: React.MouseEvent<HTMLDivElement>) => void;
   icon?: React.ReactNode;
   tooltips?: React.ReactNode;
@@ -180,38 +180,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   // ========================== Copyable ==========================
   const [enableCopy, copyConfig] = useMergedConfig<CopyConfig>(copyable);
-  const [copied, setCopied] = React.useState(false);
-  const copyIdRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const copyOptions: Pick<CopyConfig, 'format'> = {};
-  if (copyConfig.format) {
-    copyOptions.format = copyConfig.format;
-  }
-
-  const cleanCopyId = () => {
-    if (copyIdRef.current) {
-      clearTimeout(copyIdRef.current);
-    }
-  };
-
-  const onCopyClick = (e?: React.MouseEvent<HTMLDivElement>) => {
-    e?.preventDefault();
-    e?.stopPropagation();
-
-    copy(copyConfig.text || String(children) || '', copyOptions);
-
-    setCopied(true);
-
-    // Trigger tips update
-    cleanCopyId();
-    copyIdRef.current = setTimeout(() => {
-      setCopied(false);
-    }, 3000);
-
-    copyConfig.onCopy?.(e);
-  };
-
-  React.useEffect(() => cleanCopyId, []);
+  const { copied, copyLoading, onClick: onCopyClick } = useCopyClick({ copyConfig, children });
 
   // ========================== Ellipsis ==========================
   const [isLineClampSupport, setIsLineClampSupport] = React.useState(false);
@@ -446,6 +416,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
         copied={copied}
         locale={textLocale}
         onCopy={onCopyClick}
+        loading={copyLoading}
         iconOnly={children === null || children === undefined}
       />
     );
@@ -508,7 +479,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               width={ellipsisWidth}
               onEllipsis={onJsEllipsis}
               expanded={expanded}
-              miscDeps={[copied, expanded]}
+              miscDeps={[copied, expanded, copyLoading]}
             >
               {(node, canEllipsis) => {
                 let renderNode: React.ReactNode = node;
