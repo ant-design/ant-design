@@ -265,6 +265,7 @@ describe('Typography copy', () => {
       jest.useRealTimers();
       spy.mockReset();
     });
+
     it('copy by async', async () => {
       const spy = jest.spyOn(copyObj, 'default');
       jest.useFakeTimers();
@@ -291,7 +292,8 @@ describe('Typography copy', () => {
       jest.useRealTimers();
       expect(wrapper.querySelectorAll('.anticon-loading')[0]).toBeFalsy();
     });
-    test('useCopyClick error', async () => {
+
+    it('useCopyClick error', async () => {
       const { result } = renderHook(() =>
         useCopyClick({
           copyConfig: {
