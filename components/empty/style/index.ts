@@ -49,6 +49,12 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
         marginTop: margin,
       },
 
+      '&-default': {
+        [`${componentCls}-description`]: {
+          color: token.colorTextDescription,
+        },
+      },
+
       '&-normal': {
         marginBlock: marginXL,
         color: token.colorTextDescription,
