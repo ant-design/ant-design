@@ -96,7 +96,17 @@ export default RootLayout;
 
 <InstallDependencies npm='$ npm install @ant-design/cssinjs --save' yarn='$ yarn add @ant-design/cssinjs' pnpm='$ pnpm install @ant-design/cssinjs --save'></InstallDependencies>
 
-2. 改写 `pages/_document.tsx`
+2. 改写 `next.config.ts`
+
+```ts
+const nextConfig = {
+  transpilePackages: ['@ant-design', 'rc-util', 'rc-pagination', 'rc-picker'],
+};
+
+export default nextConfig;
+```
+
+3. 改写 `pages/_document.tsx`
 
 ```tsx
 import React from 'react';
@@ -142,7 +152,7 @@ MyDocument.getInitialProps = async (ctx: DocumentContext) => {
 export default MyDocument;
 ```
 
-3. 支持自定义主题
+4. 支持自定义主题
 
 ```ts
 // theme/themeConfig.ts
@@ -158,7 +168,7 @@ const theme: ThemeConfig = {
 export default theme;
 ```
 
-4. 改写 `pages/_app.tsx`
+5. 改写 `pages/_app.tsx`
 
 ```tsx
 import React from 'react';
@@ -176,7 +186,7 @@ const App = ({ Component, pageProps }: AppProps) => (
 export default App;
 ```
 
-5. 在页面中使用 antd
+6. 在页面中使用 antd
 
 ```tsx
 import React from 'react';
