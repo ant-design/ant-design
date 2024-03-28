@@ -815,6 +815,53 @@ describe('Upload', () => {
         }),
       );
     });
+
+    it('should trigger onChange when defaultFileList.length is longer than maxCount ', async () => {
+      const onChange = jest.fn();
+
+      const { container } = render(
+        <Upload
+          onChange={onChange}
+          maxCount={3}
+          defaultFileList={[
+            {
+              uid: 'bamboo',
+              name: 'bamboo.png',
+            },
+            {
+              uid: 'little',
+              name: 'little.png',
+            },
+            {
+              uid: 'foo',
+              name: 'foo.png',
+            },
+            {
+              uid: 'bar',
+              name: 'bar.png',
+            },
+            {
+              uid: 'bar1',
+              name: 'bar1.png',
+            },
+          ]}
+          showUploadList
+        >
+          <button type="button">upload</button>
+        </Upload>,
+      );
+
+      fireEvent.click(container.querySelector('.ant-upload-list-item-action')!);
+      await waitFakeTimer();
+      // Click delete
+
+      expect(onChange).toHaveBeenCalledWith(
+        expect.objectContaining({
+          // Have 3 file
+          fileList: [expect.anything(), expect.anything(), expect.anything()],
+        }),
+      );
+    });
   });
 
   it('auto fill file uid', () => {

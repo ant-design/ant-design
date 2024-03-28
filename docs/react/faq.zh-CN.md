@@ -163,6 +163,8 @@ type InputRef = GetRef<typeof Input>;
 请检查是否正确设置了 dayjs 语言包。
 
 ```js
+import dayjs from 'dayjs';
+
 import 'dayjs/locale/zh-cn';
 
 dayjs.locale('zh-cn');
