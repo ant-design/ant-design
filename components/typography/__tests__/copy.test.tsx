@@ -4,7 +4,7 @@ import * as copyObj from 'copy-to-clipboard';
 
 import { fireEvent, render, renderHook, waitFakeTimer, waitFor } from '../../../tests/utils';
 import Base from '../Base';
-import useCopyClick from '../Base/useCopyClick';
+import useCopyClick from '../hooks/useCopyClick';
 
 describe('Typography copy', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -302,13 +302,8 @@ describe('Typography copy', () => {
           },
         }),
       );
-      expect.assertions(2);
-      try {
-        await result.current?.onClick?.();
-      } catch (error) {
-        expect(error).toMatch('error');
-        expect(result.current?.copyLoading).toBe(false);
-      }
+      await expect(() => result.current?.onClick?.()).rejects.toMatch('error');
+      expect(result.current?.copyLoading).toBe(false);
     });
   });
 });

@@ -16,6 +16,7 @@ import useLocale from '../../locale/useLocale';
 import type { TooltipProps } from '../../tooltip';
 import Tooltip from '../../tooltip';
 import Editable from '../Editable';
+import useCopyClick from '../hooks/useCopyClick';
 import useMergedConfig from '../hooks/useMergedConfig';
 import useUpdatedEffect from '../hooks/useUpdatedEffect';
 import type { TypographyProps } from '../Typography';
@@ -23,7 +24,6 @@ import Typography from '../Typography';
 import CopyBtn from './CopyBtn';
 import Ellipsis from './Ellipsis';
 import EllipsisTooltip from './EllipsisTooltip';
-import useCopyClick from './useCopyClick';
 
 export type BaseType = 'secondary' | 'success' | 'warning' | 'danger';
 
