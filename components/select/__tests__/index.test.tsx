@@ -8,6 +8,7 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
+import { ConfigProvider } from 'antd';
 
 const { Option } = Select;
 
@@ -195,6 +196,22 @@ describe('Select', () => {
         'Warning: [antd: Select] `maxCount` only works with mode `multiple` or `tags`',
       );
       errSpy.mockRestore();
+    });
+
+    it('should set the height of the multiple select element correctly', () => {
+      const { container } = render(
+        <ConfigProvider
+          theme={{
+            token: {
+              controlHeight: 28,
+            },
+          }}
+        >
+          <Select mode="multiple" style={{ width: 300 }} />
+        </ConfigProvider>,
+      );
+      const select = container.querySelector('.ant-select') as HTMLElement;
+      expect(select).toHaveStyle('height: 28px');
     });
   });
 });
