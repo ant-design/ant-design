@@ -41,12 +41,18 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
       },
 
       [`${componentCls}-description`]: {
-        color: token.colorTextDescription,
+        color: token.colorText,
       },
 
       // 原来 &-footer 没有父子结构，现在为了外层承担我们的hashId，改成父子结果
       [`${componentCls}-footer`]: {
         marginTop: margin,
+      },
+
+      '&-default': {
+        [`${componentCls}-description`]: {
+          color: token.colorTextDescription,
+        },
       },
 
       '&-normal': {

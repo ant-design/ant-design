@@ -68,6 +68,7 @@ const Empty: CompoundedComponent = ({
         prefixCls,
         empty?.className,
         {
+          [`${prefixCls}-default`]: image === defaultEmptyImg,
           [`${prefixCls}-normal`]: image === simpleEmptyImg,
           [`${prefixCls}-rtl`]: direction === 'rtl',
         },
