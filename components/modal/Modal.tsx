@@ -3,7 +3,7 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import Dialog from 'rc-dialog';
 
-import useClosable from '../_util/hooks/useClosable';
+import useClosable, { pickClosable } from '../_util/hooks/useClosable';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import { canUseDocElement } from '../_util/styleChecker';
@@ -108,10 +108,11 @@ const Modal: React.FC<ModalProps> = (props) => {
 
   const [mergedClosable, mergedCloseIcon] = useClosable({
     closable,
-    closeIcon: typeof closeIcon !== 'undefined' ? closeIcon : modal?.closeIcon,
+    closeIcon,
     customCloseIconRender: (icon) => renderCloseIcon(prefixCls, icon),
     defaultCloseIcon: <CloseOutlined className={`${prefixCls}-close-icon`} />,
     defaultClosable: true,
+    context: pickClosable(modal),
   });
 
   // ============================ Refs ============================

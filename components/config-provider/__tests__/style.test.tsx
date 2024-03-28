@@ -1086,6 +1086,59 @@ describe('ConfigProvider support style and className props', () => {
     expect(element?.querySelector<HTMLSpanElement>('.cp-test-closeIcon')).toBeTruthy();
   });
 
+  it('Should Tag support aria-* in closable', () => {
+    const { container } = render(
+      <ConfigProvider
+        tag={{
+          closable: {
+            closeIcon: <span className="cp-test-closeIcon">cp-test-closeIcon</span>,
+            'aria-label': 'Close Tag',
+          },
+        }}
+      >
+        <Tag>Test</Tag>
+        <Tag.CheckableTag checked>CheckableTag</Tag.CheckableTag>
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLSpanElement>('.ant-tag');
+    expect(element?.querySelector('.ant-tag-close-icon')).toBeTruthy();
+    expect(element?.querySelector('.ant-tag-close-icon')?.getAttribute('aria-label')).toBe(
+      'Close Tag',
+    );
+    expect(element?.querySelector('.cp-test-closeIcon')).toBeTruthy();
+  });
+
+  it('Should Tag hide closeIcon when closeIcon=false', () => {
+    const { container } = render(
+      <ConfigProvider
+        tag={{
+          closeIcon: false,
+        }}
+      >
+        <Tag>Test</Tag>
+        <Tag.CheckableTag checked>CheckableTag</Tag.CheckableTag>
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLSpanElement>('.ant-tag');
+    expect(element?.querySelector('.ant-tag-close-icon')).toBeFalsy();
+  });
+
+  it('Should Tag show default closeIcon when closeIcon=true', () => {
+    const { container } = render(
+      <ConfigProvider
+        tag={{
+          closeIcon: true,
+        }}
+      >
+        <Tag>Test</Tag>
+        <Tag.CheckableTag checked>CheckableTag</Tag.CheckableTag>
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLSpanElement>('.ant-tag');
+    expect(element?.querySelector('.ant-tag-close-icon')).toBeTruthy();
+    expect(element?.querySelector('.anticon-close')).toBeTruthy();
+  });
+
   it('Should Table className & style works', () => {
     const { container } = render(
       <ConfigProvider

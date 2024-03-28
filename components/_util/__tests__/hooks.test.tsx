@@ -81,7 +81,7 @@ describe('hooks test', () => {
       res: [false, ''],
     },
 
-    // test case like: <Component closeIcon={null | false | element} />
+    // test case like: <Component closeIcon={null | false | element | true} />
     {
       params: [undefined, null, undefined],
       res: [false, ''],
@@ -89,6 +89,10 @@ describe('hooks test', () => {
     {
       params: [undefined, false, undefined],
       res: [false, ''],
+    },
+    {
+      params: [undefined, true, undefined],
+      res: [true, '.anticon-close'],
     },
     {
       params: [

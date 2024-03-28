@@ -219,4 +219,11 @@ describe('Tag', () => {
     waitRaf();
     expect(document.querySelector('.ant-wave')).toBeFalsy();
   });
+  it('should support aria-* in closable', () => {
+    const { container } = render(<Tag closable={{ closeIcon: 'X', 'aria-label': 'CloseBtn' }} />);
+    expect(container.querySelector('.ant-tag-close-icon')?.getAttribute('aria-label')).toEqual(
+      'CloseBtn',
+    );
+    expect(container.querySelector('.ant-tag-close-icon')?.textContent).toEqual('X');
+  });
 });

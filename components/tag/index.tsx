@@ -1,10 +1,10 @@
 import * as React from 'react';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { isPresetColor, isPresetStatusColor } from '../_util/colors';
-import useClosable from '../_util/hooks/useClosable';
+import useClosable, { pickClosable } from '../_util/hooks/useClosable';
+import { replaceElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -21,7 +21,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   className?: string;
   rootClassName?: string;
   color?: LiteralUnion<PresetColorType | PresetStatusColorType>;
-  closable?: boolean;
+  closable?: boolean | ({ closeIcon?: React.ReactNode } & React.AriaAttributes);
   /** Advised to use closeIcon instead. */
   closeIcon?: React.ReactNode;
   /** @deprecated `visible` will be removed in next major version. */
@@ -110,17 +110,23 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
 
   const [, mergedCloseIcon] = useClosable({
     closable,
-    closeIcon: closeIcon ?? tag?.closeIcon,
-    customCloseIconRender: (iconNode: React.ReactNode) =>
-      iconNode === null ? (
-        <CloseOutlined className={`${prefixCls}-close-icon`} onClick={handleCloseClick} />
-      ) : (
+    closeIcon,
+    customCloseIconRender: (iconNode: React.ReactNode) => {
+      const replacement = (
         <span className={`${prefixCls}-close-icon`} onClick={handleCloseClick}>
           {iconNode}
         </span>
-      ),
-    defaultCloseIcon: null,
+      );
+      return replaceElement(iconNode, replacement, (originProps) => ({
+        onClick: (e: React.MouseEvent<HTMLElement>) => {
+          originProps?.onClick?.(e);
+          handleCloseClick(e);
+        },
+        className: classNames(originProps?.className, `${prefixCls}-close-icon`),
+      }));
+    },
     defaultClosable: false,
+    context: pickClosable(tag),
   });
 
   const isNeedWave =
