@@ -1,16 +1,17 @@
 import * as React from 'react';
 import { useEvent } from 'rc-util';
 import raf from 'rc-util/lib/raf';
-import showWaveEffect from './WaveEffect';
+
 import { ConfigContext } from '../../config-provider';
 import useToken from '../../theme/useToken';
 import { TARGET_CLS, type ShowWave } from './interface';
+import showWaveEffect from './WaveEffect';
 
-export default function useWave(
+const useWave = (
   nodeRef: React.RefObject<HTMLElement>,
   className: string,
-  component?: string,
-) {
+  component?: 'Tag' | 'Button' | 'Checkbox' | 'Radio' | 'Switch',
+) => {
   const { wave } = React.useContext(ConfigContext);
   const [, token, hashId] = useToken();
 
@@ -41,4 +42,6 @@ export default function useWave(
   };
 
   return showDebounceWave;
-}
+};
+
+export default useWave;
