@@ -140,7 +140,8 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
         flexWrap: 'wrap',
         '@supports not (gap: 1px)': {
           '& > *': {
-            margin: token.marginXS,
+            marginBlockEnd: token.marginXS,
+            marginInlineEnd: token.marginXS,
           },
         },
         '@supports (gap: 1px)': {
