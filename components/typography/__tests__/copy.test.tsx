@@ -302,11 +302,12 @@ describe('Typography copy', () => {
           },
         }),
       );
-      expect.assertions(1);
+      expect.assertions(2);
       try {
         await result.current?.onClick?.();
       } catch (error) {
         expect(error).toMatch('error');
+        expect(result.current?.copyLoading).toBe(false);
       }
     });
   });
