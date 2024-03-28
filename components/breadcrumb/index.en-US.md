@@ -85,7 +85,7 @@ const item = {
 | type      | Mark as separator | `separator` |         | 5.3.0   |
 | separator | Custom separator  | ReactNode   | `/`     | 5.3.0   |
 
-### Use with browserHistory
+#### Use with browserHistory
 
 The link of Breadcrumb item targets `#` by default, you can use `itemRender` to make a `browserHistory` Link.
 
