@@ -117,10 +117,10 @@ export const genOverflowStyle = (
     // =========================== Overflow ===========================
     [selectOverflowPrefixCls]: {
       position: 'relative',
+      maxWidth: '100%',
       display: 'flex',
       flex: 'auto',
       flexWrap: 'wrap',
-      maxWidth: '100%',
 
       '&-item': {
         flex: 'none',
