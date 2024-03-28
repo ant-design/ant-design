@@ -298,7 +298,7 @@ describe('Tour', () => {
   });
 
   it('panelRender should correct render when total is undefined or null', () => {
-    [undefined, null].forEach((total: undefined) => {
+    [undefined, null].forEach((total: any) => {
       const { container } = render(<Tour open steps={[{ title: <div>test</div>, total }]} />);
       expect(
         container.querySelector<HTMLDivElement>('.ant-tour-content .ant-tour-indicators'),

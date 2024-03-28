@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Tree } from 'antd';
-import type { TreeDataNode } from 'antd';
+import type { TreeDataNode, TreeProps } from 'antd';
 
 const treeData: TreeDataNode[] = [
   {
@@ -52,7 +52,7 @@ const App: React.FC = () => {
   const [selectedKeys, setSelectedKeys] = useState<React.Key[]>([]);
   const [autoExpandParent, setAutoExpandParent] = useState<boolean>(true);
 
-  const onExpand = (expandedKeysValue: React.Key[]) => {
+  const onExpand: TreeProps['onExpand'] = (expandedKeysValue) => {
     console.log('onExpand', expandedKeysValue);
     // if not set autoExpandParent to false, if children expanded, parent can not collapse.
     // or, you can remove all expanded children keys.
@@ -60,12 +60,12 @@ const App: React.FC = () => {
     setAutoExpandParent(false);
   };
 
-  const onCheck = (checkedKeysValue: React.Key[]) => {
+  const onCheck: TreeProps['onCheck'] = (checkedKeysValue) => {
     console.log('onCheck', checkedKeysValue);
-    setCheckedKeys(checkedKeysValue);
+    setCheckedKeys(checkedKeysValue as React.Key[]);
   };
 
-  const onSelect = (selectedKeysValue: React.Key[], info: any) => {
+  const onSelect: TreeProps['onSelect'] = (selectedKeysValue, info) => {
     console.log('onSelect', info);
     setSelectedKeys(selectedKeysValue);
   };

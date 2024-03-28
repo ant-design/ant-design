@@ -1,6 +1,8 @@
+import React from 'react';
 import dayjs from 'dayjs';
 import MockDate from 'mockdate';
-import React from 'react';
+
+import type { CountdownProps } from '..';
 import Statistic from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -58,8 +60,8 @@ describe('Statistic', () => {
       [-3, -1112893.1212, '-1,112,893'],
       [-1, -1112893, '-1,112,893'],
       [-1, 1112893, '1,112,893'],
-    ].forEach(([precision, value, expectValue]: [number, number, string]) => {
-      const { container } = render(<Statistic precision={precision} value={value} />);
+    ].forEach(([precision, value, expectValue]) => {
+      const { container } = render(<Statistic precision={precision as any} value={value} />);
       expect(container.querySelector('.ant-statistic-content-value-int')!.textContent).toEqual(
         expectValue,
       );
@@ -168,7 +170,7 @@ describe('Statistic', () => {
         const deadline = Date.now() + 10 * 1000;
         let remainingTime;
 
-        const onChange = (value: number) => {
+        const onChange: CountdownProps['onChange'] = (value) => {
           remainingTime = value;
         };
         render(<Statistic.Countdown value={deadline} onChange={onChange} />);

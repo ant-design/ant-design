@@ -8,6 +8,7 @@
       "antd/lib/*": ["components/*"],
       "antd/locale/*": ["components/locale/*"]
     },
+    "strict": true,
     "strictNullChecks": true,
     "module": "esnext",
     "moduleResolution": "Bundler",

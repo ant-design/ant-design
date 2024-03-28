@@ -1,10 +1,9 @@
-import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
+import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
-
 import type { SegmentedValue } from '../index';
 import Segmented from '../index';
 
@@ -30,8 +29,8 @@ function expectMatchChecked(container: HTMLElement, checkedList: boolean[]) {
 }
 
 describe('Segmented', () => {
-  mountTest(Segmented);
-  rtlTest(Segmented);
+  mountTest(Segmented as any);
+  rtlTest(Segmented as any);
 
   beforeAll(() => {
     jest.useFakeTimers();

@@ -85,7 +85,7 @@ const ThemePicker: React.FC<ThemePickerProps> = (props) => {
   const [locale] = useLocale(locales);
   return (
     <Flex gap="large" wrap="wrap">
-      {Object.keys(THEMES).map<React.ReactNode>((theme: THEME, index) => (
+      {(Object.keys(THEMES) as (keyof typeof THEMES)[]).map<React.ReactNode>((theme, index) => (
         <Flex vertical gap="small" justify="center" align="center" key={theme}>
           <label
             onClick={() => onChange?.(theme)}

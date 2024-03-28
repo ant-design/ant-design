@@ -1,5 +1,6 @@
-import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import React from 'react';
+import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
+
 import { fireEvent, render } from '../../../tests/utils';
 import Base from '../Base';
 
@@ -18,14 +19,14 @@ describe('Typography.Editable', () => {
     mockRectSpy = spyElementPrototypes(HTMLElement, {
       offsetHeight: {
         get() {
-          let html = this.innerHTML;
+          let html = (this as any).innerHTML;
           html = html.replace(/<[^>]*>/g, '');
           const lines = Math.ceil(html.length / LINE_STR_COUNT);
           return lines * 16;
         },
       },
       getBoundingClientRect() {
-        let html = this.innerHTML;
+        let html: any = this.innerHTML;
         html = html.replace(/<[^>]*>/g, '');
         const lines = Math.ceil(html.length / LINE_STR_COUNT);
         return { height: lines * 16 };

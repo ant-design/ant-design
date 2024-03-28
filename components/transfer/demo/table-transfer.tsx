@@ -107,7 +107,7 @@ const leftTableColumns: TableColumnsType<DataType> = [
   },
 ];
 
-const rightTableColumns: TableColumnsType<Pick<DataType, 'title'>> = [
+const rightTableColumns: TableTransferProps['rightColumns'] = [
   {
     dataIndex: 'title',
     title: 'Name',

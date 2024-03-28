@@ -199,7 +199,7 @@ export function getFilterData<RecordType>(
   }, data);
 }
 
-interface FilterConfig<RecordType> {
+export interface FilterConfig<RecordType> {
   prefixCls: string;
   dropdownPrefixCls: string;
   mergedColumns: ColumnsType<RecordType>;

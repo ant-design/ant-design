@@ -36,7 +36,7 @@ const AliyunOSSUpload = ({ value, onChange }: AliyunOSSUploadProps) => {
       const result = await mockGetOSSData();
       setOSSData(result);
     } catch (error) {
-      message.error(error);
+      message.error(error as string);
     }
   };
 

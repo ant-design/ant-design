@@ -1,5 +1,4 @@
 import React, { useContext, useMemo, useRef } from 'react';
-import type { HsbaColorType } from '@rc-component/color-picker';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
@@ -15,6 +14,7 @@ import { FormItemInputContext, NoFormStyle } from '../form/context';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';
 import type { Color } from './color';
+import type { ColorPickerPanelProps } from './ColorPickerPanel';
 import ColorPickerPanel from './ColorPickerPanel';
 import ColorTrigger from './components/ColorTrigger';
 import useColorState from './hooks/useColorState';
@@ -118,8 +118,8 @@ const ColorPicker: CompoundedComponent = (props) => {
     );
   }
 
-  const handleChange = (data: Color, type?: HsbaColorType, pickColor?: boolean) => {
-    let color: Color = generateColor(data);
+  const handleChange: ColorPickerPanelProps['onChange'] = (data, type, pickColor) => {
+    let color: Color = generateColor(data as Color);
 
     // If color is cleared, reset alpha to 100
     const isNull = value === null || (!value && defaultValue === null);

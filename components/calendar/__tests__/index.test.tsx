@@ -334,7 +334,7 @@ describe('Calendar', () => {
     const onTypeChange = jest.fn();
     const value = Dayjs('2018-12-03');
     const wrapper = render(
-      <Header
+      <Header<Dayjs.Dayjs>
         prefixCls="ant-picker-calendar"
         generateConfig={dayjsGenerateConfig}
         onModeChange={onTypeChange}

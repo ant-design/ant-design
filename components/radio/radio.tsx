@@ -8,11 +8,11 @@ import Wave from '../_util/wave';
 import { TARGET_CLS } from '../_util/wave/interface';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { FormItemInputContext } from '../form/context';
 import RadioGroupContext, { RadioOptionTypeContext } from './context';
 import type { RadioChangeEvent, RadioProps, RadioRef } from './interface';
 import useStyle from './style';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (props, ref) => {
   const groupContext = React.useContext(RadioGroupContext);
@@ -91,6 +91,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
         onMouseLeave={props.onMouseLeave}
         title={title}
       >
+        {/* @ts-ignore */}
         <RcCheckbox
           {...radioProps}
           className={classNames(radioProps.className, !isButtonType && TARGET_CLS)}

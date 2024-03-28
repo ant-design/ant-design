@@ -146,6 +146,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
       : null;
     const customize: boolean = !!bodyContent;
     if (!customize) {
+      // @ts-ignore
       bodyContent = <DefaultListBody ref={listBodyRef} {...listProps} />;
     }
     return { customize, bodyContent };
@@ -199,7 +200,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
       <div className={`${prefixCls}-body-search-wrapper`}>
         <Search
           prefixCls={`${prefixCls}-search`}
-          onChange={internalHandleFilter}
+          onChange={internalHandleFilter as any}
           handleClear={internalHandleClear}
           placeholder={searchPlaceholder}
           value={filterValue}

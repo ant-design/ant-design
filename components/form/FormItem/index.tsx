@@ -20,6 +20,7 @@ import useFrameState from '../hooks/useFrameState';
 import useItemRef from '../hooks/useItemRef';
 import useStyle from '../style';
 import { getFieldId, toArray } from '../util';
+import type { ItemHolderProps } from './ItemHolder';
 import ItemHolder from './ItemHolder';
 import StatusProvider from './StatusProvider';
 
@@ -199,7 +200,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   };
 
   // >>>>> Collect noStyle Field error to the top FormItem
-  const onSubItemMetaChange = (subMeta: Meta & { destroy: boolean }, uniqueKeys: React.Key[]) => {
+  const onSubItemMetaChange: ItemHolderProps['onSubItemMetaChange'] = (subMeta, uniqueKeys) => {
     // Only `noStyle` sub item will trigger
     setSubFieldErrors((prevSubFieldErrors) => {
       const clone = {
@@ -210,7 +211,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
       const mergedNamePath = [...subMeta.name.slice(0, -1), ...uniqueKeys];
       const mergedNameKey = mergedNamePath.join(NAME_SPLIT);
 
-      if (subMeta.destroy) {
+      if ((subMeta as any).destroy) {
         // Remove
         delete clone[mergedNameKey];
       } else {
@@ -301,7 +302,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
       validateTrigger={mergedValidateTrigger}
       onMetaChange={onMetaChange}
     >
-      {(control, renderMeta, context: FormInstance<Values>) => {
+      {(control, renderMeta, context) => {
         const mergedName = toArray(name).length && renderMeta ? renderMeta.name : [];
         const fieldId = getFieldId(mergedName, formName);
 
@@ -423,7 +424,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
             </MemoInput>
           );
         } else if (isRenderProps && (shouldUpdate || dependencies) && !hasName) {
-          childNode = mergedChildren(context);
+          childNode = mergedChildren(context as any);
         } else {
           warning(
             !mergedName.length,

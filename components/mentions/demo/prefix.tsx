@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mentions } from 'antd';
+import type { MentionsProps } from 'rc-mentions';
 
 const MOCK_DATA = {
   '@': ['afc163', 'zombiej', 'yesmeck'],
@@ -11,8 +12,8 @@ type PrefixType = keyof typeof MOCK_DATA;
 const App: React.FC = () => {
   const [prefix, setPrefix] = useState<PrefixType>('@');
 
-  const onSearch = (_: string, newPrefix: PrefixType) => {
-    setPrefix(newPrefix);
+  const onSearch: MentionsProps['onSearch'] = (_, newPrefix) => {
+    setPrefix(newPrefix as PrefixType);
   };
 
   return (

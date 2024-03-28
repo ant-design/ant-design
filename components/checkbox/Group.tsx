@@ -69,7 +69,7 @@ const CheckboxGroup = React.forwardRef(
 
     const memoOptions = React.useMemo<CheckboxOptionType<T>[]>(
       () =>
-        options.map<CheckboxOptionType<T>>((option: CheckboxOptionType<T>) => {
+        options.map<CheckboxOptionType<T>>((option: any) => {
           if (typeof option === 'string' || typeof option === 'number') {
             return { label: option, value: option };
           }
@@ -159,7 +159,7 @@ const CheckboxGroup = React.forwardRef(
     );
     return wrapCSSVar(
       <div className={classString} style={style} {...domProps} ref={ref}>
-        <GroupContext.Provider value={context}>{childrenNode}</GroupContext.Provider>
+        <GroupContext.Provider value={context as any}>{childrenNode}</GroupContext.Provider>
       </div>,
     );
   },

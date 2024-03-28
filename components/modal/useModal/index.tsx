@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import usePatchElement from '../../_util/hooks/usePatchElement';
 import type { ModalFunc, ModalStaticFunctions } from '../confirm';
 import { withConfirm, withError, withInfo, withSuccess, withWarn } from '../confirm';
@@ -101,9 +102,9 @@ function useModal(): readonly [instance: HookAPI, contextHolder: React.ReactElem
               setActionQueue((prev) => [...prev, destroyAction]);
             }
           },
-          update: (newConfig: ModalFuncProps) => {
+          update: (newConfig) => {
             function updateAction() {
-              modalRef.current?.update(newConfig);
+              modalRef.current?.update(newConfig as ModalFuncProps);
             }
 
             if (modalRef.current) {

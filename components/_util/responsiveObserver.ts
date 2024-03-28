@@ -95,16 +95,16 @@ export default function useResponsiveObserver() {
         if (!subscribers.size) this.unregister();
       },
       unregister() {
-        Object.keys(responsiveMap).forEach((screen: Breakpoint) => {
-          const matchMediaQuery = responsiveMap[screen];
+        Object.keys(responsiveMap).forEach((screen) => {
+          const matchMediaQuery = responsiveMap[screen as Breakpoint];
           const handler = this.matchHandlers[matchMediaQuery];
           handler?.mql.removeListener(handler?.listener);
         });
         subscribers.clear();
       },
       register() {
-        Object.keys(responsiveMap).forEach((screen: Breakpoint) => {
-          const matchMediaQuery = responsiveMap[screen];
+        Object.keys(responsiveMap).forEach((screen) => {
+          const matchMediaQuery = responsiveMap[screen as Breakpoint];
           const listener = ({ matches }: { matches: boolean }) => {
             this.dispatch({
               ...screens,

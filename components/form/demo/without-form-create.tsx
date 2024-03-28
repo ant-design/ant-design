@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import type { InputNumberProps } from 'antd';
 import { Form, InputNumber } from 'antd';
 
 type ValidateStatus = Parameters<typeof Form.Item>[0]['validateStatus'];
@@ -36,10 +37,10 @@ const App: React.FC = () => {
     errorMsg?: string | null;
   }>({ value: 11 });
 
-  const onNumberChange = (value: number) => {
+  const onNumberChange: InputNumberProps['onChange'] = (value) => {
     setNumber({
-      ...validatePrimeNumber(value),
-      value,
+      ...validatePrimeNumber(value as number),
+      value: value as number,
     });
   };
 

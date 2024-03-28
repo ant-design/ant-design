@@ -1,5 +1,6 @@
 import React from 'react';
 import { Cascader } from 'antd';
+import type { MultipleCascaderProps } from 'antd/es/cascader';
 
 interface Option {
   value: string | number;
@@ -43,7 +44,7 @@ const options: Option[] = [
   },
 ];
 
-const onChange = (value: string[][]) => {
+const onChange: MultipleCascaderProps<Option>['onChange'] = (value) => {
   console.log(value);
 };
 

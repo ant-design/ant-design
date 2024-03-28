@@ -26,7 +26,7 @@ function traverseNodesKey(
     }
   }
 
-  treeData.forEach(processNode);
+  treeData.forEach(processNode as any);
 }
 
 /** 计算选中范围，只考虑expanded情况以优化性能 */
@@ -59,14 +59,14 @@ export function calcRangeKeys({
 
   traverseNodesKey(
     treeData,
-    (key: Key) => {
+    (key) => {
       if (record === Record.End) {
         return false;
       }
 
-      if (matchKey(key)) {
+      if (matchKey(key as any)) {
         // Match test
-        keys.push(key);
+        keys.push(key as any);
 
         if (record === Record.None) {
           record = Record.Start;
@@ -76,9 +76,9 @@ export function calcRangeKeys({
         }
       } else if (record === Record.Start) {
         // Append selection
-        keys.push(key);
+        keys.push(key as any);
       }
-      return expandedKeys.includes(key);
+      return expandedKeys.includes(key as any);
     },
     fillFieldNames(fieldNames),
   );
@@ -95,8 +95,8 @@ export function convertDirectoryKeysToNodes(
   const nodes: DataNode[] = [];
   traverseNodesKey(
     treeData,
-    (key: Key, node: DataNode) => {
-      const index = restKeys.indexOf(key);
+    (key, node) => {
+      const index = restKeys.indexOf(key as any);
       if (index !== -1) {
         nodes.push(node);
         restKeys.splice(index, 1);

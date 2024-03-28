@@ -28,7 +28,7 @@ import { useToken } from '../theme/internal';
 import type { TooltipProps } from '../tooltip';
 import renderExpandIcon from './ExpandIcon';
 import useContainerWidth from './hooks/useContainerWidth';
-import type { FilterState } from './hooks/useFilter';
+import type { FilterConfig, FilterState } from './hooks/useFilter';
 import useFilter, { getFilterData } from './hooks/useFilter';
 import useLazyKVMap from './hooks/useLazyKVMap';
 import usePagination, { DEFAULT_PAGE_SIZE, getPaginationParam } from './hooks/usePagination';
@@ -177,7 +177,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const screens = useBreakpoint(needResponsive);
 
   const mergedColumns = React.useMemo(() => {
-    const matched = new Set(Object.keys(screens).filter((m: Breakpoint) => screens[m]));
+    const matched = new Set(Object.keys(screens).filter((m) => screens[m as Breakpoint]));
 
     return baseColumns.filter(
       (c) => !c.responsive || c.responsive.some((r: Breakpoint) => matched.has(r)),
@@ -334,18 +334,8 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   changeEventInfo.sorterStates = sortStates;
 
   // ============================ Filter ============================
-  const onFilterChange = (
-    filters: Record<string, FilterValue>,
-    filterStates: FilterState<RecordType>[],
-  ) => {
-    triggerOnChange(
-      {
-        filters,
-        filterStates,
-      },
-      'filter',
-      true,
-    );
+  const onFilterChange: FilterConfig<RecordType>['onFilterChange'] = (filters, filterStates) => {
+    triggerOnChange({ filters, filterStates }, 'filter', true);
   };
 
   const [transformFilterColumns, filterStates, filters] = useFilter<RecordType>({
@@ -620,7 +610,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           // Internal
           internalHooks={INTERNAL_HOOKS}
           internalRefs={internalRefs as any}
-          transformColumns={transformColumns as RcTableProps<RecordType>['transformColumns']}
+          transformColumns={transformColumns as any}
           getContainerWidth={getContainerWidth}
         />
         {bottomPaginationNode}
@@ -629,4 +619,4 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   );
 };
 
-export default React.forwardRef(InternalTable) as RefInternalTable;
+export default React.forwardRef(InternalTable as any) as RefInternalTable;

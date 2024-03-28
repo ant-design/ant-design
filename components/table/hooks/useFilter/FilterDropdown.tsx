@@ -352,7 +352,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   if (typeof column.filterDropdown === 'function') {
     dropdownContent = column.filterDropdown({
       prefixCls: `${dropdownPrefixCls}-custom`,
-      setSelectedKeys: (selectedKeys: string[]) => onSelectKeys({ selectedKeys }),
+      setSelectedKeys: (selectedKeys) => onSelectKeys({ selectedKeys: selectedKeys as string[] }),
       selectedKeys: getFilteredKeysSync(),
       confirm: doFilter,
       clearFilters: onReset,
@@ -413,7 +413,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
                 multiple={filterMultiple}
                 checkStrictly={!filterMultiple}
                 className={`${dropdownPrefixCls}-menu`}
-                onCheck={onCheck}
+                onCheck={onCheck as any}
                 checkedKeys={selectedKeys}
                 selectedKeys={selectedKeys}
                 showIcon={false}

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import type { BasePickerPanelProps as RcBasePickerPanelProps } from 'rc-picker';
 import { PickerPanel as RCPickerPanel } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate';
 import type { CellRenderInfo } from 'rc-picker/lib/interface';
@@ -246,7 +247,7 @@ function generateCalendar<DateType extends AnyObject>(generateConfig: GenerateCo
 
     const [contextLocale] = useLocale('Calendar', getDefaultLocale);
 
-    const mergedCellRender = (current: DateType, info: CellRenderInfo<DateType>) => {
+    const mergedCellRender: RcBasePickerPanelProps['cellRender'] = (current, info) => {
       if (info.type === 'date') {
         return dateRender(current, info);
       }

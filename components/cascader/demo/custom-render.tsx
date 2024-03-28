@@ -57,7 +57,7 @@ const handleAreaClick = (
   console.log('clicked', label, option);
 };
 
-const displayRender = (labels: string[], selectedOptions: DefaultOptionType[]) =>
+const displayRender: CascaderProps<Option>['displayRender'] = (labels, selectedOptions = []) =>
   labels.map((label, i) => {
     const option = selectedOptions[i];
     if (i === labels.length - 1) {

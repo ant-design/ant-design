@@ -29,7 +29,7 @@ const columns: TableColumnsType<DataType> = [
     ],
     filterMode: 'tree',
     filterSearch: true,
-    onFilter: (value: string, record) => record.name.startsWith(value),
+    onFilter: (value, record) => record.name.startsWith(value as string),
     width: '30%',
   },
   {
@@ -50,7 +50,7 @@ const columns: TableColumnsType<DataType> = [
         value: 'New York',
       },
     ],
-    onFilter: (value: string, record) => record.address.startsWith(value),
+    onFilter: (value, record) => record.address.startsWith(value as string),
     filterSearch: true,
     width: '40%',
   },

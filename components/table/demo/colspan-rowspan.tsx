@@ -13,7 +13,7 @@ interface DataType {
 
 // In the fifth row, other columns are merged into first column
 // by setting it's colSpan to be 0
-const sharedOnCell = (_: DataType, index: number) => {
+const sharedOnCell = (_: DataType, index?: number) => {
   if (index === 1) {
     return { colSpan: 0 };
   }

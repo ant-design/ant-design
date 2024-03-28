@@ -1,9 +1,10 @@
+import * as React from 'react';
 import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
 import DownloadOutlined from '@ant-design/icons/DownloadOutlined';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
-import * as React from 'react';
+
 import { ConfigContext } from '../../config-provider';
 import Progress from '../../progress';
 import Tooltip from '../../tooltip';
@@ -200,19 +201,20 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
           downloadOrDelete,
         ];
 
-    const previewIcon = (showPreviewIcon && (file.url || file.thumbUrl)) ? (
-      <a
-        href={file.url || file.thumbUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={(e) => onPreview(file, e)}
-        title={locale.previewFile}
-      >
-        {typeof customPreviewIcon === 'function'
-          ? customPreviewIcon(file)
-          : customPreviewIcon || <EyeOutlined />}
-      </a>
-    ) : null;
+    const previewIcon =
+      showPreviewIcon && (file.url || file.thumbUrl) ? (
+        <a
+          href={file.url || file.thumbUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => onPreview(file, e)}
+          title={locale.previewFile}
+        >
+          {typeof customPreviewIcon === 'function'
+            ? customPreviewIcon(file)
+            : customPreviewIcon || <EyeOutlined />}
+        </a>
+      ) : null;
 
     const pictureCardActions = (listType === 'picture-card' || listType === 'picture-circle') &&
       mergedStatus !== 'uploading' && (
@@ -283,7 +285,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
         {itemRender
           ? itemRender(item, file, items, {
               download: onDownload.bind(null, file),
-              preview: onPreview.bind(null, file),
+              preview: onPreview.bind(null, file) as any,
               remove: onClose.bind(null, file),
             })
           : item}
