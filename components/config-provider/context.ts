@@ -51,27 +51,52 @@ type ComponentsConfig = {
 };
 
 export interface ThemeConfig {
+  /**
+   * @descCN 用于修改 Design Token。
+   * @descEN Modify Design Token.
+   */
   token?: Partial<AliasToken>;
+  /**
+   * @descCN 用于修改各个组件的 Component Token 以及覆盖该组件消费的 Alias Token。
+   * @descEN Modify Component Token and Alias Token applied to components.
+   */
   components?: ComponentsConfig;
+  /**
+   * @descCN 用于修改 Seed Token 到 Map Token 的算法。
+   * @descEN Modify the algorithms of theme.
+   * @default defaultAlgorithm
+   */
   algorithm?: MappingAlgorithm | MappingAlgorithm[];
+  /**
+   * @descCN 是否继承外层 `ConfigProvider` 中配置的主题。
+   * @descEN Whether to inherit the theme configured in the outer layer `ConfigProvider`.
+   * @default true
+   */
   inherit?: boolean;
   /**
-   * @descCN 是否开启 `hashed` 属性。如果你的应用中只存在一个版本的 antd，你可以设置为 `false` 来进一步减小样式体积。默认值为 `ture`。
-   * @descEN Whether to enable the `hashed` attribute. If there is only one version of antd in your application, you can set `false` to reduce the bundle size. defaults to `true`.
+   * @descCN 是否开启 `hashed` 属性。如果你的应用中只存在一个版本的 antd，你可以设置为 `false` 来进一步减小样式体积。
+   * @descEN Whether to enable the `hashed` attribute. If there is only one version of antd in your application, you can set `false` to reduce the bundle size.
+   * @default true
+   * @since 5.12.0
    */
   hashed?: boolean;
   /**
-   * @descCN 通过 `cssVar` 配置来开启 CSS 变量模式，这个配置会被继承。默认值为 `false`。
-   * @descEN Enable CSS variable mode through `cssVar` configuration, This configuration will be inherited. defaults to `false`.
+   * @descCN 通过 `cssVar` 配置来开启 CSS 变量模式，这个配置会被继承。
+   * @descEN Enable CSS variable mode through `cssVar` configuration, This configuration will be inherited.
+   * @default false
+   * @since 5.12.0
    */
   cssVar?:
     | {
         /**
-         * Prefix for css variable, default to `ant`.
+         * @descCN css 变量的前缀
+         * @descEN Prefix for css variable.
+         * @default ant
          */
         prefix?: string;
         /**
-         * Unique key for theme, should be set manually < react@18.
+         * @descCN 主题的唯一 key，版本低于 react@18 时需要手动设置。
+         * @descEN Unique key for theme, should be set manually < react@18.
          */
         key?: string;
       }
@@ -144,7 +169,16 @@ export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'clas
 export type PopupOverflow = 'viewport' | 'scroll';
 
 export interface WaveConfig {
+  /**
+   * @descCN 是否开启水波纹效果。如果需要关闭，可以设置为 `false`。
+   * @descEN Whether to use wave effect. If it needs to close, set to `false`.
+   * @default true
+   */
   disabled?: boolean;
+  /**
+   * @descCN 自定义水波纹效果。
+   * @descEN Customized wave effect.
+   */
   showEffect?: ShowWaveEffect;
 }
 
@@ -155,6 +189,10 @@ export interface ConfigConsumerProps {
   iconPrefixCls: string;
   getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => string;
   renderEmpty?: RenderEmptyHandler;
+  /**
+   * @descCN 设置 [Content Security Policy](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CSP) 配置。
+   * @descEN Set the [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) config.
+   */
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
   input?: InputConfig;
