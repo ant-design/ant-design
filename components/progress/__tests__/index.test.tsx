@@ -404,4 +404,48 @@ describe('Progress', () => {
     expect(progress).toHaveAttribute('aria-labelledby', 'progressLabel');
     expect(progress).toHaveAttribute('aria-valuenow', '90');
   });
+
+  it('should show inside info position', () => {
+    const { container: wrapper, rerender } = render(
+      <Progress percent={10} infoPosition="inside" size={[300, 20]} />,
+    );
+    expect(
+      wrapper.querySelectorAll('.ant-progress-text-inside .ant-progress-inside-right'),
+    ).toHaveLength(1);
+
+    rerender(
+      <Progress percent={50} infoPosition="inside" infoInsidePosition="left" size={[300, 20]} />,
+    );
+    expect(
+      wrapper.querySelectorAll('.ant-progress-text-inside .ant-progress-inside-left'),
+    ).toHaveLength(1);
+
+    rerender(
+      <Progress percent={100} infoPosition="inside" infoInsidePosition="center" size={[300, 20]} />,
+    );
+    expect(
+      wrapper.querySelectorAll('.ant-progress-text-inside .ant-progress-inside-center'),
+    ).toHaveLength(1);
+  });
+
+  it('render inside info position', () => {
+    const { container } = render(<Progress percent={10} infoPosition="inside" size={[300, 20]} />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('should show bottom info position', () => {
+    const { container: wrapper, rerender } = render(
+      <Progress percent={60} infoPosition="bottom" />,
+    );
+    expect(wrapper.querySelectorAll('.ant-progress-layout-bottom')).toHaveLength(1);
+
+    rerender(<Progress percent={100} infoPosition="bottom" infoInsidePosition="center" />);
+    expect(wrapper.querySelectorAll('.ant-progress-layout-bottom')).toHaveLength(1);
+    expect(wrapper.querySelectorAll('.anticon .anticon-check-circle')).toHaveLength(1);
+  });
+
+  it('render bottom info position', () => {
+    const { container } = render(<Progress percent={60} infoPosition="bottom" />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });

@@ -18,6 +18,10 @@ import { getSize, getSuccessPercent, validProgress } from './utils';
 export const ProgressTypes = ['line', 'circle', 'dashboard'] as const;
 export type ProgressType = (typeof ProgressTypes)[number];
 const ProgressStatuses = ['normal', 'exception', 'active', 'success'] as const;
+export const InfoPositionTypes = ['right', 'bottom', 'inside'] as const;
+export type InfoPositionType = (typeof InfoPositionTypes)[number];
+export const InfoInsidePositionTypes = ['left', 'center', 'right'] as const;
+export type InfoInsidePositionType = (typeof InfoInsidePositionTypes)[number];
 export type ProgressSize = 'default' | 'small';
 export type StringGradients = Record<string, string>;
 
@@ -56,6 +60,8 @@ export interface ProgressProps extends ProgressAriaProps {
   steps?: number;
   /** @deprecated Use `success` instead */
   successPercent?: number;
+  infoPosition?: InfoPositionType;
+  infoInsidePosition?: InfoInsidePositionType;
   children?: React.ReactNode;
 }
 
@@ -73,6 +79,8 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     status,
     format,
     style,
+    infoPosition = 'right',
+    infoInsidePosition = 'right',
     ...restProps
   } = props;
 
@@ -107,7 +115,11 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     let text: React.ReactNode;
     const textFormatter = format || ((number) => `${number}%`);
     const isLineType = type === 'line';
-    if (format || (progressStatus !== 'exception' && progressStatus !== 'success')) {
+    if (
+      infoPosition === 'inside' ||
+      format ||
+      (progressStatus !== 'exception' && progressStatus !== 'success')
+    ) {
       text = textFormatter(validProgress(percent), validProgress(successPercent));
     } else if (progressStatus === 'exception') {
       text = isLineType ? <CloseCircleFilled /> : <CloseOutlined />;
@@ -116,7 +128,15 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     }
 
     return (
-      <span className={`${prefixCls}-text`} title={typeof text === 'string' ? text : undefined}>
+      <span
+        className={classNames({
+          [`${prefixCls}-text`]: true,
+          [`${prefixCls}-text-inside`]: infoPosition === 'inside',
+          [`${prefixCls}-inside-${infoInsidePosition}`]:
+            infoInsidePosition && infoPosition === 'inside',
+        })}
+        title={typeof text === 'string' ? text : undefined}
+      >
         {text}
       </span>
     );

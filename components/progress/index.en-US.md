@@ -32,6 +32,7 @@ If it will take a long time to complete an operation, you can use `Progress` to 
 <code src="./demo/gradient-line.tsx">Custom line gradient</code>
 <code src="./demo/steps.tsx">Progress bar with steps</code>
 <code src="./demo/size.tsx">Progress size</code>
+<code src="./demo/info-position.tsx">Change progress value position</code>
 
 ## API
 
@@ -58,6 +59,8 @@ Properties that shared by all types.
 | --- | --- | --- | --- | --- |
 | steps | The total step count | number | - | - |
 | strokeColor | The color of progress bar, render `linear-gradient` when passing an object, could accept `string[]` when has `steps`. | string \| string[] \| { from: string; to: string; direction: string } | - | 4.21.0: `string[]` |
+| infoPosition | Progress value position, optional `right` `bottom` `inside` | string | right | - |
+| steps | The `inside` position of the value, optional `left` `right` `center` | string | right | - |
 
 ### `type="circle"`
 

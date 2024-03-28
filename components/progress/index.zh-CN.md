@@ -33,6 +33,7 @@ demo:
 <code src="./demo/gradient-line.tsx">自定义进度条渐变色</code>
 <code src="./demo/steps.tsx">步骤进度条</code>
 <code src="./demo/size.tsx">尺寸</code>
+<code src="./demo/info-position.tsx">改变进度数值位置</code>
 
 ## API
 
@@ -59,6 +60,8 @@ demo:
 | --- | --- | --- | --- | --- |
 | steps | 进度条总共步数 | number | - | - |
 | strokeColor | 进度条的色彩，传入 object 时为渐变。当有 `steps` 时支持传入一个数组。 | string \| string[] \| { from: string; to: string; direction: string } | - | 4.21.0: `string[]` |
+| infoPosition | 进度数值位置，可选 `right` `bottom` `inside` | string | right | - |
+| steps | `inside` 数值所处的位置，可选 `left` `right` `center` | string | right | - |
 
 ### `type="circle"`
 

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { presetPrimaryColors } from '@ant-design/colors';
+import classNames from 'classnames';
 
 import { devUseWarning } from '../_util/warning';
 import type { DirectionType } from '../config-provider';
@@ -82,6 +83,8 @@ const Line: React.FC<LineProps> = (props) => {
     strokeLinecap = 'round',
     children,
     trailColor = null,
+    infoPosition = 'right',
+    infoInsidePosition = 'right',
     success,
   } = props;
 
@@ -129,17 +132,34 @@ const Line: React.FC<LineProps> = (props) => {
     height,
   };
 
-  return (
+  const lineInner = (
+    <div className={`${prefixCls}-inner`} style={trailStyle}>
+      <div
+        className={classNames({
+          [`${prefixCls}-bg`]: true,
+          [`${prefixCls}-layout-inside`]: infoInsidePosition && infoPosition === 'inside',
+        })}
+        style={percentStyle}
+      >
+        {infoPosition === 'inside' ? children : null}
+      </div>
+      {successPercent !== undefined ? (
+        <div className={`${prefixCls}-success-bg`} style={successPercentStyle} />
+      ) : null}
+    </div>
+  );
+
+  return infoPosition === 'bottom' ? (
+    <div className={`${prefixCls}-layout-bottom`}>
+      {lineInner}
+      {children}
+    </div>
+  ) : (
     <>
       <div className={`${prefixCls}-outer`} style={outerStyle}>
-        <div className={`${prefixCls}-inner`} style={trailStyle}>
-          <div className={`${prefixCls}-bg`} style={percentStyle} />
-          {successPercent !== undefined ? (
-            <div className={`${prefixCls}-success-bg`} style={successPercentStyle} />
-          ) : null}
-        </div>
+        {lineInner}
       </div>
-      {children}
+      {infoPosition === 'inside' ? null : children}
     </>
   );
 };

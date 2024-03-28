@@ -36,6 +36,16 @@ export interface ComponentToken {
    * @descEN Icon size of circular progress bar
    */
   circleIconFontSize: string;
+  /**
+   * @desc 线形进度条内部信息内边距
+   * @descEN Linear progress bar internal information padding
+   */
+  insideInfoPadding: number;
+  /**
+   * @desc 线形进度条底部信息顶部外边距
+   * @descEN Linear progress bar bottom information top margin
+   */
+  bottomInfoMarginTop: number;
 }
 
 export const LineStrokeColorVar = '--progress-line-stroke-color';
@@ -119,11 +129,27 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
         transition: `all ${token.motionDurationSlow} ${token.motionEaseInOutCirc}`,
       },
 
+      [`${progressCls}-layout-bottom`]: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        [`${progressCls}-text`]: {
+          marginLeft: 0,
+          marginTop: token.bottomInfoMarginTop,
+        },
+      },
+
       [`${progressCls}-bg`]: {
         overflow: 'hidden',
-
+        [`&${progressCls}-layout-inside`]: {
+          minWidth: 'max-content',
+        },
         '&::after': {
           content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
           background: {
             _multi_value_: true,
             value: ['inherit', `var(${LineStrokeColorVar})`],
@@ -153,6 +179,22 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
         wordBreak: 'normal',
         [iconPrefixCls]: {
           fontSize: token.fontSize,
+        },
+      },
+
+      [`${progressCls}-text-inside`]: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+        height: '100%',
+        marginLeft: 0,
+        padding: `0 ${token.insideInfoPadding}`,
+        [`&${progressCls}-inside-left`]: {
+          justifyContent: 'left',
+        },
+        [`&${progressCls}-inside-right`]: {
+          justifyContent: 'right',
         },
       },
 
@@ -199,6 +241,9 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
         },
         [`${progressCls}-text`]: {
           color: token.colorSuccess,
+          [`&${progressCls}-text-inside`]: {
+            color: token.colorText,
+          },
         },
       },
 
@@ -314,6 +359,8 @@ export const prepareComponentToken: GetDefaultToken<'Progress'> = (token) => ({
   lineBorderRadius: 100, // magic for capsule shape, should be a very large number
   circleTextFontSize: '1em',
   circleIconFontSize: `${token.fontSize / token.fontSizeSM}em`,
+  insideInfoPadding: 5,
+  bottomInfoMarginTop: 3,
 });
 
 export default genStyleHooks(
