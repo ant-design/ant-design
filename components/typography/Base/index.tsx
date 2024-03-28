@@ -1,7 +1,6 @@
 import * as React from 'react';
 import EditOutlined from '@ant-design/icons/EditOutlined';
 import classNames from 'classnames';
-import copy from 'copy-to-clipboard';
 import ResizeObserver from 'rc-resize-observer';
 import type { AutoSizeType } from 'rc-textarea';
 import toArray from 'rc-util/lib/Children/toArray';
@@ -24,6 +23,7 @@ import Typography from '../Typography';
 import CopyBtn from './CopyBtn';
 import Ellipsis from './Ellipsis';
 import EllipsisTooltip from './EllipsisTooltip';
+import useCopyClick from './useCopyClick';
 
 export type BaseType = 'secondary' | 'success' | 'warning' | 'danger';
 
@@ -180,47 +180,49 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   // ========================== Copyable ==========================
   const [enableCopy, copyConfig] = useMergedConfig<CopyConfig>(copyable);
-  const [copied, setCopied] = React.useState(false);
-  const copyIdRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+  // const [copied, setCopied] = React.useState(false);
+  // const copyIdRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const copyOptions: Pick<CopyConfig, 'format'> = {};
   if (copyConfig.format) {
     copyOptions.format = copyConfig.format;
   }
 
-  const cleanCopyId = () => {
-    if (copyIdRef.current) {
-      clearTimeout(copyIdRef.current);
-    }
-  };
-  const [copyLoading, setCopyLoading] = React.useState(false);
+  // const cleanCopyId = () => {
+  //   if (copyIdRef.current) {
+  //     clearTimeout(copyIdRef.current);
+  //   }
+  // };
+  // const [copyLoading, setCopyLoading] = React.useState(false);
 
-  const onCopyClick = async (e?: React.MouseEvent<HTMLDivElement>) => {
-    e?.preventDefault();
-    e?.stopPropagation();
-    setCopyLoading(true);
-    try {
-      const text =
-        typeof copyConfig.text === 'function' ? await copyConfig.text() : copyConfig.text;
-      copy(text || String(children) || '', copyOptions);
-      setCopyLoading(false);
+  // const onCopyClick = async (e?: React.MouseEvent<HTMLDivElement>) => {
+  //   e?.preventDefault();
+  //   e?.stopPropagation();
+  //   setCopyLoading(true);
+  //   try {
+  //     const text =
+  //       typeof copyConfig.text === 'function' ? await copyConfig.text() : copyConfig.text;
+  //     copy(text || String(children) || '', copyOptions);
+  //     setCopyLoading(false);
 
-      setCopied(true);
+  //     setCopied(true);
 
-      // Trigger tips update
-      cleanCopyId();
-      copyIdRef.current = setTimeout(() => {
-        setCopied(false);
-      }, 3000);
+  //     // Trigger tips update
+  //     cleanCopyId();
+  //     copyIdRef.current = setTimeout(() => {
+  //       setCopied(false);
+  //     }, 3000);
 
-      copyConfig.onCopy?.(e);
-    } catch (error) {
-      setCopyLoading(false);
-      throw error;
-    }
-  };
+  //     copyConfig.onCopy?.(e);
+  //   } catch (error) {
+  //     setCopyLoading(false);
+  //     throw error;
+  //   }
+  // };
 
-  React.useEffect(() => cleanCopyId, []);
+  // React.useEffect(() => cleanCopyId, []);
+
+  const { copied, copyLoading, onClick: onCopyClick } = useCopyClick({ copyConfig, children });
 
   // ========================== Ellipsis ==========================
   const [isLineClampSupport, setIsLineClampSupport] = React.useState(false);

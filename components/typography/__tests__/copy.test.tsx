@@ -2,8 +2,9 @@ import React from 'react';
 import { LikeOutlined, SmileOutlined } from '@ant-design/icons';
 import * as copyObj from 'copy-to-clipboard';
 
-import { fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
+import { fireEvent, render, renderHook, waitFakeTimer, waitFor } from '../../../tests/utils';
 import Base from '../Base';
+import useCopyClick from '../Base/useCopyClick';
 
 describe('Typography copy', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -289,6 +290,24 @@ describe('Typography copy', () => {
       spy.mockReset();
       jest.useRealTimers();
       expect(wrapper.querySelectorAll('.anticon-loading')[0]).toBeFalsy();
+    });
+    test('useCopyClick error', async () => {
+      const { result } = renderHook(() =>
+        useCopyClick({
+          copyConfig: {
+            text: () => {
+              const error = 'error';
+              return Promise.reject(error);
+            },
+          },
+        }),
+      );
+      expect.assertions(1);
+      try {
+        await result.current?.onClick?.();
+      } catch (error) {
+        expect(error).toMatch('error');
+      }
     });
   });
 });
