@@ -87,4 +87,11 @@ describe('QRCode test', () => {
     );
     errSpy.mockRestore();
   });
+
+  it('correct style order', () => {
+    const { container } = render(<QRCode value="test" size={80} style={{ width: 100 }} />);
+    expect(container.querySelector<HTMLDivElement>('.ant-qrcode')).toHaveStyle(
+      'width: 100px; height: 80px',
+    );
+  });
 });
