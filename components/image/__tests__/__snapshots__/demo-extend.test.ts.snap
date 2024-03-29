@@ -129,7 +129,7 @@ exports[`renders components/image/demo/component-token.tsx extend context correc
 exports[`renders components/image/demo/controlled-preview.tsx extend context correctly 1`] = `
 Array [
   <div>
-    scaleStep:
+    scaleStep: 
     <div
       class="ant-input-number ant-input-number-outlined"
     >

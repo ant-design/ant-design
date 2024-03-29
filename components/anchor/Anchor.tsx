@@ -199,7 +199,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
       const target = document.getElementById(sharpLinkMatch[1]);
       if (target) {
         const top = getOffsetTop(target, container);
-        if (top < _offsetTop + _bounds) {
+        if (top <= _offsetTop + _bounds) {
           linkSections.push({ link, top });
         }
       }

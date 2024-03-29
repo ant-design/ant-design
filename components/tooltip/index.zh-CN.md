@@ -1,15 +1,14 @@
 ---
 category: Components
-subtitle: 文字提示
 group: 数据展示
 title: Tooltip
+subtitle: 文字提示
+description: 简单的文字提示气泡框。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*9LKlRbWytugAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*bCbPTJ7LQngAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-简单的文字提示气泡框。
 
 ## 何时使用
 

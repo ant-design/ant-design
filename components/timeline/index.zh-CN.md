@@ -1,15 +1,14 @@
 ---
 category: Components
-subtitle: 时间轴
 group: 数据展示
 title: Timeline
+subtitle: 时间轴
+description: 垂直展示的时间流信息。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*FkTySqNt3sYAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*yIl9S4hAIBcAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-垂直展示的时间流信息。
 
 ## 何时使用
 

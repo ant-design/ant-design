@@ -1,6 +1,7 @@
 ---
 category: Components
 title: Button
+description: To trigger an operation.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*7va7RKs3YzIAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3T4cRqxH9-8AAAAAAAAAAAAADrJ8AQ/original
 demo:
@@ -9,8 +10,6 @@ group:
   title: General
   order: 1
 ---
-
-To trigger an operation.
 
 ## When To Use
 
@@ -86,11 +85,21 @@ It accepts all props which native buttons support.
 
 ## FAQ
 
+### How to close the click wave effect?
+
+If you don't need this feature, you can set `disabled` of `wave` in [ConfigProvider](/components/config-provider#api) as `true`.
+
+```jsx
+<ConfigProvider wave={{ disabled: true }}>
+  <Button>click</Button>
+</ConfigProvider>
+```
+
 ### How to remove space between 2 chinese characters?
 
 Following the Ant Design specification, we will add one space between if Button (exclude Text button and Link button) contains two Chinese characters only. If you don't need that, you can use [ConfigProvider](/components/config-provider/#api) to set `autoInsertSpaceInButton` as `false`.
 
-```tsx
+```jsx
 <ConfigProvider autoInsertSpaceInButton={false}>
   <Button>按钮</Button>
 </ConfigProvider>

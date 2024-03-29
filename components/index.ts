@@ -1,7 +1,7 @@
 export type { Breakpoint } from './_util/responsiveObserver';
 export type { GetProps, GetRef, GetProp } from './_util/type';
 export { default as Affix } from './affix';
-export type { AffixProps } from './affix';
+export type { AffixProps, AffixRef } from './affix';
 export { default as Alert } from './alert';
 export type { AlertProps } from './alert';
 export { default as Anchor } from './anchor';

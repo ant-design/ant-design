@@ -3,11 +3,10 @@ category: Components
 group: 数据展示
 title: Card
 subtitle: 卡片
+description: 通用卡片容器。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*QXO1SKEdIzYAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-通用卡片容器。
 
 ## 何时使用
 

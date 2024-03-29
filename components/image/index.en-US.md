@@ -2,12 +2,11 @@
 category: Components
 group: Data Display
 title: Image
+description: Preview-able image.
 cols: 2
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*FbOCS6aFMeUAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-Previewable image.
 
 ## When To Use
 

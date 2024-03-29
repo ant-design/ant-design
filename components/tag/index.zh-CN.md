@@ -1,15 +1,14 @@
 ---
 category: Components
-subtitle: 标签
 group: 数据展示
 title: Tag
+subtitle: 标签
+description: 进行标记和分类的小标签。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*_SBsSrKLg00AAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JPNAQYrVkYkAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-进行标记和分类的小标签。
 
 ## 何时使用
 

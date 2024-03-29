@@ -75,9 +75,15 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
 
   const groupShape = useContext<FloatButtonShape | undefined>(FloatButtonGroupContext);
 
-  const mergeShape = groupShape || shape;
+  const mergedShape = groupShape || shape;
 
-  const contentProps: FloatButtonProps = { prefixCls, icon, type, shape: mergeShape, ...restProps };
+  const contentProps: FloatButtonProps = {
+    prefixCls,
+    icon,
+    type,
+    shape: mergedShape,
+    ...restProps,
+  };
 
   return (
     <CSSMotion visible={visible} motionName={`${rootPrefixCls}-fade`}>

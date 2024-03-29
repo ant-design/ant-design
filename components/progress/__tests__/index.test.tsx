@@ -404,4 +404,14 @@ describe('Progress', () => {
     expect(progress).toHaveAttribute('aria-labelledby', 'progressLabel');
     expect(progress).toHaveAttribute('aria-valuenow', '90');
   });
+
+  it('circle progress should accept steps', () => {
+    const { container } = render(<Progress percent={70} steps={{ count: 5, gap: 5 }} />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('circle progress steps can be number', () => {
+    const { container } = render(<Progress percent={70} steps={5} />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });

@@ -10,7 +10,7 @@ Ant Design 作为大型组件库，内部依赖十分复杂。有时候 antd 代
 
 ### 确定信息
 
-我们为 Github issue 添加了一个[模板站点](https://new-issue.ant.design/)，开发者在提交问题时会看到如下表格，会让开发者尽量完整的填写相关信息：
+我们为 GitHub issue 添加了一个[模板站点](https://new-issue.ant.design/)，开发者在提交问题时会看到如下表格，会让开发者尽量完整的填写相关信息：
 
 ![Issue Helper](https://user-images.githubusercontent.com/5378891/231633510-2e7c7819-12c2-4153-b3c8-4d5576116a08.png)
 
@@ -26,7 +26,7 @@ Ant Design 作为大型组件库，内部依赖十分复杂。有时候 antd 代
 
 ![Publish Time](https://user-images.githubusercontent.com/5378891/231636272-e423301a-f8df-407e-8d4e-a49e219631e4.png)
 
-在确定范围后，我们便可以通过安装先前版本进行构建的方式排查出有问题的版本。暂时在 package.json 中锁定并发布 patch 版本以解决依赖问题（在修复之后解除锁定）。同时也会向对应的 Github 提 issue（当然，如果已经有了去 +1 即可）。
+在确定范围后，我们便可以通过安装先前版本进行构建的方式排查出有问题的版本。暂时在 package.json 中锁定并发布 patch 版本以解决依赖问题（在修复之后解除锁定）。同时也会向对应的 GitHub 提 issue（当然，如果已经有了去 +1 即可）。
 
 ### 定时构建
 

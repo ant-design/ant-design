@@ -2,11 +2,10 @@
 category: Components
 group: General
 title: Typography
+description: Basic text writing, including headings, body text, lists, and more.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*MLt3R6m9huoAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-Basic text writing, including headings, body text, lists, and more.
 
 ## When To Use
 
@@ -23,6 +22,7 @@ Basic text writing, including headings, body text, lists, and more.
 <code src="./demo/editable.tsx">Editable</code>
 <code src="./demo/copyable.tsx">Copyable</code>
 <code src="./demo/ellipsis.tsx">Ellipsis</code>
+<code src="./demo/ellipsis-controlled.tsx" version="5.16.0">Controlled ellipsis expand/collapse</code>
 <code src="./demo/ellipsis-middle.tsx">Ellipsis from middle</code>
 <code src="./demo/ellipsis-debug.tsx" debug>Ellipsis Debug</code>
 <code src="./demo/suffix.tsx">suffix</code>
@@ -87,7 +87,7 @@ Common props ref：[Common props](/docs/react/common-props)
 ### copyable
 
     {
-      text: string,
+      text: string | (() => string | Promise<string>),
       onCopy: function(event),
       icon: ReactNode,
       tooltips: false | [ReactNode, ReactNode],
@@ -136,25 +136,36 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### ellipsis
 
-    {
-      rows: number,
-      expandable: boolean,
-      suffix: string,
-      symbol: ReactNode,
-      tooltip: boolean | ReactNode | TooltipProps,
-      onExpand: function(event),
-      onEllipsis: function(ellipsis),
-    }
+```tsx
+interface EllipsisConfig {
+  rows: number;
+  /** `collapsible` added in `5.16.0` */
+  expandable: boolean | 'collapsible';
+  suffix: string;
+  /** render function added in `5.16.0` */
+  symbol: ReactNode | ((expanded: boolean) => ReactNode);
+  tooltip: boolean | ReactNode | TooltipProps;
+  /** added in `5.16.0` */
+  defaultExpanded: boolean;
+  /** added in `5.16.0` */
+  expanded: boolean;
+  /** `info` added in `5.16.0` */
+  onExpand: (event: MouseEvent, info: { expanded: boolean }) => void;
+  onEllipsis: (ellipsis: boolean) => void;
+}
+```
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| expandable | Whether to be expandable | boolean | - |  |
+| expandable | Whether to be expandable | boolean \| 'collapsible' | - | `collapsible`: 5.16.0 |
 | rows | Max rows of content | number | - |  |
 | suffix | Suffix of ellipsis content | string | - |  |
-| symbol | Custom description of ellipsis | ReactNode | `Expand` |  |
+| symbol | Custom description of ellipsis | ReactNode \| ((expanded: boolean) => ReactNode) | `Expand` `Collapse` |  |
 | tooltip | Show tooltip when ellipsis | ReactNode \| [TooltipProps](/components/tooltip/#api) | - | 4.11.0 |
+| defaultExpanded | Default expand or collapse | boolean |  | 5.16.0 |
+| expanded | Expand or Collapse | boolean |  | 5.16.0 |
 | onEllipsis | Called when enter or leave ellipsis state | function(ellipsis) | - | 4.2.0 |
-| onExpand | Called when expand content | function(event) | - |  |
+| onExpand | Called when expand content | function(event, { expanded: boolean }) | - | `info`: 5.16.0 |
 
 ## Design Token
 

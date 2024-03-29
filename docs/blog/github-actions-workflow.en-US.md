@@ -97,7 +97,7 @@ For every pull request created, GitHub Actions will trigger the build process to
 ### Other Reviews
 
 - The [size-limit.yml](https://github.com/ant-design/ant-design/blob/5dfce5443744271f778313c23eb8ec3a5af481f8/.github/workflows/size-limit.ym) job checks the size of the product resulting from the PR.
-- Recently, the team has added chatGPT to GitHub Actions to perform AI-based code review. The specific job can be found in the [chatgpt-cr.yml](https://github.com/ant-design/ant-design/blob/f7fd474cf8792ea01d03461d407c0edc11828a1c/.github/workflows/chatgpt-cr.yml) file.
+- Recently, the team has added ChatGPT to GitHub Actions to perform AI-based code review. The specific job can be found in the [chatgpt-cr.yml](https://github.com/ant-design/ant-design/blob/f7fd474cf8792ea01d03461d407c0edc11828a1c/.github/workflows/chatgpt-cr.yml) file.
 
 ## Unit Testing
 

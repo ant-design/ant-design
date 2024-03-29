@@ -110,7 +110,7 @@ Among them, `queueCreate` is obtained through `context`, the purpose is to preve
 ```
 
 ```html
-<!-- Child `useLayoutEffect` is run before parent. Which makes inject dom before parent -->
+<!-- Child `useLayoutEffect` is run before parent. Which makes inject DOM before parent -->
 <div data-title="Hello 2"></div>
 <div data-title="Hello 1"></div>
 ```
@@ -138,7 +138,7 @@ useLayoutEffect(() => {
 
 ### Resolution
 
-Due to the above queue operation, the dom of the portal will be triggered in the next `useLayoutEffect` under nesting. This causes the `uesLayoutEffect` timing of the animation to start in `rc-dialog` after the node behavior is added, resulting in the element not being in the document and unable to obtain the correct coordinate information.
+Due to the above queue operation, the DOM of the portal will be triggered in the next `useLayoutEffect` under nesting. This causes the `uesLayoutEffect` timing of the animation to start in `rc-dialog` after the node behavior is added, resulting in the element not being in the document and unable to obtain the correct coordinate information.
 
 Since Modal is already enabled, it does not need to be executed asynchronously through `queue`, so we only need to add a judgment if it is enabled, and execute `append` directly:
 

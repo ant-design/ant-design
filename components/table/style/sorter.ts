@@ -1,4 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { GenerateStyle } from '../../theme/internal';
 import type { TableToken } from './index';
 
@@ -62,6 +63,12 @@ const genSorterStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           width: '100%',
           height: '100%',
           content: '""',
+        },
+      },
+
+      [`${componentCls}-column-sorters-tooltip-target-sorter`]: {
+        '&::after': {
+          content: 'none',
         },
       },
 

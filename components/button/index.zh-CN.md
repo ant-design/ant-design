@@ -2,6 +2,7 @@
 category: Components
 title: Button
 subtitle: 按钮
+description: 按钮用于开始一个即时操作。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*7va7RKs3YzIAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3T4cRqxH9-8AAAAAAAAAAAAADrJ8AQ/original
 demo:
@@ -10,8 +11,6 @@ group:
   title: 通用
   order: 1
 ---
-
-按钮用于开始一个即时操作。
 
 ## 何时使用
 
@@ -91,11 +90,21 @@ group:
 
 ## FAQ
 
+### 如何关闭点击波纹效果？
+
+如果你不需要这个特性，可以设置 [ConfigProvider](/components/config-provider-cn#api) 的 `wave` 的 `disabled` 为 `true`。
+
+```jsx
+<ConfigProvider wave={{ disabled: true }}>
+  <Button>click</Button>
+</ConfigProvider>
+```
+
 ### 如何移除两个汉字之间的空格？
 
-根据 Ant Design 设计规范要求，我们会在按钮内(文本按钮和链接按钮除外)只有两个汉字时自动添加空格，如果你不需要这个特性，可以设置 [ConfigProvider](/components/config-provider-cn#api) 的 `autoInsertSpaceInButton` 为 `false`。
+根据 Ant Design 设计规范要求，我们会在按钮内（文本按钮和链接按钮除外）只有两个汉字时自动添加空格，如果你不需要这个特性，可以设置 [ConfigProvider](/components/config-provider-cn#api) 的 `autoInsertSpaceInButton` 为 `false`。
 
-```tsx
+```jsx
 <ConfigProvider autoInsertSpaceInButton={false}>
   <Button>按钮</Button>
 </ConfigProvider>

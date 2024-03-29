@@ -1,7 +1,8 @@
 ---
 category: Components
-subtitle: 二维码
 title: QRCode
+subtitle: 二维码
+description: 能够将文本转换生成二维码的组件，支持自定义配色和 Logo 配置。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cJopQrf0ncwAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*M4PBTZ_n9OgAAAAAAAAAAAAADrJ8AQ/original
 demo:
@@ -12,7 +13,7 @@ group:
 tag: New
 ---
 
-能够将文本转换生成二维码的组件，支持自定义配色和 Logo 配置，自 `antd@5.1.0` 版本开始提供该组件。
+自 `antd@5.1.0` 版本开始提供该组件。
 
 <!-- prettier-ignore -->
 :::info

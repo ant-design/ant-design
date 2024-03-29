@@ -1,12 +1,12 @@
 import getScroll from '../getScroll';
 
 describe('getScroll', () => {
-  it('getScroll target null', async () => {
+  it('getScroll target null', () => {
     expect(getScroll(null, true)).toBe(0);
     expect(getScroll(null, false)).toBe(0);
   });
 
-  it('getScroll window', async () => {
+  it('getScroll window', () => {
     const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((x, y) => {
       window.pageXOffset = x;
       window.pageYOffset = y;
@@ -17,7 +17,7 @@ describe('getScroll', () => {
     scrollToSpy.mockRestore();
   });
 
-  it('getScroll document', async () => {
+  it('getScroll document', () => {
     const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((x, y) => {
       document.documentElement.scrollLeft = x;
       document.documentElement.scrollTop = y;
@@ -28,7 +28,7 @@ describe('getScroll', () => {
     scrollToSpy.mockRestore();
   });
 
-  it('getScroll div', async () => {
+  it('getScroll div', () => {
     const div = document.createElement('div');
     const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((x, y) => {
       div.scrollLeft = x;
@@ -40,7 +40,7 @@ describe('getScroll', () => {
     scrollToSpy.mockRestore();
   });
 
-  it('getScroll documentElement', async () => {
+  it('getScroll documentElement', () => {
     const div: any = {};
     const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((x, y) => {
       div.scrollLeft = null;

@@ -39,7 +39,6 @@ const locales = {
 
 const useStyle = createStyles(({ token, css }) => {
   const searchIconColor = '#ced4d9';
-
   return {
     header: css`
       position: sticky;
@@ -102,12 +101,10 @@ const useStyle = createStyles(({ token, css }) => {
       display: flex;
       align-items: center;
       margin: 0;
-
+      column-gap: 12px;
       > * {
         flex: none;
         margin: 0;
-        margin-inline-end: 12px;
-
         &:last-child {
           margin-inline-end: 40px;
         }
@@ -118,7 +115,6 @@ const useStyle = createStyles(({ token, css }) => {
     `,
     popoverMenu: {
       width: 300,
-
       [`${token.antCls}-popover-inner-content`]: {
         padding: 0,
       },
@@ -130,16 +126,19 @@ const useStyle = createStyles(({ token, css }) => {
       user-select: none;
     `,
     link: css`
-      margin-left: 10px;
-
+      margin-inline-start: 10px;
       @media only screen and (max-width: ${token.mobileMaxWidth}px) {
-        margin-left: 0;
+        margin-inline-start: 0;
       }
     `,
-    icon: css`
-      margin-right: 10px;
-      width: 22px;
-      height: 22px;
+    versionSelect: css`
+      min-width: 90px;
+      .rc-virtual-list {
+        .rc-virtual-list-holder {
+          scrollbar-width: thin;
+          scrollbar-color: unset;
+        }
+      }
     `,
   };
 });
@@ -299,8 +298,8 @@ const Header: React.FC = () => {
     navigationNode,
     <Select
       key="version"
-      className="version"
       size="small"
+      className={styles.versionSelect}
       defaultValue={pkg.version}
       onChange={handleVersionChange}
       dropdownStyle={getDropdownStyle}

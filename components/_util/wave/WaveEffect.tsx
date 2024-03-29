@@ -1,10 +1,11 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
-import { render, unmount } from 'rc-util/lib/React/render';
 import raf from 'rc-util/lib/raf';
-import * as React from 'react';
+import { render, unmount } from 'rc-util/lib/React/render';
+
+import { TARGET_CLS, type ShowWaveEffect } from './interface';
 import { getTargetWaveColor } from './util';
-import { type ShowWaveEffect, TARGET_CLS } from './interface';
 
 function validateNum(value: number) {
   return Number.isNaN(value) ? 0 : value;

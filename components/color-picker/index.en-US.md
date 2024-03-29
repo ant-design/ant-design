@@ -1,6 +1,7 @@
 ---
 category: Components
 title: ColorPicker
+description: Used for color selection.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PpY4RYNM8UcAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EHL-QYJofZsAAAAAAAAAAAAADrJ8AQ/original
 tag: New
@@ -10,7 +11,7 @@ group:
   title: Data Entry
 ---
 
-Components providing color selection, Available since `5.5.0`.
+Available since `5.5.0`.
 
 ## When To Use
 

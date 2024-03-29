@@ -1,6 +1,7 @@
 ---
 category: Components
 title: Alert
+description: Display warning messages that require attention.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*QsvtS41m45UAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*gOTISoMFZV0AAAAAAAAAAAAADrJ8AQ/original
 demo:
@@ -9,8 +10,6 @@ group:
   title: Feedback
   order: 6
 ---
-
-Alert component for feedback.
 
 ## When To Use
 

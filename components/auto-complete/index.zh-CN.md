@@ -1,7 +1,8 @@
 ---
 category: Components
-subtitle: 自动完成
 title: AutoComplete
+subtitle: 自动完成
+description: 输入框自动完成功能。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g8THS4NpV6sAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WERTQ6qvgEYAAAAAAAAAAAAADrJ8AQ/original
 group:
@@ -10,8 +11,6 @@ group:
 demo:
   cols: 2
 ---
-
-输入框自动完成功能。
 
 ## 何时使用
 

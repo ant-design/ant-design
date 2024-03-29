@@ -2,6 +2,7 @@
 category: Components
 group: Data Display
 title: Tour
+description: A popup component for guiding users through a product.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*NMvqRZpuJfQAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*D70qQJJmzhgAAAAAAAAAAAAADrJ8AQ/original
 demo:
@@ -9,7 +10,7 @@ demo:
 tag: New
 ---
 
-A popup component for guiding users through a product. Available since `5.0.0`.
+Available since `5.0.0`.
 
 ## When To Use
 

@@ -19,7 +19,15 @@ jobs:
     if: github.event.pull_request.merged == true && github.repository == 'ant-design/ant-design'
     runs-on: ubuntu-latest
     steps:
+      - name: get commit count
+        id: get_commit_count
+        run: |
+          PR_AUTHOR=$(echo "${{ github.event.pull_request.user.login }}")
+          RESULT_DATA=$(curl -s "https://api.github.com/repos/${{ github.repository }}/commits?author=${PR_AUTHOR}&per_page=5")
+          DATA_LENGTH=$(echo $RESULT_DATA | jq 'if type == "array" then length else 0 end')
+          echo "COUNT=$DATA_LENGTH" >> $GITHUB_OUTPUT
       - name: Comment on PR
+        if: steps.get_commit_count.outputs.COUNT < 3
         uses: actions-cool/maintain-one-comment@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}

@@ -17,7 +17,7 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
   <div
     class="ant-typography"
   >
-    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to
+    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to 
     <span
       class="ant-typography"
     >
@@ -43,7 +43,7 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
         Sketch
       </code>
     </span>
-     and
+     and 
     <span
       class="ant-typography"
     >
@@ -86,7 +86,7 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
   <div
     class="ant-typography"
   >
-    Press
+    Press 
     <span
       class="ant-typography"
     >
@@ -234,7 +234,7 @@ exports[`renders components/typography/demo/componentToken-debug.tsx extend cont
   <div
     class="ant-typography"
   >
-    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to
+    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to 
     <span
       class="ant-typography"
     >
@@ -260,7 +260,7 @@ exports[`renders components/typography/demo/componentToken-debug.tsx extend cont
         Sketch
       </code>
     </span>
-     and
+     and 
     <span
       class="ant-typography"
     >
@@ -303,7 +303,7 @@ exports[`renders components/typography/demo/componentToken-debug.tsx extend cont
   <div
     class="ant-typography"
   >
-    Press
+    Press 
     <span
       class="ant-typography"
     >
@@ -688,6 +688,57 @@ Array [
       </div>
     </div>
   </span>,
+  <div
+    class="ant-typography"
+  >
+    Request copy text.
+    <div
+      aria-label="Copy"
+      class="ant-typography-copy"
+      role="button"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      tabindex="0"
+    >
+      <span
+        aria-label="copy"
+        class="anticon anticon-copy"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="copy"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          Copy
+        </div>
+      </div>
+    </div>
+  </div>,
 ]
 `;
 
@@ -1520,6 +1571,139 @@ Array [
 
 exports[`renders components/typography/demo/ellipsis.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/typography/demo/ellipsis-controlled.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  style="gap: 16px;"
+>
+  <div
+    class="ant-flex ant-flex-align-center"
+    style="gap: 16px;"
+  >
+    <button
+      aria-checked="false"
+      class="ant-switch"
+      role="switch"
+      style="flex: 0 0 auto;"
+      type="button"
+    >
+      <div
+        class="ant-switch-handle"
+      />
+      <span
+        class="ant-switch-inner"
+      >
+        <span
+          class="ant-switch-inner-checked"
+        />
+        <span
+          class="ant-switch-inner-unchecked"
+        />
+      </span>
+    </button>
+    <div
+      class="ant-slider ant-slider-horizontal"
+      style="flex-basis: auto;"
+    >
+      <div
+        class="ant-slider-rail"
+      />
+      <div
+        class="ant-slider-track"
+        style="left: 0%; width: 5.263157894736842%;"
+      />
+      <div
+        class="ant-slider-step"
+      />
+      <div
+        aria-disabled="false"
+        aria-orientation="horizontal"
+        aria-valuemax="20"
+        aria-valuemin="1"
+        aria-valuenow="2"
+        class="ant-slider-handle"
+        role="slider"
+        style="left: 5.263157894736842%; transform: translateX(-50%);"
+        tabindex="0"
+      />
+      <div
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            2
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-label="Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team."
+    class="ant-typography ant-typography-ellipsis"
+  >
+    Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.
+    <div
+      aria-label="Copy"
+      class="ant-typography-copy"
+      role="button"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      tabindex="0"
+    >
+      <span
+        aria-label="copy"
+        class="anticon anticon-copy"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="copy"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          Copy
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/typography/demo/ellipsis-controlled.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/typography/demo/ellipsis-debug.tsx extend context correctly 1`] = `
 Array [
   <button
@@ -1651,7 +1835,7 @@ Array [
   <div
     class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
   >
-    Ant Design, a design language for background applications, is refined by Ant UED Team. This is a nest sample
+    Ant Design, a design language for background applications, is refined by Ant UED Team. This is a nest sample 
     <span
       class="ant-typography"
     >
@@ -1919,7 +2103,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-multiple-line"
+    class="ant-typography ant-typography-ellipsis"
     style="width: 300px;"
   >
     In the process of internal desktop applications development,
@@ -1988,7 +2172,7 @@ Array [
         Sketch
       </code>
     </span>
-     and
+     and 
     <span
       class="ant-typography"
     >

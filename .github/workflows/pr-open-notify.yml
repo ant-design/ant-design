@@ -16,6 +16,9 @@ jobs:
         with:
           DING_TALK_TOKEN: ${{ secrets.DINGDING_BOT_COLLABORATOR_TOKEN }}
           notify_title: '🔥 @${{ github.event.pull_request.user.login }} 创建了 PR：${{ github.event.pull_request.title }} ${{ github.event.pull_request.html_url }}'
-          notify_body: '### 🔥 @${{ github.event.pull_request.user.login }} 创建了 PR：[${{ github.event.pull_request.title }}](${{ github.event.pull_request.html_url }}) <hr />'
-          notify_footer: '> 💬 快来 CR 吧！'
+          notify_body: |
+            ### 🔥 [@${{ github.event.pull_request.user.login }}](https://github.com/${{ github.event.pull_request.user.login }}) 创建了 PR：
+            [${{ github.event.pull_request.title }}](${{ github.event.pull_request.html_url }})
+            <hr />
+          notify_footer: '> 🫵🏻 快去 Review 吧，社区需要你的帮助！'
           at_all: false # whether to ding everybody

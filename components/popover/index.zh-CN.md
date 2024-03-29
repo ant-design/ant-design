@@ -1,15 +1,14 @@
 ---
 category: Components
-subtitle: 气泡卡片
 group: 数据展示
 title: Popover
+subtitle: 气泡卡片
+description: 点击/鼠标移入元素，弹出气泡式的卡片浮层。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*kfW5RrfF4L8AAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*6b8fSKVVtXIAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-点击/鼠标移入元素，弹出气泡式的卡片浮层。
 
 ## 何时使用
 

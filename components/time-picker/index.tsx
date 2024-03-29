@@ -7,14 +7,14 @@ import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import DatePicker from '../date-picker';
 import type {
-  PickerProps,
+  GenericTimePickerProps,
   PickerPropsWithMultiple,
   RangePickerProps,
 } from '../date-picker/generatePicker/interface';
 
 export type PickerTimeProps<DateType extends AnyObject> = PickerPropsWithMultiple<
   DateType,
-  Omit<PickerProps<DateType>, 'picker' | 'showTime'>
+  GenericTimePickerProps<DateType>
 >;
 
 export type RangePickerTimeProps<DateType extends AnyObject> = Omit<

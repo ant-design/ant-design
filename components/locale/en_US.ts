@@ -80,6 +80,7 @@ const localeValues: Locale = {
     copy: 'Copy',
     copied: 'Copied',
     expand: 'Expand',
+    collapse: 'Collapse',
   },
   Form: {
     optional: '(optional)',

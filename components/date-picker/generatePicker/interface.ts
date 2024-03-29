@@ -73,6 +73,14 @@ export type RangePickerProps<DateType extends AnyObject = any> = InjectDefaultPr
   RcRangePickerProps<DateType>
 >;
 
+export type GenericTimePickerProps<DateType extends AnyObject = any> = Omit<
+  PickerProps<DateType>,
+  'picker' | 'showTime'
+> & {
+  /** @deprecated Please use `onCalendarChange` instead */
+  onSelect?: (value: DateType) => void;
+};
+
 /**
  * Single Picker has the `multiple` prop,
  * which will make the `value` be `DateType[]` type.

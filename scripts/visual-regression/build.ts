@@ -1,5 +1,5 @@
 /* eslint-disable compat/compat */
-/* eslint-disable no-console, no-await-in-loop, import/no-extraneous-dependencies, lodash/import-scope, no-restricted-syntax */
+/* eslint-disable no-console, no-await-in-loop, import/no-extraneous-dependencies, no-restricted-syntax */
 import { assert } from 'console';
 import fs from 'fs';
 import os from 'os';
@@ -8,7 +8,7 @@ import { Readable } from 'stream';
 import { finished } from 'stream/promises';
 import chalk from 'chalk';
 import fse from 'fs-extra';
-import _ from 'lodash';
+import difference from 'lodash/difference';
 import minimist from 'minimist';
 import pixelmatch from 'pixelmatch';
 import { PNG } from 'pngjs';
@@ -367,7 +367,7 @@ async function boot() {
     chalk.blue(`📊 Text report from pr #${prId} comparing to ${targetBranch}@${targetCommitSha}\n`),
   );
   // new images
-  const newImgs = _.difference(currentImgFileList, baseImgFileList);
+  const newImgs = difference(currentImgFileList, baseImgFileList);
   if (newImgs.length) {
     console.log(chalk.green(`🆕 ${newImgs.length} images added from this pr`));
     console.log(chalk.green('🆕 Added images list:\n'));

@@ -3,13 +3,12 @@ category: Components
 group: 数据展示
 title: Carousel
 subtitle: 走马灯
+description: 一组轮播的区域。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*bPMSSqbaTMkAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a-58QpYnqOsAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-旋转木马，一组轮播的区域。
 
 ## 何时使用
 

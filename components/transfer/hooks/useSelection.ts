@@ -1,25 +1,26 @@
 import * as React from 'react';
+import type { TransferKey } from '../interface';
 
-const EMPTY_KEYS: string[] = [];
+const EMPTY_KEYS: TransferKey[] = [];
 
-function filterKeys(keys: string[], dataKeys: Set<string>) {
+function filterKeys(keys: TransferKey[], dataKeys: Set<TransferKey>) {
   const filteredKeys = keys.filter((key) => dataKeys.has(key));
   return keys.length === filteredKeys.length ? keys : filteredKeys;
 }
 
-function flattenKeys(keys: Set<string>) {
+function flattenKeys(keys: Set<TransferKey>) {
   return Array.from(keys).join(';');
 }
 
-export default function useSelection<T extends { key: string }>(
+export default function useSelection<T extends { key: TransferKey }>(
   leftDataSource: T[],
   rightDataSource: T[],
-  selectedKeys: string[] = EMPTY_KEYS,
+  selectedKeys: TransferKey[] = EMPTY_KEYS,
 ): [
-  sourceSelectedKeys: string[],
-  targetSelectedKeys: string[],
-  setSourceSelectedKeys: React.Dispatch<React.SetStateAction<string[]>>,
-  setTargetSelectedKeys: React.Dispatch<React.SetStateAction<string[]>>,
+  sourceSelectedKeys: TransferKey[],
+  targetSelectedKeys: TransferKey[],
+  setSourceSelectedKeys: React.Dispatch<React.SetStateAction<TransferKey[]>>,
+  setTargetSelectedKeys: React.Dispatch<React.SetStateAction<TransferKey[]>>,
 ] {
   // Prepare `dataSource` keys
   const [leftKeys, rightKeys] = React.useMemo(

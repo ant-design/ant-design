@@ -110,4 +110,4 @@ const SomeComponent = ({ getContainer }) => {
 
 ## 最后
 
-由于修复了 `getContainer` 不支持动态改变的问题，它也引入了一个潜在的 breaking change。开发者如果自定义 `getContainer` 每次都是创建新的 dom 节点时，它就会因为 effect 不断执行，导致节点不断创建而死循环。如果你使用了这种方式并且遇到了问题，需要注意检查。
+由于修复了 `getContainer` 不支持动态改变的问题，它也引入了一个潜在的 breaking change。开发者如果自定义 `getContainer` 每次都是创建新的 DOM 节点时，它就会因为 effect 不断执行，导致节点不断创建而死循环。如果你使用了这种方式并且遇到了问题，需要注意检查。

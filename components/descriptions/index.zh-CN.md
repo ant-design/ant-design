@@ -1,13 +1,12 @@
 ---
 category: Components
-subtitle: 描述列表
 group: 数据展示
 title: Descriptions
+subtitle: 描述列表
+description: 展示多个只读字段的组合。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*fHdlTpif6XQAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*d27AQJrowGAAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-成组展示多个只读字段。
 
 ## 何时使用
 

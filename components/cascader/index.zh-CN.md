@@ -3,13 +3,12 @@ category: Components
 group: 数据录入
 title: Cascader
 subtitle: 级联选择
+description: 级联选择框。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ngTnQZNOcK0AAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Nt8xR7afyr0AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-级联选择框。
 
 ## 何时使用
 

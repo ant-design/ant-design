@@ -28,7 +28,7 @@ Tooltip 支持在滚动范围内贴边展示。但是由于弹出层是整体，
 
 ### 缩放问题
 
-Tooltip 对齐底层使用 `dom-align` 库，它会直接为 dom 节点添加 `left` | `top` | `transform` 样式来实现对齐，因而为了使其支持 React 生命周期，我们在此之上封装了 `rc-align` 组件。此外，它只关注对齐实现，本身不关注触发时机。所以 `rc-align` 组件还会额外添加 ResizeObserver 监听尺寸变化，继而调用 `dom-align` 进行对齐。
+Tooltip 对齐底层使用 `dom-align` 库，它会直接为 DOM 节点添加 `left` | `top` | `transform` 样式来实现对齐，因而为了使其支持 React 生命周期，我们在此之上封装了 `rc-align` 组件。此外，它只关注对齐实现，本身不关注触发时机。所以 `rc-align` 组件还会额外添加 ResizeObserver 监听尺寸变化，继而调用 `dom-align` 进行对齐。
 
 `dom-align` 通过遍历父层节点累加计算出目标元素和弹出层各自的坐标位置，接着根据对齐规则计算差值。当父层节点有 `transform` 样式时，会导致计算出的坐标位置不准确，从而导致对齐不正确：
 

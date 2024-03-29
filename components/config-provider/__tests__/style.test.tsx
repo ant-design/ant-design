@@ -21,6 +21,7 @@ import Drawer from '../../drawer';
 import Dropdown from '../../dropdown';
 import Empty from '../../empty';
 import Flex from '../../flex';
+import FloatButton from '../../float-button';
 import Form from '../../form';
 import Image from '../../image';
 import Input from '../../input';
@@ -1505,6 +1506,20 @@ describe('ConfigProvider support style and className props', () => {
     );
     const selectors = '.ant-tour .ant-tour-inner .ant-tour-close .cp-test-closeIcon';
     const element = container.querySelector<HTMLSpanElement>(selectors);
+    expect(element).toBeTruthy();
+  });
+
+  it('Should FloatButton.Group closeIcon works', () => {
+    const { container } = render(
+      <ConfigProvider
+        floatButtonGroup={{ closeIcon: <span className="test-cp-icon">test-cp-icon</span> }}
+      >
+        <FloatButton.Group trigger="click" open>
+          <FloatButton />
+        </FloatButton.Group>
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLSpanElement>('.test-cp-icon');
     expect(element).toBeTruthy();
   });
 });

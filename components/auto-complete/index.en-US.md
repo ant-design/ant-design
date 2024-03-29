@@ -1,6 +1,7 @@
 ---
 category: Components
 title: AutoComplete
+description: Autocomplete function of input field.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g8THS4NpV6sAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WERTQ6qvgEYAAAAAAAAAAAAADrJ8AQ/original
 group:
@@ -9,8 +10,6 @@ group:
 demo:
   cols: 2
 ---
-
-Autocomplete function of input field.
 
 ## When To Use
 

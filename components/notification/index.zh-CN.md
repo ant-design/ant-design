@@ -4,13 +4,12 @@ group: 反馈
 noinstant: true
 title: Notification
 subtitle: 通知提醒框
+description: 全局展示通知提醒信息。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cRmqTY4nKPEAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*W3RmSov-xVMAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-全局展示通知提醒信息。
 
 ## 何时使用
 

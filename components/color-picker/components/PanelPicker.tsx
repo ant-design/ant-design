@@ -7,11 +7,12 @@ import { PanelPickerContext } from '../context';
 import type { ColorPickerBaseProps } from '../interface';
 import ColorClear from './ColorClear';
 import ColorInput from './ColorInput';
+import { generateColor } from '../util';
 
 export interface PanelPickerProps
   extends Pick<
     ColorPickerBaseProps,
-    'prefixCls' | 'colorCleared' | 'allowClear' | 'disabledAlpha' | 'onChangeComplete'
+    'prefixCls' | 'allowClear' | 'disabledAlpha' | 'onChangeComplete'
   > {
   value?: Color;
   onChange?: (value?: Color, type?: HsbaColorType, pickColor?: boolean) => void;
@@ -21,7 +22,6 @@ export interface PanelPickerProps
 const PanelPicker: FC = () => {
   const {
     prefixCls,
-    colorCleared,
     allowClear,
     value,
     disabledAlpha,
@@ -36,7 +36,6 @@ const PanelPicker: FC = () => {
         <ColorClear
           prefixCls={prefixCls}
           value={value}
-          colorCleared={colorCleared}
           onChange={(clearColor) => {
             onChange?.(clearColor);
             onClear?.();
@@ -48,8 +47,12 @@ const PanelPicker: FC = () => {
         prefixCls={prefixCls}
         value={value?.toHsb()}
         disabledAlpha={disabledAlpha}
-        onChange={(colorValue, type) => onChange?.(colorValue, type, true)}
-        onChangeComplete={onChangeComplete}
+        onChange={(colorValue, type) => {
+          onChange?.(generateColor(colorValue), type, true);
+        }}
+        onChangeComplete={(colorValue) => {
+          onChangeComplete?.(generateColor(colorValue));
+        }}
       />
       <ColorInput
         value={value}

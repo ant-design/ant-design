@@ -51,10 +51,10 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
 
       '&-normal': {
         marginBlock: marginXL,
-        color: token.colorTextDisabled,
+        color: token.colorTextDescription,
 
         [`${componentCls}-description`]: {
-          color: token.colorTextDisabled,
+          color: token.colorTextDescription,
         },
 
         [`${componentCls}-image`]: {
@@ -64,7 +64,7 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
 
       '&-small': {
         marginBlock: marginXS,
-        color: token.colorTextDisabled,
+        color: token.colorTextDescription,
 
         [`${componentCls}-image`]: {
           height: token.emptyImgHeightSM,

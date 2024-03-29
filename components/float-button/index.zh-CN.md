@@ -1,8 +1,9 @@
 ---
 category: Components
 group: 通用
-subtitle: 悬浮按钮
 title: FloatButton
+subtitle: 悬浮按钮
+description: 悬浮于页面上方的按钮。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tXAoQqyr-ioAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*hSAwR7cnabwAAAAAAAAAAAAADrJ8AQ/original
 demo:
@@ -10,7 +11,7 @@ demo:
 tag: New
 ---
 
-悬浮按钮。自 `5.0.0` 版本开始提供该组件。
+自 `5.0.0` 版本开始提供该组件。
 
 ## 何时使用
 

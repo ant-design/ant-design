@@ -108,7 +108,7 @@ const App: React.FC = () => {
       setColumns(newColumns);
     };
 
-  const mergeColumns: TableColumnsType<DataType> = columns.map((col, index) => ({
+  const mergedColumns = columns.map<TableColumnsType<DataType>[number]>((col, index) => ({
     ...col,
     onHeaderCell: (column: TableColumnsType<DataType>[number]) => ({
       width: column.width,
@@ -124,7 +124,7 @@ const App: React.FC = () => {
           cell: ResizableTitle,
         },
       }}
-      columns={mergeColumns}
+      columns={mergedColumns}
       dataSource={data}
     />
   );

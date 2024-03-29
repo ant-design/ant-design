@@ -139,7 +139,9 @@ export const initPickerPanelToken = (token: TokenWithCommonCls<GlobalToken>): Pi
 };
 
 export const initPanelComponentToken = (token: GlobalToken): PanelComponentToken => {
-  const { colorBgContainerDisabled, controlHeightSM, controlHeightLG } = token;
+  const { colorBgContainerDisabled, controlHeight, controlHeightSM, controlHeightLG, paddingXXS } =
+    token;
+
   return {
     cellHoverBg: token.controlItemBgHover,
     cellActiveWithRangeBg: token.controlItemBgActive,
@@ -155,8 +157,9 @@ export const initPanelComponentToken = (token: GlobalToken): PanelComponentToken
     withoutTimeCellHeight: controlHeightLG * 1.65,
     multipleItemBg: token.colorFillSecondary,
     multipleItemBorderColor: 'transparent',
-    multipleItemHeight: controlHeightSM,
-    multipleItemHeightLG: token.controlHeight,
+    multipleItemHeight: controlHeight - paddingXXS * 2,
+    multipleItemHeightSM: controlHeightSM - paddingXXS * 2,
+    multipleItemHeightLG: controlHeightLG - paddingXXS * 2,
     multipleSelectorBgDisabled: colorBgContainerDisabled,
     multipleItemColorDisabled: token.colorTextDisabled,
     multipleItemBorderColorDisabled: 'transparent',

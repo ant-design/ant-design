@@ -1,15 +1,16 @@
 ---
 category: Components
-subtitle: 分段控制器
 group: 数据展示
 title: Segmented
+subtitle: 分段控制器
+description: 用于展示多个选项并允许用户选择其中单个选项。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*XJR2TbS1aaQAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-9tSSoO_MkIAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
 
-分段控制器。自 `antd@4.20.0` 版本开始提供该组件。
+自 `antd@4.20.0` 版本开始提供该组件。
 
 ## 何时使用
 

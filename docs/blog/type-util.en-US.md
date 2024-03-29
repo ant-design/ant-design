@@ -79,4 +79,4 @@ type DomRefType = GetRef<typeof Div>; // HTMLDivElement
 
 ### The End
 
-Here is the type util we provided, hope it can help you. If you have better ideas, please feel free to raise an issue or PR on Github.
+Here is the type util we provided, hope it can help you. If you have better ideas, please feel free to raise an issue or PR on GitHub.

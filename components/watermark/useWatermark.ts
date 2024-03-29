@@ -50,8 +50,12 @@ export default function useWatermark(
       // Prevents using the browser `Hide Element` to hide watermarks
       watermarkEle.removeAttribute('class');
 
-      container.append(watermarkEle);
+      if (watermarkEle.parentElement !== container) {
+        container.append(watermarkEle);
+      }
     }
+
+    return watermarkMap.get(container);
   };
 
   const removeWatermark = (container: HTMLElement) => {

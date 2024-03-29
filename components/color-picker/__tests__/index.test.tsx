@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { createEvent, fireEvent, render } from '@testing-library/react';
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 
@@ -11,8 +11,9 @@ import ConfigProvider from '../../config-provider';
 import Form from '../../form';
 import theme from '../../theme';
 import type { Color } from '../color';
-import type { ColorPickerProps } from '../ColorPicker';
 import ColorPicker from '../ColorPicker';
+import type { ColorPickerProps, ColorValueType } from '../interface';
+import { generateColor } from '../util';
 
 function doMouseMove(
   container: HTMLElement,
@@ -606,5 +607,95 @@ describe('ColorPicker', () => {
   it('Should clear show when value not set', () => {
     const { container } = render(<ColorPicker />);
     expect(container.querySelector('.ant-color-picker-clear')).toBeTruthy();
+  });
+
+  ['', null].forEach((value) => {
+    it(`When controlled and without an initial value, then changing the controlled value to valid color should be reflected correctly on the DOM. [${String(
+      value,
+    )}]`, async () => {
+      const Demo = () => {
+        const [color, setColor] = useState<ColorValueType>(value);
+        useEffect(() => {
+          setColor(generateColor('red'));
+        }, []);
+        return <ColorPicker value={color} />;
+      };
+      const { container } = render(<Demo />);
+      await waitFakeTimer();
+      expect(container.querySelector('.ant-color-picker-color-block-inner')).toHaveStyle({
+        background: 'rgb(255, 0, 0)',
+      });
+    });
+
+    it(`When controlled and has an initial value, then changing the controlled value to cleared color should be reflected correctly on the DOM. [${String(
+      value,
+    )}]`, async () => {
+      const Demo = () => {
+        const [color, setColor] = useState<ColorValueType>(generateColor('red'));
+        useEffect(() => {
+          setColor(value);
+        }, []);
+        return <ColorPicker value={color} />;
+      };
+      const { container } = render(<Demo />);
+      await waitFakeTimer();
+      expect(container.querySelector('.ant-color-picker-clear')).toBeTruthy();
+    });
+  });
+
+  it('Controlled string value should work with allowClear correctly', async () => {
+    const Demo = (props: any) => {
+      const [color, setColor] = useState<ColorValueType>(generateColor('red'));
+
+      useEffect(() => {
+        if (typeof props.value !== 'undefined') {
+          setColor(props.value);
+        }
+      }, [props.value]);
+
+      return (
+        <ColorPicker value={color} onChange={(e) => setColor(e.toHexString())} open allowClear />
+      );
+    };
+    const { container, rerender } = render(<Demo />);
+    await waitFakeTimer();
+    expect(
+      container.querySelector('.ant-color-picker-trigger .ant-color-picker-clear'),
+    ).toBeFalsy();
+    fireEvent.click(container.querySelector('.ant-color-picker-clear')!);
+    expect(
+      container.querySelector('.ant-color-picker-trigger .ant-color-picker-clear'),
+    ).toBeTruthy();
+    rerender(<Demo value="#1677ff" />);
+    expect(
+      container.querySelector('.ant-color-picker-trigger .ant-color-picker-clear'),
+    ).toBeFalsy();
+  });
+
+  it('Controlled value should work with allowClear correctly', async () => {
+    const Demo = (props: any) => {
+      const [color, setColor] = useState<ColorValueType>(generateColor('red'));
+
+      useEffect(() => {
+        if (typeof props.value !== 'undefined') {
+          setColor(props.value);
+        }
+      }, [props.value]);
+
+      return <ColorPicker value={color} onChange={(e) => setColor(e)} open allowClear />;
+    };
+    const { container, rerender } = render(<Demo />);
+    await waitFakeTimer();
+    expect(
+      container.querySelector('.ant-color-picker-trigger .ant-color-picker-clear'),
+    ).toBeFalsy();
+    fireEvent.click(container.querySelector('.ant-color-picker-clear')!);
+    expect(
+      container.querySelector('.ant-color-picker-trigger .ant-color-picker-clear'),
+    ).toBeTruthy();
+    rerender(<Demo value="#1677ff" />);
+    expect(
+      container.querySelector('.ant-color-picker-trigger .ant-color-picker-clear'),
+    ).toBeFalsy();
   });
 });

@@ -182,6 +182,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
         border: `${unit(lineWidth)} ${lineType} ${colorPrimary}`,
         borderRadius: '50%',
         visibility: 'hidden',
+        opacity: 0,
         content: '""',
       },
 

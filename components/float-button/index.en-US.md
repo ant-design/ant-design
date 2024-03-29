@@ -2,6 +2,7 @@
 category: Components
 group: General
 title: FloatButton
+description: A button that floats at the top of the page.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tXAoQqyr-ioAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*hSAwR7cnabwAAAAAAAAAAAAADrJ8AQ/original
 demo:
@@ -9,7 +10,7 @@ demo:
 tag: New
 ---
 
-FloatButton. Available since `5.0.0`.
+Available since `5.0.0`.
 
 ## When To Use
 

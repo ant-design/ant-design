@@ -116,9 +116,9 @@ exports[`site test Component components/image en Page 1`] = `4`;
 
 exports[`site test Component components/image zh Page 1`] = `4`;
 
-exports[`site test Component components/input en Page 1`] = `6`;
+exports[`site test Component components/input en Page 1`] = `7`;
 
-exports[`site test Component components/input zh Page 1`] = `6`;
+exports[`site test Component components/input zh Page 1`] = `7`;
 
 exports[`site test Component components/input-number en Page 1`] = `2`;
 

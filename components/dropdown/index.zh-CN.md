@@ -1,15 +1,14 @@
 ---
 category: Components
-subtitle: 下拉菜单
 group: 导航
 title: Dropdown
+subtitle: 下拉菜单
+description: 向下弹出的列表。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*gTBySYX11WcAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*k619RJ_7bKEAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-向下弹出的列表。
 
 ## 何时使用
 

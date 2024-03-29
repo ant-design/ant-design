@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input.OTP rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-otp ant-otp-rtl"
+>
+  <input
+    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input"
+    size="1"
+    type="text"
+    value=""
+  />
+  <input
+    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input"
+    size="1"
+    type="text"
+    value=""
+  />
+  <input
+    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input"
+    size="1"
+    type="text"
+    value=""
+  />
+  <input
+    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input"
+    size="1"
+    type="text"
+    value=""
+  />
+  <input
+    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input"
+    size="1"
+    type="text"
+    value=""
+  />
+  <input
+    class="ant-input ant-input-rtl ant-input-outlined ant-otp-input"
+    size="1"
+    type="text"
+    value=""
+  />
+</div>
+`;

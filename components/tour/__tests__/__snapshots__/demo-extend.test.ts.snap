@@ -88,9 +88,9 @@ Array [
       <div
         class="ant-tour-inner"
       >
-        <span
-          aria-label="Close"
+        <button
           class="ant-tour-close"
+          type="button"
         >
           <span
             aria-label="close"
@@ -112,7 +112,7 @@ Array [
               />
             </svg>
           </span>
-        </span>
+        </button>
         <div
           class="ant-tour-cover"
         >
@@ -260,9 +260,9 @@ Array [
       <div
         class="ant-tour-inner"
       >
-        <span
-          aria-label="Close"
+        <button
           class="ant-tour-close"
+          type="button"
         >
           <span
             aria-label="close"
@@ -284,7 +284,7 @@ Array [
               />
             </svg>
           </span>
-        </span>
+        </button>
         <div
           class="ant-tour-header"
         >
@@ -418,9 +418,9 @@ Array [
       <div
         class="ant-tour-inner"
       >
-        <span
-          aria-label="Close"
+        <button
           class="ant-tour-close"
+          type="button"
         >
           <span
             aria-label="close"
@@ -442,7 +442,7 @@ Array [
               />
             </svg>
           </span>
-        </span>
+        </button>
         <div
           class="ant-tour-cover"
         >
@@ -590,9 +590,9 @@ Array [
       <div
         class="ant-tour-inner"
       >
-        <span
-          aria-label="Close"
+        <button
           class="ant-tour-close"
+          type="button"
         >
           <span
             aria-label="close"
@@ -614,7 +614,7 @@ Array [
               />
             </svg>
           </span>
-        </span>
+        </button>
         <div
           class="ant-tour-cover"
         >
@@ -694,9 +694,9 @@ Array [
       <div
         class="ant-tour-inner"
       >
-        <span
-          aria-label="Close"
+        <button
           class="ant-tour-close"
+          type="button"
         >
           <span
             aria-label="close"
@@ -718,7 +718,7 @@ Array [
               />
             </svg>
           </span>
-        </span>
+        </button>
         <div
           class="ant-tour-header"
         >
@@ -793,9 +793,9 @@ exports[`renders components/tour/demo/render-panel.tsx extend context correctly 
           <div
             class="ant-tour-inner"
           >
-            <span
-              aria-label="Close"
+            <button
               class="ant-tour-close"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -817,7 +817,7 @@ exports[`renders components/tour/demo/render-panel.tsx extend context correctly 
                   />
                 </svg>
               </span>
-            </span>
+            </button>
             <div
               class="ant-tour-header"
             >
@@ -894,9 +894,9 @@ exports[`renders components/tour/demo/render-panel.tsx extend context correctly 
           <div
             class="ant-tour-inner"
           >
-            <span
-              aria-label="Close"
+            <button
               class="ant-tour-close"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -918,7 +918,7 @@ exports[`renders components/tour/demo/render-panel.tsx extend context correctly 
                   />
                 </svg>
               </span>
-            </span>
+            </button>
             <div
               class="ant-tour-cover"
             >
@@ -1014,9 +1014,9 @@ exports[`renders components/tour/demo/render-panel.tsx extend context correctly 
           <div
             class="ant-tour-inner"
           >
-            <span
-              aria-label="Close"
+            <button
               class="ant-tour-close"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -1038,7 +1038,7 @@ exports[`renders components/tour/demo/render-panel.tsx extend context correctly 
                   />
                 </svg>
               </span>
-            </span>
+            </button>
             <div
               class="ant-tour-header"
             >

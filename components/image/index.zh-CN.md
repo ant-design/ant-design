@@ -1,14 +1,13 @@
 ---
 category: Components
-subtitle: 图片
 group: 数据展示
 title: Image
+subtitle: 图片
+description: 可预览的图片。
 cols: 2
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*FbOCS6aFMeUAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-可预览的图片。
 
 ## 何时使用
 

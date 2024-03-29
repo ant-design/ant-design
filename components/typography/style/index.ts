@@ -109,6 +109,7 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
       // Operation
       [`
         ${componentCls}-expand,
+        ${componentCls}-collapse,
         ${componentCls}-edit,
         ${componentCls}-copy
       `]: {

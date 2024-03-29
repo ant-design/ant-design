@@ -19,8 +19,8 @@ const mockData: RecordType[] = Array.from({ length: 20 }).map((_, i) => ({
 const oriTargetKeys = mockData.filter((item) => Number(item.key) % 3 > 1).map((item) => item.key);
 
 const App: React.FC = () => {
-  const [targetKeys, setTargetKeys] = useState<string[]>(oriTargetKeys);
-  const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
+  const [targetKeys, setTargetKeys] = useState<React.Key[]>(oriTargetKeys);
+  const [selectedKeys, setSelectedKeys] = useState<React.Key[]>([]);
   const [disabled, setDisabled] = useState(false);
 
   const handleChange: TransferProps['onChange'] = (newTargetKeys, direction, moveKeys) => {

@@ -6,6 +6,7 @@ exports[`Carousel rtl render component should be rendered correctly in RTL direc
 >
   <div
     class="slick-slider slick-initialized"
+    dir="ltr"
   >
     <div
       class="slick-list"
@@ -25,6 +26,7 @@ exports[`Carousel should works for dotPosition bottom 1`] = `
 >
   <div
     class="slick-slider slick-initialized"
+    dir="ltr"
   >
     <div
       class="slick-list"
@@ -33,6 +35,20 @@ exports[`Carousel should works for dotPosition bottom 1`] = `
         class="slick-track"
         style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
       >
+        <div
+          aria-hidden="true"
+          class="slick-slide slick-cloned"
+          data-index="-1"
+          style="width: 0px;"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width: 100%; display: inline-block;"
+              tabindex="-1"
+            />
+          </div>
+        </div>
         <div
           aria-hidden="false"
           class="slick-slide slick-active slick-current"
@@ -47,8 +63,34 @@ exports[`Carousel should works for dotPosition bottom 1`] = `
             />
           </div>
         </div>
+        <div
+          aria-hidden="true"
+          class="slick-slide slick-cloned"
+          data-index="1"
+          style="width: 0px;"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width: 100%; display: inline-block;"
+              tabindex="-1"
+            />
+          </div>
+        </div>
       </div>
     </div>
+    <ul
+      class="slick-dots slick-dots-bottom"
+      style="display: block;"
+    >
+      <li
+        class="slick-active"
+      >
+        <button>
+          1
+        </button>
+      </li>
+    </ul>
   </div>
 </div>
 `;
@@ -59,14 +101,30 @@ exports[`Carousel should works for dotPosition left 1`] = `
 >
   <div
     class="slick-slider slick-vertical slick-initialized"
+    dir="ltr"
   >
     <div
       class="slick-list"
+      style="height: 0px;"
     >
       <div
         class="slick-track"
         style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
       >
+        <div
+          aria-hidden="true"
+          class="slick-slide slick-cloned"
+          data-index="-1"
+          style="width: 0px;"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width: 100%; display: inline-block;"
+              tabindex="-1"
+            />
+          </div>
+        </div>
         <div
           aria-hidden="false"
           class="slick-slide slick-active slick-current"
@@ -81,8 +139,34 @@ exports[`Carousel should works for dotPosition left 1`] = `
             />
           </div>
         </div>
+        <div
+          aria-hidden="true"
+          class="slick-slide slick-cloned"
+          data-index="1"
+          style="width: 0px;"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width: 100%; display: inline-block;"
+              tabindex="-1"
+            />
+          </div>
+        </div>
       </div>
     </div>
+    <ul
+      class="slick-dots slick-dots-left"
+      style="display: block;"
+    >
+      <li
+        class="slick-active"
+      >
+        <button>
+          1
+        </button>
+      </li>
+    </ul>
   </div>
 </div>
 `;
@@ -93,14 +177,30 @@ exports[`Carousel should works for dotPosition right 1`] = `
 >
   <div
     class="slick-slider slick-vertical slick-initialized"
+    dir="ltr"
   >
     <div
       class="slick-list"
+      style="height: 0px;"
     >
       <div
         class="slick-track"
         style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
       >
+        <div
+          aria-hidden="true"
+          class="slick-slide slick-cloned"
+          data-index="-1"
+          style="width: 0px;"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width: 100%; display: inline-block;"
+              tabindex="-1"
+            />
+          </div>
+        </div>
         <div
           aria-hidden="false"
           class="slick-slide slick-active slick-current"
@@ -115,8 +215,34 @@ exports[`Carousel should works for dotPosition right 1`] = `
             />
           </div>
         </div>
+        <div
+          aria-hidden="true"
+          class="slick-slide slick-cloned"
+          data-index="1"
+          style="width: 0px;"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width: 100%; display: inline-block;"
+              tabindex="-1"
+            />
+          </div>
+        </div>
       </div>
     </div>
+    <ul
+      class="slick-dots slick-dots-right"
+      style="display: block;"
+    >
+      <li
+        class="slick-active"
+      >
+        <button>
+          1
+        </button>
+      </li>
+    </ul>
   </div>
 </div>
 `;
@@ -127,6 +253,7 @@ exports[`Carousel should works for dotPosition top 1`] = `
 >
   <div
     class="slick-slider slick-initialized"
+    dir="ltr"
   >
     <div
       class="slick-list"
@@ -135,6 +262,20 @@ exports[`Carousel should works for dotPosition top 1`] = `
         class="slick-track"
         style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
       >
+        <div
+          aria-hidden="true"
+          class="slick-slide slick-cloned"
+          data-index="-1"
+          style="width: 0px;"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width: 100%; display: inline-block;"
+              tabindex="-1"
+            />
+          </div>
+        </div>
         <div
           aria-hidden="false"
           class="slick-slide slick-active slick-current"
@@ -149,8 +290,34 @@ exports[`Carousel should works for dotPosition top 1`] = `
             />
           </div>
         </div>
+        <div
+          aria-hidden="true"
+          class="slick-slide slick-cloned"
+          data-index="1"
+          style="width: 0px;"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width: 100%; display: inline-block;"
+              tabindex="-1"
+            />
+          </div>
+        </div>
       </div>
     </div>
+    <ul
+      class="slick-dots slick-dots-top"
+      style="display: block;"
+    >
+      <li
+        class="slick-active"
+      >
+        <button>
+          1
+        </button>
+      </li>
+    </ul>
   </div>
 </div>
 `;

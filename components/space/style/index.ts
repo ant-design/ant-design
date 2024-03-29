@@ -14,7 +14,7 @@ interface SpaceToken extends FullToken<'Space'> {
 }
 
 const genSpaceStyle: GenerateStyle<SpaceToken> = (token) => {
-  const { componentCls } = token;
+  const { componentCls, antCls } = token;
 
   return {
     [componentCls]: {
@@ -42,6 +42,10 @@ const genSpaceStyle: GenerateStyle<SpaceToken> = (token) => {
       },
       [`${componentCls}-item:empty`]: {
         display: 'none',
+      },
+      // https://github.com/ant-design/ant-design/issues/47875
+      [`${componentCls}-item > ${antCls}-badge-not-a-wrapper:only-child`]: {
+        display: 'block',
       },
     },
   };

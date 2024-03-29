@@ -1,8 +1,9 @@
 ---
 category: Components
-subtitle: 漫游式引导
 group: 数据展示
 title: Tour
+subtitle: 漫游式引导
+description: 用于分步引导用户了解产品功能的气泡组件。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*NMvqRZpuJfQAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*D70qQJJmzhgAAAAAAAAAAAAADrJ8AQ/original
 demo:
@@ -10,7 +11,7 @@ demo:
 tag: New
 ---
 
-用于分步引导用户了解产品功能的气泡组件。自 `5.0.0` 版本开始提供该组件。
+自 `5.0.0` 版本开始提供该组件。
 
 ## 何时使用
 

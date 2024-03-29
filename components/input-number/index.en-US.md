@@ -2,13 +2,12 @@
 category: Components
 group: Data Entry
 title: InputNumber
+description: Enter a number within certain range with the mouse or keyboard.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JvWbSYhuNlIAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*1uH-R5kLAMIAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-Enter a number within certain range with the mouse or keyboard.
 
 ## When To Use
 

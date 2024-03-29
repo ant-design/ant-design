@@ -1,8 +1,9 @@
 ---
 category: Components
-subtitle: 水印
 group: 反馈
 title: Watermark
+subtitle: 水印
+description: 给页面的某个区域加上水印。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*wr1ISY50SyYAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*duAQQbjHlHQAAAAAAAAAAAAADrJ8AQ/original
 demo:
@@ -10,7 +11,7 @@ demo:
 tag: New
 ---
 
-给页面的某个区域加上水印。自 `5.0.0` 版本开始提供该组件。
+自 `5.0.0` 版本开始提供该组件。
 
 ## 何时使用
 

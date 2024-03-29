@@ -25,7 +25,7 @@ const MyPage = () => {
   };
 
   return (
-    <Space>
+    <Space wrap>
       <Button type="primary" onClick={showMessage}>
         Open message
       </Button>

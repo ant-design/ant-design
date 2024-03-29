@@ -12,7 +12,7 @@ import useWave from './useWave';
 export interface WaveProps {
   disabled?: boolean;
   children?: React.ReactNode;
-  component?: string;
+  component?: 'Tag' | 'Button' | 'Checkbox' | 'Radio' | 'Switch';
 }
 
 const Wave: React.FC<WaveProps> = (props) => {
@@ -48,7 +48,6 @@ const Wave: React.FC<WaveProps> = (props) => {
       ) {
         return;
       }
-
       showWave(e);
     };
 

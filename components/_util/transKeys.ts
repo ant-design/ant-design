@@ -1,5 +1,7 @@
-export const groupKeysMap = (keys: string[]) => {
-  const map = new Map<string, number>();
+import type { TransferKey } from '../transfer/interface';
+
+export const groupKeysMap = (keys: TransferKey[]) => {
+  const map = new Map<TransferKey, number>();
   keys.forEach((key, index) => {
     map.set(key, index);
   });
@@ -7,7 +9,7 @@ export const groupKeysMap = (keys: string[]) => {
 };
 
 export const groupDisabledKeysMap = <RecordType extends any[]>(dataSource: RecordType) => {
-  const map = new Map<string, number>();
+  const map = new Map<TransferKey, number>();
   dataSource.forEach(({ disabled, key }, index) => {
     if (disabled) {
       map.set(key, index);

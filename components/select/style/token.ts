@@ -18,6 +18,11 @@ export interface MultipleSelectorToken {
    */
   multipleItemHeight: number;
   /**
+   * @desc 小号多选标签高度
+   * @descEN Height of multiple tag with small size
+   */
+  multipleItemHeightSM: number;
+  /**
    * @desc 大号多选标签高度
    * @descEN Height of multiple tag with large size
    */
@@ -121,7 +126,13 @@ export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
   const {
     fontSize,
     lineHeight,
+
     controlHeight,
+    controlHeightSM,
+    controlHeightLG,
+
+    paddingXXS,
+
     controlPaddingHorizontal,
     zIndexPopupBase,
     colorText,
@@ -130,11 +141,14 @@ export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
     controlItemBgHover,
     colorBgContainer,
     colorFillSecondary,
-    controlHeightLG,
-    controlHeightSM,
+
     colorBgContainerDisabled,
     colorTextDisabled,
   } = token;
+
+  const multipleItemHeight = controlHeight - paddingXXS * 2;
+  const multipleItemHeightSM = controlHeightSM - paddingXXS * 2;
+  const multipleItemHeightLG = controlHeightLG - paddingXXS * 2;
 
   return {
     zIndexPopup: zIndexPopupBase + 50,
@@ -151,8 +165,9 @@ export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
     singleItemHeightLG: controlHeightLG,
     multipleItemBg: colorFillSecondary,
     multipleItemBorderColor: 'transparent',
-    multipleItemHeight: controlHeightSM,
-    multipleItemHeightLG: controlHeight,
+    multipleItemHeight,
+    multipleItemHeightSM,
+    multipleItemHeightLG,
     multipleSelectorBgDisabled: colorBgContainerDisabled,
     multipleItemColorDisabled: colorTextDisabled,
     multipleItemBorderColorDisabled: 'transparent',

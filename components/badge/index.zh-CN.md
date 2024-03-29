@@ -1,15 +1,14 @@
 ---
 category: Components
-subtitle: 徽标数
 title: Badge
+subtitle: 徽标数
+description: 图标右上角的圆形徽标数字。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*e0qITYqF394AAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*v8EQT7KoGbcAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 group: 数据展示
 ---
-
-图标右上角的圆形徽标数字。
 
 ## 何时使用
 

@@ -160,7 +160,7 @@ const App = () => {
 };
 ```
 
-Due to the existence of closures, we cannot determine whether the final dom has changed before calling the `render` method, which is why we optimized the Table through memo in the early days of antd v4 and removed some of it over time (Actually, Table still has some scenarios where this problem needs to be solved).
+Due to the existence of closures, we cannot determine whether the final DOM has changed before calling the `render` method, which is why we optimized the Table through memo in the early days of antd v4 and removed some of it over time (Actually, Table still has some scenarios where this problem needs to be solved).
 
 Considering that Table provides `shouldCellUpdate` method, we plan to adjust Table rendering logic in the future. When the Parent node renders, the Table will be completely re-rendered, and when the Table is updated internally (such as horizontal scrolling position synchronization), it will hit the cache and skip.
 

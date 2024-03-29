@@ -508,7 +508,7 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
 exports[`renders components/tag/demo/checkable.tsx extend context correctly 1`] = `
 <div
   class="ant-flex ant-flex-wrap-wrap ant-flex-align-center"
-  style="gap: 4px 0;"
+  style="gap: 4px;"
 >
   <span>
     Categories:
