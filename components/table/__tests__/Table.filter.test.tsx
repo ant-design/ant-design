@@ -2079,6 +2079,44 @@ describe('Table.filter', () => {
       fireEvent.change(container.querySelector('.ant-input')!, { target: { value: '111' } });
     });
 
+    it('renders empty element when search not found', () => {
+      jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      const { container, unmount } = render(
+        createTable({
+          columns: [
+            {
+              ...column,
+              filters: [
+                {
+                  text: '123',
+                  value: '456',
+                },
+                {
+                  text: 123456,
+                  value: '456',
+                },
+                {
+                  text: '456',
+                  value: '456',
+                },
+              ],
+              filterSearch: true,
+            },
+          ],
+        }),
+      );
+      fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
+      act(() => {
+        jest.runAllTimers();
+      });
+      expect(container.querySelectorAll('.ant-table-filter-dropdown-search').length).toBe(1);
+      expect(container.querySelectorAll('.ant-input').length).toBe(1);
+      fireEvent.change(container.querySelector('.ant-input')!, { target: { value: '111' } });
+      expect(container.querySelector('.ant-empty')).toBeTruthy();
+
+      unmount();
+    });
+
     it('supports search input in filter menu', () => {
       jest.spyOn(console, 'error').mockImplementation(() => undefined);
       const { container } = render(
