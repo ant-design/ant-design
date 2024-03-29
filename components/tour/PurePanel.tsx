@@ -1,5 +1,4 @@
 import * as React from 'react';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 
 import useClosable from '../_util/hooks/useClosable';
