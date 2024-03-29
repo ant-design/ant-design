@@ -30,152 +30,9 @@ export type UseClosableParams = {
   context?: ContextClosable;
 };
 
-function getMergedCloseIcon(closeIcon: ReactNode, defaultCloseIcon: ReactNode) {
-  return typeof closeIcon === 'boolean' || closeIcon === undefined || closeIcon === null
-    ? defaultCloseIcon
-    : closeIcon;
-}
-
-function getClosable(
-  closable?: UseClosableParams['closable'],
-  closeIcon?: ReactNode,
-  defaultClosable?: boolean,
-  defaultCloseIcon?: ReactNode,
-): [closable: boolean, closeIcon: React.ReactNode] {
-  const mergedDefaultClosableIcon = defaultClosable ? defaultCloseIcon : null;
-  if (typeof closable === 'boolean') {
-    return [closable, closable ? getMergedCloseIcon(closeIcon, defaultCloseIcon) : null];
-  }
-  if (typeof closable === 'object') {
-    return [true, getMergedCloseIcon(closeIcon, defaultCloseIcon)];
-  }
-  if (closeIcon === undefined) {
-    return [!!defaultClosable, mergedDefaultClosableIcon];
-  }
-  const curClosable = closeIcon !== false && closeIcon !== null;
-  return [curClosable, curClosable ? getMergedCloseIcon(closeIcon, defaultCloseIcon) : null];
-}
-
-function getAriaProps(closable: BaseClosableType) {
-  return pickAttrs(closable, true);
-}
-
-function getCloseIcon(closeIcon: ReactNode, defaultCloseIcon: ReactNode) {
-  if (closeIcon === false) {
-    return null;
-  }
-  if (closeIcon === true) {
-    return defaultCloseIcon;
-  }
-  return closeIcon;
-}
-
-function notUndefined(val: any) {
-  return val !== undefined;
-}
-
-function getConfigByClosable(
-  closable: ClosableType | undefined,
-  closeIcon: ReactNode,
-  defaultCloseIcon: ReactNode,
-  preset: boolean,
-) {
-  if (typeof closable === 'object' && closable.closeIcon) {
-    return {
-      closeIcon: getCloseIcon(closable.closeIcon, defaultCloseIcon),
-      ...closable,
-    };
-  }
-  if (closable === false) {
-    return null;
-  }
-  if (preset) {
-    return {
-      closeIcon: getCloseIcon(closeIcon, defaultCloseIcon),
-    };
-  }
-  return notUndefined(closeIcon)
-    ? {
-        closeIcon,
-      }
-    : null;
-}
-
-type ClosableConfig = {
-  closeIcon: ReactNode;
-  ariaProps: React.AriaAttributes;
-};
-
-function getClosableConfig1(props: UseClosableParams): ClosableConfig | null {
-  const {
-    closable,
-    closeIcon,
-    defaultCloseIcon = <CloseOutlined />,
-    defaultClosable = false,
-    context,
-  } = props;
-  const contextConfig = getConfigByClosable(
-    context?.closable,
-    context?.closeIcon,
-    defaultCloseIcon,
-    true,
-  );
-  const propConfig = getConfigByClosable(closable, closeIcon, defaultCloseIcon, false);
-
-  let curCloseIcon: ReactNode = null;
-  if (propConfig) {
-    curCloseIcon = propConfig.closeIcon;
-  } else if (contextConfig) {
-    curCloseIcon = contextConfig.closeIcon;
-  }
-
-  const [mergedClosable, mergedCloseIcon] = getClosable(
-    closable ?? context?.closable,
-    curCloseIcon,
-    defaultClosable,
-    defaultCloseIcon,
-  );
-
-  if (!mergedClosable) {
-    return null;
-  }
-
-  const ariaProps = getAriaProps(propConfig ?? contextConfig ?? {}) ?? {};
-  return {
-    closeIcon: mergedCloseIcon,
-    ariaProps,
-  };
-}
-
-function getDisplayCloseIcon(props: UseClosableParams, closableConfig: ClosableConfig) {
-  const { customCloseIconRender } = props;
-  const { closeIcon, ariaProps } = closableConfig;
-
-  const plainCloseIcon = customCloseIconRender ? customCloseIconRender(closeIcon) : closeIcon;
-
-  const closeIconWithAria = React.isValidElement(plainCloseIcon) ? (
-    React.cloneElement(plainCloseIcon, ariaProps)
-  ) : (
-    <span {...ariaProps}>{plainCloseIcon}</span>
-  );
-  return closeIconWithAria;
-}
-
-function useClosable1(
-  props: UseClosableParams,
-): [closable: boolean, closeIcon: React.ReactNode | null] {
-  const closableConfig = getClosableConfig1(props);
-  if (!closableConfig) {
-    return [false, null];
-  }
-  const mergedCloseIcon = getDisplayCloseIcon(props, closableConfig);
-
-  return [true, mergedCloseIcon];
-}
-
 /** Convert `closable` and `closeIcon` to config object */
-function useClosableConfig(closableCollection: ClosableCollection = {}) {
-  const { closable, closeIcon } = closableCollection;
+function useClosableConfig(closableCollection?: ClosableCollection | null) {
+  const { closable, closeIcon } = closableCollection || {};
 
   return React.useMemo(() => {
     if (
@@ -237,7 +94,7 @@ const EmptyFallbackCloseCollection: ClosableCollection = {};
 
 export default function useClosable(
   propCloseCollection?: ClosableCollection,
-  contextCloseCollection?: ClosableCollection,
+  contextCloseCollection?: ClosableCollection | null,
   fallbackCloseCollection: ClosableCollection & {
     /**
      * Some components need to wrap CloseIcon twice,
@@ -284,7 +141,7 @@ export default function useClosable(
     }
 
     // ============= Fallback Default ==============
-    return mergedFallbackCloseCollection.closable === false ? false : mergedFallbackCloseCollection;
+    return !mergedFallbackCloseCollection.closable ? false : mergedFallbackCloseCollection;
   }, [propCloseConfig, contextCloseConfig, mergedFallbackCloseCollection]);
 
   // Calculate the final closeIcon
