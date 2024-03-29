@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import type { DrawerProps as RCDrawerProps } from 'rc-drawer';
+
 import useClosable, { pickClosable, type ClosableType } from '../_util/hooks/useClosable';
 import { ConfigContext } from '../config-provider';
 
@@ -57,8 +58,6 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     title,
     footer,
     extra,
-    closeIcon,
-    closable,
     onClose,
     headerStyle,
     bodyStyle,
@@ -78,13 +77,14 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     [onClose],
   );
 
-  const [mergedClosable, mergedCloseIcon] = useClosable({
-    closable,
-    closeIcon,
-    customCloseIconRender,
-    defaultClosable: true,
-    context: pickClosable(drawerContext),
-  });
+  const [mergedClosable, mergedCloseIcon] = useClosable(
+    pickClosable(props),
+    pickClosable(drawerContext),
+    {
+      closable: true,
+      closeIconRender: customCloseIconRender,
+    },
+  );
 
   const headerNode = React.useMemo<React.ReactNode>(() => {
     if (!title && !mergedClosable) {
