@@ -185,6 +185,22 @@ describe('hooks test', () => {
     const { container } = render(<App />);
     expect(container.querySelector('.custom-close-icon')).toBeTruthy();
   });
+  it('useClosable without defaultCloseIcon', () => {
+    const App = () => {
+      const [closable, closeIcon] = useClosable(
+        {
+          closable: true,
+        },
+        null,
+      );
+      useEffect(() => {
+        expect(closable).toBe(true);
+      }, [closable]);
+      return <div>hooks test {closeIcon}</div>;
+    };
+    const { container } = render(<App />);
+    expect(container.querySelector('.anticon-close')).toBeTruthy();
+  });
 
   it('useClosable with customCloseIconRender', () => {
     const App = () => {
