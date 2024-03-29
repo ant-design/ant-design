@@ -268,17 +268,11 @@ describe('Typography copy', () => {
 
     it('copy by async', async () => {
       const spy = jest.spyOn(copyObj, 'default');
-      jest.useFakeTimers();
       const { container: wrapper } = render(
         <Base
           component="p"
           copyable={{
-            text: async () =>
-              new Promise((resolve) => {
-                setTimeout(() => {
-                  resolve('Request text');
-                }, 500);
-              }),
+            text: jest.fn().mockResolvedValueOnce('Request text'),
           }}
         >
           test copy
@@ -289,7 +283,6 @@ describe('Typography copy', () => {
       await waitFakeTimer();
       expect(spy.mock.calls[0][0]).toEqual('Request text');
       spy.mockReset();
-      jest.useRealTimers();
       expect(wrapper.querySelectorAll('.anticon-loading')[0]).toBeFalsy();
     });
 
@@ -297,14 +290,11 @@ describe('Typography copy', () => {
       const { result } = renderHook(() =>
         useCopyClick({
           copyConfig: {
-            text: () => {
-              const error = 'error';
-              return Promise.reject(error);
-            },
+            text: jest.fn().mockRejectedValueOnce('Oops'),
           },
         }),
       );
-      await expect(() => result.current?.onClick?.()).rejects.toMatch('error');
+      await expect(() => result.current?.onClick?.()).rejects.toMatch('Oops');
       expect(result.current?.copyLoading).toBe(false);
     });
   });
