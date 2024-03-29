@@ -122,6 +122,76 @@ export default () => {
 };
 ```
 
+### 全局 JS/TS 使用场景
+
+这里是一个在 Axios 拦截器中使用 Message 统一处理请求错误的例子：
+
+```tsx
+// toast.ts
+import { App } from 'antd';
+import type { MessageInstance } from 'antd/es/message/interface';
+import type { ModalStaticFunctions } from 'antd/es/modal/confirm';
+import type { NotificationInstance } from 'antd/es/notification/interface';
+
+let message: MessageInstance;
+let notification: NotificationInstance;
+let modal: Omit<ModalStaticFunctions, 'warn'>;
+
+export default function Toast() {
+  const staticFunction = App.useApp();
+  message = staticFunction.message;
+  modal = staticFunction.modal;
+  notification = staticFunction.notification;
+  return null;
+}
+
+export { message, notification, modal };
+```
+
+```tsx
+// App.tsx
+// 将 Toast 组件包裹在 antd 的 App 组件中，以获取上下文
+import { App as AntdApp, ConfigProvider, Layout } from 'antd';
+
+import Toast from './toast';
+
+function App() {
+  return (
+    <ConfigProvider>
+      <AntdApp>
+        <Toast />
+      </AntdApp>
+    </ConfigProvider>
+  );
+}
+
+export default App;
+```
+
+```ts
+// fetch.ts
+// 从 toast 中导入 message，而不是直接从 antd 中导入
+import { message } from './toast';
+
+axios.interceptors.response.use(
+  function (response) {
+    return response;
+  },
+  function (error: AxiosError) {
+    if (error.response) {
+      if (error.response.status === 401) {
+        void message.error('user not login');
+      } else {
+        void message.error('error occur');
+      }
+    } else {
+      void message.error(error.message);
+    }
+    return Promise.reject(error);
+  },
+);
+```
+
 ## API
 
 通用属性参考：[通用属性](/docs/react/common-props)
