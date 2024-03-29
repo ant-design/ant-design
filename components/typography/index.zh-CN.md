@@ -88,7 +88,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 ### copyable
 
     {
-      text: string,
+      text: string | (() => string | Promise<string>),
       onCopy: function(event),
       icon: ReactNode,
       tooltips: false | [ReactNode, ReactNode],
