@@ -129,6 +129,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | rowClassName | Row's className | function(record, index): string | - |  |
 | rowKey | Row's unique key, could be a string or function that returns a string | string \| function(record): string | `key` |  |
 | rowSelection | Row selection [config](#rowselection) | object | - |  |
+| rowHoverable | Row hover | boolean | true | 5.16.0 |
 | scroll | Whether the table can be scrollable, [config](#scroll) | object | - |  |
 | showHeader | Whether to show table header | boolean | true |  |
 | showSorterTooltip | The header show next sorter direction tooltip. It will be set as the property of Tooltip if its type is object | boolean \| [Tooltip props](/components/tooltip/#api) & `{target?: 'full-header' \| 'sorter-icon' }` | { target: 'full-header' } | 5.16.0 |
