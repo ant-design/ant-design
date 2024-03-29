@@ -37,7 +37,19 @@ And 4 other properties additionally.
 <code src="./demo/basic.tsx">Type</code>
 <code src="./demo/icon.tsx">Icon</code>
 <code src="./demo/icon-position.tsx" version="5.16.0">Icon Position</code>
-<code src="./demo/debug-icon.tsx" debug>Debug Icon</code> <code src="./demo/debug-block.tsx" debug>Debug Block</code> <code src="./demo/size.tsx">Size</code> <code src="./demo/disabled.tsx">Disabled</code> <code src="./demo/loading.tsx">Loading</code> <code src="./demo/multiple.tsx">Multiple Buttons</code> <code src="./demo/ghost.tsx">Ghost Button</code> <code src="./demo/danger.tsx">Danger Buttons</code> <code src="./demo/block.tsx">Block Button</code> <code src="./demo/legacy-group.tsx" debug>Deprecated Button Group</code> <code src="./demo/chinese-chars-loading.tsx" debug>Loading style bug</code> <code src="./demo/component-token.tsx" debug>Component Token</code> <code src="./demo/linear-gradient.tsx" debug>Gradient Button</code>
+<code src="./demo/debug-icon.tsx" debug>Debug Icon</code>
+<code src="./demo/debug-block.tsx" debug>Debug Block</code>
+<code src="./demo/size.tsx">Size</code>
+<code src="./demo/disabled.tsx">Disabled</code>
+<code src="./demo/loading.tsx">Loading</code>
+<code src="./demo/multiple.tsx">Multiple Buttons</code>
+<code src="./demo/ghost.tsx">Ghost Button</code>
+<code src="./demo/danger.tsx">Danger Buttons</code>
+<code src="./demo/block.tsx">Block Button</code>
+<code src="./demo/legacy-group.tsx" debug>Deprecated Button Group</code>
+<code src="./demo/chinese-chars-loading.tsx" debug>Loading style bug</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
+<code src="./demo/linear-gradient.tsx" debug>Gradient Button</code>
 
 ## API
 
