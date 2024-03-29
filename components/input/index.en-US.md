@@ -28,6 +28,7 @@ demo:
 <code src="./demo/search-input-loading.tsx">Search box with loading</code>
 <code src="./demo/textarea.tsx">TextArea</code>
 <code src="./demo/autosize-textarea.tsx">Autosizing the height to fit the content</code>
+<code src="./demo/otp.tsx" version="5.16.0">OTP</code>
 <code src="./demo/tooltip.tsx">Format Tooltip Input</code>
 <code src="./demo/presuffix.tsx">prefix and suffix</code>
 <code src="./demo/password-input.tsx">Password box</code>
@@ -102,7 +103,7 @@ Same as Input, and more:
 
 The rest of the props of `Input.TextArea` are the same as the original [textarea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea).
 
-#### Input.Search
+### Input.Search
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
@@ -112,12 +113,28 @@ The rest of the props of `Input.TextArea` are the same as the original [textarea
 
 Supports all props of `Input`.
 
-#### Input.Password
+### Input.Password
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | iconRender | Custom toggle button | (visible) => ReactNode | (visible) => (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | 4.3.0 |
 | visibilityToggle | Whether show toggle button or control password visible | boolean \| [VisibilityToggle](#visibilitytoggle) | true |  |
+
+### Input.OTP
+
+Added in `5.16.0`.
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| defaultValue | Default value | string | - |  |
+| disabled | Whether the input is disabled | boolean | false |  |
+| formatter | Format display, blank fields will be filled with ` ` | (value: string) => string | - |  |
+| length | The number of input elements | number | 6 |  |
+| status | Set validation status | 'error' \| 'warning' | - |  |
+| size | The size of the input box | `small` \| `middle` \| `large` | `middle` |  |
+| variant | Variants of Input | `outlined` \| `borderless` \| `filled` | `outlined` |  |
+| value | The input content value | string | - |  |
+| onChange | Trigger when all the fields are filled | function(value: string) | - |  |
 
 #### VisibilityToggle
 
