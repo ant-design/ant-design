@@ -13,6 +13,7 @@ export interface RibbonProps {
   className?: string;
   prefixCls?: string;
   style?: React.CSSProperties; // style of ribbon element, not the wrapper
+  styles?: React.CSSProperties; // style of ribbon wrapper
   text?: React.ReactNode;
   color?: LiteralUnion<PresetColorType>;
   children?: React.ReactNode;
@@ -25,6 +26,7 @@ const Ribbon: React.FC<RibbonProps> = (props) => {
     className,
     prefixCls: customizePrefixCls,
     style,
+    styles,
     color,
     children,
     text,
@@ -55,7 +57,7 @@ const Ribbon: React.FC<RibbonProps> = (props) => {
     cornerColorStyle.color = color;
   }
   return wrapCSSVar(
-    <div className={classNames(wrapperCls, rootClassName, hashId, cssVarCls)}>
+    <div className={classNames(wrapperCls, rootClassName, hashId, cssVarCls)} style={{ ...styles }}>
       {children}
       <div className={classNames(ribbonCls, hashId)} style={{ ...colorStyle, ...style }}>
         <span className={`${prefixCls}-text`}>{text}</span>
