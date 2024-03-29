@@ -63,6 +63,9 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = (token) => {
         flexDirection: 'column',
         flex: 'auto',
         rowGap: token.marginXS,
+      },
+
+      [`${token.iconCls} + ${confirmComponentCls}-paragraph`]: {
         maxWidth: `calc(100% - ${unit(
           token.calc(token.modalConfirmIconSize).add(token.marginSM).equal(),
         )})`,
