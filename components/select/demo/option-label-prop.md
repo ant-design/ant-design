@@ -1,7 +1,7 @@
 ## zh-CN
 
-使用 `optionRender` 指定回填到选择框的 `Option` 属性。
+使用 `optionRender` 自定义回填到选择框内容。
 
 ## en-US
 
-Use `optionRender` to specify the `Option` attribute to backfill into the selection box.
+Use `optionRender` to customize backfill to the content of the selection box.
