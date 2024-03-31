@@ -34,7 +34,9 @@ tag: vVERSION
 - ⌨️ Popover 当 `trigger` 是 `focus` 或 `click` 时能被 ESC 按键所关闭。[#47928](https://github.com/ant-design/ant-design/pull/47928) [@CooperHash](https://github.com/CooperHash)
 - 🐞 修复 Button 图标位置居中问题。[#48178](https://github.com/ant-design/ant-design/pull/48178) [@momesana](https://github.com/momesana)
 - 🐞 修复 Modal.confirm 无图标时内容不居中的问题。[#48173](https://github.com/ant-design/ant-design/pull/48173)
-- 🐞 1. 修复当 FormItem 的 `name` 不存在时，`getValueProps` 不应该执行。2. 修复 Form 的 `setFieldsValue` 和 `setFields` 的行为应该相同。[#48163](https://github.com/ant-design/ant-design/pull/48163) [@madocto](https://github.com/madocto)
+- Form [#48163](https://github.com/ant-design/ant-design/pull/48163) [@madocto](https://github.com/madocto)
+  - 🐞 1. 修复当 FormItem 的 `name` 不存在时，`getValueProps` 不应该执行。
+  - 🐞 2. 修复 Form 的 `setFieldsValue` 和 `setFields` 的行为应该相同。
 - 🐞 修复 Table 表格列在搜索情况下，国际化失效的问题。[#48126](https://github.com/ant-design/ant-design/pull/48126) [@LingJinT](https://github.com/LingJinT)
 - 🐞 修复 Upload 当文件数量超出限制时，删除不起作用，无法触发 `onChange` 的问题。[#47747](https://github.com/ant-design/ant-design/pull/47747) [@Zhou-Bill](https://github.com/Zhou-Bill)
 - 🐞 Carousel 组件同步上游 react-slick 改动，修复一系列<a href="https://github.com/ant-design/react-slick/pull/110" data-hovercard-type="pull_request" data-hovercard-url="/ant-design/react-slick/pull/110/hovercard">问题</a>，并更新到最新 TS 定义。[#48093](https://github.com/ant-design/ant-design/pull/48093)
