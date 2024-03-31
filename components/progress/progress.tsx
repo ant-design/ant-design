@@ -126,11 +126,11 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
 
     return (
       <span
-        className={classNames({
-          [`${prefixCls}-text`]: true,
-          [`${prefixCls}-text-${infoPosition}`]: infoPosition,
-          [`${prefixCls}-text-${infoAlign}`]: infoAlign,
-        })}
+        className={classNames(
+          `${prefixCls}-text`,
+          `${prefixCls}-text-${infoPosition}`,
+          `${prefixCls}-text-${infoAlign}`,
+        )}
         title={typeof text === 'string' ? text : undefined}
       >
         {text}
@@ -199,12 +199,12 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   const classString = classNames(
     prefixCls,
     `${prefixCls}-status-${progressStatus}`,
+    `${prefixCls}-line-align-${infoAlign}`,
+    `${prefixCls}-line-position-${infoPosition}`,
     {
       [`${prefixCls}-${(type === 'dashboard' && 'circle') || type}`]: type !== 'line',
       [`${prefixCls}-inline-circle`]: type === 'circle' && getSize(size, 'circle')[0] <= 20,
       [`${prefixCls}-line`]: !steps && type === 'line',
-      [`${prefixCls}-line-align-${infoAlign}`]: infoAlign,
-      [`${prefixCls}-line-position-${infoPosition}`]: infoPosition,
       [`${prefixCls}-steps`]: steps,
       [`${prefixCls}-show-info`]: showInfo,
       [`${prefixCls}-${size}`]: typeof size === 'string',

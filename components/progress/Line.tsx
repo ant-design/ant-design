@@ -94,7 +94,7 @@ const Line: React.FC<LineProps> = (props) => {
     success,
   } = props;
 
-  const [infoAlign, infoPosition] = [percentPosition[0] || 'end', percentPosition[1] || 'outer'];
+  const [infoAlign = 'end', infoPosition = 'outer'] = percentPosition;
 
   const backgroundProps =
     strokeColor && typeof strokeColor !== 'string'
@@ -143,10 +143,7 @@ const Line: React.FC<LineProps> = (props) => {
   const lineInner = (
     <div className={`${prefixCls}-inner`} style={trailStyle}>
       <div
-        className={classNames({
-          [`${prefixCls}-bg`]: true,
-          [`${prefixCls}-bg-${infoPosition}`]: infoPosition,
-        })}
+        className={classNames(`${prefixCls}-bg`, `${prefixCls}-bg-${infoPosition}`)}
         style={percentStyle}
       >
         {infoPosition === 'inner' ? children : null}
