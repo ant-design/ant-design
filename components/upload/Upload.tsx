@@ -60,7 +60,6 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     maxCount,
     data = {},
     multiple = false,
-    hasControlInside = true,
     action = '',
     accept = '',
     supportServerRender = true,
