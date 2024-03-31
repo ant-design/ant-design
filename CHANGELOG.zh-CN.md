@@ -21,7 +21,7 @@ tag: vVERSION
 `2024-03-31`
 
 - 🔥 新增 Input.OTP 组件。[#48076](https://github.com/ant-design/ant-design/pull/48076)
-- 🆕 可关闭组件支持在 `closable` 中配置 aria 属性 [@kiner-tang](https://github.com/kiner-tang)
+- 🆕 可关闭组件支持在 `closable` 中配置 `aria-*` 属性 [@kiner-tang](https://github.com/kiner-tang)
   - 🆕 [Tag](https://github.com/ant-design/ant-design/pull/47678)
   - 🆕 [Notification](https://github.com/ant-design/ant-design/pull/47710)
 - 🆕 Table 增加 `rowHoverable` 开启或关闭 hover 效果。[#48112](https://github.com/ant-design/ant-design/pull/48112) [@madocto](https://github.com/madocto)
