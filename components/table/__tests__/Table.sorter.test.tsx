@@ -548,7 +548,7 @@ describe('Table.sorter', () => {
 
   // https://github.com/ant-design/ant-design/pull/12264#discussion_r218053034
   it('should sort from beginning state when toggle from different columns', () => {
-    const columns = [
+    const columns: TableProps['columns'] = [
       { title: 'name', dataIndex: 'name', sorter: true },
       { title: 'age', dataIndex: 'age', sorter: true },
     ];

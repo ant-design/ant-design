@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { EllipsisOutlined } from '@ant-design/icons';
-import type { ConfigProviderProps, RadioChangeEvent, TourProps, UploadFile } from 'antd';
+import type {
+  ConfigProviderProps,
+  RadioChangeEvent,
+  TableProps,
+  TourProps,
+  UploadFile,
+} from 'antd';
 import {
   Button,
   Calendar,
@@ -38,7 +44,7 @@ dayjs.locale('en');
 const { Option } = Select;
 const { RangePicker } = DatePicker;
 
-const columns = [
+const columns: TableProps['columns'] = [
   {
     title: 'Name',
     dataIndex: 'name',
