@@ -23,7 +23,7 @@ tag: vVERSION
 - 🔥 新增 Input.OTP 组件。[#48076](https://github.com/ant-design/ant-design/pull/48076)
 - 🆕 Tag 组件支持在 `closable` 中配置 aria 属性。[#47678](https://github.com/ant-design/ant-design/pull/47678) [@kiner-tang](https://github.com/kiner-tang)
 - 🆕 Table 增加 `rowHoverable` 开启或关闭 hover 效果。[#48112](https://github.com/ant-design/ant-design/pull/48112) [@madocto](https://github.com/madocto)
-- 🆕 Typograghy 组件支持异步复制。[#48123](https://github.com/ant-design/ant-design/pull/48123) [@crazyair](https://github.com/crazyair)
+- 🆕 Typography 组件支持异步复制。[#48123](https://github.com/ant-design/ant-design/pull/48123) [@crazyair](https://github.com/crazyair)
 - 🆕 Progress 组件 `circle` 模式下支持 `steps`。[#47940](https://github.com/ant-design/ant-design/pull/47940) [@yykoypj](https://github.com/yykoypj)
 - 🆕 Table 支持 `onScroll` 事件用于监听表单内容滚动。[#47986](https://github.com/ant-design/ant-design/pull/47986)
 - 🆕 Typography 省略支持展开和收起。[#47264](https://github.com/ant-design/ant-design/pull/47264) [@crazyair](https://github.com/crazyair)
@@ -35,7 +35,7 @@ tag: vVERSION
 - 🐞 修复 Button 图标位置居中问题。[#48178](https://github.com/ant-design/ant-design/pull/48178) [@momesana](https://github.com/momesana)
 - 🐞 修复 Modal.confirm 无图标时内容不居中的问题。[#48173](https://github.com/ant-design/ant-design/pull/48173)
 - Form [#48163](https://github.com/ant-design/ant-design/pull/48163) [@madocto](https://github.com/madocto)
-  - 🐞 1. 修复当 FormItem 的 `name` 不存在时，`getValueProps` 不应该执行。
+  - 🐞 1. 修复 Form 当 FormItem 的 `name` 不存在时，`getValueProps` 不应该执行。
   - 🐞 2. 修复 Form 的 `setFieldsValue` 和 `setFields` 的行为应该相同。
 - 🐞 修复 Table 表格列在搜索情况下，国际化失效的问题。[#48126](https://github.com/ant-design/ant-design/pull/48126) [@LingJinT](https://github.com/LingJinT)
 - 🐞 修复 Upload 当文件数量超出限制时，删除不起作用，无法触发 `onChange` 的问题。[#47747](https://github.com/ant-design/ant-design/pull/47747) [@Zhou-Bill](https://github.com/Zhou-Bill)
