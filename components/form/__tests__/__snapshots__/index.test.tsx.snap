@@ -933,12 +933,14 @@ exports[`Form form should support disabled 1`] = `
                 style="display: none;"
               >
                 <span
-                  class="ant-upload ant-upload-disabled"
+                  class="ant-upload ant-upload-disabled ant-upload-trigger-wrapper"
+                  role="button"
                 >
                   <input
                     accept=""
+                    class="ant-upload-trigger"
                     disabled=""
-                    style="display: none;"
+                    style="display: unset; visibility: hidden;"
                     type="file"
                   />
                 </span>

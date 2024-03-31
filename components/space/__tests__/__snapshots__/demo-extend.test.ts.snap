@@ -176,11 +176,14 @@ exports[`renders components/space/demo/base.tsx extend context correctly 1`] = `
         class="ant-upload ant-upload-select"
       >
         <span
-          class="ant-upload"
+          class="ant-upload ant-upload-trigger-wrapper"
+          role="button"
+          tabindex="0"
         >
           <input
             accept=""
-            style="display: none;"
+            class="ant-upload-trigger"
+            style="display: unset; visibility: hidden;"
             type="file"
           />
           <button

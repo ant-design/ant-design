@@ -43121,11 +43121,14 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
     class="config-upload config-upload-select"
   >
     <span
-      class="config-upload"
+      class="config-upload config-upload-trigger-wrapper"
+      role="button"
+      tabindex="0"
     >
       <input
         accept=""
-        style="display: none;"
+        class="config-upload-trigger"
+        style="display: unset; visibility: hidden;"
         type="file"
       />
       <span />
@@ -43217,12 +43220,14 @@ exports[`ConfigProvider components Upload configProvider componentDisabled 1`] =
     class="config-upload config-upload-select config-upload-disabled"
   >
     <span
-      class="config-upload config-upload-disabled"
+      class="config-upload config-upload-disabled config-upload-trigger-wrapper"
+      role="button"
     >
       <input
         accept=""
+        class="config-upload-trigger"
         disabled=""
-        style="display: none;"
+        style="display: unset; visibility: hidden;"
         type="file"
       />
       <span />
@@ -43283,11 +43288,14 @@ exports[`ConfigProvider components Upload configProvider componentSize large 1`]
     class="config-upload config-upload-select"
   >
     <span
-      class="config-upload"
+      class="config-upload config-upload-trigger-wrapper"
+      role="button"
+      tabindex="0"
     >
       <input
         accept=""
-        style="display: none;"
+        class="config-upload-trigger"
+        style="display: unset; visibility: hidden;"
         type="file"
       />
       <span />
@@ -43379,11 +43387,14 @@ exports[`ConfigProvider components Upload configProvider componentSize middle 1`
     class="config-upload config-upload-select"
   >
     <span
-      class="config-upload"
+      class="config-upload config-upload-trigger-wrapper"
+      role="button"
+      tabindex="0"
     >
       <input
         accept=""
-        style="display: none;"
+        class="config-upload-trigger"
+        style="display: unset; visibility: hidden;"
         type="file"
       />
       <span />
@@ -43475,11 +43486,14 @@ exports[`ConfigProvider components Upload configProvider componentSize small 1`]
     class="config-upload config-upload-select"
   >
     <span
-      class="config-upload"
+      class="config-upload config-upload-trigger-wrapper"
+      role="button"
+      tabindex="0"
     >
       <input
         accept=""
-        style="display: none;"
+        class="config-upload-trigger"
+        style="display: unset; visibility: hidden;"
         type="file"
       />
       <span />
@@ -43571,11 +43585,14 @@ exports[`ConfigProvider components Upload normal 1`] = `
     class="ant-upload ant-upload-select"
   >
     <span
-      class="ant-upload"
+      class="ant-upload ant-upload-trigger-wrapper"
+      role="button"
+      tabindex="0"
     >
       <input
         accept=""
-        style="display: none;"
+        class="ant-upload-trigger"
+        style="display: unset; visibility: hidden;"
         type="file"
       />
       <span />
@@ -43667,11 +43684,14 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
     class="prefix-Upload prefix-Upload-select"
   >
     <span
-      class="prefix-Upload"
+      class="prefix-Upload prefix-Upload-trigger-wrapper"
+      role="button"
+      tabindex="0"
     >
       <input
         accept=""
-        style="display: none;"
+        class="prefix-Upload-trigger"
+        style="display: unset; visibility: hidden;"
         type="file"
       />
       <span />

@@ -5197,12 +5197,14 @@ Array [
                     class="ant-upload ant-upload-select ant-upload-disabled"
                   >
                     <span
-                      class="ant-upload ant-upload-disabled"
+                      class="ant-upload ant-upload-disabled ant-upload-trigger-wrapper"
+                      role="button"
                     >
                       <input
                         accept=""
+                        class="ant-upload-trigger"
                         disabled=""
-                        style="display: none;"
+                        style="display: unset; visibility: hidden;"
                         type="file"
                       />
                       <button
@@ -21604,13 +21606,16 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 class="ant-upload ant-upload-select"
               >
                 <span
-                  class="ant-upload"
+                  class="ant-upload ant-upload-trigger-wrapper"
+                  role="button"
+                  tabindex="0"
                 >
                   <input
                     accept=""
                     aria-describedby="validate_other_upload_extra"
+                    class="ant-upload-trigger"
                     id="validate_other_upload"
-                    style="display: none;"
+                    style="display: unset; visibility: hidden;"
                     type="file"
                   />
                   <button
@@ -21693,14 +21698,15 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 class="ant-upload ant-upload-drag"
               >
                 <span
-                  class="ant-upload ant-upload-btn"
+                  class="ant-upload ant-upload-trigger-wrapper ant-upload-btn"
                   role="button"
                   tabindex="0"
                 >
                   <input
                     accept=""
+                    class="ant-upload-trigger"
                     id="validate_other_dragger"
-                    style="display: none;"
+                    style="display: unset; visibility: hidden;"
                     type="file"
                   />
                   <div

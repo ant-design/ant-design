@@ -9,11 +9,14 @@ Array [
       class="ant-upload ant-upload-select"
     >
       <span
-        class="ant-upload"
+        class="ant-upload ant-upload-trigger-wrapper"
+        role="button"
+        tabindex="0"
       >
         <input
           accept=""
-          style="display: none;"
+          class="ant-upload-trigger"
+          style="display: unset; visibility: hidden;"
           type="file"
         />
         <button
@@ -58,11 +61,14 @@ Array [
       class="ant-upload ant-upload-select"
     >
       <span
-        class="ant-upload"
+        class="ant-upload ant-upload-trigger-wrapper"
+        role="button"
+        tabindex="0"
       >
         <input
           accept=""
-          style="display: none;"
+          class="ant-upload-trigger"
+          style="display: unset; visibility: hidden;"
           type="file"
         />
         <button
@@ -113,11 +119,14 @@ exports[`renders components/upload/demo/basic.tsx extend context correctly 1`] =
     class="ant-upload ant-upload-select"
   >
     <span
-      class="ant-upload"
+      class="ant-upload ant-upload-trigger-wrapper"
+      role="button"
+      tabindex="0"
     >
       <input
         accept=""
-        style="display: none;"
+        class="ant-upload-trigger"
+        style="display: unset; visibility: hidden;"
         type="file"
       />
       <button
@@ -169,11 +178,14 @@ exports[`renders components/upload/demo/component-token.tsx extend context corre
     class="ant-upload ant-upload-select"
   >
     <span
-      class="ant-upload"
+      class="ant-upload ant-upload-trigger-wrapper"
+      role="button"
+      tabindex="0"
     >
       <input
         accept=""
-        style="display: none;"
+        class="ant-upload-trigger"
+        style="display: unset; visibility: hidden;"
         type="file"
       />
       <button
@@ -467,11 +479,14 @@ exports[`renders components/upload/demo/customize-progress-bar.tsx extend contex
     class="ant-upload ant-upload-select"
   >
     <span
-      class="ant-upload"
+      class="ant-upload ant-upload-trigger-wrapper"
+      role="button"
+      tabindex="0"
     >
       <input
         accept=""
-        style="display: none;"
+        class="ant-upload-trigger"
+        style="display: unset; visibility: hidden;"
         type="file"
       />
       <button
@@ -529,12 +544,14 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
         class="ant-upload ant-upload-select ant-upload-disabled"
       >
         <span
-          class="ant-upload ant-upload-disabled"
+          class="ant-upload ant-upload-disabled ant-upload-trigger-wrapper"
+          role="button"
         >
           <input
             accept=""
+            class="ant-upload-trigger"
             disabled=""
-            style="display: none;"
+            style="display: unset; visibility: hidden;"
             type="file"
           />
           Click Text to Upload
@@ -555,12 +572,14 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
         class="ant-upload ant-upload-select ant-upload-disabled"
       >
         <span
-          class="ant-upload ant-upload-disabled"
+          class="ant-upload ant-upload-disabled ant-upload-trigger-wrapper"
+          role="button"
         >
           <input
             accept=""
+            class="ant-upload-trigger"
             disabled=""
-            style="display: none;"
+            style="display: unset; visibility: hidden;"
             type="file"
           />
           <button
@@ -830,12 +849,14 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
           class="ant-upload ant-upload-select ant-upload-disabled"
         >
           <span
-            class="ant-upload ant-upload-disabled"
+            class="ant-upload ant-upload-disabled ant-upload-trigger-wrapper"
+            role="button"
           >
             <input
               accept=""
+              class="ant-upload-trigger"
               disabled=""
-              style="display: none;"
+              style="display: unset; visibility: hidden;"
               type="file"
             />
             <button
@@ -1104,12 +1125,14 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
           class="ant-upload ant-upload-select ant-upload-disabled"
         >
           <span
-            class="ant-upload ant-upload-disabled"
+            class="ant-upload ant-upload-disabled ant-upload-trigger-wrapper"
+            role="button"
           >
             <input
               accept=""
+              class="ant-upload-trigger"
               disabled=""
-              style="display: none;"
+              style="display: unset; visibility: hidden;"
               type="file"
             />
             <button
@@ -1159,13 +1182,14 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
         class="ant-upload ant-upload-drag ant-upload-disabled"
       >
         <span
-          class="ant-upload ant-upload-disabled ant-upload-btn"
+          class="ant-upload ant-upload-disabled ant-upload-trigger-wrapper ant-upload-btn"
           role="button"
         >
           <input
             accept=""
+            class="ant-upload-trigger"
             disabled=""
-            style="display: none;"
+            style="display: unset; visibility: hidden;"
             type="file"
           />
           <div
@@ -1225,11 +1249,14 @@ exports[`renders components/upload/demo/defaultFileList.tsx extend context corre
     class="ant-upload ant-upload-select"
   >
     <span
-      class="ant-upload"
+      class="ant-upload ant-upload-trigger-wrapper"
+      role="button"
+      tabindex="0"
     >
       <input
         accept=""
-        style="display: none;"
+        class="ant-upload-trigger"
+        style="display: unset; visibility: hidden;"
         type="file"
       />
       <button
@@ -1523,12 +1550,15 @@ exports[`renders components/upload/demo/directory.tsx extend context correctly 1
     class="ant-upload ant-upload-select"
   >
     <span
-      class="ant-upload"
+      class="ant-upload ant-upload-trigger-wrapper"
+      role="button"
+      tabindex="0"
     >
       <input
         accept=""
+        class="ant-upload-trigger"
         directory="directory"
-        style="display: none;"
+        style="display: unset; visibility: hidden;"
         type="file"
         webkitdirectory="webkitdirectory"
       />
@@ -1581,14 +1611,15 @@ exports[`renders components/upload/demo/drag.tsx extend context correctly 1`] = 
     class="ant-upload ant-upload-drag"
   >
     <span
-      class="ant-upload ant-upload-btn"
+      class="ant-upload ant-upload-trigger-wrapper ant-upload-btn"
       role="button"
       tabindex="0"
     >
       <input
         accept=""
+        class="ant-upload-trigger"
         multiple=""
-        style="display: none;"
+        style="display: unset; visibility: hidden;"
         type="file"
       />
       <div
@@ -1647,11 +1678,14 @@ Array [
       class="ant-upload ant-upload-select"
     >
       <span
-        class="ant-upload"
+        class="ant-upload ant-upload-trigger-wrapper"
+        role="button"
+        tabindex="0"
       >
         <input
           accept=""
-          style="display: none;"
+          class="ant-upload-trigger"
+          style="display: unset; visibility: hidden;"
           type="file"
         />
         <button
@@ -2704,11 +2738,14 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
       class="ant-upload ant-upload-select"
     >
       <span
-        class="ant-upload"
+        class="ant-upload ant-upload-trigger-wrapper"
+        role="button"
+        tabindex="0"
       >
         <input
           accept=""
-          style="display: none;"
+          class="ant-upload-trigger"
+          style="display: unset; visibility: hidden;"
           type="file"
         />
         <button
@@ -2759,12 +2796,15 @@ exports[`renders components/upload/demo/fileList.tsx extend context correctly 1`
     class="ant-upload ant-upload-select"
   >
     <span
-      class="ant-upload"
+      class="ant-upload ant-upload-trigger-wrapper"
+      role="button"
+      tabindex="0"
     >
       <input
         accept=""
+        class="ant-upload-trigger"
         multiple=""
-        style="display: none;"
+        style="display: unset; visibility: hidden;"
         type="file"
       />
       <button
@@ -2898,11 +2938,14 @@ exports[`renders components/upload/demo/max-count.tsx extend context correctly 1
         class="ant-upload ant-upload-select"
       >
         <span
-          class="ant-upload"
+          class="ant-upload ant-upload-trigger-wrapper"
+          role="button"
+          tabindex="0"
         >
           <input
             accept=""
-            style="display: none;"
+            class="ant-upload-trigger"
+            style="display: unset; visibility: hidden;"
             type="file"
           />
           <button
@@ -2953,12 +2996,15 @@ exports[`renders components/upload/demo/max-count.tsx extend context correctly 1
         class="ant-upload ant-upload-select"
       >
         <span
-          class="ant-upload"
+          class="ant-upload ant-upload-trigger-wrapper"
+          role="button"
+          tabindex="0"
         >
           <input
             accept=""
+            class="ant-upload-trigger"
             multiple=""
-            style="display: none;"
+            style="display: unset; visibility: hidden;"
             type="file"
           />
           <button
@@ -3500,11 +3546,14 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
       class="ant-upload ant-upload-select"
     >
       <span
-        class="ant-upload"
+        class="ant-upload ant-upload-trigger-wrapper"
+        role="button"
+        tabindex="0"
       >
         <input
           accept=""
-          style="display: none;"
+          class="ant-upload-trigger"
+          style="display: unset; visibility: hidden;"
           type="file"
         />
         <button
@@ -3776,11 +3825,14 @@ exports[`renders components/upload/demo/picture-circle.tsx extend context correc
       class="ant-upload ant-upload-select"
     >
       <span
-        class="ant-upload"
+        class="ant-upload ant-upload-trigger-wrapper"
+        role="button"
+        tabindex="0"
       >
         <input
           accept=""
-          style="display: none;"
+          class="ant-upload-trigger"
+          style="display: unset; visibility: hidden;"
           type="file"
         />
         <button
@@ -3832,11 +3884,14 @@ Array [
       class="ant-upload ant-upload-select"
     >
       <span
-        class="ant-upload"
+        class="ant-upload ant-upload-trigger-wrapper"
+        role="button"
+        tabindex="0"
       >
         <input
           accept=""
-          style="display: none;"
+          class="ant-upload-trigger"
+          style="display: unset; visibility: hidden;"
           type="file"
         />
         <button
@@ -4127,11 +4182,14 @@ Array [
       class="ant-upload ant-upload-select"
     >
       <span
-        class="ant-upload"
+        class="ant-upload ant-upload-trigger-wrapper"
+        role="button"
+        tabindex="0"
       >
         <input
           accept=""
-          style="display: none;"
+          class="ant-upload-trigger"
+          style="display: unset; visibility: hidden;"
           type="file"
         />
         <button
@@ -4426,11 +4484,14 @@ exports[`renders components/upload/demo/preview-file.tsx extend context correctl
     class="ant-upload ant-upload-select"
   >
     <span
-      class="ant-upload"
+      class="ant-upload ant-upload-trigger-wrapper"
+      role="button"
+      tabindex="0"
     >
       <input
         accept=""
-        style="display: none;"
+        class="ant-upload-trigger"
+        style="display: unset; visibility: hidden;"
         type="file"
       />
       <button
@@ -4482,11 +4543,14 @@ exports[`renders components/upload/demo/transform-file.tsx extend context correc
     class="ant-upload ant-upload-select"
   >
     <span
-      class="ant-upload"
+      class="ant-upload ant-upload-trigger-wrapper"
+      role="button"
+      tabindex="0"
     >
       <input
         accept=""
-        style="display: none;"
+        class="ant-upload-trigger"
+        style="display: unset; visibility: hidden;"
         type="file"
       />
       <button
@@ -4538,11 +4602,14 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
     class="ant-upload ant-upload-select"
   >
     <span
-      class="ant-upload"
+      class="ant-upload ant-upload-trigger-wrapper"
+      role="button"
+      tabindex="0"
     >
       <input
         accept=""
-        style="display: none;"
+        class="ant-upload-trigger"
+        style="display: unset; visibility: hidden;"
         type="file"
       />
       <button
@@ -4855,11 +4922,14 @@ Array [
       class="ant-upload ant-upload-select"
     >
       <span
-        class="ant-upload"
+        class="ant-upload ant-upload-trigger-wrapper"
+        role="button"
+        tabindex="0"
       >
         <input
           accept=""
-          style="display: none;"
+          class="ant-upload-trigger"
+          style="display: unset; visibility: hidden;"
           type="file"
         />
         <button
@@ -4922,11 +4992,14 @@ exports[`renders components/upload/demo/upload-png-only.tsx extend context corre
     class="ant-upload ant-upload-select"
   >
     <span
-      class="ant-upload"
+      class="ant-upload ant-upload-trigger-wrapper"
+      role="button"
+      tabindex="0"
     >
       <input
         accept=""
-        style="display: none;"
+        class="ant-upload-trigger"
+        style="display: unset; visibility: hidden;"
         type="file"
       />
       <button
@@ -5007,11 +5080,14 @@ exports[`renders components/upload/demo/upload-with-aliyun-oss.tsx extend contex
                 class="ant-upload ant-upload-select"
               >
                 <span
-                  class="ant-upload"
+                  class="ant-upload ant-upload-trigger-wrapper"
+                  role="button"
+                  tabindex="0"
                 >
                   <input
                     accept=""
-                    style="display: none;"
+                    class="ant-upload-trigger"
+                    style="display: unset; visibility: hidden;"
                     type="file"
                   />
                   <button
