@@ -79,7 +79,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     ...restProps
   } = props;
 
-  const [infoAlign, infoPosition] = [percentPosition[0] || 'end', percentPosition[1] || 'outer'];
+  const [infoAlign = 'end', infoPosition = 'outer'] = percentPosition;
 
   const percentNumber = React.useMemo<number>(() => {
     const successPercent = getSuccessPercent(props);
