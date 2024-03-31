@@ -138,7 +138,7 @@ describe('Table', () => {
 
   it('should not crash when column children is empty', () => {
     render(
-      <Table
+      <Table<{ name?: string }>
         columns={[
           {
             dataIndex: 'name',
@@ -163,7 +163,7 @@ describe('Table', () => {
     // prevent touch event, 原来的用例感觉是少了 touchmove 调用判断
     const touchmove = jest.fn();
     const { container } = render(
-      <Table
+      <Table<{ name?: string }>
         columns={[
           {
             dataIndex: 'name',
@@ -332,7 +332,7 @@ describe('Table', () => {
 
   it('title should support ReactNode', () => {
     const { container } = render(
-      <Table
+      <Table<{ name?: string }>
         columns={[
           {
             title: (

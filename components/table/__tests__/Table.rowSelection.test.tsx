@@ -21,7 +21,7 @@ describe('Table.rowSelection', () => {
     errorSpy.mockRestore();
   });
 
-  const columns = [
+  const columns: TableProps['columns'] = [
     {
       title: 'Name',
       dataIndex: 'name',
