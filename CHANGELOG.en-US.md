@@ -46,6 +46,7 @@ tag: vVERSION
 - 🌐 Add Uzbek(latn) locale. [#47899](https://github.com/ant-design/ant-design/pull/47899)
 - TypeScript
   - 🤖 Improve Transfer's `key` type, change `key: string` to `key: React.Key`. [#47879](https://github.com/ant-design/ant-design/pull/47879) [@madocto](https://github.com/madocto)
+  - 🤖 Table support for generic pairs dataIndex props verification . [@crazyair](https://github.com/crazyair)
 
 ## 5.15.4
 
