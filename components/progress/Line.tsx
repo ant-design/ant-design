@@ -4,7 +4,13 @@ import classNames from 'classnames';
 
 import { devUseWarning } from '../_util/warning';
 import type { DirectionType } from '../config-provider';
-import type { ProgressGradient, ProgressProps, StringGradients } from './progress';
+import type {
+  ProgressGradient,
+  ProgressProps,
+  StringGradients,
+  PercentAlignType,
+  PercentPositionType,
+} from './progress';
 import { getSize, getSuccessPercent, validProgress } from './utils';
 import { LineStrokeColorVar, Percent } from './style';
 
@@ -13,6 +19,8 @@ interface LineProps extends ProgressProps {
   direction?: DirectionType;
   children: React.ReactNode;
   strokeColor?: string | ProgressGradient;
+  infoAlign: PercentAlignType;
+  infoPosition: PercentPositionType;
 }
 
 /**
@@ -83,8 +91,8 @@ const Line: React.FC<LineProps> = (props) => {
     strokeLinecap = 'round',
     children,
     trailColor = null,
-    infoPosition = 'right',
-    infoInsidePosition = 'right',
+    infoAlign = 'start',
+    infoPosition = 'outer',
     success,
   } = props;
 
@@ -137,11 +145,11 @@ const Line: React.FC<LineProps> = (props) => {
       <div
         className={classNames({
           [`${prefixCls}-bg`]: true,
-          [`${prefixCls}-layout-inside`]: infoInsidePosition && infoPosition === 'inside',
+          [`${prefixCls}-bg-${infoPosition}`]: infoPosition,
         })}
         style={percentStyle}
       >
-        {infoPosition === 'inside' ? children : null}
+        {infoPosition === 'inner' ? children : null}
       </div>
       {successPercent !== undefined ? (
         <div className={`${prefixCls}-success-bg`} style={successPercentStyle} />
@@ -149,17 +157,18 @@ const Line: React.FC<LineProps> = (props) => {
     </div>
   );
 
-  return infoPosition === 'bottom' ? (
+  return infoPosition === 'outer' && infoAlign === 'center' ? (
     <div className={`${prefixCls}-layout-bottom`}>
       {lineInner}
       {children}
     </div>
   ) : (
     <>
+      {infoPosition === 'outer' && infoAlign === 'start' && children}
       <div className={`${prefixCls}-outer`} style={outerStyle}>
         {lineInner}
       </div>
-      {infoPosition === 'inside' ? null : children}
+      {infoPosition === 'outer' && infoAlign === 'end' && children}
     </>
   );
 };

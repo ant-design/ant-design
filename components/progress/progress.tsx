@@ -18,10 +18,10 @@ import { getSize, getSuccessPercent, validProgress } from './utils';
 export const ProgressTypes = ['line', 'circle', 'dashboard'] as const;
 export type ProgressType = (typeof ProgressTypes)[number];
 const ProgressStatuses = ['normal', 'exception', 'active', 'success'] as const;
-export const InfoPositionTypes = ['right', 'bottom', 'inside'] as const;
-export type InfoPositionType = (typeof InfoPositionTypes)[number];
-export const InfoInsidePositionTypes = ['left', 'center', 'right'] as const;
-export type InfoInsidePositionType = (typeof InfoInsidePositionTypes)[number];
+export const PercentPositionTypes = ['inner', 'outer'] as const;
+export type PercentPositionType = (typeof PercentPositionTypes)[number];
+export const PercentAlignTypes = ['start', 'center', 'end'] as const;
+export type PercentAlignType = (typeof PercentAlignTypes)[number];
 export type ProgressSize = 'default' | 'small';
 export type StringGradients = Record<string, string>;
 
@@ -60,8 +60,7 @@ export interface ProgressProps extends ProgressAriaProps {
   steps?: number | { count: number; gap: number };
   /** @deprecated Use `success` instead */
   successPercent?: number;
-  infoPosition?: InfoPositionType;
-  infoInsidePosition?: InfoInsidePositionType;
+  percentPosition?: [PercentAlignType, PercentPositionType];
   children?: React.ReactNode;
 }
 
@@ -79,10 +78,11 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     status,
     format,
     style,
-    infoPosition = 'right',
-    infoInsidePosition = 'right',
+    percentPosition = ['end', 'outer'],
     ...restProps
   } = props;
+
+  const [infoAlign, infoPosition] = [percentPosition[0] || 'end', percentPosition[1] || 'outer'];
 
   const percentNumber = React.useMemo<number>(() => {
     const successPercent = getSuccessPercent(props);
@@ -116,7 +116,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     const textFormatter = format || ((number) => `${number}%`);
     const isLineType = type === 'line';
     if (
-      infoPosition === 'inside' ||
+      infoPosition === 'inner' ||
       format ||
       (progressStatus !== 'exception' && progressStatus !== 'success')
     ) {
@@ -131,9 +131,8 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
       <span
         className={classNames({
           [`${prefixCls}-text`]: true,
-          [`${prefixCls}-text-inside`]: infoPosition === 'inside',
-          [`${prefixCls}-inside-${infoInsidePosition}`]:
-            infoInsidePosition && infoPosition === 'inside',
+          [`${prefixCls}-text-${infoPosition}`]: infoPosition,
+          [`${prefixCls}-text-${infoAlign}`]: infoAlign,
         })}
         title={typeof text === 'string' ? text : undefined}
       >
@@ -182,6 +181,8 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
         strokeColor={strokeColorNotArray}
         prefixCls={prefixCls}
         direction={direction}
+        infoAlign={infoAlign}
+        infoPosition={infoPosition}
       >
         {progressInfo}
       </Line>
@@ -206,6 +207,8 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
       [`${prefixCls}-${(type === 'dashboard' && 'circle') || type}`]: type !== 'line',
       [`${prefixCls}-inline-circle`]: type === 'circle' && getSize(size, 'circle')[0] <= 20,
       [`${prefixCls}-line`]: !steps && type === 'line',
+      [`${prefixCls}-line-align-${infoAlign}`]: infoAlign,
+      [`${prefixCls}-line-position-${infoPosition}`]: infoPosition,
       [`${prefixCls}-steps`]: steps,
       [`${prefixCls}-show-info`]: showInfo,
       [`${prefixCls}-${size}`]: typeof size === 'string',

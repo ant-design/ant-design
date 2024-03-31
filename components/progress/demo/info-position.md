@@ -1,7 +1,7 @@
 ## zh-CN
 
-改变进度数值位置，可使用 `right`、`bottom` 与 `inside`，默认 `right`。使用 `inside` 时状态图标不可用。
+改变进度数值位置，可使用 `percentPositon` 调整，使进度条数值在进度条内部、外部或底部。
 
 ## en-US
 
-Change the position of the progress value, you can use `right`, `bottom` and `inside`. The default is `right`. Status icons are not available when using `inside`.
+Change the position of the progress value, you can use `percentPositon` to adjust it so that the progress bar value is inside, outside or at the bottom of the progress bar.
