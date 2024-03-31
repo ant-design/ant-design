@@ -91,10 +91,11 @@ const useStyle = () => {
         top: -38px;
         transform: ${isRTL ? 'rotate3d(24, 83, -45, 57deg)' : 'rotate3d(24, -83, 45, 57deg)'};
       `,
-
       child: css`
         position: relative;
         width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
         z-index: 1;
       `,
       btnWrap: css`
