@@ -18,13 +18,10 @@ import { getSize, getSuccessPercent, validProgress } from './utils';
 export const ProgressTypes = ['line', 'circle', 'dashboard'] as const;
 export type ProgressType = (typeof ProgressTypes)[number];
 const ProgressStatuses = ['normal', 'exception', 'active', 'success'] as const;
-export const PercentPositionTypes = ['inner', 'outer'] as const;
-export type PercentPositionType = (typeof PercentPositionTypes)[number];
-export const PercentAlignTypes = ['start', 'center', 'end'] as const;
-export type PercentAlignType = (typeof PercentAlignTypes)[number];
+export type PercentPositionType = 'inner' | 'outer';
+export type PercentAlignType = 'start' | 'center' | 'end';
 export type ProgressSize = 'default' | 'small';
 export type StringGradients = Record<string, string>;
-
 type FromToGradients = { from: string; to: string };
 export type ProgressGradient = { direction?: string } & (StringGradients | FromToGradients);
 
@@ -181,8 +178,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
         strokeColor={strokeColorNotArray}
         prefixCls={prefixCls}
         direction={direction}
-        infoAlign={infoAlign}
-        infoPosition={infoPosition}
+        percentPosition={[infoAlign, infoPosition]}
       >
         {progressInfo}
       </Line>

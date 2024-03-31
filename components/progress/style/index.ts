@@ -154,7 +154,6 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
           content: '""',
           position: 'absolute',
           top: 0,
-          left: 0,
           background: {
             _multi_value_: true,
             value: ['inherit', `var(${LineStrokeColorVar})`],
@@ -371,8 +370,8 @@ export const prepareComponentToken: GetDefaultToken<'Progress'> = (token) => ({
   lineBorderRadius: 100, // magic for capsule shape, should be a very large number
   circleTextFontSize: '1em',
   circleIconFontSize: `${token.fontSize / token.fontSizeSM}em`,
-  innerInfoPadding: 5,
-  bottomInfoMarginTop: 3,
+  innerInfoPadding: 4,
+  bottomInfoMarginTop: 4,
 });
 
 export default genStyleHooks(

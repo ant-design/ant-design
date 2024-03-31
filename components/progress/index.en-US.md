@@ -33,7 +33,7 @@ If it will take a long time to complete an operation, you can use `Progress` to 
 <code src="./demo/steps.tsx">Progress bar with steps</code>
 <code src="./demo/circle-steps.tsx" version="5.16.0">Circular progress bar whit steps</code>
 <code src="./demo/size.tsx">Progress size</code>
-<code src="./demo/info-position.tsx">Change progress value position</code>
+<code src="./demo/info-position.tsx" version="5.17.0>Change progress value position</code>
 
 ## API
 
@@ -60,7 +60,7 @@ Properties that shared by all types.
 | --- | --- | --- | --- | --- |
 | steps | The total step count | number | - | - |
 | strokeColor | The color of progress bar, render `linear-gradient` when passing an object, could accept `string[]` when has `steps`. | string \| string[] \| { from: string; to: string; direction: string } | - | 4.21.0: `string[]` |
-| percentPosition | Position of the progress value is passed into the array. The first element represents the horizontal position of the value, and the second element represents whether the value is inside or outside the progress bar | \[\"start\" \| \"center\" \| \"end\", \"inner\" \| \"outer\"\] | \[\"end\", \"outer\"\] | - |
+| percentPosition | Position of the progress value is passed into the array. The first element represents the horizontal position of the value, and the second element represents whether the value is inside or outside the progress bar | \[\"start\" \| \"center\" \| \"end\", \"inner\" \| \"outer\"\] | \[\"end\", \"outer\"\] | 5.17.0 |
 
 ### `type="circle"`
 

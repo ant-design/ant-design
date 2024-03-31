@@ -19,8 +19,7 @@ interface LineProps extends ProgressProps {
   direction?: DirectionType;
   children: React.ReactNode;
   strokeColor?: string | ProgressGradient;
-  infoAlign: PercentAlignType;
-  infoPosition: PercentPositionType;
+  percentPosition: [PercentAlignType, PercentPositionType];
 }
 
 /**
@@ -91,10 +90,11 @@ const Line: React.FC<LineProps> = (props) => {
     strokeLinecap = 'round',
     children,
     trailColor = null,
-    infoAlign = 'start',
-    infoPosition = 'outer',
+    percentPosition,
     success,
   } = props;
+
+  const [infoAlign, infoPosition] = [percentPosition[0] || 'end', percentPosition[1] || 'outer'];
 
   const backgroundProps =
     strokeColor && typeof strokeColor !== 'string'
