@@ -94,7 +94,7 @@ const Line: React.FC<LineProps> = (props) => {
     success,
   } = props;
 
-  const [infoAlign = 'end', infoPosition = 'outer'] = percentPosition;
+  const [infoAlign, infoPosition] = percentPosition;
 
   const backgroundProps =
     strokeColor && typeof strokeColor !== 'string'

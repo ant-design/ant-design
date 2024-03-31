@@ -75,7 +75,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     status,
     format,
     style,
-    percentPosition = ['end', 'outer'],
+    percentPosition = [],
     ...restProps
   } = props;
 
