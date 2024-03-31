@@ -46,6 +46,7 @@ tag: vVERSION
 - 🌐 添加乌兹别克语(拉丁字母) 国际化。[#47899](https://github.com/ant-design/ant-design/pull/47899)
 - TypeScript
   - 🤖 改进 Transfer 的`key` 类型，将 `key: string` 改为`key: React.Key`。[#47879](https://github.com/ant-design/ant-design/pull/47879) [@madocto](https://github.com/madocto)
+  - 🤖 Table 支持泛型对 dataIndex 属性校验。[#48190](https://github.com/ant-design/ant-design/pull/48190) [@crazyair](https://github.com/crazyair)
 
 ## 5.15.4
 
