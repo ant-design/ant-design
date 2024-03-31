@@ -14,6 +14,7 @@ import type {
   CompareFn,
   Key,
   SorterResult,
+  SorterTooltipProps,
   SortOrder,
   TableLocale,
   TransformColumns,
@@ -111,7 +112,7 @@ function injectSorter<RecordType>(
   triggerSorter: (sorterSates: SortState<RecordType>) => void,
   defaultSortDirections: SortOrder[],
   tableLocale?: TableLocale,
-  tableShowSorterTooltip?: boolean | TooltipProps,
+  tableShowSorterTooltip?: boolean | SorterTooltipProps,
   pos?: string,
 ): ColumnsType<RecordType> {
   return (columns || []).map((column, index) => {
@@ -124,6 +125,7 @@ function injectSorter<RecordType>(
         newColumn.showSorterTooltip === undefined
           ? tableShowSorterTooltip
           : newColumn.showSorterTooltip;
+
       const columnKey = getColumnKey(newColumn, columnPos);
       const sorterState = sorterStates.find(({ key }) => key === columnKey);
       const sortOrder = sorterState ? sorterState.sortOrder : null;
@@ -179,19 +181,35 @@ function injectSorter<RecordType>(
         ...newColumn,
         className: classNames(newColumn.className, { [`${prefixCls}-column-sort`]: sortOrder }),
         title: (renderProps: ColumnTitleProps<RecordType>) => {
+          const columnSortersClass = `${prefixCls}-column-sorters`;
+          const renderColumnTitleWrapper = (
+            <span className={`${prefixCls}-column-title`}>
+              {renderColumnTitle(column.title, renderProps)}
+            </span>
+          );
           const renderSortTitle = (
-            <div className={`${prefixCls}-column-sorters`}>
-              <span className={`${prefixCls}-column-title`}>
-                {renderColumnTitle(column.title, renderProps)}
-              </span>
+            <div className={columnSortersClass}>
+              {renderColumnTitleWrapper}
               {sorter}
             </div>
           );
-          return showSorterTooltip ? (
-            <Tooltip {...tooltipProps}>{renderSortTitle}</Tooltip>
-          ) : (
-            renderSortTitle
-          );
+          if (showSorterTooltip) {
+            if (
+              typeof showSorterTooltip !== 'boolean' &&
+              showSorterTooltip?.target === 'sorter-icon'
+            ) {
+              return (
+                <div
+                  className={`${columnSortersClass} ${prefixCls}-column-sorters-tooltip-target-sorter`}
+                >
+                  {renderColumnTitleWrapper}
+                  <Tooltip {...tooltipProps}>{sorter}</Tooltip>
+                </div>
+              );
+            }
+            return <Tooltip {...tooltipProps}>{renderSortTitle}</Tooltip>;
+          }
+          return renderSortTitle;
         },
         onHeaderCell: (col) => {
           const cell: React.HTMLAttributes<HTMLElement> =
@@ -357,7 +375,7 @@ interface SorterConfig<RecordType> {
   ) => void;
   sortDirections: SortOrder[];
   tableLocale?: TableLocale;
-  showSorterTooltip?: boolean | TooltipProps;
+  showSorterTooltip?: boolean | SorterTooltipProps;
 }
 
 export default function useFilterSorter<RecordType>({

@@ -28501,6 +28501,216 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
     </div>
   </div>
   <div
+    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
+      >
+        <label
+          class=""
+          title="Success"
+        >
+          Success
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-otp"
+            >
+              <input
+                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-warning"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
+      >
+        <label
+          class=""
+          title="Warning"
+        >
+          Warning
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-otp"
+            >
+              <input
+                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-error"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
+      >
+        <label
+          class=""
+          title="Error"
+        >
+          Error
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-otp"
+            >
+              <input
+                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
     class="ant-form-item ant-form-item-has-feedback ant-form-item-has-error"
   >
     <div

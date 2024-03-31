@@ -437,7 +437,9 @@ describe('Transfer', () => {
     const renderFunc: TransferProps<any>['render'] = (item) => item.title;
     const handleChange = jest.fn();
     const TransferDemo = () => {
-      const [selectedKeys, setSelectedKeys] = useState<string[]>(searchTransferProps.selectedKeys);
+      const [selectedKeys, setSelectedKeys] = useState<React.Key[]>(
+        searchTransferProps.selectedKeys,
+      );
       const handleSelectChange: TransferProps<any>['onSelectChange'] = (
         sourceSelectedKeys,
         targetSelectedKeys,
@@ -600,7 +602,7 @@ describe('Transfer', () => {
     const onSelectChange = jest.fn();
 
     const Demo = () => {
-      const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
+      const [selectedKeys, setSelectedKeys] = useState<React.Key[]>([]);
 
       return (
         <Transfer
