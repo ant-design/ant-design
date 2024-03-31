@@ -30,7 +30,7 @@ tag: vVERSION
 - 🆕 Table support `onScroll` event for table body scroll. [#47986](https://github.com/ant-design/ant-design/pull/47986)
 - 🆕 Typography ellipsis supports expand and collapse. [#47264](https://github.com/ant-design/ant-design/pull/47264) [@crazyair](https://github.com/crazyair)
 - 🆕 ConfigProvider support configuring FloatButton.Group `closeIcon`. [#47953](https://github.com/ant-design/ant-design/pull/47953) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🆕 Table support `showSorterTooltip: { target }` prop for sorters. [#47409](https://github.com/ant-design/ant-design/pull/47409) [@Ke1sy](https://github.com/Ke1sy)
+- 🆕 Table support `showSorterTooltip.target` prop for sorters. [#47409](https://github.com/ant-design/ant-design/pull/47409) [@Ke1sy](https://github.com/Ke1sy)
 - 🆕 Cascader support `optionRender`. [#47727](https://github.com/ant-design/ant-design/pull/47727) [@crazyair](https://github.com/crazyair)
 - ⌨️ Popover can be closed by ESC when trigger is `focus` or `click`. [#47928](https://github.com/ant-design/ant-design/pull/47928) [@CooperHash](https://github.com/CooperHash)
 - 🐞 Fix Button that vertically center icons when icon-only. [#48178](https://github.com/ant-design/ant-design/pull/48178) [@momesana](https://github.com/momesana)
