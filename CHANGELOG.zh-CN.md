@@ -23,7 +23,7 @@ tag: vVERSION
 - 🔥 新增 Input.OTP 组件。[#48076](https://github.com/ant-design/ant-design/pull/48076)
 - 🆕 Tag 组件支持在 `closable` 中配置 aria 属性。[#47678](https://github.com/ant-design/ant-design/pull/47678) [@kiner-tang](https://github.com/kiner-tang)
 - 🆕 Table 增加 `rowHoverable` 开启或关闭 hover 效果。[#48112](https://github.com/ant-design/ant-design/pull/48112) [@madocto](https://github.com/madocto)
-- 🆕 Typograghpy 组件支持异步复制。[#48123](https://github.com/ant-design/ant-design/pull/48123) [@crazyair](https://github.com/crazyair)
+- 🆕 Typograghy 组件支持异步复制。[#48123](https://github.com/ant-design/ant-design/pull/48123) [@crazyair](https://github.com/crazyair)
 - 🆕 Progress 组件 `circle` 模式下支持 `steps`。[#47940](https://github.com/ant-design/ant-design/pull/47940) [@yykoypj](https://github.com/yykoypj)
 - 🆕 Table 支持 `onScroll` 事件用于监听表单内容滚动。[#47986](https://github.com/ant-design/ant-design/pull/47986)
 - 🆕 Typography 省略支持展开和收起。[#47264](https://github.com/ant-design/ant-design/pull/47264) [@crazyair](https://github.com/crazyair)
