@@ -4,7 +4,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import type { KeyWiseTransferItem } from '.';
 import Pagination from '../pagination';
-import type { PaginationType } from './interface';
+import type { PaginationType, TransferKey } from './interface';
 import type { RenderedItem, TransferListProps } from './list';
 import ListItem from './ListItem';
 
@@ -16,7 +16,7 @@ type ExistPagination = Exclude<PaginationType, boolean>;
 export interface TransferListBodyProps<RecordType> extends PartialTransferListProps<RecordType> {
   filteredItems: RecordType[];
   filteredRenderItems: RenderedItem<RecordType>[];
-  selectedKeys: string[];
+  selectedKeys: TransferKey[];
 }
 
 const parsePagination = (pagination?: ExistPagination) => {

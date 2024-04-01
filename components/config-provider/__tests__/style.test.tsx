@@ -21,6 +21,7 @@ import Drawer from '../../drawer';
 import Dropdown from '../../dropdown';
 import Empty from '../../empty';
 import Flex from '../../flex';
+import FloatButton from '../../float-button';
 import Form from '../../form';
 import Image from '../../image';
 import Input from '../../input';
@@ -1085,6 +1086,59 @@ describe('ConfigProvider support style and className props', () => {
     expect(element?.querySelector<HTMLSpanElement>('.cp-test-closeIcon')).toBeTruthy();
   });
 
+  it('Should Tag support aria-* in closable', () => {
+    const { container } = render(
+      <ConfigProvider
+        tag={{
+          closable: {
+            closeIcon: <span className="cp-test-closeIcon">cp-test-closeIcon</span>,
+            'aria-label': 'Close Tag',
+          },
+        }}
+      >
+        <Tag>Test</Tag>
+        <Tag.CheckableTag checked>CheckableTag</Tag.CheckableTag>
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLSpanElement>('.ant-tag');
+    expect(element?.querySelector('.ant-tag-close-icon')).toBeTruthy();
+    expect(element?.querySelector('.ant-tag-close-icon')?.getAttribute('aria-label')).toBe(
+      'Close Tag',
+    );
+    expect(element?.querySelector('.cp-test-closeIcon')).toBeTruthy();
+  });
+
+  it('Should Tag hide closeIcon when closeIcon=false', () => {
+    const { container } = render(
+      <ConfigProvider
+        tag={{
+          closeIcon: false,
+        }}
+      >
+        <Tag>Test</Tag>
+        <Tag.CheckableTag checked>CheckableTag</Tag.CheckableTag>
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLSpanElement>('.ant-tag');
+    expect(element?.querySelector('.ant-tag-close-icon')).toBeFalsy();
+  });
+
+  it('Should Tag show default closeIcon when closeIcon=true', () => {
+    const { container } = render(
+      <ConfigProvider
+        tag={{
+          closeIcon: true,
+        }}
+      >
+        <Tag>Test</Tag>
+        <Tag.CheckableTag checked>CheckableTag</Tag.CheckableTag>
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLSpanElement>('.ant-tag');
+    expect(element?.querySelector('.ant-tag-close-icon')).toBeTruthy();
+    expect(element?.querySelector('.anticon-close')).toBeTruthy();
+  });
+
   it('Should Table className & style works', () => {
     const { container } = render(
       <ConfigProvider
@@ -1505,6 +1559,20 @@ describe('ConfigProvider support style and className props', () => {
     );
     const selectors = '.ant-tour .ant-tour-inner .ant-tour-close .cp-test-closeIcon';
     const element = container.querySelector<HTMLSpanElement>(selectors);
+    expect(element).toBeTruthy();
+  });
+
+  it('Should FloatButton.Group closeIcon works', () => {
+    const { container } = render(
+      <ConfigProvider
+        floatButtonGroup={{ closeIcon: <span className="test-cp-icon">test-cp-icon</span> }}
+      >
+        <FloatButton.Group trigger="click" open>
+          <FloatButton />
+        </FloatButton.Group>
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLSpanElement>('.test-cp-icon');
     expect(element).toBeTruthy();
   });
 });

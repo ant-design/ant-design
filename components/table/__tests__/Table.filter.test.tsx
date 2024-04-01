@@ -1391,7 +1391,7 @@ describe('Table.filter', () => {
     const onChange = jest.fn();
 
     const { container } = render(
-      <Table
+      <Table<{ name?: string; gender?: string }>
         columns={[
           {
             title: 'Name',
@@ -1505,7 +1505,7 @@ describe('Table.filter', () => {
   it('filtered should work after change', () => {
     const App: React.FC = () => {
       const [filtered, setFiltered] = React.useState(true);
-      const columns = [
+      const columns: TableProps['columns'] = [
         {
           title: 'Name',
           dataIndex: 'name',
@@ -2079,7 +2079,7 @@ describe('Table.filter', () => {
     });
 
     it('renders empty element when search not found', () => {
-      jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => undefined);
       const { container, unmount } = render(
         createTable({
           columns: [
@@ -2114,6 +2114,7 @@ describe('Table.filter', () => {
       expect(container.querySelector('.ant-empty')).toBeTruthy();
 
       unmount();
+      errorSpy.mockRestore();
     });
 
     it('supports search input in filter menu', () => {

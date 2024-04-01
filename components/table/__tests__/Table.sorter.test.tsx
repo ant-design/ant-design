@@ -284,7 +284,7 @@ describe('Table.sorter', () => {
 
     // set table props showSorterTooltip is false, column showSorterTooltip is true
     rerender(
-      createTable({ showSorterTooltip: true, columns: [{ ...column, showSorterTooltip: true }] }),
+      createTable({ showSorterTooltip: false, columns: [{ ...column, showSorterTooltip: true }] }),
     );
     fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters')!);
     act(() => {
@@ -306,6 +306,96 @@ describe('Table.sorter', () => {
     });
     expect(container.querySelector('.ant-tooltip-open')).toBeFalsy();
     fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters')!);
+
+    // table props showSorterTooltip is 'full-header' by default
+    rerender(
+      createTable({
+        showSorterTooltip: true,
+        columns: [{ ...column }],
+      }),
+    );
+    expect(container.querySelector('.ant-table-column-sorters')).not.toHaveClass(
+      'ant-table-column-sorters-tooltip-target-sorter',
+    );
+    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
+    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters')!);
+
+    // set table props showSorterTooltip target is 'sorter-icon'
+    rerender(
+      createTable({
+        showSorterTooltip: { target: 'sorter-icon' },
+        columns: [{ ...column }],
+      }),
+    );
+    expect(container.querySelector('.ant-table-column-sorters')).toHaveClass(
+      'ant-table-column-sorters-tooltip-target-sorter',
+    );
+    // hovering over the sorters element does NOT open tooltip
+    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(container.querySelector('.ant-tooltip-open')).toBeFalsy();
+    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters')!);
+    // hovering over the sorter element DOES open tooltip
+    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorter')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
+    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorter')!);
+
+    // set table props showSorterTooltip target is 'sorter-icon', column showSorterTooltip target is 'full-header'
+    rerender(
+      createTable({
+        showSorterTooltip: { target: 'sorter-icon' },
+        columns: [{ ...column, showSorterTooltip: { target: 'full-header' } }],
+      }),
+    );
+    expect(container.querySelector('.ant-table-column-sorters')).not.toHaveClass(
+      'ant-table-column-sorters-tooltip-target-sorter',
+    );
+    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
+    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters')!);
+
+    // set table props showSorterTooltip target is 'full-header', column showSorterTooltip target is 'sorter-icon'
+    rerender(
+      createTable({
+        showSorterTooltip: { target: 'full-header' },
+        columns: [{ ...column, showSorterTooltip: { target: 'sorter-icon' } }],
+      }),
+    );
+    expect(container.querySelector('.ant-table-column-sorters')).toHaveClass(
+      'ant-table-column-sorters-tooltip-target-sorter',
+    );
+    // hovering over the sorters element does NOT open tooltip
+    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(container.querySelector('.ant-tooltip-open')).toBeFalsy();
+    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters')!);
+    // hovering over the title element does NOT open tooltip
+    fireEvent.mouseEnter(container.querySelector('.ant-table-column-title')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(container.querySelector('.ant-tooltip-open')).toBeFalsy();
+    // hovering over the sorter element DOES open tooltip
+    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorter')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
+    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorter')!);
   });
 
   it('should show correct tooltip when showSorterTooltip is an object', () => {
@@ -458,7 +548,7 @@ describe('Table.sorter', () => {
 
   // https://github.com/ant-design/ant-design/pull/12264#discussion_r218053034
   it('should sort from beginning state when toggle from different columns', () => {
-    const columns = [
+    const columns: TableProps['columns'] = [
       { title: 'name', dataIndex: 'name', sorter: true },
       { title: 'age', dataIndex: 'age', sorter: true },
     ];
