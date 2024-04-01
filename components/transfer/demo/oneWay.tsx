@@ -31,7 +31,10 @@ const App: React.FC = () => {
     console.log('moveKeys: ', moveKeys);
   };
 
-  const handleSelectChange = (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => {
+  const handleSelectChange: TransferProps['onSelectChange'] = (
+    sourceSelectedKeys,
+    targetSelectedKeys,
+  ) => {
     setSelectedKeys([...sourceSelectedKeys, ...targetSelectedKeys]);
 
     console.log('sourceSelectedKeys: ', sourceSelectedKeys);

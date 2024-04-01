@@ -40,7 +40,6 @@ const App: React.FC = () => (
     placeholder="select one country"
     defaultValue={['china']}
     onChange={handleChange}
-    optionLabelProp="label"
     options={options}
     optionRender={(option) => (
       <Space>

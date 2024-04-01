@@ -48,7 +48,7 @@ type Task =
   | TypeTask
   | {
       type: 'destroy';
-      key: React.Key;
+      key?: React.Key;
       skipped?: boolean;
     };
 
@@ -83,8 +83,8 @@ const GlobalHolder = React.forwardRef<
   React.useImperativeHandle(ref, () => {
     const instance: MessageInstance = { ...api };
 
-    Object.keys(instance).forEach((method: keyof MessageInstance) => {
-      instance[method] = (...args: any[]) => {
+    Object.keys(instance).forEach((method) => {
+      instance[method as keyof MessageInstance] = (...args: any[]) => {
         sync();
         return (api as any)[method](...args);
       };
@@ -286,13 +286,13 @@ function typeOpen(type: NoticeType, args: Parameters<TypeOpen>): MessageType {
   return result;
 }
 
-function destroy(key: React.Key) {
+const destroy: BaseMethods['destroy'] = (key) => {
   taskQueue.push({
     type: 'destroy',
     key,
   });
   flushNotice();
-}
+};
 
 interface BaseMethods {
   open: (config: ArgsProps) => MessageType;

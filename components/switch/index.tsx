@@ -2,13 +2,13 @@ import * as React from 'react';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import classNames from 'classnames';
 import RcSwitch from 'rc-switch';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
 import useStyle from './style';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 export type SwitchSize = 'small' | 'default';
 export type SwitchChangeEventHandler = (
@@ -117,10 +117,11 @@ const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, ref) => 
 
   return wrapCSSVar(
     <Wave component="Switch">
+      {/* @ts-ignore */}
       <RcSwitch
         {...restProps}
         checked={checked}
-        onChange={changeHandler}
+        onChange={changeHandler as any}
         prefixCls={prefixCls}
         className={classes}
         style={mergedStyle}

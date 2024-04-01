@@ -107,7 +107,7 @@ const leftTableColumns: TableColumnsType<DataType> = [
   },
 ];
 
-const rightTableColumns: TableColumnsType<Pick<DataType, 'title'>> = [
+const rightTableColumns: TableColumnsType<DataType> = [
   {
     dataIndex: 'title',
     title: 'Name',
@@ -115,11 +115,11 @@ const rightTableColumns: TableColumnsType<Pick<DataType, 'title'>> = [
 ];
 
 const App: React.FC = () => {
-  const [targetKeys, setTargetKeys] = useState<string[]>(originTargetKeys);
+  const [targetKeys, setTargetKeys] = useState<TransferProps['targetKeys']>(originTargetKeys);
   const [disabled, setDisabled] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
 
-  const onChange = (nextTargetKeys: string[]) => {
+  const onChange: TableTransferProps['onChange'] = (nextTargetKeys) => {
     setTargetKeys(nextTargetKeys);
   };
 

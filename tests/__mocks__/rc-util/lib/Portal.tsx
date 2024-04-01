@@ -10,7 +10,7 @@ interface MockPortalProps {
 }
 
 class MockPortal extends React.Component<MockPortalProps> {
-  container: boolean;
+  container: boolean | undefined;
 
   static contextType = TriggerMockContext;
 
