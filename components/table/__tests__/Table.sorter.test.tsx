@@ -592,7 +592,7 @@ describe('Table.sorter', () => {
       { key: 2, name: 'Tom', age: 21 },
       { key: 3, name: 'Jerry', age: 22 },
     ];
-    const columns = [{ title: 'name', dataIndex: 'name', sorter: true }];
+    const columns: TableProps['columns'] = [{ title: 'name', dataIndex: 'name', sorter: true }];
     const TableTest: React.FC = () => {
       const [pagination, setPagination] = React.useState<TablePaginationConfig>({});
       const onChange: TableProps<any>['onChange'] = (pag) => {
@@ -645,11 +645,12 @@ describe('Table.sorter', () => {
       { key: 2, name: 'Tom', age: 21 },
       { key: 3, name: 'Jerry', age: 22 },
     ];
-    const columns = [
+    const columns: TableProps['columns'] = [
       {
         title: 'name',
         dataIndex: 'name',
         sorter: true,
+        // @ts-ignore
         array: ['1', '2', 3],
         render: (text: string) => text,
       },
@@ -705,12 +706,13 @@ describe('Table.sorter', () => {
       { key: 2, name: 'Tom', age: 21 },
       { key: 3, name: 'Jerry', age: 22 },
     ];
-    const columns = [
+    const columns: TableProps['columns'] = [
       {
         title: 'name',
         dataIndex: 'name',
         sorter: true,
         key: 'a',
+        // @ts-ignore
         style: { fontSize: 18 },
       },
     ];

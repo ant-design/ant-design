@@ -1562,7 +1562,7 @@ describe('Table.filter', () => {
 
   it('with onFilter', () => {
     const onFilter = jest.fn((value, record) => record.key === value);
-    const columns = [{ dataIndex: 'key', filteredValue: [5], onFilter }];
+    const columns: TableProps['columns'] = [{ dataIndex: 'key', filteredValue: [5], onFilter }];
     const testData = [{ key: 1 }, { key: 3 }, { key: 5 }];
     const { container } = render(<Table columns={columns} dataSource={testData} />);
 
@@ -1792,7 +1792,7 @@ describe('Table.filter', () => {
         setFilteredInfo(filters);
         setSortedInfo(sorter);
       };
-      const columns = [
+      const columns: TableProps['columns'] = [
         {
           title: 'Name',
           dataIndex: 'name',

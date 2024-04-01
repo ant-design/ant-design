@@ -358,10 +358,10 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     }
   };
 
-  const onLeftItemSelect = (
-    selectedKey: string,
-    checked: boolean,
-    e?: React.MouseEvent<Element, MouseEvent>,
+  const onLeftItemSelect: TransferListProps<KeyWise<RecordType>>['onItemSelect'] = (
+    selectedKey,
+    checked,
+    e,
   ) => {
     onItemSelect('left', selectedKey, checked, e?.shiftKey);
   };
