@@ -121,6 +121,9 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token) => {
       [`&:not(${componentCls}-count)`]: {
         color: darkColor,
       },
+      'a:hover &': {
+        background: darkColor,
+      },
     },
   }));
 
