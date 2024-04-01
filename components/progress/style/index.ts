@@ -1,5 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes, unit } from '@ant-design/cssinjs';
+import { TinyColor } from '@ctrl/tinycolor';
 
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
@@ -56,6 +57,9 @@ interface ProgressToken extends FullToken<'Progress'> {
   progressStepMarginInlineEnd: number | string;
   progressActiveMotionDuration: string;
 }
+
+const getBrightenColor = (color: string): string =>
+  new TinyColor(color).brighten(100).toHexString();
 
 const genAntProgressActive = (isRtl?: boolean) => {
   const direction = isRtl ? '100%' : '-100%';
@@ -191,6 +195,9 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
           marginInlineStart: 0,
           marginInlineEnd: token.marginXS,
         },
+        [`&${progressCls}-text-inner`]: {
+          color: getBrightenColor(token.colorText),
+        },
       },
 
       [`${progressCls}-text-inner`]: {
@@ -253,7 +260,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
         [`${progressCls}-text`]: {
           color: token.colorSuccess,
           [`&${progressCls}-text-inner`]: {
-            color: token.colorText,
+            color: getBrightenColor(token.colorText),
           },
         },
       },
