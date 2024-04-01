@@ -77,7 +77,7 @@ const InternalItem: ForwardRefRenderFunction<HTMLDivElement, ListItemProps> = (
 
   const isItemContainsTextNodeAndNotSingular = () => {
     let result;
-    Children.forEach(children as any, (element: ReactElement<any>) => {
+    Children.forEach(children as ReactElement, (element) => {
       if (typeof element === 'string') {
         result = true;
       }
