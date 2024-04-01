@@ -42,8 +42,22 @@ export default function useForm<Values = any>(form?: FormInstance<Values>): [For
         },
         scrollToField: (name: NamePath, options: ScrollOptions = {}) => {
           const namePath = toArray(name);
-          const fieldId = getFieldId(namePath, wrapForm.__INTERNAL__.name);
-          const node: HTMLElement | null = fieldId ? document.getElementById(fieldId) : null;
+
+          let node: HTMLElement | null = null;
+          const fieldRef = wrapForm.getFieldInstance(name);
+
+          /**
+           * Starting from 5.17.0, it is added that the dom node is preferably obtained from ref
+           * and then obtained according to id.
+           */
+          if (fieldRef instanceof HTMLElement) {
+            node = fieldRef;
+          } else if (fieldRef.nativeElement instanceof HTMLElement) {
+            node = fieldRef.nativeElement;
+          } else {
+            const fieldId = getFieldId(namePath, wrapForm.__INTERNAL__.name);
+            if (fieldId) node = document.getElementById(fieldId);
+          }
 
           if (node) {
             scrollIntoView(node, {
