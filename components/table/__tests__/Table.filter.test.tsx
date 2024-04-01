@@ -1392,7 +1392,7 @@ describe('Table.filter', () => {
     const onChange = jest.fn();
 
     const { container } = render(
-      <Table
+      <Table<{ name?: string; gender?: string }>
         columns={[
           {
             title: 'Name',
@@ -1506,7 +1506,7 @@ describe('Table.filter', () => {
   it('filtered should work after change', () => {
     const App: React.FC = () => {
       const [filtered, setFiltered] = React.useState(true);
-      const columns = [
+      const columns: TableProps['columns'] = [
         {
           title: 'Name',
           dataIndex: 'name',
