@@ -147,6 +147,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
         alignItems: 'center',
         justifyContent: 'center',
         [`${progressCls}-text`]: {
+          width: 'max-content',
           marginInlineStart: 0,
           marginTop: token.bottomInfoMarginTop,
         },
