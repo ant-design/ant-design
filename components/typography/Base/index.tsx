@@ -5,6 +5,7 @@ import ResizeObserver from 'rc-resize-observer';
 import type { AutoSizeType } from 'rc-textarea';
 import toArray from 'rc-util/lib/Children/toArray';
 import useIsomorphicLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
+import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
 import { composeRef } from 'rc-util/lib/ref';
@@ -207,14 +208,14 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const needMeasureEllipsis = React.useMemo(
     () =>
       // Disable ellipsis
-      !mergedEnableEllipsis ||
+      mergedEnableEllipsis &&
       // Provide suffix
-      ellipsisConfig.suffix !== undefined ||
-      ellipsisConfig.onEllipsis ||
-      // Can't use css ellipsis since we need to provide the place for button
-      ellipsisConfig.expandable ||
-      enableEdit ||
-      enableCopy,
+      (ellipsisConfig.suffix !== undefined ||
+        ellipsisConfig.onEllipsis ||
+        // Can't use css ellipsis since we need to provide the place for button
+        ellipsisConfig.expandable ||
+        enableEdit ||
+        enableCopy),
     [mergedEnableEllipsis, ellipsisConfig, enableEdit, enableCopy],
   );
 
@@ -225,7 +226,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     }
   }, [needMeasureEllipsis, enableEllipsis]);
 
-  const cssEllipsis = React.useMemo(() => {
+  const [cssEllipsis, setCssEllipsis] = React.useState(mergedEnableEllipsis);
+
+  const canUseCssEllipsis = React.useMemo(() => {
     if (needMeasureEllipsis) {
       return false;
     }
@@ -236,6 +239,12 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
     return isLineClampSupport;
   }, [needMeasureEllipsis, isTextOverflowSupport, isLineClampSupport]);
+
+  // We use effect to change from css ellipsis to js ellipsis.
+  // To make SSR still can see the ellipsis.
+  useLayoutEffect(() => {
+    setCssEllipsis(canUseCssEllipsis && mergedEnableEllipsis);
+  }, [canUseCssEllipsis, mergedEnableEllipsis]);
 
   const isMergedEllipsis = mergedEnableEllipsis && (cssEllipsis ? isNativeEllipsis : isJsEllipsis);
 
