@@ -141,7 +141,7 @@ const App: React.FC = () => {
   const [disabled, setDisabled] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
 
-  const secondOnChange = (nextTargetKeys: string[]) => {
+  const secondOnChange: TransferProps['onChange'] = (nextTargetKeys) => {
     setTargetKeys(nextTargetKeys);
   };
 

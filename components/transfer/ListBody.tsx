@@ -130,8 +130,8 @@ const TransferListBody: React.ForwardRefRenderFunction<
             renderedEl={renderedEl}
             prefixCls={prefixCls}
             showRemove={showRemove}
-            onClick={onInternalClick}
-            onRemove={onRemove}
+            onClick={onInternalClick as any}
+            onRemove={onRemove as any}
             checked={selectedKeys.includes(item.key)}
             disabled={globalDisabled || item.disabled}
           />

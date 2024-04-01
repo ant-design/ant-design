@@ -23,9 +23,9 @@ function waitRaf() {
 
 describe('Tag', () => {
   mountTest(Tag);
-  mountTest(Tag.CheckableTag);
+  mountTest(Tag.CheckableTag as any);
   rtlTest(Tag);
-  rtlTest(Tag.CheckableTag);
+  rtlTest(Tag.CheckableTag as any);
 
   beforeAll(() => {
     jest.useFakeTimers();
