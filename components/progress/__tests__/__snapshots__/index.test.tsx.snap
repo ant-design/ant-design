@@ -3,7 +3,7 @@
 exports[`Progress circle progress should accept steps 1`] = `
 <div
   aria-valuenow="70"
-  class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info ant-progress-default"
+  class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-steps ant-progress-show-info ant-progress-default"
   role="progressbar"
 >
   <div
@@ -30,7 +30,7 @@ exports[`Progress circle progress should accept steps 1`] = `
       style="width: 14px; height: 8px;"
     />
     <span
-      class="ant-progress-text"
+      class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
       title="70%"
     >
       70%
@@ -42,7 +42,7 @@ exports[`Progress circle progress should accept steps 1`] = `
 exports[`Progress circle progress steps can be number 1`] = `
 <div
   aria-valuenow="70"
-  class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info ant-progress-default"
+  class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-steps ant-progress-show-info ant-progress-default"
   role="progressbar"
 >
   <div
@@ -69,7 +69,7 @@ exports[`Progress circle progress steps can be number 1`] = `
       style="width: 14px; height: 8px;"
     />
     <span
-      class="ant-progress-text"
+      class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
       title="70%"
     >
       70%
@@ -81,7 +81,7 @@ exports[`Progress circle progress steps can be number 1`] = `
 exports[`Progress render dashboard 295 gapDegree 1`] = `
 <div
   aria-valuenow="0"
-  class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
+  class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-default"
   role="progressbar"
 >
   <div
@@ -124,7 +124,7 @@ exports[`Progress render dashboard 295 gapDegree 1`] = `
       />
     </svg>
     <span
-      class="ant-progress-text"
+      class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
       title="0%"
     >
       0%
@@ -136,7 +136,7 @@ exports[`Progress render dashboard 295 gapDegree 1`] = `
 exports[`Progress render dashboard 296 gapDegree 1`] = `
 <div
   aria-valuenow="0"
-  class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
+  class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-default"
   role="progressbar"
 >
   <div
@@ -179,7 +179,7 @@ exports[`Progress render dashboard 296 gapDegree 1`] = `
       />
     </svg>
     <span
-      class="ant-progress-text"
+      class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
       title="0%"
     >
       0%
@@ -191,7 +191,7 @@ exports[`Progress render dashboard 296 gapDegree 1`] = `
 exports[`Progress render dashboard zero gapDegree 1`] = `
 <div
   aria-valuenow="0"
-  class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
+  class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-default"
   role="progressbar"
 >
   <div
@@ -234,7 +234,7 @@ exports[`Progress render dashboard zero gapDegree 1`] = `
       />
     </svg>
     <span
-      class="ant-progress-text"
+      class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
       title="0%"
     >
       0%
@@ -246,7 +246,7 @@ exports[`Progress render dashboard zero gapDegree 1`] = `
 exports[`Progress render format 1`] = `
 <div
   aria-valuenow="10"
-  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+  class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-default"
   role="progressbar"
 >
   <div
@@ -257,7 +257,7 @@ exports[`Progress render format 1`] = `
       class="ant-progress-inner"
     >
       <div
-        class="ant-progress-bg"
+        class="ant-progress-bg ant-progress-bg-outer"
         style="width: 50%; height: 8px; --progress-percent: 0.5;"
       />
       <div
@@ -267,7 +267,7 @@ exports[`Progress render format 1`] = `
     </div>
   </div>
   <span
-    class="ant-progress-text"
+    class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
     title="50 10"
   >
     50 10
@@ -275,10 +275,39 @@ exports[`Progress render format 1`] = `
 </div>
 `;
 
+exports[`Progress render inner info position 1`] = `
+<div
+  aria-valuenow="100"
+  class="ant-progress ant-progress-status-success ant-progress-line-align-center ant-progress-line-position-inner ant-progress-line ant-progress-show-info"
+  role="progressbar"
+>
+  <div
+    class="ant-progress-outer"
+    style="width: 400px; height: 20px;"
+  >
+    <div
+      class="ant-progress-inner"
+    >
+      <div
+        class="ant-progress-bg ant-progress-bg-inner"
+        style="width: 100%; height: 20px; --progress-percent: 1;"
+      >
+        <span
+          class="ant-progress-text ant-progress-text-inner ant-progress-text-center"
+          title="100%"
+        >
+          100%
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Progress render negative progress 1`] = `
 <div
   aria-valuenow="-20"
-  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+  class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-default"
   role="progressbar"
 >
   <div
@@ -289,13 +318,13 @@ exports[`Progress render negative progress 1`] = `
       class="ant-progress-inner"
     >
       <div
-        class="ant-progress-bg"
+        class="ant-progress-bg ant-progress-bg-outer"
         style="width: 0%; height: 8px; --progress-percent: 0;"
       />
     </div>
   </div>
   <span
-    class="ant-progress-text"
+    class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
     title="0%"
   >
     0%
@@ -306,7 +335,7 @@ exports[`Progress render negative progress 1`] = `
 exports[`Progress render negative successPercent 1`] = `
 <div
   aria-valuenow="-20"
-  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+  class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-default"
   role="progressbar"
 >
   <div
@@ -317,7 +346,7 @@ exports[`Progress render negative successPercent 1`] = `
       class="ant-progress-inner"
     >
       <div
-        class="ant-progress-bg"
+        class="ant-progress-bg ant-progress-bg-outer"
         style="width: 50%; height: 8px; --progress-percent: 0.5;"
       />
       <div
@@ -327,7 +356,7 @@ exports[`Progress render negative successPercent 1`] = `
     </div>
   </div>
   <span
-    class="ant-progress-text"
+    class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
     title="50%"
   >
     50%
@@ -338,7 +367,7 @@ exports[`Progress render negative successPercent 1`] = `
 exports[`Progress render normal progress 1`] = `
 <div
   aria-valuenow="0"
-  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+  class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-default"
   role="progressbar"
 >
   <div
@@ -349,13 +378,13 @@ exports[`Progress render normal progress 1`] = `
       class="ant-progress-inner"
     >
       <div
-        class="ant-progress-bg"
+        class="ant-progress-bg ant-progress-bg-outer"
         style="width: 0%; height: 8px; --progress-percent: 0;"
       />
     </div>
   </div>
   <span
-    class="ant-progress-text"
+    class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
     title="0%"
   >
     0%
@@ -366,7 +395,7 @@ exports[`Progress render normal progress 1`] = `
 exports[`Progress render out-of-range progress 1`] = `
 <div
   aria-valuenow="120"
-  class="ant-progress ant-progress-status-success ant-progress-line ant-progress-show-info ant-progress-default"
+  class="ant-progress ant-progress-status-success ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-default"
   role="progressbar"
 >
   <div
@@ -377,13 +406,13 @@ exports[`Progress render out-of-range progress 1`] = `
       class="ant-progress-inner"
     >
       <div
-        class="ant-progress-bg"
+        class="ant-progress-bg ant-progress-bg-outer"
         style="width: 100%; height: 8px; --progress-percent: 1;"
       />
     </div>
   </div>
   <span
-    class="ant-progress-text"
+    class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
   >
     <span
       aria-label="check-circle"
@@ -411,7 +440,7 @@ exports[`Progress render out-of-range progress 1`] = `
 exports[`Progress render out-of-range progress with info 1`] = `
 <div
   aria-valuenow="120"
-  class="ant-progress ant-progress-status-success ant-progress-line ant-progress-show-info ant-progress-default"
+  class="ant-progress ant-progress-status-success ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-default"
   role="progressbar"
 >
   <div
@@ -422,13 +451,13 @@ exports[`Progress render out-of-range progress with info 1`] = `
       class="ant-progress-inner"
     >
       <div
-        class="ant-progress-bg"
+        class="ant-progress-bg ant-progress-bg-outer"
         style="width: 100%; height: 8px; --progress-percent: 1;"
       />
     </div>
   </div>
   <span
-    class="ant-progress-text"
+    class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
   >
     <span
       aria-label="check-circle"
@@ -456,7 +485,7 @@ exports[`Progress render out-of-range progress with info 1`] = `
 exports[`Progress render strokeColor 1`] = `
 <div
   aria-valuenow="50"
-  class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
+  class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-default"
   role="progressbar"
 >
   <div
@@ -499,7 +528,7 @@ exports[`Progress render strokeColor 1`] = `
       />
     </svg>
     <span
-      class="ant-progress-text"
+      class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
       title="50%"
     >
       50%
@@ -511,7 +540,7 @@ exports[`Progress render strokeColor 1`] = `
 exports[`Progress render strokeColor 2`] = `
 <div
   aria-valuenow="50"
-  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+  class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-default"
   role="progressbar"
 >
   <div
@@ -522,13 +551,13 @@ exports[`Progress render strokeColor 2`] = `
       class="ant-progress-inner"
     >
       <div
-        class="ant-progress-bg"
+        class="ant-progress-bg ant-progress-bg-outer"
         style="width: 50%; height: 8px; --progress-line-stroke-color: linear-gradient(to right, #108ee9, #87d068); --progress-percent: 0.5;"
       />
     </div>
   </div>
   <span
-    class="ant-progress-text"
+    class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
     title="50%"
   >
     50%
@@ -539,7 +568,7 @@ exports[`Progress render strokeColor 2`] = `
 exports[`Progress render strokeColor 3`] = `
 <div
   aria-valuenow="50"
-  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+  class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-default"
   role="progressbar"
 >
   <div
@@ -550,13 +579,13 @@ exports[`Progress render strokeColor 3`] = `
       class="ant-progress-inner"
     >
       <div
-        class="ant-progress-bg"
+        class="ant-progress-bg ant-progress-bg-outer"
         style="width: 50%; height: 8px; --progress-line-stroke-color: linear-gradient(to right, #108ee9 0%, #87d068 100%); --progress-percent: 0.5;"
       />
     </div>
   </div>
   <span
-    class="ant-progress-text"
+    class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
     title="50%"
   >
     50%
@@ -568,7 +597,7 @@ exports[`Progress render strokeWidth of progress 1`] = `
 <div>
   <div
     aria-valuenow="30"
-    class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <div
@@ -611,7 +640,7 @@ exports[`Progress render strokeWidth of progress 1`] = `
         />
       </svg>
       <span
-        class="ant-progress-text"
+        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
         title="30%"
       >
         30%
@@ -624,7 +653,7 @@ exports[`Progress render strokeWidth of progress 1`] = `
 exports[`Progress render successColor progress 1`] = `
 <div
   aria-valuenow="30"
-  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+  class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-default"
   role="progressbar"
 >
   <div
@@ -635,7 +664,7 @@ exports[`Progress render successColor progress 1`] = `
       class="ant-progress-inner"
     >
       <div
-        class="ant-progress-bg"
+        class="ant-progress-bg ant-progress-bg-outer"
         style="width: 60%; height: 8px; --progress-percent: 0.6;"
       />
       <div
@@ -645,7 +674,7 @@ exports[`Progress render successColor progress 1`] = `
     </div>
   </div>
   <span
-    class="ant-progress-text"
+    class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
     title="60%"
   >
     60%
@@ -656,7 +685,7 @@ exports[`Progress render successColor progress 1`] = `
 exports[`Progress render successColor progress type="circle" 1`] = `
 <div
   aria-valuenow="30"
-  class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
+  class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-default"
   role="progressbar"
 >
   <div
@@ -699,7 +728,7 @@ exports[`Progress render successColor progress type="circle" 1`] = `
       />
     </svg>
     <span
-      class="ant-progress-text"
+      class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
       title="60%"
     >
       60%
@@ -711,7 +740,7 @@ exports[`Progress render successColor progress type="circle" 1`] = `
 exports[`Progress render successColor progress type="dashboard" 1`] = `
 <div
   aria-valuenow="30"
-  class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
+  class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-default"
   role="progressbar"
 >
   <div
@@ -754,7 +783,7 @@ exports[`Progress render successColor progress type="dashboard" 1`] = `
       />
     </svg>
     <span
-      class="ant-progress-text"
+      class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
       title="60%"
     >
       60%
@@ -766,7 +795,7 @@ exports[`Progress render successColor progress type="dashboard" 1`] = `
 exports[`Progress render trailColor progress 1`] = `
 <div
   aria-valuenow="0"
-  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+  class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-default"
   role="progressbar"
 >
   <div
@@ -778,13 +807,13 @@ exports[`Progress render trailColor progress 1`] = `
       style="background-color: rgb(255, 255, 255);"
     >
       <div
-        class="ant-progress-bg"
+        class="ant-progress-bg ant-progress-bg-outer"
         style="width: 0%; height: 8px; --progress-percent: 0;"
       />
     </div>
   </div>
   <span
-    class="ant-progress-text"
+    class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
     title="0%"
   >
     0%
@@ -795,7 +824,7 @@ exports[`Progress render trailColor progress 1`] = `
 exports[`Progress rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   aria-valuenow="0"
-  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default ant-progress-rtl"
+  class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-default ant-progress-rtl"
   role="progressbar"
 >
   <div
@@ -806,13 +835,13 @@ exports[`Progress rtl render component should be rendered correctly in RTL direc
       class="ant-progress-inner"
     >
       <div
-        class="ant-progress-bg"
+        class="ant-progress-bg ant-progress-bg-outer"
         style="width: 0%; height: 8px; --progress-percent: 0;"
       />
     </div>
   </div>
   <span
-    class="ant-progress-text"
+    class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
     title="0%"
   >
     0%
@@ -823,7 +852,7 @@ exports[`Progress rtl render component should be rendered correctly in RTL direc
 exports[`Progress should support steps 1`] = `
 <div
   aria-valuenow="0"
-  class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info ant-progress-default"
+  class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-steps ant-progress-show-info ant-progress-default"
   role="progressbar"
 >
   <div
@@ -842,7 +871,7 @@ exports[`Progress should support steps 1`] = `
       style="width: 14px; height: 8px;"
     />
     <span
-      class="ant-progress-text"
+      class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
       title="0%"
     >
       0%
