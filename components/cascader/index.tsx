@@ -63,7 +63,7 @@ function highlightKeyword(str: string, lowerKeyword: string, prefixCls?: string)
   const fillCells: React.ReactNode[] = [];
   let start = 0;
 
-  (cells as unknown as any[]).forEach((cell, index) => {
+  cells.forEach((cell, index) => {
     const end = start + cell.length;
     let originWorld: React.ReactNode = str.slice(start, end);
     start = end;

@@ -226,9 +226,9 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     return null;
   }, [rawData]);
 
-  const internalRefs = {
+  const internalRefs: NonNullable<RcTableProps['internalRefs']> = {
     body: React.useRef<HTMLDivElement>(),
-  };
+  } as NonNullable<RcTableProps['internalRefs']>;
 
   // ============================ Width =============================
   const getContainerWidth = useContainerWidth(prefixCls);
@@ -248,7 +248,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
       return rowKey;
     }
 
-    return (record: RecordType) => (record as any)?.[rowKey as string];
+    return (record: RecordType) => record?.[rowKey as string];
   }, [rowKey]);
 
   const [getRecordByKey] = useLazyKVMap(rawData, childrenColumnName, getRowKey);
@@ -609,7 +609,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           emptyText={emptyText}
           // Internal
           internalHooks={INTERNAL_HOOKS}
-          internalRefs={internalRefs as any}
+          internalRefs={internalRefs}
           transformColumns={transformColumns as any}
           getContainerWidth={getContainerWidth}
         />
