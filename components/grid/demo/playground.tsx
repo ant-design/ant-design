@@ -43,7 +43,7 @@ const App: React.FC = () => {
           onChange={setGutterKey}
           marks={gutters}
           step={null}
-          tooltip={{ formatter: (value: number) => gutters[value] }}
+          tooltip={{ formatter: (value) => gutters[value as number] }}
         />
       </div>
       <span>Vertical Gutter (px): </span>
@@ -55,7 +55,7 @@ const App: React.FC = () => {
           onChange={setVgutterKey}
           marks={vgutters}
           step={null}
-          tooltip={{ formatter: (value: number) => vgutters[value] }}
+          tooltip={{ formatter: (value) => vgutters[value as number] }}
         />
       </div>
       <span>Column Count:</span>
@@ -67,7 +67,7 @@ const App: React.FC = () => {
           onChange={setColCountKey}
           marks={colCounts}
           step={null}
-          tooltip={{ formatter: (value: number) => colCounts[value] }}
+          tooltip={{ formatter: (value) => colCounts[value as number] }}
         />
       </div>
       <Row gutter={[gutters[gutterKey], vgutters[vgutterKey]]}>
