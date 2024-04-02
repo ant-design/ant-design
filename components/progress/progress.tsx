@@ -14,6 +14,7 @@ import Line from './Line';
 import Steps from './Steps';
 import useStyle from './style';
 import { getSize, getSuccessPercent, validProgress } from './utils';
+import { TinyColor } from '@ctrl/tinycolor';
 
 export const ProgressTypes = ['line', 'circle', 'dashboard'] as const;
 export type ProgressType = (typeof ProgressTypes)[number];
@@ -61,6 +62,12 @@ export interface ProgressProps extends ProgressAriaProps {
   children?: React.ReactNode;
 }
 
+const isBright = (bgColorToken: string | ProgressGradient) => {
+  const color = typeof bgColorToken === 'string' ? bgColorToken : Object.values(bgColorToken)[0];
+  const { r, g, b } = new TinyColor(color).toRgb();
+  return r * 0.299 + g * 0.587 + b * 0.114 > 192;
+};
+
 const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
@@ -80,6 +87,9 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   } = props;
 
   const [infoAlign = 'end', infoPosition = 'outer'] = percentPosition;
+  const strokeColorNotArray = Array.isArray(strokeColor) ? strokeColor[0] : strokeColor;
+  const strokeColorNotGradient =
+    typeof strokeColor === 'string' || Array.isArray(strokeColor) ? strokeColor : undefined;
 
   const percentNumber = React.useMemo<number>(() => {
     const successPercent = getSuccessPercent(props);
@@ -130,6 +140,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
           `${prefixCls}-text`,
           `${prefixCls}-text-${infoPosition}`,
           `${prefixCls}-text-${infoAlign}`,
+          strokeColorNotArray && isBright(strokeColorNotArray) && `${prefixCls}-text-bright`,
         )}
         title={typeof text === 'string' ? text : undefined}
       >
@@ -157,9 +168,6 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     }
   }
 
-  const strokeColorNotArray = Array.isArray(strokeColor) ? strokeColor[0] : strokeColor;
-  const strokeColorNotGradient =
-    typeof strokeColor === 'string' || Array.isArray(strokeColor) ? strokeColor : undefined;
   let progress: React.ReactNode;
   // Render progress shape
   if (type === 'line') {

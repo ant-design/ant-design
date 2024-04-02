@@ -1,6 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes, unit } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
 
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
@@ -37,16 +36,6 @@ export interface ComponentToken {
    * @descEN Icon size of circular progress bar
    */
   circleIconFontSize: string;
-  /**
-   * @desc 线形进度条内部信息内边距
-   * @descEN Linear progress bar internal information padding
-   */
-  innerInfoPadding: number;
-  /**
-   * @desc 线形进度条底部信息顶部外边距
-   * @descEN Linear progress bar bottom information top margin
-   */
-  bottomInfoMarginTop: number;
 }
 
 export const LineStrokeColorVar = '--progress-line-stroke-color';
@@ -57,9 +46,6 @@ interface ProgressToken extends FullToken<'Progress'> {
   progressStepMarginInlineEnd: number | string;
   progressActiveMotionDuration: string;
 }
-
-const getBrightenColor = (color: string): string =>
-  new TinyColor(color).brighten(100).toHexString();
 
 const genAntProgressActive = (isRtl?: boolean) => {
   const direction = isRtl ? '100%' : '-100%';
@@ -149,7 +135,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
         [`${progressCls}-text`]: {
           width: 'max-content',
           marginInlineStart: 0,
-          marginTop: token.bottomInfoMarginTop,
+          marginTop: token.marginXXS,
         },
       },
 
@@ -197,7 +183,12 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
           marginInlineEnd: token.marginXS,
         },
         [`&${progressCls}-text-inner`]: {
-          color: getBrightenColor(token.colorText),
+          color: token.colorWhite,
+          position: 'relative',
+          zIndex: 1,
+          [`&${progressCls}-text-bright`]: {
+            color: 'rgba(0, 0, 0, 0.45)',
+          },
         },
       },
 
@@ -208,7 +199,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
         width: '100%',
         height: '100%',
         marginInlineStart: 0,
-        padding: `0 ${token.innerInfoPadding}`,
+        padding: `0 ${token.paddingXXS}`,
         [`&${progressCls}-inner-start`]: {
           justifyContent: 'left',
         },
@@ -261,7 +252,12 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
         [`${progressCls}-text`]: {
           color: token.colorSuccess,
           [`&${progressCls}-text-inner`]: {
-            color: getBrightenColor(token.colorText),
+            color: token.colorWhite,
+            position: 'relative',
+            zIndex: 1,
+            [`&${progressCls}-text-bright`]: {
+              color: 'rgba(0, 0, 0, 0.45)',
+            },
           },
         },
       },
@@ -378,8 +374,6 @@ export const prepareComponentToken: GetDefaultToken<'Progress'> = (token) => ({
   lineBorderRadius: 100, // magic for capsule shape, should be a very large number
   circleTextFontSize: '1em',
   circleIconFontSize: `${token.fontSize / token.fontSizeSM}em`,
-  innerInfoPadding: 4,
-  bottomInfoMarginTop: 4,
 });
 
 export default genStyleHooks(

@@ -3,10 +3,25 @@ import { Flex, Progress } from 'antd';
 
 const App: React.FC = () => (
   <Flex gap="small" vertical>
-    <Progress percent={0} percentPosition={['center', 'inner']} size={[200, 20]} />
+    <Progress
+      percent={0}
+      percentPosition={['center', 'inner']}
+      size={[200, 20]}
+      strokeColor="#E6F4FF"
+    />
     <Progress percent={10} percentPosition={['center', 'inner']} size={[300, 20]} />
-    <Progress percent={50} percentPosition={['start', 'inner']} size={[300, 20]} />
-    <Progress percent={60} percentPosition={['end', 'inner']} size={[300, 20]} />
+    <Progress
+      percent={50}
+      percentPosition={['start', 'inner']}
+      size={[300, 20]}
+      strokeColor="#B7EB8F"
+    />
+    <Progress
+      percent={60}
+      percentPosition={['end', 'inner']}
+      size={[300, 20]}
+      strokeColor="#001342"
+    />
     <Progress percent={100} percentPosition={['center', 'inner']} size={[400, 20]} />
     <Progress percent={60} percentPosition={['start', 'outer']} />
     <Progress percent={100} percentPosition={['start', 'outer']} />
