@@ -393,7 +393,7 @@ Since `4.1.0`, You can use [`rowSelection.renderCell`](https://ant.design/compon
 
 Because virtual table needs to get its ref to do some calculations, so you need to use `React.forwardRef` wrapper and pass the ref to the dom
 
-### dataIndex type error？
+### dataIndex type error ?
 
 Because in version `5.16.0`, generic validation of the `dataIndex` property is supported, and the value of the `dataIndex` must be within the `FieldType`. If it is not, an error message will be displayed. If property validation needs to be disabled, the following configuration can be performed:
 
