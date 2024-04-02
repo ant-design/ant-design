@@ -2328,10 +2328,10 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
       >
         <div
           class="ant-progress-bg ant-progress-bg-inner"
-          style="width: 0%; height: 20px; --progress-percent: 0;"
+          style="width: 0%; height: 20px; --progress-line-stroke-color: #E6F4FF; background: rgb(230, 244, 255); --progress-percent: 0;"
         >
           <span
-            class="ant-progress-text ant-progress-text-inner ant-progress-text-center"
+            class="ant-progress-text ant-progress-text-inner ant-progress-text-center ant-progress-text-bright"
             title="0%"
           >
             0%
@@ -2380,10 +2380,10 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
       >
         <div
           class="ant-progress-bg ant-progress-bg-inner"
-          style="width: 50%; height: 20px; --progress-percent: 0.5;"
+          style="width: 50%; height: 20px; --progress-line-stroke-color: #B7EB8F; background: rgb(183, 235, 143); --progress-percent: 0.5;"
         >
           <span
-            class="ant-progress-text ant-progress-text-inner ant-progress-text-start"
+            class="ant-progress-text ant-progress-text-inner ant-progress-text-start ant-progress-text-bright"
             title="50%"
           >
             50%
@@ -2406,7 +2406,7 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
       >
         <div
           class="ant-progress-bg ant-progress-bg-inner"
-          style="width: 60%; height: 20px; --progress-percent: 0.6;"
+          style="width: 60%; height: 20px; --progress-line-stroke-color: #001342; background: rgb(0, 19, 66); --progress-percent: 0.6;"
         >
           <span
             class="ant-progress-text ant-progress-text-inner ant-progress-text-end"
