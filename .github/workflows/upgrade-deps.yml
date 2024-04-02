@@ -8,7 +8,7 @@ on:
 jobs:
   upgrade-deps:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
+    if: github.repository == 'ant-design/ant-design' && github.ref == 'refs/heads/master'
     permissions:
       pull-requests: write # for peter-evans/create-pull-request to create PRs
       contents: write # for git push
