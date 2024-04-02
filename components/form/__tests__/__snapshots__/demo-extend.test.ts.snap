@@ -22212,7 +22212,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
 
 exports[`renders components/form/demo/validate-other.tsx extend context correctly 2`] = `[]`;
 
-exports[`renders components/form/demo/validate-scroll2field.tsx extend context correctly 1`] = `
+exports[`renders components/form/demo/validate-scroll-to-field.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   style="padding: 2rem 4rem;"
@@ -22232,14 +22232,27 @@ exports[`renders components/form/demo/validate-scroll2field.tsx extend context c
           <div
             class="ant-form-item-control-input-content"
           >
-            <button
-              class="ant-btn ant-btn-primary"
-              type="submit"
+            <div
+              class="ant-flex"
+              style="gap: 8px;"
             >
-              <span>
-                Top Submit
-              </span>
-            </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="submit"
+              >
+                <span>
+                  Top Submit
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-default"
+                type="button"
+              >
+                <span>
+                  Scroll to Baz
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -22357,7 +22370,7 @@ exports[`renders components/form/demo/validate-scroll2field.tsx extend context c
             >
               <input
                 id="demo-form_bar"
-                style="width: 280px; height: 3rem; padding: 0.5rem; font-size: 1.2rem; border: 1px solid #d9d9d9; margin-bottom: 0.5rem;"
+                style="width: 280px; height: 6rem; margin-block-end: 1rem;"
                 value=""
               />
             </div>
@@ -22434,7 +22447,7 @@ exports[`renders components/form/demo/validate-scroll2field.tsx extend context c
               class="ant-form-item-control-input-content"
             >
               <input
-                style="width: 280px; height: 3rem; padding: 0.5rem; font-size: 1.2rem; border: 1px solid #d9d9d9; margin-bottom: 0.5rem;"
+                style="width: 280px; height: 6rem; margin-block-end: 1rem;"
                 value=""
               />
             </div>
@@ -22458,14 +22471,27 @@ exports[`renders components/form/demo/validate-scroll2field.tsx extend context c
           <div
             class="ant-form-item-control-input-content"
           >
-            <button
-              class="ant-btn ant-btn-primary"
-              type="submit"
+            <div
+              class="ant-flex"
+              style="gap: 8px;"
             >
-              <span>
-                Bottom Submit
-              </span>
-            </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="submit"
+              >
+                <span>
+                  Bottom Submit
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-default ant-btn-dangerous"
+                type="button"
+              >
+                <span>
+                  Reset
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -22474,7 +22500,7 @@ exports[`renders components/form/demo/validate-scroll2field.tsx extend context c
 </form>
 `;
 
-exports[`renders components/form/demo/validate-scroll2field.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/form/demo/validate-scroll-to-field.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/validate-static.tsx extend context correctly 1`] = `
 <form
