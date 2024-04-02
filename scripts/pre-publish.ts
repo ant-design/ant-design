@@ -4,7 +4,7 @@ import ora from 'ora';
 const simpleGit = require('simple-git');
 const { Notification: Notifier } = require('node-notifier');
 
-const emojify = (status: string) => {
+const emojify = (status: string = '') => {
   const emoji = {
     /* status */
     completed: '☑️',
@@ -19,7 +19,7 @@ const emojify = (status: string) => {
     timed_out: '⌛',
     action_required: '🔴',
   }[status];
-  return `${emoji || ''} ${status.padEnd(10)}`;
+  return `${emoji || ''} ${(status || '').padEnd(10)}`;
 };
 
 const runPrePublish = async () => {
