@@ -23,9 +23,16 @@ const emojify = (status: string = '') => {
 };
 
 const runPrePublish = async () => {
-  const git = simpleGit();
-  const octokit = new Octokit({ auth: process.env.GITHUB_ACCESS_TOKEN });
   const spinner = ora('Loading unicorns').start();
+  spinner.info('本次发布将跳过本地 CI 检查，远程 CI 通过后方可发布');
+  const git = simpleGit();
+  if (!process.env.GITHUB_ACCESS_TOKEN) {
+    spinner.fail(
+      '请先设置 GITHUB_ACCESS_TOKEN 环境变量到本地，请不要泄露给任何在线页面: https://octokit.github.io/rest.js/v20#authentication',
+    );
+    process.exit(1);
+  }
+  const octokit = new Octokit({ auth: process.env.GITHUB_ACCESS_TOKEN });
   const { current: currentBranch } = await git.branch();
   /*
   if (currentBranch !== 'master') {
