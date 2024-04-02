@@ -56,7 +56,9 @@ export default function useForm<Values = any>(form?: FormInstance<Values>): [For
             node = fieldRef.nativeElement;
           } else {
             const fieldId = getFieldId(namePath, wrapForm.__INTERNAL__.name);
-            if (fieldId) node = document.getElementById(fieldId);
+            if (fieldId) {
+              node = document.getElementById(fieldId);
+            }
           }
 
           if (node) {
