@@ -11,8 +11,6 @@ group:
   title: Data Entry
 ---
 
-Available since `5.5.0`.
-
 ## When To Use
 
 Used when the user needs to customize the color selection.

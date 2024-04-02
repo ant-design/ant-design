@@ -10,8 +10,6 @@ demo:
 tag: 5.1.0
 ---
 
-Available since `5.1.0`.
-
 ## When To Use
 
 - Use when the page needs to be watermarked to identify the copyright.

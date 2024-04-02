@@ -8,8 +8,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8yArQ43EGccAAA
 tag: 5.10.0
 ---
 
-Available since `5.10.0`.
-
 ## When To Use
 
 - Good for setting spacing between elements.

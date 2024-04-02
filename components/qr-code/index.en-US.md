@@ -12,8 +12,6 @@ group:
 tag: 5.1.0
 ---
 
-Available since `antd@5.1.0`.
-
 <!-- prettier-ignore -->
 :::info
 If the QR code cannot be scanned for identification, it may be because the link address is too long, which leads to too dense pixels.
