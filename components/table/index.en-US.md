@@ -392,3 +392,32 @@ Since `4.1.0`, You can use [`rowSelection.renderCell`](https://ant.design/compon
 ### Why does components.body.wrapper report an error when virtual is enabled?
 
 Because virtual table needs to get its ref to do some calculations, so you need to use `React.forwardRef` wrapper and pass the ref to the dom
+
+### dataIndex type error？
+
+Because in version `5.16.0`, generic validation of the `dataIndex` property is supported, and the value of the `dataIndex` must be within the `FieldType`. If it is not, an error message will be displayed. If property validation needs to be disabled, the following configuration can be performed
+
+```tsx
+interface AnyFieldType {
+  [key: number]: AnyFieldType;
+  [key: string]: AnyFieldType;
+}
+
+declare module 'rc-table' {
+  export interface DataIndexExtendProps extends AnyFieldType {}
+}
+
+export const Demo = () => <Table columns={[{ dataIndex: 'name' }]} />;
+```
+
+If you only want to ignore certain attributes separately, you can configure them as follows
+
+```tsx
+declare module 'rc-table' {
+  export interface DataIndexExtendProps {
+    more?: string;
+  }
+}
+
+export const Demo = () => <Table columns={[{ dataIndex: 'more' }]} />;
+```
