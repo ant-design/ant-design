@@ -395,7 +395,7 @@ Because virtual table needs to get its ref to do some calculations, so you need 
 
 ### dataIndex type error？
 
-Because in version `5.16.0`, generic validation of the `dataIndex` property is supported, and the value of the `dataIndex` must be within the `FieldType`. If it is not, an error message will be displayed. If property validation needs to be disabled, the following configuration can be performed
+Because in version `5.16.0`, generic validation of the `dataIndex` property is supported, and the value of the `dataIndex` must be within the `FieldType`. If it is not, an error message will be displayed. If property validation needs to be disabled, the following configuration can be performed:
 
 ```tsx
 interface AnyFieldType {
@@ -410,7 +410,7 @@ declare module 'rc-table' {
 export const Demo = () => <Table columns={[{ dataIndex: 'name' }]} />;
 ```
 
-If you only want to ignore certain attributes separately, you can configure them as follows
+If you only want to ignore certain attributes separately, you can configure them as follows:
 
 ```tsx
 declare module 'rc-table' {

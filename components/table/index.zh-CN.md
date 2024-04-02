@@ -395,7 +395,7 @@ return <Table rowKey={(record) => record.uid} />;
 
 ### dataIndex 类型报错了？
 
-因为在 `5.16.0` 版本，支持了泛型对 `dataIndex` 属性校验，`dataIndex` 的值必须在 `FieldType` 内，如果不在则会提示错误，如果需要禁用属性校验，可进行如下配置
+因为在 `5.16.0` 版本，支持了泛型对 `dataIndex` 属性校验，`dataIndex` 的值必须在 `FieldType` 内，如果不在则会提示错误，如果需要禁用属性校验，可进行如下配置：
 
 ```tsx
 interface AnyFieldType {
@@ -410,7 +410,7 @@ declare module 'rc-table' {
 export const Demo = () => <Table columns={[{ dataIndex: 'name' }]} />;
 ```
 
-如果只是想单独对某些属性忽略，可进行如下配置
+如果只是想单独对某些属性忽略，可进行如下配置：
 
 ```tsx
 declare module 'rc-table' {
