@@ -10,8 +10,6 @@ demo:
 tag: 5.1.0
 ---
 
-Available since `5.1.0`.
-
 ## When To Use
 
 - Provide reset styles based on `.ant-app` element.
