@@ -204,6 +204,7 @@
     "@types/minimist": "^1.2.5",
     "@types/node": "^20.12.2",
     "@types/nprogress": "^0.2.3",
+    "@types/ora": "^3.2.0",
     "@types/pixelmatch": "^5.2.6",
     "@types/pngjs": "^6.0.4",
     "@types/prismjs": "^1.26.3",

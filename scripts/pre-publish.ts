@@ -6,6 +6,9 @@ const simpleGit = require('simple-git');
 const { Notification: Notifier } = require('node-notifier');
 
 const emojify = (status: string = '') => {
+  if (!status) {
+    return '';
+  }
   const emoji = {
     /* status */
     completed: '☑️',
@@ -72,7 +75,9 @@ const runPrePublish = async () => {
   });
   spinner.succeed(`远程分支 CI 状态：`);
   result.data.check_runs.forEach((run) => {
-    spinner.info(`  ${run.name.padEnd(30)} ${emojify(run.status)} ${emojify(run.conclusion)}`);
+    spinner.info(
+      `  ${run.name.padEnd(30)} ${emojify(run.status)} ${emojify(run.conclusion || '')}`,
+    );
   });
   const conclusions = result.data.check_runs.map((run) => run.conclusion);
   if (
