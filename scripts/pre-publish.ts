@@ -57,6 +57,11 @@ const runPrePublish = async () => {
   spinner.succeed(`成功推送远程分支 ${currentBranch}`);
   const headCommitSha = await git.revparse('HEAD');
   spinner.succeed(`找到本地最新 commit: ${headCommitSha}`);
+  const { latest } = await git.log('-1');
+  spinner.info(`  date: ${latest.date}`);
+  spinner.info(`  message: ${latest.message}`);
+  spinner.info(`  body: ${latest.body}`);
+  spinner.info(`  author_name: ${latest.author_name}`);
   const owner = 'ant-design';
   const repo = 'ant-design';
   spinner.start(`开始检查远程分支 CI 状态 ${currentBranch}`);
@@ -65,6 +70,7 @@ const runPrePublish = async () => {
     repo,
     ref: headCommitSha,
   });
+  spinner.succeed(`远程分支 CI 状态：`);
   result.data.check_runs.forEach((run) => {
     spinner.info(`  ${run.name.padEnd(30)} ${emojify(run.status)} ${emojify(run.conclusion)}`);
   });
