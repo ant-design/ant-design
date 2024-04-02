@@ -57,19 +57,15 @@ const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
         {tag && (
           <Tag
             bordered={false}
-            color={tag === 'New' ? 'success' : 'processing'}
             className={styles.tag}
+            color={tag === 'New' ? 'success' : 'processing'}
           >
             {tag.replace('VERSION', version)}
           </Tag>
         )}
         {componentVersion && (
-          <Tag
-            bordered={false}
-            color={componentVersion ? 'success' : 'processing'}
-            className={styles.tag}
-          >
-            V {componentVersion}
+          <Tag bordered={false} className={styles.tag} color="success">
+            v {componentVersion}
           </Tag>
         )}
       </Link>
