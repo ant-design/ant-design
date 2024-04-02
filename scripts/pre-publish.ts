@@ -58,7 +58,7 @@ const runPrePublish = async () => {
     ref: headCommitSha,
   });
   result.data.check_runs.forEach((run) => {
-    spinner.info(` ${run.name.padEnd(30)} ${emojify(run.status)} ${emojify(run.conclusion)}`);
+    spinner.info(`  ${run.name.padEnd(30)} ${emojify(run.status)} ${emojify(run.conclusion)}`);
   });
   const conclusions = result.data.check_runs.map((run) => run.conclusion);
   if (
