@@ -12,7 +12,7 @@ const App: React.FC = () => {
 
   const disabledDate: DatePickerProps['disabledDate'] = (current, { from }) => {
     if (from) {
-      return Math.abs(current.diff(from, 'days')) > 7;
+      return Math.abs(current.diff(from, 'days')) >= 7;
     }
 
     return false;

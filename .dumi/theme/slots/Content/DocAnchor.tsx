@@ -17,7 +17,7 @@ const useStyle = createStyles(({ token, css }) => {
     `,
     tocWrapper: css`
       position: fixed;
-      top: ${token.headerHeight + token.contentMarginTop}px;
+      top: ${token.headerHeight + token.contentMarginTop - 8}px;
       inset-inline-end: 0;
       width: 160px;
       margin: 0 0 12px 0;
@@ -26,7 +26,8 @@ const useStyle = createStyles(({ token, css }) => {
       backdrop-filter: blur(8px);
       border-radius: ${token.borderRadius}px;
       box-sizing: border-box;
-      z-index: 1000;
+      margin-inline-end: calc(16px - 100vw + 100%);
+      z-index: 10;
 
       .toc-debug {
         color: ${token.purple6};
@@ -39,7 +40,7 @@ const useStyle = createStyles(({ token, css }) => {
       > div {
         box-sizing: border-box;
         width: 100%;
-        max-height: calc(100vh - 40px) !important;
+        max-height: calc(100vh - ${token.headerHeight + token.contentMarginTop + 24}px) !important;
         margin: 0 auto;
         overflow: auto;
         padding-inline: 4px;

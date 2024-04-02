@@ -2,7 +2,6 @@ import * as React from 'react';
 import { forwardRef, useContext, useImperativeHandle } from 'react';
 import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import classNames from 'classnames';
 import RCPicker, { type PickerRef } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
@@ -22,15 +21,15 @@ import { useLocale } from '../../locale';
 import { NoCompactStyle, useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
-import { getPlaceholder, mergeAllowClear, transPlacement2DropdownAlign } from '../util';
-import type { PickerProps, PickerPropsWithMultiple } from './interface';
+import { getPlaceholder, transPlacement2DropdownAlign, useIcons } from '../util';
+import type { GenericTimePickerProps, PickerProps, PickerPropsWithMultiple } from './interface';
 import useComponents from './useComponents';
 
 export default function generatePicker<DateType extends AnyObject>(
   generateConfig: GenerateConfig<DateType>,
 ) {
   type DatePickerProps = PickerProps<DateType>;
-  type TimePickerProps = Omit<PickerProps<DateType>, 'picker' | 'showTime'>;
+  type TimePickerProps = GenericTimePickerProps<DateType>;
 
   function getPicker<InnerPickerProps extends DatePickerProps>(
     picker?: PickerMode,
@@ -53,9 +52,8 @@ export default function generatePicker<DateType extends AnyObject>(
         dropdownClassName,
         disabled: customDisabled,
         status: customStatus,
-        clearIcon,
-        allowClear,
         variant: customVariant,
+        onCalendarChange,
         ...restProps
       } = props;
 
@@ -86,6 +84,18 @@ export default function generatePicker<DateType extends AnyObject>(
 
       const rootPrefixCls = getPrefixCls();
 
+      // ==================== Legacy =====================
+      const { onSelect, multiple } = restProps as TimePickerProps;
+      const hasLegacyOnSelect = onSelect && picker === 'time' && !multiple;
+
+      const onInternalCalendarChange: typeof onCalendarChange = (date, dateStr, info) => {
+        onCalendarChange?.(date, dateStr, info);
+
+        if (hasLegacyOnSelect) {
+          onSelect(date as any);
+        }
+      };
+
       // =================== Warning =====================
       if (process.env.NODE_ENV !== 'production') {
         const warning = devUseWarning(displayName! || 'DatePicker');
@@ -99,7 +109,12 @@ export default function generatePicker<DateType extends AnyObject>(
         warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
 
         warning.deprecated(!('bordered' in props), 'bordered', 'variant');
+
+        warning.deprecated(!hasLegacyOnSelect, 'onSelect', 'onCalendarChange');
       }
+
+      // ===================== Icon =====================
+      const [mergedAllowClear, removeIcon] = useIcons(props, prefixCls);
 
       // ================== components ==================
       const mergedComponents = useComponents(components);
@@ -141,6 +156,7 @@ export default function generatePicker<DateType extends AnyObject>(
             superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
             transitionName={`${rootPrefixCls}-slide-up`}
             picker={picker}
+            onCalendarChange={onInternalCalendarChange}
             {...additionalProps}
             {...restProps}
             locale={locale!.lang}
@@ -184,7 +200,8 @@ export default function generatePicker<DateType extends AnyObject>(
                 zIndex,
               },
             }}
-            allowClear={mergeAllowClear(allowClear, clearIcon, <CloseCircleFilled />)}
+            allowClear={mergedAllowClear}
+            removeIcon={removeIcon}
           />
         </NoCompactStyle>,
       );
@@ -203,8 +220,8 @@ export default function generatePicker<DateType extends AnyObject>(
   const WeekPicker = getPicker<Omit<DatePickerProps, 'picker'>>('week', 'WeekPicker');
   const MonthPicker = getPicker<Omit<DatePickerProps, 'picker'>>('month', 'MonthPicker');
   const YearPicker = getPicker<Omit<DatePickerProps, 'picker'>>('year', 'YearPicker');
+  const QuarterPicker = getPicker<Omit<DatePickerProps, 'picker'>>('quarter', 'QuarterPicker');
   const TimePicker = getPicker<Omit<TimePickerProps, 'picker'>>('time', 'TimePicker');
-  const QuarterPicker = getPicker<Omit<TimePickerProps, 'picker'>>('quarter', 'QuarterPicker');
 
   return { DatePicker, WeekPicker, MonthPicker, YearPicker, TimePicker, QuarterPicker };
 }

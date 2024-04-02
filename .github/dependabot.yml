@@ -26,3 +26,13 @@ updates:
       dev-dependencies:
         dependency-type: "development"
         update-types: ["major"]
+    ignore:
+      - dependency-name: "@ant-design/cssinjs"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "github-actions"
+      - "dependencies"
+      - "skip-verify-files"

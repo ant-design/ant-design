@@ -154,7 +154,7 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
   const [component] = cells;
   const concatComponent = cells.join('-');
 
-  return (prefixCls: string): UseComponentStyleResult => {
+  return (prefixCls: string, rootCls: string = prefixCls): UseComponentStyleResult => {
     const [theme, realToken, hashId, token, cssVar] = useToken();
     const { getPrefixCls, iconPrefixCls, csp } = useContext(ConfigContext);
     const rootPrefixCls = getPrefixCls();
@@ -230,7 +230,9 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
             iconCls: `.${iconPrefixCls}`,
             antCls: `.${rootPrefixCls}`,
             calc,
+            // @ts-ignore
             max,
+            // @ts-ignore
             min,
           },
           cssVar ? defaultComponentToken : componentToken,
@@ -244,18 +246,19 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
         });
         flush(component, componentToken);
         return [
-          options.resetStyle === false ? null : genCommonStyle(mergedToken, prefixCls),
+          options.resetStyle === false ? null : genCommonStyle(mergedToken, prefixCls, rootCls),
           styleInterpolation,
         ];
       },
     );
 
-    return [wrapSSR, hashId];
+    return [wrapSSR as any, hashId];
   };
 }
 
 export interface SubStyleComponentProps {
   prefixCls: string;
+  rootCls?: string;
 }
 
 // Get from second argument
@@ -275,8 +278,9 @@ export const genSubStyleComponent: <C extends OverrideComponent>(
 
   const StyledComponent: ComponentType<SubStyleComponentProps> = ({
     prefixCls,
+    rootCls = prefixCls,
   }: SubStyleComponentProps) => {
-    useStyle(prefixCls);
+    useStyle(prefixCls, rootCls);
     return null;
   };
 
@@ -317,8 +321,8 @@ const genCSSVarRegister = <C extends OverrideComponent>(
   const compUnitless: any = {
     [prefixToken('zIndexPopup')]: true,
   };
-  Object.keys(originUnitless).forEach((key: keyof ComponentTokenKey<C>) => {
-    compUnitless[prefixToken(key)] = originUnitless[key];
+  Object.keys(originUnitless).forEach((key) => {
+    compUnitless[prefixToken(key)] = originUnitless[key as keyof ComponentTokenKey<C>];
   });
 
   const CSSVarRegister: FC<CSSVarRegisterProps> = ({ rootCls, cssVar }) => {
@@ -409,7 +413,7 @@ export const genStyleHooks = <C extends OverrideComponent>(
   );
 
   return (prefixCls: string, rootCls: string = prefixCls) => {
-    const [, hashId] = useStyle(prefixCls);
+    const [, hashId] = useStyle(prefixCls, rootCls);
     const [wrapCSSVar, cssVarCls] = useCSSVar(rootCls);
 
     return [wrapCSSVar, hashId, cssVarCls] as const;

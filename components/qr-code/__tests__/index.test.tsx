@@ -7,8 +7,8 @@ import { fireEvent, render } from '../../../tests/utils';
 import type { QRCodeProps } from '../interface';
 
 describe('QRCode test', () => {
-  mountTest(QRCode);
-  rtlTest(QRCode);
+  mountTest(QRCode as any);
+  rtlTest(QRCode as any);
 
   it('should correct render', () => {
     const { container } = render(<QRCode value="test" />);
@@ -86,5 +86,12 @@ describe('QRCode test', () => {
       'Warning: [antd: QRCode] ErrorLevel `L` is not recommended to be used with `icon`, for scanning result would be affected by low level.',
     );
     errSpy.mockRestore();
+  });
+
+  it('correct style order', () => {
+    const { container } = render(<QRCode value="test" size={80} style={{ width: 100 }} />);
+    expect(container.querySelector<HTMLDivElement>('.ant-qrcode')).toHaveStyle(
+      'width: 100px; height: 80px',
+    );
   });
 });

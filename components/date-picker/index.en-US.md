@@ -3,8 +3,8 @@ category: Components
 group: Data Entry
 title: DatePicker
 description: To select or input a date.
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xXA9TJ8BTioAAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3OpRQKcygo8AAAAAAAAAAAAADrJ8AQ/original
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*qK9mRqFnBbAAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*wz1QTJSQgmAAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -19,6 +19,8 @@ By clicking the input box, you can select a date from a popup calendar.
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/range-picker.tsx">Range Picker</code>
 <code src="./demo/multiple.tsx" version="5.14.0">Multiple</code>
+<code src="./demo/multiple-debug.tsx" debug>Multiple Debug</code>
+<code src="./demo/needConfirm.tsx" version="5.14.0">Need Confirm</code>
 <code src="./demo/switchable.tsx">Switchable picker</code>
 <code src="./demo/format.tsx">Date Format</code>
 <code src="./demo/time.tsx">Choose Time</code>
@@ -35,7 +37,7 @@ By clicking the input box, you can select a date from a popup calendar.
 <code src="./demo/components.tsx" version="5.14.0">Customize Panel</code>
 <code src="./demo/buddhist-era.tsx" version="5.14.0">Buddhist Era</code>
 <code src="./demo/status.tsx">Status</code>
-<code src="./demo/variant.tsx" version="5.14.0">Variants</code>
+<code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/mode.tsx" debug>Controlled Panels</code>
@@ -63,30 +65,25 @@ The default locale is en-US, if you need to use other languages, recommend to us
 
 If there are special needs (only modifying single component language), Please use the property: local. Example: [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json).
 
-<!-- prettier-ignore -->
-:::warning
-When use with Nextjs App Router, make sure to add `'use client'` before import locale file of dayjs. It's because all components of Ant Design only works in client, importing locale in RSC will not work.
-:::
-
-```jsx
-import locale from 'antd/es/date-picker/locale/zh_CN';
-
-import 'dayjs/locale/zh-cn';
-
-<DatePicker locale={locale} />;
-```
-
 ```jsx
 // The default locale is en-US, if you want to use other locale, just set locale in entry file globally.
+// Make sure you import the relevant dayjs file as well, otherwise the locale won't change for all texts (e.g. range picker months)
 import locale from 'antd/locale/zh_CN';
 import dayjs from 'dayjs';
 
 import 'dayjs/locale/zh-cn';
 
+dayjs.locale('zh-cn');
+
 <ConfigProvider locale={locale}>
   <DatePicker defaultValue={dayjs('2015-01-01', 'YYYY-MM-DD')} />
 </ConfigProvider>;
 ```
+
+<!-- prettier-ignore -->
+:::warning
+When use with Next.js App Router, make sure to add `'use client'` before import locale file of dayjs. It's because all components of Ant Design only works in client, importing locale in RSC will not work.
+:::
 
 ### Common API
 
@@ -112,7 +109,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | minDate | The minimum date, which also limits the range of panel switching | dayjs | - | 5.14.0 |
 | maxDate | The maximum date, which also limits the range of panel switching | dayjs | - | 5.14.0 |
 | mode | The picker panel mode（ [Cannot select year or month anymore?](/docs/react/faq#when-set-mode-to-datepickerrangepicker-cannot-select-year-or-month-anymore) ) | `time` \| `date` \| `month` \| `year` \| `decade` | - |  |
-| needConfirm | Need click confirm button to trigger value change | boolean | - | 5.14.0 |
+| needConfirm | Need click confirm button to trigger value change. Default `false` when `multiple` | boolean | - | 5.14.0 |
 | nextIcon | The custom next icon | ReactNode | - | 4.17.0 |
 | open | The open state of picker | boolean | - |  |
 | panelRender | Customize panel render | (panelNode) => ReactNode | - | 4.5.0 |
@@ -128,7 +125,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | superNextIcon | The custom super next icon | ReactNode | - | 4.17.0 |
 | superPrevIcon | The custom super prev icon | ReactNode | - | 4.17.0 |
-| variant | Variants of picker | `outlined` \| `borderless` \| `filled` | `outlined` | 5.14.0 |
+| variant | Variants of picker | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | onOpenChange | Callback function, can be executed whether the popup calendar is popped up or closed | function(open) | - |  |
 | onPanelChange | Callback when picker panel mode is changed | function(value, mode) | - |  |
 
@@ -147,6 +144,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | defaultValue | To set default date, if start time or end time is null or undefined, the date range will be an open interval | [dayjs](https://day.js.org/) | - |  |
 | disabledTime | To specify the time that cannot be selected | function(date) | - |  |
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-MM-DD` |  |
+| multiple | Enable multiple selection. Not support `showTime` | boolean | false | 5.14.0 |
 | pickerValue | Panel date. Used for controlled switching of panel date. Work with `onPanelChange` | [dayjs](https://day.js.org/) | - | 5.14.0 |
 | renderExtraFooter | Render extra footer in panel | (mode) => React.ReactNode | - |  |
 | showNow | Show the fast access of current datetime | boolean | - | 4.4.0 |
@@ -164,6 +162,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | --- | --- | --- | --- | --- |
 | defaultValue | To set default date | [dayjs](https://day.js.org/) | - |  |
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY` |  |
+| multiple | Enable multiple selection | boolean | false | 5.14.0 |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
@@ -176,6 +175,7 @@ Added in `4.1.0`.
 | --- | --- | --- | --- | --- |
 | defaultValue | To set default date | [dayjs](https://day.js.org/) | - |  |
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-\QQ` |  |
+| multiple | Enable multiple selection | boolean | false | 5.14.0 |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
@@ -186,6 +186,7 @@ Added in `4.1.0`.
 | --- | --- | --- | --- | --- |
 | defaultValue | To set default date | [dayjs](https://day.js.org/) | - |  |
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-MM` |  |
+| multiple | Enable multiple selection | boolean | false | 5.14.0 |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
@@ -196,6 +197,7 @@ Added in `4.1.0`.
 | --- | --- | --- | --- | --- |
 | defaultValue | To set default date | [dayjs](https://day.js.org/) | - |  |
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-wo` |  |
+| multiple | Enable multiple selection | boolean | false | 5.14.0 |
 | renderExtraFooter | Render extra footer in panel | (mode) => React.ReactNode | - |  |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |

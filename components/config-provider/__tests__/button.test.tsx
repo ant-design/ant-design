@@ -32,7 +32,7 @@ describe('ConfigProvider.button', () => {
 
   it('ConfigProvider button styles', () => {
     const { container } = render(
-      <ConfigProvider button={{ styles: { icon: { color: '#333' } } }}>
+      <ConfigProvider button={{ styles: { icon: { fontSize: 14 } } }}>
         <Button icon={<SearchOutlined />} />
       </ConfigProvider>,
     );

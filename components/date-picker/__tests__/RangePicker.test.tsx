@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { CloseCircleFilled } from '@ant-design/icons';
-import userEvent from '@testing-library/user-event';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 
 import DatePicker from '..';
 import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
-import { render, resetMockDate, screen, setMockDate, waitFor } from '../../../tests/utils';
+import { render, resetMockDate, setMockDate } from '../../../tests/utils';
 import enUS from '../locale/en_US';
-import { closeCircleByRole, closePicker, expectCloseCircle, openPicker, selectCell } from './utils';
+import { closePicker, getClearButton, openPicker, selectCell } from './utils';
 
 dayjs.extend(customParseFormat);
 
@@ -163,36 +162,35 @@ describe('RangePicker', () => {
   });
 
   it('allows or prohibits clearing as applicable', async () => {
-    const somepoint = dayjs('2023-08-01');
-    const { rerender } = render(<RangePicker locale={enUS} value={[somepoint, somepoint]} />);
+    const somePoint = dayjs('2023-08-01');
+    const { rerender, container } = render(
+      <RangePicker locale={enUS} value={[somePoint, somePoint]} />,
+    );
+    expect(getClearButton()).toBeTruthy();
 
-    const { role, options } = closeCircleByRole;
-    await userEvent.hover(screen.getByRole(role, options));
-    await waitFor(() => expectCloseCircle(true));
-
-    rerender(<RangePicker locale={enUS} value={[somepoint, somepoint]} allowClear={false} />);
-    await waitFor(() => expectCloseCircle(false));
+    rerender(<RangePicker locale={enUS} value={[somePoint, somePoint]} allowClear={false} />);
+    expect(getClearButton()).toBeFalsy();
 
     rerender(
       <RangePicker
         locale={enUS}
-        value={[somepoint, somepoint]}
+        value={[somePoint, somePoint]}
         allowClear={{ clearIcon: <CloseCircleFilled /> }}
       />,
     );
-    await waitFor(() => expectCloseCircle(true));
+    expect(getClearButton()).toBeTruthy();
 
     rerender(
       <RangePicker
         locale={enUS}
-        value={[somepoint, somepoint]}
+        value={[somePoint, somePoint]}
         allowClear={{ clearIcon: <div data-testid="custom-clear" /> }}
       />,
     );
-    await waitFor(() => expectCloseCircle(false));
-    await userEvent.hover(screen.getByTestId('custom-clear'));
+    expect(getClearButton()).toBeTruthy();
+    expect(container.querySelector('[data-testid="custom-clear"]')).toBeTruthy();
 
-    rerender(<RangePicker locale={enUS} value={[somepoint, somepoint]} allowClear={{}} />);
-    await waitFor(() => expectCloseCircle(true));
+    rerender(<RangePicker locale={enUS} value={[somePoint, somePoint]} allowClear={{}} />);
+    expect(getClearButton()).toBeTruthy();
   });
 });

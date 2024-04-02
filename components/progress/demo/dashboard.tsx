@@ -1,11 +1,11 @@
 import React from 'react';
-import { Progress, Space } from 'antd';
+import { Flex, Progress } from 'antd';
 
 const App: React.FC = () => (
-  <Space wrap>
+  <Flex gap="small" wrap="wrap">
     <Progress type="dashboard" percent={75} />
     <Progress type="dashboard" percent={75} gapDegree={30} />
-  </Space>
+  </Flex>
 );
 
 export default App;

@@ -1,5 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes, unit } from '@ant-design/cssinjs';
+
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
@@ -81,8 +82,6 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
         position: 'relative',
         width: '100%',
         fontSize: token.fontSize,
-        marginInlineEnd: token.marginXS,
-        marginBottom: token.marginXS,
       },
 
       [`${progressCls}-outer`]: {

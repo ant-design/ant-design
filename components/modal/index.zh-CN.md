@@ -1,15 +1,14 @@
 ---
 group: 反馈
 category: Components
-subtitle: 对话框
 title: Modal
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*wM3qQ5XrhlcAAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*fBrgSJBmavgAAAAAAAAAAAAADrJ8AQ/original
+subtitle: 对话框
+description: 展示一个对话框，提供标题、内容区、操作区。
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Z9vzQZAdJDQAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WtgsSLPa1Z4AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-模态对话框。
 
 ## 何时使用
 
@@ -54,7 +53,7 @@ demo:
 | cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | cancelText | 取消按钮文字 | ReactNode | `取消` |  |
 | centered | 垂直居中展示 Modal | boolean | false |  |
-| closeIcon | 自定义关闭图标。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | boolean \| ReactNode | &lt;CloseOutlined /> |  |
+| closeIcon | 自定义关闭图标。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | ReactNode | &lt;CloseOutlined /> |  |
 | confirmLoading | 确定按钮 loading | boolean | false |  |
 | destroyOnClose | 关闭时销毁 Modal 里的子元素 | boolean | false |  |
 | focusTriggerAfterClose | 对话框关闭后是否需要聚焦触发元素 | boolean | true | 4.9.0 |
@@ -104,7 +103,7 @@ demo:
 | cancelText | 设置 Modal.confirm 取消按钮文字 | string | `取消` |  |
 | centered | 垂直居中展示 Modal | boolean | false |  |
 | className | 容器类名 | string | - |  |
-| closable | 是否显示右上角的关闭按钮 | boolean | false | 4.9.0 |
+| closable | 是否显示右上角的关闭按钮 | boolean | true | 4.9.0 |
 | closeIcon | 自定义关闭图标 | ReactNode | undefined | 4.9.0 |
 | content | 内容 | ReactNode | - |  |
 | footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer: null` | (params:[footerRenderParams](/components/modal-cn#footerrenderparams))=> React.ReactNode \| React.ReactNode | - | 5.9.0 |
@@ -190,6 +189,10 @@ const confirmed = await modal.confirm({ ... });
 | --- | --- | --- | --- |
 | originNode | 默认节点 | React.ReactNode                   | -      |
 | extra      | 扩展选项 | { OkBtn: FC; CancelBtn: FC } | -      |
+
+### `styles` and `classNames` 属性
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

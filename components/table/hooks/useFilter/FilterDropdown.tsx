@@ -124,6 +124,7 @@ export interface FilterDropdownProps<RecordType> {
   dropdownPrefixCls: string;
   column: ColumnType<RecordType>;
   filterState?: FilterState<RecordType>;
+  filterOnClose: boolean;
   filterMultiple: boolean;
   filterMode?: 'menu' | 'tree';
   filterSearch?: FilterSearchType<ColumnFilterItem | TreeColumnFilterItem>;
@@ -147,6 +148,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     column,
     dropdownPrefixCls,
     columnKey,
+    filterOnClose,
     filterMultiple,
     filterMode = 'menu',
     filterSearch = false,
@@ -306,8 +308,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
       triggerVisible(newVisible);
 
-      // Default will filter when closed
-      if (!newVisible && !column.filterDropdown) {
+      if (!newVisible && !column.filterDropdown && filterOnClose) {
         onConfirm();
       }
     }
@@ -351,7 +352,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   if (typeof column.filterDropdown === 'function') {
     dropdownContent = column.filterDropdown({
       prefixCls: `${dropdownPrefixCls}-custom`,
-      setSelectedKeys: (selectedKeys: string[]) => onSelectKeys({ selectedKeys }),
+      setSelectedKeys: (selectedKeys) => onSelectKeys({ selectedKeys: selectedKeys as string[] }),
       selectedKeys: getFilteredKeysSync(),
       confirm: doFilter,
       clearFilters: onReset,
@@ -366,20 +367,21 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   } else {
     const selectedKeys = getFilteredKeysSync() || [];
     const getFilterComponent = () => {
+      const empty = (
+        <Empty
+          image={Empty.PRESENTED_IMAGE_SIMPLE}
+          description={locale.filterEmptyText}
+          imageStyle={{
+            height: 24,
+          }}
+          style={{
+            margin: 0,
+            padding: '16px 0',
+          }}
+        />
+      );
       if ((column.filters || []).length === 0) {
-        return (
-          <Empty
-            image={Empty.PRESENTED_IMAGE_SIMPLE}
-            description={locale.filterEmptyText}
-            imageStyle={{
-              height: 24,
-            }}
-            style={{
-              margin: 0,
-              padding: '16px 0',
-            }}
-          />
-        );
+        return empty;
       }
       if (filterMode === 'tree') {
         return (
@@ -412,7 +414,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
                 multiple={filterMultiple}
                 checkStrictly={!filterMultiple}
                 className={`${dropdownPrefixCls}-menu`}
-                onCheck={onCheck}
+                onCheck={onCheck as any}
                 checkedKeys={selectedKeys}
                 selectedKeys={selectedKeys}
                 showIcon={false}
@@ -434,6 +436,16 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
           </>
         );
       }
+      const items = renderFilterItems({
+        filters: column.filters || [],
+        filterSearch,
+        prefixCls,
+        filteredKeys: getFilteredKeysSync(),
+        filterMultiple,
+        searchValue,
+      });
+      const isEmpty = items.every((item) => item === null);
+
       return (
         <>
           <FilterSearch
@@ -443,26 +455,23 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
             tablePrefixCls={tablePrefixCls}
             locale={locale}
           />
-          <Menu
-            selectable
-            multiple={filterMultiple}
-            prefixCls={`${dropdownPrefixCls}-menu`}
-            className={dropdownMenuClass}
-            onSelect={onSelectKeys}
-            onDeselect={onSelectKeys}
-            selectedKeys={selectedKeys}
-            getPopupContainer={getPopupContainer}
-            openKeys={openKeys}
-            onOpenChange={onOpenChange}
-            items={renderFilterItems({
-              filters: column.filters || [],
-              filterSearch,
-              prefixCls,
-              filteredKeys: getFilteredKeysSync(),
-              filterMultiple,
-              searchValue,
-            })}
-          />
+          {isEmpty ? (
+            empty
+          ) : (
+            <Menu
+              selectable
+              multiple={filterMultiple}
+              prefixCls={`${dropdownPrefixCls}-menu`}
+              className={dropdownMenuClass}
+              onSelect={onSelectKeys}
+              onDeselect={onSelectKeys}
+              selectedKeys={selectedKeys}
+              getPopupContainer={getPopupContainer}
+              openKeys={openKeys}
+              onOpenChange={onOpenChange}
+              items={items}
+            />
+          )}
         </>
       );
     };

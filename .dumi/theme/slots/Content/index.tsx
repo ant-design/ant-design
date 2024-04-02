@@ -6,6 +6,7 @@ import { FormattedMessage, useRouteMeta } from 'dumi';
 
 import useLayoutState from '../../../hooks/useLayoutState';
 import useLocation from '../../../hooks/useLocation';
+import ComponentMeta from '../../builtins/ComponentMeta';
 import type { DemoContextProps } from '../DemoContext';
 import DemoContext from '../DemoContext';
 import SiteContext from '../SiteContext';
@@ -92,6 +93,16 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
             <DocMeta />
           </InViewSuspense>
           {!meta.frontmatter.__autoDescription && meta.frontmatter.description}
+
+          {/* Import Info */}
+          {meta.frontmatter.category === 'Components' &&
+            String(meta.frontmatter.showImport) !== 'false' && (
+              <ComponentMeta
+                component={meta.frontmatter.title}
+                source
+                filename={meta.frontmatter.filename}
+              />
+            )}
           <div style={{ minHeight: 'calc(100vh - 64px)' }}>{children}</div>
           <InViewSuspense>
             <ColumnCard
@@ -100,7 +111,7 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
               juejinLink={meta.frontmatter.juejin_url}
             />
           </InViewSuspense>
-          <InViewSuspense>
+          <InViewSuspense fallback={<div style={{ height: 50, marginTop: 120 }} />}>
             <Contributors filename={meta.frontmatter.filename} />
           </InViewSuspense>
         </article>

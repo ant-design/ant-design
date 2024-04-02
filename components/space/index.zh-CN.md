@@ -1,13 +1,12 @@
 ---
 category: Components
 group: 布局
-subtitle: 间距
 title: Space
+subtitle: 间距
+description: 设置组件之间的间距。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ZiJ3SbOH9SUAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAAAAAAAAAAAADrJ8AQ/original
 ---
-
-设置组件之间的间距。
 
 ## 何时使用
 
@@ -48,9 +47,11 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | align | 对齐方式 | `start` \| `end` \|`center` \|`baseline` | - | 4.2.0 |
+| classNames | 语义化 className | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | direction | 间距方向 | `vertical` \| `horizontal` | `horizontal` | 4.1.0 |
 | size | 间距大小 | [Size](#size) \| [Size\[\]](#size) | `small` | 4.1.0 \| Array: 4.9.0 |
 | split | 设置拆分 | ReactNode | - | 4.7.0 |
+| styles | 语义化 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
 | wrap | 是否自动换行，仅在 `horizontal` 时有效 | boolean | false | 4.9.0 |
 
 ### Size
@@ -79,12 +80,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 | direction | 指定排列方向 | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
 | size | 子组件大小 | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
 
-### `styles` 和 `classNames` 属性
+## Semantic DOM
 
-<!-- prettier-ignore -->
-| 名称 | 说明  | 版本  |
-| ---- | --------------------- | ----- |
-| item | 设置 `Space` 包裹的子组件 | 5.6.0 |
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

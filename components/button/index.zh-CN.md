@@ -2,16 +2,15 @@
 category: Components
 title: Button
 subtitle: 按钮
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*BrFMQ5s7AAQAAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Lp1kTYmSsgoAAAAAAAAAAAAADrJ8AQ/original
+description: 按钮用于开始一个即时操作。
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*7va7RKs3YzIAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3T4cRqxH9-8AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 group:
   title: 通用
   order: 1
 ---
-
-按钮用于开始一个即时操作。
 
 ## 何时使用
 
@@ -64,7 +63,7 @@ group:
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | block | 将按钮宽度调整为其父宽度的选项 | boolean | false |  |
-| classNames | 语义化结构 class | Record<SemanticDOM, string> | - | 5.4.0 |
+| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.4.0 |
 | danger | 设置危险按钮 | boolean | false |  |
 | disabled | 设置按钮失效状态 | boolean | false |  |
 | ghost | 幽灵属性，使按钮背景透明 | boolean | false |  |
@@ -74,18 +73,16 @@ group:
 | loading | 设置按钮载入状态 | boolean \| { delay: number } | false |  |
 | shape | 设置按钮形状 | `default` \| `circle` \| `round` | `default` |  |
 | size | 设置按钮大小 | `large` \| `middle` \| `small` | `middle` |  |
-| styles | 语义化结构 style | Record<SemanticDOM, CSSProperties> | - | 5.4.0 |
+| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.4.0 |
 | target | 相当于 a 链接的 target 属性，href 存在时生效 | string | - |  |
 | type | 设置按钮类型 | `primary` \| `dashed` \| `link` \| `text` \| `default` | `default` |  |
 | onClick | 点击按钮时的回调 | (event: MouseEvent) => void | - |  |
 
 支持原生 button 的其他所有属性。
 
-### `styles` 和 `classNames` 属性
+## Semantic DOM
 
-| 名称 | 说明         | 版本  |
-| ---- | ------------ | ----- |
-| icon | 设置图标元素 | 5.5.0 |
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 
@@ -93,11 +90,21 @@ group:
 
 ## FAQ
 
+### 如何关闭点击波纹效果？
+
+如果你不需要这个特性，可以设置 [ConfigProvider](/components/config-provider-cn#api) 的 `wave` 的 `disabled` 为 `true`。
+
+```jsx
+<ConfigProvider wave={{ disabled: true }}>
+  <Button>click</Button>
+</ConfigProvider>
+```
+
 ### 如何移除两个汉字之间的空格？
 
-根据 Ant Design 设计规范要求，我们会在按钮内(文本按钮和链接按钮除外)只有两个汉字时自动添加空格，如果你不需要这个特性，可以设置 [ConfigProvider](/components/config-provider-cn#api) 的 `autoInsertSpaceInButton` 为 `false`。
+根据 Ant Design 设计规范要求，我们会在按钮内（文本按钮和链接按钮除外）只有两个汉字时自动添加空格，如果你不需要这个特性，可以设置 [ConfigProvider](/components/config-provider-cn#api) 的 `autoInsertSpaceInButton` 为 `false`。
 
-```tsx
+```jsx
 <ConfigProvider autoInsertSpaceInButton={false}>
   <Button>按钮</Button>
 </ConfigProvider>

@@ -25,10 +25,9 @@ import Pagination from '../pagination';
 import type { SpinProps } from '../spin';
 import Spin from '../spin';
 import { useToken } from '../theme/internal';
-import type { TooltipProps } from '../tooltip';
 import renderExpandIcon from './ExpandIcon';
 import useContainerWidth from './hooks/useContainerWidth';
-import type { FilterState } from './hooks/useFilter';
+import type { FilterConfig, FilterState } from './hooks/useFilter';
 import useFilter, { getFilterData } from './hooks/useFilter';
 import useLazyKVMap from './hooks/useLazyKVMap';
 import usePagination, { DEFAULT_PAGE_SIZE, getPaginationParam } from './hooks/usePagination';
@@ -47,6 +46,7 @@ import type {
   GetRowKey,
   RefInternalTable,
   SorterResult,
+  SorterTooltipProps,
   SortOrder,
   TableAction,
   TableCurrentDataSource,
@@ -116,7 +116,7 @@ export interface TableProps<RecordType = any>
     scrollToFirstRowOnChange?: boolean;
   };
   sortDirections?: SortOrder[];
-  showSorterTooltip?: boolean | TooltipProps;
+  showSorterTooltip?: boolean | SorterTooltipProps;
   virtual?: boolean;
 }
 
@@ -151,7 +151,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     scroll,
     sortDirections,
     locale,
-    showSorterTooltip = true,
+    showSorterTooltip = { target: 'full-header' },
     virtual,
   } = props;
 
@@ -177,7 +177,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const screens = useBreakpoint(needResponsive);
 
   const mergedColumns = React.useMemo(() => {
-    const matched = new Set(Object.keys(screens).filter((m: Breakpoint) => screens[m]));
+    const matched = new Set(Object.keys(screens).filter((m) => screens[m as Breakpoint]));
 
     return baseColumns.filter(
       (c) => !c.responsive || c.responsive.some((r: Breakpoint) => matched.has(r)),
@@ -226,9 +226,9 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     return null;
   }, [rawData]);
 
-  const internalRefs = {
+  const internalRefs: NonNullable<RcTableProps['internalRefs']> = {
     body: React.useRef<HTMLDivElement>(),
-  };
+  } as NonNullable<RcTableProps['internalRefs']>;
 
   // ============================ Width =============================
   const getContainerWidth = useContainerWidth(prefixCls);
@@ -248,7 +248,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
       return rowKey;
     }
 
-    return (record: RecordType) => (record as any)?.[rowKey as string];
+    return (record: RecordType) => record?.[rowKey as string];
   }, [rowKey]);
 
   const [getRecordByKey] = useLazyKVMap(rawData, childrenColumnName, getRowKey);
@@ -334,18 +334,8 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   changeEventInfo.sorterStates = sortStates;
 
   // ============================ Filter ============================
-  const onFilterChange = (
-    filters: Record<string, FilterValue>,
-    filterStates: FilterState<RecordType>[],
-  ) => {
-    triggerOnChange(
-      {
-        filters,
-        filterStates,
-      },
-      'filter',
-      true,
-    );
+  const onFilterChange: FilterConfig<RecordType>['onFilterChange'] = (filters, filterStates) => {
+    triggerOnChange({ filters, filterStates }, 'filter', true);
   };
 
   const [transformFilterColumns, filterStates, filters] = useFilter<RecordType>({
@@ -619,8 +609,8 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           emptyText={emptyText}
           // Internal
           internalHooks={INTERNAL_HOOKS}
-          internalRefs={internalRefs as any}
-          transformColumns={transformColumns as RcTableProps<RecordType>['transformColumns']}
+          internalRefs={internalRefs}
+          transformColumns={transformColumns as any}
           getContainerWidth={getContainerWidth}
         />
         {bottomPaginationNode}
@@ -629,4 +619,4 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   );
 };
 
-export default React.forwardRef(InternalTable) as RefInternalTable;
+export default React.forwardRef(InternalTable as any) as RefInternalTable;

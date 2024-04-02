@@ -1,11 +1,12 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
+
 import type { DrawerProps } from '..';
 import Drawer from '..';
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
-import { resetWarned } from '../../_util/warning';
 import ConfigProvider from '../../config-provider';
 
 const DrawerTest: React.FC<DrawerProps> = ({ getContainer }) => (
@@ -243,7 +244,7 @@ describe('Drawer', () => {
       errorSpy.mockRestore();
     });
 
-    it('should hide close button when closeIcon is null or false', async () => {
+    it('should hide close button when closeIcon is null or false', () => {
       const { baseElement, rerender } = render(
         <Drawer open closeIcon={null}>
           Here is content of Drawer
@@ -310,7 +311,7 @@ describe('Drawer', () => {
       expect(baseElement.querySelector('.anticon-close')).not.toBeNull();
     });
 
-    it('match between styles and deprecated style prop', async () => {
+    it('match between styles and deprecated style prop', () => {
       const initialFontSize = 10;
       let fontSize1 = initialFontSize;
       let fontSize2 = initialFontSize;
@@ -360,5 +361,21 @@ describe('Drawer', () => {
       }
       expect(container1.outerHTML).toEqual(container2.outerHTML);
     });
+  });
+  it('should support aria-* and closeIcon by closable', () => {
+    const { baseElement } = render(
+      <Drawer
+        open
+        closable={{
+          'aria-label': 'Close',
+          closeIcon: <span className="custom-close">Close</span>,
+        }}
+      >
+        Here is content of Drawer
+      </Drawer>,
+    );
+    expect(baseElement.querySelector('.ant-drawer-close')).not.toBeNull();
+    expect(baseElement.querySelector('.custom-close')).not.toBeNull();
+    expect(baseElement.querySelector('*[aria-label="Close"]')).not.toBeNull();
   });
 });

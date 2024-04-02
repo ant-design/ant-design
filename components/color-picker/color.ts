@@ -11,16 +11,21 @@ export interface Color
   extends Pick<
     RcColor,
     'toHsb' | 'toHsbString' | 'toHex' | 'toHexString' | 'toRgb' | 'toRgbString'
-  > {}
+  > {
+  cleared: boolean | 'controlled';
+}
 
-export class ColorFactory {
+export class ColorFactory implements Color {
   /** Original Color object */
   private metaColor: RcColor;
+
+  public cleared: boolean = false;
 
   constructor(color: ColorGenInput<Color>) {
     this.metaColor = new RcColor(color as ColorGenInput);
     if (!color) {
       this.metaColor.setAlpha(0);
+      this.cleared = true;
     }
   }
 

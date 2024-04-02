@@ -1,15 +1,14 @@
 ---
 group: 反馈
 category: Components
-subtitle: 抽屉
 title: Drawer
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*v3TvSq2E0HAAAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*4wzwRIBLuqEAAAAAAAAAAAAADrJ8AQ/original
+subtitle: 抽屉
+description: 屏幕边缘滑出的浮层面板。
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*BD2JSKm8I-kAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*r29rQ51bNdwAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-屏幕边缘滑出的浮层面板。
 
 ## 何时使用
 
@@ -47,12 +46,11 @@ v5 使用 `rootClassName` 与 `rootStyle` 来配置最外层元素样式。原 v
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| autoFocus | 抽屉展开后是否将焦点切换至其 Dom 节点 | boolean | true | 4.17.0 |
+| autoFocus | 抽屉展开后是否将焦点切换至其 DOM 节点 | boolean | true | 4.17.0 |
 | afterOpenChange | 切换抽屉时动画结束后的回调 | function(open) | - |  |
 | className | Drawer 容器外层 className 设置，如果需要设置最外层，请使用 rootClassName | string | - |  |
-| classNames | 配置抽屉内置模块的 className | `header?: string; body?: string; footer?: string; mask?: string; content?: string; wrapper?: string;` | - |  |
-| styles | 配置抽屉内置模块的 style | `header?: CSSProperties; body?: CSSProperties; footer?: CSSProperties; mask?: CSSProperties; content?: CSSProperties; wrapper?: CSSProperties;` | - | 5.10.0 |
-| closeIcon | 自定义关闭图标。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | boolean \| ReactNode | &lt;CloseOutlined /> |  |
+| classNames | 语义化结构 className | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.10.0 |
+| closeIcon | 自定义关闭图标。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | ReactNode | &lt;CloseOutlined /> |  |
 | destroyOnClose | 关闭时销毁 Drawer 里的子元素 | boolean | false |  |
 | extra | 抽屉右上角的操作区域 | ReactNode | - | 4.17.0 |
 | footer | 抽屉的页脚 | ReactNode | - |  |
@@ -67,11 +65,16 @@ v5 使用 `rootClassName` 与 `rootStyle` 来配置最外层元素样式。原 v
 | rootStyle | 可用于设置 Drawer 最外层容器的样式，和 `style` 的区别是作用节点包括 `mask` | CSSProperties | - |  |
 | size | 预设抽屉宽度（或高度），default `378px` 和 large `736px` | 'default' \| 'large' | 'default' | 4.17.0 |
 | style | 设计 Drawer 容器样式，如果你只需要设置内容部分请使用 `bodyStyle` | CSSProperties | - |  |
+| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.10.0 |
 | title | 标题 | ReactNode | - |  |
 | open | Drawer 是否可见 | boolean | - |
 | width | 宽度 | string \| number | 378 |  |
 | zIndex | 设置 Drawer 的 `z-index` | number | 1000 |  |
 | onClose | 点击遮罩层或左上角叉或取消按钮的回调 | function(e) | - |  |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

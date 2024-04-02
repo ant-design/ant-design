@@ -70,5 +70,5 @@ hash 是 Ant Design 5.0 以来的特性之一，其功能是为每一份主题�
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| prefix | CSS 变量的前缀 | string | `ant` | 5.12.0 |
+| prefix | CSS 变量的前缀，默认与 ConfigProvider 上配置的 `prefixCls` 相同。 | string | `ant` | 5.12.0 |
 | key | 当前主题的唯一识别 key. 在 React 18 中会默认用 `useId` 填充，小于 React 18 的版本需要手动填充。 | string | `useId` in React 18 | 5.12.0 |
