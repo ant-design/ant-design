@@ -392,3 +392,32 @@ return <Table rowKey={(record) => record.uid} />;
 ### 为什么 components.body.wrapper 在 virtual 开启时会报错？
 
 因为虚拟表格需要获取其 ref 做一些计算，所以你需要使用 `React.forwardRef` 包裹并传递 ref 到 dom。
+
+### dataIndex 类型报错了？
+
+因为在 5.16.0 版本，支持了泛型对 `dataIndex` 属性校验，`dataIndex` 的值必须在 `FieldType` 内，如果不在则会提示错误，如果需要禁用属性校验，可进行如下配置
+
+```tsx
+interface AnyFieldType {
+  [key: number]: AnyFieldType;
+  [key: string]: AnyFieldType;
+}
+
+declare module 'rc-table' {
+  export interface DataIndexExtendProps extends AnyFieldType {}
+}
+
+export const Demo = () => <Table columns={[{ dataIndex: 'name' }]} />;
+```
+
+如果只是想单独对某些属性忽略，可进行如下配置
+
+```tsx
+declare module 'rc-table' {
+  export interface DataIndexExtendProps {
+    more?: string;
+  }
+}
+
+export const Demo = () => <Table columns={[{ dataIndex: 'more' }]} />;
+```
