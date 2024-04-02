@@ -73,7 +73,7 @@ const runPrePublish = async () => {
     conclusions.includes('timed_out')
   ) {
     spinner.fail('远程分支 CI 执行异常，无法继续发布，请尝试修复或重试');
-    spinner.info(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${headCommitSha}`);
+    spinner.info(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${latest.hash}`);
     process.exit(1);
   }
   const statuses = result.data.check_runs.map((run) => run.status);
@@ -83,7 +83,7 @@ const runPrePublish = async () => {
     statuses.includes('in_progress')
   ) {
     spinner.fail('远程分支 CI 还在执行中，请稍候再试');
-    spinner.info(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${headCommitSha}`);
+    spinner.info(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${latest.hash}`);
     process.exit(1);
   }
 
