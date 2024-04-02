@@ -1,6 +1,4 @@
-import * as React from 'react';
-import type { FC } from 'react';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { Badge, Carousel, Skeleton, Typography } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import classNames from 'classnames';
@@ -46,10 +44,10 @@ const useStyle = createStyles(({ token, css, cx }) => {
     `,
     container: css`
       display: flex;
-      max-width: 1208px;
+      width: 100%;
+      max-width: 100%;
       margin-inline: auto;
       box-sizing: border-box;
-      padding-inline: ${token.marginXXL}px;
       column-gap: ${token.paddingMD * 2}px;
       align-items: stretch;
       text-align: start;
@@ -107,7 +105,7 @@ const RecommendItem: React.FC<RecommendItemProps> = ({ extra, index, icons, clas
   return card;
 };
 
-export const BannerRecommendsFallback: FC = () => {
+export const BannerRecommendsFallback: React.FC = () => {
   const { isMobile } = useContext(SiteContext);
   const { styles } = useStyle();
 
@@ -145,34 +143,34 @@ const BannerRecommends: React.FC = () => {
     return <BannerRecommendsFallback />;
   }
 
-  return (
-    <div>
-      {isMobile ? (
-        <Carousel className={styles.carousel}>
-          {first3.map((extra, index) => (
-            <div key={index}>
-              <RecommendItem
-                extra={extra}
-                index={index}
-                icons={icons}
-                className={styles.sliderItem}
-              />
-            </div>
-          ))}
-        </Carousel>
-      ) : (
-        <div className={styles.container}>
-          {first3.map((extra, index) => (
+  if (isMobile) {
+    return (
+      <Carousel className={styles.carousel}>
+        {first3.map((extra, index) => (
+          <div key={index}>
             <RecommendItem
               extra={extra}
               index={index}
               icons={icons}
-              className={styles.cardItem}
-              key={index}
+              className={styles.sliderItem}
             />
-          ))}
-        </div>
-      )}
+          </div>
+        ))}
+      </Carousel>
+    );
+  }
+
+  return (
+    <div className={styles.container}>
+      {first3.map((extra, index) => (
+        <RecommendItem
+          extra={extra}
+          index={index}
+          icons={icons}
+          className={styles.cardItem}
+          key={index}
+        />
+      ))}
     </div>
   );
 };

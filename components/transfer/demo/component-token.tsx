@@ -104,7 +104,7 @@ const leftTableColumns: TableColumnsType<DataType> = [
   },
 ];
 
-const rightTableColumns: TableColumnsType<Pick<DataType, 'title'>> = [
+const rightTableColumns: TableColumnsType<DataType> = [
   {
     dataIndex: 'title',
     title: 'Name',
@@ -141,7 +141,7 @@ const App: React.FC = () => {
   const [disabled, setDisabled] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
 
-  const secondOnChange = (nextTargetKeys: string[]) => {
+  const secondOnChange: TransferProps['onChange'] = (nextTargetKeys) => {
     setTargetKeys(nextTargetKeys);
   };
 

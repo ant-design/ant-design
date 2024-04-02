@@ -736,9 +736,12 @@ describe('Transfer', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const App: React.FC = () => {
-      const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
+      const [selectedKeys, setSelectedKeys] = useState<TransferProps['selectedKeys']>([]);
 
-      const onSelectChange = (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => {
+      const onSelectChange: TransferProps['onSelectChange'] = (
+        sourceSelectedKeys,
+        targetSelectedKeys,
+      ) => {
         setSelectedKeys([...sourceSelectedKeys, ...targetSelectedKeys]);
       };
 
@@ -777,7 +780,7 @@ describe('immutable data', () => {
   it('prevent error when reset data in some cases', () => {
     const App: React.FC = () => {
       const [mockData, setMockData] = useState<DefaultRecordType[]>([]);
-      const [targetKeys, setTargetKeys] = useState<string[]>([]);
+      const [targetKeys, setTargetKeys] = useState<TransferProps['targetKeys']>([]);
 
       const getMock = () => {
         const tempTargetKeys = [];
@@ -802,7 +805,7 @@ describe('immutable data', () => {
         getMock();
       }, []);
 
-      const handleChange = (newTargetKeys: string[]) => {
+      const handleChange: TransferProps['onChange'] = (newTargetKeys) => {
         setTargetKeys(newTargetKeys);
       };
 

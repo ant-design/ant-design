@@ -31,7 +31,7 @@ const columns: TableColumnsType<DataType> = [
         value: 'John',
       },
     ],
-    onFilter: (value: string, record) => record.name.indexOf(value) === 0,
+    onFilter: (value, record) => record.name.indexOf(value as string) === 0,
   },
   {
     title: 'Other',

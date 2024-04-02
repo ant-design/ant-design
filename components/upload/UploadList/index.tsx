@@ -13,7 +13,7 @@ import { cloneElement } from '../../_util/reactNode';
 import type { ButtonProps } from '../../button';
 import Button from '../../button';
 import { ConfigContext } from '../../config-provider';
-import type { InternalUploadFile, UploadFile, UploadListProps } from '../interface';
+import type { UploadFile, UploadListProps } from '../interface';
 import { isImageUrl, previewImage } from '../utils';
 import ListItem from './ListItem';
 
@@ -57,18 +57,17 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
     if (listType !== 'picture' && listType !== 'picture-card' && listType !== 'picture-circle') {
       return;
     }
-    (items || []).forEach((file: InternalUploadFile) => {
+    (items || []).forEach((file) => {
       if (
         typeof document === 'undefined' ||
         typeof window === 'undefined' ||
         !(window as any).FileReader ||
         !(window as any).File ||
-        !(file.originFileObj instanceof File || (file.originFileObj as Blob) instanceof Blob) ||
+        !(file.originFileObj instanceof File || file.originFileObj) ||
         file.thumbUrl !== undefined
       ) {
         return;
       }
-      file.thumbUrl = '';
       if (previewFile) {
         previewFile(file.originFileObj as File).then((previewDataUrl: string) => {
           // Need append '' to avoid dead loop

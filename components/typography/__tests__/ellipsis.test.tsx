@@ -21,10 +21,10 @@ describe('Typography.Ellipsis', () => {
   let offsetWidth: number;
   let scrollWidth: number;
 
-  function getContentHeight(elem?: HTMLElement) {
+  function getContentHeight(this: { get: (elem?: HTMLElement) => number }, elem?: HTMLElement) {
     const regex = /<[^>]*>/g;
 
-    let html = (elem || this).innerHTML;
+    let html = (elem || (this as any)).innerHTML;
     html = html.replace(regex, '');
     const lines = Math.ceil(html.length / LINE_STR_COUNT);
     return lines * LINE_HEIGHT;
@@ -44,8 +44,10 @@ describe('Typography.Ellipsis', () => {
       },
       clientHeight: {
         get() {
-          const { WebkitLineClamp } = this.style;
-          return WebkitLineClamp ? Number(WebkitLineClamp) * LINE_HEIGHT : getContentHeight(this);
+          const { WebkitLineClamp } = (this as any).style;
+          return WebkitLineClamp
+            ? Number(WebkitLineClamp) * LINE_HEIGHT
+            : (getContentHeight as any)(this);
         },
       },
     });
@@ -452,7 +454,7 @@ describe('Typography.Ellipsis', () => {
     mockRectSpy = spyElementPrototypes(HTMLElement, {
       scrollHeight: {
         get() {
-          let html = this.innerHTML;
+          let html = (this as any).innerHTML;
           html = html.replace(/<[^>]*>/g, '');
           const lines = Math.ceil(html.length / LINE_STR_COUNT);
           return lines * 16;
