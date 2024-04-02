@@ -41,8 +41,6 @@ export default function useForm<Values = any>(form?: FormInstance<Values>): [For
           },
         },
         scrollToField: (name: NamePath, options: ScrollOptions = {}) => {
-          const namePath = toArray(name);
-
           let node: HTMLElement | null = null;
           const fieldRef = wrapForm.getFieldInstance(name);
 
@@ -55,7 +53,7 @@ export default function useForm<Values = any>(form?: FormInstance<Values>): [For
           } else if (fieldRef?.nativeElement instanceof HTMLElement) {
             node = fieldRef.nativeElement;
           } else {
-            const fieldId = getFieldId(namePath, wrapForm.__INTERNAL__.name);
+            const fieldId = getFieldId(toArray(name), wrapForm.__INTERNAL__.name);
             if (fieldId) {
               node = document.getElementById(fieldId);
             }
