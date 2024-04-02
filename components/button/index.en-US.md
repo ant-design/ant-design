@@ -35,7 +35,7 @@ And 4 other properties additionally.
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Type</code>
 <code src="./demo/icon.tsx">Icon</code>
-<code src="./demo/icon-position.tsx" version="5.16.0">Icon Position</code>
+<code src="./demo/icon-position.tsx" version="5.17.0">Icon Position</code>
 <code src="./demo/debug-icon.tsx" debug>Debug Icon</code>
 <code src="./demo/debug-block.tsx" debug>Debug Block</code>
 <code src="./demo/size.tsx">Size</code>
