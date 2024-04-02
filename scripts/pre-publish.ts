@@ -4,6 +4,24 @@ import ora from 'ora';
 const simpleGit = require('simple-git');
 const { Notification: Notifier } = require('node-notifier');
 
+const emojify = (status: string) => {
+  const emoji = {
+    /* status */
+    completed: '☑️',
+    queued: '🕒',
+    in_progress: '🕒',
+    /* conclusion */
+    success: '✅',
+    failure: '❌',
+    neutral: '⚪',
+    cancelled: '❌',
+    skipped: '⏭️',
+    timed_out: '⌛',
+    action_required: '🔴',
+  }[status];
+  return `${emoji || ''} ${status.padEnd(10)}`;
+};
+
 const runPrePublish = async () => {
   const git = simpleGit();
   const octokit = new Octokit({ auth: process.env.GITHUB_ACCESS_TOKEN });
@@ -15,7 +33,6 @@ const runPrePublish = async () => {
     process.exit(1);
   }
   */
-
   spinner.text = '正在检查本地 git 状态';
   const status = await git.status();
   if (!status.isClean()) {
@@ -35,21 +52,31 @@ const runPrePublish = async () => {
   const owner = 'ant-design';
   const repo = 'ant-design';
   spinner.start(`开始检查远程分支 CI 状态 ${currentBranch}`);
-  const result = await octokit.repos.getCombinedStatusForRef({
+  const result = await octokit.checks.listForRef({
     owner,
     repo,
     ref: headCommitSha,
   });
-  if (result.data.state === 'pending') {
-    spinner.fail('远程分支 CI 还在执行中，请稍候');
-    spinner.info(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${headCommitSha}`);
-    process.exit(1);
-  }
-  if (result.data.state !== 'success' || result.data.statuses.length === 0) {
+  result.data.check_runs.forEach((run) => {
+    spinner.info(` ${run.name.padEnd(30)} ${emojify(run.status)} ${emojify(run.conclusion)}`);
+  });
+  const conclusions = result.data.check_runs.map((run) => run.conclusion);
+  if (
+    conclusions.includes('failure') ||
+    conclusions.includes('cancelled') ||
+    conclusions.includes('timed_out')
+  ) {
     spinner.fail('远程分支 CI 执行异常，无法继续发布，请尝试修复或重试');
     spinner.info(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${headCommitSha}`);
     process.exit(1);
   }
+  const statuses = result.data.check_runs.map((run) => run.status);
+  if (statuses.includes('queued') || statuses.includes('in_progress')) {
+    spinner.fail('远程分支 CI 还在执行中，请稍候');
+    spinner.info(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${headCommitSha}`);
+    process.exit(1);
+  }
+
   // 远程分支 CI 跑过才能继续
   spinner.succeed(`远程分支 CI 已通过，准备开始发布`);
   new Notifier().notify({
