@@ -45,9 +45,9 @@ const runPrePublish = async () => {
   await git.push('origin', currentBranch);
   spinner.succeed(`成功推送远程分支 ${currentBranch}`);
   spinner.succeed(`已经和远程分支保持同步 ${currentBranch}`);
-  const headCommitSha = await git.revparse('HEAD');
-  spinner.succeed(`找到本地最新 commit: ${headCommitSha}`);
-  const { latest } = await git.log('-1');
+  spinner.succeed(`找到本地最新 commit:`);
+  const { latest } = await git.log();
+  spinner.info(`  hash: ${latest.hash}`);
   spinner.info(`  date: ${latest.date}`);
   spinner.info(`  message: ${latest.message}`);
   spinner.info(`  body: ${latest.body}`);
@@ -58,7 +58,7 @@ const runPrePublish = async () => {
   const result = await octokit.checks.listForRef({
     owner,
     repo,
-    ref: headCommitSha,
+    ref: latest.hash,
   });
   spinner.succeed(`远程分支 CI 状态：`);
   result.data.check_runs.forEach((run) => {
