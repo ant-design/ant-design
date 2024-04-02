@@ -9,7 +9,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*duAQQbjHlHQAAA
 demo:
   cols: 1
 version: 5.1.0
-tag: New
 ---
 
 自 `5.1.0` 版本开始提供该组件。

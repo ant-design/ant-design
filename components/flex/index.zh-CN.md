@@ -7,7 +7,6 @@ description: 用于对齐的弹性布局容器。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*SMzgSJZE_AwAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8yArQ43EGccAAAAAAAAAAAAADrJ8AQ/original
 version: 5.10.0
-tag: New
 ---
 
 自 `5.10.0` 版本开始提供该组件。

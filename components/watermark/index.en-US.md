@@ -8,7 +8,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*duAQQbjHlHQAAA
 demo:
   cols: 1
 version: 5.1.0
-tag: New
 ---
 
 Available since `5.1.0`.

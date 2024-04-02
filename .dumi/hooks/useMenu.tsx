@@ -1,10 +1,23 @@
 import React, { useMemo } from 'react';
 import type { MenuProps } from 'antd';
-import { Tag } from 'antd';
+import { Tag, version } from 'antd';
+import { createStyles } from 'antd-style';
+import classnames from 'classnames';
 import { useFullSidebarData, useSidebarData } from 'dumi';
 
 import Link from '../theme/common/Link';
 import useLocation from './useLocation';
+
+const useStyle = createStyles(({ css }) => ({
+  link: css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  `,
+  tag: css`
+    margin-inline-end: 0;
+  `,
+}));
 
 interface MenuItemLabelProps {
   before?: React.ReactNode;
@@ -30,26 +43,31 @@ const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
     version: componentVersion = '',
     className,
   } = props;
+  const { styles } = useStyle();
   if (!before && !after) {
     return (
       <Link
         to={`${link}${search}`}
-        style={
-          componentVersion
-            ? { display: 'flex', alignItems: 'center', justifyContent: 'space-between' }
-            : undefined
-        }
-        className={className}
+        className={classnames(className, { [styles.link]: tag || componentVersion })}
       >
         <span>
           {title}
           {subtitle && <span className="chinese">{subtitle}</span>}
         </span>
-        {componentVersion && (
+        {tag && (
           <Tag
             bordered={false}
             color={tag === 'New' ? 'success' : 'processing'}
-            style={{ marginInlineEnd: 0 }}
+            className={styles.tag}
+          >
+            {tag.replace('VERSION', version)}
+          </Tag>
+        )}
+        {componentVersion && (
+          <Tag
+            bordered={false}
+            color={componentVersion ? 'success' : 'processing'}
+            className={styles.tag}
           >
             V {componentVersion}
           </Tag>
