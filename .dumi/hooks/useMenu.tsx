@@ -1,12 +1,25 @@
 import React, { useMemo } from 'react';
 import type { MenuProps } from 'antd';
 import { Tag, version } from 'antd';
+import { createStyles } from 'antd-style';
+import classnames from 'classnames';
 import { useFullSidebarData, useSidebarData } from 'dumi';
 
 import Link from '../theme/common/Link';
 import useLocation from './useLocation';
 
-const MenuItemLabelWithTag: React.FC<{
+const useStyle = createStyles(({ css }) => ({
+  link: css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  `,
+  tag: css`
+    margin-inline-end: 0;
+  `,
+}));
+
+interface MenuItemLabelProps {
   before?: React.ReactNode;
   after?: React.ReactNode;
   link: string;
@@ -15,18 +28,14 @@ const MenuItemLabelWithTag: React.FC<{
   search?: string;
   tag?: string;
   className?: string;
-}> = ({ before, after, link, title, subtitle, search, tag = '', className }) => {
+}
+
+const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
+  const { styles } = useStyle();
+  const { before, after, link, title, subtitle, search, tag, className } = props;
   if (!before && !after) {
     return (
-      <Link
-        to={`${link}${search}`}
-        style={
-          tag
-            ? { display: 'flex', alignItems: 'center', justifyContent: 'space-between' }
-            : undefined
-        }
-        className={className}
-      >
+      <Link to={`${link}${search}`} className={classnames(className, { [styles.link]: tag })}>
         <span>
           {title}
           {subtitle && <span className="chinese">{subtitle}</span>}
@@ -34,8 +43,8 @@ const MenuItemLabelWithTag: React.FC<{
         {tag && (
           <Tag
             bordered={false}
-            color={tag === 'New' ? 'success' : 'processing'}
-            style={{ marginBlockEnd: 0 }}
+            className={classnames(styles.tag)}
+            color={tag.startsWith('5.') || tag === 'New' ? 'success' : 'processing'}
           >
             {tag.replace('VERSION', version)}
           </Tag>
