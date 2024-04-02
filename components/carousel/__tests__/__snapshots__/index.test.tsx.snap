@@ -36,38 +36,10 @@ exports[`Carousel should works for dotPosition bottom 1`] = `
         style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
       >
         <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="-1"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            />
-          </div>
-        </div>
-        <div
           aria-hidden="false"
           class="slick-slide slick-active slick-current"
           data-index="0"
           style="outline: none; width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            />
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="1"
-          style="width: 0px;"
           tabindex="-1"
         >
           <div>
@@ -112,38 +84,10 @@ exports[`Carousel should works for dotPosition left 1`] = `
         style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
       >
         <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="-1"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            />
-          </div>
-        </div>
-        <div
           aria-hidden="false"
           class="slick-slide slick-active slick-current"
           data-index="0"
           style="outline: none; width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            />
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="1"
-          style="width: 0px;"
           tabindex="-1"
         >
           <div>
@@ -188,38 +132,10 @@ exports[`Carousel should works for dotPosition right 1`] = `
         style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
       >
         <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="-1"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            />
-          </div>
-        </div>
-        <div
           aria-hidden="false"
           class="slick-slide slick-active slick-current"
           data-index="0"
           style="outline: none; width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            />
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="1"
-          style="width: 0px;"
           tabindex="-1"
         >
           <div>
@@ -263,38 +179,10 @@ exports[`Carousel should works for dotPosition top 1`] = `
         style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
       >
         <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="-1"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            />
-          </div>
-        </div>
-        <div
           aria-hidden="false"
           class="slick-slide slick-active slick-current"
           data-index="0"
           style="outline: none; width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            />
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="1"
-          style="width: 0px;"
           tabindex="-1"
         >
           <div>
