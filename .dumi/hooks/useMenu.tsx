@@ -65,7 +65,7 @@ const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
         )}
         {componentVersion && (
           <Tag bordered={false} className={styles.tag} color="success">
-            v {componentVersion}
+            v{componentVersion}
           </Tag>
         )}
       </Link>
