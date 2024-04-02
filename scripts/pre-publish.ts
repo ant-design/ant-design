@@ -11,9 +11,9 @@ const emojify = (status: string = '') => {
   }
   const emoji = {
     /* status */
-    completed: '☑️',
+    completed: '✅',
     queued: '🕒',
-    in_progress: '🕒',
+    in_progress: '⌛',
     /* conclusion */
     success: '✅',
     failure: '❌',
@@ -23,7 +23,7 @@ const emojify = (status: string = '') => {
     timed_out: '⌛',
     action_required: '🔴',
   }[status];
-  return `${emoji || ''} ${(status || '').padEnd(10)}`;
+  return `${emoji || ''} ${(status || '').padEnd(15)}`;
 };
 
 const runPrePublish = async () => {
