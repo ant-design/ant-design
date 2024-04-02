@@ -1,5 +1,6 @@
 import { Octokit } from '@octokit/rest';
 import ora from 'ora';
+import chalk from 'chalk';
 
 const simpleGit = require('simple-git');
 const { Notification: Notifier } = require('node-notifier');
@@ -24,7 +25,7 @@ const emojify = (status: string = '') => {
 
 const runPrePublish = async () => {
   const spinner = ora('Loading unicorns').start();
-  spinner.info('本次发布将跳过本地 CI 检查，远程 CI 通过后方可发布');
+  spinner.info(chalk.black.bgGreenBright('本次发布将跳过本地 CI 检查，远程 CI 通过后方可发布'));
   const git = simpleGit();
   if (!process.env.GITHUB_ACCESS_TOKEN) {
     spinner.fail(
