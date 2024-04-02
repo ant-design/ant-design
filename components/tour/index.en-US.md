@@ -10,8 +10,6 @@ demo:
 tag: 5.0.0
 ---
 
-Available since `5.0.0`.
-
 ## When To Use
 
 Use when you want to guide users through a product.

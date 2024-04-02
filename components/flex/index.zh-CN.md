@@ -9,8 +9,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8yArQ43EGccAAA
 tag: 5.10.0
 ---
 
-自 `5.10.0` 版本开始提供该组件。
-
 ## 何时使用
 
 - 适合设置元素之间的间距。

@@ -8,6 +8,10 @@ import { useFullSidebarData, useSidebarData } from 'dumi';
 import Link from '../theme/common/Link';
 import useLocation from './useLocation';
 
+function isVersionNumber(value?: string) {
+  return value && /^\d+\.\d+\.\d+$/.test(value);
+}
+
 const useStyle = createStyles(({ css }) => ({
   link: css`
     display: flex;
@@ -44,7 +48,7 @@ const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
           <Tag
             bordered={false}
             className={classnames(styles.tag)}
-            color={tag.startsWith('5.') || tag === 'New' ? 'success' : 'processing'}
+            color={isVersionNumber(tag) || tag === 'New' ? 'success' : 'processing'}
           >
             {tag.replace('VERSION', version)}
           </Tag>
