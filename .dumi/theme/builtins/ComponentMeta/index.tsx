@@ -184,7 +184,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
             label: locale.version,
             children: (
               <Typography.Text className={styles.code}>
-                {isZhCN ? `自 ${version} 后支持` : `supported in ${version}`}
+                {isZhCN ? `自 ${version} 后支持` : `supported since ${version}`}
               </Typography.Text>
             ),
           },
