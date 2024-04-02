@@ -32,7 +32,7 @@ const runPrePublish = async () => {
     spinner.fail(`无法在非 master 分支进行发布，当前分支：${currentBranch}`);
     process.exit(1);
   }
-*/
+  */
   spinner.text = '正在检查本地 git 状态';
   const status = await git.status();
   if (!status.isClean()) {
