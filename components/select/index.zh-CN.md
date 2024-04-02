@@ -1,15 +1,14 @@
 ---
 category: Components
-subtitle: 选择器
 group: 数据录入
 title: Select
+subtitle: 选择器
+description: 下拉选择器。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*qGSbQJ0POEsAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a6ggRInInJ4AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-下拉选择器。
 
 ## 何时使用
 
@@ -44,7 +43,7 @@ return (
 <code src="./demo/search.tsx">带搜索框</code>
 <code src="./demo/multiple.tsx">多选</code>
 <code src="./demo/size.tsx">三种大小</code>
-<code src="./demo/option-label-prop.tsx">定制回填内容</code>
+<code src="./demo/option-render.tsx">定制回填内容</code>
 <code src="./demo/search-sort.tsx">带排序的搜索</code>
 <code src="./demo/tags.tsx">标签</code>
 <code src="./demo/optgroup.tsx">分组</code>
@@ -59,6 +58,7 @@ return (
 <code src="./demo/variant.tsx" version="5.13.0">多种形态</code>
 <code src="./demo/filled-debug.tsx" debug>Filled debug</code>
 <code src="./demo/custom-tag-render.tsx">自定义选择标签</code>
+<code src="./demo/custom-label-render.tsx">自定义选中 label</code>
 <code src="./demo/responsive.tsx">响应式 maxTagCount</code>
 <code src="./demo/big-data.tsx">大数据</code>
 <code src="./demo/status.tsx">自定义状态</code>
@@ -118,6 +118,7 @@ return (
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | suffixIcon | 自定义的选择框后缀图标。以防止图标被用于其他交互，替换的图标默认不会响应展开、收缩事件，可以通过添加 `pointer-events: none` 样式透传。 | ReactNode | `<DownOutlined />` |  |
 | tagRender | 自定义 tag 内容 render，仅在 `mode` 为 `multiple` 或 `tags` 时生效 | (props) => ReactNode | - |  |
+| labelRender | 自定义当前选中的 label 内容 render | (label: ReactNode) => ReactNode | - | 5.15.0 |
 | tokenSeparators | 自动分词的分隔符，仅在 `mode="tags"` 时生效 | string\[] | - |  |
 | value | 指定当前选中的条目，多选时为一个数组。（value 数组引用未变化时，Select 不会更新） | string \| string\[] \| <br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |

@@ -2,13 +2,12 @@
 category: Components
 group: Data Entry
 title: Select
+description: A dropdown menu for displaying choices.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*qGSbQJ0POEsAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a6ggRInInJ4AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-Select component to select value from options.
 
 ## When To Use
 
@@ -43,7 +42,7 @@ return (
 <code src="./demo/search.tsx">Select with search field</code>
 <code src="./demo/multiple.tsx">multiple selection</code>
 <code src="./demo/size.tsx">Sizes</code>
-<code src="./demo/option-label-prop.tsx">Custom selection render</code>
+<code src="./demo/option-render.tsx">Custom selection render</code>
 <code src="./demo/search-sort.tsx">Search with sort</code>
 <code src="./demo/tags.tsx">Tags</code>
 <code src="./demo/optgroup.tsx">Option Group</code>
@@ -58,6 +57,7 @@ return (
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/filled-debug.tsx" debug>Filled debug</code>
 <code src="./demo/custom-tag-render.tsx">Custom Tag Render</code>
+<code src="./demo/custom-label-render.tsx">Custom selectd Label render</code>
 <code src="./demo/responsive.tsx">Responsive maxTagCount</code>
 <code src="./demo/big-data.tsx">Big Data</code>
 <code src="./demo/status.tsx">Status</code>
@@ -117,6 +117,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | suffixIcon | The custom suffix icon. Customize icon will not response click open to avoid icon designed to do other interactive. You can use `pointer-events: none` style to bypass | ReactNode | `<DownOutlined />` |  |
 | tagRender | Customize tag render, only applies when `mode` is set to `multiple` or `tags` | (props) => ReactNode | - |  |
+| labelRender | Customize selected label render | (label: ReactNode) => ReactNode | - | 5.15.0 |
 | tokenSeparators | Separator used to tokenize, only applies when `mode="tags"` | string\[] | - |  |
 | value | Current selected option (considered as a immutable array) | string \| string\[] \| <br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
 | variant | Variants of selector | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |

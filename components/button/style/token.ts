@@ -116,20 +116,20 @@ export interface ComponentToken {
    */
   paddingInlineSM: CSSProperties['paddingInline'];
   /**
-   * @desc 按钮横向内间距
-   * @descEN Horizontal padding of button
+   * @desc 按钮纵向内间距
+   * @descEN Vertical padding of button
    */
-  paddingBlock: CSSProperties['paddingInline'];
+  paddingBlock: CSSProperties['paddingBlock'];
   /**
-   * @desc 大号按钮横向内间距
-   * @descEN Horizontal padding of large button
+   * @desc 大号按钮纵向内间距
+   * @descEN Vertical padding of large button
    */
-  paddingBlockLG: CSSProperties['paddingInline'];
+  paddingBlockLG: CSSProperties['paddingBlock'];
   /**
-   * @desc 小号按钮横向内间距
-   * @descEN Horizontal padding of small button
+   * @desc 小号按钮纵向内间距
+   * @descEN Vertical padding of small button
    */
-  paddingBlockSM: CSSProperties['paddingInline'];
+  paddingBlockSM: CSSProperties['paddingBlock'];
   /**
    * @desc 只有图标的按钮图标尺寸
    * @descEN Icon size of button which only contains icon

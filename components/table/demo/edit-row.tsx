@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import type { TableProps } from 'antd';
 import { Form, Input, InputNumber, Popconfirm, Table, Typography } from 'antd';
 
 interface Item {
@@ -143,7 +144,7 @@ const App: React.FC = () => {
     },
   ];
 
-  const mergedColumns = columns.map((col) => {
+  const mergedColumns: TableProps['columns'] = columns.map((col) => {
     if (!col.editable) {
       return col;
     }

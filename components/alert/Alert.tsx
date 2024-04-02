@@ -203,7 +203,7 @@ const Alert: React.FC<AlertProps> = (props) => {
     return alert?.closeIcon;
   }, [closeIcon, closable, closeText, alert?.closeIcon]);
 
-  const mergeAriaProps = React.useMemo(() => {
+  const mergedAriaProps = React.useMemo<React.AriaAttributes>(() => {
     const merged = closable ?? alert?.closable;
     if (typeof merged === 'object') {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -252,7 +252,7 @@ const Alert: React.FC<AlertProps> = (props) => {
             prefixCls={prefixCls}
             closeIcon={mergedCloseIcon}
             handleClose={handleClose}
-            ariaProps={mergeAriaProps}
+            ariaProps={mergedAriaProps}
           />
         </div>
       )}

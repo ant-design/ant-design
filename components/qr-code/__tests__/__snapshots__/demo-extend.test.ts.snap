@@ -2,12 +2,14 @@
 
 exports[`renders components/qr-code/demo/Popover.tsx extend context correctly 1`] = `
 Array [
-  <img
-    alt="icon"
-    height="100"
-    src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-    width="100"
-  />,
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Hover me
+    </span>
+  </button>,
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -209,7 +211,7 @@ exports[`renders components/qr-code/demo/download.tsx extend context correctly 1
 >
   <div
     class="ant-qrcode"
-    style="margin-bottom: 16px; width: 160px; height: 160px; background-color: rgb(255, 255, 255);"
+    style="width: 160px; height: 160px; background-color: rgb(255, 255, 255); margin-bottom: 16px;"
   >
     <canvas
       height="160"
@@ -233,7 +235,7 @@ exports[`renders components/qr-code/demo/errorlevel.tsx extend context correctly
 Array [
   <div
     class="ant-qrcode"
-    style="margin-bottom: 16px; width: 160px; height: 160px; background-color: transparent;"
+    style="width: 160px; height: 160px; background-color: transparent; margin-bottom: 16px;"
   >
     <canvas
       height="160"

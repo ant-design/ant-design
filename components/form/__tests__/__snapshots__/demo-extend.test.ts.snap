@@ -2451,7 +2451,7 @@ exports[`renders components/form/demo/dependencies.tsx extend context correctly 
     class="ant-typography"
   >
     <p>
-      Only Update when
+      Only Update when 
       <code>
         password2
       </code>
@@ -2587,7 +2587,7 @@ Array [
                     />
                   </span>
                   <span>
-                     Apple
+                     Apple 
                   </span>
                 </label>
                 <label
@@ -2607,7 +2607,7 @@ Array [
                     />
                   </span>
                   <span>
-                     Pear
+                     Pear 
                   </span>
                 </label>
               </div>
@@ -7216,7 +7216,7 @@ exports[`renders components/form/demo/form-context.tsx extend context correctly 
             <span
               class="ant-typography ant-typography-secondary ant-form-text"
             >
-              (
+              ( 
               <span
                 aria-label="smile"
                 class="anticon anticon-smile"
@@ -8581,7 +8581,7 @@ exports[`renders components/form/demo/normal-login.tsx extend context correctly 
                 Log in
               </span>
             </button>
-            Or
+            Or 
             <a
               href=""
             >
@@ -10016,7 +10016,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                 />
               </span>
               <span>
-                I have read the
+                I have read the 
                 <a
                   href=""
                 >
@@ -20018,10 +20018,10 @@ Array [
     class="ant-typography"
   >
     <pre>
-      Name Value:
+      Name Value: 
     </pre>
     <pre>
-      Custom Value: name:
+      Custom Value: name: 
     </pre>
   </article>,
 ]
@@ -28495,6 +28495,216 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 </span>
               </span>
             </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
+      >
+        <label
+          class=""
+          title="Success"
+        >
+          Success
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-otp"
+            >
+              <input
+                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-warning"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
+      >
+        <label
+          class=""
+          title="Warning"
+        >
+          Warning
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-otp"
+            >
+              <input
+                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-error"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
+      >
+        <label
+          class=""
+          title="Error"
+        >
+          Error
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-otp"
+            >
+              <input
+                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+              <input
+                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                size="1"
+                type="text"
+                value=""
+              />
+            </div>
           </div>
         </div>
       </div>

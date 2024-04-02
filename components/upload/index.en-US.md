@@ -2,13 +2,12 @@
 category: Components
 group: Data Entry
 title: Upload
+description: Used to select and upload files or drag and drop files.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*93ymR4RD4S0AAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*l1nlSryXib8AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-Upload the file by selecting or dragging.
 
 ## When To Use
 
@@ -153,10 +152,13 @@ For compatible case, we return File object when `beforeUpload` return `false`. I
 
 ### Why sometimes Chrome can not upload?
 
-Chrome update will also break native upload. Please restart Chrome to finish the upload work.
+Chrome update will also break native upload. Please restart Chrome to finish the upload job.
+
+![](https://github.com/ant-design/ant-design/assets/507615/1509b25f-4cd3-41b2-9415-90394ad08273)
 
 Ref:
 
+- [#48007](https://github.com/ant-design/ant-design/issues/48007)
 - [#32672](https://github.com/ant-design/ant-design/issues/32672)
 - [#32913](https://github.com/ant-design/ant-design/issues/32913)
 - [#33988](https://github.com/ant-design/ant-design/issues/33988)
