@@ -25,12 +25,10 @@ const IDPropDrillingInput = (props: CustomInputProps) => {
  * A custom input component that accepts `value` and `onChange` props, and forwards ref to the input element.
  * Support for locating ref elements through forwarding since 5.17.0
  */
-const RefForwardInput = React.forwardRef(
-  (props: CustomInputProps, ref: React.Ref<HTMLInputElement>) => {
-    const { /** omit id */ value, onChange } = props;
-    return <input value={value} onChange={onChange} ref={ref} style={customInputStyle} />;
-  },
-);
+const RefForwardInput = React.forwardRef<HTMLInputElement, CustomInputProps>((props, ref) => {
+  const { /** omit id */ value, onChange } = props;
+  return <input value={value} onChange={onChange} ref={ref} style={customInputStyle} />;
+});
 
 const App = () => {
   const [form] = Form.useForm();
@@ -44,7 +42,7 @@ const App = () => {
       style={{ padding: '2rem 4rem' }}
     >
       <Form.Item>
-        <Flex gap={8}>
+        <Flex gap="small">
           <Button type="primary" htmlType="submit">
             Top Submit
           </Button>
@@ -77,7 +75,7 @@ const App = () => {
       </Flex>
 
       <Form.Item>
-        <Flex gap={8}>
+        <Flex gap="small">
           <Button type="primary" htmlType="submit">
             Bottom Submit
           </Button>
