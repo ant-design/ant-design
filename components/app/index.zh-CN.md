@@ -8,8 +8,11 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HJz8SZos2wgAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*oC92TK44Ex8AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
+version: 5.1.0
 tag: New
 ---
+
+自 `5.1.0` 版本开始提供该组件。
 
 ## 何时使用
 
@@ -125,6 +128,8 @@ export default () => {
 ## API
 
 通用属性参考：[通用属性](/docs/react/common-props)
+
+> 自 `antd@5.1.0` 版本开始提供该组件。
 
 ### App
 

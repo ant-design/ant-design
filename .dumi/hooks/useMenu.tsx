@@ -1,12 +1,12 @@
 import React, { useMemo } from 'react';
 import type { MenuProps } from 'antd';
-import { Tag, version } from 'antd';
+import { Tag } from 'antd';
 import { useFullSidebarData, useSidebarData } from 'dumi';
 
 import Link from '../theme/common/Link';
 import useLocation from './useLocation';
 
-const MenuItemLabelWithTag: React.FC<{
+interface MenuItemLabelProps {
   before?: React.ReactNode;
   after?: React.ReactNode;
   link: string;
@@ -15,13 +15,27 @@ const MenuItemLabelWithTag: React.FC<{
   search?: string;
   tag?: string;
   className?: string;
-}> = ({ before, after, link, title, subtitle, search, tag = '', className }) => {
+  version?: string;
+}
+
+const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
+  const {
+    before,
+    after,
+    link,
+    title,
+    subtitle,
+    search,
+    tag = '',
+    version: componentVersion = '',
+    className,
+  } = props;
   if (!before && !after) {
     return (
       <Link
         to={`${link}${search}`}
         style={
-          tag
+          componentVersion
             ? { display: 'flex', alignItems: 'center', justifyContent: 'space-between' }
             : undefined
         }
@@ -31,13 +45,13 @@ const MenuItemLabelWithTag: React.FC<{
           {title}
           {subtitle && <span className="chinese">{subtitle}</span>}
         </span>
-        {tag && (
+        {componentVersion && (
           <Tag
             bordered={false}
             color={tag === 'New' ? 'success' : 'processing'}
-            style={{ marginBlockEnd: 0 }}
+            style={{ marginInlineEnd: 0 }}
           >
-            {tag.replace('VERSION', version)}
+            V {componentVersion}
           </Tag>
         )}
       </Link>
@@ -159,6 +173,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
                     subtitle={item.frontmatter?.subtitle}
                     search={search}
                     tag={item.frontmatter?.tag}
+                    version={item.frontmatter?.version}
                   />
                 ),
                 key: item.link.replace(/(-cn$)/g, ''),
@@ -181,6 +196,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
                   title={item?.title}
                   search={search}
                   tag={item.frontmatter?.tag}
+                  version={item.frontmatter?.version}
                 />
               ),
               key: item.link.replace(/(-cn$)/g, ''),

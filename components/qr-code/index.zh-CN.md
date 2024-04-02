@@ -10,6 +10,7 @@ demo:
 group:
   title: 数据展示
   order: 5
+version: 5.1.0
 tag: New
 ---
 

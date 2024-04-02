@@ -9,6 +9,7 @@ demo:
 group:
   title: Data Display
   order: 5
+version: 5.1.0
 tag: New
 ---
 

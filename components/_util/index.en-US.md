@@ -5,6 +5,8 @@ description: Utilities are used to assist development and provide some common ut
 showImport: false
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*rRDlT7ST8DUAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*rRDlT7ST8DUAAAAAAAAAAAAADrJ8AQ/original
+version: 5.13.0
+tag: New
 demo:
   cols: 2
 group:

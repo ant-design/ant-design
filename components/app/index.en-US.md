@@ -7,8 +7,11 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HJz8SZos2wgAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*oC92TK44Ex8AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
+version: 5.1.0
 tag: New
 ---
+
+Available since `5.1.0`.
 
 ## When To Use
 
@@ -124,6 +127,8 @@ export default () => {
 ## API
 
 Common props ref：[Common props](/docs/react/common-props)
+
+> This component is available since `antd@5.1.0`.
 
 ### App
 
