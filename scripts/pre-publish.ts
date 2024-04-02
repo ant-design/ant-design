@@ -38,26 +38,6 @@ const runPrePublish = async () => {
   }
   const octokit = new Octokit({ auth: process.env.GITHUB_ACCESS_TOKEN });
   const { current: currentBranch } = await git.branch();
-  /*
-  if (currentBranch !== 'master') {
-    spinner.fail(`无法在非 master 分支进行发布，当前分支：${currentBranch}`);
-    process.exit(1);
-  }
-  */
-  spinner.text = '正在检查本地 git 状态';
-  const status = await git.status();
-  if (!status.isClean()) {
-    spinner.fail('本地尚有未提交的代码，请先提交所有改动');
-    process.exit(1);
-  }
-
-  spinner.succeed(`git 状态检查完毕，没有未提交的改动`);
-  spinner.start(`正在拉取远程分支 ${currentBranch}`);
-  await git.pull('origin', currentBranch);
-  spinner.succeed(`成功拉取远程分支 ${currentBranch}`);
-  spinner.start(`正在推送本地分支 ${currentBranch}`);
-  await git.push('origin', currentBranch);
-  spinner.succeed(`成功推送远程分支 ${currentBranch}`);
   const headCommitSha = await git.revparse('HEAD');
   spinner.succeed(`找到本地最新 commit: ${headCommitSha}`);
   const { latest } = await git.log('-1');
