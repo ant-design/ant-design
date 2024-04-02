@@ -9,10 +9,8 @@ demo:
 group:
   title: Data Display
   order: 5
-tag: New
+tag: 5.1.0
 ---
-
-Available since `antd@5.1.0`.
 
 <!-- prettier-ignore -->
 :::info

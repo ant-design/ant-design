@@ -138,7 +138,7 @@ describe('Table', () => {
 
   it('should not crash when column children is empty', () => {
     render(
-      <Table
+      <Table<{ name?: string }>
         columns={[
           {
             dataIndex: 'name',
@@ -163,7 +163,7 @@ describe('Table', () => {
     // prevent touch event, 原来的用例感觉是少了 touchmove 调用判断
     const touchmove = jest.fn();
     const { container } = render(
-      <Table
+      <Table<{ name?: string }>
         columns={[
           {
             dataIndex: 'name',
@@ -332,7 +332,7 @@ describe('Table', () => {
 
   it('title should support ReactNode', () => {
     const { container } = render(
-      <Table
+      <Table<{ name?: string }>
         columns={[
           {
             title: (
@@ -472,5 +472,29 @@ describe('Table', () => {
     expect(
       container.querySelectorAll('.ant-table-thead tr')[1].querySelectorAll('th'),
     ).toHaveLength(1);
+  });
+
+  it('support disable row hover', () => {
+    const { container } = render(
+      <Table
+        columns={[
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+          },
+        ]}
+        dataSource={[
+          {
+            name: 'name1',
+          },
+        ]}
+        rowHoverable={false}
+      />,
+    );
+    const cell = container.querySelector('.ant-table-row .ant-table-cell')!;
+
+    fireEvent.mouseEnter(cell);
+    expect(container.querySelectorAll('.ant-table-cell-row-hover')).toHaveLength(0);
   });
 });

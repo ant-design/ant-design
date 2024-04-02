@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import type { InputNumberProps } from 'antd';
 import { Col, InputNumber, Row, Slider, Space } from 'antd';
 
 const IntegerStep: React.FC = () => {
   const [inputValue, setInputValue] = useState(1);
 
-  const onChange = (newValue: number) => {
-    setInputValue(newValue);
+  const onChange: InputNumberProps['onChange'] = (newValue) => {
+    setInputValue(newValue as number);
   };
 
   return (
@@ -34,11 +35,11 @@ const IntegerStep: React.FC = () => {
 const DecimalStep: React.FC = () => {
   const [inputValue, setInputValue] = useState(0);
 
-  const onChange = (value: number) => {
-    if (isNaN(value)) {
+  const onChange: InputNumberProps['onChange'] = (value) => {
+    if (isNaN(value as number)) {
       return;
     }
-    setInputValue(value);
+    setInputValue(value as number);
   };
 
   return (

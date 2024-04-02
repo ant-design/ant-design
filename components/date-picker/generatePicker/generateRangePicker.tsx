@@ -113,7 +113,7 @@ export default function generateRangePicker<DateType extends AnyObject>(
             </span>
           }
           disabled={mergedDisabled}
-          ref={innerRef}
+          ref={innerRef as any} // Need to modify PickerRef
           popupAlign={transPlacement2DropdownAlign(direction, placement)}
           placeholder={getRangePlaceholder(locale, picker, placeholder)}
           suffixIcon={suffixNode}
