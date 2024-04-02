@@ -13,12 +13,15 @@ group:
   order: 99
 ---
 
+自 `5.13.0` 版本开始提供这些方法。
+
 ## GetRef
 
 获取组件的 `ref` 属性定义，这对于未直接暴露或者子组件的 `ref` 属性定义非常有用。
 
 ```tsx
-import type { GetRef, Select } from 'antd';
+import { Select } from 'antd';
+import type { GetRef } from 'antd';
 
 type SelectRefType = GetRef<typeof Select>; // BaseSelectRef
 ```
@@ -28,7 +31,8 @@ type SelectRefType = GetRef<typeof Select>; // BaseSelectRef
 获取组件的 `props` 属性定义：
 
 ```tsx
-import type { Checkbox, GetProps } from 'antd';
+import { Checkbox } from 'antd';
+import type { GetProps } from 'antd';
 
 type CheckboxGroupType = GetProps<typeof Checkbox.Group>;
 ```
@@ -38,7 +42,8 @@ type CheckboxGroupType = GetProps<typeof Checkbox.Group>;
 获取组件的单个 `props` 属性定义。它已经将 `NonNullable` 进行了封装，所以不用在考虑为空的情况：
 
 ```tsx
-import type { GetProp, Select, SelectProps } from 'antd';
+import { Select } from 'antd';
+import type { GetProp, SelectProps } from 'antd';
 
 // 以下两种都可以生效
 type SelectOptionType1 = GetProp<SelectProps, 'options'>[number];
