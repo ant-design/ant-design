@@ -10,7 +10,7 @@ demo:
 group:
   title: 数据展示
   order: 5
-tag: New
+tag: 5.1.0
 ---
 
 自 `antd@5.1.0` 版本开始提供该组件。
