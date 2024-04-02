@@ -9,7 +9,7 @@ demo:
 group:
   title: Data Display
   order: 5
-version: 5.1.0
+tag: 5.1.0
 ---
 
 Available since `antd@5.1.0`.

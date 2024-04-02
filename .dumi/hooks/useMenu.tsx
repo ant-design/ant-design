@@ -28,28 +28,14 @@ interface MenuItemLabelProps {
   search?: string;
   tag?: string;
   className?: string;
-  version?: string;
 }
 
 const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
-  const {
-    before,
-    after,
-    link,
-    title,
-    subtitle,
-    search,
-    tag = '',
-    version: componentVersion = '',
-    className,
-  } = props;
   const { styles } = useStyle();
+  const { before, after, link, title, subtitle, search, tag, className } = props;
   if (!before && !after) {
     return (
-      <Link
-        to={`${link}${search}`}
-        className={classnames(className, { [styles.link]: tag || componentVersion })}
-      >
+      <Link to={`${link}${search}`} className={classnames(className, { [styles.link]: tag })}>
         <span>
           {title}
           {subtitle && <span className="chinese">{subtitle}</span>}
@@ -57,15 +43,10 @@ const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
         {tag && (
           <Tag
             bordered={false}
-            className={styles.tag}
-            color={tag === 'New' ? 'success' : 'processing'}
+            className={classnames(styles.tag)}
+            color={tag.startsWith('5.') || tag === 'New' ? 'success' : 'processing'}
           >
             {tag.replace('VERSION', version)}
-          </Tag>
-        )}
-        {componentVersion && (
-          <Tag bordered={false} className={styles.tag} color="success">
-            v{componentVersion}
           </Tag>
         )}
       </Link>
@@ -187,7 +168,6 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
                     subtitle={item.frontmatter?.subtitle}
                     search={search}
                     tag={item.frontmatter?.tag}
-                    version={item.frontmatter?.version}
                   />
                 ),
                 key: item.link.replace(/(-cn$)/g, ''),
@@ -210,7 +190,6 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
                   title={item?.title}
                   search={search}
                   tag={item.frontmatter?.tag}
-                  version={item.frontmatter?.version}
                 />
               ),
               key: item.link.replace(/(-cn$)/g, ''),
