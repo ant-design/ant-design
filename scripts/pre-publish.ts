@@ -32,7 +32,7 @@ const runPrePublish = async () => {
     spinner.fail(`无法在非 master 分支进行发布，当前分支：${currentBranch}`);
     process.exit(1);
   }
-  */
+*/
   spinner.text = '正在检查本地 git 状态';
   const status = await git.status();
   if (!status.isClean()) {
@@ -71,7 +71,11 @@ const runPrePublish = async () => {
     process.exit(1);
   }
   const statuses = result.data.check_runs.map((run) => run.status);
-  if (statuses.includes('queued') || statuses.includes('in_progress')) {
+  if (
+    result.data.check_runs.length < 1 ||
+    statuses.includes('queued') ||
+    statuses.includes('in_progress')
+  ) {
     spinner.fail('远程分支 CI 还在执行中，请稍候');
     spinner.info(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${headCommitSha}`);
     process.exit(1);
