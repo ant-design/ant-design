@@ -344,7 +344,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
         onClick() {
           const availablePageItemKeys = getEnabledItemKeys(
             listBodyRef.current?.items?.length
-              ? listBodyRef.current?.items.map((entity) => entity.item)
+              ? listBodyRef.current.items.map((entity) => entity.item)
               : dataSource,
           );
           const checkedKeySet = new Set(checkedKeys);
