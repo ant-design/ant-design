@@ -3,16 +3,20 @@ import classNames from 'classnames';
 import { useEvent } from 'rc-util';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
-import { getMergedStatus, type InputStatus } from '../../_util/statusUtils';
+import { getMergedStatus } from '../../_util/statusUtils';
+import type { InputStatus } from '../../_util/statusUtils';
+import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 import useSize from '../../config-provider/hooks/useSize';
-import { type SizeType } from '../../config-provider/SizeContext';
+import type { SizeType } from '../../config-provider/SizeContext';
 import { FormItemInputContext } from '../../form/context';
+import type { FormItemStatusContextProps } from '../../form/context';
 import type { Variant } from '../../form/hooks/useVariants';
-import { type InputRef } from '../Input';
+import type { InputRef } from '../Input';
 import useStyle from '../style/otp';
-import OTPInput, { type OTPInputProps } from './OTPInput';
+import OTPInput from './OTPInput';
+import type { OTPInputProps } from './OTPInput';
 
 export interface OTPRef {
   focus: VoidFunction;
@@ -40,6 +44,14 @@ export interface OTPProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'on
   // Status
   disabled?: boolean;
   status?: InputStatus;
+
+  /**
+   * @descCN 如果希望在 Input.OTP 输入框展示密文，可以设置 `mask` 为 `true`，或者设置为自定义的字符。
+   * @descEN If you want to display the ciphertext in the Input.OTP, you can set `mask` to `true`, or set a custom character.
+   * @default false
+   * @since 5.17.0
+   */
+  mask?: boolean | string;
 }
 
 function strToArr(str: string) {
@@ -59,6 +71,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     disabled,
     status: customStatus,
     autoFocus,
+    mask,
     ...restProps
   } = props;
 
@@ -83,7 +96,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   const formContext = React.useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(formContext.status, customStatus);
 
-  const proxyFormContext = React.useMemo(
+  const proxyFormContext = React.useMemo<FormItemStatusContextProps>(
     () => ({
       ...formContext,
       status: mergedStatus,
@@ -129,12 +142,11 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
 
     // Trigger if all cells are filled
     if (
-      onChange &&
       nextValueCells.length === length &&
       nextValueCells.every((c) => c) &&
       nextValueCells.some((c, index) => valueCells[index] !== c)
     ) {
-      onChange(nextValueCells.join(''));
+      onChange?.(nextValueCells.join(''));
     }
   });
 
@@ -192,11 +204,36 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   };
 
   // ======================== Render ========================
-  const inputSharedProps = {
+  const inputSharedProps: Partial<OTPInputProps> = {
     variant,
     disabled,
     status: mergedStatus as InputStatus,
+    mask,
   };
+
+  const getSingleValue = React.useCallback(
+    (index: number) => {
+      if (!valueCells[index]) {
+        return '';
+      }
+      if (typeof mask === 'string') {
+        if (mask.length === 1) {
+          return mask;
+        }
+        if (mask.length > 1) {
+          if (process.env.NODE_ENV !== 'production') {
+            // 这里 warning 的时候需要判断一下是否是 emoji，待实现
+            const warning = devUseWarning('Input.OTP');
+            warning(false, 'usage', '`mask` prop should be a single character');
+          }
+          // 为了兼容 emoji，这里取第一个字符不能用 mask.charAt(0)，需要用解构
+          return [...mask][0];
+        }
+      }
+      return valueCells[index];
+    },
+    [mask, valueCells],
+  );
 
   return wrapCSSVar(
     <div
@@ -214,10 +251,9 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
       )}
     >
       <FormItemInputContext.Provider value={proxyFormContext}>
-        {new Array(length).fill(0).map((_, index) => {
+        {Array.from({ length }).map((_, index) => {
           const key = `otp-${index}`;
-          const singleValue = valueCells[index] || '';
-
+          const singleValue = getSingleValue(index);
           return (
             <OTPInput
               ref={(inputEle) => {

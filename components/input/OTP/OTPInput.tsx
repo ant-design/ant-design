@@ -1,18 +1,25 @@
 import * as React from 'react';
 import raf from 'rc-util/lib/raf';
 
-import Input, { type InputProps, type InputRef } from '../Input';
+import Input from '../Input';
+import type { InputProps, InputRef } from '../Input';
 
 export interface OTPInputProps extends Omit<InputProps, 'onChange'> {
   index: number;
   onChange: (index: number, value: string) => void;
   /** Tell parent to do active offset */
   onActiveChange: (nextIndex: number) => void;
+  /**
+   * @descCN 如果希望在 Input.OTP 输入框展示密文，可以设置 `mask` 为 `true`，或者设置为自定义的字符。
+   * @descEN If you want to display the ciphertext in the Input.OTP, you can set `mask` to `true`, or set a custom character.
+   * @default false
+   * @since 5.17.0
+   */
+  mask?: boolean | string;
 }
 
 const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
-  const { value, onChange, onActiveChange, index, ...restProps } = props;
-
+  const { value, onChange, onActiveChange, index, mask, ...restProps } = props;
   const onInternalChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     onChange(index, e.target.value);
   };
@@ -62,6 +69,7 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
       onKeyUp={onInternalKeyUp}
       onMouseDown={syncSelection}
       onMouseUp={syncSelection}
+      type={mask === true ? 'password' : 'text'}
     />
   );
 });
