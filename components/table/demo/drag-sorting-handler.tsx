@@ -44,7 +44,7 @@ interface DataType {
 const columns: ColumnsType<DataType> = [
   {
     key: 'sort',
-    render: DragHandle,
+    render: () => <DragHandle />,
   },
   {
     title: 'Name',
