@@ -1,9 +1,16 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
 const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { antCls, componentCls } = token;
+  const { antCls, componentCls, iconSize, iconSizeSM, lineWidthBold } = token;
+
+  const progressSize = token.calc(iconSize).add(token.calc(lineWidthBold).mul(4).equal()).equal();
+  const progressSizeSM = token
+    .calc(iconSizeSM)
+    .add(token.calc(token.lineWidth).mul(4).equal())
+    .equal();
 
   return {
     [`&${componentCls}-with-progress`]: {
@@ -57,27 +64,21 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
         [`${antCls}-progress`]: {
           position: 'absolute',
-          insetBlockStart: token
-            .calc(
-              token
-                .calc(token.iconSize)
-                .sub(token.stepsProgressSize)
-                .sub(token.calc(token.lineWidth).mul(2).equal())
-                .equal(),
-            )
-            .div(2)
-            .equal(),
-          insetInlineStart: token
-            .calc(
-              token
-                .calc(token.iconSize)
-                .sub(token.stepsProgressSize)
-                .sub(token.calc(token.lineWidth).mul(2).equal())
-                .equal(),
-            )
-            .div(2)
-            .equal(),
+          left: '50%',
+          top: '50%',
+          transform: 'translate(-50%, -50%)',
+
+          '&-inner': {
+            width: `${progressSize} !important`,
+            height: `${progressSize} !important`,
+          },
         },
+      },
+
+      // Small size
+      [`&${componentCls}-small ${componentCls}-item-icon ${antCls}-progress-inner`]: {
+        width: `${progressSizeSM} !important`,
+        height: `${progressSizeSM} !important`,
       },
     },
   };
