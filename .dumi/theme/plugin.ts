@@ -169,7 +169,8 @@ const RoutesPlugin = (api: IApi) => {
         const matchRegex = /<style data-type="antd-cssinjs">([\S\s]+?)<\/style>/;
         const matchList = file.content.match(matchRegex) || [];
 
-        let antdStyle = '';
+        // Init to order the `@layer`
+        let antdStyle = '@layer global, antd;';
 
         matchList.forEach((text) => {
           file.content = file.content.replace(text, '');
