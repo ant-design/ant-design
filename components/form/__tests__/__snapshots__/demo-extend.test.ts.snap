@@ -22314,7 +22314,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
               <textarea
                 class="ant-input ant-input-outlined"
                 placeholder="Please input bar"
-                rows="8"
+                rows="4"
               />
             </div>
           </div>
@@ -22352,7 +22352,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
               <textarea
                 class="ant-input ant-input-outlined"
                 placeholder="Please input baz"
-                rows="8"
+                rows="6"
               />
             </div>
           </div>

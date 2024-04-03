@@ -7,7 +7,7 @@ const IDPropDrillingTextArea = (props: Pick<TextAreaProps, 'id' | 'value' | 'onC
   const { id, value, onChange } = props;
   return (
     <div id={id}>
-      <Input.TextArea placeholder="Please input bar" value={value} onChange={onChange} rows={8} />
+      <Input.TextArea placeholder="Please input bar" value={value} onChange={onChange} rows={4} />
     </div>
   );
 };
@@ -19,7 +19,7 @@ const RefForwardTextArea = React.forwardRef<
   const { value, onChange } = props;
   return (
     <div ref={ref}>
-      <Input.TextArea placeholder="Please input baz" value={value} onChange={onChange} rows={8} />
+      <Input.TextArea placeholder="Please input baz" value={value} onChange={onChange} rows={6} />
     </div>
   );
 });
