@@ -343,7 +343,9 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
         label: selectInvert,
         onClick() {
           const availablePageItemKeys = getEnabledItemKeys(
-            (listBodyRef.current?.items || []).map((entity) => entity.item),
+            listBodyRef.current?.items?.length
+              ? listBodyRef.current?.items.map((entity) => entity.item)
+              : dataSource,
           );
           const checkedKeySet = new Set(checkedKeys);
           const newCheckedKeysSet = new Set(checkedKeySet);
