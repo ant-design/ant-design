@@ -455,7 +455,9 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
             tablePrefixCls={tablePrefixCls}
             locale={locale}
           />
-          {isEmpty ? empty : (
+          {isEmpty ? (
+            empty
+          ) : (
             <Menu
               selectable
               multiple={filterMultiple}
