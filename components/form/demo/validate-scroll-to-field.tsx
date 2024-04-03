@@ -1,33 +1,27 @@
 import React from 'react';
-import { Button, Flex, Form, Input } from 'antd';
+import { Button, Flex, Form, Input, Upload } from 'antd';
+import { InboxOutlined } from '@ant-design/icons';
+import type { TextAreaProps } from 'antd/es/input';
 
-interface CustomInputProps {
-  id?: string;
-  value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
-
-const customInputStyle: React.CSSProperties = {
-  width: '280px',
-  height: '6rem',
-  marginBlockEnd: '1rem',
-};
-
-/**
- * A custom input component that accepts `id`, `value` and `onChange` props.
- */
-const IDPropDrillingInput = (props: CustomInputProps) => {
+const IDPropDrillingTextArea = (props: Pick<TextAreaProps, 'id' | 'value' | 'onChange'>) => {
   const { id, value, onChange } = props;
-  return <input id={id} value={value} onChange={onChange} style={customInputStyle} />;
+  return (
+    <div id={id}>
+      <Input.TextArea placeholder="Please input bar" value={value} onChange={onChange} rows={8} />
+    </div>
+  );
 };
 
-/**
- * A custom input component that accepts `value` and `onChange` props, and forwards ref to the input element.
- * Support for locating ref elements through forwarding since 5.17.0
- */
-const RefForwardInput = React.forwardRef<HTMLInputElement, CustomInputProps>((props, ref) => {
-  const { /** omit id */ value, onChange } = props;
-  return <input value={value} onChange={onChange} ref={ref} style={customInputStyle} />;
+const RefForwardTextArea = React.forwardRef<
+  HTMLDivElement,
+  Pick<TextAreaProps, 'value' | 'onChange'>
+>((props, ref) => {
+  const { value, onChange } = props;
+  return (
+    <div ref={ref}>
+      <Input.TextArea placeholder="Please input baz" value={value} onChange={onChange} rows={8} />
+    </div>
+  );
 });
 
 const App = () => {
@@ -40,44 +34,46 @@ const App = () => {
       onFinish={console.log}
       onFinishFailed={console.error}
       style={{ padding: '2rem 4rem' }}
+      layout="vertical"
     >
       <Form.Item>
-        <Flex gap="small">
-          <Button type="primary" htmlType="submit">
-            Top Submit
-          </Button>
-          <Button onClick={() => form.scrollToField('demo-form_baz')}>Scroll to Baz</Button>
-        </Flex>
+        <Button onClick={() => form.scrollToField('demo-form_dragger')}>Scroll to Upload</Button>
       </Form.Item>
 
-      <Flex vertical gap={180}>
-        <Form.Item name="demo-form_foo" label="Foo" rules={[{ required: true }]}>
-          <Input />
-        </Form.Item>
+      <Form.Item name="demo-form_foo" label="Foo">
+        <Input />
+      </Form.Item>
 
-        <Form.Item
-          name="demo-form_bar"
-          label="Bar"
-          rules={[{ required: true }]}
-          tooltip="This input box will be located by id."
-        >
-          <IDPropDrillingInput />
-        </Form.Item>
+      <Form.Item name="demo-form_bar" label="Bar" rules={[{ required: true }]}>
+        <IDPropDrillingTextArea />
+      </Form.Item>
 
+      <Form.Item name="demo-form_baz" label="Baz" rules={[{ required: true }]}>
+        <RefForwardTextArea />
+      </Form.Item>
+
+      <Form.Item label="Dragger">
         <Form.Item
-          name="demo-form_baz"
-          label="Baz"
+          name="demo-form_dragger"
+          valuePropName="fileList"
+          getValueFromEvent={(e) => (Array.isArray(e) ? e : e?.fileList)}
           rules={[{ required: true }]}
-          tooltip="Slide to this input box, it will be located by ref."
+          noStyle
         >
-          <RefForwardInput />
+          <Upload.Dragger name="files" action="/upload.do">
+            <p className="ant-upload-drag-icon">
+              <InboxOutlined />
+            </p>
+            <p className="ant-upload-text">Click or drag file to this area to upload</p>
+            <p className="ant-upload-hint">Support for a single or bulk upload.</p>
+          </Upload.Dragger>
         </Form.Item>
-      </Flex>
+      </Form.Item>
 
       <Form.Item>
         <Flex gap="small">
           <Button type="primary" htmlType="submit">
-            Bottom Submit
+            Submit
           </Button>
           <Button danger onClick={() => form.resetFields()}>
             Reset
