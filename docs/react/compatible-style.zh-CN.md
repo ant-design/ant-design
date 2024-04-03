@@ -202,6 +202,60 @@ export default () => (
 @tailwind utilities;
 ```
 
+### reset.css
+
+如果你使用了 antd 的 `reset.css` 样式，你需要为其也指定 `@layer` 以防止将 antd 降权的样式覆盖：
+
+```less
+@layer reset, antd;
+
+@import url(reset.css) layer(reset);
+```
+
 ### 其他 CSS-in-JS 库
 
 当你为 antd 配置完 `@layer` 后，你不需要为其他的 CSS-in-JS 库做任何额外的配置。你的 CSS-in-JS 已经可以完全覆盖 antd 的样式了。
+
+### SSR 场景
+
+在 SSR 场景下，样式往往会通过 `<style />` 内联渲染到 HTML 中。此时请务必确保你的样式顺序中指定 `@layer` 优先级顺序的样式在 `@layer` 被使用之前被加载。
+
+#### ❌ 错误的写法
+
+```html
+<head>
+  <!-- SSR 注入样式 -->
+  <style>
+    @layer antd {
+      /** ... */
+    }
+  </style>
+
+  <!-- css 文件中包含 @layer xxx, antd; -->
+  <link rel="stylesheet" href="/b9a0m0b9o0o3.css" />
+  <!-- or 直接书写 @layer xxx, antd; 在 html 中 -->
+  <style>
+    @layer xxx, antd;
+  </style>
+</head>
+```
+
+#### ✅ 正确的写法
+
+```html
+<head>
+  <!-- css 文件中包含 @layer xxx, antd; -->
+  <link rel="stylesheet" href="/b9a0m0b9o0o3.css" />
+  <!-- or 直接书写 @layer xxx, antd; 在 html 中 -->
+  <style>
+    @layer xxx, antd;
+  </style>
+
+  <!-- SSR 注入样式 -->
+  <style>
+    @layer antd {
+      /** ... */
+    }
+  </style>
+</head>
+```

@@ -202,6 +202,60 @@ In global.css, adjust `@layer` to control the order of style override. Place `ta
 @tailwind utilities;
 ```
 
+### reset.css
+
+If you use antd's `reset.css` style, you need to specify `@layer` for it to prevent the style from overriding antd:
+
+```less
+@layer reset, antd;
+
+@import url(reset.css) layer(reset);
+```
+
 ### With other CSS-in-JS libraries
 
 After configuring `@layer` for antd, you don't need to do any additional configuration for other CSS-in-JS libraries. Your CSS-in-JS can completely override antd styles.
+
+### SSR Scene
+
+When using SSR, styles are often rendered inline in HTML through `<style />`. At this time, please make sure that the styles with the specified `@layer` priority order are loaded before `@layer` is used.
+
+#### ❌ Wrong
+
+```html
+<head>
+  <!-- SSR Injection style -->
+  <style>
+    @layer antd {
+      /** ... */
+    }
+  </style>
+
+  <!-- css file contains @layer xxx, antd; -->
+  <link rel="stylesheet" href="/b9a0m0b9o0o3.css" />
+  <!-- or write @layer xxx, antd; in html directly -->
+  <style>
+    @layer xxx, antd;
+  </style>
+</head>
+```
+
+#### ✅ Correct
+
+```html
+<head>
+  <!-- css file contains @layer xxx, antd; -->
+  <link rel="stylesheet" href="/b9a0m0b9o0o3.css" />
+  <!-- or write @layer xxx, antd; in html directly -->
+  <style>
+    @layer xxx, antd;
+  </style>
+
+  <!-- SSR Injection style -->
+  <style>
+    @layer antd {
+      /** ... */
+    }
+  </style>
+</head>
+```
