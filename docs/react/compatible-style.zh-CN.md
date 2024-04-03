@@ -174,7 +174,7 @@ root.render(
 
 ## 兼容三方样式库
 
-在某些情况下，你可能需要 antd 与其他样式库共存，比如 TailwindCSS、Emotion、styled-components 等。不同于传统 CSS 方案，这些三方库往往不太容易通过提升 CSS 选择器优先级的方式覆盖 antd 的样式。你可以通过为 antd 配置 `@layer` 降低其 CSS 选择器权重，同时通过合理安排 `@layer` 顺序来解决样式覆盖问题：
+在某些情况下，你可能需要 antd 与其他样式库共存，比如 `Tailwind CSS`、`Emotion`、`styled-components` 等。不同于传统 CSS 方案，这些三方库往往不太容易通过提升 CSS 选择器优先级的方式覆盖 antd 的样式。你可以通过为 antd 配置 `@layer` 降低其 CSS 选择器权重，同时通过合理安排 `@layer` 顺序来解决样式覆盖问题：
 
 ### antd 配置 `@layer`
 
