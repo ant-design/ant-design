@@ -79,4 +79,13 @@ describe('Ribbon', () => {
       expect(container.querySelectorAll('.cool').length).toEqual(1);
     });
   });
+
+  it('should support custom styles', () => {
+    const { container } = render(
+      <Badge.Ribbon text="Hippies" styles={{ body: { color: 'red' } }}>
+        <div>custom styles</div>
+      </Badge.Ribbon>,
+    );
+    expect(container).toMatchSnapshot();
+  });
 });

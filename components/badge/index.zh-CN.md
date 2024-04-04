@@ -63,6 +63,12 @@ group: 数据展示
 | placement | 缎带的位置，`start` 和 `end` 随文字方向（RTL 或 LTR）变动 | `start` \| `end` | `end` |  |
 | text | 缎带中填入的内容 | ReactNode | - |  |
 
+### `styles` 属性
+
+| 名称 | 说明         |
+| ---- | ------------ |
+| body | 缎带容器样式 |
+
 ## Semantic DOM
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>

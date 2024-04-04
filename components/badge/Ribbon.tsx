@@ -59,10 +59,7 @@ const Ribbon: React.FC<RibbonProps> = (props) => {
     cornerColorStyle.color = color;
   }
   return wrapCSSVar(
-    <div
-      className={classNames(wrapperCls, rootClassName, hashId, cssVarCls)}
-      style={{ ...styles?.body }}
-    >
+    <div className={classNames(wrapperCls, rootClassName, hashId, cssVarCls)} style={styles?.body}>
       {children}
       <div className={classNames(ribbonCls, hashId)} style={{ ...colorStyle, ...style }}>
         <span className={`${prefixCls}-text`}>{text}</span>

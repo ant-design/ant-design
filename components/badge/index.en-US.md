@@ -62,6 +62,12 @@ Common props ref：[Common props](/docs/react/common-props)
 | placement | The placement of the Ribbon, `start` and `end` follow text direction (RTL or LTR) | `start` \| `end` | `end` |  |
 | text | Content inside the Ribbon | ReactNode | - |  |
 
+### `styles` attribute
+
+| Property | Description                           |
+| -------- | ------------------------------------- |
+| body     | The style of Ribbon Wrapper Container |
+
 ## Semantic DOM
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
