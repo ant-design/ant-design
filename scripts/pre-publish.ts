@@ -1,7 +1,6 @@
 /* eslint-disable camelcase */
 import fs from 'node:fs';
-import { promisify } from 'node:util';
-import { exec } from 'node:child_process';
+import { runScript } from '@npmcli/run-script';
 import { Octokit } from '@octokit/rest';
 import ora from 'ora';
 import chalk from 'chalk';
@@ -9,8 +8,6 @@ import AdmZip from 'adm-zip';
 import checkRepo from './check-repo';
 
 const simpleGit = require('simple-git');
-
-const execAsync = promisify(exec);
 
 process.on('SIGINT', () => {
   process.exit(0);
@@ -92,7 +89,10 @@ const runPrePublish = async () => {
     process.exit(1);
   }
   spinner.succeed(`远程分支 CI 已通过`);
-  spinner.start(`开始从远程分支下载构建产物`);
+  // clean up
+  await runScript({ event: 'clean', path: '.' });
+  spinner.succeed(`成功清理构建产物目录`);
+  spinner.start(`开始查找远程分支构建产物`);
   const {
     data: { workflow_runs },
   } = await octokit.rest.actions.listWorkflowRunsForRepo({
@@ -123,25 +123,22 @@ const runPrePublish = async () => {
     spinner.fail(chalk.bgRedBright('找不到远程构建产物'));
     process.exit(1);
   }
+  spinner.start(`开始从远程分支下载构建产物`);
   const { data } = await octokit.rest.actions.downloadArtifact({
     owner,
     repo,
     artifact_id: artifact.id,
     archive_format: 'zip',
   });
-  fs.writeFileSync('temp.zip', Buffer.from(data as any));
+  fs.writeFileSync('temp.zip', Buffer.from(data as ArrayBuffer));
   spinner.succeed(`成功从远程分支下载构建产物`);
-  // clean up
-  await execAsync('npm run clean');
-  spinner.succeed(`成功清理构建产物目录`);
   // unzip
   spinner.start(`正在解压构建产物`);
   const zip = new AdmZip('./temp.zip');
   zip.extractAllTo('./', true);
-  await execAsync('rm -rf temp.zip');
   spinner.succeed(`成功解压构建产物`);
-  await execAsync('npm run dekko:test');
-  await execAsync('npm run package-diff');
+  await runScript({ event: 'dekko:test', path: '.' });
+  await runScript({ event: 'package-diff', path: '.' });
   spinner.succeed(`文件检查通过，准备发布！`);
 };
 
