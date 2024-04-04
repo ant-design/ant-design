@@ -76,14 +76,14 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### `styles` 和 `classNames` attribute
 
-| 名称    | 说明                  | 版本   |
-| ------- | --------------------- | ------ |
-| header  | set `header` of card  | 5.14.0 |
-| body    | set `body` of card    | 5.14.0 |
-| extra   | set `extra` of card   | 5.14.0 |
-| title   | set `title` of card   | 5.14.0 |
-| actions | set `actions` of card | 5.14.0 |
-| cover   | set `cover` of card   | 5.14.0 |
+| Property | Description           | Version |
+| -------- | --------------------- | ------- |
+| header   | set `header` of card  | 5.14.0  |
+| body     | set `body` of card    | 5.14.0  |
+| extra    | set `extra` of card   | 5.14.0  |
+| title    | set `title` of card   | 5.14.0  |
+| actions  | set `actions` of card | 5.14.0  |
+| cover    | set `cover` of card   | 5.14.0  |
 
 ## Design Token
 
