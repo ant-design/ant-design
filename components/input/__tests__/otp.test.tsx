@@ -14,7 +14,7 @@ describe('Input.OTP', () => {
   rtlTest(Input.OTP);
 
   function getText(container: HTMLElement) {
-    const inputList = container.querySelectorAll('input');
+    const inputList = container.querySelectorAll<HTMLInputElement>('input');
     return Array.from(inputList)
       .map((input) => input.value || ' ')
       .join('')
@@ -127,5 +127,19 @@ describe('Input.OTP', () => {
     // Type to trigger formatter
     fireEvent.input(container.querySelector('input')!, { target: { value: 'little' } });
     expect(getText(container)).toBe('LITTLE');
+  });
+
+  it('support mask prop', () => {
+    // default
+    const { container, rerender } = render(<OTP defaultValue="bamboo" />);
+    expect(getText(container)).toBe('bamboo');
+
+    // support string
+    rerender(<OTP defaultValue="bamboo" mask="*" />);
+    expect(getText(container)).toBe('******');
+
+    // support emoji
+    rerender(<OTP defaultValue="bamboo" mask="🔒" />);
+    expect(getText(container)).toBe('🔒🔒🔒🔒🔒🔒');
   });
 });
