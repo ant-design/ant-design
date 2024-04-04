@@ -3,7 +3,7 @@ import { substr } from 'runes2';
 
 import type { OTPProps } from '../OTP';
 
-const useSingleValue = (valueCells: string[], mask?: OTPProps['mask']) => {
+const useOTPSingleValue = (valueCells: string[], mask?: OTPProps['mask']) => {
   const getSingleValue = React.useCallback(
     (index: number) => {
       if (!valueCells[index]) {
@@ -24,4 +24,4 @@ const useSingleValue = (valueCells: string[], mask?: OTPProps['mask']) => {
   return getSingleValue;
 };
 
-export default useSingleValue;
+export default useOTPSingleValue;
