@@ -1,12 +1,32 @@
 /* eslint-disable global-require */
 import React, { useMemo } from 'react';
-import { HistoryOutlined } from '@ant-design/icons';
-import { Button, Drawer, Timeline, Typography, Grid } from 'antd';
+import { BugOutlined, HistoryOutlined } from '@ant-design/icons';
+import { Button, Drawer, Grid, Popover, Timeline, Typography } from 'antd';
 import { createStyles } from 'antd-style';
+import semver from 'semver';
 
+import deprecatedVersions from '../../../../BUG_VERSIONS.json';
 import useFetch from '../../../hooks/useFetch';
 import useLocale from '../../../hooks/useLocale';
 import Link from '../Link';
+
+type MatchDeprecatedResult = {
+  match?: string;
+  reason: string[];
+};
+
+function matchDeprecated(v: string): MatchDeprecatedResult {
+  const match = Object.keys(deprecatedVersions).find((depreciated) =>
+    semver.satisfies(v, depreciated),
+  );
+
+  const reason = deprecatedVersions[match as keyof typeof deprecatedVersions] || [];
+
+  return {
+    match,
+    reason: Array.isArray(reason) ? reason : [reason],
+  };
+}
 
 const useStyle = createStyles(({ token, css }) => ({
   history: css`
@@ -22,6 +42,20 @@ const useStyle = createStyles(({ token, css }) => ({
   ref: css`
     margin-left: ${token.marginXS}px;
   `,
+  bug: css`
+    font-size: 14px;
+    color: #aaa;
+    paddinginlinestart: 4px;
+    &:hover {
+      color: #333;
+    }
+  `,
+  bugList: css`
+    paddingBlock: 5px;
+    li {
+      paddingBlock: 5px;
+    }
+  `,
 }));
 
 export interface ComponentChangelogProps {
@@ -34,12 +68,14 @@ const locales = {
     changelog: '更新日志',
     loading: '加载中...',
     empty: '暂无更新',
+    bugList: 'Bug 版本',
   },
   en: {
     full: 'Full Changelog',
     changelog: 'Changelog',
     loading: 'loading...',
     empty: 'Nothing update',
+    bugList: 'Bug Versions',
   },
 };
 
@@ -140,11 +176,29 @@ export default function ComponentChangelog(props: ComponentChangelogProps) {
 
     return Object.keys(changelogMap).map((version) => {
       const changelogList = changelogMap[version];
-
+      const bugVersionInfo = matchDeprecated(version);
+      const bugContent = (
+        <ul className={styles.bugList}>
+          {bugVersionInfo.reason.map((reason, index) => (
+            <li key={index}>
+              <a type="link" target="_blank" rel="noreferrer" href={reason}>
+                <BugOutlined /> {reason}
+              </a>
+            </li>
+          ))}
+        </ul>
+      );
       return {
         children: (
           <Typography>
-            <h4>{version}</h4>
+            <h4>
+              {version}{' '}
+              {bugVersionInfo.match && (
+                <Popover placement="right" title={locale.bugList} content={bugContent}>
+                  <BugOutlined className={styles.bug} />
+                </Popover>
+              )}
+            </h4>
             <ul>
               {changelogList.map((info, index) => (
                 <li key={index} className={styles.li}>
