@@ -27,7 +27,7 @@ const fileList: UploadFile[] = [
 const App: React.FC = () => (
   <>
     <Upload
-      action="https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188"
+      action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
       listType="picture"
       defaultFileList={[...fileList]}
     >
@@ -36,7 +36,7 @@ const App: React.FC = () => (
     <br />
     <br />
     <Upload
-      action="https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188"
+      action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
       listType="picture"
       defaultFileList={[...fileList]}
       className="upload-list-inline"
