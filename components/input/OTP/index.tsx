@@ -19,6 +19,12 @@ import OTPInput from './OTPInput';
 import type { OTPInputProps } from './OTPInput';
 import useSingleValue from './useSingleValue';
 
+const isEmoji = (str: string) => {
+  const emojiReg =
+    /[\u{1F600}-\u{1F64F}]|[\u{1F300}-\u{1F5FF}]|[\u{1F680}-\u{1F6FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]|\uD83D[\uDC00-\uDE4F]|\uD83C[\uDC00-\uDFFF]|\uD83E[\uDD10-\uDDFF]/gu;
+  return emojiReg.test(str);
+};
+
 export interface OTPRef {
   focus: VoidFunction;
   blur: VoidFunction;
@@ -79,7 +85,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Input.OTP');
     warning(
-      !(typeof mask === 'string' && mask.length > 1),
+      !(typeof mask === 'string' && !isEmoji(mask) && mask.length > 1),
       'usage',
       '`mask` prop should be a single character',
     );
