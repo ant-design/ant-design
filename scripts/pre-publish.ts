@@ -141,6 +141,7 @@ const runPrePublish = async () => {
   await execAsync('rm -rf temp.zip');
   spinner.succeed(`成功解压构建产物`);
   await execAsync('npm run dekko:test');
+  await execAsync('npm run package-diff');
   spinner.succeed(`文件检查通过，准备发布！`);
 };
 

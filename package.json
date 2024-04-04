@@ -77,6 +77,7 @@
     "lint-fix": "npm run lint-fix:script && npm run lint-fix:demo",
     "lint-fix:demo": "npm run lint:demo -- --fix",
     "lint-fix:script": "npm run lint:script -- --fix",
+    "package-diff": "antd-tools run package-diff",
     "prepare": "is-ci || husky && dumi setup",
     "prepublishOnly": "tsx ./scripts/pre-publish.ts",
     "prettier": "prettier -c --write **/* --cache",
