@@ -16,28 +16,3 @@ exports[`Ribbon rtl render component should be rendered correctly in RTL directi
   </div>
 </div>
 `;
-
-exports[`Ribbon should support custom styles 1`] = `
-<div>
-  <div
-    class="ant-ribbon-wrapper"
-    style="color: red;"
-  >
-    <div>
-      custom styles
-    </div>
-    <div
-      class="ant-ribbon ant-ribbon-placement-end"
-    >
-      <span
-        class="ant-ribbon-text"
-      >
-        Hippies
-      </span>
-      <div
-        class="ant-ribbon-corner"
-      />
-    </div>
-  </div>
-</div>
-`;

@@ -86,6 +86,7 @@ describe('Ribbon', () => {
         <div>custom styles</div>
       </Badge.Ribbon>,
     );
-    expect(container).toMatchSnapshot();
+    const element = container.querySelector<HTMLDivElement>('.ant-ribbon-wrapper');
+    expect(element).toHaveStyle({ color: 'red' });
   });
 });
