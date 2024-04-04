@@ -36,6 +36,7 @@ config/base.yaml
 yarn.lock
 package-lock.json
 pnpm-lock.yaml
+bun.lockb
 .pnpm-debug.log
 components/**/*.js
 components/**/*.jsx
