@@ -146,11 +146,11 @@ const Line: React.FC<LineProps> = (props) => {
         className={classNames(`${prefixCls}-bg`, `${prefixCls}-bg-${infoPosition}`)}
         style={percentStyle}
       >
-        {infoPosition === 'inner' ? children : null}
+        {infoPosition === 'inner' && children}
       </div>
-      {successPercent !== undefined ? (
+      {successPercent !== undefined && (
         <div className={`${prefixCls}-success-bg`} style={successPercentStyle} />
-      ) : null}
+      )}
     </div>
   );
 

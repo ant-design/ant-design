@@ -62,12 +62,6 @@ export interface ProgressProps extends ProgressAriaProps {
   children?: React.ReactNode;
 }
 
-const isBright = (bgColorToken: string | ProgressGradient) => {
-  const color = typeof bgColorToken === 'string' ? bgColorToken : Object.values(bgColorToken)[0];
-  const { r, g, b } = new TinyColor(color).toRgb();
-  return r * 0.299 + g * 0.587 + b * 0.114 > 192;
-};
-
 const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
@@ -90,6 +84,16 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   const strokeColorNotArray = Array.isArray(strokeColor) ? strokeColor[0] : strokeColor;
   const strokeColorNotGradient =
     typeof strokeColor === 'string' || Array.isArray(strokeColor) ? strokeColor : undefined;
+  const strokeColorIsBright = React.useMemo(() => {
+    if (strokeColorNotArray) {
+      const color =
+        typeof strokeColorNotArray === 'string'
+          ? strokeColorNotArray
+          : Object.values(strokeColorNotArray)[0];
+      return new TinyColor(color).isLight();
+    }
+    return false;
+  }, [strokeColor]);
 
   const percentNumber = React.useMemo<number>(() => {
     const successPercent = getSuccessPercent(props);
@@ -140,7 +144,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
           `${prefixCls}-text`,
           `${prefixCls}-text-${infoPosition}`,
           `${prefixCls}-text-${infoAlign}`,
-          strokeColorNotArray && isBright(strokeColorNotArray) && `${prefixCls}-text-bright`,
+          strokeColorIsBright && `${prefixCls}-text-bright`,
         )}
         title={typeof text === 'string' ? text : undefined}
       >
