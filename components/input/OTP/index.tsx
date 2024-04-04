@@ -13,11 +13,11 @@ import type { SizeType } from '../../config-provider/SizeContext';
 import { FormItemInputContext } from '../../form/context';
 import type { FormItemStatusContextProps } from '../../form/context';
 import type { Variant } from '../../form/hooks/useVariants';
+import useSingleValue from '../hooks/useSingleValue';
 import type { InputRef } from '../Input';
 import useStyle from '../style/otp';
 import OTPInput from './OTPInput';
 import type { OTPInputProps } from './OTPInput';
-import useSingleValue from './useSingleValue';
 
 const isEmoji = (str: string) => {
   const emojiReg =

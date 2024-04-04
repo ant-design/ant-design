@@ -1,7 +1,7 @@
 import React from 'react';
 import { substr } from 'runes2';
 
-import type { OTPProps } from '.';
+import type { OTPProps } from '../OTP';
 
 const useSingleValue = (valueCells: string[], mask?: OTPProps['mask']) => {
   const getSingleValue = React.useCallback(
