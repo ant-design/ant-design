@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
-import { message, Space, Upload } from 'antd';
+import { Flex, message, Upload } from 'antd';
 import type { GetProp, UploadProps } from 'antd';
 
 type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
@@ -49,7 +49,7 @@ const App: React.FC = () => {
   );
 
   return (
-    <Space>
+    <Flex gap="middle" wrap="wrap">
       <Upload
         name="avatar"
         listType="picture-card"
@@ -72,7 +72,7 @@ const App: React.FC = () => {
       >
         {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
       </Upload>
-    </Space>
+    </Flex>
   );
 };
 
