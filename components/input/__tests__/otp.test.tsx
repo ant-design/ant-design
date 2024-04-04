@@ -13,13 +13,13 @@ describe('Input.OTP', () => {
   mountTest(Input.OTP);
   rtlTest(Input.OTP);
 
-  function getText(container: HTMLElement) {
+  const getText = (container: HTMLElement) => {
     const inputList = container.querySelectorAll<HTMLInputElement>('input');
     return Array.from(inputList)
       .map((input) => input.value || ' ')
       .join('')
       .replace(/\s*$/, '');
-  }
+  };
 
   beforeEach(() => {
     jest.useFakeTimers();
@@ -141,5 +141,21 @@ describe('Input.OTP', () => {
     // support emoji
     rerender(<OTP defaultValue="bamboo" mask="🔒" />);
     expect(getText(container)).toBe('🔒🔒🔒🔒🔒🔒');
+  });
+
+  it('should throw Error when mask.length > 1', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<OTP mask="abc" />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Input.OTP] `mask` prop should be a single character.',
+    );
+    errSpy.mockRestore();
+  });
+
+  it('should not throw Error when mask.length <= 1', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<OTP mask="x" />);
+    expect(errSpy).not.toHaveBeenCalled();
+    errSpy.mockRestore();
   });
 });
