@@ -144,7 +144,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
           `${prefixCls}-text`,
           `${prefixCls}-text-${infoPosition}`,
           `${prefixCls}-text-${infoAlign}`,
-          strokeColorIsBright && `${prefixCls}-text-bright`,
+          strokeColorIsBright && infoPosition === 'inner' && `${prefixCls}-text-bright`,
         )}
         title={typeof text === 'string' ? text : undefined}
       >
