@@ -110,7 +110,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
 
   // ======================== Status ========================
   const formContext = React.useContext(FormItemInputContext);
-  const mergedStatus = getMergedStatus(formContext.status, customStatus);
+  const mergedStatus = getMergedStatus(formContext.status, customStatus) as InputStatus;
 
   const proxyFormContext = React.useMemo<FormItemStatusContextProps>(
     () => ({
@@ -225,7 +225,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   const inputSharedProps: Partial<OTPInputProps> = {
     variant,
     disabled,
-    status: mergedStatus as InputStatus,
+    status: mergedStatus,
     mask,
   };
 

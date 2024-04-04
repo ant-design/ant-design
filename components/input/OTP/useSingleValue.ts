@@ -5,7 +5,7 @@ import type { OTPProps } from '.';
 
 const useSingleValue = (valueCells: string[], mask?: OTPProps['mask']) => {
   const getSingleValue = React.useCallback(
-    (index: number): string => {
+    (index: number) => {
       if (!valueCells[index]) {
         return '';
       }
@@ -17,7 +17,7 @@ const useSingleValue = (valueCells: string[], mask?: OTPProps['mask']) => {
           return runes.substr(mask, 0, 1); // 使用第三方库兼容 emoji
         }
       }
-      return valueCells[index];
+      return valueCells[index] || '';
     },
     [mask, valueCells],
   );
