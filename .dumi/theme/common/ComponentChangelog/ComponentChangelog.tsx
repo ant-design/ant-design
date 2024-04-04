@@ -40,7 +40,7 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
 
   ref: css`
-    margin-block-start: ${token.marginXS}px;
+    margin-inline-start: ${token.marginXS}px;
   `,
   bug: css`
     font-size: 14px;
