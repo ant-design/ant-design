@@ -40,20 +40,21 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
 
   ref: css`
-    margin-left: ${token.marginXS}px;
+    margin-block-start: ${token.marginXS}px;
   `,
   bug: css`
     font-size: 14px;
     color: #aaa;
-    paddinginlinestart: 4px;
+    padding-inline-start: ${token.paddingXS}px;
+    display: inline-block;
+    vertical-align: inherit;
     &:hover {
       color: #333;
     }
   `,
   bugList: css`
-    paddingBlock: 5px;
     li {
-      paddingBlock: 5px;
+      padding-block: ${token.paddingXS}px;
     }
   `,
 }));
