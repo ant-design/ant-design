@@ -45,7 +45,7 @@ const useStyle = createStyles(({ token, css }) => ({
   bug: css`
     font-size: 14px;
     color: #aaa;
-    padding-inline-start: ${token.paddingXS}px;
+    padding-inline-start: ${token.paddingXXS}px;
     display: inline-block;
     vertical-align: inherit;
     &:hover {
