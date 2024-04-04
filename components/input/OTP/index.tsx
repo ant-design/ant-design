@@ -17,6 +17,7 @@ import type { InputRef } from '../Input';
 import useStyle from '../style/otp';
 import OTPInput from './OTPInput';
 import type { OTPInputProps } from './OTPInput';
+import useSingleValue from './useSingleValue';
 
 export interface OTPRef {
   focus: VoidFunction;
@@ -75,6 +76,15 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     ...restProps
   } = props;
 
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Input.OTP');
+    warning(
+      !(typeof mask === 'string' && mask.length > 1),
+      'usage',
+      '`mask` prop should be a single character',
+    );
+  }
+
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('otp', customizePrefixCls);
 
@@ -109,15 +119,15 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   // ========================= Refs =========================
   const containerRef = React.useRef<HTMLDivElement>(null);
 
-  const refs = React.useRef<Record<number, InputRef | null>>({});
+  const inputRefs = React.useRef<Record<number, InputRef | null>>({});
 
   React.useImperativeHandle(ref, () => ({
     focus: () => {
-      refs.current[0]?.focus();
+      inputRefs.current[0]?.focus();
     },
     blur: () => {
       for (let i = 0; i < length; i += 1) {
-        refs.current[i]?.blur();
+        inputRefs.current[i]?.blur();
       }
     },
     nativeElement: containerRef.current!,
@@ -136,6 +146,8 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
       setValueCells(strToArr(value));
     }
   }, [value]);
+
+  const getSingleValue = useSingleValue(valueCells, mask);
 
   const triggerValueCellsChange = useEvent((nextValueCells: string[]) => {
     setValueCells(nextValueCells);
@@ -193,14 +205,14 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
 
     const nextIndex = Math.min(index + txt.length, length - 1);
     if (nextIndex !== index) {
-      refs.current[nextIndex]?.focus();
+      inputRefs.current[nextIndex]?.focus();
     }
 
     triggerValueCellsChange(nextCells);
   };
 
   const onInputActiveChange: OTPInputProps['onActiveChange'] = (nextIndex) => {
-    refs.current[nextIndex]?.focus();
+    inputRefs.current[nextIndex]?.focus();
   };
 
   // ======================== Render ========================
@@ -210,30 +222,6 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     status: mergedStatus as InputStatus,
     mask,
   };
-
-  const getSingleValue = React.useCallback(
-    (index: number) => {
-      if (!valueCells[index]) {
-        return '';
-      }
-      if (typeof mask === 'string') {
-        if (mask.length === 1) {
-          return mask;
-        }
-        if (mask.length > 1) {
-          if (process.env.NODE_ENV !== 'production') {
-            // 这里 warning 的时候需要判断一下是否是 emoji，待实现
-            const warning = devUseWarning('Input.OTP');
-            warning(false, 'usage', '`mask` prop should be a single character');
-          }
-          // 为了兼容 emoji，这里取第一个字符不能用 mask.charAt(0)，需要用解构
-          return [...mask][0];
-        }
-      }
-      return valueCells[index];
-    },
-    [mask, valueCells],
-  );
 
   return wrapCSSVar(
     <div
@@ -257,7 +245,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
           return (
             <OTPInput
               ref={(inputEle) => {
-                refs.current[index] = inputEle;
+                inputRefs.current[index] = inputEle;
               }}
               key={key}
               index={index}
