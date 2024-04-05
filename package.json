@@ -327,7 +327,7 @@
     "terser": "^5.30.3",
     "tsx": "^4.7.2",
     "typedoc": "^0.25.12",
-    "typescript": "~5.4.3",
+    "typescript": "~5.4.4",
     "vanilla-jsoneditor": "^0.23.1",
     "vanilla-tilt": "^1.8.1",
     "webpack": "^5.91.0",
