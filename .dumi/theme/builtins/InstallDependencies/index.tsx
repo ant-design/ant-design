@@ -6,15 +6,17 @@ import type { Tab } from 'rc-tabs/lib/interface';
 import NpmLogo from './npm';
 import PnpmLogo from './pnpm';
 import YarnLogo from './yarn';
+import BunLogo from './bun';
 
 interface InstallProps {
   npm?: string;
   yarn?: string;
   pnpm?: string;
+  bun?: string;
 }
 
 const InstallDependencies: React.FC<InstallProps> = (props) => {
-  const { npm, yarn, pnpm } = props;
+  const { npm, yarn, pnpm, bun } = props;
   const items: Tab[] = [
     {
       key: 'npm',
@@ -33,6 +35,12 @@ const InstallDependencies: React.FC<InstallProps> = (props) => {
       label: 'pnpm',
       children: pnpm ? <SourceCode lang="bash">{pnpm}</SourceCode> : null,
       icon: <PnpmLogo />,
+    },
+    {
+      key: 'bun',
+      label: 'Bun',
+      children: bun ? <SourceCode lang="bash">{bun}</SourceCode> : null,
+      icon: <BunLogo />,
     },
   ].filter((item) => item.children);
 
