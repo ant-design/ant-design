@@ -230,7 +230,7 @@ const GlobalStyle: React.FC = () => {
         .markdown .anchor {
           margin-inline-start: ${token.marginXS}px;
           opacity: 0;
-          transition: opacity 0.3s;
+          transition: opacity ${token.motionDurationSlow};
 
           .rtl & {
             margin-inline-end: ${token.marginXS}px;

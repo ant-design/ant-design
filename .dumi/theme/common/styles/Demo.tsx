@@ -23,11 +23,11 @@ const GlobalDemoStyles: React.FC = () => {
           position: relative;
           display: inline-block;
           width: calc(100% - ${token.lineWidth * 2}px);
-          margin: 0 0 16px;
+          margin: 0 0 ${token.margin}px;
           background-color: ${token.colorBgContainer};
           border: 1px solid ${token.colorSplit};
           border-radius: ${token.borderRadiusLG}px;
-          transition: all 0.2s;
+          transition: all ${token.motionDurationMid};
 
           &.code-box-simplify {
             border-radius: 0;
@@ -58,7 +58,7 @@ const GlobalDemoStyles: React.FC = () => {
           .markdown {
             pre {
               margin: 0.5em 0;
-              padding: 6px 12px;
+              padding: ${token.paddingSM / 2}px ${token.paddingSM}px;
             }
 
             pre code {
@@ -74,11 +74,11 @@ const GlobalDemoStyles: React.FC = () => {
           &-expand-trigger {
             position: relative;
             color: #3b4357;
-            font-size: 20px;
+            font-size: ${token.fontSizeXL};
             cursor: pointer;
             opacity: 0.75;
-            transition: all 0.3s;
-            margin-inline-start: 12px;
+            transition: all ${token.motionDurationSlow};
+            margin-inline-start: ${token.marginSM};
 
             &:hover {
               opacity: 1;
@@ -115,11 +115,11 @@ const GlobalDemoStyles: React.FC = () => {
             text-decoration: none;
             background: inherit;
             transform: scale(0.9);
-            padding-inline-end: 6px;
+            padding-inline-end: ${token.paddingXXS}px;
 
             ${iconCls} {
               color: ${token.colorTextSecondary};
-              transition: all 0.3s;
+              transition: all ${token.motionDurationSlow};
 
               &:hover {
                 color: ${token.colorText};
@@ -332,7 +332,7 @@ const GlobalDemoStyles: React.FC = () => {
               border: none;
               box-shadow: unset;
               padding: ${token.paddingSM}px ${token.padding}px;
-              font-size: 13px;
+              font-size: ${token.fontSize}px;
             }
           }
 
