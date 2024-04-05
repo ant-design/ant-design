@@ -193,10 +193,12 @@ const ComponentChangelog: React.FC<ComponentChangelogProps> = (props) => {
                         <li key={`reason-${index}`}>
                           <a type="link" target="_blank" rel="noreferrer" href={reason}>
                             <BugOutlined />
-                            {reason?.replace(
-                              /^https:\/\/github\.com\/ant-design\/ant-design\/(issues|pull)\//,
-                              '#',
-                            )}
+                            {reason
+                              ?.replace(/#.*$/, '')
+                              ?.replace(
+                                /^https:\/\/github\.com\/ant-design\/ant-design\/(issues|pull)\//,
+                                '#',
+                              )}
                           </a>
                         </li>
                       ))}
