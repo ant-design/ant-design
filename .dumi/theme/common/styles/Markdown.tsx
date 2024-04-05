@@ -56,7 +56,7 @@ const GlobalStyle: React.FC = () => {
           line-height: 38px;
 
           .subtitle {
-            margin-left: 12px;
+            margin-inline-start: 12px;
           }
         }
 
@@ -112,15 +112,15 @@ const GlobalStyle: React.FC = () => {
         }
 
         .markdown ul > li {
-          margin-left: 20px;
-          padding-left: 4px;
+          margin-inline-start: 20px;
+          padding-inline-start: 4px;
           list-style-type: circle;
 
           .rtl & {
-            margin-right: 20px;
-            margin-left: 0;
-            padding-right: 4px;
-            padding-left: 0;
+            margin-inline-end: 20px;
+            margin-inline-start: 0;
+            padding-inline-end: 4px;
+            padding-inline-start: 0;
           }
 
           &:empty {
@@ -129,15 +129,15 @@ const GlobalStyle: React.FC = () => {
         }
 
         .markdown ol > li {
-          margin-left: 20px;
-          padding-left: 4px;
+          margin-inline-start: 20px;
+          padding-inline-start: 4px;
           list-style-type: decimal;
 
           ${antCls}-row-rtl & {
-            margin-right: 20px;
-            margin-left: 0;
-            padding-right: 4px;
-            padding-left: 0;
+            margin-inline-end: 20px;
+            margin-inline-start: 0;
+            padding-inline-end: 4px;
+            padding-inline-start: 0;
           }
         }
 
@@ -201,7 +201,7 @@ const GlobalStyle: React.FC = () => {
         }
 
         .markdown table td > a:not(:last-child) {
-          margin-right: 0 !important;
+          margin-inline-end: 0 !important;
 
           &::after {
             position: relative !important;
@@ -210,14 +210,14 @@ const GlobalStyle: React.FC = () => {
 
         .markdown blockquote {
           margin: 1em 0;
-          padding-left: 0.8em;
+          padding-inline-start: 0.8em;
           color: ${token.colorTextSecondary};
           font-size: 90%;
           border-left: 4px solid ${token.colorSplit};
 
           .rtl & {
-            padding-right: 0.8em;
-            padding-left: 0;
+            padding-inline-end: 0.8em;
+            padding-inline-start: 0;
             border-right: 4px solid ${token.colorSplit};
             border-left: none;
           }
@@ -228,13 +228,13 @@ const GlobalStyle: React.FC = () => {
         }
 
         .markdown .anchor {
-          margin-left: 8px;
+          margin-inline-start: 8px;
           opacity: 0;
           transition: opacity 0.3s;
 
           .rtl & {
-            margin-right: 8px;
-            margin-left: 0;
+            margin-inline-end: 8px;
+            margin-inline-start: 0;
           }
         }
 
@@ -245,12 +245,12 @@ const GlobalStyle: React.FC = () => {
 
         .markdown a.edit-button {
           display: inline-block;
-          margin-left: 8px;
+          margin-inline-start: 8px;
           text-decoration: none;
 
           .rtl & {
-            margin-right: 8px;
-            margin-left: 0;
+            margin-inline-end: 8px;
+            margin-inline-start: 0;
             transform: rotateY(180deg);
           }
 

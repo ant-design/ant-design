@@ -33,7 +33,7 @@ const useStyle = createStyles(({ token, css }) => ({
     align-items: center;
     img {
       width: 200px;
-      margin-right: 24px;
+      margin-inline-end: 24px;
       overflow: hidden;
       border-radius: 8px;
     }

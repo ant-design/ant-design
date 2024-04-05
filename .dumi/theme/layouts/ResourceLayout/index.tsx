@@ -31,8 +31,8 @@ const useStyle = () => {
           .rc-footer-container {
             max-width: ${articleMaxWidth}px;
             margin: 0 auto;
-            padding-right: 0;
-            padding-left: 0;
+            padding-inline-end: 0;
+            padding-inline-start: 0;
           }
         }
       `,

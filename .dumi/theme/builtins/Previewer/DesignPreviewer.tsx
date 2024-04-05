@@ -86,12 +86,12 @@ const DesignPreviewer: FC<AntdPreviewerProps> = ({ children, title, description,
         {copied ? (
           <div className={styles.copiedTip}>
             <CheckOutlined />
-            <span style={{ marginLeft: 8 }}>已复制，使用 Kitchen 插件即可粘贴</span>
+            <span style={{ marginInlineStart: 8 }}>已复制，使用 Kitchen 插件即可粘贴</span>
           </div>
         ) : (
           <div onClick={handleCopy} className={styles.copyTip}>
             <SketchOutlined />
-            <span style={{ marginLeft: 8 }}>复制 Sketch JSON</span>
+            <span style={{ marginInlineStart: 8 }}>复制 Sketch JSON</span>
           </div>
         )}
       </div>

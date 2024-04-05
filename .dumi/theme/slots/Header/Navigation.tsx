@@ -46,8 +46,8 @@ const useStyle = createStyles(({ token }) => {
         & > ${antCls}-menu-item, & > ${antCls}-menu-submenu {
           min-width: ${40 + 12 * 2}px;
           height: ${headerHeight}px;
-          padding-right: 12px;
-          padding-left: 12px;
+          padding-inline-end: 12px;
+          padding-inline-start: 12px;
           line-height: ${headerHeight}px;
 
           &::after {
@@ -92,7 +92,7 @@ const useStyle = createStyles(({ token }) => {
       }
 
       ${antCls}-menu-item-group-title {
-        padding-left: 24px;
+        padding-inline-start: 24px;
       }
 
       ${antCls}-menu-item-group-list {

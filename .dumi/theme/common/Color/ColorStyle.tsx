@@ -1,5 +1,5 @@
 import React from 'react';
-import { Global, css } from '@emotion/react';
+import { css, Global } from '@emotion/react';
 import { useTheme } from 'antd-style';
 
 const gray: { [key: number]: string } = {
@@ -68,14 +68,14 @@ ${makeGrayPalette(index + 1)}
               margin: 45px 3.5% 45px 0;
 
               &:nth-of-type(3n) {
-                margin-right: 0;
+                margin-inline-end: 0;
               }
 
               .main-color-item {
-                margin-right: 0;
+                margin-inline-end: 0;
 
                 &:hover {
-                  margin-right: -8px;
+                  margin-inline-end: -8px;
                 }
               }
             }
@@ -99,30 +99,29 @@ ${makeGrayPalette(index + 1)}
             &-value {
               position: relative;
               top: -3px;
-              margin-left: 16px;
+              margin-inline-start: 16px;
               font-size: 14px;
               font-family: Consolas, sans-serif;
-
               .ant-row-rtl & {
-                margin-right: 16px;
-                margin-left: 0;
+                margin-inline-end: 16px;
+                margin-inline-start: 0;
               }
             }
 
             &-validation {
               position: relative;
               top: -3px;
-              margin-left: 16px;
+              margin-inline-start: 16px;
               color: ${token.colorError};
               font-size: 13px;
 
               .ant-row-rtl & {
-                margin-right: 16px;
-                margin-left: 0;
+                margin-inline-end: 16px;
+                margin-inline-start: 0;
               }
 
               &-dark {
-                margin-left: 0;
+                margin-inline-start: 0;
               }
             }
           }
@@ -148,7 +147,7 @@ ${makeGrayPalette(index + 1)}
           &-item {
             position: relative;
             height: 44px;
-            margin-right: 4px;
+            margin-inline-end: 4px;
             padding: 0 12px;
             font-size: 14px;
             font-family: Consolas, sans-serif;
@@ -165,7 +164,7 @@ ${makeGrayPalette(index + 1)}
             }
 
             &:hover {
-              margin-right: -8px;
+              margin-inline-end: -8px;
               border-radius: 0 4px 4px 0;
             }
           }
@@ -245,7 +244,7 @@ ${makeGrayPalette(index + 1)}
               flex: 1;
               box-sizing: border-box;
               height: 86px;
-              margin-right: 0;
+              margin-inline-end: 0;
               padding: 37px 0 0;
               line-height: normal;
               text-align: center;

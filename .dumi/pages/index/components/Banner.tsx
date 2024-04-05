@@ -7,7 +7,7 @@ import { Link, useLocation } from 'dumi';
 import useLocale from '../../../hooks/useLocale';
 import SiteContext from '../../../theme/slots/SiteContext';
 import * as utils from '../../../theme/utils';
-import { GroupMask } from './Group';
+import GroupMaskLayer from './GroupMaskLayer';
 
 const locales = {
   cn: {
@@ -107,7 +107,7 @@ const Banner: React.FC<React.PropsWithChildren> = ({ children }) => {
               backgroundRepeat: 'repeat-x',
               backgroundPosition: '0 0',
               backgroundSize: 'auto 100%',
-              marginLeft: -1,
+              marginInlineStart: -1,
             }}
           />
         </div>
@@ -121,8 +121,7 @@ const Banner: React.FC<React.PropsWithChildren> = ({ children }) => {
           src="https://gw.alipayobjects.com/zos/bmw-prod/b3b8dc41-dce8-471f-9d81-9a0204f27d03.svg"
           alt="Ant Design"
         />
-
-        <GroupMask
+        <GroupMaskLayer
           style={{
             textAlign: 'center',
             paddingTop: token.marginFar - 16,
@@ -166,7 +165,7 @@ const Banner: React.FC<React.PropsWithChildren> = ({ children }) => {
             </Link>
           </Flex>
           {children}
-        </GroupMask>
+        </GroupMaskLayer>
       </div>
     </>
   );

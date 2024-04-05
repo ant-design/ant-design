@@ -82,7 +82,7 @@ const useStyle = createStyles(({ token }) => {
         color: ${token.colorPrimary};
       }
       span {
-        margin-right: ${token.marginXXS}px;
+        margin-inline-end: ${token.marginXXS}px;
       }
     `,
   };

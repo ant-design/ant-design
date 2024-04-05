@@ -1,5 +1,5 @@
-import { css, Global } from '@emotion/react';
 import React from 'react';
+import { css, Global } from '@emotion/react';
 import { useTheme } from 'antd-style';
 
 export default () => {
@@ -70,10 +70,10 @@ export default () => {
           }
 
           .ant-row-rtl {
-            margin-right: 0;
-            margin-left: 0;
-            padding-right: 16px;
-            padding-left: 16px;
+            margin-inline-end: 0;
+            margin-inline-start: 0;
+            padding-inline-end: 16px;
+            padding-inline-start: 16px;
 
             > .markdown > * {
               width: 100% !important;
@@ -88,11 +88,11 @@ export default () => {
 
           .prev-next-nav {
             width: calc(100% - 32px);
-            margin-left: 16px;
+            margin-inline-start: 16px;
 
             .ant-row-rtl & {
-              margin-right: 16px;
-              margin-left: 64px;
+              margin-inline-end: 16px;
+              margin-inline-start: 64px;
             }
           }
 
@@ -330,7 +330,7 @@ export default () => {
                 width: 80%;
                 max-width: initial;
                 margin: 0;
-                padding-left: 16px;
+                padding-inline-start: 16px;
               }
             }
           }

@@ -1,58 +1,33 @@
 import * as React from 'react';
 import { useContext } from 'react';
 import { Typography } from 'antd';
-import { useTheme } from 'antd-style';
+import { createStyles, useTheme } from 'antd-style';
 
 import SiteContext from '../../../theme/slots/SiteContext';
+import GroupMaskLayer from './GroupMaskLayer';
 
-export interface GroupMaskProps {
-  style?: React.CSSProperties;
-  children?: React.ReactNode;
-  disabled?: boolean;
-  onMouseMove?: React.MouseEventHandler<HTMLDivElement>;
-  onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
-  onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
-}
-
-export const GroupMask: React.FC<GroupMaskProps> = (props) => {
-  const { children, style, disabled, onMouseMove, onMouseEnter, onMouseLeave } = props;
-  const additionalStyle: React.CSSProperties = disabled
-    ? {}
-    : {
-        position: 'relative',
-        zIndex: 1,
-      };
-
-  return (
-    <div
-      className="site-mask"
-      style={{ position: 'relative', ...style, ...additionalStyle }}
-      onMouseMove={onMouseMove}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-    >
-      {children}
-    </div>
-  );
-};
+const useStyle = createStyles(({ css, token }) => ({
+  box: css`
+    position: relative;
+    transition: all ${token.motionDurationSlow};
+  `,
+}));
 
 export interface GroupProps {
   id?: string;
   title?: React.ReactNode;
   titleColor?: string;
   description?: React.ReactNode;
-  children?: React.ReactNode;
   background?: string;
-
   /** 是否不使用两侧 margin */
   collapse?: boolean;
-
   decoration?: React.ReactNode;
 }
 
-const Group: React.FC<GroupProps> = (props) => {
+const Group: React.FC<React.PropsWithChildren<GroupProps>> = (props) => {
   const { id, title, titleColor, description, children, decoration, background, collapse } = props;
   const token = useTheme();
+  const { styles } = useStyle();
   const { isMobile } = useContext(SiteContext);
 
   const marginStyle: React.CSSProperties = collapse
@@ -102,18 +77,11 @@ const Group: React.FC<GroupProps> = (props) => {
   );
 
   return (
-    <div
-      style={{ position: 'relative', background, transition: `all ${token.motionDurationSlow}` }}
-    >
+    <div style={{ backgroundColor: background }} className={styles.box}>
       <div style={{ position: 'absolute', inset: 0 }}>{decoration}</div>
-      <GroupMask
-        disabled={!!background}
-        style={{
-          paddingBlock: (token as any).marginFarSM,
-        }}
-      >
+      <GroupMaskLayer style={{ paddingBlock: (token as any).marginFarSM }}>
         {childNode}
-      </GroupMask>
+      </GroupMaskLayer>
     </div>
   );
 };

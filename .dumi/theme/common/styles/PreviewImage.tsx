@@ -1,5 +1,5 @@
-import { css, Global } from '@emotion/react';
 import React from 'react';
+import { css, Global } from '@emotion/react';
 import { useTheme } from 'antd-style';
 
 export default () => {
@@ -39,11 +39,11 @@ export default () => {
         }
 
         .preview-image-box + .preview-image-box {
-          margin-left: 24px;
+          margin-inline-start: 24px;
 
           .ant-row-rtl & {
-            margin-right: 24px;
-            margin-left: 0;
+            margin-inline-end: 24px;
+            margin-inline-start: 0;
           }
         }
 
@@ -132,8 +132,12 @@ export default () => {
 
         .preview-image-boxes.preview-image-boxes-with-carousel img {
           padding: 0;
-          box-shadow: 0 1px 0 0 #ddd, 0 3px 0 0 ${token.colorBgContainer}, 0 4px 0 0 #ddd,
-            0 6px 0 0 ${token.colorBgContainer}, 0 7px 0 0 #ddd;
+          box-shadow:
+            0 1px 0 0 #ddd,
+            0 3px 0 0 ${token.colorBgContainer},
+            0 4px 0 0 #ddd,
+            0 6px 0 0 ${token.colorBgContainer},
+            0 7px 0 0 #ddd;
         }
 
         .preview-image-box img:hover {
@@ -173,7 +177,7 @@ export default () => {
             box-sizing: border-box;
             width: 100%;
             min-height: 180px;
-            margin-right: 12.5%;
+            margin-inline-end: 12.5%;
             margin-bottom: 24px;
             padding: 24px;
             font-size: 24px;
@@ -182,7 +186,7 @@ export default () => {
             border-radius: 4px;
 
             &:last-child {
-              margin-right: 0;
+              margin-inline-end: 0;
             }
 
             h4 {

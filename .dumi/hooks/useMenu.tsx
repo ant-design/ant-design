@@ -77,7 +77,7 @@ export interface UseMenuOptions {
   after?: React.ReactNode;
 }
 
-const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => {
+const useMenu = (options: UseMenuOptions = {}): readonly [MenuProps['items'], string] => {
   const fullData = useFullSidebarData();
   const { pathname, search } = useLocation();
   const sidebarData = useSidebarData();
@@ -211,7 +211,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
     );
   }, [sidebarData, fullData, pathname, search, options]);
 
-  return [menuItems, pathname];
+  return [menuItems, pathname] as const;
 };
 
 export default useMenu;

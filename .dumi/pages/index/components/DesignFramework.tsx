@@ -96,7 +96,7 @@ const useStyle = () => {
   }))();
 };
 
-export default function DesignFramework() {
+const DesignFramework: React.FC = () => {
   const [locale] = useLocale(locales);
   const token = useTheme();
   const { styles } = useStyle();
@@ -174,4 +174,6 @@ export default function DesignFramework() {
       })}
     </Row>
   );
-}
+};
+
+export default DesignFramework;
