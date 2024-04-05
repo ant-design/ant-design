@@ -74,12 +74,10 @@ const GlobalDemoStyles: React.FC = () => {
           &-expand-trigger {
             position: relative;
             color: #3b4357;
-            font-size: ${token.fontSizeXL};
+            font-size: ${token.fontSizeXL}px;
             cursor: pointer;
             opacity: 0.75;
             transition: all ${token.motionDurationSlow};
-            margin-inline-start: ${token.marginSM};
-
             &:hover {
               opacity: 1;
             }
@@ -353,6 +351,9 @@ const GlobalDemoStyles: React.FC = () => {
           position: absolute;
           top: -32px;
           inset-inline-end: 0;
+          display: flex;
+          align-items: center;
+          column-gap: ${token.marginSM}px;
         }
 
         ${antCls}-row-rtl {

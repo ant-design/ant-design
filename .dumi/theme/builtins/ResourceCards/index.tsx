@@ -17,7 +17,7 @@ const useStyle = createStyles(({ token, css }) => {
       color: inherit;
       list-style: none;
       border: 1px solid ${token.colorSplit};
-      border-radius: 2px;
+      border-radius: ${token.borderRadiusXS}px;
       cursor: pointer;
       transition: box-shadow ${token.motionDurationSlow};
 

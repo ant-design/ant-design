@@ -25,7 +25,7 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
   placeholder: css`
     color: ${token.colorTextDescription};
-    font-size: 16px;
+    font-size: ${token.fontSizeLG}px;
   `,
 }));
 

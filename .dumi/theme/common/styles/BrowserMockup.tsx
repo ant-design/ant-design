@@ -55,11 +55,10 @@ export default () => {
           display: block;
           width: calc(100% - 6em);
           height: 1.2em;
-          background-color: white;
-          border-radius: 2px;
+          background-color: #fff;
+          border-radius: ${token.borderRadiusXS}px;
           content: '';
         }
-
         .browser-mockup > * {
           display: block;
         }
