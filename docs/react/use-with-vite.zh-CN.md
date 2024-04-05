@@ -9,9 +9,9 @@ title: 在 Vite 中使用
 
 ## 安装和初始化
 
-在开始之前，你可能需要安装 [yarn](https://github.com/yarnpkg/yarn/) 或者 [pnpm](https://pnpm.io/zh/)。
+在开始之前，你可能需要安装 [yarn](https://github.com/yarnpkg/yarn/) 或者 [pnpm](https://pnpm.io/zh/) 或者 [bun](https://bun.sh/)。
 
-<InstallDependencies npm='$ npm create vite antd-demo' yarn='$ yarn create vite antd-demo' pnpm='$ pnpm create vite antd-demo'></InstallDependencies>
+<InstallDependencies npm='$ npm create vite antd-demo' yarn='$ yarn create vite antd-demo' pnpm='$ pnpm create vite antd-demo' bun='$ bun create vite antd-demo'></InstallDependencies>
 
 工具会自动初始化一个脚手架并安装 React 项目的各种必要依赖，如果在过程中出现网络问题，请尝试配置代理，或使用其他 npm registry。
 
@@ -45,9 +45,9 @@ $ npm run dev
 └── vite.config.js
 ```
 
-现在从 yarn 或 npm 或 pnpm 安装并引入 antd。
+现在从 yarn 或 npm 或 pnpm 或 bun 安装并引入 antd。
 
-<InstallDependencies npm='$ npm install antd --save' yarn='$ yarn add antd' pnpm='$ pnpm install antd --save'></InstallDependencies>
+<InstallDependencies npm='$ npm install antd --save' yarn='$ yarn add antd' pnpm='$ pnpm install antd --save' bun='$ bun add antd'></InstallDependencies>
 
 修改 `src/App.js`，引入 antd 的按钮组件。
 
