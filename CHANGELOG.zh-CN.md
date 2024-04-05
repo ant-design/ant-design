@@ -16,6 +16,13 @@ tag: vVERSION
 
 ---
 
+## 5.16.1
+
+`2024-04-05`
+
+- 🛠 调整 Typography 的 `ellipsis` 使其在 SSR 阶段使用 CSS 省略以优化用户体验。[#48205](https://github.com/ant-design/ant-design/pull/48205)
+- 🐞 修复 FloatButton 中同时配置 `tooltip` 和 `badge` 时， `badge` 的自定义背景色会失效的问题。[#48198](https://github.com/ant-design/ant-design/pull/48198) [@LonelySnowman](https://github.com/LonelySnowman)
+
 ## 5.16.0
 
 `2024-03-31`

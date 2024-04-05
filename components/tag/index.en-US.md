@@ -44,7 +44,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | color | Color of the Tag | string | - |  |
 | icon | Set the icon of tag | ReactNode | - |  |
 | bordered | Whether has border style | boolean | true | 5.4.0 |
-| onClose | Callback executed when tag is closed | (e) => void | - |  |
+| onClose | Callback executed when tag is closed | (e: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
 
 ### Tag.CheckableTag
 
