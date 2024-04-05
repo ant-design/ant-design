@@ -104,7 +104,9 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
                 version={meta.frontmatter.tag}
               />
             )}
-          <div style={{ minHeight: 'calc(100vh - 64px)' }}>{children}</div>
+          <div style={{ minHeight: 'calc(100vh - 64px)', width: 'calc(100% - 10px)' }}>
+            {children}
+          </div>
           <InViewSuspense>
             <ColumnCard
               zhihuLink={meta.frontmatter.zhihu_url}
