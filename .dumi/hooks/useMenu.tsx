@@ -12,7 +12,7 @@ function isVersionNumber(value?: string) {
   return value && /^\d+\.\d+\.\d+$/.test(value);
 }
 
-const useStyle = createStyles(({ css }) => ({
+const useStyle = createStyles(({ css, token }) => ({
   link: css`
     display: flex;
     align-items: center;
@@ -20,6 +20,12 @@ const useStyle = createStyles(({ css }) => ({
   `,
   tag: css`
     margin-inline-end: 0;
+  `,
+  subtitle: css`
+    margin-inline-start: ${token.marginXS}px;
+    font-weight: normal;
+    font-size: 12px;
+    opacity: 0.8;
   `,
 }));
 
@@ -42,7 +48,7 @@ const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
       <Link to={`${link}${search}`} className={classnames(className, { [styles.link]: tag })}>
         <span>
           {title}
-          {subtitle && <span className="chinese">{subtitle}</span>}
+          {subtitle && <span className={styles.subtitle}>{subtitle}</span>}
         </span>
         {tag && (
           <Tag
@@ -60,7 +66,7 @@ const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
     <Link to={`${link}${search}`} className={className}>
       {before}
       {title}
-      {subtitle && <span className="chinese">{subtitle}</span>}
+      {subtitle && <span className={styles.subtitle}>{subtitle}</span>}
       {after}
     </Link>
   );

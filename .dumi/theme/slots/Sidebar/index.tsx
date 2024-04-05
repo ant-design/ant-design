@@ -93,13 +93,6 @@ const useStyle = createStyles(({ token, css }) => {
       a[disabled] {
         color: #ccc;
       }
-
-      .chinese {
-        margin-left: 6px;
-        font-weight: normal;
-        font-size: 12px;
-        opacity: 0.67;
-      }
     `,
     mainMenu: css`
       z-index: 1;
