@@ -9,9 +9,9 @@ title: Usage with Vite
 
 ## Install and Initialization
 
-Before all start, you may need install [yarn](https://github.com/yarnpkg/yarn/) or [pnpm](https://pnpm.io/).
+Before all start, you may need install [yarn](https://github.com/yarnpkg/yarn/) or [pnpm](https://pnpm.io/) or [bun](https://bun.sh/).
 
-<InstallDependencies npm='$ npm create vite antd-demo' yarn='$ yarn create vite antd-demo' pnpm='$ pnpm create vite antd-demo'></InstallDependencies>
+<InstallDependencies npm='$ npm create vite antd-demo' yarn='$ yarn create vite antd-demo' pnpm='$ pnpm create vite antd-demo' bun='$ bun create vite antd-demo'></InstallDependencies>
 
 The tool will create and initialize environment and dependencies automatically, please try config your proxy setting, or use another npm registry if any network errors happen during it.
 
@@ -45,9 +45,9 @@ Below is the default directory structure.
 └── vite.config.ts
 ```
 
-Now we install `antd` from yarn or npm or pnpm.
+Now we install `antd` from yarn or npm or pnpm or bun.
 
-<InstallDependencies npm='$ npm install antd --save' yarn='$ yarn add antd' pnpm='$ pnpm install antd --save'></InstallDependencies>
+<InstallDependencies npm='$ npm install antd --save' yarn='$ yarn add antd' pnpm='$ pnpm install antd --save' bun='$ bun add antd'></InstallDependencies>
 
 Modify `src/App.js`, import Button component from `antd`.
 
