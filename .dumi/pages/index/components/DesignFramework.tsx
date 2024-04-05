@@ -86,8 +86,8 @@ const useStyle = () => {
       display: block;
       border-radius: ${token.borderRadius * 2}px;
       padding: ${token.paddingMD}px ${token.paddingLG}px;
-      background: ${isRootDark ? 'rgba(0,0,0,0.25)' : 'rgba(0, 0, 0, 0.02)'};
-      border: 1px solid ${isRootDark ? 'rgba(255,255,255, 0.45)' : 'rgba(0, 0, 0, 0.06)'};
+      background: ${isRootDark ? 'rgba(0, 0, 0, 0.25)' : 'rgba(0, 0, 0, 0.02)'};
+      border: 1px solid ${isRootDark ? 'rgba(255, 255, 255, 0.45)' : 'rgba(0, 0, 0, 0.06)'};
 
       img {
         height: 48px;

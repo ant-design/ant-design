@@ -23,12 +23,9 @@ const useStyle = createStyles(({ token }) => ({
   `,
 }));
 
-const onShow = () => ({
-  opacity: 1,
-});
-const onHide = () => ({
-  opacity: 0,
-});
+const onShow = () => ({ opacity: 1 });
+
+const onHide = () => ({ opacity: 0 });
 
 const BackgroundImage: React.FC<BackgroundImageProps> = ({ colorPrimary, isLight }) => {
   const activeColor = useMemo(() => getClosetColor(colorPrimary), [colorPrimary]);

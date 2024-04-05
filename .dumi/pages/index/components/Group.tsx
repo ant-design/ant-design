@@ -18,6 +18,11 @@ const useStyle = createStyles(({ css, token }) => ({
     box-sizing: border-box;
     padding-inline: ${token.marginXXL}px;
   `,
+  withoutChildren: css`
+    min-height: 300px;
+    border-radius: ${token.borderRadiusLG}px;
+    background-color: '#e9e9e9';
+  `,
 }));
 
 export interface GroupProps {
@@ -61,14 +66,8 @@ const Group: React.FC<React.PropsWithChildren<GroupProps>> = (props) => {
           {description}
         </Typography.Paragraph>
       </div>
-      <div className={classNames({ [styles.marginStyle]: collapse })}>
-        {children ? (
-          <div>{children}</div>
-        ) : (
-          <div
-            style={{ borderRadius: token.borderRadiusLG, minHeight: 300, background: '#e9e9e9' }}
-          />
-        )}
+      <div className={classNames({ [styles.marginStyle]: !collapse })}>
+        {children ? <div>{children}</div> : <div className={styles.withoutChildren} />}
       </div>
     </>
   );
@@ -76,9 +75,7 @@ const Group: React.FC<React.PropsWithChildren<GroupProps>> = (props) => {
   return (
     <div style={{ backgroundColor: background }} className={styles.box}>
       <div style={{ position: 'absolute', inset: 0 }}>{decoration}</div>
-      <GroupMaskLayer style={{ paddingBlock: (token as any).marginFarSM }}>
-        {childNode}
-      </GroupMaskLayer>
+      <GroupMaskLayer style={{ paddingBlock: token.marginFarSM }}>{childNode}</GroupMaskLayer>
     </div>
   );
 };

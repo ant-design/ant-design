@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { useState } from 'react';
+import { Carousel, Typography } from 'antd';
 import { createStyles, css, useTheme } from 'antd-style';
-import { Typography, Carousel } from 'antd';
+
 import { getCarouselStyle } from '../util';
 
 const useStyle = createStyles(() => {
@@ -75,7 +76,7 @@ export interface MobileCarouselProps {
   description?: React.ReactNode;
 }
 
-export default function MobileCarousel(props: MobileCarouselProps) {
+const MobileCarousel: React.FC<MobileCarouselProps> = (props) => {
   const { styles } = useStyle();
   const { id, title, description } = props;
   const token = useTheme();
@@ -115,4 +116,6 @@ export default function MobileCarousel(props: MobileCarouselProps) {
       </Carousel>
     </div>
   );
-}
+};
+
+export default MobileCarousel;
