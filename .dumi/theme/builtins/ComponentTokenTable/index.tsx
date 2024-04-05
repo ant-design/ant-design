@@ -62,15 +62,15 @@ const useStyle = createStyles(({ token }) => ({
     line-height: 40px;
   `,
   arrowIcon: css`
-    font-size: 16px;
+    font-size: ${token.fontSizeLG}px;
     margin-inline-end: ${token.marginXS}px;
     & svg {
-      transition: all 0.3s;
+      transition: all ${token.motionDurationSlow};
     }
   `,
   help: css`
     margin-inline-start: ${token.marginXS}px;
-    font-size: 12px;
+    font-size: ${token.fontSizeSM}px;
     font-weight: normal;
     color: #999;
     a {

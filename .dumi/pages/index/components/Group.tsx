@@ -60,7 +60,7 @@ const Group: React.FC<React.PropsWithChildren<GroupProps>> = (props) => {
         <Typography.Paragraph
           style={{
             color: titleColor,
-            marginBottom: isMobile ? token.marginXXL : (token as any).marginFarXS,
+            marginBottom: isMobile ? token.marginXXL : token.marginFarXS,
           }}
         >
           {description}

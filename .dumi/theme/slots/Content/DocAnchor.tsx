@@ -11,7 +11,7 @@ const useStyle = createStyles(({ token, css }) => {
     toc: css`
       ${antCls}-anchor {
         ${antCls}-anchor-link-title {
-          font-size: 12px;
+          font-size: ${token.fontSizeSM}px;
         }
       }
     `,

@@ -134,7 +134,9 @@ const useStyle = createStyles(({ token, cx }) => {
       margin-inline-start: auto;
     `,
 
-    darkSideMenu: css``,
+    darkSideMenu: css`
+      //
+    `,
 
     header: css`
       display: flex;
@@ -169,7 +171,7 @@ const useStyle = createStyles(({ token, cx }) => {
 
       h1 {
         font-weight: 400;
-        font-size: 16px;
+        font-size: ${token.fontSizeLG}px;
         line-height: 1.5;
       }
     `,

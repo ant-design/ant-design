@@ -75,7 +75,7 @@ const useStyle = createStyles(({ token }) => {
       border-radius: 0 0 ${borderRadius}px ${borderRadius}px;
       border-top: 1px solid ${token.colorSplit};
       color: ${token.colorTextSecondary};
-      transition: all 0.2s ease-in-out;
+      transition: all ${token.motionDurationMid} ease-in-out;
       background-color: ${token.colorBgElevated};
       cursor: pointer;
       &:hover {

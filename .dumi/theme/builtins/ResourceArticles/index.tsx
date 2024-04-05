@@ -15,7 +15,7 @@ const useStyle = createStyles(({ token, css }) => {
   return {
     articles: css`
       h4 {
-        margin: 40px 0 24px;
+        margin: ${token.marginMD * 2}px 0 ${token.marginLG}px;
         font-weight: 500;
         font-size: 20px;
       }
@@ -45,7 +45,7 @@ const useStyle = createStyles(({ token, css }) => {
       li {
         margin: 1em 0;
         padding: 0;
-        font-size: 14px;
+        font-size: ${token.fontSize}px;
         list-style: none;
         overflow: hidden;
         text-overflow: ellipsis;

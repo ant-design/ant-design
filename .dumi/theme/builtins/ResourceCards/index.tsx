@@ -19,7 +19,7 @@ const useStyle = createStyles(({ token, css }) => {
       border: 1px solid ${token.colorSplit};
       border-radius: 2px;
       cursor: pointer;
-      transition: box-shadow 0.3s;
+      transition: box-shadow ${token.motionDurationSlow};
 
       &:hover {
         box-shadow: ${boxShadowSecondary};
@@ -39,7 +39,7 @@ const useStyle = createStyles(({ token, css }) => {
       right: 8px;
       padding: ${token.paddingXXS}px ${token.paddingXS}px;
       color: #fff;
-      font-size: 12px;
+      font-size: ${token.fontSizeSM}px;
       line-height: 1;
       background: rgba(0, 0, 0, 0.65);
       border-radius: 1px;
@@ -48,15 +48,15 @@ const useStyle = createStyles(({ token, css }) => {
       column-gap: 4px;
     `,
     title: css`
-      margin: 16px 20px 8px;
+      margin: ${token.margin}px ${token.marginMD}px ${token.marginXS}px;
       opacity: 0.85;
-      font-size: 20px;
+      font-size: ${token.fontSizeXL}px;
       line-height: 28px;
     `,
     description: css`
-      margin: 0 20px 20px;
+      margin: 0 ${token.marginMD}px ${token.marginMD}px;
       opacity: 0.65;
-      font-size: 14px;
+      font-size: ${token.fontSizeXL}px;
       line-height: 22px;
     `,
   };

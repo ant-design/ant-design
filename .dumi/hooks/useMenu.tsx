@@ -24,7 +24,7 @@ const useStyle = createStyles(({ css, token }) => ({
   subtitle: css`
     margin-inline-start: ${token.marginXS}px;
     font-weight: normal;
-    font-size: 12px;
+    font-size: ${token.fontSizeSM}px;
     opacity: 0.8;
   `,
 }));

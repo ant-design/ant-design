@@ -69,7 +69,7 @@ const useStyle = () => {
     card: css`
       padding: ${token.paddingSM}px;
       border-radius: ${token.borderRadius * 2}px;
-      background: ${isRootDark ? 'rgba(0,0,0,0.45)' : token.colorBgElevated};
+      background: ${isRootDark ? 'rgba(0, 0, 0, 0.45)' : token.colorBgElevated};
       box-shadow:
         0 1px 2px rgba(0, 0, 0, 0.03),
         0 1px 6px -1px rgba(0, 0, 0, 0.02),

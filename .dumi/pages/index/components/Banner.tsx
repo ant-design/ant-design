@@ -55,6 +55,34 @@ const useStyle = () => {
       padding-top: ${token.marginFar - 16}px;
       padding-bottom: ${token.marginFarSM}px;
     `,
+    mobileBg: css`
+      width: 100%;
+    `,
+    videoWrap: css`
+      height: 320px;
+      background-color: #77c6ff;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+    `,
+    video: css`
+      height: 100%;
+      object-fit: contain;
+    `,
+    bg: css`
+      flex: auto;
+      background-repeat: repeat-x;
+      background-size: auto 100%;
+    `,
+    bg1: css`
+      background-image: url(https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*6d50SboraPIAAAAAAAAAAAAAARQnAQ);
+      background-position: 100% 0;
+    `,
+    bg2: css`
+      background-image: url(https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*8ILtRrQlVDMAAAAAAAAAAAAAARQnAQ);
+      background-position: 0 0;
+      margin-inline-start: -1px;
+    `,
   }))();
 };
 
@@ -70,51 +98,24 @@ const Banner: React.FC<React.PropsWithChildren> = ({ children }) => {
       {/* Banner Placeholder Motion */}
       {isMobile ? (
         <img
+          className={styles.mobileBg}
           src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JmlaR5oQn3MAAAAAAAAAAAAADrJ8AQ/original"
-          style={{ width: '100%' }}
           alt=""
         />
       ) : (
-        <div
-          style={{
-            height: 320,
-            background: '#77C6FF',
-            display: 'flex',
-            flexWrap: 'nowrap',
-            justifyContent: 'center',
-          }}
-        >
-          <div
-            style={{
-              backgroundImage: `url(https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*6d50SboraPIAAAAAAAAAAAAAARQnAQ)`,
-              flex: 'auto',
-              backgroundRepeat: 'repeat-x',
-              backgroundPosition: '100% 0',
-              backgroundSize: 'auto 100%',
-            }}
-          />
-
-          <video style={{ height: '100%', objectFit: 'contain' }} autoPlay muted loop>
+        <div className={classNames(styles.videoWrap)}>
+          <div className={classNames(styles.bg, styles.bg1)} />
+          <video className={styles.video} autoPlay muted loop>
             <source
-              src="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*uYT7SZwhJnUAAAAAAAAAAAAADgCCAQ"
               type="video/webm"
+              src="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*uYT7SZwhJnUAAAAAAAAAAAAADgCCAQ"
             />
             <source
-              src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/file/A*XYYNQJ3NbmMAAAAAAAAAAAAAARQnAQ"
               type="video/mp4"
+              src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/file/A*XYYNQJ3NbmMAAAAAAAAAAAAAARQnAQ"
             />
           </video>
-
-          <div
-            style={{
-              backgroundImage: `url(https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*8ILtRrQlVDMAAAAAAAAAAAAAARQnAQ)`,
-              flex: 'auto',
-              backgroundRepeat: 'repeat-x',
-              backgroundPosition: '0 0',
-              backgroundSize: 'auto 100%',
-              marginInlineStart: -1,
-            }}
-          />
+          <div className={classNames(styles.bg, styles.bg2)} />
         </div>
       )}
 
