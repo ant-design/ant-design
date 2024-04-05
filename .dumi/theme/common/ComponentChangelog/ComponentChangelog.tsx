@@ -1,7 +1,8 @@
 /* eslint-disable global-require */
-import React, { useMemo } from 'react';
+import React from 'react';
 import { BugOutlined, HistoryOutlined } from '@ant-design/icons';
 import { Button, Drawer, Grid, Popover, Timeline, Typography } from 'antd';
+import type { TimelineItemProps } from 'antd';
 import { createStyles } from 'antd-style';
 import semver from 'semver';
 
@@ -10,18 +11,16 @@ import useFetch from '../../../hooks/useFetch';
 import useLocale from '../../../hooks/useLocale';
 import Link from '../Link';
 
-type MatchDeprecatedResult = {
+interface MatchDeprecatedResult {
   match?: string;
   reason: string[];
-};
+}
 
 function matchDeprecated(v: string): MatchDeprecatedResult {
   const match = Object.keys(deprecatedVersions).find((depreciated) =>
     semver.satisfies(v, depreciated),
   );
-
   const reason = deprecatedVersions[match as keyof typeof deprecatedVersions] || [];
-
   return {
     match,
     reason: Array.isArray(reason) ? reason : [reason],
@@ -45,16 +44,27 @@ const useStyle = createStyles(({ token, css }) => ({
   bug: css`
     font-size: 14px;
     color: #aaa;
-    padding-inline-start: ${token.paddingXXS}px;
+    margin-inline-start: ${token.marginXS}px;
     display: inline-block;
     vertical-align: inherit;
+    cursor: pointer;
     &:hover {
       color: #333;
     }
   `,
-  bugList: css`
+  bugReasonTitle: css`
+    padding: ${token.paddingXXS}px ${token.paddingXS}px;
+  `,
+  bugReasonList: css`
+    width: 100%;
+    max-width: 100%;
     li {
-      padding-block: ${token.paddingXS}px;
+      padding: ${token.paddingXXS}px ${token.paddingXS}px;
+      a {
+        display: flex;
+        align-items: center;
+        gap: ${token.marginXXS}px;
+      }
     }
   `,
 }));
@@ -80,7 +90,7 @@ const locales = {
   },
 };
 
-function ParseChangelog(props: { changelog: string; refs: string[]; styles: any }) {
+const ParseChangelog: React.FC<{ changelog: string; refs: string[]; styles: any }> = (props) => {
   const { changelog = '', refs = [], styles } = props;
 
   const parsedChangelog = React.useMemo(() => {
@@ -115,7 +125,6 @@ function ParseChangelog(props: { changelog: string; refs: string[]; styles: any 
     <>
       {/* Changelog */}
       <span>{parsedChangelog}</span>
-
       {/* Refs */}
       {refs?.map((ref) => (
         <a className={styles.ref} key={ref} href={ref} target="_blank" rel="noreferrer">
@@ -124,39 +133,29 @@ function ParseChangelog(props: { changelog: string; refs: string[]; styles: any 
       ))}
     </>
   );
-}
+};
 
-type ChangelogInfo = {
+interface ChangelogInfo {
   version: string;
   changelog: string;
   refs: string[];
-};
+}
 
-function useChangelog(componentPath: string, lang: 'cn' | 'en'): ChangelogInfo[] {
-  const data: any = useFetch(
-    lang === 'cn'
-      ? {
-          key: 'component-changelog-cn',
-          request: () => import('../../../preset/components-changelog-cn.json'),
-        }
-      : {
-          key: 'component-changelog-en',
-          request: () => import('../../../preset/components-changelog-en.json'),
-        },
-  );
-
-  return useMemo(() => {
+const useChangelog = (componentPath: string, lang: 'cn' | 'en'): ChangelogInfo[] => {
+  const data = useFetch({
+    key: `component-changelog-${lang}`,
+    request: () => import(`../../../preset/components-changelog-${lang}.json`),
+  });
+  return React.useMemo(() => {
     const component = componentPath.replace(/-/g, '');
-
     const componentName = Object.keys(data).find(
       (name) => name.toLowerCase() === component.toLowerCase(),
     );
-
-    return data[componentName!];
+    return data[componentName as keyof typeof data] as ChangelogInfo[];
   }, [data, componentPath]);
-}
+};
 
-export default function ComponentChangelog(props: ComponentChangelogProps) {
+const ComponentChangelog: React.FC<ComponentChangelogProps> = (props) => {
   const { pathname = '' } = props;
   const [locale, lang] = useLocale(locales);
   const [show, setShow] = React.useState(false);
@@ -167,7 +166,7 @@ export default function ComponentChangelog(props: ComponentChangelogProps) {
 
   const list = useChangelog(componentPath, lang);
 
-  const timelineItems = React.useMemo(() => {
+  const timelineItems = React.useMemo<TimelineItemProps[]>(() => {
     const changelogMap: Record<string, ChangelogInfo[]> = {};
 
     list?.forEach((info) => {
@@ -178,30 +177,40 @@ export default function ComponentChangelog(props: ComponentChangelogProps) {
     return Object.keys(changelogMap).map((version) => {
       const changelogList = changelogMap[version];
       const bugVersionInfo = matchDeprecated(version);
-      const bugContent = (
-        <ul className={styles.bugList}>
-          {bugVersionInfo.reason.map((reason, index) => (
-            <li key={index}>
-              <a type="link" target="_blank" rel="noreferrer" href={reason}>
-                <BugOutlined /> {reason}
-              </a>
-            </li>
-          ))}
-        </ul>
-      );
       return {
         children: (
           <Typography>
-            <h4>
-              {version}{' '}
+            <Typography.Title level={4}>
+              {version}
               {bugVersionInfo.match && (
-                <Popover placement="right" title={locale.bugList} content={bugContent}>
+                <Popover
+                  destroyTooltipOnHide
+                  placement="right"
+                  title={<span className={styles.bugReasonTitle}>{locale.bugList}</span>}
+                  content={
+                    <ul className={styles.bugReasonList}>
+                      {bugVersionInfo.reason.map<React.ReactNode>((reason, index) => (
+                        <li key={`reason-${index}`}>
+                          <a type="link" target="_blank" rel="noreferrer" href={reason}>
+                            <BugOutlined />
+                            {reason
+                              ?.replace(/#.*$/, '')
+                              ?.replace(
+                                /^https:\/\/github\.com\/ant-design\/ant-design\/(issues|pull)\//,
+                                '#',
+                              )}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  }
+                >
                   <BugOutlined className={styles.bug} />
                 </Popover>
               )}
-            </h4>
+            </Typography.Title>
             <ul>
-              {changelogList.map((info, index) => (
+              {changelogList.map<React.ReactNode>((info, index) => (
                 <li key={index} className={styles.li}>
                   <ParseChangelog {...info} styles={styles} />
                 </li>
@@ -249,4 +258,6 @@ export default function ComponentChangelog(props: ComponentChangelogProps) {
       </Drawer>
     </>
   );
-}
+};
+
+export default ComponentChangelog;
