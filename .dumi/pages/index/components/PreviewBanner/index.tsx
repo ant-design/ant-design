@@ -28,7 +28,7 @@ const useStyle = () => {
   const { direction } = React.useContext(ConfigProvider.ConfigContext);
   const isRTL = direction === 'rtl';
   return createStyles(({ token, css, cx }) => {
-    const textShadow = `0 0 3px ${token.colorBgContainer}`;
+    const textShadow = `0 0 4px ${token.colorBgContainer}`;
 
     const mask = cx(css`
       position: absolute;

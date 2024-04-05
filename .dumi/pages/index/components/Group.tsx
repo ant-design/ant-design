@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useContext } from 'react';
 import { Typography } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
+import classNames from 'classnames';
 
 import SiteContext from '../../../theme/slots/SiteContext';
 import GroupMaskLayer from './GroupMaskLayer';
@@ -10,6 +11,12 @@ const useStyle = createStyles(({ css, token }) => ({
   box: css`
     position: relative;
     transition: all ${token.motionDurationSlow};
+  `,
+  marginStyle: css`
+    max-width: 1208px;
+    margin-inline: auto;
+    box-sizing: border-box;
+    padding-inline: ${token.marginXXL}px;
   `,
 }));
 
@@ -29,15 +36,6 @@ const Group: React.FC<React.PropsWithChildren<GroupProps>> = (props) => {
   const token = useTheme();
   const { styles } = useStyle();
   const { isMobile } = useContext(SiteContext);
-
-  const marginStyle: React.CSSProperties = collapse
-    ? {}
-    : {
-        maxWidth: 1208,
-        marginInline: 'auto',
-        boxSizing: 'border-box',
-        paddingInline: isMobile ? token.margin : token.marginXXL,
-      };
   const childNode = (
     <>
       <div style={{ textAlign: 'center' }}>
@@ -63,8 +61,7 @@ const Group: React.FC<React.PropsWithChildren<GroupProps>> = (props) => {
           {description}
         </Typography.Paragraph>
       </div>
-
-      <div style={marginStyle}>
+      <div className={classNames({ [styles.marginStyle]: collapse })}>
         {children ? (
           <div>{children}</div>
         ) : (

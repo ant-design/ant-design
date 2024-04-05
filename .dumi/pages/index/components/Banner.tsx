@@ -50,6 +50,11 @@ const useStyle = () => {
     btnWrap: css`
       margin-bottom: ${token.marginXL}px;
     `,
+    layer: css`
+      text-align: center;
+      padding-top: ${token.marginFar - 16}px;
+      padding-bottom: ${token.marginFarSM}px;
+    `,
   }))();
 };
 
@@ -121,13 +126,7 @@ const Banner: React.FC<React.PropsWithChildren> = ({ children }) => {
           src="https://gw.alipayobjects.com/zos/bmw-prod/b3b8dc41-dce8-471f-9d81-9a0204f27d03.svg"
           alt="Ant Design"
         />
-        <GroupMaskLayer
-          style={{
-            textAlign: 'center',
-            paddingTop: token.marginFar - 16,
-            paddingBottom: token.marginFarSM,
-          }}
-        >
+        <GroupMaskLayer className={styles.layer}>
           {/* Image Left Top */}
           <img
             style={{ position: 'absolute', left: isMobile ? -120 : 0, top: 0, width: 240 }}

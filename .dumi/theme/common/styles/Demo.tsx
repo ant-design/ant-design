@@ -93,7 +93,7 @@ const GlobalDemoStyles: React.FC = () => {
             background: ${token.colorBgContainer};
             border-radius: ${token.borderRadius}px ${token.borderRadius}px 0 0;
             transition: background-color 0.4s;
-            margin-inline-start: 16px;
+            margin-inline-start: ${token.margin}px;
 
             a,
             a:hover {
@@ -111,7 +111,7 @@ const GlobalDemoStyles: React.FC = () => {
             position: absolute;
             top: 7px;
             right: -16px;
-            font-size: 12px;
+            font-size: ${token.fontSizeSM}px;
             text-decoration: none;
             background: inherit;
             transform: scale(0.9);
@@ -164,7 +164,7 @@ const GlobalDemoStyles: React.FC = () => {
             > p {
               width: 100%;
               margin: 0.5em 0;
-              font-size: 12px;
+              font-size: ${token.fontSizeSM}px;
               word-break: break-word;
               padding-inline-end: 25px;
             }
@@ -244,10 +244,10 @@ const GlobalDemoStyles: React.FC = () => {
           &-actions {
             display: flex;
             justify-content: center;
-            padding: 12px 0;
+            padding: ${token.paddingSM}px 0;
             border-top: 1px dashed ${token.colorSplit};
             opacity: 0.7;
-            transition: opacity 0.3s;
+            transition: opacity ${token.motionDurationSlow};
 
             &:hover {
               opacity: 1;
@@ -276,7 +276,7 @@ const GlobalDemoStyles: React.FC = () => {
           &-code-copy {
             width: 14px;
             height: 14px;
-            font-size: 14px;
+            font-size: ${token.fontSize}px;
             text-align: center;
             background: ${token.colorBgContainer};
             cursor: pointer;
@@ -331,7 +331,7 @@ const GlobalDemoStyles: React.FC = () => {
               background: ${token.colorBgContainer};
               border: none;
               box-shadow: unset;
-              padding: 12px 16px;
+              padding: ${token.paddingSM}px ${token.padding}px;
               font-size: 13px;
             }
           }

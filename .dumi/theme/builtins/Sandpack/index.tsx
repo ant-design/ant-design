@@ -1,8 +1,8 @@
 import type { FC, ReactNode } from 'react';
 import React, { Suspense } from 'react';
-import { useSearchParams } from 'dumi';
-import { createStyles } from 'antd-style';
 import { Skeleton } from 'antd';
+import { createStyles } from 'antd-style';
+import { useSearchParams } from 'dumi';
 
 const OriginSandpack = React.lazy(() => import('./Sandpack'));
 
@@ -20,7 +20,7 @@ const useStyle = createStyles(({ token, css }) => ({
     width: 100%;
     > * {
       width: 100% !important;
-      border-radius: 8px;
+      border-radius: ${token.borderRadiusLG}px;
     }
   `,
   placeholder: css`

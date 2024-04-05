@@ -1,7 +1,8 @@
 import React from 'react';
-import { createStyles } from 'antd-style';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import { Col, Row, Tooltip } from 'antd';
+import { createStyles } from 'antd-style';
+
 import useLocale from '../../../hooks/useLocale';
 
 const useStyle = createStyles(({ token, css }) => {
@@ -36,7 +37,7 @@ const useStyle = createStyles(({ token, css }) => {
       position: absolute;
       top: 8px;
       right: 8px;
-      padding: 4px 8px;
+      padding: ${token.paddingXXS}px ${token.paddingXS}px;
       color: #fff;
       font-size: 12px;
       line-height: 1;

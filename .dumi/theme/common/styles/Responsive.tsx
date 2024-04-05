@@ -72,8 +72,8 @@ export default () => {
           .ant-row-rtl {
             margin-inline-end: 0;
             margin-inline-start: 0;
-            padding-inline-end: 16px;
-            padding-inline-start: 16px;
+            padding-inline-end: ${token.padding}px;
+            padding-inline-start: ${token.padding}px;
 
             > .markdown > * {
               width: 100% !important;
@@ -88,11 +88,11 @@ export default () => {
 
           .prev-next-nav {
             width: calc(100% - 32px);
-            margin-inline-start: 16px;
+            margin-inline-start: ${token.margin}px;
 
             .ant-row-rtl & {
-              margin-inline-end: 16px;
-              margin-inline-start: 64px;
+              margin-inline-end: ${token.margin}px;
+              margin-inline-start: ${token.margin * 4}px;
             }
           }
 
@@ -137,7 +137,7 @@ export default () => {
 
             .img-wrapper {
               position: initial;
-              margin-top: 20px;
+              margin-top: ${token.marginMD}px;
               text-align: center;
 
               svg {
@@ -150,7 +150,7 @@ export default () => {
 
             .text-wrapper {
               min-height: 200px;
-              margin-top: 32px;
+              margin-top: ${token.marginXL}px;
               padding: 0;
 
               h1 {
@@ -159,7 +159,7 @@ export default () => {
 
               p {
                 color: #314659;
-                font-size: 14px;
+                font-size: ${token.fontSize}px;
                 line-height: 28px;
               }
 
@@ -170,21 +170,21 @@ export default () => {
                 text-align: center;
 
                 .banner-btn {
-                  padding: 0 20px;
-                  font-size: 14px;
+                  padding: 0 ${token.paddingMD}px;
+                  font-size: ${token.fontSize}px;
                 }
               }
 
               .banner-promote {
                 min-width: 100%;
-                margin-top: 32px;
+                margin-top: ${token.marginXL}px;
 
                 .ant-divider {
                   display: none;
                 }
 
                 a {
-                  font-size: 14px;
+                  font-size: ${token.fontSize}px;
                   white-space: nowrap;
 
                   img {
@@ -199,10 +199,10 @@ export default () => {
             min-height: 1300px;
 
             .ant-row {
-              margin: 24px auto 64px;
+              margin: ${token.marginLG}px auto ${token.marginXL * 2}px;
 
               > div {
-                margin-bottom: 48px;
+                margin-bottom: ${token.marginLG * 2}px;
               }
             }
           }
@@ -221,7 +221,7 @@ export default () => {
 
             &-product {
               min-height: auto;
-              padding: 0 16px;
+              padding: 0 ${token.padding}px;
 
               .product-block {
                 margin-bottom: 34px;
@@ -229,7 +229,7 @@ export default () => {
                 border-bottom: 1px solid ${token.colorSplit};
 
                 &:last-child {
-                  margin-bottom: 32px;
+                  margin-bottom: ${token.marginXL}px;
                   border-bottom: none;
 
                   .block-text-wrapper {
@@ -250,14 +250,14 @@ export default () => {
                   border-bottom: none;
 
                   h4 {
-                    margin-bottom: 4px;
-                    font-size: 18px;
+                    margin-bottom: ${token.marginXXS}px;
+                    font-size: ${token.fontSizeSM * 1.5}px;
                     line-height: 24px;
                   }
 
                   p {
-                    margin-bottom: 8px;
-                    font-size: 12px;
+                    margin-bottom: ${token.marginXS}px;
+                    font-size: ${token.fontSizeSM}px;
                     line-height: 20px;
                   }
 
@@ -266,8 +266,8 @@ export default () => {
                   }
 
                   .components-button-wrapper {
-                    margin-top: 16px;
-                    font-size: 12px;
+                    margin-top: ${token.margin}px;
+                    font-size: ${token.fontSizeSM}px;
 
                     a {
                       display: block;
@@ -296,14 +296,14 @@ export default () => {
             background-size: cover;
 
             .ant-row {
-              margin: 0 8px;
+              margin: 0 ${token.marginXS}px;
             }
 
             .page3-block {
-              margin-bottom: 32px;
-              padding: 24px;
+              margin-bottom: ${token.marginXL}px;
+              padding: ${token.paddingLG}px;
               background: ${token.colorBgContainer};
-              border-radius: 4px;
+              border-radius: ${token.borderRadiusSM}px;
               box-shadow: 0 8px 16px rgba(174, 185, 193, 0.3);
 
               &:nth-child(2) {
@@ -315,7 +315,7 @@ export default () => {
               }
 
               p {
-                font-size: 12px;
+                font-size: ${token.fontSizeSM}px;
               }
 
               .page3-img-wrapper {
@@ -330,7 +330,7 @@ export default () => {
                 width: 80%;
                 max-width: initial;
                 margin: 0;
-                padding-inline-start: 16px;
+                padding-inline-start: ${token.padding}px;
               }
             }
           }
