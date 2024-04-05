@@ -23,7 +23,6 @@ const useStyle = createStyles(({ token, css }) => {
       margin: 0 0 12px 0;
       padding: 8px 0;
       padding-inline: 4px 8px;
-      backdrop-filter: blur(8px);
       border-radius: ${token.borderRadius}px;
       box-sizing: border-box;
       margin-inline-end: calc(16px - 100vw + 100%);
@@ -44,6 +43,7 @@ const useStyle = createStyles(({ token, css }) => {
         margin: 0 auto;
         overflow: auto;
         padding-inline: 4px;
+        backdrop-filter: blur(8px);
       }
 
       @media only screen and (max-width: ${token.screenLG}px) {
