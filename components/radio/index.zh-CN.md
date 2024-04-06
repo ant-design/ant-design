@@ -69,7 +69,7 @@ demo:
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | label | 用于作为 Radio 选项展示的文本 | `string` | - | 4.4.0 |
-| value | 关联 Radio 选项的值 | `string` &#124; `number` &#124; `boolean` | - | 4.4.0 |
+| value | 关联 Radio 选项的值 | `string` \| `number` \| `boolean` | - | 4.4.0 |
 | style | 应用到 Radio 选项的 style | `React.CSSProperties` | - | 4.4.0 |
 | disabled | 指定 Radio 选项是否要禁用 | `boolean` | `false` | 4.4.0 |
 | title | 添加 Title 属性值 | `string` | - | 4.4.0 |

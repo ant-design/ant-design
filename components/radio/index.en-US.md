@@ -66,7 +66,7 @@ Radio group can wrap a group of `Radio`。
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | label | The text used to display as the Radio option | `string` | - | 4.4.0 |
-| value | The value associated with the Radio option | `string` &#124; `number` &#124; `boolean` | - | 4.4.0 |
+| value | The value associated with the Radio option | `string` \| `number` \| `boolean` | - | 4.4.0 |
 | style | The style to apply to the Radio option | `React.CSSProperties` | - | 4.4.0 |
 | disabled | Specifies whether the Radio option is disabled | `boolean` | `false` | 4.4.0 |
 | title | Adds the Title attribute value | `string` | - | 4.4.0 |
