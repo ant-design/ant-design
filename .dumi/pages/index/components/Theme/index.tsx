@@ -338,7 +338,6 @@ export default function Theme() {
   // const algorithmFn = isLight ? theme.defaultAlgorithm : theme.darkAlgorithm;
   const algorithmFn = React.useMemo(() => {
     const algorithms = [isLight ? theme.defaultAlgorithm : theme.darkAlgorithm];
-    console.log(themeType);
     if (compact === 'compact') {
       console.log(1);
       algorithms.push(theme.compactAlgorithm);
@@ -348,7 +347,6 @@ export default function Theme() {
       console.log(2);
       algorithms.push(defaultAlgorithm);
     }
-    console.log(3, algorithms);
     return algorithms;
   }, [isLight, compact, themeType]);
 
@@ -407,7 +405,7 @@ export default function Theme() {
           ...themeToken,
           colorPrimary: colorPrimaryValue,
         },
-        algorithm: algorithmFn,
+        algorithm: [isLight ? theme.defaultAlgorithm : theme.darkAlgorithm],
         hashed: true,
         components: {
           Layout: isLight
