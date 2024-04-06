@@ -48,10 +48,9 @@ const useStyle = () => {
             article {
               padding: 0 ${resourcePaddingXS}px;
             }
-
             ${antCls}-col {
-              padding-top: 16px !important;
-              padding-bottom: 16px !important;
+              padding-top: ${token.padding}px !important;
+              padding-bottom: ${token.padding}px !important;
             }
           }
         }
@@ -76,7 +75,7 @@ const useStyle = () => {
           max-width: ${articleMaxWidth}px;
           margin: 0 auto 56px;
           font-weight: 200;
-          font-size: 16px;
+          font-size: ${token.fontSizeLG}px;
           line-height: 24px;
         }
 

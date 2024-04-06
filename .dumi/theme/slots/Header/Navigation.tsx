@@ -36,7 +36,7 @@ const useStyle = createStyles(({ token }) => {
   return {
     nav: css`
       height: 100%;
-      font-size: 14px;
+      font-size: ${token.fontSize}px;
       font-family: Avenir, ${fontFamily}, sans-serif;
       border: 0;
 
@@ -46,8 +46,8 @@ const useStyle = createStyles(({ token }) => {
         & > ${antCls}-menu-item, & > ${antCls}-menu-submenu {
           min-width: ${40 + 12 * 2}px;
           height: ${headerHeight}px;
-          padding-inline-end: 12px;
-          padding-inline-start: 12px;
+          padding-inline-end: ${token.paddingSM}px;
+          padding-inline-start: ${token.paddingSM}px;
           line-height: ${headerHeight}px;
 
           &::after {
@@ -92,11 +92,11 @@ const useStyle = createStyles(({ token }) => {
       }
 
       ${antCls}-menu-item-group-title {
-        padding-inline-start: 24px;
+        padding-inline-start: ${token.paddingLG}px;
       }
 
       ${antCls}-menu-item-group-list {
-        padding: 0 16px;
+        padding: 0 ${token.padding}px;
       }
 
       ${antCls}-menu-item,

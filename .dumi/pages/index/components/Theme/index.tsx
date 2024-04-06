@@ -134,10 +134,6 @@ const useStyle = createStyles(({ token, cx }) => {
       margin-inline-start: auto;
     `,
 
-    darkSideMenu: css`
-      //
-    `,
-
     header: css`
       display: flex;
       align-items: center;
@@ -478,7 +474,7 @@ export default function Theme() {
             <Sider className={classNames(styles.transBg, 'site-layout-background')} width={200}>
               <Menu
                 mode="inline"
-                className={classNames(styles.transBg, !isLight && styles.darkSideMenu)}
+                className={classNames(styles.transBg)}
                 selectedKeys={['Themes']}
                 openKeys={['Design']}
                 style={{ height: '100%', borderRight: 0 }}

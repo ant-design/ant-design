@@ -58,7 +58,7 @@ const GlobalDemoStyles: React.FC = () => {
           .markdown {
             pre {
               margin: 0.5em 0;
-              padding: ${token.paddingSM / 2}px ${token.paddingSM}px;
+              padding: 6px 12px;
             }
 
             pre code {

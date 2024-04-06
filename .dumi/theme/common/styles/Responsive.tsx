@@ -89,10 +89,9 @@ export default () => {
           .prev-next-nav {
             width: calc(100% - 32px);
             margin-inline-start: ${token.margin}px;
-
             .ant-row-rtl & {
               margin-inline-end: ${token.margin}px;
-              margin-inline-start: ${token.margin * 4}px;
+              margin-inline-start: 64px;
             }
           }
 
@@ -199,10 +198,9 @@ export default () => {
             min-height: 1300px;
 
             .ant-row {
-              margin: ${token.marginLG}px auto ${token.marginXL * 2}px;
-
+              margin: 24px auto 64px;
               > div {
-                margin-bottom: ${token.marginLG * 2}px;
+                margin-bottom: 48px;
               }
             }
           }
@@ -251,7 +249,7 @@ export default () => {
 
                   h4 {
                     margin-bottom: ${token.marginXXS}px;
-                    font-size: ${token.fontSizeSM * 1.5}px;
+                    font-size: 18px;
                     line-height: 24px;
                   }
 
@@ -291,10 +289,9 @@ export default () => {
 
           .page3 {
             min-height: 688px;
-            background: url('https://gw.alipayobjects.com/zos/rmsportal/qICoJIqqQRMeRGhPHBBS.svg')
-              no-repeat;
+            background-image: url('https://gw.alipayobjects.com/zos/rmsportal/qICoJIqqQRMeRGhPHBBS.svg');
+            background-repeat: no-repeat;
             background-size: cover;
-
             .ant-row {
               margin: 0 ${token.marginXS}px;
             }

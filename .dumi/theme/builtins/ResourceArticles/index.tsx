@@ -15,9 +15,9 @@ const useStyle = createStyles(({ token, css }) => {
   return {
     articles: css`
       h4 {
-        margin: ${token.marginMD * 2}px 0 ${token.marginLG}px;
+        margin: 40px 0 24px;
         font-weight: 500;
-        font-size: 20px;
+        font-size: ${token.fontSizeXL}px;
       }
 
       ${antCls}-skeleton {

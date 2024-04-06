@@ -65,10 +65,7 @@ const BackgroundImage: React.FC<BackgroundImageProps> = ({ colorPrimary, isLight
             <source srcSet={entity.url} type="image/jpeg" />
             <img
               className={cls}
-              style={{
-                ...style,
-                opacity: isLight ? opacity : 0,
-              }}
+              style={{ ...style, opacity: isLight ? opacity : 0 }}
               src={entity.url}
               alt=""
             />

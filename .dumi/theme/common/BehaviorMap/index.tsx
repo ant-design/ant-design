@@ -21,9 +21,8 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
 }));
 
-const BehaviorMapFallback = () => {
+const BehaviorMapFallback: React.FC = () => {
   const { styles } = useStyle();
-
   return (
     <div className={styles.fallback}>
       <Skeleton.Node active style={{ height: 600, width: '100%' }}>

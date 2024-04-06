@@ -25,7 +25,7 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
   placeholder: css`
     color: ${token.colorTextDescription};
-    font-size: 16px;
+    font-size: ${token.fontSizeLG}px;
   `,
 }));
 
@@ -41,12 +41,12 @@ const SandpackFallback = () => {
   );
 };
 
-type SandpackProps = {
+interface SandpackProps {
   children?: ReactNode;
   dark?: boolean;
   autorun?: boolean;
   dependencies?: string;
-};
+}
 
 const Sandpack: FC<SandpackProps> = ({
   children,

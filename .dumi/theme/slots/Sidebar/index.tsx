@@ -21,14 +21,14 @@ const useStyle = createStyles(({ token, css }) => {
         > ${antCls}-menu-item,
         ${antCls}-menu-item a {
           overflow: hidden;
-          font-size: 14px;
+          font-size: ${token.fontSize}px;
           text-overflow: ellipsis;
         }
 
         > ${antCls}-menu-item-group > ${antCls}-menu-item-group-title {
-          margin-top: 16px;
-          margin-bottom: 16px;
-          font-size: 13px;
+          margin-top: ${token.margin}px;
+          margin-bottom: ${token.margin}px;
+          font-size: ${token.fontSize}px;
 
           &::after {
             position: relative;
@@ -57,19 +57,19 @@ const useStyle = createStyles(({ token, css }) => {
 
           ${antCls}-row-rtl & {
             padding-inline-end: 40px !important;
-            padding-inline-start: 16px !important;
+            padding-inline-start: ${token.padding}px !important;
           }
         }
 
         // Nest Category > Type > Article
         &${antCls}-menu-inline {
           ${antCls}-menu-item-group-title {
-            margin-inline-start: 4px;
+            margin-inline-start: ${token.marginXXS}px;
             padding-inline-start: 60px;
 
             ${antCls}-row-rtl & {
               padding-inline-end: 60px;
-              padding-inline-start: 16px;
+              padding-inline-start: ${token.padding}px;
             }
           }
 
@@ -78,7 +78,7 @@ const useStyle = createStyles(({ token, css }) => {
 
             ${antCls}-row-rtl & {
               padding-inline-end: 80px !important;
-              padding-inline-start: 16px !important;
+              padding-inline-start: ${token.padding}px !important;
             }
           }
         }

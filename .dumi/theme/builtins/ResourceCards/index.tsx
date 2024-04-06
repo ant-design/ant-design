@@ -17,7 +17,7 @@ const useStyle = createStyles(({ token, css }) => {
       color: inherit;
       list-style: none;
       border: 1px solid ${token.colorSplit};
-      border-radius: 2px;
+      border-radius: ${token.borderRadiusXS}px;
       cursor: pointer;
       transition: box-shadow ${token.motionDurationSlow};
 
@@ -42,7 +42,7 @@ const useStyle = createStyles(({ token, css }) => {
       font-size: ${token.fontSizeSM}px;
       line-height: 1;
       background: rgba(0, 0, 0, 0.65);
-      border-radius: 1px;
+      border-radius: ${token.borderRadiusXS}px;
       box-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
       display: inline-flex;
       column-gap: 4px;

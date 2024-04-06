@@ -14,7 +14,7 @@ import proComponentsList from './ProComponentsList';
 
 const useStyle = createStyles(({ token, css }) => ({
   componentsOverviewGroupTitle: css`
-    margin-bottom: 24px !important;
+    margin-bottom: ${token.marginLG}px !important;
   `,
   componentsOverviewTitle: css`
     overflow: hidden;
