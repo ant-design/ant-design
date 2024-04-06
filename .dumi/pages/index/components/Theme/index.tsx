@@ -406,6 +406,7 @@ export default function Theme() {
           colorPrimary: colorPrimaryValue,
         },
         algorithm: algorithmFn,
+        hashed: false,
         components: {
           Layout: isLight
             ? {
