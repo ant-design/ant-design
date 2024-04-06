@@ -397,7 +397,7 @@ export default function Theme() {
     return generateColor(hsb).toHexString();
   }, [colorPrimaryValue]);
 
-  console.log('--->', themeToken);
+  console.log('--->', themeData, isRootDark, isLight);
 
   // ================================ Render ================================
   const themeNode = (
