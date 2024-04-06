@@ -45,9 +45,9 @@ import ThemePicker from './ThemePicker';
 const { Header, Content, Sider } = Layout;
 
 const TokenChecker: React.FC = () => {
-  if (process.env.NODE_ENV !== 'production') {
-    console.log('Demo Token:', theme.useToken());
-  }
+  // if (process.env.NODE_ENV !== 'production') {
+  console.log('Demo Token:', theme.useToken());
+  // }
   return null;
 };
 
