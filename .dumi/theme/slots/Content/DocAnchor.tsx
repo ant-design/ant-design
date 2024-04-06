@@ -11,7 +11,7 @@ const useStyle = createStyles(({ token, css }) => {
     toc: css`
       ${antCls}-anchor {
         ${antCls}-anchor-link-title {
-          font-size: 12px;
+          font-size: ${token.fontSizeSM}px;
         }
       }
     `,
@@ -55,7 +55,7 @@ const useStyle = createStyles(({ token, css }) => {
       @media only screen and (max-width: ${token.screenLG}px) {
         &,
         &.rtl {
-          padding: 0 48px;
+          padding: 0 ${token.paddingLG * 2}px;
         }
       }
     `,

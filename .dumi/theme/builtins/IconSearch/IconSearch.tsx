@@ -1,15 +1,16 @@
 import type { CSSProperties } from 'react';
 import React, { useCallback, useMemo, useState } from 'react';
 import Icon, * as AntdIcons from '@ant-design/icons';
+import type { SegmentedProps } from 'antd';
+import { Affix, Empty, Input, Segmented } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import { useIntl } from 'dumi';
 import debounce from 'lodash/debounce';
-import type { SegmentedProps } from 'antd';
-import { Affix, Empty, Input, Segmented } from 'antd';
+
 import Category from './Category';
-import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 import type { CategoriesKeys } from './fields';
 import { categories } from './fields';
+import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 
 export enum ThemeType {
   Filled = 'Filled',
@@ -19,10 +20,10 @@ export enum ThemeType {
 
 const allIcons: { [key: string]: any } = AntdIcons;
 
-const useStyle = createStyles(({ css }) => ({
+const useStyle = createStyles(({ token, css }) => ({
   iconSearchAffix: css`
     display: flex;
-    transition: all 0.3s;
+    transition: all ${token.motionDurationSlow};
     justify-content: space-between;
   `,
 }));
