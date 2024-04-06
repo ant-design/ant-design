@@ -397,6 +397,8 @@ export default function Theme() {
     return generateColor(hsb).toHexString();
   }, [colorPrimaryValue]);
 
+  console.log('--->', themeToken);
+
   // ================================ Render ================================
   const themeNode = (
     <ConfigProvider
