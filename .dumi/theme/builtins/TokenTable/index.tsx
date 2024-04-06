@@ -45,7 +45,7 @@ const useStyle = createStyles(({ token, css }) => ({
     font-size: 0.9em;
     background: ${token.siteMarkdownCodeBg};
     border: 1px solid ${token.colorSplit};
-    border-radius: 3px;
+    border-radius: ${token.borderRadiusSM}px;
     font-family: monospace;
   `,
 }));

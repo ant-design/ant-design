@@ -105,7 +105,7 @@ export default () => {
           padding: 2px 4px;
           font-size: ${token.fontSizeSM}px;
           background: ${token.colorBgLayout};
-          border-radius: 2px;
+          border-radius: ${token.borderRadiusXS}px;
         }
       `}
     />

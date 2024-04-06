@@ -30,13 +30,21 @@ const locales = {
 
 // ============================= Style =============================
 const useStyle = createStyles(({ token }) => {
-  const { antCls, iconCls, fontFamily, headerHeight, menuItemBorder, colorPrimary, colorText } =
-    token;
+  const {
+    antCls,
+    iconCls,
+    fontFamily,
+    fontSize,
+    headerHeight,
+    menuItemBorder,
+    colorPrimary,
+    colorText,
+  } = token;
 
   return {
     nav: css`
       height: 100%;
-      font-size: ${token.fontSize}px;
+      font-size: ${fontSize}px;
       font-family: Avenir, ${fontFamily}, sans-serif;
       border: 0;
 
@@ -96,7 +104,7 @@ const useStyle = createStyles(({ token }) => {
       }
 
       ${antCls}-menu-item-group-list {
-        padding: 0 ${token.padding}px;
+        padding: 0 ${token.paddingLG}px;
       }
 
       ${antCls}-menu-item,
