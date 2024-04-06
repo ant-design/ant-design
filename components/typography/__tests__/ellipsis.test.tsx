@@ -21,10 +21,10 @@ describe('Typography.Ellipsis', () => {
   let offsetWidth: number;
   let scrollWidth: number;
 
-  function getContentHeight(elem?: HTMLElement) {
+  function getContentHeight(this: { get: (elem?: HTMLElement) => number }, elem?: HTMLElement) {
     const regex = /<[^>]*>/g;
 
-    let html = (elem || this).innerHTML;
+    let html = (elem || (this as any)).innerHTML;
     html = html.replace(regex, '');
     const lines = Math.ceil(html.length / LINE_STR_COUNT);
     return lines * LINE_HEIGHT;
@@ -44,8 +44,10 @@ describe('Typography.Ellipsis', () => {
       },
       clientHeight: {
         get() {
-          const { WebkitLineClamp } = this.style;
-          return WebkitLineClamp ? Number(WebkitLineClamp) * LINE_HEIGHT : getContentHeight(this);
+          const { WebkitLineClamp } = (this as any).style;
+          return WebkitLineClamp
+            ? Number(WebkitLineClamp) * LINE_HEIGHT
+            : (getContentHeight as any)(this);
         },
       },
     });
@@ -249,6 +251,34 @@ describe('Typography.Ellipsis', () => {
     expect(container.querySelector('p')?.textContent).toEqual(fullStr);
   });
 
+  it('should collapsible work', async () => {
+    const ref = React.createRef<HTMLElement>();
+
+    const { container: wrapper } = render(
+      <Base
+        ellipsis={{
+          expandable: 'collapsible',
+          symbol: (expanded) => (expanded ? 'CloseIt' : 'OpenIt'),
+        }}
+        component="p"
+        ref={ref}
+      >
+        {fullStr}
+      </Base>,
+    );
+
+    triggerResize(ref.current!);
+    await waitFakeTimer();
+
+    expect(wrapper.querySelector('p')?.textContent).toEqual(`Bamboo is L...OpenIt`);
+
+    fireEvent.click(wrapper.querySelector('.ant-typography-expand')!);
+    expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}CloseIt`);
+
+    fireEvent.click(wrapper.querySelector('.ant-typography-collapse')!);
+    expect(wrapper.querySelector('p')?.textContent).toEqual(`Bamboo is L...OpenIt`);
+  });
+
   it('should have custom expand style', async () => {
     const ref = React.createRef<HTMLElement>();
     const symbol = 'more';
@@ -424,7 +454,7 @@ describe('Typography.Ellipsis', () => {
     mockRectSpy = spyElementPrototypes(HTMLElement, {
       scrollHeight: {
         get() {
-          let html = this.innerHTML;
+          let html = (this as any).innerHTML;
           html = html.replace(/<[^>]*>/g, '');
           const lines = Math.ceil(html.length / LINE_STR_COUNT);
           return lines * 16;

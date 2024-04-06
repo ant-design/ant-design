@@ -9,6 +9,7 @@ import type { CardProps } from '../card';
 import type { CollapseProps } from '../collapse';
 import type { DrawerProps } from '../drawer';
 import type { FlexProps } from '../flex/interface';
+import type { FloatButtonGroupProps } from '../float-button/interface';
 import type { FormProps } from '../form/Form';
 import type { InputProps, TextAreaProps } from '../input';
 import type { Locale } from '../locale';
@@ -124,7 +125,7 @@ export type MenuConfig = ComponentStyleConfig & Pick<MenuProps, 'expandIcon'>;
 export type TourConfig = Pick<TourProps, 'closeIcon'>;
 
 export type ModalConfig = ComponentStyleConfig &
-  Pick<ModalProps, 'classNames' | 'styles' | 'closeIcon'>;
+  Pick<ModalProps, 'classNames' | 'styles' | 'closeIcon' | 'closable'>;
 
 export type TabsConfig = ComponentStyleConfig &
   Pick<TabsProps, 'indicator' | 'indicatorSize' | 'moreIcon' | 'addIcon' | 'removeIcon'>;
@@ -143,7 +144,7 @@ export type ButtonConfig = ComponentStyleConfig & Pick<ButtonProps, 'classNames'
 
 export type NotificationConfig = ComponentStyleConfig & Pick<ArgsProps, 'closeIcon'>;
 
-export type TagConfig = ComponentStyleConfig & Pick<TagProps, 'closeIcon'>;
+export type TagConfig = ComponentStyleConfig & Pick<TagProps, 'closeIcon' | 'closable'>;
 
 export type CardConfig = ComponentStyleConfig & Pick<CardProps, 'classNames' | 'styles'>;
 
@@ -156,6 +157,8 @@ export type TransferConfig = ComponentStyleConfig & Pick<TransferProps, 'selecti
 
 export type FormConfig = ComponentStyleConfig &
   Pick<FormProps, 'requiredMark' | 'colon' | 'scrollToFirstError' | 'validateMessages'>;
+
+export type FloatButtonGroupConfig = Pick<FloatButtonGroupProps, 'closeIcon'>;
 
 export type PaginationConfig = ComponentStyleConfig & Pick<PaginationProps, 'showSizeChanger'>;
 
@@ -213,6 +216,7 @@ export interface ConfigConsumerProps {
   carousel?: ComponentStyleConfig;
   cascader?: ComponentStyleConfig;
   collapse?: CollapseConfig;
+  floatButtonGroup?: FloatButtonGroupConfig;
   typography?: ComponentStyleConfig;
   skeleton?: ComponentStyleConfig;
   spin?: ComponentStyleConfig;

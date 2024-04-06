@@ -98,12 +98,15 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
           {meta.frontmatter.category === 'Components' &&
             String(meta.frontmatter.showImport) !== 'false' && (
               <ComponentMeta
-                component={meta.frontmatter.title}
                 source
+                component={meta.frontmatter.title}
                 filename={meta.frontmatter.filename}
+                version={meta.frontmatter.tag}
               />
             )}
-          <div style={{ minHeight: 'calc(100vh - 64px)' }}>{children}</div>
+          <div style={{ minHeight: 'calc(100vh - 64px)', width: 'calc(100% - 10px)' }}>
+            {children}
+          </div>
           <InViewSuspense>
             <ColumnCard
               zhihuLink={meta.frontmatter.zhihu_url}

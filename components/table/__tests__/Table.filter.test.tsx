@@ -13,7 +13,6 @@ import Menu from '../../menu';
 import type { SelectProps } from '../../select';
 import Select from '../../select';
 import Tooltip from '../../tooltip';
-import type { TreeColumnFilterItem } from '../hooks/useFilter/FilterDropdown';
 import type {
   ColumnFilterItem,
   ColumnsType,
@@ -586,7 +585,7 @@ describe('Table.filter', () => {
           {
             ...column,
             defaultFilteredValue: ['Jim', 'Tom'],
-            onFilter: (value: string, record) => {
+            onFilter: (value, record) => {
               if (record.children && record.children.length) {
                 return true;
               }
@@ -1392,7 +1391,7 @@ describe('Table.filter', () => {
     const onChange = jest.fn();
 
     const { container } = render(
-      <Table
+      <Table<{ name?: string; gender?: string }>
         columns={[
           {
             title: 'Name',
@@ -1506,7 +1505,7 @@ describe('Table.filter', () => {
   it('filtered should work after change', () => {
     const App: React.FC = () => {
       const [filtered, setFiltered] = React.useState(true);
-      const columns = [
+      const columns: TableProps['columns'] = [
         {
           title: 'Name',
           dataIndex: 'name',
@@ -1563,7 +1562,7 @@ describe('Table.filter', () => {
 
   it('with onFilter', () => {
     const onFilter = jest.fn((value, record) => record.key === value);
-    const columns = [{ dataIndex: 'key', filteredValue: [5], onFilter }];
+    const columns: TableProps['columns'] = [{ dataIndex: 'key', filteredValue: [5], onFilter }];
     const testData = [{ key: 1 }, { key: 3 }, { key: 5 }];
     const { container } = render(<Table columns={columns} dataSource={testData} />);
 
@@ -1793,7 +1792,7 @@ describe('Table.filter', () => {
         setFilteredInfo(filters);
         setSortedInfo(sorter);
       };
-      const columns = [
+      const columns: TableProps['columns'] = [
         {
           title: 'Name',
           dataIndex: 'name',
@@ -1901,7 +1900,7 @@ describe('Table.filter', () => {
         ],
         // specify the condition of filtering result
         // here is that finding the name started with `value`
-        onFilter: (value: string, record) => record.name?.indexOf(value) === 0,
+        onFilter: (value, record) => record.name?.indexOf(value as string) === 0,
         sorter: (a, b) => a.name!.length - b.name!.length,
         sortDirections: ['descend'],
       },
@@ -1924,7 +1923,7 @@ describe('Table.filter', () => {
             value: 'New York',
           },
         ],
-        onFilter: (value: string, record) => record.address?.indexOf(value) === 0,
+        onFilter: (value, record) => record.address?.indexOf(value as string) === 0,
       },
     ];
 
@@ -1976,7 +1975,7 @@ describe('Table.filter', () => {
                 value: 'New York',
               },
             ],
-            onFilter: (value: string, record) => record.address?.indexOf(value) === 0,
+            onFilter: (value, record) => record.address?.indexOf(value as string) === 0,
           },
         ]);
         setData([
@@ -2080,7 +2079,7 @@ describe('Table.filter', () => {
     });
 
     it('renders empty element when search not found', () => {
-      jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => undefined);
       const { container, unmount } = render(
         createTable({
           columns: [
@@ -2115,6 +2114,7 @@ describe('Table.filter', () => {
       expect(container.querySelector('.ant-empty')).toBeTruthy();
 
       unmount();
+      errorSpy.mockRestore();
     });
 
     it('supports search input in filter menu', () => {
@@ -2217,8 +2217,7 @@ describe('Table.filter', () => {
                 { text: '节点二', value: 'node2' },
                 { text: '节点三', value: 'node3' },
               ],
-              filterSearch: (input: any, record: TreeColumnFilterItem) =>
-                (record.title as string).includes(input),
+              filterSearch: (input, record) => ((record as any).title as string).includes(input),
             },
           ],
         }),

@@ -28,7 +28,7 @@ const useColorState = (
     return color;
   });
 
-  const setColorValue: typeof _setColorValue = (color: Color) => {
+  const setColorValue = (color: Color) => {
     _setColorValue(color);
     prevColor.current = color;
   };

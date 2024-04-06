@@ -419,6 +419,9 @@ const genButtonStyle = (token: ButtonToken, prefixCls: string = ''): CSSInterpol
         borderRadius,
 
         [`&${iconOnlyCls}`]: {
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
           width: controlHeight,
           paddingInlineStart: 0,
           paddingInlineEnd: 0,

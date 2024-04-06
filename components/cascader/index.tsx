@@ -56,7 +56,10 @@ function highlightKeyword(str: string, lowerKeyword: string, prefixCls?: string)
   const cells = str
     .toLowerCase()
     .split(lowerKeyword)
-    .reduce((list, cur, index) => (index === 0 ? [cur] : [...list, lowerKeyword, cur]), []);
+    .reduce<string[]>(
+      (list, cur, index) => (index === 0 ? [cur] : [...list, lowerKeyword, cur]),
+      [],
+    );
   const fillCells: React.ReactNode[] = [];
   let start = 0;
 
@@ -102,13 +105,13 @@ const defaultSearchRender: ShowSearchType['render'] = (inputValue, path, prefixC
   return optionList;
 };
 
-type SingleCascaderProps<OptionType extends BaseOptionType> = Omit<
+export type SingleCascaderProps<OptionType extends BaseOptionType = any> = Omit<
   RcSingleCascaderProps<OptionType>,
   'checkable' | 'options'
 > & {
   multiple?: false;
 };
-type MultipleCascaderProps<OptionType extends BaseOptionType> = Omit<
+export type MultipleCascaderProps<OptionType extends BaseOptionType = any> = Omit<
   RcMultipleCascaderProps<OptionType>,
   'checkable' | 'options'
 > & {

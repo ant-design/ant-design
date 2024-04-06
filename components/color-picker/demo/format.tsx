@@ -7,7 +7,7 @@ type Format = GetProp<ColorPickerProps, 'format'>;
 
 const HexCase: React.FC = () => {
   const [colorHex, setColorHex] = useState<Color>('#1677ff');
-  const [formatHex, setFormatHex] = useState<Format>('hex');
+  const [formatHex, setFormatHex] = useState<Format | undefined>('hex');
 
   const hexString = React.useMemo<string>(
     () => (typeof colorHex === 'string' ? colorHex : colorHex?.toHexString()),

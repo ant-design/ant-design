@@ -70,11 +70,12 @@ jobs:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
           name: visual-regression-ref
+          path: ./tmp
 
       # Save visual-regression ref to output
       - name: Extra Visual Regression Ref
         id: visual_regression
-        run: echo "id=$(<visual-regression-ref.txt)" >> $GITHUB_OUTPUT
+        run: echo "id=$(<tmp/visual-regression-ref.txt)" >> $GITHUB_OUTPUT
 
       - name: Download Visual-Regression Artifact
         if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-success) }}
@@ -83,10 +84,10 @@ jobs:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
           name: image-snapshots
-          path: ./
+          path: ./tmp
 
       - name: Persist Image Snapshot to OSS
-        if: github.event.workflow_run.event == 'push' && (github.event.workflow_run.head_branch == 'master' || github.event.workflow_run.head_branch == 'feature')
+        if: github.repository == 'ant-design/ant-design' && github.event.workflow_run.event == 'push' && (github.event.workflow_run.head_branch == 'master' || github.event.workflow_run.head_branch == 'feature')
         env:
           ALI_OSS_AK_ID: ${{ secrets.ALI_OSS_AK_ID }}
           ALI_OSS_AK_SECRET: ${{ secrets.ALI_OSS_AK_SECRET }}
@@ -98,7 +99,7 @@ jobs:
           echo "✅ Install `ali-oss` Finished"
 
           echo "🤖 Uploading"
-          node scripts/visual-regression/upload.js ./imageSnapshots.tar.gz --ref=$HEAD_SHA
-          node scripts/visual-regression/upload.js ./visual-regression-ref.txt --ref=$HEAD_BRANCH
+          node scripts/visual-regression/upload.js ./tmp/imageSnapshots.tar.gz --ref=$HEAD_SHA
+          node scripts/visual-regression/upload.js ./tmp/visual-regression-ref.txt --ref=$HEAD_BRANCH
 
           echo "✅ Uploaded"

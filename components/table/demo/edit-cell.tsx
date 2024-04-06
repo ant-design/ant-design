@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import type { GetRef } from 'antd';
+import type { GetRef, InputRef } from 'antd';
 import { Button, Form, Input, Popconfirm, Table } from 'antd';
 
-type InputRef = GetRef<typeof Input>;
 type FormInstance<T> = GetRef<typeof Form<T>>;
 
 const EditableContext = React.createContext<FormInstance<any> | null>(null);
@@ -53,7 +52,7 @@ const EditableCell: React.FC<EditableCellProps> = ({
 
   useEffect(() => {
     if (editing) {
-      inputRef.current!.focus();
+      inputRef.current?.focus();
     }
   }, [editing]);
 
@@ -151,7 +150,7 @@ const App: React.FC = () => {
     {
       title: 'operation',
       dataIndex: 'operation',
-      render: (_, record: { key: React.Key }) =>
+      render: (_, record) =>
         dataSource.length >= 1 ? (
           <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record.key)}>
             <a>Delete</a>
