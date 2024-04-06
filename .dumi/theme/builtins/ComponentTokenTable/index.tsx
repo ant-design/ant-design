@@ -52,7 +52,7 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(() => ({
+const useStyle = createStyles(({ token }) => ({
   tableTitle: css`
     cursor: pointer;
     position: relative;
@@ -62,15 +62,15 @@ const useStyle = createStyles(() => ({
     line-height: 40px;
   `,
   arrowIcon: css`
-    font-size: 16px;
-    margin-inline-end: 8px;
+    font-size: ${token.fontSizeLG}px;
+    margin-inline-end: ${token.marginXS}px;
     & svg {
-      transition: all 0.3s;
+      transition: all ${token.motionDurationSlow};
     }
   `,
   help: css`
-    margin-inline-start: 8px;
-    font-size: 12px;
+    margin-inline-start: ${token.marginXS}px;
+    font-size: ${token.fontSizeSM}px;
     font-weight: normal;
     color: #999;
     a {
@@ -98,7 +98,7 @@ const SubTokenTable: React.FC<SubTokenTableProps> = (props) => {
   const token = useTheme();
   const columns = useColumns();
 
-  const [open, setOpen] = useState<boolean>(defaultOpen || process.env.NODE_ENV !== 'production');
+  const [open, setOpen] = useState<boolean>(defaultOpen ?? process.env.NODE_ENV !== 'production');
 
   const { styles } = useStyle();
 
