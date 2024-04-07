@@ -1,28 +1,6 @@
 import React from 'react';
 import { Button, Flex, Form, Input, Upload } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
-import type { TextAreaProps } from 'antd/es/input';
-
-const IDPropDrillingTextArea = (props: Pick<TextAreaProps, 'id' | 'value' | 'onChange'>) => {
-  const { id, value, onChange } = props;
-  return (
-    <div id={id}>
-      <Input.TextArea placeholder="Please input bar" value={value} onChange={onChange} rows={4} />
-    </div>
-  );
-};
-
-const RefForwardTextArea = React.forwardRef<
-  HTMLDivElement,
-  Pick<TextAreaProps, 'value' | 'onChange'>
->((props, ref) => {
-  const { value, onChange } = props;
-  return (
-    <div ref={ref}>
-      <Input.TextArea placeholder="Please input baz" value={value} onChange={onChange} rows={6} />
-    </div>
-  );
-});
 
 const App = () => {
   const [form] = Form.useForm();
@@ -40,16 +18,16 @@ const App = () => {
         <Button onClick={() => form.scrollToField('demo-form_dragger')}>Scroll to Upload</Button>
       </Form.Item>
 
-      <Form.Item name="demo-form_foo" label="Foo">
+      <Form.Item name="demo-form_foo" label="Foo" rules={[{ required: true }]}>
         <Input />
       </Form.Item>
 
-      <Form.Item name="demo-form_bar" label="Bar" rules={[{ required: true }]}>
-        <IDPropDrillingTextArea />
+      <Form.Item name="demo-form_bar" label="Bar">
+        <Input.TextArea placeholder="Please input bar" rows={4} />
       </Form.Item>
 
       <Form.Item name="demo-form_baz" label="Baz" rules={[{ required: true }]}>
-        <RefForwardTextArea />
+        <Input.TextArea placeholder="Please input baz" rows={6} />
       </Form.Item>
 
       <Form.Item label="Dragger">
