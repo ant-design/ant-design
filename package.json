@@ -56,7 +56,7 @@
     "predeploy": "antd-tools run clean && npm run site && cp CNAME _site && npm run site:test",
     "deploy": "gh-pages -d _site -b gh-pages -f",
     "deploy:china-mirror": "git checkout gh-pages && git pull origin gh-pages && git push git@gitee.com:ant-design/ant-design.git gh-pages -f",
-    "predist": "npm run version && npm run token:collection && npm run token:meta",
+    "predist": "npm run version && npm run token:statistic && npm run token:meta",
     "dist": "antd-tools run dist",
     "dist:esbuild": "ESBUILD=true npm run dist",
     "dist:esbuild-no-dup-check": "ESBUILD=true NO_DUP_CHECK=true npm run dist",
