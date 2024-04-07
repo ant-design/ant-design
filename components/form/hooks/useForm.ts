@@ -44,10 +44,6 @@ export default function useForm<Values = any>(form?: FormInstance<Values>): [For
           let node: HTMLElement | null = null;
           const fieldRef = wrapForm.getFieldInstance(name);
 
-          /**
-           * Starting from 5.17.0, it is added that the dom node is preferably obtained from ref
-           * and then obtained according to id.
-           */
           if (fieldRef instanceof HTMLElement) {
             node = fieldRef;
           } else if (fieldRef?.nativeElement instanceof HTMLElement) {
