@@ -124,6 +124,10 @@ Supports all props of `Input`.
 
 Added in `5.16.0`.
 
+> Notes for developers
+>
+> When the `mask` prop is string, it is expected to receive a single character or a single emoji. If multiple characters or multiple emojis are passed in, only the first one will be intercepted.
+
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | defaultValue | Default value | string | - |  |
