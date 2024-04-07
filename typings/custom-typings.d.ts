@@ -17,3 +17,9 @@ declare module '*.json' {
   export const version: string;
   export default value;
 }
+
+declare module '@npmcli/run-script' {
+  export default function runScript(options: {
+    [key: string]: string | string[] | boolean | NodeJS.ProcessEnv;
+  }): Promise<void>;
+}

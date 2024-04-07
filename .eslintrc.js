@@ -173,6 +173,7 @@ module.exports = {
           'site/**',
           'tests/**',
           'scripts/**',
+          'scripts/*.ts',
           '**/*.test.js',
           '**/__tests__/*',
           '*.config.js',
