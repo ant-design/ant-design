@@ -1,4 +1,5 @@
 import React from 'react';
+import { substr } from 'runes2';
 
 import type { OTPProps } from '../OTP';
 
@@ -13,8 +14,8 @@ const useOTPSingleValue = (valueCells: string[], mask?: OTPProps['mask']) => {
           return mask;
         }
         if (mask.length > 1) {
-          // 这里需要兼容 emoji，不能直接用 mask.charAt(0)
-          return [...mask][0];
+          // 需要使用第三方库兼容 emoji，不能直接用 mask.charAt(0)
+          return substr(mask, 0, 1);
         }
       }
       return valueCells[index] || '';
