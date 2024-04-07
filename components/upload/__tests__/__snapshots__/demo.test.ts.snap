@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders components/upload/demo/avatar.tsx correctly 1`] = `
-Array [
+<div
+  class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
+>
   <span
     class="ant-upload-wrapper avatar-uploader ant-upload-picture-card-wrapper"
   >
@@ -50,7 +52,7 @@ Array [
         </button>
       </span>
     </div>
-  </span>,
+  </span>
   <span
     class="ant-upload-wrapper avatar-uploader ant-upload-picture-circle-wrapper"
   >
@@ -99,8 +101,8 @@ Array [
         </button>
       </span>
     </div>
-  </span>,
-]
+  </span>
+</div>
 `;
 
 exports[`renders components/upload/demo/basic.tsx correctly 1`] = `

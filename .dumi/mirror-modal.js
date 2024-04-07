@@ -51,8 +51,7 @@
     top: 120px;
     left: 0;
     right: 0;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     width: 420px;
     display: flex;
     align-items: center;
@@ -117,7 +116,7 @@
   .mirror-modal-cancel-btn {
     border: 1px solid #eee;
     color: #000;
-    margin-right: 8px;
+    margin-inline-end: 8px;
   }
 
   .mirror-modal-cancel-btn:hover {

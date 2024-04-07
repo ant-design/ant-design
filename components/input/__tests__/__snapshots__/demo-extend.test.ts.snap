@@ -10516,8 +10516,9 @@ Array [
     >
       <span
         aria-label="user"
-        class="anticon anticon-user site-form-item-icon"
+        class="anticon anticon-user"
         role="img"
+        style="color: rgba(0, 0, 0, 0.25);"
       >
         <svg
           aria-hidden="true"

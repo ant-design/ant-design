@@ -16,6 +16,13 @@ tag: vVERSION
 
 ---
 
+## 5.16.1
+
+`2024-04-05`
+
+- 🛠 Adjust Typography `ellipsis` logic to use CSS ellipsis in SSR to enhance user experience. [#48205](https://github.com/ant-design/ant-design/pull/48205)
+- 🐞 Fix FloatButton config `tooltip` and `badge` at same time will make `badge` customize background not working. [#48198](https://github.com/ant-design/ant-design/pull/48198) [@LonelySnowman](https://github.com/LonelySnowman)
+
 ## 5.16.0
 
 `2024-03-31`
