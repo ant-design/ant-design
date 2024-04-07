@@ -1,16 +1,18 @@
 /* eslint-disable camelcase */
 import fs from 'node:fs';
-import { runScript } from '@npmcli/run-script';
+import runScript from '@npmcli/run-script';
 import { Octokit } from '@octokit/rest';
 import ora from 'ora';
 import chalk from 'chalk';
 import AdmZip from 'adm-zip';
+import axios from 'axios';
+import cliProgress from 'cli-progress';
 import checkRepo from './check-repo';
 
 const simpleGit = require('simple-git');
 
 process.on('SIGINT', () => {
-  process.exit(0);
+  process.exit(1);
 });
 
 const emojify = (status: string = '') => {
@@ -34,6 +36,24 @@ const emojify = (status: string = '') => {
   return `${emoji || ''} ${(status || '').padEnd(15)}`;
 };
 
+async function downloadArtifact(url: string, filepath: string) {
+  const bar = new cliProgress.SingleBar({
+    format: `  下载中 [${chalk.cyan('{bar}')}] {percentage}% | 预计还剩: {eta}s | {value}/{total}`,
+  });
+  bar.start(1, 0);
+  const response = await axios.get(url, {
+    headers: {
+      Authorization: `token ${process.env.GITHUB_ACCESS_TOKEN}`,
+    },
+    responseType: 'arraybuffer',
+    onDownloadProgress: (progressEvent) => {
+      bar.setTotal(progressEvent.total);
+      bar.update(progressEvent.loaded);
+    },
+  });
+  fs.writeFileSync(filepath, Buffer.from(response.data));
+}
+
 const runPrePublish = async () => {
   await checkRepo();
   const spinner = ora('Loading unicorns').start();
@@ -50,12 +70,12 @@ const runPrePublish = async () => {
   spinner.succeed(`成功推送远程分支 ${currentBranch}`);
   spinner.succeed(`已经和远程分支保持同步 ${currentBranch}`);
 
-  spinner.succeed(`找到本地最新 commit:`);
   const { latest } = await git.log();
-  spinner.info(`  hash: ${latest.hash}`);
-  spinner.info(`  date: ${latest.date}`);
-  spinner.info(`  message: ${latest.message}`);
-  spinner.info(`  author_name: ${latest.author_name}`);
+  spinner.succeed(`找到本地最新 commit:`);
+  spinner.info(chalk.cyan(`  hash: ${latest.hash}`));
+  spinner.info(chalk.cyan(`  date: ${latest.date}`));
+  spinner.info(chalk.cyan(`  message: ${latest.message}`));
+  spinner.info(chalk.cyan(`  author_name: ${latest.author_name}`));
   const owner = 'ant-design';
   const repo = 'ant-design';
   spinner.start(`开始检查远程分支 ${currentBranch} 的 CI 状态`);
@@ -90,7 +110,7 @@ const runPrePublish = async () => {
   }
   spinner.succeed(`远程分支 CI 已通过`);
   // clean up
-  await runScript({ event: 'clean', path: '.' });
+  await runScript({ event: 'clean', path: '.', stdio: 'inherit' });
   spinner.succeed(`成功清理构建产物目录`);
   spinner.start(`开始查找远程分支构建产物`);
   const {
@@ -123,23 +143,25 @@ const runPrePublish = async () => {
     spinner.fail(chalk.bgRedBright('找不到远程构建产物'));
     process.exit(1);
   }
-  spinner.start(`开始从远程分支下载构建产物`);
-  const { data } = await octokit.rest.actions.downloadArtifact({
+  spinner.info(`准备从远程分支下载构建产物`);
+  const { url } = await octokit.rest.actions.downloadArtifact.endpoint({
     owner,
     repo,
     artifact_id: artifact.id,
     archive_format: 'zip',
   });
-  fs.writeFileSync('temp.zip', Buffer.from(data as ArrayBuffer));
+  await downloadArtifact(url, 'artifacts.zip');
+  spinner.info();
   spinner.succeed(`成功从远程分支下载构建产物`);
   // unzip
   spinner.start(`正在解压构建产物`);
-  const zip = new AdmZip('./temp.zip');
+  const zip = new AdmZip('artifacts.zip');
   zip.extractAllTo('./', true);
   spinner.succeed(`成功解压构建产物`);
-  await runScript({ event: 'dekko:test', path: '.' });
-  await runScript({ event: 'package-diff', path: '.' });
+  await runScript({ event: 'dekko:test', path: '.', stdio: 'inherit' });
+  await runScript({ event: 'package-diff', path: '.', stdio: 'inherit' });
   spinner.succeed(`文件检查通过，准备发布！`);
+  process.exit(0);
 };
 
 runPrePublish();
