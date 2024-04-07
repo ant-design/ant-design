@@ -31,6 +31,7 @@ export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
   hideAdd?: boolean;
   centered?: boolean;
   addIcon?: React.ReactNode;
+  moreIcon?: React.ReactNode;
   removeIcon?: React.ReactNode;
   onEdit?: (e: React.MouseEvent | React.KeyboardEvent | string, action: 'add' | 'remove') => void;
   children?: React.ReactNode;
@@ -49,6 +50,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
     centered,
     addIcon,
     removeIcon,
+    moreIcon,
     more,
     popupClassName,
     children,
@@ -131,8 +133,9 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
       style={mergedStyle}
       editable={editable}
       more={{
-        icon: more?.icon ?? tabs?.more?.icon ?? <EllipsisOutlined />,
+        icon: <EllipsisOutlined />,
         transitionName: `${rootPrefixCls}-slide-up`,
+        ...more,
       }}
       prefixCls={prefixCls}
       animated={mergedAnimated}
