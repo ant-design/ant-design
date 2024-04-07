@@ -47,7 +47,7 @@ async function downloadArtifact(url: string, filepath: string) {
     },
     responseType: 'arraybuffer',
     onDownloadProgress: (progressEvent) => {
-      bar.setTotal(progressEvent.total);
+      bar.setTotal(progressEvent.total || 0);
       bar.update(progressEvent.loaded);
     },
   });
@@ -89,7 +89,7 @@ const runPrePublish = async () => {
   spinner.succeed(`远程分支 CI 状态：`);
   check_runs.forEach((run) => {
     spinner.info(
-      `  ${run.name.padEnd(30)} ${emojify(run.status)} ${emojify(run.conclusion || '')}`,
+      `  ${run.name.padEnd(36)} ${emojify(run.status)} ${emojify(run.conclusion || '')}`,
     );
   });
   const conclusions = check_runs.map((run) => run.conclusion);
