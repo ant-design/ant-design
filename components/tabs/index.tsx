@@ -49,7 +49,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
     centered,
     addIcon,
     removeIcon,
-    moreIcon,
+    more,
     popupClassName,
     children,
     items,
@@ -111,7 +111,6 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
     <RcTabs
       direction={direction}
       getPopupContainer={getPopupContainer}
-      moreTransitionName={`${rootPrefixCls}-slide-up`}
       {...otherProps}
       items={mergedItems}
       className={classNames(
@@ -131,7 +130,10 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
       popupClassName={classNames(popupClassName, hashId, cssVarCls, rootCls)}
       style={mergedStyle}
       editable={editable}
-      moreIcon={moreIcon ?? tabs?.moreIcon ?? <EllipsisOutlined />}
+      more={{
+        icon: more?.icon ?? tabs?.more?.icon ?? <EllipsisOutlined />,
+        transitionName: `${rootPrefixCls}-slide-up`,
+      }}
       prefixCls={prefixCls}
       animated={mergedAnimated}
       indicator={mergedIndicator}
