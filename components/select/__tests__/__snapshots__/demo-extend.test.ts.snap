@@ -8589,7 +8589,7 @@ exports[`renders components/select/demo/option-label-center.tsx extend context c
 
 exports[`renders components/select/demo/option-label-center.tsx extend context correctly 2`] = `[]`;
 
-exports[`renders components/select/demo/option-label-prop.tsx extend context correctly 1`] = `
+exports[`renders components/select/demo/option-render.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width: 100%;"
@@ -8892,7 +8892,7 @@ exports[`renders components/select/demo/option-label-prop.tsx extend context cor
 </div>
 `;
 
-exports[`renders components/select/demo/option-label-prop.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/select/demo/option-render.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/select/demo/placement.tsx extend context correctly 1`] = `
 Array [

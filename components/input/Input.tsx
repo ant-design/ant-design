@@ -264,4 +264,8 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   );
 });
 
+if (process.env.NODE_ENV !== 'production') {
+  Input.displayName = 'Input';
+}
+
 export default Input;

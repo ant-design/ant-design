@@ -1,4 +1,5 @@
 import * as React from 'react';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CopyOutlined from '@ant-design/icons/CopyOutlined';
 import classNames from 'classnames';
@@ -9,16 +10,17 @@ import { type Locale } from '../../locale';
 import Tooltip from '../../tooltip';
 import { getNode, toList } from './util';
 
-export interface CopyBtnProps extends CopyConfig {
+export interface CopyBtnProps extends Omit<CopyConfig, 'onCopy'> {
   prefixCls: string;
   copied: boolean;
   locale: Locale['Text'];
   onCopy: React.MouseEventHandler<HTMLDivElement>;
   iconOnly: boolean;
+  loading: boolean;
 }
 
 export default function CopyBtn(props: CopyBtnProps) {
-  const { prefixCls, copied, locale = {}, onCopy, iconOnly, tooltips, icon } = props;
+  const { prefixCls, copied, locale = {}, onCopy, iconOnly, tooltips, icon, loading } = props;
 
   const tooltipNodes = toList(tooltips);
   const iconNodes = toList(icon);
@@ -38,12 +40,12 @@ export default function CopyBtn(props: CopyBtnProps) {
           [`${prefixCls}-copy-success`]: copied,
           [`${prefixCls}-copy-icon-only`]: iconOnly,
         })}
-        onClick={onCopy}
+        onClick={onCopy as any}
         aria-label={ariaLabel}
       >
         {copied
           ? getNode(iconNodes[1], <CheckOutlined />, true)
-          : getNode(iconNodes[0], <CopyOutlined />, true)}
+          : getNode(iconNodes[0], loading ? <LoadingOutlined /> : <CopyOutlined />, true)}
       </TransButton>
     </Tooltip>
   );

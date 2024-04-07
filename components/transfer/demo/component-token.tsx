@@ -104,7 +104,7 @@ const leftTableColumns: TableColumnsType<DataType> = [
   },
 ];
 
-const rightTableColumns: TableColumnsType<Pick<DataType, 'title'>> = [
+const rightTableColumns: TableColumnsType<DataType> = [
   {
     dataIndex: 'title',
     title: 'Name',
@@ -114,8 +114,8 @@ const rightTableColumns: TableColumnsType<Pick<DataType, 'title'>> = [
 const initialTargetKeys = mockData.filter((item) => Number(item.key) > 10).map((item) => item.key);
 
 const App: React.FC = () => {
-  const [targetKeys, setTargetKeys] = useState(initialTargetKeys);
-  const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
+  const [targetKeys, setTargetKeys] = useState<React.Key[]>(initialTargetKeys);
+  const [selectedKeys, setSelectedKeys] = useState<React.Key[]>([]);
 
   const onChange: TransferProps['onChange'] = (nextTargetKeys, direction, moveKeys) => {
     console.log('targetKeys:', nextTargetKeys);
@@ -141,7 +141,7 @@ const App: React.FC = () => {
   const [disabled, setDisabled] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
 
-  const secondOnChange = (nextTargetKeys: string[]) => {
+  const secondOnChange: TransferProps['onChange'] = (nextTargetKeys) => {
     setTargetKeys(nextTargetKeys);
   };
 

@@ -15,6 +15,7 @@ describe('Watermark', () => {
 
   beforeAll(() => {
     mockSrcSet.mockImplementation(function fn() {
+      // @ts-ignore
       this.onload?.();
     });
   });
@@ -77,6 +78,7 @@ describe('Watermark', () => {
 
   it('Invalid image watermark', () => {
     mockSrcSet.mockImplementation(function fn() {
+      // @ts-ignore
       this.onerror?.();
     });
     const { container } = render(

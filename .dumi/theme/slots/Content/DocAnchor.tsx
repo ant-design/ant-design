@@ -1,17 +1,17 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Anchor } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
+import type { AnchorLinkItemProps } from 'antd/es/anchor/Anchor';
 import classNames from 'classnames';
 import { useRouteMeta, useTabMeta } from 'dumi';
 
 const useStyle = createStyles(({ token, css }) => {
   const { antCls } = token;
-
   return {
     toc: css`
       ${antCls}-anchor {
         ${antCls}-anchor-link-title {
-          font-size: 12px;
+          font-size: ${token.fontSizeSM}px;
         }
       }
     `,
@@ -20,29 +20,25 @@ const useStyle = createStyles(({ token, css }) => {
       top: ${token.headerHeight + token.contentMarginTop - 8}px;
       inset-inline-end: 0;
       width: 160px;
-      margin: 0 0 12px 0;
-      padding: 8px 0;
-      padding-inline: 4px 8px;
-      backdrop-filter: blur(8px);
+      padding: ${token.paddingXS}px;
       border-radius: ${token.borderRadius}px;
       box-sizing: border-box;
-      z-index: 1000;
-
+      margin-inline-end: calc(16px - 100vw + 100%);
+      z-index: 10;
       .toc-debug {
         color: ${token.purple6};
-
         &:hover {
           color: ${token.purple5};
         }
       }
-
       > div {
         box-sizing: border-box;
         width: 100%;
         max-height: calc(100vh - ${token.headerHeight + token.contentMarginTop + 24}px) !important;
-        margin: 0 auto;
+        margin: auto;
         overflow: auto;
-        padding-inline: 4px;
+        padding: ${token.paddingXXS}px;
+        backdrop-filter: blur(8px);
       }
 
       @media only screen and (max-width: ${token.screenLG}px) {
@@ -59,7 +55,7 @@ const useStyle = createStyles(({ token, css }) => {
       @media only screen and (max-width: ${token.screenLG}px) {
         &,
         &.rtl {
-          padding: 0 48px;
+          padding: 0 ${token.paddingLG * 2}px;
         }
       }
     `,
@@ -71,11 +67,11 @@ interface DocAnchorProps {
   debugDemos?: string[];
 }
 
-type AnchorItem = {
+interface AnchorItem {
   id: string;
   title: string;
   children?: AnchorItem[];
-};
+}
 
 const DocAnchor: React.FC<DocAnchorProps> = ({ showDebug, debugDemos = [] }) => {
   const { styles } = useStyle();
@@ -83,24 +79,24 @@ const DocAnchor: React.FC<DocAnchorProps> = ({ showDebug, debugDemos = [] }) => 
   const meta = useRouteMeta();
   const tab = useTabMeta();
 
-  const renderAnchorItem = (item: AnchorItem) => ({
+  const renderAnchorItem = (item: AnchorItem): AnchorLinkItemProps => ({
     href: `#${item.id}`,
     title: item.title,
     key: item.id,
     children: item.children
       ?.filter((child) => showDebug || !debugDemos.includes(child.id))
-      .map((child) => ({
+      .map<AnchorLinkItemProps>((child) => ({
         key: child.id,
         href: `#${child.id}`,
         title: (
-          <span className={classNames(debugDemos.includes(child.id) && 'toc-debug')}>
+          <span className={classNames({ 'toc-debug': debugDemos.includes(child.id) })}>
             {child?.title}
           </span>
         ),
       })),
   });
 
-  const anchorItems = useMemo(
+  const anchorItems = React.useMemo<AnchorItem[]>(
     () =>
       (tab?.toc || meta.toc).reduce<AnchorItem[]>((result, item) => {
         if (item.depth === 2) {
@@ -128,7 +124,7 @@ const DocAnchor: React.FC<DocAnchorProps> = ({ showDebug, debugDemos = [] }) => 
         affix={false}
         targetOffset={token.anchorTop}
         showInkInFixed
-        items={anchorItems.map(renderAnchorItem)}
+        items={anchorItems.map<AnchorLinkItemProps>(renderAnchorItem)}
       />
     </section>
   );

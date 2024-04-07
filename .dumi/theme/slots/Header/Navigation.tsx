@@ -1,13 +1,14 @@
 import * as React from 'react';
-import { FormattedMessage, useFullSidebarData, useLocation } from 'dumi';
 import { MenuOutlined } from '@ant-design/icons';
-import { createStyles, css } from 'antd-style';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
-import * as utils from '../../utils';
-import type { SharedProps } from './interface';
+import { createStyles, css } from 'antd-style';
+import { FormattedMessage, useFullSidebarData, useLocation } from 'dumi';
+
 import useLocale from '../../../hooks/useLocale';
 import Link from '../../common/Link';
+import * as utils from '../../utils';
+import type { SharedProps } from './interface';
 
 // ============================= Theme =============================
 const locales = {
@@ -29,13 +30,21 @@ const locales = {
 
 // ============================= Style =============================
 const useStyle = createStyles(({ token }) => {
-  const { antCls, iconCls, fontFamily, headerHeight, menuItemBorder, colorPrimary, colorText } =
-    token;
+  const {
+    antCls,
+    iconCls,
+    fontFamily,
+    fontSize,
+    headerHeight,
+    menuItemBorder,
+    colorPrimary,
+    colorText,
+  } = token;
 
   return {
     nav: css`
       height: 100%;
-      font-size: 14px;
+      font-size: ${fontSize}px;
       font-family: Avenir, ${fontFamily}, sans-serif;
       border: 0;
 
@@ -45,8 +54,8 @@ const useStyle = createStyles(({ token }) => {
         & > ${antCls}-menu-item, & > ${antCls}-menu-submenu {
           min-width: ${40 + 12 * 2}px;
           height: ${headerHeight}px;
-          padding-right: 12px;
-          padding-left: 12px;
+          padding-inline-end: ${token.paddingSM}px;
+          padding-inline-start: ${token.paddingSM}px;
           line-height: ${headerHeight}px;
 
           &::after {
@@ -65,7 +74,7 @@ const useStyle = createStyles(({ token }) => {
             position: absolute;
             inset: 0;
             background-color: transparent;
-            content: "";
+            content: '';
           }
         }
 
@@ -91,11 +100,11 @@ const useStyle = createStyles(({ token }) => {
       }
 
       ${antCls}-menu-item-group-title {
-        padding-left: 24px;
+        padding-inline-start: ${token.paddingLG}px;
       }
 
       ${antCls}-menu-item-group-list {
-        padding: 0 16px;
+        padding: 0 ${token.paddingLG}px;
       }
 
       ${antCls}-menu-item,
@@ -114,14 +123,8 @@ export interface NavigationProps extends SharedProps {
   onDirectionChange: () => void;
 }
 
-export default ({
-  isZhCN,
-  isMobile,
-  responsive,
-  directionText,
-  onLangChange,
-  onDirectionChange,
-}: NavigationProps) => {
+const HeaderNavigation: React.FC<NavigationProps> = (props) => {
+  const { isZhCN, isMobile, responsive, directionText, onLangChange, onDirectionChange } = props;
   const { pathname, search } = useLocation();
   const [locale] = useLocale(locales);
 
@@ -132,11 +135,7 @@ export default ({
 
   const menuMode = isMobile ? 'inline' : 'horizontal';
 
-  const module = pathname
-    .split('/')
-    .filter((path) => path)
-    .slice(0, -1)
-    .join('/');
+  const module = pathname.split('/').filter(Boolean).slice(0, -1).join('/');
   let activeMenuItem = module || 'home';
   if (pathname.startsWith('/changelog')) {
     activeMenuItem = 'docs/react';
@@ -287,7 +286,8 @@ export default ({
       className={styles.nav}
       disabledOverflow
       items={items}
-      style={{ borderRight: 0 }}
     />
   );
 };
+
+export default HeaderNavigation;

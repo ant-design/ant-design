@@ -17,6 +17,7 @@ import CodeSandboxIcon from '../../common/CodeSandboxIcon';
 import EditButton from '../../common/EditButton';
 import ExternalLinkIcon from '../../common/ExternalLinkIcon';
 import RiddleIcon from '../../common/RiddleIcon';
+import DemoContext from '../../slots/DemoContext';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
 import { ping } from '../../utils';
@@ -74,14 +75,14 @@ const useStyle = createStyles(({ token }) => {
       border-radius: 0 0 ${borderRadius}px ${borderRadius}px;
       border-top: 1px solid ${token.colorSplit};
       color: ${token.colorTextSecondary};
-      transition: all 0.2s ease-in-out;
+      transition: all ${token.motionDurationMid} ease-in-out;
       background-color: ${token.colorBgElevated};
       cursor: pointer;
       &:hover {
         color: ${token.colorPrimary};
       }
       span {
-        margin-right: ${token.marginXXS}px;
+        margin-inline-end: ${token.marginXXS}px;
       }
     `,
   };
@@ -107,6 +108,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     clientOnly,
     pkgDependencyList,
   } = props;
+  const { showDebug } = useContext(DemoContext);
 
   const { pkg } = useSiteData();
   const location = useLocation();
@@ -469,26 +471,28 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 <CodePenIcon className="code-box-codepen" />
               </Tooltip>
             </form>
-            <form
-              className="code-box-code-action"
-              action="https://codesandbox.io/api/v1/sandboxes/define"
-              method="POST"
-              target="_blank"
-              ref={codeSandboxIconRef}
-              onClick={() => {
-                track({ type: 'codesandbox', demo: asset.id });
-                codeSandboxIconRef.current?.submit();
-              }}
-            >
-              <input
-                type="hidden"
-                name="parameters"
-                value={compress(JSON.stringify(codesanboxPrefillConfig))}
-              />
-              <Tooltip title={<FormattedMessage id="app.demo.codesandbox" />}>
-                <CodeSandboxIcon className="code-box-codesandbox" />
-              </Tooltip>
-            </form>
+            {showDebug && (
+              <form
+                className="code-box-code-action"
+                action="https://codesandbox.io/api/v1/sandboxes/define"
+                method="POST"
+                target="_blank"
+                ref={codeSandboxIconRef}
+                onClick={() => {
+                  track({ type: 'codesandbox', demo: asset.id });
+                  codeSandboxIconRef.current?.submit();
+                }}
+              >
+                <input
+                  type="hidden"
+                  name="parameters"
+                  value={compress(JSON.stringify(codesanboxPrefillConfig))}
+                />
+                <Tooltip title={<FormattedMessage id="app.demo.codesandbox" />}>
+                  <CodeSandboxIcon className="code-box-codesandbox" />
+                </Tooltip>
+              </form>
+            )}
             <Tooltip title={<FormattedMessage id="app.demo.separate" />}>
               <a
                 className="code-box-code-action"

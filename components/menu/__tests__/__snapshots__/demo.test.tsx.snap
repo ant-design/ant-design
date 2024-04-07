@@ -1822,8 +1822,7 @@ Array [
             class="ant-menu-title-content"
           >
             <span
-              aria-label="Ant Design, a design language for background applications, is refined by Ant UED Team"
-              class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
             >
               Ant Design, a design language for background applications, is refined by Ant UED Team
             </span>
@@ -1961,11 +1960,11 @@ Array [
     tabindex="0"
   >
     <li
-      class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+      class="ant-menu-submenu ant-menu-submenu-inline"
       role="none"
     >
       <div
-        aria-expanded="true"
+        aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
         role="menuitem"
@@ -1995,6 +1994,47 @@ Array [
           class="ant-menu-title-content"
         >
           Navigation One
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+      role="none"
+    >
+      <div
+        aria-expanded="true"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="menuitem"
+        style="padding-left:24px"
+        tabindex="-1"
+      >
+        <span
+          aria-label="appstore"
+          class="anticon anticon-appstore ant-menu-item-icon"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="appstore"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M464 144H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H212V212h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H612V212h200v200zM464 544H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H212V612h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H612V612h200v200z"
+            />
+          </svg>
+        </span>
+        <span
+          class="ant-menu-title-content"
+        >
+          Navigation Two
         </span>
         <i
           class="ant-menu-submenu-arrow"
@@ -2030,71 +2070,92 @@ Array [
           </span>
         </li>
         <li
-          class="ant-menu-item ant-menu-item-only-child"
-          role="menuitem"
-          style="padding-left:48px"
-          tabindex="-1"
+          class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+          role="none"
         >
-          <span
-            class="ant-menu-title-content"
+          <div
+            aria-expanded="true"
+            aria-haspopup="true"
+            class="ant-menu-submenu-title"
+            role="menuitem"
+            style="padding-left:48px"
+            tabindex="-1"
           >
-            Option 3
-          </span>
+            <span
+              class="ant-menu-title-content"
+            >
+              Submenu
+            </span>
+            <i
+              class="ant-menu-submenu-arrow"
+            />
+          </div>
+          <ul
+            class="ant-menu ant-menu-sub ant-menu-inline"
+            data-menu-list="true"
+            role="menu"
+          >
+            <li
+              class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:72px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 1
+              </span>
+            </li>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:72px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 2
+              </span>
+            </li>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:72px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 3
+              </span>
+            </li>
+          </ul>
         </li>
         <li
-          class="ant-menu-item ant-menu-item-only-child"
-          role="menuitem"
-          style="padding-left:48px"
-          tabindex="-1"
+          class="ant-menu-submenu ant-menu-submenu-inline"
+          role="none"
         >
-          <span
-            class="ant-menu-title-content"
+          <div
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="ant-menu-submenu-title"
+            role="menuitem"
+            style="padding-left:48px"
+            tabindex="-1"
           >
-            Option 4
-          </span>
+            <span
+              class="ant-menu-title-content"
+            >
+              Submenu 2
+            </span>
+            <i
+              class="ant-menu-submenu-arrow"
+            />
+          </div>
         </li>
       </ul>
-    </li>
-    <li
-      class="ant-menu-submenu ant-menu-submenu-inline"
-      role="none"
-    >
-      <div
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="ant-menu-submenu-title"
-        role="menuitem"
-        style="padding-left:24px"
-        tabindex="-1"
-      >
-        <span
-          aria-label="appstore"
-          class="anticon anticon-appstore ant-menu-item-icon"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="appstore"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M464 144H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H212V212h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H612V212h200v200zM464 544H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H212V612h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H612V612h200v200z"
-            />
-          </svg>
-        </span>
-        <span
-          class="ant-menu-title-content"
-        >
-          Navigation Two
-        </span>
-        <i
-          class="ant-menu-submenu-arrow"
-        />
-      </div>
     </li>
     <li
       class="ant-menu-submenu ant-menu-submenu-inline"

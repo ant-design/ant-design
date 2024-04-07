@@ -30,7 +30,7 @@ const useStyle = createStyles(({ token, css }) => ({
     @media only screen and (max-width: ${token.screenLG}px) {
       &,
       &.rtl {
-        padding: 0 48px;
+        padding: 0 ${token.paddingLG * 2}px;
       }
     }
   `,
@@ -97,10 +97,16 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
           {/* Import Info */}
           {meta.frontmatter.category === 'Components' &&
             String(meta.frontmatter.showImport) !== 'false' && (
-              <ComponentMeta component={meta.frontmatter.title} source />
+              <ComponentMeta
+                source
+                component={meta.frontmatter.title}
+                filename={meta.frontmatter.filename}
+                version={meta.frontmatter.tag}
+              />
             )}
-
-          <div style={{ minHeight: 'calc(100vh - 64px)' }}>{children}</div>
+          <div style={{ minHeight: 'calc(100vh - 64px)', width: 'calc(100% - 10px)' }}>
+            {children}
+          </div>
           <InViewSuspense>
             <ColumnCard
               zhihuLink={meta.frontmatter.zhihu_url}

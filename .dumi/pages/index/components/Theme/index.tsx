@@ -7,7 +7,7 @@ import {
   QuestionCircleOutlined,
 } from '@ant-design/icons';
 import { TinyColor } from '@ctrl/tinycolor';
-import type { MenuProps } from 'antd';
+import type { MenuProps, ThemeConfig } from 'antd';
 import {
   Breadcrumb,
   Button,
@@ -21,7 +21,7 @@ import {
   theme,
   Typography,
 } from 'antd';
-import { createStyles, css, useTheme } from 'antd-style';
+import { createStyles } from 'antd-style';
 import type { Color } from 'antd/es/color-picker';
 import { generateColor } from 'antd/es/color-picker/util';
 import classNames from 'classnames';
@@ -90,9 +90,8 @@ const locales = {
 };
 
 // ============================= Style =============================
-const useStyle = createStyles(({ token, cx }) => {
+const useStyle = createStyles(({ token, css, cx }) => {
   const { carousel } = getCarouselStyle();
-
   const demo = css`
     overflow: hidden;
     background: rgba(240, 242, 245, 0.25);
@@ -134,8 +133,6 @@ const useStyle = createStyles(({ token, cx }) => {
       margin-inline-start: auto;
     `,
 
-    darkSideMenu: css``,
-
     header: css`
       display: flex;
       align-items: center;
@@ -169,7 +166,7 @@ const useStyle = createStyles(({ token, cx }) => {
 
       h1 {
         font-weight: 400;
-        font-size: 16px;
+        font-size: ${token.fontSizeLG}px;
         line-height: 1.5;
       }
     `,
@@ -193,6 +190,40 @@ const useStyle = createStyles(({ token, cx }) => {
     form: css`
       width: 100%;
       margin: 0 auto;
+    `,
+    pos: css`
+      position: absolute;
+    `,
+    leftTopImagePos: css`
+      left: 0;
+      top: -100px;
+      height: 500px;
+    `,
+    rightBottomPos: css`
+      right: 0;
+      bottom: -100px;
+      height: 287px;
+    `,
+    leftTopImage: css`
+      left: 50%;
+      transform: translate3d(-900px, 0, 0);
+      top: -100px;
+      height: 500px;
+    `,
+    rightBottomImage: css`
+      right: 50%;
+      transform: translate3d(750px, 0, 0);
+      bottom: -100px;
+      height: 287px;
+    `,
+    motion: css`
+      transition: all ${token.motionDurationSlow};
+    `,
+    op1: css`
+      opacity: 1;
+    `,
+    op0: css`
+      opacity: 0;
     `,
     carousel,
   };
@@ -311,9 +342,8 @@ function rgbToColorMatrix(color: string) {
   return `invert(${invertValue}%) sepia(${sepiaValue}%) saturate(${saturateValue}%) hue-rotate(${hueRotateValue}deg)`;
 }
 
-export default function Theme() {
+const Theme: React.FC = () => {
   const { styles } = useStyle();
-  const token = useTheme();
   const [locale, lang] = useLocale(locales);
   const isZhCN = lang === 'cn';
   const { search } = useLocation();
@@ -393,44 +423,36 @@ export default function Theme() {
   const logoColor = React.useMemo(() => {
     const hsb = generateColor(colorPrimaryValue).toHsb();
     hsb.b = Math.min(hsb.b, 0.7);
-
     return generateColor(hsb).toHexString();
   }, [colorPrimaryValue]);
 
+  const memoTheme = React.useMemo<ThemeConfig>(
+    () => ({
+      token: { ...themeToken, colorPrimary: colorPrimaryValue },
+      algorithm: algorithmFn,
+      components: {
+        Layout: isLight
+          ? {
+              headerBg: 'transparent',
+              bodyBg: 'transparent',
+            }
+          : {},
+        Menu: isLight
+          ? {
+              itemBg: 'transparent',
+              subMenuItemBg: 'transparent',
+              activeBarBorderWidth: 0,
+            }
+          : {},
+        ...(themeType === 'v4' ? defaultTheme.components : {}),
+      },
+    }),
+    [themeToken, colorPrimaryValue, algorithmFn, themeType],
+  );
+
   // ================================ Render ================================
   const themeNode = (
-    <ConfigProvider
-      theme={{
-        token: {
-          ...themeToken,
-          colorPrimary: colorPrimaryValue,
-        },
-        algorithm: algorithmFn,
-        components: {
-          Layout: isLight
-            ? {
-                headerBg: 'transparent',
-                bodyBg: 'transparent',
-              }
-            : {
-                // colorBgBody: 'transparent',
-              },
-          Menu: isLight
-            ? {
-                itemBg: 'transparent',
-                subMenuItemBg: 'transparent',
-                activeBarBorderWidth: 0,
-              }
-            : {
-                // colorItemBg: 'transparent',
-                // colorSubItemBg: 'transparent',
-                // colorItemBgActive: 'rgba(255,255,255,0.2)',
-                // colorItemBgSelected: 'rgba(255,255,255,0.2)',
-              },
-          ...(themeType === 'v4' ? defaultTheme.components : {}),
-        },
-      }}
-    >
+    <ConfigProvider theme={memoTheme}>
       <TokenChecker />
       <div
         className={classNames(styles.demo, {
@@ -450,10 +472,7 @@ export default function Theme() {
                   src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
                   style={{
                     filter:
-                      closestColor === DEFAULT_COLOR
-                        ? undefined
-                        : // : `drop-shadow(30px 0 0 ${logoColor})`,
-                          rgbToColorMatrix(logoColor),
+                      closestColor === DEFAULT_COLOR ? undefined : rgbToColorMatrix(logoColor),
                   }}
                   alt=""
                 />
@@ -464,7 +483,7 @@ export default function Theme() {
               <BellOutlined />
               <QuestionCircleOutlined />
               <div
-                className={classNames(styles.avatar, themeType === 'dark' && styles.avatarDark)}
+                className={classNames(styles.avatar, { [styles.avatarDark]: themeType === 'dark' })}
                 style={{
                   backgroundColor: avatarColor,
                   backgroundImage: `url(${getAvatarURL(closestColor)})`,
@@ -473,10 +492,10 @@ export default function Theme() {
             </Flex>
           </Header>
           <Layout className={styles.transBg} hasSider>
-            <Sider className={classNames(styles.transBg, 'site-layout-background')} width={200}>
+            <Sider className={classNames(styles.transBg)} width={200}>
               <Menu
                 mode="inline"
-                className={classNames(styles.transBg, !isLight && styles.darkSideMenu)}
+                className={classNames(styles.transBg)}
                 selectedKeys={['Themes']}
                 openKeys={['Design']}
                 style={{ height: '100%', borderRight: 0 }}
@@ -521,7 +540,6 @@ export default function Theme() {
                     <Form.Item label={locale.titleTheme} name="themeType">
                       <ThemePicker />
                     </Form.Item>
-
                     <Form.Item label={locale.titlePrimaryColor} name="colorPrimary">
                       <ColorPicker />
                     </Form.Item>
@@ -546,22 +564,6 @@ export default function Theme() {
     </ConfigProvider>
   );
 
-  const posStyle: React.CSSProperties = {
-    position: 'absolute',
-  };
-  const leftTopImageStyle: React.CSSProperties = {
-    left: '50%',
-    transform: 'translate3d(-900px, 0, 0)',
-    top: -100,
-    height: 500,
-  };
-  const rightBottomImageStyle: React.CSSProperties = {
-    right: '50%',
-    transform: 'translate3d(750px, 0, 0)',
-    bottom: -100,
-    height: 287,
-  };
-
   return isMobile ? (
     <MobileCarousel title={locale.themeTitle} description={locale.themeDesc} id="flexible" />
   ) : (
@@ -576,52 +578,44 @@ export default function Theme() {
         <>
           {/* >>>>>> Default <<<<<< */}
           <div
-            style={{
-              transition: `all ${token.motionDurationSlow}`,
-              opacity: isLight && closestColor === DEFAULT_COLOR ? 1 : 0,
-            }}
+            className={classNames(
+              styles.motion,
+              isLight && closestColor === DEFAULT_COLOR ? styles.op1 : styles.op0,
+            )}
           >
             {/* Image Left Top */}
             <img
-              style={{
-                ...posStyle,
-                ...leftTopImageStyle,
-              }}
+              className={classNames(styles.pos, styles.leftTopImage)}
               src="https://gw.alipayobjects.com/zos/bmw-prod/bd71b0c6-f93a-4e52-9c8a-f01a9b8fe22b.svg"
               alt=""
             />
             {/* Image Right Bottom */}
             <img
-              style={{
-                ...posStyle,
-                ...rightBottomImageStyle,
-              }}
+              className={classNames(styles.pos, styles.rightBottomImage)}
               src="https://gw.alipayobjects.com/zos/bmw-prod/84ad805a-74cb-4916-b7ba-9cdc2bdec23a.svg"
               alt=""
             />
           </div>
-
           {/* >>>>>> Dark <<<<<< */}
           <div
-            style={{
-              transition: `all ${token.motionDurationSlow}`,
-              opacity: !isLight || !closestColor ? 1 : 0,
-            }}
+            className={classNames(
+              styles.motion,
+              !isLight || !closestColor ? styles.op1 : styles.op0,
+            )}
           >
             {/* Image Left Top */}
             <img
-              style={{ ...posStyle, left: 0, top: -100, height: 500 }}
+              className={classNames(styles.pos, styles.leftTopImagePos)}
               src="https://gw.alipayobjects.com/zos/bmw-prod/a213184a-f212-4afb-beec-1e8b36bb4b8a.svg"
               alt=""
             />
             {/* Image Right Bottom */}
             <img
-              style={{ ...posStyle, right: 0, bottom: -100, height: 287 }}
+              className={classNames(styles.pos, styles.rightBottomPos)}
               src="https://gw.alipayobjects.com/zos/bmw-prod/bb74a2fb-bff1-4d0d-8c2d-2ade0cd9bb0d.svg"
               alt=""
             />
           </div>
-
           {/* >>>>>> Background Image <<<<<< */}
           <BackgroundImage isLight={isLight} colorPrimary={colorPrimaryValue} />
         </>
@@ -630,4 +624,6 @@ export default function Theme() {
       {themeNode}
     </Group>
   );
-}
+};
+
+export default Theme;

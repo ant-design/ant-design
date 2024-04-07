@@ -13,12 +13,13 @@ import { replaceElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
+import type { ClosableType } from '../_util/hooks/useClosable';
 
 export interface AlertProps {
   /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */
   type?: 'success' | 'info' | 'warning' | 'error';
   /** Whether Alert can be closed */
-  closable?: boolean | ({ closeIcon?: React.ReactNode } & React.AriaAttributes);
+  closable?: ClosableType;
   /**
    * @deprecated please use `closable.closeIcon` instead.
    * Close text to show
@@ -202,7 +203,7 @@ const Alert: React.FC<AlertProps> = (props) => {
     return alert?.closeIcon;
   }, [closeIcon, closable, closeText, alert?.closeIcon]);
 
-  const mergeAriaProps = React.useMemo(() => {
+  const mergedAriaProps = React.useMemo<React.AriaAttributes>(() => {
     const merged = closable ?? alert?.closable;
     if (typeof merged === 'object') {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -251,7 +252,7 @@ const Alert: React.FC<AlertProps> = (props) => {
             prefixCls={prefixCls}
             closeIcon={mergedCloseIcon}
             handleClose={handleClose}
-            ariaProps={mergeAriaProps}
+            ariaProps={mergedAriaProps}
           />
         </div>
       )}

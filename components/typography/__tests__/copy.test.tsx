@@ -2,8 +2,9 @@ import React from 'react';
 import { LikeOutlined, SmileOutlined } from '@ant-design/icons';
 import * as copyObj from 'copy-to-clipboard';
 
-import { fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
+import { fireEvent, render, renderHook, waitFakeTimer, waitFor } from '../../../tests/utils';
 import Base from '../Base';
+import useCopyClick from '../hooks/useCopyClick';
 
 describe('Typography copy', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -223,7 +224,7 @@ describe('Typography copy', () => {
     });
 
     it('the first parameter of onCopy is the click event', () => {
-      function onCopy(e: React.MouseEvent<HTMLDivElement>) {
+      function onCopy(e?: React.MouseEvent<HTMLDivElement>) {
         expect(e).not.toBeUndefined();
       }
 
@@ -262,6 +263,39 @@ describe('Typography copy', () => {
       fireEvent.click(copyBtn);
       expect(spy.mock.calls[0][0]).toEqual(nextText);
       jest.useRealTimers();
+      spy.mockReset();
+    });
+
+    it('copy by async', async () => {
+      const spy = jest.spyOn(copyObj, 'default');
+      const { container: wrapper } = render(
+        <Base
+          component="p"
+          copyable={{
+            text: jest.fn().mockResolvedValueOnce('Request text'),
+          }}
+        >
+          test copy
+        </Base>,
+      );
+      fireEvent.click(wrapper.querySelectorAll('.ant-typography-copy')[0]);
+      expect(wrapper.querySelectorAll('.anticon-loading')[0]).toBeTruthy();
+      await waitFakeTimer();
+      expect(spy.mock.calls[0][0]).toEqual('Request text');
+      spy.mockReset();
+      expect(wrapper.querySelectorAll('.anticon-loading')[0]).toBeFalsy();
+    });
+
+    it('useCopyClick error', async () => {
+      const { result } = renderHook(() =>
+        useCopyClick({
+          copyConfig: {
+            text: jest.fn().mockRejectedValueOnce('Oops'),
+          },
+        }),
+      );
+      await expect(() => result.current?.onClick?.()).rejects.toMatch('Oops');
+      expect(result.current?.copyLoading).toBe(false);
     });
   });
 });
