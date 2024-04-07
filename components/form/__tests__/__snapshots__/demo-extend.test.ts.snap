@@ -2143,7 +2143,9 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
           <div
             class="ant-form-item-control-input-content"
           >
-            <span>
+            <span
+              id="customized_form_controls_price"
+            >
               <input
                 class="ant-input ant-input-outlined"
                 style="width: 100px;"
@@ -22255,7 +22257,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
         class="ant-col ant-form-item-label"
       >
         <label
-          class=""
+          class="ant-form-item-required"
           for="demo-form_foo"
           title="Foo"
         >
@@ -22272,6 +22274,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined"
               id="demo-form_foo"
               type="text"
@@ -22292,7 +22295,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
         class="ant-col ant-form-item-label"
       >
         <label
-          class="ant-form-item-required"
+          class=""
           for="demo-form_bar"
           title="Bar"
         >
@@ -22308,15 +22311,12 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
           <div
             class="ant-form-item-control-input-content"
           >
-            <div
+            <textarea
+              class="ant-input ant-input-outlined"
               id="demo-form_bar"
-            >
-              <textarea
-                class="ant-input ant-input-outlined"
-                placeholder="Please input bar"
-                rows="4"
-              />
-            </div>
+              placeholder="Please input bar"
+              rows="4"
+            />
           </div>
         </div>
       </div>
@@ -22348,13 +22348,13 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
           <div
             class="ant-form-item-control-input-content"
           >
-            <div>
-              <textarea
-                class="ant-input ant-input-outlined"
-                placeholder="Please input baz"
-                rows="6"
-              />
-            </div>
+            <textarea
+              aria-required="true"
+              class="ant-input ant-input-outlined"
+              id="demo-form_baz"
+              placeholder="Please input baz"
+              rows="6"
+            />
           </div>
         </div>
       </div>
@@ -22398,7 +22398,6 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
                 >
                   <input
                     accept=""
-                    aria-required="true"
                     id="demo-form_dragger"
                     style="display: none;"
                     type="file"
