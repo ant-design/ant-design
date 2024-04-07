@@ -83,6 +83,14 @@ const useStyle = () => {
       background-position: 0 0;
       margin-inline-start: -1px;
     `,
+    logoWrap: css`
+      position: relative;
+      background-color: #fff;
+    `,
+    bgImg: css`
+      position: absolute;
+      width: 240px;
+    `,
   }))();
 };
 
@@ -118,29 +126,30 @@ const Banner: React.FC<React.PropsWithChildren> = ({ children }) => {
           <div className={classNames(styles.bg, styles.bg2)} />
         </div>
       )}
-
       {/* Logo */}
-      <div style={{ position: 'relative', background: '#fff' }}>
+      <div className={styles.logoWrap}>
         {/* Image Bottom Right */}
         <img
-          style={{ position: 'absolute', right: 0, top: 240, width: 240 }}
+          className={classNames(styles.bgImg)}
+          style={{ right: 0, top: 240 }}
           src="https://gw.alipayobjects.com/zos/bmw-prod/b3b8dc41-dce8-471f-9d81-9a0204f27d03.svg"
           alt="Ant Design"
         />
         <GroupMaskLayer className={styles.layer}>
           {/* Image Left Top */}
           <img
-            style={{ position: 'absolute', left: isMobile ? -120 : 0, top: 0, width: 240 }}
+            className={classNames(styles.bgImg)}
+            style={{ left: isMobile ? -120 : 0, top: 0 }}
             src="https://gw.alipayobjects.com/zos/bmw-prod/49f963db-b2a8-4f15-857a-270d771a1204.svg"
             alt="bg"
           />
           {/* Image Right Top */}
           <img
-            style={{ position: 'absolute', right: isMobile ? 0 : 120, top: 0, width: 240 }}
+            className={classNames(styles.bgImg)}
+            style={{ right: isMobile ? 0 : 120, top: 0 }}
             src="https://gw.alipayobjects.com/zos/bmw-prod/e152223c-bcae-4913-8938-54fda9efe330.svg"
             alt="bg"
           />
-
           <Typography.Title level={1} className={classNames(styles.titleBase, styles.title)}>
             Ant Design 5.0
           </Typography.Title>

@@ -19,6 +19,9 @@ const useStyle = createStyles(() => {
       width: 100%;
       text-align: center;
     `,
+    img: css`
+      width: 100%;
+    `,
   };
 });
 
@@ -110,7 +113,7 @@ const MobileCarousel: React.FC<MobileCarouselProps> = (props) => {
       <Carousel className={styles.carousel} afterChange={setCurrentSlider}>
         {mobileImageConfigList.map((item, index) => (
           <div key={index}>
-            <img src={item.imageSrc} alt="" style={{ width: '100%' }} />
+            <img src={item.imageSrc} className={styles.img} alt="" />
           </div>
         ))}
       </Carousel>
