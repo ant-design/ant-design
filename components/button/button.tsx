@@ -32,6 +32,7 @@ export type LegacyButtonType = ButtonType | 'danger';
 export interface BaseButtonProps {
   type?: ButtonType;
   icon?: React.ReactNode;
+  iconPosition?: 'start' | 'end';
   shape?: ButtonShape;
   size?: SizeType;
   disabled?: boolean;
@@ -106,6 +107,7 @@ const InternalButton: React.ForwardRefRenderFunction<
     rootClassName,
     children,
     icon,
+    iconPosition = 'start',
     ghost = false,
     block = false,
     // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
@@ -241,7 +243,11 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const fullStyle: React.CSSProperties = { ...button?.style, ...customStyle };
 
-  const iconClasses = classNames(customClassNames?.icon, button?.classNames?.icon);
+  const isIconPositionEnd = iconPosition === 'end' && children && children !== 0 && iconType;
+
+  const iconClasses = classNames(customClassNames?.icon, button?.classNames?.icon, {
+    [`${prefixCls}-icon-end`]: isIconPositionEnd,
+  });
   const iconStyle: React.CSSProperties = {
     ...(styles?.icon || {}),
     ...(button?.styles?.icon || {}),
@@ -253,11 +259,28 @@ const InternalButton: React.ForwardRefRenderFunction<
         {icon}
       </IconWrapper>
     ) : (
-      <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={!!innerLoading} />
+      <LoadingIcon
+        existIcon={!!icon}
+        prefixCls={prefixCls}
+        loading={!!innerLoading}
+        iconPosition={iconPosition}
+      />
     );
 
   const kids =
     children || children === 0 ? spaceChildren(children, needInserted && autoInsertSpace) : null;
+
+  const genButtonContent = (iconComponent: React.ReactNode, kidsComponent: React.ReactNode) => {
+    const isRTL = direction === 'rtl';
+    const iconFirst = (iconPosition === 'start' && !isRTL) || (iconPosition === 'end' && isRTL);
+
+    return (
+      <>
+        {iconFirst ? iconComponent : kidsComponent}
+        {iconFirst ? kidsComponent : iconComponent}
+      </>
+    );
+  };
 
   if (linkButtonRestProps.href !== undefined) {
     return wrapCSSVar(
@@ -272,8 +295,7 @@ const InternalButton: React.ForwardRefRenderFunction<
         ref={buttonRef as React.Ref<HTMLAnchorElement>}
         tabIndex={mergedDisabled ? -1 : 0}
       >
-        {iconNode}
-        {kids}
+        {genButtonContent(iconNode, kids)}
       </a>,
     );
   }
@@ -288,8 +310,7 @@ const InternalButton: React.ForwardRefRenderFunction<
       disabled={mergedDisabled}
       ref={buttonRef as React.Ref<HTMLButtonElement>}
     >
-      {iconNode}
-      {kids}
+      {genButtonContent(iconNode, kids)}
 
       {/* Styles: compact */}
       {!!compactItemClassnames && <CompactCmp key="compact" prefixCls={prefixCls} />}
