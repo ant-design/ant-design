@@ -83,7 +83,7 @@ const useStyle = createStyles(({ token, css }) => {
           color: ${searchIconColor};
           background-color: rgba(150, 150, 150, 0.06);
           border-color: rgba(100, 100, 100, 0.2);
-          border-radius: 4px;
+          border-radius: ${token.borderRadiusSM}px;
         }
 
         .dumi-default-search-popover {
