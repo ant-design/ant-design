@@ -35,7 +35,6 @@ const App = () => {
           name="demo-form_dragger"
           valuePropName="fileList"
           getValueFromEvent={(e) => (Array.isArray(e) ? e : e?.fileList)}
-          rules={[{ required: true }]}
           noStyle
         >
           <Upload.Dragger name="files" action="/upload.do">
