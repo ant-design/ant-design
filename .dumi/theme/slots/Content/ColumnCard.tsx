@@ -12,15 +12,15 @@ const ANTD_IMG_URL =
 const useStyle = createStyles(({ token, css }) => ({
   card: css`
     width: 100%;
-    margin: 40px 0;
-    transition: all 0.2s;
+    margin: ${token.marginMD * 2}px 0;
+    transition: all ${token.motionDurationMid};
     background-color: ${token.colorFillQuaternary};
   `,
   bigTitle: css`
-    font-size: 16px;
     color: #121212;
-    margin-bottom: 24px;
-    font-weight: 600;
+    font-size: ${token.fontSizeLG}px;
+    margin-bottom: ${token.marginLG}px;
+    font-weight: ${token.fontWeightStrong};
   `,
   cardBody: css`
     display: flex;
@@ -33,24 +33,24 @@ const useStyle = createStyles(({ token, css }) => ({
     align-items: center;
     img {
       width: 200px;
-      margin-right: 24px;
       overflow: hidden;
-      border-radius: 8px;
+      margin-inline-end: ${token.marginLG}px;
+      border-radius: ${token.borderRadiusLG}px;
     }
   `,
   title: css`
     color: #444;
-    font-size: 16px;
-    font-weight: 600;
+    font-size: ${token.fontSizeLG}px;
+    font-weight: ${token.fontWeightStrong};
   `,
   subTitle: css`
     display: flex;
     justify-content: flex-start;
     align-items: center;
     color: #646464;
-    font-size: 14px;
+    font-size: ${token.fontSize}px;
     font-weight: 400;
-    margin-top: 8px;
+    margin-top: ${token.marginXS}px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -69,9 +69,9 @@ const useStyle = createStyles(({ token, css }) => ({
       }
     }
     .arrowIcon {
-      margin: 0 8px;
       color: #8a8f8d;
-      font-size: 12px;
+      margin: 0 ${token.marginXS}px;
+      font-size: ${token.fontSizeSM}px;
     }
     .zl-btn {
       display: flex;

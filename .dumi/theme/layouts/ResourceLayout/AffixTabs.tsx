@@ -24,8 +24,8 @@ const useStyle = createStyles(({ token, css }) => {
       transform: translate3d(0, -100%, 0);
       opacity: 0;
       transition:
-        opacity 0.3s,
-        transform 0.3s;
+        opacity ${token.motionDurationSlow},
+        transform ${token.motionDurationSlow};
 
       ${antCls}-tabs {
         max-width: 1208px;

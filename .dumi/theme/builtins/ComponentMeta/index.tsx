@@ -41,7 +41,7 @@ const useStyle = createStyles(({ token }) => ({
     display: inline-flex;
     align-items: center;
     column-gap: 4px;
-    border-radius: 4px;
+    border-radius: ${token.borderRadiusSM}px;
     padding-inline: ${token.paddingXS}px;
     transition: all ${token.motionDurationSlow} !important;
     font-family: ${token.codeFamily};
