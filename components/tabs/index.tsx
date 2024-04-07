@@ -133,7 +133,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
       style={mergedStyle}
       editable={editable}
       more={{
-        icon: <EllipsisOutlined />,
+        icon: moreIcon ?? <EllipsisOutlined />,
         transitionName: `${rootPrefixCls}-slide-up`,
         ...more,
       }}
