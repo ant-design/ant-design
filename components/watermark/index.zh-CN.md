@@ -1,16 +1,15 @@
 ---
 category: Components
-subtitle: 水印
 group: 反馈
 title: Watermark
+subtitle: 水印
+description: 给页面的某个区域加上水印。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*wr1ISY50SyYAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*duAQQbjHlHQAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 1
-tag: New
+tag: 5.1.0
 ---
-
-给页面的某个区域加上水印。自 `5.0.0` 版本开始提供该组件。
 
 ## 何时使用
 
@@ -30,7 +29,7 @@ tag: New
 
 通用属性参考：[通用属性](/docs/react/common-props)
 
-> 自 `antd@5.0.0` 版本开始提供该组件。
+> 自 `antd@5.1.0` 版本开始提供该组件。
 
 ### Watermark
 

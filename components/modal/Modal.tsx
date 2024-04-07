@@ -3,7 +3,7 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import Dialog from 'rc-dialog';
 
-import useClosable from '../_util/hooks/useClosable';
+import useClosable, { pickClosable } from '../_util/hooks/useClosable';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import { canUseDocElement } from '../_util/styleChecker';
@@ -44,7 +44,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     direction,
-    modal,
+    modal: modalContext,
   } = React.useContext(ConfigContext);
 
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -77,8 +77,6 @@ const Modal: React.FC<ModalProps> = (props) => {
     wrapClassName,
     centered,
     getContainer,
-    closeIcon,
-    closable,
     focusTriggerAfterClose = true,
     style,
     // Deprecated
@@ -106,13 +104,15 @@ const Modal: React.FC<ModalProps> = (props) => {
     <Footer {...props} onOk={handleOk} onCancel={handleCancel} />
   );
 
-  const [mergedClosable, mergedCloseIcon] = useClosable({
-    closable,
-    closeIcon: typeof closeIcon !== 'undefined' ? closeIcon : modal?.closeIcon,
-    customCloseIconRender: (icon) => renderCloseIcon(prefixCls, icon),
-    defaultCloseIcon: <CloseOutlined className={`${prefixCls}-close-icon`} />,
-    defaultClosable: true,
-  });
+  const [mergedClosable, mergedCloseIcon] = useClosable(
+    pickClosable(props),
+    pickClosable(modalContext),
+    {
+      closable: true,
+      closeIcon: <CloseOutlined className={`${prefixCls}-close-icon`} />,
+      closeIconRender: (icon) => renderCloseIcon(prefixCls, icon),
+    },
+  );
 
   // ============================ Refs ============================
   // Select `ant-modal-content` by `panelRef`
@@ -136,21 +136,21 @@ const Modal: React.FC<ModalProps> = (props) => {
             footer={dialogFooter}
             visible={open ?? visible}
             mousePosition={restProps.mousePosition ?? mousePosition}
-            onClose={handleCancel}
+            onClose={handleCancel as any}
             closable={mergedClosable}
             closeIcon={mergedCloseIcon}
             focusTriggerAfterClose={focusTriggerAfterClose}
             transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
             maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
-            className={classNames(hashId, className, modal?.className)}
-            style={{ ...modal?.style, ...style }}
+            className={classNames(hashId, className, modalContext?.className)}
+            style={{ ...modalContext?.style, ...style }}
             classNames={{
-              ...modal?.classNames,
+              ...modalContext?.classNames,
               ...modalClassNames,
               wrapper: classNames(wrapClassNameExtended, modalClassNames?.wrapper),
             }}
             styles={{
-              ...modal?.styles,
+              ...modalContext?.styles,
               ...modalStyles,
             }}
             panelRef={panelRef}

@@ -1,6 +1,7 @@
+import * as React from 'react';
 import { createStyles } from 'antd-style';
 import { Link, useLocation } from 'dumi';
-import * as React from 'react';
+
 import * as utils from '../../utils';
 
 const useStyle = createStyles(({ token, css }) => {
@@ -29,7 +30,7 @@ const useStyle = createStyles(({ token, css }) => {
       img {
         height: 32px;
         vertical-align: middle;
-        margin-inline-end: 12px;
+        margin-inline-end: ${token.marginSM}px;
       }
 
       @media only screen and (max-width: ${mobileMaxWidth}px) {

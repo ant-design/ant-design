@@ -72,11 +72,12 @@ jobs:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
           name: visual-regression-diff-ref
+          path: ./tmp
 
       # Save PR id to output
       - name: save PR id
         id: pr
-        run: echo "id=$(<visual-regression-pr-id.txt)" >> $GITHUB_OUTPUT
+        run: echo "id=$(<tmp/visual-regression-pr-id.txt)" >> $GITHUB_OUTPUT
 
       # Download report artifact
       - name: download report artifact
@@ -87,6 +88,7 @@ jobs:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
           name: visual-regression-report
+          path: ./tmp
 
       # unzip report and then upload them to oss
       - name: upload visual-regression report
@@ -97,7 +99,7 @@ jobs:
           PR_ID: ${{ steps.pr.outputs.id }}
         run: |
           mkdir ./visualRegressionReport
-          tar -xzvf visualRegressionReport.tar.gz -C ./visualRegressionReport
+          tar -xzvf tmp/visualRegressionReport.tar.gz -C ./visualRegressionReport
           echo "✅ Uncompress Finished"
 
           rm package.json

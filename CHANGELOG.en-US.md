@@ -16,6 +16,70 @@ tag: vVERSION
 
 ---
 
+## 5.16.1
+
+`2024-04-05`
+
+- 🛠 Adjust Typography `ellipsis` logic to use CSS ellipsis in SSR to enhance user experience. [#48205](https://github.com/ant-design/ant-design/pull/48205)
+- 🐞 Fix FloatButton config `tooltip` and `badge` at same time will make `badge` customize background not working. [#48198](https://github.com/ant-design/ant-design/pull/48198) [@LonelySnowman](https://github.com/LonelySnowman)
+
+## 5.16.0
+
+`2024-03-31`
+
+- 🔥 New component Input.OTP support. [#48076](https://github.com/ant-design/ant-design/pull/48076)
+- 🆕 Closable components support `aria-*` in `closable`. [@kiner-tang](https://github.com/kiner-tang)
+  - 🆕 [Tag](https://github.com/ant-design/ant-design/pull/47678)
+  - 🆕 [Notification](https://github.com/ant-design/ant-design/pull/47710)
+- 🆕 Table add `rowHoverable` to control hover effect. [#48112](https://github.com/ant-design/ant-design/pull/48112) [@madocto](https://github.com/madocto)
+- 🆕 Typography support async copy. [#48123](https://github.com/ant-design/ant-design/pull/48123) [@crazyair](https://github.com/crazyair)
+- 🆕 Progress support `steps` with `circle`. [#47940](https://github.com/ant-design/ant-design/pull/47940) [@yykoypj](https://github.com/yykoypj)
+- 🆕 Table support `onScroll` event for table body scroll. [#47986](https://github.com/ant-design/ant-design/pull/47986)
+- 🆕 Typography ellipsis supports expand and collapse. [#47264](https://github.com/ant-design/ant-design/pull/47264) [@crazyair](https://github.com/crazyair)
+- 🆕 ConfigProvider support configuring FloatButton.Group `closeIcon`. [#47953](https://github.com/ant-design/ant-design/pull/47953) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 Table support `showSorterTooltip.target` prop for sorters. [#47409](https://github.com/ant-design/ant-design/pull/47409) [@Ke1sy](https://github.com/Ke1sy)
+- 🆕 Cascader support `optionRender`. [#47727](https://github.com/ant-design/ant-design/pull/47727) [@crazyair](https://github.com/crazyair)
+- ⌨️ Popover can be closed by ESC when trigger is `focus` or `click`. [#47928](https://github.com/ant-design/ant-design/pull/47928) [@CooperHash](https://github.com/CooperHash)
+- 🐞 Fix Button that vertically center icons when icon-only. [#48178](https://github.com/ant-design/ant-design/pull/48178) [@momesana](https://github.com/momesana)
+- 🐞 Fix Modal.confirm content is not centered when icon is null. [#48173](https://github.com/ant-design/ant-design/pull/48173)
+- Form [#48163](https://github.com/ant-design/ant-design/pull/48163) [@madocto](https://github.com/madocto)
+  - 🐞 1. Fix Form `getValueProps` shouldn't work when FormItem's `name` doesn't exist .
+  - 🐞 2. Fix Form's `setFieldsValue` should tread same as `setFields`.
+- 🐞 Fixe Table that internationalization of table columns fails when searching. [#48126](https://github.com/ant-design/ant-design/pull/48126) [@LingJinT](https://github.com/LingJinT)
+- 🐞 Fix Upload that `onChange` should be triggered when `fileList.length` is larger than `maxCount`. [#47747](https://github.com/ant-design/ant-design/pull/47747) [@Zhou-Bill](https://github.com/Zhou-Bill)
+- 🐞 Fix Carousel several <a href="https://github.com/ant-design/react-slick/pull/110" data-hovercard-type="pull_request" data-hovercard-url="/ant-design/react-slick/pull/110/hovercard">bugs</a> by upgrading react-slick changes and renewing TS type. [#48093](https://github.com/ant-design/ant-design/pull/48093)
+- 🐞 Fix ColorPicker that displayed cleared color not change after `value` changed. [#47816](https://github.com/ant-design/ant-design/pull/47816) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Make Badge consistent with Tag that applay `colorInfo` token in processing. [#47695](https://github.com/ant-design/ant-design/pull/47695) [@pfdgithub](https://github.com/pfdgithub)
+- 🇮🇸 Add missing form translations in is_IS. [#48104](https://github.com/ant-design/ant-design/pull/48104) [@LonelySnowman](https://github.com/LonelySnowman)
+- 🇺🇿 Add Uzbek(latn) locale. [#47899](https://github.com/ant-design/ant-design/pull/47899)
+- TypeScript
+  - 🤖 Improve Transfer's `key` type, change `key: string` to `key: React.Key`. [#47879](https://github.com/ant-design/ant-design/pull/47879) [@madocto](https://github.com/madocto)
+  - 🤖 Table support for generic pairs dataIndex props verification . [@crazyair](https://github.com/crazyair)
+
+## 5.15.4
+
+`2024-03-25`
+
+- 💄 Fix QRCode that custom style would be overrided by internal style. [#48053](https://github.com/ant-design/ant-design/pull/48053) [@li-jia-nan](https://github.com/li-jia-nan)
+- 💄 Fix Radio disabled hover style. [#47972](https://github.com/ant-design/ant-design/pull/47972) [@madocto](https://github.com/madocto)
+- 🐞 Fix Watermark sometime repeat re-render when browser set scale. [#47895](https://github.com/ant-design/ant-design/pull/47895)
+- TypeScript
+  - 🤖 Affix Export AffixRef interface. [#47982](https://github.com/ant-design/ant-design/pull/47982) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🤖 MISC: Fix GetRef ts util can not get correct ref type for some component. [#47983](https://github.com/ant-design/ant-design/pull/47983)
+
+## 5.15.3
+
+`2024-03-17`
+
+- 💄 Unify Modal, Drawer, notification and Tour close button style. [#47909](https://github.com/ant-design/ant-design/pull/47909)
+- 🐞 Fix Badge and text node align style under Space. [#47908](https://github.com/ant-design/ant-design/pull/47908)
+- 💄 Fix Upload file list actions wrap style. [#47898](https://github.com/ant-design/ant-design/pull/47898)
+- 🐞 Fix Typography config the `ellipsis.symbol` exceed the single line height will make ellipsis rows not correct issue. [#47889](https://github.com/ant-design/ant-design/pull/47889)
+- 🐞 Fix DatePicker component height not correct when customize `controlHeight`. [#47874](https://github.com/ant-design/ant-design/pull/47874)
+- 🐞 Fix DatePicker with `multiple` selector collapse for cross the line. [#47821](https://github.com/ant-design/ant-design/pull/47821)
+- 🐞 TimePicker revert and add warning for `onSelect` API which is already removed in v4 but not update in English documentation. [#47878](https://github.com/ant-design/ant-design/pull/47878)
+- 💄 Darken the Empty text color to make it readable. [#47268](https://github.com/ant-design/ant-design/pull/47268) [@evgmol](https://github.com/evgmol)
+
 ## 5.15.2
 
 `2024-03-11`
@@ -46,6 +110,7 @@ tag: vVERSION
   - 🆕 Prefixes for CSS variables follow the `prefixCls` property of ConfigProvider by default. [#47481](https://github.com/ant-design/ant-design/pull/47481)
   - 🤖 CardProps `styles` in ConfigProvider is set to optional. [#47601](https://github.com/ant-design/ant-design/pull/47601) [@Yawenina](https://github.com/Yawenina)
 - 🆕 Select、Checkbox、Radio、DatePicker、TreeSelect、Cascader the `focus` supports passing `options`. [#47664](https://github.com/ant-design/ant-design/pull/47664)
+- 🆕 Select add `labelRender` property to customize current selected label render。[#47664](https://github.com/ant-design/ant-design/pull/47664)
 - 🆕 Modal support configuring `aria-*` in `closable`. [#47650](https://github.com/ant-design/ant-design/pull/47650)
 - 🆕 Alert support configuring `aria-*` in `closable`. [#47474](https://github.com/ant-design/ant-design/pull/47474)
 - 🆕 Tabs support `removeIcon` props, when set `type="editable-card"`. [#47334](https://github.com/ant-design/ant-design/pull/47334)

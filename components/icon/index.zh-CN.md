@@ -5,6 +5,7 @@ description: 语义化的矢量图形。
 group: 通用
 title: Icon
 toc: false
+showImport: false
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PdAYS7anRpoAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xEDOTJx2DEkAAAAAAAAAAAAADrJ8AQ/original
 demo:
@@ -15,7 +16,7 @@ demo:
 
 使用图标组件，你需要安装 [@ant-design/icons](https://github.com/ant-design/ant-design-icons) 图标组件包：
 
-<InstallDependencies npm='npm install @ant-design/icons --save' yarn='yarn add @ant-design/icons' pnpm='pnpm install @ant-design/icons --save'></InstallDependencies>
+<InstallDependencies npm='npm install @ant-design/icons --save' yarn='yarn add @ant-design/icons' pnpm='pnpm install @ant-design/icons --save' bun='bun add @ant-design/icons'></InstallDependencies>
 
 ## 设计师专属
 
@@ -46,7 +47,7 @@ demo:
 | rotate | 图标旋转角度（IE9 无效） | number | - |  |
 | spin | 是否有旋转动画 | boolean | false |  |
 | style | 设置图标的样式，例如 `fontSize` 和 `color` | CSSProperties | - |  |
-| twoToneColor | 仅适用双色图标。设置双色图标的主要颜色 | string (十六进制颜色) | - |  |
+| twoToneColor | 仅适用双色图标。设置双色图标的主要颜色，支持设置十六进制颜色字符串 | string \| string[] | - |  |
 
 其中我们提供了三种主题的图标，不同主题的 Icon 组件名为图标名加主题做为后缀。
 

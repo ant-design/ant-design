@@ -1,7 +1,8 @@
 ---
 category: Components
-subtitle: 二维码
 title: QRCode
+subtitle: 二维码
+description: 能够将文本转换生成二维码的组件，支持自定义配色和 Logo 配置。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cJopQrf0ncwAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*M4PBTZ_n9OgAAAAAAAAAAAAADrJ8AQ/original
 demo:
@@ -9,15 +10,8 @@ demo:
 group:
   title: 数据展示
   order: 5
-tag: New
+tag: 5.1.0
 ---
-
-能够将文本转换生成二维码的组件，支持自定义配色和 Logo 配置，自 `antd@5.1.0` 版本开始提供该组件。
-
-<!-- prettier-ignore -->
-:::info
-若二维码无法扫码识别，可能是因为链接地址过长导致像素过于密集，可以通过 size 配置二维码更大，或者通过短链接服务等方式将链接变短。
-:::
 
 ## 何时使用
 
@@ -69,3 +63,7 @@ tag: New
 通常情况下二维码分为 4 个纠错级别：`L级` 可纠正约 `7%` 错误、`M级` 可纠正约 `15%` 错误、`Q级` 可纠正约 `25%` 错误、`H级` 可纠正约`30%` 错误。并不是所有位置都可以缺损，像最明显的三个角上的方框，直接影响初始定位。中间零散的部分是内容编码，可以容忍缺损。当二维码的内容编码携带信息比较少的时候，也就是链接比较短的时候，设置不同的纠错等级，生成的图片不会发生变化。
 
 > 有关更多信息，可参阅相关资料：[https://www.qrcode.com/zh/about/error_correction](https://www.qrcode.com/zh/about/error_correction.html)
+
+### ⚠️⚠️⚠️ 二维码无法扫描？
+
+若二维码无法扫码识别，可能是因为链接地址过长导致像素过于密集，可以通过 size 配置二维码更大，或者通过短链接服务等方式将链接变短。

@@ -16446,7 +16446,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                     tabindex="0"
                   >
                     <div
-                      class="ant-table-column-sorters"
+                      class="ant-table-column-sorters ant-table-column-sorters-tooltip-target-sorter"
                     >
                       <span
                         class="ant-table-column-title"
@@ -16500,23 +16500,23 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                           </span>
                         </span>
                       </span>
-                    </div>
-                    <div
-                      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                    >
                       <div
-                        class="ant-tooltip-arrow"
-                        style="position: absolute; bottom: 0px; left: 0px;"
-                      />
-                      <div
-                        class="ant-tooltip-content"
+                        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
-                          class="ant-tooltip-inner"
-                          role="tooltip"
+                          class="ant-tooltip-arrow"
+                          style="position: absolute; bottom: 0px; left: 0px;"
+                        />
+                        <div
+                          class="ant-tooltip-content"
                         >
-                          Click to cancel sorting
+                          <div
+                            class="ant-tooltip-inner"
+                            role="tooltip"
+                          >
+                            Click to cancel sorting
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -19527,7 +19527,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More
+                                                More 
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -19722,7 +19722,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More
+                                                More 
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -19917,7 +19917,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More
+                                                More 
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -20513,7 +20513,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More
+                                                More 
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -20708,7 +20708,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More
+                                                More 
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -20903,7 +20903,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More
+                                                More 
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -21499,7 +21499,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More
+                                                More 
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -21694,7 +21694,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More
+                                                More 
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -21889,7 +21889,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More
+                                                More 
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -26541,7 +26541,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                     class="ant-table-cell ant-table-selection-column"
                     rowspan="2"
                   >
-                    false:
+                    false: 
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -26582,7 +26582,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                     class="ant-table-cell ant-table-selection-column"
                     rowspan="2"
                   >
-                    false:
+                    false: 
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -26623,7 +26623,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                     class="ant-table-cell ant-table-selection-column"
                     rowspan="2"
                   >
-                    false:
+                    false: 
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -26664,7 +26664,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                     class="ant-table-cell ant-table-selection-column"
                     rowspan="2"
                   >
-                    false:
+                    false: 
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -26705,7 +26705,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                     class="ant-table-cell ant-table-selection-column"
                     rowspan="2"
                   >
-                    false:
+                    false: 
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -31963,7 +31963,7 @@ Array [
     <div
       class="ant-space-item"
     >
-      CheckStrictly:
+      CheckStrictly: 
     </div>
     <div
       class="ant-space-item"
@@ -32274,7 +32274,7 @@ Array [
     <div
       class="ant-space-item"
     >
-      Fixed first column:
+      Fixed first column: 
     </div>
     <div
       class="ant-space-item"

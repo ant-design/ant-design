@@ -16,6 +16,69 @@ tag: vVERSION
 
 ---
 
+## 5.16.1
+
+`2024-04-05`
+
+- 🛠 调整 Typography 的 `ellipsis` 使其在 SSR 阶段使用 CSS 省略以优化用户体验。[#48205](https://github.com/ant-design/ant-design/pull/48205)
+- 🐞 修复 FloatButton 中同时配置 `tooltip` 和 `badge` 时， `badge` 的自定义背景色会失效的问题。[#48198](https://github.com/ant-design/ant-design/pull/48198) [@LonelySnowman](https://github.com/LonelySnowman)
+
+## 5.16.0
+
+`2024-03-31`
+
+- 🔥 新增 Input.OTP 组件。[#48076](https://github.com/ant-design/ant-design/pull/48076)
+- 🆕 可关闭组件支持在 `closable` 中配置 `aria-*` 属性 [@kiner-tang](https://github.com/kiner-tang)
+  - 🆕 [Tag](https://github.com/ant-design/ant-design/pull/47678)
+  - 🆕 [Notification](https://github.com/ant-design/ant-design/pull/47710)
+- 🆕 Table 增加 `rowHoverable` 开启或关闭 hover 效果。[#48112](https://github.com/ant-design/ant-design/pull/48112) [@madocto](https://github.com/madocto)
+- 🆕 Typography 组件支持异步复制。[#48123](https://github.com/ant-design/ant-design/pull/48123) [@crazyair](https://github.com/crazyair)
+- 🆕 Progress 组件 `circle` 模式下支持 `steps`。[#47940](https://github.com/ant-design/ant-design/pull/47940) [@yykoypj](https://github.com/yykoypj)
+- 🆕 Table 支持 `onScroll` 事件用于监听表单内容滚动。[#47986](https://github.com/ant-design/ant-design/pull/47986)
+- 🆕 Typography 省略支持展开和收起。[#47264](https://github.com/ant-design/ant-design/pull/47264) [@crazyair](https://github.com/crazyair)
+- 🆕 ConfigProvider 支持配置 FloatButton.Group 的 `closeIcon` 属性。[#47953](https://github.com/ant-design/ant-design/pull/47953) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 Table 支持配置排序的 `showSorterTooltip.target` 属性.[#47409](https://github.com/ant-design/ant-design/pull/47409) [@Ke1sy](https://github.com/Ke1sy)
+- 🆕 Cascader 支持 `optionRender`。[#47727](https://github.com/ant-design/ant-design/pull/47727) [@crazyair](https://github.com/crazyair)
+- ⌨️ Popover 当 `trigger` 是 `focus` 或 `click` 时能被 ESC 按键所关闭。[#47928](https://github.com/ant-design/ant-design/pull/47928) [@CooperHash](https://github.com/CooperHash)
+- 🐞 修复 Button 图标位置居中问题。[#48178](https://github.com/ant-design/ant-design/pull/48178) [@momesana](https://github.com/momesana)
+- 🐞 修复 Modal.confirm 无图标时内容不居中的问题。[#48173](https://github.com/ant-design/ant-design/pull/48173)
+- Form [#48163](https://github.com/ant-design/ant-design/pull/48163) [@madocto](https://github.com/madocto)
+  - 🐞 1. 修复 Form 当 FormItem 的 `name` 不存在时，`getValueProps` 不应该执行。
+  - 🐞 2. 修复 Form 的 `setFieldsValue` 和 `setFields` 的行为应该相同。
+- 🐞 修复 Table 表格列在搜索情况下，国际化失效的问题。[#48126](https://github.com/ant-design/ant-design/pull/48126) [@LingJinT](https://github.com/LingJinT)
+- 🐞 修复 Upload 当文件数量超出限制时，删除不起作用，无法触发 `onChange` 的问题。[#47747](https://github.com/ant-design/ant-design/pull/47747) [@Zhou-Bill](https://github.com/Zhou-Bill)
+- 🐞 Carousel 组件同步上游 react-slick 改动，修复一系列<a href="https://github.com/ant-design/react-slick/pull/110" data-hovercard-type="pull_request" data-hovercard-url="/ant-design/react-slick/pull/110/hovercard">问题</a>，并更新到最新 TS 定义。[#48093](https://github.com/ant-design/ant-design/pull/48093)
+- 🐞 修复 ColorPicker 展示的清除颜色在受控 `value` 变化后不会改变的问题。[#47816](https://github.com/ant-design/ant-design/pull/47816) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Badge 与 Tag 组件保持一致，processing 状态使用 `colorInfo` token 。[#47695](https://github.com/ant-design/ant-design/pull/47695) [@pfdgithub](https://github.com/pfdgithub)
+- 🇮🇸 添加冰岛语缺失的 From 翻译。[#48104](https://github.com/ant-design/ant-design/pull/48104) [@LonelySnowman](https://github.com/LonelySnowman)
+- 🇺🇿 添加乌兹别克语(拉丁字母) 国际化。[#47899](https://github.com/ant-design/ant-design/pull/47899)
+- TypeScript
+  - 🤖 改进 Transfer 的`key` 类型，将 `key: string` 改为`key: React.Key`。[#47879](https://github.com/ant-design/ant-design/pull/47879) [@madocto](https://github.com/madocto)
+  - 🤖 Table 支持泛型对 dataIndex 属性校验。[#48190](https://github.com/ant-design/ant-design/pull/48190) [@crazyair](https://github.com/crazyair)
+
+## 5.15.4
+
+`2024-03-25`
+
+- 💄 修复 QRCode 组件自定义样式会被内部样式覆盖的问题。[#48053](https://github.com/ant-design/ant-design/pull/48053) [@li-jia-nan](https://github.com/li-jia-nan)
+- 💄 修复 Radio 禁用状态 hover 样式。[#47972](https://github.com/ant-design/ant-design/pull/47972) [@madocto](https://github.com/madocto)
+- 🐞 修复 Watermark 在特定屏幕缩放下会不断重复渲染的问题。[#47895](https://github.com/ant-design/ant-design/pull/47895)
+- TypeScript
+  - 🤖 Affix 导出 AffixRef 类型。[#47982](https://github.com/ant-design/ant-design/pull/47982) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🤖 MISC: 修复 GetRef 工具类型不能正确获得某些组件 ref 类型的问题。[#47983](https://github.com/ant-design/ant-design/pull/47983)
+
+## 5.15.3
+
+`2024-03-17`
+
+- 💄 统一 Modal、Drawer、notification 和 Tour 关闭按钮的样式，并增大 Modal 和 Drawer 关闭按钮的交互区域使其更容易点击。[#47909](https://github.com/ant-design/ant-design/pull/47909)
+- 🐞 修复 Badge 和文本元素在 Space 下排版不对齐的问题。[#47908](https://github.com/ant-design/ant-design/pull/47908)
+- 💄 修复 Upload 列表行动点换行的问题。[#47898](https://github.com/ant-design/ant-design/pull/47898)
+- 🐞 修复 Typography 配置的 `ellipsis.symbol` 超出单行高度时，省略行数不正确的问题。[#47889](https://github.com/ant-design/ant-design/pull/47889)
+- 🐞 修复 DatePicker 配置自定义 `controlHeight` 时展示高度不正确的问题。[#47874](https://github.com/ant-design/ant-design/pull/47874)
+- 🐞 修复 DatePicker 设置 `multiple` 多选换行时行与行之间没有间隙的问题。[#47821](https://github.com/ant-design/ant-design/pull/47821)
+- 💄 调深 Empty 文本色彩使其更清晰可读一些。[#47268](https://github.com/ant-design/ant-design/pull/47268) [@evgmol](https://github.com/evgmol)
+
 ## 5.15.2
 
 `2024-03-11`
@@ -46,6 +109,7 @@ tag: vVERSION
   - 🆕 CSS 变量的前缀默认跟随 ConfigProvider 的 `prefixCls` 属性。[#47481](https://github.com/ant-design/ant-design/pull/47481)
   - 🤖 ConfigProvider 中 CardProps `styles` 设为可选。[#47601](https://github.com/ant-design/ant-design/pull/47601) [@Yawenina](https://github.com/Yawenina)
 - 🆕 Select、Checkbox、Radio、DatePicker、TreeSelect、Cascader 支持 `focus` 功能支持传递 `options`。[#47664](https://github.com/ant-design/ant-design/pull/47664)
+- 🆕 Select 新增 `labelRender` 属性以自定义当前选中的 label 展示。[#47664](https://github.com/ant-design/ant-design/pull/47664)
 - 🆕 Modal 支持在 `closable` 中配置 `aria-*`。[#47650](https://github.com/ant-design/ant-design/pull/47650)
 - 🆕 Alert 支持在 `closable` 中配置 `aria-*`。[#47474](https://github.com/ant-design/ant-design/pull/47474)
 - 🆕 Tabs 组件支持 `removeIcon` 属性，在设置 `type="editable-card"` 时有效。[#47334](https://github.com/ant-design/ant-design/pull/47334)

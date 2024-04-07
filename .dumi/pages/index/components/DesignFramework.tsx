@@ -69,7 +69,7 @@ const useStyle = () => {
     card: css`
       padding: ${token.paddingSM}px;
       border-radius: ${token.borderRadius * 2}px;
-      background: ${isRootDark ? 'rgba(0,0,0,0.45)' : token.colorBgElevated};
+      background: ${isRootDark ? 'rgba(0, 0, 0, 0.45)' : token.colorBgElevated};
       box-shadow:
         0 1px 2px rgba(0, 0, 0, 0.03),
         0 1px 6px -1px rgba(0, 0, 0, 0.02),
@@ -86,8 +86,8 @@ const useStyle = () => {
       display: block;
       border-radius: ${token.borderRadius * 2}px;
       padding: ${token.paddingMD}px ${token.paddingLG}px;
-      background: ${isRootDark ? 'rgba(0,0,0,0.25)' : 'rgba(0, 0, 0, 0.02)'};
-      border: 1px solid ${isRootDark ? 'rgba(255,255,255, 0.45)' : 'rgba(0, 0, 0, 0.06)'};
+      background: ${isRootDark ? 'rgba(0, 0, 0, 0.25)' : 'rgba(0, 0, 0, 0.02)'};
+      border: 1px solid ${isRootDark ? 'rgba(255, 255, 255, 0.45)' : 'rgba(0, 0, 0, 0.06)'};
 
       img {
         height: 48px;
@@ -96,7 +96,7 @@ const useStyle = () => {
   }))();
 };
 
-export default function DesignFramework() {
+const DesignFramework: React.FC = () => {
   const [locale] = useLocale(locales);
   const token = useTheme();
   const { styles } = useStyle();
@@ -174,4 +174,6 @@ export default function DesignFramework() {
       })}
     </Row>
   );
-}
+};
+
+export default DesignFramework;

@@ -2,12 +2,11 @@
 category: Components
 group: Layout
 title: Flex
+description: A flex layout container for alignment.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*SMzgSJZE_AwAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8yArQ43EGccAAAAAAAAAAAAADrJ8AQ/original
-tag: New
+tag: 5.10.0
 ---
-
-Flex. Available since `5.10.0`.
 
 ## When To Use
 

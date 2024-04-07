@@ -4,6 +4,7 @@ group: General
 title: Icon
 description: Semantic vector graphics.
 toc: false
+showImport: false
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PdAYS7anRpoAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xEDOTJx2DEkAAAAAAAAAAAAADrJ8AQ/original
 demo:
@@ -14,7 +15,7 @@ demo:
 
 Before use icons, you need to install [@ant-design/icons](https://github.com/ant-design/ant-design-icons) package:
 
-<InstallDependencies npm='npm install @ant-design/icons --save' yarn='yarn add @ant-design/icons' pnpm='pnpm install @ant-design/icons --save'></InstallDependencies>
+<InstallDependencies npm='npm install @ant-design/icons --save' yarn='yarn add @ant-design/icons' pnpm='pnpm install @ant-design/icons --save' bun='bun add @ant-design/icons'></InstallDependencies>
 
 ## List of icons
 
@@ -108,8 +109,8 @@ We added a `createFromIconfontCN` function to help developer use their own icons
 
 ```jsx
 import React from 'react';
-import ReactDOM from 'react-dom/client';
 import { createFromIconfontCN } from '@ant-design/icons';
+import ReactDOM from 'react-dom/client';
 
 const MyIcon = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js', // generate in iconfont.cn
@@ -157,9 +158,10 @@ module.exports = {
 
 ```jsx
 import React from 'react';
-import ReactDOM from 'react-dom/client';
 import Icon from '@ant-design/icons';
 import MessageSvg from 'path/to/message.svg'; // path to your '*.svg' file.
+import ReactDOM from 'react-dom/client';
+
 // in create-react-app:
 // import { ReactComponent as MessageSvg } from 'path/to/message.svg';
 

@@ -6,6 +6,7 @@ import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { CheckboxChangeEvent } from './Checkbox';
 import Checkbox from './Checkbox';
+import type { CheckboxGroupContext } from './GroupContext';
 import GroupContext from './GroupContext';
 import useStyle from './style';
 
@@ -69,7 +70,7 @@ const CheckboxGroup = React.forwardRef(
 
     const memoOptions = React.useMemo<CheckboxOptionType<T>[]>(
       () =>
-        options.map<CheckboxOptionType<T>>((option: CheckboxOptionType<T>) => {
+        options.map<CheckboxOptionType<T>>((option: any) => {
           if (typeof option === 'string' || typeof option === 'number') {
             return { label: option, value: option };
           }
@@ -82,11 +83,11 @@ const CheckboxGroup = React.forwardRef(
       setRegisteredValues((prevValues) => prevValues.filter((v) => v !== val));
     };
 
-    const registerValue = (val: T) => {
+    const registerValue: CheckboxGroupContext<T>['registerValue'] = (val) => {
       setRegisteredValues((prevValues) => [...prevValues, val]);
     };
 
-    const toggleOption = (option: CheckboxOptionType<T>) => {
+    const toggleOption: CheckboxGroupContext<T>['toggleOption'] = (option) => {
       const optionIndex = value.indexOf(option.value);
       const newValue = [...value];
       if (optionIndex === -1) {
@@ -136,8 +137,7 @@ const CheckboxGroup = React.forwardRef(
         ))
       : children;
 
-    // eslint-disable-next-line react/jsx-no-constructed-context-values
-    const context = {
+    const context: CheckboxGroupContext<any> = {
       toggleOption,
       value,
       disabled: restProps.disabled,

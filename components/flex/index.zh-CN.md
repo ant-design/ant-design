@@ -1,14 +1,13 @@
 ---
 category: Components
-subtitle: 弹性布局
 group: 布局
 title: Flex
+subtitle: 弹性布局
+description: 用于对齐的弹性布局容器。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*SMzgSJZE_AwAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8yArQ43EGccAAAAAAAAAAAAADrJ8AQ/original
-tag: New
+tag: 5.10.0
 ---
-
-弹性布局。自 `5.10.0` 版本开始提供该组件。
 
 ## 何时使用
 

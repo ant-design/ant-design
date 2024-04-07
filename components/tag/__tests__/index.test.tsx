@@ -1,10 +1,9 @@
 import React from 'react';
+import { CheckCircleOutlined } from '@ant-design/icons';
 import { Simulate } from 'react-dom/test-utils';
 
-import { CheckCircleOutlined } from '@ant-design/icons';
 import Tag from '..';
 import { resetWarned } from '../../_util/warning';
-
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
@@ -24,9 +23,9 @@ function waitRaf() {
 
 describe('Tag', () => {
   mountTest(Tag);
-  mountTest(Tag.CheckableTag);
+  mountTest(Tag.CheckableTag as any);
   rtlTest(Tag);
-  rtlTest(Tag.CheckableTag);
+  rtlTest(Tag.CheckableTag as any);
 
   beforeAll(() => {
     jest.useFakeTimers();
@@ -218,5 +217,12 @@ describe('Tag', () => {
     fireEvent.click(container.querySelectorAll('.ant-tag')[0]);
     waitRaf();
     expect(document.querySelector('.ant-wave')).toBeFalsy();
+  });
+  it('should support aria-* in closable', () => {
+    const { container } = render(<Tag closable={{ closeIcon: 'X', 'aria-label': 'CloseBtn' }} />);
+    expect(container.querySelector('.ant-tag-close-icon')?.getAttribute('aria-label')).toEqual(
+      'CloseBtn',
+    );
+    expect(container.querySelector('.ant-tag-close-icon')?.textContent).toEqual('X');
   });
 });

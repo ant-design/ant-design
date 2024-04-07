@@ -2,11 +2,10 @@
 category: Components
 group: Data Display
 title: Card
+description: A container for displaying information.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*QXO1SKEdIzYAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-Simple rectangular container.
 
 ## When To Use
 
@@ -43,7 +42,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | activeTabKey | Current TabPane's key | string | - |  |
 | bordered | Toggles rendering of the border around the card | boolean | true |  |
 | cover | Card cover | ReactNode | - |  |
-| defaultActiveTabKey | Initial active TabPane's key, if `activeTabKey` is not set | string | - |  |
+| defaultActiveTabKey | Initial active TabPane's key, if `activeTabKey` is not set | string | `The key of first tab` |  |
 | extra | Content to render in the top-right corner of the card | ReactNode | - |  |
 | hoverable | Lift up when hovering card | boolean | false |  |
 | loading | Shows a loading indicator while the contents of the card are being fetched | boolean | false |  |
@@ -77,14 +76,14 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### `styles` 和 `classNames` attribute
 
-| 名称    | 说明                  | 版本   |
-| ------- | --------------------- | ------ |
-| header  | set `header` of card  | 5.14.0 |
-| body    | set `body` of card    | 5.14.0 |
-| extra   | set `extra` of card   | 5.14.0 |
-| title   | set `title` of card   | 5.14.0 |
-| actions | set `actions` of card | 5.14.0 |
-| cover   | set `cover` of card   | 5.14.0 |
+| Property | Description           | Version |
+| -------- | --------------------- | ------- |
+| header   | set `header` of card  | 5.14.0  |
+| body     | set `body` of card    | 5.14.0  |
+| extra    | set `extra` of card   | 5.14.0  |
+| title    | set `title` of card   | 5.14.0  |
+| actions  | set `actions` of card | 5.14.0  |
+| cover    | set `cover` of card   | 5.14.0  |
 
 ## Design Token
 

@@ -1,13 +1,12 @@
 ---
 category: Components
-subtitle: 标签页
 group: 数据展示
 title: Tabs
+subtitle: 标签页
+description: 选项卡切换组件。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*72NDQqXkyOEAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8HMoTZUoSGoAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-选项卡切换组件。
 
 ## 何时使用
 
@@ -53,7 +52,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | addIcon | 自定义添加按钮，设置 `type="editable-card"` 时有效 | ReactNode | `<PlusOutlined />` | 4.4.0 |
 | animated | 是否使用动画切换 Tabs | boolean\| { inkBar: boolean, tabPane: boolean } | { inkBar: true, tabPane: false } |  |
 | centered | 标签居中展示 | boolean | false | 4.4.0 |
-| defaultActiveKey | 初始化选中面板的 key，如果没有设置 activeKey | string | `第一个面板` |  |
+| defaultActiveKey | 初始化选中面板的 key，如果没有设置 activeKey | string | `第一个面板的 key` |  |
 | hideAdd | 是否隐藏加号图标，在 `type="editable-card"` 时有效 | boolean | false |  |
 | indicator | 自定义指示条的长度和对齐方式 | { size?: number \| (origin: number) => number; align: `start` \| `center` \| `end`; } | - | 5.13.0 |
 | items | 配置选项卡内容 | [TabItemType](#tabitemtype) | [] | 4.23.0 |

@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import type {
   CSSProperties,
   FC,
@@ -9,6 +8,8 @@ import type {
   ReactNode,
 } from 'react';
 import React, { Children, forwardRef, useContext } from 'react';
+import classNames from 'classnames';
+
 import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
 import { Col } from '../grid';
@@ -76,7 +77,7 @@ const InternalItem: ForwardRefRenderFunction<HTMLDivElement, ListItemProps> = (
 
   const isItemContainsTextNodeAndNotSingular = () => {
     let result;
-    Children.forEach(children, (element: ReactElement<any>) => {
+    Children.forEach(children as ReactElement, (element) => {
       if (typeof element === 'string') {
         result = true;
       }
