@@ -11,8 +11,7 @@ import Base from '../Base';
 import Link from '../Link';
 import Paragraph from '../Paragraph';
 import Text from '../Text';
-import { type TitleProps } from '../Title';
-import Title from '../Title';
+import Title, { type TitleProps } from '../Title';
 import Typography from '../Typography';
 
 jest.mock('copy-to-clipboard');

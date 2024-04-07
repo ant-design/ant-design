@@ -3,8 +3,7 @@ import { produce } from 'immer';
 import cloneDeep from 'lodash/cloneDeep';
 import { type UploadRequestOption } from 'rc-upload/lib/interface';
 
-import { type RcFile, type UploadFile, type UploadProps } from '..';
-import Upload from '..';
+import Upload, { type RcFile, type UploadFile, type UploadProps } from '..';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';

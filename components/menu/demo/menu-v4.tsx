@@ -6,8 +6,7 @@ import {
   MailOutlined,
   SettingOutlined,
 } from '@ant-design/icons';
-import { ConfigProvider, Menu, Switch, Typography } from 'antd';
-import { type MenuProps } from 'antd';
+import { ConfigProvider, Menu, Switch, Typography, type MenuProps } from 'antd';
 
 type MenuItem = Required<MenuProps>['items'][number];
 

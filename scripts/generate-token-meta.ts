@@ -1,6 +1,5 @@
 import fs from 'fs-extra';
-import { type DeclarationReflection } from 'typedoc';
-import { Application, TSConfigReader, TypeDocReader } from 'typedoc';
+import { Application, TSConfigReader, TypeDocReader, type DeclarationReflection } from 'typedoc';
 
 interface TokenMeta {
   seed: ReturnType<typeof getTokenList>;

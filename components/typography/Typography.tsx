@@ -3,8 +3,7 @@ import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
 
 import { devUseWarning } from '../_util/warning';
-import { type ConfigConsumerProps, type DirectionType } from '../config-provider';
-import { ConfigContext } from '../config-provider';
+import { ConfigContext, type ConfigConsumerProps, type DirectionType } from '../config-provider';
 import useStyle from './style';
 
 export interface TypographyProps<C extends keyof JSX.IntrinsicElements>

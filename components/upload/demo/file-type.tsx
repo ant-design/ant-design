@@ -8,8 +8,7 @@ import {
   PictureTwoTone,
   PlusOutlined,
 } from '@ant-design/icons';
-import { Image, Upload } from 'antd';
-import { type GetProp, type UploadFile, type UploadProps } from 'antd';
+import { Image, Upload, type GetProp, type UploadFile, type UploadProps } from 'antd';
 
 type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
 

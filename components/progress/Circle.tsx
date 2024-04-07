@@ -1,7 +1,7 @@
-import classNames from 'classnames';
-import { type ProgressProps as RcProgressProps } from 'rc-progress';
-import { Circle as RCCircle } from 'rc-progress';
 import * as React from 'react';
+import classNames from 'classnames';
+import { Circle as RCCircle, type ProgressProps as RcProgressProps } from 'rc-progress';
+
 import Tooltip from '../tooltip';
 import { type ProgressGradient, type ProgressProps } from './progress';
 import { getPercentage, getSize, getStrokeColor } from './utils';

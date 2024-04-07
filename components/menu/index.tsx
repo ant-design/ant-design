@@ -1,12 +1,10 @@
 import * as React from 'react';
 import { forwardRef, useImperativeHandle, useRef } from 'react';
-import { type MenuRef as RcMenuRef } from 'rc-menu';
-import { ItemGroup } from 'rc-menu';
+import { ItemGroup, type MenuRef as RcMenuRef } from 'rc-menu';
 
 import { SiderContext } from '../layout/Sider';
 import { type ItemType, type MenuItemType } from './hooks/useItems';
-import { type MenuProps } from './menu';
-import InternalMenu from './menu';
+import InternalMenu, { type MenuProps } from './menu';
 import { type MenuTheme } from './MenuContext';
 import MenuDivider from './MenuDivider';
 import Item, { type MenuItemProps } from './MenuItem';

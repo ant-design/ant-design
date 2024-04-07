@@ -51,6 +51,7 @@ module.exports = {
           },
         ],
         'import/consistent-type-specifier-style': [2, 'prefer-inline'],
+        'no-duplicate-imports': [2],
       },
     },
     {

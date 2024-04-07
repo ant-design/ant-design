@@ -1,16 +1,19 @@
 import { resetComponent } from '../../style';
 import { initZoomMotion } from '../../style/motion';
-import { type ArrowOffsetToken } from '../../style/placementArrow';
-import getArrowStyle, { getArrowOffsetToken } from '../../style/placementArrow';
+import getArrowStyle, {
+  getArrowOffsetToken,
+  type ArrowOffsetToken,
+} from '../../style/placementArrow';
+import { getArrowToken, type ArrowToken } from '../../style/roundedArrow';
 import {
+  genStyleHooks,
+  mergeToken,
+  PresetColors,
   type FullToken,
   type GenerateStyle,
   type GetDefaultToken,
   type PresetColorType,
 } from '../../theme/internal';
-import { PresetColors, genStyleHooks, mergeToken } from '../../theme/internal';
-import { type ArrowToken } from '../../style/roundedArrow';
-import { getArrowToken } from '../../style/roundedArrow';
 
 export interface ComponentToken extends ArrowToken, ArrowOffsetToken {
   /**

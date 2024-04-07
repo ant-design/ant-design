@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { type PaginationProps } from 'antd';
-import { Pagination } from 'antd';
+import { Pagination, type PaginationProps } from 'antd';
 
 const App: React.FC = () => {
   const [current, setCurrent] = useState(3);

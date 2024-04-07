@@ -1,7 +1,6 @@
 import React from 'react';
 import { InboxOutlined, PlusOutlined, UploadOutlined } from '@ant-design/icons';
-import { Button, Space, Upload } from 'antd';
-import { type UploadFile } from 'antd';
+import { Button, Space, Upload, type UploadFile } from 'antd';
 
 const { Dragger } = Upload;
 

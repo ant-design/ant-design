@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { flushSync } from 'react-dom';
 import classNames from 'classnames';
-import { type UploadProps as RcUploadProps } from 'rc-upload';
-import RcUpload from 'rc-upload';
+import RcUpload, { type UploadProps as RcUploadProps } from 'rc-upload';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import { devUseWarning } from '../_util/warning';

@@ -1,7 +1,6 @@
 import React from 'react';
 import { UploadOutlined } from '@ant-design/icons';
-import { type UploadProps } from 'antd';
-import { Button, Upload } from 'antd';
+import { Button, Upload, type UploadProps } from 'antd';
 
 const props: UploadProps = {
   action: '//jsonplaceholder.typicode.com/posts/',
