@@ -7,7 +7,7 @@ import PlusSquareOutlined from '@ant-design/icons/PlusSquareOutlined';
 import classNames from 'classnames';
 
 import { cloneElement } from '../../_util/reactNode';
-import type { AntTreeNodeProps, SwitcherIcon, TreeLeafIcon } from '../Tree';
+import { type AntTreeNodeProps, type SwitcherIcon, type TreeLeafIcon } from '../Tree';
 
 interface SwitcherIconProps {
   prefixCls: string;

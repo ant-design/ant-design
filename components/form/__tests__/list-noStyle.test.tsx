@@ -3,7 +3,7 @@ import { act } from 'react-dom/test-utils';
 import Form from '..';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Input from '../../input';
-import type { FormListOperation } from '../FormList';
+import { type FormListOperation } from '../FormList';
 
 describe('Form.List.NoStyle', () => {
   it('nest error should clean up', async () => {

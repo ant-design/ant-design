@@ -1,8 +1,8 @@
 import { unit, type CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
-import type { GenerateStyle } from '../../theme/internal';
-import type { PickerToken, SharedPickerToken } from './token';
+import { type GenerateStyle } from '../../theme/internal';
+import { type PickerToken, type SharedPickerToken } from './token';
 
 const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
   const {

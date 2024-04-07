@@ -1,7 +1,7 @@
 import type React from 'react';
 
-import type { BadgeProps } from '../badge';
-import type { TooltipProps } from '../tooltip';
+import { type BadgeProps } from '../badge';
+import { type TooltipProps } from '../tooltip';
 import type BackTop from './BackTop';
 import type Group from './FloatButtonGroup';
 import type PurePanel from './PurePanel';

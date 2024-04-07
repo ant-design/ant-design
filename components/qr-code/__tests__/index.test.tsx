@@ -4,7 +4,7 @@ import QRCode from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
-import type { QRCodeProps } from '../interface';
+import { type QRCodeProps } from '../interface';
 
 describe('QRCode test', () => {
   mountTest(QRCode as any);

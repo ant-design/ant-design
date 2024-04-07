@@ -1,4 +1,4 @@
-import type { Color } from 'antd/es/color-picker';
+import { type Color } from 'antd/es/color-picker';
 import { generateColor } from 'antd/es/color-picker/util';
 
 export const DEFAULT_COLOR = '#1677FF';

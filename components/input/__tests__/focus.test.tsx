@@ -2,8 +2,8 @@ import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import React from 'react';
 import Input from '..';
 import { fireEvent, render } from '../../../tests/utils';
-import type { InputRef } from '../Input';
-import type { TextAreaRef } from '../TextArea';
+import { type InputRef } from '../Input';
+import { type TextAreaRef } from '../TextArea';
 
 const { TextArea } = Input;
 

@@ -1,4 +1,4 @@
-import type { UploadProps } from '../interface';
+import { type UploadProps } from '../interface';
 
 export const successRequest: UploadProps['customRequest'] = ({ onSuccess, file }) => {
   setTimeout(() => {

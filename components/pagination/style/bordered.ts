@@ -1,7 +1,7 @@
 import { genSubStyleComponent } from '../../theme/util/genComponentStyleHook';
-import type { PaginationToken } from '.';
+import { type PaginationToken } from '.';
 import { prepareComponentToken, prepareToken } from '.';
-import type { GenerateStyle } from '../../theme/interface';
+import { type GenerateStyle } from '../../theme/interface';
 import { unit } from '@ant-design/cssinjs';
 
 const genBorderedStyle: GenerateStyle<PaginationToken> = (token) => {

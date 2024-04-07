@@ -1,18 +1,18 @@
 /* eslint-disable no-redeclare */
-import type { ComponentType, FC, ReactElement } from 'react';
+import { type ComponentType, type FC, type ReactElement } from 'react';
 import React, { useContext } from 'react';
-import type { CSSInterpolation } from '@ant-design/cssinjs';
+import { type CSSInterpolation } from '@ant-design/cssinjs';
 import { token2CSSVar, useCSSVarRegister, useStyleRegister } from '@ant-design/cssinjs';
 import { warning } from 'rc-util';
 
 import { ConfigContext } from '../../config-provider/context';
 import { genCommonStyle, genLinkStyle } from '../../style';
-import type {
-  AliasToken,
-  ComponentTokenMap,
-  GlobalToken,
-  OverrideToken,
-  UseComponentStyleResult,
+import {
+  type AliasToken,
+  type ComponentTokenMap,
+  type GlobalToken,
+  type OverrideToken,
+  type UseComponentStyleResult,
 } from '../interface';
 import useToken, { ignore, unitless } from '../useToken';
 import genCalc from './calc';

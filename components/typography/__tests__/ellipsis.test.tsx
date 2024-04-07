@@ -3,7 +3,7 @@ import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import { act } from 'react-dom/test-utils';
 
 import { fireEvent, render, triggerResize, waitFakeTimer, waitFor } from '../../../tests/utils';
-import type { EllipsisConfig } from '../Base';
+import { type EllipsisConfig } from '../Base';
 import Base from '../Base';
 
 jest.mock('copy-to-clipboard');

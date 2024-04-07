@@ -1,5 +1,5 @@
-import type { CSSObject } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { type CSSObject } from '@ant-design/cssinjs';
+import { type FullToken, type GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 /** Component only token. Which will handle additional calculation of alias token */

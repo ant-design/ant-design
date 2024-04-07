@@ -1,5 +1,9 @@
-import type { CSSMotionProps, MotionEndEventHandler, MotionEventHandler } from 'rc-motion';
-import type { MotionEvent } from 'rc-motion/lib/interface';
+import {
+  type CSSMotionProps,
+  type MotionEndEventHandler,
+  type MotionEventHandler,
+} from 'rc-motion';
+import { type MotionEvent } from 'rc-motion/lib/interface';
 
 // ================== Collapse Motion ==================
 const getCollapsedHeight: MotionEventHandler = () => ({ height: 0, opacity: 0 });
@@ -27,7 +31,7 @@ const initCollapseMotion = (rootCls: string = 'ant'): CSSMotionProps => ({
 
 const SelectPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight'] as const;
 
-export type SelectCommonPlacement = typeof SelectPlacements[number];
+export type SelectCommonPlacement = (typeof SelectPlacements)[number];
 
 const getTransitionName = (rootPrefixCls: string, motion: string, transitionName?: string) => {
   if (transitionName !== undefined) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import type { InputRef } from 'antd';
+import { type InputRef } from 'antd';
 import { Button, Form, Input } from 'antd';
 
 const App: React.FC = () => {

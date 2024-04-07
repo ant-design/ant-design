@@ -1,14 +1,14 @@
-import type { CSSObject } from '@ant-design/cssinjs';
+import { type CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
-import type { PanelComponentToken, PickerPanelToken } from '../../date-picker/style';
+import { type PanelComponentToken, type PickerPanelToken } from '../../date-picker/style';
 import {
   genPanelStyle,
   initPanelComponentToken,
   initPickerPanelToken,
 } from '../../date-picker/style';
 import { resetComponent } from '../../style';
-import type { FullToken, GetDefaultToken } from '../../theme/internal';
+import { type FullToken, type GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {

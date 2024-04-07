@@ -1,11 +1,11 @@
 import classNames from 'classnames';
-import type { CSSMotionProps } from 'rc-motion';
+import { type CSSMotionProps } from 'rc-motion';
 import CSSMotion, { CSSMotionList } from 'rc-motion';
 import * as React from 'react';
 import { useMemo } from 'react';
 import initCollapseMotion from '../_util/motion';
 import { FormItemPrefixContext } from './context';
-import type { ValidateStatus } from './FormItem';
+import { type ValidateStatus } from './FormItem';
 import useDebounce from './hooks/useDebounce';
 
 import useStyle from './style';

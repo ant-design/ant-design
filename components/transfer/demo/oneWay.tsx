@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Switch, Transfer } from 'antd';
-import type { TransferProps } from 'antd';
+import { type TransferProps } from 'antd';
 
 interface RecordType {
   key: string;

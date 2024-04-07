@@ -1,7 +1,7 @@
 import * as React from 'react';
 import copy from 'copy-to-clipboard';
 
-import type { CopyConfig } from '../Base';
+import { type CopyConfig } from '../Base';
 
 const useCopyClick = ({
   copyConfig,

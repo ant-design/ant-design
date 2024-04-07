@@ -2,7 +2,7 @@ import { unit, type CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
 import { clearFix, resetComponent } from '../../style';
-import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { type FullToken, type GenerateStyle, type GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genBorderedStyle from './bordered';
 import genEllipsisStyle from './ellipsis';

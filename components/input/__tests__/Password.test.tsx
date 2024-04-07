@@ -1,5 +1,5 @@
 import React from 'react';
-import type { InputRef } from '..';
+import { type InputRef } from '..';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';

@@ -1,4 +1,4 @@
-import type { GlobalToken } from '../../theme';
+import { type GlobalToken } from '../../theme';
 
 export const TARGET_CLS = 'ant-wave-target';
 

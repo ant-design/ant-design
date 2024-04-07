@@ -1,5 +1,5 @@
 import type * as React from 'react';
-import type { MapToken } from './maps';
+import { type MapToken } from './maps';
 
 // ======================================================================
 // ==                           Alias Token                            ==

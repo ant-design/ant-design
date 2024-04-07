@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { DatePickerProps, TimePickerProps } from 'antd';
+import { type DatePickerProps, type TimePickerProps } from 'antd';
 import { DatePicker, Select, Space, TimePicker } from 'antd';
 
 const { Option } = Select;

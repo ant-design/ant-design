@@ -2,9 +2,9 @@ import useMemo from 'rc-util/lib/hooks/useMemo';
 import isEqual from 'rc-util/lib/isEqual';
 
 import { devUseWarning } from '../../_util/warning';
-import type { OverrideToken } from '../../theme/interface';
+import { type OverrideToken } from '../../theme/interface';
 import { defaultConfig } from '../../theme/internal';
-import type { ThemeConfig } from '../context';
+import { type ThemeConfig } from '../context';
 import useThemeKey from './useThemeKey';
 
 export default function useTheme(

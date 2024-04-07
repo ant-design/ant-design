@@ -8,7 +8,7 @@ import {
   SearchOutlined as SearchIcon,
   SmileOutlined,
 } from '@ant-design/icons';
-import type { ConfigProviderProps, RadioChangeEvent } from 'antd';
+import { type ConfigProviderProps, type RadioChangeEvent } from 'antd';
 import {
   Badge,
   Button,

@@ -1,6 +1,6 @@
-import type { GenerateConfig } from 'rc-picker/lib/generate/index';
+import { type GenerateConfig } from 'rc-picker/lib/generate/index';
 
-import type { AnyObject } from '../../_util/type';
+import { type AnyObject } from '../../_util/type';
 import generateRangePicker from './generateRangePicker';
 import generateSinglePicker from './generateSinglePicker';
 

@@ -1,11 +1,11 @@
 import React from 'react';
 
-import type { TableProps } from '..';
+import { type TableProps } from '..';
 import Table from '..';
 import { resetWarned } from '../../_util/warning';
 import { act, fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import type { TableRowSelection } from '../interface';
+import { type TableRowSelection } from '../interface';
 
 describe('Table.rowSelection', () => {
   window.requestAnimationFrame = (callback) => window.setTimeout(callback, 16);

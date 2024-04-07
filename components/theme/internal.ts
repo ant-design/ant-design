@@ -1,16 +1,16 @@
 import { useStyleRegister } from '@ant-design/cssinjs';
 
-import type {
-  AliasToken,
-  GenerateStyle,
-  PresetColorKey,
-  PresetColorType,
-  SeedToken,
-  UseComponentStyleResult,
+import {
+  type AliasToken,
+  type GenerateStyle,
+  type PresetColorKey,
+  type PresetColorType,
+  type SeedToken,
+  type UseComponentStyleResult,
 } from './interface';
 import { PresetColors } from './interface';
 import useToken from './useToken';
-import type { FullToken, GetDefaultToken } from './util/genComponentStyleHook';
+import { type FullToken, type GetDefaultToken } from './util/genComponentStyleHook';
 import genComponentStyleHook, {
   genSubStyleComponent,
   genStyleHooks,

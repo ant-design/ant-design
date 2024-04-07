@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { AnyObject } from './type';
+import { type AnyObject } from './type';
 
 export function isFragment(child: any): boolean {
   return child && React.isValidElement(child) && child.type === React.Fragment;

@@ -4,9 +4,9 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import classNames from 'classnames';
-import type { Meta } from 'rc-field-form/lib/interface';
+import { type Meta } from 'rc-field-form/lib/interface';
 
-import type { FeedbackIcons, ValidateStatus } from '.';
+import { type FeedbackIcons, type ValidateStatus } from '.';
 import { FormContext, FormItemInputContext, type FormItemStatusContextProps } from '../context';
 import { getStatus } from '../util';
 

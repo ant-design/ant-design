@@ -1,5 +1,5 @@
 import { unistUtilVisit } from 'dumi';
-import type { UnifiedTransformer } from 'dumi';
+import { type UnifiedTransformer } from 'dumi';
 
 function remarkMeta(): UnifiedTransformer<any> {
   return (tree, vFile) => {

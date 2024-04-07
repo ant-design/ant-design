@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import useLocale from '../../../hooks/useLocale';
 import SiteContext from '../../../theme/slots/SiteContext';
-import type { Extra, Icon } from './util';
+import { type Extra, type Icon } from './util';
 import { getCarouselStyle, useSiteData } from './util';
 
 const useStyle = createStyles(({ token, css, cx }) => {

@@ -1,23 +1,23 @@
 import * as React from 'react';
 import { forwardRef } from 'react';
 import classNames from 'classnames';
-import type { TextAreaRef as RcTextAreaRef } from 'rc-textarea';
+import { type TextAreaRef as RcTextAreaRef } from 'rc-textarea';
 import RcTextArea from 'rc-textarea';
-import type { TextAreaProps as RcTextAreaProps } from 'rc-textarea/lib/interface';
+import { type TextAreaProps as RcTextAreaProps } from 'rc-textarea/lib/interface';
 
 import getAllowClear from '../_util/getAllowClear';
-import type { InputStatus } from '../_util/statusUtils';
+import { type InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
-import type { SizeType } from '../config-provider/SizeContext';
+import { type SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
-import type { Variant } from '../form/hooks/useVariants';
+import { type Variant } from '../form/hooks/useVariants';
 import useVariant from '../form/hooks/useVariants';
-import type { InputFocusOptions } from './Input';
+import { type InputFocusOptions } from './Input';
 import { triggerFocus } from './Input';
 import useStyle from './style';
 

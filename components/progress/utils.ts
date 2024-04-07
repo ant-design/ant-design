@@ -1,7 +1,7 @@
 import { presetPrimaryColors } from '@ant-design/colors';
 
-import type { CircleProps } from './Circle';
-import type { ProgressProps } from './progress';
+import { type CircleProps } from './Circle';
+import { type ProgressProps } from './progress';
 
 export function validProgress(progress?: number) {
   if (!progress || progress < 0) {

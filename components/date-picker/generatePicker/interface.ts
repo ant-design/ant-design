@@ -1,15 +1,15 @@
-import type {
-  PickerRef,
-  PickerProps as RcPickerProps,
-  RangePickerProps as RcRangePickerProps,
+import {
+  type PickerRef,
+  type PickerProps as RcPickerProps,
+  type RangePickerProps as RcRangePickerProps,
 } from 'rc-picker';
-import type { Locale as RcPickerLocale } from 'rc-picker/lib/interface';
+import { type Locale as RcPickerLocale } from 'rc-picker/lib/interface';
 
-import type { InputStatus } from '../../_util/statusUtils';
-import type { AnyObject } from '../../_util/type';
-import type { SizeType } from '../../config-provider/SizeContext';
-import type { Variant } from '../../form/hooks/useVariants';
-import type { TimePickerLocale } from '../../time-picker';
+import { type InputStatus } from '../../_util/statusUtils';
+import { type AnyObject } from '../../_util/type';
+import { type SizeType } from '../../config-provider/SizeContext';
+import { type Variant } from '../../form/hooks/useVariants';
+import { type TimePickerLocale } from '../../time-picker';
 
 const DataPickerPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight'] as const;
 

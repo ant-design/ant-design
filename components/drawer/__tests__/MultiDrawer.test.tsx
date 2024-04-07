@@ -1,4 +1,4 @@
-import type { DrawerPopupProps } from 'rc-drawer/lib/DrawerPopup';
+import { type DrawerPopupProps } from 'rc-drawer/lib/DrawerPopup';
 import React, { useState } from 'react';
 import Drawer from '..';
 import { fireEvent, render } from '../../../tests/utils';

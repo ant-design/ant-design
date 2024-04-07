@@ -4,13 +4,13 @@ import FolderOpenOutlined from '@ant-design/icons/FolderOpenOutlined';
 import FolderOutlined from '@ant-design/icons/FolderOutlined';
 import classNames from 'classnames';
 import type RcTree from 'rc-tree';
-import type { BasicDataNode } from 'rc-tree';
-import type { DataNode, EventDataNode, Key } from 'rc-tree/lib/interface';
+import { type BasicDataNode } from 'rc-tree';
+import { type DataNode, type EventDataNode, type Key } from 'rc-tree/lib/interface';
 import { conductExpandParent } from 'rc-tree/lib/util';
 import { convertDataToEntities, convertTreeToData } from 'rc-tree/lib/utils/treeUtil';
 
 import { ConfigContext } from '../config-provider';
-import type { AntdTreeNodeAttribute, TreeProps } from './Tree';
+import { type AntdTreeNodeAttribute, type TreeProps } from './Tree';
 import Tree from './Tree';
 import { calcRangeKeys, convertDirectoryKeysToNodes } from './utils/dictUtil';
 

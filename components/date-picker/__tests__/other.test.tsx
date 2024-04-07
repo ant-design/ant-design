@@ -4,7 +4,7 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 import React from 'react';
 import DatePicker from '..';
 import ConfigProvider from '../../config-provider';
-import type { Locale } from '../../locale';
+import { type Locale } from '../../locale';
 import locale from '../../locale/zh_CN';
 import jaJP from '../../locale/ja_JP';
 import zhTW from '../locale/zh_TW';

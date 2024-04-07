@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Cascader } from 'antd';
-import type { SingleCascaderProps } from 'antd/es/cascader';
+import { type SingleCascaderProps } from 'antd/es/cascader';
 
 interface Option {
   value: string;

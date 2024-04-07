@@ -7,9 +7,9 @@ import Space from '../space';
 import { useCompactItemContext } from '../space/Compact';
 import Dropdown from './dropdown';
 
-import type { ButtonProps, ButtonHTMLType } from '../button';
-import type { ButtonGroupProps } from '../button/button-group';
-import type { DropdownProps } from './dropdown';
+import { type ButtonProps, type ButtonHTMLType } from '../button';
+import { type ButtonGroupProps } from '../button/button-group';
+import { type DropdownProps } from './dropdown';
 
 export type DropdownButtonType = 'default' | 'primary' | 'dashed' | 'link' | 'text';
 

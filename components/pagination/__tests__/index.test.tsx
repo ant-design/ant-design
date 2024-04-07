@@ -1,6 +1,6 @@
-import type { OptionFC } from 'rc-select/lib/Option';
+import { type OptionFC } from 'rc-select/lib/Option';
 import React from 'react';
-import type { PaginationProps } from '..';
+import { type PaginationProps } from '..';
 import Pagination from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';

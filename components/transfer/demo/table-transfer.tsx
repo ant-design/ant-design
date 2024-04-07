@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Space, Switch, Table, Tag, Transfer } from 'antd';
-import type { GetProp, TableColumnsType, TableProps, TransferProps } from 'antd';
+import { type GetProp, type TableColumnsType, type TableProps, type TransferProps } from 'antd';
 import difference from 'lodash/difference';
 
 type TransferItem = GetProp<TransferProps, 'dataSource'>[number];

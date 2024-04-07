@@ -1,7 +1,7 @@
 import { unit, type CSSObject } from '@ant-design/cssinjs';
-import type { MenuToken } from '.';
+import { type MenuToken } from '.';
 import { textEllipsis } from '../../style';
-import type { GenerateStyle } from '../../theme/internal';
+import { type GenerateStyle } from '../../theme/internal';
 
 const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
   const {

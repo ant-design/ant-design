@@ -6,8 +6,8 @@ import { fireEvent, render } from '../../../tests/utils';
 import Collapse from '../../collapse';
 import Input from '../../input';
 import Table from '../../table';
-import type { CheckboxValueType } from '../Group';
-import type { CheckboxGroupProps } from '../index';
+import { type CheckboxValueType } from '../Group';
+import { type CheckboxGroupProps } from '../index';
 import Checkbox from '../index';
 
 describe('CheckboxGroup', () => {

@@ -1,7 +1,7 @@
 import { CaretRightOutlined } from '@ant-design/icons';
-import type { CSSProperties } from 'react';
+import { type CSSProperties } from 'react';
 import React from 'react';
-import type { CollapseProps } from 'antd';
+import { type CollapseProps } from 'antd';
 import { Collapse, theme } from 'antd';
 
 const text = `

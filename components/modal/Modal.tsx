@@ -14,7 +14,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { NoFormStyle } from '../form/context';
 import { NoCompactStyle } from '../space/Compact';
 import { usePanelRef } from '../watermark/context';
-import type { ModalProps, MousePosition } from './interface';
+import { type ModalProps, type MousePosition } from './interface';
 import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
 

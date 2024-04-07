@@ -5,20 +5,24 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import genPurePanel from '../_util/PurePanel';
 import { getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
-import type { ConfigConsumerProps } from '../config-provider/context';
+import { type ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import { FormItemInputContext, NoFormStyle } from '../form/context';
-import type { PopoverProps } from '../popover';
+import { type PopoverProps } from '../popover';
 import Popover from '../popover';
-import type { Color } from './color';
-import type { ColorPickerPanelProps } from './ColorPickerPanel';
+import { type Color } from './color';
+import { type ColorPickerPanelProps } from './ColorPickerPanel';
 import ColorPickerPanel from './ColorPickerPanel';
 import ColorTrigger from './components/ColorTrigger';
 import useColorState from './hooks/useColorState';
-import type { ColorPickerBaseProps, ColorPickerProps, TriggerPlacement } from './interface';
+import {
+  type ColorPickerBaseProps,
+  type ColorPickerProps,
+  type TriggerPlacement,
+} from './interface';
 import useStyle from './style';
 import { genAlphaColor, generateColor, getAlphaColor } from './util';
 

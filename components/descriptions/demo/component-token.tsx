@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { DescriptionsProps, RadioChangeEvent } from 'antd';
+import { type DescriptionsProps, type RadioChangeEvent } from 'antd';
 import { Button, ConfigProvider, Descriptions, Radio } from 'antd';
 
 const borderedItems: DescriptionsProps['items'] = [

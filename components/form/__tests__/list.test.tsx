@@ -1,5 +1,5 @@
 import React from 'react';
-import type { FormListFieldData, FormListOperation } from '..';
+import { type FormListFieldData, type FormListOperation } from '..';
 import Form from '..';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';

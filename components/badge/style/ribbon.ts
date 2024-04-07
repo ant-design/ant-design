@@ -2,7 +2,7 @@ import { unit } from '@ant-design/cssinjs';
 
 import { type BadgeToken, prepareComponentToken, prepareToken } from '.';
 import { resetComponent } from '../../style';
-import type { GenerateStyle } from '../../theme/internal';
+import { type GenerateStyle } from '../../theme/internal';
 import { genPresetColor, genStyleHooks } from '../../theme/internal';
 
 // ============================== Ribbon ==============================

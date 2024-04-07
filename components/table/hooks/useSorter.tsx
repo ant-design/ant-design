@@ -4,20 +4,20 @@ import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
 import classNames from 'classnames';
 import KeyCode from 'rc-util/lib/KeyCode';
 
-import type { TooltipProps } from '../../tooltip';
+import { type TooltipProps } from '../../tooltip';
 import Tooltip from '../../tooltip';
-import type {
-  ColumnGroupType,
-  ColumnsType,
-  ColumnTitleProps,
-  ColumnType,
-  CompareFn,
-  Key,
-  SorterResult,
-  SorterTooltipProps,
-  SortOrder,
-  TableLocale,
-  TransformColumns,
+import {
+  type ColumnGroupType,
+  type ColumnsType,
+  type ColumnTitleProps,
+  type ColumnType,
+  type CompareFn,
+  type Key,
+  type SorterResult,
+  type SorterTooltipProps,
+  type SortOrder,
+  type TableLocale,
+  type TransformColumns,
 } from '../interface';
 import { getColumnKey, getColumnPos, renderColumnTitle, safeColumnTitle } from '../util';
 

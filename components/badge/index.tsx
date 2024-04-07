@@ -3,12 +3,12 @@ import { useMemo, useRef } from 'react';
 import classnames from 'classnames';
 import CSSMotion from 'rc-motion';
 
-import type { PresetStatusColorType } from '../_util/colors';
+import { type PresetStatusColorType } from '../_util/colors';
 import { isPresetColor } from '../_util/colors';
 import { cloneElement } from '../_util/reactNode';
-import type { LiteralUnion } from '../_util/type';
+import { type LiteralUnion } from '../_util/type';
 import { ConfigContext } from '../config-provider';
-import type { PresetColorKey } from '../theme/internal';
+import { type PresetColorKey } from '../theme/internal';
 import Ribbon from './Ribbon';
 import ScrollNumber from './ScrollNumber';
 import useStyle from './style';

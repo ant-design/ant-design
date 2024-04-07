@@ -1,7 +1,7 @@
 import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 import { TimePicker } from 'antd';
-import type { TimePickerProps } from 'antd';
+import { type TimePickerProps } from 'antd';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 

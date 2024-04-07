@@ -5,7 +5,7 @@ import { ConfigContext } from '../config-provider';
 import BackTop from './BackTop';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
 import FloatButtonGroup from './FloatButtonGroup';
-import type { FloatButtonGroupProps, FloatButtonProps } from './interface';
+import { type FloatButtonGroupProps, type FloatButtonProps } from './interface';
 
 export interface PureFloatButtonProps extends Omit<FloatButtonProps, 'target'> {
   backTop?: boolean;

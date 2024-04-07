@@ -6,12 +6,12 @@ import CSSMotion from 'rc-motion';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import { devUseWarning } from '../_util/warning';
-import type { ConfigConsumerProps } from '../config-provider';
+import { type ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { FloatButtonGroupProvider } from './context';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
-import type { FloatButtonGroupProps, FloatButtonRef } from './interface';
+import { type FloatButtonGroupProps, type FloatButtonRef } from './interface';
 import useStyle from './style';
 
 const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {

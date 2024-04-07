@@ -1,7 +1,7 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
 
-import type { TableProps } from '..';
+import { type TableProps } from '..';
 import Table from '..';
 import { fireEvent, render } from '../../../tests/utils';
 

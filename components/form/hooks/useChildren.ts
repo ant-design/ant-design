@@ -1,5 +1,5 @@
 import toArray from 'rc-util/lib/Children/toArray';
-import type { FormItemProps } from '../FormItem';
+import { type FormItemProps } from '../FormItem';
 
 export default function useChildren(
   children?: FormItemProps['children'],

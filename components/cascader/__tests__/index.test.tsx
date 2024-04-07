@@ -1,6 +1,6 @@
-import type { SingleValueType } from 'rc-cascader/lib/Cascader';
+import { type SingleValueType } from 'rc-cascader/lib/Cascader';
 import React from 'react';
-import type { BaseOptionType, DefaultOptionType } from '..';
+import { type BaseOptionType, type DefaultOptionType } from '..';
 import Cascader from '..';
 import excludeAllWarning from '../../../tests/shared/excludeWarning';
 import focusTest from '../../../tests/shared/focusTest';

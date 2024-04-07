@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Input, Button } from 'antd';
-import type { FormItemProps } from 'antd';
+import { type FormItemProps } from 'antd';
 
 const MyFormItemContext = React.createContext<(string | number)[]>([]);
 

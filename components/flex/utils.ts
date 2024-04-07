@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import type { FlexProps } from './interface';
+import { type FlexProps } from './interface';
 
 export const flexWrapValues = ['wrap', 'nowrap', 'wrap-reverse'] as const;
 

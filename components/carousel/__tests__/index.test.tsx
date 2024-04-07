@@ -1,5 +1,5 @@
 import React from 'react';
-import type { CarouselRef } from '..';
+import { type CarouselRef } from '..';
 import Carousel from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';

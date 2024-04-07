@@ -6,17 +6,17 @@ import omit from 'rc-util/lib/omit';
 import { groupKeysMap } from '../_util/transKeys';
 import Checkbox from '../checkbox';
 import Dropdown from '../dropdown';
-import type { MenuProps } from '../menu';
-import type {
-  KeyWiseTransferItem,
-  RenderResult,
-  RenderResultObject,
-  SelectAllLabel,
-  TransferDirection,
-  TransferLocale,
+import { type MenuProps } from '../menu';
+import {
+  type KeyWiseTransferItem,
+  type RenderResult,
+  type RenderResultObject,
+  type SelectAllLabel,
+  type TransferDirection,
+  type TransferLocale,
 } from './index';
-import type { PaginationType, TransferKey } from './interface';
-import type { ListBodyRef, TransferListBodyProps } from './ListBody';
+import { type PaginationType, type TransferKey } from './interface';
+import { type ListBodyRef, type TransferListBodyProps } from './ListBody';
 import DefaultListBody, { OmitProps } from './ListBody';
 import Search from './search';
 

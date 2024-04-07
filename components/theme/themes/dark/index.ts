@@ -1,12 +1,12 @@
 import { generate } from '@ant-design/colors';
-import type { DerivativeFunc } from '@ant-design/cssinjs';
+import { type DerivativeFunc } from '@ant-design/cssinjs';
 
-import type {
-  ColorPalettes,
-  LegacyColorPalettes,
-  MapToken,
-  PresetColorType,
-  SeedToken,
+import {
+  type ColorPalettes,
+  type LegacyColorPalettes,
+  type MapToken,
+  type PresetColorType,
+  type SeedToken,
 } from '../../interface';
 import defaultAlgorithm from '../default';
 import { defaultPresetColors } from '../seed';

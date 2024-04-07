@@ -1,5 +1,5 @@
 import React from 'react';
-import type { RadioGroupProps } from '..';
+import { type RadioGroupProps } from '..';
 import Radio, { Button } from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';

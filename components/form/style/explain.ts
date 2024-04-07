@@ -1,5 +1,5 @@
-import type { FormToken } from '.';
-import type { GenerateStyle } from '../../theme/internal';
+import { type FormToken } from '.';
+import { type GenerateStyle } from '../../theme/internal';
 
 const genFormValidateMotionStyle: GenerateStyle<FormToken> = (token) => {
   const { componentCls } = token;

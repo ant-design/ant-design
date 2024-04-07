@@ -1,17 +1,17 @@
 import * as React from 'react';
 
 import { devUseWarning } from '../../../_util/warning';
-import type {
-  ColumnsType,
-  ColumnTitleProps,
-  ColumnType,
-  FilterKey,
-  FilterValue,
-  GetPopupContainer,
-  Key,
-  SafeKey,
-  TableLocale,
-  TransformColumns,
+import {
+  type ColumnsType,
+  type ColumnTitleProps,
+  type ColumnType,
+  type FilterKey,
+  type FilterValue,
+  type GetPopupContainer,
+  type Key,
+  type SafeKey,
+  type TableLocale,
+  type TransformColumns,
 } from '../../interface';
 import { getColumnKey, getColumnPos, renderColumnTitle } from '../../util';
 import FilterDropdown, { flattenKeys } from './FilterDropdown';

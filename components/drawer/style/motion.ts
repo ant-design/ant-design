@@ -1,5 +1,5 @@
-import type { DrawerToken } from '.';
-import type { GenerateStyle } from '../../theme/internal';
+import { type DrawerToken } from '.';
+import { type GenerateStyle } from '../../theme/internal';
 
 type Direction = 'left' | 'right' | 'top' | 'bottom';
 

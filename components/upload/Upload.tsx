@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { flushSync } from 'react-dom';
 import classNames from 'classnames';
-import type { UploadProps as RcUploadProps } from 'rc-upload';
+import { type UploadProps as RcUploadProps } from 'rc-upload';
 import RcUpload from 'rc-upload';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
@@ -10,12 +10,12 @@ import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
-import type {
-  RcFile,
-  ShowUploadListInterface,
-  UploadChangeParam,
-  UploadFile,
-  UploadProps,
+import {
+  type RcFile,
+  type ShowUploadListInterface,
+  type UploadChangeParam,
+  type UploadFile,
+  type UploadProps,
 } from './interface';
 import useStyle from './style';
 import UploadList from './UploadList';

@@ -7,7 +7,7 @@ import { FormattedMessage, useRouteMeta } from 'dumi';
 import useLayoutState from '../../../hooks/useLayoutState';
 import useLocation from '../../../hooks/useLocation';
 import ComponentMeta from '../../builtins/ComponentMeta';
-import type { DemoContextProps } from '../DemoContext';
+import { type DemoContextProps } from '../DemoContext';
 import DemoContext from '../DemoContext';
 import SiteContext from '../SiteContext';
 import InViewSuspense from './InViewSuspense';

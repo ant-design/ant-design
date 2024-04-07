@@ -5,57 +5,57 @@ import useMemo from 'rc-util/lib/hooks/useMemo';
 import { merge } from 'rc-util/lib/utils/set';
 
 import warning, { WarningContext } from '../_util/warning';
-import type { WarningContextProps } from '../_util/warning';
+import { type WarningContextProps } from '../_util/warning';
 import ValidateMessagesContext from '../form/validateMessagesContext';
-import type { Locale } from '../locale';
+import { type Locale } from '../locale';
 import LocaleProvider, { ANT_MARK } from '../locale';
-import type { LocaleContextProps } from '../locale/context';
+import { type LocaleContextProps } from '../locale/context';
 import LocaleContext from '../locale/context';
 import defaultLocale from '../locale/en_US';
 import { defaultTheme, DesignTokenContext } from '../theme/context';
 import defaultSeedToken from '../theme/themes/seed';
-import type {
-  AlertConfig,
-  BadgeConfig,
-  ButtonConfig,
-  CardConfig,
-  CollapseConfig,
-  ComponentStyleConfig,
-  ConfigConsumerProps,
-  CSPConfig,
-  DirectionType,
-  DrawerConfig,
-  FlexConfig,
-  FloatButtonGroupConfig,
-  FormConfig,
-  ImageConfig,
-  InputConfig,
-  MenuConfig,
-  ModalConfig,
-  NotificationConfig,
-  PaginationConfig,
-  PopupOverflow,
-  SelectConfig,
-  SpaceConfig,
-  TableConfig,
-  TabsConfig,
-  TagConfig,
-  TextAreaConfig,
-  Theme,
-  ThemeConfig,
-  TourConfig,
-  TransferConfig,
-  WaveConfig,
+import {
+  type AlertConfig,
+  type BadgeConfig,
+  type ButtonConfig,
+  type CardConfig,
+  type CollapseConfig,
+  type ComponentStyleConfig,
+  type ConfigConsumerProps,
+  type CSPConfig,
+  type DirectionType,
+  type DrawerConfig,
+  type FlexConfig,
+  type FloatButtonGroupConfig,
+  type FormConfig,
+  type ImageConfig,
+  type InputConfig,
+  type MenuConfig,
+  type ModalConfig,
+  type NotificationConfig,
+  type PaginationConfig,
+  type PopupOverflow,
+  type SelectConfig,
+  type SpaceConfig,
+  type TableConfig,
+  type TabsConfig,
+  type TagConfig,
+  type TextAreaConfig,
+  type Theme,
+  type ThemeConfig,
+  type TourConfig,
+  type TransferConfig,
+  type WaveConfig,
 } from './context';
 import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
 import { registerTheme } from './cssVariables';
-import type { RenderEmptyHandler } from './defaultRenderEmpty';
+import { type RenderEmptyHandler } from './defaultRenderEmpty';
 import { DisabledContextProvider } from './DisabledContext';
 import useConfig from './hooks/useConfig';
 import useTheme from './hooks/useTheme';
 import MotionWrapper from './MotionWrapper';
 import PropWarning from './PropWarning';
-import type { SizeType } from './SizeContext';
+import { type SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
 import useStyle from './style';
 

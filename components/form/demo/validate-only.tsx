@@ -1,5 +1,5 @@
 import React from 'react';
-import type { FormInstance } from 'antd';
+import { type FormInstance } from 'antd';
 import { Button, Form, Input, Space } from 'antd';
 
 interface SubmitButtonProps {

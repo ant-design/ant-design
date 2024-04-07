@@ -8,7 +8,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import type { BaseButtonProps } from '../button';
+import { type BaseButtonProps } from '../button';
 
 describe('Button', () => {
   mountTest(Button);

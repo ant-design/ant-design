@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table } from 'antd';
-import type { TableColumnsType, TableProps } from 'antd';
+import { type TableColumnsType, type TableProps } from 'antd';
 
 interface DataType {
   key: React.Key;

@@ -7,7 +7,7 @@ import {
   SmileOutlined,
 } from '@ant-design/icons';
 import { Tree } from 'antd';
-import type { TreeDataNode } from 'antd';
+import { type TreeDataNode } from 'antd';
 
 const treeData: TreeDataNode[] = [
   {

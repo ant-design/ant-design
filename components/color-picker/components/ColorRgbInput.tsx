@@ -1,8 +1,8 @@
-import type { RGB } from '@rc-component/color-picker';
-import type { FC } from 'react';
+import { type RGB } from '@rc-component/color-picker';
+import { type FC } from 'react';
 import React, { useEffect, useState } from 'react';
-import type { Color } from '../color';
-import type { ColorPickerBaseProps } from '../interface';
+import { type Color } from '../color';
+import { type ColorPickerBaseProps } from '../interface';
 import { generateColor } from '../util';
 import ColorSteppers from './ColorSteppers';
 

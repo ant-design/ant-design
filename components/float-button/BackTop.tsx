@@ -6,16 +6,16 @@ import CSSMotion from 'rc-motion';
 import getScroll from '../_util/getScroll';
 import scrollTo from '../_util/scrollTo';
 import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
-import type { ConfigConsumerProps } from '../config-provider';
+import { type ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import FloatButtonGroupContext from './context';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
-import type {
-  BackTopProps,
-  FloatButtonElement,
-  FloatButtonProps,
-  FloatButtonRef,
-  FloatButtonShape,
+import {
+  type BackTopProps,
+  type FloatButtonElement,
+  type FloatButtonProps,
+  type FloatButtonRef,
+  type FloatButtonShape,
 } from './interface';
 
 const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { List } from 'rc-field-form';
-import type { StoreValue, ValidatorRule } from 'rc-field-form/lib/interface';
+import { type StoreValue, type ValidatorRule } from 'rc-field-form/lib/interface';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Tooltip, Tree } from 'antd';
-import type { TreeDataNode } from 'antd';
+import { type TreeDataNode } from 'antd';
 
 const dig = (path = '0', level = 3) => {
   const list = [];

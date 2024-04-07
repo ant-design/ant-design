@@ -1,15 +1,15 @@
 import * as React from 'react';
-import type { Dayjs } from 'dayjs';
+import { type Dayjs } from 'dayjs';
 
 import genPurePanel from '../_util/PurePanel';
-import type { InputStatus } from '../_util/statusUtils';
-import type { AnyObject } from '../_util/type';
+import { type InputStatus } from '../_util/statusUtils';
+import { type AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import DatePicker from '../date-picker';
-import type {
-  GenericTimePickerProps,
-  PickerPropsWithMultiple,
-  RangePickerProps,
+import {
+  type GenericTimePickerProps,
+  type PickerPropsWithMultiple,
+  type RangePickerProps,
 } from '../date-picker/generatePicker/interface';
 
 export type PickerTimeProps<DateType extends AnyObject> = PickerPropsWithMultiple<

@@ -1,4 +1,4 @@
-import type { SeedToken, SizeMapToken } from '../../interface';
+import { type SeedToken, type SizeMapToken } from '../../interface';
 
 export default function genSizeMapToken(token: SeedToken): SizeMapToken {
   const { sizeUnit, sizeStep } = token;

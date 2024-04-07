@@ -1,5 +1,5 @@
 import React from 'react';
-import type { PaginationProps } from 'antd';
+import { type PaginationProps } from 'antd';
 import { Pagination } from 'antd';
 
 const itemRender: PaginationProps['itemRender'] = (_, type, originalElement) => {

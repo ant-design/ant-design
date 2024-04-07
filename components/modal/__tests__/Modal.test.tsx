@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import type { ModalProps } from '..';
+import { type ModalProps } from '..';
 import Modal from '..';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';

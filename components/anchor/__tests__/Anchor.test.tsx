@@ -5,7 +5,7 @@ import scrollIntoView from 'scroll-into-view-if-needed';
 import Anchor from '..';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
-import type { AnchorDirection } from '../Anchor';
+import { type AnchorDirection } from '../Anchor';
 
 const { Link } = Anchor;
 

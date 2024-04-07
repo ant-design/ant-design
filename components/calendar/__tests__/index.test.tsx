@@ -6,7 +6,7 @@ import React from 'react';
 import MockDate from 'mockdate';
 import { type PickerPanelProps } from 'rc-picker';
 import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
-import type { Locale } from 'rc-picker/lib/interface';
+import { type Locale } from 'rc-picker/lib/interface';
 import { resetWarned } from 'rc-util/lib/warning';
 
 import Calendar from '..';

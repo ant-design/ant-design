@@ -1,11 +1,11 @@
 import React from 'react';
 
-import type { UploadFile, UploadProps } from '..';
+import { type UploadFile, type UploadProps } from '..';
 import Upload from '..';
 import { act, fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
-import type { FormInstance } from '../../form';
+import { type FormInstance } from '../../form';
 import Form from '../../form';
-import type { UploadListProps, UploadLocale } from '../interface';
+import { type UploadListProps, type UploadLocale } from '../interface';
 import UploadList from '../UploadList';
 import { previewImage } from '../utils';
 import { setup, teardown } from './mock';

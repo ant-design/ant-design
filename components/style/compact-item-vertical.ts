@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
-import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
-import type { AliasToken, FullToken } from '../theme/internal';
-import type { CSSUtil, OverrideComponent } from '../theme/util/genComponentStyleHook';
+import { type CSSInterpolation, type CSSObject } from '@ant-design/cssinjs';
+import { type AliasToken, type FullToken } from '../theme/internal';
+import { type CSSUtil, type OverrideComponent } from '../theme/util/genComponentStyleHook';
 
 function compactItemVerticalBorder(token: AliasToken & CSSUtil, parentCls: string): CSSObject {
   return {

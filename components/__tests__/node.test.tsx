@@ -2,7 +2,7 @@ import * as React from 'react';
 import { globSync } from 'glob';
 import { renderToString } from 'react-dom/server';
 
-import type { Options } from '../../tests/shared/demoTest';
+import { type Options } from '../../tests/shared/demoTest';
 
 (global as any).testConfig = {};
 

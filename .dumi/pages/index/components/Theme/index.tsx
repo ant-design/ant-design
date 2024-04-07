@@ -7,7 +7,7 @@ import {
   QuestionCircleOutlined,
 } from '@ant-design/icons';
 import { TinyColor } from '@ctrl/tinycolor';
-import type { MenuProps, ThemeConfig } from 'antd';
+import { type MenuProps, type ThemeConfig } from 'antd';
 import {
   Breadcrumb,
   Button,
@@ -22,7 +22,7 @@ import {
   Typography,
 } from 'antd';
 import { createStyles } from 'antd-style';
-import type { Color } from 'antd/es/color-picker';
+import { type Color } from 'antd/es/color-picker';
 import { generateColor } from 'antd/es/color-picker/util';
 import classNames from 'classnames';
 import { useLocation } from 'dumi';
@@ -39,7 +39,7 @@ import ColorPicker from './ColorPicker';
 import { DEFAULT_COLOR, getAvatarURL, getClosetColor, PINK_COLOR } from './colorUtil';
 import MobileCarousel from './MobileCarousel';
 import RadiusPicker from './RadiusPicker';
-import type { THEME } from './ThemePicker';
+import { type THEME } from './ThemePicker';
 import ThemePicker from './ThemePicker';
 
 const { Header, Content, Sider } = Layout;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { RadioChangeEvent } from 'antd';
+import { type RadioChangeEvent } from 'antd';
 import { Input, Radio, Space } from 'antd';
 
 const App: React.FC = () => {

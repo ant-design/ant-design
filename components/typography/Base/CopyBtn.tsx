@@ -4,7 +4,7 @@ import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CopyOutlined from '@ant-design/icons/CopyOutlined';
 import classNames from 'classnames';
 
-import type { CopyConfig } from '.';
+import { type CopyConfig } from '.';
 import TransButton from '../../_util/transButton';
 import { type Locale } from '../../locale';
 import Tooltip from '../../tooltip';

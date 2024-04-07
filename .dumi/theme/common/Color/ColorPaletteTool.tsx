@@ -1,6 +1,6 @@
 import React from 'react';
 import { ColorPicker } from 'antd';
-import type { Color } from 'antd/es/color-picker';
+import { type Color } from 'antd/es/color-picker';
 import { FormattedMessage } from 'dumi';
 
 import useLocale from '../../../hooks/useLocale';

@@ -12,7 +12,7 @@ import {
   Table,
   Tabs,
 } from 'antd';
-import type { ConfigProviderProps } from 'antd';
+import { type ConfigProviderProps } from 'antd';
 
 type SizeType = ConfigProviderProps['componentSize'];
 

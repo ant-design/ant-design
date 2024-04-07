@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { RadioChangeEvent, SelectProps } from 'antd';
+import { type RadioChangeEvent, type SelectProps } from 'antd';
 import { Button, Radio, Select, Space, Switch } from 'antd';
 
 type SelectCommonPlacement = SelectProps['placement'];

@@ -2,8 +2,8 @@ import * as React from 'react';
 import StarFilled from '@ant-design/icons/StarFilled';
 import classNames from 'classnames';
 import RcRate from 'rc-rate';
-import type { RateRef, RateProps as RcRateProps } from 'rc-rate/lib/Rate';
-import type { StarProps as RcStarProps } from 'rc-rate/lib/Star';
+import { type RateRef, type RateProps as RcRateProps } from 'rc-rate/lib/Rate';
+import { type StarProps as RcStarProps } from 'rc-rate/lib/Star';
 
 import { ConfigContext } from '../config-provider';
 import Tooltip from '../tooltip';

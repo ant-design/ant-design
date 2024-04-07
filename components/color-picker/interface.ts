@@ -1,9 +1,9 @@
-import type { CSSProperties, FC, ReactNode } from 'react';
-import type { ColorPickerProps as RcColorPickerProps } from '@rc-component/color-picker';
+import { type CSSProperties, type FC, type ReactNode } from 'react';
+import { type ColorPickerProps as RcColorPickerProps } from '@rc-component/color-picker';
 
-import type { SizeType } from '../config-provider/SizeContext';
-import type { PopoverProps } from '../popover';
-import type { Color } from './color';
+import { type SizeType } from '../config-provider/SizeContext';
+import { type PopoverProps } from '../popover';
+import { type Color } from './color';
 
 export enum ColorFormat {
   hex = 'hex',

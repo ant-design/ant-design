@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { Alert, Skeleton } from 'antd';
 import { createStyles } from 'antd-style';
-import type { IPreviewerProps } from 'dumi';
+import { type IPreviewerProps } from 'dumi';
 
 const { ErrorBoundary } = Alert;
 

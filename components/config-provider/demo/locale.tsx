@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { EllipsisOutlined } from '@ant-design/icons';
-import type {
-  ConfigProviderProps,
-  RadioChangeEvent,
-  TableProps,
-  TourProps,
-  UploadFile,
+import {
+  type ConfigProviderProps,
+  type RadioChangeEvent,
+  type TableProps,
+  type TourProps,
+  type UploadFile,
 } from 'antd';
 import {
   Button,

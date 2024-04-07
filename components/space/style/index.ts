@@ -1,4 +1,4 @@
-import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { type FullToken, type GenerateStyle, type GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genSpaceCompactStyle from './compact';
 

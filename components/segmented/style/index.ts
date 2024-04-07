@@ -1,7 +1,7 @@
-import type { CSSObject } from '@ant-design/cssinjs';
+import { type CSSObject } from '@ant-design/cssinjs';
 
 import { resetComponent, textEllipsis } from '../../style';
-import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { type FullToken, type GenerateStyle, type GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import { unit } from '@ant-design/cssinjs';
 

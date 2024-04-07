@@ -1,6 +1,6 @@
-import type { GenerateStyle } from '../../theme/internal';
+import { type GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
-import type { InputToken } from './token';
+import { type InputToken } from './token';
 import { initComponentToken, initInputToken } from './token';
 
 // =============================== OTP ================================

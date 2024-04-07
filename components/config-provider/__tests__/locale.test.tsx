@@ -3,7 +3,7 @@ import ConfigProvider from '..';
 import { act, fireEvent, render } from '../../../tests/utils';
 import DatePicker from '../../date-picker';
 import { closePicker, openPicker, selectCell } from '../../date-picker/__tests__/utils';
-import type { Locale } from '../../locale';
+import { type Locale } from '../../locale';
 import LocaleProvider from '../../locale';
 import enUS from '../../locale/en_US';
 import zhCN from '../../locale/zh_CN';

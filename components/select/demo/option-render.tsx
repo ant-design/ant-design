@@ -1,5 +1,5 @@
 import React from 'react';
-import type { SelectProps } from 'antd';
+import { type SelectProps } from 'antd';
 import { Select, Space } from 'antd';
 
 const handleChange = (value: string[]) => {

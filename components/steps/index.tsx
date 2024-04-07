@@ -2,10 +2,10 @@ import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import RcSteps from 'rc-steps';
-import type {
-  ProgressDotRender,
-  StepsProps as RcStepsProps,
-  StepIconRender,
+import {
+  type ProgressDotRender,
+  type StepsProps as RcStepsProps,
+  type StepIconRender,
 } from 'rc-steps/lib/Steps';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';

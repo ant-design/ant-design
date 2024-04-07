@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { TableRef } from '..';
+import { type TableRef } from '..';
 import Table from '..';
 import { render } from '../../../tests/utils';
 

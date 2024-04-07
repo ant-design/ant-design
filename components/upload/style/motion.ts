@@ -1,6 +1,6 @@
 import { Keyframes } from '@ant-design/cssinjs';
-import type { UploadToken } from '.';
-import type { GenerateStyle } from '../../theme/internal';
+import { type UploadToken } from '.';
+import { type GenerateStyle } from '../../theme/internal';
 import { initFadeMotion } from '../../style/motion';
 
 const uploadAnimateInlineIn = new Keyframes('uploadAnimateInlineIn', {

@@ -3,32 +3,32 @@ import { useCallback, useMemo } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import classNames from 'classnames';
 import { INTERNAL_COL_DEFINE } from 'rc-table';
-import type { FixedType } from 'rc-table/lib/interface';
-import type { DataNode, GetCheckDisabled } from 'rc-tree/lib/interface';
+import { type FixedType } from 'rc-table/lib/interface';
+import { type DataNode, type GetCheckDisabled } from 'rc-tree/lib/interface';
 import { arrAdd, arrDel } from 'rc-tree/lib/util';
 import { conductCheck } from 'rc-tree/lib/utils/conductUtil';
 import { convertDataToEntities } from 'rc-tree/lib/utils/treeUtil';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import useMultipleSelect from '../../_util/hooks/useMultipleSelect';
-import type { AnyObject } from '../../_util/type';
+import { type AnyObject } from '../../_util/type';
 import { devUseWarning } from '../../_util/warning';
-import type { CheckboxProps } from '../../checkbox';
+import { type CheckboxProps } from '../../checkbox';
 import Checkbox from '../../checkbox';
 import Dropdown from '../../dropdown';
 import Radio from '../../radio';
-import type {
-  ColumnsType,
-  ColumnType,
-  ExpandType,
-  GetPopupContainer,
-  GetRowKey,
-  Key,
-  RowSelectMethod,
-  SelectionItem,
-  TableLocale,
-  TableRowSelection,
-  TransformColumns,
+import {
+  type ColumnsType,
+  type ColumnType,
+  type ExpandType,
+  type GetPopupContainer,
+  type GetRowKey,
+  type Key,
+  type RowSelectMethod,
+  type SelectionItem,
+  type TableLocale,
+  type TableRowSelection,
+  type TransformColumns,
 } from '../interface';
 
 // TODO: warning if use ajax!!!

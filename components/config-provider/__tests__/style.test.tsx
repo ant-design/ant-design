@@ -29,7 +29,7 @@ import Layout from '../../layout';
 import List from '../../list';
 import Mentions from '../../mentions';
 import Menu from '../../menu';
-import type { MenuProps } from '../../menu';
+import { type MenuProps } from '../../menu';
 import message from '../../message';
 import Modal from '../../modal';
 import notification from '../../notification';

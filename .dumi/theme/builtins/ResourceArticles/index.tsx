@@ -6,7 +6,7 @@ import dayjs from 'dayjs';
 import { FormattedMessage } from 'dumi';
 
 import useLocale from '../../../hooks/useLocale';
-import type { Article, Authors, SiteData } from '../../../pages/index/components/util';
+import { type Article, type Authors, type SiteData } from '../../../pages/index/components/util';
 import { useSiteData } from '../../../pages/index/components/util';
 
 const useStyle = createStyles(({ token, css }) => {

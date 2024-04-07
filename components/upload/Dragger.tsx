@@ -1,7 +1,7 @@
 import * as React from 'react';
-import type { UploadRef } from './Upload';
+import { type UploadRef } from './Upload';
 import Upload from './Upload';
-import type { UploadProps } from './interface';
+import { type UploadProps } from './interface';
 
 export type DraggerProps = UploadProps & { height?: number };
 

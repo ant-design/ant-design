@@ -1,5 +1,5 @@
 import React from 'react';
-import type { DatePickerProps } from 'antd';
+import { type DatePickerProps } from 'antd';
 import { DatePicker, Space } from 'antd';
 
 const onChange: DatePickerProps['onChange'] = (date, dateString) => {

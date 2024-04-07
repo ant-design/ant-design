@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { CascaderProps } from 'antd';
+import { type CascaderProps } from 'antd';
 import {
   AutoComplete,
   Button,

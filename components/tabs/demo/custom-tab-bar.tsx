@@ -1,5 +1,5 @@
 import React from 'react';
-import type { TabsProps } from 'antd';
+import { type TabsProps } from 'antd';
 import { Tabs, theme } from 'antd';
 import StickyBox from 'react-sticky-box';
 

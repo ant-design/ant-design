@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { Dayjs } from 'dayjs';
+import { type Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
 import { Alert, Calendar } from 'antd';
 

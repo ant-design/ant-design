@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { DatePicker } from 'antd';
-import type { DatePickerProps } from 'antd';
-import type { Dayjs } from 'dayjs';
+import { type DatePickerProps } from 'antd';
+import { type Dayjs } from 'dayjs';
 
 const { RangePicker } = DatePicker;
 

@@ -7,7 +7,7 @@ import {
   SettingOutlined,
 } from '@ant-design/icons';
 import { Divider, Menu, Switch } from 'antd';
-import type { GetProp, MenuProps } from 'antd';
+import { type GetProp, type MenuProps } from 'antd';
 
 type MenuTheme = GetProp<MenuProps, 'theme'>;
 type MenuItem = GetProp<MenuProps, 'items'>[number];

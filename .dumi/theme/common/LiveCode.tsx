@@ -1,4 +1,4 @@
-import type { ComponentProps, FC } from 'react';
+import { type ComponentProps, type FC } from 'react';
 import React, { useEffect, useState } from 'react';
 import { EditFilled } from '@ant-design/icons';
 import { Tooltip } from 'antd';

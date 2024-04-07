@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import type { GetProp, GetProps, GetRef } from '../type';
+import { type GetProp, type GetProps, type GetRef } from '../type';
 
 describe('type', () => {
   class CC extends React.Component<{ bamboo?: number }> {

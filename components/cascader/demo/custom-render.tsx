@@ -1,6 +1,6 @@
 import React from 'react';
 import { Cascader } from 'antd';
-import type { CascaderProps, GetProp } from 'antd';
+import { type CascaderProps, type GetProp } from 'antd';
 
 type DefaultOptionType = GetProp<CascaderProps, 'options'>[number];
 

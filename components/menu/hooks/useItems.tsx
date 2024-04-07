@@ -1,9 +1,9 @@
 import { ItemGroup } from 'rc-menu';
-import type {
-  MenuDividerType as RcMenuDividerType,
-  MenuItemGroupType as RcMenuItemGroupType,
-  MenuItemType as RcMenuItemType,
-  SubMenuType as RcSubMenuType,
+import {
+  type MenuDividerType as RcMenuDividerType,
+  type MenuItemGroupType as RcMenuItemGroupType,
+  type MenuItemType as RcMenuItemType,
+  type SubMenuType as RcSubMenuType,
 } from 'rc-menu/lib/interface';
 import * as React from 'react';
 import MenuDivider from '../MenuDivider';

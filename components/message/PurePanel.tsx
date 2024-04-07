@@ -5,10 +5,10 @@ import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import classNames from 'classnames';
 import { Notice } from 'rc-notification';
-import type { NoticeProps } from 'rc-notification/lib/Notice';
+import { type NoticeProps } from 'rc-notification/lib/Notice';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import type { NoticeType } from './interface';
+import { type NoticeType } from './interface';
 import useStyle from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 

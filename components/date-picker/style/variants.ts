@@ -1,7 +1,7 @@
 import { unit, type CSSObject } from '@ant-design/cssinjs';
 
 import { genBorderlessStyle, genFilledStyle, genOutlinedStyle } from '../../input/style/variants';
-import type { PickerToken } from './token';
+import { type PickerToken } from './token';
 
 const genVariantsStyle = (token: PickerToken): CSSObject => {
   const { componentCls } = token;

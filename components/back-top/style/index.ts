@@ -1,7 +1,7 @@
 import { type CSSObject, unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
-import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { type FullToken, type GenerateStyle, type GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 /** Component only token. Which will handle additional calculation of alias token */

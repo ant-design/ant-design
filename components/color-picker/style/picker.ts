@@ -1,8 +1,8 @@
 import { unit, type CSSObject } from '@ant-design/cssinjs';
 
-import type { GenerateStyle } from '../../theme/internal';
+import { type GenerateStyle } from '../../theme/internal';
 import { getTransBg } from './color-block';
-import type { ColorPickerToken } from './index';
+import { type ColorPickerToken } from './index';
 
 const genPickerStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
   const {

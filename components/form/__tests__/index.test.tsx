@@ -1,11 +1,11 @@
-import type { ChangeEventHandler } from 'react';
+import { type ChangeEventHandler } from 'react';
 import React, { version as ReactVersion, useEffect, useRef, useState } from 'react';
 import { AlertFilled } from '@ant-design/icons';
-import type { ColProps } from 'antd/es/grid';
+import { type ColProps } from 'antd/es/grid';
 import classNames from 'classnames';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
-import type { FormInstance } from '..';
+import { type FormInstance } from '..';
 import Form from '..';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
@@ -28,7 +28,7 @@ import Slider from '../../slider';
 import Switch from '../../switch';
 import TreeSelect from '../../tree-select';
 import Upload from '../../upload';
-import type { NamePath } from '../interface';
+import { type NamePath } from '../interface';
 import * as Util from '../util';
 
 const { RangePicker } = DatePicker;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ConfigProvider, FloatButton, Slider } from 'antd';
-import type { ConfigProviderProps, GetProp } from 'antd';
+import { type ConfigProviderProps, type GetProp } from 'antd';
 
 type AliasToken = GetProp<ConfigProviderProps, 'theme'>['token'];
 

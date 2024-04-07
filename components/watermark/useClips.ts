@@ -1,4 +1,4 @@
-import type { WatermarkProps } from '.';
+import { type WatermarkProps } from '.';
 
 export const FontGap = 3;
 

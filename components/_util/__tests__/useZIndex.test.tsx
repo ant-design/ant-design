@@ -1,7 +1,7 @@
-import type { PropsWithChildren } from 'react';
+import { type PropsWithChildren } from 'react';
 import React, { useEffect } from 'react';
 import { render } from '@testing-library/react';
-import type { ImageProps, MenuProps } from 'antd';
+import { type ImageProps, type MenuProps } from 'antd';
 import {
   AutoComplete,
   Cascader,
@@ -21,7 +21,7 @@ import {
 } from 'antd';
 
 import { waitFakeTimer } from '../../../tests/utils';
-import type { ZIndexConsumer, ZIndexContainer } from '../hooks/useZIndex';
+import { type ZIndexConsumer, type ZIndexContainer } from '../hooks/useZIndex';
 import { consumerBaseZIndexOffset, containerBaseZIndexOffset, useZIndex } from '../hooks/useZIndex';
 import zIndexContext from '../zindexContext';
 

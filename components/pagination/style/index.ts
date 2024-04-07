@@ -1,5 +1,5 @@
 import { type CSSObject, unit } from '@ant-design/cssinjs';
-import type { SharedComponentToken, SharedInputToken } from '../../input/style/token';
+import { type SharedComponentToken, type SharedInputToken } from '../../input/style/token';
 import {
   genBasicInputStyle,
   genInputSmallStyle,
@@ -7,9 +7,9 @@ import {
   initInputToken,
 } from '../../input/style';
 import { genFocusOutline, genFocusStyle, resetComponent } from '../../style';
-import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { type FullToken, type GenerateStyle, type GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
-import type { GenStyleFn } from 'antd/es/theme/util/genComponentStyleHook';
+import { type GenStyleFn } from 'antd/es/theme/util/genComponentStyleHook';
 import { genBaseOutlinedStyle, genDisabledStyle } from '../../input/style/variants';
 
 export interface ComponentToken {

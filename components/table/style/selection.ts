@@ -1,7 +1,7 @@
 import { unit, type CSSObject } from '@ant-design/cssinjs';
 
-import type { GenerateStyle } from '../../theme/internal';
-import type { TableToken } from './index';
+import { type GenerateStyle } from '../../theme/internal';
+import { type TableToken } from './index';
 
 const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
   const {

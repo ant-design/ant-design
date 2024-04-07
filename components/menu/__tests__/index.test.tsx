@@ -7,7 +7,7 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 
-import type { MenuProps, MenuRef } from '..';
+import { type MenuProps, type MenuRef } from '..';
 import Menu from '..';
 import initCollapseMotion from '../../_util/motion';
 import { noop } from '../../_util/warning';

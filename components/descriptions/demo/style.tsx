@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Descriptions, Divider, Radio, Switch } from 'antd';
-import type { DescriptionsProps } from 'antd';
+import { type DescriptionsProps } from 'antd';
 
 const labelStyle: React.CSSProperties = { background: 'red' };
 const contentStyle: React.CSSProperties = { background: 'green' };

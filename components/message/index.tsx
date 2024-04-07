@@ -3,13 +3,13 @@ import { render } from 'rc-util/lib/React/render';
 
 import { AppConfigContext } from '../app/context';
 import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
-import type {
-  ArgsProps,
-  ConfigOptions,
-  MessageInstance,
-  MessageType,
-  NoticeType,
-  TypeOpen,
+import {
+  type ArgsProps,
+  type ConfigOptions,
+  type MessageInstance,
+  type MessageType,
+  type NoticeType,
+  type TypeOpen,
 } from './interface';
 import PurePanel from './PurePanel';
 import useMessage, { useInternalMessage } from './useMessage';

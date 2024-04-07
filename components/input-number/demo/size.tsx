@@ -1,5 +1,5 @@
 import React from 'react';
-import type { InputNumberProps } from 'antd';
+import { type InputNumberProps } from 'antd';
 import { InputNumber, Space } from 'antd';
 
 const onChange: InputNumberProps['onChange'] = (value) => {

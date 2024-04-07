@@ -1,4 +1,4 @@
-import type { FC, ReactNode } from 'react';
+import { type FC, type ReactNode } from 'react';
 import React, { Suspense } from 'react';
 import { Skeleton } from 'antd';
 import { createStyles } from 'antd-style';

@@ -1,12 +1,12 @@
-import type { Dayjs } from 'dayjs';
+import { type Dayjs } from 'dayjs';
 import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 
 import genPurePanel from '../_util/PurePanel';
 import generatePicker from './generatePicker';
-import type {
-  RangePickerProps as BaseRangePickerProps,
-  PickerProps,
-  PickerPropsWithMultiple,
+import {
+  type RangePickerProps as BaseRangePickerProps,
+  type PickerProps,
+  type PickerPropsWithMultiple,
 } from './generatePicker/interface';
 import { transPlacement2DropdownAlign } from './util';
 
@@ -50,4 +50,4 @@ const PureRangePanel = genPurePanel(DatePicker.RangePicker, 'picker', null, post
 (DatePicker as DatePickerType)._InternalRangePanelDoNotUseOrYouWillBeFired = PureRangePanel;
 (DatePicker as DatePickerType).generatePicker = generatePicker;
 
-export default (DatePicker as DatePickerType);
+export default DatePicker as DatePickerType;

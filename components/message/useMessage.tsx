@@ -1,21 +1,24 @@
 import * as React from 'react';
-import type { FC, PropsWithChildren } from 'react';
+import { type FC, type PropsWithChildren } from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import { NotificationProvider, useNotification as useRcNotification } from 'rc-notification';
-import type { NotificationAPI, NotificationConfig as RcNotificationConfig } from 'rc-notification';
+import {
+  type NotificationAPI,
+  type NotificationConfig as RcNotificationConfig,
+} from 'rc-notification';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import type { ComponentStyleConfig } from '../config-provider/context';
+import { type ComponentStyleConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import type {
-  ArgsProps,
-  ConfigOptions,
-  MessageInstance,
-  MessageType,
-  NoticeType,
-  TypeOpen,
+import {
+  type ArgsProps,
+  type ConfigOptions,
+  type MessageInstance,
+  type MessageType,
+  type NoticeType,
+  type TypeOpen,
 } from './interface';
 import { PureContent } from './PurePanel';
 import useStyle from './style';

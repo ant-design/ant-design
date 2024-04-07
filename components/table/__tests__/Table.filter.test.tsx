@@ -2,7 +2,7 @@
 /* eslint-disable react/no-multi-comp */
 import React, { useEffect, useState } from 'react';
 
-import type { ColumnGroupType, ColumnType, TableProps } from '..';
+import { type ColumnGroupType, type ColumnType, type TableProps } from '..';
 import Table from '..';
 import { resetWarned } from '../../_util/warning';
 import { act, fireEvent, render, waitFor } from '../../../tests/utils';
@@ -10,15 +10,15 @@ import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Input from '../../input';
 import Menu from '../../menu';
-import type { SelectProps } from '../../select';
+import { type SelectProps } from '../../select';
 import Select from '../../select';
 import Tooltip from '../../tooltip';
-import type {
-  ColumnFilterItem,
-  ColumnsType,
-  FilterDropdownProps,
-  FilterValue,
-  SorterResult,
+import {
+  type ColumnFilterItem,
+  type ColumnsType,
+  type FilterDropdownProps,
+  type FilterValue,
+  type SorterResult,
 } from '../interface';
 
 // https://github.com/Semantic-Org/Semantic-UI-React/blob/72c45080e4f20b531fda2e3e430e384083d6766b/test/specs/modules/Dropdown/Dropdown-test.js#L73

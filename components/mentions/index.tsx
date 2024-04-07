@@ -2,15 +2,15 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import RcMentions from 'rc-mentions';
-import type {
-  DataDrivenOptionProps as MentionsOptionProps,
-  MentionsProps as RcMentionsProps,
-  MentionsRef as RcMentionsRef,
+import {
+  type DataDrivenOptionProps as MentionsOptionProps,
+  type MentionsProps as RcMentionsProps,
+  type MentionsRef as RcMentionsRef,
 } from 'rc-mentions/lib/Mentions';
 import { composeRef } from 'rc-util/lib/ref';
 
 import genPurePanel from '../_util/PurePanel';
-import type { InputStatus } from '../_util/statusUtils';
+import { type InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
@@ -19,7 +19,7 @@ import { FormItemInputContext } from '../form/context';
 import Spin from '../spin';
 import useStyle from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import type { Variant } from '../form/hooks/useVariants';
+import { type Variant } from '../form/hooks/useVariants';
 import useVariant from '../form/hooks/useVariants';
 import getAllowClear from '../_util/getAllowClear';
 

@@ -1,8 +1,8 @@
-import type { HSB } from '@rc-component/color-picker';
-import type { FC } from 'react';
+import { type HSB } from '@rc-component/color-picker';
+import { type FC } from 'react';
 import React, { useEffect, useState } from 'react';
-import type { Color } from '../color';
-import type { ColorPickerBaseProps } from '../interface';
+import { type Color } from '../color';
+import { type ColorPickerBaseProps } from '../interface';
 import { generateColor, getRoundNumber } from '../util';
 import ColorSteppers from './ColorSteppers';
 

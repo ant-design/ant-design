@@ -10,9 +10,9 @@ import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Form from '../../form';
 import theme from '../../theme';
-import type { Color } from '../color';
+import { type Color } from '../color';
 import ColorPicker from '../ColorPicker';
-import type { ColorPickerProps, ColorValueType } from '../interface';
+import { type ColorPickerProps, type ColorValueType } from '../interface';
 import { generateColor } from '../util';
 
 function doMouseMove(

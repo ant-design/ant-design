@@ -1,8 +1,8 @@
 import { blue } from '@ant-design/colors';
 
-import type { UploadToken } from '.';
+import { type UploadToken } from '.';
 import { clearFix, textEllipsis } from '../../style';
-import type { GenerateStyle } from '../../theme/internal';
+import { type GenerateStyle } from '../../theme/internal';
 import { unit } from '@ant-design/cssinjs';
 
 const genPictureStyle: GenerateStyle<UploadToken> = (token) => {

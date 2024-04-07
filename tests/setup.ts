@@ -1,6 +1,6 @@
 /* eslint-disable no-console, import/prefer-default-export */
 import util from 'util';
-import type { DOMWindow } from 'jsdom';
+import { type DOMWindow } from 'jsdom';
 
 // import { fillWindowEnv } from './utils';
 

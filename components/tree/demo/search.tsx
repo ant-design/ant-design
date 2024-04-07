@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Input, Tree } from 'antd';
-import type { TreeDataNode } from 'antd';
+import { type TreeDataNode } from 'antd';
 
 const { Search } = Input;
 

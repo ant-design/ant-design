@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Switch, Table } from 'antd';
-import type { TableColumnsType } from 'antd';
+import { type TableColumnsType } from 'antd';
 
 interface DataType {
   key: React.Key;

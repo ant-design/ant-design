@@ -1,9 +1,9 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { Panel } from 'rc-cascader';
-import type { PickType } from 'rc-cascader/lib/Panel';
+import { type PickType } from 'rc-cascader/lib/Panel';
 
-import type { CascaderProps } from '.';
+import { type CascaderProps } from '.';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useBase from './hooks/useBase';

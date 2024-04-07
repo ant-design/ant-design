@@ -1,5 +1,5 @@
-import type { CSSObject } from '@ant-design/cssinjs';
-import type { SelectToken } from './token';
+import { type CSSObject } from '@ant-design/cssinjs';
+import { type SelectToken } from './token';
 import { unit } from '@ant-design/cssinjs';
 
 // =====================================================

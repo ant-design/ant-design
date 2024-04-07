@@ -1,7 +1,7 @@
 import { createTheme, getComputedToken } from '@ant-design/cssinjs';
 
-import type { ThemeConfig } from '../config-provider/context';
-import type { AliasToken } from './interface';
+import { type ThemeConfig } from '../config-provider/context';
+import { type AliasToken } from './interface';
 import defaultDerivative from './themes/default';
 import seedToken from './themes/seed';
 import formatToken from './util/alias';

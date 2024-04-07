@@ -1,7 +1,7 @@
 import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 import { DatePicker, Space } from 'antd';
-import type { Dayjs } from 'dayjs';
+import { type Dayjs } from 'dayjs';
 
 const smileIcon = <SmileOutlined />;
 const { RangePicker } = DatePicker;

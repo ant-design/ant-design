@@ -1,9 +1,9 @@
 import * as React from 'react';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import classNames from 'classnames';
-import type { CollapseProps as RcCollapseProps } from 'rc-collapse';
+import { type CollapseProps as RcCollapseProps } from 'rc-collapse';
 import RcCollapse from 'rc-collapse';
-import type { CSSMotionProps } from 'rc-motion';
+import { type CSSMotionProps } from 'rc-motion';
 import toArray from 'rc-util/lib/Children/toArray';
 import omit from 'rc-util/lib/omit';
 
@@ -12,8 +12,8 @@ import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
-import type { SizeType } from '../config-provider/SizeContext';
-import type { CollapsibleType } from './CollapsePanel';
+import { type SizeType } from '../config-provider/SizeContext';
+import { type CollapsibleType } from './CollapsePanel';
 import CollapsePanel from './CollapsePanel';
 import useStyle from './style';
 

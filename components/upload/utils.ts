@@ -1,4 +1,4 @@
-import type { InternalUploadFile, RcFile, UploadFile } from './interface';
+import { type InternalUploadFile, type RcFile, type UploadFile } from './interface';
 
 export function file2Obj(file: RcFile): InternalUploadFile {
   return {

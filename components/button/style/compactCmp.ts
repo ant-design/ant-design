@@ -1,9 +1,9 @@
 // Style as inline component
-import type { ButtonToken } from './token';
+import { type ButtonToken } from './token';
 import { prepareComponentToken, prepareToken } from './token';
 import { genCompactItemStyle } from '../../style/compact-item';
 import { genCompactItemVerticalStyle } from '../../style/compact-item-vertical';
-import type { GenerateStyle } from '../../theme/internal';
+import { type GenerateStyle } from '../../theme/internal';
 import { genSubStyleComponent } from '../../theme/internal';
 import { unit } from '@ant-design/cssinjs';
 

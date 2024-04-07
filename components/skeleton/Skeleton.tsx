@@ -1,16 +1,16 @@
 import classNames from 'classnames';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import type { AvatarProps } from './Avatar';
+import { type AvatarProps } from './Avatar';
 import SkeletonAvatar from './Avatar';
 import SkeletonButton from './Button';
 import Element from './Element';
 import SkeletonImage from './Image';
 import SkeletonInput from './Input';
 import SkeletonNode from './Node';
-import type { SkeletonParagraphProps } from './Paragraph';
+import { type SkeletonParagraphProps } from './Paragraph';
 import Paragraph from './Paragraph';
-import type { SkeletonTitleProps } from './Title';
+import { type SkeletonTitleProps } from './Title';
 import Title from './Title';
 
 import useStyle from './style';

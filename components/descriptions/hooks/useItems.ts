@@ -1,7 +1,7 @@
 import * as React from 'react';
 import toArray from 'rc-util/lib/Children/toArray';
 
-import type { DescriptionsItemType, InternalDescriptionsItemType } from '..';
+import { type DescriptionsItemType, type InternalDescriptionsItemType } from '..';
 import { matchScreen, type ScreenMap } from '../../_util/responsiveObserver';
 
 // Convert children into items

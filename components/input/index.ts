@@ -1,7 +1,7 @@
 import type * as React from 'react';
 
 import Group from './Group';
-import type { InputProps, InputRef } from './Input';
+import { type InputProps, type InputRef } from './Input';
 import InternalInput from './Input';
 import OTP from './OTP';
 import Password from './Password';

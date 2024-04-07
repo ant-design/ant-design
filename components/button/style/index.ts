@@ -1,11 +1,11 @@
-import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+import { type CSSInterpolation, type CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
 import { genFocusStyle } from '../../style';
-import type { GenerateStyle } from '../../theme/internal';
+import { type GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genGroupStyle from './group';
-import type { ButtonToken, ComponentToken } from './token';
+import { type ButtonToken, type ComponentToken } from './token';
 import { prepareComponentToken, prepareToken } from './token';
 
 export type { ComponentToken };

@@ -1,7 +1,7 @@
-import type { DataNode, Key } from 'rc-tree/lib/interface';
+import { type DataNode, type Key } from 'rc-tree/lib/interface';
 import { fillFieldNames } from 'rc-tree/lib/utils/treeUtil';
 
-import type { TreeProps } from '../Tree';
+import { type TreeProps } from '../Tree';
 
 enum Record {
   None,

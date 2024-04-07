@@ -3,7 +3,7 @@ import React from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, waitFakeTimer } from '../../../tests/utils';
-import type { DropdownProps } from '../dropdown';
+import { type DropdownProps } from '../dropdown';
 import DropdownButton from '../dropdown-button';
 
 let dropdownProps: DropdownProps;

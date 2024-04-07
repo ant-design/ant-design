@@ -2,7 +2,7 @@ import * as React from 'react';
 import { supportNodeRef, useComposeRef } from 'rc-util';
 
 import { NoCompactStyle } from '../space/Compact';
-import type { MenuProps } from './menu';
+import { type MenuProps } from './menu';
 
 // Used for Dropdown only
 export interface OverrideContextProps {

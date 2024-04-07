@@ -1,4 +1,4 @@
-import type { Breakpoint } from '../_util/responsiveObserver';
+import { type Breakpoint } from '../_util/responsiveObserver';
 
 const DEFAULT_COLUMN_MAP: Record<Breakpoint, number> = {
   xxl: 3,

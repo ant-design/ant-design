@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 
 /**
  * Since Select, TreeSelect, Cascader is same Select like component.

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { devUseWarning } from '../_util/warning';
-import type { BlockProps } from './Base';
+import { type BlockProps } from './Base';
 import Base from './Base';
 
 export interface LinkProps

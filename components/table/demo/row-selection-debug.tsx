@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { InputNumber, Table } from 'antd';
-import type { TableColumnsType, TableProps } from 'antd';
+import { type TableColumnsType, type TableProps } from 'antd';
 
 type TableRowSelection<T> = TableProps<T>['rowSelection'];
 

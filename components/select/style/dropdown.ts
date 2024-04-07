@@ -1,5 +1,5 @@
-import type { CSSObject } from '@ant-design/cssinjs';
-import type { SelectToken } from './token';
+import { type CSSObject } from '@ant-design/cssinjs';
+import { type SelectToken } from './token';
 import { resetComponent, textEllipsis } from '../../style';
 import {
   initMoveMotion,
@@ -9,7 +9,7 @@ import {
   slideUpIn,
   slideUpOut,
 } from '../../style/motion';
-import type { GenerateStyle } from '../../theme/internal';
+import { type GenerateStyle } from '../../theme/internal';
 
 const genItemStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
   const { optionHeight, optionFontSize, optionLineHeight, optionPadding } = token;

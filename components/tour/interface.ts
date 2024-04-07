@@ -1,7 +1,7 @@
-import type { ReactNode } from 'react';
-import type {
-  TourProps as RCTourProps,
-  TourStepProps as RCTourStepProps,
+import { type ReactNode } from 'react';
+import {
+  type TourProps as RCTourProps,
+  type TourStepProps as RCTourStepProps,
 } from '@rc-component/tour';
 
 export interface TourProps extends Omit<RCTourProps, 'renderPanel'> {

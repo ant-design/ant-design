@@ -1,9 +1,9 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import type { DrawerProps as RcDrawerProps } from 'rc-drawer';
+import { type DrawerProps as RcDrawerProps } from 'rc-drawer';
 import RcDrawer from 'rc-drawer';
-import type { Placement } from 'rc-drawer/lib/Drawer';
-import type { CSSMotionProps } from 'rc-motion';
+import { type Placement } from 'rc-drawer/lib/Drawer';
+import { type CSSMotionProps } from 'rc-motion';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
@@ -13,7 +13,7 @@ import { ConfigContext } from '../config-provider';
 import { NoFormStyle } from '../form/context';
 import { NoCompactStyle } from '../space/Compact';
 import { usePanelRef } from '../watermark/context';
-import type { DrawerClassNames, DrawerPanelProps, DrawerStyles } from './DrawerPanel';
+import { type DrawerClassNames, type DrawerPanelProps, type DrawerStyles } from './DrawerPanel';
 import DrawerPanel from './DrawerPanel';
 import useStyle from './style';
 

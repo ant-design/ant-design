@@ -5,12 +5,12 @@ import { QRCodeCanvas, QRCodeSVG } from 'qrcode.react';
 
 import { devUseWarning } from '../_util/warning';
 import Button from '../button';
-import type { ConfigConsumerProps } from '../config-provider';
+import { type ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import Spin from '../spin';
 import { useToken } from '../theme/internal';
-import type { QRCodeProps, QRProps } from './interface';
+import { type QRCodeProps, type QRProps } from './interface';
 import useStyle from './style/index';
 
 const QRCode: React.FC<QRCodeProps> = (props) => {

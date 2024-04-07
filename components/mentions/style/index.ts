@@ -1,4 +1,4 @@
-import type { SharedComponentToken, SharedInputToken } from '../../input/style/token';
+import { type SharedComponentToken, type SharedInputToken } from '../../input/style/token';
 import {
   genBasicInputStyle,
   genPlaceholderStyle,
@@ -6,7 +6,7 @@ import {
   initInputToken,
 } from '../../input/style';
 import { resetComponent, textEllipsis } from '../../style';
-import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { type FullToken, type GenerateStyle, type GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import { unit } from '@ant-design/cssinjs';
 import {

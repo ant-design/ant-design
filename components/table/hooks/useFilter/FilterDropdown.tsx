@@ -1,33 +1,33 @@
 import * as React from 'react';
 import FilterFilled from '@ant-design/icons/FilterFilled';
 import classNames from 'classnames';
-import type { FieldDataNode } from 'rc-tree';
+import { type FieldDataNode } from 'rc-tree';
 import isEqual from 'rc-util/lib/isEqual';
 
-import type { FilterState } from '.';
+import { type FilterState } from '.';
 import useSyncState from '../../../_util/hooks/useSyncState';
 import { devUseWarning } from '../../../_util/warning';
 import Button from '../../../button';
-import type { CheckboxChangeEvent } from '../../../checkbox';
+import { type CheckboxChangeEvent } from '../../../checkbox';
 import Checkbox from '../../../checkbox';
 import { ConfigContext } from '../../../config-provider/context';
 import Dropdown, { type DropdownProps } from '../../../dropdown';
 import Empty from '../../../empty';
-import type { MenuProps } from '../../../menu';
+import { type MenuProps } from '../../../menu';
 import Menu from '../../../menu';
 import { OverrideProvider } from '../../../menu/OverrideContext';
 import Radio from '../../../radio';
-import type { EventDataNode } from '../../../tree';
+import { type EventDataNode } from '../../../tree';
 import Tree from '../../../tree';
-import type {
-  ColumnFilterItem,
-  ColumnType,
-  FilterKey,
-  FilterSearchType,
-  FilterValue,
-  GetPopupContainer,
-  Key,
-  TableLocale,
+import {
+  type ColumnFilterItem,
+  type ColumnType,
+  type FilterKey,
+  type FilterSearchType,
+  type FilterValue,
+  type GetPopupContainer,
+  type Key,
+  type TableLocale,
 } from '../../interface';
 import FilterSearch from './FilterSearch';
 import FilterDropdownMenuWrapper from './FilterWrapper';
@@ -455,7 +455,9 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
             tablePrefixCls={tablePrefixCls}
             locale={locale}
           />
-          {isEmpty ? empty : (
+          {isEmpty ? (
+            empty
+          ) : (
             <Menu
               selectable
               multiple={filterMultiple}

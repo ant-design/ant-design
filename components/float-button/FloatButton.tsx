@@ -4,19 +4,19 @@ import omit from 'rc-util/lib/omit';
 
 import { devUseWarning } from '../_util/warning';
 import Badge from '../badge';
-import type { ConfigConsumerProps } from '../config-provider';
+import { type ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import Tooltip from '../tooltip';
 import FloatButtonGroupContext from './context';
 import Content from './FloatButtonContent';
-import type {
-  CompoundedComponent,
-  FloatButtonBadgeProps,
-  FloatButtonContentProps,
-  FloatButtonElement,
-  FloatButtonProps,
-  FloatButtonShape,
+import {
+  type CompoundedComponent,
+  type FloatButtonBadgeProps,
+  type FloatButtonContentProps,
+  type FloatButtonElement,
+  type FloatButtonProps,
+  type FloatButtonShape,
 } from './interface';
 import useStyle from './style';
 

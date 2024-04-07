@@ -2,8 +2,8 @@ import * as React from 'react';
 import { useIntl } from 'dumi';
 import { message } from 'antd';
 import CopyableIcon from './CopyableIcon';
-import type { ThemeType } from './index';
-import type { CategoriesKeys } from './fields';
+import { type ThemeType } from './index';
+import { type CategoriesKeys } from './fields';
 
 interface CategoryProps {
   title: CategoriesKeys;

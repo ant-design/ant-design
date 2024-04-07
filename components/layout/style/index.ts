@@ -1,6 +1,6 @@
 import { type CSSObject, unit } from '@ant-design/cssinjs';
-import type { CSSProperties } from 'react';
-import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { type CSSProperties } from 'react';
+import { type FullToken, type GenerateStyle, type GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks } from '../../theme/internal';
 import genLayoutLightStyle from './light';
 

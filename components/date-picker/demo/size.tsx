@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { ConfigProviderProps, RadioChangeEvent } from 'antd';
+import { type ConfigProviderProps, type RadioChangeEvent } from 'antd';
 import { DatePicker, Radio, Space } from 'antd';
 
 type SizeType = ConfigProviderProps['componentSize'];

@@ -9,50 +9,50 @@ import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import omit from 'rc-util/lib/omit';
 
 import useProxyImperativeHandle from '../_util/hooks/useProxyImperativeHandle';
-import type { Breakpoint } from '../_util/responsiveObserver';
+import { type Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
-import type { AnyObject } from '../_util/type';
+import { type AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
-import type { ConfigConsumerProps } from '../config-provider/context';
+import { type ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
-import type { SizeType } from '../config-provider/SizeContext';
+import { type SizeType } from '../config-provider/SizeContext';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import defaultLocale from '../locale/en_US';
 import Pagination from '../pagination';
-import type { SpinProps } from '../spin';
+import { type SpinProps } from '../spin';
 import Spin from '../spin';
 import { useToken } from '../theme/internal';
 import renderExpandIcon from './ExpandIcon';
 import useContainerWidth from './hooks/useContainerWidth';
-import type { FilterConfig, FilterState } from './hooks/useFilter';
+import { type FilterConfig, type FilterState } from './hooks/useFilter';
 import useFilter, { getFilterData } from './hooks/useFilter';
 import useLazyKVMap from './hooks/useLazyKVMap';
 import usePagination, { DEFAULT_PAGE_SIZE, getPaginationParam } from './hooks/usePagination';
 import useSelection from './hooks/useSelection';
-import type { SortState } from './hooks/useSorter';
+import { type SortState } from './hooks/useSorter';
 import useSorter, { getSortData } from './hooks/useSorter';
 import useTitleColumns from './hooks/useTitleColumns';
-import type {
-  ColumnsType,
-  ColumnTitleProps,
-  ColumnType,
-  ExpandableConfig,
-  ExpandType,
-  FilterValue,
-  GetPopupContainer,
-  GetRowKey,
-  RefInternalTable,
-  SorterResult,
-  SorterTooltipProps,
-  SortOrder,
-  TableAction,
-  TableCurrentDataSource,
-  TableLocale,
-  TablePaginationConfig,
-  TableRowSelection,
+import {
+  type ColumnsType,
+  type ColumnTitleProps,
+  type ColumnType,
+  type ExpandableConfig,
+  type ExpandType,
+  type FilterValue,
+  type GetPopupContainer,
+  type GetRowKey,
+  type RefInternalTable,
+  type SorterResult,
+  type SorterTooltipProps,
+  type SortOrder,
+  type TableAction,
+  type TableCurrentDataSource,
+  type TableLocale,
+  type TablePaginationConfig,
+  type TableRowSelection,
 } from './interface';
 import RcTable from './RcTable';
 import RcVirtualTable from './RcTable/VirtualTable';

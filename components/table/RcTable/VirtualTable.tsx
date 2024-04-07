@@ -1,5 +1,5 @@
 import { genVirtualTable } from 'rc-table';
-import type { InternalTableProps } from '../InternalTable';
+import { type InternalTableProps } from '../InternalTable';
 
 /**
  * Same as `rc-table` but we modify trigger children update logic instead.

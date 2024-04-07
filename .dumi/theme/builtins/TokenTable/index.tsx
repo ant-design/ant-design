@@ -1,6 +1,6 @@
-import type { FC } from 'react';
+import { type FC } from 'react';
 import * as React from 'react';
-import type { TableProps } from 'antd';
+import { type TableProps } from 'antd';
 import { Table } from 'antd';
 import { createStyles } from 'antd-style';
 import { getDesignToken } from 'antd-token-previewer';

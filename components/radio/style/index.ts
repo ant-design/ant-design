@@ -1,6 +1,6 @@
 import { unit } from '@ant-design/cssinjs';
 import { genFocusOutline, resetComponent } from '../../style';
-import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { type FullToken, type GenerateStyle, type GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 // ============================== Tokens ==============================

@@ -1,6 +1,6 @@
-import type { AlignType, BuildInPlacements } from '@rc-component/trigger';
+import { type AlignType, type BuildInPlacements } from '@rc-component/trigger';
 
-import type { PopupOverflow } from '../config-provider/context';
+import { type PopupOverflow } from '../config-provider/context';
 
 const getBuiltInPlacements = (popupOverflow?: PopupOverflow): Record<string, AlignType> => {
   const htmlRegion: AlignType['htmlRegion'] = popupOverflow === 'scroll' ? 'scroll' : 'visible';

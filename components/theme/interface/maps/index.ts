@@ -1,9 +1,9 @@
-import type { ColorPalettes, LegacyColorPalettes } from '../presetColors';
-import type { SeedToken } from '../seeds';
-import type { ColorMapToken } from './colors';
-import type { FontMapToken } from './font';
-import type { HeightMapToken, SizeMapToken } from './size';
-import type { StyleMapToken } from './style';
+import { type ColorPalettes, type LegacyColorPalettes } from '../presetColors';
+import { type SeedToken } from '../seeds';
+import { type ColorMapToken } from './colors';
+import { type FontMapToken } from './font';
+import { type HeightMapToken, type SizeMapToken } from './size';
+import { type StyleMapToken } from './style';
 
 export * from './colors';
 export * from './font';

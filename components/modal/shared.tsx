@@ -5,9 +5,9 @@ import { DisabledContextProvider } from '../config-provider/DisabledContext';
 import { useLocale } from '../locale';
 import NormalCancelBtn from './components/NormalCancelBtn';
 import NormalOkBtn from './components/NormalOkBtn';
-import type { ModalContextProps } from './context';
+import { type ModalContextProps } from './context';
 import { ModalContextProvider } from './context';
-import type { ModalProps } from './interface';
+import { type ModalProps } from './interface';
 import { getConfirmLocale } from './locale';
 
 export function renderCloseIcon(prefixCls: string, closeIcon?: React.ReactNode) {

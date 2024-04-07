@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { DrawerProps, RadioChangeEvent } from 'antd';
+import { type DrawerProps, type RadioChangeEvent } from 'antd';
 import { Button, Drawer, Radio, Space } from 'antd';
 
 const App: React.FC = () => {

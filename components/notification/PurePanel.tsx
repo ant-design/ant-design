@@ -7,11 +7,11 @@ import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import classNames from 'classnames';
 import { Notice } from 'rc-notification';
-import type { NoticeProps } from 'rc-notification/lib/Notice';
+import { type NoticeProps } from 'rc-notification/lib/Notice';
 
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import type { IconType } from './interface';
+import { type IconType } from './interface';
 import useStyle from './style';
 import PurePanelStyle from './style/pure-panel';
 

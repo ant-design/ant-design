@@ -1,4 +1,4 @@
-import type { MapToken } from '../../interface';
+import { type MapToken } from '../../interface';
 
 const genRadius = (
   radiusBase: number,

@@ -1,4 +1,4 @@
-import type { AnyObject } from '../../_util/type';
+import { type AnyObject } from '../../_util/type';
 
 declare const CSSINJS_STATISTIC: any;
 

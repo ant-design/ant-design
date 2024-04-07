@@ -1,9 +1,9 @@
 import classNames from 'classnames';
-import type { FC } from 'react';
+import { type FC } from 'react';
 import React, { useEffect, useState } from 'react';
-import type { InputNumberProps } from '../../input-number';
+import { type InputNumberProps } from '../../input-number';
 import InputNumber from '../../input-number';
-import type { ColorPickerBaseProps } from '../interface';
+import { type ColorPickerBaseProps } from '../interface';
 
 interface ColorSteppersProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
   value?: number;

@@ -10,7 +10,7 @@ import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Input from '../../input';
 import zhCN from '../../locale/zh_CN';
-import type { ModalFunc } from '../confirm';
+import { type ModalFunc } from '../confirm';
 
 jest.mock('rc-util/lib/Portal');
 jest.mock('rc-motion');

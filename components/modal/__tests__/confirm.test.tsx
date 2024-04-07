@@ -6,11 +6,11 @@ import KeyCode from 'rc-util/lib/KeyCode';
 import { resetWarned } from 'rc-util/lib/warning';
 import TestUtils from 'react-dom/test-utils';
 
-import type { ModalFuncProps } from '..';
+import { type ModalFuncProps } from '..';
 import Modal from '..';
 import { act, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import type { ModalFunc } from '../confirm';
+import { type ModalFunc } from '../confirm';
 import destroyFns from '../destroyFns';
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;

@@ -1,5 +1,5 @@
 /* eslint-disable default-case */
-import type { AlignType, BuildInPlacements } from '@rc-component/trigger';
+import { type AlignType, type BuildInPlacements } from '@rc-component/trigger';
 
 import { getArrowOffsetToken } from '../style/placementArrow';
 

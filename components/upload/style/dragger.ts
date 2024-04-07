@@ -1,6 +1,6 @@
 import { unit } from '@ant-design/cssinjs';
-import type { UploadToken } from '.';
-import type { GenerateStyle } from '../../theme/internal';
+import { type UploadToken } from '.';
+import { type GenerateStyle } from '../../theme/internal';
 
 const genDraggerStyle: GenerateStyle<UploadToken> = (token) => {
   const { componentCls, iconCls } = token;

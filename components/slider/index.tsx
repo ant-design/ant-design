@@ -1,13 +1,13 @@
 import React from 'react';
 import classNames from 'classnames';
-import type { SliderProps as RcSliderProps } from 'rc-slider';
+import { type SliderProps as RcSliderProps } from 'rc-slider';
 import RcSlider from 'rc-slider';
-import type { SliderRef } from 'rc-slider/lib/Slider';
+import { type SliderRef } from 'rc-slider/lib/Slider';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
-import type { AbstractTooltipProps, TooltipPlacement } from '../tooltip';
+import { type AbstractTooltipProps, type TooltipPlacement } from '../tooltip';
 import SliderTooltip from './SliderTooltip';
 import useStyle from './style';
 

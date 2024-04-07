@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import type { SkeletonElementProps } from './Element';
+import { type SkeletonElementProps } from './Element';
 import Element from './Element';
 
 import useStyle from './style';

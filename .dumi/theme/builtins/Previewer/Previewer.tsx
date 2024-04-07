@@ -1,5 +1,5 @@
 import React from 'react';
-import type { IPreviewerProps } from 'dumi';
+import { type IPreviewerProps } from 'dumi';
 import { useTabMeta } from 'dumi';
 
 import CodePreviewer from './CodePreviewer';

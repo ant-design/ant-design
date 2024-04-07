@@ -1,7 +1,7 @@
 import type React from 'react';
 
-import type { AnyObject, CustomComponent } from '../_util/type';
-import type { SizeType } from '../config-provider/SizeContext';
+import { type AnyObject, type CustomComponent } from '../_util/type';
+import { type SizeType } from '../config-provider/SizeContext';
 
 export interface FlexProps<P = AnyObject> extends React.HTMLAttributes<HTMLElement> {
   prefixCls?: string;

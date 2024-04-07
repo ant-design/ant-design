@@ -1,4 +1,4 @@
-import type { AnyObject } from './type';
+import { type AnyObject } from './type';
 
 const extendsObject = <T extends AnyObject = AnyObject>(...list: T[]) => {
   const result: AnyObject = { ...list[0] };

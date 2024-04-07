@@ -1,11 +1,11 @@
-import type {
-  CSSProperties,
-  FC,
-  ForwardRefExoticComponent,
-  ForwardRefRenderFunction,
-  HTMLAttributes,
-  ReactElement,
-  ReactNode,
+import {
+  type CSSProperties,
+  type FC,
+  type ForwardRefExoticComponent,
+  type ForwardRefRenderFunction,
+  type HTMLAttributes,
+  type ReactElement,
+  type ReactNode,
 } from 'react';
 import React, { Children, forwardRef, useContext } from 'react';
 import classNames from 'classnames';

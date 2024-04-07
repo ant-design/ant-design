@@ -1,11 +1,11 @@
 import { generate } from '@ant-design/colors';
 
-import type {
-  ColorPalettes,
-  LegacyColorPalettes,
-  MapToken,
-  PresetColorType,
-  SeedToken,
+import {
+  type ColorPalettes,
+  type LegacyColorPalettes,
+  type MapToken,
+  type PresetColorType,
+  type SeedToken,
 } from '../../interface';
 import { defaultPresetColors } from '../seed';
 import genColorMapToken from '../shared/genColorMapToken';

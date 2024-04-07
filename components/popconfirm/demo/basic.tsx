@@ -1,5 +1,5 @@
 import React from 'react';
-import type { PopconfirmProps } from 'antd';
+import { type PopconfirmProps } from 'antd';
 import { Button, message, Popconfirm } from 'antd';
 
 const confirm: PopconfirmProps['onConfirm'] = (e) => {

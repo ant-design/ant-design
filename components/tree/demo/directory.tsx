@@ -1,6 +1,6 @@
 import React from 'react';
 import { Tree } from 'antd';
-import type { GetProps, TreeDataNode } from 'antd';
+import { type GetProps, type TreeDataNode } from 'antd';
 
 type DirectoryTreeProps = GetProps<typeof Tree.DirectoryTree>;
 

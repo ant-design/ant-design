@@ -1,8 +1,8 @@
 import type * as React from 'react';
-import type { AbstractCheckboxProps } from '../checkbox/Checkbox';
-import type { AbstractCheckboxGroupProps } from '../checkbox/Group';
-import type { DisabledType } from '../config-provider/DisabledContext';
-import type { SizeType } from '../config-provider/SizeContext';
+import { type AbstractCheckboxProps } from '../checkbox/Checkbox';
+import { type AbstractCheckboxGroupProps } from '../checkbox/Group';
+import { type DisabledType } from '../config-provider/DisabledContext';
+import { type SizeType } from '../config-provider/SizeContext';
 
 export type { CheckboxRef as RadioRef } from 'rc-checkbox';
 export type RadioGroupButtonStyle = 'outline' | 'solid';

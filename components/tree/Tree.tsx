@@ -1,11 +1,11 @@
-import type { Component } from 'react';
+import { type Component } from 'react';
 import React from 'react';
 import HolderOutlined from '@ant-design/icons/HolderOutlined';
 import classNames from 'classnames';
-import type { CSSMotionProps } from 'rc-motion';
-import type { BasicDataNode, TreeProps as RcTreeProps } from 'rc-tree';
+import { type CSSMotionProps } from 'rc-motion';
+import { type BasicDataNode, type TreeProps as RcTreeProps } from 'rc-tree';
 import RcTree from 'rc-tree';
-import type { DataNode, Key } from 'rc-tree/lib/interface';
+import { type DataNode, type Key } from 'rc-tree/lib/interface';
 
 import initCollapseMotion from '../_util/motion';
 import { ConfigContext } from '../config-provider';

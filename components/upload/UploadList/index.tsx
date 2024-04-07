@@ -4,16 +4,16 @@ import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import PaperClipOutlined from '@ant-design/icons/PaperClipOutlined';
 import PictureTwoTone from '@ant-design/icons/PictureTwoTone';
 import classNames from 'classnames';
-import type { CSSMotionListProps } from 'rc-motion';
+import { type CSSMotionListProps } from 'rc-motion';
 import CSSMotion, { CSSMotionList } from 'rc-motion';
 
 import useForceUpdate from '../../_util/hooks/useForceUpdate';
 import initCollapseMotion from '../../_util/motion';
 import { cloneElement } from '../../_util/reactNode';
-import type { ButtonProps } from '../../button';
+import { type ButtonProps } from '../../button';
 import Button from '../../button';
 import { ConfigContext } from '../../config-provider';
-import type { UploadFile, UploadListProps } from '../interface';
+import { type UploadFile, type UploadListProps } from '../interface';
 import { isImageUrl, previewImage } from '../utils';
 import ListItem from './ListItem';
 

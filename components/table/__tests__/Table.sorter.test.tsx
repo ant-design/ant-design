@@ -1,10 +1,10 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
 
-import type { ColumnType, TableProps } from '..';
+import { type ColumnType, type TableProps } from '..';
 import Table from '..';
 import { act, fireEvent, render } from '../../../tests/utils';
-import type { SortOrder, TablePaginationConfig } from '../interface';
+import { type SortOrder, type TablePaginationConfig } from '../interface';
 
 describe('Table.sorter', () => {
   const sorterFn: ColumnType<any>['sorter'] = (a, b) =>

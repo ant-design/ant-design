@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '../../../tests/utils';
-import type { AntTreeNodeProps } from '../Tree';
+import { type AntTreeNodeProps } from '../Tree';
 import Tree from '../index';
 
 const { TreeNode } = Tree;

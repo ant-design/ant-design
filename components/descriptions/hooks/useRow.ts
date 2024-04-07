@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import type { InternalDescriptionsItemType } from '..';
+import { type InternalDescriptionsItemType } from '..';
 import { devUseWarning } from '../../_util/warning';
 
 function getFilledItem(

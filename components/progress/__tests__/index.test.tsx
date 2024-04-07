@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Tooltip } from 'antd';
-import type { ProgressProps } from '..';
+import { type ProgressProps } from '..';
 import Progress from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';

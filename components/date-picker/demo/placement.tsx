@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { DatePickerProps, RadioChangeEvent } from 'antd';
+import { type DatePickerProps, type RadioChangeEvent } from 'antd';
 import { DatePicker, Radio } from 'antd';
 
 const { RangePicker } = DatePicker;

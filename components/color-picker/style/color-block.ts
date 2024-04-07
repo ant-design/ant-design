@@ -1,6 +1,6 @@
 import { unit, type CSSObject } from '@ant-design/cssinjs';
 
-import type { ColorPickerToken } from './index';
+import { type ColorPickerToken } from './index';
 
 /**
  * @private Internal usage only

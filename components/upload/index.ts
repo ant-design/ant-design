@@ -1,5 +1,5 @@
 import Dragger from './Dragger';
-import type { UploadProps } from './Upload';
+import { type UploadProps } from './Upload';
 import InternalUpload, { LIST_IGNORE } from './Upload';
 
 export type { DraggerProps } from './Dragger';

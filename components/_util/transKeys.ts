@@ -1,4 +1,4 @@
-import type { TransferKey } from '../transfer/interface';
+import { type TransferKey } from '../transfer/interface';
 
 export const groupKeysMap = (keys: TransferKey[]) => {
   const map = new Map<TransferKey, number>();

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { TransferKey } from '../interface';
+import { type TransferKey } from '../interface';
 
 const EMPTY_KEYS: TransferKey[] = [];
 

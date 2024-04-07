@@ -5,7 +5,7 @@ import Tour from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, screen } from '../../../tests/utils';
-import type { TourProps } from '../interface';
+import { type TourProps } from '../interface';
 
 describe('Tour', () => {
   mountTest(Tour);

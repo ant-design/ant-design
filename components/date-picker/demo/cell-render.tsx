@@ -1,7 +1,7 @@
 import React from 'react';
-import type { DatePickerProps } from 'antd';
+import { type DatePickerProps } from 'antd';
 import { DatePicker, Space, theme } from 'antd';
-import type { Dayjs } from 'dayjs';
+import { type Dayjs } from 'dayjs';
 
 const App: React.FC = () => {
   const { token } = theme.useToken();

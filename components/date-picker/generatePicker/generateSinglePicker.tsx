@@ -4,12 +4,12 @@ import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import classNames from 'classnames';
 import RCPicker, { type PickerRef } from 'rc-picker';
-import type { GenerateConfig } from 'rc-picker/lib/generate/index';
-import type { PickerMode } from 'rc-picker/lib/interface';
+import { type GenerateConfig } from 'rc-picker/lib/generate/index';
+import { type PickerMode } from 'rc-picker/lib/interface';
 
 import { useZIndex } from '../../_util/hooks/useZIndex';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
-import type { AnyObject } from '../../_util/type';
+import { type AnyObject } from '../../_util/type';
 import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import DisabledContext from '../../config-provider/DisabledContext';
@@ -22,7 +22,11 @@ import { NoCompactStyle, useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
 import { getPlaceholder, transPlacement2DropdownAlign, useIcons } from '../util';
-import type { GenericTimePickerProps, PickerProps, PickerPropsWithMultiple } from './interface';
+import {
+  type GenericTimePickerProps,
+  type PickerProps,
+  type PickerPropsWithMultiple,
+} from './interface';
 import useComponents from './useComponents';
 
 export default function generatePicker<DateType extends AnyObject>(

@@ -1,5 +1,5 @@
 import React from 'react';
-import type { ListProps } from '..';
+import { type ListProps } from '..';
 import List from '..';
 import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';

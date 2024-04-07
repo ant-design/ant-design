@@ -1,9 +1,9 @@
-import type { CSSProperties } from 'react';
+import { type CSSProperties } from 'react';
 import { unit } from '@ant-design/cssinjs';
 
 import { resetComponent, resetIcon } from '../../style';
 import { genCollapseMotion } from '../../style/motion';
-import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { type FullToken, type GenerateStyle, type GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 /** Component only token. Which will handle additional calculation of alias token */

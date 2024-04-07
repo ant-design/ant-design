@@ -1,6 +1,6 @@
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { resetIcon } from '../../style';
-import type { CSPConfig } from '../../config-provider';
+import { type CSPConfig } from '../../config-provider';
 import useToken from '../useToken';
 
 const useResetIconStyle = (iconPrefixCls: string, csp?: CSPConfig) => {

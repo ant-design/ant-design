@@ -1,10 +1,10 @@
 import React from 'react';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
-import type { Dayjs } from 'dayjs';
+import { type Dayjs } from 'dayjs';
 import dayLocaleData from 'dayjs/plugin/localeData';
 import { Calendar, Col, Radio, Row, Select, Typography, theme } from 'antd';
-import type { CalendarProps } from 'antd';
+import { type CalendarProps } from 'antd';
 
 dayjs.extend(dayLocaleData);
 

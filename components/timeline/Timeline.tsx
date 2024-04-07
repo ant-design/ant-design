@@ -6,7 +6,7 @@ import { ConfigContext } from '../config-provider';
 // CSSINJS
 import useStyle from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import type { TimelineItemProps } from './TimelineItem';
+import { type TimelineItemProps } from './TimelineItem';
 import TimelineItem from './TimelineItem';
 import TimelineItemList from './TimelineItemList';
 import useItems from './useItems';

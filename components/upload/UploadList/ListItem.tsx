@@ -8,12 +8,12 @@ import CSSMotion from 'rc-motion';
 import { ConfigContext } from '../../config-provider';
 import Progress from '../../progress';
 import Tooltip from '../../tooltip';
-import type {
-  ItemRender,
-  UploadFile,
-  UploadListProgressProps,
-  UploadListType,
-  UploadLocale,
+import {
+  type ItemRender,
+  type UploadFile,
+  type UploadListProgressProps,
+  type UploadListType,
+  type UploadLocale,
 } from '../interface';
 
 export interface ListItemProps {

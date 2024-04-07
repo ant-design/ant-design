@@ -4,12 +4,12 @@ import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
 
-import type { RenderFunction } from '../_util/getRenderPropValue';
-import type { ButtonProps, LegacyButtonType } from '../button/button';
+import { type RenderFunction } from '../_util/getRenderPropValue';
+import { type ButtonProps, type LegacyButtonType } from '../button/button';
 import { ConfigContext } from '../config-provider';
-import type { PopoverProps } from '../popover';
+import { type PopoverProps } from '../popover';
 import Popover from '../popover';
-import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
+import { type AbstractTooltipProps, type TooltipRef } from '../tooltip';
 import PurePanel, { Overlay } from './PurePanel';
 import useStyle from './style';
 

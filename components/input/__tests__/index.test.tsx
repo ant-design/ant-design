@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { fireEvent, render } from '../../../tests/utils';
 // eslint-disable-next-line import/no-unresolved
-import type { InputProps, InputRef } from '..';
+import { type InputProps, type InputRef } from '..';
 import Input from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';

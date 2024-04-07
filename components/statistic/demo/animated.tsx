@@ -1,5 +1,5 @@
 import React from 'react';
-import type { StatisticProps } from 'antd';
+import { type StatisticProps } from 'antd';
 import { Col, Row, Statistic } from 'antd';
 import CountUp from 'react-countup';
 

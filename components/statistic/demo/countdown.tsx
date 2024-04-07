@@ -1,5 +1,5 @@
 import React from 'react';
-import type { CountdownProps } from 'antd';
+import { type CountdownProps } from 'antd';
 import { Col, Row, Statistic } from 'antd';
 
 const { Countdown } = Statistic;

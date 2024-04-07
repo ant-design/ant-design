@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { QRCodeProps } from 'antd';
+import { type QRCodeProps } from 'antd';
 import { Segmented, QRCode } from 'antd';
 
 const App: React.FC = () => {

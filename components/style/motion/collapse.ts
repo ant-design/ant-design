@@ -1,5 +1,5 @@
-import type { AliasToken, GenerateStyle } from '../../theme/internal';
-import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
+import { type AliasToken, type GenerateStyle } from '../../theme/internal';
+import { type TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
 
 const genCollapseMotion: GenerateStyle<TokenWithCommonCls<AliasToken>> = (token) => ({
   [token.componentCls]: {

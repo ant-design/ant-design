@@ -3,21 +3,21 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import PlusOutlined from '@ant-design/icons/PlusOutlined';
 import classNames from 'classnames';
-import type { TabsProps as RcTabsProps } from 'rc-tabs';
+import { type TabsProps as RcTabsProps } from 'rc-tabs';
 import RcTabs from 'rc-tabs';
-import type { GetIndicatorSize } from 'rc-tabs/lib/hooks/useIndicator';
-import type { EditableConfig } from 'rc-tabs/lib/interface';
+import { type GetIndicatorSize } from 'rc-tabs/lib/hooks/useIndicator';
+import { type EditableConfig } from 'rc-tabs/lib/interface';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
-import type { SizeType } from '../config-provider/SizeContext';
+import { type SizeType } from '../config-provider/SizeContext';
 import useAnimateConfig from './hooks/useAnimateConfig';
 import useLegacyItems from './hooks/useLegacyItems';
 import useStyle from './style';
 import TabPane from './TabPane';
-import type { TabPaneProps } from './TabPane';
+import { type TabPaneProps } from './TabPane';
 
 export type TabsType = 'line' | 'card' | 'editable-card';
 export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';

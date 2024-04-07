@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
-import type { Color } from '../color';
-import type { ColorValueType } from '../interface';
+import { type Color } from '../color';
+import { type ColorValueType } from '../interface';
 import { generateColor } from '../util';
 
 function hasValue(value?: ColorValueType) {

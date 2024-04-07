@@ -1,11 +1,12 @@
+import { createHash } from 'crypto';
 import fs from 'fs';
 import path from 'path';
-import { createHash } from 'crypto';
-import type { IApi, IRoute } from 'dumi';
-import ReactTechStack from 'dumi/dist/techStacks/react';
-import chalk from 'chalk';
-import sylvanas from 'sylvanas';
 import createEmotionServer from '@emotion/server/create-instance';
+import chalk from 'chalk';
+import { type IApi, type IRoute } from 'dumi';
+import ReactTechStack from 'dumi/dist/techStacks/react';
+import sylvanas from 'sylvanas';
+
 import localPackage from '../../package.json';
 
 function extractEmotionStyle(html: string) {

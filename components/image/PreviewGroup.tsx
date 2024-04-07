@@ -9,7 +9,7 @@ import ZoomInOutlined from '@ant-design/icons/ZoomInOutlined';
 import ZoomOutOutlined from '@ant-design/icons/ZoomOutOutlined';
 import classNames from 'classnames';
 import RcImage from 'rc-image';
-import type { GroupConsumerProps } from 'rc-image/lib/PreviewGroup';
+import { type GroupConsumerProps } from 'rc-image/lib/PreviewGroup';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { AutoComplete } from 'antd';
-import type { DefaultOptionType } from 'antd/es/select';
+import { type DefaultOptionType } from 'antd/es/select';
 
 const App: React.FC = () => {
   const [options, setOptions] = React.useState<DefaultOptionType[]>([]);

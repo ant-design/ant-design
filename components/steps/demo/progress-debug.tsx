@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { StepsProps } from 'antd';
+import { type StepsProps } from 'antd';
 import { Button, Steps, Space } from 'antd';
 
 const App: React.FC = () => {

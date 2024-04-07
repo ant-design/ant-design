@@ -1,11 +1,11 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-import type { RenderFunction } from '../_util/getRenderPropValue';
+import { type RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { getTransitionName } from '../_util/motion';
 import { ConfigContext } from '../config-provider';
-import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
+import { type AbstractTooltipProps, type TooltipRef } from '../tooltip';
 import Tooltip from '../tooltip';
 import PurePanel from './PurePanel';
 // CSSINJS

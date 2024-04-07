@@ -6,7 +6,7 @@ import Popover from '../popover';
 import { cloneElement } from '../_util/reactNode';
 import Avatar from './avatar';
 import AvatarContext from './AvatarContext';
-import type { AvatarContextType, AvatarSize } from './AvatarContext';
+import { type AvatarContextType, type AvatarSize } from './AvatarContext';
 import useStyle from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 

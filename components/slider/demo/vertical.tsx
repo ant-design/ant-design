@@ -1,6 +1,6 @@
 import React from 'react';
 import { Slider } from 'antd';
-import type { SliderSingleProps } from 'antd';
+import { type SliderSingleProps } from 'antd';
 
 const style: React.CSSProperties = {
   display: 'inline-block',

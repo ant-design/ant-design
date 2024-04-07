@@ -1,6 +1,6 @@
 import React from 'react';
 import { Select } from 'antd';
-import type { SelectProps } from 'antd';
+import { type SelectProps } from 'antd';
 
 type LabelRender = SelectProps['labelRender'];
 

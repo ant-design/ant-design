@@ -1,19 +1,22 @@
 import React, { useContext } from 'react';
-import type { FC, PropsWithChildren } from 'react';
+import { type FC, type PropsWithChildren } from 'react';
 import classNames from 'classnames';
 import { NotificationProvider, useNotification as useRcNotification } from 'rc-notification';
-import type { NotificationAPI, NotificationConfig as RcNotificationConfig } from 'rc-notification';
+import {
+  type NotificationAPI,
+  type NotificationConfig as RcNotificationConfig,
+} from 'rc-notification';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import type { NotificationConfig as CPNotificationConfig } from '../config-provider/context';
+import { type NotificationConfig as CPNotificationConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { useToken } from '../theme/internal';
-import type {
-  ArgsProps,
-  NotificationConfig,
-  NotificationInstance,
-  NotificationPlacement,
+import {
+  type ArgsProps,
+  type NotificationConfig,
+  type NotificationInstance,
+  type NotificationPlacement,
 } from './interface';
 import { getCloseIcon, PureContent } from './PurePanel';
 import useStyle from './style';

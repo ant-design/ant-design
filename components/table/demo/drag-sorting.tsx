@@ -1,4 +1,4 @@
-import type { DragEndEvent } from '@dnd-kit/core';
+import { type DragEndEvent } from '@dnd-kit/core';
 import { DndContext, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 import {
@@ -10,7 +10,7 @@ import {
 import { CSS } from '@dnd-kit/utilities';
 import React, { useState } from 'react';
 import { Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import { type ColumnsType } from 'antd/es/table';
 
 interface DataType {
   key: string;

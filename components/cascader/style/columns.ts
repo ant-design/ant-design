@@ -1,9 +1,9 @@
 import { unit, type CSSInterpolation } from '@ant-design/cssinjs';
 
-import type { CascaderToken } from '.';
+import { type CascaderToken } from '.';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 import { textEllipsis } from '../../style';
-import type { GenerateStyle } from '../../theme/internal';
+import { type GenerateStyle } from '../../theme/internal';
 
 const getColumnsStyle: GenerateStyle<CascaderToken> = (token: CascaderToken): CSSInterpolation => {
   const { prefixCls, componentCls } = token;

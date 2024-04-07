@@ -4,7 +4,7 @@ import ResizeObserver from 'rc-resize-observer';
 import omit from 'rc-util/lib/omit';
 
 import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
-import type { ConfigConsumerProps } from '../config-provider';
+import { type ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 import { getFixedBottom, getFixedTop, getTargetRect } from './utils';

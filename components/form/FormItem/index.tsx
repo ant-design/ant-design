@@ -1,8 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { Field, FieldContext, ListContext } from 'rc-field-form';
-import type { FieldProps } from 'rc-field-form/lib/Field';
-import type { InternalNamePath, Meta } from 'rc-field-form/lib/interface';
+import { type FieldProps } from 'rc-field-form/lib/Field';
+import { type InternalNamePath, type Meta } from 'rc-field-form/lib/interface';
 import useState from 'rc-util/lib/hooks/useState';
 import { supportRef } from 'rc-util/lib/ref';
 
@@ -11,16 +11,16 @@ import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 import { FormContext, NoStyleItemContext } from '../context';
-import type { FormInstance } from '../Form';
-import type { FormItemInputProps } from '../FormItemInput';
-import type { FormItemLabelProps, LabelTooltipType } from '../FormItemLabel';
+import { type FormInstance } from '../Form';
+import { type FormItemInputProps } from '../FormItemInput';
+import { type FormItemLabelProps, type LabelTooltipType } from '../FormItemLabel';
 import useChildren from '../hooks/useChildren';
 import useFormItemStatus from '../hooks/useFormItemStatus';
 import useFrameState from '../hooks/useFrameState';
 import useItemRef from '../hooks/useItemRef';
 import useStyle from '../style';
 import { getFieldId, toArray } from '../util';
-import type { ItemHolderProps } from './ItemHolder';
+import { type ItemHolderProps } from './ItemHolder';
 import ItemHolder from './ItemHolder';
 import StatusProvider from './StatusProvider';
 

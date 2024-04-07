@@ -6,7 +6,11 @@ import pickAttrs from 'rc-util/lib/pickAttrs';
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
 import { RadioGroupContextProvider } from './context';
-import type { RadioChangeEvent, RadioGroupButtonStyle, RadioGroupProps } from './interface';
+import {
+  type RadioChangeEvent,
+  type RadioGroupButtonStyle,
+  type RadioGroupProps,
+} from './interface';
 import Radio from './radio';
 import useStyle from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';

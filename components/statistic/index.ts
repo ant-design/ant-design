@@ -1,6 +1,6 @@
-import type { CountdownProps } from './Countdown';
+import { type CountdownProps } from './Countdown';
 import Countdown from './Countdown';
-import type { StatisticProps } from './Statistic';
+import { type StatisticProps } from './Statistic';
 import Statistic from './Statistic';
 
 export type { CountdownProps, StatisticProps };

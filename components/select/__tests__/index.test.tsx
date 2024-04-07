@@ -1,7 +1,7 @@
 import React from 'react';
 import { CloseOutlined } from '@ant-design/icons';
 
-import type { SelectProps } from '..';
+import { type SelectProps } from '..';
 import Select from '..';
 import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';

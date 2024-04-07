@@ -4,7 +4,7 @@ import Popover from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import type { TooltipRef } from '../../tooltip';
+import { type TooltipRef } from '../../tooltip';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPanelDoNotUseOrYouWillBeFired } = Popover;
 

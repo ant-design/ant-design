@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { MenuOutlined } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
+import { type MenuProps } from 'antd';
 import { Menu } from 'antd';
 import { createStyles, css } from 'antd-style';
 import { FormattedMessage, useFullSidebarData, useLocation } from 'dumi';
@@ -8,7 +8,7 @@ import { FormattedMessage, useFullSidebarData, useLocation } from 'dumi';
 import useLocale from '../../../hooks/useLocale';
 import Link from '../../common/Link';
 import * as utils from '../../utils';
-import type { SharedProps } from './interface';
+import { type SharedProps } from './interface';
 
 // ============================= Theme =============================
 const locales = {

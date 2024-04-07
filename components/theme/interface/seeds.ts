@@ -1,4 +1,4 @@
-import type { PresetColorType } from './presetColors';
+import { type PresetColorType } from './presetColors';
 
 // ======================================================================
 // ==                            Seed Token                            ==

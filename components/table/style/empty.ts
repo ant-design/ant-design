@@ -1,6 +1,6 @@
-import type { CSSObject } from '@ant-design/cssinjs';
-import type { GenerateStyle } from '../../theme/internal';
-import type { TableToken } from './index';
+import { type CSSObject } from '@ant-design/cssinjs';
+import { type GenerateStyle } from '../../theme/internal';
+import { type TableToken } from './index';
 
 // ========================= Placeholder ==========================
 const genEmptyStyle: GenerateStyle<TableToken, CSSObject> = (token) => {

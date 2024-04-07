@@ -6,7 +6,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 import ConfigProvider from '../../config-provider';
-import type { TooltipProps, TooltipRef } from '../../tooltip';
+import { type TooltipProps, type TooltipRef } from '../../tooltip';
 import SliderTooltip from '../SliderTooltip';
 
 function tooltipProps(): TooltipProps {

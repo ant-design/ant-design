@@ -1,13 +1,13 @@
-import type { FC } from 'react';
+import { type FC } from 'react';
 import React from 'react';
-import type { HsbaColorType } from '@rc-component/color-picker';
+import { type HsbaColorType } from '@rc-component/color-picker';
 
 import Divider from '../divider';
-import type { Color } from './color';
+import { type Color } from './color';
 import PanelPicker from './components/PanelPicker';
 import PanelPresets from './components/PanelPresets';
 import { PanelPickerProvider, PanelPresetsProvider } from './context';
-import type { ColorPickerBaseProps } from './interface';
+import { type ColorPickerBaseProps } from './interface';
 
 export interface ColorPickerPanelProps extends ColorPickerBaseProps {
   onChange?: (value?: Color, type?: HsbaColorType, pickColor?: boolean) => void;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { FormatConfig, valueType } from './utils';
+import { type FormatConfig, type valueType } from './utils';
 
 interface NumberProps extends FormatConfig {
   value: valueType;

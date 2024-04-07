@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import { type FC } from 'react';
 import React, { useRef } from 'react';
 import { CheckOutlined, SketchOutlined } from '@ant-design/icons';
 import { App } from 'antd';
@@ -6,7 +6,7 @@ import { createStyles } from 'antd-style';
 import copy from 'copy-to-clipboard';
 import { nodeToGroup } from 'html2sketch';
 
-import type { AntdPreviewerProps } from './Previewer';
+import { type AntdPreviewerProps } from './Previewer';
 
 const useStyle = createStyles(({ token, css }) => ({
   wrapper: css`

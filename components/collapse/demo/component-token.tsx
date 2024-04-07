@@ -2,7 +2,7 @@ import React from 'react';
 import { Collapse, ConfigProvider } from 'antd';
 
 /** Test usage. Do not use in your production. */
-import type { CollapseProps } from 'antd';
+import { type CollapseProps } from 'antd';
 
 const text = `Ant Design! `.repeat(26);
 

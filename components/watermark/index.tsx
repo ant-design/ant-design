@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import { useToken } from '../theme/internal';
 import WatermarkContext from './context';
-import type { WatermarkContextProps } from './context';
+import { type WatermarkContextProps } from './context';
 import useClips, { FontGap } from './useClips';
 import useRafDebounce from './useRafDebounce';
 import useWatermark from './useWatermark';
