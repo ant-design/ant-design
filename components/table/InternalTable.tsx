@@ -1,10 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import {
-  INTERNAL_HOOKS,
-  type Reference as RcReference,
-  type TableProps as RcTableProps,
-} from 'rc-table';
+import { INTERNAL_HOOKS } from 'rc-table';
+import type { Reference as RcReference, TableProps as RcTableProps } from 'rc-table';
 import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import omit from 'rc-util/lib/omit';
 
