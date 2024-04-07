@@ -14,7 +14,7 @@ import proComponentsList from './ProComponentsList';
 
 const useStyle = createStyles(({ token, css }) => ({
   componentsOverviewGroupTitle: css`
-    margin-bottom: 24px !important;
+    margin-bottom: ${token.marginLG}px !important;
   `,
   componentsOverviewTitle: css`
     overflow: hidden;
@@ -39,7 +39,7 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
   componentsOverviewAffix: css`
     display: flex;
-    transition: all 0.3s;
+    transition: all ${token.motionDurationSlow};
     justify-content: space-between;
   `,
   componentsOverviewSearch: css`
@@ -52,7 +52,7 @@ const useStyle = createStyles(({ token, css }) => ({
   componentsOverviewContent: css`
     &:empty:after {
       display: block;
-      padding: 16px 0 40px;
+      padding: ${token.padding}px 0 ${token.paddingMD * 2}px;
       color: ${token.colorTextDisabled};
       text-align: center;
       border-bottom: 1px solid ${token.colorSplit};
