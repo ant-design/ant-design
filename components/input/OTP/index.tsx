@@ -5,7 +5,6 @@ import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import { getMergedStatus } from '../../_util/statusUtils';
 import type { InputStatus } from '../../_util/statusUtils';
-import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 import useSize from '../../config-provider/hooks/useSize';
@@ -18,12 +17,6 @@ import type { InputRef } from '../Input';
 import useStyle from '../style/otp';
 import OTPInput from './OTPInput';
 import type { OTPInputProps } from './OTPInput';
-
-const isEmoji = (str: string) => {
-  const emojiReg =
-    /[\u{1F600}-\u{1F64F}]|[\u{1F300}-\u{1F5FF}]|[\u{1F680}-\u{1F6FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]|\uD83D[\uDC00-\uDE4F]|\uD83C[\uDC00-\uDFFF]|\uD83E[\uDD10-\uDDFF]/gu;
-  return emojiReg.test(str);
-};
 
 export interface OTPRef {
   focus: VoidFunction;
@@ -52,12 +45,6 @@ export interface OTPProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'on
   disabled?: boolean;
   status?: InputStatus;
 
-  /**
-   * @descCN 如果希望在 Input.OTP 输入框展示密文，可以设置 `mask` 为 `true`，或者设置为自定义的字符。
-   * @descEN If you want to display the ciphertext in the Input.OTP, you can set `mask` to `true`, or set a custom character.
-   * @default false
-   * @since 5.17.0
-   */
   mask?: boolean | string;
 }
 
@@ -81,15 +68,6 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     mask,
     ...restProps
   } = props;
-
-  if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('Input.OTP');
-    warning(
-      !(typeof mask === 'string' && !isEmoji(mask) && mask.length > 1),
-      'usage',
-      '`mask` prop should be a single character.',
-    );
-  }
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('otp', customizePrefixCls);
@@ -160,11 +138,12 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
 
     // Trigger if all cells are filled
     if (
+      onChange &&
       nextValueCells.length === length &&
       nextValueCells.every((c) => c) &&
       nextValueCells.some((c, index) => valueCells[index] !== c)
     ) {
-      onChange?.(nextValueCells.join(''));
+      onChange(nextValueCells.join(''));
     }
   });
 
