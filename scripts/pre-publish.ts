@@ -38,9 +38,14 @@ const emojify = (status: string = '') => {
 };
 
 async function downloadArtifact(url: string, filepath: string) {
-  const bar = new cliProgress.SingleBar({
-    format: `  下载中 [${chalk.cyan('{bar}')}] {percentage}% | 预计还剩: {eta}s | {value}/{total}`,
-  });
+  const bar = new cliProgress.SingleBar(
+    {
+      format: `  下载中 [${chalk.cyan(
+        '{bar}',
+      )}] {percentage}% | 预计还剩: {eta}s | {value}/{total}`,
+    },
+    cliProgress.Presets.rect,
+  );
   bar.start(1, 0);
   const response = await axios.get(url, {
     headers: {
