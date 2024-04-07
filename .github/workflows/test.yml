@@ -288,6 +288,7 @@ jobs:
           CI: 1
 
       - uses: actions/upload-artifact@v4
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         with:
           name: build artifacts
           path: |
