@@ -286,6 +286,7 @@
     "minimist": "^1.2.8",
     "mockdate": "^3.0.5",
     "node-fetch": "^3.3.2",
+    "node-notifier": "^10.0.1",
     "nprogress": "^0.2.0",
     "open": "^10.1.0",
     "ora": "^8.0.1",
