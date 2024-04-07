@@ -32,7 +32,7 @@ const genWaveStyle: GenerateStyle<WaveToken> = (token) => {
         '&.wave-quick': {
           transition: [
             `box-shadow ${token.motionDurationSlow} ${token.motionEaseInOut}`,
-            `opacity 0.35s ${token.motionEaseInOut}`,
+            `opacity ${token.motionDurationSlow} ${token.motionEaseInOut}`,
           ].join(','),
         },
       },
