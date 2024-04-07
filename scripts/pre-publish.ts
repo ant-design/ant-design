@@ -9,6 +9,7 @@ import axios from 'axios';
 import cliProgress from 'cli-progress';
 import checkRepo from './check-repo';
 
+const { Notification: Notifier } = require('node-notifier');
 const simpleGit = require('simple-git');
 
 process.on('SIGINT', () => {
@@ -37,9 +38,14 @@ const emojify = (status: string = '') => {
 };
 
 async function downloadArtifact(url: string, filepath: string) {
-  const bar = new cliProgress.SingleBar({
-    format: `  下载中 [${chalk.cyan('{bar}')}] {percentage}% | 预计还剩: {eta}s | {value}/{total}`,
-  });
+  const bar = new cliProgress.SingleBar(
+    {
+      format: `  下载中 [${chalk.cyan(
+        '{bar}',
+      )}] {percentage}% | 预计还剩: {eta}s | {value}/{total}`,
+    },
+    cliProgress.Presets.rect,
+  );
   bar.start(1, 0);
   const response = await axios.get(url, {
     headers: {
@@ -161,6 +167,12 @@ const runPrePublish = async () => {
   await runScript({ event: 'test:dekko', path: '.', stdio: 'inherit' });
   await runScript({ event: 'test:package-diff', path: '.', stdio: 'inherit' });
   spinner.succeed(`文件检查通过，准备发布！`);
+
+  new Notifier().notify({
+    title: '✅ 准备发布到 npm',
+    message: '产物已经准备好了，快回来输入 npm 校验码了！',
+    sound: 'Crystal',
+  });
   process.exit(0);
 };
 
