@@ -158,8 +158,8 @@ const runPrePublish = async () => {
   const zip = new AdmZip('artifacts.zip');
   zip.extractAllTo('./', true);
   spinner.succeed(`成功解压构建产物`);
-  await runScript({ event: 'dekko:test', path: '.', stdio: 'inherit' });
-  await runScript({ event: 'package-diff', path: '.', stdio: 'inherit' });
+  await runScript({ event: 'test:dekko', path: '.', stdio: 'inherit' });
+  await runScript({ event: 'test:package-diff', path: '.', stdio: 'inherit' });
   spinner.succeed(`文件检查通过，准备发布！`);
   process.exit(0);
 };

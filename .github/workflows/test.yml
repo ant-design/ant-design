@@ -186,7 +186,7 @@ jobs:
       # node test
       - name: node test
         if: ${{ matrix.module == 'node' }}
-        run: npm run test-node
+        run: npm run test:node
 
       # dist test
       - name: dist test

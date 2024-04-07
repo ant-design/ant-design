@@ -80,7 +80,7 @@ jobs:
         run: |
           node node_modules/puppeteer/install.mjs
           npm run version
-          npm run test-image
+          npm run test:image
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"
 
@@ -91,7 +91,7 @@ jobs:
           EVENT_NUMBER: ${{ github.event.number }}
           BASE_REF: ${{ github.base_ref }}
         run: |
-          npm run visual-regression -- --pr-id=$EVENT_NUMBER --base-ref=$BASE_REF
+          npm run test:visual-regression -- --pr-id=$EVENT_NUMBER --base-ref=$BASE_REF
 
       # Upload report in `visualRegressionReport`
       - name: upload report artifact
