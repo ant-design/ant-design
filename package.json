@@ -75,6 +75,7 @@
     "lint:md": "remark . -f -q",
     "lint:script": "eslint . --ext .js,.jsx,.ts,.tsx --cache",
     "lint:style": "tsx scripts/check-cssinjs.tsx",
+    "npm-install": "npm install",
     "prepare": "is-ci || husky && dumi setup",
     "prepublishOnly": "tsx ./scripts/pre-publish.ts",
     "prettier": "prettier -c --write **/* --cache",
