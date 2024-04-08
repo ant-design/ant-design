@@ -7,6 +7,7 @@ import Pagination from '../pagination';
 import type { PaginationType, TransferKey } from './interface';
 import type { RenderedItem, TransferListProps } from './list';
 import ListItem from './ListItem';
+import { TablePaginationConfig } from '../table';
 
 export const OmitProps = ['handleFilter', 'handleClear', 'checkedKeys'] as const;
 export type OmitProp = (typeof OmitProps)[number];
@@ -17,6 +18,7 @@ export interface TransferListBodyProps<RecordType> extends PartialTransferListPr
   filteredItems: RecordType[];
   filteredRenderItems: RenderedItem<RecordType>[];
   selectedKeys: TransferKey[];
+  setChildPagination: (pagination: TablePaginationConfig) => void;
 }
 
 const parsePagination = (pagination?: ExistPagination) => {
