@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, ConfigProvider, Space } from 'antd';
 import { TinyColor } from '@ctrl/tinycolor';
+import { Button, ConfigProvider, Space } from 'antd';
 
 const colors1 = ['#6253E1', '#04BEFE'];
 const colors2 = ['#fc6076', '#ff9a44', '#ef9d43', '#e75516'];

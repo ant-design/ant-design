@@ -2,11 +2,12 @@
 import fs from 'node:fs';
 import runScript from '@npmcli/run-script';
 import { Octokit } from '@octokit/rest';
-import ora from 'ora';
-import chalk from 'chalk';
 import AdmZip from 'adm-zip';
 import axios from 'axios';
+import chalk from 'chalk';
 import cliProgress from 'cli-progress';
+import ora from 'ora';
+
 import checkRepo from './check-repo';
 
 const { Notification: Notifier } = require('node-notifier');

@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 import React from 'react';
 import chalk from 'chalk';
-import fs from 'fs-extra';
 import cliProgress from 'cli-progress';
+import fs from 'fs-extra';
 import ReactDOMServer from 'react-dom/server';
 
 import { DesignTokenContext } from '../components/theme/internal';
