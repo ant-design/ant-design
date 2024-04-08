@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import Divider from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import { render } from '../../../tests/utils';

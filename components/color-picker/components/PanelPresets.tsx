@@ -1,5 +1,6 @@
 import type { FC } from 'react';
 import React, { useContext } from 'react';
+
 import type { Color } from '../color';
 import { PanelPresetsContext } from '../context';
 import type { ColorPickerBaseProps } from '../interface';
