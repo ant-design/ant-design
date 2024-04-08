@@ -15,6 +15,10 @@ import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 
+export interface AlertRef {
+  nativeElement: HTMLDivElement;
+}
+
 export interface AlertProps {
   /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */
   type?: 'success' | 'info' | 'warning' | 'error';
@@ -104,7 +108,7 @@ const CloseIconNode: React.FC<CloseIconProps> = (props) => {
   ) : null;
 };
 
-const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
+const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
   const {
     description,
     prefixCls: customizePrefixCls,
@@ -132,6 +136,12 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
     const warning = devUseWarning('Alert');
     warning.deprecated(!closeText, 'closeText', 'closable.closeIcon');
   }
+
+  const internalRef = React.useRef<HTMLDivElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: internalRef.current!,
+  }));
 
   const { getPrefixCls, direction, alert } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('alert', customizePrefixCls);
@@ -227,7 +237,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
       {({ className: motionClassName, style: motionStyle }) => (
         <div
           id={id}
-          ref={ref}
+          ref={internalRef}
           data-show={!closed}
           className={classNames(alertCls, motionClassName)}
           style={{ ...alert?.style, ...style, ...motionStyle }}

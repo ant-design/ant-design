@@ -9,6 +9,7 @@ import { act, render, screen } from '../../../tests/utils';
 import Button from '../../button';
 import Popconfirm from '../../popconfirm';
 import Tooltip from '../../tooltip';
+import type { AlertRef } from '../Alert';
 
 const { ErrorBoundary } = Alert;
 
@@ -193,5 +194,14 @@ describe('Alert', () => {
     expect(container.querySelector('.ant-alert-close-icon')?.textContent).toBe('close');
 
     warnSpy.mockRestore();
+  });
+
+  it('should support id and ref', () => {
+    const alertRef = React.createRef<AlertRef>();
+    const { container } = render(<Alert id="test-id" ref={alertRef} />);
+    const element = container.querySelector<HTMLDivElement>('#test-id');
+    expect(element).toBeTruthy();
+    expect(alertRef.current?.nativeElement).toBeTruthy();
+    expect(alertRef.current?.nativeElement).toBe(element);
   });
 });
