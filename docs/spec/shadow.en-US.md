@@ -26,7 +26,7 @@ Shadows are produced by two surfaces at different levels, and the intensity is d
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mXnoSI8MWuEAAAAAAAAAAABkARQnAQ" alt="height layer 1">
 </div>
 
-**Layer 2**: When an object appears at the medium level, it expands and follows the relationship with the reference layer. The object opens from elements on the ground and moves with the movement of the elements at that level. For example:  dropdown panels.
+**Layer 2**: When an object appears at the medium level, it expands and follows the relationship with the reference layer. The object opens from elements on the ground and moves with the movement of the elements at that level. For example: dropdown panels.
 
 <div>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*yNOwR6Gqy4MAAAAAAAAAAABkARQnAQ" alt="height layer 2">

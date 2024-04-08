@@ -69,7 +69,9 @@ describe('Spin', () => {
     const { container } = render(<Spin tip="Not Show" />);
     expect(container.querySelector('.ant-spin-text')).toBeFalsy();
 
-    expect(errSpy).toHaveBeenCalledWith('Warning: [antd: Spin] `tip` only work in nest or fullscreen pattern.');
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Spin] `tip` only work in nest or fullscreen pattern.',
+    );
 
     errSpy.mockRestore();
   });

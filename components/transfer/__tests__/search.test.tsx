@@ -1,5 +1,6 @@
-import { render as testLibRender } from '@testing-library/react';
 import React from 'react';
+import { render as testLibRender } from '@testing-library/react';
+
 import { fireEvent, render } from '../../../tests/utils';
 import Transfer from '../index';
 import Search from '../search';

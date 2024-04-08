@@ -4,7 +4,8 @@ import CSSMotion from 'rc-motion';
 import raf from 'rc-util/lib/raf';
 import { render, unmount } from 'rc-util/lib/React/render';
 
-import { TARGET_CLS, type ShowWaveEffect } from './interface';
+import { TARGET_CLS } from './interface';
+import type { ShowWaveEffect } from './interface';
 import { getTargetWaveColor } from './util';
 
 function validateNum(value: number) {
