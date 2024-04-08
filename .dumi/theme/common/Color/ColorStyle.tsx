@@ -1,5 +1,5 @@
 import React from 'react';
-import { Global, css } from '@emotion/react';
+import { css, Global } from '@emotion/react';
 import { useTheme } from 'antd-style';
 
 const gray: { [key: number]: string } = {
@@ -18,7 +18,7 @@ const gray: { [key: number]: string } = {
   13: '#000',
 };
 
-const ColorStyle = () => {
+const ColorStyle: React.FC = () => {
   const token = useTheme();
 
   const makePalette = (color: string, index: number = 1): string => {
@@ -68,14 +68,14 @@ ${makeGrayPalette(index + 1)}
               margin: 45px 3.5% 45px 0;
 
               &:nth-of-type(3n) {
-                margin-right: 0;
+                margin-inline-end: 0;
               }
 
               .main-color-item {
-                margin-right: 0;
+                margin-inline-end: 0;
 
                 &:hover {
-                  margin-right: -8px;
+                  margin-inline-end: -${token.paddingXS}px;
                 }
               }
             }
@@ -88,41 +88,40 @@ ${makeGrayPalette(index + 1)}
           margin: 45px 1%;
 
           &-pick {
-            margin: 0 0 20px;
-            font-size: 20px;
+            margin: 0 0 ${token.marginMD}px;
+            font-size: ${token.fontSizeXL}px;
             text-align: center;
           }
 
           &-picker {
-            margin: 24px 0;
+            margin: ${token.marginLG}px 0;
 
             &-value {
               position: relative;
               top: -3px;
-              margin-left: 16px;
-              font-size: 14px;
+              margin-inline-start: ${token.margin}px;
+              font-size: ${token.fontSize}px;
               font-family: Consolas, sans-serif;
-
               .ant-row-rtl & {
-                margin-right: 16px;
-                margin-left: 0;
+                margin-inline-end: ${token.margin}px;
+                margin-inline-start: 0;
               }
             }
 
             &-validation {
               position: relative;
               top: -3px;
-              margin-left: 16px;
+              margin-inline-start: ${token.margin}px;
               color: ${token.colorError};
-              font-size: 13px;
+              font-size: ${token.fontSize}px;
 
               .ant-row-rtl & {
-                margin-right: 16px;
-                margin-left: 0;
+                margin-inline-end: ${token.margin}px;
+                margin-inline-start: 0;
               }
 
               &-dark {
-                margin-left: 0;
+                margin-inline-start: 0;
               }
             }
           }
@@ -148,31 +147,31 @@ ${makeGrayPalette(index + 1)}
           &-item {
             position: relative;
             height: 44px;
-            margin-right: 4px;
-            padding: 0 12px;
-            font-size: 14px;
+            margin-inline-end: ${token.marginXXS}px;
+            padding: 0 ${token.paddingSM}px;
+            font-size: ${token.fontSize}px;
             font-family: Consolas, sans-serif;
             line-height: 44px;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all ${token.motionDurationMid};
 
             &:first-child {
-              border-radius: 4px 4px 0 0;
+              border-radius: ${token.borderRadiusSM}px ${token.borderRadiusSM}px 0 0;
             }
 
             &:last-child {
-              border-radius: 0 0 4px 4px;
+              border-radius: 0 0 ${token.borderRadiusSM}px ${token.borderRadiusSM}px;
             }
 
             &:hover {
-              margin-right: -8px;
-              border-radius: 0 4px 4px 0;
+              margin-inline-end: -${token.marginXS}px;
+              border-radius: 0 ${token.borderRadiusSM}px ${token.borderRadiusSM}px 0;
             }
           }
 
           &-item &-text {
             float: left;
-            transition: all 0.3s;
+            transition: all ${token.motionDurationSlow};
           }
 
           &-item &-value {
@@ -182,12 +181,12 @@ ${makeGrayPalette(index + 1)}
             transform: scale(0.85);
             transform-origin: 100% 50%;
             opacity: 0;
-            transition: all 0.3s;
+            transition: all ${token.motionDurationSlow};
           }
         }
 
         .color-title {
-          margin: 0 0 24px;
+          margin: 0 0 ${token.marginLG}px;
           color: #5c6b77;
           font-weight: 500;
           font-size: 22px;
@@ -199,7 +198,7 @@ ${makeGrayPalette(index + 1)}
           display: block;
           color: #777;
           font-weight: lighter;
-          font-size: 14px;
+          font-size: ${token.fontSize}px;
         }
 
         .main-color:hover {
@@ -215,7 +214,7 @@ ${makeGrayPalette(index + 1)}
 
           &-dark {
             height: 303px;
-            padding: 32px 28px;
+            padding: ${token.paddingXL}px ${token.paddingXL - 4}px;
             background-color: #141414;
 
             .color-palette-picker {
@@ -245,7 +244,7 @@ ${makeGrayPalette(index + 1)}
               flex: 1;
               box-sizing: border-box;
               height: 86px;
-              margin-right: 0;
+              margin-inline-end: 0;
               padding: 37px 0 0;
               line-height: normal;
               text-align: center;
@@ -258,7 +257,7 @@ ${makeGrayPalette(index + 1)}
               &:hover {
                 height: 96px;
                 margin-top: -10px;
-                border-radius: 4px 4px 0 0;
+                border-radius: ${token.borderRadiusSM}px ${token.borderRadiusSM}px 0 0;
               }
             }
 
@@ -273,7 +272,7 @@ ${makeGrayPalette(index + 1)}
 
             &:hover {
               .main-color-item {
-                padding-top: 8px;
+                padding-top: ${token.paddingXS}px;
               }
 
               .main-color-value {
