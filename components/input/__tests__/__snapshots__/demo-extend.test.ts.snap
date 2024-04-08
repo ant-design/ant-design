@@ -10364,7 +10364,11 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/input/demo/otp.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/input/demo/otp.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Input.OTP] \`mask\` prop should be a single character.",
+]
+`;
 
 exports[`renders components/input/demo/password-input.tsx extend context correctly 1`] = `
 <div
