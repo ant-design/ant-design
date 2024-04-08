@@ -3,6 +3,7 @@ import chalk from 'chalk';
 import fetch from 'isomorphic-fetch';
 import type { StatusResult } from 'simple-git';
 import simpleGit from 'simple-git';
+
 import localPackage from '../package.json';
 
 const { version } = localPackage;

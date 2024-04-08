@@ -3,9 +3,9 @@ import kebabCase from 'lodash/kebabCase';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
 
 import ConfigProvider from '..';
-import { InputNumber, Button, Select } from '../..';
-import { render } from '../../../tests/utils';
+import { Button, InputNumber, Select } from '../..';
 import { resetWarned } from '../../_util/warning';
+import { render } from '../../../tests/utils';
 import theme from '../../theme';
 import { useToken } from '../../theme/internal';
 
