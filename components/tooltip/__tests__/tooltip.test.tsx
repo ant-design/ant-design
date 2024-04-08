@@ -1,13 +1,14 @@
-import { spyElementPrototype } from 'rc-util/lib/test/domHook';
 import React from 'react';
+import { spyElementPrototype } from 'rc-util/lib/test/domHook';
 import { act } from 'react-dom/test-utils';
+
 import type { TooltipPlacement } from '..';
 import Tooltip from '..';
+import getPlacements from '../../_util/placements';
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
-import getPlacements from '../../_util/placements';
-import { resetWarned } from '../../_util/warning';
 import Button from '../../button';
 import DatePicker from '../../date-picker';
 import Input from '../../input';

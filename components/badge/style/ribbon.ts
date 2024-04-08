@@ -1,6 +1,7 @@
 import { unit } from '@ant-design/cssinjs';
 
-import { type BadgeToken, prepareComponentToken, prepareToken } from '.';
+import { prepareComponentToken, prepareToken } from '.';
+import type { BadgeToken } from '.';
 import { resetComponent } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 import { genPresetColor, genStyleHooks } from '../../theme/internal';

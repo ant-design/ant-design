@@ -2,6 +2,7 @@ import React from 'react';
 import { Flex, Input, Typography } from 'antd';
 import type { GetProp } from 'antd';
 import type { OTPProps } from 'antd/es/input/OTP';
+import { Input, Space, Typography } from 'antd';
 
 const { Title } = Typography;
 

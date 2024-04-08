@@ -1,4 +1,5 @@
-import React, { useEffect, useMemo, type ComponentProps } from 'react';
+import type { ComponentProps } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { Button, Tabs, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import toReactElement from 'jsonml-to-react-element';
@@ -120,7 +121,7 @@ const CodePreview: React.FC<CodePreviewProps> = ({
       style: Prism.highlight(styleCode, Prism.languages.css, 'css'),
     };
     // 去掉空的代码类型
-    Object.keys(codes).forEach((key: keyof typeof codes) => {
+    (Object.keys(codes) as (keyof typeof codes)[]).forEach((key) => {
       if (!codes[key]) {
         delete codes[key];
       }

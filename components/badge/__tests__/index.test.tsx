@@ -1,6 +1,7 @@
-import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
+import { fireEvent, render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
+
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import Tooltip from '../../tooltip';
