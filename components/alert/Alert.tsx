@@ -48,6 +48,8 @@ export interface AlertProps {
   onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
+
+  id?: string;
 }
 
 const iconMapFilled = {
@@ -102,7 +104,7 @@ const CloseIconNode: React.FC<CloseIconProps> = (props) => {
   ) : null;
 };
 
-const Alert: React.FC<AlertProps> = (props) => {
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
   const {
     description,
     prefixCls: customizePrefixCls,
@@ -120,6 +122,7 @@ const Alert: React.FC<AlertProps> = (props) => {
     closeText,
     closeIcon,
     action,
+    id,
     ...otherProps
   } = props;
 
@@ -130,7 +133,6 @@ const Alert: React.FC<AlertProps> = (props) => {
     warning.deprecated(!closeText, 'closeText', 'closable.closeIcon');
   }
 
-  const ref = React.useRef<HTMLDivElement>(null);
   const { getPrefixCls, direction, alert } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('alert', customizePrefixCls);
 
@@ -224,6 +226,7 @@ const Alert: React.FC<AlertProps> = (props) => {
     >
       {({ className: motionClassName, style: motionStyle }) => (
         <div
+          id={id}
           ref={ref}
           data-show={!closed}
           className={classNames(alertCls, motionClassName)}
@@ -258,7 +261,7 @@ const Alert: React.FC<AlertProps> = (props) => {
       )}
     </CSSMotion>,
   );
-};
+});
 
 if (process.env.NODE_ENV !== 'production') {
   Alert.displayName = 'Alert';

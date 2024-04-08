@@ -6,7 +6,9 @@ import ErrorBoundary from './ErrorBoundary';
 
 export type { AlertProps } from './Alert';
 
-type CompoundedComponent = React.FC<AlertProps> & {
+type CompoundedComponent = React.ForwardRefExoticComponent<
+  AlertProps & React.RefAttributes<HTMLDivElement>
+> & {
   ErrorBoundary: typeof ErrorBoundary;
 };
 
