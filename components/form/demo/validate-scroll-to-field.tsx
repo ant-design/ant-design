@@ -9,8 +9,6 @@ const App = () => {
     <Form
       form={form}
       scrollToFirstError
-      onFinish={console.log}
-      onFinishFailed={console.error}
       style={{ padding: '2rem 4rem' }}
       layout="vertical"
     >
