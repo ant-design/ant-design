@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import Tooltip from '../../tooltip';
 import type { TooltipProps } from '../../tooltip';
 

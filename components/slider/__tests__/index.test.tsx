@@ -1,10 +1,11 @@
 import React from 'react';
+
 import Slider from '..';
+import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
-import { resetWarned } from '../../_util/warning';
 import ConfigProvider from '../../config-provider';
 import type { TooltipProps, TooltipRef } from '../../tooltip';
 import SliderTooltip from '../SliderTooltip';

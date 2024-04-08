@@ -1,6 +1,7 @@
-import { render } from '@testing-library/react';
 import React from 'react';
+import { render } from '@testing-library/react';
 import { debounce } from 'throttle-debounce';
+
 import Spin from '..';
 import { waitFakeTimer } from '../../../tests/utils';
 

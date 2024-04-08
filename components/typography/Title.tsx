@@ -12,7 +12,7 @@ export interface TitleProps
       React.HTMLAttributes<HTMLHeadElement>,
       'type' | keyof BlockProps<'h1' | 'h2' | 'h3' | 'h4' | 'h5'>
     > {
-  level?: typeof TITLE_ELE_LIST[number];
+  level?: (typeof TITLE_ELE_LIST)[number];
 }
 
 const Title = React.forwardRef<HTMLElement, TitleProps>((props, ref) => {

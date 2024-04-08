@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import Drawer from '..';
 
 describe('Drawer.typescript', () => {

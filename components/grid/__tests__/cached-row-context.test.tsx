@@ -1,7 +1,8 @@
 import React, { memo, useContext } from 'react';
+
+import { fireEvent, pureRender } from '../../../tests/utils';
 import Row from '../row';
 import RowContext from '../RowContext';
-import { fireEvent, pureRender } from '../../../tests/utils';
 
 let innerCount = 0;
 let outerCount = 0;

@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import type { RouterProps } from 'react-router-dom';
 import { Link, MemoryRouter, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+
 import { fireEvent, render } from '../../../tests/utils';
 import Breadcrumb from '../index';
 
@@ -51,11 +52,11 @@ describe('react router', () => {
         </Breadcrumb.Item>,
       ].concat(extraBreadcrumbItems);
       const componentProps = useMemo<RouterProps>(
-        () => ({ component: Apps } as unknown as RouterProps),
+        () => ({ component: Apps }) as unknown as RouterProps,
         [],
       );
       const renderProps = useMemo<RouterProps>(
-        () => ({ render: () => <span>Home Page</span> } as unknown as RouterProps),
+        () => ({ render: () => <span>Home Page</span> }) as unknown as RouterProps,
         [],
       );
       return (

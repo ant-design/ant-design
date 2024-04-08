@@ -10,6 +10,8 @@ declare module '*.svg' {
 
 declare module 'rc-util*';
 
+declare module 'jsonml-to-react-element';
+
 declare module 'jsonml.js/*';
 
 declare module '*.json' {

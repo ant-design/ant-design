@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+
 import { Modal } from '../..';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';

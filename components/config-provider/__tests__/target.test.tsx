@@ -1,4 +1,5 @@
 import React from 'react';
+
 import ConfigProvider from '..';
 import { act, render } from '../../../tests/utils';
 import Affix from '../../affix';

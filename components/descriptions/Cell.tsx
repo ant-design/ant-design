@@ -1,5 +1,5 @@
-import classNames from 'classnames';
 import * as React from 'react';
+import classNames from 'classnames';
 
 function notEmpty(val: any) {
   return val !== undefined && val !== null;
