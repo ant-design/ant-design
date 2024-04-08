@@ -1,6 +1,5 @@
 import type { CSSProperties } from 'react';
 import { unit, type CSSObject } from '@ant-design/cssinjs';
-
 import { genFocusOutline, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
