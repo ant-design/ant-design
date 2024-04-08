@@ -74,7 +74,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     warning(
       !(typeof mask === 'string' && mask.length > 1),
       'usage',
-      '`mask` prop should be a single character',
+      '`mask` prop should be a single character.',
     );
   }
 
