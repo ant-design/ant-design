@@ -1,6 +1,5 @@
 import React from 'react';
-import { type MenuProps } from 'antd';
-import { Button, Dropdown, Flex } from 'antd';
+import { Button, Dropdown, Flex, type MenuProps } from 'antd';
 
 const onMenuClick: MenuProps['onClick'] = (e) => {
   console.log('click', e);

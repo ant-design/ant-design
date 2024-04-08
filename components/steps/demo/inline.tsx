@@ -1,6 +1,5 @@
 import React from 'react';
-import { type StepsProps } from 'antd';
-import { Avatar, List, Steps } from 'antd';
+import { Avatar, List, Steps, type StepsProps } from 'antd';
 
 const data = [
   {

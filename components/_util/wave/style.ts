@@ -1,5 +1,4 @@
-import { genComponentStyleHook } from '../../theme/internal';
-import { type FullToken, type GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook, type FullToken, type GenerateStyle } from '../../theme/internal';
 
 export interface ComponentToken {}
 

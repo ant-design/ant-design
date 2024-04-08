@@ -1,7 +1,6 @@
 import * as React from 'react';
 
-import { SpaceContext } from './context';
-import { type SpaceContextType } from './context';
+import { SpaceContext, type SpaceContextType } from './context';
 
 export interface ItemProps {
   className: string;

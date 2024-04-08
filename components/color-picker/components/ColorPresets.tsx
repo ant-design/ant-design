@@ -1,11 +1,9 @@
-import { type FC } from 'react';
-import React, { useMemo } from 'react';
+import React, { useMemo, type FC } from 'react';
 import { ColorBlock, Color as RcColor } from '@rc-component/color-picker';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
-import { type CollapseProps } from '../../collapse';
-import Collapse from '../../collapse';
+import Collapse, { type CollapseProps } from '../../collapse';
 import { useLocale } from '../../locale';
 import { useToken } from '../../theme/internal';
 import { type Color } from '../color';

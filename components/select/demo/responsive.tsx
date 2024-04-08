@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { type SelectProps } from 'antd';
-import { Select, Space, Tooltip } from 'antd';
+import { Select, Space, Tooltip, type SelectProps } from 'antd';
 
 interface ItemProps {
   label: string;

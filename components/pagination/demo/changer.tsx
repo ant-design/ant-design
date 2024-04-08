@@ -1,6 +1,5 @@
 import React from 'react';
-import { type PaginationProps } from 'antd';
-import { Pagination } from 'antd';
+import { Pagination, type PaginationProps } from 'antd';
 
 const onShowSizeChange: PaginationProps['onShowSizeChange'] = (current, pageSize) => {
   console.log(current, pageSize);

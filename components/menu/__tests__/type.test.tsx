@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Menu, { type MenuItemProps } from '..';
 import { type MenuItemType } from '../hooks/useItems';
 

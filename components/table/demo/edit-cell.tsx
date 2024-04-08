@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { type GetRef, type InputRef } from 'antd';
-import { Button, Form, Input, Popconfirm, Table } from 'antd';
+import { Button, Form, Input, Popconfirm, Table, type GetRef, type InputRef } from 'antd';
 
 type FormInstance<T> = GetRef<typeof Form<T>>;
 

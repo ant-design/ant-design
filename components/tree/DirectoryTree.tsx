@@ -3,15 +3,14 @@ import FileOutlined from '@ant-design/icons/FileOutlined';
 import FolderOpenOutlined from '@ant-design/icons/FolderOpenOutlined';
 import FolderOutlined from '@ant-design/icons/FolderOutlined';
 import classNames from 'classnames';
-import type RcTree from 'rc-tree';
 import { type BasicDataNode } from 'rc-tree';
+import type RcTree from 'rc-tree';
 import { type DataNode, type EventDataNode, type Key } from 'rc-tree/lib/interface';
 import { conductExpandParent } from 'rc-tree/lib/util';
 import { convertDataToEntities, convertTreeToData } from 'rc-tree/lib/utils/treeUtil';
 
 import { ConfigContext } from '../config-provider';
-import { type AntdTreeNodeAttribute, type TreeProps } from './Tree';
-import Tree from './Tree';
+import Tree, { type AntdTreeNodeAttribute, type TreeProps } from './Tree';
 import { calcRangeKeys, convertDirectoryKeysToNodes } from './utils/dictUtil';
 
 export type ExpandAction = false | 'click' | 'doubleClick';
@@ -21,7 +20,7 @@ export interface DirectoryTreeProps<T extends BasicDataNode = DataNode> extends 
 }
 
 type DirectoryTreeCompoundedComponent = (<T extends BasicDataNode | DataNode = DataNode>(
-  props: React.PropsWithChildren<DirectoryTreeProps<T>> & React.RefAttributes<RcTree>,
+  props: React.PropsWithChildren<DirectoryTreeProps<T>> & React.RefAttributes<typeof RcTree>,
 ) => React.ReactElement) &
   Pick<React.FC, 'displayName'>;
 
@@ -42,7 +41,7 @@ function getTreeData({ treeData, children }: DirectoryTreeProps) {
   return treeData || convertTreeToData(children);
 }
 
-const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> = (
+const DirectoryTree: React.ForwardRefRenderFunction<typeof RcTree, DirectoryTreeProps> = (
   { defaultExpandAll, defaultExpandParent, defaultExpandedKeys, ...props },
   ref,
 ) => {

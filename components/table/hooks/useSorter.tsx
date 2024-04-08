@@ -4,8 +4,7 @@ import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
 import classNames from 'classnames';
 import KeyCode from 'rc-util/lib/KeyCode';
 
-import { type TooltipProps } from '../../tooltip';
-import Tooltip from '../../tooltip';
+import Tooltip, { type TooltipProps } from '../../tooltip';
 import {
   type ColumnGroupType,
   type ColumnsType,

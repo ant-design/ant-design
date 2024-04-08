@@ -1,6 +1,5 @@
 import React from 'react';
-import { Table } from 'antd';
-import { type TableColumnsType, type TableProps } from 'antd';
+import { Table, type TableColumnsType, type TableProps } from 'antd';
 
 type TableRowSelection<T> = TableProps<T>['rowSelection'];
 

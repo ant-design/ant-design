@@ -1,10 +1,11 @@
 import React from 'react';
 import classNames from 'classnames';
+
 import mountTest from '../../../tests/shared/mountTest';
 import { act, fireEvent, getByText, render, waitFakeTimer } from '../../../tests/utils';
+import Checkbox from '../../checkbox';
 import Wave from '../wave';
 import { TARGET_CLS } from '../wave/interface';
-import Checkbox from '../../checkbox';
 
 (global as any).isVisible = true;
 

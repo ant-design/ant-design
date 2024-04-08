@@ -6,8 +6,7 @@ import KeyCode from 'rc-util/lib/KeyCode';
 import { resetWarned } from 'rc-util/lib/warning';
 import TestUtils from 'react-dom/test-utils';
 
-import { type ModalFuncProps } from '..';
-import Modal from '..';
+import Modal, { type ModalFuncProps } from '..';
 import { act, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import { type ModalFunc } from '../confirm';

@@ -1,8 +1,8 @@
+import React, { forwardRef, useMemo, type CSSProperties, type MouseEventHandler } from 'react';
 import { ColorBlock } from '@rc-component/color-picker';
 import classNames from 'classnames';
-import { type CSSProperties, type MouseEventHandler } from 'react';
-import React, { forwardRef, useMemo } from 'react';
-import { type ColorPickerProps, type ColorPickerBaseProps } from '../interface';
+
+import { type ColorPickerBaseProps, type ColorPickerProps } from '../interface';
 import { getAlphaColor } from '../util';
 import ColorClear from './ColorClear';
 

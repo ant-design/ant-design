@@ -6,8 +6,7 @@ import { isPresetSize, isValidGapNumber } from '../_util/gapSize';
 import { ConfigContext } from '../config-provider';
 import { type SizeType } from '../config-provider/SizeContext';
 import Compact from './Compact';
-import { SpaceContextProvider } from './context';
-import { type SpaceContextType } from './context';
+import { SpaceContextProvider, type SpaceContextType } from './context';
 import Item from './Item';
 import useStyle from './style';
 

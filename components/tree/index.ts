@@ -1,11 +1,9 @@
 import type RcTree from 'rc-tree';
-import { type BasicDataNode } from 'rc-tree';
-import { TreeNode } from 'rc-tree';
+import { TreeNode, type BasicDataNode } from 'rc-tree';
 import { type DataNode } from 'rc-tree/lib/interface';
 
 import DirectoryTree from './DirectoryTree';
-import { type TreeProps } from './Tree';
-import TreePure from './Tree';
+import TreePure, { type TreeProps } from './Tree';
 
 export type { EventDataNode } from 'rc-tree/lib/interface';
 export type {

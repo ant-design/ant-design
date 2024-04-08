@@ -2,8 +2,13 @@ import { unit } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
 import { resetComponent } from '../../style';
-import { type FullToken, type GenerateStyle, type GetDefaultToken } from '../../theme/internal';
-import { genStyleHooks, mergeToken } from '../../theme/internal';
+import {
+  genStyleHooks,
+  mergeToken,
+  type FullToken,
+  type GenerateStyle,
+  type GetDefaultToken,
+} from '../../theme/internal';
 
 export interface ComponentToken {}
 

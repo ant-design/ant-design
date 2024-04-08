@@ -1,9 +1,8 @@
 import { unit } from '@ant-design/cssinjs';
 
-import { type BadgeToken, prepareComponentToken, prepareToken } from '.';
+import { prepareComponentToken, prepareToken, type BadgeToken } from '.';
 import { resetComponent } from '../../style';
-import { type GenerateStyle } from '../../theme/internal';
-import { genPresetColor, genStyleHooks } from '../../theme/internal';
+import { genPresetColor, genStyleHooks, type GenerateStyle } from '../../theme/internal';
 
 // ============================== Ribbon ==============================
 const genRibbonStyle: GenerateStyle<BadgeToken> = (token) => {

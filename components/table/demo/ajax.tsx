@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Table } from 'antd';
-import { type GetProp, type TableProps } from 'antd';
+import { Table, type GetProp, type TableProps } from 'antd';
 import qs from 'qs';
 
 type ColumnsType<T> = TableProps<T>['columns'];

@@ -1,5 +1,4 @@
-import { type FC } from 'react';
-import React, { useContext } from 'react';
+import React, { useContext, type FC } from 'react';
 
 import Button from '../../button';
 import { ModalContext } from '../context';

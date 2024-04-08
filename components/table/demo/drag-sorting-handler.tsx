@@ -1,6 +1,6 @@
+import React, { useState } from 'react';
 import { MenuOutlined } from '@ant-design/icons';
-import { type DragEndEvent } from '@dnd-kit/core';
-import { DndContext } from '@dnd-kit/core';
+import { DndContext, type DragEndEvent } from '@dnd-kit/core';
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 import {
   arrayMove,
@@ -9,7 +9,6 @@ import {
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import React, { useState } from 'react';
 import { Table } from 'antd';
 import { type ColumnsType } from 'antd/es/table';
 

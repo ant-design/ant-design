@@ -1,6 +1,5 @@
 import React from 'react';
-import { Button, Segmented, Space, Switch, Table, Typography } from 'antd';
-import { type TableProps } from 'antd';
+import { Button, Segmented, Space, Switch, Table, Typography, type TableProps } from 'antd';
 
 interface RecordType {
   id: number;

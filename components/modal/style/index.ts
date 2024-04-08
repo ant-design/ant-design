@@ -1,12 +1,17 @@
 import type React from 'react';
+import { unit } from '@ant-design/cssinjs';
 
 import { genFocusStyle, resetComponent } from '../../style';
 import { initFadeMotion, initZoomMotion } from '../../style/motion';
 import { type GlobalToken } from '../../theme';
-import { type AliasToken, type FullToken, type GenerateStyle } from '../../theme/internal';
-import { genStyleHooks, mergeToken } from '../../theme/internal';
+import {
+  genStyleHooks,
+  mergeToken,
+  type AliasToken,
+  type FullToken,
+  type GenerateStyle,
+} from '../../theme/internal';
 import { type GenStyleFn, type TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
-import { unit } from '@ant-design/cssinjs';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {

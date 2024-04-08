@@ -1,10 +1,11 @@
-import userEvent from '@testing-library/user-event';
 import React from 'react';
+import userEvent from '@testing-library/user-event';
+
 import AutoComplete from '..';
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, screen } from '../../../tests/utils';
-import { resetWarned } from '../../_util/warning';
 import Input from '../../input';
 
 describe('AutoComplete', () => {

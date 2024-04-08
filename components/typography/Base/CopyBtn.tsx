@@ -1,7 +1,7 @@
 import * as React from 'react';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CopyOutlined from '@ant-design/icons/CopyOutlined';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import classNames from 'classnames';
 
 import { type CopyConfig } from '.';

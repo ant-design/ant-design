@@ -1,5 +1,4 @@
-import { type CSSObject } from '@ant-design/cssinjs';
-import { unit } from '@ant-design/cssinjs';
+import { unit, type CSSObject } from '@ant-design/cssinjs';
 
 import { genPlaceholderStyle, initInputToken } from '../../input/style';
 import { resetComponent, textEllipsis } from '../../style';
@@ -13,17 +12,18 @@ import {
   slideUpOut,
 } from '../../style/motion';
 import { genRoundedArrow } from '../../style/roundedArrow';
-import { type GenerateStyle } from '../../theme/internal';
-import { genStyleHooks, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken, type GenerateStyle } from '../../theme/internal';
 import genPickerMultipleStyle from './multiple';
 import genPickerPanelStyle, { genPanelStyle } from './panel';
 import {
+  initPanelComponentToken,
+  initPickerPanelToken,
+  prepareComponentToken,
   type ComponentToken,
   type PanelComponentToken,
   type PickerPanelToken,
   type PickerToken,
 } from './token';
-import { initPanelComponentToken, initPickerPanelToken, prepareComponentToken } from './token';
 import genVariantsStyle from './variants';
 
 export type { ComponentToken, PanelComponentToken, PickerPanelToken };

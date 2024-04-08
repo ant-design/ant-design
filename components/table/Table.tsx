@@ -11,8 +11,7 @@ import {
   SELECTION_NONE,
 } from './hooks/useSelection';
 import { type RefTable } from './interface';
-import { type TableProps } from './InternalTable';
-import InternalTable from './InternalTable';
+import InternalTable, { type TableProps } from './InternalTable';
 
 const Table = <RecordType extends AnyObject = AnyObject>(
   props: TableProps<RecordType>,

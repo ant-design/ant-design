@@ -1,6 +1,6 @@
 import React from 'react';
-import { type SizeType } from '../SizeContext';
-import SizeContext from '../SizeContext';
+
+import SizeContext, { type SizeType } from '../SizeContext';
 
 const useSize = <T>(customSize?: T | ((ctxSize: SizeType) => T)): T => {
   const size = React.useContext<SizeType>(SizeContext);

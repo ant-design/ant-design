@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 import React from 'react';
 import { CarryOutOutlined } from '@ant-design/icons';
-import { type TreeDataNode, type TreeProps } from 'antd';
-import { Switch, Tree } from 'antd';
+import { Switch, Tree, type TreeDataNode, type TreeProps } from 'antd';
 
 const x = 3;
 const y = 2;

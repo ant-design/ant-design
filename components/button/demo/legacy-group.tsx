@@ -1,7 +1,6 @@
 import React from 'react';
 import { DownloadOutlined } from '@ant-design/icons';
-import { Button, Tooltip } from 'antd';
-import { type GetProps } from 'antd';
+import { Button, Tooltip, type GetProps } from 'antd';
 
 type ButtonGroupProps = GetProps<typeof Button.Group>;
 

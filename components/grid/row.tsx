@@ -1,11 +1,13 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-import { type Breakpoint, type ScreenMap } from '../_util/responsiveObserver';
-import useResponsiveObserver, { responsiveArray } from '../_util/responsiveObserver';
+import useResponsiveObserver, {
+  responsiveArray,
+  type Breakpoint,
+  type ScreenMap,
+} from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
-import RowContext from './RowContext';
-import { type RowContextState } from './RowContext';
+import RowContext, { type RowContextState } from './RowContext';
 import { useRowStyle } from './style';
 
 const RowAligns = ['top', 'middle', 'bottom', 'stretch'] as const;

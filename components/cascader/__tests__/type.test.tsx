@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { type BaseOptionType } from '..';
-import Cascader from '..';
+
+import Cascader, { type BaseOptionType } from '..';
 import { render } from '../../../tests/utils';
 
 describe('Cascader.typescript', () => {

@@ -1,8 +1,7 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
 
-import { type ColumnType, type TableProps } from '..';
-import Table from '..';
+import Table, { type ColumnType, type TableProps } from '..';
 import { act, fireEvent, render } from '../../../tests/utils';
 import { type SortOrder, type TablePaginationConfig } from '../interface';
 

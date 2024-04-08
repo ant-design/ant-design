@@ -1,13 +1,13 @@
-import { type SingleValueType } from 'rc-cascader/lib/Cascader';
 import React from 'react';
-import { type BaseOptionType, type DefaultOptionType } from '..';
-import Cascader from '..';
+import { type SingleValueType } from 'rc-cascader/lib/Cascader';
+
+import Cascader, { type BaseOptionType, type DefaultOptionType } from '..';
+import { resetWarned } from '../../_util/warning';
 import excludeAllWarning from '../../../tests/shared/excludeWarning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
-import { resetWarned } from '../../_util/warning';
 import ConfigProvider from '../../config-provider';
 
 const { SHOW_CHILD, SHOW_PARENT } = Cascader;

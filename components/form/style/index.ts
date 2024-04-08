@@ -1,16 +1,16 @@
 import { type CSSProperties } from 'react';
-import { type CSSObject } from '@ant-design/cssinjs';
-import { unit } from '@ant-design/cssinjs';
+import { unit, type CSSObject } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
 import { genCollapseMotion, zoomIn } from '../../style/motion';
 import {
+  genStyleHooks,
+  mergeToken,
   type AliasToken,
   type FullToken,
   type GenerateStyle,
   type GetDefaultToken,
 } from '../../theme/internal';
-import { genStyleHooks, mergeToken } from '../../theme/internal';
 import { type GenStyleFn } from '../../theme/util/genComponentStyleHook';
 import genFormValidateMotionStyle from './explain';
 

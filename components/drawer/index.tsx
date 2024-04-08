@@ -1,7 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { type DrawerProps as RcDrawerProps } from 'rc-drawer';
-import RcDrawer from 'rc-drawer';
+import RcDrawer, { type DrawerProps as RcDrawerProps } from 'rc-drawer';
 import { type Placement } from 'rc-drawer/lib/Drawer';
 import { type CSSMotionProps } from 'rc-motion';
 
@@ -13,8 +12,11 @@ import { ConfigContext } from '../config-provider';
 import { NoFormStyle } from '../form/context';
 import { NoCompactStyle } from '../space/Compact';
 import { usePanelRef } from '../watermark/context';
-import { type DrawerClassNames, type DrawerPanelProps, type DrawerStyles } from './DrawerPanel';
-import DrawerPanel from './DrawerPanel';
+import DrawerPanel, {
+  type DrawerClassNames,
+  type DrawerPanelProps,
+  type DrawerStyles,
+} from './DrawerPanel';
 import useStyle from './style';
 
 const SizeTypes = ['default', 'large'] as const;

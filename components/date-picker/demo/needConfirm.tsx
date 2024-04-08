@@ -1,6 +1,5 @@
 import React from 'react';
-import { type DatePickerProps } from 'antd';
-import { DatePicker, Space } from 'antd';
+import { DatePicker, Space, type DatePickerProps } from 'antd';
 import { type Dayjs } from 'dayjs';
 
 const onChange: DatePickerProps<Dayjs[]>['onChange'] = (date, dateString) => {

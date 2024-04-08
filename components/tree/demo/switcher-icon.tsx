@@ -1,7 +1,6 @@
 import React from 'react';
 import { DownOutlined } from '@ant-design/icons';
-import { Tree } from 'antd';
-import { type TreeDataNode, type TreeProps } from 'antd';
+import { Tree, type TreeDataNode, type TreeProps } from 'antd';
 
 const treeData: TreeDataNode[] = [
   {

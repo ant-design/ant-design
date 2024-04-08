@@ -1,7 +1,7 @@
-import { type CSSObject } from '@ant-design/cssinjs';
-import { unit } from '@ant-design/cssinjs';
-import { type InputToken } from './token';
+import { unit, type CSSObject } from '@ant-design/cssinjs';
+
 import { mergeToken } from '../../theme/internal';
+import { type InputToken } from './token';
 
 export const genHoverStyle = (token: InputToken): CSSObject => ({
   borderColor: token.hoverBorderColor,

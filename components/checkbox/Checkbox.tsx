@@ -1,7 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { type CheckboxRef } from 'rc-checkbox';
-import RcCheckbox from 'rc-checkbox';
+import RcCheckbox, { type CheckboxRef } from 'rc-checkbox';
 
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';

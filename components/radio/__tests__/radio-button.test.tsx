@@ -1,10 +1,9 @@
 import React from 'react';
-import { type RadioGroupProps } from '..';
-import Radio, { Button } from '..';
+
+import Radio, { Button, type RadioGroupProps } from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-
 import { fireEvent, render } from '../../../tests/utils';
 
 describe('Radio Button', () => {

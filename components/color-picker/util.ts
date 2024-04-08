@@ -1,6 +1,6 @@
 import { type ColorGenInput } from '@rc-component/color-picker';
-import { type Color } from './color';
-import { ColorFactory } from './color';
+
+import { ColorFactory, type Color } from './color';
 
 export const generateColor = (color: ColorGenInput<Color>): Color => {
   if (color instanceof ColorFactory) {

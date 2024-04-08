@@ -3,11 +3,10 @@ import classNames from 'classnames';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 // CSSINJS
 import useStyle from './style';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import { type TimelineItemProps } from './TimelineItem';
-import TimelineItem from './TimelineItem';
+import TimelineItem, { type TimelineItemProps } from './TimelineItem';
 import TimelineItemList from './TimelineItemList';
 import useItems from './useItems';
 

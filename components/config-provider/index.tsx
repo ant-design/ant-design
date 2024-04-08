@@ -4,17 +4,17 @@ import IconContext from '@ant-design/icons/lib/components/Context';
 import useMemo from 'rc-util/lib/hooks/useMemo';
 import { merge } from 'rc-util/lib/utils/set';
 
-import warning, { WarningContext } from '../_util/warning';
-import { type WarningContextProps } from '../_util/warning';
+import warning, { WarningContext, type WarningContextProps } from '../_util/warning';
 import ValidateMessagesContext from '../form/validateMessagesContext';
-import { type Locale } from '../locale';
-import LocaleProvider, { ANT_MARK } from '../locale';
-import { type LocaleContextProps } from '../locale/context';
-import LocaleContext from '../locale/context';
+import LocaleProvider, { ANT_MARK, type Locale } from '../locale';
+import LocaleContext, { type LocaleContextProps } from '../locale/context';
 import defaultLocale from '../locale/en_US';
 import { defaultTheme, DesignTokenContext } from '../theme/context';
 import defaultSeedToken from '../theme/themes/seed';
 import {
+  ConfigConsumer,
+  ConfigContext,
+  defaultIconPrefixCls,
   type AlertConfig,
   type BadgeConfig,
   type ButtonConfig,
@@ -47,7 +47,6 @@ import {
   type TransferConfig,
   type WaveConfig,
 } from './context';
-import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
 import { registerTheme } from './cssVariables';
 import { type RenderEmptyHandler } from './defaultRenderEmpty';
 import { DisabledContextProvider } from './DisabledContext';
@@ -55,8 +54,7 @@ import useConfig from './hooks/useConfig';
 import useTheme from './hooks/useTheme';
 import MotionWrapper from './MotionWrapper';
 import PropWarning from './PropWarning';
-import { type SizeType } from './SizeContext';
-import SizeContext, { SizeContextProvider } from './SizeContext';
+import SizeContext, { SizeContextProvider, type SizeType } from './SizeContext';
 import useStyle from './style';
 
 /**

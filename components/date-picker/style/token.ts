@@ -1,10 +1,12 @@
 import { TinyColor } from '@ctrl/tinycolor';
 
-import { type SharedComponentToken, type SharedInputToken } from '../../input/style/token';
-import { initComponentToken } from '../../input/style/token';
+import {
+  initComponentToken,
+  type SharedComponentToken,
+  type SharedInputToken,
+} from '../../input/style/token';
 import { type MultipleSelectorToken, type SelectorToken } from '../../select/style/token';
-import { type ArrowToken } from '../../style/roundedArrow';
-import { getArrowToken } from '../../style/roundedArrow';
+import { getArrowToken, type ArrowToken } from '../../style/roundedArrow';
 import { type GlobalToken } from '../../theme/interface';
 import {
   type FullToken,

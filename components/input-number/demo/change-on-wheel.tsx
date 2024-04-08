@@ -1,6 +1,5 @@
 import React from 'react';
-import { type InputNumberProps } from 'antd';
-import { InputNumber } from 'antd';
+import { InputNumber, type InputNumberProps } from 'antd';
 
 const onChange: InputNumberProps['onChange'] = (value) => {
   console.log('changed', value);

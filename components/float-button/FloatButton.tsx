@@ -4,8 +4,7 @@ import omit from 'rc-util/lib/omit';
 
 import { devUseWarning } from '../_util/warning';
 import Badge from '../badge';
-import { type ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
+import { ConfigContext, type ConfigConsumerProps } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import Tooltip from '../tooltip';
 import FloatButtonGroupContext from './context';

@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import { type FC, type PropsWithChildren } from 'react';
+import React, { useContext, type FC, type PropsWithChildren } from 'react';
 import classNames from 'classnames';
-import { NotificationProvider, useNotification as useRcNotification } from 'rc-notification';
 import {
+  NotificationProvider,
+  useNotification as useRcNotification,
   type NotificationAPI,
   type NotificationConfig as RcNotificationConfig,
 } from 'rc-notification';

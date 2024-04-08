@@ -1,8 +1,11 @@
 /* eslint-disable no-redeclare */
-import { type ComponentType, type FC, type ReactElement } from 'react';
-import React, { useContext } from 'react';
-import { type CSSInterpolation } from '@ant-design/cssinjs';
-import { token2CSSVar, useCSSVarRegister, useStyleRegister } from '@ant-design/cssinjs';
+import React, { useContext, type ComponentType, type FC, type ReactElement } from 'react';
+import {
+  token2CSSVar,
+  useCSSVarRegister,
+  useStyleRegister,
+  type CSSInterpolation,
+} from '@ant-design/cssinjs';
 import { warning } from 'rc-util';
 
 import { ConfigContext } from '../../config-provider/context';

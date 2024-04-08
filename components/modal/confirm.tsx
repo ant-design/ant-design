@@ -3,8 +3,7 @@ import { render as reactRender, unmount as reactUnmount } from 'rc-util/lib/Reac
 
 import warning from '../_util/warning';
 import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
-import { type ConfirmDialogProps } from './ConfirmDialog';
-import ConfirmDialog from './ConfirmDialog';
+import ConfirmDialog, { type ConfirmDialogProps } from './ConfirmDialog';
 import destroyFns from './destroyFns';
 import { type ModalFuncProps } from './interface';
 import { getConfirmLocale } from './locale';

@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 import { DownOutlined } from '@ant-design/icons';
-import { type TableColumnsType, type TableProps } from 'antd';
-import { Badge, Dropdown, Form, Space, Switch, Table } from 'antd';
+import {
+  Badge,
+  Dropdown,
+  Form,
+  Space,
+  Switch,
+  Table,
+  type TableColumnsType,
+  type TableProps,
+} from 'antd';
 
 interface DataType {
   key: React.Key;

@@ -1,4 +1,5 @@
 import { TinyColor } from '@ctrl/tinycolor';
+
 import { type ColorMapToken, type SeedToken } from '../../interface';
 import { type GenerateColorMap, type GenerateNeutralColorMap } from '../ColorMap';
 

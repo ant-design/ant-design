@@ -6,11 +6,9 @@ import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import { composeRef } from 'rc-util/lib/ref';
 
-import { type ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
+import { ConfigContext, type ConfigConsumerProps } from '../config-provider';
 import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
-import { type InputProps, type InputRef } from './Input';
-import Input from './Input';
+import Input, { type InputProps, type InputRef } from './Input';
 
 const defaultIconRender = (visible: boolean): React.ReactNode =>
   visible ? <EyeOutlined /> : <EyeInvisibleOutlined />;

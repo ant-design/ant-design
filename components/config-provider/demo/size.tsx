@@ -11,8 +11,8 @@ import {
   Space,
   Table,
   Tabs,
+  type ConfigProviderProps,
 } from 'antd';
-import { type ConfigProviderProps } from 'antd';
 
 type SizeType = ConfigProviderProps['componentSize'];
 

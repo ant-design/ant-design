@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
-import { type DraggableData, type DraggableEvent } from 'react-draggable';
-import Draggable from 'react-draggable';
 import { Button, Modal } from 'antd';
+import Draggable, { type DraggableData, type DraggableEvent } from 'react-draggable';
 
 const App: React.FC = () => {
   const [open, setOpen] = useState(false);

@@ -1,4 +1,3 @@
-import { type ModalStaticFunctions } from './confirm';
 import confirm, {
   modalGlobalConfig,
   withConfirm,
@@ -6,6 +5,7 @@ import confirm, {
   withInfo,
   withSuccess,
   withWarn,
+  type ModalStaticFunctions,
 } from './confirm';
 import destroyFns from './destroyFns';
 import { type ModalFuncProps } from './interface';

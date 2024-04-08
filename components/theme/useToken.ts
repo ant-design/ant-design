@@ -1,10 +1,8 @@
 import React from 'react';
-import { type Theme } from '@ant-design/cssinjs';
-import { useCacheToken } from '@ant-design/cssinjs';
+import { useCacheToken, type Theme } from '@ant-design/cssinjs';
 
 import version from '../version';
-import { type DesignTokenProviderProps } from './context';
-import { defaultTheme, DesignTokenContext } from './context';
+import { defaultTheme, DesignTokenContext, type DesignTokenProviderProps } from './context';
 import { type AliasToken, type GlobalToken, type MapToken, type SeedToken } from './interface';
 import defaultSeedToken from './themes/seed';
 import formatToken from './util/alias';

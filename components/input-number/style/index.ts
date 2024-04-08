@@ -15,10 +15,8 @@ import {
 } from '../../input/style/variants';
 import { resetComponent, resetIcon } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
-import { type GenerateStyle } from '../../theme/internal';
-import { genStyleHooks, mergeToken } from '../../theme/internal';
-import { type ComponentToken, type InputNumberToken } from './token';
-import { prepareComponentToken } from './token';
+import { genStyleHooks, mergeToken, type GenerateStyle } from '../../theme/internal';
+import { prepareComponentToken, type ComponentToken, type InputNumberToken } from './token';
 
 export type { ComponentToken };
 

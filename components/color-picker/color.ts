@@ -1,6 +1,5 @@
 /* eslint-disable class-methods-use-this */
-import { type ColorGenInput } from '@rc-component/color-picker';
-import { Color as RcColor } from '@rc-component/color-picker';
+import { Color as RcColor, type ColorGenInput } from '@rc-component/color-picker';
 
 export const toHexFormat = (value?: string, alpha?: boolean) =>
   value?.replace(/[^\w/]/gi, '').slice(0, alpha ? 8 : 6) || '';

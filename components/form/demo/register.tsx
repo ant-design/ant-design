@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { type CascaderProps } from 'antd';
 import {
   AutoComplete,
   Button,
@@ -11,6 +10,7 @@ import {
   InputNumber,
   Row,
   Select,
+  type CascaderProps,
 } from 'antd';
 
 const { Option } = Select;

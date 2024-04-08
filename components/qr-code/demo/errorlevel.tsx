@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { type QRCodeProps } from 'antd';
-import { Segmented, QRCode } from 'antd';
+import { QRCode, Segmented, type QRCodeProps } from 'antd';
 
 const App: React.FC = () => {
   const [level, setLevel] = useState<string | number>('L');

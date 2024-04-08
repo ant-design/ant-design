@@ -2,8 +2,7 @@ import React from 'react';
 import dayjs from 'dayjs';
 import MockDate from 'mockdate';
 
-import { type CountdownProps } from '..';
-import Statistic from '..';
+import Statistic, { type CountdownProps } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';

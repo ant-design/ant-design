@@ -2,8 +2,7 @@ import * as React from 'react';
 import { forwardRef } from 'react';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import classNames from 'classnames';
-import { type MenuProps as RcMenuProps, type MenuRef as RcMenuRef } from 'rc-menu';
-import RcMenu from 'rc-menu';
+import RcMenu, { type MenuProps as RcMenuProps, type MenuRef as RcMenuRef } from 'rc-menu';
 import { useEvent } from 'rc-util';
 import omit from 'rc-util/lib/omit';
 
@@ -13,10 +12,8 @@ import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { type SiderContextProps } from '../layout/Sider';
-import { type ItemType } from './hooks/useItems';
-import useItems from './hooks/useItems';
-import { type MenuContextProps, type MenuTheme } from './MenuContext';
-import MenuContext from './MenuContext';
+import useItems, { type ItemType } from './hooks/useItems';
+import MenuContext, { type MenuContextProps, type MenuTheme } from './MenuContext';
 import OverrideContext from './OverrideContext';
 import useStyle from './style';
 

@@ -3,15 +3,13 @@ import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import { composeRef } from 'rc-util/lib/ref';
 
-import { type Breakpoint } from '../_util/responsiveObserver';
-import { responsiveArray } from '../_util/responsiveObserver';
+import { responsiveArray, type Breakpoint } from '../_util/responsiveObserver';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
-import { type AvatarContextType, type AvatarSize } from './AvatarContext';
-import AvatarContext from './AvatarContext';
+import AvatarContext, { type AvatarContextType, type AvatarSize } from './AvatarContext';
 import useStyle from './style';
 
 export interface AvatarProps {

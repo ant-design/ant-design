@@ -1,7 +1,5 @@
-import { type PropsWithChildren } from 'react';
-import React, { useEffect } from 'react';
+import React, { useEffect, type PropsWithChildren } from 'react';
 import { render } from '@testing-library/react';
-import { type ImageProps, type MenuProps } from 'antd';
 import {
   AutoComplete,
   Cascader,
@@ -18,11 +16,18 @@ import {
   Tooltip,
   Tour,
   TreeSelect,
+  type ImageProps,
+  type MenuProps,
 } from 'antd';
 
 import { waitFakeTimer } from '../../../tests/utils';
-import { type ZIndexConsumer, type ZIndexContainer } from '../hooks/useZIndex';
-import { consumerBaseZIndexOffset, containerBaseZIndexOffset, useZIndex } from '../hooks/useZIndex';
+import {
+  consumerBaseZIndexOffset,
+  containerBaseZIndexOffset,
+  useZIndex,
+  type ZIndexConsumer,
+  type ZIndexContainer,
+} from '../hooks/useZIndex';
 import zIndexContext from '../zindexContext';
 
 const WrapWithProvider: React.FC<PropsWithChildren<{ containerType: ZIndexContainer }>> = ({

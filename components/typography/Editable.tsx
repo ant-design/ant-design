@@ -1,12 +1,12 @@
+import * as React from 'react';
 import EnterOutlined from '@ant-design/icons/EnterOutlined';
 import classNames from 'classnames';
 import { type AutoSizeType } from 'rc-textarea';
 import KeyCode from 'rc-util/lib/KeyCode';
-import * as React from 'react';
+
 import { cloneElement } from '../_util/reactNode';
 import { type DirectionType } from '../config-provider';
-import { type TextAreaRef } from '../input/TextArea';
-import TextArea from '../input/TextArea';
+import TextArea, { type TextAreaRef } from '../input/TextArea';
 import useStyle from './style';
 
 interface EditableProps {

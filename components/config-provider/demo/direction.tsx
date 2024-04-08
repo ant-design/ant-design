@@ -8,7 +8,6 @@ import {
   SearchOutlined as SearchIcon,
   SmileOutlined,
 } from '@ant-design/icons';
-import { type ConfigProviderProps, type RadioChangeEvent } from 'antd';
 import {
   Badge,
   Button,
@@ -29,6 +28,8 @@ import {
   Switch,
   Tree,
   TreeSelect,
+  type ConfigProviderProps,
+  type RadioChangeEvent,
 } from 'antd';
 
 type DirectionType = ConfigProviderProps['direction'];

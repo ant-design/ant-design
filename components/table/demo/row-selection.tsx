@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Divider, Radio, Table } from 'antd';
-import { type TableColumnsType } from 'antd';
+import { Divider, Radio, Table, type TableColumnsType } from 'antd';
 
 interface DataType {
   key: React.Key;

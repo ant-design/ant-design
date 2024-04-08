@@ -1,20 +1,26 @@
-import { type SharedComponentToken, type SharedInputToken } from '../../input/style/token';
+import { unit } from '@ant-design/cssinjs';
+
 import {
   genBasicInputStyle,
   genPlaceholderStyle,
   initComponentToken,
   initInputToken,
 } from '../../input/style';
-import { resetComponent, textEllipsis } from '../../style';
-import { type FullToken, type GenerateStyle, type GetDefaultToken } from '../../theme/internal';
-import { genStyleHooks, mergeToken } from '../../theme/internal';
-import { unit } from '@ant-design/cssinjs';
+import { type SharedComponentToken, type SharedInputToken } from '../../input/style/token';
 import {
   genBorderlessStyle,
   genDisabledStyle,
   genFilledStyle,
   genOutlinedStyle,
 } from '../../input/style/variants';
+import { resetComponent, textEllipsis } from '../../style';
+import {
+  genStyleHooks,
+  mergeToken,
+  type FullToken,
+  type GenerateStyle,
+  type GetDefaultToken,
+} from '../../theme/internal';
 
 export interface ComponentToken extends SharedComponentToken {
   /**

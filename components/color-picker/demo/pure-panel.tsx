@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { ColorPicker } from 'antd';
-import { type ColorPickerProps, type GetProp } from 'antd';
+import { ColorPicker, type ColorPickerProps, type GetProp } from 'antd';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: PureRenderColorPicker } = ColorPicker;
 

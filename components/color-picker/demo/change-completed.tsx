@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { App, ColorPicker } from 'antd';
-import { type ColorPickerProps } from 'antd';
+import { App, ColorPicker, type ColorPickerProps } from 'antd';
 
 const Demo = () => {
   const { message } = App.useApp();

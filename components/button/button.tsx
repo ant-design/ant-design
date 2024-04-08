@@ -20,8 +20,14 @@ import useSize from '../config-provider/hooks/useSize';
 import { type SizeType } from '../config-provider/SizeContext';
 import { useCompactItemContext } from '../space/Compact';
 import Group, { GroupSizeContext } from './button-group';
-import { type ButtonHTMLType, type ButtonShape, type ButtonType } from './buttonHelpers';
-import { isTwoCNChar, isUnBorderedButtonType, spaceChildren } from './buttonHelpers';
+import {
+  isTwoCNChar,
+  isUnBorderedButtonType,
+  spaceChildren,
+  type ButtonHTMLType,
+  type ButtonShape,
+  type ButtonType,
+} from './buttonHelpers';
 import IconWrapper from './IconWrapper';
 import LoadingIcon from './LoadingIcon';
 import useStyle from './style';

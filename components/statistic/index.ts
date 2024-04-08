@@ -1,7 +1,5 @@
-import { type CountdownProps } from './Countdown';
-import Countdown from './Countdown';
-import { type StatisticProps } from './Statistic';
-import Statistic from './Statistic';
+import Countdown, { type CountdownProps } from './Countdown';
+import Statistic, { type StatisticProps } from './Statistic';
 
 export type { CountdownProps, StatisticProps };
 

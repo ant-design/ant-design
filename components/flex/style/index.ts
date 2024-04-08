@@ -1,7 +1,12 @@
 import { type CSSInterpolation } from '@ant-design/cssinjs';
 
-import { type FullToken, type GenerateStyle, type GetDefaultToken } from '../../theme/internal';
-import { genStyleHooks, mergeToken } from '../../theme/internal';
+import {
+  genStyleHooks,
+  mergeToken,
+  type FullToken,
+  type GenerateStyle,
+  type GetDefaultToken,
+} from '../../theme/internal';
 import { alignItemsValues, flexWrapValues, justifyContentValues } from '../utils';
 
 /** Component only token. Which will handle additional calculation of alias token */

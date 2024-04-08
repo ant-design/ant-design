@@ -1,8 +1,14 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
 import { type CSSProperties } from 'react';
+import { unit, type CSSObject } from '@ant-design/cssinjs';
+
 import { genFocusOutline, resetComponent } from '../../style';
-import { type FullToken, type GenerateStyle, type GetDefaultToken } from '../../theme/internal';
-import { genStyleHooks, mergeToken } from '../../theme/internal';
+import {
+  genStyleHooks,
+  mergeToken,
+  type FullToken,
+  type GenerateStyle,
+  type GetDefaultToken,
+} from '../../theme/internal';
 import genStepsCustomIconStyle from './custom-icon';
 import genStepsInlineStyle from './inline';
 import genStepsLabelPlacementStyle from './label-placement';

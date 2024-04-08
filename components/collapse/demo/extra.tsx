@@ -1,7 +1,6 @@
-import { SettingOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
-import { type CollapseProps } from 'antd';
-import { Collapse, Select } from 'antd';
+import { SettingOutlined } from '@ant-design/icons';
+import { Collapse, Select, type CollapseProps } from 'antd';
 
 const { Option } = Select;
 

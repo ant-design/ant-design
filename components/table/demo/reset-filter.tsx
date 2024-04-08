@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { type TableColumnsType, type TableProps } from 'antd';
-import { Button, Space, Table } from 'antd';
+import { Button, Space, Table, type TableColumnsType, type TableProps } from 'antd';
 
 type OnChange = NonNullable<TableProps<DataType>['onChange']>;
 type Filters = Parameters<OnChange>[1];

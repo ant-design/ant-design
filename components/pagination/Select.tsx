@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { type SelectProps } from '../select';
-import Select from '../select';
+
+import Select, { type SelectProps } from '../select';
 
 type CompoundedComponent = React.FC<SelectProps> & {
   Option: typeof Select.Option;

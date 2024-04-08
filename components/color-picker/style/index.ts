@@ -1,7 +1,11 @@
-import { type CSSObject, unit } from '@ant-design/cssinjs';
+import { unit, type CSSObject } from '@ant-design/cssinjs';
 
-import { type FullToken, type GenerateStyle } from '../../theme/internal';
-import { genStyleHooks, mergeToken } from '../../theme/internal';
+import {
+  genStyleHooks,
+  mergeToken,
+  type FullToken,
+  type GenerateStyle,
+} from '../../theme/internal';
 import genColorBlockStyle from './color-block';
 import genInputStyle from './input';
 import genPickerStyle from './picker';

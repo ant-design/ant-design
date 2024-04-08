@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { type FormInstance } from '..';
-import Form from '..';
+
+import Form, { type FormInstance } from '..';
 import Input from '../../input';
 
 interface FormValues {

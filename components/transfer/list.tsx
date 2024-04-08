@@ -16,8 +16,11 @@ import {
   type TransferLocale,
 } from './index';
 import { type PaginationType, type TransferKey } from './interface';
-import { type ListBodyRef, type TransferListBodyProps } from './ListBody';
-import DefaultListBody, { OmitProps } from './ListBody';
+import DefaultListBody, {
+  OmitProps,
+  type ListBodyRef,
+  type TransferListBodyProps,
+} from './ListBody';
 import Search from './search';
 
 const defaultRender = () => null;

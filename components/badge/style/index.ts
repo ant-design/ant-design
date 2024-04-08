@@ -1,8 +1,13 @@
 import { Keyframes, unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
-import { type FullToken, type GenerateStyle } from '../../theme/internal';
-import { genPresetColor, genStyleHooks, mergeToken } from '../../theme/internal';
+import {
+  genPresetColor,
+  genStyleHooks,
+  mergeToken,
+  type FullToken,
+  type GenerateStyle,
+} from '../../theme/internal';
 import { type GenStyleFn, type GetDefaultToken } from '../../theme/util/genComponentStyleHook';
 
 /** Component only token. Which will handle additional calculation of alias token */

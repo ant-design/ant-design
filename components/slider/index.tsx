@@ -1,7 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { type SliderProps as RcSliderProps } from 'rc-slider';
-import RcSlider from 'rc-slider';
+import RcSlider, { type SliderProps as RcSliderProps } from 'rc-slider';
 import { type SliderRef } from 'rc-slider/lib/Slider';
 
 import { devUseWarning } from '../_util/warning';

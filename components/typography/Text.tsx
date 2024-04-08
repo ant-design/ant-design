@@ -2,8 +2,7 @@ import * as React from 'react';
 import omit from 'rc-util/lib/omit';
 
 import { devUseWarning } from '../_util/warning';
-import { type BlockProps, type EllipsisConfig } from './Base';
-import Base from './Base';
+import Base, { type BlockProps, type EllipsisConfig } from './Base';
 
 export interface TextProps
   extends BlockProps<'span'>,

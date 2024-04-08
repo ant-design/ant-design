@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { type RadioChangeEvent } from 'antd';
-import { Cascader, Radio } from 'antd';
+import { Cascader, Radio, type RadioChangeEvent } from 'antd';
 
 interface Option {
   value: string;

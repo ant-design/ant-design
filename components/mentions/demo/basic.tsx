@@ -1,6 +1,5 @@
 import React from 'react';
-import { Mentions } from 'antd';
-import { type GetProp, type MentionProps } from 'antd';
+import { Mentions, type GetProp, type MentionProps } from 'antd';
 
 type MentionsOptionProps = GetProp<MentionProps, 'options'>[number];
 

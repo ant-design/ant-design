@@ -1,5 +1,4 @@
-import { mergeToken } from '../../theme/internal';
-import { type AliasToken, type FullToken } from '../../theme/internal';
+import { mergeToken, type AliasToken, type FullToken } from '../../theme/internal';
 
 export interface SharedComponentToken {
   /**

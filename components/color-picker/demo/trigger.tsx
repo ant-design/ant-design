@@ -1,6 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Button, ColorPicker } from 'antd';
-import { type ColorPickerProps, type GetProp } from 'antd';
+import { Button, ColorPicker, type ColorPickerProps, type GetProp } from 'antd';
 
 type Color = GetProp<ColorPickerProps, 'value'>;
 

@@ -2,10 +2,8 @@ import * as React from 'react';
 
 import useForceUpdate from '../_util/hooks/useForceUpdate';
 import { cloneElement } from '../_util/reactNode';
-import { type StatisticProps } from './Statistic';
-import Statistic from './Statistic';
-import { type valueType } from './utils';
-import { formatCountdown } from './utils';
+import Statistic, { type StatisticProps } from './Statistic';
+import { formatCountdown, type valueType } from './utils';
 
 const REFRESH_INTERVAL = 1000 / 30;
 

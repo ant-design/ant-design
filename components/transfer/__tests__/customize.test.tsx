@@ -1,7 +1,7 @@
 import React from 'react';
+
 import { render } from '../../../tests/utils';
-import { type TransferProps } from '../index';
-import Transfer from '../index';
+import Transfer, { type TransferProps } from '../index';
 
 describe('Transfer.Customize', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});

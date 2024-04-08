@@ -9,8 +9,9 @@ import {
   InputNumber,
   Space,
   Switch,
+  type ColorPickerProps,
+  type GetProp,
 } from 'antd';
-import { type ColorPickerProps, type GetProp } from 'antd';
 
 type Color = Exclude<GetProp<ColorPickerProps, 'value'>, string>;
 

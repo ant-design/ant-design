@@ -1,6 +1,5 @@
 import React from 'react';
-import { ConfigProvider, DatePicker, Space, Typography } from 'antd';
-import { type DatePickerProps } from 'antd';
+import { ConfigProvider, DatePicker, Space, Typography, type DatePickerProps } from 'antd';
 import en from 'antd/es/date-picker/locale/en_US';
 import enUS from 'antd/es/locale/en_US';
 import dayjs from 'dayjs';

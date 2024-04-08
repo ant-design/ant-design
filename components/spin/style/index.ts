@@ -1,9 +1,13 @@
-import { type CSSObject } from '@ant-design/cssinjs';
-import { Keyframes } from '@ant-design/cssinjs';
+import { Keyframes, type CSSObject } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
-import { type FullToken, type GenerateStyle, type GetDefaultToken } from '../../theme/internal';
-import { genStyleHooks, mergeToken } from '../../theme/internal';
+import {
+  genStyleHooks,
+  mergeToken,
+  type FullToken,
+  type GenerateStyle,
+  type GetDefaultToken,
+} from '../../theme/internal';
 
 export interface ComponentToken {
   /**

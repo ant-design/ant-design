@@ -1,5 +1,4 @@
-import { type FC } from 'react';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, type FC } from 'react';
 
 import { type Color } from '../color';
 import { type ColorPickerBaseProps } from '../interface';

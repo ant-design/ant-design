@@ -1,7 +1,6 @@
 import * as React from 'react';
 
-import { type SliderRangeProps } from '..';
-import Slider from '..';
+import Slider, { type SliderRangeProps } from '..';
 
 describe('Slider.typescript', () => {
   it('single value', () => {

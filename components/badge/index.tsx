@@ -3,8 +3,7 @@ import { useMemo, useRef } from 'react';
 import classnames from 'classnames';
 import CSSMotion from 'rc-motion';
 
-import { type PresetStatusColorType } from '../_util/colors';
-import { isPresetColor } from '../_util/colors';
+import { isPresetColor, type PresetStatusColorType } from '../_util/colors';
 import { cloneElement } from '../_util/reactNode';
 import { type LiteralUnion } from '../_util/type';
 import { ConfigContext } from '../config-provider';

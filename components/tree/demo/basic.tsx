@@ -1,6 +1,5 @@
 import React from 'react';
-import { Tree } from 'antd';
-import { type TreeDataNode, type TreeProps } from 'antd';
+import { Tree, type TreeDataNode, type TreeProps } from 'antd';
 
 const treeData: TreeDataNode[] = [
   {

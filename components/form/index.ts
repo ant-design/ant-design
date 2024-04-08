@@ -1,5 +1,7 @@
 import { type Rule, type RuleObject, type RuleRender } from 'rc-field-form/lib/interface';
+
 import warning from '../_util/warning';
+import { FormProvider } from './context';
 import ErrorList, { type ErrorListProps } from './ErrorList';
 import InternalForm, { useForm, useWatch, type FormInstance, type FormProps } from './Form';
 import Item, { type FormItemProps } from './FormItem';
@@ -8,7 +10,6 @@ import List, {
   type FormListOperation,
   type FormListProps,
 } from './FormList';
-import { FormProvider } from './context';
 import useFormInstance from './hooks/useFormInstance';
 
 type InternalFormType = typeof InternalForm;

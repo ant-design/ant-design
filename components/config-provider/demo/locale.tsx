@@ -1,13 +1,6 @@
 import React, { useState } from 'react';
 import { EllipsisOutlined } from '@ant-design/icons';
 import {
-  type ConfigProviderProps,
-  type RadioChangeEvent,
-  type TableProps,
-  type TourProps,
-  type UploadFile,
-} from 'antd';
-import {
   Button,
   Calendar,
   ConfigProvider,
@@ -30,6 +23,11 @@ import {
   Tour,
   Transfer,
   Upload,
+  type ConfigProviderProps,
+  type RadioChangeEvent,
+  type TableProps,
+  type TourProps,
+  type UploadFile,
 } from 'antd';
 import enUS from 'antd/locale/en_US';
 import zhCN from 'antd/locale/zh_CN';

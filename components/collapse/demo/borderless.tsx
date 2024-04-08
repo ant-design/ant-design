@@ -1,6 +1,5 @@
 import React from 'react';
-import { type CollapseProps } from 'antd';
-import { Collapse } from 'antd';
+import { Collapse, type CollapseProps } from 'antd';
 
 const text = (
   <p style={{ paddingLeft: 24 }}>

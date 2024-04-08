@@ -8,16 +8,14 @@ import { useZIndex } from '../_util/hooks/useZIndex';
 import genPurePanel from '../_util/PurePanel';
 import { type InputStatus } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
-import { type ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
-import {
+import { ConfigContext, type ConfigConsumerProps } from '../config-provider';
+import Select, {
   type BaseOptionType,
   type DefaultOptionType,
   type InternalSelectProps,
   type RefSelectProps,
   type SelectProps,
 } from '../select';
-import Select from '../select';
 
 const { Option } = Select;
 

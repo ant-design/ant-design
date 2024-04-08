@@ -1,5 +1,6 @@
 // Style as confirm component
 import { unit } from '@ant-design/cssinjs';
+
 import { prepareComponentToken, prepareToken, type ModalToken } from '.';
 import { clearFix } from '../../style';
 import { genSubStyleComponent, type GenerateStyle } from '../../theme/internal';

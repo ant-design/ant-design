@@ -1,6 +1,5 @@
 import React from 'react';
-import { type Theme } from '@ant-design/cssinjs';
-import { createTheme } from '@ant-design/cssinjs';
+import { createTheme, type Theme } from '@ant-design/cssinjs';
 
 import { type AliasToken, type MapToken, type OverrideToken, type SeedToken } from './interface';
 import defaultDerivative from './themes/default';

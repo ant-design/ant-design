@@ -1,6 +1,5 @@
-import { type PropsWithChildren, type ReactNode } from 'react';
+import { createContext, useContext, useMemo, type PropsWithChildren, type ReactNode } from 'react';
 import * as React from 'react';
-import { createContext, useContext, useMemo } from 'react';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
 import { type FormProviderProps as RcFormProviderProps } from 'rc-field-form/lib/FormContext';
 import { type Meta } from 'rc-field-form/lib/interface';
@@ -8,9 +7,9 @@ import omit from 'rc-util/lib/omit';
 
 import { type ColProps } from '../grid/col';
 import { type FormInstance, type RequiredMark } from './Form';
-import { type ValidateStatus, type FeedbackIcons } from './FormItem';
-import { type FormLabelAlign } from './interface';
+import { type FeedbackIcons, type ValidateStatus } from './FormItem';
 import { type Variant } from './hooks/useVariants';
+import { type FormLabelAlign } from './interface';
 
 /** Form Context. Set top form style and pass to Form Item usage. */
 export interface FormContextProps {

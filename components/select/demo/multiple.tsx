@@ -1,6 +1,5 @@
 import React from 'react';
-import { Select, Space } from 'antd';
-import { type SelectProps } from 'antd';
+import { Select, Space, type SelectProps } from 'antd';
 
 const options: SelectProps['options'] = [];
 

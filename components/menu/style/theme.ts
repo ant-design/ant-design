@@ -1,5 +1,4 @@
-import { unit } from '@ant-design/cssinjs';
-import { type CSSInterpolation } from '@ant-design/cssinjs';
+import { unit, type CSSInterpolation } from '@ant-design/cssinjs';
 
 import { type MenuToken } from '.';
 import { genFocusOutline } from '../../style';

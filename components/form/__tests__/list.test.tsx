@@ -1,6 +1,6 @@
 import React from 'react';
-import { type FormListFieldData, type FormListOperation } from '..';
-import Form from '..';
+
+import Form, { type FormListFieldData, type FormListOperation } from '..';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import Input from '../../input';

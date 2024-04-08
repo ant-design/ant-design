@@ -2,11 +2,12 @@ import * as React from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import classNames from 'classnames';
-import { type InputNumberProps as RcInputNumberProps, type ValueType } from 'rc-input-number';
-import RcInputNumber from 'rc-input-number';
+import RcInputNumber, {
+  type InputNumberProps as RcInputNumberProps,
+  type ValueType,
+} from 'rc-input-number';
 
-import { type InputStatus } from '../_util/statusUtils';
-import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames, type InputStatus } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import ConfigProvider, { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
@@ -14,8 +15,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import { type SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext, NoFormStyle } from '../form/context';
-import { type Variant } from '../form/hooks/useVariants';
-import useVariant from '../form/hooks/useVariants';
+import useVariant, { type Variant } from '../form/hooks/useVariants';
 import { NoCompactStyle, useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
 

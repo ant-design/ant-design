@@ -9,8 +9,7 @@ import {
   UserOutlined,
   VideoCameraOutlined,
 } from '@ant-design/icons';
-import { type MenuProps } from 'antd';
-import { Layout, Menu, theme } from 'antd';
+import { Layout, Menu, theme, type MenuProps } from 'antd';
 
 const { Header, Content, Footer, Sider } = Layout;
 

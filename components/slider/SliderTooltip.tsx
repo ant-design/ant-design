@@ -1,10 +1,10 @@
+import * as React from 'react';
+import { useRef } from 'react';
 import { type SliderRef } from 'rc-slider/lib/Slider';
 import raf from 'rc-util/lib/raf';
 import { composeRef } from 'rc-util/lib/ref';
-import * as React from 'react';
-import { useRef } from 'react';
-import { type TooltipProps } from '../tooltip';
-import Tooltip from '../tooltip';
+
+import Tooltip, { type TooltipProps } from '../tooltip';
 
 const SliderTooltip = React.forwardRef<SliderRef, TooltipProps>((props, ref) => {
   const { open } = props;

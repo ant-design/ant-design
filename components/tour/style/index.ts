@@ -1,16 +1,20 @@
+import { unit } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
-import { resetComponent, genFocusStyle } from '../../style';
-import { type ArrowOffsetToken } from '../../style/placementArrow';
+import { genFocusStyle, resetComponent } from '../../style';
 import getArrowStyle, {
   getArrowOffsetToken,
   MAX_VERTICAL_CONTENT_RADIUS,
+  type ArrowOffsetToken,
 } from '../../style/placementArrow';
-import { type FullToken, type GenerateStyle, type GetDefaultToken } from '../../theme/internal';
-import { genStyleHooks, mergeToken } from '../../theme/internal';
-import { type ArrowToken } from '../../style/roundedArrow';
-import { getArrowToken } from '../../style/roundedArrow';
-import { unit } from '@ant-design/cssinjs';
+import { getArrowToken, type ArrowToken } from '../../style/roundedArrow';
+import {
+  genStyleHooks,
+  mergeToken,
+  type FullToken,
+  type GenerateStyle,
+  type GetDefaultToken,
+} from '../../theme/internal';
 
 export interface ComponentToken extends ArrowOffsetToken, ArrowToken {
   /**

@@ -1,6 +1,5 @@
 import React from 'react';
-import { Descriptions } from 'antd';
-import { type DescriptionsProps } from 'antd';
+import { Descriptions, type DescriptionsProps } from 'antd';
 
 const items: DescriptionsProps['items'] = [
   {

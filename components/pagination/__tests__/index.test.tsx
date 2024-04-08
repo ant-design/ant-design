@@ -1,7 +1,7 @@
-import { type OptionFC } from 'rc-select/lib/Option';
 import React from 'react';
-import { type PaginationProps } from '..';
-import Pagination from '..';
+import { type OptionFC } from 'rc-select/lib/Option';
+
+import Pagination, { type PaginationProps } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';

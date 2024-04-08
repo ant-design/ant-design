@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Button, Tour } from 'antd';
-import { type TourProps } from 'antd';
+import { Button, Tour, type TourProps } from 'antd';
 
 const App: React.FC = () => {
   const ref = useRef(null);

@@ -1,5 +1,4 @@
-import { type CSSInterpolation, type CSSObject } from '@ant-design/cssinjs';
-import { unit } from '@ant-design/cssinjs';
+import { unit, type CSSInterpolation, type CSSObject } from '@ant-design/cssinjs';
 
 import { resetIcon } from '../../style';
 import { mergeToken, type AliasToken } from '../../theme/internal';

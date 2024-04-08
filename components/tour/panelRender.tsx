@@ -1,10 +1,8 @@
-import { type ReactNode } from 'react';
-import React from 'react';
+import React, { type ReactNode } from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 
-import { type ButtonProps } from '../button';
-import Button from '../button';
+import Button, { type ButtonProps } from '../button';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
 import { type TourStepProps } from './interface';

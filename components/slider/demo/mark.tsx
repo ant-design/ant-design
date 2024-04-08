@@ -1,6 +1,5 @@
 import React from 'react';
-import { Slider } from 'antd';
-import { type SliderSingleProps } from 'antd';
+import { Slider, type SliderSingleProps } from 'antd';
 
 const marks: SliderSingleProps['marks'] = {
   0: '0°C',

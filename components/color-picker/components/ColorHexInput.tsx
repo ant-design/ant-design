@@ -1,8 +1,7 @@
-import { type FC } from 'react';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, type FC } from 'react';
+
 import Input from '../../input';
-import { type Color } from '../color';
-import { toHexFormat } from '../color';
+import { toHexFormat, type Color } from '../color';
 import { type ColorPickerBaseProps } from '../interface';
 import { generateColor } from '../util';
 

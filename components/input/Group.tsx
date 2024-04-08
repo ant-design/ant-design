@@ -4,8 +4,7 @@ import classNames from 'classnames';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import { type FormItemStatusContextProps } from '../form/context';
-import { FormItemInputContext } from '../form/context';
+import { FormItemInputContext, type FormItemStatusContextProps } from '../form/context';
 import useStyle from './style';
 
 export interface GroupProps {

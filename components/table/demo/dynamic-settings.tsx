@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 import { DownOutlined } from '@ant-design/icons';
-import { type GetProp, type RadioChangeEvent, type TableProps } from 'antd';
-import { Form, Radio, Space, Switch, Table } from 'antd';
+import {
+  Form,
+  Radio,
+  Space,
+  Switch,
+  Table,
+  type GetProp,
+  type RadioChangeEvent,
+  type TableProps,
+} from 'antd';
 
 type SizeType = TableProps['size'];
 type ColumnsType<T extends object> = GetProp<TableProps<T>, 'columns'>;

@@ -1,6 +1,5 @@
 import React from 'react';
-import { Table, Tooltip } from 'antd';
-import { type TableColumnsType } from 'antd';
+import { Table, Tooltip, type TableColumnsType } from 'antd';
 
 interface DataType {
   key: React.Key;

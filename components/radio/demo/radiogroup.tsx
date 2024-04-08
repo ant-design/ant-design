@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { type RadioChangeEvent } from 'antd';
-import { Radio } from 'antd';
+import { Radio, type RadioChangeEvent } from 'antd';
 
 const App: React.FC = () => {
   const [value, setValue] = useState(1);

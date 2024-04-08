@@ -1,6 +1,5 @@
 import React from 'react';
-import { DatePicker, Space } from 'antd';
-import { type DatePickerProps, type GetProps } from 'antd';
+import { DatePicker, Space, type DatePickerProps, type GetProps } from 'antd';
 
 type RangePickerProps = GetProps<typeof DatePicker.RangePicker>;
 

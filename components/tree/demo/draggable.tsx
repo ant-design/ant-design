@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Tree } from 'antd';
-import { type TreeDataNode, type TreeProps } from 'antd';
+import { Tree, type TreeDataNode, type TreeProps } from 'antd';
 
 const x = 3;
 const y = 2;

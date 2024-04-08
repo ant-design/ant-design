@@ -1,6 +1,5 @@
 import React from 'react';
-import { Segmented, Tabs } from 'antd';
-import { type TabsProps } from 'antd';
+import { Segmented, Tabs, type TabsProps } from 'antd';
 
 const onChange = (key: string) => {
   console.log(key);

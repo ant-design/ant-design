@@ -1,15 +1,12 @@
-import { type ReactNode } from 'react';
-import React, { useContext } from 'react';
+import React, { useContext, type ReactNode } from 'react';
 import classNames from 'classnames';
 
 import { type AnyObject, type CustomComponent } from '../_util/type';
-import { type ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
+import { ConfigContext, type ConfigConsumerProps } from '../config-provider';
 import useMessage from '../message/useMessage';
 import useModal from '../modal/useModal';
 import useNotification from '../notification/useNotification';
-import { type AppConfig, type useAppProps } from './context';
-import AppContext, { AppConfigContext } from './context';
+import AppContext, { AppConfigContext, type AppConfig, type useAppProps } from './context';
 import useStyle from './style';
 
 export interface AppProps<P = AnyObject> extends AppConfig {

@@ -8,17 +8,14 @@ import { type FilterState } from '.';
 import useSyncState from '../../../_util/hooks/useSyncState';
 import { devUseWarning } from '../../../_util/warning';
 import Button from '../../../button';
-import { type CheckboxChangeEvent } from '../../../checkbox';
-import Checkbox from '../../../checkbox';
+import Checkbox, { type CheckboxChangeEvent } from '../../../checkbox';
 import { ConfigContext } from '../../../config-provider/context';
 import Dropdown, { type DropdownProps } from '../../../dropdown';
 import Empty from '../../../empty';
-import { type MenuProps } from '../../../menu';
-import Menu from '../../../menu';
+import Menu, { type MenuProps } from '../../../menu';
 import { OverrideProvider } from '../../../menu/OverrideContext';
 import Radio from '../../../radio';
-import { type EventDataNode } from '../../../tree';
-import Tree from '../../../tree';
+import Tree, { type EventDataNode } from '../../../tree';
 import {
   type ColumnFilterItem,
   type ColumnType,

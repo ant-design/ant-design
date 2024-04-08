@@ -6,8 +6,7 @@ import CSSMotion from 'rc-motion';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import { devUseWarning } from '../_util/warning';
-import { type ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
+import { ConfigContext, type ConfigConsumerProps } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { FloatButtonGroupProvider } from './context';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';

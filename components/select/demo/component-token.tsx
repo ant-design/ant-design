@@ -1,6 +1,5 @@
 import React from 'react';
-import { ConfigProvider, Select, Space } from 'antd';
-import { type SelectProps } from 'antd';
+import { ConfigProvider, Select, Space, type SelectProps } from 'antd';
 
 const options: SelectProps['options'] = [];
 

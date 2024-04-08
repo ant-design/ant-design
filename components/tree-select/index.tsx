@@ -2,17 +2,20 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { type BaseSelectRef } from 'rc-select';
 import { type Placement } from 'rc-select/lib/BaseSelect';
-import { type TreeSelectProps as RcTreeSelectProps } from 'rc-tree-select';
-import RcTreeSelect, { SHOW_ALL, SHOW_CHILD, SHOW_PARENT, TreeNode } from 'rc-tree-select';
+import RcTreeSelect, {
+  SHOW_ALL,
+  SHOW_CHILD,
+  SHOW_PARENT,
+  TreeNode,
+  type TreeSelectProps as RcTreeSelectProps,
+} from 'rc-tree-select';
 import { type BaseOptionType, type DefaultOptionType } from 'rc-tree-select/lib/TreeSelect';
 import omit from 'rc-util/lib/omit';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
-import { type SelectCommonPlacement } from '../_util/motion';
-import { getTransitionName } from '../_util/motion';
+import { getTransitionName, type SelectCommonPlacement } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';
-import { type InputStatus } from '../_util/statusUtils';
-import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames, type InputStatus } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
@@ -21,8 +24,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import { type SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
-import { type Variant } from '../form/hooks/useVariants';
-import useVariant from '../form/hooks/useVariants';
+import useVariant, { type Variant } from '../form/hooks/useVariants';
 import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements';
 import useSelectStyle from '../select/style';
 import useIcons from '../select/useIcons';

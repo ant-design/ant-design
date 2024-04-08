@@ -20,8 +20,7 @@ import useFrameState from '../hooks/useFrameState';
 import useItemRef from '../hooks/useItemRef';
 import useStyle from '../style';
 import { getFieldId, toArray } from '../util';
-import { type ItemHolderProps } from './ItemHolder';
-import ItemHolder from './ItemHolder';
+import ItemHolder, { type ItemHolderProps } from './ItemHolder';
 import StatusProvider from './StatusProvider';
 
 const NAME_SPLIT = '__SPLIT__';

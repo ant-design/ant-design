@@ -1,6 +1,6 @@
 import { type ForwardRefExoticComponent, type RefAttributes } from 'react';
-import { type AvatarProps } from './avatar';
-import InternalAvatar from './avatar';
+
+import InternalAvatar, { type AvatarProps } from './avatar';
 import Group from './group';
 
 export type { AvatarProps } from './avatar';

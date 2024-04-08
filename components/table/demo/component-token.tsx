@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { DownOutlined } from '@ant-design/icons';
 import {
+  ConfigProvider,
+  Form,
+  Radio,
+  Space,
+  Switch,
+  Table,
   type ConfigProviderProps,
   type GetProp,
   type RadioChangeEvent,
   type TableProps,
 } from 'antd';
-import { ConfigProvider, Form, Radio, Space, Switch, Table } from 'antd';
 
 type SizeType = ConfigProviderProps['componentSize'];
 type ColumnsType<T extends object> = GetProp<TableProps<T>, 'columns'>;

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { CarryOutOutlined, CheckOutlined, FormOutlined } from '@ant-design/icons';
-import { Select, Switch, Tree } from 'antd';
-import { type TreeDataNode } from 'antd';
+import { Select, Switch, Tree, type TreeDataNode } from 'antd';
 
 const treeData: TreeDataNode[] = [
   {

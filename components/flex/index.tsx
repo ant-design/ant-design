@@ -3,8 +3,7 @@ import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 
 import { isPresetSize } from '../_util/gapSize';
-import { ConfigContext } from '../config-provider';
-import { type ConfigConsumerProps } from '../config-provider';
+import { ConfigContext, type ConfigConsumerProps } from '../config-provider';
 import { type FlexProps } from './interface';
 import useStyle from './style';
 import createFlexClassNames from './utils';

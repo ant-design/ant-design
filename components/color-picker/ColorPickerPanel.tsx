@@ -1,5 +1,4 @@
-import { type FC } from 'react';
-import React from 'react';
+import React, { type FC } from 'react';
 import { type HsbaColorType } from '@rc-component/color-picker';
 
 import Divider from '../divider';

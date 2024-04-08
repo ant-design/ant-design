@@ -1,12 +1,10 @@
 import React, { forwardRef, useContext, useEffect, useRef } from 'react';
 import classNames from 'classnames';
-import { type InputRef, type InputProps as RcInputProps } from 'rc-input';
-import RcInput from 'rc-input';
+import RcInput, { type InputRef, type InputProps as RcInputProps } from 'rc-input';
 import { composeRef } from 'rc-util/lib/ref';
 
 import getAllowClear from '../_util/getAllowClear';
-import { type InputStatus } from '../_util/statusUtils';
-import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames, type InputStatus } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
@@ -14,8 +12,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import { type SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext, NoFormStyle } from '../form/context';
-import { type Variant } from '../form/hooks/useVariants';
-import useVariant from '../form/hooks/useVariants';
+import useVariant, { type Variant } from '../form/hooks/useVariants';
 import { NoCompactStyle, useCompactItemContext } from '../space/Compact';
 import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
 import useStyle from './style';

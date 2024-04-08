@@ -1,6 +1,5 @@
 import React from 'react';
-import { Checkbox, Col, Row } from 'antd';
-import { type GetProp } from 'antd';
+import { Checkbox, Col, Row, type GetProp } from 'antd';
 
 const onChange: GetProp<typeof Checkbox.Group, 'onChange'> = (checkedValues) => {
   console.log('checked = ', checkedValues);
