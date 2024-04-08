@@ -181,8 +181,6 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   // ========================== Copyable ==========================
   const [enableCopy, copyConfig] = useMergedConfig<CopyConfig>(copyable);
 
-  console.log(enableCopy, copyConfig, '====');
-
   const { copied, copyLoading, onClick: onCopyClick } = useCopyClick({ copyConfig, children });
 
   // ========================== Ellipsis ==========================
