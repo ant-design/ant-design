@@ -5,6 +5,7 @@ import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import { getMergedStatus } from '../../_util/statusUtils';
 import type { InputStatus } from '../../_util/statusUtils';
+import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 import useSize from '../../config-provider/hooks/useSize';
@@ -12,7 +13,6 @@ import type { SizeType } from '../../config-provider/SizeContext';
 import { FormItemInputContext } from '../../form/context';
 import type { FormItemStatusContextProps } from '../../form/context';
 import type { Variant } from '../../form/hooks/useVariants';
-import useOTPSingleValue from '../hooks/useOTPSingleValue';
 import type { InputRef } from '../Input';
 import useStyle from '../style/otp';
 import OTPInput from './OTPInput';
@@ -69,6 +69,15 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     ...restProps
   } = props;
 
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Input.OTP');
+    warning(
+      !(typeof mask === 'string' && mask.length > 1),
+      'usage',
+      '`mask` prop should be a single character',
+    );
+  }
+
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('otp', customizePrefixCls);
 
@@ -88,7 +97,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
 
   // ======================== Status ========================
   const formContext = React.useContext(FormItemInputContext);
-  const mergedStatus = getMergedStatus(formContext.status, customStatus) as InputStatus;
+  const mergedStatus = getMergedStatus(formContext.status, customStatus);
 
   const proxyFormContext = React.useMemo<FormItemStatusContextProps>(
     () => ({
@@ -103,15 +112,15 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   // ========================= Refs =========================
   const containerRef = React.useRef<HTMLDivElement>(null);
 
-  const inputRefs = React.useRef<Record<number, InputRef | null>>({});
+  const refs = React.useRef<Record<number, InputRef | null>>({});
 
   React.useImperativeHandle(ref, () => ({
     focus: () => {
-      inputRefs.current[0]?.focus();
+      refs.current[0]?.focus();
     },
     blur: () => {
       for (let i = 0; i < length; i += 1) {
-        inputRefs.current[i]?.blur();
+        refs.current[i]?.blur();
       }
     },
     nativeElement: containerRef.current!,
@@ -130,8 +139,6 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
       setValueCells(strToArr(value));
     }
   }, [value]);
-
-  const getSingleValue = useOTPSingleValue(valueCells, mask);
 
   const triggerValueCellsChange = useEvent((nextValueCells: string[]) => {
     setValueCells(nextValueCells);
@@ -190,21 +197,21 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
 
     const nextIndex = Math.min(index + txt.length, length - 1);
     if (nextIndex !== index) {
-      inputRefs.current[nextIndex]?.focus();
+      refs.current[nextIndex]?.focus();
     }
 
     triggerValueCellsChange(nextCells);
   };
 
   const onInputActiveChange: OTPInputProps['onActiveChange'] = (nextIndex) => {
-    inputRefs.current[nextIndex]?.focus();
+    refs.current[nextIndex]?.focus();
   };
 
   // ======================== Render ========================
   const inputSharedProps: Partial<OTPInputProps> = {
     variant,
     disabled,
-    status: mergedStatus,
+    status: mergedStatus as InputStatus,
     mask,
   };
 
@@ -226,11 +233,11 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
       <FormItemInputContext.Provider value={proxyFormContext}>
         {Array.from({ length }).map((_, index) => {
           const key = `otp-${index}`;
-          const singleValue = getSingleValue(index);
+          const singleValue = valueCells[index] || '';
           return (
             <OTPInput
               ref={(inputEle) => {
-                inputRefs.current[index] = inputEle;
+                refs.current[index] = inputEle;
               }}
               key={key}
               index={index}

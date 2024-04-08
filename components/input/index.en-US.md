@@ -126,7 +126,7 @@ Added in `5.16.0`.
 
 > Notes for developers
 >
-> When the `mask` prop is string, it is expected to receive a single character or a single emoji. If multiple characters or multiple emojis are passed in, only the first one will be intercepted.
+> When the `mask` prop is string, we recommend receiving a single character or a single emoji. If multiple characters or multiple emoji are passed, a warning will be thrown.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
