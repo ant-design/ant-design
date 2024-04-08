@@ -62,7 +62,7 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
         [`${antCls}-progress`]: {
           position: 'absolute',
-          left: '50%',
+          insetInlineStart: '50%',
           top: '50%',
           transform: 'translate(-50%, -50%)',
 
