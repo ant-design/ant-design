@@ -163,8 +163,8 @@ return <Menu.Item key={item.id}>{item.name}</Menu.Item>;
 #### 👼 “错误示范”
 
 ```tsx
-import { Menu } from 'antd';
 import React from 'react';
+import { Menu } from 'antd';
 
 const Demo: React.FC = () => {
   const [collapsed, setCollapsed] = useState<boolean>(false);

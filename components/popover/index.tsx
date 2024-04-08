@@ -1,19 +1,18 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import KeyCode from 'rc-util/lib/KeyCode';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { getTransitionName } from '../_util/motion';
+import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
 import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
 import Tooltip from '../tooltip';
 import PurePanel from './PurePanel';
 // CSSINJS
 import useStyle from './style';
-
-import KeyCode from 'rc-util/lib/KeyCode';
-import { cloneElement } from '../_util/reactNode';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 export interface PopoverProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;

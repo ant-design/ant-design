@@ -1,4 +1,4 @@
-import { type TablePaginationConfig, type TableProps } from './InternalTable';
+import type { TablePaginationConfig, TableProps } from './InternalTable';
 import Table from './Table';
 
 export type { ColumnProps } from './Column';

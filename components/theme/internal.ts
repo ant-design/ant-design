@@ -9,17 +9,17 @@ import type {
   UseComponentStyleResult,
 } from './interface';
 import { PresetColors } from './interface';
+import { getLineHeight } from './themes/shared/genFontSizes';
 import useToken from './useToken';
+import calc from './util/calc';
 import type { FullToken, GetDefaultToken } from './util/genComponentStyleHook';
 import genComponentStyleHook, {
-  genSubStyleComponent,
   genStyleHooks,
+  genSubStyleComponent,
 } from './util/genComponentStyleHook';
 import genPresetColor from './util/genPresetColor';
 import statisticToken, { merge as mergeToken } from './util/statistic';
 import useResetIconStyle from './util/useResetIconStyle';
-import calc from './util/calc';
-import { getLineHeight } from './themes/shared/genFontSizes';
 
 export { DesignTokenContext, defaultConfig } from './context';
 export {
