@@ -181,6 +181,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   // ========================== Copyable ==========================
   const [enableCopy, copyConfig] = useMergedConfig<CopyConfig>(copyable);
 
+  console.log(enableCopy, copyConfig, '====');
+
   const { copied, copyLoading, onClick: onCopyClick } = useCopyClick({ copyConfig, children });
 
   // ========================== Ellipsis ==========================
@@ -487,7 +489,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               width={ellipsisWidth}
               onEllipsis={onJsEllipsis}
               expanded={expanded}
-              miscDeps={[copied, expanded, copyLoading]}
+              miscDeps={[copied, expanded, copyLoading, copyConfig]}
             >
               {(node, canEllipsis) => {
                 let renderNode: React.ReactNode = node;
