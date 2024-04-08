@@ -1,8 +1,10 @@
 /* eslint-disable no-console */
 import chalk from 'chalk';
 import fetch from 'isomorphic-fetch';
-import simpleGit, { type StatusResult } from 'simple-git';
 import ora from 'ora';
+import simpleGit from 'simple-git';
+import type { StatusResult } from 'simple-git';
+
 import localPackage from '../package.json';
 
 const { version } = localPackage;

@@ -1,6 +1,6 @@
 import React from 'react';
-import { render } from '../../../tests/utils';
 
+import { render } from '../../../tests/utils';
 import Base from '../Base';
 
 describe('Typography keep prefixCls', () => {

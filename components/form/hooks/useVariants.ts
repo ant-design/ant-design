@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+
 import { VariantContext } from '../context';
 
 export const Variants = ['outlined', 'borderless', 'filled'] as const;

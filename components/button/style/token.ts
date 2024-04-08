@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react';
+
 import type { FullToken, GetDefaultToken } from '../../theme/internal';
 import { getLineHeight, mergeToken } from '../../theme/internal';
 import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';

@@ -1,6 +1,7 @@
+import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { resetWarned } from 'rc-util/lib/warning';
-import React from 'react';
+
 import Alert from '..';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';

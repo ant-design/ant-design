@@ -1,6 +1,6 @@
-import getAlphaColor from '../util/getAlphaColor';
 import genCalc from '../util/calc';
 import type AbstractCalculator from '../util/calc/calculator';
+import getAlphaColor from '../util/getAlphaColor';
 import genMaxMin from '../util/maxmin';
 
 describe('util', () => {
