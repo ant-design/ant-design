@@ -487,7 +487,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               width={ellipsisWidth}
               onEllipsis={onJsEllipsis}
               expanded={expanded}
-              miscDeps={[copied, expanded, copyLoading]}
+              miscDeps={[copied, expanded, copyLoading, editable]}
             >
               {(node, canEllipsis) => {
                 let renderNode: React.ReactNode = node;
