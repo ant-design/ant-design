@@ -471,7 +471,8 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 
           [`&-range-start td,
             &-range-end td,
-            &-selected td`]: {
+            &-selected td,
+            &-hover td`]: {
             // Rise priority to override hover style
             [`&${pickerCellCls}`]: {
               '&:before': {
