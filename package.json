@@ -130,7 +130,7 @@
     "copy-to-clipboard": "^3.3.3",
     "dayjs": "^1.11.10",
     "qrcode.react": "^3.1.0",
-    "rc-cascader": "~3.24.0",
+    "rc-cascader": "~3.24.1",
     "rc-checkbox": "~3.2.0",
     "rc-collapse": "~3.7.3",
     "rc-dialog": "~9.4.0",
