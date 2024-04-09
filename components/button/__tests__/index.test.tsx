@@ -443,7 +443,8 @@ describe('Button', () => {
   });
 
   it('should support autoInsertSpace', () => {
-    const { container } = render(<Button autoInsertSpace={false}>好的</Button>);
-    expect(container.querySelector<HTMLButtonElement>('button')?.textContent).toBe('好的');
+    const text = '确定';
+    const { container } = render(<Button autoInsertSpace={false}>{text}</Button>);
+    expect(container.querySelector<HTMLButtonElement>('button')?.textContent).toBe(text);
   });
 });

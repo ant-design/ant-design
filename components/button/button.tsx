@@ -282,7 +282,6 @@ const InternalButton: React.ForwardRefRenderFunction<
   const genButtonContent = (iconComponent: React.ReactNode, kidsComponent: React.ReactNode) => {
     const isRTL = direction === 'rtl';
     const iconFirst = (iconPosition === 'start' && !isRTL) || (iconPosition === 'end' && isRTL);
-
     return (
       <>
         {iconFirst ? iconComponent : kidsComponent}

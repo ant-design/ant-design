@@ -340,7 +340,7 @@ describe('Modal.hook', () => {
   });
 
   it('not block origin ConfigProvider config', () => {
-    const Demo = () => {
+    const Demo: React.FC = () => {
       const [modal, contextHolder] = Modal.useModal();
 
       React.useEffect(() => {
