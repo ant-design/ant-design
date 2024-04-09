@@ -74,7 +74,7 @@ function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigTyp
 }
 
 const InternalCompoundedButton = React.forwardRef<
-  HTMLButtonElement & HTMLAnchorElement,
+  HTMLButtonElement | HTMLAnchorElement,
   ButtonProps
 >((props, ref) => {
   const {
