@@ -16,7 +16,7 @@ export interface OTPInputProps extends Omit<InputProps, 'onChange'> {
 const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
   const { value, onChange, onActiveChange, index, mask, ...restProps } = props;
 
-  const internalValue = value && typeof mask === 'string' ? mask ?? value : value;
+  const internalValue = value && typeof mask === 'string' ? mask : value;
 
   const onInternalChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     onChange(index, e.target.value);
