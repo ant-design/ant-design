@@ -533,6 +533,32 @@ describe('Form', () => {
 
       expect(scrollIntoView).toHaveBeenCalledTimes(3);
     });
+
+    // https://github.com/ant-design/ant-design/issues/28869
+    it('should work with Upload', async () => {
+      const uploadRef = React.createRef<any>();
+
+      const { getByRole } = render(
+        <Form scrollToFirstError>
+          <Form.Item
+            name="demo-form_dragger"
+            valuePropName="fileList"
+            getValueFromEvent={(e) => (Array.isArray(e) ? e : e?.fileList)}
+            rules={[{ required: true }]}
+          >
+            <Upload name="files" action="/upload.do" ref={uploadRef} />
+          </Form.Item>
+          <Form.Item>
+            <Button htmlType="submit">Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
+      fireEvent.click(getByRole('button'));
+      await waitFakeTimer();
+
+      expect(scrollIntoView).toHaveBeenCalled();
+      expect((scrollIntoView as any).mock.calls[0][0]).toBe(uploadRef.current.nativeElement);
+    });
   });
 
   it('Form.Item should support data-*、aria-* and custom attribute', () => {
