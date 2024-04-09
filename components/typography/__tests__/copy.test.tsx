@@ -316,4 +316,16 @@ describe('Typography copy', () => {
 
     spy.mockRestore();
   });
+
+  it('dynamic set editable', () => {
+    const { container, rerender } = render(<Base component="p">test</Base>);
+    expect(container.querySelector('.ant-typography-copy')).toBeFalsy();
+
+    rerender(
+      <Base component="p" copyable>
+        test
+      </Base>,
+    );
+    expect(container.querySelector('.ant-typography-copy')).toBeTruthy();
+  });
 });
