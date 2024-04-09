@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Popover, ConfigProvider } from 'antd';
+import { Button, ConfigProvider, Popover } from 'antd';
 
 const text = <span>Title</span>;
 

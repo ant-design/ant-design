@@ -10,9 +10,9 @@ tag: Updated
 
 ## 安装和初始化
 
-在开始之前，你可能需要安装 [yarn](https://github.com/yarnpkg/yarn/) 或者 [pnpm](https://pnpm.io/zh/)。
+在开始之前，你可能需要安装 [yarn](https://github.com/yarnpkg/yarn/) 或者 [pnpm](https://pnpm.io/zh/) 或者 [bun](https://bun.sh/)。
 
-<InstallDependencies npm='$ npx create-next-app antd-demo' yarn='$ yarn create next-app antd-demo' pnpm='$ pnpm create next-app antd-demo'></InstallDependencies>
+<InstallDependencies npm='$ npx create-next-app antd-demo' yarn='$ yarn create next-app antd-demo' pnpm='$ pnpm create next-app antd-demo' bun='$ bun create next-app antd-demo'></InstallDependencies>
 
 工具会自动初始化一个脚手架并安装项目的各种必要依赖，在安装过程中，有一些配置项需要自行选择，如果在过程中出现网络问题，请尝试配置代理，或使用其他 npm registry，例如，你可以切换到淘宝镜像源：`npm config set registry https://registry.npmmirror.com`。
 
@@ -27,9 +27,9 @@ $ npm run dev
 
 ## 引入 antd
 
-现在从 yarn 或 npm 或 pnpm 安装并引入 antd。
+现在从 yarn 或 npm 或 pnpm 或 bun 安装并引入 antd。
 
-<InstallDependencies npm='$ npm install antd --save' yarn='$ yarn add antd' pnpm='$ pnpm install antd --save'></InstallDependencies>
+<InstallDependencies npm='$ npm install antd --save' yarn='$ yarn add antd' pnpm='$ pnpm install antd --save' bun='$ bun add antd'></InstallDependencies>
 
 修改 `src/app/page.tsx`，引入 antd 的按钮组件。
 
@@ -56,7 +56,7 @@ export default Home;
 
 1. 安装 `@ant-design/nextjs-registry`
 
-<InstallDependencies npm='$ npm install @ant-design/nextjs-registry --save' yarn='$ yarn add @ant-design/nextjs-registry' pnpm='$ pnpm install @ant-design/nextjs-registry --save'></InstallDependencies>
+<InstallDependencies npm='$ npm install @ant-design/nextjs-registry --save' yarn='$ yarn add @ant-design/nextjs-registry' pnpm='$ pnpm install @ant-design/nextjs-registry --save' bun='$ bun add @ant-design/nextjs-registry'></InstallDependencies>
 
 2. 在 `app/layout.tsx` 中使用
 
@@ -94,7 +94,7 @@ export default RootLayout;
 >
 > <img width="514" alt="image" src="https://github.com/ant-design/ant-design/assets/49217418/aad6e9e2-62cc-4c89-a0b6-38c592e3c648">
 
-<InstallDependencies npm='$ npm install @ant-design/cssinjs --save' yarn='$ yarn add @ant-design/cssinjs' pnpm='$ pnpm install @ant-design/cssinjs --save'></InstallDependencies>
+<InstallDependencies npm='$ npm install @ant-design/cssinjs --save' yarn='$ yarn add @ant-design/cssinjs' pnpm='$ pnpm install @ant-design/cssinjs --save' bun='$ bun add @ant-design/cssinjs'></InstallDependencies>
 
 2. 改写 `pages/_document.tsx`
 

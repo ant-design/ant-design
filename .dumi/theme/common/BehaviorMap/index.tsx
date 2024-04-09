@@ -1,7 +1,8 @@
 import type { FC } from 'react';
 import React, { Suspense } from 'react';
-import { createStyles } from 'antd-style';
 import { Skeleton } from 'antd';
+import { createStyles } from 'antd-style';
+
 import type { BehaviorMapProps } from './BehaviorMap';
 
 const InternalBehaviorMap = React.lazy(() => import('./BehaviorMap'));
@@ -11,18 +12,17 @@ const useStyle = createStyles(({ token, css }) => ({
     width: 100%;
     > * {
       width: 100% !important;
-      border-radius: 8px;
+      border-radius: ${token.borderRadiusLG}px;
     }
   `,
   placeholder: css`
     color: ${token.colorTextDescription};
-    font-size: 16px;
+    font-size: ${token.fontSizeLG}px;
   `,
 }));
 
-const BehaviorMapFallback = () => {
+const BehaviorMapFallback: React.FC = () => {
   const { styles } = useStyle();
-
   return (
     <div className={styles.fallback}>
       <Skeleton.Node active style={{ height: 600, width: '100%' }}>

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+
 import Avatar from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
-import useBreakpoint from '../../grid/hooks/useBreakpoint';
 import ConfigProvider from '../../config-provider';
+import useBreakpoint from '../../grid/hooks/useBreakpoint';
 
 jest.mock('../../grid/hooks/useBreakpoint');
 

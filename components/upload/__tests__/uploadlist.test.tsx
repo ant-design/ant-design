@@ -1325,7 +1325,7 @@ describe('Upload List', () => {
         <Upload
           ref={uploadRef}
           fileList={testFileList}
-          action="https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188"
+          action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
           multiple
           onChange={(info) => {
             setTestFileList([...info.fileList]);

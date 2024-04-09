@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Tooltip, ConfigProvider } from 'antd';
+import { Button, ConfigProvider, Tooltip } from 'antd';
 
 const text = <span>prompt text</span>;
 

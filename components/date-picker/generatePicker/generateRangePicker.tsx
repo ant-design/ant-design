@@ -4,7 +4,8 @@ import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import SwapRightOutlined from '@ant-design/icons/SwapRightOutlined';
 import classNames from 'classnames';
-import { RangePicker as RCRangePicker, type PickerRef } from 'rc-picker';
+import { RangePicker as RCRangePicker } from 'rc-picker';
+import type { PickerRef } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
 
 import { useZIndex } from '../../_util/hooks/useZIndex';

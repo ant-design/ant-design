@@ -1,7 +1,7 @@
-import { presetDarkPalettes } from '@ant-design/colors';
 import React, { useEffect } from 'react';
-import CopyToClipboard from 'react-copy-to-clipboard';
+import { presetDarkPalettes } from '@ant-design/colors';
 import { message } from 'antd';
+import CopyToClipboard from 'react-copy-to-clipboard';
 
 const rgbToHex = (rgbString: string): string => {
   const rgb = rgbString.match(/\d+/g);
@@ -55,7 +55,7 @@ const Palette: React.FC<PaletteProps> = (props) => {
   const colorName = `${english} / ${chinese}`;
   const colorPaletteMap = {
     dark: ['#fff', 'unset'],
-    default: ['rgba(0,0,0,0.85)', '#fff'],
+    default: ['rgba(0, 0, 0, 0.85)', '#fff'],
   };
   const [lastColor, firstColor] = dark ? colorPaletteMap.dark : colorPaletteMap.default;
   for (let i = 1; i <= count; i += 1) {

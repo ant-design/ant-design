@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+
 import List from '..';
 import { pureRender, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';

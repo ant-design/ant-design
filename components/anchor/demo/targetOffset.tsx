@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Anchor, Row, Col } from 'antd';
+import { Anchor, Col, Row } from 'antd';
 
 const App: React.FC = () => {
   const topRef = React.useRef<HTMLDivElement>(null);
