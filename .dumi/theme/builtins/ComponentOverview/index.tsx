@@ -193,7 +193,7 @@ const Overview: React.FC = () => {
                 <Title level={2} className={styles.componentsOverviewGroupTitle}>
                   <Flex gap="small" align="center">
                     <span style={{ fontSize: 24 }}>{group?.title}</span>
-                    <Tag style={{ display: 'block' }}>{components.length}</Tag>
+                    <Tag style={{ marginInlineEnd: 0, display: 'block' }}>{components.length}</Tag>
                   </Flex>
                 </Title>
                 <Row gutter={[24, 24]}>

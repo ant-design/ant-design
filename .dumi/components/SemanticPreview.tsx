@@ -153,7 +153,11 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
                     <Typography.Title level={5} style={{ margin: 0 }}>
                       {semantic.name}
                     </Typography.Title>
-                    {semantic.version && <Tag color="blue">{semantic.version}</Tag>}
+                    {semantic.version && (
+                      <Tag style={{ marginInlineEnd: 0 }} color="blue">
+                        {semantic.version}
+                      </Tag>
+                    )}
                   </Flex>
                   <Typography.Paragraph style={{ margin: 0, fontSize: token.fontSizeSM }}>
                     {semantic.desc}
