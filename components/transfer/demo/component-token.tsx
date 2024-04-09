@@ -68,7 +68,9 @@ const TableTransfer = ({ leftColumns, rightColumns, ...restProps }: TableTransfe
           style={{ pointerEvents: listDisabled ? 'none' : undefined }}
           onRow={({ key, disabled: itemDisabled }) => ({
             onClick: () => {
-              if (itemDisabled || listDisabled) return;
+              if (itemDisabled || listDisabled) {
+                return;
+              }
               onItemSelect(key as string, !listSelectedKeys.includes(key as string));
             },
           })}
