@@ -1,6 +1,6 @@
-import NumCalculator from './NumCalculator';
-import CSSCalculator from './CSSCalculator';
 import type AbstractCalculator from './calculator';
+import CSSCalculator from './CSSCalculator';
+import NumCalculator from './NumCalculator';
 
 const genCalc = (type: 'css' | 'js') => {
   const Calculator = type === 'css' ? CSSCalculator : NumCalculator;

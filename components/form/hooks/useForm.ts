@@ -1,7 +1,8 @@
+import * as React from 'react';
 import type { FormInstance as RcFormInstance } from 'rc-field-form';
 import { useForm as useRcForm } from 'rc-field-form';
-import * as React from 'react';
 import scrollIntoView from 'scroll-into-view-if-needed';
+
 import type { InternalNamePath, NamePath, ScrollOptions } from '../interface';
 import { getFieldId, toArray } from '../util';
 

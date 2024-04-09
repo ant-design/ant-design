@@ -2,7 +2,8 @@ import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
 import { resetIcon } from '../../style';
-import { mergeToken, type AliasToken } from '../../theme/internal';
+import { mergeToken } from '../../theme/internal';
+import type { AliasToken } from '../../theme/internal';
 import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
 import type { SelectToken } from './token';
 

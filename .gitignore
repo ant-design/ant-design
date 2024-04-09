@@ -44,6 +44,7 @@ components/**/*.jsx
 !components/**/__tests__/**/*.js.snap
 /.history
 *.tmp
+artifacts.zip
 server/
 
 # Docs templates

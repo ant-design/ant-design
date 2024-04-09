@@ -1,5 +1,6 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
+
 import AutoComplete from '..';
 import { render } from '../../../tests/utils';
 

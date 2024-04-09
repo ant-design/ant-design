@@ -122,4 +122,4 @@ jobs:
           path: _site
 
       - name: run e2e test
-        run: npm run site:test
+        run: npm run test:site

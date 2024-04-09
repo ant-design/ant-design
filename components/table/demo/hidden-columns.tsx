@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Divider, Table, Checkbox } from 'antd';
+import { Checkbox, Divider, Table } from 'antd';
 import type { CheckboxOptionType, TableColumnsType } from 'antd';
 
 interface DataType {

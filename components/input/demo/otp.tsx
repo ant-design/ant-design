@@ -1,5 +1,7 @@
 import React from 'react';
-import { Input, Space, Typography, type GetProp } from 'antd';
+import { Flex, Input, Typography } from 'antd';
+import type { GetProp } from 'antd';
+import type { OTPProps } from 'antd/es/input/OTP';
 
 const { Title } = Typography;
 
@@ -8,12 +10,12 @@ const App: React.FC = () => {
     console.log('onChange:', text);
   };
 
-  const sharedProps = {
+  const sharedProps: OTPProps = {
     onChange,
   };
 
   return (
-    <Space direction="vertical">
+    <Flex gap="middle" align="flex-start" vertical>
       <Title level={5}>With formatter (Upcase)</Title>
       <Input.OTP formatter={(str) => str.toUpperCase()} {...sharedProps} />
       <Title level={5}>With Disabled</Title>
@@ -22,7 +24,9 @@ const App: React.FC = () => {
       <Input.OTP length={8} {...sharedProps} />
       <Title level={5}>With variant</Title>
       <Input.OTP variant="filled" {...sharedProps} />
-    </Space>
+      <Title level={5}>With custom display character</Title>
+      <Input.OTP mask="🔒" {...sharedProps} />
+    </Flex>
   );
 };
 
