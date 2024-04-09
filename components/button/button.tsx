@@ -59,7 +59,7 @@ type MergedHTMLAttributes = Omit<
 export interface ButtonProps extends BaseButtonProps, MergedHTMLAttributes {
   href?: string;
   htmlType?: ButtonHTMLType;
-  autoInsertSpaceInButton?: boolean;
+  autoInsertSpace?: boolean;
 }
 
 type CompoundedComponent = React.ForwardRefExoticComponent<
@@ -115,6 +115,7 @@ const InternalButton: React.ForwardRefRenderFunction<
     htmlType = 'button',
     classNames: customClassNames,
     style: customStyle = {},
+    autoInsertSpace,
     ...rest
   } = props;
 
@@ -122,9 +123,10 @@ const InternalButton: React.ForwardRefRenderFunction<
   // Compatible with original `type` behavior
   const mergedType = type || 'default';
 
-  const { getPrefixCls, autoInsertSpaceInButton, direction, button } = useContext(ConfigContext);
+  const { getPrefixCls, button, autoInsertSpaceInButton, direction } = useContext(ConfigContext);
 
-  const mergedAutoInsertSpaceInButton = props.autoInsertSpaceInButton ?? autoInsertSpaceInButton;
+  const mergedAutoInsertSpace =
+    autoInsertSpace ?? button?.autoInsertSpace ?? autoInsertSpaceInButton;
 
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
@@ -171,7 +173,7 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   useEffect(() => {
     // FIXME: for HOC usage like <FormatMessage />
-    if (!buttonRef || !(buttonRef as any).current || mergedAutoInsertSpaceInButton === false) {
+    if (!buttonRef || !(buttonRef as any).current || mergedAutoInsertSpace === false) {
       return;
     }
     const buttonText = (buttonRef as any).current.textContent;
@@ -210,7 +212,8 @@ const InternalButton: React.ForwardRefRenderFunction<
     );
   }
 
-  const autoInsertSpace = mergedAutoInsertSpaceInButton !== false;
+  const finalAutoInsertSpace = mergedAutoInsertSpace !== false;
+
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
@@ -234,7 +237,7 @@ const InternalButton: React.ForwardRefRenderFunction<
       [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
       [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonType(mergedType),
       [`${prefixCls}-loading`]: innerLoading,
-      [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && autoInsertSpace && !innerLoading,
+      [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && finalAutoInsertSpace && !innerLoading,
       [`${prefixCls}-block`]: block,
       [`${prefixCls}-dangerous`]: !!danger,
       [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -272,7 +275,9 @@ const InternalButton: React.ForwardRefRenderFunction<
     );
 
   const kids =
-    children || children === 0 ? spaceChildren(children, needInserted && autoInsertSpace) : null;
+    children || children === 0
+      ? spaceChildren(children, needInserted && finalAutoInsertSpace)
+      : null;
 
   const genButtonContent = (iconComponent: React.ReactNode, kidsComponent: React.ReactNode) => {
     const isRTL = direction === 'rtl';

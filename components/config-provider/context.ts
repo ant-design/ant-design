@@ -140,7 +140,8 @@ export type InputConfig = ComponentStyleConfig &
 export type TextAreaConfig = ComponentStyleConfig &
   Pick<TextAreaProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear'>;
 
-export type ButtonConfig = ComponentStyleConfig & Pick<ButtonProps, 'classNames' | 'styles'>;
+export type ButtonConfig = ComponentStyleConfig &
+  Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace'>;
 
 export type NotificationConfig = ComponentStyleConfig & Pick<ArgsProps, 'closeIcon'>;
 
