@@ -98,7 +98,7 @@ const leftTableColumns: TableColumnsType<DataType> = [
   {
     dataIndex: 'tag',
     title: 'Tag',
-    render: (tag: string) => <Tag style={{ marginInlineEnd: 0 }}>{tag.toUpperCase()}</Tag>,
+    render: (tag) => <Tag>{tag}</Tag>,
   },
   {
     dataIndex: 'description',
