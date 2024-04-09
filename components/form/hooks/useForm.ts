@@ -22,6 +22,23 @@ function toNamePathStr(name: NamePath) {
   return namePath.join('_');
 }
 
+function getFieldDOMNode(name: NamePath, wrapForm: FormInstance) {
+  const field = wrapForm.getFieldInstance(name);
+
+  if (field instanceof HTMLElement) {
+    return field;
+  }
+
+  if (field?.nativeElement instanceof HTMLElement) {
+    return field.nativeElement;
+  }
+
+  const fieldId = getFieldId(toArray(name), wrapForm.__INTERNAL__.name);
+  if (fieldId) {
+    return document.getElementById(fieldId);
+  }
+}
+
 export default function useForm<Values = any>(form?: FormInstance<Values>): [FormInstance<Values>] {
   const [rcForm] = useRcForm();
   const itemsRef = React.useRef<Record<string, React.ReactElement>>({});
@@ -41,26 +58,14 @@ export default function useForm<Values = any>(form?: FormInstance<Values>): [For
           },
         },
         scrollToField: (name: NamePath, options: ScrollOptions = {}) => {
-          let node: HTMLElement | null = null;
-          const fieldRef = wrapForm.getFieldInstance(name);
-
-          if (fieldRef instanceof HTMLElement) {
-            node = fieldRef;
-          } else if (fieldRef?.nativeElement instanceof HTMLElement) {
-            node = fieldRef.nativeElement;
-          } else {
-            const fieldId = getFieldId(toArray(name), wrapForm.__INTERNAL__.name);
-            if (fieldId) {
-              node = document.getElementById(fieldId);
-            }
-          }
+          const node = getFieldDOMNode(name, wrapForm);
 
           if (node) {
             scrollIntoView(node, {
               scrollMode: 'if-needed',
               block: 'nearest',
               ...options,
-            } as any);
+            });
           }
         },
         getFieldInstance: (name: NamePath) => {
