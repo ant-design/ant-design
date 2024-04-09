@@ -48,7 +48,7 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
   };
 
   const onInternalKeyUp: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
-    if (e.key === 'Backspace' && !internalValue) {
+    if (e.key === 'Backspace' && !value) {
       onActiveChange(index - 1);
     }
 
