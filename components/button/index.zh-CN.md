@@ -119,6 +119,14 @@ group:
 <Button autoInsertSpace={false}>按钮</Button>
 ```
 
+或者：
+
+```jsx
+<ConfigProvider button={{ autoInsertSpace: false }}>
+  <Button>按钮</Button>
+</ConfigProvider>
+```
+
 <img src="https://gw.alipayobjects.com/zos/antfincdn/MY%26THAPZrW/38f06cb9-293a-4b42-b183-9f443e79ffea.png" style="box-shadow: none; margin: 0" width="100px" height="64px" alt="移除两个汉字之间的空格"  />
 
 <style>

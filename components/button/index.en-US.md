@@ -114,6 +114,14 @@ In addition, since version 5.17.0, Button component itself supports the `autoIns
 <Button autoInsertSpace={false}>按钮</Button>
 ```
 
+or:
+
+```jsx
+<ConfigProvider button={{ autoInsertSpace: false }}>
+  <Button>按钮</Button>
+</ConfigProvider>
+```
+
 <img src="https://gw.alipayobjects.com/zos/antfincdn/MY%26THAPZrW/38f06cb9-293a-4b42-b183-9f443e79ffea.png" width="100px" height="64px" style="box-shadow: none; margin: 0;" alt="Button with two Chinese characters" />
 
 <style>
