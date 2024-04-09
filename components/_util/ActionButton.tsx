@@ -41,7 +41,7 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
   } = props;
 
   const clickedRef = React.useRef<boolean>(false);
-  const buttonRef = React.useRef<HTMLButtonElement | HTMLAnchorElement>(null);
+  const buttonRef = React.useRef<HTMLButtonElement & HTMLAnchorElement>(null);
   const [loading, setLoading] = useState<ButtonProps['loading']>(false);
 
   const onInternalClose = (...args: any[]) => {
