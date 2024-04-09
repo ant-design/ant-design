@@ -115,7 +115,6 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
 });
 
 type CompoundedComponent = typeof InternalPopconfirm & {
-  /** @internal */
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };
 

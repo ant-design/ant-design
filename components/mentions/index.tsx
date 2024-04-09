@@ -216,7 +216,6 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
 
 type CompoundedComponent = typeof InternalMentions & {
   Option: typeof Option;
-  /** @internal */
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
   getMentions: (value: string, config?: MentionsConfig) => MentionsEntity[];
 };

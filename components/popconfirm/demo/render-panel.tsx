@@ -1,7 +1,6 @@
 import React from 'react';
 import { Popconfirm } from 'antd';
 
-// @ts-ignore
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPopconfirm } = Popconfirm;
 
 const App: React.FC = () => (

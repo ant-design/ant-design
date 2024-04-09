@@ -8,16 +8,18 @@ import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import Tooltip from '../tooltip';
+import type BackTop from './BackTop';
 import FloatButtonGroupContext from './context';
 import Content from './FloatButtonContent';
+import type FloatButtonGroup from './FloatButtonGroup';
 import type {
-  CompoundedComponent,
   FloatButtonBadgeProps,
   FloatButtonContentProps,
   FloatButtonElement,
   FloatButtonProps,
   FloatButtonShape,
 } from './interface';
+import type PurePanel from './PurePanel';
 import useStyle from './style';
 
 export const floatButtonPrefixCls = 'float-btn';
@@ -109,12 +111,16 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
   );
 });
 
+type CompoundedComponent = typeof InternalFloatButton & {
+  Group: typeof FloatButtonGroup;
+  BackTop: typeof BackTop;
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+};
+
 const FloatButton = InternalFloatButton as CompoundedComponent;
 
 if (process.env.NODE_ENV !== 'production') {
   FloatButton.displayName = 'FloatButton';
 }
-
-export { InternalFloatButton };
 
 export default FloatButton;

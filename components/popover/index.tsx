@@ -112,7 +112,6 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
 });
 
 type CompoundedComponent = typeof InternalPopover & {
-  /** @internal */
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };
 

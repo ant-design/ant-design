@@ -1,7 +1,6 @@
 import React from 'react';
 import { ConfigProvider, Mentions } from 'antd';
 
-// @ts-ignore
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalMentions } = Mentions;
 
 const options = [

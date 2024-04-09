@@ -334,7 +334,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
 });
 
 type CompoundedComponent = typeof InternalTooltip & {
-  /** @internal */
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };
 

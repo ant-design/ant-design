@@ -2,7 +2,6 @@ import React from 'react';
 import { CustomerServiceOutlined, QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons';
 import { FloatButton } from 'antd';
 
-// @ts-ignore
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalFloatButton } = FloatButton;
 
 const App: React.FC = () => (
