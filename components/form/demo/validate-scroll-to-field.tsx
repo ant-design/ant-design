@@ -7,19 +7,19 @@ const App = () => {
   return (
     <Form form={form} scrollToFirstError style={{ padding: '2rem 4rem' }} layout="vertical">
       <Form.Item>
-        <Button onClick={() => form.scrollToField('demo-form_baz')}>Scroll to Baz</Button>
+        <Button onClick={() => form.scrollToField('bio')}>Scroll to Bio</Button>
       </Form.Item>
 
-      <Form.Item name="demo-form_foo" label="Foo" rules={[{ required: true }]}>
+      <Form.Item name="username" label="UserName" rules={[{ required: true }]}>
         <Input />
       </Form.Item>
 
-      <Form.Item name="demo-form_bar" label="Bar">
-        <Input.TextArea placeholder="Please input bar" rows={4} />
+      <Form.Item name="motto" label="Motto">
+        <Input.TextArea rows={4} />
       </Form.Item>
 
-      <Form.Item name="demo-form_baz" label="Baz" rules={[{ required: true }]}>
-        <Input.TextArea placeholder="Please input baz" rows={6} />
+      <Form.Item name="bio" label="Bio" rules={[{ required: true }]}>
+        <Input.TextArea rows={6} />
       </Form.Item>
 
       <Form.Item>
