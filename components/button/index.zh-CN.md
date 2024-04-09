@@ -78,7 +78,8 @@ group:
 | styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.4.0 |
 | target | 相当于 a 链接的 target 属性，href 存在时生效 | string | - |  |
 | type | 设置按钮类型 | `primary` \| `dashed` \| `link` \| `text` \| `default` | `default` |  |
-| onClick | 点击按钮时的回调 | (event: MouseEvent) => void | - |  |
+| onClick | 点击按钮时的回调 | (event: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
+| autoInsertSpaceInButton | 设置为 `false` 时，移除按钮中 2 个汉字之间的空格 | boolean | `true` | 5.17.0 |
 
 支持原生 button 的其他所有属性。
 
@@ -110,6 +111,12 @@ group:
 <ConfigProvider autoInsertSpaceInButton={false}>
   <Button>按钮</Button>
 </ConfigProvider>
+```
+
+另外，自 5.17.0 版本开始，Button 组件本身支持了 `autoInsertSpaceInButton` 属性：
+
+```jsx
+<Button autoInsertSpaceInButton={false}>按钮</Button>
 ```
 
 <img src="https://gw.alipayobjects.com/zos/antfincdn/MY%26THAPZrW/38f06cb9-293a-4b42-b183-9f443e79ffea.png" style="box-shadow: none; margin: 0" width="100px" height="64px" alt="移除两个汉字之间的空格"  />

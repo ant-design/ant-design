@@ -441,4 +441,9 @@ describe('Button', () => {
     const { container } = render(<Button type={'' as any} />);
     expect(container.querySelector('.ant-btn-default')).toBeTruthy();
   });
+
+  it('should support autoInsertSpaceInButton', () => {
+    const { container } = render(<Button autoInsertSpaceInButton={false}>好的</Button>);
+    expect(container.querySelector<HTMLButtonElement>('button')?.textContent).toBe('好的');
+  });
 });

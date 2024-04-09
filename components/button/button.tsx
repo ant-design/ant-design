@@ -59,6 +59,7 @@ type MergedHTMLAttributes = Omit<
 export interface ButtonProps extends BaseButtonProps, MergedHTMLAttributes {
   href?: string;
   htmlType?: ButtonHTMLType;
+  autoInsertSpaceInButton?: boolean;
 }
 
 type CompoundedComponent = React.ForwardRefExoticComponent<
@@ -122,6 +123,9 @@ const InternalButton: React.ForwardRefRenderFunction<
   const mergedType = type || 'default';
 
   const { getPrefixCls, autoInsertSpaceInButton, direction, button } = useContext(ConfigContext);
+
+  const mergedAutoInsertSpaceInButton = props.autoInsertSpaceInButton ?? autoInsertSpaceInButton;
+
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
@@ -139,7 +143,7 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const internalRef = createRef<HTMLButtonElement | HTMLAnchorElement>();
 
-  const buttonRef = composeRef(ref, internalRef);
+  const buttonRef = composeRef<HTMLButtonElement | HTMLAnchorElement>(ref, internalRef);
 
   const needInserted =
     Children.count(children) === 1 && !icon && !isUnBorderedButtonType(mergedType);
@@ -167,7 +171,7 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   useEffect(() => {
     // FIXME: for HOC usage like <FormatMessage />
-    if (!buttonRef || !(buttonRef as any).current || autoInsertSpaceInButton === false) {
+    if (!buttonRef || !(buttonRef as any).current || mergedAutoInsertSpaceInButton === false) {
       return;
     }
     const buttonText = (buttonRef as any).current.textContent;
@@ -206,7 +210,7 @@ const InternalButton: React.ForwardRefRenderFunction<
     );
   }
 
-  const autoInsertSpace = autoInsertSpaceInButton !== false;
+  const autoInsertSpace = mergedAutoInsertSpaceInButton !== false;
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
