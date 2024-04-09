@@ -1,6 +1,7 @@
 import React from 'react';
 import { Tooltip } from 'antd';
 
+// @ts-ignore
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalTooltip } = Tooltip;
 
 const App: React.FC = () => (

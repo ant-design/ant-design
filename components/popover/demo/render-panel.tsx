@@ -1,6 +1,7 @@
 import React from 'react';
 import { Popover } from 'antd';
 
+// @ts-ignore
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPopover } = Popover;
 
 const content = (
