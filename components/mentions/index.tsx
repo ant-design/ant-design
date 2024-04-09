@@ -64,18 +64,7 @@ interface MentionsEntity {
   value: string;
 }
 
-type CompoundedComponent = React.ForwardRefExoticComponent<
-  MentionProps & React.RefAttributes<MentionsRef>
-> & {
-  Option: typeof Option;
-  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
-  getMentions: (value: string, config?: MentionsConfig) => MentionsEntity[];
-};
-
-const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps> = (
-  props,
-  ref,
-) => {
+const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -223,14 +212,21 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
   );
 
   return wrapCSSVar(mentions);
+});
+
+type CompoundedComponent = typeof InternalMentions & {
+  Option: typeof Option;
+  /** @internal */
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+  getMentions: (value: string, config?: MentionsConfig) => MentionsEntity[];
 };
 
-const Mentions = React.forwardRef<MentionsRef, MentionProps>(
-  InternalMentions,
-) as CompoundedComponent;
+const Mentions = InternalMentions as CompoundedComponent;
+
 if (process.env.NODE_ENV !== 'production') {
   Mentions.displayName = 'Mentions';
 }
+
 Mentions.Option = Option;
 
 // We don't care debug panel

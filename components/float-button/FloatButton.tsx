@@ -22,7 +22,7 @@ import useStyle from './style';
 
 export const floatButtonPrefixCls = 'float-btn';
 
-const FloatButton = React.forwardRef<FloatButtonElement, FloatButtonProps>((props, ref) => {
+const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -107,10 +107,14 @@ const FloatButton = React.forwardRef<FloatButtonElement, FloatButtonProps>((prop
       </button>
     ),
   );
-}) as CompoundedComponent;
+});
+
+const FloatButton = InternalFloatButton as CompoundedComponent;
 
 if (process.env.NODE_ENV !== 'production') {
   FloatButton.displayName = 'FloatButton';
 }
+
+export { InternalFloatButton };
 
 export default FloatButton;

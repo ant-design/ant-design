@@ -3,6 +3,7 @@ import type React from 'react';
 import type { BadgeProps } from '../badge';
 import type { TooltipProps } from '../tooltip';
 import type BackTop from './BackTop';
+import type { InternalFloatButton } from './FloatButton';
 import type Group from './FloatButtonGroup';
 import type PurePanel from './PurePanel';
 
@@ -68,10 +69,9 @@ export interface BackTopProps extends Omit<FloatButtonProps, 'target'> {
   duration?: number;
 }
 
-export type CompoundedComponent = React.ForwardRefExoticComponent<
-  FloatButtonProps & React.RefAttributes<FloatButtonElement>
-> & {
+export type CompoundedComponent = typeof InternalFloatButton & {
   Group: typeof Group;
   BackTop: typeof BackTop;
+  /** @internal */
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };

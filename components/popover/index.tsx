@@ -36,7 +36,7 @@ const Overlay: React.FC<OverlayProps> = ({ title, content, prefixCls }) => (
   </>
 );
 
-const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
+const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     title,
@@ -109,16 +109,19 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
       })}
     </Tooltip>,
   );
-}) as React.ForwardRefExoticComponent<
-  React.PropsWithoutRef<PopoverProps> & React.RefAttributes<unknown>
-> & {
+});
+
+type CompoundedComponent = typeof InternalPopover & {
+  /** @internal */
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };
+
+const Popover = InternalPopover as CompoundedComponent;
+
+Popover._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 if (process.env.NODE_ENV !== 'production') {
   Popover.displayName = 'Popover';
 }
-
-Popover._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 export default Popover;
