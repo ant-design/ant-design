@@ -492,11 +492,13 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     }
   });
 
-  // merge deprecated api
-  config.button = {
-    autoInsertSpace: autoInsertSpaceInButton,
-    ...config.button,
-  };
+  if (typeof autoInsertSpaceInButton !== 'undefined') {
+    // merge deprecated api
+    config.button = {
+      autoInsertSpace: autoInsertSpaceInButton,
+      ...config.button,
+    };
+  }
 
   // https://github.com/ant-design/ant-design/issues/27617
   const memoedConfig = useMemo(
