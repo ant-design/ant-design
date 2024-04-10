@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders components/chat-box/demo/basic.tsx extend context correctly 1`] = `
+<div>
+  <div
+    class="ant-chatbox"
+  >
+    Chat Box
+  </div>
+</div>
+`;
+
+exports[`renders components/chat-box/demo/basic.tsx extend context correctly 2`] = `[]`;

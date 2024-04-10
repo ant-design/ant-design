@@ -8,6 +8,7 @@ import useStyle from './style';
 export interface ChatBoxProps {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   style?: React.CSSProperties;
   avatar?: React.ReactNode;
   placement?: 'start' | 'end';
@@ -18,11 +19,11 @@ export interface ChatBoxProps {
 }
 
 const ChatBox: React.FC<ChatBoxProps> = (props) => {
-  const { prefixCls: customizePrefixCls, className, style } = props;
+  const { prefixCls: customizePrefixCls, className, rootClassName, style } = props;
   const { direction, getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('chatbox', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
-  const mergedCls = classnames(className, prefixCls, hashId, cssVarCls, {
+  const mergedCls = classnames(className, rootClassName, prefixCls, hashId, cssVarCls, {
     [`${prefixCls}-rtl`]: direction === 'rtl',
   });
   return wrapCSSVar(

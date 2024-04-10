@@ -12,7 +12,7 @@ import type { ComponentToken as CalendarComponentToken } from '../../calendar/st
 import type { ComponentToken as CardComponentToken } from '../../card/style';
 import type { ComponentToken as CarouselComponentToken } from '../../carousel/style';
 import type { ComponentToken as CascaderComponentToken } from '../../cascader/style';
-import type { ComponentToken as ChatBoxComponentToken } from '../../chatbox/style';
+import type { ComponentToken as ChatBoxComponentToken } from '../../chat-box/style';
 import type { ComponentToken as CheckboxComponentToken } from '../../checkbox/style';
 import type { ComponentToken as CollapseComponentToken } from '../../collapse/style';
 import type { ComponentToken as ColorPickerComponentToken } from '../../color-picker/style';
