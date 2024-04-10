@@ -13,7 +13,7 @@ const App: React.FC = () => (
           labelColonMarginInlineStart: 4,
           labelColonMarginInlineEnd: 12,
           itemMarginBottom: 18,
-          inlineItemMargin: 18,
+          inlineItemMarginBottom: 18,
         },
       },
     }}
