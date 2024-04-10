@@ -47,14 +47,7 @@ export interface SwitchProps {
   id?: string;
 }
 
-type CompoundedComponent = React.ForwardRefExoticComponent<
-  SwitchProps & React.RefAttributes<HTMLElement>
-> & {
-  /** @internal */
-  __ANT_SWITCH: boolean;
-};
-
-const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, ref) => {
+const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     size: customizeSize,
@@ -131,7 +124,14 @@ const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, ref) => 
       />
     </Wave>,
   );
-}) as CompoundedComponent;
+});
+
+type CompoundedComponent = typeof InternalSwitch & {
+  /** @internal */
+  __ANT_SWITCH: boolean;
+};
+
+const Switch = InternalSwitch as CompoundedComponent;
 
 Switch.__ANT_SWITCH = true;
 

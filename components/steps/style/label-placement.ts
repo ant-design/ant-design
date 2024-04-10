@@ -14,7 +14,7 @@ const genStepsLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token
 
         '&-tail': {
           marginInlineStart: token.calc(iconSize).div(2).add(token.controlHeightLG).equal(),
-          padding: `${unit(token.paddingXXS)} ${unit(token.paddingLG)}`,
+          padding: `0 ${unit(token.paddingLG)}`,
         },
 
         '&-content': {
