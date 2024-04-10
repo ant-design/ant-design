@@ -66,7 +66,7 @@ export default function useForm<Values = any>(form?: FormInstance<Values>): [For
               scrollMode: 'if-needed',
               block: 'nearest',
               ...options,
-            });
+            } as any);
           }
         },
         getFieldInstance: (name: NamePath) => {
