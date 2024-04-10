@@ -9,10 +9,10 @@ const App = () => {
       form={form}
       scrollToFirstError
       style={{ padding: '2rem 4rem' }}
-      labelCol={{ span: 2 }}
-      wrapperCol={{ span: 8 }}
+      labelCol={{ span: 6 }}
+      wrapperCol={{ span: 14 }}
     >
-      <Form.Item wrapperCol={{ offset: 2 }}>
+      <Form.Item wrapperCol={{ offset: 6 }}>
         <Button onClick={() => form.scrollToField('bio')}>Scroll to Bio</Button>
       </Form.Item>
 
@@ -38,7 +38,7 @@ const App = () => {
         <Input.TextArea rows={6} />
       </Form.Item>
 
-      <Form.Item wrapperCol={{ offset: 2 }}>
+      <Form.Item wrapperCol={{ offset: 6 }}>
         <Flex gap="small">
           <Button type="primary" htmlType="submit">
             Submit

@@ -9892,7 +9892,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
       class="ant-row ant-form-item-row"
     >
       <div
-        class="ant-col ant-col-offset-2 ant-form-item-control"
+        class="ant-col ant-col-offset-6 ant-form-item-control"
       >
         <div
           class="ant-form-item-control-input"
@@ -9920,7 +9920,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
       class="ant-row ant-form-item-row"
     >
       <div
-        class="ant-col ant-col-2 ant-form-item-label"
+        class="ant-col ant-col-6 ant-form-item-label"
       >
         <label
           class="ant-form-item-required"
@@ -9931,7 +9931,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
         </label>
       </div>
       <div
-        class="ant-col ant-col-8 ant-form-item-control"
+        class="ant-col ant-col-14 ant-form-item-control"
       >
         <div
           class="ant-form-item-control-input"
@@ -9958,7 +9958,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
       class="ant-row ant-form-item-row"
     >
       <div
-        class="ant-col ant-col-2 ant-form-item-label"
+        class="ant-col ant-col-6 ant-form-item-label"
       >
         <label
           class=""
@@ -9969,7 +9969,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
         </label>
       </div>
       <div
-        class="ant-col ant-col-8 ant-form-item-control"
+        class="ant-col ant-col-14 ant-form-item-control"
       >
         <div
           class="ant-form-item-control-input"
@@ -10046,7 +10046,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
       class="ant-row ant-form-item-row"
     >
       <div
-        class="ant-col ant-col-2 ant-form-item-label"
+        class="ant-col ant-col-6 ant-form-item-label"
       >
         <label
           class=""
@@ -10057,7 +10057,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
         </label>
       </div>
       <div
-        class="ant-col ant-col-8 ant-form-item-control"
+        class="ant-col ant-col-14 ant-form-item-control"
       >
         <div
           class="ant-form-item-control-input"
@@ -10082,7 +10082,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
       class="ant-row ant-form-item-row"
     >
       <div
-        class="ant-col ant-col-2 ant-form-item-label"
+        class="ant-col ant-col-6 ant-form-item-label"
       >
         <label
           class="ant-form-item-required"
@@ -10093,7 +10093,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
         </label>
       </div>
       <div
-        class="ant-col ant-col-8 ant-form-item-control"
+        class="ant-col ant-col-14 ant-form-item-control"
       >
         <div
           class="ant-form-item-control-input"
@@ -10119,7 +10119,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
       class="ant-row ant-form-item-row"
     >
       <div
-        class="ant-col ant-col-offset-2 ant-form-item-control"
+        class="ant-col ant-col-offset-6 ant-form-item-control"
       >
         <div
           class="ant-form-item-control-input"
