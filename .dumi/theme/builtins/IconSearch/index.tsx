@@ -7,7 +7,7 @@ const IconSearch = React.lazy(() => import('./IconSearch'));
 const useStyle = createStyles(({ token, css }) => ({
   searchWrapper: css`
     display: flex;
-    gap: 16px;
+    gap: ${token.padding}px;
     > *:first-child {
       flex: 0 0 328px;
     }
