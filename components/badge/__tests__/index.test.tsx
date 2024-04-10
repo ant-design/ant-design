@@ -2,6 +2,7 @@ import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 
+import type { GetRef } from '../../_util/type';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import Tooltip from '../../tooltip';
@@ -75,7 +76,7 @@ describe('Badge', () => {
 
   // https://github.com/ant-design/ant-design/issues/10626
   it('should be composable with Tooltip', () => {
-    const ref = React.createRef<typeof Tooltip>();
+    const ref = React.createRef<GetRef<typeof Tooltip>>();
     const { container } = render(
       <Tooltip title="Fix the error" ref={ref}>
         <Badge status="error" />
