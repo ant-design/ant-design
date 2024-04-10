@@ -65,13 +65,13 @@ const genPickerMultipleStyle: GenerateStyle<PickerToken> = (token) => {
     {
       [`${componentCls}${componentCls}-multiple`]: {
         width: '100%',
+        cursor: 'text',
 
         // ==================== Selector =====================
         [`${componentCls}-selector`]: {
           flex: 'auto',
           padding: 0,
           position: 'relative',
-          cursor: 'text',
 
           '&:after': {
             margin: 0,
