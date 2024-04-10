@@ -126,7 +126,7 @@ const InternalButton: React.ForwardRefRenderFunction<
   const { getPrefixCls, button, autoInsertSpaceInButton, direction } = useContext(ConfigContext);
 
   const mergedAutoInsertSpace =
-    autoInsertSpace ?? button?.autoInsertSpace ?? autoInsertSpaceInButton;
+    autoInsertSpace ?? button?.autoInsertSpace ?? false;
 
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
