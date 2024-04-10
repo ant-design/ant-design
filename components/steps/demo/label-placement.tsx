@@ -22,7 +22,7 @@ const App: React.FC = () => (
     <br />
     <Steps current={1} percent={60} labelPlacement="vertical" items={items} />
     <br />
-    <Steps current={1} size="small" labelPlacement="vertical" items={items} />
+    <Steps current={1} percent={80} size="small" labelPlacement="vertical" items={items} />
   </>
 );
 
