@@ -19,7 +19,7 @@ import type { PaginationType, TransferKey } from './interface';
 import type { ListBodyRef, TransferListBodyProps } from './ListBody';
 import DefaultListBody, { OmitProps } from './ListBody';
 import Search from './search';
-import { uniqueId } from 'lodash';
+import { TablePaginationConfig } from '../table';
 
 const defaultRender = () => null;
 
@@ -121,8 +121,11 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
   } = props;
 
   const [filterValue, setFilterValue] = useState<string>('');
+  const [childPagination, onSetPagination] = useState<TablePaginationConfig>({
+    current: 1,
+    pageSize: 10,
+  });
   const listBodyRef = useRef<ListBodyRef<RecordType>>({});
-  const id = 'renderList' + uniqueId();
 
   const internalHandleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilterValue(e.target.value);
@@ -145,10 +148,13 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     let bodyContent: React.ReactNode = renderList
       ? renderList({
           ...listProps,
-          id,
+          onSetPagination,
           onItemSelect: (key, check) => listProps.onItemSelect(key, check),
         })
       : null;
+    if (bodyContent !== null && ['function', 'object'].includes(typeof bodyContent)) {
+      onSetPagination((bodyContent as React.ReactElement).props?.pagination || childPagination);
+    }
     const customize: boolean = !!bodyContent;
     if (!customize) {
       // @ts-ignore
@@ -217,8 +223,8 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     const { customize, bodyContent } = renderListBody({
       ...omit(props, OmitProps),
       filteredItems,
+      onSetPagination,
       filteredRenderItems,
-      id,
       selectedKeys: checkedKeys,
     });
 
@@ -349,14 +355,11 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
         key: 'selectInvert',
         label: selectInvert,
         onClick() {
-          const list = document.querySelector(`#${id} .ant-table-tbody`)?.childNodes || [];
+          const { current = 1, pageSize = 10 } = childPagination;
           const availablePageItemKeys = getEnabledItemKeys(
             listBodyRef.current?.items
               ? listBodyRef.current.items.map((entity) => entity.item)
-              : dataSource.filter((item, index) => {
-                  const node = list[index] as HTMLDivElement;
-                  return node?.dataset?.rowKey === item.key;
-                }),
+              : dataSource.slice((current - 1) * pageSize, current * pageSize),
           );
           const checkedKeySet = new Set(checkedKeys);
           const newCheckedKeysSet = new Set(checkedKeySet);

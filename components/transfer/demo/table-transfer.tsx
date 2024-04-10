@@ -36,7 +36,7 @@ const TableTransfer = ({ leftColumns, rightColumns, ...restProps }: TableTransfe
       filteredItems,
       onItemSelectAll,
       onItemSelect,
-      id,
+      onSetPagination,
       selectedKeys: listSelectedKeys,
       disabled: listDisabled,
     }) => {
@@ -65,8 +65,8 @@ const TableTransfer = ({ leftColumns, rightColumns, ...restProps }: TableTransfe
           columns={columns}
           dataSource={filteredItems}
           size="small"
-          id={id}
           style={{ pointerEvents: listDisabled ? 'none' : undefined }}
+          onChange={onSetPagination}
           onRow={({ key, disabled: itemDisabled }) => ({
             onClick: () => {
               if (itemDisabled || listDisabled) return;
