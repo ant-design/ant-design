@@ -492,6 +492,12 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     }
   });
 
+  // merge deprecated api
+  config.button = {
+    autoInsertSpace: autoInsertSpaceInButton,
+    ...config.button,
+  };
+
   // https://github.com/ant-design/ant-design/issues/27617
   const memoedConfig = useMemo(
     () => config,
@@ -647,14 +653,11 @@ ConfigProvider.useConfig = useConfig;
 
 Object.defineProperty(ConfigProvider, 'SizeContext', {
   get: () => {
-    if (process.env.NODE_ENV !== 'production') {
-      const warningFn = devUseWarning('ConfigProvider');
-      warningFn(
-        false,
-        'deprecated',
-        '`ConfigProvider.SizeContext` is deprecated. Please use `ConfigProvider.useConfig().componentSize` instead.',
-      );
-    }
+    warning(
+      false,
+      'ConfigProvider',
+      'ConfigProvider.SizeContext is deprecated. Please use `ConfigProvider.useConfig().componentSize` instead.',
+    );
     return SizeContext;
   },
 });

@@ -52,6 +52,7 @@ group:
 <code src="./demo/chinese-chars-loading.tsx" debug>加载中状态 bug 还原</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 <code src="./demo/linear-gradient.tsx">渐变按钮</code>
+<code src="./demo/noSpace.tsx" version="5.17.0">移除两个汉字之间的空格</code>
 
 ## API
 
@@ -102,32 +103,6 @@ group:
   <Button>click</Button>
 </ConfigProvider>
 ```
-
-### 如何移除两个汉字之间的空格？
-
-根据 Ant Design 设计规范要求，我们会在按钮内（文本按钮和链接按钮除外）只有两个汉字时自动添加空格，如果你不需要这个特性，可以设置 [ConfigProvider](/components/config-provider-cn#api) 的 `autoInsertSpaceInButton` 为 `false`。
-
-```jsx
-<ConfigProvider autoInsertSpaceInButton={false}>
-  <Button>按钮</Button>
-</ConfigProvider>
-```
-
-以上属性在 `5.17.0` 版本之前可用，自 `5.17.0` 版本起，`autoInsertSpaceInButton` 属性废弃，Button 组件本身支持了 `autoInsertSpace` 属性：
-
-```jsx
-<Button autoInsertSpace={false}>按钮</Button>
-```
-
-或者：
-
-```jsx
-<ConfigProvider button={{ autoInsertSpace: false }}>
-  <Button>按钮</Button>
-</ConfigProvider>
-```
-
-<img src="https://gw.alipayobjects.com/zos/antfincdn/MY%26THAPZrW/38f06cb9-293a-4b42-b183-9f443e79ffea.png" style="box-shadow: none; margin: 0" width="100px" height="64px" alt="移除两个汉字之间的空格"  />
 
 <style>
 .site-button-ghost-wrapper {

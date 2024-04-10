@@ -123,10 +123,9 @@ const InternalButton: React.ForwardRefRenderFunction<
   // Compatible with original `type` behavior
   const mergedType = type || 'default';
 
-  const { getPrefixCls, button, autoInsertSpaceInButton, direction } = useContext(ConfigContext);
+  const { getPrefixCls, direction, button } = useContext(ConfigContext);
 
-  const mergedAutoInsertSpace =
-    autoInsertSpace ?? button?.autoInsertSpace ?? false;
+  const mergedAutoInsertSpace = autoInsertSpace ?? button?.autoInsertSpace ?? true;
 
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
@@ -212,8 +211,6 @@ const InternalButton: React.ForwardRefRenderFunction<
     );
   }
 
-  const finalAutoInsertSpace = mergedAutoInsertSpace !== false;
-
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
@@ -237,7 +234,7 @@ const InternalButton: React.ForwardRefRenderFunction<
       [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
       [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonType(mergedType),
       [`${prefixCls}-loading`]: innerLoading,
-      [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && finalAutoInsertSpace && !innerLoading,
+      [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && mergedAutoInsertSpace && !innerLoading,
       [`${prefixCls}-block`]: block,
       [`${prefixCls}-dangerous`]: !!danger,
       [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -276,7 +273,7 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const kids =
     children || children === 0
-      ? spaceChildren(children, needInserted && finalAutoInsertSpace)
+      ? spaceChildren(children, needInserted && mergedAutoInsertSpace)
       : null;
 
   const genButtonContent = (iconComponent: React.ReactNode, kidsComponent: React.ReactNode) => {

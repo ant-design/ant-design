@@ -58,7 +58,7 @@ describe('ConfigProvider.useConfig', () => {
     render(<App />);
 
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: ConfigProvider] `ConfigProvider.SizeContext` is deprecated. Please use `ConfigProvider.useConfig().componentSize` instead.',
+      'Warning: [antd: ConfigProvider] ConfigProvider.SizeContext is deprecated. Please use `ConfigProvider.useConfig().componentSize` instead.',
     );
     errSpy.mockRestore();
   });

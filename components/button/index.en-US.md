@@ -49,6 +49,7 @@ And 4 other properties additionally.
 <code src="./demo/chinese-chars-loading.tsx" debug>Loading style bug</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 <code src="./demo/linear-gradient.tsx">Gradient Button</code>
+<code src="./demo/noSpace.tsx" version="5.17.0">Remove the space</code>
 
 ## API
 
@@ -97,32 +98,6 @@ If you don't need this feature, you can set `disabled` of `wave` in [ConfigProvi
   <Button>click</Button>
 </ConfigProvider>
 ```
-
-### How to remove space between 2 chinese characters?
-
-Following the Ant Design specification, we will add one space between if Button (exclude Text button and Link button) contains two Chinese characters only. If you don't need that, you can use [ConfigProvider](/components/config-provider/#api) to set `autoInsertSpaceInButton` as `false`.
-
-```jsx
-<ConfigProvider autoInsertSpaceInButton={false}>
-  <Button>按钮</Button>
-</ConfigProvider>
-```
-
-The above prop is available before the `5.17.0`, since `5.17.0`, the `autoInsertSpaceInButton` prop is deprecated, Button component itself supports the `autoInsertSpace` prop:
-
-```jsx
-<Button autoInsertSpace={false}>按钮</Button>
-```
-
-or:
-
-```jsx
-<ConfigProvider button={{ autoInsertSpace: false }}>
-  <Button>按钮</Button>
-</ConfigProvider>
-```
-
-<img src="https://gw.alipayobjects.com/zos/antfincdn/MY%26THAPZrW/38f06cb9-293a-4b42-b183-9f443e79ffea.png" width="100px" height="64px" style="box-shadow: none; margin: 0;" alt="Button with two Chinese characters" />
 
 <style>
 .site-button-ghost-wrapper {
