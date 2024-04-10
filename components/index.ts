@@ -28,6 +28,8 @@ export { default as Carousel } from './carousel';
 export type { CarouselProps } from './carousel';
 export { default as Cascader } from './cascader';
 export type { CascaderProps } from './cascader';
+export { default as ChatBox } from './chatbox';
+export type { ChatBoxProps } from './chatbox';
 export { default as Checkbox } from './checkbox';
 export type { CheckboxOptionType, CheckboxProps, CheckboxRef } from './checkbox';
 export { default as Col } from './col';
