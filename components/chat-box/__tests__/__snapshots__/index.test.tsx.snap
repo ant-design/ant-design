@@ -2,8 +2,6 @@
 
 exports[`chat-box rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-chatbox ant-chatbox-rtl"
->
-  Chat Box
-</div>
+  class="ant-chatbox ant-chatbox-start ant-chatbox-rtl"
+/>
 `;

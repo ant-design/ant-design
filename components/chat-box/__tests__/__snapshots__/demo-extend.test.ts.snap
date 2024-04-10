@@ -3,9 +3,9 @@
 exports[`renders components/chat-box/demo/basic.tsx extend context correctly 1`] = `
 <div>
   <div
-    class="ant-chatbox"
+    class="ant-chatbox ant-chatbox-start"
   >
-    Chat Box
+    你好你好你好
   </div>
 </div>
 `;

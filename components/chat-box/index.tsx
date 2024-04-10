@@ -19,16 +19,27 @@ export interface ChatBoxProps {
 }
 
 const ChatBox: React.FC<ChatBoxProps> = (props) => {
-  const { prefixCls: customizePrefixCls, className, rootClassName, style, avatar, content } = props;
+  const {
+    prefixCls: customizePrefixCls,
+    className,
+    rootClassName,
+    style,
+    avatar,
+    content,
+    placement = 'start',
+  } = props;
   const { direction, getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('chatbox', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
-  const mergedCls = classNames(className, rootClassName, prefixCls, hashId, cssVarCls, {
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-  });
-  if (typeof content !== 'string') {
-    return null;
-  }
+  const mergedCls = classNames(
+    className,
+    rootClassName,
+    prefixCls,
+    hashId,
+    cssVarCls,
+    `${prefixCls}-${placement}`,
+    { [`${prefixCls}-rtl`]: direction === 'rtl' },
+  );
   return wrapCSSVar(
     <div style={style} className={mergedCls}>
       {avatar}
