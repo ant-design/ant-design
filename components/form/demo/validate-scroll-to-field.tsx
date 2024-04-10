@@ -8,7 +8,7 @@ const App = () => {
     <Form
       form={form}
       scrollToFirstError
-      style={{ padding: '2rem 4rem' }}
+      style={{ paddingBlock: 32 }}
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 14 }}
     >

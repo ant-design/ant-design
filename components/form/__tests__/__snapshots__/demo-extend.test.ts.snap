@@ -22217,7 +22217,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
 exports[`renders components/form/demo/validate-scroll-to-field.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
-  style="padding: 2rem 4rem;"
+  style="padding-block: 32px;"
 >
   <div
     class="ant-form-item"
