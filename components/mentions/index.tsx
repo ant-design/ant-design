@@ -98,7 +98,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
     ...restProps
   } = props;
 
-  const [value, setValue] = React.useState<string>(props.value ?? props.defaultValue ?? '');
+  const [data, setData] = React.useState<string>(props.value ?? props.defaultValue ?? '');
   const [focused, setFocused] = React.useState(false);
   const innerRef = React.useRef<MentionsRef>(null);
   const mergedRef = composeRef(ref, innerRef);
@@ -139,13 +139,13 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
   };
 
   const onChange = (value: string) => {
-    setValue(value);
+    setData(value);
   };
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.keyCode === KeyCode.BACKSPACE && itemOnceDelete) {
-      if (value) {
-        setValue(value.split('@').slice(0, -1).join('@'));
+      if (data) {
+        setData(data.split('@').slice(0, -1).join('@'));
       }
     }
   };
@@ -210,7 +210,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
       allowClear={mergedAllowClear}
       direction={direction}
       style={{ ...contextMentions?.style, ...style }}
-      value={value}
+      value={data}
       {...restProps}
       filterOption={mentionsfilterOption}
       onKeyDown={onKeyDown}
