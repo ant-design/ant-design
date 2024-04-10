@@ -1,5 +1,5 @@
 import React from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
 
 import { ConfigContext } from '../config-provider';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -19,16 +19,20 @@ export interface ChatBoxProps {
 }
 
 const ChatBox: React.FC<ChatBoxProps> = (props) => {
-  const { prefixCls: customizePrefixCls, className, rootClassName, style } = props;
+  const { prefixCls: customizePrefixCls, className, rootClassName, style, avatar, content } = props;
   const { direction, getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('chatbox', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
-  const mergedCls = classnames(className, rootClassName, prefixCls, hashId, cssVarCls, {
+  const mergedCls = classNames(className, rootClassName, prefixCls, hashId, cssVarCls, {
     [`${prefixCls}-rtl`]: direction === 'rtl',
   });
+  if (typeof content !== 'string') {
+    return null;
+  }
   return wrapCSSVar(
     <div style={style} className={mergedCls}>
-      Chat Box
+      {avatar}
+      {content}
     </div>,
   );
 };
