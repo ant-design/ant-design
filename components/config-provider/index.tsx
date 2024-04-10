@@ -4,7 +4,7 @@ import IconContext from '@ant-design/icons/lib/components/Context';
 import useMemo from 'rc-util/lib/hooks/useMemo';
 import { merge } from 'rc-util/lib/utils/set';
 
-import warning, { WarningContext } from '../_util/warning';
+import warning, { devUseWarning, WarningContext } from '../_util/warning';
 import type { WarningContextProps } from '../_util/warning';
 import ValidateMessagesContext from '../form/validateMessagesContext';
 import type { Locale } from '../locale';
@@ -122,6 +122,7 @@ export interface ConfigProviderProps {
   children?: React.ReactNode;
   renderEmpty?: RenderEmptyHandler;
   csp?: CSPConfig;
+  /** @deprecated Please use `{ button: { autoInsertSpace: boolean }}` instead */
   autoInsertSpaceInButton?: boolean;
   form?: FormConfig;
   input?: InputConfig;
@@ -463,6 +464,15 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     floatButtonGroup,
   };
 
+  if (process.env.NODE_ENV !== 'production') {
+    const warningFn = devUseWarning('ConfigProvider');
+    warningFn(
+      !('autoInsertSpaceInButton' in props),
+      'deprecated',
+      '`autoInsertSpaceInButton` is deprecated. Please use `{ button: { autoInsertSpace: boolean }}` instead.',
+    );
+  }
+
   const config: ConfigConsumerProps = {
     ...parentContext,
   };
@@ -637,11 +647,14 @@ ConfigProvider.useConfig = useConfig;
 
 Object.defineProperty(ConfigProvider, 'SizeContext', {
   get: () => {
-    warning(
-      false,
-      'ConfigProvider',
-      'ConfigProvider.SizeContext is deprecated. Please use `ConfigProvider.useConfig().componentSize` instead.',
-    );
+    if (process.env.NODE_ENV !== 'production') {
+      const warningFn = devUseWarning('ConfigProvider');
+      warningFn(
+        false,
+        'deprecated',
+        '`ConfigProvider.SizeContext` is deprecated. Please use `ConfigProvider.useConfig().componentSize` instead.',
+      );
+    }
     return SizeContext;
   },
 });

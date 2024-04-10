@@ -195,6 +195,7 @@ export interface ConfigConsumerProps {
    * @descEN Set the [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) config.
    */
   csp?: CSPConfig;
+  /** @deprecated Please use `{ button: { autoInsertSpace: boolean }}` instead */
   autoInsertSpaceInButton?: boolean;
   input?: InputConfig;
   textArea?: TextAreaConfig;

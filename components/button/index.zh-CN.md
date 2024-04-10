@@ -113,7 +113,7 @@ group:
 </ConfigProvider>
 ```
 
-另外，自 5.17.0 版本开始，Button 组件本身支持了 `autoInsertSpace` 属性：
+以上属性在 `5.17.0` 版本之前可用，自 `5.17.0` 版本起，`autoInsertSpaceInButton` 属性废弃，Button 组件本身支持了 `autoInsertSpace` 属性：
 
 ```jsx
 <Button autoInsertSpace={false}>按钮</Button>

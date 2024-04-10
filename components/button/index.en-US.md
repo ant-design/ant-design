@@ -108,7 +108,7 @@ Following the Ant Design specification, we will add one space between if Button 
 </ConfigProvider>
 ```
 
-In addition, since version 5.17.0, Button component itself supports the `autoInsertSpace` prop:
+The above prop is available before the `5.17.0`, since `5.17.0`, the `autoInsertSpaceInButton` prop is deprecated, Button component itself supports the `autoInsertSpace` prop:
 
 ```jsx
 <Button autoInsertSpace={false}>按钮</Button>
