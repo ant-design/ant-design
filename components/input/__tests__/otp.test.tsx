@@ -82,6 +82,9 @@ describe('Input.OTP', () => {
 
     rerender(<OTP value="LITTLE" />);
     expect(getText(container)).toBe('LITTLE');
+
+    rerender(<OTP value="" />);
+    expect(getText(container)).toBe('');
   });
 
   it('focus to selection', async () => {
