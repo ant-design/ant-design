@@ -39,20 +39,22 @@ const genClsWrap = (prefixCls: string, props: FlexProps) => {
   };
 };
 
-function genClsAlign(prefixCls: string, props: FlexProps) {
-  return alignItemsValues.reduce<Record<PropertyKey, boolean>>((alignCls, cssKey) => {
+const genClsAlign = (prefixCls: string, props: FlexProps) => {
+  const alignCls: Record<PropertyKey, boolean> = {};
+  alignItemsValues.forEach((cssKey) => {
     alignCls[`${prefixCls}-align-${cssKey}`] = props.align === cssKey;
-    alignCls[`${prefixCls}-align-stretch`] = !props.align && !!props.vertical;
-    return alignCls;
-  }, {});
-}
+  });
+  alignCls[`${prefixCls}-align-stretch`] = !props.align && !!props.vertical;
+  return alignCls;
+};
 
-function genClsJustify(prefixCls: string, props: FlexProps) {
-  return justifyContentValues.reduce<Record<PropertyKey, boolean>>((justifyCls, cssKey) => {
+const genClsJustify = (prefixCls: string, props: FlexProps) => {
+  const justifyCls: Record<PropertyKey, boolean> = {};
+  justifyContentValues.forEach((cssKey) => {
     justifyCls[`${prefixCls}-justify-${cssKey}`] = props.justify === cssKey;
-    return justifyCls;
-  }, {});
-}
+  });
+  return justifyCls;
+};
 
 function createFlexClassNames(prefixCls: string, props: FlexProps) {
   return classNames({
