@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react';
+import type { Variant } from '../form/hooks/useVariants';
 
 interface ImageSettings {
   src: string;
@@ -34,4 +35,5 @@ export interface QRCodeProps extends QRProps {
   errorLevel?: 'L' | 'M' | 'Q' | 'H';
   status?: 'active' | 'expired' | 'loading' | 'scanned';
   onRefresh?: () => void;
+  variant?: Variant;
 }

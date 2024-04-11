@@ -48,6 +48,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | errorLevel | Error Code Level | `'L' \| 'M' \| 'Q' \| 'H' ` | `M` |
 | status | QRCode status | `active \| expired \| loading \| scanned` | `active` | scanned: 5.13.0 |
 | onRefresh | callback | `() => void` | - |
+| variant | Variants of QRCode | `borderless` | 5.16.2 |
 
 ## Design Token
 
