@@ -77,8 +77,5 @@ describe('Flex', () => {
 
     rerender(<Flex wrap>test</Flex>);
     expect(element).toHaveClass('ant-flex-wrap-wrap');
-
-    rerender(<Flex wrap={false}>test</Flex>);
-    expect(element).toHaveClass('ant-flex-wrap-nowrap');
   });
 });

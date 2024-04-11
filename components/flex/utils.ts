@@ -32,15 +32,11 @@ export const alignItemsValues = [
   'stretch',
 ] as const;
 
-const genClsWrap = (prefixCls: string, wrap: FlexProps['wrap']) => {
-  if (typeof wrap === 'boolean') {
-    return {
-      [`${prefixCls}-wrap-wrap`]: wrap,
-      [`${prefixCls}-wrap-nowrap`]: !wrap,
-    };
-  }
+const genClsWrap = (prefixCls: string, props: FlexProps) => {
+  const wrap = props.wrap === true ? 'wrap' : props.wrap;
+  const isValidValue = flexWrapValues.includes(wrap as (typeof flexWrapValues)[number]);
   return {
-    [`${prefixCls}-wrap-${wrap}`]: flexWrapValues.includes(wrap as any),
+    [`${prefixCls}-wrap-${wrap}`]: props.wrap === true || isValidValue,
   };
 };
 
@@ -63,7 +59,7 @@ const genClsJustify = (prefixCls: string, props: FlexProps) => {
 
 function createFlexClassNames(prefixCls: string, props: FlexProps) {
   return classNames({
-    ...genClsWrap(prefixCls, props.wrap),
+    ...genClsWrap(prefixCls, props),
     ...genClsAlign(prefixCls, props),
     ...genClsJustify(prefixCls, props),
   });
