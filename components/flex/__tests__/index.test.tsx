@@ -69,9 +69,15 @@ describe('Flex', () => {
   });
 
   it('wrap prop shouled support boolean', () => {
-    const { container, rerender } = render(<Flex wrap>test</Flex>);
+    const { container, rerender } = render(<Flex>test</Flex>);
     const element = container.querySelector<HTMLDivElement>('.ant-flex');
+
+    expect(element).not.toHaveClass('ant-flex-wrap-wrap');
+    expect(element).not.toHaveClass('ant-flex-wrap-nowrap');
+
+    rerender(<Flex wrap>test</Flex>);
     expect(element).toHaveClass('ant-flex-wrap-wrap');
+
     rerender(<Flex wrap={false}>test</Flex>);
     expect(element).toHaveClass('ant-flex-wrap-nowrap');
   });
