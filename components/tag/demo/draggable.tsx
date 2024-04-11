@@ -68,7 +68,7 @@ const App: React.FC = () => {
   return (
     <DndContext sensors={sensors} onDragEnd={handleDragEnd} collisionDetection={closestCenter}>
       <SortableContext items={items} strategy={horizontalListSortingStrategy}>
-        <Flex gap="4px 0" wrap="wrap">
+        <Flex gap="4px 0" wrap>
           {items.map<React.ReactNode>((item) => (
             <DraggableTag tag={item} key={item.id} />
           ))}
