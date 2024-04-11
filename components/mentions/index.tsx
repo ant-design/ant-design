@@ -22,6 +22,7 @@ import type { Variant } from '../form/hooks/useVariants';
 import useVariant from '../form/hooks/useVariants';
 import Spin from '../spin';
 import useStyle from './style';
+import KeyCode from 'rc-util/lib/KeyCode';
 
 export const { Option } = RcMentions;
 
@@ -45,6 +46,7 @@ export interface MentionProps extends Omit<RcMentionsProps, 'suffix'> {
   status?: InputStatus;
   options?: MentionsOptionProps[];
   popupClassName?: string;
+  itemOnceDelete?: boolean;
   /**
    * @since 5.13.0
    * @default "outlined"
@@ -75,6 +77,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     children,
     notFoundContent,
     options,
+    itemOnceDelete = false,
     status: customStatus,
     allowClear = false,
     popupClassName,
@@ -82,6 +85,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     variant: customVariant,
     ...restProps
   } = props;
+  const [data, setData] = React.useState<string>(props.value ?? props.defaultValue ?? '');
   const [focused, setFocused] = React.useState(false);
   const innerRef = React.useRef<MentionsRef>(null);
   const mergedRef = composeRef(ref, innerRef);
@@ -119,6 +123,18 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     }
 
     setFocused(false);
+  };
+
+  const onChange = (value: string) => {
+    setData(value);
+  };
+
+  const onKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.keyCode === KeyCode.BACKSPACE && itemOnceDelete) {
+      if (data) {
+        setData(data.split('@').slice(0, -1).join('@'));
+      }
+    }
   };
 
   const notFoundContentEle = React.useMemo<React.ReactNode>(() => {
@@ -181,8 +197,11 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
       allowClear={mergedAllowClear}
       direction={direction}
       style={{ ...contextMentions?.style, ...style }}
+      value={data}
       {...restProps}
       filterOption={mentionsfilterOption}
+      onKeyDown={onKeyDown}
+      onChange={onChange}
       onFocus={onFocus}
       onBlur={onBlur}
       dropdownClassName={classNames(popupClassName, rootClassName, hashId, cssVarCls, rootCls)}
