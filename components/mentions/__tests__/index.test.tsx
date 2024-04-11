@@ -101,7 +101,7 @@ describe('Mentions', () => {
       <Mentions
         style={{ width: '100%' }}
         defaultValue="@afc163@zombieJ"
-        itemOnceDelete={true}
+        itemOnceDelete
         options={[
           {
             value: 'afc163',
