@@ -85,6 +85,12 @@ describe('Input.OTP', () => {
 
     rerender(<OTP value="" />);
     expect(getText(container)).toBe('');
+
+    rerender(<OTP value="EXCEED-RANGE" />);
+    expect(getText(container)).toBe('EXCEED');
+
+    rerender(<OTP value={null!} />);
+    expect(getText(container)).toBe('');
   });
 
   it('focus to selection', async () => {
