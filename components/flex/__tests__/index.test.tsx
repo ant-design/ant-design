@@ -72,10 +72,14 @@ describe('Flex', () => {
     const { container, rerender } = render(<Flex>test</Flex>);
     const element = container.querySelector<HTMLDivElement>('.ant-flex');
 
-    expect(element).not.toHaveClass('ant-flex-wrap-wrap');
-    expect(element).not.toHaveClass('ant-flex-wrap-nowrap');
+    ([true, 'wrap'] as const).forEach((value) => {
+      rerender(<Flex wrap={value}>test</Flex>);
+      expect(element).toHaveClass('ant-flex-wrap-wrap');
+    });
 
-    rerender(<Flex wrap>test</Flex>);
-    expect(element).toHaveClass('ant-flex-wrap-wrap');
+    ([false, 'nowrap'] as const).forEach((value) => {
+      rerender(<Flex wrap={value}>test</Flex>);
+      expect(element).not.toHaveClass('ant-flex-wrap-wrap');
+    });
   });
 });
