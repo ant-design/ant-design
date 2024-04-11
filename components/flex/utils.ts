@@ -34,7 +34,9 @@ export const alignItemsValues: React.CSSProperties['alignItems'][] = [
 
 const genClsWrap = (prefixCls: string, props: FlexProps) => {
   const wrap = props.wrap === true ? 'wrap' : props.wrap;
-  return wrap && flexWrapValues.includes(wrap) && `${prefixCls}-wrap-${wrap}`;
+  return {
+    [`${prefixCls}-wrap-${wrap}`]: wrap && flexWrapValues.includes(wrap),
+  };
 };
 
 function genClsAlign(prefixCls: string, props: FlexProps) {
@@ -53,7 +55,8 @@ function genClsJustify(prefixCls: string, props: FlexProps) {
 }
 
 function createFlexClassNames(prefixCls: string, props: FlexProps) {
-  return classNames(genClsWrap(prefixCls, props), {
+  return classNames({
+    ...genClsWrap(prefixCls, props),
     ...genClsAlign(prefixCls, props),
     ...genClsJustify(prefixCls, props),
   });
