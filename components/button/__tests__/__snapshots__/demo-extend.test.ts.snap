@@ -2789,11 +2789,11 @@ exports[`renders components/button/demo/noSpace.tsx extend context correctly 1`]
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default"
+    class="ant-btn ant-btn-primary"
     type="button"
   >
     <span>
-      确定
+      确 定
     </span>
   </button>
 </div>

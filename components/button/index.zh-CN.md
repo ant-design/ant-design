@@ -64,7 +64,7 @@ group:
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| autoInsertSpace | 设置为 `false` 时，移除按钮中 2 个汉字之间的空格 | boolean | `true` | 5.17.0 |
+| autoInsertSpace | 我们默认提供两个汉字之间的空格，可以设置 `autoInsertSpace` 为 `false` 关闭 | boolean | `true` | 5.17.0 |
 | block | 将按钮宽度调整为其父宽度的选项 | boolean | false |  |
 | classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.4.0 |
 | danger | 设置危险按钮 | boolean | false |  |

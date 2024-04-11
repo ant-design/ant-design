@@ -109,7 +109,7 @@ const InternalCompoundedButton = React.forwardRef<
 
   const { getPrefixCls, direction, button } = useContext(ConfigContext);
 
-  const mergedAutoInsertSpace = autoInsertSpace ?? button?.autoInsertSpace ?? true;
+  const mergedInsertSpace = autoInsertSpace ?? button?.autoInsertSpace ?? true;
 
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
@@ -156,7 +156,7 @@ const InternalCompoundedButton = React.forwardRef<
 
   useEffect(() => {
     // FIXME: for HOC usage like <FormatMessage />
-    if (!buttonRef || !(buttonRef as any).current || mergedAutoInsertSpace) {
+    if (!buttonRef || !(buttonRef as any).current || !mergedInsertSpace) {
       return;
     }
     const buttonText = (buttonRef as any).current.textContent;
@@ -218,7 +218,7 @@ const InternalCompoundedButton = React.forwardRef<
       [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
       [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonType(mergedType),
       [`${prefixCls}-loading`]: innerLoading,
-      [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && mergedAutoInsertSpace && !innerLoading,
+      [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && mergedInsertSpace && !innerLoading,
       [`${prefixCls}-block`]: block,
       [`${prefixCls}-dangerous`]: !!danger,
       [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -256,9 +256,7 @@ const InternalCompoundedButton = React.forwardRef<
     );
 
   const kids =
-    children || children === 0
-      ? spaceChildren(children, needInserted && mergedAutoInsertSpace)
-      : null;
+    children || children === 0 ? spaceChildren(children, needInserted && mergedInsertSpace) : null;
 
   const genButtonContent = (iconComponent: React.ReactNode, kidsComponent: React.ReactNode) => {
     const isRTL = direction === 'rtl';
