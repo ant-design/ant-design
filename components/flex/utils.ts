@@ -33,11 +33,12 @@ export const alignItemsValues: React.CSSProperties['alignItems'][] = [
 ];
 
 const genClsWrap = (prefixCls: string, props: FlexProps) => {
-  const wrap = props.wrap === true ? 'wrap' : props.wrap;
-  const isValidValue = flexWrapValues.includes(wrap as React.CSSProperties['flexWrap']);
-  return {
-    [`${prefixCls}-wrap-${wrap}`]: props.wrap === true || isValidValue,
-  };
+  const wrapCls: Record<PropertyKey, boolean> = {};
+  flexWrapValues.forEach((cssKey) => {
+    wrapCls[`${prefixCls}-wrap-${cssKey}`] = props.wrap === cssKey;
+  });
+  wrapCls[`${prefixCls}-wrap-wrap`] = props.wrap === true;
+  return wrapCls;
 };
 
 const genClsAlign = (prefixCls: string, props: FlexProps) => {
