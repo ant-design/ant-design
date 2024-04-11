@@ -1,10 +1,11 @@
 import React from 'react';
-import { ChatBox } from 'antd';
+import { ChatBox, Flex } from 'antd';
 
 const App: React.FC = () => (
-  <div>
-    <ChatBox content="你好你好你好" />
-  </div>
+  <Flex gap="small" vertical>
+    <ChatBox content="你好你好你好" placement="start" />
+    <ChatBox content="你好你好你好" placement="end" />
+  </Flex>
 );
 
 export default App;

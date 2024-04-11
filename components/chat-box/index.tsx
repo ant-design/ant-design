@@ -40,10 +40,24 @@ const ChatBox: React.FC<ChatBoxProps> = (props) => {
     `${prefixCls}-${placement}`,
     { [`${prefixCls}-rtl`]: direction === 'rtl' },
   );
+
+  let [startNode, endNode] = [
+    <div className={`${prefixCls}-avatar`} key="avatar">
+      {avatar}
+    </div>,
+    <div className={`${prefixCls}-content`} key="content">
+      {content}
+    </div>,
+  ];
+
+  if (placement === 'end') {
+    [startNode, endNode] = [endNode, startNode];
+  }
+
   return wrapCSSVar(
     <div style={style} className={mergedCls}>
-      {avatar}
-      {content}
+      {startNode}
+      {endNode}
     </div>,
   );
 };
