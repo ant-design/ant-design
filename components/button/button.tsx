@@ -128,7 +128,7 @@ const InternalCompoundedButton = React.forwardRef<
 
   const internalRef = createRef<HTMLButtonElement | HTMLAnchorElement>();
 
-  const buttonRef = composeRef<HTMLButtonElement | HTMLAnchorElement>(ref, internalRef);
+  const buttonRef = composeRef(ref, internalRef);
 
   const needInserted =
     Children.count(children) === 1 && !icon && !isUnBorderedButtonType(mergedType);
