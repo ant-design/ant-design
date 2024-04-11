@@ -47,6 +47,7 @@ return (
 <code src="./demo/allowClear.tsx">With clear icon</code>
 <code src="./demo/autoSize.tsx">autoSize</code>
 <code src="./demo/status.tsx">Status</code>
+<code src="./demo/onceDelete.tsx">Once Delete</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
@@ -79,6 +80,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onSearch | Trigger when prefix hit | (text: string, prefix: string) => void | - |  |
 | onSelect | Trigger when user select the option | (option: OptionProps, prefix: string) => void | - |  |
 | options | Option Configuration | [Options](#option) | \[] | 5.1.0 |
+| itemOnceDelete | Delete Item with Once Delete | boolean | - |  |
 
 ### Mention methods
 

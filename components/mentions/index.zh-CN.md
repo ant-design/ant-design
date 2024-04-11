@@ -48,6 +48,7 @@ return (
 <code src="./demo/allowClear.tsx">带移除图标</code>
 <code src="./demo/autoSize.tsx">自动大小</code>
 <code src="./demo/status.tsx">自定义状态</code>
+<code src="./demo/onceDelete.tsx">一次删除</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
