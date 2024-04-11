@@ -156,7 +156,7 @@ const InternalCompoundedButton = React.forwardRef<
 
   useEffect(() => {
     // FIXME: for HOC usage like <FormatMessage />
-    if (!buttonRef || !(buttonRef as any).current || mergedAutoInsertSpace === false) {
+    if (!buttonRef || !(buttonRef as any).current || mergedAutoInsertSpace) {
       return;
     }
     const buttonText = (buttonRef as any).current.textContent;
