@@ -33,29 +33,31 @@ export const alignItemsValues: React.CSSProperties['alignItems'][] = [
 ];
 
 const genClsWrap = (prefixCls: string, props: FlexProps) => {
-  const wrapCls: Record<PropertyKey, boolean> = {};
-  flexWrapValues.forEach((cssKey) => {
+  const initialValue: Record<PropertyKey, boolean> = {};
+  return flexWrapValues.reduce((wrapCls, cssKey) => {
     wrapCls[`${prefixCls}-wrap-${cssKey}`] = props.wrap === cssKey;
-  });
-  wrapCls[`${prefixCls}-wrap-wrap`] = props.wrap === true;
-  return wrapCls;
+    if (typeof props.wrap === 'boolean') {
+      wrapCls[`${prefixCls}-wrap-wrap`] = props.wrap === true;
+    }
+    return wrapCls;
+  }, initialValue);
 };
 
 const genClsAlign = (prefixCls: string, props: FlexProps) => {
-  const alignCls: Record<PropertyKey, boolean> = {};
-  alignItemsValues.forEach((cssKey) => {
+  const initialValue: Record<PropertyKey, boolean> = {};
+  return alignItemsValues.reduce((alignCls, cssKey) => {
     alignCls[`${prefixCls}-align-${cssKey}`] = props.align === cssKey;
-  });
-  alignCls[`${prefixCls}-align-stretch`] = !props.align && !!props.vertical;
-  return alignCls;
+    alignCls[`${prefixCls}-align-stretch`] = !props.align && !!props.vertical;
+    return alignCls;
+  }, initialValue);
 };
 
 const genClsJustify = (prefixCls: string, props: FlexProps) => {
-  const justifyCls: Record<PropertyKey, boolean> = {};
-  justifyContentValues.forEach((cssKey) => {
+  const initialValue: Record<PropertyKey, boolean> = {};
+  return justifyContentValues.reduce((justifyCls, cssKey) => {
     justifyCls[`${prefixCls}-justify-${cssKey}`] = props.justify === cssKey;
-  });
-  return justifyCls;
+    return justifyCls;
+  }, initialValue);
 };
 
 function createFlexClassNames(prefixCls: string, props: FlexProps) {
