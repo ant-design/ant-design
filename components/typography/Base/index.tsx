@@ -461,7 +461,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
                 [`${prefixCls}-${type}`]: type,
                 [`${prefixCls}-disabled`]: disabled,
                 [`${prefixCls}-ellipsis`]: enableEllipsis,
-                [`${prefixCls}-single-line`]: mergedEnableEllipsis && rows === 1,
+                [`${prefixCls}-single-line`]: mergedEnableEllipsis && rows === 1 && !expanded,
                 [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
                 [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
               },
@@ -487,7 +487,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               width={ellipsisWidth}
               onEllipsis={onJsEllipsis}
               expanded={expanded}
-              miscDeps={[copied, expanded, copyLoading]}
+              miscDeps={[copied, expanded, copyLoading, enableEdit, enableCopy]}
             >
               {(node, canEllipsis) => {
                 let renderNode: React.ReactNode = node;

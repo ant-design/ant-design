@@ -1,13 +1,5 @@
 /* eslint-disable react/button-has-type */
-import React, {
-  Children,
-  createRef,
-  forwardRef,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import React, { Children, createRef, useContext, useEffect, useMemo, useState } from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import { composeRef } from 'rc-util/lib/ref';
@@ -61,14 +53,6 @@ export interface ButtonProps extends BaseButtonProps, MergedHTMLAttributes {
   htmlType?: ButtonHTMLType;
 }
 
-type CompoundedComponent = React.ForwardRefExoticComponent<
-  ButtonProps & React.RefAttributes<HTMLElement>
-> & {
-  Group: typeof Group;
-  /** @internal */
-  __ANT_BUTTON: boolean;
-};
-
 type LoadingConfigType = {
   loading: boolean;
   delay: number;
@@ -90,10 +74,10 @@ function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigTyp
   };
 }
 
-const InternalButton: React.ForwardRefRenderFunction<
+const InternalCompoundedButton = React.forwardRef<
   HTMLButtonElement | HTMLAnchorElement,
   ButtonProps
-> = (props, ref) => {
+>((props, ref) => {
   const {
     loading = false,
     prefixCls: customizePrefixCls,
@@ -324,19 +308,22 @@ const InternalButton: React.ForwardRefRenderFunction<
       </Wave>
     );
   }
-
   return wrapCSSVar(buttonNode);
+});
+
+type CompoundedComponent = typeof InternalCompoundedButton & {
+  Group: typeof Group;
+  /** @internal */
+  __ANT_BUTTON: boolean;
 };
 
-const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
-  InternalButton,
-) as CompoundedComponent;
+const Button = InternalCompoundedButton as CompoundedComponent;
+
+Button.Group = Group;
+Button.__ANT_BUTTON = true;
 
 if (process.env.NODE_ENV !== 'production') {
   Button.displayName = 'Button';
 }
-
-Button.Group = Group;
-Button.__ANT_BUTTON = true;
 
 export default Button;
