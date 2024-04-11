@@ -33,12 +33,8 @@ const MeasureText = React.forwardRef<MeasureTextRef, MeasureTextProps>(
           display: 'block',
           left: 0,
           top: 0,
-          // zIndex: -9999,
-          // visibility: 'hidden',
           pointerEvents: 'none',
-
           backgroundColor: 'rgba(255, 0, 0, 0.65)',
-
           ...style,
         }}
       >
@@ -118,10 +114,12 @@ export interface EllipsisProps {
 }
 
 // Measure for the `text` is exceed the `rows` or not
-const STATUS_MEASURE_NONE = 0;
-const STATUS_MEASURE_START = 1;
-const STATUS_MEASURE_NEED_ELLIPSIS = 2;
-const STATUS_MEASURE_NO_NEED_ELLIPSIS = 3;
+enum STATUS_MEASURE {
+  NONE = 0,
+  START = 1,
+  NEED_ELLIPSIS = 2,
+  NO_NEED_ELLIPSIS = 3,
+}
 
 const lineClipStyle: React.CSSProperties = {
   display: '-webkit-box',
@@ -151,24 +149,24 @@ export default function EllipsisMeasure(props: EllipsisProps) {
   const symbolRowEllipsisRef = React.useRef<MeasureTextRef>(null);
 
   const [canEllipsis, setCanEllipsis] = React.useState(false);
-  const [needEllipsis, setNeedEllipsis] = React.useState(STATUS_MEASURE_NONE);
+  const [needEllipsis, setNeedEllipsis] = React.useState<STATUS_MEASURE>(STATUS_MEASURE.NONE);
   const [ellipsisHeight, setEllipsisHeight] = React.useState(0);
 
   // Trigger start measure
   useLayoutEffect(() => {
     if (enableMeasure && width && nodeLen) {
-      setNeedEllipsis(STATUS_MEASURE_START);
+      setNeedEllipsis(STATUS_MEASURE.START);
     } else {
-      setNeedEllipsis(STATUS_MEASURE_NONE);
+      setNeedEllipsis(STATUS_MEASURE.NONE);
     }
   }, [width, text, rows, enableMeasure, nodeList]);
 
   // Measure process
   useLayoutEffect(() => {
-    if (needEllipsis === STATUS_MEASURE_START) {
+    if (needEllipsis === STATUS_MEASURE.START) {
       const isOverflow = !!needEllipsisRef.current?.isExceed();
 
-      setNeedEllipsis(isOverflow ? STATUS_MEASURE_NEED_ELLIPSIS : STATUS_MEASURE_NO_NEED_ELLIPSIS);
+      setNeedEllipsis(isOverflow ? STATUS_MEASURE.NEED_ELLIPSIS : STATUS_MEASURE.NO_NEED_ELLIPSIS);
       setEllipsisCutIndex(isOverflow ? [0, nodeLen] : null);
       setCanEllipsis(isOverflow);
 
@@ -216,7 +214,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
   // ========================= Text Content =========================
   const finalContent = React.useMemo(() => {
     if (
-      needEllipsis !== STATUS_MEASURE_NEED_ELLIPSIS ||
+      needEllipsis !== STATUS_MEASURE.NEED_ELLIPSIS ||
       !ellipsisCutIndex ||
       ellipsisCutIndex[0] !== ellipsisCutIndex[1]
     ) {
@@ -225,8 +223,8 @@ export default function EllipsisMeasure(props: EllipsisProps) {
       // Limit the max line count to avoid scrollbar blink
       // https://github.com/ant-design/ant-design/issues/42958
       if (
-        needEllipsis !== STATUS_MEASURE_NO_NEED_ELLIPSIS &&
-        needEllipsis !== STATUS_MEASURE_NONE
+        needEllipsis !== STATUS_MEASURE.NO_NEED_ELLIPSIS &&
+        needEllipsis !== STATUS_MEASURE.NONE
       ) {
         return (
           <span
@@ -260,7 +258,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
       {finalContent}
 
       {/* Measure if current content is exceed the rows */}
-      {needEllipsis === STATUS_MEASURE_START && (
+      {needEllipsis === STATUS_MEASURE.START && (
         <>
           {/** With `rows` */}
           <MeasureText
@@ -301,7 +299,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
       )}
 
       {/* Real size overflow measure */}
-      {needEllipsis === STATUS_MEASURE_NEED_ELLIPSIS &&
+      {needEllipsis === STATUS_MEASURE.NEED_ELLIPSIS &&
         ellipsisCutIndex &&
         ellipsisCutIndex[0] !== ellipsisCutIndex[1] && (
           <MeasureText
