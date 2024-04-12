@@ -119,8 +119,10 @@ describe('Mentions', () => {
       />,
     );
     const textarea = getByRole('textbox') as HTMLTextAreaElement;
+    textarea.selectionStart = textarea.value.length;
+    textarea.selectionEnd = textarea.value.length;
     fireEvent.keyDown(textarea, { key: 'Delete', keyCode: KeyCode.BACKSPACE });
-    expect(textarea.value).toBe('@afc163');
+    expect(textarea.value).toBe('@afc163 ');
   });
 
   it('should support custom clearIcon', () => {
