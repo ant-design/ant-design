@@ -42,7 +42,7 @@ const useStyle = createStyles(({ token, css }) => ({
     margin-inline-start: ${token.marginXS}px;
   `,
   bug: css`
-    font-size: 14px;
+    font-size: ${token.fontSize}px;
     color: #aaa;
     margin-inline-start: ${token.marginXS}px;
     display: inline-block;

@@ -1,4 +1,5 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 
 import { genFocusStyle, resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
@@ -690,7 +691,7 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
       },
       '&-btn': {
         outline: 'none',
-        transition: 'all 0.3s',
+        transition: `all ${token.motionDurationSlow}`,
         [`${tabCls}-icon:not(:last-child)`]: {
           marginInlineEnd: token.marginSM,
         },

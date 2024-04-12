@@ -31,3 +31,4 @@ components/*/*.jsx
 .eslintignore
 .history
 **/*.yml
+*.html

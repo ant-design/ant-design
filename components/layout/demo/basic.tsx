@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Flex } from 'antd';
+import { Flex, Layout } from 'antd';
 
 const { Header, Footer, Sider, Content } = Layout;
 

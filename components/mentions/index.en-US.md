@@ -16,7 +16,7 @@ When you need to mention someone or something.
 ### Usage upgrade after 5.1.0
 
 <!-- prettier-ignore -->
-:::info
+:::info{title="Upgrade Tip"}
 After version 5.1.0, we provide a simpler usage `<Mentions options={[...]} />` with better performance and potential of writing simpler code style in your applications.
 Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 6.0.
 :::

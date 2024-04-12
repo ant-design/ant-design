@@ -1,10 +1,11 @@
+import * as React from 'react';
 import QuestionCircleOutlined from '@ant-design/icons/QuestionCircleOutlined';
 import classNames from 'classnames';
-import * as React from 'react';
+
 import type { ColProps } from '../grid/col';
 import Col from '../grid/col';
-import defaultLocale from '../locale/en_US';
 import { useLocale } from '../locale';
+import defaultLocale from '../locale/en_US';
 import type { TooltipProps } from '../tooltip';
 import Tooltip from '../tooltip';
 import type { FormContextProps } from './context';

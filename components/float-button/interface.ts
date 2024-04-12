@@ -2,9 +2,6 @@ import type React from 'react';
 
 import type { BadgeProps } from '../badge';
 import type { TooltipProps } from '../tooltip';
-import type BackTop from './BackTop';
-import type Group from './FloatButtonGroup';
-import type PurePanel from './PurePanel';
 
 export type FloatButtonElement = HTMLAnchorElement & HTMLButtonElement;
 
@@ -67,11 +64,3 @@ export interface BackTopProps extends Omit<FloatButtonProps, 'target'> {
   style?: React.CSSProperties;
   duration?: number;
 }
-
-export type CompoundedComponent = React.ForwardRefExoticComponent<
-  FloatButtonProps & React.RefAttributes<FloatButtonElement>
-> & {
-  Group: typeof Group;
-  BackTop: typeof BackTop;
-  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
-};

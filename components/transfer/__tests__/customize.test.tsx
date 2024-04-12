@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { render } from '../../../tests/utils';
 import type { TransferProps } from '../index';
 import Transfer from '../index';

@@ -1,4 +1,5 @@
-import { Col, type ColProps, type ColSize } from '../grid';
+import { Col } from '../grid';
+import type { ColProps, ColSize } from '../grid';
 
 export type { ColProps, ColSize };
 

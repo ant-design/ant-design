@@ -1,5 +1,6 @@
 import React from 'react';
-import { Input, Space, Typography, type GetProp } from 'antd';
+import type { GetProp } from 'antd';
+import { Input, Space, Typography } from 'antd';
 
 const { Title } = Typography;
 

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import message, { actWrapper } from '..';
 import { act, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';

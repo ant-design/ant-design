@@ -1,5 +1,6 @@
 /* eslint-disable import/prefer-default-export */
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { AliasToken, DerivativeToken } from '../theme/internal';
 

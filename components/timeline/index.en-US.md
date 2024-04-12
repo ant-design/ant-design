@@ -15,7 +15,7 @@ demo:
 - When you need a timeline to make a visual connection.
 
 <!-- prettier-ignore -->
-:::info
+:::info{title="Upgrade Tip"}
 After version 5.2.0, we provide a simpler usage `<Timeline items={[...]} />` with better performance and potential of writing simpler code style in your applications.
 Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 6.0.
 :::

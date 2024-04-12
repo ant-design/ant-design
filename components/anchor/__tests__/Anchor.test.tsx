@@ -1,5 +1,5 @@
-import { resetWarned } from 'rc-util/lib/warning';
 import React, { useState } from 'react';
+import { resetWarned } from 'rc-util/lib/warning';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import Anchor from '..';

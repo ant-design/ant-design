@@ -1,9 +1,9 @@
 import { blue } from '@ant-design/colors';
+import { unit } from '@ant-design/cssinjs';
 
 import type { UploadToken } from '.';
 import { clearFix, textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
-import { unit } from '@ant-design/cssinjs';
 
 const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
   const { componentCls, iconCls, uploadThumbnailSize, uploadProgressOffset, calc } = token;
@@ -107,8 +107,7 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
       ${componentCls}-wrapper${componentCls}-picture-circle-wrapper
     `]: {
       ...clearFix(),
-      display: 'inline-block',
-      width: '100%',
+      display: 'block',
 
       [`${componentCls}${componentCls}-select`]: {
         width: uploadPictureCardSize,

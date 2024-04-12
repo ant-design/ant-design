@@ -1,5 +1,6 @@
-import userEvent from '@testing-library/user-event';
 import React from 'react';
+import userEvent from '@testing-library/user-event';
+
 import Button from '..';
 import { act, fireEvent, render } from '../../../tests/utils';
 

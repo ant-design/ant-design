@@ -1,7 +1,8 @@
 import React from 'react';
-import { createStyles } from 'antd-style';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import { Col, Row, Tooltip } from 'antd';
+import { createStyles } from 'antd-style';
+
 import useLocale from '../../../hooks/useLocale';
 
 const useStyle = createStyles(({ token, css }) => {
@@ -16,9 +17,9 @@ const useStyle = createStyles(({ token, css }) => {
       color: inherit;
       list-style: none;
       border: 1px solid ${token.colorSplit};
-      border-radius: 2px;
+      border-radius: ${token.borderRadiusXS}px;
       cursor: pointer;
-      transition: box-shadow 0.3s;
+      transition: box-shadow ${token.motionDurationSlow};
 
       &:hover {
         box-shadow: ${boxShadowSecondary};
@@ -36,26 +37,26 @@ const useStyle = createStyles(({ token, css }) => {
       position: absolute;
       top: 8px;
       right: 8px;
-      padding: 4px 8px;
+      padding: ${token.paddingXXS}px ${token.paddingXS}px;
       color: #fff;
-      font-size: 12px;
+      font-size: ${token.fontSizeSM}px;
       line-height: 1;
       background: rgba(0, 0, 0, 0.65);
-      border-radius: 1px;
+      border-radius: ${token.borderRadiusXS}px;
       box-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
       display: inline-flex;
-      column-gap: 4px;
+      column-gap: ${token.paddingXXS}px;
     `,
     title: css`
-      margin: 16px 20px 8px;
+      margin: ${token.margin}px ${token.marginMD}px ${token.marginXS}px;
       opacity: 0.85;
-      font-size: 20px;
+      font-size: ${token.fontSizeXL}px;
       line-height: 28px;
     `,
     description: css`
-      margin: 0 20px 20px;
+      margin: 0 ${token.marginMD}px ${token.marginMD}px;
       opacity: 0.65;
-      font-size: 14px;
+      font-size: ${token.fontSizeXL}px;
       line-height: 22px;
     `,
   };
