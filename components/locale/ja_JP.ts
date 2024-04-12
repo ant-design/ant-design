@@ -46,6 +46,12 @@ const localeValues: Locale = {
     searchPlaceholder: 'ここを検索',
     itemUnit: 'アイテム',
     itemsUnit: 'アイテム',
+    remove: '削除',
+    selectCurrent: '現在のページを選択',
+    removeCurrent: '現在のページを削除',
+    selectAll: 'ページ単位で選択',
+    removeAll: 'ページ単位で削除',
+    selectInvert: 'ページ単位で反転',
   },
   Upload: {
     uploading: 'アップロード中...',
