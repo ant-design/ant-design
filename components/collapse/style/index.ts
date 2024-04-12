@@ -124,10 +124,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
           [`${componentCls}-arrow`]: {
             ...resetIcon(),
             fontSize: fontSizeIcon,
-
-            svg: {
-              transition: `transform ${motionDurationSlow}`,
-            },
+            transition: `transform ${motionDurationSlow}`,
           },
 
           // >>>>> Text
