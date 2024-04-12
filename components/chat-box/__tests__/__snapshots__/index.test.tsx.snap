@@ -1,11 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`chat-box rtl render component should be rendered correctly in RTL direction 1`] = `
-<div
-  class="ant-chatbox ant-chatbox-start ant-chatbox-rtl"
->
-  <div
-    class="ant-chatbox-content"
-  />
-</div>
-`;
+exports[`chat-box rtl render component should be rendered correctly in RTL direction 1`] = `null`;

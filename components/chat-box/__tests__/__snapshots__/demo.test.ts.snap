@@ -38,7 +38,7 @@ exports[`renders components/chat-box/demo/basic.tsx correctly 1`] = `
     <div
       class="ant-chatbox-content"
     >
-      你好你好你好
+      晚上好，你吃过了吗？
     </div>
   </div>
   <div
@@ -75,7 +75,7 @@ exports[`renders components/chat-box/demo/basic.tsx correctly 1`] = `
     <div
       class="ant-chatbox-content"
     >
-      你好你好你好
+      晚上好，你吃过了吗？
     </div>
   </div>
 </div>

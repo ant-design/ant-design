@@ -3,7 +3,7 @@ import { Keyframes, unit } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
-const cursorBlink = new Keyframes('CursorBlink', {
+const cursorBlink = new Keyframes('cursorBlink', {
   '0%': {
     opacity: 1,
   },
@@ -52,15 +52,17 @@ const genChatBoxStyle: GenerateStyle<ChatBoxToken> = (token) => {
         borderRadius: token.borderRadiusLG,
         boxShadow: token.boxShadowTertiary,
         '&-typedCursor': {
-          position: 'absolute',
-          right: 14,
-          bottom: 14,
-          fontSize: token.fontSizeLG,
+          display: 'inline-block',
+          width: 4,
+          height: '1em',
+          backgroundColor: token.colorText,
+          // borderRadius: token.borderRadiusXS,
+          transform: 'translate3d(0, 1px, 0)',
+          marginInlineStart: token.marginXXS,
           userSelect: 'none',
           opacity: 1,
-          fontWeight: 900,
           animationName: cursorBlink,
-          animationDuration: '0.7s',
+          animationDuration: '0.6s',
           animationIterationCount: 'infinite',
         },
       },

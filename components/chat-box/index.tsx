@@ -4,8 +4,9 @@ import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
 import type { ConfigConsumerProps } from '../config-provider';
 import useStyle from './style';
+import useTyped from './useTyped';
 
-interface StepOption {
+export interface StepOption {
   step: number;
   interval: number;
 }
@@ -24,7 +25,7 @@ export interface ChatBoxProps {
   placement?: 'start' | 'end';
   loading?: React.ReactNode;
   step?: boolean | StepOption;
-  content?: string;
+  content: string;
   contentRender?: (content?: string) => React.ReactNode;
 }
 
@@ -44,17 +45,6 @@ const ChatBox: React.FC<ChatBoxProps> = (props) => {
   const prefixCls = getPrefixCls('chatbox', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
-  const [typedContent, setTypedContent] = React.useState<string>('');
-  const [showCursor, setShowCursor] = React.useState<boolean>(false);
-
-  const timerRef = React.useRef<ReturnType<typeof setInterval>>();
-
-  const clearTimer = () => {
-    if (timerRef.current) {
-      clearInterval(timerRef.current);
-    }
-  };
-
   const mergedStep = React.useMemo<StepOption | false>(() => {
     if (step && typeof step === 'object') {
       return { ...defaultStep, ...step };
@@ -65,28 +55,7 @@ const ChatBox: React.FC<ChatBoxProps> = (props) => {
     return false;
   }, [step]);
 
-  React.useEffect(() => {
-    if (!content) {
-      return;
-    }
-    if (mergedStep) {
-      setShowCursor(true);
-      let stepCount = 0;
-      const { step: totalStep, interval } = mergedStep;
-      timerRef.current = setInterval(() => {
-        stepCount += totalStep;
-        setTypedContent(content.slice(0, stepCount) ?? '');
-        if (stepCount >= content.length) {
-          clearTimer();
-          setShowCursor(false);
-        }
-      }, interval);
-      return () => {
-        clearTimer();
-        setShowCursor(false);
-      };
-    }
-  }, [content, mergedStep]);
+  const { typedContent, showCursor } = useTyped(content, mergedStep);
 
   const mergedCls = classNames(
     className,
@@ -98,16 +67,20 @@ const ChatBox: React.FC<ChatBoxProps> = (props) => {
     { [`${prefixCls}-rtl`]: direction === 'rtl' },
   );
 
+  const streamContent = (
+    <>
+      {typedContent}
+      {showCursor && <span className={`${prefixCls}-content-typedCursor`} />}
+    </>
+  );
+
   return wrapCSSVar(
     <div style={style} className={mergedCls}>
       {avatar && <div className={`${prefixCls}-avatar`}>{avatar}</div>}
-      {typeof contentRender === 'function' ? (
+      {contentRender ? (
         contentRender(content)
       ) : (
-        <div className={`${prefixCls}-content`}>
-          {mergedStep ? typedContent : content}
-          {showCursor && <span className={`${prefixCls}-content-typedCursor`}>|</span>}
-        </div>
+        <div className={`${prefixCls}-content`}>{mergedStep ? streamContent : content}</div>
       )}
     </div>,
   );
