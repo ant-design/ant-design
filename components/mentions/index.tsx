@@ -87,12 +87,11 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     value,
     defaultValue,
     onChange,
-    //prefix,
     ...restProps
   } = props;
   const [mergedValue, setMergedValue] = useMergedState('', {
     defaultValue,
-    value: value,
+    value,
   });
   const [focused, setFocused] = React.useState(false);
   const innerRef = React.useRef<MentionsRef>(null);
@@ -133,21 +132,35 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     setFocused(false);
   };
 
-  const onInternalChange = (value: string) => {
-    setMergedValue(value)
-    onChange?.(value);
+  const onInternalChange = (data: string) => {
+    setMergedValue(data)
+    onChange?.(data);
+  }
+
+  const splitValue = (data: string) => {
+    if (props.prefix) {
+      const prefix = Array.isArray(props.prefix) ? props.prefix : [props.prefix];
+      prefix.forEach((pre) => {
+        if (pre) {
+          data = data.split(pre).join(`  ${pre}`);
+        }
+      });
+    } else {
+      data = data.split('@').join(' @');
+    }
+    return data.trim();
   }
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.keyCode === KeyCode.BACKSPACE && itemOnceDelete) {
       if (mergedValue) {
-        const value = splitValue(mergedValue)
+        const data = splitValue(mergedValue)
         const cursorPosition = e.currentTarget.selectionStart;
-        const valueList = value.trimEnd().split(props.split ?? ' ');
+        const valueList = data.trimEnd().split(props.split ?? ' ');
         let length = 0;
         let itemIndex = -1;
         for (let i = 0; i < valueList.length; i++) {
-          length += valueList[i].length + (props.split?.length ?? 1); // +1 for the space
+          length += valueList[i].length + (props.split?.length ?? 1);
           if (length >= cursorPosition) {
             itemIndex = i;
             break;
@@ -158,7 +171,6 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
         if (valueList.length !== 0) {
           const res = valueList.join(props.split ?? ' ') + (props.split ?? ' ');
           setMergedValue(res);
-          //set cursor position
           setTimeout(() => {
             if (innerRef.current && innerRef.current.textarea) {
               innerRef.current.textarea.selectionStart -= len
@@ -171,20 +183,6 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
       }
     }
   };
-
-  const splitValue = (value: string) => {
-    if (props.prefix) {
-      const prefix = Array.isArray(props.prefix) ? props.prefix : [props.prefix];
-      prefix.forEach((pre) => {
-        if (pre) {
-          value = value.split(pre).join(' ' + pre);
-        }
-      });
-    } else {
-      value = value.split('@').join(' ' + '@');
-    }
-    return value.trim();
-  }
 
   const notFoundContentEle = React.useMemo<React.ReactNode>(() => {
     if (notFoundContent !== undefined) {
