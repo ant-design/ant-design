@@ -25,7 +25,7 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
 
   const containerNode = useMemo<React.ReactNode>(
     () =>
-      color.cleared ? (
+      color.cleared === true ? (
         <ColorClear prefixCls={prefixCls} />
       ) : (
         <ColorBlock prefixCls={prefixCls} color={color.toRgbString()} />
