@@ -231,7 +231,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
 const genArrowStyle: GenerateStyle<CollapseToken> = (token) => {
   const { componentCls } = token;
 
-  const fixedSelector = `> ${componentCls}-item > ${componentCls}-header ${componentCls}-arrow svg`;
+  const fixedSelector = `> ${componentCls}-item > ${componentCls}-header ${componentCls}-arrow`;
 
   return {
     [`${componentCls}-rtl`]: {
