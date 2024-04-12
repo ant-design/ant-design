@@ -37,7 +37,7 @@ const ChatBox: React.FC<ChatBoxProps> = (props) => {
     avatar,
     content,
     placement = 'start',
-    step = true,
+    step,
   } = props;
   const { direction, getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('chatbox', customizePrefixCls);
@@ -61,7 +61,7 @@ const ChatBox: React.FC<ChatBoxProps> = (props) => {
     if (step === true) {
       return defaultStep;
     }
-    return step;
+    return false;
   }, [step]);
 
   React.useEffect(() => {
