@@ -17,7 +17,7 @@ const App: React.FC = () => {
         Preview
       </Divider>
       <Flex gap="small" vertical>
-        <Flex wrap="wrap" gap="small">
+        <Flex wrap gap="small">
           <Tooltip title="search">
             <Button type="primary" shape="circle" icon={<SearchOutlined />} />
           </Tooltip>
@@ -34,7 +34,7 @@ const App: React.FC = () => {
             Search
           </Button>
         </Flex>
-        <Flex wrap="wrap" gap="small">
+        <Flex wrap gap="small">
           <Tooltip title="search">
             <Button shape="circle" icon={<SearchOutlined />} />
           </Tooltip>
