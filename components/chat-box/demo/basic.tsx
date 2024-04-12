@@ -1,10 +1,19 @@
 import React from 'react';
-import { ChatBox, Flex } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
+import { Avatar, ChatBox, Flex } from 'antd';
 
 const App: React.FC = () => (
-  <Flex gap="small" vertical>
-    <ChatBox content="你好你好你好" placement="start" />
-    <ChatBox content="你好你好你好" placement="end" />
+  <Flex gap="middle" vertical>
+    <ChatBox
+      placement="start"
+      content="你好你好你好"
+      avatar={<Avatar size={32} icon={<UserOutlined />} />}
+    />
+    <ChatBox
+      placement="end"
+      content="你好你好你好"
+      avatar={<Avatar size={32} icon={<UserOutlined />} />}
+    />
   </Flex>
 );
 

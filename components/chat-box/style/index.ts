@@ -20,23 +20,22 @@ const genChatBoxStyle: GenerateStyle<ChatBoxToken> = (token) => {
       gap: avatarGap,
       maxWidth: '100%',
       [`&${componentCls}-start`]: {
-        justifyContent: 'flex-start',
+        flexDirection: 'row',
+        justifyContent: 'start',
       },
       [`&${componentCls}-end`]: {
-        justifyContent: 'flex-end',
+        flexDirection: 'row-reverse',
+        justifyContent: 'end',
       },
       [`&${componentCls}-rtl`]: {
         direction: 'rtl',
       },
       [`& ${componentCls}-avatar`]: {
-        backgroundColor: token.colorText,
-        borderRadius: '50%',
-        width: 32,
-        height: 32,
-        minWidth: 32,
-        minHeight: 32,
+        display: 'inline-flex',
+        justifyContent: 'center',
       },
       [`& ${componentCls}-content`]: {
+        position: 'relative',
         padding: `${unit(token.paddingSM)} ${unit(token.padding)}`,
         color: token.colorText,
         fontSize: token.fontSize,
