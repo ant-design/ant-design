@@ -83,7 +83,9 @@ const ChatBox: React.FC<ChatBoxProps> = (props) => {
       {contentRender ? (
         contentRender(content)
       ) : (
-        <div className={`${prefixCls}-content`}>{mergedStep ? streamContent : content}</div>
+        <div className={`${prefixCls}-content`}>
+          {mergedStep !== false ? streamContent : content}
+        </div>
       )}
     </div>,
   );
