@@ -57,6 +57,16 @@ const ChatBox: React.FC<ChatBoxProps> = (props) => {
 
   const { typedContent, showCursor } = useTyped(content, mergedStep);
 
+  const streamContent = React.useMemo<React.ReactNode>(
+    () => (
+      <>
+        {typedContent}
+        {showCursor && <span className={`${prefixCls}-content-typedCursor`} />}
+      </>
+    ),
+    [typedContent, showCursor],
+  );
+
   const mergedCls = classNames(
     className,
     rootClassName,
@@ -65,13 +75,6 @@ const ChatBox: React.FC<ChatBoxProps> = (props) => {
     cssVarCls,
     `${prefixCls}-${placement}`,
     { [`${prefixCls}-rtl`]: direction === 'rtl' },
-  );
-
-  const streamContent = (
-    <>
-      {typedContent}
-      {showCursor && <span className={`${prefixCls}-content-typedCursor`} />}
-    </>
   );
 
   return wrapCSSVar(
