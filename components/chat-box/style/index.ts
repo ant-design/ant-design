@@ -19,10 +19,6 @@ const genChatBoxStyle: GenerateStyle<ChatBoxToken> = (token) => {
       display: 'flex',
       gap: avatarGap,
       maxWidth: '100%',
-      [`&${componentCls}-start`]: {
-        flexDirection: 'row',
-        justifyContent: 'start',
-      },
       [`&${componentCls}-end`]: {
         flexDirection: 'row-reverse',
         justifyContent: 'end',

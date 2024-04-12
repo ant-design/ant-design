@@ -5,9 +5,6 @@ exports[`chat-box rtl render component should be rendered correctly in RTL direc
   class="ant-chatbox ant-chatbox-start ant-chatbox-rtl"
 >
   <div
-    class="ant-chatbox-avatar"
-  />
-  <div
     class="ant-chatbox-content"
   />
 </div>
