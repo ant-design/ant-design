@@ -10,6 +10,11 @@ interface StepOption {
   interval: number;
 }
 
+const defaultStep: StepOption = {
+  step: 1,
+  interval: 100,
+};
+
 export interface ChatBoxProps {
   prefixCls?: string;
   className?: string;
@@ -23,11 +28,6 @@ export interface ChatBoxProps {
   contentRender?: (content?: string) => React.ReactNode;
 }
 
-const defaultStep: StepOption = {
-  step: 1,
-  interval: 100,
-};
-
 const ChatBox: React.FC<ChatBoxProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
@@ -35,9 +35,10 @@ const ChatBox: React.FC<ChatBoxProps> = (props) => {
     rootClassName,
     style,
     avatar,
-    content,
     placement = 'start',
     step,
+    content,
+    contentRender,
   } = props;
   const { direction, getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('chatbox', customizePrefixCls);
@@ -100,10 +101,14 @@ const ChatBox: React.FC<ChatBoxProps> = (props) => {
   return wrapCSSVar(
     <div style={style} className={mergedCls}>
       {avatar && <div className={`${prefixCls}-avatar`}>{avatar}</div>}
-      <div className={`${prefixCls}-content`}>
-        {mergedStep ? typedContent : content}
-        {showCursor && <span className={`${prefixCls}-content-typedCursor`}>|</span>}
-      </div>
+      {typeof contentRender === 'function' ? (
+        contentRender(content)
+      ) : (
+        <div className={`${prefixCls}-content`}>
+          {mergedStep ? typedContent : content}
+          {showCursor && <span className={`${prefixCls}-content-typedCursor`}>|</span>}
+        </div>
+      )}
     </div>,
   );
 };
