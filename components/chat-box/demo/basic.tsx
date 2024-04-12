@@ -6,12 +6,12 @@ const App: React.FC = () => (
   <Flex gap="middle" vertical>
     <ChatBox
       placement="start"
-      content="你好你好你好"
+      content="晚上好，你吃过了吗？"
       avatar={<Avatar size={32} icon={<UserOutlined />} />}
     />
     <ChatBox
       placement="end"
-      content="你好你好你好"
+      content="晚上好，你吃过了吗？"
       avatar={<Avatar size={32} icon={<UserOutlined />} />}
     />
   </Flex>

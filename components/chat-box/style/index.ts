@@ -1,7 +1,19 @@
-import { unit } from '@ant-design/cssinjs';
+import { Keyframes, unit } from '@ant-design/cssinjs';
 
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+
+const cursorBlink = new Keyframes('CursorBlink', {
+  '0%': {
+    opacity: 1,
+  },
+  '50%': {
+    opacity: 0,
+  },
+  '100%': {
+    opacity: 1,
+  },
+});
 
 export interface ComponentToken {
   //
@@ -39,6 +51,18 @@ const genChatBoxStyle: GenerateStyle<ChatBoxToken> = (token) => {
         backgroundColor: token.colorInfoBg,
         borderRadius: token.borderRadiusLG,
         boxShadow: token.boxShadowTertiary,
+        '&-typedCursor': {
+          position: 'absolute',
+          right: 14,
+          bottom: 14,
+          fontSize: token.fontSizeLG,
+          userSelect: 'none',
+          opacity: 1,
+          fontWeight: 900,
+          animationName: cursorBlink,
+          animationDuration: '0.7s',
+          animationIterationCount: 'infinite',
+        },
       },
     },
   };
