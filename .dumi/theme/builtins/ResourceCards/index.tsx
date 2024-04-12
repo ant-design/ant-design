@@ -45,7 +45,7 @@ const useStyle = createStyles(({ token, css }) => {
       border-radius: ${token.borderRadiusXS}px;
       box-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
       display: inline-flex;
-      column-gap: 4px;
+      column-gap: ${token.paddingXXS}px;
     `,
     title: css`
       margin: ${token.margin}px ${token.marginMD}px ${token.marginXS}px;
