@@ -19,7 +19,7 @@ const App: React.FC = () => {
       </Divider>
       <ConfigProvider componentSize={size}>
         <Flex gap="small" vertical>
-          <Flex gap="small" wrap="wrap">
+          <Flex gap="small" wrap>
             <Tooltip title="search">
               <Button type="primary" shape="circle" icon={<SearchOutlined />} />
             </Tooltip>
@@ -34,7 +34,7 @@ const App: React.FC = () => {
             </Tooltip>
             <Button icon={<SearchOutlined />}>Search</Button>
           </Flex>
-          <Flex gap="small" wrap="wrap">
+          <Flex gap="small" wrap>
             <Tooltip title="search">
               <Button shape="circle" icon={<SearchOutlined />} />
             </Tooltip>
