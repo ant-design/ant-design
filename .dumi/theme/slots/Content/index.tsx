@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useLayoutEffect, useMemo, useState } from 'react';
+import React, { useContext, useLayoutEffect, useMemo, useState } from 'react';
 import { Col, Flex, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
@@ -20,8 +20,6 @@ const Footer = React.lazy(() => import('../Footer'));
 const PrevAndNext = React.lazy(() => import('../../common/PrevAndNext'));
 const ComponentChangelog = React.lazy(() => import('../../common/ComponentChangelog'));
 const EditButton = React.lazy(() => import('../../common/EditButton'));
-
-const DEFAULT_DEMOS_CODE_TYPE = 'default-demos-code-type';
 
 const useStyle = createStyles(({ token, css }) => ({
   articleWrapper: css`
@@ -45,9 +43,7 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
   const { styles } = useStyle();
 
   const [showDebug, setShowDebug] = useLayoutState(false);
-  const [codeType, setCodeType] = useState<string>(
-    () => localStorage.getItem(DEFAULT_DEMOS_CODE_TYPE) || 'tsx',
-  );
+  const [codeType, setCodeType] = useState('tsx');
   const debugDemos = useMemo(
     () => meta.toc?.filter((item) => item._debug_demo).map((item) => item.id) || [],
     [meta],
@@ -63,10 +59,6 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
     () => ({ showDebug, setShowDebug, codeType, setCodeType }),
     [showDebug, codeType, debugDemos],
   );
-
-  useEffect(() => {
-    localStorage.setItem(DEFAULT_DEMOS_CODE_TYPE, codeType);
-  }, [codeType]);
 
   const isRTL = direction === 'rtl';
 
