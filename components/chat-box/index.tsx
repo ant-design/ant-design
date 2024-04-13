@@ -8,7 +8,15 @@ import useTyped from './hooks/useTyped';
 import useStyle from './style';
 
 export interface StepOption {
+  /**
+   * @since 5.17.0
+   * @default 1
+   */
   step: number;
+  /**
+   * @since 5.17.0
+   * @default 100
+   */
   interval: number;
 }
 

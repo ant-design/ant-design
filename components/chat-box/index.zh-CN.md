@@ -18,7 +18,8 @@ tag: 5.17.0
 ## 代码演示
 
 <!-- prettier-ignore -->
-<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/basic.tsx">基本用法</code>
+<code src="./demo/avatar-and-placement.tsx">支持位置和头像</code>
 
 ## API
 

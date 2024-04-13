@@ -18,6 +18,7 @@ Often used when chatting.
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/avatar-and-placement.tsx">placement and avatar</code>
 
 ## API
 

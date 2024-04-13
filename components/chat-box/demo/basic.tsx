@@ -1,20 +1,6 @@
 import React from 'react';
-import { UserOutlined } from '@ant-design/icons';
-import { Avatar, ChatBox, Flex } from 'antd';
+import { ChatBox } from 'antd';
 
-const App: React.FC = () => (
-  <Flex gap="middle" vertical>
-    <ChatBox
-      placement="start"
-      content="晚上好，你吃过了吗？"
-      avatar={<Avatar size={32} icon={<UserOutlined />} />}
-    />
-    <ChatBox
-      placement="end"
-      content="晚上好，你吃过了吗？"
-      avatar={<Avatar size={32} icon={<UserOutlined />} />}
-    />
-  </Flex>
-);
+const App: React.FC = () => <ChatBox content="hello world !" />;
 
 export default App;
