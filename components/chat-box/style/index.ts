@@ -32,8 +32,8 @@ const genChatBoxStyle: GenerateStyle<ChatBoxToken> = (token) => {
       gap: avatarGap,
       maxWidth: '100%',
       [`&${componentCls}-end`]: {
-        flexDirection: 'row-reverse',
         justifyContent: 'end',
+        flexDirection: 'row-reverse',
       },
       [`&${componentCls}-rtl`]: {
         direction: 'rtl',
@@ -51,15 +51,6 @@ const genChatBoxStyle: GenerateStyle<ChatBoxToken> = (token) => {
         backgroundColor: token.colorInfoBg,
         borderRadius: token.borderRadiusLG,
         boxShadow: token.boxShadowTertiary,
-        [`&${componentCls}-start`]: {
-          borderRadius: `${token.borderRadiusLG} 0 0 ${token.borderRadiusLG}`,
-        },
-        [`&${componentCls}-end`]: {
-          borderRadius: `0 ${token.borderRadiusLG} ${token.borderRadiusLG} 0`,
-        },
-        [`&${componentCls}-rtl`]: {
-          borderRadius: `${token.borderRadiusLG} 0 0 ${token.borderRadiusLG}`,
-        },
         '&-cursorBlink::after': {
           display: 'inline-block',
           content: '"|"',
