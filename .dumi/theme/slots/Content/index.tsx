@@ -1,4 +1,4 @@
-import React, { useContext, useLayoutEffect, useMemo } from 'react';
+import React, { useContext, useLayoutEffect, useMemo, useState } from 'react';
 import { Col, Flex, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
@@ -43,6 +43,7 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
   const { styles } = useStyle();
 
   const [showDebug, setShowDebug] = useLayoutState(false);
+  const [codeType, setCodeType] = useState('tsx');
   const debugDemos = useMemo(
     () => meta.toc?.filter((item) => item._debug_demo).map((item) => item.id) || [],
     [meta],
@@ -55,8 +56,8 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
   }, []);
 
   const contextValue = useMemo<DemoContextProps>(
-    () => ({ showDebug, setShowDebug }),
-    [showDebug, debugDemos],
+    () => ({ showDebug, setShowDebug, codeType, setCodeType }),
+    [showDebug, codeType, debugDemos],
   );
 
   const isRTL = direction === 'rtl';
