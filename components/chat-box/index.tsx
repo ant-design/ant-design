@@ -3,18 +3,14 @@ import classNames from 'classnames';
 
 import { ConfigContext } from '../config-provider';
 import type { ConfigConsumerProps } from '../config-provider';
+import useMergedStep from './hooks/useMergedStep';
+import useTyped from './hooks/useTyped';
 import useStyle from './style';
-import useTyped from './useTyped';
 
 export interface StepOption {
   step: number;
   interval: number;
 }
-
-const defaultStep: StepOption = {
-  step: 1,
-  interval: 100,
-};
 
 export interface ChatBoxProps {
   prefixCls?: string;
@@ -45,15 +41,7 @@ const ChatBox: React.FC<ChatBoxProps> = (props) => {
   const prefixCls = getPrefixCls('chatbox', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
-  const mergedStep = React.useMemo<StepOption | false>(() => {
-    if (step && typeof step === 'object') {
-      return { ...defaultStep, ...step };
-    }
-    if (step === true) {
-      return defaultStep;
-    }
-    return false;
-  }, [step]);
+  const mergedStep = useMergedStep(step);
 
   const { typedContent, showCursor } = useTyped(content, mergedStep);
 

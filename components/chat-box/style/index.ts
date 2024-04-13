@@ -53,7 +53,7 @@ const genChatBoxStyle: GenerateStyle<ChatBoxToken> = (token) => {
         boxShadow: token.boxShadowTertiary,
         '&-typedCursor': {
           display: 'inline-block',
-          width: 4,
+          width: token.lineWidthFocus,
           height: '1em',
           backgroundColor: token.colorText,
           // borderRadius: token.borderRadiusXS,
