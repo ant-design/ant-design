@@ -29,6 +29,7 @@ tag: vVERSION
   - 🐞 Fix Typography using `ellipsis` config with `expandable="collapsible"` and `row={1}` at both time will make ellipsis not working as expect. [#48340](https://github.com/ant-design/ant-design/pull/48340)
 - 💄 Fix Steps in compact theme not show the correct progress style. [#48251](https://github.com/ant-design/ant-design/pull/48251)
 - 💄 Refactor Tabs and wave-related components CSS duration values with `motionDurationSlow` Component Token. [#48311](https://github.com/ant-design/ant-design/pull/48311) [#48312](https://github.com/ant-design/ant-design/pull/48312) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🇯🇵 Add Transfer missing ja_JP translations. [#48411](https://github.com/ant-design/ant-design/pull/48411) [@Inshiku-Han](https://github.com/Inshiku-Han)
 - 🌐 Fix Picker ja-JP and ko-KR translations. [#48382](https://github.com/ant-design/ant-design/pull/48382) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🛠 Use constant instead of enumeration to reduce package size. [#48406](https://github.com/ant-design/ant-design/pull/48406) [@kiner-tang](https://github.com/kiner-tang)
 
