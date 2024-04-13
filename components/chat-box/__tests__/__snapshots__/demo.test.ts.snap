@@ -12,13 +12,12 @@ exports[`renders components/chat-box/demo/avatar-and-placement.tsx correctly 1`]
     >
       <span
         class="ant-avatar ant-avatar-circle ant-avatar-icon"
-        style="width:32px;height:32px;font-size:16px"
+        style="width:32px;height:32px;font-size:16px;background-color:#fde3cf"
       >
         <span
           aria-label="user"
           class="anticon anticon-user"
           role="img"
-          style="background-color:#fde3cf"
         >
           <svg
             aria-hidden="true"
@@ -50,13 +49,12 @@ exports[`renders components/chat-box/demo/avatar-and-placement.tsx correctly 1`]
     >
       <span
         class="ant-avatar ant-avatar-circle ant-avatar-icon"
-        style="width:32px;height:32px;font-size:16px"
+        style="width:32px;height:32px;font-size:16px;background-color:#87d068"
       >
         <span
           aria-label="user"
           class="anticon anticon-user"
           role="img"
-          style="background-color:#87d068"
         >
           <svg
             aria-hidden="true"

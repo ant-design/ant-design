@@ -12,13 +12,12 @@ exports[`renders components/chat-box/demo/avatar-and-placement.tsx extend contex
     >
       <span
         class="ant-avatar ant-avatar-circle ant-avatar-icon"
-        style="width: 32px; height: 32px; font-size: 16px;"
+        style="width: 32px; height: 32px; font-size: 16px; background-color: rgb(253, 227, 207);"
       >
         <span
           aria-label="user"
           class="anticon anticon-user"
           role="img"
-          style="background-color: rgb(253, 227, 207);"
         >
           <svg
             aria-hidden="true"
@@ -50,13 +49,12 @@ exports[`renders components/chat-box/demo/avatar-and-placement.tsx extend contex
     >
       <span
         class="ant-avatar ant-avatar-circle ant-avatar-icon"
-        style="width: 32px; height: 32px; font-size: 16px;"
+        style="width: 32px; height: 32px; font-size: 16px; background-color: rgb(135, 208, 104);"
       >
         <span
           aria-label="user"
           class="anticon anticon-user"
           role="img"
-          style="background-color: rgb(135, 208, 104);"
         >
           <svg
             aria-hidden="true"

@@ -2,7 +2,7 @@ import React from 'react';
 
 import type { ChatBoxProps, StepOption } from '..';
 
-const defaultStepOptions: StepOption = {
+const defaultStepOption: StepOption = {
   step: 1,
   interval: 100,
 };
@@ -10,10 +10,10 @@ const defaultStepOptions: StepOption = {
 const useMergedStep = (step: ChatBoxProps['step']) => {
   const mergedStep = React.useMemo<StepOption | false>(() => {
     if (step && typeof step === 'object') {
-      return { ...defaultStepOptions, ...step };
+      return { ...defaultStepOption, ...step };
     }
     if (step === true) {
-      return defaultStepOptions;
+      return defaultStepOption;
     }
     return false;
   }, [step]);
