@@ -1,6 +1,6 @@
 ## zh-CN
 
-通过 `avatar` 设置自定义头像，通过 `placement` 设置消息的位置，提供了 `start` 和 `end` 两个选项。
+通过 `avatar` 设置自定义头像，通过 `placement` 设置位置，提供了 `start`、`end` 两个选项。
 
 ## en-US
 
