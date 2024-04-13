@@ -87,7 +87,7 @@
     "sort:api-table": "antd-tools run sort-api-table",
     "sort:package-json": "npx sort-package-json",
     "prestart": "npm run version && npm run token:statistic && npm run token:meta && npm run lint:changelog",
-    "start": "cross-env PORT=8001 dumi dev",
+    "start": "node ./set-node-options.js cross-env PORT=8001 dumi dev",
     "pretest": "npm run version",
     "test": "jest --config .jest.js --no-cache",
     "test:all": "sh -e ./scripts/test-all.sh",
