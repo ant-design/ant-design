@@ -20,9 +20,9 @@ const useTyped = (content?: string, mergedStep?: StepOption | false) => {
     }
     setShowCursor(true);
     let stepCount = 0;
-    const { step: totalStep, interval } = mergedStep;
+    const { step, interval } = mergedStep;
     timerRef.current = setInterval(() => {
-      stepCount += totalStep;
+      stepCount += step;
       setTypedContent(content.slice(0, stepCount) ?? '');
       if (stepCount >= content.length) {
         clearTimer();
