@@ -2,7 +2,6 @@
 order: 1
 title: Resources
 description: List all the resources that are related with Ant Design here.
-toc: false
 ---
 
 ## Design Resources
