@@ -16,6 +16,22 @@ tag: vVERSION
 
 ---
 
+## 5.16.2
+
+`2024-04-13`
+
+- 🐞 Fix Input.OTP controlled `value` to `''` not work as expect. [#48399](https://github.com/ant-design/ant-design/pull/48399)
+- 🐞 Fix DatePicker of `multiple` with week picker not show the selection on the panel. [#48355](https://github.com/ant-design/ant-design/pull/48355)
+- 🐞 Fix Upload `listType` with `picture-card` or `picture-circle` has additional space on top. [#48370](https://github.com/ant-design/ant-design/pull/48370)
+- Typography
+  - 🐞 Fix Typography dynamic set `copyable` or `editable` will not show the operation button. [#48350](https://github.com/ant-design/ant-design/pull/48350)
+  - 🐞 Fix Typography dynamic update `copyable.text` not working. [#48347](https://github.com/ant-design/ant-design/pull/48347)
+  - 🐞 Fix Typography using `ellipsis` config with `expandable=collapsible` and `row=1` at both time will make ellipsis not working as expect. [#48340](https://github.com/ant-design/ant-design/pull/48340)
+- 💄 Fix Steps in compact theme not show the correct progress style. [#48251](https://github.com/ant-design/ant-design/pull/48251)
+- 💄 Use `motionDurationSlow` instead of related css property values. [#48312](https://github.com/ant-design/ant-design/pull/48312) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🌐 Fix Picker i18n translations. [#48382](https://github.com/ant-design/ant-design/pull/48382) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🛠 Use constant instead of enumeration to reduce package size. [#48406](https://github.com/ant-design/ant-design/pull/48406) [@kiner-tang](https://github.com/kiner-tang)
+
 ## 5.16.1
 
 `2024-04-05`
