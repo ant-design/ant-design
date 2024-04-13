@@ -3,11 +3,11 @@ import { fillFieldNames } from 'rc-tree/lib/utils/treeUtil';
 
 import type { TreeProps } from '../Tree';
 
-enum Record {
-  None,
-  Start,
-  End,
-}
+const RECORD_NONE = 0;
+const RECORD_START = 1;
+const RECORD_END = 2;
+
+type Record = typeof RECORD_NONE | typeof RECORD_START | typeof RECORD_END;
 
 type FieldNames = TreeProps['fieldNames'];
 
@@ -44,7 +44,7 @@ export function calcRangeKeys({
   fieldNames?: FieldNames;
 }): Key[] {
   const keys: Key[] = [];
-  let record: Record = Record.None;
+  let record: Record = RECORD_NONE;
 
   if (startKey && startKey === endKey) {
     return [startKey];
@@ -60,7 +60,7 @@ export function calcRangeKeys({
   traverseNodesKey(
     treeData,
     (key) => {
-      if (record === Record.End) {
+      if (record === RECORD_END) {
         return false;
       }
 
@@ -68,13 +68,13 @@ export function calcRangeKeys({
         // Match test
         keys.push(key as any);
 
-        if (record === Record.None) {
-          record = Record.Start;
-        } else if (record === Record.Start) {
-          record = Record.End;
+        if (record === RECORD_NONE) {
+          record = RECORD_START;
+        } else if (record === RECORD_START) {
+          record = RECORD_END;
           return false;
         }
-      } else if (record === Record.Start) {
+      } else if (record === RECORD_START) {
         // Append selection
         keys.push(key as any);
       }
