@@ -53,16 +53,6 @@ const ChatBox: React.FC<ChatBoxProps> = (props) => {
 
   const { typedContent, showCursor } = useTyped(content, mergedStep);
 
-  const streamContent = React.useMemo<React.ReactNode>(
-    () => (
-      <>
-        {typedContent}
-        {showCursor && <span className={`${prefixCls}-content-typedCursor`} />}
-      </>
-    ),
-    [typedContent, showCursor],
-  );
-
   const mergedCls = classNames(
     className,
     rootClassName,
@@ -79,8 +69,12 @@ const ChatBox: React.FC<ChatBoxProps> = (props) => {
       {contentRender ? (
         contentRender(content)
       ) : (
-        <div className={`${prefixCls}-content`}>
-          {mergedStep !== false ? streamContent : content}
+        <div
+          className={classNames(`${prefixCls}-content`, {
+            [`${prefixCls}-content-cursorBlink`]: showCursor,
+          })}
+        >
+          {mergedStep !== false ? typedContent : content}
         </div>
       )}
     </div>,

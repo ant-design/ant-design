@@ -51,13 +51,20 @@ const genChatBoxStyle: GenerateStyle<ChatBoxToken> = (token) => {
         backgroundColor: token.colorInfoBg,
         borderRadius: token.borderRadiusLG,
         boxShadow: token.boxShadowTertiary,
-        '&-typedCursor': {
+        [`&${componentCls}-start`]: {
+          borderRadius: `${token.borderRadiusLG} 0 0 ${token.borderRadiusLG}`,
+        },
+        [`&${componentCls}-end`]: {
+          borderRadius: `0 ${token.borderRadiusLG} ${token.borderRadiusLG} 0`,
+        },
+        [`&${componentCls}-rtl`]: {
+          borderRadius: `${token.borderRadiusLG} 0 0 ${token.borderRadiusLG}`,
+        },
+        '&-cursorBlink::after': {
           display: 'inline-block',
-          width: token.lineWidthFocus,
-          height: '1em',
-          backgroundColor: token.colorText,
-          // borderRadius: token.borderRadiusXS,
-          transform: 'translate3d(0, 1px, 0)',
+          content: '"|"',
+          fontWeight: 900,
+          transform: 'translate3d(0, -1px, 0)',
           marginInlineStart: token.marginXXS,
           userSelect: 'none',
           opacity: 1,
