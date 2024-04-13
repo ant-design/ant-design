@@ -21,7 +21,7 @@ export interface ChatBoxProps {
   placement?: 'start' | 'end';
   loading?: React.ReactNode;
   step?: boolean | StepOption;
-  content: string;
+  content?: string;
   contentRender?: (content?: string) => React.ReactNode;
 }
 

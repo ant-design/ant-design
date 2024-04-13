@@ -15,6 +15,9 @@ const useMergedStep = (step: ChatBoxProps['step']) => {
     if (step === true) {
       return defaultOption;
     }
+    if (step === false) {
+      return false;
+    }
     return false;
   }, [step]);
   return mergedStep;

@@ -2,7 +2,7 @@ import React from 'react';
 
 import type { StepOption } from '..';
 
-const useTyped = (content: string, mergedStep: StepOption | false) => {
+const useTyped = (content?: string, mergedStep?: StepOption | false) => {
   const [typedContent, setTypedContent] = React.useState<string>('');
   const [showCursor, setShowCursor] = React.useState<boolean>(false);
 
