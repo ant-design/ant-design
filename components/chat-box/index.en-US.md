@@ -20,6 +20,7 @@ Often used when chatting.
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/avatar-and-placement.tsx">placement and avatar</code>
 <code src="./demo/stream-output.tsx">stream output</code>
+<code src="./demo/contentRender.tsx">content render</code>
 
 ## API
 
@@ -36,7 +37,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | loading | Loading state of Message | `React.ReactNode` | - |  |
 | step | Show message with stepping motion | `boolean \| { step?: number, interval?: number }` | `false` |  |
 | content | Content of ChatBox | `string` | - |  |
-| contentRender | Display cuztomized content | `(content?: string) => ReactNode` | - |  |
+| contentRender | Display cuztomized content (If use `contentRender` prop, the typed effect needs to be implemented by yourself) | `(content?: string) => ReactNode` | - |  |
 
 ## Design Token
 

@@ -1,21 +1,27 @@
 import React from 'react';
 import { UserOutlined } from '@ant-design/icons';
-import { Avatar, Button, ChatBox, Flex } from 'antd';
+import { Avatar, ChatBox } from 'antd';
+
+const sentences = ['Feel free to use Ant Design !', '欢迎使用 Ant Design！'];
+
+const useLoopSentence = () => {
+  const [index, setIndex] = React.useState<number>(0);
+  React.useEffect(() => {
+    setTimeout(() => {
+      setIndex((prevState) => (prevState ? 0 : 1));
+    }, 4000);
+  }, [index]);
+  return sentences[index];
+};
 
 const App: React.FC = () => {
-  const [, forceRender] = React.useReducer((x) => x + 1, 0);
+  const content = useLoopSentence();
   return (
-    <Flex align="start" gap="large" vertical>
-      <ChatBox
-        step
-        key={Date.now()}
-        content="晚上好，你吃过了吗？"
-        avatar={<Avatar size={32} icon={<UserOutlined />} />}
-      />
-      <Button type="primary" onClick={forceRender}>
-        force Render
-      </Button>
-    </Flex>
+    <ChatBox
+      content={content}
+      step={{ step: 1, interval: 100 }}
+      avatar={<Avatar size={32} icon={<UserOutlined />} />}
+    />
   );
 };
 

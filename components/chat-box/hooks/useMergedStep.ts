@@ -2,13 +2,13 @@ import React from 'react';
 
 import type { ChatBoxProps, StepOption } from '..';
 
-const defaultStepOption: StepOption = {
+const defaultStepOption: Required<StepOption> = {
   step: 1,
   interval: 100,
 };
 
 const useMergedStep = (step: ChatBoxProps['step']) => {
-  const mergedStep = React.useMemo<StepOption | false>(() => {
+  const mergedStep = React.useMemo<Required<StepOption> | false>(() => {
     if (step && typeof step === 'object') {
       return { ...defaultStepOption, ...step };
     }
