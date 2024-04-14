@@ -17,7 +17,7 @@ tag: vVERSION
 
 ## 5.16.2
 
-`2024-04-13`
+`2024-04-14`
 
 - 🐞 修复 Input.OTP 组件受控设置 `value` 为 `''` 时不生效的问题。[#48399](https://github.com/ant-design/ant-design/pull/48399)
 - 🐞 修复 DatePicker 对周选择器配置 `multiple` 多选时，弹出面板不会正确高亮选中项的问题。[#48355](https://github.com/ant-design/ant-design/pull/48355)

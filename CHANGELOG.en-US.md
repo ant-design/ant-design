@@ -18,7 +18,7 @@ tag: vVERSION
 
 ## 5.16.2
 
-`2024-04-13`
+`2024-04-14`
 
 - 🐞 Fix Input.OTP controlled `value` to `''` not work as expect. [#48399](https://github.com/ant-design/ant-design/pull/48399)
 - 🐞 Fix DatePicker of `multiple` with week picker not show the selection on the panel. [#48355](https://github.com/ant-design/ant-design/pull/48355)
