@@ -2,7 +2,6 @@
 order: 1
 title: 资源
 description: 这里汇总了与 Ant Design 相关的所有资源。
-toc: false
 ---
 
 ## 设计资源
