@@ -350,7 +350,7 @@ async function boot() {
     htmlTemplate.replace('{{reportContent}}', reportHtmlStr),
     'utf-8',
   );
-
+  const tar = await import('tar');
   await tar.c(
     {
       gzip: true,
