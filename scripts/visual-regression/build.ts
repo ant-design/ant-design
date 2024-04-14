@@ -12,10 +12,9 @@ import difference from 'lodash/difference';
 import minimist from 'minimist';
 import pixelmatch from 'pixelmatch';
 import { PNG } from 'pngjs';
-import { remark } from 'remark';
-import remarkGfm from 'remark-gfm';
-import remarkHtml from 'remark-html';
 import sharp from 'sharp';
+
+import markdown2Html from './convert';
 
 const ROOT_DIR = process.cwd();
 const ALI_OSS_BUCKET = 'antd-visual-diff';
@@ -119,17 +118,27 @@ async function downloadBaseSnapshots(ref: string, targetDir: string) {
   });
 }
 
+interface IImageDesc {
+  src: string;
+  alt: string;
+}
+
+function getImage(desc: IImageDesc) {
+  const { src, alt } = desc;
+  return `![${alt}](${src})`;
+}
+
 interface IBadCase {
   type: 'removed' | 'changed';
   filename: string;
   /**
+   * compare target file
+   */
+  targetFilename?: string;
+  /**
    * 0 - 1
    */
   weight: number;
-}
-
-function md2Html(md: string) {
-  return remark().use(remarkGfm).use(remarkHtml).processSync(md).toString();
 }
 
 function parseArgs() {
@@ -174,15 +183,15 @@ function generateReport(
       '<img src="https://github.com/ant-design/ant-design/assets/507615/2d1a77dc-dbc6-4b0f-9cbc-19a43d3c29cd" width="300" />',
     ].join('\n');
 
-    return [mdStr, md2Html(mdStr)];
+    return [mdStr, markdown2Html(mdStr)];
   }
 
   let reportMdStr = `
 ${commonHeader}
 ${fullReport}
 
-| Image name | Expected | Actual | Diff |
-| --- | --- | --- | --- |
+| Expected (Branch ${targetBranch}) | Actual (Current PR) | Diff |
+| --- | --- | --- |
     `.trim();
 
   reportMdStr += '\n';
@@ -192,22 +201,32 @@ ${fullReport}
   let diffCount = 0;
 
   for (const badCase of badCases) {
-    const { filename, type } = badCase;
+    const { filename, type, targetFilename } = badCase;
     let lineReportMdStr = '';
     if (type === 'changed') {
       lineReportMdStr += '| ';
       lineReportMdStr += [
-        `\`${badCase.filename}\``,
-        `![${targetBranch}: ${targetRef}](${publicPath}/images/base/${filename})`,
-        `![current: pr-${prId}](${publicPath}/images/current/${filename})`,
-        `![diff](${publicPath}/images/diff/${filename})`,
+        getImage({
+          src: `${publicPath}/images/base/${filename}`,
+          alt: targetFilename || '',
+        }),
+        getImage({
+          src: `${publicPath}/images/current/${filename}`,
+          alt: filename,
+        }),
+        getImage({
+          src: `${publicPath}/images/diff/${filename}`,
+          alt: '',
+        }),
       ].join(' | ');
       lineReportMdStr += ' |\n';
     } else if (type === 'removed') {
       lineReportMdStr += '| ';
       lineReportMdStr += [
-        `\`${badCase.filename}\``,
-        `![${targetBranch}: ${targetRef}](${publicPath}/images/base/${filename})`,
+        getImage({
+          src: `${publicPath}/images/base/${filename}`,
+          alt: targetFilename || '',
+        }),
         `⛔️⛔️⛔️ Missing ⛔️⛔️⛔️`,
         `🚨🚨🚨 Removed 🚨🚨🚨`,
       ].join(' | ');
@@ -225,7 +244,7 @@ ${fullReport}
   reportMdStr += addonFullReportDesc;
 
   // convert fullVersionMd to html
-  return [reportMdStr, md2Html(fullVersionMd)];
+  return [reportMdStr, markdown2Html(fullVersionMd)];
 }
 
 async function boot() {
@@ -324,6 +343,7 @@ async function boot() {
         badCases.push({
           type: 'changed',
           filename: compareImgName,
+          targetFilename: baseImgName,
           weight: mismatchedPxPercent,
         });
       } else {
