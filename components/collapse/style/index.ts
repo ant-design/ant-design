@@ -124,7 +124,12 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
           [`${componentCls}-arrow`]: {
             ...resetIcon(),
             fontSize: fontSizeIcon,
+            // when `transform: rotate()` is applied to icon's root element
             transition: `transform ${motionDurationSlow}`,
+            // when `transform: rotate()` is applied to icon's child element
+            svg: {
+              transition: `transform ${motionDurationSlow}`,
+            },
           },
 
           // >>>>> Text
