@@ -331,7 +331,7 @@
     "stylelint-config-standard": "^36.0.0",
     "stylelint-prettier": "^5.0.0",
     "sylvanas": "^0.6.1",
-    "tar": "^7.0.0",
+    "tar": "^6.2.1",
     "tar-fs": "^3.0.5",
     "terser": "^5.30.3",
     "tsx": "^4.7.2",
