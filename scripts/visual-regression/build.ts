@@ -13,7 +13,7 @@ import difference from 'lodash/difference';
 import minimist from 'minimist';
 import pixelmatch from 'pixelmatch';
 import { PNG } from 'pngjs';
-import sharp from 'sharp';
+import Jimp from 'jimp';
 
 import markdown2Html from './convert';
 
@@ -29,35 +29,35 @@ const compareScreenshots = async (
   currentImgPath: string,
   diffImagePath: string,
 ): Promise<number> => {
-  const baseImgBuf = await sharp(baseImgPath).toBuffer();
-  const currentImgBuf = await sharp(currentImgPath).toBuffer();
+  const baseImgBuf = await Jimp.read(baseImgPath);
+  const currentImgBuf = await Jimp.read(currentImgPath);
 
-  const basePng = PNG.sync.read(baseImgBuf);
-  const currentPng = PNG.sync.read(currentImgBuf);
-
-  const targetWidth = Math.max(basePng.width, currentPng.width);
-  const targetHeight = Math.max(basePng.height, currentPng.height);
+  const targetWidth = Math.max(baseImgBuf.bitmap.width, currentImgBuf.bitmap.width);
+  const targetHeight = Math.max(baseImgBuf.bitmap.height, currentImgBuf.bitmap.height);
 
   // fill color for transparent png
   const fillColor =
     baseImgPath.endsWith('dark.png') || baseImgPath.endsWith('dark.css-var.png')
-      ? { r: 0, g: 0, b: 0, alpha: 255 }
-      : { r: 255, g: 255, b: 255, alpha: 255 };
-
-  const resizeOptions = {
-    width: targetWidth,
-    height: targetHeight,
-    position: 'left top',
-    fit: sharp.fit.contain,
-    background: fillColor,
-  };
+      ? 0xff000000
+      : 0xffffffff;
 
   const resizedBasePng = PNG.sync.read(
-    await sharp(baseImgBuf).resize(resizeOptions).png().toBuffer(),
+    await baseImgBuf
+      .resize(targetWidth, targetHeight)
+      .background(fillColor)
+      // eslint-disable-next-line no-bitwise
+      .contain(targetWidth, targetHeight, Jimp.HORIZONTAL_ALIGN_LEFT | Jimp.VERTICAL_ALIGN_TOP)
+      .getBufferAsync(Jimp.MIME_PNG),
   );
 
   const resizedCurrentPng = PNG.sync.read(
-    await sharp(currentImgBuf).resize(resizeOptions).png().toBuffer(),
+    // eslint-disable-next-line no-bitwise
+    await currentImgBuf
+      .resize(targetWidth, targetHeight)
+      .background(fillColor)
+      // eslint-disable-next-line no-bitwise
+      .contain(targetWidth, targetHeight, Jimp.HORIZONTAL_ALIGN_LEFT | Jimp.VERTICAL_ALIGN_TOP)
+      .getBufferAsync(Jimp.MIME_PNG),
   );
 
   const diffPng = new PNG({ width: targetWidth, height: targetHeight });
