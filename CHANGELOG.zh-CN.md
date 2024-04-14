@@ -15,6 +15,23 @@ tag: vVERSION
 
 ---
 
+## 5.16.2
+
+`2024-04-14`
+
+- 🐞 修复 Input.OTP 组件受控设置 `value` 为 `''` 时不生效的问题。[#48399](https://github.com/ant-design/ant-design/pull/48399)
+- 🐞 修复 DatePicker 对周选择器配置 `multiple` 多选时，弹出面板不会正确高亮选中项的问题。[#48355](https://github.com/ant-design/ant-design/pull/48355)
+- 🐞 修复 Upload 配置 `listType` 为 `picture-card` 或 `picture-circle` 时，上方有额外空隙的问题。[#48370](https://github.com/ant-design/ant-design/pull/48370)
+- Typography
+  - 🐞 修复 Typography 动态配置 `copyable` 或 `editable` 时不会显示操作按钮的问题。[#48350](https://github.com/ant-design/ant-design/pull/48350)
+  - 🐞 修复 Typography 动态调整 `copyable.text` 不生效的问题。[#48347](https://github.com/ant-design/ant-design/pull/48347)
+  - 🐞 修复 Typography 的 `ellipsis` 同时配置 `expandable="collapsible"` 和 `row={1}` 时，不会正确省略的问题。[#48340](https://github.com/ant-design/ant-design/pull/48340)
+- 💄 修复 Steps 的进度样式在紧凑模式下不正确的问题。[#48251](https://github.com/ant-design/ant-design/pull/48251)
+- 💄 重构 Tabs 和波纹样式相关组件的 CSS 过渡时间值，替换为 `motionDurationSlow` Component Token。[#48311](https://github.com/ant-design/ant-design/pull/48311) [#48312](https://github.com/ant-design/ant-design/pull/48312) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🇯🇵 补充 Transfer 的 ja_JP 本地化文案。[#48411](https://github.com/ant-design/ant-design/pull/48411) [@Inshiku-Han](https://github.com/Inshiku-Han)
+- 🌐 修复 Picker 的 ja_JP 和 ko_KR 本地化文案。[#48382](https://github.com/ant-design/ant-design/pull/48382) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🛠 使用常量替代枚举减小包体积。[#48406](https://github.com/ant-design/ant-design/pull/48406) [@kiner-tang](https://github.com/kiner-tang)
+
 ## 5.16.1
 
 `2024-04-05`
