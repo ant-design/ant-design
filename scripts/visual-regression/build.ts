@@ -16,7 +16,6 @@ import { remark } from 'remark';
 import remarkGfm from 'remark-gfm';
 import remarkHtml from 'remark-html';
 import sharp from 'sharp';
-import tar from 'tar';
 
 const ROOT_DIR = process.cwd();
 const ALI_OSS_BUCKET = 'antd-visual-diff';
@@ -106,6 +105,7 @@ async function getBranchLatestRef(branchName: string) {
 }
 
 async function downloadBaseSnapshots(ref: string, targetDir: string) {
+  const tar = await import('tar');
   // download imageSnapshotsUrl
   const imageSnapshotsUrl = `${ossDomain}/${ref}/imageSnapshots.tar.gz`;
   const targzPath = path.resolve(os.tmpdir(), `./${path.basename(targetDir)}.tar.gz`);
