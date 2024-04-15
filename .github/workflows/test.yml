@@ -287,6 +287,7 @@ jobs:
           NODE_OPTIONS: "--max_old_space_size=4096"
           CI: 1
 
+      # Artifact build files
       - uses: actions/upload-artifact@v4
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         with:
@@ -296,6 +297,16 @@ jobs:
             locale
             es
             lib
+
+      - name: tar builds
+        env:
+          ALI_OSS_AK_ID: ${{ secrets.ALI_OSS_AK_ID }}
+          ALI_OSS_AK_SECRET: ${{ secrets.ALI_OSS_AK_SECRET }}
+          HEAD_SHA: ${{ github.sha }}
+        run: |
+          tar -czvf build-artifacts.tar.gz dist locale es lib
+          echo "🤖 Uploading"
+          node scripts/visual-regression/upload.js ./build-artifacts.tar.gz --ref=$HEAD_SHA
 
   compiled-module-test:
     name: module test
