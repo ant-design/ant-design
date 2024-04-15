@@ -90,8 +90,6 @@ async function downloadArtifact(msgKey: string, url: string, filepath: string, t
     headers,
     responseType: 'arraybuffer',
     onDownloadProgress: (progressEvent) => {
-      // bar.setTotal(progressEvent.total || 0);
-      // bar.update(progressEvent.loaded);
       showMessage(
         `正在下载构建产物 ${((progressEvent.loaded / (progressEvent.total || 0)) * 100).toFixed(
           2,
@@ -103,6 +101,10 @@ async function downloadArtifact(msgKey: string, url: string, filepath: string, t
   });
 
   fs.writeFileSync(filepath, Buffer.from(response.data));
+
+  await new Promise((resolve) => {
+    setTimeout(resolve, 10000);
+  });
 
   return filepath;
 }
