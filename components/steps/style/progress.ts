@@ -1,4 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
 
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
@@ -67,8 +68,8 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           transform: 'translate(-50%, -50%)',
 
           '&-inner': {
-            width: `${progressSize} !important`,
-            height: `${progressSize} !important`,
+            width: `${unit(progressSize)} !important`,
+            height: `${unit(progressSize)} !important`,
           },
         },
       },
