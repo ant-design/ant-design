@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders components/chat-box/demo/avatar-and-placement.tsx correctly 1`] = `
+exports[`renders components/chatbox/demo/avatar-and-placement.tsx correctly 1`] = `
 <div
   class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-chat-box ant-chat-box-start"
+    class="ant-chatbox ant-chatbox-start"
   >
     <div
-      class="ant-chat-box-avatar"
+      class="ant-chatbox-avatar"
     >
       <span
         class="ant-avatar ant-avatar-circle ant-avatar-icon"
@@ -36,16 +36,16 @@ exports[`renders components/chat-box/demo/avatar-and-placement.tsx correctly 1`]
       </span>
     </div>
     <div
-      class="ant-chat-box-content"
+      class="ant-chatbox-content"
     >
       晚上好，你吃过了吗？
     </div>
   </div>
   <div
-    class="ant-chat-box ant-chat-box-end"
+    class="ant-chatbox ant-chatbox-end"
   >
     <div
-      class="ant-chat-box-avatar"
+      class="ant-chatbox-avatar"
     >
       <span
         class="ant-avatar ant-avatar-circle ant-avatar-icon"
@@ -73,7 +73,7 @@ exports[`renders components/chat-box/demo/avatar-and-placement.tsx correctly 1`]
       </span>
     </div>
     <div
-      class="ant-chat-box-content"
+      class="ant-chatbox-content"
     >
       晚上好，你吃过了吗？
     </div>
@@ -81,24 +81,24 @@ exports[`renders components/chat-box/demo/avatar-and-placement.tsx correctly 1`]
 </div>
 `;
 
-exports[`renders components/chat-box/demo/basic.tsx correctly 1`] = `
+exports[`renders components/chatbox/demo/basic.tsx correctly 1`] = `
 <div
-  class="ant-chat-box ant-chat-box-start"
+  class="ant-chatbox ant-chatbox-start"
 >
   <div
-    class="ant-chat-box-content"
+    class="ant-chatbox-content"
   >
     hello world !
   </div>
 </div>
 `;
 
-exports[`renders components/chat-box/demo/contentRender.tsx correctly 1`] = `
+exports[`renders components/chatbox/demo/contentRender.tsx correctly 1`] = `
 <div
-  class="ant-chat-box ant-chat-box-start"
+  class="ant-chatbox ant-chatbox-start"
 >
   <div
-    class="ant-chat-box-avatar"
+    class="ant-chatbox-avatar"
   >
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-icon"
@@ -126,29 +126,31 @@ exports[`renders components/chat-box/demo/contentRender.tsx correctly 1`] = `
     </span>
   </div>
   <div
-    style="max-width:100%;padding:12px 16px;background-color:#f0f2f5;border:1px solid #d9d9d9"
+    class="ant-chatbox-content"
   >
-    <h1>
-      Title
-    </h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      <br />
+    <div>
+      <h1>
+        Title
+      </h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        <br />
 …
-    </p>
+      </p>
+    </div>
   </div>
 </div>
 `;
 
-exports[`renders components/chat-box/demo/loading.tsx correctly 1`] = `
+exports[`renders components/chatbox/demo/loading.tsx correctly 1`] = `
 <div
   class="ant-flex ant-flex-align-stretch ant-flex-gap-large ant-flex-vertical"
 >
   <div
-    class="ant-chat-box ant-chat-box-start"
+    class="ant-chatbox ant-chatbox-start"
   >
     <div
-      class="ant-chat-box-avatar"
+      class="ant-chatbox-avatar"
     >
       <span
         class="ant-avatar ant-avatar-circle ant-avatar-icon"
@@ -176,7 +178,7 @@ exports[`renders components/chat-box/demo/loading.tsx correctly 1`] = `
       </span>
     </div>
     <div
-      class="ant-chat-box-content"
+      class="ant-chatbox-content"
     >
       <div
         aria-busy="true"
@@ -230,12 +232,12 @@ exports[`renders components/chat-box/demo/loading.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/chat-box/demo/stream-output.tsx correctly 1`] = `
+exports[`renders components/chatbox/demo/stream-output.tsx correctly 1`] = `
 <div
-  class="ant-chat-box ant-chat-box-start"
+  class="ant-chatbox ant-chatbox-start"
 >
   <div
-    class="ant-chat-box-avatar"
+    class="ant-chatbox-avatar"
   >
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-icon"
@@ -263,7 +265,7 @@ exports[`renders components/chat-box/demo/stream-output.tsx correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-chat-box-content"
+    class="ant-chatbox-content"
   />
 </div>
 `;

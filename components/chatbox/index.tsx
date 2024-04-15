@@ -48,7 +48,7 @@ const Chatbox: React.FC<ChatboxProps> = (props) => {
     contentRender,
   } = props;
   const { direction, getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
-  const prefixCls = getPrefixCls('chat-box', customizePrefixCls);
+  const prefixCls = getPrefixCls('chatbox', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const mergedStep = useStep(step);
@@ -65,20 +65,26 @@ const Chatbox: React.FC<ChatboxProps> = (props) => {
     { [`${prefixCls}-rtl`]: direction === 'rtl' },
   );
 
-  const mergedContentCls = classNames(`${prefixCls}-content`, {
-    [`${prefixCls}-content-cursorBlink`]: showCursor && !loading,
-  });
-
-  const contentNode = mergedStep !== false ? typedContent : content;
+  const mergedContent = React.useMemo<React.ReactNode>(() => {
+    if (loading) {
+      return <Spin />;
+    }
+    if (mergedStep !== false) {
+      return typedContent;
+    }
+    return content;
+  }, [content, loading, mergedStep, typedContent]);
 
   return wrapCSSVar(
     <div style={style} className={mergedCls}>
       {avatar && <div className={`${prefixCls}-avatar`}>{avatar}</div>}
-      {contentRender ? (
-        contentRender(content)
-      ) : (
-        <div className={mergedContentCls}>{loading ? <Spin /> : contentNode}</div>
-      )}
+      <div
+        className={classNames(`${prefixCls}-content`, {
+          [`${prefixCls}-content-cursorBlink`]: showCursor && !loading,
+        })}
+      >
+        {contentRender ? contentRender(content) : mergedContent}
+      </div>
     </div>,
   );
 };
