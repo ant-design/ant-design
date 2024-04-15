@@ -44,6 +44,7 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
     fontSizeLG,
     notificationMarginBottom,
     borderRadiusLG,
+    colorPrimary,
     colorSuccess,
     colorInfo,
     colorWarning,
@@ -152,6 +153,25 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       },
 
       ...genFocusStyle(token),
+    },
+
+    [`${noticeCls}-progress`]: {
+      position: 'absolute',
+      width: `calc(100% - ${unit(borderRadiusLG)} * 2)`,
+      height: '2px',
+      left: borderRadiusLG,
+      right: borderRadiusLG,
+      bottom: '-2px',
+
+      '.rc-progress-line': {
+        '&-trail': {
+          stroke: `rgba(0, 0, 0, 0.04)`,
+        },
+
+        '&-path': {
+          stroke: colorPrimary,
+        },
+      },
     },
 
     [`${noticeCls}-btn`]: {

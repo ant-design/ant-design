@@ -31,7 +31,7 @@ demo:
 <code src="./demo/custom-style.tsx">自定义样式</code>
 <code src="./demo/update.tsx">更新消息内容</code>
 <code src="./demo/stack.tsx" version="5.10.0">堆叠</code>
-<code src="./demo/show-progress.tsx">显示进度条</code>
+<code src="./demo/show-with-progress.tsx">显示进度条</code>
 <code src="./demo/basic.tsx">静态方法（不推荐）</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 

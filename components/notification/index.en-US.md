@@ -30,7 +30,7 @@ To display a notification message at any of the four corners of the viewport. Ty
 <code src="./demo/custom-style.tsx">Customized style</code>
 <code src="./demo/update.tsx">Update Message Content</code>
 <code src="./demo/stack.tsx" version="5.10.0">Stack</code>
-<code src="./demo/show-progress.tsx">Show Progress</code>
+<code src="./demo/show-with-progress.tsx">Show with progress</code>
 <code src="./demo/basic.tsx">Static Method (deprecated)</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
