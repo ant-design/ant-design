@@ -1,6 +1,14 @@
-import React from 'react';
-import { ColorPicker } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { ColorPicker, Form } from 'antd';
 
-const Demo = () => <ColorPicker defaultValue="#1677ff" />;
+const App = () => {
+  const [color, setColor] = useState<string>('');
+  useEffect(() => {
+    setTimeout(() => {
+      setColor('#1677ff');
+    }, 500);
+  }, []);
+  return <ColorPicker value={color} allowClear />;
+};
 
-export default Demo;
+export default App;
