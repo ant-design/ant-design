@@ -31,7 +31,10 @@ const showMessage = (
     spinniesId += 1;
   } else {
     const mergedId = uniqueTitle || `msg-${spinniesId}`;
-    const mergedMessage = uniqueTitle ? `${uniqueTitle} ${message}` : message;
+    let mergedMessage = uniqueTitle ? `${uniqueTitle} ${message}` : message;
+
+    // `spinnies` 对中文支持有 bug，长度会按中文一半计算。我们翻个倍修复一下。
+    mergedMessage = `${mergedMessage}${' '.repeat(mergedMessage.length)}`;
 
     const existSpinner = spinnies.pick(mergedId);
     if (!existSpinner) {
@@ -91,7 +94,7 @@ async function downloadArtifact(msgKey: string, url: string, filepath: string, t
     responseType: 'arraybuffer',
     onDownloadProgress: (progressEvent) => {
       showMessage(
-        `下载 ${((progressEvent.loaded / (progressEvent.total || 0)) * 100).toFixed(2)}%`,
+        `下载进度 ${((progressEvent.loaded / (progressEvent.total || 0)) * 100).toFixed(2)}%`,
         true,
         msgKey,
       );
@@ -100,27 +103,23 @@ async function downloadArtifact(msgKey: string, url: string, filepath: string, t
 
   fs.writeFileSync(filepath, Buffer.from(response.data));
 
-  await new Promise((resolve) => {
-    setTimeout(resolve, 10000);
-  });
-
   return filepath;
 }
 
 const runPrePublish = async () => {
-  // await checkRepo();
+  await checkRepo();
   showMessage(chalk.black.bgGreenBright('本次发布将跳过本地 CI 检查，远程 CI 通过后方可发布'));
   const git = simpleGit();
   const octokit = new Octokit({ auth: process.env.GITHUB_ACCESS_TOKEN });
   const { current: currentBranch } = await git.branch();
 
-  // showMessage(`正在拉取远程分支 ${currentBranch}`, true);
-  // await git.pull('origin', currentBranch);
-  // showMessage(`成功拉取远程分支 ${currentBranch}`, 'succeed');
-  // showMessage(`正在推送本地分支 ${currentBranch}`, true);
-  // await git.push('origin', currentBranch);
-  // showMessage(`成功推送远程分支 ${currentBranch}`, 'succeed');
-  // showMessage(`已经和远程分支保持同步 ${currentBranch}`, 'succeed');
+  showMessage(`正在拉取远程分支 ${currentBranch}`, true);
+  await git.pull('origin', currentBranch);
+  showMessage(`成功拉取远程分支 ${currentBranch}`, 'succeed');
+  showMessage(`正在推送本地分支 ${currentBranch}`, true);
+  await git.push('origin', currentBranch);
+  showMessage(`成功推送远程分支 ${currentBranch}`, 'succeed');
+  showMessage(`已经和远程分支保持同步 ${currentBranch}`, 'succeed');
 
   const { latest } = await git.log();
   const sha = process.env.TARGET_SHA || latest.hash;
@@ -134,34 +133,34 @@ const runPrePublish = async () => {
   const owner = 'ant-design';
   const repo = 'ant-design';
   showMessage(`开始检查远程分支 ${currentBranch} 的 CI 状态`, true);
-  // const {
-  //   data: { check_runs },
-  // } = await octokit.checks.listForRef({
-  //   owner,
-  //   repo,
-  //   ref: sha,
-  // });
-  // showMessage(`远程分支 CI 状态：`, 'succeed');
-  // check_runs.forEach((run) => {
-  //   showMessage(`  ${run.name.padEnd(36)} ${emojify(run.status)} ${emojify(run.conclusion || '')}`);
-  // });
-  // const conclusions = check_runs.map((run) => run.conclusion);
-  // if (
-  //   conclusions.includes('failure') ||
-  //   conclusions.includes('cancelled') ||
-  //   conclusions.includes('timed_out')
-  // ) {
-  //   showMessage(chalk.bgRedBright('远程分支 CI 执行异常，无法继续发布，请尝试修复或重试'), 'fail');
-  //   showMessage(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${sha}`);
-  //   process.exit(1);
-  // }
+  const {
+    data: { check_runs },
+  } = await octokit.checks.listForRef({
+    owner,
+    repo,
+    ref: sha,
+  });
+  showMessage(`远程分支 CI 状态：`, 'succeed');
+  check_runs.forEach((run) => {
+    showMessage(`  ${run.name.padEnd(36)} ${emojify(run.status)} ${emojify(run.conclusion || '')}`);
+  });
+  const conclusions = check_runs.map((run) => run.conclusion);
+  if (
+    conclusions.includes('failure') ||
+    conclusions.includes('cancelled') ||
+    conclusions.includes('timed_out')
+  ) {
+    showMessage(chalk.bgRedBright('远程分支 CI 执行异常，无法继续发布，请尝试修复或重试'), 'fail');
+    showMessage(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${sha}`);
+    process.exit(1);
+  }
 
-  // const statuses = check_runs.map((run) => run.status);
-  // if (check_runs.length < 1 || statuses.includes('queued') || statuses.includes('in_progress')) {
-  //   showMessage(chalk.bgRedBright('远程分支 CI 还在执行中，请稍候再试'), 'fail');
-  //   showMessage(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${sha}`);
-  //   process.exit(1);
-  // }
+  const statuses = check_runs.map((run) => run.status);
+  if (check_runs.length < 1 || statuses.includes('queued') || statuses.includes('in_progress')) {
+    showMessage(chalk.bgRedBright('远程分支 CI 还在执行中，请稍候再试'), 'fail');
+    showMessage(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${sha}`);
+    process.exit(1);
+  }
   showMessage(`远程分支 CI 已通过`, 'succeed');
   // clean up
   await runScript({ event: 'clean', path: '.', stdio: 'inherit' });
@@ -169,7 +168,7 @@ const runPrePublish = async () => {
 
   // 从 github artifact 中下载产物
   const downloadArtifactPromise = Promise.resolve().then(async () => {
-    showMessage('开始查找远程分支构建产物', true, '[Artifact - Github]');
+    showMessage('开始查找远程分支构建产物', true, '[Github]');
 
     const {
       data: { workflow_runs },
@@ -201,7 +200,7 @@ const runPrePublish = async () => {
       throw new Error('找不到远程构建产物');
     }
 
-    showMessage(`准备从远程分支下载构建产物`, true, '[Artifact - Github]');
+    showMessage(`准备从远程分支下载构建产物`, true, '[Github]');
     const { url } = await octokit.rest.actions.downloadArtifact.endpoint({
       owner,
       repo,
@@ -210,36 +209,31 @@ const runPrePublish = async () => {
     });
 
     // 返回下载后的文件路径
-    return downloadArtifact(
-      '[Artifact - Github]',
-      url,
-      'artifacts.zip',
-      process.env.GITHUB_ACCESS_TOKEN,
-    );
+    return downloadArtifact('[Github]', url, 'artifacts.zip', process.env.GITHUB_ACCESS_TOKEN);
   });
   downloadArtifactPromise
     .then(() => {
-      showMessage(`成功下载构建产物`, 'succeed', '[Artifact - Github]');
+      showMessage(`成功下载构建产物`, 'succeed', '[Github]');
     })
     .catch((e: Error) => {
-      showMessage(chalk.bgRedBright(e.message), 'fail', '[Artifact - Github]');
+      showMessage(chalk.bgRedBright(e.message), 'fail', '[Github]');
     });
 
   // 从 OSS 下载产物
   const downloadOSSPromise = Promise.resolve().then(async () => {
     const url = `https://antd-visual-diff.oss-cn-shanghai.aliyuncs.com/${sha}/oss-artifacts.zip`;
 
-    showMessage(`准备从远程 OSS 下载构建产物`, true, '[Artifact - OSS]');
+    showMessage(`准备从远程 OSS 下载构建产物`, true, '[OSS]');
 
     // 返回下载后的文件路径
-    return downloadArtifact('[Artifact - OSS]', url, 'oss-artifacts.zip');
+    return downloadArtifact('[OSS]', url, 'oss-artifacts.zip');
   });
   downloadOSSPromise
     .then(() => {
-      showMessage(`成功下载构建产物`, 'succeed', '[Artifact - OSS]');
+      showMessage(`成功下载构建产物`, 'succeed', '[OSS]');
     })
     .catch((e: Error) => {
-      showMessage(chalk.bgRedBright(e.message), 'fail', '[Artifact - OSS]');
+      showMessage(chalk.bgRedBright(e.message), 'fail', '[OSS]');
     });
 
   // 任意一个完成，则完成
