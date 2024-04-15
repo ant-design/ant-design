@@ -83,6 +83,8 @@ const emojify = (status: string = '') => {
   return `${emoji || ''} ${(status || '').padEnd(15)}`;
 };
 
+const toMB = (bytes: number) => (bytes / 1024 / 1024).toFixed(2);
+
 async function downloadArtifact(msgKey: string, url: string, filepath: string, token?: string) {
   const headers: Record<string, string> = {};
   if (token) {
@@ -93,8 +95,10 @@ async function downloadArtifact(msgKey: string, url: string, filepath: string, t
     headers,
     responseType: 'arraybuffer',
     onDownloadProgress: (progressEvent) => {
+      const { loaded, total = 0 } = progressEvent;
+
       showMessage(
-        `下载进度 ${((progressEvent.loaded / (progressEvent.total || 0)) * 100).toFixed(2)}%`,
+        `下载进度 ${toMB(loaded)}MB/${toMB(total)}MB (${((loaded / total) * 100).toFixed(0)}%)`,
         true,
         msgKey,
       );
