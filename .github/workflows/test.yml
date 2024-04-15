@@ -298,15 +298,15 @@ jobs:
             es
             lib
 
-      - name: tar builds
+      - name: zip builds
         env:
           ALI_OSS_AK_ID: ${{ secrets.ALI_OSS_AK_ID }}
           ALI_OSS_AK_SECRET: ${{ secrets.ALI_OSS_AK_SECRET }}
           HEAD_SHA: ${{ github.sha }}
         run: |
-          tar -czvf build-artifacts.tar.gz dist locale es lib
+          zip -r oss-artifacts.zip dist locale es lib
           echo "🤖 Uploading"
-          node scripts/visual-regression/upload.js ./build-artifacts.tar.gz --ref=$HEAD_SHA
+          node scripts/visual-regression/upload.js ./oss-artifacts.zip --ref=$HEAD_SHA
 
   compiled-module-test:
     name: module test
