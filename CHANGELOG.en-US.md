@@ -18,7 +18,7 @@ tag: vVERSION
 
 ## 5.16.2
 
-`2024-04-14`
+`2024-04-15`
 
 - 🐞 Fix Input.OTP controlled `value` to `''` not work as expect. [#48399](https://github.com/ant-design/ant-design/pull/48399)
 - 🐞 Fix DatePicker of `multiple` with week picker not show the selection on the panel. [#48355](https://github.com/ant-design/ant-design/pull/48355)
@@ -60,8 +60,8 @@ tag: vVERSION
 - 🐞 Fix Button that vertically center icons when icon-only. [#48178](https://github.com/ant-design/ant-design/pull/48178) [@momesana](https://github.com/momesana)
 - 🐞 Fix Modal.confirm content is not centered when icon is null. [#48173](https://github.com/ant-design/ant-design/pull/48173)
 - Form [#48163](https://github.com/ant-design/ant-design/pull/48163) [@madocto](https://github.com/madocto)
-  - 🐞 1. Fix Form `getValueProps` shouldn't work when FormItem's `name` doesn't exist .
-  - 🐞 2. Fix Form's `setFieldsValue` should tread same as `setFields`.
+  - 🐞 Fix Form `getValueProps` shouldn't work when FormItem's `name` doesn't exist .
+  - 🐞 Fix Form's `setFieldsValue` should tread same as `setFields`.
 - 🐞 Fixe Table that internationalization of table columns fails when searching. [#48126](https://github.com/ant-design/ant-design/pull/48126) [@LingJinT](https://github.com/LingJinT)
 - 🐞 Fix Upload that `onChange` should be triggered when `fileList.length` is larger than `maxCount`. [#47747](https://github.com/ant-design/ant-design/pull/47747) [@Zhou-Bill](https://github.com/Zhou-Bill)
 - 🐞 Fix Carousel several <a href="https://github.com/ant-design/react-slick/pull/110" data-hovercard-type="pull_request" data-hovercard-url="/ant-design/react-slick/pull/110/hovercard">bugs</a> by upgrading react-slick changes and renewing TS type. [#48093](https://github.com/ant-design/ant-design/pull/48093)
