@@ -177,7 +177,7 @@ const Dropdown: CompoundedComponent = (props) => {
 
   const [, token] = useToken();
 
-  const child = React.Children.only(children) as React.ReactElement<any>
+  const child = React.Children.only(children) as React.ReactElement<any>;
 
   // =========================== Open ============================
   const [mergedOpen, setOpen] = useMergedState(false, {
@@ -190,9 +190,7 @@ const Dropdown: CompoundedComponent = (props) => {
     setOpen(nextOpen);
   });
 
-  const dropdownTrigger = cloneElement(
-    child
-    , {
+  const dropdownTrigger = cloneElement(child, {
     className: classNames(
       `${prefixCls}-trigger`,
       {
@@ -201,7 +199,22 @@ const Dropdown: CompoundedComponent = (props) => {
       child.props.className,
     ),
     disabled,
-    id:`${menuLabel}-button`,
+    onFocus: (event: Event) => {
+      const targetElement = event.target as HTMLElement;
+
+      const handleKeyPress = (e: KeyboardEvent) => {
+        if (e.key === 'Enter' || e.code === 'Space') {
+          setOpen(true);
+          targetElement.removeEventListener('keypress', handleKeyPress);
+        }
+      };
+      targetElement.addEventListener('keypress', handleKeyPress);
+      targetElement.addEventListener('blur', () => {
+        targetElement.removeEventListener('keypress', handleKeyPress);
+      });
+    },
+    // onKeydown: (event) => { console.log('Action triggered')},
+    id: `${menuLabel}-button`,
     role: 'button',
     'aria-haspopup': 'menu',
     'aria-expanded': mergedOpen,
@@ -247,7 +260,9 @@ const Dropdown: CompoundedComponent = (props) => {
 
     let overlayNode: React.ReactNode;
     if (menu?.items) {
-      overlayNode = <Menu aria-labelledby={`${menuLabel}-button`} id={`${menuLabel}-menu`}  {...menu} />;
+      overlayNode = (
+        <Menu aria-labelledby={`${menuLabel}-button`} id={`${menuLabel}-menu`} {...menu} />
+      );
     } else if (typeof overlay === 'function') {
       overlayNode = overlay();
     } else {
