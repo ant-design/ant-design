@@ -126,12 +126,12 @@ interface IImageDesc {
 
 function getMdImageTag(desc: IImageDesc, extraCaption?: boolean) {
   const { src, alt } = desc;
-  if (!extraCaption) {
+  if (!extraCaption || !alt) {
     // in md2html report, we use `@microflash/rehype-figure` to generate a figure
     return `![${alt}](${src})`;
   }
   // show caption with image in github markdown comment
-  return `![${alt}](${src})\n**${alt}**`;
+  return `![${alt}](${src}) ${alt}`;
 }
 
 interface IBadCase {
