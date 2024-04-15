@@ -48,16 +48,6 @@ const multiBar = new cliProgress.MultiBar(
 async function downloadArtifact(url: string, filepath: string, token?: string) {
   const bar = multiBar.create(1, 0);
 
-  // const bar = new cliProgress.SingleBar(
-  //   {
-  //     format: `  下载中 [${chalk.cyan(
-  //       '{bar}',
-  //     )}] {percentage}% | 预计还剩: {eta}s | {value}/{total}`,
-  //   },
-  //   cliProgress.Presets.rect,
-  // );
-  // bar.start(1, 0);
-
   const headers: Record<string, string> = {};
   if (token) {
     headers.Authorization = `token ${token}`;
@@ -80,7 +70,7 @@ async function downloadArtifact(url: string, filepath: string, token?: string) {
 }
 
 const runPrePublish = async () => {
-  // await checkRepo();
+  await checkRepo();
   const spinner = ora('Loading unicorns').start();
   spinner.info(chalk.black.bgGreenBright('本次发布将跳过本地 CI 检查，远程 CI 通过后方可发布'));
   const git = simpleGit();
@@ -117,22 +107,22 @@ const runPrePublish = async () => {
       `  ${run.name.padEnd(36)} ${emojify(run.status)} ${emojify(run.conclusion || '')}`,
     );
   });
-  // const conclusions = check_runs.map((run) => run.conclusion);
-  // if (
-  //   conclusions.includes('failure') ||
-  //   conclusions.includes('cancelled') ||
-  //   conclusions.includes('timed_out')
-  // ) {
-  //   spinner.fail(chalk.bgRedBright('远程分支 CI 执行异常，无法继续发布，请尝试修复或重试'));
-  //   spinner.info(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${latest.hash}`);
-  //   process.exit(1);
-  // }
-  // const statuses = check_runs.map((run) => run.status);
-  // if (check_runs.length < 1 || statuses.includes('queued') || statuses.includes('in_progress')) {
-  //   spinner.fail(chalk.bgRedBright('远程分支 CI 还在执行中，请稍候再试'));
-  //   spinner.info(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${latest.hash}`);
-  //   process.exit(1);
-  // }
+  const conclusions = check_runs.map((run) => run.conclusion);
+  if (
+    conclusions.includes('failure') ||
+    conclusions.includes('cancelled') ||
+    conclusions.includes('timed_out')
+  ) {
+    spinner.fail(chalk.bgRedBright('远程分支 CI 执行异常，无法继续发布，请尝试修复或重试'));
+    spinner.info(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${latest.hash}`);
+    process.exit(1);
+  }
+  const statuses = check_runs.map((run) => run.status);
+  if (check_runs.length < 1 || statuses.includes('queued') || statuses.includes('in_progress')) {
+    spinner.fail(chalk.bgRedBright('远程分支 CI 还在执行中，请稍候再试'));
+    spinner.info(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${latest.hash}`);
+    process.exit(1);
+  }
   spinner.succeed(`远程分支 CI 已通过`);
   // clean up
   await runScript({ event: 'clean', path: '.', stdio: 'inherit' });
