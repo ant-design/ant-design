@@ -33,12 +33,8 @@ const MeasureText = React.forwardRef<MeasureTextRef, MeasureTextProps>(
           display: 'block',
           left: 0,
           top: 0,
-          // zIndex: -9999,
-          // visibility: 'hidden',
           pointerEvents: 'none',
-
           backgroundColor: 'rgba(255, 0, 0, 0.65)',
-
           ...style,
         }}
       >
