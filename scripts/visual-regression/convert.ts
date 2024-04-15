@@ -4,8 +4,7 @@ import { remark } from 'remark';
 import remarkGfm from 'remark-gfm';
 import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
-// @ts-ignore
-import rehypeFigure from '@microflash/rehype-figure';
+const rehypeFigure = require('@microflash/rehype-figure');
 
 export default function markdown2Html(content: string) {
   return remark()

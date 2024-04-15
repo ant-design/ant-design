@@ -6,6 +6,7 @@ import os from 'os';
 import path from 'path';
 import { Readable } from 'stream';
 import { finished } from 'stream/promises';
+import simpleGit from 'simple-git';
 import chalk from 'chalk';
 import fse from 'fs-extra';
 import difference from 'lodash/difference';
@@ -123,9 +124,14 @@ interface IImageDesc {
   alt: string;
 }
 
-function getImage(desc: IImageDesc) {
+function getMdImageTag(desc: IImageDesc, extraCaption?: boolean) {
   const { src, alt } = desc;
-  return `![${alt}](${src})`;
+  if (!extraCaption) {
+    // in md2html report, we use `@microflash/rehype-figure` to generate a figure
+    return `![${alt}](${src})`;
+  }
+  // show caption with image in github markdown comment
+  return `![${alt}](${src})\n**${alt}**`;
 }
 
 interface IBadCase {
@@ -141,23 +147,72 @@ interface IBadCase {
   weight: number;
 }
 
-function parseArgs() {
+const git = simpleGit();
+
+async function parseArgs() {
   // parse args from -- --pr-id=123 --base_ref=feature
   const argv = minimist(process.argv.slice(2));
   const prId = argv['pr-id'];
   assert(prId, 'Missing --pr-id');
   const baseRef = argv['base-ref'];
   assert(baseRef, 'Missing --base-ref');
+
+  const { latest } = await git.log();
+
   return {
     prId,
     baseRef,
+    currentRef: latest?.hash.slice(0, 8) || '',
   };
+}
+
+function generateLineReport(
+  badCase: IBadCase,
+  publicPath: string,
+  currentRef: string,
+  extraCaption?: boolean,
+) {
+  const { filename, type, targetFilename } = badCase;
+
+  let lineHTMLReport = '';
+  if (type === 'changed') {
+    lineHTMLReport += '| ';
+    lineHTMLReport += [
+      // add ref as query to avoid github cache image object
+      getMdImageTag({
+        src: `${publicPath}/images/base/${filename}?ref=${currentRef}`,
+        alt: targetFilename || '',
+      }, extraCaption),
+      getMdImageTag({
+        src: `${publicPath}/images/current/${filename}?ref=${currentRef}`,
+        alt: filename,
+      }, extraCaption),
+      getMdImageTag({
+        src: `${publicPath}/images/diff/${filename}?ref=${currentRef}`,
+        alt: '',
+      }, extraCaption),
+    ].join(' | ');
+    lineHTMLReport += ' |\n';
+  } else if (type === 'removed') {
+    lineHTMLReport += '| ';
+    lineHTMLReport += [
+      getMdImageTag({
+        src: `${publicPath}/images/base/${filename}?ref=${currentRef}`,
+        alt: targetFilename || '',
+      }, extraCaption),
+      `⛔️⛔️⛔️ Missing ⛔️⛔️⛔️`,
+      `🚨🚨🚨 Removed 🚨🚨🚨`,
+    ].join(' | ');
+    lineHTMLReport += ' |\n';
+  }
+  return lineHTMLReport;
 }
 
 function generateReport(
   badCases: IBadCase[],
   targetBranch: string,
   targetRef: string,
+  currentRef: string,
   prId: string,
 ): [string, string] {
   const reportDirname = path.basename(REPORT_DIR);
@@ -201,44 +256,23 @@ ${fullReport}
   let diffCount = 0;
 
   for (const badCase of badCases) {
-    const { filename, type, targetFilename } = badCase;
-    let lineReportMdStr = '';
-    if (type === 'changed') {
-      lineReportMdStr += '| ';
-      lineReportMdStr += [
-        getImage({
-          src: `${publicPath}/images/base/${filename}`,
-          alt: targetFilename || '',
-        }),
-        getImage({
-          src: `${publicPath}/images/current/${filename}`,
-          alt: filename,
-        }),
-        getImage({
-          src: `${publicPath}/images/diff/${filename}`,
-          alt: '',
-        }),
-      ].join(' | ');
-      lineReportMdStr += ' |\n';
-    } else if (type === 'removed') {
-      lineReportMdStr += '| ';
-      lineReportMdStr += [
-        getImage({
-          src: `${publicPath}/images/base/${filename}`,
-          alt: targetFilename || '',
-        }),
-        `⛔️⛔️⛔️ Missing ⛔️⛔️⛔️`,
-        `🚨🚨🚨 Removed 🚨🚨🚨`,
-      ].join(' | ');
-      lineReportMdStr += ' |\n';
-    }
-
     diffCount += 1;
     if (diffCount <= 10) {
-      reportMdStr += lineReportMdStr;
+      // 将图片下方增加文件名
+      reportMdStr += generateLineReport(
+        badCase,
+        publicPath,
+        currentRef,
+        true,
+      );
     }
 
-    fullVersionMd += lineReportMdStr;
+    fullVersionMd += generateLineReport(
+      badCase,
+      publicPath,
+      currentRef,
+      false,
+    );
   }
 
   reportMdStr += addonFullReportDesc;
@@ -248,7 +282,7 @@ ${fullReport}
 }
 
 async function boot() {
-  const { prId, baseRef: targetBranch = 'master' } = parseArgs();
+  const { prId, baseRef: targetBranch = 'master', currentRef } = await parseArgs();
 
   const baseImgSourceDir = path.resolve(ROOT_DIR, `./imageSnapshots-${targetBranch}`);
 
@@ -360,6 +394,7 @@ async function boot() {
     badCases,
     targetBranch,
     targetCommitSha,
+    currentRef,
     prId,
   );
   await fse.writeFile(path.join(REPORT_DIR, './report.md'), reportMdStr);
