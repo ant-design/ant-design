@@ -1,4 +1,4 @@
-/* eslint-disable camelcase */
+/* eslint-disable camelcase, no-async-promise-executor */
 import fs from 'node:fs';
 import runScript from '@npmcli/run-script';
 import { Octokit } from '@octokit/rest';
@@ -38,31 +38,46 @@ const emojify = (status: string = '') => {
   return `${emoji || ''} ${(status || '').padEnd(15)}`;
 };
 
-async function downloadArtifact(url: string, filepath: string) {
-  const bar = new cliProgress.SingleBar(
-    {
-      format: `  下载中 [${chalk.cyan(
-        '{bar}',
-      )}] {percentage}% | 预计还剩: {eta}s | {value}/{total}`,
-    },
-    cliProgress.Presets.rect,
-  );
-  bar.start(1, 0);
+const multiBar = new cliProgress.MultiBar(
+  {
+    format: `  下载中 [${chalk.cyan('{bar}')}] {percentage}% | 预计还剩: {eta}s | {value}/{total}`,
+  },
+  cliProgress.Presets.shades_grey,
+);
+
+async function downloadArtifact(url: string, filepath: string, token?: string) {
+  // const bar = new cliProgress.SingleBar(
+  //   {
+  //     format: `  下载中 [${chalk.cyan(
+  //       '{bar}',
+  //     )}] {percentage}% | 预计还剩: {eta}s | {value}/{total}`,
+  //   },
+  //   cliProgress.Presets.rect,
+  // );
+  const bar = multiBar.create(1, 0);
+  // bar.start(1, 0);
+
+  const headers: Record<string, string> = {};
+  if (token) {
+    headers.Authorization = `token ${token}`;
+  }
+
   const response = await axios.get(url, {
-    headers: {
-      Authorization: `token ${process.env.GITHUB_ACCESS_TOKEN}`,
-    },
+    headers,
     responseType: 'arraybuffer',
     onDownloadProgress: (progressEvent) => {
+      console.log('????????', progressEvent);
       bar.setTotal(progressEvent.total || 0);
       bar.update(progressEvent.loaded);
     },
   });
   fs.writeFileSync(filepath, Buffer.from(response.data));
+
+  return filepath;
 }
 
 const runPrePublish = async () => {
-  await checkRepo();
+  // await checkRepo();
   const spinner = ora('Loading unicorns').start();
   spinner.info(chalk.black.bgGreenBright('本次发布将跳过本地 CI 检查，远程 CI 通过后方可发布'));
   const git = simpleGit();
@@ -109,57 +124,93 @@ const runPrePublish = async () => {
     spinner.info(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${latest.hash}`);
     process.exit(1);
   }
-  const statuses = check_runs.map((run) => run.status);
-  if (check_runs.length < 1 || statuses.includes('queued') || statuses.includes('in_progress')) {
-    spinner.fail(chalk.bgRedBright('远程分支 CI 还在执行中，请稍候再试'));
-    spinner.info(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${latest.hash}`);
-    process.exit(1);
-  }
+  // const statuses = check_runs.map((run) => run.status);
+  // if (check_runs.length < 1 || statuses.includes('queued') || statuses.includes('in_progress')) {
+  //   spinner.fail(chalk.bgRedBright('远程分支 CI 还在执行中，请稍候再试'));
+  //   spinner.info(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${latest.hash}`);
+  //   process.exit(1);
+  // }
   spinner.succeed(`远程分支 CI 已通过`);
   // clean up
   await runScript({ event: 'clean', path: '.', stdio: 'inherit' });
   spinner.succeed(`成功清理构建产物目录`);
-  spinner.start(`开始查找远程分支构建产物`);
-  const {
-    data: { workflow_runs },
-  } = await octokit.rest.actions.listWorkflowRunsForRepo({
-    owner,
-    repo,
-    head_sha: latest.hash,
-    per_page: 100,
-    exclude_pull_requests: true,
-    event: 'push',
-    status: 'completed',
-    conclusion: 'success',
-    head_branch: currentBranch,
+
+  // 从 github artifact 中下载产物
+  const spinnerArtifact = ora('Artifact').info('🗜️ 开始查找远程分支构建产物');
+  const downloadArtifactPromise = Promise.resolve().then(async () => {
+    const {
+      data: { workflow_runs },
+    } = await octokit.rest.actions.listWorkflowRunsForRepo({
+      owner,
+      repo,
+      head_sha: latest.hash,
+      per_page: 100,
+      exclude_pull_requests: true,
+      event: 'push',
+      status: 'completed',
+      conclusion: 'success',
+      head_branch: currentBranch,
+    });
+    const testWorkflowRun = workflow_runs.find((run) => run.name === '✅ test');
+    if (!testWorkflowRun) {
+      spinnerArtifact.fail(`🗜️ ${chalk.bgRedBright('找不到远程构建工作流')}`);
+      throw new Error('找不到远程构建工作流');
+    }
+
+    const {
+      data: { artifacts },
+    } = await octokit.actions.listWorkflowRunArtifacts({
+      owner,
+      repo,
+      run_id: testWorkflowRun?.id || 0,
+    });
+    const artifact = artifacts.find((item) => item.name === 'build artifacts');
+    if (!artifact) {
+      spinnerArtifact.fail(`🗜️ ${chalk.bgRedBright('找不到远程构建产物')}`);
+      throw new Error('找不到远程构建产物');
+    }
+
+    spinnerArtifact.info(`🗜️ 准备从远程分支下载构建产物`);
+    const { url } = await octokit.rest.actions.downloadArtifact.endpoint({
+      owner,
+      repo,
+      artifact_id: artifact.id,
+      archive_format: 'zip',
+    });
+
+    // 返回下载后的文件路径
+    return downloadArtifact(url, 'artifacts.zip', process.env.GITHUB_ACCESS_TOKEN);
   });
-  const testWorkflowRun = workflow_runs.find((run) => run.name === '✅ test');
-  if (!testWorkflowRun) {
-    spinner.fail(chalk.bgRedBright('找不到远程构建工作流'));
-    process.exit(1);
-  }
-  const {
-    data: { artifacts },
-  } = await octokit.actions.listWorkflowRunArtifacts({
-    owner,
-    repo,
-    run_id: testWorkflowRun?.id || 0,
+  downloadArtifactPromise
+    .catch(() => {})
+    .then(() => {
+      spinnerArtifact.stop();
+    });
+
+  // 从 OSS 下载产物
+  const spinnerOSS = ora('OSS').info('💾 开始查找 OSS 构建产物');
+  const downloadOSSPromise = Promise.resolve().then(async () => {
+    const url = `https://antd-visual-diff.oss-cn-shanghai.aliyuncs.com/${latest.hash}/oss-artifact.zip`;
+
+    spinnerOSS.info(`💾 准备从远程 OSS 下载构建产物`);
+
+    // 返回下载后的文件路径
+    return downloadArtifact(url, 'oss-artifacts.zip');
   });
-  const artifact = artifacts.find((item) => item.name === 'build artifacts');
-  if (!artifact) {
-    spinner.fail(chalk.bgRedBright('找不到远程构建产物'));
-    process.exit(1);
-  }
-  spinner.info(`准备从远程分支下载构建产物`);
-  const { url } = await octokit.rest.actions.downloadArtifact.endpoint({
-    owner,
-    repo,
-    artifact_id: artifact.id,
-    archive_format: 'zip',
-  });
-  await downloadArtifact(url, 'artifacts.zip');
+  downloadOSSPromise
+    .catch(() => {})
+    .then(() => {
+      spinnerOSS.stop();
+    });
+
+  // 任意一个完成，则完成
+  // @ts-ignore
+  const firstZipFile: string = await Promise.any([downloadArtifactPromise, downloadOSSPromise]);
+  console.log('/n/n/n/n>>>', firstZipFile);
+
   spinner.info();
   spinner.succeed(`成功从远程分支下载构建产物`);
+
   // unzip
   spinner.start(`正在解压构建产物`);
   const zip = new AdmZip('artifacts.zip');

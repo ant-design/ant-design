@@ -49,7 +49,7 @@
     "build": "npm run compile && NODE_OPTIONS='--max-old-space-size=4096' npm run dist",
     "changelog": "npm run lint:changelog && tsx scripts/print-changelog.ts",
     "check-commit": "tsx scripts/check-commit.ts",
-    "clean": "antd-tools run clean && rm -rf es lib coverage locale dist report.html artifacts.zip",
+    "clean": "antd-tools run clean && rm -rf es lib coverage locale dist report.html artifacts.zip oss-artifacts.zip",
     "clean:lockfiles": "rm -rf package-lock.json yarn.lock",
     "precompile": "npm run prestart",
     "compile": "npm run clean && antd-tools run compile",
