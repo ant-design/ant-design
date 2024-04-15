@@ -29,7 +29,7 @@ export interface ChatBoxProps {
   placement?: 'start' | 'end';
   loading?: React.ReactNode;
   step?: boolean | StepOption;
-  content?: string;
+  content: string;
   contentRender?: (content?: string) => React.ReactNode;
 }
 
@@ -46,7 +46,7 @@ const ChatBox: React.FC<ChatBoxProps> = (props) => {
     contentRender,
   } = props;
   const { direction, getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
-  const prefixCls = getPrefixCls('chatbox', customizePrefixCls);
+  const prefixCls = getPrefixCls('chat-box', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const mergedStep = useMergedStep(step);

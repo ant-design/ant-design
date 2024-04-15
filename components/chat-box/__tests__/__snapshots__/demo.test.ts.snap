@@ -5,10 +5,10 @@ exports[`renders components/chat-box/demo/avatar-and-placement.tsx correctly 1`]
   class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-chatbox ant-chatbox-start"
+    class="ant-chat-box ant-chat-box-start"
   >
     <div
-      class="ant-chatbox-avatar"
+      class="ant-chat-box-avatar"
     >
       <span
         class="ant-avatar ant-avatar-circle ant-avatar-icon"
@@ -36,16 +36,16 @@ exports[`renders components/chat-box/demo/avatar-and-placement.tsx correctly 1`]
       </span>
     </div>
     <div
-      class="ant-chatbox-content"
+      class="ant-chat-box-content"
     >
       晚上好，你吃过了吗？
     </div>
   </div>
   <div
-    class="ant-chatbox ant-chatbox-end"
+    class="ant-chat-box ant-chat-box-end"
   >
     <div
-      class="ant-chatbox-avatar"
+      class="ant-chat-box-avatar"
     >
       <span
         class="ant-avatar ant-avatar-circle ant-avatar-icon"
@@ -73,7 +73,7 @@ exports[`renders components/chat-box/demo/avatar-and-placement.tsx correctly 1`]
       </span>
     </div>
     <div
-      class="ant-chatbox-content"
+      class="ant-chat-box-content"
     >
       晚上好，你吃过了吗？
     </div>
@@ -83,10 +83,10 @@ exports[`renders components/chat-box/demo/avatar-and-placement.tsx correctly 1`]
 
 exports[`renders components/chat-box/demo/basic.tsx correctly 1`] = `
 <div
-  class="ant-chatbox ant-chatbox-start"
+  class="ant-chat-box ant-chat-box-start"
 >
   <div
-    class="ant-chatbox-content"
+    class="ant-chat-box-content"
   >
     hello world !
   </div>
@@ -95,10 +95,10 @@ exports[`renders components/chat-box/demo/basic.tsx correctly 1`] = `
 
 exports[`renders components/chat-box/demo/contentRender.tsx correctly 1`] = `
 <div
-  class="ant-chatbox ant-chatbox-start"
+  class="ant-chat-box ant-chat-box-start"
 >
   <div
-    class="ant-chatbox-avatar"
+    class="ant-chat-box-avatar"
   >
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-icon"
@@ -142,10 +142,10 @@ exports[`renders components/chat-box/demo/contentRender.tsx correctly 1`] = `
 
 exports[`renders components/chat-box/demo/stream-output.tsx correctly 1`] = `
 <div
-  class="ant-chatbox ant-chatbox-start"
+  class="ant-chat-box ant-chat-box-start"
 >
   <div
-    class="ant-chatbox-avatar"
+    class="ant-chat-box-avatar"
   >
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-icon"
@@ -173,7 +173,7 @@ exports[`renders components/chat-box/demo/stream-output.tsx correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-chatbox-content"
+    class="ant-chat-box-content"
   />
 </div>
 `;
