@@ -82,10 +82,10 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   });
 
   const mergedStyle: React.CSSProperties = {
-    width: size,
-    height: size,
     backgroundColor: bgColor,
     ...style,
+    width: 'fit-content',
+    height: 'fit-content',
   };
 
   return wrapCSSVar(
