@@ -486,8 +486,4 @@ exports[`renders components/qr-code/demo/type.tsx extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders components/qr-code/demo/type.tsx extend context correctly 2`] = `
-[
-  [Error: Could not parse CSS stylesheet],
-]
-`;
+exports[`renders components/qr-code/demo/type.tsx extend context correctly 2`] = `[]`;

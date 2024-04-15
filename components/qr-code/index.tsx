@@ -85,7 +85,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     backgroundColor: bgColor,
     ...style,
     width: style?.width ?? size,
-    height: style?.width ?? size,
+    height: style?.height ?? size,
   };
 
   return wrapCSSVar(
