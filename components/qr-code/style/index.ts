@@ -60,6 +60,7 @@ const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
     },
     [`${componentCls}-borderless`]: {
       borderColor: 'transparent',
+      padding: 0,
     },
   };
 };
