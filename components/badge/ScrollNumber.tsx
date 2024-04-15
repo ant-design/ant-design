@@ -1,5 +1,6 @@
-import classNames from 'classnames';
 import * as React from 'react';
+import classNames from 'classnames';
+
 import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
 import SingleNumber from './SingleNumber';

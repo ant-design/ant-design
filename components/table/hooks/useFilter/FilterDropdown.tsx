@@ -11,7 +11,8 @@ import Button from '../../../button';
 import type { CheckboxChangeEvent } from '../../../checkbox';
 import Checkbox from '../../../checkbox';
 import { ConfigContext } from '../../../config-provider/context';
-import Dropdown, { type DropdownProps } from '../../../dropdown';
+import Dropdown from '../../../dropdown';
+import type { DropdownProps } from '../../../dropdown';
 import Empty from '../../../empty';
 import type { MenuProps } from '../../../menu';
 import Menu from '../../../menu';
@@ -455,7 +456,9 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
             tablePrefixCls={tablePrefixCls}
             locale={locale}
           />
-          {isEmpty ? empty : (
+          {isEmpty ? (
+            empty
+          ) : (
             <Menu
               selectable
               multiple={filterMultiple}

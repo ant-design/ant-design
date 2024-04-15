@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { fireEvent, render } from '../../../tests/utils';
+
 // eslint-disable-next-line import/no-unresolved
 import type { InputProps, InputRef } from '..';
 import Input from '..';
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { resetWarned } from '../../_util/warning';
+import { fireEvent, render } from '../../../tests/utils';
 import Form from '../../form';
 import { triggerFocus } from '../Input';
 

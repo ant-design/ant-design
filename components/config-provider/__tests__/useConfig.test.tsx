@@ -1,7 +1,8 @@
 import React from 'react';
+
 import ConfigProvider from '..';
-import { render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
+import { render } from '../../../tests/utils';
 import Form from '../../form';
 
 describe('ConfigProvider.useConfig', () => {

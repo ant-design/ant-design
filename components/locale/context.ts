@@ -1,4 +1,5 @@
 import { createContext } from 'react';
+
 import type { Locale } from '.';
 
 export type LocaleContextProps = Locale & { exist?: boolean };

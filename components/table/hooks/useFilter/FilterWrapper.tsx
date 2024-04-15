@@ -1,5 +1,5 @@
-import KeyCode from 'rc-util/lib/KeyCode';
 import * as React from 'react';
+import KeyCode from 'rc-util/lib/KeyCode';
 
 export interface FilterDropdownMenuWrapperProps {
   children?: React.ReactNode;

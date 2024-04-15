@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Switch from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';

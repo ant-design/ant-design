@@ -1,5 +1,5 @@
 import React from 'react';
-import { QRCode, Popover, Button } from 'antd';
+import { Button, Popover, QRCode } from 'antd';
 
 const App: React.FC = () => (
   <Popover

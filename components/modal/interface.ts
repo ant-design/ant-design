@@ -1,9 +1,9 @@
 import type { FC } from 'react';
 import type { DialogProps } from 'rc-dialog';
 
+import type { ClosableType } from '../_util/hooks/useClosable';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import type { DirectionType } from '../config-provider';
-import type { ClosableType } from '../_util/hooks/useClosable';
 
 export type ModalFooterRender = (
   originNode: React.ReactNode,

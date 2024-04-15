@@ -53,8 +53,9 @@ If you have already set things up by following the [Use with create-react-app](/
 
 ```jsx
 import React, { useState } from 'react';
-import { createRoot } from 'react-dom/client';
 import { DatePicker, message } from 'antd';
+import { createRoot } from 'react-dom/client';
+
 import './index.css';
 
 const App = () => {
