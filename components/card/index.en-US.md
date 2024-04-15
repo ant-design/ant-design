@@ -42,7 +42,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | activeTabKey | Current TabPane's key | string | - |  |
 | bordered | Toggles rendering of the border around the card | boolean | true |  |
 | cover | Card cover | ReactNode | - |  |
-| defaultActiveTabKey | Initial active TabPane's key, if `activeTabKey` is not set | string | - |  |
+| defaultActiveTabKey | Initial active TabPane's key, if `activeTabKey` is not set | string | `The key of first tab` |  |
 | extra | Content to render in the top-right corner of the card | ReactNode | - |  |
 | hoverable | Lift up when hovering card | boolean | false |  |
 | loading | Shows a loading indicator while the contents of the card are being fetched | boolean | false |  |

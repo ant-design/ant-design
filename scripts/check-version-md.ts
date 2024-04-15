@@ -4,6 +4,7 @@ import { join } from 'path';
 import chalk from 'chalk';
 import dayjs from 'dayjs';
 import isBetween from 'dayjs/plugin/isBetween';
+
 import localPackage from '../package.json';
 
 const { version } = localPackage;

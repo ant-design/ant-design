@@ -30,7 +30,7 @@ const useStyle = createStyles(({ token, css }) => ({
     @media only screen and (max-width: ${token.screenLG}px) {
       &,
       &.rtl {
-        padding: 0 48px;
+        padding: 0 ${token.paddingLG * 2}px;
       }
     }
   `,

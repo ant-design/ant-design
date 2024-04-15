@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import type { BaseOptionType } from '..';
 import Cascader from '..';
 import { render } from '../../../tests/utils';
@@ -79,16 +80,12 @@ describe('Cascader.typescript', () => {
   });
 
   it('single onChange', () => {
-    const { container } = render(
-      <Cascader multiple={false} onChange={(values: (string | number)[]) => values} />,
-    );
+    const { container } = render(<Cascader multiple={false} onChange={(values) => values} />);
     expect(container).toBeTruthy();
   });
 
   it('multiple onChange', () => {
-    const { container } = render(
-      <Cascader multiple onChange={(values: (string | number)[][]) => values} />,
-    );
+    const { container } = render(<Cascader multiple onChange={(values) => values} />);
     expect(container).toBeTruthy();
   });
 });

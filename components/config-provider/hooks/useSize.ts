@@ -1,4 +1,5 @@
 import React from 'react';
+
 import type { SizeType } from '../SizeContext';
 import SizeContext from '../SizeContext';
 

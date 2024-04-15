@@ -1,9 +1,12 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
 import type { CSSProperties } from 'react';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import { genFocusOutline, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genStepsCustomIconStyle from './custom-icon';
+import genStepsHorizontalStyle from './horizontal';
 import genStepsInlineStyle from './inline';
 import genStepsLabelPlacementStyle from './label-placement';
 import genStepsNavStyle from './nav';
@@ -239,7 +242,7 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
     },
     [`${stepsItemCls}-tail`]: {
       position: 'absolute',
-      top: token.calc(token.iconSize).div(2).sub(token.paddingXXS).equal(),
+      top: token.calc(token.iconSize).div(2).equal(),
       insetInlineStart: 0,
       width: '100%',
 
@@ -381,6 +384,8 @@ const genStepsStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       ...genStepsSmallStyle(token),
       // vertical
       ...genStepsVerticalStyle(token),
+      // horizontal
+      ...genStepsHorizontalStyle(token),
       // label-placement
       ...genStepsLabelPlacementStyle(token),
       // progress-dot

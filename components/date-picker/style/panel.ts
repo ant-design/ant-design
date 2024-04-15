@@ -1,4 +1,5 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
 import type { GenerateStyle } from '../../theme/internal';
@@ -470,7 +471,8 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 
           [`&-range-start td,
             &-range-end td,
-            &-selected td`]: {
+            &-selected td,
+            &-hover td`]: {
             // Rise priority to override hover style
             [`&${pickerCellCls}`]: {
               '&:before': {

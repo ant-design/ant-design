@@ -24,12 +24,12 @@ const App: React.FC = () => (
     }}
   >
     <Flex gap="small" vertical>
-      <Flex wrap="wrap" gap="small">
+      <Flex wrap gap="small">
         <Button type="text">TEXT</Button>
         <Button type="primary">CONTAINED</Button>
         <Button>OUTLINED</Button>
       </Flex>
-      <Flex wrap="wrap" gap="small">
+      <Flex wrap gap="small">
         <Button type="text" disabled>
           TEXT
         </Button>
@@ -38,7 +38,7 @@ const App: React.FC = () => (
         </Button>
         <Button disabled>OUTLINED</Button>
       </Flex>
-      <Flex wrap="wrap" gap="small">
+      <Flex wrap gap="small">
         <Button type="text" size="small">
           TEXT
         </Button>

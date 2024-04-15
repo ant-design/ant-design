@@ -30,7 +30,7 @@ const useStyle = createStyles(({ token, css }) => {
       img {
         height: 32px;
         vertical-align: middle;
-        margin-inline-end: 12px;
+        margin-inline-end: ${token.marginSM}px;
       }
 
       @media only screen and (max-width: ${mobileMaxWidth}px) {

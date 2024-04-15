@@ -1,13 +1,15 @@
+import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { resetWarned } from 'rc-util/lib/warning';
-import React from 'react';
+
 import Alert from '..';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, render, screen } from '../../../tests/utils';
+import { act, render, screen, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import Popconfirm from '../../popconfirm';
 import Tooltip from '../../tooltip';
+import type { AlertRef } from '../Alert';
 
 const { ErrorBoundary } = Alert;
 
@@ -106,11 +108,9 @@ describe('Alert', () => {
 
     await userEvent.hover(screen.getByRole('alert'));
 
-    act(() => {
-      jest.runAllTimers();
-    });
+    await waitFakeTimer();
 
-    expect(screen.getByRole('tooltip')).toBeInTheDocument();
+    expect(document.querySelector<HTMLDivElement>('.ant-tooltip')).toBeInTheDocument();
   });
 
   it('could be used with Popconfirm', async () => {
@@ -192,5 +192,14 @@ describe('Alert', () => {
     expect(container.querySelector('.ant-alert-close-icon')?.textContent).toBe('close');
 
     warnSpy.mockRestore();
+  });
+
+  it('should support id and ref', () => {
+    const alertRef = React.createRef<AlertRef>();
+    const { container } = render(<Alert id="test-id" ref={alertRef} />);
+    const element = container.querySelector<HTMLDivElement>('#test-id');
+    expect(element).toBeTruthy();
+    expect(alertRef.current?.nativeElement).toBeTruthy();
+    expect(alertRef.current?.nativeElement).toBe(element);
   });
 });

@@ -172,9 +172,9 @@ exports[`site test Component components/qr-code en Page 1`] = `1`;
 
 exports[`site test Component components/qr-code zh Page 1`] = `1`;
 
-exports[`site test Component components/radio en Page 1`] = `3`;
+exports[`site test Component components/radio en Page 1`] = `4`;
 
-exports[`site test Component components/radio zh Page 1`] = `3`;
+exports[`site test Component components/radio zh Page 1`] = `4`;
 
 exports[`site test Component components/rate en Page 1`] = `2`;
 
