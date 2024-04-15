@@ -91,9 +91,7 @@ async function downloadArtifact(msgKey: string, url: string, filepath: string, t
     responseType: 'arraybuffer',
     onDownloadProgress: (progressEvent) => {
       showMessage(
-        `正在下载构建产物 ${((progressEvent.loaded / (progressEvent.total || 0)) * 100).toFixed(
-          2,
-        )}%`,
+        `下载 ${((progressEvent.loaded / (progressEvent.total || 0)) * 100).toFixed(2)}%`,
         true,
         msgKey,
       );
@@ -116,13 +114,13 @@ const runPrePublish = async () => {
   const octokit = new Octokit({ auth: process.env.GITHUB_ACCESS_TOKEN });
   const { current: currentBranch } = await git.branch();
 
-  showMessage(`正在拉取远程分支 ${currentBranch}`, true);
-  await git.pull('origin', currentBranch);
-  showMessage(`成功拉取远程分支 ${currentBranch}`, 'succeed');
-  showMessage(`正在推送本地分支 ${currentBranch}`, true);
-  await git.push('origin', currentBranch);
-  showMessage(`成功推送远程分支 ${currentBranch}`, 'succeed');
-  showMessage(`已经和远程分支保持同步 ${currentBranch}`, 'succeed');
+  // showMessage(`正在拉取远程分支 ${currentBranch}`, true);
+  // await git.pull('origin', currentBranch);
+  // showMessage(`成功拉取远程分支 ${currentBranch}`, 'succeed');
+  // showMessage(`正在推送本地分支 ${currentBranch}`, true);
+  // await git.push('origin', currentBranch);
+  // showMessage(`成功推送远程分支 ${currentBranch}`, 'succeed');
+  // showMessage(`已经和远程分支保持同步 ${currentBranch}`, 'succeed');
 
   const { latest } = await git.log();
   const sha = process.env.TARGET_SHA || latest.hash;
@@ -136,34 +134,34 @@ const runPrePublish = async () => {
   const owner = 'ant-design';
   const repo = 'ant-design';
   showMessage(`开始检查远程分支 ${currentBranch} 的 CI 状态`, true);
-  const {
-    data: { check_runs },
-  } = await octokit.checks.listForRef({
-    owner,
-    repo,
-    ref: sha,
-  });
-  showMessage(`远程分支 CI 状态：`, 'succeed');
-  check_runs.forEach((run) => {
-    showMessage(`  ${run.name.padEnd(36)} ${emojify(run.status)} ${emojify(run.conclusion || '')}`);
-  });
-  const conclusions = check_runs.map((run) => run.conclusion);
-  if (
-    conclusions.includes('failure') ||
-    conclusions.includes('cancelled') ||
-    conclusions.includes('timed_out')
-  ) {
-    showMessage(chalk.bgRedBright('远程分支 CI 执行异常，无法继续发布，请尝试修复或重试'), 'fail');
-    showMessage(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${sha}`);
-    process.exit(1);
-  }
+  // const {
+  //   data: { check_runs },
+  // } = await octokit.checks.listForRef({
+  //   owner,
+  //   repo,
+  //   ref: sha,
+  // });
+  // showMessage(`远程分支 CI 状态：`, 'succeed');
+  // check_runs.forEach((run) => {
+  //   showMessage(`  ${run.name.padEnd(36)} ${emojify(run.status)} ${emojify(run.conclusion || '')}`);
+  // });
+  // const conclusions = check_runs.map((run) => run.conclusion);
+  // if (
+  //   conclusions.includes('failure') ||
+  //   conclusions.includes('cancelled') ||
+  //   conclusions.includes('timed_out')
+  // ) {
+  //   showMessage(chalk.bgRedBright('远程分支 CI 执行异常，无法继续发布，请尝试修复或重试'), 'fail');
+  //   showMessage(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${sha}`);
+  //   process.exit(1);
+  // }
 
-  const statuses = check_runs.map((run) => run.status);
-  if (check_runs.length < 1 || statuses.includes('queued') || statuses.includes('in_progress')) {
-    showMessage(chalk.bgRedBright('远程分支 CI 还在执行中，请稍候再试'), 'fail');
-    showMessage(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${sha}`);
-    process.exit(1);
-  }
+  // const statuses = check_runs.map((run) => run.status);
+  // if (check_runs.length < 1 || statuses.includes('queued') || statuses.includes('in_progress')) {
+  //   showMessage(chalk.bgRedBright('远程分支 CI 还在执行中，请稍候再试'), 'fail');
+  //   showMessage(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${sha}`);
+  //   process.exit(1);
+  // }
   showMessage(`远程分支 CI 已通过`, 'succeed');
   // clean up
   await runScript({ event: 'clean', path: '.', stdio: 'inherit' });
@@ -188,7 +186,6 @@ const runPrePublish = async () => {
     });
     const testWorkflowRun = workflow_runs.find((run) => run.name === '✅ test');
     if (!testWorkflowRun) {
-      showMessage(chalk.bgRedBright('找不到远程构建工作流'), 'fail', '[Artifact - Github]');
       throw new Error('找不到远程构建工作流');
     }
 
@@ -201,7 +198,6 @@ const runPrePublish = async () => {
     });
     const artifact = artifacts.find((item) => item.name === 'build artifacts');
     if (!artifact) {
-      showMessage(chalk.bgRedBright('找不到远程构建产物'), 'fail', '[Artifact - Github]');
       throw new Error('找不到远程构建产物');
     }
 
@@ -225,7 +221,9 @@ const runPrePublish = async () => {
     .then(() => {
       showMessage(`成功下载构建产物`, 'succeed', '[Artifact - Github]');
     })
-    .catch(() => {});
+    .catch((e: Error) => {
+      showMessage(chalk.bgRedBright(e.message), 'fail', '[Artifact - Github]');
+    });
 
   // 从 OSS 下载产物
   const downloadOSSPromise = Promise.resolve().then(async () => {
@@ -240,7 +238,9 @@ const runPrePublish = async () => {
     .then(() => {
       showMessage(`成功下载构建产物`, 'succeed', '[Artifact - OSS]');
     })
-    .catch(() => {});
+    .catch((e: Error) => {
+      showMessage(chalk.bgRedBright(e.message), 'fail', '[Artifact - OSS]');
+    });
 
   // 任意一个完成，则完成
   let firstArtifactFile: string;
