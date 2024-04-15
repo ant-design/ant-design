@@ -25,3 +25,5 @@ declare module '@npmcli/run-script' {
     [key: string]: string | string[] | boolean | NodeJS.ProcessEnv;
   }): Promise<void>;
 }
+
+declare module '@microflash/rehype-figure';
