@@ -15,7 +15,7 @@ const useStyle = createStyles(({ token, css }) => ({
         overflow: hidden;
       }
       img {
-        transition: all .3s ease-out;
+        transition: all ${token.motionDurationSlow} ease-out;
       }
 
       &:hover img {
