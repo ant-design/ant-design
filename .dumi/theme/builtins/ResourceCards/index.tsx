@@ -2,10 +2,9 @@ import React from 'react';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import { Col, Row, Tooltip, Card, Typography } from 'antd';
 import { createStyles } from 'antd-style';
+import useLocale from '../../../hooks/useLocale';
 
 const { Paragraph } = Typography;
-
-import useLocale from '../../../hooks/useLocale';
 
 const useStyle = createStyles(({ token, css }) => ({
   card: css`
@@ -87,7 +86,7 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ resource }) => {
           <Card.Meta
             title={title}
             description={
-              <Paragraph ellipsis={{ rows: 2 }} title={description}>
+              <Paragraph style={{ marginBottom: 0 }} ellipsis={{ rows: 1 }} title={description}>
                 {description}
               </Paragraph>
             }
