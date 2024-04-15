@@ -6,10 +6,12 @@ const sentences = ['Feel free to use Ant Design !', '欢迎使用 Ant Design！'
 
 const useLoopSentence = () => {
   const [index, setIndex] = React.useState<number>(0);
+  const timer = React.useRef<ReturnType<typeof setTimeout>>();
   React.useEffect(() => {
-    setTimeout(() => {
+    timer.current = setTimeout(() => {
       setIndex((prevState) => (prevState ? 0 : 1));
     }, 4000);
+    return () => clearTimeout(timer.current);
   }, [index]);
   return sentences[index];
 };

@@ -3,6 +3,7 @@ import classNames from 'classnames';
 
 import { ConfigContext } from '../config-provider';
 import type { ConfigConsumerProps } from '../config-provider';
+import Spin from '../spin';
 import useMergedStep from './hooks/useMergedStep';
 import useTyped from './hooks/useTyped';
 import useStyle from './style';
@@ -27,7 +28,7 @@ export interface ChatBoxProps {
   style?: React.CSSProperties;
   avatar?: React.ReactNode;
   placement?: 'start' | 'end';
-  loading?: React.ReactNode;
+  loading?: boolean;
   step?: boolean | StepOption;
   content: string;
   contentRender?: (content?: string) => React.ReactNode;
@@ -41,6 +42,7 @@ const ChatBox: React.FC<ChatBoxProps> = (props) => {
     style,
     avatar,
     placement = 'start',
+    loading = false,
     step,
     content,
     contentRender,
@@ -63,19 +65,19 @@ const ChatBox: React.FC<ChatBoxProps> = (props) => {
     { [`${prefixCls}-rtl`]: direction === 'rtl' },
   );
 
+  const mergedContentCls = classNames(`${prefixCls}-content`, {
+    [`${prefixCls}-content-cursorBlink`]: showCursor && !loading,
+  });
+
+  const contentNode = mergedStep !== false ? typedContent : content;
+
   return wrapCSSVar(
     <div style={style} className={mergedCls}>
       {avatar && <div className={`${prefixCls}-avatar`}>{avatar}</div>}
       {contentRender ? (
         contentRender(content)
       ) : (
-        <div
-          className={classNames(`${prefixCls}-content`, {
-            [`${prefixCls}-content-cursorBlink`]: showCursor,
-          })}
-        >
-          {mergedStep !== false ? typedContent : content}
-        </div>
+        <div className={mergedContentCls}>{loading ? <Spin /> : contentNode}</div>
       )}
     </div>,
   );

@@ -18,9 +18,10 @@ Often used when chatting.
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
-<code src="./demo/avatar-and-placement.tsx">placement and avatar</code>
-<code src="./demo/stream-output.tsx">stream output</code>
-<code src="./demo/contentRender.tsx">content render</code>
+<code src="./demo/avatar-and-placement.tsx">Placement and avatar</code>
+<code src="./demo/stream-output.tsx">Stream output</code>
+<code src="./demo/loading.tsx">Loading</code>
+<code src="./demo/contentRender.tsx">Content render</code>
 
 ## API
 
@@ -34,7 +35,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | avatar | Avatar component | `React.ReactNode` | - |  |
 | placement | Direction of Message | `start \| end` | `start` |  |
-| loading | Loading state of Message | `React.ReactNode` | - |  |
+| loading | Loading state of Message | `boolean` | - |  |
 | step | Show message with stepping motion | `boolean \| { step?: number, interval?: number }` | `false` |  |
 | content | Content of ChatBox | `string` | - |  |
 | contentRender | Display cuztomized content (If use `contentRender` prop, the typed effect needs to be implemented by yourself) | `(content?: string) => ReactNode` | - |  |
