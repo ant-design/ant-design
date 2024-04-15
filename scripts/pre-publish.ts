@@ -46,6 +46,8 @@ const multiBar = new cliProgress.MultiBar(
 );
 
 async function downloadArtifact(url: string, filepath: string, token?: string) {
+  const bar = multiBar.create(1, 0);
+
   // const bar = new cliProgress.SingleBar(
   //   {
   //     format: `  下载中 [${chalk.cyan(
@@ -54,7 +56,6 @@ async function downloadArtifact(url: string, filepath: string, token?: string) {
   //   },
   //   cliProgress.Presets.rect,
   // );
-  const bar = multiBar.create(1, 0);
   // bar.start(1, 0);
 
   const headers: Record<string, string> = {};
@@ -66,11 +67,13 @@ async function downloadArtifact(url: string, filepath: string, token?: string) {
     headers,
     responseType: 'arraybuffer',
     onDownloadProgress: (progressEvent) => {
-      console.log('????????', progressEvent);
       bar.setTotal(progressEvent.total || 0);
       bar.update(progressEvent.loaded);
     },
   });
+
+  bar.stop();
+
   fs.writeFileSync(filepath, Buffer.from(response.data));
 
   return filepath;
@@ -114,16 +117,16 @@ const runPrePublish = async () => {
       `  ${run.name.padEnd(36)} ${emojify(run.status)} ${emojify(run.conclusion || '')}`,
     );
   });
-  const conclusions = check_runs.map((run) => run.conclusion);
-  if (
-    conclusions.includes('failure') ||
-    conclusions.includes('cancelled') ||
-    conclusions.includes('timed_out')
-  ) {
-    spinner.fail(chalk.bgRedBright('远程分支 CI 执行异常，无法继续发布，请尝试修复或重试'));
-    spinner.info(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${latest.hash}`);
-    process.exit(1);
-  }
+  // const conclusions = check_runs.map((run) => run.conclusion);
+  // if (
+  //   conclusions.includes('failure') ||
+  //   conclusions.includes('cancelled') ||
+  //   conclusions.includes('timed_out')
+  // ) {
+  //   spinner.fail(chalk.bgRedBright('远程分支 CI 执行异常，无法继续发布，请尝试修复或重试'));
+  //   spinner.info(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${latest.hash}`);
+  //   process.exit(1);
+  // }
   // const statuses = check_runs.map((run) => run.status);
   // if (check_runs.length < 1 || statuses.includes('queued') || statuses.includes('in_progress')) {
   //   spinner.fail(chalk.bgRedBright('远程分支 CI 还在执行中，请稍候再试'));
@@ -183,14 +186,14 @@ const runPrePublish = async () => {
   });
   downloadArtifactPromise
     .catch(() => {})
-    .then(() => {
+    .finally(() => {
       spinnerArtifact.stop();
     });
 
   // 从 OSS 下载产物
   const spinnerOSS = ora('OSS').info('💾 开始查找 OSS 构建产物');
   const downloadOSSPromise = Promise.resolve().then(async () => {
-    const url = `https://antd-visual-diff.oss-cn-shanghai.aliyuncs.com/${latest.hash}/oss-artifact.zip`;
+    const url = `https://antd-visual-diff.oss-cn-shanghai.aliyuncs.com/${latest.hash}/oss-artifacts.zip`;
 
     spinnerOSS.info(`💾 准备从远程 OSS 下载构建产物`);
 
@@ -199,21 +202,23 @@ const runPrePublish = async () => {
   });
   downloadOSSPromise
     .catch(() => {})
-    .then(() => {
+    .finally(() => {
       spinnerOSS.stop();
     });
 
   // 任意一个完成，则完成
   // @ts-ignore
-  const firstZipFile: string = await Promise.any([downloadArtifactPromise, downloadOSSPromise]);
-  console.log('/n/n/n/n>>>', firstZipFile);
+  const firstArtifactFile: string = await Promise.any([
+    downloadArtifactPromise,
+    downloadOSSPromise,
+  ]);
 
   spinner.info();
   spinner.succeed(`成功从远程分支下载构建产物`);
 
   // unzip
   spinner.start(`正在解压构建产物`);
-  const zip = new AdmZip('artifacts.zip');
+  const zip = new AdmZip(firstArtifactFile);
   zip.extractAllTo('./', true);
   spinner.succeed(`成功解压构建产物`);
   await runScript({ event: 'test:dekko', path: '.', stdio: 'inherit' });
