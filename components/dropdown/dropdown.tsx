@@ -44,6 +44,7 @@ export type DropdownArrowOptions = {
 
 export interface DropdownProps {
   menu?: MenuProps;
+  menuLabel?: string;
   autoFocus?: boolean;
   arrow?: boolean | DropdownArrowOptions;
   trigger?: ('click' | 'hover' | 'contextMenu')[];
@@ -96,6 +97,7 @@ const Dropdown: CompoundedComponent = (props) => {
     overlayStyle,
     open,
     onOpenChange,
+    menuLabel = 'some',
     // Deprecated
     visible,
     onVisibleChange,
@@ -175,9 +177,11 @@ const Dropdown: CompoundedComponent = (props) => {
 
   const [, token] = useToken();
 
-  const child = React.Children.only(children) as React.ReactElement<any>;
+  const child = React.Children.only(children) as React.ReactElement<any>
 
-  const dropdownTrigger = cloneElement(child, {
+  const dropdownTrigger = cloneElement(
+    child
+    , {
     className: classNames(
       `${prefixCls}-trigger`,
       {
@@ -186,6 +190,11 @@ const Dropdown: CompoundedComponent = (props) => {
       child.props.className,
     ),
     disabled,
+    id:`${menuLabel}-button`,
+    role: 'button',
+    'aria-haspopup': 'menu',
+    'aria-expanded': false,
+    'aria-controls': `${menuLabel}-menu`,
   });
 
   const triggerActions = disabled ? [] : trigger;
@@ -238,7 +247,7 @@ const Dropdown: CompoundedComponent = (props) => {
 
     let overlayNode: React.ReactNode;
     if (menu?.items) {
-      overlayNode = <Menu {...menu} />;
+      overlayNode = <Menu aria-labelledby={`${menuLabel}-button`} id={`${menuLabel}-menu`}  {...menu} />;
     } else if (typeof overlay === 'function') {
       overlayNode = overlay();
     } else {
@@ -276,10 +285,8 @@ const Dropdown: CompoundedComponent = (props) => {
       </OverrideProvider>
     );
   };
-
   // =========================== zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Dropdown', overlayStyle?.zIndex as number);
-
   // ============================ Render ============================
   let renderNode = (
     <RcDropdown
@@ -324,7 +331,6 @@ function postPureProps(props: DropdownProps) {
     },
   };
 }
-
 // We don't care debug panel
 const PurePanel = genPurePanel(Dropdown, 'dropdown', (prefixCls) => prefixCls, postPureProps);
 
