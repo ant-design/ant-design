@@ -7,7 +7,7 @@ const defaultStepOption: Required<StepOption> = {
   interval: 100,
 };
 
-const useMergedStep = (step: ChatBoxProps['step']) => {
+const useStep = (step: ChatBoxProps['step']) => {
   const mergedStep = React.useMemo<Required<StepOption> | false>(() => {
     if (step && typeof step === 'object') {
       return { ...defaultStepOption, ...step };
@@ -20,4 +20,4 @@ const useMergedStep = (step: ChatBoxProps['step']) => {
   return mergedStep;
 };
 
-export default useMergedStep;
+export default useStep;

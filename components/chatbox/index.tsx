@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
 import type { ConfigConsumerProps } from '../config-provider';
 import Spin from '../spin';
-import useMergedStep from './hooks/useMergedStep';
+import useStep from './hooks/useStep';
 import useTyped from './hooks/useTyped';
 import useStyle from './style';
 
@@ -51,7 +51,7 @@ const ChatBox: React.FC<ChatBoxProps> = (props) => {
   const prefixCls = getPrefixCls('chat-box', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
-  const mergedStep = useMergedStep(step);
+  const mergedStep = useStep(step);
 
   const { typedContent, showCursor } = useTyped(content, mergedStep);
 
