@@ -104,7 +104,7 @@ export type ResourceCardsProps = {
 };
 
 const ResourceCards: React.FC<ResourceCardsProps> = ({ resources }) => (
-  <Row gutter={[24, 24]} style={{ margin: '24px -12px' }}>
+  <Row gutter={[24, 24]}>
     {resources.map((item) => (
       <ResourceCard resource={item} key={item?.title} />
     ))}
