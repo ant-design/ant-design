@@ -6,12 +6,12 @@ const sentences = ['Feel free to use Ant Design !', '欢迎使用 Ant Design！'
 
 const useLoopSentence = () => {
   const [index, setIndex] = React.useState<number>(0);
-  const timer = React.useRef<ReturnType<typeof setTimeout>>();
+  const timerRef = React.useRef<ReturnType<typeof setTimeout>>();
   React.useEffect(() => {
-    timer.current = setTimeout(() => {
+    timerRef.current = setTimeout(() => {
       setIndex((prevState) => (prevState ? 0 : 1));
     }, 4000);
-    return () => clearTimeout(timer.current);
+    return () => clearTimeout(timerRef.current);
   }, [index]);
   return sentences[index];
 };
@@ -21,7 +21,7 @@ const App: React.FC = () => {
   return (
     <Chatbox
       content={content}
-      step={{ step: 1, interval: 100 }}
+      typing={{ step: 1, interval: 100 }}
       avatar={<Avatar size={32} icon={<UserOutlined />} />}
     />
   );

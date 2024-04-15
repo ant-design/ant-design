@@ -1,8 +1,8 @@
 import React from 'react';
 
-import type { StepOption } from '..';
+import type { TypingOption } from '..';
 
-const useTyped = (content?: string, mergedStep?: Required<StepOption> | false) => {
+const useTypedEffect = (content?: string, mergedTyping?: Required<TypingOption> | false) => {
   const [typedContent, setTypedContent] = React.useState<string>('');
   const [showCursor, setShowCursor] = React.useState<boolean>(false);
 
@@ -15,12 +15,12 @@ const useTyped = (content?: string, mergedStep?: Required<StepOption> | false) =
   };
 
   React.useEffect(() => {
-    if (!content || !mergedStep) {
+    if (!content || !mergedTyping) {
       return;
     }
     setShowCursor(true);
     let stepCount = 0;
-    const { step, interval } = mergedStep;
+    const { step, interval } = mergedTyping;
     timerRef.current = setInterval(() => {
       stepCount += step;
       setTypedContent(content.slice(0, stepCount) ?? '');
@@ -33,9 +33,9 @@ const useTyped = (content?: string, mergedStep?: Required<StepOption> | false) =
       clearTimer();
       setShowCursor(false);
     };
-  }, [content, mergedStep]);
+  }, [content, mergedTyping]);
 
   return { typedContent, showCursor };
 };
 
-export default useTyped;
+export default useTypedEffect;

@@ -37,7 +37,7 @@ tag: 5.17.0
 | avatar | 展示头像 | `React.ReactNode` | - |  |
 | placement | 信息位置 | `start \| end` | `start` |  |
 | loading | 聊天内容加载状态 | `boolean` | - |  |
-| step | 聊天内容动画 | `boolean \| { step?: number, interval?: number }` | `false` |  |
+| typing | 设置聊天内容打字动画 | `boolean \| { step?: number, interval?: number }` | `false` |  |
 | content | 聊天内容 | `string` | - |  |
 | contentRender | 自定义渲染内容（使用 `contentRender` 的话，打字效果需要自行实现） | `(content?: string) => ReactNode` | - |  |
 

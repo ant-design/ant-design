@@ -472,7 +472,7 @@ const GlobalStyle: React.FC = () => {
 
         .code-box[id^='chatbox-demo-'] {
           .code-box-demo {
-            background-color: ${token.colorBgLayout};
+            background-color: ${token.colorBgContainer};
           }
         }
       `}

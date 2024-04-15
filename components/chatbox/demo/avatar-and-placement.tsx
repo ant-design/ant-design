@@ -15,12 +15,12 @@ const barAvatar: React.CSSProperties = {
 const App: React.FC = () => (
   <Flex gap="middle" vertical>
     <Chatbox
-      content="晚上好，你吃过了吗？"
+      content="Good morning, how are you ?"
       placement="start"
       avatar={<Avatar size={32} icon={<UserOutlined />} style={fooAvatar} />}
     />
     <Chatbox
-      content="晚上好，你吃过了吗？"
+      content="I'm fine, thank you !"
       placement="end"
       avatar={<Avatar size={32} icon={<UserOutlined />} style={barAvatar} />}
     />

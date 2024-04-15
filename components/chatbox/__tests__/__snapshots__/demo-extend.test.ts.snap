@@ -38,7 +38,7 @@ exports[`renders components/chatbox/demo/avatar-and-placement.tsx extend context
     <div
       class="ant-chatbox-content"
     >
-      晚上好，你吃过了吗？
+      Good morning, how are you ?
     </div>
   </div>
   <div
@@ -75,7 +75,7 @@ exports[`renders components/chatbox/demo/avatar-and-placement.tsx extend context
     <div
       class="ant-chatbox-content"
     >
-      晚上好，你吃过了吗？
+      I'm fine, thank you !
     </div>
   </div>
 </div>

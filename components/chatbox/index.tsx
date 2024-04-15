@@ -4,11 +4,11 @@ import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
 import type { ConfigConsumerProps } from '../config-provider';
 import Spin from '../spin';
-import useStep from './hooks/useStep';
-import useTyped from './hooks/useTyped';
+import useTypedEffect from './hooks/useTypedEffect';
+import useTypingValue from './hooks/useTypingValue';
 import useStyle from './style';
 
-export interface StepOption {
+export interface TypingOption {
   /**
    * @since 5.17.0
    * @default 1
@@ -29,7 +29,7 @@ export interface ChatboxProps {
   avatar?: React.ReactNode;
   placement?: 'start' | 'end';
   loading?: boolean;
-  step?: boolean | StepOption;
+  typing?: boolean | TypingOption;
   content: string;
   contentRender?: (content?: string) => React.ReactNode;
 }
@@ -43,7 +43,7 @@ const Chatbox: React.FC<ChatboxProps> = (props) => {
     avatar,
     placement = 'start',
     loading = false,
-    step,
+    typing,
     content,
     contentRender,
   } = props;
@@ -51,9 +51,9 @@ const Chatbox: React.FC<ChatboxProps> = (props) => {
   const prefixCls = getPrefixCls('chatbox', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
-  const mergedStep = useStep(step);
+  const mergedTyping = useTypingValue(typing);
 
-  const { typedContent, showCursor } = useTyped(content, mergedStep);
+  const { typedContent, showCursor } = useTypedEffect(content, mergedTyping);
 
   const mergedCls = classNames(
     className,
@@ -69,11 +69,11 @@ const Chatbox: React.FC<ChatboxProps> = (props) => {
     if (loading) {
       return <Spin />;
     }
-    if (mergedStep !== false) {
+    if (mergedTyping !== false) {
       return typedContent;
     }
     return content;
-  }, [content, loading, mergedStep, typedContent]);
+  }, [content, loading, mergedTyping, typedContent]);
 
   return wrapCSSVar(
     <div style={style} className={mergedCls}>

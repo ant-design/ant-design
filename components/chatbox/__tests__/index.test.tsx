@@ -33,8 +33,8 @@ describe('chatbox', () => {
     expect(element?.textContent).toBe('test-contentRender');
   });
 
-  it('Chatbox support step', () => {
-    const { container } = render(<Chatbox step content="test" />);
+  it('Chatbox support typing', () => {
+    const { container } = render(<Chatbox typing content="test" />);
     const selectors = '.ant-chatbox .ant-chatbox-content';
     expect(container.querySelector<HTMLDivElement>(selectors)).toHaveClass(
       'ant-chatbox-content-cursorBlink',

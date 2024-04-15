@@ -36,7 +36,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | avatar | Avatar component | `React.ReactNode` | - |  |
 | placement | Direction of Message | `start \| end` | `start` |  |
 | loading | Loading state of Message | `boolean` | - |  |
-| step | Show message with stepping motion | `boolean \| { step?: number, interval?: number }` | `false` |  |
+| typing | Show message with typing motion | `boolean \| { step?: number, interval?: number }` | `false` |  |
 | content | Content of Chatbox | `string` | - |  |
 | contentRender | Display cuztomized content (If use `contentRender` prop, the typed effect needs to be implemented by yourself) | `(content?: string) => ReactNode` | - |  |
 
