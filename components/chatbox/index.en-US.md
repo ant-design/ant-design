@@ -1,7 +1,7 @@
 ---
 category: Components
 group: Data Display
-title: ChatBox
+title: Chatbox
 description: A bubble component for chat.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*NMvqRZpuJfQAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*D70qQJJmzhgAAAAAAAAAAAAADrJ8AQ/original
@@ -29,7 +29,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 > This component is available since `antd@5.17.0`.
 
-### ChatBox
+### Chatbox
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
@@ -37,9 +37,9 @@ Common props ref：[Common props](/docs/react/common-props)
 | placement | Direction of Message | `start \| end` | `start` |  |
 | loading | Loading state of Message | `boolean` | - |  |
 | step | Show message with stepping motion | `boolean \| { step?: number, interval?: number }` | `false` |  |
-| content | Content of ChatBox | `string` | - |  |
+| content | Content of Chatbox | `string` | - |  |
 | contentRender | Display cuztomized content (If use `contentRender` prop, the typed effect needs to be implemented by yourself) | `(content?: string) => ReactNode` | - |  |
 
 ## Design Token
 
-<ComponentTokenTable component="ChatBox"></ComponentTokenTable>
+<ComponentTokenTable component="Chatbox"></ComponentTokenTable>

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`chat-box ChatBox component work 1`] = `
+exports[`chat-box Chatbox component work 1`] = `
 <div
   class="ant-chat-box ant-chat-box-start"
 >

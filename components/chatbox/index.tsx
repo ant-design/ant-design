@@ -21,7 +21,7 @@ export interface StepOption {
   interval?: number;
 }
 
-export interface ChatBoxProps {
+export interface ChatboxProps {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
@@ -34,7 +34,7 @@ export interface ChatBoxProps {
   contentRender?: (content?: string) => React.ReactNode;
 }
 
-const ChatBox: React.FC<ChatBoxProps> = (props) => {
+const Chatbox: React.FC<ChatboxProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -84,7 +84,7 @@ const ChatBox: React.FC<ChatBoxProps> = (props) => {
 };
 
 if (process.env.NODE_ENV !== 'production') {
-  ChatBox.displayName = 'ChatBox';
+  Chatbox.displayName = 'Chatbox';
 }
 
-export default ChatBox;
+export default Chatbox;

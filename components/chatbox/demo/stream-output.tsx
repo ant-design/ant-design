@@ -1,6 +1,6 @@
 import React from 'react';
 import { UserOutlined } from '@ant-design/icons';
-import { Avatar, ChatBox } from 'antd';
+import { Avatar, Chatbox } from 'antd';
 
 const sentences = ['Feel free to use Ant Design !', '欢迎使用 Ant Design！'];
 
@@ -19,7 +19,7 @@ const useLoopSentence = () => {
 const App: React.FC = () => {
   const content = useLoopSentence();
   return (
-    <ChatBox
+    <Chatbox
       content={content}
       step={{ step: 1, interval: 100 }}
       avatar={<Avatar size={32} icon={<UserOutlined />} />}

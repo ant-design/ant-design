@@ -1,6 +1,6 @@
 import React from 'react';
-import { ChatBox } from 'antd';
+import { Chatbox } from 'antd';
 
-const App = () => <ChatBox content="hello world !" />;
+const App = () => <Chatbox content="hello world !" />;
 
 export default App;

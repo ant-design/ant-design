@@ -16,7 +16,7 @@ exports[`antd dist files exports modules correctly 1`] = `
   "Card",
   "Carousel",
   "Cascader",
-  "ChatBox",
+  "Chatbox",
   "Checkbox",
   "Col",
   "Collapse",

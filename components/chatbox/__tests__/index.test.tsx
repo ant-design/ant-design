@@ -1,29 +1,29 @@
 import React from 'react';
 
-import ChatBox from '..';
+import Chatbox from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
 
 describe('chat-box', () => {
-  mountTest(() => <ChatBox content="test" />);
-  rtlTest(() => <ChatBox content="test" />);
-  it('ChatBox component work', () => {
-    const { container } = render(<ChatBox content="test" />);
+  mountTest(() => <Chatbox content="test" />);
+  rtlTest(() => <Chatbox content="test" />);
+  it('Chatbox component work', () => {
+    const { container } = render(<Chatbox content="test" />);
     const element = container.querySelector<HTMLDivElement>('.ant-chat-box');
     expect(element).toBeTruthy();
     expect(element).toMatchSnapshot();
   });
 
-  it('ChatBox support content', () => {
-    const { container } = render(<ChatBox content="hello world" />);
+  it('Chatbox support content', () => {
+    const { container } = render(<Chatbox content="hello world" />);
     const element = container.querySelector<HTMLDivElement>('.ant-chat-box .ant-chat-box-content');
     expect(element?.textContent).toBe('hello world');
   });
 
-  it('ChatBox support contentRender', () => {
+  it('Chatbox support contentRender', () => {
     const { container } = render(
-      <ChatBox
+      <Chatbox
         content="test-contentRender"
         contentRender={(content) => <span className="test-contentRender">{content}</span>}
       />,
@@ -33,33 +33,33 @@ describe('chat-box', () => {
     expect(element?.textContent).toBe('test-contentRender');
   });
 
-  it('ChatBox support step', () => {
-    const { container } = render(<ChatBox step content="test" />);
+  it('Chatbox support step', () => {
+    const { container } = render(<Chatbox step content="test" />);
     const selectors = '.ant-chat-box .ant-chat-box-content';
     expect(container.querySelector<HTMLDivElement>(selectors)).toHaveClass(
       'ant-chat-box-content-cursorBlink',
     );
   });
 
-  it('ChatBox support avatar', () => {
+  it('Chatbox support avatar', () => {
     const { container } = render(
-      <ChatBox avatar={<span className="test-avatar">avatar</span>} content="" />,
+      <Chatbox avatar={<span className="test-avatar">avatar</span>} content="" />,
     );
     expect(container.querySelector<HTMLSpanElement>('.ant-chat-box .test-avatar')).toBeTruthy();
   });
 
-  it('ChatBox support loading', () => {
-    const { container } = render(<ChatBox content="" loading />);
+  it('Chatbox support loading', () => {
+    const { container } = render(<Chatbox content="" loading />);
     expect(
       container.querySelector<HTMLSpanElement>('.ant-chat-box .ant-spin.ant-spin-spinning'),
     ).toBeTruthy();
   });
 
-  it('ChatBox support placement', () => {
-    const { container, rerender } = render(<ChatBox placement="start" content="" />);
+  it('Chatbox support placement', () => {
+    const { container, rerender } = render(<Chatbox placement="start" content="" />);
     const element = container.querySelector<HTMLDivElement>('.ant-chat-box');
     expect(element).toHaveClass('ant-chat-box-start');
-    rerender(<ChatBox placement="end" content="" />);
+    rerender(<Chatbox placement="end" content="" />);
     expect(element).toHaveClass('ant-chat-box-end');
   });
 });

@@ -19,12 +19,12 @@ export interface ComponentToken {
   //
 }
 
-export interface ChatBoxToken extends FullToken<'ChatBox'> {
+export interface ChatboxToken extends FullToken<'Chatbox'> {
   messageMaxWidth: number;
   avatarGap: number;
 }
 
-const genChatBoxStyle: GenerateStyle<ChatBoxToken> = (token) => {
+const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
   const { componentCls, messageMaxWidth, avatarGap } = token;
   return {
     [componentCls]: {
@@ -68,18 +68,18 @@ const genChatBoxStyle: GenerateStyle<ChatBoxToken> = (token) => {
   };
 };
 
-export const prepareComponentToken: GetDefaultToken<'ChatBox'> = () => ({
+export const prepareComponentToken: GetDefaultToken<'Chatbox'> = () => ({
   //
 });
 
-export default genStyleHooks<'ChatBox'>(
-  'ChatBox',
+export default genStyleHooks<'Chatbox'>(
+  'Chatbox',
   (token) => {
-    const chatBoxToken = mergeToken<ChatBoxToken>(token, {
+    const chatBoxToken = mergeToken<ChatboxToken>(token, {
       messageMaxWidth: 720,
       avatarGap: token.paddingXS,
     });
-    return genChatBoxStyle(chatBoxToken);
+    return genChatboxStyle(chatBoxToken);
   },
   prepareComponentToken,
 );

@@ -1,7 +1,7 @@
 ---
 category: Components
 group: 数据展示
-title: ChatBox
+title: Chatbox
 subtitle: 聊天框
 description: 用于聊天的气泡组件。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*NMvqRZpuJfQAAAAAAAAAAAAADrJ8AQ/original
@@ -30,7 +30,7 @@ tag: 5.17.0
 
 > 自 `antd@5.17.0` 版本开始提供该组件。
 
-### ChatBox
+### Chatbox
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -43,4 +43,4 @@ tag: 5.17.0
 
 ## 主题变量（Design Token）
 
-<ComponentTokenTable component="ChatBox"></ComponentTokenTable>
+<ComponentTokenTable component="Chatbox"></ComponentTokenTable>

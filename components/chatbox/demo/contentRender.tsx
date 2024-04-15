@@ -1,7 +1,7 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import { UserOutlined } from '@ant-design/icons';
-import { Avatar, ChatBox } from 'antd';
+import { Avatar, Chatbox } from 'antd';
 import markdownit from 'markdown-it';
 
 const style: React.CSSProperties = {
@@ -21,7 +21,7 @@ const App: React.FC = () => {
     return <div style={style} dangerouslySetInnerHTML={{ __html: md.render(content) }} />;
   }, []);
   return (
-    <ChatBox
+    <Chatbox
       avatar={<Avatar size={32} icon={<UserOutlined />} />}
       content={'# Title \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. \n ...'}
       contentRender={contentRender}

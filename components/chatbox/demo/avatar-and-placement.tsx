@@ -1,6 +1,6 @@
 import React from 'react';
 import { UserOutlined } from '@ant-design/icons';
-import { Avatar, ChatBox, Flex } from 'antd';
+import { Avatar, Chatbox, Flex } from 'antd';
 
 const fooAvatar: React.CSSProperties = {
   color: '#f56a00',
@@ -14,12 +14,12 @@ const barAvatar: React.CSSProperties = {
 
 const App: React.FC = () => (
   <Flex gap="middle" vertical>
-    <ChatBox
+    <Chatbox
       content="晚上好，你吃过了吗？"
       placement="start"
       avatar={<Avatar size={32} icon={<UserOutlined />} style={fooAvatar} />}
     />
-    <ChatBox
+    <Chatbox
       content="晚上好，你吃过了吗？"
       placement="end"
       avatar={<Avatar size={32} icon={<UserOutlined />} style={barAvatar} />}
