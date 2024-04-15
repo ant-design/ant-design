@@ -40,7 +40,7 @@ describe('QRCode test', () => {
 
   it('support custom size', () => {
     const { container } = render(<QRCode value="test" size={100} />);
-    const canvas = container.querySelector<HTMLCanvasElement>('.ant-qrcode > canvas');
+    const canvas = container.querySelector<HTMLCanvasElement>('.ant-qrcode > canvas')!;
     expect(canvas.width).toBe(100);
     expect(canvas.height).toBe(100);
   });

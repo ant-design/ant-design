@@ -20,6 +20,7 @@ const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
+      padding: token.paddingSM,
       backgroundColor: token.colorWhite,
       borderRadius: token.borderRadiusLG,
       border: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
@@ -50,11 +51,8 @@ const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
         alignSelf: 'stretch',
         flex: 'auto',
         minWidth: 0,
-        padding: token.paddingSM,
       },
-      '> svg': {
-        padding: token.paddingSM,
-      },
+
       '&-icon': {
         marginBlockEnd: token.marginXS,
         fontSize: token.controlHeight,
