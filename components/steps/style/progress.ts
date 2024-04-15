@@ -81,8 +81,8 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         },
 
         [`${componentCls}-item-icon ${antCls}-progress-inner`]: {
-          width: `${progressSizeSM} !important`,
-          height: `${progressSizeSM} !important`,
+          width: `${unit(progressSizeSM)} !important`,
+          height: `${unit(progressSizeSM)} !important`,
         },
       },
     },
