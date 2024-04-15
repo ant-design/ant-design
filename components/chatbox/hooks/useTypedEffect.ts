@@ -4,13 +4,13 @@ import type { TypingOption } from '..';
 
 const useTypedEffect = (content?: string, mergedTyping?: Required<TypingOption> | false) => {
   const [typedContent, setTypedContent] = React.useState<string>('');
-  const [showCursor, setShowCursor] = React.useState<boolean>(false);
+  const [showCursor, setShowCursor] = React.useState<boolean>(mergedTyping !== false);
 
-  const timerRef = React.useRef<ReturnType<typeof setInterval>>();
+  const timerRef = React.useRef<ReturnType<typeof setTimeout>>();
 
   const clearTimer = () => {
     if (timerRef.current) {
-      clearInterval(timerRef.current);
+      clearTimeout(timerRef.current);
     }
   };
 
@@ -21,14 +21,19 @@ const useTypedEffect = (content?: string, mergedTyping?: Required<TypingOption> 
     setShowCursor(true);
     let stepCount = 0;
     const { step, interval } = mergedTyping;
-    timerRef.current = setInterval(() => {
+
+    const typedTimer = () => {
       stepCount += step;
       setTypedContent(content.slice(0, stepCount) ?? '');
-      if (stepCount >= content.length) {
-        clearTimer();
+      if (stepCount < content.length) {
+        timerRef.current = setTimeout(typedTimer, interval);
+      } else {
         setShowCursor(false);
       }
-    }, interval);
+    };
+
+    typedTimer();
+
     return () => {
       clearTimer();
       setShowCursor(false);
