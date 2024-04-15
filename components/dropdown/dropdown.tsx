@@ -179,6 +179,17 @@ const Dropdown: CompoundedComponent = (props) => {
 
   const child = React.Children.only(children) as React.ReactElement<any>
 
+  // =========================== Open ============================
+  const [mergedOpen, setOpen] = useMergedState(false, {
+    value: open ?? visible,
+  });
+
+  const onInnerOpenChange = useEvent((nextOpen: boolean) => {
+    onOpenChange?.(nextOpen, { source: 'trigger' });
+    onVisibleChange?.(nextOpen);
+    setOpen(nextOpen);
+  });
+
   const dropdownTrigger = cloneElement(
     child
     , {
@@ -193,7 +204,7 @@ const Dropdown: CompoundedComponent = (props) => {
     id:`${menuLabel}-button`,
     role: 'button',
     'aria-haspopup': 'menu',
-    'aria-expanded': false,
+    'aria-expanded': mergedOpen,
     'aria-controls': `${menuLabel}-menu`,
   });
 
@@ -202,17 +213,6 @@ const Dropdown: CompoundedComponent = (props) => {
   if (triggerActions && triggerActions.includes('contextMenu')) {
     alignPoint = true;
   }
-
-  // =========================== Open ============================
-  const [mergedOpen, setOpen] = useMergedState(false, {
-    value: open ?? visible,
-  });
-
-  const onInnerOpenChange = useEvent((nextOpen: boolean) => {
-    onOpenChange?.(nextOpen, { source: 'trigger' });
-    onVisibleChange?.(nextOpen);
-    setOpen(nextOpen);
-  });
 
   // =========================== Overlay ============================
   const overlayClassNameCustomized = classNames(
