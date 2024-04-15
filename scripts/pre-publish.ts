@@ -71,7 +71,7 @@ async function downloadArtifact(url: string, filepath: string, token?: string) {
 
 const runPrePublish = async () => {
   await checkRepo();
-  const spinner = ora('Loading unicorns').start();
+  const spinner = ora();
   spinner.info(chalk.black.bgGreenBright('本次发布将跳过本地 CI 检查，远程 CI 通过后方可发布'));
   const git = simpleGit();
   const octokit = new Octokit({ auth: process.env.GITHUB_ACCESS_TOKEN });
