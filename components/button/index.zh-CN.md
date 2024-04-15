@@ -52,6 +52,7 @@ group:
 <code src="./demo/chinese-chars-loading.tsx" debug>加载中状态 bug 还原</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 <code src="./demo/linear-gradient.tsx">渐变按钮</code>
+<code src="./demo/noSpace.tsx" version="5.17.0">移除两个汉字之间的空格</code>
 
 ## API
 
@@ -63,6 +64,7 @@ group:
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| autoInsertSpace | 我们默认提供两个汉字之间的空格，可以设置 `autoInsertSpace` 为 `false` 关闭 | boolean | `true` | 5.17.0 |
 | block | 将按钮宽度调整为其父宽度的选项 | boolean | false |  |
 | classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.4.0 |
 | danger | 设置危险按钮 | boolean | false |  |
@@ -78,7 +80,7 @@ group:
 | styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.4.0 |
 | target | 相当于 a 链接的 target 属性，href 存在时生效 | string | - |  |
 | type | 设置按钮类型 | `primary` \| `dashed` \| `link` \| `text` \| `default` | `default` |  |
-| onClick | 点击按钮时的回调 | (event: MouseEvent) => void | - |  |
+| onClick | 点击按钮时的回调 | (event: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
 
 支持原生 button 的其他所有属性。
 
@@ -101,18 +103,6 @@ group:
   <Button>click</Button>
 </ConfigProvider>
 ```
-
-### 如何移除两个汉字之间的空格？
-
-根据 Ant Design 设计规范要求，我们会在按钮内（文本按钮和链接按钮除外）只有两个汉字时自动添加空格，如果你不需要这个特性，可以设置 [ConfigProvider](/components/config-provider-cn#api) 的 `autoInsertSpaceInButton` 为 `false`。
-
-```jsx
-<ConfigProvider autoInsertSpaceInButton={false}>
-  <Button>按钮</Button>
-</ConfigProvider>
-```
-
-<img src="https://gw.alipayobjects.com/zos/antfincdn/MY%26THAPZrW/38f06cb9-293a-4b42-b183-9f443e79ffea.png" style="box-shadow: none; margin: 0" width="100px" height="64px" alt="移除两个汉字之间的空格"  />
 
 <style>
 .site-button-ghost-wrapper {

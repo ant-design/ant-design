@@ -71,7 +71,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex gap="4px 0" wrap="wrap">
+    <Flex gap="4px 0" wrap>
       {tags.map<React.ReactNode>((tag, index) => {
         if (editInputIndex === index) {
           return (
