@@ -121,7 +121,7 @@ Antd Form.Item 有提供 2 个 API `getValueProps` `getValueFromEvent`，以及 
 
 将传给 `Cascader` 的值由字符串转成数组 `北京` -> `[北京, 海淀]`
 
-### getValueProps 作用
+### getValueFromEvent 作用
 
 将传给 `Form` 的值由数组转成字符串 `[北京, 海淀]` -> `北京`，并调用 `setFields` 设置 `city` 的值
 
