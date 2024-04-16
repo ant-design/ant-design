@@ -51,6 +51,7 @@ export const FormItem = (
     <>
       <Form.Item
         name={firstNames}
+        // 将传给 Cascader 的值由字符串转成数组 北京 -> [北京, 海淀]
         getValueProps={() => {
           const values = names.map((name) => form.getFieldValue(name)).filter(Boolean);
           if (getValueProps) {
@@ -58,6 +59,7 @@ export const FormItem = (
           }
           return { value: values.length ? values : undefined };
         }}
+        // 将传给 Form 的值由数组转成字符串 [北京, 海淀] -> 北京，并调用 setFields 设置 city 的值
         getValueFromEvent={(value) => {
           let values = value;
           if (getValueFromEvent) {
@@ -70,6 +72,7 @@ export const FormItem = (
           if (typeof thisRule === 'object') {
             return {
               ...thisRule,
+              // 将 rules 中 validate value 的值由字符串转成数组 北京 -> [北京, 海淀]，用于自定义校验
               transform: () => {
                 const values = names.map((name) => form.getFieldValue(name));
                 return thisRule.transform ? thisRule.transform(values) : values;
@@ -116,15 +119,3 @@ export const Demo = () => (
 ## 聚合字段组件原理
 
 Antd Form.Item 有提供 2 个 API `getValueProps` `getValueFromEvent`，以及 rules 提供了 `transform`
-
-### getValueProps 作用
-
-将传给 `Cascader` 的值由字符串转成数组 `北京` -> `[北京, 海淀]`
-
-### getValueFromEvent 作用
-
-将传给 `Form` 的值由数组转成字符串 `[北京, 海淀]` -> `北京`，并调用 `setFields` 设置 `city` 的值
-
-### transform 作用
-
-将 `rules` 中 `validate` `value` 的值由字符串转成数组 `北京` -> `[北京, 海淀]`，用于自定义校验
