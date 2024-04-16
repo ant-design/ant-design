@@ -55,7 +55,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/ref-item.tsx" debug>引用字段</code>
 <code src="./demo/custom-feedback-icons.tsx" debug>Custom feedback icons</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
-<code src="./demo/range.tsx">省市</code>
 
 ## API
 
