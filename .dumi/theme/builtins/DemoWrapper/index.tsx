@@ -113,7 +113,7 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
           )}
         </Tooltip>
       </span>
-      <ConfigProvider theme={{ cssVar: enableCssVar }}>
+      <ConfigProvider theme={{ cssVar: enableCssVar, hashed: !enableCssVar }}>
         <DumiDemoGrid items={demos} />
       </ConfigProvider>
     </div>
