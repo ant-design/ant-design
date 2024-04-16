@@ -7,6 +7,7 @@ import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { getTransitionName } from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
 import Tooltip from '../tooltip';
@@ -62,6 +63,17 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     value: props.open ?? props.visible,
     defaultValue: props.defaultOpen ?? props.defaultVisible,
   });
+
+  const warning = devUseWarning('Tooltip');
+
+  if (process.env.NODE_ENV !== 'production') {
+    [
+      ['visible', 'open'],
+      ['defaultVisible', 'defaultOpen'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    });
+  }
 
   const settingOpen = (
     value: boolean,
