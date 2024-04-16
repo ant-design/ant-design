@@ -1,6 +1,7 @@
-import classNames from 'classnames';
 import type { FC } from 'react';
 import React, { useEffect, useState } from 'react';
+import classNames from 'classnames';
+
 import type { InputNumberProps } from '../../input-number';
 import InputNumber from '../../input-number';
 import type { ColorPickerBaseProps } from '../interface';

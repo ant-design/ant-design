@@ -1,16 +1,16 @@
 import * as React from 'react';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CopyOutlined from '@ant-design/icons/CopyOutlined';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import classNames from 'classnames';
 
 import type { CopyConfig } from '.';
 import TransButton from '../../_util/transButton';
-import { type Locale } from '../../locale';
+import type { Locale } from '../../locale';
 import Tooltip from '../../tooltip';
 import { getNode, toList } from './util';
 
-export interface CopyBtnProps extends CopyConfig {
+export interface CopyBtnProps extends Omit<CopyConfig, 'onCopy'> {
   prefixCls: string;
   copied: boolean;
   locale: Locale['Text'];
@@ -40,7 +40,7 @@ export default function CopyBtn(props: CopyBtnProps) {
           [`${prefixCls}-copy-success`]: copied,
           [`${prefixCls}-copy-icon-only`]: iconOnly,
         })}
-        onClick={onCopy}
+        onClick={onCopy as any}
         aria-label={ariaLabel}
       >
         {copied

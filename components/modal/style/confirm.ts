@@ -1,8 +1,11 @@
 // Style as confirm component
 import { unit } from '@ant-design/cssinjs';
-import { prepareComponentToken, prepareToken, type ModalToken } from '.';
+
+import { prepareComponentToken, prepareToken } from '.';
+import type { ModalToken } from '.';
 import { clearFix } from '../../style';
-import { genSubStyleComponent, type GenerateStyle } from '../../theme/internal';
+import { genSubStyleComponent } from '../../theme/internal';
+import type { GenerateStyle } from '../../theme/internal';
 
 // ============================= Confirm ==============================
 
@@ -63,6 +66,10 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = (token) => {
         flexDirection: 'column',
         flex: 'auto',
         rowGap: token.marginXS,
+      },
+
+      // https://github.com/ant-design/ant-design/issues/48159
+      [`${token.iconCls} + ${confirmComponentCls}-paragraph`]: {
         maxWidth: `calc(100% - ${unit(
           token.calc(token.modalConfirmIconSize).add(token.marginSM).equal(),
         )})`,

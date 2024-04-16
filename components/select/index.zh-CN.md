@@ -19,7 +19,7 @@ demo:
 ### 5.11.0 用法升级
 
 <!-- prettier-ignore -->
-:::info
+:::info{title="升级提示"}
 在 5.11.0 版本后，我们提供了 `<Select options={[...]} />` 的简写方式，有更好的性能和更方便的数据组织方式，开发者不再需要自行拼接 JSX。
 同时我们废弃了原先的写法，你还是可以在 5.x 继续使用，但会在控制台看到警告，并会在 6.0 后移除。
 :::
@@ -43,7 +43,7 @@ return (
 <code src="./demo/search.tsx">带搜索框</code>
 <code src="./demo/multiple.tsx">多选</code>
 <code src="./demo/size.tsx">三种大小</code>
-<code src="./demo/option-label-prop.tsx">定制回填内容</code>
+<code src="./demo/option-render.tsx">定制回填内容</code>
 <code src="./demo/search-sort.tsx">带排序的搜索</code>
 <code src="./demo/tags.tsx">标签</code>
 <code src="./demo/optgroup.tsx">分组</code>

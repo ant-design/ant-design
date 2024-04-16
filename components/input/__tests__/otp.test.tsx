@@ -13,13 +13,13 @@ describe('Input.OTP', () => {
   mountTest(Input.OTP);
   rtlTest(Input.OTP);
 
-  function getText(container: HTMLElement) {
-    const inputList = container.querySelectorAll('input');
+  const getText = (container: HTMLElement) => {
+    const inputList = container.querySelectorAll<HTMLInputElement>('input');
     return Array.from(inputList)
       .map((input) => input.value || ' ')
       .join('')
       .replace(/\s*$/, '');
-  }
+  };
 
   beforeEach(() => {
     jest.useFakeTimers();
@@ -82,6 +82,15 @@ describe('Input.OTP', () => {
 
     rerender(<OTP value="LITTLE" />);
     expect(getText(container)).toBe('LITTLE');
+
+    rerender(<OTP value="" />);
+    expect(getText(container)).toBe('');
+
+    rerender(<OTP value="EXCEED-RANGE" />);
+    expect(getText(container)).toBe('EXCEED');
+
+    rerender(<OTP value={null!} />);
+    expect(getText(container)).toBe('');
   });
 
   it('focus to selection', async () => {
@@ -127,5 +136,35 @@ describe('Input.OTP', () => {
     // Type to trigger formatter
     fireEvent.input(container.querySelector('input')!, { target: { value: 'little' } });
     expect(getText(container)).toBe('LITTLE');
+  });
+
+  it('support mask prop', () => {
+    // default
+    const { container, rerender } = render(<OTP defaultValue="bamboo" />);
+    expect(getText(container)).toBe('bamboo');
+
+    // support string
+    rerender(<OTP defaultValue="bamboo" mask="*" />);
+    expect(getText(container)).toBe('******');
+
+    // support emoji
+    rerender(<OTP defaultValue="bamboo" mask="🔒" />);
+    expect(getText(container)).toBe('🔒🔒🔒🔒🔒🔒');
+  });
+
+  it('should throw Error when mask.length > 1', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<OTP mask="abc" />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Input.OTP] `mask` prop should be a single character.',
+    );
+    errSpy.mockRestore();
+  });
+
+  it('should not throw Error when mask.length <= 1', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<OTP mask="x" />);
+    expect(errSpy).not.toHaveBeenCalled();
+    errSpy.mockRestore();
   });
 });

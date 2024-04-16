@@ -3,7 +3,6 @@ category: Components
 group: General
 title: Icon
 description: Semantic vector graphics.
-toc: false
 showImport: false
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PdAYS7anRpoAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xEDOTJx2DEkAAAAAAAAAAAAADrJ8AQ/original
@@ -15,7 +14,7 @@ demo:
 
 Before use icons, you need to install [@ant-design/icons](https://github.com/ant-design/ant-design-icons) package:
 
-<InstallDependencies npm='npm install @ant-design/icons --save' yarn='yarn add @ant-design/icons' pnpm='pnpm install @ant-design/icons --save'></InstallDependencies>
+<InstallDependencies npm='npm install @ant-design/icons --save' yarn='yarn add @ant-design/icons' pnpm='pnpm install @ant-design/icons --save' bun='bun add @ant-design/icons'></InstallDependencies>
 
 ## List of icons
 

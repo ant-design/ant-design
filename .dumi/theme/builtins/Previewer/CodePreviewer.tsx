@@ -75,14 +75,14 @@ const useStyle = createStyles(({ token }) => {
       border-radius: 0 0 ${borderRadius}px ${borderRadius}px;
       border-top: 1px solid ${token.colorSplit};
       color: ${token.colorTextSecondary};
-      transition: all 0.2s ease-in-out;
+      transition: all ${token.motionDurationMid} ease-in-out;
       background-color: ${token.colorBgElevated};
       cursor: pointer;
       &:hover {
         color: ${token.colorPrimary};
       }
       span {
-        margin-right: ${token.marginXXS}px;
+        margin-inline-end: ${token.marginXXS}px;
       }
     `,
   };
@@ -108,7 +108,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     clientOnly,
     pkgDependencyList,
   } = props;
-  const { showDebug } = useContext(DemoContext);
+  const { showDebug, codeType } = useContext(DemoContext);
 
   const { pkg } = useSiteData();
   const location = useLocation();
@@ -134,7 +134,6 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const riddleIconRef = useRef<HTMLFormElement>(null);
   const codepenIconRef = useRef<HTMLFormElement>(null);
   const [codeExpand, setCodeExpand] = useState<boolean>(false);
-  const [codeType, setCodeType] = useState<string>('tsx');
   const { theme } = useContext<SiteContextProps>(SiteContext);
 
   const { hash, pathname, search } = location;
@@ -405,8 +404,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
               dangerouslySetInnerHTML={{ __html: description }}
             />
           )}
-
-          <Flex wrap="wrap" gap="middle" className="code-box-actions">
+          <Flex wrap gap="middle" className="code-box-actions">
             {showOnlineUrl && (
               <Tooltip title={<FormattedMessage id="app.demo.online" />}>
                 <a
@@ -541,7 +539,6 @@ createRoot(document.getElementById('container')).render(<Demo />);
             styleCode={style}
             error={liveDemoError}
             entryName={entryName}
-            onCodeTypeChange={setCodeType}
             onSourceChange={setLiveDemoSource}
           />
           <div

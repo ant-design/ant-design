@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Flex } from 'antd';
+import { Flex, Layout } from 'antd';
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -41,7 +41,7 @@ const layoutStyle = {
 };
 
 const App: React.FC = () => (
-  <Flex gap="middle" wrap="wrap">
+  <Flex gap="middle" wrap>
     <Layout style={layoutStyle}>
       <Header style={headerStyle}>Header</Header>
       <Content style={contentStyle}>Content</Content>

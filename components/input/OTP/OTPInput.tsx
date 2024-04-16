@@ -1,17 +1,22 @@
 import * as React from 'react';
 import raf from 'rc-util/lib/raf';
 
-import Input, { type InputProps, type InputRef } from '../Input';
+import Input from '../Input';
+import type { InputProps, InputRef } from '../Input';
 
 export interface OTPInputProps extends Omit<InputProps, 'onChange'> {
   index: number;
   onChange: (index: number, value: string) => void;
   /** Tell parent to do active offset */
   onActiveChange: (nextIndex: number) => void;
+
+  mask?: boolean | string;
 }
 
 const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
-  const { value, onChange, onActiveChange, index, ...restProps } = props;
+  const { value, onChange, onActiveChange, index, mask, ...restProps } = props;
+
+  const internalValue = value && typeof mask === 'string' ? mask : value;
 
   const onInternalChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     onChange(index, e.target.value);
@@ -55,13 +60,14 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
     <Input
       {...restProps}
       ref={inputRef}
-      value={value}
+      value={internalValue}
       onInput={onInternalChange}
       onFocus={syncSelection}
       onKeyDown={onInternalKeyDown}
       onKeyUp={onInternalKeyUp}
       onMouseDown={syncSelection}
       onMouseUp={syncSelection}
+      type={mask === true ? 'password' : 'text'}
     />
   );
 });

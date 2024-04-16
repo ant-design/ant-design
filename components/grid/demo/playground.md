@@ -20,7 +20,7 @@ A simple playground for column count and gutter.
 }
 #components-grid-demo-playground pre {
   padding: 8px 16px;
-  font-size: 13px;
+  font-size: 14px;
   background: #f9f9f9;
   border-radius: 6px;
 }

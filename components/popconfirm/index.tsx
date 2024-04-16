@@ -7,6 +7,7 @@ import omit from 'rc-util/lib/omit';
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import { ConfigContext } from '../config-provider';
+import type { PopoverProps } from '../popover';
 import Popover from '../popover';
 import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
 import PurePanel, { Overlay } from './PurePanel';
@@ -36,7 +37,7 @@ export interface PopconfirmState {
   open?: boolean;
 }
 
-const Popconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props, ref) => {
+const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     placement = 'top',
@@ -56,10 +57,7 @@ const Popconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props, ref) =>
     defaultValue: props.defaultOpen ?? props.defaultVisible,
   });
 
-  const settingOpen = (
-    value: boolean,
-    e?: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLDivElement>,
-  ) => {
+  const settingOpen: PopoverProps['onOpenChange'] = (value, e) => {
     setOpen(value, true);
     onVisibleChange?.(value);
     onOpenChange?.(value, e);
@@ -76,10 +74,7 @@ const Popconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props, ref) =>
     props.onCancel?.call(this, e);
   };
 
-  const onInternalOpenChange = (
-    value: boolean,
-    e?: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLDivElement>,
-  ) => {
+  const onInternalOpenChange: PopoverProps['onOpenChange'] = (value, e) => {
     const { disabled = false } = props;
     if (disabled) {
       return;
@@ -117,11 +112,13 @@ const Popconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props, ref) =>
       {children}
     </Popover>,
   );
-}) as React.ForwardRefExoticComponent<
-  React.PropsWithoutRef<PopconfirmProps> & React.RefAttributes<unknown>
-> & {
+});
+
+type CompoundedComponent = typeof InternalPopconfirm & {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };
+
+const Popconfirm = InternalPopconfirm as CompoundedComponent;
 
 // We don't care debug panel
 /* istanbul ignore next */

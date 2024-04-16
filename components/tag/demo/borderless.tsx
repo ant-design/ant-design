@@ -3,7 +3,7 @@ import { Divider, Flex, Tag } from 'antd';
 
 const App: React.FC = () => (
   <>
-    <Flex gap="4px 0" wrap="wrap">
+    <Flex gap="4px 0" wrap>
       <Tag bordered={false}>Tag 1</Tag>
       <Tag bordered={false}>Tag 2</Tag>
       <Tag bordered={false} closable>
@@ -14,7 +14,7 @@ const App: React.FC = () => (
       </Tag>
     </Flex>
     <Divider />
-    <Flex gap="4px 0" wrap="wrap">
+    <Flex gap="4px 0" wrap>
       <Tag bordered={false} color="processing">
         processing
       </Tag>

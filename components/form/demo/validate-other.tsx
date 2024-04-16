@@ -1,5 +1,5 @@
-import { InboxOutlined, UploadOutlined } from '@ant-design/icons';
 import React from 'react';
+import { InboxOutlined, UploadOutlined } from '@ant-design/icons';
 import {
   Button,
   Checkbox,

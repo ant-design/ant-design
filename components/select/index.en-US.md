@@ -18,7 +18,7 @@ demo:
 ### Usage upgrade after 5.11.0
 
 <!-- prettier-ignore -->
-:::info
+:::info{title="Upgrade Tip"}
 After version 5.11.0, we provide a simpler usage `<Select options={[...]} />` with better performance and potential of writing simpler code style in your applications.
 Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 6.0.
 :::
@@ -42,7 +42,7 @@ return (
 <code src="./demo/search.tsx">Select with search field</code>
 <code src="./demo/multiple.tsx">multiple selection</code>
 <code src="./demo/size.tsx">Sizes</code>
-<code src="./demo/option-label-prop.tsx">Custom selection render</code>
+<code src="./demo/option-render.tsx">Custom selection render</code>
 <code src="./demo/search-sort.tsx">Search with sort</code>
 <code src="./demo/tags.tsx">Tags</code>
 <code src="./demo/optgroup.tsx">Option Group</code>

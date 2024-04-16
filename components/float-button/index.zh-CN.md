@@ -8,10 +8,8 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tXAoQqyr-ioAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*hSAwR7cnabwAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
-tag: New
+tag: 5.0.0
 ---
-
-自 `5.0.0` 版本开始提供该组件。
 
 ## 何时使用
 

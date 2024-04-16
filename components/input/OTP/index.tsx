@@ -3,16 +3,20 @@ import classNames from 'classnames';
 import { useEvent } from 'rc-util';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
-import { getMergedStatus, type InputStatus } from '../../_util/statusUtils';
+import { getMergedStatus } from '../../_util/statusUtils';
+import type { InputStatus } from '../../_util/statusUtils';
+import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 import useSize from '../../config-provider/hooks/useSize';
-import { type SizeType } from '../../config-provider/SizeContext';
+import type { SizeType } from '../../config-provider/SizeContext';
 import { FormItemInputContext } from '../../form/context';
+import type { FormItemStatusContextProps } from '../../form/context';
 import type { Variant } from '../../form/hooks/useVariants';
-import { type InputRef } from '../Input';
+import type { InputRef } from '../Input';
 import useStyle from '../style/otp';
-import OTPInput, { type OTPInputProps } from './OTPInput';
+import OTPInput from './OTPInput';
+import type { OTPInputProps } from './OTPInput';
 
 export interface OTPRef {
   focus: VoidFunction;
@@ -40,10 +44,12 @@ export interface OTPProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'on
   // Status
   disabled?: boolean;
   status?: InputStatus;
+
+  mask?: boolean | string;
 }
 
 function strToArr(str: string) {
-  return str.split('');
+  return (str || '').split('');
 }
 
 const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
@@ -59,8 +65,18 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     disabled,
     status: customStatus,
     autoFocus,
+    mask,
     ...restProps
   } = props;
+
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Input.OTP');
+    warning(
+      !(typeof mask === 'string' && mask.length > 1),
+      'usage',
+      '`mask` prop should be a single character.',
+    );
+  }
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('otp', customizePrefixCls);
@@ -83,7 +99,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   const formContext = React.useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(formContext.status, customStatus);
 
-  const proxyFormContext = React.useMemo(
+  const proxyFormContext = React.useMemo<FormItemStatusContextProps>(
     () => ({
       ...formContext,
       status: mergedStatus,
@@ -119,7 +135,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   );
 
   React.useEffect(() => {
-    if (value) {
+    if (value !== undefined) {
       setValueCells(strToArr(value));
     }
   }, [value]);
@@ -192,10 +208,11 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   };
 
   // ======================== Render ========================
-  const inputSharedProps = {
+  const inputSharedProps: Partial<OTPInputProps> = {
     variant,
     disabled,
     status: mergedStatus as InputStatus,
+    mask,
   };
 
   return wrapCSSVar(
@@ -214,10 +231,9 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
       )}
     >
       <FormItemInputContext.Provider value={proxyFormContext}>
-        {new Array(length).fill(0).map((_, index) => {
+        {Array.from({ length }).map((_, index) => {
           const key = `otp-${index}`;
           const singleValue = valueCells[index] || '';
-
           return (
             <OTPInput
               ref={(inputEle) => {

@@ -81,9 +81,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   selectionsIcon?: React.ReactNode;
 }
 
-export interface TransferCustomListBodyProps<T> extends TransferListBodyProps<T> {
-  onItemSelect: (key: string, check: boolean) => void;
-}
+export interface TransferCustomListBodyProps<T> extends TransferListBodyProps<T> {}
 
 const TransferList = <RecordType extends KeyWiseTransferItem>(
   props: TransferListProps<RecordType>,
@@ -145,11 +143,12 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     let bodyContent: React.ReactNode = renderList
       ? renderList({
           ...listProps,
-          onItemSelect: (key: string, check: boolean) => listProps.onItemSelect(key, check),
+          onItemSelect: (key, check) => listProps.onItemSelect(key, check),
         })
       : null;
     const customize: boolean = !!bodyContent;
     if (!customize) {
+      // @ts-ignore
       bodyContent = <DefaultListBody ref={listBodyRef} {...listProps} />;
     }
     return { customize, bodyContent };
@@ -203,7 +202,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
       <div className={`${prefixCls}-body-search-wrapper`}>
         <Search
           prefixCls={`${prefixCls}-search`}
-          onChange={internalHandleFilter}
+          onChange={internalHandleFilter as any}
           handleClear={internalHandleClear}
           placeholder={searchPlaceholder}
           value={filterValue}

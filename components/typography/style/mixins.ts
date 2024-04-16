@@ -1,14 +1,16 @@
 /*
 .typography-title(@fontSize; @fontWeight; @lineHeight; @headingColor; @headingMarginBottom;) {
-  margin-bottom: @headingMarginBottom;
-  color: @headingColor;
-  font-weight: @fontWeight;
-  fontSize: @fontSize;
-  line-height: @lineHeight;
+ margin-bottom: @headingMarginBottom;
+ color: @headingColor;
+ font-weight: @fontWeight;
+ fontSize: @fontSize;
+ line-height: @lineHeight;
 }
 */
 import { gold } from '@ant-design/colors';
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { TypographyToken } from '.';
 import { operationUnit } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';

@@ -1,9 +1,10 @@
-import { FormattedMessage } from 'dumi';
-import React, { useMemo, useState } from 'react';
+import React from 'react';
 import { ColorPicker } from 'antd';
 import type { Color } from 'antd/es/color-picker';
-import ColorPatterns from './ColorPatterns';
+import { FormattedMessage } from 'dumi';
+
 import useLocale from '../../../hooks/useLocale';
+import ColorPatterns from './ColorPatterns';
 
 const primaryMinSaturation = 70; // 主色推荐最小饱和度
 const primaryMinBrightness = 70; // 主色推荐最小亮度
@@ -22,8 +23,8 @@ const locales = {
 };
 
 const ColorPaletteTool: React.FC = () => {
-  const [primaryColor, setPrimaryColor] = useState<string>('#1890ff');
-  const [primaryColorInstance, setPrimaryColorInstance] = useState<Color>(null);
+  const [primaryColor, setPrimaryColor] = React.useState<string>('#1890ff');
+  const [primaryColorInstance, setPrimaryColorInstance] = React.useState<Color>();
 
   const [locale] = useLocale(locales);
 
@@ -32,7 +33,7 @@ const ColorPaletteTool: React.FC = () => {
     setPrimaryColorInstance(color);
   };
 
-  const colorValidation = useMemo<React.ReactNode>(() => {
+  const colorValidation = React.useMemo<React.ReactNode>(() => {
     let text = '';
     if (primaryColorInstance) {
       const { s, b } = primaryColorInstance.toHsb() || {};

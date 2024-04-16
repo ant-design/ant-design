@@ -123,7 +123,7 @@ export interface TooltipPropsWithTitle extends AbstractTooltipProps {
 
 export declare type TooltipProps = TooltipPropsWithTitle | TooltipPropsWithOverlay;
 
-const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
+const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     openClassName,
@@ -331,11 +331,13 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   return wrapCSSVar(
     <zIndexContext.Provider value={contextZIndex}>{content}</zIndexContext.Provider>,
   );
-}) as React.ForwardRefExoticComponent<
-  React.PropsWithoutRef<TooltipProps> & React.RefAttributes<unknown>
-> & {
+});
+
+type CompoundedComponent = typeof InternalTooltip & {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };
+
+const Tooltip = InternalTooltip as CompoundedComponent;
 
 if (process.env.NODE_ENV !== 'production') {
   Tooltip.displayName = 'Tooltip';

@@ -96,6 +96,13 @@ const useStyle = () => {
       mobileCard: css`
         height: 395px;
       `,
+      nodeWrap: css`
+        margin-top: ${token.paddingLG}px;
+        flex: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      `,
       carousel,
     };
   })();
@@ -107,8 +114,6 @@ const ComponentItem: React.FC<ComponentItemProps> = ({ title, node, type, index 
   const tagText = type === 'new' ? locale.new : locale.update;
   const { styles } = useStyle();
   const { isMobile } = useContext(SiteContext);
-  const token = useTheme();
-
   return (
     <div className={classNames(styles.card, isMobile && styles.mobileCard)}>
       {/* Decorator */}
@@ -124,18 +129,7 @@ const ComponentItem: React.FC<ComponentItemProps> = ({ title, node, type, index 
         </Typography.Title>
         <Tag color={tagColor}>{tagText}</Tag>
       </Flex>
-
-      <div
-        style={{
-          marginTop: token.paddingLG,
-          flex: 'auto',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        {node}
-      </div>
+      <div className={styles.nodeWrap}>{node}</div>
     </div>
   );
 };
