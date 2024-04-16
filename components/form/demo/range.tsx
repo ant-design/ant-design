@@ -30,15 +30,13 @@ export const MyFormItem = (
         }}
         rules={rules.map((thisRule) => {
           if (typeof thisRule === 'object') {
-            if (thisRule) {
-              return {
-                ...thisRule,
-                transform: () => {
-                  const values = names.map((name) => form.getFieldValue(name));
-                  return thisRule.transform ? thisRule.transform(values) : values;
-                },
-              };
-            }
+            return {
+              ...thisRule,
+              transform: () => {
+                const values = names.map((name) => form.getFieldValue(name));
+                return thisRule.transform ? thisRule.transform(values) : values;
+              },
+            };
           }
           return thisRule;
         })}
