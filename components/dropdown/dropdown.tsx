@@ -43,7 +43,7 @@ export type DropdownArrowOptions = {
 };
 
 export interface DropdownProps {
-  menu?: MenuProps;
+  menu: MenuProps;
   menuLabel?: string;
   autoFocus?: boolean;
   arrow?: boolean | DropdownArrowOptions;
@@ -97,7 +97,7 @@ const Dropdown: CompoundedComponent = (props) => {
     overlayStyle,
     open,
     onOpenChange,
-    menuLabel = 'some',
+    menuLabel = Math.random(),
     // Deprecated
     visible,
     onVisibleChange,
@@ -190,6 +190,8 @@ const Dropdown: CompoundedComponent = (props) => {
     setOpen(nextOpen);
   });
 
+  const menuRef = React.useRef(null)
+
   const dropdownTrigger = cloneElement(child, {
     className: classNames(
       `${prefixCls}-trigger`,
@@ -204,8 +206,10 @@ const Dropdown: CompoundedComponent = (props) => {
 
       const handleKeyPress = (e: KeyboardEvent) => {
         if (e.key === 'Enter' || e.code === 'Space') {
-          setOpen(true);
           targetElement.removeEventListener('keypress', handleKeyPress);
+          onOpenChange?.(true, { source: 'menu' })
+          onVisibleChange?.(true);
+          setOpen(true)
         }
       };
       targetElement.addEventListener('keypress', handleKeyPress);
@@ -213,10 +217,9 @@ const Dropdown: CompoundedComponent = (props) => {
         targetElement.removeEventListener('keypress', handleKeyPress);
       });
     },
-    // onKeydown: (event) => { console.log('Action triggered')},
     id: `${menuLabel}-button`,
     role: 'button',
-    'aria-haspopup': 'menu',
+    'aria-haspopup': true,
     'aria-expanded': mergedOpen,
     'aria-controls': `${menuLabel}-menu`,
   });
@@ -261,7 +264,7 @@ const Dropdown: CompoundedComponent = (props) => {
     let overlayNode: React.ReactNode;
     if (menu?.items) {
       overlayNode = (
-        <Menu aria-labelledby={`${menuLabel}-button`} id={`${menuLabel}-menu`} {...menu} />
+        <Menu ref={menuRef} aria-labelledby={`${menuLabel}-button`} id={`${menuLabel}-menu`} {...menu} />
       );
     } else if (typeof overlay === 'function') {
       overlayNode = overlay();

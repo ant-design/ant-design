@@ -61,7 +61,7 @@ const Menu = forwardRef<MenuRef, MenuProps>((props, ref) => {
       }
     },
   }));
-  return <InternalMenu itemType='button' ref={menuRef} {...props} {...context} />;
+  return <InternalMenu ref={menuRef} {...props} {...context} />;
 }) as GenericComponent;
 
 Menu.Item = Item;
