@@ -41,7 +41,7 @@ export default function imageTest(
   let doc: Document;
   let container: HTMLDivElement;
 
-  beforeAll(() => {
+  beforeAll(async () => {
     const dom = new JSDOM('<!DOCTYPE html><body></body></p>', {
       url: 'http://localhost/',
     });
@@ -99,6 +99,8 @@ export default function imageTest(
 
     // Fill window
     fillWindowEnv(win);
+
+    await page.setRequestInterception(true);
   });
 
   beforeEach(() => {
@@ -108,7 +110,8 @@ export default function imageTest(
 
   function test(name: string, suffix: string, themedComponent: React.ReactElement) {
     it(name, async () => {
-      await page.setRequestInterception(true);
+      await page.setViewport({ width: 800, height: 600 });
+
       const onRequestHandle = (request: any) => {
         if (['image'].includes(request.resourceType())) {
           request.abort();
