@@ -12,6 +12,8 @@ import checkRepo from './check-repo';
 const { Notification: Notifier } = require('node-notifier');
 const simpleGit = require('simple-git');
 
+const blockStatus = ['failure', 'cancelled', 'timed_out'] as const;
+
 const spinner = { interval: 80, frames: ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'] };
 const spinnies = new Spinnies({ spinner });
 
@@ -137,6 +139,8 @@ const runPrePublish = async () => {
   const owner = 'ant-design';
   const repo = 'ant-design';
   showMessage(`开始检查远程分支 ${currentBranch} 的 CI 状态`, true);
+
+  const failureUrlList: string[] = [];
   const {
     data: { check_runs },
   } = await octokit.checks.listForRef({
@@ -144,18 +148,22 @@ const runPrePublish = async () => {
     repo,
     ref: sha,
   });
-  showMessage(`远程分支 CI 状态：`, 'succeed');
+  showMessage(`远程分支 CI 状态(${check_runs.length})：`, 'succeed');
   check_runs.forEach((run) => {
     showMessage(`  ${run.name.padEnd(36)} ${emojify(run.status)} ${emojify(run.conclusion || '')}`);
+    if (blockStatus.some((status) => run.conclusion === status)) {
+      failureUrlList.push(run.html_url!);
+    }
   });
   const conclusions = check_runs.map((run) => run.conclusion);
-  if (
-    conclusions.includes('failure') ||
-    conclusions.includes('cancelled') ||
-    conclusions.includes('timed_out')
-  ) {
+  if (blockStatus.some((status) => conclusions.includes(status))) {
     showMessage(chalk.bgRedBright('远程分支 CI 执行异常，无法继续发布，请尝试修复或重试'), 'fail');
     showMessage(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${sha}`);
+
+    failureUrlList.forEach((url) => {
+      showMessage(`  - ${url}`);
+    });
+
     process.exit(1);
   }
 
