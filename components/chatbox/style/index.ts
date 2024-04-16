@@ -36,7 +36,19 @@ export interface ChatboxToken extends FullToken<'Chatbox'> {
 }
 
 const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
-  const { componentCls, messageMaxWidth, avatarGap } = token;
+  const {
+    componentCls,
+    fontSize,
+    lineHeight,
+    messageMaxWidth,
+    avatarGap,
+    paddingSM,
+    padding,
+    paddingXXS,
+    marginXS,
+    colorText,
+    calc,
+  } = token;
   return {
     [componentCls]: {
       display: 'flex',
@@ -55,10 +67,11 @@ const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
       },
       [`& ${componentCls}-content`]: {
         position: 'relative',
-        padding: `${unit(token.paddingSM)} ${unit(token.padding)}`,
-        color: token.colorText,
+        padding: `${unit(paddingSM)} ${unit(padding)}`,
+        color: colorText,
         fontSize: token.fontSize,
-        minHeight: 46,
+        lineHeight: token.lineHeight,
+        minHeight: calc(paddingSM).mul(2).add(calc(lineHeight).mul(fontSize)).equal(),
         maxWidth: unit(messageMaxWidth),
         backgroundColor: token.colorInfoBg,
         borderRadius: token.borderRadiusLG,
@@ -81,7 +94,8 @@ const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
           height: '100%',
           display: 'flex',
           alignItems: 'center',
-          columnGap: token.marginXS,
+          columnGap: marginXS,
+          padding: `0 ${unit(paddingXXS)}`,
           '&-item': {
             backgroundColor: token.colorPrimary,
             borderRadius: '100%',
