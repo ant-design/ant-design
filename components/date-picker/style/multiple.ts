@@ -65,14 +65,32 @@ const genPickerMultipleStyle: GenerateStyle<PickerToken> = (token) => {
     {
       [`${componentCls}${componentCls}-multiple`]: {
         width: '100%',
+        cursor: 'text',
 
         // ==================== Selector =====================
         [`${componentCls}-selector`]: {
           flex: 'auto',
           padding: 0,
+          position: 'relative',
 
           '&:after': {
             margin: 0,
+          },
+
+          // ================== placeholder ==================
+          [`${componentCls}-selection-placeholder`]: {
+            position: 'absolute',
+            top: '50%',
+            insetInlineStart: token.inputPaddingHorizontalBase,
+            insetInlineEnd: 0,
+            transform: 'translateY(-50%)',
+            transition: `all ${token.motionDurationSlow}`,
+            overflow: 'hidden',
+            whiteSpace: 'nowrap',
+            textOverflow: 'ellipsis',
+            flex: 1,
+            color: token.colorTextPlaceholder,
+            pointerEvents: 'none',
           },
         },
 
