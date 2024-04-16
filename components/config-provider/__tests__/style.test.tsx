@@ -11,6 +11,7 @@ import Calendar from '../../calendar';
 import Card from '../../card';
 import Carousel from '../../carousel';
 import Cascader from '../../cascader';
+import Chatbox from '../../chatbox';
 import Checkbox from '../../checkbox';
 import Collapse from '../../collapse';
 import ColorPicker from '../../color-picker';
@@ -1574,5 +1575,29 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLSpanElement>('.test-cp-icon');
     expect(element).toBeTruthy();
+  });
+
+  it('CP Should support Chatbox', () => {
+    const { container } = render(
+      <ConfigProvider
+        chatbox={{
+          className: 'test-cp-className',
+          classNames: { avatar: 'test-cp-avatar', content: 'test-cp-content' },
+          style: { backgroundColor: 'green' },
+          styles: { avatar: { color: 'red' }, content: { color: 'blue' } },
+        }}
+      >
+        <Chatbox content="hello" avatar={<span>avatar</span>} />
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-chatbox');
+    const avatarElement = element?.querySelector<HTMLDivElement>('.ant-chatbox-avatar');
+    const contentElement = element?.querySelector<HTMLDivElement>('.ant-chatbox-content');
+    expect(element).toHaveClass('test-cp-className');
+    expect(avatarElement).toHaveClass('test-cp-avatar');
+    expect(contentElement).toHaveClass('test-cp-content');
+    expect(element).toHaveStyle({ backgroundColor: 'green' });
+    expect(avatarElement).toHaveStyle({ color: 'red' });
+    expect(contentElement).toHaveStyle({ color: 'blue' });
   });
 });

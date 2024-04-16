@@ -79,4 +79,26 @@ describe('chatbox', () => {
     await waitFakeTimer();
     expect(element?.textContent).toBe('你好你好你好');
   });
+
+  it('Chatbox Should support Chatbox', () => {
+    const { container } = render(
+      <Chatbox
+        content="hello"
+        avatar={<span>avatar</span>}
+        className="test-className"
+        classNames={{ avatar: 'test-avatar', content: 'test-content' }}
+        style={{ backgroundColor: 'green' }}
+        styles={{ avatar: { color: 'red' }, content: { color: 'blue' } }}
+      />,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-chatbox');
+    const avatarElement = element?.querySelector<HTMLDivElement>('.ant-chatbox-avatar');
+    const contentElement = element?.querySelector<HTMLDivElement>('.ant-chatbox-content');
+    expect(element).toHaveClass('test-className');
+    expect(avatarElement).toHaveClass('test-avatar');
+    expect(contentElement).toHaveClass('test-content');
+    expect(element).toHaveStyle({ backgroundColor: 'green' });
+    expect(avatarElement).toHaveStyle({ color: 'red' });
+    expect(contentElement).toHaveStyle({ color: 'blue' });
+  });
 });
