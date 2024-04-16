@@ -31,9 +31,9 @@ export const Demo = () => (
 );
 ```
 
-## 封装 MyFormItem
+## 封装聚合字段组件
 
-当表单比较简单还好，如果遇到 `Form.List` 场景，就需要 `map` 处理值，将变的很复杂。于是我们需要封装 `MyFormItem` 实现一个 `Form.Item` 可以写多个 `name`，如下：
+当表单比较简单还好，如果遇到 `Form.List` 场景，就需要 `map` 处理值，将变的很复杂。于是我们需要封装聚合字段组件，实现一个 `Form.Item` 可以写多个 `name`，如下：
 
 ```tsx
 import React from 'react';
@@ -113,7 +113,7 @@ export const Demo = () => (
 );
 ```
 
-## MyFormItem 原理
+## 聚合字段组件原理
 
 Antd Form.Item 有提供 2 个 API `getValueProps` `getValueFromEvent`，以及 rules 提供了 `transform`
 
