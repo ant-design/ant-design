@@ -64,17 +64,6 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     defaultValue: props.defaultOpen ?? props.defaultVisible,
   });
 
-  const warning = devUseWarning('Tooltip');
-
-  if (process.env.NODE_ENV !== 'production') {
-    [
-      ['visible', 'open'],
-      ['defaultVisible', 'defaultOpen'],
-    ].forEach(([deprecatedName, newName]) => {
-      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
-    });
-  }
-
   const settingOpen = (
     value: boolean,
     e?: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLDivElement>,
