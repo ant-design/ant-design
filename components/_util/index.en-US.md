@@ -39,13 +39,13 @@ type CheckboxGroupType = GetProps<typeof Checkbox.Group>;
 
 ## GetProp
 
-Get the single `props` property definition of the component. It has encapsulated `NonNullable`, so you don't have to worry about being empty:
+Get the single `props` property definition of the component. It has encapsulated `NonNullable`, so you don't have to worry about it being empty:
 
 ```tsx
 import { Select } from 'antd';
 import type { GetProp, SelectProps } from 'antd';
 
-// Both of this can work
+// Both of these can work
 type SelectOptionType1 = GetProp<SelectProps, 'options'>[number];
 type SelectOptionType2 = GetProp<typeof Select, 'options'>[number];
 ```
