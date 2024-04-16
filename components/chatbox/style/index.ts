@@ -31,8 +31,7 @@ export interface ComponentToken {
 }
 
 export interface ChatboxToken extends FullToken<'Chatbox'> {
-  messageMaxWidth: number;
-  avatarGap: number;
+  maxWidthContent: number;
 }
 
 const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
@@ -40,10 +39,9 @@ const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
     componentCls,
     fontSize,
     lineHeight,
-    messageMaxWidth,
-    avatarGap,
     paddingSM,
     padding,
+    paddingXS,
     paddingXXS,
     marginXS,
     colorText,
@@ -52,7 +50,7 @@ const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
   return {
     [componentCls]: {
       display: 'flex',
-      columnGap: avatarGap,
+      columnGap: paddingXS,
       maxWidth: '100%',
       [`&${componentCls}-end`]: {
         justifyContent: 'end',
@@ -72,7 +70,7 @@ const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
         fontSize: token.fontSize,
         lineHeight: token.lineHeight,
         minHeight: calc(paddingSM).mul(2).add(calc(lineHeight).mul(fontSize)).equal(),
-        maxWidth: unit(messageMaxWidth),
+        maxWidth: unit(token.maxWidthContent),
         backgroundColor: token.colorInfoBg,
         borderRadius: token.borderRadiusLG,
         boxShadow: token.boxShadowTertiary,
@@ -133,8 +131,7 @@ export default genStyleHooks<'Chatbox'>(
   'Chatbox',
   (token) => {
     const chatBoxToken = mergeToken<ChatboxToken>(token, {
-      messageMaxWidth: 720,
-      avatarGap: token.paddingXS,
+      maxWidthContent: 720,
     });
     return genChatboxStyle(chatBoxToken);
   },
