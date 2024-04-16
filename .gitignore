@@ -45,6 +45,7 @@ components/**/*.jsx
 /.history
 *.tmp
 artifacts.zip
+oss-artifacts.zip
 server/
 
 # Docs templates

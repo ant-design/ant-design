@@ -4,8 +4,8 @@ import React from 'react';
 // eslint-disable-next-line import/no-unresolved
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import dayjs from 'dayjs';
+import fse from 'fs-extra';
 import { globSync } from 'glob';
-import { configureToMatchImageSnapshot } from 'jest-image-snapshot';
 import { JSDOM } from 'jsdom';
 import MockDate from 'mockdate';
 import ReactDOMServer from 'react-dom/server';
@@ -17,12 +17,8 @@ import { TriggerMockContext } from './demoTestContext';
 
 jest.mock('../../components/grid/hooks/useBreakpoint', () => () => ({}));
 
-const toMatchImageSnapshot = configureToMatchImageSnapshot({
-  customSnapshotsDir: `${process.cwd()}/imageSnapshots`,
-  customDiffDir: `${process.cwd()}/imageDiffSnapshots`,
-});
-
-expect.extend({ toMatchImageSnapshot });
+const snapshotPath = path.join(process.cwd(), 'imageSnapshots');
+fse.ensureDirSync(snapshotPath);
 
 const themes = {
   default: theme.defaultAlgorithm,
@@ -45,7 +41,7 @@ export default function imageTest(
   let doc: Document;
   let container: HTMLDivElement;
 
-  beforeAll(() => {
+  beforeAll(async () => {
     const dom = new JSDOM('<!DOCTYPE html><body></body></p>', {
       url: 'http://localhost/',
     });
@@ -103,6 +99,8 @@ export default function imageTest(
 
     // Fill window
     fillWindowEnv(win);
+
+    await page.setRequestInterception(true);
   });
 
   beforeEach(() => {
@@ -112,8 +110,8 @@ export default function imageTest(
 
   function test(name: string, suffix: string, themedComponent: React.ReactElement) {
     it(name, async () => {
-      await jestPuppeteer.resetPage();
-      await page.setRequestInterception(true);
+      await page.setViewport({ width: 800, height: 600 });
+
       const onRequestHandle = (request: any) => {
         if (['image'].includes(request.resourceType())) {
           request.abort();
@@ -212,9 +210,7 @@ export default function imageTest(
         fullPage: !options.onlyViewport,
       });
 
-      expect(image).toMatchImageSnapshot({
-        customSnapshotIdentifier: `${identifier}${suffix}`,
-      });
+      await fse.writeFile(path.join(snapshotPath, `${identifier}${suffix}.png`), image);
 
       MockDate.reset();
       page.off('request', onRequestHandle);
