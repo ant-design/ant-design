@@ -49,7 +49,7 @@ export interface OTPProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'on
 }
 
 function strToArr(str: string) {
-  return str.split('');
+  return (str || '').split('');
 }
 
 const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
@@ -135,7 +135,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   );
 
   React.useEffect(() => {
-    if (value) {
+    if (value !== undefined) {
       setValueCells(strToArr(value));
     }
   }, [value]);
