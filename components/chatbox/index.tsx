@@ -84,4 +84,6 @@ if (process.env.NODE_ENV !== 'production') {
   Chatbox.displayName = 'Chatbox';
 }
 
+export type { ChatboxProps };
+
 export default Chatbox;
