@@ -54,6 +54,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/ref-item.tsx" debug>Ref item</code>
 <code src="./demo/custom-feedback-icons.tsx" debug>Custom feedback icons</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
+<code src="./demo/range.tsx">Province</code>
 
 ## API
 
