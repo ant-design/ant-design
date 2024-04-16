@@ -5,7 +5,7 @@ const App: React.FC = () => (
   <Flex gap="small" vertical>
     <Progress
       percent={0}
-      percentPosition={{ align: 'start', type: 'inner' }}
+      percentPosition={{ align: 'center', type: 'inner' }}
       size={[200, 20]}
       strokeColor="#E6F4FF"
     />

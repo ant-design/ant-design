@@ -6,7 +6,7 @@ exports[`renders components/progress/demo/circle.tsx extend context correctly 1`
 >
   <div
     aria-valuenow="75"
-    class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <div
@@ -49,7 +49,7 @@ exports[`renders components/progress/demo/circle.tsx extend context correctly 1`
         />
       </svg>
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+        class="ant-progress-text"
         title="75%"
       >
         75%
@@ -58,7 +58,7 @@ exports[`renders components/progress/demo/circle.tsx extend context correctly 1`
   </div>
   <div
     aria-valuenow="70"
-    class="ant-progress ant-progress-status-exception ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-exception ant-progress-circle ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <div
@@ -101,7 +101,7 @@ exports[`renders components/progress/demo/circle.tsx extend context correctly 1`
         />
       </svg>
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+        class="ant-progress-text"
       >
         <span
           aria-label="close"
@@ -128,7 +128,7 @@ exports[`renders components/progress/demo/circle.tsx extend context correctly 1`
   </div>
   <div
     aria-valuenow="100"
-    class="ant-progress ant-progress-status-success ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-success ant-progress-circle ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <div
@@ -171,7 +171,7 @@ exports[`renders components/progress/demo/circle.tsx extend context correctly 1`
         />
       </svg>
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+        class="ant-progress-text"
       >
         <span
           aria-label="check"
@@ -206,7 +206,7 @@ exports[`renders components/progress/demo/circle-micro.tsx extend context correc
 >
   <div
     aria-valuenow="60"
-    class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-inline-circle ant-progress-show-info"
+    class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-inline-circle ant-progress-show-info"
     role="progressbar"
   >
     <div
@@ -267,7 +267,7 @@ exports[`renders components/progress/demo/circle-micro.tsx extend context correc
             role="tooltip"
           >
             <span
-              class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+              class="ant-progress-text"
               title="进行中，已完成60%"
             >
               进行中，已完成60%
@@ -291,7 +291,7 @@ exports[`renders components/progress/demo/circle-mini.tsx extend context correct
 >
   <div
     aria-valuenow="30"
-    class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info"
+    class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
     role="progressbar"
   >
     <div
@@ -334,7 +334,7 @@ exports[`renders components/progress/demo/circle-mini.tsx extend context correct
         />
       </svg>
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+        class="ant-progress-text"
         title="30%"
       >
         30%
@@ -343,7 +343,7 @@ exports[`renders components/progress/demo/circle-mini.tsx extend context correct
   </div>
   <div
     aria-valuenow="70"
-    class="ant-progress ant-progress-status-exception ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info"
+    class="ant-progress ant-progress-status-exception ant-progress-circle ant-progress-show-info"
     role="progressbar"
   >
     <div
@@ -386,7 +386,7 @@ exports[`renders components/progress/demo/circle-mini.tsx extend context correct
         />
       </svg>
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+        class="ant-progress-text"
       >
         <span
           aria-label="close"
@@ -413,7 +413,7 @@ exports[`renders components/progress/demo/circle-mini.tsx extend context correct
   </div>
   <div
     aria-valuenow="100"
-    class="ant-progress ant-progress-status-success ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info"
+    class="ant-progress ant-progress-status-success ant-progress-circle ant-progress-show-info"
     role="progressbar"
   >
     <div
@@ -456,7 +456,7 @@ exports[`renders components/progress/demo/circle-mini.tsx extend context correct
         />
       </svg>
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+        class="ant-progress-text"
       >
         <span
           aria-label="check"
@@ -591,7 +591,7 @@ Array [
   >
     <div
       aria-valuenow="50"
-      class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-steps ant-progress-show-info ant-progress-default"
+      class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-steps ant-progress-show-info ant-progress-default"
       role="progressbar"
     >
       <div
@@ -677,7 +677,7 @@ Array [
           />
         </svg>
         <span
-          class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+          class="ant-progress-text"
           title="50%"
         >
           50%
@@ -686,7 +686,7 @@ Array [
     </div>
     <div
       aria-valuenow="100"
-      class="ant-progress ant-progress-status-success ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-steps ant-progress-show-info ant-progress-default"
+      class="ant-progress ant-progress-status-success ant-progress-circle ant-progress-steps ant-progress-show-info ant-progress-default"
       role="progressbar"
     >
       <div
@@ -745,7 +745,7 @@ Array [
           />
         </svg>
         <span
-          class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+          class="ant-progress-text"
         >
           <span
             aria-label="check"
@@ -785,7 +785,7 @@ Array [
     >
       <div
         aria-valuenow="50"
-        class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-default"
+        class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
         role="progressbar"
       >
         <div
@@ -814,7 +814,7 @@ Array [
     >
       <div
         aria-valuenow="50"
-        class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-small"
+        class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
         role="progressbar"
       >
         <div
@@ -843,7 +843,7 @@ Array [
     >
       <div
         aria-valuenow="50"
-        class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info"
+        class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info"
         role="progressbar"
       >
         <div
@@ -879,7 +879,7 @@ Array [
     >
       <div
         aria-valuenow="50"
-        class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-default"
+        class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
         role="progressbar"
       >
         <div
@@ -922,7 +922,7 @@ Array [
             />
           </svg>
           <span
-            class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+            class="ant-progress-text"
             title="50%"
           >
             50%
@@ -935,7 +935,7 @@ Array [
     >
       <div
         aria-valuenow="50"
-        class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-small"
+        class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-small"
         role="progressbar"
       >
         <div
@@ -978,7 +978,7 @@ Array [
             />
           </svg>
           <span
-            class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+            class="ant-progress-text"
             title="50%"
           >
             50%
@@ -991,7 +991,7 @@ Array [
     >
       <div
         aria-valuenow="50"
-        class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-inline-circle ant-progress-show-info"
+        class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-inline-circle ant-progress-show-info"
         role="progressbar"
       >
         <div
@@ -1051,7 +1051,7 @@ Array [
                 role="tooltip"
               >
                 <span
-                  class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+                  class="ant-progress-text"
                   title="50%"
                 >
                   50%
@@ -1074,7 +1074,7 @@ Array [
     >
       <div
         aria-valuenow="50"
-        class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-default"
+        class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
         role="progressbar"
       >
         <div
@@ -1117,7 +1117,7 @@ Array [
             />
           </svg>
           <span
-            class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+            class="ant-progress-text"
             title="50%"
           >
             50%
@@ -1130,7 +1130,7 @@ Array [
     >
       <div
         aria-valuenow="50"
-        class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-small"
+        class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-small"
         role="progressbar"
       >
         <div
@@ -1173,7 +1173,7 @@ Array [
             />
           </svg>
           <span
-            class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+            class="ant-progress-text"
             title="50%"
           >
             50%
@@ -1186,7 +1186,7 @@ Array [
     >
       <div
         aria-valuenow="50"
-        class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info"
+        class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
         role="progressbar"
       >
         <div
@@ -1246,7 +1246,7 @@ Array [
                 role="tooltip"
               >
                 <span
-                  class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+                  class="ant-progress-text"
                   title="50%"
                 >
                   50%
@@ -1269,7 +1269,7 @@ Array [
     >
       <div
         aria-valuenow="50"
-        class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-steps ant-progress-show-info ant-progress-default"
+        class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info ant-progress-default"
         role="progressbar"
       >
         <div
@@ -1301,7 +1301,7 @@ Array [
     >
       <div
         aria-valuenow="50"
-        class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-steps ant-progress-show-info ant-progress-small"
+        class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info ant-progress-small"
         role="progressbar"
       >
         <div
@@ -1333,7 +1333,7 @@ Array [
     >
       <div
         aria-valuenow="50"
-        class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-steps ant-progress-show-info"
+        class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info"
         role="progressbar"
       >
         <div
@@ -1365,7 +1365,7 @@ Array [
     >
       <div
         aria-valuenow="50"
-        class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-steps ant-progress-show-info"
+        class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info"
         role="progressbar"
       >
         <div
@@ -1404,7 +1404,7 @@ exports[`renders components/progress/demo/dashboard.tsx extend context correctly
 >
   <div
     aria-valuenow="75"
-    class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <div
@@ -1447,7 +1447,7 @@ exports[`renders components/progress/demo/dashboard.tsx extend context correctly
         />
       </svg>
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+        class="ant-progress-text"
         title="75%"
       >
         75%
@@ -1456,7 +1456,7 @@ exports[`renders components/progress/demo/dashboard.tsx extend context correctly
   </div>
   <div
     aria-valuenow="75"
-    class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <div
@@ -1499,7 +1499,7 @@ exports[`renders components/progress/demo/dashboard.tsx extend context correctly
         />
       </svg>
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+        class="ant-progress-text"
         title="75%"
       >
         75%
@@ -1520,7 +1520,7 @@ exports[`renders components/progress/demo/dynamic.tsx extend context correctly 1
   >
     <div
       aria-valuenow="0"
-      class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-default"
+      class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
       role="progressbar"
     >
       <div
@@ -1545,7 +1545,7 @@ exports[`renders components/progress/demo/dynamic.tsx extend context correctly 1
     </div>
     <div
       aria-valuenow="0"
-      class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-default"
+      class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
       role="progressbar"
     >
       <div
@@ -1588,7 +1588,7 @@ exports[`renders components/progress/demo/dynamic.tsx extend context correctly 1
           />
         </svg>
         <span
-          class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+          class="ant-progress-text"
           title="0%"
         >
           0%
@@ -1670,7 +1670,7 @@ exports[`renders components/progress/demo/format.tsx extend context correctly 1`
 >
   <div
     aria-valuenow="75"
-    class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <div
@@ -1713,7 +1713,7 @@ exports[`renders components/progress/demo/format.tsx extend context correctly 1`
         />
       </svg>
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+        class="ant-progress-text"
         title="75 Days"
       >
         75 Days
@@ -1722,7 +1722,7 @@ exports[`renders components/progress/demo/format.tsx extend context correctly 1`
   </div>
   <div
     aria-valuenow="100"
-    class="ant-progress ant-progress-status-success ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-success ant-progress-circle ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <div
@@ -1765,7 +1765,7 @@ exports[`renders components/progress/demo/format.tsx extend context correctly 1`
         />
       </svg>
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+        class="ant-progress-text"
         title="Done"
       >
         Done
@@ -1783,7 +1783,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
 >
   <div
     aria-valuenow="99"
-    class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <div
@@ -1808,7 +1808,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
   </div>
   <div
     aria-valuenow="50"
-    class="ant-progress ant-progress-status-active ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <div
@@ -1836,7 +1836,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
   >
     <div
       aria-valuenow="90"
-      class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-default"
+      class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
       role="progressbar"
     >
       <div
@@ -1899,7 +1899,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
           />
         </svg>
         <span
-          class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+          class="ant-progress-text"
           title="90%"
         >
           90%
@@ -1908,7 +1908,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
     </div>
     <div
       aria-valuenow="100"
-      class="ant-progress ant-progress-status-success ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-default"
+      class="ant-progress ant-progress-status-success ant-progress-circle ant-progress-show-info ant-progress-default"
       role="progressbar"
     >
       <div
@@ -1971,7 +1971,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
           />
         </svg>
         <span
-          class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+          class="ant-progress-text"
         >
           <span
             aria-label="check"
@@ -1997,7 +1997,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
     </div>
     <div
       aria-valuenow="93"
-      class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-default"
+      class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
       role="progressbar"
     >
       <div
@@ -2060,7 +2060,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
           />
         </svg>
         <span
-          class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+          class="ant-progress-text"
           title="93%"
         >
           93%
@@ -2073,7 +2073,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
   >
     <div
       aria-valuenow="90"
-      class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-default"
+      class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
       role="progressbar"
     >
       <div
@@ -2136,7 +2136,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
           />
         </svg>
         <span
-          class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+          class="ant-progress-text"
           title="90%"
         >
           90%
@@ -2145,7 +2145,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
     </div>
     <div
       aria-valuenow="100"
-      class="ant-progress ant-progress-status-success ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-default"
+      class="ant-progress ant-progress-status-success ant-progress-circle ant-progress-show-info ant-progress-default"
       role="progressbar"
     >
       <div
@@ -2208,7 +2208,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
           />
         </svg>
         <span
-          class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+          class="ant-progress-text"
         >
           <span
             aria-label="check"
@@ -2234,7 +2234,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
     </div>
     <div
       aria-valuenow="93"
-      class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-default"
+      class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
       role="progressbar"
     >
       <div
@@ -2297,7 +2297,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
           />
         </svg>
         <span
-          class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+          class="ant-progress-text"
           title="93%"
         >
           93%
@@ -2316,7 +2316,7 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
 >
   <div
     aria-valuenow="0"
-    class="ant-progress ant-progress-status-normal ant-progress-line-align-center ant-progress-line-position-inner ant-progress-line ant-progress-show-info"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-center ant-progress-line-position-inner ant-progress-show-info"
     role="progressbar"
   >
     <div
@@ -2342,7 +2342,7 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
   </div>
   <div
     aria-valuenow="10"
-    class="ant-progress ant-progress-status-normal ant-progress-line-align-center ant-progress-line-position-inner ant-progress-line ant-progress-show-info"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-center ant-progress-line-position-inner ant-progress-show-info"
     role="progressbar"
   >
     <div
@@ -2368,7 +2368,7 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
   </div>
   <div
     aria-valuenow="50"
-    class="ant-progress ant-progress-status-normal ant-progress-line-align-start ant-progress-line-position-inner ant-progress-line ant-progress-show-info"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-start ant-progress-line-position-inner ant-progress-show-info"
     role="progressbar"
   >
     <div
@@ -2394,7 +2394,7 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
   </div>
   <div
     aria-valuenow="60"
-    class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-inner ant-progress-line ant-progress-show-info"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-inner ant-progress-show-info"
     role="progressbar"
   >
     <div
@@ -2420,7 +2420,7 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
   </div>
   <div
     aria-valuenow="100"
-    class="ant-progress ant-progress-status-success ant-progress-line-align-center ant-progress-line-position-inner ant-progress-line ant-progress-show-info"
+    class="ant-progress ant-progress-status-success ant-progress-line ant-progress-line-align-center ant-progress-line-position-inner ant-progress-show-info"
     role="progressbar"
   >
     <div
@@ -2446,7 +2446,7 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
   </div>
   <div
     aria-valuenow="60"
-    class="ant-progress ant-progress-status-normal ant-progress-line-align-start ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-start ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <span
@@ -2471,7 +2471,7 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
   </div>
   <div
     aria-valuenow="100"
-    class="ant-progress ant-progress-status-success ant-progress-line-align-start ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-success ant-progress-line ant-progress-line-align-start ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <span
@@ -2513,7 +2513,7 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
   </div>
   <div
     aria-valuenow="60"
-    class="ant-progress ant-progress-status-normal ant-progress-line-align-center ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-small"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-center ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
     role="progressbar"
   >
     <div
@@ -2537,7 +2537,7 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
   </div>
   <div
     aria-valuenow="100"
-    class="ant-progress ant-progress-status-success ant-progress-line-align-center ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-success ant-progress-line ant-progress-line-align-center ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <div
@@ -2587,7 +2587,7 @@ exports[`renders components/progress/demo/line.tsx extend context correctly 1`] 
 >
   <div
     aria-valuenow="30"
-    class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <div
@@ -2612,7 +2612,7 @@ exports[`renders components/progress/demo/line.tsx extend context correctly 1`] 
   </div>
   <div
     aria-valuenow="50"
-    class="ant-progress ant-progress-status-active ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <div
@@ -2637,7 +2637,7 @@ exports[`renders components/progress/demo/line.tsx extend context correctly 1`] 
   </div>
   <div
     aria-valuenow="70"
-    class="ant-progress ant-progress-status-exception ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-exception ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <div
@@ -2680,7 +2680,7 @@ exports[`renders components/progress/demo/line.tsx extend context correctly 1`] 
   </div>
   <div
     aria-valuenow="100"
-    class="ant-progress ant-progress-status-success ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-success ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <div
@@ -2722,7 +2722,7 @@ exports[`renders components/progress/demo/line.tsx extend context correctly 1`] 
   </div>
   <div
     aria-valuenow="50"
-    class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-default"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-default"
     role="progressbar"
   >
     <div
@@ -2751,7 +2751,7 @@ exports[`renders components/progress/demo/line-mini.tsx extend context correctly
 >
   <div
     aria-valuenow="30"
-    class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-small"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
     role="progressbar"
   >
     <div
@@ -2776,7 +2776,7 @@ exports[`renders components/progress/demo/line-mini.tsx extend context correctly
   </div>
   <div
     aria-valuenow="50"
-    class="ant-progress ant-progress-status-active ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-small"
+    class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
     role="progressbar"
   >
     <div
@@ -2801,7 +2801,7 @@ exports[`renders components/progress/demo/line-mini.tsx extend context correctly
   </div>
   <div
     aria-valuenow="70"
-    class="ant-progress ant-progress-status-exception ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-small"
+    class="ant-progress ant-progress-status-exception ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
     role="progressbar"
   >
     <div
@@ -2844,7 +2844,7 @@ exports[`renders components/progress/demo/line-mini.tsx extend context correctly
   </div>
   <div
     aria-valuenow="100"
-    class="ant-progress ant-progress-status-success ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-small"
+    class="ant-progress ant-progress-status-success ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
     role="progressbar"
   >
     <div
@@ -2895,7 +2895,7 @@ exports[`renders components/progress/demo/linecap.tsx extend context correctly 1
 >
   <div
     aria-valuenow="75"
-    class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <div
@@ -2924,7 +2924,7 @@ exports[`renders components/progress/demo/linecap.tsx extend context correctly 1
   >
     <div
       aria-valuenow="75"
-      class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-default"
+      class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
       role="progressbar"
     >
       <div
@@ -2967,7 +2967,7 @@ exports[`renders components/progress/demo/linecap.tsx extend context correctly 1
           />
         </svg>
         <span
-          class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+          class="ant-progress-text"
           title="75%"
         >
           75%
@@ -2976,7 +2976,7 @@ exports[`renders components/progress/demo/linecap.tsx extend context correctly 1
     </div>
     <div
       aria-valuenow="75"
-      class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-default"
+      class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
       role="progressbar"
     >
       <div
@@ -3019,7 +3019,7 @@ exports[`renders components/progress/demo/linecap.tsx extend context correctly 1
           />
         </svg>
         <span
-          class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+          class="ant-progress-text"
           title="75%"
         >
           75%
@@ -3038,7 +3038,7 @@ exports[`renders components/progress/demo/segment.tsx extend context correctly 1
 >
   <div
     aria-valuenow="30"
-    class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <div
@@ -3089,7 +3089,7 @@ exports[`renders components/progress/demo/segment.tsx extend context correctly 1
   >
     <div
       aria-valuenow="30"
-      class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-default"
+      class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
       role="progressbar"
     >
       <div
@@ -3132,7 +3132,7 @@ exports[`renders components/progress/demo/segment.tsx extend context correctly 1
           />
         </svg>
         <span
-          class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+          class="ant-progress-text"
           title="60%"
         >
           60%
@@ -3160,7 +3160,7 @@ exports[`renders components/progress/demo/segment.tsx extend context correctly 1
     </div>
     <div
       aria-valuenow="30"
-      class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-default"
+      class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
       role="progressbar"
     >
       <div
@@ -3203,7 +3203,7 @@ exports[`renders components/progress/demo/segment.tsx extend context correctly 1
           />
         </svg>
         <span
-          class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+          class="ant-progress-text"
           title="60%"
         >
           60%
@@ -3245,7 +3245,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
   >
     <div
       aria-valuenow="50"
-      class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-default"
+      class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
       role="progressbar"
     >
       <div
@@ -3270,7 +3270,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
     </div>
     <div
       aria-valuenow="50"
-      class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-small"
+      class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
       role="progressbar"
     >
       <div
@@ -3295,7 +3295,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
     </div>
     <div
       aria-valuenow="50"
-      class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info"
+      class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info"
       role="progressbar"
     >
       <div
@@ -3325,7 +3325,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
   >
     <div
       aria-valuenow="50"
-      class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-default"
+      class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
       role="progressbar"
     >
       <div
@@ -3368,7 +3368,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
           />
         </svg>
         <span
-          class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+          class="ant-progress-text"
           title="50%"
         >
           50%
@@ -3377,7 +3377,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
     </div>
     <div
       aria-valuenow="50"
-      class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-small"
+      class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-small"
       role="progressbar"
     >
       <div
@@ -3420,7 +3420,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
           />
         </svg>
         <span
-          class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+          class="ant-progress-text"
           title="50%"
         >
           50%
@@ -3429,7 +3429,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
     </div>
     <div
       aria-valuenow="50"
-      class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-inline-circle ant-progress-show-info"
+      class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-inline-circle ant-progress-show-info"
       role="progressbar"
     >
       <div
@@ -3489,7 +3489,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
               role="tooltip"
             >
               <span
-                class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+                class="ant-progress-text"
                 title="50%"
               >
                 50%
@@ -3506,7 +3506,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
   >
     <div
       aria-valuenow="50"
-      class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-default"
+      class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-default"
       role="progressbar"
     >
       <div
@@ -3549,7 +3549,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
           />
         </svg>
         <span
-          class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+          class="ant-progress-text"
           title="50%"
         >
           50%
@@ -3558,7 +3558,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
     </div>
     <div
       aria-valuenow="50"
-      class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info ant-progress-small"
+      class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info ant-progress-small"
       role="progressbar"
     >
       <div
@@ -3601,7 +3601,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
           />
         </svg>
         <span
-          class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+          class="ant-progress-text"
           title="50%"
         >
           50%
@@ -3610,7 +3610,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
     </div>
     <div
       aria-valuenow="50"
-      class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info"
+      class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
       role="progressbar"
     >
       <div
@@ -3670,7 +3670,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
               role="tooltip"
             >
               <span
-                class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+                class="ant-progress-text"
                 title="50%"
               >
                 50%
@@ -3687,7 +3687,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
   >
     <div
       aria-valuenow="50"
-      class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-steps ant-progress-show-info ant-progress-default"
+      class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info ant-progress-default"
       role="progressbar"
     >
       <div
@@ -3715,7 +3715,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
     </div>
     <div
       aria-valuenow="50"
-      class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-steps ant-progress-show-info ant-progress-small"
+      class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info ant-progress-small"
       role="progressbar"
     >
       <div
@@ -3743,7 +3743,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
     </div>
     <div
       aria-valuenow="50"
-      class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-steps ant-progress-show-info"
+      class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info"
       role="progressbar"
     >
       <div
@@ -3771,7 +3771,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
     </div>
     <div
       aria-valuenow="50"
-      class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-steps ant-progress-show-info"
+      class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info"
       role="progressbar"
     >
       <div
@@ -3809,7 +3809,7 @@ exports[`renders components/progress/demo/steps.tsx extend context correctly 1`]
 >
   <div
     aria-valuenow="50"
-    class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-steps ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <div
@@ -3837,7 +3837,7 @@ exports[`renders components/progress/demo/steps.tsx extend context correctly 1`]
   </div>
   <div
     aria-valuenow="30"
-    class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-steps ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <div
@@ -3873,7 +3873,7 @@ exports[`renders components/progress/demo/steps.tsx extend context correctly 1`]
   </div>
   <div
     aria-valuenow="100"
-    class="ant-progress ant-progress-status-success ant-progress-line-align-end ant-progress-line-position-outer ant-progress-steps ant-progress-show-info ant-progress-small"
+    class="ant-progress ant-progress-status-success ant-progress-steps ant-progress-show-info ant-progress-small"
     role="progressbar"
   >
     <div
@@ -3926,7 +3926,7 @@ exports[`renders components/progress/demo/steps.tsx extend context correctly 1`]
   </div>
   <div
     aria-valuenow="60"
-    class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-steps ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
     <div

@@ -21792,7 +21792,7 @@ exports[`ConfigProvider components Popover prefixCls 1`] = `
 exports[`ConfigProvider components Progress configProvider 1`] = `
 <div
   aria-valuenow="0"
-  class="config-progress config-progress-status-normal config-progress-line-align-end config-progress-line-position-outer config-progress-line config-progress-show-info config-progress-default"
+  class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info config-progress-default"
   role="progressbar"
 >
   <div
@@ -21820,7 +21820,7 @@ exports[`ConfigProvider components Progress configProvider 1`] = `
 exports[`ConfigProvider components Progress configProvider componentDisabled 1`] = `
 <div
   aria-valuenow="0"
-  class="config-progress config-progress-status-normal config-progress-line-align-end config-progress-line-position-outer config-progress-line config-progress-show-info config-progress-default"
+  class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info config-progress-default"
   role="progressbar"
 >
   <div
@@ -21848,7 +21848,7 @@ exports[`ConfigProvider components Progress configProvider componentDisabled 1`]
 exports[`ConfigProvider components Progress configProvider componentSize large 1`] = `
 <div
   aria-valuenow="0"
-  class="config-progress config-progress-status-normal config-progress-line-align-end config-progress-line-position-outer config-progress-line config-progress-show-info config-progress-default"
+  class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info config-progress-default"
   role="progressbar"
 >
   <div
@@ -21876,7 +21876,7 @@ exports[`ConfigProvider components Progress configProvider componentSize large 1
 exports[`ConfigProvider components Progress configProvider componentSize middle 1`] = `
 <div
   aria-valuenow="0"
-  class="config-progress config-progress-status-normal config-progress-line-align-end config-progress-line-position-outer config-progress-line config-progress-show-info config-progress-default"
+  class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info config-progress-default"
   role="progressbar"
 >
   <div
@@ -21904,7 +21904,7 @@ exports[`ConfigProvider components Progress configProvider componentSize middle 
 exports[`ConfigProvider components Progress configProvider componentSize small 1`] = `
 <div
   aria-valuenow="0"
-  class="config-progress config-progress-status-normal config-progress-line-align-end config-progress-line-position-outer config-progress-line config-progress-show-info config-progress-default"
+  class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info config-progress-default"
   role="progressbar"
 >
   <div
@@ -21932,7 +21932,7 @@ exports[`ConfigProvider components Progress configProvider componentSize small 1
 exports[`ConfigProvider components Progress normal 1`] = `
 <div
   aria-valuenow="0"
-  class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-line ant-progress-show-info ant-progress-default"
+  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
   role="progressbar"
 >
   <div
@@ -21960,7 +21960,7 @@ exports[`ConfigProvider components Progress normal 1`] = `
 exports[`ConfigProvider components Progress prefixCls 1`] = `
 <div
   aria-valuenow="0"
-  class="prefix-Progress prefix-Progress-status-normal prefix-Progress-line-align-end prefix-Progress-line-position-outer prefix-Progress-line prefix-Progress-show-info prefix-Progress-default"
+  class="prefix-Progress prefix-Progress-status-normal prefix-Progress-line prefix-Progress-line-align-end prefix-Progress-line-position-outer prefix-Progress-show-info prefix-Progress-default"
   role="progressbar"
 >
   <div

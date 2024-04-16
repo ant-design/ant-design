@@ -2256,7 +2256,7 @@ Array [
           >
             <div
               aria-valuenow="60"
-              class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info"
+              class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
               role="progressbar"
             >
               <div
@@ -2299,7 +2299,7 @@ Array [
                   />
                 </svg>
                 <span
-                  class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+                  class="ant-progress-text"
                 />
               </div>
             </div>
@@ -3076,7 +3076,7 @@ exports[`renders components/steps/demo/progress.tsx correctly 1`] = `
         >
           <div
             aria-valuenow="60"
-            class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info"
+            class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
             role="progressbar"
           >
             <div
@@ -3119,7 +3119,7 @@ exports[`renders components/steps/demo/progress.tsx correctly 1`] = `
                 />
               </svg>
               <span
-                class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+                class="ant-progress-text"
               />
             </div>
           </div>
@@ -3324,7 +3324,7 @@ Array [
           >
             <div
               aria-valuenow="0"
-              class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info"
+              class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
               role="progressbar"
             >
               <div
@@ -3367,7 +3367,7 @@ Array [
                   />
                 </svg>
                 <span
-                  class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+                  class="ant-progress-text"
                 />
               </div>
             </div>
@@ -3507,7 +3507,7 @@ Array [
           >
             <div
               aria-valuenow="0"
-              class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info"
+              class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
               role="progressbar"
             >
               <div
@@ -3550,7 +3550,7 @@ Array [
                   />
                 </svg>
                 <span
-                  class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+                  class="ant-progress-text"
                 />
               </div>
             </div>
@@ -3690,7 +3690,7 @@ Array [
           >
             <div
               aria-valuenow="0"
-              class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info"
+              class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
               role="progressbar"
             >
               <div
@@ -3733,7 +3733,7 @@ Array [
                   />
                 </svg>
                 <span
-                  class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+                  class="ant-progress-text"
                 />
               </div>
             </div>
@@ -3873,7 +3873,7 @@ Array [
           >
             <div
               aria-valuenow="0"
-              class="ant-progress ant-progress-status-normal ant-progress-line-align-end ant-progress-line-position-outer ant-progress-circle ant-progress-show-info"
+              class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
               role="progressbar"
             >
               <div
@@ -3916,7 +3916,7 @@ Array [
                   />
                 </svg>
                 <span
-                  class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+                  class="ant-progress-text"
                 />
               </div>
             </div>

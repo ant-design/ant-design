@@ -128,6 +128,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     let text: React.ReactNode;
     const textFormatter = format || ((number) => `${number}%`);
     const isLineType = type === 'line';
+    const isBrightInnerColor = isLineType && strokeColorIsBright && infoPosition === 'inner';
     if (
       infoPosition === 'inner' ||
       format ||
@@ -144,9 +145,9 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
       <span
         className={classNames(
           `${prefixCls}-text`,
-          `${prefixCls}-text-${infoPosition}`,
-          `${prefixCls}-text-${infoAlign}`,
-          strokeColorIsBright && infoPosition === 'inner' && `${prefixCls}-text-bright`,
+          isLineType && `${prefixCls}-text-${infoPosition}`,
+          isLineType && `${prefixCls}-text-${infoAlign}`,
+          isBrightInnerColor && `${prefixCls}-text-bright`,
         )}
         title={typeof text === 'string' ? text : undefined}
       >
@@ -216,12 +217,12 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   const classString = classNames(
     prefixCls,
     `${prefixCls}-status-${progressStatus}`,
-    `${prefixCls}-line-align-${infoAlign}`,
-    `${prefixCls}-line-position-${infoPosition}`,
     {
       [`${prefixCls}-${(type === 'dashboard' && 'circle') || type}`]: type !== 'line',
       [`${prefixCls}-inline-circle`]: type === 'circle' && getSize(size, 'circle')[0] <= 20,
       [`${prefixCls}-line`]: !steps && type === 'line',
+      [`${prefixCls}-line-align-${infoAlign}`]: !steps && type === 'line',
+      [`${prefixCls}-line-position-${infoPosition}`]: !steps && type === 'line',
       [`${prefixCls}-steps`]: steps,
       [`${prefixCls}-show-info`]: showInfo,
       [`${prefixCls}-${size}`]: typeof size === 'string',
