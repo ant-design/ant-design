@@ -28,7 +28,7 @@ describe('Popover', () => {
     expect(container.querySelector('.ant-popover-inner-content')).toBeTruthy();
   });
 
-  it.only('should support defaultOpen', () => {
+  it('should support defaultOpen', () => {
     const { container } = render(
       <Popover title="code" defaultOpen>
         <span>show me your code</span>
