@@ -321,7 +321,7 @@
     "remark-gfm": "^4.0.0",
     "remark-lint": "^10.0.0",
     "remark-lint-no-undefined-references": "^5.0.0",
-    "remark-preset-lint-recommended": "^6.1.3",
+    "remark-preset-lint-recommended": "^7.0.0",
     "remark-rehype": "^11.1.0",
     "runes2": "^1.1.4",
     "semver": "^7.6.0",
