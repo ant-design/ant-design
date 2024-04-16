@@ -49,8 +49,6 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     mouseLeaveDelay = 0.1,
     onOpenChange,
     overlayStyle = {},
-    defaultOpen,
-    defaultVisible,
     ...otherProps
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
@@ -60,8 +58,9 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
   const rootPrefixCls = getPrefixCls();
 
   const overlayCls = classNames(overlayClassName, hashId, cssVarCls);
-  const [open, setOpen] = useMergedState(defaultOpen ?? defaultVisible, {
+  const [open, setOpen] = useMergedState(false, {
     value: props.open ?? props.visible,
+    defaultValue: props.defaultOpen ?? props.defaultVisible,
   });
 
   const settingOpen = (
