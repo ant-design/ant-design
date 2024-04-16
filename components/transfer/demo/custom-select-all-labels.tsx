@@ -22,7 +22,7 @@ const selectAllLabels: TransferProps['selectAllLabels'] = [
 ];
 
 const App: React.FC = () => {
-  const [targetKeys, setTargetKeys] = useState(oriTargetKeys);
+  const [targetKeys, setTargetKeys] = useState<React.Key[]>(oriTargetKeys);
   return (
     <Transfer
       dataSource={mockData}

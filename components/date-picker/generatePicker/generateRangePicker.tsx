@@ -4,7 +4,8 @@ import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import SwapRightOutlined from '@ant-design/icons/SwapRightOutlined';
 import classNames from 'classnames';
-import { RangePicker as RCRangePicker, type PickerRef } from 'rc-picker';
+import { RangePicker as RCRangePicker } from 'rc-picker';
+import type { PickerRef } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
 
 import { useZIndex } from '../../_util/hooks/useZIndex';
@@ -113,7 +114,7 @@ export default function generateRangePicker<DateType extends AnyObject>(
             </span>
           }
           disabled={mergedDisabled}
-          ref={innerRef}
+          ref={innerRef as any} // Need to modify PickerRef
           popupAlign={transPlacement2DropdownAlign(direction, placement)}
           placeholder={getRangePlaceholder(locale, picker, placeholder)}
           suffixIcon={suffixNode}

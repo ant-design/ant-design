@@ -88,6 +88,7 @@ expect.addSnapshotSerializer({
 /** Demo Test only accept render as SSR to make sure align with both `server` & `client` side */
 expect.addSnapshotSerializer({
   test: (node) => node && typeof node === 'object' && node.type === 'demo' && node.html,
+  // @ts-ignore
   print: ({ html }) => {
     const { JSDOM } = jsdom;
     const { document } = new JSDOM().window;
@@ -96,6 +97,7 @@ expect.addSnapshotSerializer({
     const children = Array.from(document.body.childNodes);
 
     // Clean up `data-reactroot` since React 18 do not have this
+    // @ts-ignore
     children.forEach((ele: HTMLElement) => {
       if (typeof ele.removeAttribute === 'function') {
         ele.removeAttribute('data-reactroot');

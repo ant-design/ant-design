@@ -1,12 +1,35 @@
 import React, { useMemo } from 'react';
 import type { MenuProps } from 'antd';
 import { Tag, version } from 'antd';
+import { createStyles } from 'antd-style';
+import classnames from 'classnames';
 import { useFullSidebarData, useSidebarData } from 'dumi';
 
 import Link from '../theme/common/Link';
 import useLocation from './useLocation';
 
-const MenuItemLabelWithTag: React.FC<{
+function isVersionNumber(value?: string) {
+  return value && /^\d+\.\d+\.\d+$/.test(value);
+}
+
+const useStyle = createStyles(({ css, token }) => ({
+  link: css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  `,
+  tag: css`
+    margin-inline-end: 0;
+  `,
+  subtitle: css`
+    margin-inline-start: ${token.marginXS}px;
+    font-weight: normal;
+    font-size: ${token.fontSizeSM}px;
+    opacity: 0.8;
+  `,
+}));
+
+interface MenuItemLabelProps {
   before?: React.ReactNode;
   after?: React.ReactNode;
   link: string;
@@ -15,27 +38,23 @@ const MenuItemLabelWithTag: React.FC<{
   search?: string;
   tag?: string;
   className?: string;
-}> = ({ before, after, link, title, subtitle, search, tag = '', className }) => {
+}
+
+const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
+  const { styles } = useStyle();
+  const { before, after, link, title, subtitle, search, tag, className } = props;
   if (!before && !after) {
     return (
-      <Link
-        to={`${link}${search}`}
-        style={
-          tag
-            ? { display: 'flex', alignItems: 'center', justifyContent: 'space-between' }
-            : undefined
-        }
-        className={className}
-      >
+      <Link to={`${link}${search}`} className={classnames(className, { [styles.link]: tag })}>
         <span>
           {title}
-          {subtitle && <span className="chinese">{subtitle}</span>}
+          {subtitle && <span className={styles.subtitle}>{subtitle}</span>}
         </span>
         {tag && (
           <Tag
             bordered={false}
-            color={tag === 'New' ? 'success' : 'processing'}
-            style={{ marginBlockEnd: 0 }}
+            className={classnames(styles.tag)}
+            color={isVersionNumber(tag) || tag === 'New' ? 'success' : 'processing'}
           >
             {tag.replace('VERSION', version)}
           </Tag>
@@ -47,7 +66,7 @@ const MenuItemLabelWithTag: React.FC<{
     <Link to={`${link}${search}`} className={className}>
       {before}
       {title}
-      {subtitle && <span className="chinese">{subtitle}</span>}
+      {subtitle && <span className={styles.subtitle}>{subtitle}</span>}
       {after}
     </Link>
   );
@@ -58,7 +77,7 @@ export interface UseMenuOptions {
   after?: React.ReactNode;
 }
 
-const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => {
+const useMenu = (options: UseMenuOptions = {}): readonly [MenuProps['items'], string] => {
   const fullData = useFullSidebarData();
   const { pathname, search } = useLocation();
   const sidebarData = useSidebarData();
@@ -192,7 +211,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
     );
   }, [sidebarData, fullData, pathname, search, options]);
 
-  return [menuItems, pathname];
+  return [menuItems, pathname] as const;
 };
 
 export default useMenu;

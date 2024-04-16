@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { DumiDemoGrid, FormattedMessage } from 'dumi';
 import {
   BugFilled,
   BugOutlined,
@@ -8,11 +7,13 @@ import {
   ExperimentFilled,
   ExperimentOutlined,
 } from '@ant-design/icons';
-import classNames from 'classnames';
 import { ConfigProvider, Tooltip } from 'antd';
-import DemoContext from '../../slots/DemoContext';
+import classNames from 'classnames';
+import { DumiDemoGrid, FormattedMessage } from 'dumi';
+
 import useLayoutState from '../../../hooks/useLayoutState';
 import useLocale from '../../../hooks/useLocale';
+import DemoContext from '../../slots/DemoContext';
 
 const locales = {
   cn: {
@@ -55,7 +56,9 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
           const { previewerProps } = item;
           const { debug } = previewerProps;
 
-          if (debug && !showDebug) return acc;
+          if (debug && !showDebug) {
+            return acc;
+          }
 
           return acc.concat({
             ...item,
@@ -110,7 +113,7 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
           )}
         </Tooltip>
       </span>
-      <ConfigProvider theme={{ cssVar: enableCssVar }}>
+      <ConfigProvider theme={{ cssVar: enableCssVar, hashed: !enableCssVar }}>
         <DumiDemoGrid items={demos} />
       </ConfigProvider>
     </div>

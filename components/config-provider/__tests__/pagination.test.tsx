@@ -1,4 +1,5 @@
 import React from 'react';
+
 import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
 import Pagination from '../../pagination';

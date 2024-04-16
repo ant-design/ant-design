@@ -1,5 +1,6 @@
 import assert from 'assert';
-import { unistUtilVisit, type HastRoot, type UnifiedTransformer } from 'dumi';
+import type { HastRoot, UnifiedTransformer } from 'dumi';
+import { unistUtilVisit } from 'dumi';
 
 /**
  * plugin for modify hast tree when docs compiling

@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import React from 'react';
+
 import Space from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';

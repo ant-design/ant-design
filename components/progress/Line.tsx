@@ -4,8 +4,8 @@ import { presetPrimaryColors } from '@ant-design/colors';
 import { devUseWarning } from '../_util/warning';
 import type { DirectionType } from '../config-provider';
 import type { ProgressGradient, ProgressProps, StringGradients } from './progress';
-import { getSize, getSuccessPercent, validProgress } from './utils';
 import { LineStrokeColorVar, Percent } from './style';
+import { getSize, getSuccessPercent, validProgress } from './utils';
 
 interface LineProps extends ProgressProps {
   prefixCls: string;

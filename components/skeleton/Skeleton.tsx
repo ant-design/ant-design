@@ -1,5 +1,6 @@
-import classNames from 'classnames';
 import * as React from 'react';
+import classNames from 'classnames';
+
 import { ConfigContext } from '../config-provider';
 import type { AvatarProps } from './Avatar';
 import SkeletonAvatar from './Avatar';
@@ -10,10 +11,9 @@ import SkeletonInput from './Input';
 import SkeletonNode from './Node';
 import type { SkeletonParagraphProps } from './Paragraph';
 import Paragraph from './Paragraph';
+import useStyle from './style';
 import type { SkeletonTitleProps } from './Title';
 import Title from './Title';
-
-import useStyle from './style';
 
 /* This only for skeleton internal. */
 type SkeletonAvatarProps = Omit<AvatarProps, 'active'>;

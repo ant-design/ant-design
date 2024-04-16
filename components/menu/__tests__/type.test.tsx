@@ -1,5 +1,7 @@
 import React from 'react';
-import Menu, { type MenuItemProps } from '..';
+
+import Menu from '..';
+import type { MenuItemProps } from '..';
 import type { MenuItemType } from '../hooks/useItems';
 
 describe('Menu.typescript', () => {

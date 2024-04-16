@@ -1,5 +1,5 @@
-import { css, Global } from '@emotion/react';
 import React from 'react';
+import { css, Global } from '@emotion/react';
 import { useTheme } from 'antd-style';
 
 export default () => {
@@ -28,9 +28,11 @@ export default () => {
             text-align: center;
             list-style: none;
             background-color: inherit;
-            border-radius: 4px;
+            border-radius: ${token.borderRadiusSM}px;
             cursor: pointer;
-            transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            transition:
+              color ${token.motionDurationSlow} ease-in-out,
+              background-color ${token.motionDurationSlow} ease-in-out;
 
             .rtl & {
               margin: 3px 0;
@@ -38,9 +40,9 @@ export default () => {
             }
 
             ${iconCls} {
-              margin: 12px 0 8px;
+              margin: ${token.marginSM}px 0 ${token.marginXS}px;
               font-size: 36px;
-              transition: transform 0.3s ease-in-out;
+              transition: transform ${token.motionDurationSlow} ease-in-out;
               will-change: transform;
             }
 
@@ -53,7 +55,7 @@ export default () => {
               transform: scale(0.83);
 
               ${antCls}-badge {
-                transition: color 0.3s ease-in-out;
+                transition: color ${token.motionDurationSlow} ease-in-out;
               }
             }
 
@@ -89,7 +91,7 @@ export default () => {
               text-align: center;
               background: #1677ff;
               opacity: 0;
-              transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+              transition: all ${token.motionDurationSlow} cubic-bezier(0.18, 0.89, 0.32, 1.28);
               content: 'Copied!';
             }
 
@@ -101,9 +103,9 @@ export default () => {
 
         .copied-code {
           padding: 2px 4px;
-          font-size: 12px;
-          background: #f5f5f5;
-          border-radius: 2px;
+          font-size: ${token.fontSizeSM}px;
+          background: ${token.colorBgLayout};
+          border-radius: ${token.borderRadiusXS}px;
         }
       `}
     />

@@ -1,3 +1,4 @@
+import React, { useContext } from 'react';
 import {
   AntDesignOutlined,
   BgColorsOutlined,
@@ -14,11 +15,11 @@ import {
 } from '@ant-design/icons';
 import { TinyColor } from '@ctrl/tinycolor';
 import { createStyles } from 'antd-style';
+import getAlphaColor from 'antd/es/theme/util/getAlphaColor';
 import { FormattedMessage, Link } from 'dumi';
 import RcFooter from 'rc-footer';
 import type { FooterColumn } from 'rc-footer/lib/column';
-import React, { useContext } from 'react';
-import getAlphaColor from 'antd/es/theme/util/getAlphaColor';
+
 import useLocale from '../../../hooks/useLocale';
 import useLocation from '../../../hooks/useLocation';
 import SiteContext from '../SiteContext';
@@ -42,47 +43,47 @@ const useStyle = () => {
 
     return {
       holder: css`
-      background: ${background};
-    `,
+        background: ${background};
+      `,
 
       footer: css`
-      background: ${background};
-      color: ${token.colorTextSecondary};
-      box-shadow: inset 0 106px 36px -116px rgba(0, 0, 0, 0.14);
-
-      * {
-        box-sizing: border-box;
-      }
-
-      h2,
-      a {
-        color: ${token.colorText};
-      }
-
-      .rc-footer-column {
-        margin-bottom: ${isMobile ? 60 : 0}px;
-        :last-child {
-          margin-bottom: ${isMobile ? 20 : 0}px;
-        }
-      }
-
-      .rc-footer-item-icon {
-        top: -1.5px;
-      }
-
-      .rc-footer-container {
-        max-width: 1208px;
-        margin-inline: auto;
-        padding-inline: ${token.marginXXL}px;
-      }
-
-      .rc-footer-bottom {
+        background: ${background};
+        color: ${token.colorTextSecondary};
         box-shadow: inset 0 106px 36px -116px rgba(0, 0, 0, 0.14);
-        .rc-footer-bottom-container {
-          font-size: ${token.fontSize}px;
+
+        * {
+          box-sizing: border-box;
         }
-      }
-    `,
+
+        h2,
+        a {
+          color: ${token.colorText};
+        }
+
+        .rc-footer-column {
+          margin-bottom: ${isMobile ? 60 : 0}px;
+          :last-child {
+            margin-bottom: ${isMobile ? 20 : 0}px;
+          }
+        }
+
+        .rc-footer-item-icon {
+          top: -1.5px;
+        }
+
+        .rc-footer-container {
+          max-width: 1208px;
+          margin-inline: auto;
+          padding-inline: ${token.marginXXL}px;
+        }
+
+        .rc-footer-bottom {
+          box-shadow: inset 0 106px 36px -116px rgba(0, 0, 0, 0.14);
+          .rc-footer-bottom-container {
+            font-size: ${token.fontSize}px;
+          }
+        }
+      `,
     };
   })();
 };
@@ -246,7 +247,7 @@ const Footer: React.FC = () => {
           en: 'JoinUs',
         }),
         LinkComponent: Link,
-      } as unknown as typeof col2['items'][number]);
+      } as unknown as (typeof col2)['items'][number]);
     }
 
     const col3 = {

@@ -1,10 +1,11 @@
+import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { resetWarned } from 'rc-util/lib/warning';
-import React from 'react';
+
 import Alert from '..';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, render, screen } from '../../../tests/utils';
+import { act, render, screen, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import Popconfirm from '../../popconfirm';
 import Tooltip from '../../tooltip';
@@ -106,11 +107,9 @@ describe('Alert', () => {
 
     await userEvent.hover(screen.getByRole('alert'));
 
-    act(() => {
-      jest.runAllTimers();
-    });
+    await waitFakeTimer();
 
-    expect(screen.getByRole('tooltip')).toBeInTheDocument();
+    expect(document.querySelector<HTMLDivElement>('.ant-tooltip')).toBeInTheDocument();
   });
 
   it('could be used with Popconfirm', async () => {

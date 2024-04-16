@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Button, Form, Input, Modal, Radio, type FormInstance } from 'antd';
+import React, { useEffect, useState } from 'react';
+import type { FormInstance } from 'antd';
+import { Button, Form, Input, Modal, Radio } from 'antd';
 
 interface Values {
   title?: string;

@@ -2,7 +2,8 @@ import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
 import { genOverflowStyle, getMultipleSelectorUnit } from '../../select/style/multiple';
-import { mergeToken, type GenerateStyle } from '../../theme/internal';
+import { mergeToken } from '../../theme/internal';
+import type { GenerateStyle } from '../../theme/internal';
 import type { PickerToken } from './token';
 
 const genSize = (token: PickerToken, suffix?: string): CSSInterpolation => {

@@ -1,5 +1,6 @@
 import type { FC } from 'react';
 import React, { useEffect, useState } from 'react';
+
 import type { Color } from '../color';
 import type { ColorPickerBaseProps } from '../interface';
 import { generateColor, getAlphaColor } from '../util';
@@ -21,7 +22,7 @@ const ColorAlphaInput: FC<ColorAlphaInputProps> = ({ prefixCls, value, onChange 
     }
   }, [value]);
 
-  const handleAlphaChange = (step: number) => {
+  const handleAlphaChange = (step: number | null) => {
     const hsba = alphaValue.toHsb();
     hsba.a = (step || 0) / 100;
     const genColor = generateColor(hsba);

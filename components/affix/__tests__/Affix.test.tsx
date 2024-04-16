@@ -23,7 +23,7 @@ const AffixMounter: React.FC<AffixProps> = (props) => {
       container.current.addEventListener = jest
         .fn()
         .mockImplementation((event: keyof HTMLElementEventMap, cb: (ev: Event) => void) => {
-          events[event] = cb;
+          (events as any)[event] = cb;
         });
     }
   }, []);
@@ -37,8 +37,8 @@ const AffixMounter: React.FC<AffixProps> = (props) => {
 };
 
 describe('Affix Render', () => {
-  rtlTest(Affix);
-  accessibilityTest(Affix);
+  rtlTest(Affix as any);
+  accessibilityTest(Affix as any);
 
   const domMock = jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
 

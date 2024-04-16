@@ -1,5 +1,6 @@
-import { UserOutlined } from '@ant-design/icons';
 import React from 'react';
+import { UserOutlined } from '@ant-design/icons';
+
 import notification, { actWrapper } from '..';
 import { act, fireEvent } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
@@ -246,6 +247,42 @@ describe('notification', () => {
 
     notification.config({
       closeIcon: null,
+    });
+  });
+
+  it('support config closable', async () => {
+    notification.config({
+      closable: {
+        closeIcon: <span className="test-customize-icon" />,
+        'aria-label': 'CloseBtn',
+      },
+    });
+
+    // Global Icon
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
+    });
+    await awaitPromise();
+
+    expect(document.querySelector('.test-customize-icon')).toBeTruthy();
+    expect(document.querySelector('*[aria-label="CloseBtn"]')).toBeTruthy();
+
+    // Notice Icon
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
+      closable: {
+        closeIcon: <span className="replace-icon" />,
+        'aria-label': 'CloseBtn2',
+      },
+    });
+
+    expect(document.querySelector('.replace-icon')).toBeTruthy();
+    expect(document.querySelector('*[aria-label="CloseBtn2"]')).toBeTruthy();
+
+    notification.config({
+      closable: undefined,
     });
   });
 

@@ -1,9 +1,10 @@
 import type { DerivativeFunc } from '@ant-design/cssinjs';
-import genControlHeight from '../shared/genControlHeight';
+
 import type { MapToken, SeedToken } from '../../interface';
 import defaultAlgorithm from '../default';
-import genCompactSizeMapToken from './genCompactSizeMapToken';
+import genControlHeight from '../shared/genControlHeight';
 import genFontMapToken from '../shared/genFontMapToken';
+import genCompactSizeMapToken from './genCompactSizeMapToken';
 
 const derivative: DerivativeFunc<SeedToken, MapToken> = (token, mapToken) => {
   const mergedMapToken = mapToken ?? defaultAlgorithm(token);

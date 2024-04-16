@@ -1,6 +1,4 @@
-import type * as React from 'react';
 import Group from './group';
-import type { RadioProps, RadioRef } from './interface';
 import InternalRadio from './radio';
 import Button from './radioButton';
 
@@ -16,9 +14,7 @@ export {
 } from './interface';
 export { Button, Group };
 
-type CompoundedComponent = React.ForwardRefExoticComponent<
-  RadioProps & React.RefAttributes<RadioRef>
-> & {
+type CompoundedComponent = typeof InternalRadio & {
   Group: typeof Group;
   Button: typeof Button;
   /** @internal */

@@ -698,4 +698,30 @@ describe('ColorPicker', () => {
       container.querySelector('.ant-color-picker-trigger .ant-color-picker-clear'),
     ).toBeFalsy();
   });
+
+  describe('default clearValue should be changed', () => {
+    const Demo = () => {
+      const [color, setColor] = useState<string>('');
+      useEffect(() => {
+        setColor('#1677ff');
+      }, []);
+      return <ColorPicker value={color} allowClear />;
+    };
+
+    it('normal', () => {
+      const { container } = render(<Demo />);
+
+      expect(container.querySelector('.ant-color-picker-clear')).toBeFalsy();
+    });
+
+    it('strict', () => {
+      const { container } = render(
+        <React.StrictMode>
+          <Demo />
+        </React.StrictMode>,
+      );
+
+      expect(container.querySelector('.ant-color-picker-clear')).toBeFalsy();
+    });
+  });
 });

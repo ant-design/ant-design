@@ -1,6 +1,7 @@
+import * as React from 'react';
 import DotChartOutlined from '@ant-design/icons/DotChartOutlined';
 import classNames from 'classnames';
-import * as React from 'react';
+
 import { ConfigContext } from '../config-provider';
 import type { SkeletonElementProps } from './Element';
 import useStyle from './style';

@@ -2,12 +2,12 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes, unit } from '@ant-design/cssinjs';
 
 import { CONTAINER_MAX_OFFSET } from '../../_util/hooks/useZIndex';
-import { resetComponent, genFocusStyle } from '../../style';
+import { genFocusStyle, resetComponent } from '../../style';
 import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
 import genNotificationPlacementStyle from './placement';
 import genStackStyle from './stack';
-import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
