@@ -107,8 +107,7 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
       ${componentCls}-wrapper${componentCls}-picture-circle-wrapper
     `]: {
       ...clearFix(),
-      display: 'inline-block',
-      width: '100%',
+      display: 'block',
 
       [`${componentCls}${componentCls}-select`]: {
         width: uploadPictureCardSize,

@@ -1,13 +1,5 @@
 /* eslint-disable react/button-has-type */
-import React, {
-  Children,
-  createRef,
-  forwardRef,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import React, { Children, createRef, useContext, useEffect, useMemo, useState } from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import { composeRef } from 'rc-util/lib/ref';
@@ -59,15 +51,8 @@ type MergedHTMLAttributes = Omit<
 export interface ButtonProps extends BaseButtonProps, MergedHTMLAttributes {
   href?: string;
   htmlType?: ButtonHTMLType;
+  autoInsertSpace?: boolean;
 }
-
-type CompoundedComponent = React.ForwardRefExoticComponent<
-  ButtonProps & React.RefAttributes<HTMLElement>
-> & {
-  Group: typeof Group;
-  /** @internal */
-  __ANT_BUTTON: boolean;
-};
 
 type LoadingConfigType = {
   loading: boolean;
@@ -90,10 +75,10 @@ function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigTyp
   };
 }
 
-const InternalButton: React.ForwardRefRenderFunction<
+const InternalCompoundedButton = React.forwardRef<
   HTMLButtonElement | HTMLAnchorElement,
   ButtonProps
-> = (props, ref) => {
+>((props, ref) => {
   const {
     loading = false,
     prefixCls: customizePrefixCls,
@@ -114,6 +99,7 @@ const InternalButton: React.ForwardRefRenderFunction<
     htmlType = 'button',
     classNames: customClassNames,
     style: customStyle = {},
+    autoInsertSpace,
     ...rest
   } = props;
 
@@ -121,7 +107,10 @@ const InternalButton: React.ForwardRefRenderFunction<
   // Compatible with original `type` behavior
   const mergedType = type || 'default';
 
-  const { getPrefixCls, autoInsertSpaceInButton, direction, button } = useContext(ConfigContext);
+  const { getPrefixCls, direction, button } = useContext(ConfigContext);
+
+  const mergedInsertSpace = autoInsertSpace ?? button?.autoInsertSpace ?? true;
+
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
@@ -167,7 +156,7 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   useEffect(() => {
     // FIXME: for HOC usage like <FormatMessage />
-    if (!buttonRef || !(buttonRef as any).current || autoInsertSpaceInButton === false) {
+    if (!buttonRef || !(buttonRef as any).current || !mergedInsertSpace) {
       return;
     }
     const buttonText = (buttonRef as any).current.textContent;
@@ -206,7 +195,6 @@ const InternalButton: React.ForwardRefRenderFunction<
     );
   }
 
-  const autoInsertSpace = autoInsertSpaceInButton !== false;
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
@@ -230,7 +218,7 @@ const InternalButton: React.ForwardRefRenderFunction<
       [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
       [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonType(mergedType),
       [`${prefixCls}-loading`]: innerLoading,
-      [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && autoInsertSpace && !innerLoading,
+      [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && mergedInsertSpace && !innerLoading,
       [`${prefixCls}-block`]: block,
       [`${prefixCls}-dangerous`]: !!danger,
       [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -268,12 +256,11 @@ const InternalButton: React.ForwardRefRenderFunction<
     );
 
   const kids =
-    children || children === 0 ? spaceChildren(children, needInserted && autoInsertSpace) : null;
+    children || children === 0 ? spaceChildren(children, needInserted && mergedInsertSpace) : null;
 
   const genButtonContent = (iconComponent: React.ReactNode, kidsComponent: React.ReactNode) => {
     const isRTL = direction === 'rtl';
     const iconFirst = (iconPosition === 'start' && !isRTL) || (iconPosition === 'end' && isRTL);
-
     return (
       <>
         {iconFirst ? iconComponent : kidsComponent}
@@ -324,19 +311,22 @@ const InternalButton: React.ForwardRefRenderFunction<
       </Wave>
     );
   }
-
   return wrapCSSVar(buttonNode);
+});
+
+type CompoundedComponent = typeof InternalCompoundedButton & {
+  Group: typeof Group;
+  /** @internal */
+  __ANT_BUTTON: boolean;
 };
 
-const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
-  InternalButton,
-) as CompoundedComponent;
+const Button = InternalCompoundedButton as CompoundedComponent;
+
+Button.Group = Group;
+Button.__ANT_BUTTON = true;
 
 if (process.env.NODE_ENV !== 'production') {
   Button.displayName = 'Button';
 }
-
-Button.Group = Group;
-Button.__ANT_BUTTON = true;
 
 export default Button;

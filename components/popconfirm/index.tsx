@@ -37,7 +37,7 @@ export interface PopconfirmState {
   open?: boolean;
 }
 
-const Popconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props, ref) => {
+const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     placement = 'top',
@@ -112,11 +112,13 @@ const Popconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props, ref) =>
       {children}
     </Popover>,
   );
-}) as React.ForwardRefExoticComponent<
-  React.PropsWithoutRef<PopconfirmProps> & React.RefAttributes<unknown>
-> & {
+});
+
+type CompoundedComponent = typeof InternalPopconfirm & {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };
+
+const Popconfirm = InternalPopconfirm as CompoundedComponent;
 
 // We don't care debug panel
 /* istanbul ignore next */

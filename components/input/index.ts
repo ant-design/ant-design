@@ -1,7 +1,4 @@
-import type * as React from 'react';
-
 import Group from './Group';
-import type { InputProps, InputRef } from './Input';
 import InternalInput from './Input';
 import OTP from './OTP';
 import Password from './Password';
@@ -14,9 +11,7 @@ export type { PasswordProps } from './Password';
 export type { SearchProps } from './Search';
 export type { TextAreaProps } from './TextArea';
 
-type CompoundedComponent = React.ForwardRefExoticComponent<
-  InputProps & React.RefAttributes<InputRef>
-> & {
+type CompoundedComponent = typeof InternalInput & {
   Group: typeof Group;
   Search: typeof Search;
   TextArea: typeof TextArea;
