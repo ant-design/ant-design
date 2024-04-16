@@ -149,6 +149,10 @@ export default App;
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/ant-design/ant-design)
 
+或者使用 opensumi.run 进行在线开发：
+
+[![opensumi.run](https://custom-icon-badges.demolab.com/badge/opensumi-run-blue.svg?logo=opensumi)](https://opensumi.run/ide/ant-design/ant-design)
+
 或者克隆到本地开发:
 
 ```bash
