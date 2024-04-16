@@ -77,7 +77,7 @@ const genPickerMultipleStyle: GenerateStyle<PickerToken> = (token) => {
             margin: 0,
           },
 
-          // ================= placerholder ==================
+          // ================== placeholder ==================
           [`${componentCls}-selection-placeholder`]: {
             position: 'absolute',
             top: '50%',
