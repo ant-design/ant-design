@@ -100,7 +100,7 @@ async function downloadArtifact(msgKey: string, url: string, filepath: string, t
       const { loaded, total = 0 } = progressEvent;
 
       showMessage(
-        `下载进度 ${toMB(loaded)}MB/${toMB(total)}MB (${((loaded / total) * 100).toFixed(0)}%)`,
+        `下载进度 ${toMB(loaded)}MB/${toMB(total)}MB (${((loaded / total) * 100).toFixed(2)}%)`,
         true,
         msgKey,
       );
