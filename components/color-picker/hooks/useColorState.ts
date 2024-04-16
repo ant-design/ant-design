@@ -4,6 +4,8 @@ import type { Color } from '../color';
 import type { ColorValueType } from '../interface';
 import { generateColor } from '../util';
 
+const INIT_COLOR_REF = {} as ColorValueType;
+
 function hasValue(value?: ColorValueType) {
   return value !== undefined;
 }
@@ -33,7 +35,14 @@ const useColorState = (
     prevColor.current = color;
   };
 
+  const prevValue = useRef<ColorValueType | undefined>(INIT_COLOR_REF);
   useEffect(() => {
+    // `useEffect` will be executed twice in strict mode even if the deps are the same
+    // So we compare the value manually to avoid unnecessary update
+    if (prevValue.current === value) {
+      return;
+    }
+    prevValue.current = value;
     if (hasValue(value)) {
       const newColor = generateColor(value || '');
       if (prevColor.current.cleared === true) {
