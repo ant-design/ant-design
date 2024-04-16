@@ -4,8 +4,6 @@ date: 2024-04-17
 author: crazyair
 ---
 
-<!-- Ant Design 的一个 Form.Item 就是一个字段，比如 -->
-
 是否经常遇到，跟后端对接接口，定义省市字段经常是 2 个字段`{ province: 北京, city: 海淀 }`，而不是 `{ province:[北京，海淀] }`，我们经常需要在 `initialValues` 以及 `onFinish` 处理值，如下：
 
 ```tsx
