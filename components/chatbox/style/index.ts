@@ -3,6 +3,18 @@ import { Keyframes, unit } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
+const loadingMove = new Keyframes('loadingMove', {
+  '0%': {
+    opacity: 0.3,
+  },
+  '50%': {
+    opacity: 1,
+  },
+  '100%': {
+    opacity: 0.3,
+  },
+});
+
 const cursorBlink = new Keyframes('cursorBlink', {
   '0%': {
     opacity: 1,
@@ -29,7 +41,7 @@ const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
   return {
     [componentCls]: {
       display: 'flex',
-      gap: avatarGap,
+      columnGap: avatarGap,
       maxWidth: '100%',
       [`&${componentCls}-end`]: {
         justifyContent: 'end',
@@ -62,6 +74,35 @@ const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
           animationName: cursorBlink,
           animationDuration: '0.6s',
           animationIterationCount: 'infinite',
+          animationTimingFunction: 'linear',
+        },
+        [`${componentCls}-dot`]: {
+          position: 'relative',
+          display: 'flex',
+          alignItems: 'center',
+          height: '100%',
+          columnGap: token.marginXS,
+          '&-item': {
+            backgroundColor: token.colorPrimary,
+            borderRadius: '100%',
+            display: 'block',
+            width: 8,
+            height: 8,
+            opacity: 0.3,
+            animationName: loadingMove,
+            animationDuration: '1s',
+            animationIterationCount: 'infinite',
+            animationTimingFunction: 'linear',
+            '&:nth-child(1)': {
+              animationDelay: '0s',
+            },
+            '&:nth-child(2)': {
+              animationDelay: '0.3s',
+            },
+            '&:nth-child(3)': {
+              animationDelay: '0.6s',
+            },
+          },
         },
       },
     },

@@ -3,10 +3,10 @@ import classnames from 'classnames';
 
 import { ConfigContext } from '../config-provider';
 import type { ConfigConsumerProps } from '../config-provider';
-import Spin from '../spin';
 import useTypedEffect from './hooks/useTypedEffect';
 import useTypingValue from './hooks/useTypingValue';
 import type { ChatboxProps } from './interface';
+import Loading from './loading';
 import useStyle from './style';
 
 const Chatbox: React.FC<ChatboxProps> = (props) => {
@@ -58,7 +58,7 @@ const Chatbox: React.FC<ChatboxProps> = (props) => {
 
   const mergedContent = React.useMemo<React.ReactNode>(() => {
     if (loading) {
-      return <Spin />;
+      return <Loading prefixCls={prefixCls} />;
     }
     if (mergedTyping !== false) {
       return typedContent;

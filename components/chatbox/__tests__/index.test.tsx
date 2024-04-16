@@ -59,9 +59,8 @@ describe('chatbox', () => {
 
   it('Chatbox support loading', () => {
     const { container } = render(<Chatbox content="" loading />);
-    expect(
-      container.querySelector<HTMLSpanElement>('.ant-chatbox .ant-spin.ant-spin-spinning'),
-    ).toBeTruthy();
+    const selectors = '.ant-chatbox .ant-chatbox-content .ant-chatbox-dot';
+    expect(container.querySelector<HTMLSpanElement>(selectors)).toBeTruthy();
   });
 
   it('Chatbox support placement', () => {
