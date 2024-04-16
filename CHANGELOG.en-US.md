@@ -16,6 +16,23 @@ tag: vVERSION
 
 ---
 
+## 5.16.2
+
+`2024-04-15`
+
+- 🐞 Fix Input.OTP controlled `value` to `''` not work as expect. [#48399](https://github.com/ant-design/ant-design/pull/48399)
+- 🐞 Fix DatePicker of `multiple` with week picker not show the selection on the panel. [#48355](https://github.com/ant-design/ant-design/pull/48355)
+- 🐞 Fix Upload `listType` with `picture-card` or `picture-circle` has additional space on top. [#48370](https://github.com/ant-design/ant-design/pull/48370)
+- Typography
+  - 🐞 Fix Typography dynamic set `copyable` or `editable` will not show the operation button. [#48350](https://github.com/ant-design/ant-design/pull/48350)
+  - 🐞 Fix Typography dynamic update `copyable.text` not working. [#48347](https://github.com/ant-design/ant-design/pull/48347)
+  - 🐞 Fix Typography using `ellipsis` config with `expandable="collapsible"` and `row={1}` at both time will make ellipsis not working as expect. [#48340](https://github.com/ant-design/ant-design/pull/48340)
+- 💄 Fix Steps in compact theme not show the correct progress style. [#48251](https://github.com/ant-design/ant-design/pull/48251)
+- 💄 Refactor Tabs and wave-related components CSS duration values with `motionDurationSlow` Component Token. [#48311](https://github.com/ant-design/ant-design/pull/48311) [#48312](https://github.com/ant-design/ant-design/pull/48312) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🇯🇵 Add Transfer missing ja_JP translations. [#48411](https://github.com/ant-design/ant-design/pull/48411) [@Inshiku-Han](https://github.com/Inshiku-Han)
+- 🌐 Fix Picker ja-JP and ko-KR translations. [#48382](https://github.com/ant-design/ant-design/pull/48382) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🛠 Use constant instead of enumeration to reduce package size. [#48406](https://github.com/ant-design/ant-design/pull/48406) [@kiner-tang](https://github.com/kiner-tang)
+
 ## 5.16.1
 
 `2024-04-05`
@@ -43,8 +60,8 @@ tag: vVERSION
 - 🐞 Fix Button that vertically center icons when icon-only. [#48178](https://github.com/ant-design/ant-design/pull/48178) [@momesana](https://github.com/momesana)
 - 🐞 Fix Modal.confirm content is not centered when icon is null. [#48173](https://github.com/ant-design/ant-design/pull/48173)
 - Form [#48163](https://github.com/ant-design/ant-design/pull/48163) [@madocto](https://github.com/madocto)
-  - 🐞 1. Fix Form `getValueProps` shouldn't work when FormItem's `name` doesn't exist .
-  - 🐞 2. Fix Form's `setFieldsValue` should tread same as `setFields`.
+  - 🐞 Fix Form `getValueProps` shouldn't work when FormItem's `name` doesn't exist .
+  - 🐞 Fix Form's `setFieldsValue` should tread same as `setFields`.
 - 🐞 Fixe Table that internationalization of table columns fails when searching. [#48126](https://github.com/ant-design/ant-design/pull/48126) [@LingJinT](https://github.com/LingJinT)
 - 🐞 Fix Upload that `onChange` should be triggered when `fileList.length` is larger than `maxCount`. [#47747](https://github.com/ant-design/ant-design/pull/47747) [@Zhou-Bill](https://github.com/Zhou-Bill)
 - 🐞 Fix Carousel several <a href="https://github.com/ant-design/react-slick/pull/110" data-hovercard-type="pull_request" data-hovercard-url="/ant-design/react-slick/pull/110/hovercard">bugs</a> by upgrading react-slick changes and renewing TS type. [#48093](https://github.com/ant-design/ant-design/pull/48093)
