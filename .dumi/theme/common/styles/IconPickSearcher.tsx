@@ -1,5 +1,5 @@
-import { css, Global } from '@emotion/react';
 import React from 'react';
+import { css, Global } from '@emotion/react';
 import { useTheme } from 'antd-style';
 
 export default () => {
@@ -12,12 +12,12 @@ export default () => {
       styles={css`
         .icon-pic-searcher {
           display: inline-block;
-          margin: 0 8px;
+          margin: 0 ${token.marginXS}px;
 
           .icon-pic-btn {
             color: ${token.colorIcon};
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all ${token.motionDurationSlow};
 
             &:hover {
               color: ${token.colorIconHover};
@@ -29,10 +29,10 @@ export default () => {
           width: 66px;
           height: 66px;
           margin-top: 10px;
-          padding: 8px;
+          padding: ${token.paddingXS}px;
           text-align: center;
           border: 1px solid ${token.colorBorder};
-          border-radius: 4px;
+          border-radius: ${token.borderRadiusSM}px;
 
           > img {
             max-width: 50px;
@@ -57,8 +57,7 @@ export default () => {
               padding: 10px 0;
 
               > ${iconCls} {
-                font-size: 30px;
-
+                font-size: ${token.fontSizeHeading2}px;
                 :hover {
                   color: ${token.colorLinkHover};
                 }

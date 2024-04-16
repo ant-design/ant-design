@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Tooltip } from 'antd';
+
 import type { ProgressProps } from '..';
 import Progress from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import { handleGradient, sortGradient } from '../Line';
-import ProgressSteps from '../Steps';
 import { ProgressTypes } from '../progress';
+import ProgressSteps from '../Steps';
 
 describe('Progress', () => {
   mountTest(Progress);
@@ -403,5 +404,15 @@ describe('Progress', () => {
     progress = wrapper.querySelector('[role="progressbar"]');
     expect(progress).toHaveAttribute('aria-labelledby', 'progressLabel');
     expect(progress).toHaveAttribute('aria-valuenow', '90');
+  });
+
+  it('circle progress should accept steps', () => {
+    const { container } = render(<Progress percent={70} steps={{ count: 5, gap: 5 }} />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('circle progress steps can be number', () => {
+    const { container } = render(<Progress percent={70} steps={5} />);
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

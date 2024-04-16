@@ -1,6 +1,7 @@
 import * as React from 'react';
 
-import { ConfigContext, type RenderEmptyHandler } from '../../config-provider';
+import { ConfigContext } from '../../config-provider';
+import type { RenderEmptyHandler } from '../../config-provider';
 
 export default function useBase(
   customizePrefixCls?: string,

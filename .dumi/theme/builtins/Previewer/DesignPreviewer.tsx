@@ -10,10 +10,10 @@ import type { AntdPreviewerProps } from './Previewer';
 
 const useStyle = createStyles(({ token, css }) => ({
   wrapper: css`
+    position: relative;
     border: 1px solid ${token.colorBorderSecondary};
     border-radius: ${token.borderRadius}px;
-    padding: 20px 24px 40px;
-    position: relative;
+    padding: ${token.paddingMD}px ${token.paddingLG}px ${token.paddingMD * 2}px;
     margin-bottom: ${token.marginLG}px;
   `,
   title: css`
@@ -35,8 +35,8 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
   copy: css`
     position: absolute;
-    inset-inline-end: 20px;
-    inset-block-start: 20px;
+    inset-inline-end: ${token.paddingMD}px;
+    inset-block-start: ${token.paddingMD}px;
     cursor: pointer;
   `,
   copyTip: css`
@@ -49,7 +49,7 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
   tip: css`
     color: ${token.colorTextTertiary};
-    margin-top: 40px;
+    margin-top: ${token.marginMD * 2}px;
   `,
 }));
 
@@ -86,12 +86,12 @@ const DesignPreviewer: FC<AntdPreviewerProps> = ({ children, title, description,
         {copied ? (
           <div className={styles.copiedTip}>
             <CheckOutlined />
-            <span style={{ marginLeft: 8 }}>已复制，使用 Kitchen 插件即可粘贴</span>
+            <span style={{ marginInlineStart: 8 }}>已复制，使用 Kitchen 插件即可粘贴</span>
           </div>
         ) : (
           <div onClick={handleCopy} className={styles.copyTip}>
             <SketchOutlined />
-            <span style={{ marginLeft: 8 }}>复制 Sketch JSON</span>
+            <span style={{ marginInlineStart: 8 }}>复制 Sketch JSON</span>
           </div>
         )}
       </div>

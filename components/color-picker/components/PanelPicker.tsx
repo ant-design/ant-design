@@ -1,13 +1,14 @@
-import type { HsbaColorType } from '@rc-component/color-picker';
-import RcColorPicker from '@rc-component/color-picker';
 import type { FC } from 'react';
 import React, { useContext } from 'react';
+import type { HsbaColorType } from '@rc-component/color-picker';
+import RcColorPicker from '@rc-component/color-picker';
+
 import type { Color } from '../color';
 import { PanelPickerContext } from '../context';
 import type { ColorPickerBaseProps } from '../interface';
+import { generateColor } from '../util';
 import ColorClear from './ColorClear';
 import ColorInput from './ColorInput';
-import { generateColor } from '../util';
 
 export interface PanelPickerProps
   extends Pick<

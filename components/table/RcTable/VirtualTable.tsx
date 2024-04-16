@@ -1,4 +1,5 @@
 import { genVirtualTable } from 'rc-table';
+
 import type { InternalTableProps } from '../InternalTable';
 
 /**

@@ -1,14 +1,7 @@
+import type { CSSProperties, FC, HTMLAttributes, ReactElement, ReactNode } from 'react';
+import React, { Children, useContext } from 'react';
 import classNames from 'classnames';
-import type {
-  CSSProperties,
-  FC,
-  ForwardRefExoticComponent,
-  ForwardRefRenderFunction,
-  HTMLAttributes,
-  ReactElement,
-  ReactNode,
-} from 'react';
-import React, { Children, forwardRef, useContext } from 'react';
+
 import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
 import { Col } from '../grid';
@@ -62,21 +55,22 @@ export const Meta: FC<ListItemMetaProps> = ({
   );
 };
 
-export interface ListItemTypeProps
-  extends ForwardRefExoticComponent<ListItemProps & React.RefAttributes<HTMLElement>> {
-  Meta: typeof Meta;
-}
-
-const InternalItem: ForwardRefRenderFunction<HTMLDivElement, ListItemProps> = (
-  { prefixCls: customizePrefixCls, children, actions, extra, className, colStyle, ...others },
-  ref,
-) => {
+const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref) => {
+  const {
+    prefixCls: customizePrefixCls,
+    children,
+    actions,
+    extra,
+    className,
+    colStyle,
+    ...others
+  } = props;
   const { grid, itemLayout } = useContext(ListContext);
   const { getPrefixCls } = useContext(ConfigContext);
 
   const isItemContainsTextNodeAndNotSingular = () => {
     let result;
-    Children.forEach(children, (element: ReactElement<any>) => {
+    Children.forEach(children as ReactElement, (element) => {
       if (typeof element === 'string') {
         result = true;
       }
@@ -129,7 +123,6 @@ const InternalItem: ForwardRefRenderFunction<HTMLDivElement, ListItemProps> = (
         : [children, actionsContent, cloneElement(extra, { key: 'extra' })]}
     </Element>
   );
-
   return grid ? (
     <Col ref={ref} flex={1} style={colStyle}>
       {itemChildren}
@@ -137,8 +130,13 @@ const InternalItem: ForwardRefRenderFunction<HTMLDivElement, ListItemProps> = (
   ) : (
     itemChildren
   );
+});
+
+export type ListItemTypeProps = typeof InternalItem & {
+  Meta: typeof Meta;
 };
-const Item = forwardRef(InternalItem) as ListItemTypeProps;
+
+const Item = InternalItem as ListItemTypeProps;
 
 Item.Meta = Meta;
 

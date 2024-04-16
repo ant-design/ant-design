@@ -1,7 +1,8 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import type { ProgressProps as RcProgressProps } from 'rc-progress';
 import { Circle as RCCircle } from 'rc-progress';
-import * as React from 'react';
+
 import Tooltip from '../tooltip';
 import type { ProgressGradient, ProgressProps } from './progress';
 import { getPercentage, getSize, getStrokeColor } from './utils';
@@ -29,6 +30,7 @@ const Circle: React.FC<CircleProps> = (props) => {
     children,
     success,
     size = originWidth,
+    steps,
   } = props;
 
   const [width, height] = getSize(size, 'circle');
@@ -51,6 +53,7 @@ const Circle: React.FC<CircleProps> = (props) => {
     return undefined;
   }, [gapDegree, type]);
 
+  const percentArray = getPercentage(props);
   const gapPos = gapPosition || (type === 'dashboard' && 'bottom') || undefined;
 
   // using className to style stroke color
@@ -63,10 +66,11 @@ const Circle: React.FC<CircleProps> = (props) => {
 
   const circleContent = (
     <RCCircle
-      percent={getPercentage(props)}
+      steps={steps}
+      percent={steps ? percentArray[1] : percentArray}
       strokeWidth={strokeWidth}
       trailWidth={strokeWidth}
-      strokeColor={strokeColor}
+      strokeColor={steps ? strokeColor[1] : strokeColor}
       strokeLinecap={strokeLinecap}
       trailColor={trailColor}
       prefixCls={prefixCls}

@@ -1,5 +1,5 @@
-import { HomeOutlined, UserOutlined } from '@ant-design/icons';
 import React from 'react';
+import { HomeOutlined, UserOutlined } from '@ant-design/icons';
 import { Breadcrumb } from 'antd';
 
 const App: React.FC = () => (

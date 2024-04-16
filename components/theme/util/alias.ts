@@ -1,4 +1,5 @@
 import { TinyColor } from '@ctrl/tinycolor';
+
 import type { AliasToken, MapToken, OverrideToken, SeedToken } from '../interface';
 import seedToken from '../themes/seed';
 import getAlphaColor from './getAlphaColor';

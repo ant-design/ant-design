@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 import React from 'react';
 import chalk from 'chalk';
+import cliProgress from 'cli-progress';
 import fs from 'fs-extra';
-import ProgressBar from 'progress';
 import ReactDOMServer from 'react-dom/server';
 
 import { DesignTokenContext } from '../components/theme/internal';
@@ -10,19 +10,22 @@ import seedToken from '../components/theme/themes/seed';
 import { statistic } from '../components/theme/util/statistic';
 import { generateCssinjs, styleFiles } from './generate-cssinjs';
 
-console.log(chalk.green(`🔥 Collecting token statistics...`));
+console.log(`🪄 Collecting token statistics...`);
 
-const bar = new ProgressBar('🚀 Collecting by component: [:bar] :component (:current/:total)', {
-  complete: '=',
-  incomplete: ' ',
-  total: styleFiles.length,
-});
+const bar = new cliProgress.SingleBar(
+  {
+    format: `🪄 Collecting by component: [${chalk.cyan('{bar}')}] {component} | {value}/{total}`,
+  },
+  cliProgress.Presets.rect,
+);
+
+bar.start(styleFiles.length, 0);
 
 (async () => {
   await generateCssinjs({
     key: 'file',
     beforeRender(componentName: string) {
-      bar.tick(1, { component: componentName });
+      bar.increment({ component: componentName });
     },
     render(Component: any) {
       ReactDOMServer.renderToString(React.createElement(Component));
@@ -44,8 +47,8 @@ const bar = new ProgressBar('🚀 Collecting by component: [:bar] :component (:c
       );
     },
   });
-
+  bar.stop();
   const tokenPath = `${process.cwd()}/components/version/token.json`;
   fs.writeJsonSync(tokenPath, statistic, 'utf8');
-  console.log(chalk.green(`✅  Collected token statistics successfully, check it in`), tokenPath);
+  console.log(chalk.green(`✅ Collected token statistics successfully, check it in`), tokenPath);
 })();

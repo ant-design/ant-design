@@ -21,7 +21,7 @@ describe('Table.rowSelection', () => {
     errorSpy.mockRestore();
   });
 
-  const columns = [
+  const columns: TableProps['columns'] = [
     {
       title: 'Name',
       dataIndex: 'name',
@@ -918,7 +918,7 @@ describe('Table.rowSelection', () => {
 
   // https://github.com/ant-design/ant-design/issues/11384
   it('should keep item even if in filter', () => {
-    const filterColumns = [
+    const filterColumns: TableProps['columns'] = [
       {
         title: 'Name',
         dataIndex: 'name',

@@ -2882,7 +2882,7 @@ exports[`renders components/select/demo/option-label-center.tsx correctly 1`] = 
 </div>
 `;
 
-exports[`renders components/select/demo/option-label-prop.tsx correctly 1`] = `
+exports[`renders components/select/demo/option-render.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width:100%"

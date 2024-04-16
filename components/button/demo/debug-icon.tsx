@@ -1,14 +1,7 @@
 import React from 'react';
 import { SearchOutlined } from '@ant-design/icons';
-import {
-  Button,
-  ConfigProvider,
-  Divider,
-  Flex,
-  Radio,
-  Tooltip,
-  type ConfigProviderProps,
-} from 'antd';
+import { Button, ConfigProvider, Divider, Flex, Radio, Tooltip } from 'antd';
+import type { ConfigProviderProps } from 'antd';
 
 type SizeType = ConfigProviderProps['componentSize'];
 
