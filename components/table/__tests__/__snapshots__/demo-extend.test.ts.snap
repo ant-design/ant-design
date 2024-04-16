@@ -4156,7 +4156,7 @@ Array [
                       style="cursor: move;"
                       tabindex="0"
                     >
-                      Age
+                      Gender
                     </th>
                     <th
                       aria-describedby="DndDescribedBy-5"
@@ -4164,6 +4164,32 @@ Array [
                       aria-roledescription="sortable"
                       class="ant-table-cell"
                       id="2"
+                      role="button"
+                      scope="col"
+                      style="cursor: move;"
+                      tabindex="0"
+                    >
+                      Age
+                    </th>
+                    <th
+                      aria-describedby="DndDescribedBy-5"
+                      aria-disabled="false"
+                      aria-roledescription="sortable"
+                      class="ant-table-cell"
+                      id="3"
+                      role="button"
+                      scope="col"
+                      style="cursor: move;"
+                      tabindex="0"
+                    >
+                      Email
+                    </th>
+                    <th
+                      aria-describedby="DndDescribedBy-5"
+                      aria-disabled="false"
+                      aria-roledescription="sortable"
+                      class="ant-table-cell"
+                      id="4"
                       role="button"
                       scope="col"
                       style="cursor: move;"
@@ -4188,12 +4214,22 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
+                      male
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
                       32
                     </td>
                     <td
                       class="ant-table-cell"
                     >
-                      Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text
+                      John Brown@example.com
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London No. 1 Lake Park
                     </td>
                   </tr>
                   <tr
@@ -4208,7 +4244,17 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
+                      female
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
                       42
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      jimGreen@example.com
                     </td>
                     <td
                       class="ant-table-cell"
@@ -4228,7 +4274,47 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
+                      female
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
                       32
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      JoeBlack@example.com
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      Sidney No. 1 Lake Park
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="4"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      George Hcc
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      male
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      20
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      george@example.com
                     </td>
                     <td
                       class="ant-table-cell"

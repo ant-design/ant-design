@@ -3633,7 +3633,7 @@ exports[`renders components/table/demo/drag-column-sorting.tsx correctly 1`] = `
                     style="cursor:move"
                     tabindex="0"
                   >
-                    Age
+                    Gender
                   </th>
                   <th
                     aria-describedby="DndDescribedBy-2"
@@ -3641,6 +3641,32 @@ exports[`renders components/table/demo/drag-column-sorting.tsx correctly 1`] = `
                     aria-roledescription="sortable"
                     class="ant-table-cell"
                     id="2"
+                    role="button"
+                    scope="col"
+                    style="cursor:move"
+                    tabindex="0"
+                  >
+                    Age
+                  </th>
+                  <th
+                    aria-describedby="DndDescribedBy-2"
+                    aria-disabled="false"
+                    aria-roledescription="sortable"
+                    class="ant-table-cell"
+                    id="3"
+                    role="button"
+                    scope="col"
+                    style="cursor:move"
+                    tabindex="0"
+                  >
+                    Email
+                  </th>
+                  <th
+                    aria-describedby="DndDescribedBy-2"
+                    aria-disabled="false"
+                    aria-roledescription="sortable"
+                    class="ant-table-cell"
+                    id="4"
                     role="button"
                     scope="col"
                     style="cursor:move"
@@ -3665,12 +3691,22 @@ exports[`renders components/table/demo/drag-column-sorting.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
+                    male
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
                     32
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text
+                    John Brown@example.com
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London No. 1 Lake Park
                   </td>
                 </tr>
                 <tr
@@ -3685,7 +3721,17 @@ exports[`renders components/table/demo/drag-column-sorting.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
+                    female
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
                     42
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    jimGreen@example.com
                   </td>
                   <td
                     class="ant-table-cell"
@@ -3705,7 +3751,47 @@ exports[`renders components/table/demo/drag-column-sorting.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
+                    female
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
                     32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    JoeBlack@example.com
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Sidney No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="4"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    George Hcc
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    male
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    20
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    george@example.com
                   </td>
                   <td
                     class="ant-table-cell"
