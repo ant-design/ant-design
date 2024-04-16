@@ -6,6 +6,7 @@ import type { AlertProps } from '../alert';
 import type { BadgeProps } from '../badge';
 import type { ButtonProps } from '../button';
 import type { CardProps } from '../card';
+import type { ChatboxProps } from '../chatbox/interface';
 import type { CollapseProps } from '../collapse';
 import type { DrawerProps } from '../drawer';
 import type { FlexProps } from '../flex/interface';
@@ -149,6 +150,8 @@ export type TagConfig = ComponentStyleConfig & Pick<TagProps, 'closeIcon' | 'clo
 
 export type CardConfig = ComponentStyleConfig & Pick<CardProps, 'classNames' | 'styles'>;
 
+export type ChatboxConfig = ComponentStyleConfig & Pick<ChatboxProps, 'classNames' | 'styles'>;
+
 export type DrawerConfig = ComponentStyleConfig &
   Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon' | 'closable'>;
 
@@ -217,6 +220,7 @@ export interface ConfigConsumerProps {
   calendar?: ComponentStyleConfig;
   carousel?: ComponentStyleConfig;
   cascader?: ComponentStyleConfig;
+  chatbox?: ChatboxConfig;
   collapse?: CollapseConfig;
   floatButtonGroup?: FloatButtonGroupConfig;
   typography?: ComponentStyleConfig;

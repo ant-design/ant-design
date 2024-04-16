@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { TypingOption } from '..';
+import type { TypingOption } from '../interface';
 
 const useTypedEffect = (content?: string, mergedTyping?: Required<TypingOption> | false) => {
   const [typedContent, setTypedContent] = React.useState<string>('');

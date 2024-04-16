@@ -1,38 +1,13 @@
 import React from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 
 import { ConfigContext } from '../config-provider';
 import type { ConfigConsumerProps } from '../config-provider';
 import Spin from '../spin';
 import useTypedEffect from './hooks/useTypedEffect';
 import useTypingValue from './hooks/useTypingValue';
+import type { ChatboxProps } from './interface';
 import useStyle from './style';
-
-export interface TypingOption {
-  /**
-   * @since 5.17.0
-   * @default 1
-   */
-  step?: number;
-  /**
-   * @since 5.17.0
-   * @default 100
-   */
-  interval?: number;
-}
-
-export interface ChatboxProps {
-  prefixCls?: string;
-  className?: string;
-  rootClassName?: string;
-  style?: React.CSSProperties;
-  avatar?: React.ReactNode;
-  placement?: 'start' | 'end';
-  loading?: boolean;
-  typing?: boolean | TypingOption;
-  content: string;
-  contentRender?: (content?: string) => React.ReactNode;
-}
 
 const Chatbox: React.FC<ChatboxProps> = (props) => {
   const {
@@ -40,6 +15,8 @@ const Chatbox: React.FC<ChatboxProps> = (props) => {
     className,
     rootClassName,
     style,
+    classNames,
+    styles,
     avatar,
     placement = 'start',
     loading = false,
@@ -47,7 +24,7 @@ const Chatbox: React.FC<ChatboxProps> = (props) => {
     content,
     contentRender,
   } = props;
-  const { direction, getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
+  const { direction, chatbox, getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('chatbox', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
@@ -55,14 +32,28 @@ const Chatbox: React.FC<ChatboxProps> = (props) => {
 
   const { typedContent, showCursor } = useTypedEffect(content, mergedTyping);
 
-  const mergedCls = classNames(
+  const mergedCls = classnames(
     className,
     rootClassName,
+    chatbox?.className,
     prefixCls,
     hashId,
     cssVarCls,
     `${prefixCls}-${placement}`,
     { [`${prefixCls}-rtl`]: direction === 'rtl' },
+  );
+
+  const mergedAvatarCls = classnames(
+    `${prefixCls}-avatar`,
+    classNames?.avatar,
+    chatbox?.classNames?.avatar,
+  );
+
+  const mergedContentCls = classnames(
+    `${prefixCls}-content`,
+    classNames?.content,
+    chatbox?.classNames?.content,
+    { [`${prefixCls}-content-cursorBlink`]: showCursor && !loading },
   );
 
   const mergedContent = React.useMemo<React.ReactNode>(() => {
@@ -76,13 +67,13 @@ const Chatbox: React.FC<ChatboxProps> = (props) => {
   }, [content, loading, mergedTyping, typedContent]);
 
   return wrapCSSVar(
-    <div style={style} className={mergedCls}>
-      {avatar && <div className={`${prefixCls}-avatar`}>{avatar}</div>}
-      <div
-        className={classNames(`${prefixCls}-content`, {
-          [`${prefixCls}-content-cursorBlink`]: showCursor && !loading,
-        })}
-      >
+    <div style={{ ...chatbox?.style, ...style }} className={mergedCls}>
+      {avatar && (
+        <div style={{ ...chatbox?.styles?.avatar, ...styles?.avatar }} className={mergedAvatarCls}>
+          {avatar}
+        </div>
+      )}
+      <div style={{ ...chatbox?.styles?.content, ...styles?.content }} className={mergedContentCls}>
         {contentRender ? contentRender(content) : mergedContent}
       </div>
     </div>,

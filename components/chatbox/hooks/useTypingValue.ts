@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { ChatboxProps, TypingOption } from '..';
+import type { ChatboxProps, TypingOption } from '../interface';
 
 function isObject(value: any): value is Record<PropertyKey, any> {
   return value && typeof value === 'object';
