@@ -418,22 +418,36 @@ describe('Progress', () => {
 
   it('should show inner info position', () => {
     const { container: wrapper, rerender } = render(
-      <Progress percent={0} percentPosition={['center', 'inner']} size={[200, 20]} />,
+      <Progress
+        percent={0}
+        percentPosition={{ align: 'center', type: 'inner' }}
+        size={[200, 20]}
+      />,
     );
     expect(
       wrapper.querySelectorAll('.ant-progress-line-align-center.ant-progress-line-position-inner'),
     ).toHaveLength(1);
 
-    rerender(<Progress percent={100} percentPosition={['center', 'inner']} size={[400, 20]} />);
+    rerender(
+      <Progress
+        percent={100}
+        percentPosition={{ align: 'center', type: 'inner' }}
+        size={[400, 20]}
+      />,
+    );
     expect(wrapper.querySelectorAll('.ant-progress-text-inner')).toHaveLength(1);
 
-    rerender(<Progress percent={100} percentPosition={['center', 'outer']} />);
+    rerender(<Progress percent={100} percentPosition={{ align: 'center', type: 'outer' }} />);
     expect(wrapper.querySelectorAll('.ant-progress-layout-bottom')).toHaveLength(1);
   });
 
   it('render inner info position', () => {
     const { container } = render(
-      <Progress percent={100} percentPosition={['center', 'inner']} size={[400, 20]} />,
+      <Progress
+        percent={100}
+        percentPosition={{ align: 'center', type: 'inner' }}
+        size={[400, 20]}
+      />,
     );
     expect(container.firstChild).toMatchSnapshot();
   });
