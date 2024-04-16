@@ -40,7 +40,7 @@ import React from 'react';
 import type { FormItemProps } from 'antd';
 import { Cascader, Form } from 'antd';
 
-export const MyFormItem = (
+export const FormItem = (
   props: FormItemProps & { names?: FormItemProps<Record<string, any>>['name'][] },
 ) => {
   const form = Form.useFormInstance();
@@ -102,13 +102,13 @@ export const Demo = () => (
       console.log('Success:', values);
     }}
   >
-    <MyFormItem
+    <FormItem
       label="Address"
       names={['province', 'city']}
       rules={[{ required: true, type: 'array' }]}
     >
       <Cascader options={options} placeholder="Please select" />
-    </MyFormItem>
+    </FormItem>
   </Form>
 );
 ```
