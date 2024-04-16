@@ -6,12 +6,15 @@ import { genStyleHooks, mergeToken } from '../../theme/internal';
 const loadingMove = new Keyframes('loadingMove', {
   '0%': {
     opacity: 0.3,
+    transform: 'scale(1)',
   },
   '50%': {
     opacity: 1,
+    transform: 'scale(1.5)',
   },
   '100%': {
     opacity: 0.3,
+    transform: 'scale(1)',
   },
 });
 
@@ -86,9 +89,10 @@ const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
             backgroundColor: token.colorPrimary,
             borderRadius: '100%',
             display: 'block',
-            width: 8,
-            height: 8,
+            width: 6,
+            height: 6,
             opacity: 0.3,
+            transform: 'scale(1)',
             animationName: loadingMove,
             animationDuration: '1s',
             animationIterationCount: 'infinite',
