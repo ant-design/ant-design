@@ -7,7 +7,6 @@ import type {
   ProgressGradient,
   ProgressProps,
   StringGradients,
-  PercentAlignType,
   PercentPositionType,
 } from './progress';
 import { LineStrokeColorVar, Percent } from './style';
@@ -18,7 +17,7 @@ interface LineProps extends ProgressProps {
   direction?: DirectionType;
   children: React.ReactNode;
   strokeColor?: string | ProgressGradient;
-  percentPosition: [PercentAlignType, PercentPositionType];
+  percentPosition: PercentPositionType;
 }
 
 /**
@@ -93,7 +92,7 @@ const Line: React.FC<LineProps> = (props) => {
     success,
   } = props;
 
-  const [infoAlign, infoPosition] = percentPosition;
+  const { align: infoAlign, type: infoPosition } = percentPosition;
 
   const backgroundProps =
     strokeColor && typeof strokeColor !== 'string'

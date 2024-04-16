@@ -19,12 +19,14 @@ import { TinyColor } from '@ctrl/tinycolor';
 export const ProgressTypes = ['line', 'circle', 'dashboard'] as const;
 export type ProgressType = (typeof ProgressTypes)[number];
 const ProgressStatuses = ['normal', 'exception', 'active', 'success'] as const;
-export type PercentPositionType = 'inner' | 'outer';
-export type PercentAlignType = 'start' | 'center' | 'end';
 export type ProgressSize = 'default' | 'small';
 export type StringGradients = Record<string, string>;
 type FromToGradients = { from: string; to: string };
 export type ProgressGradient = { direction?: string } & (StringGradients | FromToGradients);
+export interface PercentPositionType {
+  align?: 'start' | 'center' | 'end';
+  type?: 'inner' | 'outer';
+}
 
 export interface SuccessProps {
   percent?: number;
@@ -58,7 +60,7 @@ export interface ProgressProps extends ProgressAriaProps {
   steps?: number | { count: number; gap: number };
   /** @deprecated Use `success` instead */
   successPercent?: number;
-  percentPosition?: [PercentAlignType, PercentPositionType];
+  percentPosition?: PercentPositionType;
   children?: React.ReactNode;
 }
 
@@ -76,11 +78,11 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     status,
     format,
     style,
-    percentPosition = [],
+    percentPosition = {},
     ...restProps
   } = props;
 
-  const [infoAlign = 'end', infoPosition = 'outer'] = percentPosition;
+  const { align: infoAlign = 'end', type: infoPosition = 'outer' } = percentPosition;
   const strokeColorNotArray = Array.isArray(strokeColor) ? strokeColor[0] : strokeColor;
   const strokeColorNotGradient =
     typeof strokeColor === 'string' || Array.isArray(strokeColor) ? strokeColor : undefined;
@@ -190,7 +192,10 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
         strokeColor={strokeColorNotArray}
         prefixCls={prefixCls}
         direction={direction}
-        percentPosition={[infoAlign, infoPosition]}
+        percentPosition={{
+          align: infoAlign,
+          type: infoPosition,
+        }}
       >
         {progressInfo}
       </Line>

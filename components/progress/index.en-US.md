@@ -60,7 +60,7 @@ Properties that shared by all types.
 | --- | --- | --- | --- | --- |
 | steps | The total step count | number | - | - |
 | strokeColor | The color of progress bar, render `linear-gradient` when passing an object, could accept `string[]` when has `steps`. | string \| string[] \| { from: string; to: string; direction: string } | - | 4.21.0: `string[]` |
-| percentPosition | Position of the progress value is passed into the array. The first element represents the horizontal position of the value, and the second element represents whether the value is inside or outside the progress bar | \[\"start\" \| \"center\" \| \"end\", \"inner\" \| \"outer\"\] | \[\"end\", \"outer\"\] | 5.17.0 |
+| percentPosition | Progress value position, passed in object, `align` indicates the horizontal position of the value, `type` indicates whether the value is inside or outside the progress bar | { align: string; type: string } | { align: \"end\", type: \"outer\" } | 5.17.0 |
 
 ### `type="circle"`
 

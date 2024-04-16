@@ -61,7 +61,7 @@ demo:
 | --- | --- | --- | --- | --- |
 | steps | 进度条总共步数 | number | - | - |
 | strokeColor | 进度条的色彩，传入 object 时为渐变。当有 `steps` 时支持传入一个数组。 | string \| string[] \| { from: string; to: string; direction: string } | - | 4.21.0: `string[]` |
-| percentPosition | 进度数值位置，传入数组，第一个元素代表数值的水平位置，第二个元素代表数值在进度条内部还是外部 | \[\"start\" \| \"center\" \| \"end\", \"inner\" \| \"outer\"\] | \[\"end\", \"outer\"\] | 5.17.0 |
+| percentPosition | 进度数值位置，传入对象，`align` 表示数值的水平位置，`type` 表示数值在进度条内部还是外部 | { align: string; type: string } | { align: \"end\", type: \"outer\" } | 5.17.0 |
 
 ### `type="circle"`
 
