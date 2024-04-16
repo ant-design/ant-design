@@ -12,17 +12,33 @@ const barAvatar: React.CSSProperties = {
   backgroundColor: '#87d068',
 };
 
+const hideAvatar: React.CSSProperties = {
+  visibility: 'hidden',
+};
+
 const App: React.FC = () => (
   <Flex gap="middle" vertical>
     <Chatbox
-      content="Good morning, how are you ?"
       placement="start"
+      content="Good morning, how are you ?"
       avatar={<Avatar size={32} icon={<UserOutlined />} style={fooAvatar} />}
     />
     <Chatbox
-      content="I'm fine, thank you !"
+      placement="start"
+      content="What a beautiful day !"
+      styles={{ avatar: hideAvatar }}
+      avatar={<Avatar size={32} />}
+    />
+    <Chatbox
       placement="end"
+      content="Hi, Good morning, I'm fine !"
       avatar={<Avatar size={32} icon={<UserOutlined />} style={barAvatar} />}
+    />
+    <Chatbox
+      placement="end"
+      content="thank you !"
+      styles={{ avatar: hideAvatar }}
+      avatar={<Avatar size={32} />}
     />
   </Flex>
 );
