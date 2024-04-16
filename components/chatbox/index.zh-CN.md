@@ -20,8 +20,8 @@ tag: 5.17.0
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/avatar-and-placement.tsx">支持位置和头像</code>
-<code src="./demo/stream-output.tsx">流式输出</code>
 <code src="./demo/loading.tsx">加载中</code>
+<code src="./demo/typing.tsx">打字效果</code>
 <code src="./demo/contentRender.tsx">自定义渲染</code>
 
 ## API

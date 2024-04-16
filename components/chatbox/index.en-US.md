@@ -19,8 +19,8 @@ Often used when chatting.
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/avatar-and-placement.tsx">Placement and avatar</code>
-<code src="./demo/stream-output.tsx">Stream output</code>
 <code src="./demo/loading.tsx">Loading</code>
+<code src="./demo/typing.tsx">Typing effect</code>
 <code src="./demo/contentRender.tsx">Content render</code>
 
 ## API
