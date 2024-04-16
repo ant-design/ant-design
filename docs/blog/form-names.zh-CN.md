@@ -118,4 +118,4 @@ export const Demo = () => (
 
 ## 聚合字段组件原理
 
-Antd Form.Item 有提供 2 个 API `getValueProps` `getValueFromEvent`，以及 rules 提供了 `transform`
+Antd Form.Item 有提供 2 个 API `getValueProps` `getValueFromEvent`，以及 rules 提供了 `transform`，可以对传给 `Cascader`、`Form` `validate` 的 `value` 进行处理，达到用一个 `Form.Item` 实现多个 `name` 的功能
