@@ -562,7 +562,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 
           '&::-webkit-scrollbar-thumb': {
             backgroundColor: token.colorTextTertiary,
-            borderRadius: 4,
+            borderRadius: token.borderRadiusSM,
           },
 
           // For Firefox

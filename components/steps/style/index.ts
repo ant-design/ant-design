@@ -138,14 +138,18 @@ export interface StepsToken extends FullToken<'Steps'> {
   inlineTailColor: string;
 }
 
-enum StepItemStatusEnum {
-  wait = 'wait',
-  process = 'process',
-  finish = 'finish',
-  error = 'error',
-}
+const STEP_ITEM_STATUS_WAIT = 'wait';
+const STEP_ITEM_STATUS_PROCESS = 'process';
+const STEP_ITEM_STATUS_FINISH = 'finish';
+const STEP_ITEM_STATUS_ERROR = 'error';
 
-const genStepsItemStatusStyle = (status: StepItemStatusEnum, token: StepsToken): CSSObject => {
+type StepItemStatus =
+  | typeof STEP_ITEM_STATUS_WAIT
+  | typeof STEP_ITEM_STATUS_PROCESS
+  | typeof STEP_ITEM_STATUS_FINISH
+  | typeof STEP_ITEM_STATUS_ERROR;
+
+const genStepsItemStatusStyle = (status: StepItemStatus, token: StepsToken): CSSObject => {
   const prefix = `${token.componentCls}-item`;
   const iconColorKey: keyof StepsToken = `${status}IconColor`;
   const titleColorKey: keyof StepsToken = `${status}TitleColor`;
@@ -286,13 +290,13 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       color: token.colorTextDescription,
       fontSize: token.fontSize,
     },
-    ...genStepsItemStatusStyle(StepItemStatusEnum.wait, token),
-    ...genStepsItemStatusStyle(StepItemStatusEnum.process, token),
+    ...genStepsItemStatusStyle(STEP_ITEM_STATUS_WAIT, token),
+    ...genStepsItemStatusStyle(STEP_ITEM_STATUS_PROCESS, token),
     [`${stepsItemCls}-process > ${stepsItemCls}-container > ${stepsItemCls}-title`]: {
       fontWeight: token.fontWeightStrong,
     },
-    ...genStepsItemStatusStyle(StepItemStatusEnum.finish, token),
-    ...genStepsItemStatusStyle(StepItemStatusEnum.error, token),
+    ...genStepsItemStatusStyle(STEP_ITEM_STATUS_FINISH, token),
+    ...genStepsItemStatusStyle(STEP_ITEM_STATUS_ERROR, token),
     [`${stepsItemCls}${componentCls}-next-error > ${componentCls}-item-title::after`]: {
       background: token.colorError,
     },

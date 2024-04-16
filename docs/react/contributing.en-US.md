@@ -3,7 +3,6 @@ group:
   title: Other
 order: 1
 title: Contributing
-toc: false
 ---
 
 The following is a set of guidelines for contributing to Ant Design. Please spend several minutes reading these guidelines before you create an issue or pull request.
