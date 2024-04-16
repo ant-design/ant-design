@@ -3,18 +3,14 @@ import { Keyframes, unit } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
-const loadingMove = new Keyframes('loadingMove', {
+const loadingBlink = new Keyframes('loadingBlink', {
   '0%': {
     opacity: 0.3,
     transform: 'scale(1)',
   },
-  '50%': {
+  '100%': {
     opacity: 1,
     transform: 'scale(1.5)',
-  },
-  '100%': {
-    opacity: 0.3,
-    transform: 'scale(1)',
   },
 });
 
@@ -93,10 +89,11 @@ const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
             height: 6,
             opacity: 0.3,
             transform: 'scale(1)',
-            animationName: loadingMove,
-            animationDuration: '1s',
+            animationName: loadingBlink,
+            animationDuration: '0.6s',
             animationIterationCount: 'infinite',
             animationTimingFunction: 'linear',
+            animationDirection: 'alternate',
             '&:nth-child(1)': {
               animationDelay: '0s',
             },
