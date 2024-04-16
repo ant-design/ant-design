@@ -54,9 +54,14 @@ const Menu = forwardRef<MenuRef, MenuProps>((props, ref) => {
     menu: menuRef.current,
     focus: (options) => {
       menuRef.current?.focus(options);
+      const first = menuRef.current?.list.querySelector('li:first-child')
+      if (first) {
+        const firstClickableChild = first.querySelector('a');
+        firstClickableChild?.focus()
+      }
     },
   }));
-  return <InternalMenu ref={menuRef} {...props} {...context} />;
+  return <InternalMenu itemType='button' ref={menuRef} {...props} {...context} />;
 }) as GenericComponent;
 
 Menu.Item = Item;
