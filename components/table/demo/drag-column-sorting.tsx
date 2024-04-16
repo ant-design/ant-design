@@ -15,7 +15,9 @@ import type { TableColumnsType } from 'antd';
 interface DataType {
   key: string;
   name: string;
+  gender: string;
   age: number;
+  email: string;
   address: string;
 }
 
@@ -23,20 +25,33 @@ const dataSource: DataType[] = [
   {
     key: '1',
     name: 'John Brown',
+    gender: 'male',
     age: 32,
-    address:
-      'Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text',
+    email: 'John Brown@example.com',
+    address: 'London No. 1 Lake Park',
   },
   {
     key: '2',
     name: 'Jim Green',
+    gender: 'female',
     age: 42,
+    email: 'jimGreen@example.com',
     address: 'London No. 1 Lake Park',
   },
   {
     key: '3',
     name: 'Joe Black',
+    gender: 'female',
     age: 32,
+    email: 'JoeBlack@example.com',
+    address: 'Sidney No. 1 Lake Park',
+  },
+  {
+    key: '4',
+    name: 'George Hcc',
+    gender: 'male',
+    age: 20,
+    email: 'george@example.com',
     address: 'Sidney No. 1 Lake Park',
   },
 ];
@@ -66,8 +81,16 @@ const baseColumns: TableColumnsType<DataType> = [
     dataIndex: 'name',
   },
   {
+    title: 'Gender',
+    dataIndex: 'gender',
+  },
+  {
     title: 'Age',
     dataIndex: 'age',
+  },
+  {
+    title: 'Email',
+    dataIndex: 'email',
   },
   {
     title: 'Address',
