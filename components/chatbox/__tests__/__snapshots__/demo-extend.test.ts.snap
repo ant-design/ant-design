@@ -98,7 +98,7 @@ exports[`renders components/chatbox/demo/avatar-and-placement.tsx extend context
     <div
       class="ant-chatbox-content"
     >
-      Hi, Good morning, I'm fine !
+      Hi, good morning, I'm fine !
     </div>
   </div>
   <div
@@ -121,7 +121,7 @@ exports[`renders components/chatbox/demo/avatar-and-placement.tsx extend context
     <div
       class="ant-chatbox-content"
     >
-      thank you !
+      Thank you !
     </div>
   </div>
 </div>

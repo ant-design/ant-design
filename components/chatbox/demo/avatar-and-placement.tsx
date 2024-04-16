@@ -31,12 +31,12 @@ const App: React.FC = () => (
     />
     <Chatbox
       placement="end"
-      content="Hi, Good morning, I'm fine !"
+      content="Hi, good morning, I'm fine !"
       avatar={<Avatar size={32} icon={<UserOutlined />} style={barAvatar} />}
     />
     <Chatbox
       placement="end"
-      content="thank you !"
+      content="Thank you !"
       styles={{ avatar: hideAvatar }}
       avatar={<Avatar size={32} />}
     />
