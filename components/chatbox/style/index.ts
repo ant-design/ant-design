@@ -58,6 +58,7 @@ const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
         padding: `${unit(token.paddingSM)} ${unit(token.padding)}`,
         color: token.colorText,
         fontSize: token.fontSize,
+        minHeight: 46,
         maxWidth: unit(messageMaxWidth),
         backgroundColor: token.colorInfoBg,
         borderRadius: token.borderRadiusLG,
@@ -77,9 +78,9 @@ const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
         },
         [`${componentCls}-dot`]: {
           position: 'relative',
+          height: '100%',
           display: 'flex',
           alignItems: 'center',
-          height: '100%',
           columnGap: token.marginXS,
           '&-item': {
             backgroundColor: token.colorPrimary,
