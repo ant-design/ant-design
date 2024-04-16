@@ -1,13 +1,23 @@
+/* eslint-disable no-await-in-loop */
 import React from 'react';
 
 import Chatbox from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render } from '../../../tests/utils';
+import { render, waitFakeTimer } from '../../../tests/utils';
 
 describe('chatbox', () => {
   mountTest(() => <Chatbox content="test" />);
   rtlTest(() => <Chatbox content="test" />);
+
+  beforeAll(() => {
+    jest.useFakeTimers();
+  });
+
+  afterAll(() => {
+    jest.useRealTimers();
+  });
+
   it('Chatbox component work', () => {
     const { container } = render(<Chatbox content="test" />);
     const element = container.querySelector<HTMLDivElement>('.ant-chatbox');
@@ -61,5 +71,13 @@ describe('chatbox', () => {
     expect(element).toHaveClass('ant-chatbox-start');
     rerender(<Chatbox placement="end" content="" />);
     expect(element).toHaveClass('ant-chatbox-end');
+  });
+
+  it('Chatbox support typing effect', async () => {
+    const { container } = render(<Chatbox typing content="你好你好你好" />);
+    const element = container.querySelector<HTMLDivElement>('.ant-chatbox .ant-chatbox-content');
+    expect(element?.textContent).toBe('你');
+    await waitFakeTimer();
+    expect(element?.textContent).toBe('你好你好你好');
   });
 });
