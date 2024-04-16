@@ -2,7 +2,7 @@ import AbstractCalculator from './calculator';
 
 const CALC_UNIT = 'CALC_UNIT';
 
-const regexp = new RegExp(`${CALC_UNIT}`, 'g');
+const regexp = new RegExp(CALC_UNIT, 'g');
 
 function unit(value: string | number) {
   if (typeof value === 'number') {
