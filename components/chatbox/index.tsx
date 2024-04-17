@@ -53,7 +53,7 @@ const Chatbox: React.FC<ChatboxProps> = (props) => {
     `${prefixCls}-content`,
     classNames?.content,
     chatbox?.classNames?.content,
-    { [`${prefixCls}-content-cursorBlink`]: showCursor && !loading },
+    { [`${prefixCls}-content-cursor-blink`]: showCursor && !loading },
   );
 
   const mergedContent = React.useMemo<React.ReactNode>(() => {

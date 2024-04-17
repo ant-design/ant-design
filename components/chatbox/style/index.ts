@@ -70,7 +70,7 @@ const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
         fontSize: token.fontSize,
         lineHeight: token.lineHeight,
         minHeight: calc(paddingSM).mul(2).add(calc(lineHeight).mul(fontSize)).equal(),
-        maxWidth: token.maxWidthContent,
+        maxWidth: token.chatboxContentMaxWidth,
         backgroundColor: token.colorInfoBg,
         borderRadius: token.borderRadiusLG,
         boxShadow: token.boxShadowTertiary,
@@ -78,8 +78,6 @@ const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
           display: 'inline-block',
           content: '"|"',
           fontWeight: 900,
-          transform: 'translate3d(0, -1px, 0)',
-          marginInlineStart: token.marginXXS,
           userSelect: 'none',
           opacity: 1,
           animationName: cursorBlink,
@@ -131,7 +129,7 @@ export default genStyleHooks<'Chatbox'>(
   'Chatbox',
   (token) => {
     const chatBoxToken = mergeToken<ChatboxToken>(token, {
-      maxWidthContent: 720,
+      chatboxContentMaxWidth: 720,
     });
     return genChatboxStyle(chatBoxToken);
   },
