@@ -98,12 +98,7 @@ const options = [
 ];
 
 export const Demo = () => (
-  <Form
-    initialValues={data}
-    onFinish={(values) => {
-      console.log(values);
-    }}
-  >
+  <Form initialValues={data} onFinish={(values) => console.log(values)}>
     <FormItem label="Address" names={['province', 'city']} rules={[{ required: true }]}>
       <Cascader options={options} placeholder="Please select" />
     </FormItem>
