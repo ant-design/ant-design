@@ -44,9 +44,8 @@ describe('chatbox', () => {
 
   it('Chatbox support typing', () => {
     const { container } = render(<Chatbox typing content="test" />);
-    const selectors = '.ant-chatbox .ant-chatbox-content';
-    expect(container.querySelector<HTMLDivElement>(selectors)).toHaveClass(
-      'ant-chatbox-content-cursor-blink',
+    expect(container.querySelector<HTMLDivElement>('.ant-chatbox')).toHaveClass(
+      'ant-chatbox-typing',
     );
   });
 

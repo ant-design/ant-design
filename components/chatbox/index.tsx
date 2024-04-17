@@ -23,7 +23,7 @@ const Chatbox: React.FC<ChatboxProps> = (props) => {
     typing,
     content,
     contentRender,
-    ...otherProps
+    ...otherHtmlProps
   } = props;
   const { direction, chatbox, getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('chatbox', customizePrefixCls);
@@ -31,7 +31,7 @@ const Chatbox: React.FC<ChatboxProps> = (props) => {
 
   const mergedTyping = useTypingValue(typing);
 
-  const { typedContent, showCursor } = useTypedEffect(content, mergedTyping);
+  const { typedContent, isTyping } = useTypedEffect(content, mergedTyping);
 
   const mergedCls = classnames(
     className,
@@ -41,7 +41,10 @@ const Chatbox: React.FC<ChatboxProps> = (props) => {
     hashId,
     cssVarCls,
     `${prefixCls}-${placement}`,
-    { [`${prefixCls}-rtl`]: direction === 'rtl' },
+    {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-typing`]: isTyping && !loading && !contentRender,
+    },
   );
 
   const mergedAvatarCls = classnames(
@@ -54,7 +57,6 @@ const Chatbox: React.FC<ChatboxProps> = (props) => {
     `${prefixCls}-content`,
     classNames?.content,
     chatbox?.classNames?.content,
-    { [`${prefixCls}-content-cursor-blink`]: showCursor && !loading && !contentRender },
   );
 
   const mergedText = mergedTyping !== false ? typedContent : content;
@@ -62,7 +64,7 @@ const Chatbox: React.FC<ChatboxProps> = (props) => {
   const mergedContent = contentRender ? contentRender(mergedText) : mergedText;
 
   return wrapCSSVar(
-    <div style={{ ...chatbox?.style, ...style }} className={mergedCls} {...otherProps}>
+    <div style={{ ...chatbox?.style, ...style }} className={mergedCls} {...otherHtmlProps}>
       {avatar && (
         <div style={{ ...chatbox?.styles?.avatar, ...styles?.avatar }} className={mergedAvatarCls}>
           {avatar}

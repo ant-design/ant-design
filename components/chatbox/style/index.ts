@@ -59,6 +59,18 @@ const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
       [`&${componentCls}-rtl`]: {
         direction: 'rtl',
       },
+      [`&${componentCls}-typing ${componentCls}-content::after`]: {
+        display: 'inline-block',
+        content: '"|"',
+        fontWeight: 900,
+        userSelect: 'none',
+        opacity: 1,
+        lineHeight: token.lineHeight,
+        animationName: cursorBlink,
+        animationDuration: '0.8s',
+        animationIterationCount: 'infinite',
+        animationTimingFunction: 'linear',
+      },
       [`& ${componentCls}-avatar`]: {
         display: 'inline-flex',
         justifyContent: 'center',
@@ -74,19 +86,7 @@ const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
         backgroundColor: token.colorInfoBg,
         borderRadius: token.borderRadiusLG,
         boxShadow: token.boxShadowTertiary,
-        '&-cursor-blink::after': {
-          display: 'inline-block',
-          content: '"|"',
-          fontWeight: 900,
-          userSelect: 'none',
-          opacity: 1,
-          lineHeight: token.lineHeight,
-          animationName: cursorBlink,
-          animationDuration: '0.8s',
-          animationIterationCount: 'infinite',
-          animationTimingFunction: 'linear',
-        },
-        [`${componentCls}-dot`]: {
+        [`& ${componentCls}-dot`]: {
           position: 'relative',
           height: '100%',
           display: 'flex',
