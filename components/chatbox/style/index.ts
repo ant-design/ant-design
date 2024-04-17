@@ -74,7 +74,7 @@ const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
         backgroundColor: token.colorInfoBg,
         borderRadius: token.borderRadiusLG,
         boxShadow: token.boxShadowTertiary,
-        '&-cursorBlink::after': {
+        '&-cursor-blink::after': {
           display: 'inline-block',
           content: '"|"',
           fontWeight: 900,
