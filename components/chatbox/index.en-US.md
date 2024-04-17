@@ -34,11 +34,17 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | avatar | Avatar component | `React.ReactNode` | - |  |
+| classNames | Semantic DOM class | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| styles | Semantic DOM style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
 | placement | Direction of Message | `start \| end` | `start` |  |
 | loading | Loading state of Message | `boolean` | - |  |
 | typing | Show message with typing motion | `boolean \| { step?: number, interval?: number }` | `false` |  |
 | content | Content of Chatbox | `string` | - |  |
 | contentRender | Display cuztomized content (If use `contentRender` prop, the typed effect needs to be implemented by yourself) | `(content?: string) => ReactNode` | - |  |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 
