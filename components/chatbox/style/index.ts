@@ -31,7 +31,7 @@ export interface ComponentToken {
 }
 
 export interface ChatboxToken extends FullToken<'Chatbox'> {
-  maxWidthContent: number;
+  chatboxContentMaxWidth: number;
 }
 
 const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
