@@ -82,7 +82,7 @@ const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
           opacity: 1,
           lineHeight: token.lineHeight,
           animationName: cursorBlink,
-          animationDuration: '0.6s',
+          animationDuration: '0.8s',
           animationIterationCount: 'infinite',
           animationTimingFunction: 'linear',
         },
