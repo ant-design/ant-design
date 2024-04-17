@@ -3,17 +3,6 @@ import { Keyframes, unit } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
-const loadingBlink = new Keyframes('loadingBlink', {
-  '0%': {
-    opacity: 0.3,
-    transform: 'scale(1)',
-  },
-  '100%': {
-    opacity: 1,
-    transform: 'scale(1.5)',
-  },
-});
-
 const cursorBlink = new Keyframes('cursorBlink', {
   '0%': {
     opacity: 1,
@@ -35,18 +24,8 @@ export interface ChatboxToken extends FullToken<'Chatbox'> {
 }
 
 const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
-  const {
-    componentCls,
-    fontSize,
-    lineHeight,
-    paddingSM,
-    padding,
-    paddingXS,
-    paddingXXS,
-    marginXS,
-    colorText,
-    calc,
-  } = token;
+  const { componentCls, fontSize, lineHeight, paddingSM, padding, paddingXS, colorText, calc } =
+    token;
   return {
     [componentCls]: {
       display: 'flex',
@@ -89,33 +68,11 @@ const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
         [`& ${componentCls}-dot`]: {
           position: 'relative',
           height: '100%',
-          display: 'flex',
+          display: 'inline-flex',
+          justifyContent: 'center',
           alignItems: 'center',
-          columnGap: marginXS,
-          padding: `0 ${unit(paddingXXS)}`,
-          '&-item': {
-            backgroundColor: token.colorPrimary,
-            borderRadius: '100%',
-            display: 'block',
-            width: 6,
-            height: 6,
-            opacity: 0.3,
-            transform: 'scale(1)',
-            animationName: loadingBlink,
-            animationDuration: '0.6s',
-            animationIterationCount: 'infinite',
-            animationTimingFunction: 'linear',
-            animationDirection: 'alternate',
-            '&:nth-child(1)': {
-              animationDelay: '0s',
-            },
-            '&:nth-child(2)': {
-              animationDelay: '0.3s',
-            },
-            '&:nth-child(3)': {
-              animationDelay: '0.6s',
-            },
-          },
+          color: token.colorPrimary,
+          fontSize: token.fontSizeLG,
         },
       },
     },
