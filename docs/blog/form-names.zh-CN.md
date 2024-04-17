@@ -101,7 +101,7 @@ export const Demo = () => (
   <Form
     initialValues={data}
     onFinish={(values) => {
-      console.log('Success:', values);
+      console.log(values);
     }}
   >
     <FormItem
