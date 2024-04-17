@@ -104,11 +104,7 @@ export const Demo = () => (
       console.log(values);
     }}
   >
-    <FormItem
-      label="Address"
-      names={['province', 'city']}
-      rules={[{ required: true, type: 'array' }]}
-    >
+    <FormItem label="Address" names={['province', 'city']} rules={[{ required: true }]}>
       <Cascader options={options} placeholder="Please select" />
     </FormItem>
   </Form>
