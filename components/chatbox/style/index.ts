@@ -31,7 +31,7 @@ export interface ComponentToken {
 }
 
 export interface ChatboxToken extends FullToken<'Chatbox'> {
-  chatboxContentMaxWidth: number;
+  chatboxContentMaxWidth: number | string;
 }
 
 const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
@@ -129,8 +129,9 @@ export const prepareComponentToken: GetDefaultToken<'Chatbox'> = () => ({
 export default genStyleHooks<'Chatbox'>(
   'Chatbox',
   (token) => {
+    const { paddingXS, calc } = token;
     const chatBoxToken = mergeToken<ChatboxToken>(token, {
-      chatboxContentMaxWidth: 720,
+      chatboxContentMaxWidth: `calc(100% - ${calc(paddingXS).add(32).equal()})`,
     });
     return genChatboxStyle(chatBoxToken);
   },

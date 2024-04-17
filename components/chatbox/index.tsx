@@ -53,7 +53,7 @@ const Chatbox: React.FC<ChatboxProps> = (props) => {
     `${prefixCls}-content`,
     classNames?.content,
     chatbox?.classNames?.content,
-    { [`${prefixCls}-content-cursor-blink`]: showCursor && !loading },
+    { [`${prefixCls}-content-cursor-blink`]: showCursor && !loading && !contentRender },
   );
 
   const mergedText = mergedTyping !== false ? typedContent : content;
