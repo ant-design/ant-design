@@ -23,6 +23,7 @@ const Chatbox: React.FC<ChatboxProps> = (props) => {
     typing,
     content,
     contentRender,
+    ...otherProps
   } = props;
   const { direction, chatbox, getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('chatbox', customizePrefixCls);
@@ -61,14 +62,14 @@ const Chatbox: React.FC<ChatboxProps> = (props) => {
   const mergedContent = contentRender ? contentRender(mergedText) : mergedText;
 
   return wrapCSSVar(
-    <div style={{ ...chatbox?.style, ...style }} className={mergedCls}>
+    <div style={{ ...chatbox?.style, ...style }} className={mergedCls} {...otherProps}>
       {avatar && (
         <div style={{ ...chatbox?.styles?.avatar, ...styles?.avatar }} className={mergedAvatarCls}>
           {avatar}
         </div>
       )}
       <div style={{ ...chatbox?.styles?.content, ...styles?.content }} className={mergedContentCls}>
-        {loading ? <Loading prefixCls={prefixCls} /> : mergedcontent}
+        {loading ? <Loading prefixCls={prefixCls} /> : mergedContent}
       </div>
     </div>,
   );

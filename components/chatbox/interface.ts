@@ -11,11 +11,9 @@ export interface TypingOption {
   interval?: number;
 }
 
-export interface ChatboxProps {
+export interface ChatboxProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   rootClassName?: string;
-  className?: string;
-  style?: React.CSSProperties;
   classNames?: {
     avatar?: string;
     content?: string;
