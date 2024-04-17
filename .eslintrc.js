@@ -102,6 +102,12 @@ module.exports = {
       },
     },
     {
+      files: ['components/**/*.ts', 'components/**/*.tsx'],
+      rules: {
+        'react/jsx-no-useless-fragment': 2,
+      },
+    },
+    {
       files: ['components/**/demo/*.tsx'],
       rules: {
         'import/no-extraneous-dependencies': 0,
@@ -111,6 +117,14 @@ module.exports = {
         'jsx-a11y/control-has-associated-label': 0,
         'class-methods-use-this': 0,
         'react/no-access-state-in-setstate': 0,
+        'react/jsx-no-useless-fragment': 0,
+      },
+    },
+
+    {
+      files: ['components/**/__tests__/*.ts', 'components/**/__tests__/*.tsx'],
+      rules: {
+        'react/jsx-no-useless-fragment': 0,
       },
     },
     {
