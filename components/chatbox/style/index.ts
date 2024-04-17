@@ -70,7 +70,7 @@ const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
         fontSize: token.fontSize,
         lineHeight: token.lineHeight,
         minHeight: calc(paddingSM).mul(2).add(calc(lineHeight).mul(fontSize)).equal(),
-        maxWidth: unit(token.maxWidthContent),
+        maxWidth: token.maxWidthContent,
         backgroundColor: token.colorInfoBg,
         borderRadius: token.borderRadiusLG,
         boxShadow: token.boxShadowTertiary,
