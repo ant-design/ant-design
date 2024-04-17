@@ -196,7 +196,7 @@ const ComponentChangelog: React.FC<ComponentChangelogProps> = (props) => {
                             {reason
                               ?.replace(/#.*$/, '')
                               ?.replace(
-                                /^https:\/\/github\.com\/ant-design\/ant-design\/(issues|pull)\//,
+                                /^https:\/\/github\.com\/ant-design\/(ant-design|cssinjs)\/(issues|pull)\//,
                                 '#',
                               )}
                           </a>
