@@ -190,8 +190,6 @@ const Dropdown: CompoundedComponent = (props) => {
     setOpen(nextOpen);
   });
 
-  const menuRef = React.useRef(null)
-
   const dropdownTrigger = cloneElement(child, {
     className: classNames(
       `${prefixCls}-trigger`,
@@ -207,9 +205,7 @@ const Dropdown: CompoundedComponent = (props) => {
       const handleKeyPress = (e: KeyboardEvent) => {
         if (e.key === 'Enter' || e.code === 'Space') {
           targetElement.removeEventListener('keypress', handleKeyPress);
-          onOpenChange?.(true, { source: 'menu' })
-          onVisibleChange?.(true);
-          setOpen(true)
+          onInnerOpenChange(true)
         }
       };
       targetElement.addEventListener('keypress', handleKeyPress);
@@ -264,7 +260,7 @@ const Dropdown: CompoundedComponent = (props) => {
     let overlayNode: React.ReactNode;
     if (menu?.items) {
       overlayNode = (
-        <Menu ref={menuRef} aria-labelledby={`${menuLabel}-button`} id={`${menuLabel}-menu`} {...menu} />
+        <Menu aria-labelledby={`${menuLabel}-button`} id={`${menuLabel}-menu`} {...menu} />
       );
     } else if (typeof overlay === 'function') {
       overlayNode = overlay();
