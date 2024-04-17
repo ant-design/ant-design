@@ -425,6 +425,8 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
           );
         } else if (isRenderProps && (shouldUpdate || dependencies) && !hasName) {
           childNode = mergedChildren(context as any);
+        } else if (noStyle) {
+          childNode = mergedChildren as React.ReactNode;
         } else {
           warning(
             !mergedName.length,
