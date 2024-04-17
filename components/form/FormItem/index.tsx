@@ -427,7 +427,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
           childNode = mergedChildren(context as any);
         } else {
           warning(
-            !mergedName.length,
+            !mergedName.length || !!noStyle,
             'usage',
             '`name` is only used for validate React element. If you are using Form.Item as layout display, please remove `name` instead.',
           );
