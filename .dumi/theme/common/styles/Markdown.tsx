@@ -469,12 +469,6 @@ const GlobalStyle: React.FC = () => {
             margin-bottom: 0;
           }
         }
-
-        .code-box[id^='chatbox-demo-'] {
-          .code-box-demo {
-            background-color: ${token.colorBgContainer};
-          }
-        }
       `}
     />
   );
