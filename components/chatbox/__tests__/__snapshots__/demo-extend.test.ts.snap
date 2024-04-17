@@ -176,7 +176,7 @@ exports[`renders components/chatbox/demo/contentRender.tsx extend context correc
     </span>
   </div>
   <div
-    class="ant-chatbox-content ant-chatbox-content-cursor-blink"
+    class="ant-chatbox-content"
   >
     <span>
       <h1 />
