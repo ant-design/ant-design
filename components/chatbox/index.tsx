@@ -58,7 +58,7 @@ const Chatbox: React.FC<ChatboxProps> = (props) => {
 
   const mergedText = mergedTyping !== false ? typedContent : content;
 
-  const mergedcontent = contentRender ? contentRender(mergedText) : mergedText;
+  const mergedContent = contentRender ? contentRender(mergedText) : mergedText;
 
   return wrapCSSVar(
     <div style={{ ...chatbox?.style, ...style }} className={mergedCls}>
