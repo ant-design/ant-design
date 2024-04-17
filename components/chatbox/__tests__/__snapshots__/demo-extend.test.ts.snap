@@ -178,7 +178,7 @@ exports[`renders components/chatbox/demo/contentRender.tsx extend context correc
   <div
     class="ant-chatbox-content"
   >
-    <div>
+    <span>
       <h1>
         Title
       </h1>
@@ -187,7 +187,7 @@ exports[`renders components/chatbox/demo/contentRender.tsx extend context correc
         <br />
 …
       </p>
-    </div>
+    </span>
   </div>
 </div>
 `;
@@ -310,7 +310,7 @@ exports[`renders components/chatbox/demo/typing.tsx extend context correctly 1`]
     </span>
   </div>
   <div
-    class="ant-chatbox-content ant-chatbox-content-cursorBlink"
+    class="ant-chatbox-content ant-chatbox-content-cursor-blink"
   >
     F
   </div>

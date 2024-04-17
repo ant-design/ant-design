@@ -11,7 +11,7 @@ const contentRender: ChatboxProps['contentRender'] = (content) => {
   if (!content) {
     return null;
   }
-  return <div dangerouslySetInnerHTML={{ __html: md.render(content) }} />;
+  return <span dangerouslySetInnerHTML={{ __html: md.render(content) }} />;
 };
 
 const App: React.FC = () => (

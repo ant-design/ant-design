@@ -56,15 +56,9 @@ const Chatbox: React.FC<ChatboxProps> = (props) => {
     { [`${prefixCls}-content-cursor-blink`]: showCursor && !loading },
   );
 
-  const mergedContent = React.useMemo<React.ReactNode>(() => {
-    if (loading) {
-      return <Loading prefixCls={prefixCls} />;
-    }
-    if (mergedTyping !== false) {
-      return typedContent;
-    }
-    return content;
-  }, [content, loading, mergedTyping, typedContent]);
+  const mergedText = mergedTyping !== false ? typedContent : content;
+
+  const mergedcontent = contentRender ? contentRender(mergedText) : mergedText;
 
   return wrapCSSVar(
     <div style={{ ...chatbox?.style, ...style }} className={mergedCls}>
@@ -74,7 +68,7 @@ const Chatbox: React.FC<ChatboxProps> = (props) => {
         </div>
       )}
       <div style={{ ...chatbox?.styles?.content, ...styles?.content }} className={mergedContentCls}>
-        {contentRender ? contentRender(content) : mergedContent}
+        {loading ? <Loading prefixCls={prefixCls} /> : mergedcontent}
       </div>
     </div>,
   );

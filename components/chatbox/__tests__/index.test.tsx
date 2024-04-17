@@ -46,7 +46,7 @@ describe('chatbox', () => {
     const { container } = render(<Chatbox typing content="test" />);
     const selectors = '.ant-chatbox .ant-chatbox-content';
     expect(container.querySelector<HTMLDivElement>(selectors)).toHaveClass(
-      'ant-chatbox-content-cursorBlink',
+      'ant-chatbox-content-cursor-blink',
     );
   });
 

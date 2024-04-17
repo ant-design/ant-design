@@ -40,7 +40,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | loading | Loading state of Message | `boolean` | - |  |
 | typing | Show message with typing motion | `boolean \| { step?: number, interval?: number }` | `false` |  |
 | content | Content of Chatbox | `string` | - |  |
-| contentRender | Display cuztomized content (If use `contentRender` prop, the typed effect needs to be implemented by yourself) | `(content?: string) => ReactNode` | - |  |
+| contentRender | Display cuztomized content | `(content?: string) => ReactNode` | - |  |
 
 ## Semantic DOM
 
