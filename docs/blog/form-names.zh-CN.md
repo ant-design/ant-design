@@ -84,8 +84,8 @@ export const FormItem = (
         {...rest}
       />
       {resetNames.map((name) => (
-        <Form.Item key={name?.toString()} name={name} hidden>
-          <div />
+        <Form.Item key={name?.toString()} name={name} noStyle>
+          <></>
         </Form.Item>
       ))}
     </>
