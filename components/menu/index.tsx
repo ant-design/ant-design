@@ -54,9 +54,23 @@ const Menu = forwardRef<MenuRef, MenuProps>((props, ref) => {
     menu: menuRef.current,
     focus: (options) => {
       menuRef.current?.focus(options);
-      const first = menuRef.current?.list.querySelector('li:first-child')
-      if (first) {
-        const firstClickableChild = first.querySelector('a');
+      let itemToFocus = null
+
+      if (menuRef.current?.list) {
+        const allListItems = menuRef.current.list.querySelectorAll('li');
+        allListItems.forEach((listItem,i) => {
+          if (listItem?.className.includes('active')) {
+            itemToFocus = menuRef.current?.list.querySelector(`li:nth-child(${i + 1})`)  
+          }
+        });
+      }
+
+      if (!itemToFocus) {
+        itemToFocus = menuRef.current?.list.querySelector('li:first-child')  
+      } 
+
+      if (itemToFocus) {
+        const firstClickableChild = itemToFocus.querySelector('a');
         firstClickableChild?.focus()
       }
     },
