@@ -16,12 +16,12 @@ const options = [
   { value: 'jiangsu', label: 'Jiangsu', children: [{ value: 'nanjing', label: 'Nanjing' }] },
 ];
 
-export const Demo = () => (
+const Demo = () => (
   <Form
     initialValues={{ province: [data.province, data.city] }}
     onFinish={(values) => {
       const { province, ...rest } = values;
-      fetch({ province: province[0], city: province[1], ...rest });
+      console.log({ province: province[0], city: province[1], ...rest });
     }}
   >
     <Form.Item label="Address" name="province">
@@ -29,6 +29,7 @@ export const Demo = () => (
     </Form.Item>
   </Form>
 );
+export default Demo;
 ```
 
 ## 封装聚合字段组件
@@ -84,9 +85,7 @@ export const FormItem = (
         {...rest}
       />
       {resetNames.map((name) => (
-        <Form.Item key={name?.toString()} name={name} noStyle>
-          <></>
-        </Form.Item>
+        <Form.Item key={name?.toString()} name={name} noStyle />
       ))}
     </>
   );
