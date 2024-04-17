@@ -497,6 +497,15 @@ describe('Form', () => {
     );
   });
 
+  it('No warning when use noStyle and children is empty', () => {
+    render(
+      <Form>
+        <Form.Item name="noWarning" noStyle />
+      </Form>,
+    );
+    expect(errorSpy).not.toHaveBeenCalled();
+  });
+
   it('dynamic change required', async () => {
     const { container } = render(
       <Form>
