@@ -199,19 +199,10 @@ const Dropdown: CompoundedComponent = (props) => {
       child.props.className,
     ),
     disabled,
-    onFocus: (event: Event) => {
-      const targetElement = event.target as HTMLElement;
-
-      const handleKeyPress = (e: KeyboardEvent) => {
+    onKeyDown: (e: KeyboardEvent) => {
         if (e.key === 'Enter' || e.code === 'Space') {
-          targetElement.removeEventListener('keypress', handleKeyPress);
           onInnerOpenChange(true)
-        }
       };
-      targetElement.addEventListener('keypress', handleKeyPress);
-      targetElement.addEventListener('blur', () => {
-        targetElement.removeEventListener('keypress', handleKeyPress);
-      });
     },
     id: `${menuLabel}-button`,
     role: 'button',
