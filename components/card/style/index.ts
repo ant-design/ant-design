@@ -307,7 +307,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
       [`${componentCls}-body`]: {
         padding: cardPaddingBase,
-        borderRadius: ` 0 0 ${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)}`,
+        borderRadius: `0 0 ${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)}`,
         ...clearFix(),
       },
 
