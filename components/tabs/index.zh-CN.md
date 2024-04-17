@@ -56,7 +56,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | hideAdd | 是否隐藏加号图标，在 `type="editable-card"` 时有效 | boolean | false |  |
 | indicator | 自定义指示条的长度和对齐方式 | { size?: number \| (origin: number) => number; align: `start` \| `center` \| `end`; } | - | 5.13.0 |
 | items | 配置选项卡内容 | [TabItemType](#tabitemtype) | [] | 4.23.0 |
-| moreIcon | 自定义折叠 icon | ReactNode | `<EllipsisOutlined />` | 4.14.0 |
+| more | 自定义折叠 | [MoreProps](#more) | { icon: `<EllipsisOutlined />` , trigger: 'hover' } |  |
 | removeIcon | 自定义删除按钮，设置 `type="editable-card"` 时有效 | ReactNode | `<CloseOutlined />` | 5.15.0 |
 | popupClassName | 更多菜单的 `className` | string | - | 4.21.0 |
 | renderTabBar | 替换 TabBar，用于二次封装标签头 | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  |
@@ -87,6 +87,13 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | icon | 选项卡头显示图标 | ReactNode | - | 5.12.0 |
 | children | 选项卡头显示内容 | ReactNode | - |  |
 | closable | 是否显示选项卡的关闭按钮，在 `type="editable-card"` 时有效 | boolean | true |  |
+
+### MoreProps
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | ---- | ---- |
+| icon | 自定义折叠图标 | ReactNode | -  |    |
+| [DropdownProps](/components/dropdown-cn#api) |      |      |    |     |
 
 ## 主题变量（Design Token）
 

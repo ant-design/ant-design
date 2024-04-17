@@ -2,7 +2,7 @@ import React from 'react';
 import { Flex, Tag } from 'antd';
 
 const App: React.FC = () => (
-  <Flex gap="4px 0" wrap="wrap">
+  <Flex gap="4px 0" wrap>
     <Tag color="magenta-inverse">magenta</Tag>
     <Tag color="red-inverse">red</Tag>
     <Tag color="volcano-inverse">volcano</Tag>
