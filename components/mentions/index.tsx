@@ -161,7 +161,6 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
 
   const [variant, enableVariantCls] = useVariant(customVariant);
 
-  // eslint-disable-next-line react/jsx-no-useless-fragment
   const suffixNode = hasFeedback && <>{feedbackIcon}</>;
 
   const mergedClassName = classNames(
