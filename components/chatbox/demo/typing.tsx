@@ -8,9 +8,10 @@ const useLoopSentence = () => {
   const [index, setIndex] = React.useState<number>(0);
   const timerRef = React.useRef<ReturnType<typeof setTimeout>>();
   React.useEffect(() => {
-    timerRef.current = setTimeout(() => {
-      setIndex((prevState) => (prevState ? 0 : 1));
-    }, 4000);
+    timerRef.current = setTimeout(
+      () => setIndex((prevState) => (prevState ? 0 : 1)),
+      sentences[index].length * 100 + 1000,
+    );
     return () => clearTimeout(timerRef.current);
   }, [index]);
   return sentences[index];
