@@ -312,7 +312,12 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
   const activeHandleRender: SliderProps['activeHandleRender'] = lockOpen
     ? undefined
     : (handle, info) => {
-        const cloneNode = React.cloneElement(handle);
+        const cloneNode = React.cloneElement(handle, {
+          style: {
+            ...handle.props.style,
+            visibility: 'hidden',
+          },
+        });
 
         return (
           <SliderTooltip
