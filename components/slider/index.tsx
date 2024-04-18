@@ -255,23 +255,17 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
   }, []);
 
   const handleRender: RcSliderProps['handleRender'] = (node, info) => {
-    // const { index, dragging } = info;
     const { index } = info;
-
-    // const isTipFormatter = mergedTipFormatter ? opens[index] || dragging : false;
-    // const open = lockOpen ?? (tooltipOpen === undefined && isTipFormatter);
 
     const nodeProps = node.props;
 
     const passedProps: typeof nodeProps = {
       ...nodeProps,
       onMouseEnter: (e) => {
-        // toggleTooltipOpen(index, true);
         setHoverOpen(true);
         nodeProps.onMouseEnter?.(e);
       },
       onMouseLeave: (e) => {
-        // toggleTooltipOpen(index, false);
         setHoverOpen(false);
         nodeProps.onMouseLeave?.(e);
       },
@@ -280,18 +274,12 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
         setDragging(true);
         nodeProps.onMouseDown?.(e);
       },
-      // onMouseUp: (e) => {
-      //   setFocusOpen(false);
-      //   nodeProps.onMouseUp?.(e);
-      // },
       onFocus: (e) => {
-        // toggleTooltipOpen(index, true);
         setFocusOpen(true);
         restProps.onFocus?.(e);
         nodeProps.onFocus?.(e);
       },
       onBlur: (e) => {
-        // toggleTooltipOpen(index, false);
         setFocusOpen(false);
         restProps.onBlur?.(e);
         nodeProps.onBlur?.(e);
