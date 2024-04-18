@@ -497,6 +497,9 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 
       [`> input${componentCls}`]: {
         padding: 0,
+      },
+
+      [`> input${componentCls}, > textarea${componentCls}`]: {
         fontSize: 'inherit',
         border: 'none',
         borderRadius: 0,

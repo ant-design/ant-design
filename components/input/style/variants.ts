@@ -17,7 +17,7 @@ export const genDisabledStyle = (token: InputToken): CSSObject => ({
   cursor: 'not-allowed',
   opacity: 1,
 
-  'input[disabled]': {
+  [`input[disabled], textarea[disabled]`]: {
     cursor: 'not-allowed',
   },
 
