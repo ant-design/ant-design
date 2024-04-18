@@ -56,7 +56,7 @@ const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
       [`&${componentCls}-rtl`]: {
         direction: 'rtl',
       },
-      [`&${componentCls}-typing ${componentCls}-content::after`]: {
+      [`&${componentCls}-typing ${componentCls}-content:last-child::after`]: {
         content: '"|"',
         fontWeight: 900,
         userSelect: 'none',
