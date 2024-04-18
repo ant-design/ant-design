@@ -92,14 +92,12 @@ const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
           '&-item': {
             backgroundColor: token.colorPrimary,
             borderRadius: '100%',
-            display: 'block',
             width: 4,
             height: 4,
             animationName: loadingBlink,
             animationDuration: '0.8s',
             animationIterationCount: 'infinite',
             animationTimingFunction: 'linear',
-            animationDirection: 'alternate',
             '&:nth-child(1)': {
               animationDelay: '0s',
             },
