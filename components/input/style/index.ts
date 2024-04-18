@@ -882,6 +882,6 @@ export default genStyleHooks(
   },
   initComponentToken,
   {
-    resetStyle: 'strict',
+    resetFont: false,
   },
 );

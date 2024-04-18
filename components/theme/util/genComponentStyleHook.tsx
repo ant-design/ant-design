@@ -132,7 +132,8 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
   styleFn: GenStyleFn<C>,
   getDefaultToken?: GetDefaultToken<C>,
   options: {
-    resetStyle?: boolean | 'strict';
+    resetStyle?: boolean;
+    resetFont?: boolean;
     // Deprecated token key map [["oldTokenKey", "newTokenKey"], ["oldTokenKey", "newTokenKey"]]
     deprecatedTokens?: [ComponentTokenKey<C>, ComponentTokenKey<C>][];
     /**
@@ -245,7 +246,7 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
         return [
           options.resetStyle === false
             ? null
-            : genCommonStyle(mergedToken, prefixCls, rootCls, options.resetStyle === 'strict'),
+            : genCommonStyle(mergedToken, prefixCls, rootCls, options.resetFont),
           styleInterpolation,
         ];
       },
@@ -379,7 +380,8 @@ export const genStyleHooks = <C extends OverrideComponent>(
   styleFn: GenStyleFn<C>,
   getDefaultToken?: GetDefaultToken<C>,
   options?: {
-    resetStyle?: boolean | 'strict';
+    resetStyle?: boolean;
+    resetFont?: boolean;
     deprecatedTokens?: [ComponentTokenKey<C>, ComponentTokenKey<C>][];
     /**
      * Component tokens that do not need unit.
