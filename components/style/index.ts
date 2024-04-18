@@ -107,29 +107,36 @@ export const genCommonStyle = (
   token: DerivativeToken,
   componentPrefixCls: string,
   rootCls?: string,
+  strict = false,
 ): CSSObject => {
   const { fontFamily, fontSize } = token;
 
   const prefixSelector = `[class^="${componentPrefixCls}"], [class*=" ${componentPrefixCls}"]`;
   const rootPrefixSelector = rootCls ? `.${rootCls}` : prefixSelector;
 
+  const resetStyle: CSSObject = {
+    boxSizing: 'border-box',
+
+    '&::before, &::after': {
+      boxSizing: 'border-box',
+    },
+  };
+
+  if (strict) {
+    return rootCls
+      ? {
+          [`.${rootCls}`]: resetStyle,
+        }
+      : {};
+  }
+
   return {
     [rootPrefixSelector]: {
       fontFamily,
       fontSize,
-      boxSizing: 'border-box',
+      ...resetStyle,
 
-      '&::before, &::after': {
-        boxSizing: 'border-box',
-      },
-
-      [prefixSelector]: {
-        boxSizing: 'border-box',
-
-        '&::before, &::after': {
-          boxSizing: 'border-box',
-        },
-      },
+      [prefixSelector]: resetStyle,
     },
   };
 };
