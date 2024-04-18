@@ -109,8 +109,6 @@ export const genCommonStyle = (
   rootCls?: string,
   strict = false,
 ): CSSObject => {
-  const { fontFamily, fontSize } = token;
-
   const prefixSelector = `[class^="${componentPrefixCls}"], [class*=" ${componentPrefixCls}"]`;
   const rootPrefixSelector = rootCls ? `.${rootCls}` : prefixSelector;
 
@@ -122,18 +120,18 @@ export const genCommonStyle = (
     },
   };
 
-  if (strict) {
-    return rootCls
-      ? {
-          [`.${rootCls}`]: resetStyle,
-        }
-      : {};
+  let resetFont: CSSObject = {};
+
+  if (!strict) {
+    resetFont = {
+      fontFamily: token.fontFamily,
+      fontSize: token.fontSize,
+    };
   }
 
   return {
     [rootPrefixSelector]: {
-      fontFamily,
-      fontSize,
+      ...resetFont,
       ...resetStyle,
 
       [prefixSelector]: resetStyle,
