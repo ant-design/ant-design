@@ -3,6 +3,24 @@ import { Keyframes, unit } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
+const loadingBlink = new Keyframes('loadingBlink', {
+  '0%': {
+    transform: 'translateY(0)',
+  },
+  '25%': {
+    transform: 'translateY(4px)',
+  },
+  '50%': {
+    transform: 'translateY(0)',
+  },
+  '75%': {
+    transform: 'translateY(-4px)',
+  },
+  '100%': {
+    transform: 'translateY(0)',
+  },
+});
+
 const cursorBlink = new Keyframes('cursorBlink', {
   '0%': {
     opacity: 1,
@@ -39,12 +57,11 @@ const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
         direction: 'rtl',
       },
       [`&${componentCls}-typing ${componentCls}-content::after`]: {
-        display: 'inline-block',
         content: '"|"',
         fontWeight: 900,
         userSelect: 'none',
         opacity: 1,
-        lineHeight: token.lineHeight,
+        marginInlineStart: '0.1em',
         animationName: cursorBlink,
         animationDuration: '0.8s',
         animationIterationCount: 'infinite',
@@ -68,11 +85,31 @@ const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
         [`& ${componentCls}-dot`]: {
           position: 'relative',
           height: '100%',
-          display: 'inline-flex',
-          justifyContent: 'center',
+          display: 'flex',
           alignItems: 'center',
-          color: token.colorPrimary,
-          fontSize: token.fontSizeLG,
+          columnGap: token.marginXS,
+          padding: `0 ${unit(token.paddingXXS)}`,
+          '&-item': {
+            backgroundColor: token.colorPrimary,
+            borderRadius: '100%',
+            display: 'block',
+            width: 4,
+            height: 4,
+            animationName: loadingBlink,
+            animationDuration: '0.8s',
+            animationIterationCount: 'infinite',
+            animationTimingFunction: 'linear',
+            animationDirection: 'alternate',
+            '&:nth-child(1)': {
+              animationDelay: '0s',
+            },
+            '&:nth-child(2)': {
+              animationDelay: '0.2s',
+            },
+            '&:nth-child(3)': {
+              animationDelay: '0.4s',
+            },
+          },
         },
       },
     },
