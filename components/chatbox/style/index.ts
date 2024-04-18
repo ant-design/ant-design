@@ -3,20 +3,20 @@ import { Keyframes, unit } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
-const loadingBlink = new Keyframes('loadingBlink', {
+const loadingMove = new Keyframes('loadingMove', {
   '0%': {
     transform: 'translateY(0)',
   },
-  '25%': {
+  '10%': {
     transform: 'translateY(4px)',
   },
-  '50%': {
+  '20%': {
     transform: 'translateY(0)',
   },
-  '75%': {
+  '30%': {
     transform: 'translateY(-4px)',
   },
-  '100%': {
+  '40%': {
     transform: 'translateY(0)',
   },
 });
@@ -94,8 +94,8 @@ const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
             borderRadius: '100%',
             width: 4,
             height: 4,
-            animationName: loadingBlink,
-            animationDuration: '0.8s',
+            animationName: loadingMove,
+            animationDuration: '2s',
             animationIterationCount: 'infinite',
             animationTimingFunction: 'linear',
             '&:nth-child(1)': {
