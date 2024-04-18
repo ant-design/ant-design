@@ -6,7 +6,7 @@ Your pull requests will be merged after one of the collaborators approve.
 Thank you!
 -->
 
-[[中文版模板 / Chinese template](https://github.com/ant-design/ant-design/blob/master/.github/PULL_REQUEST_TEMPLATE/pr_cn.md?plain=1)]
+[中文版模板 / Chinese template](https://github.com/ant-design/ant-design/blob/master/.github/PULL_REQUEST_TEMPLATE/pr_cn.md?plain=1)
 
 ### 🤔 This is a ...
 
