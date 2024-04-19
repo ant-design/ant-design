@@ -109,6 +109,11 @@ const genSwitchSmallStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
         [`${componentCls}-inner`]: {
           paddingInlineStart: innerMaxMarginSM,
           paddingInlineEnd: innerMinMarginSM,
+
+          [`${switchInnerCls}-checked, ${switchInnerCls}-unchecked`]: {
+            minHeight: trackHeightSM,
+          },
+
           [`${switchInnerCls}-checked`]: {
             marginInlineStart: `calc(-100% + ${trackPaddingCalc} - ${innerMaxMarginCalc})`,
             marginInlineEnd: `calc(100% - ${trackPaddingCalc} + ${innerMaxMarginCalc})`,
@@ -269,6 +274,7 @@ const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
           fontSize: token.fontSizeSM,
           transition: `margin-inline-start ${token.switchDuration} ease-in-out, margin-inline-end ${token.switchDuration} ease-in-out`,
           pointerEvents: 'none',
+          minHeight: trackHeight,
         },
 
         [`${switchInnerCls}-checked`]: {
