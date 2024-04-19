@@ -124,6 +124,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
     <span key="from" className={styles.from}>
       from
     </span>,
+    <span key="space"> </span>,
     <span key="antd" className={styles.antd}>
       {`"antd"`}
     </span>,
