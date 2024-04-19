@@ -395,10 +395,10 @@ export default genStyleHooks(
   'Carousel',
   (token) => [
     genCarouselStyle(token),
-    genCarouselVerticalStyle(token),
-    genCarouselRtlStyle(token),
     genArrowsStyle(token),
     genDostStyle(token),
+    genCarouselVerticalStyle(token),
+    genCarouselRtlStyle(token),
   ],
   prepareComponentToken,
   {
