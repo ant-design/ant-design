@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import type { SliderProps as RcSliderProps } from 'rc-slider';
 import RcSlider from 'rc-slider';
 import type { SliderProps, SliderRef } from 'rc-slider/lib/Slider';
+import raf from 'rc-util/lib/raf';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
@@ -240,7 +241,11 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
   // ============================== Handle ==============================
   React.useEffect(() => {
     const onMouseUp = () => {
-      setFocusOpen(false);
+      // Delay for 1 frame to make the click to enable hide tooltip
+      // even when the handle is focused
+      raf(() => {
+        setFocusOpen(false);
+      }, 1);
     };
     document.addEventListener('mouseup', onMouseUp);
 
