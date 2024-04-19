@@ -10,6 +10,8 @@ export default function useRafLock(): [state: boolean, setState: (nextState: boo
   };
 
   const setDelayState = (nextState: boolean) => {
+    cleanup();
+
     if (nextState) {
       setState(nextState);
     } else {

@@ -151,7 +151,6 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
   const mergedDisabled = disabled ?? contextDisabled;
 
   // =============================== Open ===============================
-  // const [opens, setOpens] = React.useState<Opens>({});
   const [hoverOpen, setHoverOpen] = useRafLock();
   const [focusOpen, setFocusOpen] = useRafLock();
   const activeOpen = hoverOpen || focusOpen;
@@ -168,10 +167,6 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
   } = tooltipProps;
 
   const lockOpen = tooltipOpen ?? legacyTooltipVisible;
-
-  // const toggleTooltipOpen = (index: number, open: boolean) => {
-  //   setOpens((prev: Opens) => ({ ...prev, [index]: open }));
-  // };
 
   const mergedTipFormatter = getTipFormatter(tipFormatter, legacyTipFormatter);
 
