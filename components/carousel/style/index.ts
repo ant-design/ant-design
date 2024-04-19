@@ -150,8 +150,171 @@ const genCarouselStyle: GenerateStyle<CarouselToken> = (token) => {
   };
 };
 
+const genArrowsStyle: GenerateStyle<CarouselToken> = (token) => {
+  const { componentCls, motionDurationSlow, arrowSize, arrowOffset } = token;
+  const arrowLength = token.calc(arrowSize).div(1.414).equal();
+
+  return [
+    {
+      [componentCls]: {
+        // Arrows
+        '.slick-prev, .slick-next': {
+          position: 'absolute',
+          top: '50%',
+          width: arrowSize,
+          height: arrowSize,
+          transform: 'translateY(-50%)',
+          color: '#fff',
+          opacity: 0.4,
+          background: 'transparent',
+          padding: 0,
+          lineHeight: 0,
+          border: 0,
+          outline: 'none',
+          cursor: 'pointer',
+          zIndex: 1,
+          transition: `opacity ${motionDurationSlow}`,
+
+          '&:hover, &:focus': {
+            opacity: 1,
+          },
+
+          '&.slick-disabled': {
+            pointerEvents: 'none',
+            opacity: 0,
+          },
+
+          '&::after': {
+            boxSizing: 'border-box',
+            position: 'absolute',
+            top: token.calc(arrowSize).sub(arrowLength).div(2).equal(),
+            insetInlineStart: token.calc(arrowSize).sub(arrowLength).div(2).equal(),
+            display: 'inline-block',
+            width: arrowLength,
+            height: arrowLength,
+            border: `0 solid currentcolor`,
+            borderWidth: '2px 0 0 2px',
+            borderRadius: 1,
+            content: '""',
+          },
+        },
+
+        '.slick-prev': {
+          insetInlineStart: arrowOffset,
+
+          '&::after': {
+            transform: 'rotate(-45deg)',
+          },
+        },
+
+        '.slick-next': {
+          insetInlineEnd: arrowOffset,
+
+          '&::after': {
+            transform: 'rotate(135deg)',
+          },
+        },
+      },
+    },
+  ];
+};
+
+const genDotsStyle: GenerateStyle<CarouselToken> = (token) => {
+  const {
+    componentCls,
+    dotOffset,
+    dotWidth,
+    dotHeight,
+    dotMargin,
+    colorBgContainer,
+    motionDurationSlow,
+  } = token;
+  return [
+    {
+      [componentCls]: {
+        '.slick-dots': {
+          position: 'absolute',
+          insetInlineEnd: 0,
+          bottom: 0,
+          insetInlineStart: 0,
+          zIndex: 15,
+          display: 'flex !important',
+          justifyContent: 'center',
+          paddingInlineStart: 0,
+          margin: 0,
+          listStyle: 'none',
+
+          '&-bottom': {
+            bottom: dotOffset,
+          },
+
+          '&-top': {
+            top: dotOffset,
+            bottom: 'auto',
+          },
+
+          li: {
+            position: 'relative',
+            display: 'inline-block',
+            flex: '0 1 auto',
+            boxSizing: 'content-box',
+            width: dotWidth,
+            height: dotHeight,
+            marginInline: dotMargin,
+            padding: 0,
+            textAlign: 'center',
+            textIndent: -999,
+            verticalAlign: 'top',
+            transition: `all ${motionDurationSlow}`,
+
+            button: {
+              position: 'relative',
+              display: 'block',
+              width: '100%',
+              height: dotHeight,
+              padding: 0,
+              color: 'transparent',
+              fontSize: 0,
+              background: colorBgContainer,
+              border: 0,
+              borderRadius: dotHeight,
+              outline: 'none',
+              cursor: 'pointer',
+              opacity: 0.2,
+              transition: `all ${motionDurationSlow}`,
+
+              '&: hover, &:focus': {
+                opacity: 0.75,
+              },
+
+              '&::after': {
+                position: 'absolute',
+                inset: token.calc(dotMargin).mul(-1).equal(),
+                content: '""',
+              },
+            },
+
+            '&.slick-active': {
+              width: token.dotActiveWidth,
+
+              '& button': {
+                background: colorBgContainer,
+                opacity: 1,
+              },
+
+              '&: hover, &:focus': {
+                opacity: 1,
+              },
+            },
+          },
+        },
+      },
+    },
+  ];
+};
+
 const genCarouselVerticalStyle: GenerateStyle<CarouselToken> = (token) => {
-  const { componentCls, dotOffset, marginXXS } = token;
+  const { componentCls, dotOffset, arrowOffset, marginXXS } = token;
 
   const reverseSizeOfDot = {
     width: token.dotHeight,
@@ -160,6 +323,26 @@ const genCarouselVerticalStyle: GenerateStyle<CarouselToken> = (token) => {
 
   return {
     [`${componentCls}-vertical`]: {
+      '.slick-prev, .slick-next': {
+        insetInlineStart: '50%',
+        marginBlockStart: 'unset',
+        transform: 'translateX(-50%)',
+      },
+      '.slick-prev': {
+        insetBlockStart: arrowOffset,
+        insetInlineStart: '50%',
+
+        '&::after': {
+          transform: 'rotate(45deg)',
+        },
+      },
+      '.slick-next': {
+        insetBlockStart: 'auto',
+        insetBlockEnd: arrowOffset,
+        '&::after': {
+          transform: 'rotate(-135deg)',
+        },
+      },
       '.slick-dots': {
         top: '50%',
         bottom: 'auto',
@@ -226,161 +409,12 @@ const genCarouselRtlStyle: GenerateStyle<CarouselToken> = (token) => {
   ];
 };
 
-const genArrowsStyle: GenerateStyle<CarouselToken> = (token) => {
-  const { componentCls, motionDurationSlow, arrowSize, arrowOffset } = token;
-
-  return [
-    {
-      [componentCls]: {
-        // Arrows
-        '.slick-prev, .slick-next': {
-          position: 'absolute',
-          top: '50%',
-          width: arrowSize,
-          height: arrowSize,
-          fontSize: arrowSize,
-          transform: 'translateY(-50%)',
-          color: '#fff',
-          opacity: 0.5,
-          background: 'transparent',
-          padding: 0,
-          lineHeight: 0,
-          border: 0,
-          outline: 'none',
-          cursor: 'pointer',
-          zIndex: 1,
-          transition: `opacity ${motionDurationSlow}`,
-
-          '&:hover, &:focus': {
-            opacity: 1,
-          },
-
-          '&.slick-disabled:': {
-            pointerEvents: 'none',
-            visibility: 'hidden',
-          },
-        },
-
-        '.slick-prev': {
-          insetInlineStart: arrowOffset,
-
-          '&::before': {
-            content: '"←"',
-          },
-        },
-
-        '.slick-next': {
-          insetInlineEnd: arrowOffset,
-
-          '&::before': {
-            content: '"→"',
-          },
-        },
-      },
-    },
-  ];
-};
-
-const genDostStyle: GenerateStyle<CarouselToken> = (token) => {
-  const {
-    componentCls,
-    dotOffset,
-    dotWidth,
-    dotHeight,
-    dotMargin,
-    colorBgContainer,
-    motionDurationSlow,
-  } = token;
-  return [
-    {
-      [componentCls]: {
-        '.slick-dots': {
-          position: 'absolute',
-          insetInlineEnd: 0,
-          bottom: 0,
-          insetInlineStart: 0,
-          zIndex: 15,
-          display: 'flex !important',
-          justifyContent: 'center',
-          paddingInlineStart: 0,
-          margin: 0,
-          listStyle: 'none',
-
-          '&-bottom': {
-            bottom: dotOffset,
-          },
-
-          '&-top': {
-            top: dotOffset,
-            bottom: 'auto',
-          },
-
-          li: {
-            position: 'relative',
-            display: 'inline-block',
-            flex: '0 1 auto',
-            boxSizing: 'content-box',
-            width: dotWidth,
-            height: dotHeight,
-            marginInline: dotMargin,
-            padding: 0,
-            textAlign: 'center',
-            textIndent: -999,
-            verticalAlign: 'top',
-            transition: `all ${motionDurationSlow}`,
-
-            button: {
-              position: 'relative',
-              display: 'block',
-              width: '100%',
-              height: dotHeight,
-              padding: 0,
-              color: 'transparent',
-              fontSize: 0,
-              background: colorBgContainer,
-              border: 0,
-              borderRadius: dotHeight,
-              outline: 'none',
-              cursor: 'pointer',
-              opacity: 0.3,
-              transition: `all ${motionDurationSlow}`,
-
-              '&: hover, &:focus': {
-                opacity: 0.75,
-              },
-
-              '&::after': {
-                position: 'absolute',
-                inset: token.calc(dotMargin).mul(-1).equal(),
-                content: '""',
-              },
-            },
-
-            '&.slick-active': {
-              width: token.dotActiveWidth,
-
-              '& button': {
-                background: colorBgContainer,
-                opacity: 1,
-              },
-
-              '&: hover, &:focus': {
-                opacity: 1,
-              },
-            },
-          },
-        },
-      },
-    },
-  ];
-};
-
 export const prepareComponentToken: GetDefaultToken<'Carousel'> = (token) => {
   const dotActiveWidth = 24;
 
   return {
-    arrowSize: 20,
-    arrowOffset: token.paddingXS,
+    arrowSize: 16,
+    arrowOffset: token.marginXS,
     dotWidth: 16,
     dotHeight: 3,
     dotMargin: token.marginXXS,
@@ -396,7 +430,7 @@ export default genStyleHooks(
   (token) => [
     genCarouselStyle(token),
     genArrowsStyle(token),
-    genDostStyle(token),
+    genDotsStyle(token),
     genCarouselVerticalStyle(token),
     genCarouselRtlStyle(token),
   ],
