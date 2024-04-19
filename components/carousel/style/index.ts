@@ -17,9 +17,9 @@ export interface ComponentToken {
   dotHeight: number;
   /**
    * @desc 指示点之间的间距
-   * @descEN margin of indicator
+   * @descEN gap between indicator
    */
-  dotMargin: number;
+  dotGap: number;
   /**
    * @desc 指示点距离边缘的距离
    * @descEN dot offset to Carousel edge
@@ -226,7 +226,7 @@ const genDotsStyle: GenerateStyle<CarouselToken> = (token) => {
     dotOffset,
     dotWidth,
     dotHeight,
-    dotMargin,
+    dotGap,
     colorBgContainer,
     motionDurationSlow,
   } = token;
@@ -261,7 +261,7 @@ const genDotsStyle: GenerateStyle<CarouselToken> = (token) => {
             boxSizing: 'content-box',
             width: dotWidth,
             height: dotHeight,
-            marginInline: dotMargin,
+            marginInline: dotGap,
             padding: 0,
             textAlign: 'center',
             textIndent: -999,
@@ -290,7 +290,7 @@ const genDotsStyle: GenerateStyle<CarouselToken> = (token) => {
 
               '&::after': {
                 position: 'absolute',
-                inset: token.calc(dotMargin).mul(-1).equal(),
+                inset: token.calc(dotGap).mul(-1).equal(),
                 content: '""',
               },
             },
@@ -418,7 +418,7 @@ export const prepareComponentToken: GetDefaultToken<'Carousel'> = (token) => {
     arrowOffset: token.marginXS,
     dotWidth: 16,
     dotHeight: 3,
-    dotMargin: token.marginXXS,
+    dotGap: token.marginXXS,
     dotOffset: 12,
     dotWidthActive: dotActiveWidth,
     dotActiveWidth,
