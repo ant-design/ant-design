@@ -22,7 +22,7 @@ demo:
 <code src="./demo/position.tsx">Position</code>
 <code src="./demo/autoplay.tsx">Scroll automatically</code>
 <code src="./demo/fade.tsx">Fade in</code>
-<code src="./demo/arrows.tsx">Arrows for switching</code>
+<code src="./demo/arrows.tsx" version="5.17.0">Arrows for switching</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
@@ -31,7 +31,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| arrows | Whether to show switch arrows | boolean | false |  |
+| arrows | Whether to show switch arrows | boolean | false | 5.17.0 |
 | autoplay | Whether to scroll automatically | boolean | false |  |
 | autoplaySpeed | Delay between each auto scroll (in milliseconds) | number | 3000 |  |
 | dotPosition | The position of the dots, which can be one of `top` `bottom` `left` `right` | string | `bottom` |  |
