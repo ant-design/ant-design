@@ -239,6 +239,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
   }
 
   // ============================== Handle ==============================
+
   React.useEffect(() => {
     const onMouseUp = () => {
       // Delay for 1 frame to make the click to enable hide tooltip
@@ -253,6 +254,8 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
       document.removeEventListener('mouseup', onMouseUp);
     };
   }, []);
+
+  const useActiveTooltipHandle = mergedRange && !lockOpen;
 
   const handleRender: RcSliderProps['handleRender'] = (node, info) => {
     const { index } = info;
@@ -286,32 +289,34 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
       },
     };
 
-    if (!lockOpen) {
-      return React.cloneElement(node, passedProps);
+    const cloneNode = React.cloneElement(node, passedProps);
+
+    // Wrap on handle with Tooltip when is single mode or multiple with all show tooltip
+    if (!useActiveTooltipHandle) {
+      return (
+        <SliderTooltip
+          {...tooltipProps}
+          prefixCls={getPrefixCls('tooltip', customizeTooltipPrefixCls ?? legacyTooltipPrefixCls)}
+          title={mergedTipFormatter ? mergedTipFormatter(info.value) : ''}
+          open={!!lockOpen || activeOpen}
+          placement={getTooltipPlacement(tooltipPlacement ?? legacyTooltipPlacement, vertical)}
+          key={index}
+          overlayClassName={`${prefixCls}-tooltip`}
+          getPopupContainer={
+            getTooltipPopupContainer || legacyGetTooltipPopupContainer || getPopupContainer
+          }
+        >
+          {cloneNode}
+        </SliderTooltip>
+      );
     }
 
-    return (
-      <SliderTooltip
-        {...tooltipProps}
-        prefixCls={getPrefixCls('tooltip', customizeTooltipPrefixCls ?? legacyTooltipPrefixCls)}
-        title={mergedTipFormatter ? mergedTipFormatter(info.value) : ''}
-        open={!!lockOpen}
-        placement={getTooltipPlacement(tooltipPlacement ?? legacyTooltipPlacement, vertical)}
-        key={index}
-        overlayClassName={`${prefixCls}-tooltip`}
-        getPopupContainer={
-          getTooltipPopupContainer || legacyGetTooltipPopupContainer || getPopupContainer
-        }
-      >
-        {React.cloneElement(node, passedProps)}
-      </SliderTooltip>
-    );
+    return cloneNode;
   };
 
   // ========================== Active Handle ===========================
-  const activeHandleRender: SliderProps['activeHandleRender'] = lockOpen
-    ? undefined
-    : (handle, info) => {
+  const activeHandleRender: SliderProps['activeHandleRender'] = useActiveTooltipHandle
+    ? (handle, info) => {
         const cloneNode = React.cloneElement(handle, {
           style: {
             ...handle.props.style,
@@ -335,7 +340,8 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
             {cloneNode}
           </SliderTooltip>
         );
-      };
+      }
+    : undefined;
 
   // ============================== Render ==============================
   const mergedStyle: React.CSSProperties = { ...slider?.style, ...style };
