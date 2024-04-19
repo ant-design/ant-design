@@ -26,11 +26,6 @@ Array [
       style="left:30%;transform:translateX(-50%)"
       tabindex="0"
     />
-    <div
-      aria-hidden="true"
-      class="ant-slider-handle"
-      style="left:NaN%;transform:translateX(-50%);pointer-events:none;visibility:hidden"
-    />
   </div>,
   <div
     class="ant-slider ant-slider-horizontal"
@@ -122,11 +117,6 @@ Array [
       role="slider"
       style="left:30%;transform:translateX(-50%)"
     />
-    <div
-      aria-hidden="true"
-      class="ant-slider-handle"
-      style="left:NaN%;transform:translateX(-50%);pointer-events:none;visibility:hidden"
-    />
   </div>,
   <div
     class="ant-slider ant-slider-horizontal"
@@ -195,11 +185,6 @@ Array [
         role="slider"
         style="bottom:30%;transform:translateY(50%)"
         tabindex="0"
-      />
-      <div
-        aria-hidden="true"
-        class="ant-slider-handle"
-        style="bottom:NaN%;transform:translateY(50%);pointer-events:none;visibility:hidden"
       />
     </div>
   </div>,
@@ -413,11 +398,6 @@ Array [
       style="left:30%;transform:translateX(-50%)"
       tabindex="0"
     />
-    <div
-      aria-hidden="true"
-      class="ant-slider-handle"
-      style="left:NaN%;transform:translateX(-50%);pointer-events:none;visibility:hidden"
-    />
   </div>,
   <div
     class="ant-slider ant-slider-horizontal"
@@ -510,11 +490,6 @@ exports[`renders components/slider/demo/icon-slider.tsx correctly 1`] = `
       style="left:0%;transform:translateX(-50%)"
       tabindex="0"
     />
-    <div
-      aria-hidden="true"
-      class="ant-slider-handle"
-      style="left:NaN%;transform:translateX(-50%);pointer-events:none;visibility:hidden"
-    />
   </div>
   <span
     aria-label="smile"
@@ -575,11 +550,6 @@ exports[`renders components/slider/demo/input-number.tsx correctly 1`] = `
             role="slider"
             style="left:0%;transform:translateX(-50%)"
             tabindex="0"
-          />
-          <div
-            aria-hidden="true"
-            class="ant-slider-handle"
-            style="left:NaN%;transform:translateX(-50%);pointer-events:none;visibility:hidden"
           />
         </div>
       </div>
@@ -698,11 +668,6 @@ exports[`renders components/slider/demo/input-number.tsx correctly 1`] = `
             role="slider"
             style="left:0%;transform:translateX(-50%)"
             tabindex="0"
-          />
-          <div
-            aria-hidden="true"
-            class="ant-slider-handle"
-            style="left:NaN%;transform:translateX(-50%);pointer-events:none;visibility:hidden"
           />
         </div>
       </div>
@@ -837,11 +802,6 @@ Array [
       role="slider"
       style="left:37%;transform:translateX(-50%)"
       tabindex="0"
-    />
-    <div
-      aria-hidden="true"
-      class="ant-slider-handle"
-      style="left:NaN%;transform:translateX(-50%);pointer-events:none;visibility:hidden"
     />
     <div
       class="ant-slider-mark"
@@ -1003,11 +963,6 @@ Array [
       tabindex="0"
     />
     <div
-      aria-hidden="true"
-      class="ant-slider-handle"
-      style="left:NaN%;transform:translateX(-50%);pointer-events:none;visibility:hidden"
-    />
-    <div
       class="ant-slider-mark"
     >
       <span
@@ -1083,11 +1038,6 @@ Array [
       tabindex="0"
     />
     <div
-      aria-hidden="true"
-      class="ant-slider-handle"
-      style="left:NaN%;transform:translateX(-50%);pointer-events:none;visibility:hidden"
-    />
-    <div
       class="ant-slider-mark"
     >
       <span
@@ -1161,11 +1111,6 @@ Array [
       role="slider"
       style="left:37%;transform:translateX(-50%)"
       tabindex="0"
-    />
-    <div
-      aria-hidden="true"
-      class="ant-slider-handle"
-      style="left:NaN%;transform:translateX(-50%);pointer-events:none;visibility:hidden"
     />
     <div
       class="ant-slider-mark"
@@ -1290,11 +1235,6 @@ Array [
       style="right:30%;transform:translateX(50%)"
       tabindex="0"
     />
-    <div
-      aria-hidden="true"
-      class="ant-slider-handle"
-      style="right:NaN%;transform:translateX(50%);pointer-events:none;visibility:hidden"
-    />
   </div>,
   <div
     class="ant-slider ant-slider-horizontal"
@@ -1387,11 +1327,6 @@ Array [
       style="left:0%;transform:translateX(-50%)"
       tabindex="0"
     />
-    <div
-      aria-hidden="true"
-      class="ant-slider-handle"
-      style="left:NaN%;transform:translateX(-50%);pointer-events:none;visibility:hidden"
-    />
   </div>,
   <div
     class="ant-slider ant-slider-horizontal"
@@ -1416,11 +1351,6 @@ Array [
       role="slider"
       style="left:0%;transform:translateX(-50%)"
       tabindex="0"
-    />
-    <div
-      aria-hidden="true"
-      class="ant-slider-handle"
-      style="left:NaN%;transform:translateX(-50%);pointer-events:none;visibility:hidden"
     />
   </div>,
 ]
@@ -1454,11 +1384,6 @@ Array [
         role="slider"
         style="bottom:30%;transform:translateY(50%)"
         tabindex="0"
-      />
-      <div
-        aria-hidden="true"
-        class="ant-slider-handle"
-        style="bottom:NaN%;transform:translateY(50%);pointer-events:none;visibility:hidden"
       />
     </div>
   </div>,

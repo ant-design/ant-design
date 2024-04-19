@@ -25,11 +25,6 @@ exports[`Slider rtl render component should be rendered correctly in RTL directi
     style="right: 0%; transform: translateX(50%);"
     tabindex="0"
   />
-  <div
-    aria-hidden="true"
-    class="ant-slider-handle"
-    style="transform: translateX(50%); pointer-events: none; visibility: hidden;"
-  />
 </div>
 `;
 
