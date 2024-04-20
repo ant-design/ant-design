@@ -179,6 +179,17 @@ describe('Drawer', () => {
     expect(baseElement.querySelectorAll('button.forceRender').length).toBe(1);
   });
 
+  it('have a spinner', () => {
+    const { container: wrapper } = render(
+      <Drawer open loading getContainer={false}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    triggerMotion();
+    expect(wrapper.firstChild).toMatchSnapshot();
+  });
+
   it('support closeIcon', () => {
     const { container: wrapper } = render(
       <Drawer open closable closeIcon={<span>close</span>} width={400} getContainer={false}>
