@@ -4,24 +4,25 @@ date: 2024-04-17
 author: crazyair
 ---
 
-在表单开发过程中，偶尔会遇到组合属性的需求。UI 展示字段与后端返回数据结构字段有所不同。比如说，跟后端对接接口，定义省市字段经常是 2 个字段`{ province: 北京, city: 海淀 }`，而不是 `{ province:[北京，海淀] }`，我们经常需要在 `initialValues` 以及 `onFinish` 处理值，如下：
+在表单开发过程中，偶尔会遇到组合属性的需求。UI 展示字段与后端返回数据结构字段有所不同。比如说，跟后端对接接口，定义省市字段经常是 2 个字段 `{ province: Beijing, city: Haidian }`，而不是 `{ province:[Beijing，Haidian] }`，我们经常需要在 `initialValues` 以及 `onFinish` 处理值，如下：
 
 ```tsx
 import React from 'react';
 import { Cascader, Form } from 'antd';
 
-const data = { province: '北京', city: '海淀' };
+const data = { province: 'Beijing', city: 'Haidian' };
 const options = [
   { value: 'zhejiang', label: 'Zhejiang', children: [{ value: 'hangzhou', label: 'Hangzhou' }] },
   { value: 'jiangsu', label: 'Jiangsu', children: [{ value: 'nanjing', label: 'Nanjing' }] },
 ];
+const createUser = (values) => console.log(values);
 
 const Demo = () => (
   <Form
     initialValues={{ province: [data.province, data.city] }}
     onFinish={(values) => {
       const { province, ...rest } = values;
-      console.log({ province: province[0], city: province[1], ...rest });
+      createUser({ province: province[0], city: province[1], ...rest });
     }}
   >
     <Form.Item label="Address" name="province">
@@ -41,31 +42,21 @@ import React from 'react';
 import type { FormItemProps } from 'antd';
 import { Cascader, Form } from 'antd';
 
-export const FormItem = (
+export const AggregateFormItem = (
   props: FormItemProps & { names?: FormItemProps<Record<string, any>>['name'][] },
 ) => {
   const form = Form.useFormInstance();
 
-  const { names = [], getValueProps, getValueFromEvent, rules = [], ...rest } = props;
-  const [firstNames, ...resetNames] = names;
+  const { names = [], rules = [], ...rest } = props;
+  const [firstName, ...resetNames] = names;
   return (
     <>
       <Form.Item
-        name={firstNames}
-        // 将传给 Cascader 的值由字符串转成数组 北京 -> [北京, 海淀]
-        getValueProps={() => {
-          const values = names.map((name) => form.getFieldValue(name)).filter(Boolean);
-          if (getValueProps) {
-            return getValueProps(values);
-          }
-          return { value: values.length ? values : undefined };
-        }}
-        // 将传给 Form 的值由数组转成字符串 [北京, 海淀] -> 北京，并调用 setFields 设置 city 的值
-        getValueFromEvent={(value) => {
-          let values = value;
-          if (getValueFromEvent) {
-            values = getValueFromEvent(value);
-          }
+        name={firstName}
+        // 将 names 的值转成数组传给 children
+        getValueProps={() => ({ value: names.map((name) => form.getFieldValue(name)) })}
+        getValueFromEvent={(values) => {
+          // 将 names 字段的值设置给 form store
           form.setFields(names.map((name, index) => ({ name, value: values[index] })));
           return values[0];
         }}
@@ -73,10 +64,10 @@ export const FormItem = (
           if (typeof thisRule === 'object') {
             return {
               ...thisRule,
-              // 将 rules 中 validate value 的值由字符串转成数组 北京 -> [北京, 海淀]，用于自定义校验
               transform: () => {
+                // 将 names 字段的值设置给 rule value
                 const values = names.map((name) => form.getFieldValue(name));
-                return thisRule.transform ? thisRule.transform(values) : values;
+                return values;
               },
             };
           }
@@ -84,6 +75,7 @@ export const FormItem = (
         })}
         {...rest}
       />
+      {/* 绑定其他字段，使其可以 getFieldValue 获取值、setFields 设置值 */}
       {resetNames.map((name) => (
         <Form.Item key={name?.toString()} name={name} noStyle />
       ))}
@@ -91,21 +83,23 @@ export const FormItem = (
   );
 };
 
-const data = { province: '北京', city: '海淀' };
+const data = { province: 'Beijing', city: 'Haidian' };
 const options = [
   { value: 'zhejiang', label: 'Zhejiang', children: [{ value: 'hangzhou', label: 'Hangzhou' }] },
   { value: 'jiangsu', label: 'Jiangsu', children: [{ value: 'nanjing', label: 'Nanjing' }] },
 ];
+const createUser = (values) => console.log(values);
 
 export const Demo = () => (
-  <Form initialValues={data} onFinish={(values) => console.log(values)}>
-    <FormItem label="Address" names={['province', 'city']} rules={[{ required: true }]}>
+  <Form
+    initialValues={data}
+    onFinish={(values) => {
+      createUser(values);
+    }}
+  >
+    <AggregateFormItem label="Address" names={['province', 'city']} rules={[{ required: true }]}>
       <Cascader options={options} placeholder="Please select" />
-    </FormItem>
+    </AggregateFormItem>
   </Form>
 );
 ```
-
-## 聚合字段组件原理
-
-Antd Form.Item 有提供 2 个 API `getValueProps` `getValueFromEvent`，以及 rules 提供了 `transform`，可以对传给 `Cascader`、`Form` `validate` 的 `value` 进行处理，达到用一个 `Form.Item` 实现多个 `name` 的功能
