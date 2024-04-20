@@ -37,32 +37,42 @@ interface BodyCellProps extends React.HTMLAttributes<HTMLTableCellElement> {
 type DragIndexState = {
   active: UniqueIdentifier;
   over: UniqueIdentifier | undefined;
+  direction?: 'left' | 'right';
 };
 const DragIndexContext = createContext<DragIndexState>({ active: -1, over: -1 });
 
-const dragActiveStyle = (active: UniqueIdentifier, over: unknown, id: string) =>
-  // eslint-disable-next-line no-nested-ternary
-  over && id === over && active !== over
-    ? { borderLeft: '1px dashed gray' }
-    : active && active === id
-      ? { backgroundColor: 'gray', opacity: 0.5 }
-      : {};
+const dragActiveStyle = (dragState: DragIndexState, id: string) => {
+  const { active, over, direction } = dragState;
+  // drag active style
+  let style = {};
+  if (active && active === id) {
+    style = { backgroundColor: 'gray', opacity: 0.5 };
+  }
+  // dragover dashed style
+  else if (over && id === over && active !== over) {
+    style =
+      direction === 'right'
+        ? { borderRight: '1px dashed gray' }
+        : { borderLeft: '1px dashed gray' };
+  }
+  return style;
+};
 
 const TableBodyCell = (props: BodyCellProps) => {
-  const { active, over } = useContext<DragIndexState>(DragIndexContext);
+  const dragState = useContext<DragIndexState>(DragIndexContext);
   return (
     <td
       {...props}
       style={{
         ...props.style,
-        ...dragActiveStyle(active, over, props.id),
+        ...dragActiveStyle(dragState, props.id),
       }}
     />
   );
 };
 
 const TableHeaderCell = (props: HeaderCellProps) => {
-  const { active, over } = useContext(DragIndexContext);
+  const dragState = useContext(DragIndexContext);
   const { attributes, listeners, setNodeRef, isDragging } = useSortable({
     id: props.id,
   });
@@ -71,12 +81,7 @@ const TableHeaderCell = (props: HeaderCellProps) => {
     ...props.style,
     cursor: 'move',
     ...(isDragging ? { position: 'relative', zIndex: 9999, userSelect: 'none' } : {}),
-    // eslint-disable-next-line no-nested-ternary
-    ...(over && props.id === over && active !== over
-      ? { borderLeft: '1px dashed gray' }
-      : active && active === props.id
-        ? { backgroundColor: 'gray', opacity: 0.5 }
-        : {}),
+    ...dragActiveStyle(dragState, props.id),
   };
 
   return <th {...props} ref={setNodeRef} style={style} {...attributes} {...listeners} />;
@@ -176,8 +181,13 @@ const App: React.FC = () => {
   };
 
   const onDrageOver = ({ active, over }: DragOverEvent) => {
-    console.log(active, over);
-    setDragIndex({ active: active.id, over: over?.id });
+    const activeIndex = columns.findIndex((i) => i.key === active.id);
+    const overIndex = columns.findIndex((i) => i.key === over?.id);
+    setDragIndex({
+      active: active.id,
+      over: over?.id,
+      direction: overIndex > activeIndex ? 'right' : 'left',
+    });
   };
 
   return (
@@ -207,7 +217,7 @@ const App: React.FC = () => {
       </SortableContext>
       <DragOverlay>
         {/* TODO:  Since the tableheadercell custom component uses antd to render the cell style, it is currently not possible to copy the same component as tableheadercell. */}
-        <th style={{ backgroundColor: 'gray', padding: 16, opacity: 0.5 }}>
+        <th style={{ backgroundColor: 'gray', padding: 16 }}>
           {columns[columns.findIndex((i) => i.key === dragIndex.active)]?.title as React.ReactNode}
         </th>
       </DragOverlay>
