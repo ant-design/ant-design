@@ -5,6 +5,23 @@ import type { DrawerProps as RCDrawerProps } from 'rc-drawer';
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
 import type { ClosableType } from '../_util/hooks/useClosable';
 import { ConfigContext } from '../config-provider';
+import Spin from '../spin';
+import type { SpinProps } from '../spin';
+
+interface PanelNodeProps {
+  children: React.ReactNode;
+  spinProps?: SpinProps;
+}
+const PanelNode: React.FC<PanelNodeProps> = ({ children, spinProps }) => {
+  if (!spinProps) {
+    return children;
+  }
+  return (
+    <Spin spinning={false} {...spinProps}>
+      {children}
+    </Spin>
+  );
+};
 
 export interface DrawerClassNames extends NonNullable<RCDrawerProps['classNames']> {
   header?: string;
@@ -38,6 +55,7 @@ export interface DrawerPanelProps {
   children?: React.ReactNode;
   classNames?: DrawerClassNames;
   styles?: DrawerStyles;
+  loading?: boolean | Omit<SpinProps, 'fullscreen'>;
 
   /** @deprecated Please use `styles.header` instead */
   headerStyle?: React.CSSProperties;
@@ -59,6 +77,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     title,
     footer,
     extra,
+    loading,
     onClose,
     headerStyle,
     bodyStyle,
@@ -86,6 +105,19 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
       closeIconRender: customCloseIconRender,
     },
   );
+
+  // >>>>>>>>> Spinning
+  let spinProps: SpinProps | undefined;
+  if (typeof loading === 'boolean') {
+    spinProps = {
+      spinning: loading,
+    };
+  } else if (typeof loading === 'object') {
+    spinProps = {
+      spinning: true,
+      ...loading,
+    };
+  }
 
   const headerNode = React.useMemo<React.ReactNode>(() => {
     if (!title && !mergedClosable) {
@@ -140,7 +172,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
   }, [footer, footerStyle, prefixCls]);
 
   return (
-    <>
+    <PanelNode spinProps={spinProps}>
       {headerNode}
       <div
         className={classNames(
@@ -157,7 +189,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
         {children}
       </div>
       {footerNode}
-    </>
+    </PanelNode>
   );
 };
 
