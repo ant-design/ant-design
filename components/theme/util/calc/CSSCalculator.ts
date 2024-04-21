@@ -2,6 +2,8 @@ import AbstractCalculator from './calculator';
 
 const CALC_UNIT = 'CALC_UNIT';
 
+const regexp = new RegExp(CALC_UNIT, 'g');
+
 function unit(value: string | number) {
   if (typeof value === 'number') {
     return `${value}${CALC_UNIT}`;
@@ -77,7 +79,6 @@ export default class CSSCalculator extends AbstractCalculator {
 
   equal(options?: { unit?: boolean }): string {
     const { unit: cssUnit = true } = options || {};
-    const regexp = new RegExp(`${CALC_UNIT}`, 'g');
     this.result = this.result.replace(regexp, cssUnit ? 'px' : '');
     if (typeof this.lowPriority !== 'undefined') {
       return `calc(${this.result})`;
