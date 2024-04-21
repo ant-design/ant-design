@@ -159,8 +159,14 @@ const Line: React.FC<LineProps> = (props) => {
     </div>
   ) : (
     <>
-      {infoPosition === 'outer' && infoAlign === 'start' && children}
-      <div className={`${prefixCls}-outer`} style={outerStyle}>
+      <div
+        className={classNames(
+          `${prefixCls}-outer`,
+          infoAlign === 'start' && `${prefixCls}-outer-start`,
+        )}
+        style={outerStyle}
+      >
+        {infoPosition === 'outer' && infoAlign === 'start' && children}
         {lineInner}
       </div>
       {infoPosition === 'outer' && infoAlign === 'end' && children}

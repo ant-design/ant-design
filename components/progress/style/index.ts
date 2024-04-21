@@ -87,6 +87,10 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
       [`${progressCls}-outer`]: {
         display: 'inline-block',
         width: '100%',
+        [`&${progressCls}-outer-start`]: {
+          display: 'flex',
+          alignItems: 'center',
+        },
       },
 
       [`&${progressCls}-show-info`]: {
@@ -94,12 +98,6 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
           [`${progressCls}-outer`]: {
             marginInlineEnd: `calc(-2em - ${unit(token.marginXS)})`,
             paddingInlineEnd: `calc(2em + ${unit(token.paddingXS)})`,
-          },
-        },
-        [`&${progressCls}-line-align-start`]: {
-          [`${progressCls}-outer`]: {
-            marginInlineStart: `calc(-2em - ${unit(token.marginXS)})`,
-            paddingInlineStart: `calc(2em + ${unit(token.paddingXS)})`,
           },
         },
       },
@@ -179,6 +177,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
           fontSize: token.fontSize,
         },
         [`&${progressCls}-text-outer${progressCls}-text-start`]: {
+          width: 'max-content',
           marginInlineStart: 0,
           marginInlineEnd: token.marginXS,
         },
