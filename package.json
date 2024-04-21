@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.16.2",
+  "version": "5.16.3",
   "description": "An enterprise-class UI design language and React components implementation",
   "keywords": [
     "ant",
@@ -222,7 +222,7 @@
     "@types/react-resizable": "^3.0.7",
     "@types/semver": "^7.5.8",
     "@types/spinnies": "^0.5.3",
-    "@types/tar": "^6.1.12",
+    "@types/tar": "^6.1.13",
     "@types/throttle-debounce": "^5.0.2",
     "@types/warning": "^3.0.3",
     "@typescript-eslint/eslint-plugin": "^7.7.0",
@@ -302,7 +302,7 @@
     "qs": "^6.12.1",
     "rc-footer": "^0.6.8",
     "rc-tween-one": "^3.0.6",
-    "rc-virtual-list": "^3.11.4",
+    "rc-virtual-list": "^3.11.5",
     "react": "^18.2.0",
     "react-copy-to-clipboard": "^5.1.0",
     "react-countup": "^6.5.3",
@@ -341,7 +341,7 @@
     "tsx": "^4.7.2",
     "typedoc": "^0.25.13",
     "typescript": "~5.4.5",
-    "vanilla-jsoneditor": "^0.23.1",
+    "vanilla-jsoneditor": "^0.23.2",
     "vanilla-tilt": "^1.8.1",
     "webpack": "^5.91.0",
     "webpack-bundle-analyzer": "^4.10.2",
@@ -362,11 +362,11 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "337 KiB"
+      "limit": "350 KiB"
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "384 KiB"
+      "limit": "400 KiB"
     }
   ],
   "title": "Ant Design",
