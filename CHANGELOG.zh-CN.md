@@ -15,6 +15,26 @@ tag: vVERSION
 
 ---
 
+## 5.16.3
+
+`2024-04-21`
+
+- Input
+  - 🐞 修复 Input.Search 设置大尺寸时，按钮的文字不是大尺寸的问题。[#48527](https://github.com/ant-design/ant-design/pull/48527)
+  - 🐞 修复 Input.TextArea 的文字显示异常问题。[#48489](https://github.com/ant-design/ant-design/pull/48489) [@korkt-kim](https://github.com/korkt-kim)
+- 🐞 修复 Upload 组件图片卡顿的动画效果。[#48522](https://github.com/ant-design/ant-design/pull/48522) [@nova1751](https://github.com/nova1751)
+- 🐞 修复 Switch 组件使用 `checkedChildren` `unCheckedChildren` 未添加默认高度的问题。[#48513](https://github.com/ant-design/ant-design/pull/48513) [@wanpan11](https://github.com/wanpan11)
+- 🐞 修复 Form.Item 使用 noStyle 无值时的警告提醒。[#48508](https://github.com/ant-design/ant-design/pull/48508)
+- 🐞 修复 Popover `defaultOpen` 设置失效的问题。[#48481](https://github.com/ant-design/ant-design/pull/48481) [@linhf123](https://github.com/linhf123)
+- 🐞 修复 DatePicker 配置 `multiple` 时 `placeholder` 不展示的问题。[#48387](https://github.com/ant-design/ant-design/pull/48387) [@nova1751](https://github.com/nova1751)
+- 🐞 修复 ColorPicker 在严格模式下受控时清除颜色无法改变的问题。[#48450](https://github.com/ant-design/ant-design/pull/48450)
+- 💄 修复 Collapse 使用第三方图标时的 arrow 样式问题。[#48417](https://github.com/ant-design/ant-design/pull/48417) [@guoyunhe](https://github.com/guoyunhe)
+- 💄 优化内嵌 Menu 的 Sider 在展开时的动画效果。[#48127](https://github.com/ant-design/ant-design/pull/48127) [@metouch](https://github.com/metouch)
+- 💄 优化 Steps process 样式。[#48464](https://github.com/ant-design/ant-design/pull/48464)
+- 国际化
+  - 🇨🇳 补充 zh_CN zh_HK zh_TW Table 文案。[#48543](https://github.com/ant-design/ant-design/pull/48543) [@thinkasany](https://github.com/thinkasany)
+  - 🇮🇩 补充 id_ID DatePicker Form Table 等文案。[#48537](https://github.com/ant-design/ant-design/pull/48537) [#48287](https://github.com/ant-design/ant-design/pull/48287) [@edikurniawan-dev](https://github.com/edikurniawan-dev)
+
 ## 5.16.2
 
 `2024-04-15`
