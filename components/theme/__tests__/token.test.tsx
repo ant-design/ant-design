@@ -3,10 +3,8 @@ import { Theme } from '@ant-design/cssinjs';
 
 import theme from '..';
 import { render, renderHook } from '../../../tests/utils';
-import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import type { ThemeConfig } from '../../config-provider/context';
-import Input from '../../input';
 import Row from '../../row';
 import Slider from '../../slider';
 import genRadius from '../themes/shared/genRadius';
