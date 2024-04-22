@@ -16,6 +16,26 @@ tag: vVERSION
 
 ---
 
+## 5.16.3
+
+`2024-04-21`
+
+- Input
+  - 🐞 Fix the text of the button is not the large size when Input.Search is set to a large size. [#48527](https://github.com/ant-design/ant-design/pull/48527)
+  - 🐞 Fix abnormal text display in Input.TextArea. [#48489](https://github.com/ant-design/ant-design/pull/48489) [@korkt-kim](https://github.com/korkt-kim)
+- 🐞 Fix the stuck animation effect of the Upload component image. [#48522](https://github.com/ant-design/ant-design/pull/48522) [@nova1751](https://github.com/nova1751)
+- 🐞 Fix the issue where the Switch component using `checkedChildren` and `unCheckedChildren` did not add a default height. [#48513](https://github.com/ant-design/ant-design/pull/48513) [@wanpan11](https://github.com/wanpan11)
+- 🐞 Fix the warning reminder when Form.Item uses noStyle with no value. [#48508](https://github.com/ant-design/ant-design/pull/48508)
+- 🐞 Fix Popover `defaultOpen` setting failed. [#48481](https://github.com/ant-design/ant-design/pull/48481) [@linhf123](https://github.com/linhf123)
+- 🐞 Fix where `placeholder` is not displayed when DatePicker is configured with `multiple`. [#48387](https://github.com/ant-design/ant-design/pull/48387) [@nova1751](https://github.com/nova1751)
+- 🐞 Fix where ColorPicker clear color could not be changed when controlled in strict mode. [#48450](https://github.com/ant-design/ant-design/pull/48450)
+- 💄 Fix the arrow style issue when Collapse uses third-party icons. [#48417](https://github.com/ant-design/ant-design/pull/48417) [@guoyunhe](https://github.com/guoyunhe)
+- 💄 Optimize the animation effect of the embedded Menu Sider when it is expanded. [#48127](https://github.com/ant-design/ant-design/pull/48127) [@metouch](https://github.com/metouch)
+- 💄 Optimize Steps process style. [#48464](https://github.com/ant-design/ant-design/pull/48464)
+- Locales
+  - 🇨🇳 Add zh_CN zh_HK zh_TW Table licales. [#48543](https://github.com/ant-design/ant-design/pull/48543) [@thinkasany](https://github.com/thinkasany)
+  - 🇮🇩 Add id_ID DatePicker Form Table etc. locales. [#48537](https://github.com/ant-design/ant-design/pull/48537) [#48287](https://github.com/ant-design/ant-design/pull/48287) [@edikurniawan-dev](https://github.com/edikurniawan-dev)
+
 ## 5.16.2
 
 `2024-04-15`
