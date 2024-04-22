@@ -14,7 +14,7 @@ const genMotionStyle: GenerateStyle<UploadToken> = (token) => {
       height: 0,
       padding: 0,
       opacity: 0,
-      margin: `calc(${token.marginXS} / -2)`,
+      margin: token.calc(token.marginXS).div(-2).equal(),
     },
   });
 
@@ -24,7 +24,7 @@ const genMotionStyle: GenerateStyle<UploadToken> = (token) => {
       height: 0,
       padding: 0,
       opacity: 0,
-      margin: `calc(${token.marginXS} / -2)`,
+      margin: token.calc(token.marginXS).div(-2).equal(),
     },
   });
 
