@@ -26,7 +26,6 @@ const locale: PickerLocale = {
     ...CalendarLocale,
   },
   timePickerLocale: {
-    placeholder: 'Zeit wählen',
     ...TimePickerLocale,
   },
 };
