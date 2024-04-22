@@ -135,7 +135,7 @@ function getMdImageTag(desc: IImageDesc, extraCaption?: boolean) {
 }
 
 interface IBadCase {
-  type: 'removed' | 'changed';
+  type: 'removed' | 'changed' | 'added';
   filename: string;
   /**
    * compare target file
@@ -179,27 +179,39 @@ function generateLineReport(
     lineHTMLReport += '| ';
     lineHTMLReport += [
       // add ref as query to avoid github cache image object
-      getMdImageTag({
-        src: `${publicPath}/images/base/${filename}?ref=${currentRef}`,
-        alt: targetFilename || '',
-      }, extraCaption),
-      getMdImageTag({
-        src: `${publicPath}/images/current/${filename}?ref=${currentRef}`,
-        alt: filename,
-      }, extraCaption),
-      getMdImageTag({
-        src: `${publicPath}/images/diff/${filename}?ref=${currentRef}`,
-        alt: '',
-      }, extraCaption),
+      getMdImageTag(
+        {
+          src: `${publicPath}/images/base/${filename}?ref=${currentRef}`,
+          alt: targetFilename || '',
+        },
+        extraCaption,
+      ),
+      getMdImageTag(
+        {
+          src: `${publicPath}/images/current/${filename}?ref=${currentRef}`,
+          alt: filename,
+        },
+        extraCaption,
+      ),
+      getMdImageTag(
+        {
+          src: `${publicPath}/images/diff/${filename}?ref=${currentRef}`,
+          alt: '',
+        },
+        extraCaption,
+      ),
     ].join(' | ');
     lineHTMLReport += ' |\n';
   } else if (type === 'removed') {
     lineHTMLReport += '| ';
     lineHTMLReport += [
-      getMdImageTag({
-        src: `${publicPath}/images/base/${filename}?ref=${currentRef}`,
-        alt: targetFilename || '',
-      }, extraCaption),
+      getMdImageTag(
+        {
+          src: `${publicPath}/images/base/${filename}?ref=${currentRef}`,
+          alt: targetFilename || '',
+        },
+        extraCaption,
+      ),
       `⛔️⛔️⛔️ Missing ⛔️⛔️⛔️`,
       `🚨🚨🚨 Removed 🚨🚨🚨`,
     ].join(' | ');
@@ -259,20 +271,10 @@ ${fullReport}
     diffCount += 1;
     if (diffCount <= 10) {
       // 将图片下方增加文件名
-      reportMdStr += generateLineReport(
-        badCase,
-        publicPath,
-        currentRef,
-        true,
-      );
+      reportMdStr += generateLineReport(badCase, publicPath, currentRef, true);
     }
 
-    fullVersionMd += generateLineReport(
-      badCase,
-      publicPath,
-      currentRef,
-      false,
-    );
+    fullVersionMd += generateLineReport(badCase, publicPath, currentRef, false);
   }
 
   reportMdStr += addonFullReportDesc;
@@ -335,6 +337,7 @@ async function boot() {
     .filter((i) => !i.endsWith('.css-var.png'))
     .map((n) => path.basename(n, path.extname(n)));
 
+  // compare to target branch
   for (const basename of cssInJsImgNames) {
     for (const extname of ['.png', '.css-var.png']) {
       // baseImg always use cssinjs png
@@ -386,6 +389,29 @@ async function boot() {
     }
   }
 
+  // collect all new added cases
+  const currentImgFileList = readPngs(currentImgSourceDir);
+  /* --- text report stage --- */
+  console.log(
+    chalk.blue(`📊 Text report from pr #${prId} comparing to ${targetBranch}@${targetCommitSha}\n`),
+  );
+  // new images
+  const newImgs = difference(currentImgFileList, baseImgFileList);
+  if (newImgs.length) {
+    console.log(chalk.green(`🆕 ${newImgs.length} images added from this pr`));
+    console.log(chalk.green('🆕 Added images list:\n'));
+    console.log(prettyList(newImgs));
+    console.log('\n');
+  }
+
+  for (const newImg of newImgs) {
+    badCases.push({
+      type: 'added',
+      filename: path.basename(newImg),
+      weight: 0,
+    });
+  }
+
   /* --- generate report stage --- */
   const jsonl = badCases.map((i) => JSON.stringify(i)).join('\n');
   // write jsonl and markdown report to diffImgDir
@@ -416,21 +442,9 @@ async function boot() {
     await fse.readdir(REPORT_DIR),
   );
 
-  const currentImgFileList = readPngs(currentImgSourceDir);
-  /* --- text report stage --- */
-  console.log(
-    chalk.blue(`📊 Text report from pr #${prId} comparing to ${targetBranch}@${targetCommitSha}\n`),
-  );
-  // new images
-  const newImgs = difference(currentImgFileList, baseImgFileList);
-  if (newImgs.length) {
-    console.log(chalk.green(`🆕 ${newImgs.length} images added from this pr`));
-    console.log(chalk.green('🆕 Added images list:\n'));
-    console.log(prettyList(newImgs));
-    console.log('\n');
-  }
+  const validBadCases = badCases.filter((i) => ['removed', 'changed'].includes(i.type));
 
-  if (!badCases.length) {
+  if (!validBadCases.length) {
     console.log(chalk.green('🎉 All passed!'));
     console.log('\n');
     return;
