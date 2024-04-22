@@ -216,6 +216,20 @@ function generateLineReport(
       `🚨🚨🚨 Removed 🚨🚨🚨`,
     ].join(' | ');
     lineHTMLReport += ' |\n';
+  } else if (type === 'added') {
+    lineHTMLReport += '| ';
+    lineHTMLReport += [
+      '',
+      getMdImageTag(
+        {
+          src: `${publicPath}/images/current/${filename}?ref=${currentRef}`,
+          alt: filename,
+        },
+        extraCaption,
+      ),
+      `🆕🆕🆕 Added 🆕🆕🆕`,
+    ].join(' | ');
+    lineHTMLReport += ' |\n';
   }
   return lineHTMLReport;
 }
