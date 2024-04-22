@@ -16,10 +16,13 @@ tag: vVERSION
 
 ---
 
-## 5.16.3
+## 5.16.4
 
-`2024-04-21`
+`2024-04-22`
 
+- 🐞 Fix Select with `multiple` and `paddingXXS=0` will break the height align of `controlHeight` token. [#48574](https://github.com/ant-design/ant-design/pull/48574)
+- 🐞 Fix Upload miss style when enable CSS Variable. [#48569](https://github.com/ant-design/ant-design/pull/48569) [@nova1751](https://github.com/nova1751)
+- 🐞 Fix Slider in `range` tooltip blink when drag the handle over another one. [#48536](https://github.com/ant-design/ant-design/pull/48536)
 - Input
   - 🐞 Fix the text of the button is not the large size when Input.Search is set to a large size. [#48527](https://github.com/ant-design/ant-design/pull/48527)
   - 🐞 Fix abnormal text display in Input.TextArea. [#48489](https://github.com/ant-design/ant-design/pull/48489) [@korkt-kim](https://github.com/korkt-kim)
@@ -35,6 +38,13 @@ tag: vVERSION
 - Locales
   - 🇨🇳 Add zh_CN zh_HK zh_TW Table licales. [#48543](https://github.com/ant-design/ant-design/pull/48543) [@thinkasany](https://github.com/thinkasany)
   - 🇮🇩 Add id_ID DatePicker Form Table etc. locales. [#48537](https://github.com/ant-design/ant-design/pull/48537) [#48287](https://github.com/ant-design/ant-design/pull/48287) [@edikurniawan-dev](https://github.com/edikurniawan-dev)
+  - 🌐 Optimize Transfer localization to use `deselectAll` locale when need deselect all. [#48553](https://github.com/ant-design/ant-design/pull/48553) [@coderz-w](https://github.com/coderz-w)
+
+## 5.16.3
+
+`2024-04-21`
+
+- 🛠 Script failed to publish an empty package. Do not use this version.
 
 ## 5.16.2
 
