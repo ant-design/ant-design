@@ -198,10 +198,11 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
       },
 
       [`${componentCls}-item:last-child`]: {
+        borderBottom: 0,
+
         [`> ${componentCls}-content`]: {
           borderRadius: `0 0 ${unit(collapsePanelBorderRadius)} ${unit(collapsePanelBorderRadius)}`,
         },
-        borderBottom:"0",
       },
 
       [`& ${componentCls}-item-disabled > ${componentCls}-header`]: {
