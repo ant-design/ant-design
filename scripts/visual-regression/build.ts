@@ -208,7 +208,7 @@ function generateLineReport(
       getMdImageTag(
         {
           src: `${publicPath}/images/base/${filename}?ref=${currentRef}`,
-          alt: targetFilename || '',
+          alt: filename || '',
         },
         extraCaption,
       ),
