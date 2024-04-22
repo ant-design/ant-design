@@ -168,7 +168,11 @@ export const initPanelComponentToken = (token: GlobalToken): PanelComponentToken
     controlHeightLG - dblLineWidth,
   );
 
-  return {
+  // FIXED_ITEM_MARGIN is a hardcode calculation since calc not support rounding
+  const INTERNAL_FIXED_ITEM_MARGIN = Math.floor(paddingXXS / 2);
+
+  const filledToken = {
+    INTERNAL_FIXED_ITEM_MARGIN,
     cellHoverBg: token.controlItemBgHover,
     cellActiveWithRangeBg: token.controlItemBgActive,
     cellHoverWithRangeBg: new TinyColor(token.colorPrimary).lighten(35).toHexString(),
@@ -190,6 +194,8 @@ export const initPanelComponentToken = (token: GlobalToken): PanelComponentToken
     multipleItemColorDisabled: token.colorTextDisabled,
     multipleItemBorderColorDisabled: 'transparent',
   };
+
+  return filledToken;
 };
 
 export const prepareComponentToken: GetDefaultToken<'DatePicker'> = (token) => ({
