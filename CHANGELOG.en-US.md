@@ -44,7 +44,7 @@ tag: vVERSION
 
 `2024-04-21`
 
-- 🐞 Script failed to publish an empty package. Do not use this version.
+- 🛠 Script failed to publish an empty package. Do not use this version.
 
 ## 5.16.2
 
