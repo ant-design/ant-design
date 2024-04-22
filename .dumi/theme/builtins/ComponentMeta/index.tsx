@@ -122,6 +122,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
     </span>,
     <span key="component" className={styles.component}>{`{ ${component} }`}</span>,
     <span key="from" className={styles.from}>
+      {/* https://github.com/ant-design/ant-design/pull/48552 */}
       from{' '}
     </span>,
     <span key="antd" className={styles.antd}>
