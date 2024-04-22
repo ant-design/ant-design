@@ -167,7 +167,7 @@ export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
   );
 
   // FIXED_ITEM_MARGIN is a hardcode calculation since calc not support rounding
-  const INTERNAL_FIXED_ITEM_MARGIN = paddingXXS / 2;
+  const INTERNAL_FIXED_ITEM_MARGIN = Math.floor(paddingXXS / 2);
 
   return {
     INTERNAL_FIXED_ITEM_MARGIN,
