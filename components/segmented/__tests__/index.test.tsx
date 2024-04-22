@@ -61,7 +61,7 @@ describe('Segmented', () => {
         options={[
           { label: 'Daily', value: 'Daily' },
           { label: <div id="weekly">Weekly</div>, value: 'Weekly' },
-          { label: <h2>Monthly</h2>, value: 'Monthly' },
+          { label: <div className="little">Monthly</div>, value: 'Monthly' },
         ]}
       />,
     );
@@ -71,7 +71,7 @@ describe('Segmented', () => {
     expectMatchChecked(container, [true, false, false]);
 
     expect(container.querySelector('#weekly')?.textContent).toContain('Weekly');
-    expect(container.querySelectorAll('h2')[0].textContent).toContain('Monthly');
+    expect(container.querySelector('.little')?.textContent).toContain('Monthly');
   });
 
   it('render segmented with defaultValue', () => {
