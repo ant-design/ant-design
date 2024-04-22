@@ -421,9 +421,10 @@ async function boot() {
   for (const newImg of newImgs) {
     badCases.push({
       type: 'added',
-      filename: path.basename(newImg),
+      filename: newImg,
       weight: 0,
     });
+    await fse.copy(currentImgReportDir, path.join(currentImgSourceDir, newImg));
   }
 
   /* --- generate report stage --- */
