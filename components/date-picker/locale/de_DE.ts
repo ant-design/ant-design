@@ -8,12 +8,6 @@ const locale: PickerLocale = {
   lang: {
     placeholder: 'Datum auswählen',
     rangePlaceholder: ['Startdatum', 'Enddatum'],
-    yearFormat: 'YYYY',
-    dateFormat: 'DD.MM.YYYY',
-    dayFormat: 'D',
-    dateTimeFormat: 'DD.MM.YYYY HH:mm:ss',
-    monthFormat: 'MMMM',
-    monthBeforeYear: true,
     shortWeekDays: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
     shortMonths: [
       'Jan',
