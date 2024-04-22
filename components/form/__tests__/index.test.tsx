@@ -1310,7 +1310,7 @@ describe('Form', () => {
             mark: 'pro_table_render',
             render: (_: any, doms: any) => (
               <div>
-                <h1>warning title</h1>
+                <div className="bamboo">warning title</div>
                 {doms.input}
                 {doms.errorList}
                 {doms.extra}
@@ -1323,7 +1323,7 @@ describe('Form', () => {
       </Form>,
     );
 
-    expect(container.querySelector('h1')!).toHaveTextContent(/warning title/i);
+    expect(container.querySelector('.bamboo')!).toHaveTextContent(/warning title/i);
   });
 
   it('Form Item element id will auto add form_item prefix if form name is empty and item name is in the black list', async () => {

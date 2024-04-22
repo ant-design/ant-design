@@ -256,6 +256,12 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
         },
       },
 
+      [`&-lock ${componentCls}-handle`]: {
+        [`&::before, &::after`]: {
+          transition: 'none',
+        },
+      },
+
       [`${componentCls}-mark`]: {
         position: 'absolute',
         fontSize: token.fontSize,

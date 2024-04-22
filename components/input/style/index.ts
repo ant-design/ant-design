@@ -881,4 +881,7 @@ export default genStyleHooks(
     ];
   },
   initComponentToken,
+  {
+    resetFont: false,
+  },
 );
