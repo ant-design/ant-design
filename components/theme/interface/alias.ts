@@ -1,4 +1,5 @@
 import type * as React from 'react';
+
 import type { MapToken } from './maps';
 
 // ======================================================================

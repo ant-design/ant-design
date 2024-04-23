@@ -23,11 +23,11 @@ const GlobalDemoStyles: React.FC = () => {
           position: relative;
           display: inline-block;
           width: calc(100% - ${token.lineWidth * 2}px);
-          margin: 0 0 16px;
+          margin: 0 0 ${token.margin}px;
           background-color: ${token.colorBgContainer};
           border: 1px solid ${token.colorSplit};
           border-radius: ${token.borderRadiusLG}px;
-          transition: all 0.2s;
+          transition: all ${token.motionDurationMid};
 
           &.code-box-simplify {
             border-radius: 0;
@@ -74,12 +74,10 @@ const GlobalDemoStyles: React.FC = () => {
           &-expand-trigger {
             position: relative;
             color: #3b4357;
-            font-size: 20px;
+            font-size: ${token.fontSizeXL}px;
             cursor: pointer;
             opacity: 0.75;
-            transition: all 0.3s;
-            margin-inline-start: 12px;
-
+            transition: all ${token.motionDurationSlow};
             &:hover {
               opacity: 1;
             }
@@ -93,7 +91,7 @@ const GlobalDemoStyles: React.FC = () => {
             background: ${token.colorBgContainer};
             border-radius: ${token.borderRadius}px ${token.borderRadius}px 0 0;
             transition: background-color 0.4s;
-            margin-inline-start: 16px;
+            margin-inline-start: ${token.margin}px;
 
             a,
             a:hover {
@@ -111,15 +109,15 @@ const GlobalDemoStyles: React.FC = () => {
             position: absolute;
             top: 7px;
             right: -16px;
-            font-size: 12px;
+            font-size: ${token.fontSizeSM}px;
             text-decoration: none;
             background: inherit;
             transform: scale(0.9);
-            padding-inline-end: 6px;
+            padding-inline-end: ${token.paddingXXS}px;
 
             ${iconCls} {
               color: ${token.colorTextSecondary};
-              transition: all 0.3s;
+              transition: all ${token.motionDurationSlow};
 
               &:hover {
                 color: ${token.colorText};
@@ -164,7 +162,7 @@ const GlobalDemoStyles: React.FC = () => {
             > p {
               width: 100%;
               margin: 0.5em 0;
-              font-size: 12px;
+              font-size: ${token.fontSizeSM}px;
               word-break: break-word;
               padding-inline-end: 25px;
             }
@@ -244,10 +242,10 @@ const GlobalDemoStyles: React.FC = () => {
           &-actions {
             display: flex;
             justify-content: center;
-            padding: 12px 0;
+            padding: ${token.paddingSM}px 0;
             border-top: 1px dashed ${token.colorSplit};
             opacity: 0.7;
-            transition: opacity 0.3s;
+            transition: opacity ${token.motionDurationSlow};
 
             &:hover {
               opacity: 1;
@@ -276,7 +274,7 @@ const GlobalDemoStyles: React.FC = () => {
           &-code-copy {
             width: 14px;
             height: 14px;
-            font-size: 14px;
+            font-size: ${token.fontSize}px;
             text-align: center;
             background: ${token.colorBgContainer};
             cursor: pointer;
@@ -331,8 +329,8 @@ const GlobalDemoStyles: React.FC = () => {
               background: ${token.colorBgContainer};
               border: none;
               box-shadow: unset;
-              padding: 12px 16px;
-              font-size: 13px;
+              padding: ${token.paddingSM}px ${token.padding}px;
+              font-size: ${token.fontSize}px;
             }
           }
 
@@ -353,6 +351,9 @@ const GlobalDemoStyles: React.FC = () => {
           position: absolute;
           top: -32px;
           inset-inline-end: 0;
+          display: flex;
+          align-items: center;
+          column-gap: ${token.marginSM}px;
         }
 
         ${antCls}-row-rtl {

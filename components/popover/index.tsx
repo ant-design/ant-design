@@ -1,19 +1,18 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import KeyCode from 'rc-util/lib/KeyCode';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { getTransitionName } from '../_util/motion';
+import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
 import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
 import Tooltip from '../tooltip';
 import PurePanel from './PurePanel';
 // CSSINJS
 import useStyle from './style';
-
-import KeyCode from 'rc-util/lib/KeyCode';
-import { cloneElement } from '../_util/reactNode';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 export interface PopoverProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
@@ -37,7 +36,7 @@ const Overlay: React.FC<OverlayProps> = ({ title, content, prefixCls }) => (
   </>
 );
 
-const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
+const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     title,
@@ -61,6 +60,7 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
   const overlayCls = classNames(overlayClassName, hashId, cssVarCls);
   const [open, setOpen] = useMergedState(false, {
     value: props.open ?? props.visible,
+    defaultValue: props.defaultOpen ?? props.defaultVisible,
   });
 
   const settingOpen = (
@@ -110,16 +110,18 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
       })}
     </Tooltip>,
   );
-}) as React.ForwardRefExoticComponent<
-  React.PropsWithoutRef<PopoverProps> & React.RefAttributes<unknown>
-> & {
+});
+
+type CompoundedComponent = typeof InternalPopover & {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };
+
+const Popover = InternalPopover as CompoundedComponent;
+
+Popover._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 if (process.env.NODE_ENV !== 'production') {
   Popover.displayName = 'Popover';
 }
-
-Popover._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 export default Popover;

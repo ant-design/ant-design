@@ -6,7 +6,7 @@ import { Link, useLocation } from 'dumi';
 import useLocale from '../../../../hooks/useLocale';
 import SiteContext from '../../../../theme/slots/SiteContext';
 import * as utils from '../../../../theme/utils';
-import { GroupMask } from '../Group';
+import GroupMaskLayer from '../GroupMaskLayer';
 
 const ComponentsBlock = React.lazy(() => import('./ComponentsBlock'));
 
@@ -28,7 +28,7 @@ const useStyle = () => {
   const { direction } = React.useContext(ConfigProvider.ConfigContext);
   const isRTL = direction === 'rtl';
   return createStyles(({ token, css, cx }) => {
-    const textShadow = `0 0 3px ${token.colorBgContainer}`;
+    const textShadow = `0 0 4px ${token.colorBgContainer}`;
 
     const mask = cx(css`
       position: absolute;
@@ -114,7 +114,7 @@ const PreviewBanner: React.FC<React.PropsWithChildren> = (props) => {
   const isZhCN = utils.isZhCN(pathname);
 
   return (
-    <GroupMask>
+    <GroupMaskLayer>
       {/* Image Left Top */}
       <img
         style={{ position: 'absolute', left: isMobile ? -120 : 0, top: 0, width: 240 }}
@@ -154,7 +154,7 @@ const PreviewBanner: React.FC<React.PropsWithChildren> = (props) => {
         </Flex>
         <div className={styles.child}>{children}</div>
       </div>
-    </GroupMask>
+    </GroupMaskLayer>
   );
 };
 

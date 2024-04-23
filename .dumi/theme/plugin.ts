@@ -1,11 +1,12 @@
+import { createHash } from 'crypto';
 import fs from 'fs';
 import path from 'path';
-import { createHash } from 'crypto';
+import createEmotionServer from '@emotion/server/create-instance';
+import chalk from 'chalk';
 import type { IApi, IRoute } from 'dumi';
 import ReactTechStack from 'dumi/dist/techStacks/react';
-import chalk from 'chalk';
 import sylvanas from 'sylvanas';
-import createEmotionServer from '@emotion/server/create-instance';
+
 import localPackage from '../../package.json';
 
 function extractEmotionStyle(html: string) {
@@ -53,13 +54,65 @@ class AntdReactTechStack extends ReactTechStack {
 
       if (md) {
         // extract description & css style from md file
-        const description = md.match(
-          new RegExp(`(?:^|\\n)## ${locale}([^]+?)(\\n## [a-z]|\\n\`\`\`|\\n<style>|$)`),
-        )?.[1];
-        const style = md.match(/\r?\n(?:```css|<style>)\r?\n([^]+?)\r?\n(?:```|<\/style>)/)?.[1];
+        const blocks: Record<string, string> = {};
 
-        props.description ??= description?.trim();
-        props.style ??= style;
+        const lines = md.split('\n');
+
+        let blockName = '';
+        let cacheList: string[] = [];
+
+        // Get block name
+        const getBlockName = (text: string) => {
+          if (text.startsWith('## ')) {
+            return text.replace('## ', '').trim();
+          }
+
+          if (text.startsWith('```css') || text.startsWith('<style>')) {
+            return 'style';
+          }
+
+          return null;
+        };
+
+        // Fill block content
+        const fillBlock = (name: string, lineList: string[]) => {
+          if (lineList.length) {
+            let fullText: string;
+
+            if (name === 'style') {
+              fullText = lineList
+                .join('\n')
+                .replace(/<\/?style>/g, '')
+                .replace(/```(\s*css)/g, '');
+            } else {
+              fullText = lineList.slice(1).join('\n');
+            }
+
+            blocks[name] = fullText;
+          }
+        };
+
+        for (let i = 0; i < lines.length; i++) {
+          const line = lines[i];
+
+          // Mark as new block
+          const nextBlockName = getBlockName(line);
+          if (nextBlockName) {
+            fillBlock(blockName, cacheList);
+
+            // Next Block
+            blockName = nextBlockName;
+            cacheList = [line];
+          } else {
+            cacheList.push(line);
+          }
+        }
+
+        // Last block
+        fillBlock(blockName, cacheList);
+
+        props.description = blocks[locale];
+        props.style = blocks.style;
       }
     }
 

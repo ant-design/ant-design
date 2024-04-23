@@ -1,65 +1,41 @@
 import React from 'react';
-import { createStyles } from 'antd-style';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
-import { Col, Row, Tooltip } from 'antd';
+import { Col, Row, Tooltip, Card, Typography } from 'antd';
+import { createStyles } from 'antd-style';
 import useLocale from '../../../hooks/useLocale';
 
-const useStyle = createStyles(({ token, css }) => {
-  const { boxShadowSecondary } = token;
+const { Paragraph } = Typography;
 
-  return {
-    card: css`
+const useStyle = createStyles(({ token, css }) => ({
+  card: css`
       position: relative;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      color: inherit;
-      list-style: none;
-      border: 1px solid ${token.colorSplit};
-      border-radius: 2px;
-      cursor: pointer;
-      transition: box-shadow 0.3s;
+      overflow: hidden;
 
-      &:hover {
-        box-shadow: ${boxShadowSecondary};
-        color: inherit;
+      .ant-card-cover {
+        overflow: hidden;
       }
-    `,
-    image: css`
-      width: calc(100% + 2px);
-      max-width: none;
-      height: 184px;
-      margin: -1px -1px 0;
-      object-fit: cover;
-    `,
-    badge: css`
+      img {
+        transition: all ${token.motionDurationSlow} ease-out;
+      }
+
+      &:hover img {
+        transform: scale(1.3);
+        `,
+  badge: css`
       position: absolute;
       top: 8px;
       right: 8px;
-      padding: 4px 8px;
+      padding: ${token.paddingXXS}px ${token.paddingXS}px;
       color: #fff;
-      font-size: 12px;
+      font-size: ${token.fontSizeSM}px;
       line-height: 1;
       background: rgba(0, 0, 0, 0.65);
-      border-radius: 1px;
+      border-radius: ${token.borderRadiusLG}px;
       box-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
       display: inline-flex;
-      column-gap: 4px;
+      column-gap: ${token.paddingXXS}px;
     `,
-    title: css`
-      margin: 16px 20px 8px;
-      opacity: 0.85;
-      font-size: 20px;
-      line-height: 28px;
-    `,
-    description: css`
-      margin: 0 20px 20px;
-      opacity: 0.65;
-      font-size: 14px;
-      line-height: 22px;
-    `,
-  };
-});
+}));
 
 export type Resource = {
   title: string;
@@ -90,38 +66,33 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ resource }) => {
   const { styles } = useStyle();
   const [locale] = useLocale(locales);
 
-  const { title: titleStr, description, cover, src, official } = resource;
+  const { title, description, cover, src, official } = resource;
 
-  let coverColor: string | null = null;
-  let title: string = titleStr;
-  const titleMatch = titleStr.match(/(.*)(#[\dA-Fa-f]{6})/);
-  if (titleMatch) {
-    title = titleMatch[1].trim();
-    // eslint-disable-next-line prefer-destructuring
-    coverColor = titleMatch[2];
-  }
+  const badge = official ? (
+    <div className={styles.badge}>{locale.official}</div>
+  ) : (
+    <Tooltip title={locale.thirdPartDesc}>
+      <div className={styles.badge}>
+        <ExclamationCircleOutlined />
+        {locale.thirdPart}
+      </div>
+    </Tooltip>
+  );
 
   return (
-    <Col xs={24} sm={12} md={8} lg={6} style={{ padding: 12 }}>
+    <Col xs={24} sm={12} md={8} lg={6}>
       <a className={styles.card} target="_blank" href={src} rel="noreferrer">
-        <img
-          className={styles.image}
-          src={cover}
-          alt={title}
-          style={coverColor ? { backgroundColor: coverColor } : {}}
-        />
-        {official ? (
-          <div className={styles.badge}>{locale.official}</div>
-        ) : (
-          <Tooltip title={locale.thirdPartDesc}>
-            <div className={styles.badge}>
-              <ExclamationCircleOutlined />
-              {locale.thirdPart}
-            </div>
-          </Tooltip>
-        )}
-        <p className={styles?.title}>{title}</p>
-        <p className={styles.description}>{description}</p>
+        <Card hoverable className={styles.card} cover={<img src={cover} alt={title} />}>
+          <Card.Meta
+            title={title}
+            description={
+              <Paragraph style={{ marginBottom: 0 }} ellipsis={{ rows: 1 }} title={description}>
+                {description}
+              </Paragraph>
+            }
+          />
+          {badge}
+        </Card>
       </a>
     </Col>
   );
@@ -132,7 +103,7 @@ export type ResourceCardsProps = {
 };
 
 const ResourceCards: React.FC<ResourceCardsProps> = ({ resources }) => (
-  <Row style={{ margin: '-12px -12px 0 -12px' }}>
+  <Row gutter={[24, 24]}>
     {resources.map((item) => (
       <ResourceCard resource={item} key={item?.title} />
     ))}

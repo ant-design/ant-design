@@ -3,16 +3,18 @@ import classNames from 'classnames';
 import { useEvent } from 'rc-util';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
-import { getMergedStatus, type InputStatus } from '../../_util/statusUtils';
+import { getMergedStatus } from '../../_util/statusUtils';
+import type { InputStatus } from '../../_util/statusUtils';
 import { ConfigContext } from '../../config-provider';
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 import useSize from '../../config-provider/hooks/useSize';
-import { type SizeType } from '../../config-provider/SizeContext';
+import type { SizeType } from '../../config-provider/SizeContext';
 import { FormItemInputContext } from '../../form/context';
 import type { Variant } from '../../form/hooks/useVariants';
-import { type InputRef } from '../Input';
+import type { InputRef } from '../Input';
 import useStyle from '../style/otp';
-import OTPInput, { type OTPInputProps } from './OTPInput';
+import OTPInput from './OTPInput';
+import type { OTPInputProps } from './OTPInput';
 
 export interface OTPRef {
   focus: VoidFunction;
@@ -43,7 +45,7 @@ export interface OTPProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'on
 }
 
 function strToArr(str: string) {
-  return str.split('');
+  return (str || '').split('');
 }
 
 const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
@@ -119,7 +121,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   );
 
   React.useEffect(() => {
-    if (value) {
+    if (value !== undefined) {
       setValueCells(strToArr(value));
     }
   }, [value]);

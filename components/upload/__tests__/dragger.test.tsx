@@ -1,5 +1,6 @@
 /* eslint-disable react/no-string-refs, react/prefer-es6-class */
 import React from 'react';
+
 import Upload from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import { act, fireEvent, render, waitFor } from '../../../tests/utils';

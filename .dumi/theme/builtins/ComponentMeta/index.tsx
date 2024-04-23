@@ -1,6 +1,7 @@
 import React from 'react';
 import { EditOutlined, GithubOutlined } from '@ant-design/icons';
-import { Descriptions, theme, Tooltip, Typography, type GetProp } from 'antd';
+import type { GetProp } from 'antd';
+import { Descriptions, theme, Tooltip, Typography } from 'antd';
 import { createStyles, css } from 'antd-style';
 import kebabCase from 'lodash/kebabCase';
 import CopyToClipboard from 'react-copy-to-clipboard';
@@ -40,8 +41,8 @@ const useStyle = createStyles(({ token }) => ({
     position: relative;
     display: inline-flex;
     align-items: center;
-    column-gap: 4px;
-    border-radius: 4px;
+    column-gap: ${token.paddingXXS}px;
+    border-radius: ${token.borderRadiusSM}px;
     padding-inline: ${token.paddingXS}px;
     transition: all ${token.motionDurationSlow} !important;
     font-family: ${token.codeFamily};

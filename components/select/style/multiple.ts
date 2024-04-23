@@ -2,11 +2,10 @@ import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
 import { resetIcon } from '../../style';
-import { mergeToken, type AliasToken } from '../../theme/internal';
+import { mergeToken } from '../../theme/internal';
+import type { AliasToken } from '../../theme/internal';
 import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
 import type { SelectToken } from './token';
-
-export const FIXED_ITEM_MARGIN = 2;
 
 type SelectItemToken = Pick<
   SelectToken,
@@ -18,6 +17,7 @@ type SelectItemToken = Pick<
   | 'lineWidth'
   | 'calc'
   | 'inputPaddingHorizontalBase'
+  | 'INTERNAL_FIXED_ITEM_MARGIN'
 >;
 
 /**
@@ -40,13 +40,21 @@ type SelectItemToken = Pick<
 export const getMultipleSelectorUnit = (
   token: Pick<
     SelectToken,
-    'max' | 'calc' | 'multipleSelectItemHeight' | 'paddingXXS' | 'lineWidth'
+    | 'max'
+    | 'calc'
+    | 'multipleSelectItemHeight'
+    | 'paddingXXS'
+    | 'lineWidth'
+    | 'INTERNAL_FIXED_ITEM_MARGIN'
   >,
 ) => {
-  const { multipleSelectItemHeight, paddingXXS, lineWidth } = token;
+  const { multipleSelectItemHeight, paddingXXS, lineWidth, INTERNAL_FIXED_ITEM_MARGIN } = token;
 
   const basePadding = token.max(token.calc(paddingXXS).sub(lineWidth).equal(), 0);
-  const containerPadding = token.max(token.calc(basePadding).sub(FIXED_ITEM_MARGIN).equal(), 0);
+  const containerPadding = token.max(
+    token.calc(basePadding).sub(INTERNAL_FIXED_ITEM_MARGIN).equal(),
+    0,
+  );
 
   return {
     basePadding,
@@ -86,6 +94,7 @@ export const genOverflowStyle = (
     | 'multipleItemBorderColorDisabled'
     | 'colorIcon'
     | 'colorIconHover'
+    | 'INTERNAL_FIXED_ITEM_MARGIN'
   >,
 ): CSSObject => {
   const {
@@ -98,6 +107,7 @@ export const genOverflowStyle = (
     multipleItemBorderColorDisabled,
     colorIcon,
     colorIconHover,
+    INTERNAL_FIXED_ITEM_MARGIN,
   } = token;
 
   const selectOverflowPrefixCls = `${componentCls}-selection-overflow`;
@@ -129,11 +139,11 @@ export const genOverflowStyle = (
         flex: 'none',
         boxSizing: 'border-box',
         maxWidth: '100%',
-        marginBlock: FIXED_ITEM_MARGIN,
+        marginBlock: INTERNAL_FIXED_ITEM_MARGIN,
         borderRadius: borderRadiusSM,
         cursor: 'default',
         transition: `font-size ${motionDurationSlow}, line-height ${motionDurationSlow}, height ${motionDurationSlow}`,
-        marginInlineEnd: token.calc(FIXED_ITEM_MARGIN).mul(2).equal(),
+        marginInlineEnd: token.calc(INTERNAL_FIXED_ITEM_MARGIN).mul(2).equal(),
         paddingInlineStart: paddingXS,
         paddingInlineEnd: token.calc(paddingXS).div(2).equal(),
 
@@ -180,7 +190,7 @@ const genSelectionStyle = (
   token: TokenWithCommonCls<AliasToken> & SelectItemToken,
   suffix?: string,
 ): CSSObject => {
-  const { componentCls } = token;
+  const { componentCls, INTERNAL_FIXED_ITEM_MARGIN } = token;
 
   const selectOverflowPrefixCls = `${componentCls}-selection-overflow`;
 
@@ -215,7 +225,7 @@ const genSelectionStyle = (
         '&:after': {
           display: 'inline-block',
           width: 0,
-          margin: `${unit(FIXED_ITEM_MARGIN)} 0`,
+          margin: `${unit(INTERNAL_FIXED_ITEM_MARGIN)} 0`,
           lineHeight: unit(selectItemHeight),
           visibility: 'hidden',
           content: '"\\a0"',

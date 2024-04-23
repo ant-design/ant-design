@@ -70,7 +70,7 @@ jobs:
         run: |
           node node_modules/puppeteer/install.mjs
           npm run version
-          npm run test-image
+          npm run test:image
           tar -czvf imageSnapshots.tar.gz imageSnapshots/*
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"

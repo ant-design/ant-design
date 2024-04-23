@@ -1,5 +1,6 @@
 import * as React from 'react';
 import copy from 'copy-to-clipboard';
+import { useEvent } from 'rc-util';
 
 import type { CopyConfig } from '../Base';
 
@@ -29,33 +30,36 @@ const useCopyClick = ({
 
   React.useEffect(() => cleanCopyId, []);
 
+  // Keep copy action up to date
+  const onClick = useEvent(async (e?: React.MouseEvent<HTMLDivElement>) => {
+    e?.preventDefault();
+    e?.stopPropagation();
+    setCopyLoading(true);
+    try {
+      const text =
+        typeof copyConfig.text === 'function' ? await copyConfig.text() : copyConfig.text;
+      copy(text || String(children) || '', copyOptions);
+      setCopyLoading(false);
+
+      setCopied(true);
+
+      // Trigger tips update
+      cleanCopyId();
+      copyIdRef.current = setTimeout(() => {
+        setCopied(false);
+      }, 3000);
+
+      copyConfig.onCopy?.(e);
+    } catch (error) {
+      setCopyLoading(false);
+      throw error;
+    }
+  });
+
   return {
     copied,
     copyLoading,
-    onClick: async (e?: React.MouseEvent<HTMLDivElement>) => {
-      e?.preventDefault();
-      e?.stopPropagation();
-      setCopyLoading(true);
-      try {
-        const text =
-          typeof copyConfig.text === 'function' ? await copyConfig.text() : copyConfig.text;
-        copy(text || String(children) || '', copyOptions);
-        setCopyLoading(false);
-
-        setCopied(true);
-
-        // Trigger tips update
-        cleanCopyId();
-        copyIdRef.current = setTimeout(() => {
-          setCopied(false);
-        }, 3000);
-
-        copyConfig.onCopy?.(e);
-      } catch (error) {
-        setCopyLoading(false);
-        throw error;
-      }
-    },
+    onClick,
   };
 };
 

@@ -1,5 +1,6 @@
-import { UserOutlined } from '@ant-design/icons';
 import React from 'react';
+import { UserOutlined } from '@ant-design/icons';
+
 import notification, { actWrapper } from '..';
 import { act, fireEvent } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
@@ -386,7 +387,7 @@ describe('notification', () => {
     expect(document.querySelectorAll('.with-false .ant-notification-notice-close').length).toBe(0);
   });
 
-  it('style.width could be overrided', async () => {
+  it('style.width could be override', async () => {
     act(() => {
       notification.open({
         message: 'Notification Title',
@@ -399,8 +400,5 @@ describe('notification', () => {
     });
     await awaitPromise();
     expect(document.querySelector('.with-style')).toHaveStyle({ width: '600px' });
-    expect(
-      document.querySelector('.ant-notification-notice-wrapper:has(.width-style)'),
-    ).toHaveStyle({ width: '' });
   });
 });

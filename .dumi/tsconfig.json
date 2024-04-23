@@ -3,5 +3,5 @@
   "compilerOptions": {
     "resolveJsonModule": true
   },
-  "include": ["**/*"]
+  "include": ["**/*", "../typings/index.d.ts"]
 }

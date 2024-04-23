@@ -1,14 +1,15 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
-import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import Popover from '../popover';
+
 import { cloneElement } from '../_util/reactNode';
+import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import Popover from '../popover';
 import Avatar from './avatar';
 import AvatarContext from './AvatarContext';
 import type { AvatarContextType, AvatarSize } from './AvatarContext';
 import useStyle from './style';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 interface ContextProps {
   children?: React.ReactNode;
