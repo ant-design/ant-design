@@ -56,7 +56,7 @@ export const AggregateFormItem = (
         // 将 names 的值转成数组传给 children
         getValueProps={() => ({ value: names.map((name) => form.getFieldValue(name)) })}
         getValueFromEvent={(values) => {
-          // 将 names 字段的值设置给 form store
+          // 将 form store 分别设置给 names
           form.setFields(names.map((name, index) => ({ name, value: values[index] })));
           return values[0];
         }}
