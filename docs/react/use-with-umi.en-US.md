@@ -136,8 +136,8 @@ import { Button, Popconfirm, Table } from 'antd';
 import type { TableProps } from 'antd';
 
 interface DataType {
-    id: string;
-    name: string;
+  id: string;
+  name: string;
 }
 
 const ProductList: React.FC<{ products: DataType[]; onDelete: (id: string) => void }> = ({
