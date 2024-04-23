@@ -4,7 +4,7 @@ date: 2024-04-17
 author: crazyair
 ---
 
-在表单开发过程中，偶尔会遇到组合属性的需求。UI 展示字段与后端返回数据结构字段有所不同。比如说，跟后端对接接口，定义省市字段经常是 2 个字段 `{ province: Beijing, city: Haidian }`，而不是 `{ province:[Beijing，Haidian] }`，我们经常需要在 `initialValues` 以及 `onFinish` 处理值，如下：
+在表单开发过程中，偶尔会遇到组合属性的需求。UI 展示字段与后端返回数据结构字段有所不同。比如说，跟后端对接接口，定义省市字段经常是 2 个字段 `{ province: Beijing, city: Haidian }`，而不是 `{ province:[Beijing，Haidian] }`，因此则需要在 `initialValues` 以及 `onFinish` 处理值，如下：
 
 ```tsx
 import React from 'react';
