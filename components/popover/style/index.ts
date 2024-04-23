@@ -90,6 +90,8 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         userSelect: 'text',
         transformOrigin: `var(--arrow-x, 50%) var(--arrow-y, 50%)`,
         '--antd-arrow-background-color': colorBgElevated,
+        width: 'max-content',
+        maxWidth: '100vw',
 
         '&-rtl': {
           direction: 'rtl',
