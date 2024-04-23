@@ -10,43 +10,57 @@ import { Divider, Menu, Switch } from 'antd';
 import type { GetProp, MenuProps } from 'antd';
 
 type MenuTheme = GetProp<MenuProps, 'theme'>;
+
 type MenuItem = GetProp<MenuProps, 'items'>[number];
 
-function getItem(
-  label: React.ReactNode,
-  key?: React.Key | null,
-  icon?: React.ReactNode,
-  children?: MenuItem[],
-): MenuItem {
-  return {
-    key,
-    icon,
-    children,
-    label,
-  } as MenuItem;
-}
-
 const items: MenuItem[] = [
-  getItem('Navigation One', '1', <MailOutlined />),
-  getItem('Navigation Two', '2', <CalendarOutlined />),
-  getItem('Navigation Two', 'sub1', <AppstoreOutlined />, [
-    getItem('Option 3', '3'),
-    getItem('Option 4', '4'),
-    getItem('Submenu', 'sub1-2', null, [getItem('Option 5', '5'), getItem('Option 6', '6')]),
-  ]),
-  getItem('Navigation Three', 'sub2', <SettingOutlined />, [
-    getItem('Option 7', '7'),
-    getItem('Option 8', '8'),
-    getItem('Option 9', '9'),
-    getItem('Option 10', '10'),
-  ]),
-  getItem(
-    <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-      Ant Design
-    </a>,
-    'link',
-    <LinkOutlined />,
-  ),
+  {
+    key: '1',
+    icon: <MailOutlined />,
+    label: 'Navigation One',
+  },
+  {
+    key: '2',
+    icon: <CalendarOutlined />,
+    label: 'Navigation Two',
+  },
+  {
+    key: 'sub1',
+    label: 'Navigation Two',
+    icon: <AppstoreOutlined />,
+    children: [
+      { key: '3', label: 'Option 3' },
+      { key: '4', label: 'Option 4' },
+      {
+        key: 'sub1-2',
+        label: 'Submenu',
+        children: [
+          { key: '5', label: 'Option 5' },
+          { key: '6', label: 'Option 6' },
+        ],
+      },
+    ],
+  },
+  {
+    key: 'sub2',
+    label: 'Navigation Three',
+    icon: <SettingOutlined />,
+    children: [
+      { key: '7', label: 'Option 7' },
+      { key: '8', label: 'Option 8' },
+      { key: '9', label: 'Option 9' },
+      { key: '10', label: 'Option 10' },
+    ],
+  },
+  {
+    key: 'link',
+    icon: <LinkOutlined />,
+    label: (
+      <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
+        Ant Design
+      </a>
+    ),
+  },
 ];
 
 const App: React.FC = () => {
