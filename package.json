@@ -326,7 +326,7 @@
     "remark-rehype": "^11.1.0",
     "runes2": "^1.1.4",
     "semver": "^7.6.0",
-    "sharp": "^0.32.4",
+    "sharp": "^0.33.3",
     "simple-git": "^3.24.0",
     "size-limit": "^11.1.2",
     "spinnies": "^0.5.1",
