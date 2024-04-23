@@ -178,7 +178,7 @@ describe('Drawer', () => {
     expect(baseElement.querySelectorAll('button.forceRender').length).toBe(1);
   });
 
-  describe('Drawer spinner', () => {
+  describe('Drawer loading', () => {
     it('have a spinner', () => {
       const { container: wrapper } = render(
         <Drawer open loading getContainer={false}>
@@ -188,17 +188,6 @@ describe('Drawer', () => {
 
       triggerMotion();
       expect(wrapper.firstChild).toMatchSnapshot();
-    });
-    it('have a spinner with custom text', () => {
-      const tip = 'Loading...';
-      const { getByText } = render(
-        <Drawer open loading={{ tip }} getContainer={false}>
-          Here is content of Drawer
-        </Drawer>,
-      );
-
-      triggerMotion();
-      expect(getByText(tip)).toBeInTheDocument();
     });
   });
 

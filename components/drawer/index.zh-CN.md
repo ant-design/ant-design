@@ -46,7 +46,7 @@ v5 使用 `rootClassName` 与 `rootStyle` 来配置最外层元素样式。原 v
 :::
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | autoFocus | 抽屉展开后是否将焦点切换至其 DOM 节点 | boolean | true | 4.17.0 |
 | afterOpenChange | 切换抽屉时动画结束后的回调 | function(open) | - |  |
 | className | Drawer 容器外层 className 设置，如果需要设置最外层，请使用 rootClassName | string | - |  |
@@ -68,7 +68,7 @@ v5 使用 `rootClassName` 与 `rootStyle` 来配置最外层元素样式。原 v
 | style | 设计 Drawer 容器样式，如果你只需要设置内容部分请使用 `bodyStyle` | CSSProperties | - |  |
 | styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.10.0 |
 | title | 标题 | ReactNode | - |  |
-| loading | 显示旋转指示器 | boolean \| `Omit<SpinProp, 'fullScreen'>` | false | 5.2.0 |
+| loading | 显示旋转指示器 | boolean \| `Omit<SpinProp, 'fullScreen' | 'tip'>` | false | 5.2.0 |
 | open | Drawer 是否可见 | boolean | - |
 | width | 宽度 | string \| number | 378 |  |
 | zIndex | 设置 Drawer 的 `z-index` | number | 1000 |  |
