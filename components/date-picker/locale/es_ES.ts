@@ -8,9 +8,28 @@ const locale: PickerLocale = {
   lang: {
     placeholder: 'Seleccionar fecha',
     rangePlaceholder: ['Fecha inicial', 'Fecha final'],
+    shortWeekDays: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+    yearFormat: 'YYYY',
+    dateFormat: 'DD/MM/YYYY',
+    fieldDateTimeFormat: 'DD/MM/YYYY HH:mm:ss',
+    shortMonths: [
+      'Ene',
+      'Feb',
+      'Mar',
+      'Abr',
+      'May',
+      'Jun',
+      'Jul',
+      'Ago',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dic',
+    ],
     ...CalendarLocale,
   },
   timePickerLocale: {
+    placeholder: 'Seleccionar hora',
     ...TimePickerLocale,
   },
 };
