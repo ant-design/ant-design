@@ -35,6 +35,46 @@ export default Demo;
 
 ## 封装聚合字段组件
 
+当表单比较简单还好，如果遇到 `Form.List` 场景，就需要 `map` 处理值，将变的很复杂。于是我们需要封装聚合字段组件，实现一个 `Form.Item` 可以写多个 `name`
+
+## 思路整理
+
+要实现聚合字段功能，我们需要用到 `getValueProps` `getValueFromEvent` `transform`，其中
+
+### getValueProps
+
+可以自定义设置 children 组建的 value 值
+
+```tsx
+getValueProps={() => ({ value: names.map((name) => form.getFieldValue(name)) })}
+```
+
+### getValueFromEvent
+
+可以将 children 改变的值自定义设置给表单
+
+```tsx
+getValueFromEvent={(values) => {
+    form.setFields(names.map((name, index) => ({ name, value: values[index] })));
+    return values[0];
+}}
+```
+
+### transform
+
+将 names 字段的值设置给 rule value
+
+```tsx
+rules={[{
+  transform: () => {
+    const values = names.map((name) => form.getFieldValue(name));
+    return values;
+  },
+}]}
+```
+
+## 最终效果
+
 当表单比较简单还好，如果遇到 `Form.List` 场景，就需要 `map` 处理值，将变的很复杂。于是我们需要封装聚合字段组件，实现一个 `Form.Item` 可以写多个 `name`，如下：
 
 ```tsx
@@ -103,23 +143,3 @@ export const Demo = () => (
   </Form>
 );
 ```
-
-## 聚合字段组件原理
-
-要实现聚合字段功能，我们用到了 `getValueProps` `getValueFromEvent` `transform`，其中
-
-### getValueProps
-
-可以自定义设置 children 组建的 value 值
-
-### getValueFromEvent
-
-可以将 children 改变的值自定义设置给表单
-
-### transform
-
-将 names 字段的值设置给 rule value
-
-## 总结
-
-Antd `Form.Item` 提供了 `getValueProps` `getValueFromEvent`，其中 `getValueProps` 可以将表单中的 `store` 的对象处理为数组传递给 `children` 组建，`getValueFromEvent` 则可以将 `children` 组建 `onChange` 的数组处理为对象再传给表单，达到数据处理的闭环。而 `rules` 提供了 `transform` 方法，该方法可以将 `validate` 的 `value` 从单个 `name` 值改成 `names` 聚合字段的值，用于校验。基于以上 3 个 API，达到用一个 `Form.Item` 实现多个 `name` 的功能。
