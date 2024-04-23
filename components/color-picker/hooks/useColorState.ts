@@ -43,13 +43,11 @@ const useColorState = (
       return;
     }
     prevValue.current = value;
-    if (hasValue(value)) {
-      const newColor = generateColor(value || '');
-      if (prevColor.current.cleared === true) {
-        newColor.cleared = 'controlled';
-      }
-      setColorValue(newColor);
+    const newColor = generateColor(hasValue(value) ? value || '' : prevColor.current);
+    if (prevColor.current.cleared === true) {
+      newColor.cleared = 'controlled';
     }
+    setColorValue(newColor);
   }, [value]);
 
   return [colorValue, setColorValue, prevColor] as const;
