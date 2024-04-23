@@ -425,8 +425,8 @@ async function boot() {
       weight: 0,
     });
     await fse.copy(
-      path.resolve(currentImgReportDir, newImg),
       path.join(currentImgSourceDir, newImg),
+      path.resolve(currentImgReportDir, newImg),
     );
   }
 
