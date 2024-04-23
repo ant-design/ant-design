@@ -4,7 +4,7 @@ import 'dayjs/locale/zh-cn';
 
 import React from 'react';
 import MockDate from 'mockdate';
-import { type PickerPanelProps } from 'rc-picker';
+import type { PickerPanelProps } from 'rc-picker';
 import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 import type { Locale } from 'rc-picker/lib/interface';
 import { resetWarned } from 'rc-util/lib/warning';
@@ -16,7 +16,8 @@ import { fireEvent, render } from '../../../tests/utils';
 import Group from '../../radio/group';
 import Button from '../../radio/radioButton';
 import Select from '../../select';
-import Header, { type CalendarHeaderProps } from '../Header';
+import Header from '../Header';
+import type { CalendarHeaderProps } from '../Header';
 
 const ref: {
   calendarProps?: PickerPanelProps;

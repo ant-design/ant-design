@@ -1,12 +1,15 @@
 /* eslint-disable no-console */
-import { spawnSync } from 'child_process';
+import { spawnSync, execSync } from 'child_process';
 import chalk from 'chalk';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import inquirer from 'inquirer';
 import fetch from 'isomorphic-fetch';
 import semver from 'semver';
+import ora from 'ora';
+
 import deprecatedVersions from '../BUG_VERSIONS.json';
+import { version as packageVersion } from '../package.json';
 
 dayjs.extend(relativeTime);
 
@@ -29,12 +32,18 @@ const SAFE_DAYS_START = 1000 * 60 * 60 * 24 * 15; // 15 days
 const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be stable
 
 (async function process() {
-  console.log(chalk.cyan('🤖 Post Publish Scripting...\n'));
+  console.log('🤖 Post Publish Scripting...\n');
 
-  // if (packageJson.version.startsWith('5.0')) {
-  //   console.log(chalk.green('🤖 Next version, skipped.'));
-  //   return;
-  // }
+  // git tag
+  const spinner = ora(chalk.cyan(`Tagging ${packageVersion}`)).start();
+  execSync(`git tag ${packageVersion}`);
+  execSync(`git push origin ${packageVersion}:${packageVersion}`);
+  spinner.succeed(
+    chalk.cyan(
+      `Tagged ${packageVersion} 📦: https://github.com/ant-design/ant-design/releases/tag/${packageVersion}`,
+    ),
+  );
+  console.log();
 
   const { time, 'dist-tags': distTags } = await fetch('http://registry.npmjs.org/antd').then(
     (res: Response) => res.json(),

@@ -1,4 +1,5 @@
 import CalendarLocale from 'rc-picker/lib/locale/it_IT';
+
 import TimePickerLocale from '../../time-picker/locale/it_IT';
 import type { PickerLocale } from '../generatePicker';
 

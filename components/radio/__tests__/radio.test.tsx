@@ -1,11 +1,11 @@
 import React from 'react';
+
 import Radio, { Button, Group } from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import Form from '../../form';
-
 import { fireEvent, render } from '../../../tests/utils';
+import Form from '../../form';
 
 describe('Radio', () => {
   focusTest(Radio, { refFocus: true });

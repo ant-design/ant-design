@@ -2,7 +2,7 @@
  * copied: https://github.com/arvinxx/dumi-theme-antd-style/tree/master/src/builtins/Container
  */
 import * as React from 'react';
-import { type FC, type ReactNode } from 'react';
+import type { FC, ReactNode } from 'react';
 import { Alert } from 'antd';
 
 import useStyles from './style';

@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+
 import localPackage from '../package.json';
 
 const { version } = localPackage;

@@ -8,9 +8,9 @@ import omit from 'rc-util/lib/omit';
 
 import type { ColProps } from '../grid/col';
 import type { FormInstance, RequiredMark } from './Form';
-import type { ValidateStatus, FeedbackIcons } from './FormItem';
-import type { FormLabelAlign } from './interface';
+import type { FeedbackIcons, ValidateStatus } from './FormItem';
 import type { Variant } from './hooks/useVariants';
+import type { FormLabelAlign } from './interface';
 
 /** Form Context. Set top form style and pass to Form Item usage. */
 export interface FormContextProps {

@@ -1,7 +1,8 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
-import type { InputToken } from './token';
+
 import { mergeToken } from '../../theme/internal';
+import type { InputToken } from './token';
 
 export const genHoverStyle = (token: InputToken): CSSObject => ({
   borderColor: token.hoverBorderColor,
@@ -16,7 +17,7 @@ export const genDisabledStyle = (token: InputToken): CSSObject => ({
   cursor: 'not-allowed',
   opacity: 1,
 
-  'input[disabled]': {
+  [`input[disabled], textarea[disabled]`]: {
     cursor: 'not-allowed',
   },
 

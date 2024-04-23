@@ -44,6 +44,8 @@ components/**/*.jsx
 !components/**/__tests__/**/*.js.snap
 /.history
 *.tmp
+artifacts.zip
+oss-artifacts.zip
 server/
 
 # Docs templates

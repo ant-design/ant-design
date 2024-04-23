@@ -101,7 +101,7 @@ const useStyle = createStyles(({ token, css }) => {
       display: flex;
       align-items: center;
       margin: 0;
-      column-gap: 12px;
+      column-gap: ${token.paddingSM}px;
       > * {
         flex: none;
         margin: 0;

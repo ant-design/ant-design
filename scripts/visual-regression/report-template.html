@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,6 +10,16 @@
     body {
       padding-top: 16px;
       padding-bottom: 16px;
+    }
+
+    /* figcaption */
+    figcaption {
+      color: #a3a3a3;
+      text-align: center;
+    }
+
+    figure {
+      cursor: pointer;
     }
 
     /* Table Styles */
@@ -33,12 +43,7 @@
 
     th,
     td {
-      width: 10%;
-    }
-
-    th+th,
-    td+td {
-      width: 30%;
+      width: 33%;
     }
 
     th {
@@ -89,6 +94,22 @@
 
 <body>
   {{reportContent}}
+
+  <script>
+    window.addEventListener('click', function (e) {
+      if (e.target.tagName === 'FIGCAPTION') {
+        // get previous sibling
+        const img = e.target.previousElementSibling;
+        if (img.tagName === 'IMG' && img.src) {
+          window.open(img.src, '_blank');
+        }
+      }
+
+      if (e.target.tagName === 'IMG' && e.target.src) {
+        window.open(e.target.src, '_blank');
+      }
+    });
+  </script>
 </body>
 
 </html>

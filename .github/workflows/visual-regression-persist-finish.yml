@@ -98,8 +98,12 @@ jobs:
           npm i ali-oss --no-save
           echo "✅ Install `ali-oss` Finished"
 
+          echo "🔍 Preparing"
+          mv ./tmp/imageSnapshots.tar.gz ./imageSnapshots.tar.gz
+          mv ./tmp/visual-regression-ref.txt ./visual-regression-ref.txt
+
           echo "🤖 Uploading"
-          node scripts/visual-regression/upload.js ./tmp/imageSnapshots.tar.gz --ref=$HEAD_SHA
-          node scripts/visual-regression/upload.js ./tmp/visual-regression-ref.txt --ref=$HEAD_BRANCH
+          node scripts/visual-regression/upload.js ./imageSnapshots.tar.gz --ref=$HEAD_SHA
+          node scripts/visual-regression/upload.js ./visual-regression-ref.txt --ref=$HEAD_BRANCH
 
           echo "✅ Uploaded"

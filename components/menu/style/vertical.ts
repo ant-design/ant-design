@@ -1,4 +1,6 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { MenuToken } from '.';
 import { textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
@@ -126,6 +128,7 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
               `border-color ${motionDurationSlow}`,
               `background ${motionDurationSlow}`,
               `padding ${motionDurationMid} ${motionEaseOut}`,
+              `padding-inline calc(50% - ${unit(token.calc(fontSizeLG).div(2).equal())} - ${unit(itemMarginInline)})`,
             ].join(','),
 
             [`> ${componentCls}-title-content`]: {

@@ -221,11 +221,12 @@ export default defineConfig({
 Edit `src/pages/products.tsx` with the following code.
 
 ```tsx
-import axios from 'axios';
 import React from 'react';
+import axios from 'axios';
 import { useMutation, useQuery, useQueryClient } from 'umi';
-import ProductList from '@/components/ProductList';
+
 import styles from './products.less';
+import ProductList from '@/components/ProductList';
 
 export default function Page() {
   const queryClient = useQueryClient();
