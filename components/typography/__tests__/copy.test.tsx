@@ -330,9 +330,7 @@ describe('Typography copy', () => {
   });
 
   it('tabIndex of copy button', () => {
-    const { container, rerender } = render(<Base component="p">test</Base>);
-
-    rerender(
+    const { container } = render(
       <Base component="p" copyable={{ tabIndex: -1 }}>
         test
       </Base>,
@@ -346,15 +344,12 @@ describe('Typography copy', () => {
         test
       </Base>,
     );
-
     fireEvent.mouseEnter(container.querySelectorAll('.ant-typography-copy')[0]);
     await waitFakeTimer();
     await waitFor(() => {
       expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('Copy');
     });
     fireEvent.click(container.querySelectorAll('.ant-typography-copy')[0]);
-    await waitFor(() => {
-      expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('Copied');
-    });
+    expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('Copied');
   });
 });
