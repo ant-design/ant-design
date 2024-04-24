@@ -51,7 +51,7 @@ getValueProps={() => ({ value: names.map((name) => form.getFieldValue(name)) })}
 
 ### getValueFromEvent
 
-当子组件修改值时，使用 `setFields prop` 将子组件返回的聚合 `value` 分别设置给对应的 `name`，从而实现更新 `FormStore` 中 `names` 的值
+当子组件修改值时，使用 `setFields` 方法将子组件返回的聚合 `value` 分别设置给对应的 `name`，从而实现更新 `FormStore` 中 `names` 的值
 
 ```tsx
 getValueFromEvent={(values) => {
