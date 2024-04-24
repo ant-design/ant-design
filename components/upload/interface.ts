@@ -118,7 +118,7 @@ export interface UploadProps<T = any> extends Pick<RcUploadProps, 'capture' | 'h
   style?: React.CSSProperties;
   disabled?: boolean;
   prefixCls?: string;
-  customRequest?: (options: RcCustomRequestOptions) => void;
+  customRequest?: (options: RcCustomRequestOptions<T>) => void;
   withCredentials?: boolean;
   openFileDialogOnClick?: boolean;
   locale?: UploadLocale;
