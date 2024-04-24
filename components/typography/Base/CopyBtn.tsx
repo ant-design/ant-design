@@ -20,7 +20,17 @@ export interface CopyBtnProps extends Omit<CopyConfig, 'onCopy'> {
 }
 
 const CopyBtn: React.FC<CopyBtnProps> = (props) => {
-  const { prefixCls, copied, locale, iconOnly, tooltips, icon, loading, tabIndex, onCopy } = props;
+  const {
+    prefixCls,
+    copied,
+    locale,
+    iconOnly,
+    tooltips,
+    icon,
+    loading: btnLoading,
+    tabIndex,
+    onCopy,
+  } = props;
 
   const tooltipNodes = toList(tooltips);
   const iconNodes = toList(icon);
@@ -46,7 +56,7 @@ const CopyBtn: React.FC<CopyBtnProps> = (props) => {
       >
         {copied
           ? getNode(iconNodes[1], <CheckOutlined />, true)
-          : getNode(iconNodes[0], loading ? <LoadingOutlined /> : <CopyOutlined />, true)}
+          : getNode(iconNodes[0], btnLoading ? <LoadingOutlined /> : <CopyOutlined />, true)}
       </TransButton>
     </Tooltip>
   );
