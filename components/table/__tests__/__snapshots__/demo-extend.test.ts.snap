@@ -4363,13 +4363,18 @@ Array [
               <table
                 style="table-layout: auto;"
               >
-                <colgroup />
+                <colgroup>
+                  <col
+                    style="width: 80px;"
+                  />
+                </colgroup>
                 <thead
                   class="ant-table-thead"
                 >
                   <tr>
                     <th
                       class="ant-table-cell"
+                      style="text-align: center;"
                     />
                     <th
                       class="ant-table-cell"
@@ -4405,27 +4410,37 @@ Array [
                   >
                     <td
                       class="ant-table-cell"
+                      style="text-align: center;"
                     >
-                      <span
-                        aria-label="menu"
-                        class="anticon anticon-menu"
-                        role="img"
+                      <button
+                        class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
                         style="cursor: move;"
+                        type="button"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="menu"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
+                        <span
+                          class="ant-btn-icon"
                         >
-                          <path
-                            d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
-                          />
-                        </svg>
-                      </span>
+                          <span
+                            aria-label="holder"
+                            class="anticon anticon-holder"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="holder"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </button>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -4440,7 +4455,7 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text
+                      Long text Long
                     </td>
                   </tr>
                   <tr
@@ -4454,27 +4469,37 @@ Array [
                   >
                     <td
                       class="ant-table-cell"
+                      style="text-align: center;"
                     >
-                      <span
-                        aria-label="menu"
-                        class="anticon anticon-menu"
-                        role="img"
+                      <button
+                        class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
                         style="cursor: move;"
+                        type="button"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="menu"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
+                        <span
+                          class="ant-btn-icon"
                         >
-                          <path
-                            d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
-                          />
-                        </svg>
-                      </span>
+                          <span
+                            aria-label="holder"
+                            class="anticon anticon-holder"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="holder"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </button>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -4503,27 +4528,37 @@ Array [
                   >
                     <td
                       class="ant-table-cell"
+                      style="text-align: center;"
                     >
-                      <span
-                        aria-label="menu"
-                        class="anticon anticon-menu"
-                        role="img"
+                      <button
+                        class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
                         style="cursor: move;"
+                        type="button"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="menu"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
+                        <span
+                          class="ant-btn-icon"
                         >
-                          <path
-                            d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
-                          />
-                        </svg>
-                      </span>
+                          <span
+                            aria-label="holder"
+                            class="anticon anticon-holder"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="holder"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </button>
                     </td>
                     <td
                       class="ant-table-cell"
