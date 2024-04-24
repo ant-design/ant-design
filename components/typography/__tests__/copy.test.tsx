@@ -341,7 +341,11 @@ describe('Typography copy', () => {
   });
 
   it('locale text for button tooltip', async () => {
-    const { container } = render(<Base component="p">test</Base>);
+    const { container } = render(
+      <Base component="p" copyable>
+        test
+      </Base>,
+    );
 
     fireEvent.mouseEnter(container.querySelectorAll('.ant-typography-copy')[0]);
     await waitFakeTimer();
