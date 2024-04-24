@@ -43,7 +43,7 @@ export default Demo;
 
 ### getValueProps
 
-默认情况下，`Form.Item` 会将 `FormStore` 中的字段值作为 `value prop` 传递给子组件。而通过 `getValueProps` 可以自定义传入给子组件的 `props` 从而实现转化功能。在聚合场景中，我们可以遍历 `names` 分别将 `FormStore` 中的值组合为一个 `value` 传递给子组件。
+默认情况下，`Form.Item` 会将 `FormStore` 中的字段值作为 `value` prop 传递给子组件。而通过 `getValueProps` 可以自定义传入给子组件的 `props` 从而实现转化功能。在聚合场景中，我们可以遍历 `names` 分别将 `FormStore` 中的值组合为一个 `value` 传递给子组件。
 
 ```tsx
 getValueProps={() => ({ value: names.map((name) => form.getFieldValue(name)) })}
