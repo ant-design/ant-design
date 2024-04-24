@@ -7,7 +7,7 @@ import * as React from 'react';
 import KeyCode from 'rc-util/lib/KeyCode';
 
 interface TransButtonProps extends React.HTMLAttributes<HTMLDivElement> {
-  onClick?: (e?: React.MouseEvent<HTMLDivElement>) => void;
+  onClick?: (e?: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   noStyle?: boolean;
   autoFocus?: boolean;
   disabled?: boolean;
