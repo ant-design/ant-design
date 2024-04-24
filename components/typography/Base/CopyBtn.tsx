@@ -14,17 +14,16 @@ export interface CopyBtnProps extends Omit<CopyConfig, 'onCopy'> {
   prefixCls: string;
   copied: boolean;
   locale: Locale['Text'];
-  onCopy: React.MouseEventHandler<HTMLDivElement>;
+  onCopy: (e?: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   iconOnly: boolean;
   loading: boolean;
-  tabIndex?: number;
 }
 
-export default function CopyBtn(props: CopyBtnProps) {
+const CopyBtn: React.FC<CopyBtnProps> = (props) => {
   const {
     prefixCls,
     copied,
-    locale,
+    locale = {},
     onCopy,
     iconOnly,
     tooltips,
@@ -36,7 +35,7 @@ export default function CopyBtn(props: CopyBtnProps) {
   const tooltipNodes = toList(tooltips);
   const iconNodes = toList(icon);
 
-  const { copied: copiedText, copy: copyText } = locale ?? {};
+  const { copied: copiedText, copy: copyText } = locale;
 
   const copyTitle = copied
     ? getNode(tooltipNodes[1], copiedText)
@@ -51,7 +50,7 @@ export default function CopyBtn(props: CopyBtnProps) {
           [`${prefixCls}-copy-success`]: copied,
           [`${prefixCls}-copy-icon-only`]: iconOnly,
         })}
-        onClick={onCopy as any}
+        onClick={onCopy}
         aria-label={ariaLabel}
         tabIndex={tabIndex}
       >
@@ -61,4 +60,6 @@ export default function CopyBtn(props: CopyBtnProps) {
       </TransButton>
     </Tooltip>
   );
-}
+};
+
+export default CopyBtn;
