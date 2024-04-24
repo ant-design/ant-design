@@ -1,5 +1,5 @@
 /* eslint-disable global-require */
-import pkg from '../package.json';
+import { version as packageVersion } from '../package.json';
 
 const testDist = process.env.LIB_DIR === 'dist';
 const testDistMin = process.env.LIB_DIR === 'dist-min';
@@ -28,14 +28,14 @@ describe('antd dist files', () => {
       // eslint-disable-next-line global-require,import/no-unresolved
       const antd = require('../dist/antd');
       expect(antd).toBeTruthy();
-      expect(antd.version).toBe(pkg.version);
+      expect(antd.version).toBe(packageVersion);
     });
 
     it('antd.min.js should export version', () => {
       // eslint-disable-next-line global-require,import/no-unresolved
       const antd = require('../dist/antd.min');
       expect(antd).toBeTruthy();
-      expect(antd.version).toBe(pkg.version);
+      expect(antd.version).toBe(packageVersion);
     });
   }
 });
