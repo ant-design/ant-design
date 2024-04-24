@@ -328,4 +328,35 @@ describe('Typography copy', () => {
     );
     expect(container.querySelector('.ant-typography-copy')).toBeTruthy();
   });
+
+  it('tabIndex of copy button', () => {
+    const { container, rerender } = render(<Base component="p">test</Base>);
+
+    rerender(
+      <Base component="p" copyable={{ tabIndex: -1 }}>
+        test
+      </Base>,
+    );
+    expect(container.querySelector('.ant-typography-copy')?.getAttribute('tabIndex')).toBe('-1');
+  });
+
+  it('locale text for button tooltip', async () => {
+    const { container, rerender } = render(<Base component="p">test</Base>);
+
+    rerender(
+      <Base component="p" copyable={{ tabIndex: -1 }}>
+        test
+      </Base>,
+    );
+
+    fireEvent.mouseEnter(container.querySelectorAll('.ant-typography-copy')[0]);
+    await waitFakeTimer();
+    await waitFor(() => {
+      expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('Copy');
+    });
+    fireEvent.click(container.querySelectorAll('.ant-typography-copy')[0]);
+    await waitFor(() => {
+      expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('Copied');
+    });
+  });
 });

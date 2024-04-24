@@ -33,6 +33,7 @@ export interface CopyConfig {
   icon?: React.ReactNode;
   tooltips?: React.ReactNode;
   format?: 'text/plain' | 'text/html';
+  tabIndex?: number;
 }
 
 interface EditConfig {
@@ -48,6 +49,7 @@ interface EditConfig {
   autoSize?: boolean | AutoSizeType;
   triggerType?: ('icon' | 'text')[];
   enterIcon?: React.ReactNode;
+  tabIndex?: number;
 }
 
 export interface EllipsisConfig {
@@ -391,7 +393,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const renderEdit = () => {
     if (!enableEdit) return;
 
-    const { icon, tooltip } = editConfig;
+    const { icon, tooltip, tabIndex } = editConfig;
 
     const editTitle = toArray(tooltip)[0] || textLocale?.edit;
     const ariaLabel = typeof editTitle === 'string' ? editTitle : '';
@@ -403,6 +405,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
           className={`${prefixCls}-edit`}
           onClick={onEditClick}
           aria-label={ariaLabel}
+          tabIndex={tabIndex}
         >
           {icon || <EditOutlined role="button" />}
         </TransButton>
