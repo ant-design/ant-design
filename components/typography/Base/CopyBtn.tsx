@@ -36,7 +36,7 @@ export default function CopyBtn(props: CopyBtnProps) {
   const tooltipNodes = toList(tooltips);
   const iconNodes = toList(icon);
 
-  const { copied: copiedText, copy: copyText } = locale!;
+  const { copied: copiedText, copy: copyText } = locale ?? {};
 
   const copyTitle = copied
     ? getNode(tooltipNodes[1], copiedText)
