@@ -62,7 +62,7 @@ getValueFromEvent={(values) => {
 
 ### transform
 
-默认情况下，`rule` 返回的 `value` 是 `name` 的 `value`，如果需要获取 `names` 所有 `value`, 需要用到 `transform` 方法，将 `FormStore` 中 `names` 的值返回给 `rule` `value` 进行使用
+`rules` 中校验默认提供的 `value` 来源于子组件变更时传递给 `name` 对应的值，还需要从 `FormStore` 获取 `names` 的值使用 `transform` 方法修改 `rules` 的 `value`
 
 ```tsx
 rules={[{
@@ -143,3 +143,7 @@ export const Demo = () => (
   </Form>
 );
 ```
+
+## 总结
+
+通过这种方式，我们实现了一个可以在 `Form.Item` 中操作多个 `name` 的功能，使得表单逻辑更加清晰和易于维护。另外此示例还有些边界场景没有考虑，比如 `setFields([{ name:'city' value:'nanjing' }])` 不会更新 `Cascader` 选中的值，需要增加 `Form.useWatch(values => resetNames.map(name => get(values, name)), form);` 达到刷新效果等。更多的边界问题就交给你去试试吧~
