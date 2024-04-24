@@ -35,15 +35,15 @@ export default Demo;
 
 ## 封装聚合字段组件
 
-当表单比较简单还好，如果遇到 `Form.List` 场景，就需要 `map` 处理值，将变的很复杂。于是我们需要封装聚合字段组件，实现一个 `Form.Item` 可以写多个 `name`
+当表单比较简单还好，如果遇到 `Form.List` 场景，就需要 `map` 处理值，将变的很复杂。于是我们需要封装聚合字段组件，实现一个 `Form.Item` 可以写多个 `name`。
 
 ## 思路整理
 
-要实现聚合字段功能，我们需要用到 `getValueProps` `getValueFromEvent` `transform`，其中
+要实现聚合字段功能，我们需要用到 `getValueProps` `getValueFromEvent` `transform`，从而实现数据从 `FormStore` 中的转化，以及变更时重新传入 `FormStore` 结构中。
 
 ### getValueProps
 
-可以自定义设置 children 组建的 value 值
+默认情况下，`Form.Item` 会将 `FormStore` 中的字段值作为 `value prop` 传递给子组件。而通过 `getValueProps` 可以自定义传入给子组件的 `props` 从而实现转化功能。在聚合场景中，我们可以遍历 `names` 分别将 `FormStore` 中的值组合为一个 `value` 传递给子组件。
 
 ```tsx
 getValueProps={() => ({ value: names.map((name) => form.getFieldValue(name)) })}
@@ -51,7 +51,7 @@ getValueProps={() => ({ value: names.map((name) => form.getFieldValue(name)) })}
 
 ### getValueFromEvent
 
-可以将 children 改变的值自定义设置给表单
+当子组件修改值时，使用 `setFields prop` 将子组件返回的聚合 `value` 分别设置给对应的 `name`，从而实现更新 `FormStore` 中 `names` 的值
 
 ```tsx
 getValueFromEvent={(values) => {
@@ -62,7 +62,7 @@ getValueFromEvent={(values) => {
 
 ### transform
 
-将 names 字段的值设置给 rule value
+默认情况下，`rule` 返回的是 `name` 的 `value`，如果需要知道 `names` 所有 `value`, 需要用到 `transform` 方法，将 `FormStore` 中 `names` 的值返回给 `rule` `value` 进行使用
 
 ```tsx
 rules={[{
