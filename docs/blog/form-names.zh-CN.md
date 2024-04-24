@@ -75,8 +75,6 @@ rules={[{
 
 ## 最终效果
 
-当表单比较简单还好，如果遇到 `Form.List` 场景，就需要 `map` 处理值，将变的很复杂。于是我们需要封装聚合字段组件，实现一个 `Form.Item` 可以写多个 `name`，如下：
-
 ```tsx
 import React from 'react';
 import type { FormItemProps } from 'antd';
