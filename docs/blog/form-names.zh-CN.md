@@ -43,7 +43,7 @@ export default Demo;
 
 ### getValueProps
 
-默认情况下，`Form.Item` 会将 `FormStore` 中的字段值作为 `value` prop 传递给子组件。而通过 `getValueProps` 可以自定义传入给子组件的 `props` 从而实现转化功能。在聚合场景中，我们可以遍历 `names` 分别将 `FormStore` 中的值组合为一个 `value` 传递给子组件。
+默认情况下，`Form.Item` 会将 `FormStore` 中的字段值作为 `value` prop 传递给子组件。而通过 `getValueProps` 可以自定义传入给子组件的 `props` 从而实现转化功能。在聚合场景中，我们可以遍历 `names` 分别将 `FormStore` 中的值组合为一个 `value` 传递给子组件：
 
 ```tsx
 getValueProps={() => ({ value: names.map((name) => form.getFieldValue(name)) })}
@@ -51,7 +51,7 @@ getValueProps={() => ({ value: names.map((name) => form.getFieldValue(name)) })}
 
 ### getValueFromEvent
 
-当子组件修改值时，使用 `setFields` 方法将子组件返回的聚合 `value` 分别设置给对应的 `name`，从而实现更新 `FormStore` 中 `names` 的值
+当子组件修改值时，使用 `setFields` 方法将子组件返回的聚合 `value` 分别设置给对应的 `name`，从而实现更新 `FormStore` 中 `names` 的值：
 
 ```tsx
 getValueFromEvent={(values) => {
@@ -62,7 +62,7 @@ getValueFromEvent={(values) => {
 
 ### transform
 
-`rules` 中校验默认提供的 `value` 来源于子组件变更时传递给 `name` 对应的值，还需要从 `FormStore` 获取 `names` 的值使用 `transform` 方法修改 `rules` 的 `value`
+`rules` 中校验默认提供的 `value` 来源于子组件变更时传递给 `name` 对应的值，还需要从 `FormStore` 获取 `names` 的值使用 `transform` 方法修改 `rules` 的 `value`：
 
 ```tsx
 rules={[{
