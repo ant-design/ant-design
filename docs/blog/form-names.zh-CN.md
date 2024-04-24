@@ -62,7 +62,7 @@ getValueFromEvent={(values) => {
 
 ### transform
 
-默认情况下，`rule` 返回的是 `name` 的 `value`，如果需要知道 `names` 所有 `value`, 需要用到 `transform` 方法，将 `FormStore` 中 `names` 的值返回给 `rule` `value` 进行使用
+默认情况下，`rule` 返回的 `value` 是 `name` 的 `value`，如果需要获取 `names` 所有 `value`, 需要用到 `transform` 方法，将 `FormStore` 中 `names` 的值返回给 `rule` `value` 进行使用
 
 ```tsx
 rules={[{
