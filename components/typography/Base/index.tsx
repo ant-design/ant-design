@@ -374,8 +374,12 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const renderExpand = () => {
     const { expandable, symbol } = ellipsisConfig;
 
-    if (!expandable) return null;
-    if (expanded && expandable !== 'collapsible') return null;
+    if (!expandable) {
+      return null;
+    }
+    if (expanded && expandable !== 'collapsible') {
+      return null;
+    }
 
     return (
       <a
@@ -391,7 +395,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   // Edit
   const renderEdit = () => {
-    if (!enableEdit) return;
+    if (!enableEdit) {
+      return;
+    }
 
     const { icon, tooltip, tabIndex } = editConfig;
 
