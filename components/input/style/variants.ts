@@ -110,6 +110,24 @@ export const genOutlinedStyle = (token: InputToken, extraStyles?: CSSObject): CS
       affixColor: token.colorWarning,
     }),
 
+    ...genOutlinedStatusStyle(token, {
+      status: 'success',
+      borderColor: token.colorBorder,
+      hoverBorderColor: token.hoverBorderColor,
+      activeBorderColor: token.activeBorderColor,
+      activeShadow: token.activeShadow,
+      affixColor: token.colorSuccess,
+    }),
+
+    ...genOutlinedStatusStyle(token, {
+      status: 'validating',
+      borderColor: token.colorBorder,
+      hoverBorderColor: token.hoverBorderColor,
+      activeBorderColor: token.activeBorderColor,
+      activeShadow: token.activeShadow,
+      affixColor: token.colorPrimary,
+    }),
+
     ...extraStyles,
   },
 });
@@ -168,6 +186,21 @@ export const genOutlinedGroupStyle = (token: InputToken): CSSObject => ({
 });
 
 /* ============ Borderless ============ */
+
+const genBorderlessStatusStyle = (
+  token: InputToken,
+  options: {
+    status: string;
+    affixColor: string;
+  },
+): CSSObject => ({
+  [`&${token.componentCls}-status-${options.status}:not(${token.componentCls}-disabled)`]: {
+    [`${token.componentCls}-prefix, ${token.componentCls}-suffix`]: {
+      color: options.affixColor,
+    },
+  },
+});
+
 export const genBorderlessStyle = (token: InputToken, extraStyles?: CSSObject): CSSObject => ({
   '&-borderless': {
     background: 'transparent',
@@ -180,6 +213,26 @@ export const genBorderlessStyle = (token: InputToken, extraStyles?: CSSObject): 
     [`&${token.componentCls}-disabled, &[disabled]`]: {
       color: token.colorTextDisabled,
     },
+
+    ...genBorderlessStatusStyle(token, {
+      status: 'error',
+      affixColor: token.colorError,
+    }),
+
+    ...genBorderlessStatusStyle(token, {
+      status: 'warning',
+      affixColor: token.colorWarning,
+    }),
+
+    ...genBorderlessStatusStyle(token, {
+      status: 'success',
+      affixColor: token.colorSuccess,
+    }),
+
+    ...genBorderlessStatusStyle(token, {
+      status: 'validating',
+      affixColor: token.colorPrimary,
+    }),
 
     ...extraStyles,
   },
@@ -263,6 +316,24 @@ export const genFilledStyle = (token: InputToken, extraStyles?: CSSObject): CSSO
       activeBorderColor: token.colorWarning,
       inputColor: token.colorWarningText,
       affixColor: token.colorWarning,
+    }),
+
+    ...genFilledStatusStyle(token, {
+      status: 'success',
+      bg: token.colorFillTertiary,
+      hoverBg: token.colorBgTextHover,
+      activeBorderColor: token.activeBorderColor,
+      inputColor: token.colorText,
+      affixColor: token.colorSuccess,
+    }),
+
+    ...genFilledStatusStyle(token, {
+      status: 'validating',
+      bg: token.colorFillTertiary,
+      hoverBg: token.colorBgTextHover,
+      activeBorderColor: token.activeBorderColor,
+      inputColor: token.colorText,
+      affixColor: token.colorPrimary,
     }),
 
     ...extraStyles,
