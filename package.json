@@ -145,7 +145,7 @@
     "rc-motion": "^2.9.0",
     "rc-notification": "~5.4.0",
     "rc-pagination": "~4.0.4",
-    "rc-picker": "~4.4.1",
+    "rc-picker": "~4.5.0",
     "rc-progress": "~4.0.0",
     "rc-rate": "~2.12.0",
     "rc-resize-observer": "^1.4.0",

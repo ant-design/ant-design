@@ -213,7 +213,7 @@ dayjs.locale('zh-cn');
 | defaultPickerValue | 默认面板日期，每次面板打开时会被重置到该日期 | [dayjs](https://day.js.org/)[] | - | 5.14.0 |
 | defaultValue | 默认日期 | [dayjs](https://day.js.org/)\[] | - |  |
 | disabled | 禁用起始项 | \[boolean, boolean] | - |  |
-| disabledTime | 不可选择的时间 | function(date: dayjs, partial: `start` \| `end`) | - |  |
+| disabledTime | 不可选择的时间 | function(date: dayjs, partial: `start` \| `end`, info: { from?: dayjs }) | - | `info.from`: 5.17.0 |
 | format | 展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。 | [formatType](#formattype) | `YYYY-MM-DD HH:mm:ss` |  |
 | id | 设置输入框 `id` 属性。 | { start?: string, end?: string } | - | 5.14.0 |
 | pickerValue | 面板日期，可以用于受控切换面板所在日期。配合 `onPanelChange` 使用。 | [dayjs](https://day.js.org/)[] | - | 5.14.0 |
