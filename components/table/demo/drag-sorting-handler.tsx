@@ -19,7 +19,7 @@ interface RowContextProps {
   listeners?: SyntheticListenerMap;
 }
 
-const RowContext = React.createContext<RowContextProps>({} as RowContextProps);
+const RowContext = React.createContext<RowContextProps>({});
 
 const DragHandle = () => {
   const { setActivatorNodeRef, listeners } = useContext(RowContext);
