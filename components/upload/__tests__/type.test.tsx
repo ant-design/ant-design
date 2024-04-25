@@ -212,13 +212,23 @@ describe('Upload.typescript', () => {
     expect(upload3).toBeTruthy();
   });
 
-  it('UploadListProps type', () => {
-    const props: UploadListProps<number | string> = {
-      locale: {},
-      removeIcon: (file) => <span>{file.response}</span>,
-      downloadIcon: (file) => <span>{file.response}</span>,
-      previewIcon: (file) => <span>{file.response}</span>,
+  it('UploadProps type', () => {
+    const uploadProps: UploadProps<number | string> = {
+      customRequest({ onSuccess }) {
+        onSuccess?.(1234);
+        onSuccess?.('test');
+      },
     };
-    expect(<UploadList {...props} />).toBeTruthy();
+    expect(<Upload {...uploadProps} />).toBeTruthy();
+  });
+
+  it('UploadListProps type', () => {
+    const uploadListProps: UploadListProps<number | string> = {
+      locale: {},
+      removeIcon: (file) => <div>{JSON.stringify(file.response)}</div>,
+      downloadIcon: (file) => <div>{JSON.stringify(file.response)}</div>,
+      previewIcon: (file) => <div>{JSON.stringify(file.response)}</div>,
+    };
+    expect(<UploadList {...uploadListProps} />).toBeTruthy();
   });
 });
