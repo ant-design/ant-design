@@ -70,12 +70,15 @@ const genOutlinedStatusStyle = (
     affixColor: string;
   },
 ): CSSObject => ({
-  [`&${token.componentCls}-status-${options.status}`]: {
+  [`&${token.componentCls}-status-${options.status}:not(${token.componentCls}-disabled)`]: {
     ...genBaseOutlinedStyle(token, options),
 
     [`${token.componentCls}-prefix, ${token.componentCls}-suffix`]: {
       color: options.affixColor,
     },
+  },
+  [`&${token.componentCls}-status-${options.status}${token.componentCls}-disabled`]: {
+    borderColor: options.borderColor,
   },
 });
 
