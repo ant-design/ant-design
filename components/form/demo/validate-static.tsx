@@ -36,14 +36,17 @@ const App: React.FC = () => {
   return (
     <>
       <Form {...formItemLayout} style={{ maxWidth: 600 }}>
-        <Form.Item label="style">
-          <Radio.Group onChange={(e) => setMode(e.target.value === 'noStyle')}>
+        <Form.Item label="Style">
+          <Radio.Group
+            defaultValue="normal"
+            onChange={(e) => setMode(e.target.value === 'noStyle')}
+          >
             <Radio.Button value="normal">normal</Radio.Button>
             <Radio.Button value="noStyle">no style</Radio.Button>
           </Radio.Group>
         </Form.Item>
-        <Form.Item label="variant">
-          <Radio.Group onChange={(e) => setVariant(e.target.value)}>
+        <Form.Item label="Variant">
+          <Radio.Group defaultValue="outlined" onChange={(e) => setVariant(e.target.value)}>
             <Radio.Button value="outlined">outlined</Radio.Button>
             <Radio.Button value="filled">filled</Radio.Button>
             <Radio.Button value="borderless">borderless</Radio.Button>
