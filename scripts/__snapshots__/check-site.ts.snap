@@ -80,9 +80,9 @@ exports[`site test Component components/divider en Page 1`] = `1`;
 
 exports[`site test Component components/divider zh Page 1`] = `1`;
 
-exports[`site test Component components/drawer en Page 1`] = `1`;
+exports[`site test Component components/drawer en Page 1`] = `0`;
 
-exports[`site test Component components/drawer zh Page 1`] = `1`;
+exports[`site test Component components/drawer zh Page 1`] = `0`;
 
 exports[`site test Component components/dropdown en Page 1`] = `2`;
 
