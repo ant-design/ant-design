@@ -1,7 +1,8 @@
 import React from 'react';
 
-import type { UploadProps } from '..';
+import type { UploadListProps, UploadProps } from '..';
 import Upload from '..';
+import UploadList from '../UploadList';
 
 describe('Upload.typescript', () => {
   it('Upload', () => {
@@ -209,5 +210,15 @@ describe('Upload.typescript', () => {
     expect(upload1).toBeTruthy();
     expect(upload2).toBeTruthy();
     expect(upload3).toBeTruthy();
+  });
+
+  it('UploadListProps type', () => {
+    const props: UploadListProps<number | string> = {
+      locale: {},
+      removeIcon: (file) => <span>{file.response}</span>,
+      downloadIcon: (file) => <span>{file.response}</span>,
+      previewIcon: (file) => <span>{file.response}</span>,
+    };
+    expect(<UploadList {...props} />).toBeTruthy();
   });
 });
