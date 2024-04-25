@@ -1,5 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { Keyframes, unit } from '@ant-design/cssinjs';
+import { Keyframes } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
@@ -85,21 +85,8 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
       },
 
       [`${progressCls}-outer`]: {
-        display: 'inline-block',
-        width: '100%',
-        [`&${progressCls}-outer-start`]: {
-          display: 'flex',
-          alignItems: 'center',
-        },
-      },
-
-      [`&${progressCls}-show-info`]: {
-        [`&${progressCls}-line-align-end, &${progressCls}-line-align-center`]: {
-          [`${progressCls}-outer`]: {
-            marginInlineEnd: `calc(-2em - ${unit(token.marginXS)})`,
-            paddingInlineEnd: `calc(2em + ${unit(token.paddingXS)})`,
-          },
-        },
+        display: 'flex',
+        alignItems: 'center',
       },
 
       [`${progressCls}-inner`]: {
@@ -165,7 +152,6 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
 
       [`${progressCls}-text`]: {
         display: 'inline-block',
-        width: '2em',
         marginInlineStart: token.marginXS,
         color: token.colorText,
         lineHeight: 1,
