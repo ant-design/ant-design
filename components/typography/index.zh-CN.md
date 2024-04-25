@@ -93,6 +93,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
       icon: ReactNode,
       tooltips: false | [ReactNode, ReactNode],
       format: 'text/plain' | 'text/html',
+      tabIndex: number,
     }
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
@@ -102,6 +103,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | text | 拷贝到剪切板里的文本 | string | - |  |
 | tooltips | 自定义提示文案，为 false 时隐藏文案 | \[ReactNode, ReactNode] | \[`复制`, `复制成功`] | 4.4.0 |
 | onCopy | 拷贝成功的回调函数 | function | - |  |
+| tabIndex | 自定义复制按钮的 tabIndex | number | 0 | 5.17.0 |
 
 ### editable
 
@@ -118,6 +120,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
       onEnd: function,
       triggerType: ('icon' | 'text')[],
       enterIcon: ReactNode,
+      tabIndex: number,
     }
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
@@ -134,6 +137,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | onEnd | 按 ENTER 结束编辑状态时触发 | function | - | 4.14.0 |
 | triggerType | 编辑模式触发器类型，图标、文本或者两者都设置（不设置图标作为触发器时它会隐藏） | Array&lt;`icon`\|`text`> | \[`icon`] |  |
 | enterIcon | 在编辑段中自定义“enter”图标（传递“null”将删除图标） | ReactNode | `<EnterOutlined />` | 4.17.0 |
+| tabIndex | 自定义编辑按钮的 tabIndex | number | 0 | 5.17.0 |
 
 ### ellipsis
 
