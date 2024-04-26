@@ -1,5 +1,5 @@
 ---
-title: Encapsulating Form.Item to Convert Arrays to Objects
+title: HOC Aggregate FieldItem
 date: 2024-04-17
 author: crazyair
 ---
