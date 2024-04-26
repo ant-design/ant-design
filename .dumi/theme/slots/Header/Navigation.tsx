@@ -46,7 +46,7 @@ const useStyle = createStyles(({ token }) => {
       height: 100%;
       font-size: ${fontSize}px;
       font-family: Avenir, ${fontFamily}, sans-serif;
-      border: 0;
+      border: 0 !important;
 
       &${antCls}-menu-horizontal {
         border-bottom: none;
@@ -91,25 +91,6 @@ const useStyle = createStyles(({ token }) => {
 
       & > ${antCls}-menu-item, & > ${antCls}-menu-submenu {
         text-align: center;
-      }
-    `,
-    popoverMenuNav: css`
-      ${antCls}-menu-item,
-      ${antCls}-menu-submenu {
-        text-align: left;
-      }
-
-      ${antCls}-menu-item-group-title {
-        padding-inline-start: ${token.paddingLG}px;
-      }
-
-      ${antCls}-menu-item-group-list {
-        padding: 0 ${token.paddingLG}px;
-      }
-
-      ${antCls}-menu-item,
-      a {
-        color: #333;
       }
     `,
   };
