@@ -2243,7 +2243,7 @@ Array [
     <li
       class="ant-menu-submenu ant-menu-submenu-vertical"
       role="none"
-      style="background:rgba(255,255,255,0.3)"
+      style="background:rgba(255, 255, 255, 0.3)"
     >
       <div
         aria-expanded="false"
@@ -2284,7 +2284,7 @@ Array [
     <li
       class="ant-menu-submenu ant-menu-submenu-vertical"
       role="none"
-      style="background:rgba(255,255,255,0.3)"
+      style="background:rgba(255, 255, 255, 0.3)"
     >
       <div
         aria-expanded="false"

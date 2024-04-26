@@ -47,7 +47,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/without-form-create.tsx">自行处理表单数据</code>
 <code src="./demo/validate-static.tsx">自定义校验</code>
 <code src="./demo/dynamic-rule.tsx">动态校验规则</code>
-<code src="./demo/dependencies.tsx">校验与更新依赖</code>
+<code src="./demo/form-dependencies.tsx">校验与更新依赖</code>
 <code src="./demo/validate-other.tsx">校验其他组件</code>
 <code src="./demo/disabled-input-debug.tsx" debug>Disabled Input Debug</code>
 <code src="./demo/label-debug.tsx" debug>测试 label 省略</code>
