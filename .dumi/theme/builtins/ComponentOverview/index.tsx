@@ -211,10 +211,12 @@ const Overview: React.FC = () => {
                         <Link to={url}>
                           <Card
                             onClick={() => onClickCard(url)}
-                            bodyStyle={{
-                              backgroundRepeat: 'no-repeat',
-                              backgroundPosition: 'bottom right',
-                              backgroundImage: `url(${component?.tag || ''})`,
+                            styles={{
+                              body: {
+                                backgroundRepeat: 'no-repeat',
+                                backgroundPosition: 'bottom right',
+                                backgroundImage: `url(${component?.tag || ''})`,
+                              },
                             }}
                             size="small"
                             className={styles.componentsOverviewCard}
