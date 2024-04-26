@@ -6,7 +6,6 @@ import type { GenerateStyle } from '../../theme/internal';
 
 const genStepsCustomIconStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const { componentCls, customIconTop, customIconSize, customIconFontSize } = token;
-  console.log('customIconSize', customIconSize);
 
   return {
     [`${componentCls}-item-custom`]: {
