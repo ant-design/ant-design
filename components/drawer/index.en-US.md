@@ -46,7 +46,7 @@ v5 use `rootClassName` & `rootStyle` to config wrapper style instead of `classNa
 :::
 
 | Props | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | autoFocus | Whether Drawer should get focused after open | boolean | true | 4.17.0 |
 | afterOpenChange | Callback after the animation ends when switching drawers | function(open) | - |  |
 | className | Config Drawer Panel className. Use `rootClassName` if want to config top DOM style | string | - |  |
@@ -69,7 +69,7 @@ v5 use `rootClassName` & `rootStyle` to config wrapper style instead of `classNa
 | styles | Semantic structure style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.10.0 |
 | size | preset size of drawer, default `378px` and large `736px` | 'default' \| 'large' | 'default' | 4.17.0 |
 | title | The title for Drawer | ReactNode | - |  |
-| loading | Show spinning indicator | boolean \| `Omit<SpinProp, 'fullScreen' | 'tip'>` | false | 5.2.0 |
+| loading | Show spinning indicator | boolean \| `Omit<SpinProp, 'fullScreen' \| 'tip'>` | false | 5.17.0 |
 | open | Whether the Drawer dialog is visible or not | boolean | false |  |
 | width | Width of the Drawer dialog | string \| number | 378 |  |
 | zIndex | The `z-index` of the Drawer | number | 1000 |  |
