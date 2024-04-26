@@ -46,7 +46,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/without-form-create.tsx">Handle Form Data Manually</code>
 <code src="./demo/validate-static.tsx">Customized Validation</code>
 <code src="./demo/dynamic-rule.tsx">Dynamic Rules</code>
-<code src="./demo/dependencies.tsx">Dependencies</code>
+<code src="./demo/form-dependencies.tsx">Dependencies</code>
 <code src="./demo/validate-other.tsx">Other Form Controls</code>
 <code src="./demo/disabled-input-debug.tsx" debug>Disabled Input Debug</code>
 <code src="./demo/label-debug.tsx" debug>label ellipsis</code>

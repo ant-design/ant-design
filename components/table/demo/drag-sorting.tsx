@@ -45,7 +45,7 @@ const Row = (props: RowProps) => {
 
   const style: React.CSSProperties = {
     ...props.style,
-    transform: CSS.Transform.toString(transform && { ...transform, scaleY: 1 }),
+    transform: CSS.Translate.toString(transform),
     transition,
     cursor: 'move',
     ...(isDragging ? { position: 'relative', zIndex: 9999 } : {}),
