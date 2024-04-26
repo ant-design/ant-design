@@ -5,9 +5,7 @@ import ora from 'ora';
 import simpleGit from 'simple-git';
 import type { StatusResult } from 'simple-git';
 
-import localPackage from '../package.json';
-
-const { version } = localPackage;
+import { version } from '../package.json';
 
 const cwd = process.cwd();
 const git = simpleGit(cwd);
