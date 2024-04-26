@@ -136,6 +136,8 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token) => {
       lineHeight: 1,
 
       [`${componentCls}-count`]: {
+        display: 'inline-flex',
+        justifyContent: 'center',
         zIndex: token.indicatorZIndex,
         minWidth: indicatorHeight,
         height: indicatorHeight,
