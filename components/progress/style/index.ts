@@ -185,10 +185,10 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
         height: '100%',
         marginInlineStart: 0,
         padding: `0 ${token.paddingXXS}`,
-        [`&${progressCls}-inner-start`]: {
+        [`&${progressCls}-text-start`]: {
           justifyContent: 'start',
         },
-        [`&${progressCls}-inner-end`]: {
+        [`&${progressCls}-text-end`]: {
           justifyContent: 'end',
         },
       },
