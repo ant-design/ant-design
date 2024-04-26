@@ -700,8 +700,8 @@ describe('ColorPicker', () => {
   });
 
   describe('default clearValue should be changed', () => {
-    const Demo = () => {
-      const [color, setColor] = useState<string>('');
+    const Demo = ({ defaultValue }: { defaultValue?: string }) => {
+      const [color, setColor] = useState<string | undefined>(defaultValue);
       useEffect(() => {
         setColor('#1677ff');
       }, []);
@@ -709,12 +709,28 @@ describe('ColorPicker', () => {
     };
 
     it('normal', () => {
-      const { container } = render(<Demo />);
+      const { container } = render(<Demo defaultValue="" />);
 
       expect(container.querySelector('.ant-color-picker-clear')).toBeFalsy();
     });
 
     it('strict', () => {
+      const { container } = render(
+        <React.StrictMode>
+          <Demo defaultValue="" />
+        </React.StrictMode>,
+      );
+
+      expect(container.querySelector('.ant-color-picker-clear')).toBeFalsy();
+    });
+
+    it('default undefined, normal', () => {
+      const { container } = render(<Demo />);
+
+      expect(container.querySelector('.ant-color-picker-clear')).toBeFalsy();
+    });
+
+    it('default undefined, strict', () => {
       const { container } = render(
         <React.StrictMode>
           <Demo />
