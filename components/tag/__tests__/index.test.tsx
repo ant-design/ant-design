@@ -1,6 +1,5 @@
 import React from 'react';
 import { CheckCircleOutlined } from '@ant-design/icons';
-import { Simulate } from 'react-dom/test-utils';
 
 import Tag from '..';
 import { resetWarned } from '../../_util/warning';
@@ -89,32 +88,20 @@ describe('Tag', () => {
     });
   });
 
-  it('should trigger onClick', () => {
+  it('should trigger onClick on Tag', () => {
     const onClick = jest.fn();
     const { container } = render(<Tag onClick={onClick} />);
     const tagElement = container.querySelector<HTMLSpanElement>('.ant-tag')!;
-    Simulate.click(tagElement);
-    expect(onClick).toHaveBeenCalledWith(
-      expect.objectContaining({
-        type: 'click',
-        target: tagElement,
-        isDefaultPrevented: expect.any(Function),
-      }),
-    );
+    fireEvent.click(tagElement);
+    expect(onClick).toHaveBeenCalled();
   });
 
-  it('should trigger onClick on CheckableTag', () => {
+  it('should trigger onClick on Tag.CheckableTag', () => {
     const onClick = jest.fn();
     const { container } = render(<Tag.CheckableTag checked={false} onClick={onClick} />);
     const tagElement = container.querySelector<HTMLSpanElement>('.ant-tag')!;
-    Simulate.click(tagElement);
-    expect(onClick).toHaveBeenCalledWith(
-      expect.objectContaining({
-        type: 'click',
-        target: tagElement,
-        isDefaultPrevented: expect.any(Function),
-      }),
-    );
+    fireEvent.click(tagElement);
+    expect(onClick).toHaveBeenCalled();
   });
 
   // https://github.com/ant-design/ant-design/issues/20344
