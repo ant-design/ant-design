@@ -26,6 +26,7 @@ export default function useWatermark(
   appendWatermark: AppendWatermark,
   removeWatermark: (container: HTMLElement) => void,
   isWatermarkEle: (ele: Node) => boolean,
+  isWatermarkContainer: (ele: Node) => boolean,
 ] {
   const [watermarkMap] = React.useState(() => new Map<HTMLElement, HTMLDivElement>());
 
@@ -70,5 +71,7 @@ export default function useWatermark(
 
   const isWatermarkEle = (ele: any) => Array.from(watermarkMap.values()).includes(ele);
 
-  return [appendWatermark, removeWatermark, isWatermarkEle];
+  const isWatermarkContainer = (ele: any) => Array.from(watermarkMap.keys()).includes(ele);
+
+  return [appendWatermark, removeWatermark, isWatermarkEle, isWatermarkContainer];
 }
