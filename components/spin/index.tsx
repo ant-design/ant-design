@@ -106,12 +106,10 @@ const Spin: SpinType = (props) => {
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-spinning`]: spinning,
       [`${prefixCls}-show-text`]: !!tip,
-      [`${prefixCls}-fullscreen`]: fullscreen,
-      [`${prefixCls}-fullscreen-show`]: fullscreen && spinning,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
-    rootClassName,
+    !fullscreen && rootClassName,
     hashId,
     cssVarCls,
   );
@@ -154,6 +152,25 @@ const Spin: SpinType = (props) => {
       </div>,
     );
   }
+
+  if (fullscreen) {
+    return wrapCSSVar(
+      <div
+        className={classNames(
+          `${prefixCls}-fullscreen`,
+          {
+            [`${prefixCls}-fullscreen-show`]: spinning,
+          },
+          rootClassName,
+          hashId,
+          cssVarCls,
+        )}
+      >
+        {spinElement}
+      </div>,
+    );
+  }
+
   return wrapCSSVar(spinElement);
 };
 
