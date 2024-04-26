@@ -14,6 +14,9 @@ const genStepsCustomIconStyle: GenerateStyle<StepsToken, CSSObject> = (token) =>
         background: 'none',
         border: 0,
         [`> ${componentCls}-icon`]: {
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
           top: customIconTop,
           width: customIconSize,
           height: customIconSize,
