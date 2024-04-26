@@ -172,7 +172,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
           position: 'relative',
           zIndex: 1,
           [`&${progressCls}-text-bright`]: {
-            color: 'rgba(0, 0, 0, 0.45)',
+            color: token.colorTextTertiary,
           },
         },
       },
@@ -186,10 +186,10 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
         marginInlineStart: 0,
         padding: `0 ${token.paddingXXS}`,
         [`&${progressCls}-inner-start`]: {
-          justifyContent: 'left',
+          justifyContent: 'start',
         },
         [`&${progressCls}-inner-end`]: {
-          justifyContent: 'right',
+          justifyContent: 'end',
         },
       },
 
@@ -241,7 +241,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
             position: 'relative',
             zIndex: 1,
             [`&${progressCls}-text-bright`]: {
-              color: 'rgba(0, 0, 0, 0.45)',
+              color: token.colorTextTertiary,
             },
           },
         },
