@@ -116,12 +116,13 @@
     "@ant-design/icons": "^5.2.6",
     "@ant-design/react-slick": "~1.0.2",
     "@babel/runtime": "^7.23.4",
-    "@ctrl/tinycolor": "^3.6.1",
+    "@ctrl/tinycolor": "^4.1.0",
     "@rc-component/color-picker": "~1.4.1",
     "@rc-component/mutate-observer": "^1.1.0",
     "@rc-component/tour": "~1.11.1",
     "@rc-component/trigger": "^1.18.2",
     "classnames": "^2.3.2",
+    "color2k": "^2.0.3",
     "copy-to-clipboard": "^3.3.3",
     "dayjs": "^1.11.1",
     "qrcode.react": "^3.1.0",
@@ -325,7 +326,6 @@
       "dumi": "^2.3.0-alpha.4"
     }
   },
-  "packageManager": "npm@10.2.4",
   "size-limit": [
     {
       "path": "./dist/antd.min.js",

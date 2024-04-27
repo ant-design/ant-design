@@ -1,7 +1,7 @@
 import React from 'react';
-import { TinyColor } from '@ctrl/tinycolor';
 import { css, Global } from '@emotion/react';
 import { useTheme } from 'antd-style';
+import { transparentize } from 'color2k';
 
 const GlobalStyle: React.FC = () => {
   const token = useTheme();
@@ -400,7 +400,7 @@ const GlobalStyle: React.FC = () => {
             background: ${demoGridColor};
 
             &:nth-child(2n + 1) {
-              background: ${new TinyColor(demoGridColor).setAlpha(0.75).toHex8String()};
+              background: ${transparentize(demoGridColor, 0.75)};
             }
           }
 
@@ -416,12 +416,12 @@ const GlobalStyle: React.FC = () => {
           }
 
           ${antCls}-row .demo-col-1 {
-            background: ${new TinyColor(demoGridColor).setAlpha(0.75).toHexString()};
+            background: ${transparentize(demoGridColor, 0.75)};
           }
 
           ${antCls}-row .demo-col-2,
             .code-box-demo ${antCls}-row .demo-col-2 {
-            background: ${new TinyColor(demoGridColor).setAlpha(0.75).toHexString()};
+            background: ${transparentize(demoGridColor, 0.75)};
           }
 
           ${antCls}-row .demo-col-3,
@@ -432,7 +432,7 @@ const GlobalStyle: React.FC = () => {
 
           ${antCls}-row .demo-col-4,
             .code-box-demo ${antCls}-row .demo-col-4 {
-            background: ${new TinyColor(demoGridColor).setAlpha(0.6).toHexString()};
+            background: ${transparentize(demoGridColor, 0.6)};
           }
 
           ${antCls}-row .demo-col-5,

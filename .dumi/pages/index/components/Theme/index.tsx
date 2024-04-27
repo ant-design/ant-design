@@ -6,7 +6,6 @@ import {
   HomeOutlined,
   QuestionCircleOutlined,
 } from '@ant-design/icons';
-import { TinyColor } from '@ctrl/tinycolor';
 import type { MenuProps } from 'antd';
 import {
   Breadcrumb,
@@ -25,6 +24,7 @@ import { createStyles, css, useTheme } from 'antd-style';
 import type { Color } from 'antd/es/color-picker';
 import { generateColor } from 'antd/es/color-picker/util';
 import classNames from 'classnames';
+import { parseToRgba } from 'color2k';
 import { useLocation } from 'dumi';
 
 import useDark from '../../../../hooks/useDark';
@@ -290,8 +290,7 @@ const ThemesInfo: Record<THEME, Partial<ThemeData>> = {
 const normalize = (value: number) => value / 255;
 
 function rgbToColorMatrix(color: string) {
-  const rgb = new TinyColor(color).toRgb();
-  const { r, g, b } = rgb;
+  const [r, g, b] = parseToRgba(color);
 
   const invertValue = normalize(r) * 100;
   const sepiaValue = 100;
