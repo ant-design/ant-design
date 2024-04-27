@@ -30,7 +30,7 @@ This is also the most common way of representing colors because it can be used d
 
 ## Conversion of Color Models
 
-Different algorithms are needed for the conversion of color models. There are many mature libraries on the market that can be selected. In the implementation, we chose the library [tinycolor](https://github.com/scttcper/tinycolor), which supports the conversion of multiple color models such as `RGB`, `HSL`, `HSV`, `HEX`, etc. Moreover, its size is very small, only about 10KB, which is very suitable for use in browsers.
+Different algorithms are needed for the conversion of color models. There are many mature libraries on the market that can be selected. In the implementation, we chose the library [color2k](https://github.com/ricokahler/color2k/), which supports the conversion of multiple color models such as `RGB`, `HSL`, `HSV`, `HEX`, etc. Moreover, its size is very small, only about 2KB, which is very suitable for use in browsers.
 
 ## Selection of Color Models
 

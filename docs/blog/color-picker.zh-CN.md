@@ -30,7 +30,7 @@ author: Redjue
 
 ## 色彩模型的转换
 
-颜色模型的转换需要不同的算法，市面上已经有很多成熟的类库可以进行选择，在实现上我们选择了 [tinycolor](https://github.com/scttcper/tinycolor) 这个类库，它支持 `RGB`、`HSL`、`HSV`、`HEX` 等多种色彩模型的转换，而且它的体积非常小，只有 10KB 左右，非常适合在浏览器中使用。
+颜色模型的转换需要不同的算法，市面上已经有很多成熟的类库可以进行选择，在实现上我们选择了 [color2k](https://github.com/ricokahler/color2k/) 这个类库，它支持 `RGB`、`HSL`、`HSV`、`HEX` 等多种色彩模型的转换，而且它的体积非常小，只有 2KB 左右，非常适合在浏览器中使用。
 
 ## 色彩模型的选择
 
