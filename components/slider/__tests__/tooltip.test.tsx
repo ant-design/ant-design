@@ -53,4 +53,25 @@ describe('Slider.Tooltip', () => {
     await waitFakeTimer();
     expect(tooltipProps().open).toBeFalsy();
   });
+
+  it('not show tooltip', async () => {
+    const { container } = render(<Slider defaultValue={30} tooltip={{ formatter: null }} />);
+
+    const handleEle = container.querySelector('.ant-slider-handle')!;
+
+    // Enter
+    fireEvent.mouseEnter(handleEle);
+    await waitFakeTimer();
+    expect(tooltipProps().open).toBeFalsy();
+
+    // Down
+    fireEvent.mouseDown(handleEle);
+    await waitFakeTimer();
+    expect(tooltipProps().open).toBeFalsy();
+
+    // Move(Leave)
+    fireEvent.mouseLeave(handleEle);
+    await waitFakeTimer();
+    expect(tooltipProps().open).toBeFalsy();
+  });
 });
