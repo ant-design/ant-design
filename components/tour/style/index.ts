@@ -1,16 +1,17 @@
-import { TinyColor } from '@ctrl/tinycolor';
+import { unit } from '@ant-design/cssinjs';
+import { transparentize } from 'color2k';
 
+import { onBackground } from '../../_util/colors';
 import { resetComponent } from '../../style';
 import type { ArrowOffsetToken } from '../../style/placementArrow';
 import getArrowStyle, {
   getArrowOffsetToken,
   MAX_VERTICAL_CONTENT_RADIUS,
 } from '../../style/placementArrow';
-import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genStyleHooks, mergeToken } from '../../theme/internal';
 import type { ArrowToken } from '../../style/roundedArrow';
 import { getArrowToken } from '../../style/roundedArrow';
-import { unit } from '@ant-design/cssinjs';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken extends ArrowOffsetToken, ArrowToken {
   /**
@@ -270,11 +271,9 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
 export const prepareComponentToken: GetDefaultToken<'Tour'> = (token) => ({
   zIndexPopup: token.zIndexPopupBase + 70,
   closeBtnSize: token.fontSize * token.lineHeight,
-  primaryPrevBtnBg: new TinyColor(token.colorTextLightSolid).setAlpha(0.15).toRgbString(),
+  primaryPrevBtnBg: transparentize(token.colorTextLightSolid, 0.15),
   closeBtnHoverBg: token.wireframe ? 'transparent' : token.colorFillContent,
-  primaryNextBtnHoverBg: new TinyColor(token.colorBgTextHover)
-    .onBackground(token.colorWhite)
-    .toRgbString(),
+  primaryNextBtnHoverBg: onBackground(token.colorBgTextHover, token.colorWhite),
   ...getArrowOffsetToken({
     contentRadius: token.borderRadiusLG,
     limitVerticalRadius: true,
