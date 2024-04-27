@@ -225,7 +225,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
       if (reRendering(mutation, isWatermarkEle)) {
         syncWatermark();
       } else if (reRendering(mutation, isWatermarkContainer)) {
-        setContainerKey(new Date().getTime());
+        setContainerKey(containerKey + 1);
       }
     });
   };
