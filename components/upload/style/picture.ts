@@ -1,10 +1,10 @@
 import { blue } from '@ant-design/colors';
-import { TinyColor } from '@ctrl/tinycolor';
+import { unit } from '@ant-design/cssinjs';
+import { transparentize } from 'color2k';
 
 import type { UploadToken } from '.';
 import { clearFix, textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
-import { unit } from '@ant-design/cssinjs';
 
 const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
   const { componentCls, iconCls, uploadThumbnailSize, uploadProgressOffset, calc } = token;
@@ -200,7 +200,7 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
 
         [`${itemCls}-actions, ${itemCls}-actions:hover`]: {
           [`${iconCls}-eye, ${iconCls}-download, ${iconCls}-delete`]: {
-            color: new TinyColor(colorTextLightSolid).setAlpha(0.65).toRgbString(),
+            color: transparentize(colorTextLightSolid, 0.65),
             '&:hover': {
               color: colorTextLightSolid,
             },
@@ -252,4 +252,4 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
   };
 };
 
-export { genPictureStyle, genPictureCardStyle };
+export { genPictureCardStyle, genPictureStyle };
