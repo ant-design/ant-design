@@ -78,7 +78,7 @@ describe('chatbox', () => {
     expect(element?.textContent).toBe('你好你好你好');
   });
 
-  it('Chatbox Should support classNames & styles', () => {
+  it('Chatbox Should support className & classNames & style & styles', () => {
     const { container } = render(
       <Chatbox
         content="hello"
