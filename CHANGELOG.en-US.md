@@ -16,6 +16,24 @@ tag: vVERSION
 
 ---
 
+## 5.16.5
+
+`2024-04-28`
+
+- 🐞 Fix Transfer component issue when trying to select item from the right column while it has "unknown-key" within targetKeys. [#48664](https://github.com/ant-design/ant-design/pull/48664) [@andreyk1512](https://github.com/andreyk1512)
+- 🐞 Fix Step custom icon not vertically centered error. [#48650](https://github.com/ant-design/ant-design/pull/48650) [@ZinkWu](https://github.com/ZinkWu)
+- 🐞 Fix Badge number centered but slightly right-aligned. [#48605](https://github.com/ant-design/ant-design/pull/48605) [@akinocccc](https://github.com/akinocccc)
+- 🐞 Fix Popover and Popconfirm blinking when open on the right edge of screen. [#48591](https://github.com/ant-design/ant-design/pull/48591)
+- 🐞 Fix ColorPicker that cleared icon should change when initial value is `undefined`. [#48584](https://github.com/ant-design/ant-design/pull/48584) [@MadCcc](https://github.com/MadCcc)
+- 💄 Fix Collapse bottom border issue. [#48561](https://github.com/ant-design/ant-design/pull/48561) [@hamzaseif13](https://github.com/hamzaseif13)
+- 💄 Adjust Input border style in form validation when disabled. [#48616](https://github.com/ant-design/ant-design/pull/48616) [@nova1751](https://github.com/nova1751)
+- TypeScript
+  - 🤖 Add missing generic type of Upload prop. [#48614](https://github.com/ant-design/ant-design/pull/48614) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🤖 Fix missing generic type of Upload `customRequest` prop. [#48612](https://github.com/ant-design/ant-design/pull/48612) [@jas0ncn](https://github.com/jas0ncn)
+- Locales
+  - 🇪🇸 Added missing es_ES translations for DatePicker component. [#48601](https://github.com/ant-design/ant-design/pull/48601) [@JMMOLLER](https://github.com/JMMOLLER)
+  - 🇩🇪 Added missing german translations for DatePicker component. [#48586](https://github.com/ant-design/ant-design/pull/48586) [@sebhs](https://github.com/sebhs)
+
 ## 5.16.4
 
 `2024-04-22`
