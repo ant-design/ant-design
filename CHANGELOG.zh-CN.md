@@ -15,6 +15,24 @@ tag: vVERSION
 
 ---
 
+## 5.16.5
+
+`2024-04-28`
+
+- 🐞 修复 Transfer 组件在 targetKeys 中含有 "unknown-key" 时，尝试从右侧列选中单项的问题。[#48664](https://github.com/ant-design/ant-design/pull/48664) [@andreyk1512](https://github.com/andreyk1512)
+- 🐞 修复 Steps 自定义图标未垂直居中问题。[#48650](https://github.com/ant-design/ant-design/pull/48650) [@ZinkWu](https://github.com/ZinkWu)
+- 🐞 修复 Badge 数字居中偏右的问题。[#48605](https://github.com/ant-design/ant-design/pull/48605) [@akinocccc](https://github.com/akinocccc)
+- 🐞 修复 Popover 和 Popconfirm 在屏幕右侧边缘闪烁的问题。[#48591](https://github.com/ant-design/ant-design/pull/48591)
+- 🐞 修复 ColorPicker 在初始未受控时清除图标不会改变的问题。[#48584](https://github.com/ant-design/ant-design/pull/48584) [@MadCcc](https://github.com/MadCcc)
+- 💄 修复 Collapse 组件底部边框样式问题。[#48561](https://github.com/ant-design/ant-design/pull/48561) [@hamzaseif13](https://github.com/hamzaseif13)
+- 💄 调整 Input 组件在禁用的时候在表单校验时的边框颜色。[#48616](https://github.com/ant-design/ant-design/pull/48616) [@nova1751](https://github.com/nova1751)
+- TypeScript
+  - 🤖 补充 Upload 组件缺失的泛型。[#48614](https://github.com/ant-design/ant-design/pull/48614) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🤖 修复 Upload `customRequest` 参数丢失泛型的问题。[#48612](https://github.com/ant-design/ant-design/pull/48612) [@jas0ncn](https://github.com/jas0ncn)
+- 国际化
+  - 🇪🇸 为 DatePicker 补充 西班牙语 多语言。[#48601](https://github.com/ant-design/ant-design/pull/48601) [@JMMOLLER](https://github.com/JMMOLLER)
+  - 🇩🇪 为 DatePicker 补充 德语 多语言。[#48586](https://github.com/ant-design/ant-design/pull/48586) [@sebhs](https://github.com/sebhs)
+
 ## 5.16.4
 
 `2024-04-22`
