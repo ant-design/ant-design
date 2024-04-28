@@ -1,3 +1,4 @@
+import type { SyntheticEvent } from 'react';
 import React, { useState } from 'react';
 import { TreeSelect } from 'antd';
 
@@ -56,6 +57,10 @@ const App: React.FC = () => {
     setValue(newValue);
   };
 
+  const onPopupScroll = (e: SyntheticEvent) => {
+    console.log('onPopupScroll', e);
+  };
+
   return (
     <TreeSelect
       showSearch
@@ -67,9 +72,7 @@ const App: React.FC = () => {
       treeDefaultExpandAll
       onChange={onChange}
       treeData={treeData}
-      onPopupScroll={(e) => {
-        console.log('onPopupScroll', e);
-      }}
+      onPopupScroll={onPopupScroll}
     />
   );
 };
