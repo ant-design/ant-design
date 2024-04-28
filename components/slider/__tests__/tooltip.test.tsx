@@ -54,7 +54,8 @@ describe('Slider.Tooltip', () => {
     expect(tooltipProps().open).toBeFalsy();
   });
 
-  it('not show tooltip', async () => {
+  it('When format equals null, tooltip does not display', async () => {
+    // https://github.com/ant-design/ant-design/issues/48668
     const { container } = render(<Slider defaultValue={30} tooltip={{ formatter: null }} />);
 
     const handleEle = container.querySelector('.ant-slider-handle')!;
