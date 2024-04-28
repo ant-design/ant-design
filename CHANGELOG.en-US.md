@@ -21,7 +21,7 @@ tag: vVERSION
 `2024-04-28`
 
 - 🐞 Fix Transfer component issue when trying to select item from the right column while it has "unknown-key" within targetKeys. [#48664](https://github.com/ant-design/ant-design/pull/48664) [@andreyk1512](https://github.com/andreyk1512)
-- 🐞 Fix Step custom icon not vertically centered error. [#48650](https://github.com/ant-design/ant-design/pull/48650) [@ZinkWu](https://github.com/ZinkWu)
+- 🐞 Fix Steps custom icon not vertically centered error. [#48650](https://github.com/ant-design/ant-design/pull/48650) [@ZinkWu](https://github.com/ZinkWu)
 - 🐞 Fix Badge number centered but slightly right-aligned. [#48605](https://github.com/ant-design/ant-design/pull/48605) [@akinocccc](https://github.com/akinocccc)
 - 🐞 Fix Popover and Popconfirm blinking when open on the right edge of screen. [#48591](https://github.com/ant-design/ant-design/pull/48591)
 - 🐞 Fix ColorPicker that cleared icon should change when initial value is `undefined`. [#48584](https://github.com/ant-design/ant-design/pull/48584) [@MadCcc](https://github.com/MadCcc)
