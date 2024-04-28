@@ -77,6 +77,9 @@ const genOutlinedStatusStyle = (
       color: options.affixColor,
     },
   },
+  [`&${token.componentCls}-status-${options.status}${token.componentCls}-disabled`]: {
+    borderColor: options.borderColor,
+  },
 });
 
 export const genOutlinedStyle = (token: InputToken, extraStyles?: CSSObject): CSSObject => ({
