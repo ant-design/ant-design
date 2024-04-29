@@ -149,7 +149,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
           lineNotSteps && `${prefixCls}-text-${infoPosition}`,
           lineNotSteps && `${prefixCls}-text-${infoAlign}`,
           isBrightInnerColor && `${prefixCls}-text-bright`,
-          lineNotSteps && `${prefixCls}-text-auto}`,
+          lineNotSteps && `${prefixCls}-text-auto`,
         )}
         title={typeof text === 'string' ? text : undefined}
       >
