@@ -789,23 +789,27 @@ Array [
         role="progressbar"
       >
         <div
-          class="ant-progress-outer"
-          style="width: 100%; height: 8px;"
+          class="ant-progress-outer-box"
         >
           <div
-            class="ant-progress-inner"
+            class="ant-progress-outer"
+            style="width: 100%; height: 8px;"
           >
             <div
-              class="ant-progress-bg ant-progress-bg-outer"
-              style="width: 50%; height: 8px; --progress-percent: 0.5;"
-            />
+              class="ant-progress-inner"
+            >
+              <div
+                class="ant-progress-bg ant-progress-bg-outer"
+                style="width: 50%; height: 8px; --progress-percent: 0.5;"
+              />
+            </div>
+            <span
+              class="ant-progress-text ant-progress-text-outer ant-progress-text-end ant-progress-text-auto}"
+              title="50%"
+            >
+              50%
+            </span>
           </div>
-          <span
-            class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
-            title="50%"
-          >
-            50%
-          </span>
         </div>
       </div>
     </div>
@@ -818,23 +822,27 @@ Array [
         role="progressbar"
       >
         <div
-          class="ant-progress-outer"
-          style="width: 100%; height: 6px;"
+          class="ant-progress-outer-box"
         >
           <div
-            class="ant-progress-inner"
+            class="ant-progress-outer"
+            style="width: 100%; height: 6px;"
           >
             <div
-              class="ant-progress-bg ant-progress-bg-outer"
-              style="width: 50%; height: 6px; --progress-percent: 0.5;"
-            />
+              class="ant-progress-inner"
+            >
+              <div
+                class="ant-progress-bg ant-progress-bg-outer"
+                style="width: 50%; height: 6px; --progress-percent: 0.5;"
+              />
+            </div>
+            <span
+              class="ant-progress-text ant-progress-text-outer ant-progress-text-end ant-progress-text-auto}"
+              title="50%"
+            >
+              50%
+            </span>
           </div>
-          <span
-            class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
-            title="50%"
-          >
-            50%
-          </span>
         </div>
       </div>
     </div>
@@ -847,23 +855,27 @@ Array [
         role="progressbar"
       >
         <div
-          class="ant-progress-outer"
-          style="width: 300px; height: 20px;"
+          class="ant-progress-outer-box"
         >
           <div
-            class="ant-progress-inner"
+            class="ant-progress-outer"
+            style="width: 300px; height: 20px;"
           >
             <div
-              class="ant-progress-bg ant-progress-bg-outer"
-              style="width: 50%; height: 20px; --progress-percent: 0.5;"
-            />
+              class="ant-progress-inner"
+            >
+              <div
+                class="ant-progress-bg ant-progress-bg-outer"
+                style="width: 50%; height: 20px; --progress-percent: 0.5;"
+              />
+            </div>
+            <span
+              class="ant-progress-text ant-progress-text-outer ant-progress-text-end ant-progress-text-auto}"
+              title="50%"
+            >
+              50%
+            </span>
           </div>
-          <span
-            class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
-            title="50%"
-          >
-            50%
-          </span>
         </div>
       </div>
     </div>
@@ -1288,7 +1300,7 @@ Array [
             style="width: 14px; height: 8px;"
           />
           <span
-            class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+            class="ant-progress-text"
             title="50%"
           >
             50%
@@ -1320,7 +1332,7 @@ Array [
             style="width: 2px; height: 8px;"
           />
           <span
-            class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+            class="ant-progress-text"
             title="50%"
           >
             50%
@@ -1352,7 +1364,7 @@ Array [
             style="width: 20px; height: 20px;"
           />
           <span
-            class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+            class="ant-progress-text"
             title="50%"
           >
             50%
@@ -1384,7 +1396,7 @@ Array [
             style="width: 20px; height: 30px;"
           />
           <span
-            class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+            class="ant-progress-text"
             title="50%"
           >
             50%
@@ -1524,23 +1536,27 @@ exports[`renders components/progress/demo/dynamic.tsx extend context correctly 1
       role="progressbar"
     >
       <div
-        class="ant-progress-outer"
-        style="width: 100%; height: 8px;"
+        class="ant-progress-outer-box"
       >
         <div
-          class="ant-progress-inner"
+          class="ant-progress-outer"
+          style="width: 100%; height: 8px;"
         >
           <div
-            class="ant-progress-bg ant-progress-bg-outer"
-            style="width: 0%; height: 8px; --progress-percent: 0;"
-          />
+            class="ant-progress-inner"
+          >
+            <div
+              class="ant-progress-bg ant-progress-bg-outer"
+              style="width: 0%; height: 8px; --progress-percent: 0;"
+            />
+          </div>
+          <span
+            class="ant-progress-text ant-progress-text-outer ant-progress-text-end ant-progress-text-auto}"
+            title="0%"
+          >
+            0%
+          </span>
         </div>
-        <span
-          class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
-          title="0%"
-        >
-          0%
-        </span>
       </div>
     </div>
     <div
@@ -1787,23 +1803,27 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
-      style="width: 100%; height: 8px;"
+      class="ant-progress-outer-box"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-outer"
+        style="width: 100%; height: 8px;"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width: 99.9%; height: 8px; --progress-line-stroke-color: linear-gradient(to right, #108ee9 0%, #87d068 100%); --progress-percent: 0.9990000000000001;"
-        />
+          class="ant-progress-inner"
+        >
+          <div
+            class="ant-progress-bg ant-progress-bg-outer"
+            style="width: 99.9%; height: 8px; --progress-line-stroke-color: linear-gradient(to right, #108ee9 0%, #87d068 100%); --progress-percent: 0.9990000000000001;"
+          />
+        </div>
+        <span
+          class="ant-progress-text ant-progress-text-outer ant-progress-text-end ant-progress-text-auto}"
+          title="99.9%"
+        >
+          99.9%
+        </span>
       </div>
-      <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
-        title="99.9%"
-      >
-        99.9%
-      </span>
     </div>
   </div>
   <div
@@ -1812,23 +1832,27 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
-      style="width: 100%; height: 8px;"
+      class="ant-progress-outer-box"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-outer"
+        style="width: 100%; height: 8px;"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width: 50%; height: 8px; --progress-line-stroke-color: linear-gradient(to right, #108ee9, #87d068); --progress-percent: 0.5;"
-        />
+          class="ant-progress-inner"
+        >
+          <div
+            class="ant-progress-bg ant-progress-bg-outer"
+            style="width: 50%; height: 8px; --progress-line-stroke-color: linear-gradient(to right, #108ee9, #87d068); --progress-percent: 0.5;"
+          />
+        </div>
+        <span
+          class="ant-progress-text ant-progress-text-outer ant-progress-text-end ant-progress-text-auto}"
+          title="50%"
+        >
+          50%
+        </span>
       </div>
-      <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
-        title="50%"
-      >
-        50%
-      </span>
     </div>
   </div>
   <div
@@ -2320,22 +2344,26 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
-      style="width: 200px; height: 20px;"
+      class="ant-progress-outer-box"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-outer"
+        style="width: 200px; height: 20px;"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-inner"
-          style="width: 0%; height: 20px; --progress-line-stroke-color: #E6F4FF; background: rgb(230, 244, 255); --progress-percent: 0;"
+          class="ant-progress-inner"
         >
-          <span
-            class="ant-progress-text ant-progress-text-inner ant-progress-text-center ant-progress-text-bright"
-            title="0%"
+          <div
+            class="ant-progress-bg ant-progress-bg-inner"
+            style="width: 0%; height: 20px; --progress-line-stroke-color: #E6F4FF; background: rgb(230, 244, 255); --progress-percent: 0;"
           >
-            0%
-          </span>
+            <span
+              class="ant-progress-text ant-progress-text-inner ant-progress-text-center ant-progress-text-bright ant-progress-text-auto}"
+              title="0%"
+            >
+              0%
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -2346,22 +2374,26 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
-      style="width: 300px; height: 20px;"
+      class="ant-progress-outer-box"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-outer"
+        style="width: 300px; height: 20px;"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-inner"
-          style="width: 10%; height: 20px; --progress-percent: 0.1;"
+          class="ant-progress-inner"
         >
-          <span
-            class="ant-progress-text ant-progress-text-inner ant-progress-text-center"
-            title="10%"
+          <div
+            class="ant-progress-bg ant-progress-bg-inner"
+            style="width: 10%; height: 20px; --progress-percent: 0.1;"
           >
-            10%
-          </span>
+            <span
+              class="ant-progress-text ant-progress-text-inner ant-progress-text-center ant-progress-text-auto}"
+              title="10%"
+            >
+              10%
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -2372,22 +2404,26 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
-      style="width: 300px; height: 20px;"
+      class="ant-progress-outer-box"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-outer"
+        style="width: 300px; height: 20px;"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-inner"
-          style="width: 50%; height: 20px; --progress-line-stroke-color: #B7EB8F; background: rgb(183, 235, 143); --progress-percent: 0.5;"
+          class="ant-progress-inner"
         >
-          <span
-            class="ant-progress-text ant-progress-text-inner ant-progress-text-start ant-progress-text-bright"
-            title="50%"
+          <div
+            class="ant-progress-bg ant-progress-bg-inner"
+            style="width: 50%; height: 20px; --progress-line-stroke-color: #B7EB8F; background: rgb(183, 235, 143); --progress-percent: 0.5;"
           >
-            50%
-          </span>
+            <span
+              class="ant-progress-text ant-progress-text-inner ant-progress-text-start ant-progress-text-bright ant-progress-text-auto}"
+              title="50%"
+            >
+              50%
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -2398,22 +2434,26 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
-      style="width: 300px; height: 20px;"
+      class="ant-progress-outer-box"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-outer"
+        style="width: 300px; height: 20px;"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-inner"
-          style="width: 60%; height: 20px; --progress-line-stroke-color: #001342; background: rgb(0, 19, 66); --progress-percent: 0.6;"
+          class="ant-progress-inner"
         >
-          <span
-            class="ant-progress-text ant-progress-text-inner ant-progress-text-end"
-            title="60%"
+          <div
+            class="ant-progress-bg ant-progress-bg-inner"
+            style="width: 60%; height: 20px; --progress-line-stroke-color: #001342; background: rgb(0, 19, 66); --progress-percent: 0.6;"
           >
-            60%
-          </span>
+            <span
+              class="ant-progress-text ant-progress-text-inner ant-progress-text-end ant-progress-text-auto}"
+              title="60%"
+            >
+              60%
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -2424,22 +2464,26 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
-      style="width: 400px; height: 20px;"
+      class="ant-progress-outer-box"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-outer"
+        style="width: 400px; height: 20px;"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-inner"
-          style="width: 100%; height: 20px; --progress-percent: 1;"
+          class="ant-progress-inner"
         >
-          <span
-            class="ant-progress-text ant-progress-text-inner ant-progress-text-center"
-            title="100%"
+          <div
+            class="ant-progress-bg ant-progress-bg-inner"
+            style="width: 100%; height: 20px; --progress-percent: 1;"
           >
-            100%
-          </span>
+            <span
+              class="ant-progress-text ant-progress-text-inner ant-progress-text-center ant-progress-text-auto}"
+              title="100%"
+            >
+              100%
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -2450,22 +2494,26 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
-      style="width: 100%; height: 8px;"
+      class="ant-progress-outer-box"
     >
-      <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-start"
-        title="60%"
-      >
-        60%
-      </span>
       <div
-        class="ant-progress-inner"
+        class="ant-progress-outer"
+        style="width: 100%; height: 8px;"
       >
+        <span
+          class="ant-progress-text ant-progress-text-outer ant-progress-text-start ant-progress-text-auto}"
+          title="60%"
+        >
+          60%
+        </span>
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width: 60%; height: 8px; --progress-percent: 0.6;"
-        />
+          class="ant-progress-inner"
+        >
+          <div
+            class="ant-progress-bg ant-progress-bg-outer"
+            style="width: 60%; height: 8px; --progress-percent: 0.6;"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -2475,39 +2523,43 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
-      style="width: 100%; height: 8px;"
+      class="ant-progress-outer-box"
     >
-      <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-start"
+      <div
+        class="ant-progress-outer"
+        style="width: 100%; height: 8px;"
       >
         <span
-          aria-label="check-circle"
-          class="anticon anticon-check-circle"
-          role="img"
+          class="ant-progress-text ant-progress-text-outer ant-progress-text-start ant-progress-text-auto}"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="check-circle"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="check-circle"
+            class="anticon anticon-check-circle"
+            role="img"
           >
-            <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              data-icon="check-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+              />
+            </svg>
+          </span>
         </span>
-      </span>
-      <div
-        class="ant-progress-inner"
-      >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width: 100%; height: 8px; --progress-percent: 1;"
-        />
+          class="ant-progress-inner"
+        >
+          <div
+            class="ant-progress-bg ant-progress-bg-outer"
+            style="width: 100%; height: 8px; --progress-percent: 1;"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -2528,7 +2580,7 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-center"
+        class="ant-progress-text ant-progress-text-outer ant-progress-text-center ant-progress-text-auto}"
         title="60%"
       >
         60%
@@ -2552,7 +2604,7 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-center"
+        class="ant-progress-text ant-progress-text-outer ant-progress-text-center ant-progress-text-auto}"
       >
         <span
           aria-label="check-circle"
@@ -2583,7 +2635,7 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
 
 exports[`renders components/progress/demo/line.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
 >
   <div
     aria-valuenow="30"
@@ -2591,23 +2643,27 @@ exports[`renders components/progress/demo/line.tsx extend context correctly 1`] 
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
-      style="width: 100%; height: 8px;"
+      class="ant-progress-outer-box"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-outer"
+        style="width: 100%; height: 8px;"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width: 30%; height: 8px; --progress-percent: 0.3;"
-        />
+          class="ant-progress-inner"
+        >
+          <div
+            class="ant-progress-bg ant-progress-bg-outer"
+            style="width: 30%; height: 8px; --progress-percent: 0.3;"
+          />
+        </div>
+        <span
+          class="ant-progress-text ant-progress-text-outer ant-progress-text-end ant-progress-text-auto}"
+          title="30%"
+        >
+          30%
+        </span>
       </div>
-      <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
-        title="30%"
-      >
-        30%
-      </span>
     </div>
   </div>
   <div
@@ -2616,23 +2672,27 @@ exports[`renders components/progress/demo/line.tsx extend context correctly 1`] 
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
-      style="width: 100%; height: 8px;"
+      class="ant-progress-outer-box"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-outer"
+        style="width: 100%; height: 8px;"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width: 50%; height: 8px; --progress-percent: 0.5;"
-        />
+          class="ant-progress-inner"
+        >
+          <div
+            class="ant-progress-bg ant-progress-bg-outer"
+            style="width: 50%; height: 8px; --progress-percent: 0.5;"
+          />
+        </div>
+        <span
+          class="ant-progress-text ant-progress-text-outer ant-progress-text-end ant-progress-text-auto}"
+          title="50%"
+        >
+          50%
+        </span>
       </div>
-      <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
-        title="50%"
-      >
-        50%
-      </span>
     </div>
   </div>
   <div
@@ -2641,41 +2701,45 @@ exports[`renders components/progress/demo/line.tsx extend context correctly 1`] 
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
-      style="width: 100%; height: 8px;"
+      class="ant-progress-outer-box"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-outer"
+        style="width: 100%; height: 8px;"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width: 70%; height: 8px; --progress-percent: 0.7;"
-        />
-      </div>
-      <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
-      >
-        <span
-          aria-label="close-circle"
-          class="anticon anticon-close-circle"
-          role="img"
+          class="ant-progress-inner"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="close-circle"
-            fill="currentColor"
-            fill-rule="evenodd"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <div
+            class="ant-progress-bg ant-progress-bg-outer"
+            style="width: 70%; height: 8px; --progress-percent: 0.7;"
+          />
+        </div>
+        <span
+          class="ant-progress-text ant-progress-text-outer ant-progress-text-end ant-progress-text-auto}"
+        >
+          <span
+            aria-label="close-circle"
+            class="anticon anticon-close-circle"
+            role="img"
           >
-            <path
-              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              data-icon="close-circle"
+              fill="currentColor"
+              fill-rule="evenodd"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+              />
+            </svg>
+          </span>
         </span>
-      </span>
+      </div>
     </div>
   </div>
   <div
@@ -2684,40 +2748,44 @@ exports[`renders components/progress/demo/line.tsx extend context correctly 1`] 
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
-      style="width: 100%; height: 8px;"
+      class="ant-progress-outer-box"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-outer"
+        style="width: 100%; height: 8px;"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width: 100%; height: 8px; --progress-percent: 1;"
-        />
-      </div>
-      <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
-      >
-        <span
-          aria-label="check-circle"
-          class="anticon anticon-check-circle"
-          role="img"
+          class="ant-progress-inner"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="check-circle"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <div
+            class="ant-progress-bg ant-progress-bg-outer"
+            style="width: 100%; height: 8px; --progress-percent: 1;"
+          />
+        </div>
+        <span
+          class="ant-progress-text ant-progress-text-outer ant-progress-text-end ant-progress-text-auto}"
+        >
+          <span
+            aria-label="check-circle"
+            class="anticon anticon-check-circle"
+            role="img"
           >
-            <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              data-icon="check-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+              />
+            </svg>
+          </span>
         </span>
-      </span>
+      </div>
     </div>
   </div>
   <div
@@ -2726,16 +2794,20 @@ exports[`renders components/progress/demo/line.tsx extend context correctly 1`] 
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
-      style="width: 100%; height: 8px;"
+      class="ant-progress-outer-box"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-outer"
+        style="width: 100%; height: 8px;"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width: 50%; height: 8px; --progress-percent: 0.5;"
-        />
+          class="ant-progress-inner"
+        >
+          <div
+            class="ant-progress-bg ant-progress-bg-outer"
+            style="width: 50%; height: 8px; --progress-percent: 0.5;"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -2746,7 +2818,7 @@ exports[`renders components/progress/demo/line.tsx extend context correctly 2`] 
 
 exports[`renders components/progress/demo/line-mini.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
   style="width: 180px;"
 >
   <div
@@ -2755,23 +2827,27 @@ exports[`renders components/progress/demo/line-mini.tsx extend context correctly
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
-      style="width: 100%; height: 6px;"
+      class="ant-progress-outer-box"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-outer"
+        style="width: 100%; height: 6px;"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width: 30%; height: 6px; --progress-percent: 0.3;"
-        />
+          class="ant-progress-inner"
+        >
+          <div
+            class="ant-progress-bg ant-progress-bg-outer"
+            style="width: 30%; height: 6px; --progress-percent: 0.3;"
+          />
+        </div>
+        <span
+          class="ant-progress-text ant-progress-text-outer ant-progress-text-end ant-progress-text-auto}"
+          title="30%"
+        >
+          30%
+        </span>
       </div>
-      <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
-        title="30%"
-      >
-        30%
-      </span>
     </div>
   </div>
   <div
@@ -2780,23 +2856,27 @@ exports[`renders components/progress/demo/line-mini.tsx extend context correctly
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
-      style="width: 100%; height: 6px;"
+      class="ant-progress-outer-box"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-outer"
+        style="width: 100%; height: 6px;"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width: 50%; height: 6px; --progress-percent: 0.5;"
-        />
+          class="ant-progress-inner"
+        >
+          <div
+            class="ant-progress-bg ant-progress-bg-outer"
+            style="width: 50%; height: 6px; --progress-percent: 0.5;"
+          />
+        </div>
+        <span
+          class="ant-progress-text ant-progress-text-outer ant-progress-text-end ant-progress-text-auto}"
+          title="50%"
+        >
+          50%
+        </span>
       </div>
-      <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
-        title="50%"
-      >
-        50%
-      </span>
     </div>
   </div>
   <div
@@ -2805,41 +2885,45 @@ exports[`renders components/progress/demo/line-mini.tsx extend context correctly
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
-      style="width: 100%; height: 6px;"
+      class="ant-progress-outer-box"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-outer"
+        style="width: 100%; height: 6px;"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width: 70%; height: 6px; --progress-percent: 0.7;"
-        />
-      </div>
-      <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
-      >
-        <span
-          aria-label="close-circle"
-          class="anticon anticon-close-circle"
-          role="img"
+          class="ant-progress-inner"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="close-circle"
-            fill="currentColor"
-            fill-rule="evenodd"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <div
+            class="ant-progress-bg ant-progress-bg-outer"
+            style="width: 70%; height: 6px; --progress-percent: 0.7;"
+          />
+        </div>
+        <span
+          class="ant-progress-text ant-progress-text-outer ant-progress-text-end ant-progress-text-auto}"
+        >
+          <span
+            aria-label="close-circle"
+            class="anticon anticon-close-circle"
+            role="img"
           >
-            <path
-              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              data-icon="close-circle"
+              fill="currentColor"
+              fill-rule="evenodd"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+              />
+            </svg>
+          </span>
         </span>
-      </span>
+      </div>
     </div>
   </div>
   <div
@@ -2848,40 +2932,44 @@ exports[`renders components/progress/demo/line-mini.tsx extend context correctly
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
-      style="width: 100%; height: 6px;"
+      class="ant-progress-outer-box"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-outer"
+        style="width: 100%; height: 6px;"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width: 100%; height: 6px; --progress-percent: 1;"
-        />
-      </div>
-      <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
-      >
-        <span
-          aria-label="check-circle"
-          class="anticon anticon-check-circle"
-          role="img"
+          class="ant-progress-inner"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="check-circle"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <div
+            class="ant-progress-bg ant-progress-bg-outer"
+            style="width: 100%; height: 6px; --progress-percent: 1;"
+          />
+        </div>
+        <span
+          class="ant-progress-text ant-progress-text-outer ant-progress-text-end ant-progress-text-auto}"
+        >
+          <span
+            aria-label="check-circle"
+            class="anticon anticon-check-circle"
+            role="img"
           >
-            <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              data-icon="check-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+              />
+            </svg>
+          </span>
         </span>
-      </span>
+      </div>
     </div>
   </div>
 </div>
@@ -2899,24 +2987,28 @@ exports[`renders components/progress/demo/linecap.tsx extend context correctly 1
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
-      style="width: 100%; height: 8px;"
+      class="ant-progress-outer-box"
     >
       <div
-        class="ant-progress-inner"
-        style="border-radius: 0;"
+        class="ant-progress-outer"
+        style="width: 100%; height: 8px;"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width: 75%; height: 8px; border-radius: 0; --progress-percent: 0.75;"
-        />
+          class="ant-progress-inner"
+          style="border-radius: 0;"
+        >
+          <div
+            class="ant-progress-bg ant-progress-bg-outer"
+            style="width: 75%; height: 8px; border-radius: 0; --progress-percent: 0.75;"
+          />
+        </div>
+        <span
+          class="ant-progress-text ant-progress-text-outer ant-progress-text-end ant-progress-text-auto}"
+          title="75%"
+        >
+          75%
+        </span>
       </div>
-      <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
-        title="75%"
-      >
-        75%
-      </span>
     </div>
   </div>
   <div
@@ -3042,27 +3134,31 @@ exports[`renders components/progress/demo/segment.tsx extend context correctly 1
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
-      style="width: 100%; height: 8px;"
+      class="ant-progress-outer-box"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-outer"
+        style="width: 100%; height: 8px;"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width: 60%; height: 8px; --progress-percent: 0.6;"
-        />
-        <div
-          class="ant-progress-success-bg"
-          style="width: 30%; height: 8px;"
-        />
+          class="ant-progress-inner"
+        >
+          <div
+            class="ant-progress-bg ant-progress-bg-outer"
+            style="width: 60%; height: 8px; --progress-percent: 0.6;"
+          />
+          <div
+            class="ant-progress-success-bg"
+            style="width: 30%; height: 8px;"
+          />
+        </div>
+        <span
+          class="ant-progress-text ant-progress-text-outer ant-progress-text-end ant-progress-text-auto}"
+          title="60%"
+        >
+          60%
+        </span>
       </div>
-      <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
-        title="60%"
-      >
-        60%
-      </span>
     </div>
   </div>
   <div
@@ -3249,23 +3345,27 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
       role="progressbar"
     >
       <div
-        class="ant-progress-outer"
-        style="width: 100%; height: 8px;"
+        class="ant-progress-outer-box"
       >
         <div
-          class="ant-progress-inner"
+          class="ant-progress-outer"
+          style="width: 100%; height: 8px;"
         >
           <div
-            class="ant-progress-bg ant-progress-bg-outer"
-            style="width: 50%; height: 8px; --progress-percent: 0.5;"
-          />
+            class="ant-progress-inner"
+          >
+            <div
+              class="ant-progress-bg ant-progress-bg-outer"
+              style="width: 50%; height: 8px; --progress-percent: 0.5;"
+            />
+          </div>
+          <span
+            class="ant-progress-text ant-progress-text-outer ant-progress-text-end ant-progress-text-auto}"
+            title="50%"
+          >
+            50%
+          </span>
         </div>
-        <span
-          class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
-          title="50%"
-        >
-          50%
-        </span>
       </div>
     </div>
     <div
@@ -3274,23 +3374,27 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
       role="progressbar"
     >
       <div
-        class="ant-progress-outer"
-        style="width: 100%; height: 6px;"
+        class="ant-progress-outer-box"
       >
         <div
-          class="ant-progress-inner"
+          class="ant-progress-outer"
+          style="width: 100%; height: 6px;"
         >
           <div
-            class="ant-progress-bg ant-progress-bg-outer"
-            style="width: 50%; height: 6px; --progress-percent: 0.5;"
-          />
+            class="ant-progress-inner"
+          >
+            <div
+              class="ant-progress-bg ant-progress-bg-outer"
+              style="width: 50%; height: 6px; --progress-percent: 0.5;"
+            />
+          </div>
+          <span
+            class="ant-progress-text ant-progress-text-outer ant-progress-text-end ant-progress-text-auto}"
+            title="50%"
+          >
+            50%
+          </span>
         </div>
-        <span
-          class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
-          title="50%"
-        >
-          50%
-        </span>
       </div>
     </div>
     <div
@@ -3299,23 +3403,27 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
       role="progressbar"
     >
       <div
-        class="ant-progress-outer"
-        style="width: 300px; height: 20px;"
+        class="ant-progress-outer-box"
       >
         <div
-          class="ant-progress-inner"
+          class="ant-progress-outer"
+          style="width: 300px; height: 20px;"
         >
           <div
-            class="ant-progress-bg ant-progress-bg-outer"
-            style="width: 50%; height: 20px; --progress-percent: 0.5;"
-          />
+            class="ant-progress-inner"
+          >
+            <div
+              class="ant-progress-bg ant-progress-bg-outer"
+              style="width: 50%; height: 20px; --progress-percent: 0.5;"
+            />
+          </div>
+          <span
+            class="ant-progress-text ant-progress-text-outer ant-progress-text-end ant-progress-text-auto}"
+            title="50%"
+          >
+            50%
+          </span>
         </div>
-        <span
-          class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
-          title="50%"
-        >
-          50%
-        </span>
       </div>
     </div>
   </div>
@@ -3706,7 +3814,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
           style="width: 14px; height: 8px;"
         />
         <span
-          class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+          class="ant-progress-text"
           title="50%"
         >
           50%
@@ -3734,7 +3842,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
           style="width: 2px; height: 8px;"
         />
         <span
-          class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+          class="ant-progress-text"
           title="50%"
         >
           50%
@@ -3762,7 +3870,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
           style="width: 20px; height: 20px;"
         />
         <span
-          class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+          class="ant-progress-text"
           title="50%"
         >
           50%
@@ -3790,7 +3898,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
           style="width: 20px; height: 30px;"
         />
         <span
-          class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+          class="ant-progress-text"
           title="50%"
         >
           50%
@@ -3828,7 +3936,7 @@ exports[`renders components/progress/demo/steps.tsx extend context correctly 1`]
         style="width: 14px; height: 8px;"
       />
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+        class="ant-progress-text"
         title="50%"
       >
         50%
@@ -3864,7 +3972,7 @@ exports[`renders components/progress/demo/steps.tsx extend context correctly 1`]
         style="width: 14px; height: 8px;"
       />
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+        class="ant-progress-text"
         title="30%"
       >
         30%
@@ -3900,16 +4008,16 @@ exports[`renders components/progress/demo/steps.tsx extend context correctly 1`]
         style="background-color: rgb(56, 158, 13); width: 2px; height: 8px;"
       />
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+        class="ant-progress-text"
       >
         <span
-          aria-label="check-circle"
-          class="anticon anticon-check-circle"
+          aria-label="check"
+          class="anticon anticon-check"
           role="img"
         >
           <svg
             aria-hidden="true"
-            data-icon="check-circle"
+            data-icon="check"
             fill="currentColor"
             focusable="false"
             height="1em"
@@ -3917,7 +4025,7 @@ exports[`renders components/progress/demo/steps.tsx extend context correctly 1`]
             width="1em"
           >
             <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+              d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
             />
           </svg>
         </span>
@@ -3953,7 +4061,7 @@ exports[`renders components/progress/demo/steps.tsx extend context correctly 1`]
         style="width: 14px; height: 8px;"
       />
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+        class="ant-progress-text"
         title="60%"
       >
         60%
