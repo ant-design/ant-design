@@ -178,6 +178,35 @@ describe('Drawer', () => {
     expect(baseElement.querySelectorAll('button.forceRender').length).toBe(1);
   });
 
+  describe('Drawer loading', () => {
+    it('have a spinner', () => {
+      const { container: wrapper } = render(
+        <Drawer open loading getContainer={false}>
+          Here is content of Drawer
+        </Drawer>,
+      );
+
+      triggerMotion();
+      expect(wrapper.firstChild).toMatchSnapshot();
+    });
+    it('have a custom loading', () => {
+      const loadingContent = 'Custom Loading...';
+      const { container: wrapper } = render(
+        <Drawer
+          open
+          loading={{ indicator: <span>{loadingContent}</span>, spinning: true }}
+          getContainer={false}
+        >
+          Here is content of Drawer
+        </Drawer>,
+      );
+
+      triggerMotion();
+      const [loadingWrapper] = wrapper.getElementsByClassName('ant-spin-dot');
+      expect(loadingWrapper).toHaveTextContent(loadingContent);
+    });
+  });
+
   it('support closeIcon', () => {
     const { container: wrapper } = render(
       <Drawer open closable closeIcon={<span>close</span>} width={400} getContainer={false}>
