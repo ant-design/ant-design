@@ -17,7 +17,7 @@ export const genDisabledStyle = (token: InputToken): CSSObject => ({
   cursor: 'not-allowed',
   opacity: 1,
 
-  'input[disabled]': {
+  [`input[disabled], textarea[disabled]`]: {
     cursor: 'not-allowed',
   },
 
@@ -76,6 +76,9 @@ const genOutlinedStatusStyle = (
     [`${token.componentCls}-prefix, ${token.componentCls}-suffix`]: {
       color: options.affixColor,
     },
+  },
+  [`&${token.componentCls}-status-${options.status}${token.componentCls}-disabled`]: {
+    borderColor: options.borderColor,
   },
 });
 

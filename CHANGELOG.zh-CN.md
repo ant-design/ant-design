@@ -15,6 +15,54 @@ tag: vVERSION
 
 ---
 
+## 5.16.5
+
+`2024-04-28`
+
+- 🐞 修复 Transfer 组件在 targetKeys 中含有 "unknown-key" 时，尝试从右侧列选中单项的问题。[#48664](https://github.com/ant-design/ant-design/pull/48664) [@andreyk1512](https://github.com/andreyk1512)
+- 🐞 修复 Steps 自定义图标未垂直居中问题。[#48650](https://github.com/ant-design/ant-design/pull/48650) [@ZinkWu](https://github.com/ZinkWu)
+- 🐞 修复 Badge 数字居中偏右的问题。[#48605](https://github.com/ant-design/ant-design/pull/48605) [@akinocccc](https://github.com/akinocccc)
+- 🐞 修复 Popover 和 Popconfirm 在屏幕右侧边缘闪烁的问题。[#48591](https://github.com/ant-design/ant-design/pull/48591)
+- 🐞 修复 ColorPicker 在初始未受控时清除图标不会改变的问题。[#48584](https://github.com/ant-design/ant-design/pull/48584) [@MadCcc](https://github.com/MadCcc)
+- 💄 修复 Collapse 组件底部边框样式问题。[#48561](https://github.com/ant-design/ant-design/pull/48561) [@hamzaseif13](https://github.com/hamzaseif13)
+- 💄 调整 Input 组件在禁用的时候在表单校验时的边框颜色。[#48616](https://github.com/ant-design/ant-design/pull/48616) [@nova1751](https://github.com/nova1751)
+- TypeScript
+  - 🤖 补充 Upload 组件缺失的泛型。[#48614](https://github.com/ant-design/ant-design/pull/48614) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🤖 修复 Upload `customRequest` 参数丢失泛型的问题。[#48612](https://github.com/ant-design/ant-design/pull/48612) [@jas0ncn](https://github.com/jas0ncn)
+- 国际化
+  - 🇪🇸 为 DatePicker 补充 西班牙语 多语言。[#48601](https://github.com/ant-design/ant-design/pull/48601) [@JMMOLLER](https://github.com/JMMOLLER)
+  - 🇩🇪 为 DatePicker 补充 德语 多语言。[#48586](https://github.com/ant-design/ant-design/pull/48586) [@sebhs](https://github.com/sebhs)
+
+## 5.16.4
+
+`2024-04-22`
+
+- 🐞 修复 Select 配置 `paddingXXS=0` 时，多选下超出设定的 `controlHeight` token 的问题。[#48574](https://github.com/ant-design/ant-design/pull/48574)
+- 🐞 修复 Upload 在开启 CSS Variable 时样式丢失的问题。[#48569](https://github.com/ant-design/ant-design/pull/48569) [@nova1751](https://github.com/nova1751)
+- 🐞 修复 Slider 在范围选择下，拖动滑块越过另一个滑块时提示框闪动的问题。[#48536](https://github.com/ant-design/ant-design/pull/48536)
+- Input
+  - 🐞 修复 Input.Search 设置大尺寸时，按钮的文字不是大尺寸的问题。[#48527](https://github.com/ant-design/ant-design/pull/48527)
+  - 🐞 修复 Input.TextArea 的文字显示异常问题。[#48489](https://github.com/ant-design/ant-design/pull/48489) [@korkt-kim](https://github.com/korkt-kim)
+- 🐞 修复 Upload 组件图片卡顿的动画效果。[#48522](https://github.com/ant-design/ant-design/pull/48522) [@nova1751](https://github.com/nova1751)
+- 🐞 修复 Switch 组件使用 `checkedChildren` `unCheckedChildren` 未添加默认高度的问题。[#48513](https://github.com/ant-design/ant-design/pull/48513) [@wanpan11](https://github.com/wanpan11)
+- 🐞 修复 Form.Item 使用 noStyle 无值时的警告提醒。[#48508](https://github.com/ant-design/ant-design/pull/48508)
+- 🐞 修复 Popover `defaultOpen` 设置失效的问题。[#48481](https://github.com/ant-design/ant-design/pull/48481) [@linhf123](https://github.com/linhf123)
+- 🐞 修复 DatePicker 配置 `multiple` 时 `placeholder` 不展示的问题。[#48387](https://github.com/ant-design/ant-design/pull/48387) [@nova1751](https://github.com/nova1751)
+- 🐞 修复 ColorPicker 在严格模式下受控时清除颜色无法改变的问题。[#48450](https://github.com/ant-design/ant-design/pull/48450)
+- 💄 修复 Collapse 使用第三方图标时的 arrow 样式问题。[#48417](https://github.com/ant-design/ant-design/pull/48417) [@guoyunhe](https://github.com/guoyunhe)
+- 💄 优化内嵌 Menu 的 Sider 在展开时的动画效果。[#48127](https://github.com/ant-design/ant-design/pull/48127) [@metouch](https://github.com/metouch)
+- 💄 优化 Steps process 样式。[#48464](https://github.com/ant-design/ant-design/pull/48464)
+- 国际化
+  - 🇨🇳 补充 zh_CN zh_HK zh_TW Table 文案。[#48543](https://github.com/ant-design/ant-design/pull/48543) [@thinkasany](https://github.com/thinkasany)
+  - 🇮🇩 补充 id_ID DatePicker Form Table 等文案。[#48537](https://github.com/ant-design/ant-design/pull/48537) [#48287](https://github.com/ant-design/ant-design/pull/48287) [@edikurniawan-dev](https://github.com/edikurniawan-dev)
+  - 🌐 优化 Transfer 本地化，现在反选会使用 `deselectAll` locale 配置。[#48553](https://github.com/ant-design/ant-design/pull/48553) [@coderz-w](https://github.com/coderz-w)
+
+## 5.16.3
+
+`2024-04-21`
+
+- 🛠 脚本错误发布空包，请勿使用。
+
 ## 5.16.2
 
 `2024-04-15`

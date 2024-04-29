@@ -16,6 +16,54 @@ tag: vVERSION
 
 ---
 
+## 5.16.5
+
+`2024-04-28`
+
+- 🐞 Fix Transfer component issue when trying to select item from the right column while it has "unknown-key" within targetKeys. [#48664](https://github.com/ant-design/ant-design/pull/48664) [@andreyk1512](https://github.com/andreyk1512)
+- 🐞 Fix Steps custom icon not vertically centered error. [#48650](https://github.com/ant-design/ant-design/pull/48650) [@ZinkWu](https://github.com/ZinkWu)
+- 🐞 Fix Badge number centered but slightly right-aligned. [#48605](https://github.com/ant-design/ant-design/pull/48605) [@akinocccc](https://github.com/akinocccc)
+- 🐞 Fix Popover and Popconfirm blinking when open on the right edge of screen. [#48591](https://github.com/ant-design/ant-design/pull/48591)
+- 🐞 Fix ColorPicker that cleared icon should change when initial value is `undefined`. [#48584](https://github.com/ant-design/ant-design/pull/48584) [@MadCcc](https://github.com/MadCcc)
+- 💄 Fix Collapse bottom border issue. [#48561](https://github.com/ant-design/ant-design/pull/48561) [@hamzaseif13](https://github.com/hamzaseif13)
+- 💄 Adjust Input border style in form validation when disabled. [#48616](https://github.com/ant-design/ant-design/pull/48616) [@nova1751](https://github.com/nova1751)
+- TypeScript
+  - 🤖 Add missing generic type of Upload prop. [#48614](https://github.com/ant-design/ant-design/pull/48614) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🤖 Fix missing generic type of Upload `customRequest` prop. [#48612](https://github.com/ant-design/ant-design/pull/48612) [@jas0ncn](https://github.com/jas0ncn)
+- Locales
+  - 🇪🇸 Added missing es_ES translations for DatePicker component. [#48601](https://github.com/ant-design/ant-design/pull/48601) [@JMMOLLER](https://github.com/JMMOLLER)
+  - 🇩🇪 Added missing german translations for DatePicker component. [#48586](https://github.com/ant-design/ant-design/pull/48586) [@sebhs](https://github.com/sebhs)
+
+## 5.16.4
+
+`2024-04-22`
+
+- 🐞 Fix Select with `multiple` and `paddingXXS=0` will break the height align of `controlHeight` token. [#48574](https://github.com/ant-design/ant-design/pull/48574)
+- 🐞 Fix Upload miss style when enable CSS Variable. [#48569](https://github.com/ant-design/ant-design/pull/48569) [@nova1751](https://github.com/nova1751)
+- 🐞 Fix Slider in `range` tooltip blink when drag the handle over another one. [#48536](https://github.com/ant-design/ant-design/pull/48536)
+- Input
+  - 🐞 Fix the text of the button is not the large size when Input.Search is set to a large size. [#48527](https://github.com/ant-design/ant-design/pull/48527)
+  - 🐞 Fix abnormal text display in Input.TextArea. [#48489](https://github.com/ant-design/ant-design/pull/48489) [@korkt-kim](https://github.com/korkt-kim)
+- 🐞 Fix the stuck animation effect of the Upload component image. [#48522](https://github.com/ant-design/ant-design/pull/48522) [@nova1751](https://github.com/nova1751)
+- 🐞 Fix the issue where the Switch component using `checkedChildren` and `unCheckedChildren` did not add a default height. [#48513](https://github.com/ant-design/ant-design/pull/48513) [@wanpan11](https://github.com/wanpan11)
+- 🐞 Fix the warning reminder when Form.Item uses noStyle with no value. [#48508](https://github.com/ant-design/ant-design/pull/48508)
+- 🐞 Fix Popover `defaultOpen` setting failed. [#48481](https://github.com/ant-design/ant-design/pull/48481) [@linhf123](https://github.com/linhf123)
+- 🐞 Fix where `placeholder` is not displayed when DatePicker is configured with `multiple`. [#48387](https://github.com/ant-design/ant-design/pull/48387) [@nova1751](https://github.com/nova1751)
+- 🐞 Fix where ColorPicker clear color could not be changed when controlled in strict mode. [#48450](https://github.com/ant-design/ant-design/pull/48450)
+- 💄 Fix the arrow style issue when Collapse uses third-party icons. [#48417](https://github.com/ant-design/ant-design/pull/48417) [@guoyunhe](https://github.com/guoyunhe)
+- 💄 Optimize the animation effect of the embedded Menu Sider when it is expanded. [#48127](https://github.com/ant-design/ant-design/pull/48127) [@metouch](https://github.com/metouch)
+- 💄 Optimize Steps process style. [#48464](https://github.com/ant-design/ant-design/pull/48464)
+- Locales
+  - 🇨🇳 Add zh_CN zh_HK zh_TW Table licales. [#48543](https://github.com/ant-design/ant-design/pull/48543) [@thinkasany](https://github.com/thinkasany)
+  - 🇮🇩 Add id_ID DatePicker Form Table etc. locales. [#48537](https://github.com/ant-design/ant-design/pull/48537) [#48287](https://github.com/ant-design/ant-design/pull/48287) [@edikurniawan-dev](https://github.com/edikurniawan-dev)
+  - 🌐 Optimize Transfer localization to use `deselectAll` locale when need deselect all. [#48553](https://github.com/ant-design/ant-design/pull/48553) [@coderz-w](https://github.com/coderz-w)
+
+## 5.16.3
+
+`2024-04-21`
+
+- 🛠 Script failed to publish an empty package. Do not use this version.
+
 ## 5.16.2
 
 `2024-04-15`
