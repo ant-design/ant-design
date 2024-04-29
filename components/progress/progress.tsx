@@ -127,7 +127,8 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     const successPercent = getSuccessPercent(props);
     let text: React.ReactNode;
     const textFormatter = format || ((number) => `${number}%`);
-    const isLineType = type === 'line' && !steps;
+    const isLineType = type === 'line';
+    const lineNotSteps = isLineType && !steps;
     const isBrightInnerColor = isLineType && strokeColorIsBright && infoPosition === 'inner';
     if (
       infoPosition === 'inner' ||
@@ -145,10 +146,10 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
       <span
         className={classNames(
           `${prefixCls}-text`,
-          isLineType && `${prefixCls}-text-${infoPosition}`,
-          isLineType && `${prefixCls}-text-${infoAlign}`,
+          lineNotSteps && `${prefixCls}-text-${infoPosition}`,
+          lineNotSteps && `${prefixCls}-text-${infoAlign}`,
           isBrightInnerColor && `${prefixCls}-text-bright`,
-          isLineType && `${prefixCls}-text-auto}`,
+          lineNotSteps && `${prefixCls}-text-auto}`,
         )}
         title={typeof text === 'string' ? text : undefined}
       >
