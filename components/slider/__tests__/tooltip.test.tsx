@@ -53,4 +53,26 @@ describe('Slider.Tooltip', () => {
     await waitFakeTimer();
     expect(tooltipProps().open).toBeFalsy();
   });
+
+  it('When format equals null, tooltip does not display', async () => {
+    // https://github.com/ant-design/ant-design/issues/48668
+    const { container } = render(<Slider defaultValue={30} tooltip={{ formatter: null }} />);
+
+    const handleEle = container.querySelector('.ant-slider-handle')!;
+
+    // Enter
+    fireEvent.mouseEnter(handleEle);
+    await waitFakeTimer();
+    expect(tooltipProps().open).toBeFalsy();
+
+    // Down
+    fireEvent.mouseDown(handleEle);
+    await waitFakeTimer();
+    expect(tooltipProps().open).toBeFalsy();
+
+    // Move(Leave)
+    fireEvent.mouseLeave(handleEle);
+    await waitFakeTimer();
+    expect(tooltipProps().open).toBeFalsy();
+  });
 });
