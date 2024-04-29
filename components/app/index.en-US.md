@@ -13,7 +13,7 @@ tag: 5.1.0
 ## When To Use
 
 - Provide reset styles based on `.ant-app` element.
-- You could use static methods of `message/notification/Modal` form `useApp` without writing `contextHolder` manually.
+- You could use static methods of `message/notification/Modal` from `useApp` without writing `contextHolder` manually.
 
 ## Examples
 
