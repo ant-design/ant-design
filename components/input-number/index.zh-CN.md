@@ -97,4 +97,4 @@ InputNumber 的值由内部逻辑封装而成，通过 `onBlur` 等事件获取�
 
 > 不建议使用 `type` 属性
 
-InputNumber 组件允许你使用 input 元素的所有属性最终透传至 input 元素，当你传入`type='number'`时 input 元素也会添加这个属性，这会使 input 元素触发原生特性（允许鼠标滚轮改变数值），从而导致 `changeOnWheel`无法控制鼠标滚轮是否改变数值。
+InputNumber 组件允许你使用 input 元素的所有属性最终透传至 input 元素，当你传入 `type="number"` 时 input 元素也会添加这个属性，这会使 input 元素触发原生特性（允许鼠标滚轮改变数值），从而导致  `changeOnWheel` 无法控制鼠标滚轮是否改变数值。
