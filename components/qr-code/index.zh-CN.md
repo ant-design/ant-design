@@ -49,7 +49,6 @@ tag: 5.1.0
 | errorLevel | 二维码纠错等级 | `'L' \| 'M' \| 'Q' \| 'H' ` | `M` |
 | status | 二维码状态 | `active \| expired \| loading \| scanned` | `active` | scanned: 5.13.0 |
 | onRefresh | 点击"点击刷新"的回调 | `() => void` | - |
-| variant | 形态变体 | `borderless` | - | 5.17.0 |
 
 ## 主题变量（Design Token）
 

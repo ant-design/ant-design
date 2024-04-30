@@ -12,7 +12,6 @@ import Spin from '../spin';
 import { useToken } from '../theme/internal';
 import type { QRCodeProps, QRProps } from './interface';
 import useStyle from './style/index';
-import useVariant from '../form/hooks/useVariants';
 
 const QRCode: React.FC<QRCodeProps> = (props) => {
   const [, token] = useToken();
@@ -32,10 +31,8 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     rootClassName,
     prefixCls: customizePrefixCls,
     bgColor = 'transparent',
-    variant: customVariant,
   } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
-  const [variant, enableVariantCls] = useVariant(customVariant, bordered);
   const prefixCls = getPrefixCls('qrcode', customizePrefixCls);
 
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
@@ -78,7 +75,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   }
 
   const mergedCls = classNames(prefixCls, className, rootClassName, hashId, cssVarCls, {
-    [`${prefixCls}-borderless`]: !bordered || (enableVariantCls && variant === 'borderless'),
+    [`${prefixCls}-borderless`]: !bordered,
   });
 
   const mergedStyle: React.CSSProperties = {
