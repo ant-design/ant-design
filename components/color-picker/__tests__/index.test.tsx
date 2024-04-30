@@ -698,4 +698,46 @@ describe('ColorPicker', () => {
       container.querySelector('.ant-color-picker-trigger .ant-color-picker-clear'),
     ).toBeFalsy();
   });
+
+  describe('default clearValue should be changed', () => {
+    const Demo = ({ defaultValue }: { defaultValue?: string }) => {
+      const [color, setColor] = useState<string | undefined>(defaultValue);
+      useEffect(() => {
+        setColor('#1677ff');
+      }, []);
+      return <ColorPicker value={color} allowClear />;
+    };
+
+    it('normal', () => {
+      const { container } = render(<Demo defaultValue="" />);
+
+      expect(container.querySelector('.ant-color-picker-clear')).toBeFalsy();
+    });
+
+    it('strict', () => {
+      const { container } = render(
+        <React.StrictMode>
+          <Demo defaultValue="" />
+        </React.StrictMode>,
+      );
+
+      expect(container.querySelector('.ant-color-picker-clear')).toBeFalsy();
+    });
+
+    it('default undefined, normal', () => {
+      const { container } = render(<Demo />);
+
+      expect(container.querySelector('.ant-color-picker-clear')).toBeFalsy();
+    });
+
+    it('default undefined, strict', () => {
+      const { container } = render(
+        <React.StrictMode>
+          <Demo />
+        </React.StrictMode>,
+      );
+
+      expect(container.querySelector('.ant-color-picker-clear')).toBeFalsy();
+    });
+  });
 });

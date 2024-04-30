@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { act } from 'react-dom/test-utils';
 
 import { Col, Row } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 import useBreakpoint from '../hooks/useBreakpoint';
 
 // Mock for `responsiveObserve` to test `unsubscribe` call

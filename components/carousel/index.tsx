@@ -35,6 +35,8 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
   const {
     dots = true,
     arrows = false,
+    prevArrow = <button type="button" aria-label="prev" />,
+    nextArrow = <button type="button" aria-label="next" />,
     draggable = false,
     waitForAnimate = false,
     dotPosition = 'bottom',
@@ -115,6 +117,8 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
         dots={enableDots}
         dotsClass={dsClass}
         arrows={arrows}
+        prevArrow={prevArrow}
+        nextArrow={nextArrow}
         draggable={draggable}
         verticalSwiping={vertical}
         waitForAnimate={waitForAnimate}

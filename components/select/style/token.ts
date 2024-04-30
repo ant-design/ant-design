@@ -120,12 +120,16 @@ export interface SelectorToken {
 
 export interface SelectToken extends FullToken<'Select'>, SelectorToken {
   rootPrefixCls: string;
+
+  /** @private Used for internal calculation */
+  INTERNAL_FIXED_ITEM_MARGIN: number;
 }
 
 export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
   const {
     fontSize,
     lineHeight,
+    lineWidth,
 
     controlHeight,
     controlHeightSM,
@@ -146,11 +150,28 @@ export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
     colorTextDisabled,
   } = token;
 
-  const multipleItemHeight = controlHeight - paddingXXS * 2;
-  const multipleItemHeightSM = controlHeightSM - paddingXXS * 2;
-  const multipleItemHeightLG = controlHeightLG - paddingXXS * 2;
+  // Item height default use `controlHeight - 2 * paddingXXS`,
+  // but some case `paddingXXS=0`.
+  // Let's fallback it.
+  const dblPaddingXXS = paddingXXS * 2;
+  const dblLineWidth = lineWidth * 2;
+
+  const multipleItemHeight = Math.min(controlHeight - dblPaddingXXS, controlHeight - dblLineWidth);
+  const multipleItemHeightSM = Math.min(
+    controlHeightSM - dblPaddingXXS,
+    controlHeightSM - dblLineWidth,
+  );
+  const multipleItemHeightLG = Math.min(
+    controlHeightLG - dblPaddingXXS,
+    controlHeightLG - dblLineWidth,
+  );
+
+  // FIXED_ITEM_MARGIN is a hardcode calculation since calc not support rounding
+  const INTERNAL_FIXED_ITEM_MARGIN = Math.floor(paddingXXS / 2);
 
   return {
+    INTERNAL_FIXED_ITEM_MARGIN,
+
     zIndexPopup: zIndexPopupBase + 50,
     optionSelectedColor: colorText,
     optionSelectedFontWeight: fontWeightStrong,
