@@ -180,7 +180,7 @@ const App: React.FC = () => {
     setDragIndex({ active: -1, over: -1 });
   };
 
-  const onDrageOver = ({ active, over }: DragOverEvent) => {
+  const onDragOver = ({ active, over }: DragOverEvent) => {
     const activeIndex = columns.findIndex((i) => i.key === active.id);
     const overIndex = columns.findIndex((i) => i.key === over?.id);
     setDragIndex({
@@ -195,7 +195,7 @@ const App: React.FC = () => {
       sensors={sensors}
       modifiers={[restrictToHorizontalAxis]}
       onDragEnd={onDragEnd}
-      onDragOver={onDrageOver}
+      onDragOver={onDragOver}
       collisionDetection={closestCenter}
     >
       <SortableContext items={columns.map((i) => i.key)} strategy={horizontalListSortingStrategy}>
