@@ -173,6 +173,7 @@ const Drawer: React.FC<DrawerProps> & {
             classNames={{
               mask: classNames(propClassNames.mask, contextClassNames.mask),
               content: classNames(propClassNames.content, contextClassNames.content),
+              wrapper: classNames(propClassNames.wrapper, contextClassNames.wrapper),
             }}
             styles={{
               mask: {
