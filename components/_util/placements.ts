@@ -3,15 +3,35 @@ import type { AlignType, BuildInPlacements } from '@rc-component/trigger';
 
 import { getArrowOffsetToken } from '../style/placementArrow';
 
+/**
+ * @descCN 对 autoAdjustOverflow 的补充，可以设置横纵两个方向。
+ * @descEN Supplement to autoAdjustOverflow, you can set both horizontal and vertical directions.
+ */
 export interface AdjustOverflow {
   adjustX?: 0 | 1;
   adjustY?: 0 | 1;
 }
 
+/**
+ * @descCN 定义弹出框的定位配置参数。
+ * @descEN Defines the positioning configuration parameters of the pop-up box.
+ */
 export interface PlacementsConfig {
   arrowWidth: number;
+  /**
+   * @descCN 箭头是否指向弹出框的中心。
+   * @descEN Whether the arrow points to the center of the popup box.
+   */
   arrowPointAtCenter?: boolean;
+  /**
+   * @descCN 用于控制弹出框在超出视窗时的自动调整。
+   * @descEN Used to control the automatic adjustment of the pop-up box when it exceeds the window.
+   */
   autoAdjustOverflow?: boolean | AdjustOverflow;
+  /**
+   * @descCN 偏移量，用于微调弹出框的位置。
+   * @descEN Offset, used to fine-tune the position of the pop-up box.
+   */
   offset: number;
   borderRadius: number;
   visibleFirst?: boolean;
@@ -69,6 +89,10 @@ export function getOverflowOptions(
 
 type PlacementType = keyof BuildInPlacements;
 
+/**
+ * @descCN 定义了各种常见位置的对齐方式，表示触发元素和弹出框的位置关系的映射表
+ * @descEN Defines the alignment of various common positions and a mapping table that represents the positional relationship between trigger elements and pop-up boxes.
+ */
 const PlacementAlignMap: BuildInPlacements = {
   left: {
     points: ['cr', 'cl'],
@@ -108,6 +132,10 @@ const PlacementAlignMap: BuildInPlacements = {
   },
 };
 
+/**
+ * @descCN 定义箭头指向弹出框中心时的位置对齐的映射表。
+ * @descEN A mapping table that defines the position alignment when the arrow points to the center of the pop-up box.
+ */
 const ArrowCenterPlacementAlignMap: BuildInPlacements = {
   topLeft: {
     points: ['bl', 'tc'],
@@ -135,6 +163,10 @@ const ArrowCenterPlacementAlignMap: BuildInPlacements = {
   },
 };
 
+/**
+ * @descCN 定义箭头指向弹出框中心时的位置对齐的映射表。
+ * @descEN A mapping table that defines the position alignment when the arrow points to the center of the pop-up box.
+ */
 const DisableAutoArrowList: Set<keyof BuildInPlacements> = new Set([
   'topLeft',
   'topRight',
