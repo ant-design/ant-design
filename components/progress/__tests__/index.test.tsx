@@ -333,9 +333,6 @@ describe('Progress', () => {
     );
 
     const { container, rerender } = render(<App size={30} />);
-    expect(container.querySelector('.ant-progress-line .ant-progress-outer')).toHaveStyle({
-      width: '30px',
-    });
     expect(container.querySelector('.ant-progress-steps .ant-progress-steps-item')).toHaveStyle({
       width: '30px',
       height: '30px',
@@ -351,8 +348,7 @@ describe('Progress', () => {
 
     rerender(<App size={[60, 20]} />);
 
-    expect(container.querySelector('.ant-progress-line .ant-progress-outer')).toHaveStyle({
-      width: '60px',
+    expect(container.querySelector('.ant-progress-line .ant-progress-bg')).toHaveStyle({
       height: '20px',
     });
     expect(container.querySelector('.ant-progress-steps .ant-progress-steps-item')).toHaveStyle({

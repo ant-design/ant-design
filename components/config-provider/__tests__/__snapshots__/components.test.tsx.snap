@@ -21800,7 +21800,6 @@ exports[`ConfigProvider components Progress configProvider 1`] = `
   >
     <div
       class="config-progress-outer"
-      style="width: 100%; height: 8px;"
     >
       <div
         class="config-progress-inner"
@@ -21811,7 +21810,7 @@ exports[`ConfigProvider components Progress configProvider 1`] = `
         />
       </div>
       <span
-        class="config-progress-text config-progress-text-outer config-progress-text-end config-progress-text-auto"
+        class="config-progress-text config-progress-text-outer config-progress-text-end"
         title="0%"
       >
         0%
@@ -21832,7 +21831,6 @@ exports[`ConfigProvider components Progress configProvider componentDisabled 1`]
   >
     <div
       class="config-progress-outer"
-      style="width: 100%; height: 8px;"
     >
       <div
         class="config-progress-inner"
@@ -21843,7 +21841,7 @@ exports[`ConfigProvider components Progress configProvider componentDisabled 1`]
         />
       </div>
       <span
-        class="config-progress-text config-progress-text-outer config-progress-text-end config-progress-text-auto"
+        class="config-progress-text config-progress-text-outer config-progress-text-end"
         title="0%"
       >
         0%
@@ -21864,7 +21862,6 @@ exports[`ConfigProvider components Progress configProvider componentSize large 1
   >
     <div
       class="config-progress-outer"
-      style="width: 100%; height: 8px;"
     >
       <div
         class="config-progress-inner"
@@ -21875,7 +21872,7 @@ exports[`ConfigProvider components Progress configProvider componentSize large 1
         />
       </div>
       <span
-        class="config-progress-text config-progress-text-outer config-progress-text-end config-progress-text-auto"
+        class="config-progress-text config-progress-text-outer config-progress-text-end"
         title="0%"
       >
         0%
@@ -21896,7 +21893,6 @@ exports[`ConfigProvider components Progress configProvider componentSize middle 
   >
     <div
       class="config-progress-outer"
-      style="width: 100%; height: 8px;"
     >
       <div
         class="config-progress-inner"
@@ -21907,7 +21903,7 @@ exports[`ConfigProvider components Progress configProvider componentSize middle 
         />
       </div>
       <span
-        class="config-progress-text config-progress-text-outer config-progress-text-end config-progress-text-auto"
+        class="config-progress-text config-progress-text-outer config-progress-text-end"
         title="0%"
       >
         0%
@@ -21928,7 +21924,6 @@ exports[`ConfigProvider components Progress configProvider componentSize small 1
   >
     <div
       class="config-progress-outer"
-      style="width: 100%; height: 8px;"
     >
       <div
         class="config-progress-inner"
@@ -21939,7 +21934,7 @@ exports[`ConfigProvider components Progress configProvider componentSize small 1
         />
       </div>
       <span
-        class="config-progress-text config-progress-text-outer config-progress-text-end config-progress-text-auto"
+        class="config-progress-text config-progress-text-outer config-progress-text-end"
         title="0%"
       >
         0%
@@ -21960,7 +21955,6 @@ exports[`ConfigProvider components Progress normal 1`] = `
   >
     <div
       class="ant-progress-outer"
-      style="width: 100%; height: 8px;"
     >
       <div
         class="ant-progress-inner"
@@ -21971,7 +21965,7 @@ exports[`ConfigProvider components Progress normal 1`] = `
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end ant-progress-text-auto"
+        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
         title="0%"
       >
         0%
@@ -21992,7 +21986,6 @@ exports[`ConfigProvider components Progress prefixCls 1`] = `
   >
     <div
       class="prefix-Progress-outer"
-      style="width: 100%; height: 8px;"
     >
       <div
         class="prefix-Progress-inner"
@@ -22003,7 +21996,7 @@ exports[`ConfigProvider components Progress prefixCls 1`] = `
         />
       </div>
       <span
-        class="prefix-Progress-text prefix-Progress-text-outer prefix-Progress-text-end prefix-Progress-text-auto"
+        class="prefix-Progress-text prefix-Progress-text-outer prefix-Progress-text-end"
         title="0%"
       >
         0%
