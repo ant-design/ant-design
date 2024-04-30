@@ -40,7 +40,9 @@ describe('QRCode test', () => {
 
   it('support custom size', () => {
     const { container } = render(<QRCode value="test" size={100} />);
-    expect(container.querySelector('.ant-qrcode')).toHaveStyle('width: 100px; height: 100px');
+    const canvas = container.querySelector<HTMLCanvasElement>('.ant-qrcode > canvas')!;
+    expect(canvas.width).toBe(100);
+    expect(canvas.height).toBe(100);
   });
 
   it('support refresh', () => {
@@ -88,10 +90,10 @@ describe('QRCode test', () => {
     errSpy.mockRestore();
   });
 
-  it('correct style order', () => {
-    const { container } = render(<QRCode value="test" size={80} style={{ width: 100 }} />);
-    expect(container.querySelector<HTMLDivElement>('.ant-qrcode')).toHaveStyle(
-      'width: 100px; height: 80px',
+  it('correct style order for canvas', () => {
+    const { container } = render(<QRCode value="test" size={80} style={{ width: '100%' }} />);
+    expect(container.querySelector<HTMLCanvasElement>('.ant-qrcode > canvas')).toHaveStyle(
+      'width: 100%',
     );
   });
 });
