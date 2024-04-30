@@ -54,25 +54,31 @@ describe('Slider.Tooltip', () => {
     expect(tooltipProps().open).toBeFalsy();
   });
 
-  it('When format equals null, tooltip does not display', async () => {
+  it('tooltip should not display when formatter is null or open is false', async () => {
     // https://github.com/ant-design/ant-design/issues/48668
-    const { container } = render(<Slider defaultValue={30} tooltip={{ formatter: null }} />);
+    const { container: container1 } = render(
+      <Slider defaultValue={30} tooltip={{ formatter: null }} />,
+    );
+    // https://github.com/ant-design/ant-design/issues/48707
+    const { container: container2 } = render(
+      <Slider defaultValue={30} tooltip={{ open: false }} />,
+    );
 
-    const handleEle = container.querySelector('.ant-slider-handle')!;
+    const handler1 = container1.querySelector('.ant-slider-handle')!;
+    const handler2 = container2.querySelector('.ant-slider-handle')!;
 
     // Enter
-    fireEvent.mouseEnter(handleEle);
+    fireEvent.mouseEnter(handler1);
+    fireEvent.mouseEnter(handler2);
     await waitFakeTimer();
-    expect(tooltipProps().open).toBeFalsy();
+    expect(container1.querySelector('.ant-tooltip-open')).toBeFalsy();
+    expect(container2.querySelector('.ant-tooltip-open')).toBeFalsy();
 
     // Down
-    fireEvent.mouseDown(handleEle);
+    fireEvent.focus(handler1);
+    fireEvent.focus(handler2);
     await waitFakeTimer();
-    expect(tooltipProps().open).toBeFalsy();
-
-    // Move(Leave)
-    fireEvent.mouseLeave(handleEle);
-    await waitFakeTimer();
-    expect(tooltipProps().open).toBeFalsy();
+    expect(container1.querySelector('.ant-tooltip-open')).toBeFalsy();
+    expect(container2.querySelector('.ant-tooltip-open')).toBeFalsy();
   });
 });
