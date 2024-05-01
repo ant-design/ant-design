@@ -252,7 +252,7 @@ function List<T>({
         maxWidth: `${100 / columnCount}%`,
       };
     }
-  }, [grid?.column, currentBreakpoint]);
+  }, [JSON.stringify(grid), currentBreakpoint]);
 
   let childrenContent: React.ReactNode = isLoading && <div style={{ minHeight: 53 }} />;
   if (splitDataSource.length > 0) {
