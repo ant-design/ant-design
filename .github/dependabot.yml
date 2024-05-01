@@ -9,7 +9,6 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-    versioning-strategy: increase
     groups:
       rc-component-patch:
         dependency-type: "production"
@@ -28,6 +27,8 @@ updates:
         update-types: ["major"]
     ignore:
       - dependency-name: "@ant-design/cssinjs"
+      - dependency-name: "dayjs"
+        versions: ["1.x"]
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
