@@ -112,7 +112,7 @@ const useStyle = createStyles(({ token, css }) => {
       }
     `,
     dataDirectionIcon: css`
-      width: 16px;
+      width: 20px;
     `,
     popoverMenu: {
       width: 300,

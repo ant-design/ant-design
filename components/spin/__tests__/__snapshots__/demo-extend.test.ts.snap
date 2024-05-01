@@ -364,7 +364,7 @@ exports[`renders components/spin/demo/tip.tsx extend context correctly 1`] = `
         class="ant-spin-container ant-spin-blur"
       >
         <div
-          class="content"
+          style="padding: 50px; background: rgba(0, 0, 0, 0.05); border-radius: 4px;"
         />
       </div>
     </div>
@@ -404,7 +404,7 @@ exports[`renders components/spin/demo/tip.tsx extend context correctly 1`] = `
         class="ant-spin-container ant-spin-blur"
       >
         <div
-          class="content"
+          style="padding: 50px; background: rgba(0, 0, 0, 0.05); border-radius: 4px;"
         />
       </div>
     </div>
@@ -444,7 +444,7 @@ exports[`renders components/spin/demo/tip.tsx extend context correctly 1`] = `
         class="ant-spin-container ant-spin-blur"
       >
         <div
-          class="content"
+          style="padding: 50px; background: rgba(0, 0, 0, 0.05); border-radius: 4px;"
         />
       </div>
     </div>
