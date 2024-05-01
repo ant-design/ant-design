@@ -82,9 +82,7 @@ const Circle: React.FC<CircleProps> = (props) => {
   return (
     <div className={wrapperClassName} style={circleStyle}>
       {width <= 20 ? (
-        <Tooltip title={children}>
-          <span>{circleContent}</span>
-        </Tooltip>
+        <Tooltip title={children}>{circleContent}</Tooltip>
       ) : (
         <>
           {circleContent}
