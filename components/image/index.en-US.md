@@ -29,6 +29,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 <code src="./demo/nested.tsx">nested</code>
 <code src="./demo/preview-group-top-progress.tsx" debug>Top progress customization when previewing multiple images</code>
 <code src="./demo/component-token.tsx" debug>Custom component token</code>
+<code src="./demo/preview-imgInfo.tsx" debug>Gets image info in the render function</code>
 
 ## API
 
