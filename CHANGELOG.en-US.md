@@ -50,6 +50,7 @@ tag: vVERSION
 - 🆕 Upload supports `ref.nativeElenent`. [#48210](https://github.com/ant-design/ant-design/pull/48210) [@Wxh16144](https://github.com/Wxh16144)
 - 🐞 Fix List would not rerender when `grid` changed. [#48683](https://github.com/ant-design/ant-design/pull/48683) [@coderz-w](https://github.com/coderz-w)
 - 🐞 Fix QRCode size cannot fit it's container and remove default padding of `bordered={false}`. [#48194](https://github.com/ant-design/ant-design/pull/48194) [@thinkasany](https://github.com/thinkasany)
+- 🐞 Fix Table shadow should be show when there are columns where `fixed={false}`. [#1113](https://github.com/react-component/table/pull/1113) [@linxianxi](https://github.com/linxianxi)
 - 🐞 Fix Progress tooltip wrong distance. [#48686](https://github.com/ant-design/ant-design/pull/48686)
 - 📖 Table add column-drag sorting demo. [#48434](https://github.com/ant-design/ant-design/pull/48434) [@GeorgeHcc](https://github.com/GeorgeHcc)
 - TypeScript

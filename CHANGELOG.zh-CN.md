@@ -50,6 +50,7 @@ tag: vVERSION
 - 🐞 修复 List `grid` 属性值更新后组件未重新渲染的问题。[#48683](https://github.com/ant-design/ant-design/pull/48683) [@coderz-w](https://github.com/coderz-w)
 - 🐞 修复 Progress tooltip 提示距离太近的问题。[#48686](https://github.com/ant-design/ant-design/pull/48686)
 - 🐞 修复 QRCode 无法自适应容器大小的问题并移除 `bordered={false}` 时的默认边距。[#48194](https://github.com/ant-design/ant-design/pull/48194) [@thinkasany](https://github.com/thinkasany)
+- 🐞 修复 Table 组件设置 `fixed={false}` 时的某些特殊情况下未正常显示投影的问题。[#1113](https://github.com/react-component/table/pull/1113) [@linxianxi](https://github.com/linxianxi)
 - 📖 添加 Table 表格列拖拽排序演示。[#48434](https://github.com/ant-design/ant-design/pull/48434) [@GeorgeHcc](https://github.com/GeorgeHcc)
 - TypeScript
   - 🤖 优化 Cascader 属性定义。[#48420](https://github.com/ant-design/ant-design/pull/48420) [@crazyair](https://github.com/crazyair)
