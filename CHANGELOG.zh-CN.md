@@ -27,7 +27,7 @@ tag: vVERSION
   - 🐞 修复 Form 下出现错误时无法滚动到 Upload 组件的问题。[#48211](https://github.com/ant-design/ant-design/pull/48211) [@Wxh16144](https://github.com/Wxh16144)
 - Typography
   - 🆕 Typography.Paragraph 的编辑、复制按钮允许修改 `tableIndex`。[#48567](https://github.com/ant-design/ant-design/pull/48567) [@nova1751](https://github.com/nova1751)
-  - 🐞 修复 Typography 开启 `editable` 时会意外触发 focus 事件。[#48741](https://github.com/ant-design/ant-design/pull/48741)
+  - 🐞 修复 Typography 开启 `editable` 时会意外触发 focus 行为的问题。[#48741](https://github.com/ant-design/ant-design/pull/48741)
 - DatePicker
   - 🆕 DatePicker.RangePicker `showTime.disabledTime` 支持 `info.from` 以供时间维度的自定义限制能力。[#48625](https://github.com/ant-design/ant-design/pull/48625)
   - 🐞 修复 DatePicker 关闭时回填 hover 值闪烁的问题。[#48734](https://github.com/ant-design/ant-design/pull/48734)
