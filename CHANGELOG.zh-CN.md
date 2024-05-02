@@ -19,7 +19,7 @@ tag: vVERSION
 
 `2024-05-02`
 
-- 🔥🔥🔥 Ant Design StyleProvider 支持配置 `layer` 进行统一降权 CSS 优先级。经过降权后，antd 的样式将始终低于默认的 CSS 选择器优先级，以便于用户进行样式覆盖（请务必注意检查 [@layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer#browser_compatibility) 浏览器兼容性），详情可见[文档](https://ant.design/docs/react/compatible-style-cn#layer-%E9%99%8D%E6%9D%83)。[#48229](https://github.com/ant-design/ant-design/pull/48229)
+- 🔥🔥🔥 StyleProvider 支持配置 `layer` 统一降级 默认 CSS 优先级。经过降权后，antd 的样式将始终低于默认的 CSS 选择器优先级，以便于用户进行样式覆盖（请务必注意检查 [@layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer#browser_compatibility) 浏览器兼容性），详情可见[文档](https://ant.design/docs/react/compatible-style-cn#layer-%E9%99%8D%E6%9D%83)。[#48229](https://github.com/ant-design/ant-design/pull/48229)
 - 🆕 Carousel 现在支持 `arrows` 来开启箭头切换功能。[#48542](https://github.com/ant-design/ant-design/pull/48542)
 - Form
   - 🛠 Form 依赖的 `async-validator` 替换为 `@rc-component/async-validator`，并修复 `transform` 没有自动检测返回值类型的问题。[#48486](https://github.com/ant-design/ant-design/pull/48486) [@crazyair](https://github.com/crazyair)
