@@ -49,7 +49,7 @@ const App: React.FC = () => {
   );
 
   return (
-    <Flex gap="middle" wrap="wrap">
+    <Flex gap="middle" wrap>
       <Upload
         name="avatar"
         listType="picture-card"

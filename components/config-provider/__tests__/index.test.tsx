@@ -25,7 +25,17 @@ describe('ConfigProvider', () => {
         <Button>{text}</Button>
       </ConfigProvider>,
     );
-    expect(container.querySelector('span')?.innerHTML).toBe(text);
+    expect(container.querySelector<HTMLSpanElement>('span')?.innerHTML).toBe(text);
+  });
+
+  it('button.autoInsertSpace', () => {
+    const text = '确定';
+    const { container } = render(
+      <ConfigProvider button={{ autoInsertSpace: false }}>
+        <Button>{text}</Button>
+      </ConfigProvider>,
+    );
+    expect(container.querySelector<HTMLSpanElement>('span')?.innerHTML).toBe(text);
   });
 
   it('renderEmpty', () => {

@@ -171,6 +171,9 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
       hashId,
       nonce: () => csp?.nonce!,
       clientOnly: options.clientOnly,
+      layer: {
+        name: 'antd',
+      },
 
       // antd is always at top of styles
       order: options.order || -999,

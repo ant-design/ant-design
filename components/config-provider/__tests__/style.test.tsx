@@ -1218,7 +1218,7 @@ describe('ConfigProvider support style and className props', () => {
           className: 'cp-tabs',
           style: { backgroundColor: 'red' },
           addIcon: <span className="cp-test-addIcon">cp-test-addIcon</span>,
-          moreIcon: <span className="cp-test-moreIcon">cp-test-moreIcon</span>,
+          more: { icon: <span className="cp-test-moreIcon">cp-test-moreIcon</span> },
           removeIcon: <span className="cp-test-removeIcon">cp-test-removeIcon</span>,
         }}
       >

@@ -1,5 +1,316 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders components/carousel/demo/arrows.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-carousel"
+  >
+    <div
+      class="slick-slider slick-initialized"
+      dir="ltr"
+    >
+      <button
+        aria-label="prev"
+        class="slick-arrow slick-prev slick-disabled"
+        currentslide="0"
+        data-role="none"
+        slidecount="4"
+        style="display: block;"
+        type="button"
+      />
+      <div
+        class="slick-list"
+      >
+        <div
+          class="slick-track"
+          style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+        >
+          <div
+            aria-hidden="false"
+            class="slick-slide slick-active slick-current"
+            data-index="0"
+            style="outline: none; width: 0px;"
+            tabindex="-1"
+          >
+            <div>
+              <div
+                style="width: 100%; display: inline-block;"
+                tabindex="-1"
+              >
+                <h3
+                  style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                >
+                  1
+                </h3>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-hidden="true"
+            class="slick-slide"
+            data-index="1"
+            style="outline: none; width: 0px;"
+            tabindex="-1"
+          >
+            <div>
+              <div
+                style="width: 100%; display: inline-block;"
+                tabindex="-1"
+              >
+                <h3
+                  style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                >
+                  2
+                </h3>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-hidden="true"
+            class="slick-slide"
+            data-index="2"
+            style="outline: none; width: 0px;"
+            tabindex="-1"
+          >
+            <div>
+              <div
+                style="width: 100%; display: inline-block;"
+                tabindex="-1"
+              >
+                <h3
+                  style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                >
+                  3
+                </h3>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-hidden="true"
+            class="slick-slide"
+            data-index="3"
+            style="outline: none; width: 0px;"
+            tabindex="-1"
+          >
+            <div>
+              <div
+                style="width: 100%; display: inline-block;"
+                tabindex="-1"
+              >
+                <h3
+                  style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                >
+                  4
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        aria-label="next"
+        class="slick-arrow slick-next"
+        currentslide="0"
+        data-role="none"
+        slidecount="4"
+        style="display: block;"
+        type="button"
+      />
+      <ul
+        class="slick-dots slick-dots-bottom"
+        style="display: block;"
+      >
+        <li
+          class="slick-active"
+        >
+          <button>
+            1
+          </button>
+        </li>
+        <li
+          class=""
+        >
+          <button>
+            2
+          </button>
+        </li>
+        <li
+          class=""
+        >
+          <button>
+            3
+          </button>
+        </li>
+        <li
+          class=""
+        >
+          <button>
+            4
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>,
+  <br />,
+  <div
+    class="ant-carousel ant-carousel-vertical"
+  >
+    <div
+      class="slick-slider slick-vertical slick-initialized"
+      dir="ltr"
+    >
+      <button
+        aria-label="prev"
+        class="slick-arrow slick-prev slick-disabled"
+        currentslide="0"
+        data-role="none"
+        slidecount="4"
+        style="display: block;"
+        type="button"
+      />
+      <div
+        class="slick-list"
+        style="height: 0px;"
+      >
+        <div
+          class="slick-track"
+          style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+        >
+          <div
+            aria-hidden="false"
+            class="slick-slide slick-active slick-current"
+            data-index="0"
+            style="outline: none; width: 0px;"
+            tabindex="-1"
+          >
+            <div>
+              <div
+                style="width: 100%; display: inline-block;"
+                tabindex="-1"
+              >
+                <h3
+                  style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                >
+                  1
+                </h3>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-hidden="true"
+            class="slick-slide"
+            data-index="1"
+            style="outline: none; width: 0px;"
+            tabindex="-1"
+          >
+            <div>
+              <div
+                style="width: 100%; display: inline-block;"
+                tabindex="-1"
+              >
+                <h3
+                  style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                >
+                  2
+                </h3>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-hidden="true"
+            class="slick-slide"
+            data-index="2"
+            style="outline: none; width: 0px;"
+            tabindex="-1"
+          >
+            <div>
+              <div
+                style="width: 100%; display: inline-block;"
+                tabindex="-1"
+              >
+                <h3
+                  style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                >
+                  3
+                </h3>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-hidden="true"
+            class="slick-slide"
+            data-index="3"
+            style="outline: none; width: 0px;"
+            tabindex="-1"
+          >
+            <div>
+              <div
+                style="width: 100%; display: inline-block;"
+                tabindex="-1"
+              >
+                <h3
+                  style="margin: 0px; height: 160px; color: rgb(255, 255, 255); line-height: 160px; text-align: center; background: rgb(54, 77, 121);"
+                >
+                  4
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        aria-label="next"
+        class="slick-arrow slick-next"
+        currentslide="0"
+        data-role="none"
+        slidecount="4"
+        style="display: block;"
+        type="button"
+      />
+      <ul
+        class="slick-dots slick-dots-left"
+        style="display: block;"
+      >
+        <li
+          class="slick-active"
+        >
+          <button>
+            1
+          </button>
+        </li>
+        <li
+          class=""
+        >
+          <button>
+            2
+          </button>
+        </li>
+        <li
+          class=""
+        >
+          <button>
+            3
+          </button>
+        </li>
+        <li
+          class=""
+        >
+          <button>
+            4
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/carousel/demo/arrows.tsx extend context correctly 2`] = `
+[
+  "Warning: React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.%s",
+]
+`;
+
 exports[`renders components/carousel/demo/autoplay.tsx extend context correctly 1`] = `
 <div
   class="ant-carousel"

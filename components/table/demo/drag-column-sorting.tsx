@@ -34,17 +34,19 @@ interface HeaderCellProps extends React.HTMLAttributes<HTMLTableCellElement> {
 interface BodyCellProps extends React.HTMLAttributes<HTMLTableCellElement> {
   id: string;
 }
-type DragIndexState = {
+
+interface DragIndexState {
   active: UniqueIdentifier;
   over: UniqueIdentifier | undefined;
   direction?: 'left' | 'right';
-};
+}
+
 const DragIndexContext = createContext<DragIndexState>({ active: -1, over: -1 });
 
 const dragActiveStyle = (dragState: DragIndexState, id: string) => {
   const { active, over, direction } = dragState;
   // drag active style
-  let style = {};
+  let style: React.CSSProperties = {};
   if (active && active === id) {
     style = { backgroundColor: 'gray', opacity: 0.5 };
   }
@@ -58,32 +60,20 @@ const dragActiveStyle = (dragState: DragIndexState, id: string) => {
   return style;
 };
 
-const TableBodyCell = (props: BodyCellProps) => {
+const TableBodyCell: React.FC<BodyCellProps> = (props) => {
   const dragState = useContext<DragIndexState>(DragIndexContext);
-  return (
-    <td
-      {...props}
-      style={{
-        ...props.style,
-        ...dragActiveStyle(dragState, props.id),
-      }}
-    />
-  );
+  return <td {...props} style={{ ...props.style, ...dragActiveStyle(dragState, props.id) }} />;
 };
 
-const TableHeaderCell = (props: HeaderCellProps) => {
+const TableHeaderCell: React.FC<HeaderCellProps> = (props) => {
   const dragState = useContext(DragIndexContext);
-  const { attributes, listeners, setNodeRef, isDragging } = useSortable({
-    id: props.id,
-  });
-
+  const { attributes, listeners, setNodeRef, isDragging } = useSortable({ id: props.id });
   const style: React.CSSProperties = {
     ...props.style,
     cursor: 'move',
     ...(isDragging ? { position: 'relative', zIndex: 9999, userSelect: 'none' } : {}),
     ...dragActiveStyle(dragState, props.id),
   };
-
   return <th {...props} ref={setNodeRef} style={style} {...attributes} {...listeners} />;
 };
 
@@ -121,27 +111,13 @@ const dataSource: DataType[] = [
     address: 'Sidney No. 1 Lake Park',
   },
 ];
+
 const baseColumns: TableColumnsType<DataType> = [
-  {
-    title: 'Name',
-    dataIndex: 'name',
-  },
-  {
-    title: 'Gender',
-    dataIndex: 'gender',
-  },
-  {
-    title: 'Age',
-    dataIndex: 'age',
-  },
-  {
-    title: 'Email',
-    dataIndex: 'email',
-  },
-  {
-    title: 'Address',
-    dataIndex: 'address',
-  },
+  { title: 'Name', dataIndex: 'name' },
+  { title: 'Gender', dataIndex: 'gender' },
+  { title: 'Age', dataIndex: 'age' },
+  { title: 'Email', dataIndex: 'email' },
+  { title: 'Address', dataIndex: 'address' },
 ];
 
 const App: React.FC = () => {
@@ -151,12 +127,8 @@ const App: React.FC = () => {
     baseColumns.map((column, i) => ({
       ...column,
       key: `${i}`,
-      onHeaderCell: () => ({
-        id: `${i}`,
-      }),
-      onCell: () => ({
-        id: `${i}`,
-      }),
+      onHeaderCell: () => ({ id: `${i}` }),
+      onCell: () => ({ id: `${i}` }),
     })),
   );
 
@@ -171,10 +143,10 @@ const App: React.FC = () => {
 
   const onDragEnd = ({ active, over }: DragEndEvent) => {
     if (active.id !== over?.id) {
-      setColumns((prev) => {
-        const activeIndex = prev.findIndex((i) => i.key === active.id);
-        const overIndex = prev.findIndex((i) => i.key === over?.id);
-        return arrayMove(prev, activeIndex, overIndex);
+      setColumns((prevState) => {
+        const activeIndex = prevState.findIndex((i) => i.key === active?.id);
+        const overIndex = prevState.findIndex((i) => i.key === over?.id);
+        return arrayMove(prevState, activeIndex, overIndex);
       });
     }
     setDragIndex({ active: -1, over: -1 });
@@ -201,22 +173,17 @@ const App: React.FC = () => {
       <SortableContext items={columns.map((i) => i.key)} strategy={horizontalListSortingStrategy}>
         <DragIndexContext.Provider value={dragIndex}>
           <Table
-            components={{
-              header: {
-                cell: TableHeaderCell,
-              },
-              body: {
-                cell: TableBodyCell,
-              },
-            }}
             rowKey="key"
             columns={columns}
             dataSource={dataSource}
+            components={{
+              header: { cell: TableHeaderCell },
+              body: { cell: TableBodyCell },
+            }}
           />
         </DragIndexContext.Provider>
       </SortableContext>
       <DragOverlay>
-        {/* TODO:  Since the tableheadercell custom component uses antd to render the cell style, it is currently not possible to copy the same component as tableheadercell. */}
         <th style={{ backgroundColor: 'gray', padding: 16 }}>
           {columns[columns.findIndex((i) => i.key === dragIndex.active)]?.title as React.ReactNode}
         </th>

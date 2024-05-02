@@ -10116,242 +10116,259 @@ exports[`renders components/input/demo/group.tsx extend context correctly 2`] = 
 
 exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-flex ant-flex-align-flex-start ant-flex-gap-middle ant-flex-vertical"
 >
-  <div
-    class="ant-space-item"
+  <h5
+    class="ant-typography"
   >
-    <h5
-      class="ant-typography"
-    >
-      With formatter (Upcase)
-    </h5>
+    With formatter (Upcase)
+  </h5>
+  <div
+    class="ant-otp"
+  >
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
   </div>
-  <div
-    class="ant-space-item"
+  <h5
+    class="ant-typography"
   >
-    <div
-      class="ant-otp"
-    >
-      <input
-        class="ant-input ant-input-outlined ant-otp-input"
-        size="1"
-        type="text"
-        value=""
-      />
-      <input
-        class="ant-input ant-input-outlined ant-otp-input"
-        size="1"
-        type="text"
-        value=""
-      />
-      <input
-        class="ant-input ant-input-outlined ant-otp-input"
-        size="1"
-        type="text"
-        value=""
-      />
-      <input
-        class="ant-input ant-input-outlined ant-otp-input"
-        size="1"
-        type="text"
-        value=""
-      />
-      <input
-        class="ant-input ant-input-outlined ant-otp-input"
-        size="1"
-        type="text"
-        value=""
-      />
-      <input
-        class="ant-input ant-input-outlined ant-otp-input"
-        size="1"
-        type="text"
-        value=""
-      />
-    </div>
+    With Disabled
+  </h5>
+  <div
+    class="ant-otp"
+  >
+    <input
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      disabled=""
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      disabled=""
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      disabled=""
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      disabled=""
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      disabled=""
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      disabled=""
+      size="1"
+      type="text"
+      value=""
+    />
   </div>
-  <div
-    class="ant-space-item"
+  <h5
+    class="ant-typography"
   >
-    <h5
-      class="ant-typography"
-    >
-      With Disabled
-    </h5>
+    With Length (8)
+  </h5>
+  <div
+    class="ant-otp"
+  >
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
   </div>
-  <div
-    class="ant-space-item"
+  <h5
+    class="ant-typography"
   >
-    <div
-      class="ant-otp"
-    >
-      <input
-        class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
-        disabled=""
-        size="1"
-        type="text"
-        value=""
-      />
-      <input
-        class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
-        disabled=""
-        size="1"
-        type="text"
-        value=""
-      />
-      <input
-        class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
-        disabled=""
-        size="1"
-        type="text"
-        value=""
-      />
-      <input
-        class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
-        disabled=""
-        size="1"
-        type="text"
-        value=""
-      />
-      <input
-        class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
-        disabled=""
-        size="1"
-        type="text"
-        value=""
-      />
-      <input
-        class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
-        disabled=""
-        size="1"
-        type="text"
-        value=""
-      />
-    </div>
+    With variant
+  </h5>
+  <div
+    class="ant-otp"
+  >
+    <input
+      class="ant-input ant-input-filled ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-filled ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-filled ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-filled ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-filled ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-filled ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
   </div>
-  <div
-    class="ant-space-item"
+  <h5
+    class="ant-typography"
   >
-    <h5
-      class="ant-typography"
-    >
-      With Length (8)
-    </h5>
-  </div>
+    With custom display character
+  </h5>
   <div
-    class="ant-space-item"
+    class="ant-otp"
   >
-    <div
-      class="ant-otp"
-    >
-      <input
-        class="ant-input ant-input-outlined ant-otp-input"
-        size="1"
-        type="text"
-        value=""
-      />
-      <input
-        class="ant-input ant-input-outlined ant-otp-input"
-        size="1"
-        type="text"
-        value=""
-      />
-      <input
-        class="ant-input ant-input-outlined ant-otp-input"
-        size="1"
-        type="text"
-        value=""
-      />
-      <input
-        class="ant-input ant-input-outlined ant-otp-input"
-        size="1"
-        type="text"
-        value=""
-      />
-      <input
-        class="ant-input ant-input-outlined ant-otp-input"
-        size="1"
-        type="text"
-        value=""
-      />
-      <input
-        class="ant-input ant-input-outlined ant-otp-input"
-        size="1"
-        type="text"
-        value=""
-      />
-      <input
-        class="ant-input ant-input-outlined ant-otp-input"
-        size="1"
-        type="text"
-        value=""
-      />
-      <input
-        class="ant-input ant-input-outlined ant-otp-input"
-        size="1"
-        type="text"
-        value=""
-      />
-    </div>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <h5
-      class="ant-typography"
-    >
-      With variant
-    </h5>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <div
-      class="ant-otp"
-    >
-      <input
-        class="ant-input ant-input-filled ant-otp-input"
-        size="1"
-        type="text"
-        value=""
-      />
-      <input
-        class="ant-input ant-input-filled ant-otp-input"
-        size="1"
-        type="text"
-        value=""
-      />
-      <input
-        class="ant-input ant-input-filled ant-otp-input"
-        size="1"
-        type="text"
-        value=""
-      />
-      <input
-        class="ant-input ant-input-filled ant-otp-input"
-        size="1"
-        type="text"
-        value=""
-      />
-      <input
-        class="ant-input ant-input-filled ant-otp-input"
-        size="1"
-        type="text"
-        value=""
-      />
-      <input
-        class="ant-input ant-input-filled ant-otp-input"
-        size="1"
-        type="text"
-        value=""
-      />
-    </div>
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
   </div>
 </div>
 `;
 
-exports[`renders components/input/demo/otp.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/input/demo/otp.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Input.OTP] \`mask\` prop should be a single character.",
+]
+`;
 
 exports[`renders components/input/demo/password-input.tsx extend context correctly 1`] = `
 <div
