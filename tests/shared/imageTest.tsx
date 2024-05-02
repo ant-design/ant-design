@@ -71,17 +71,19 @@ const imageTest = (
     })) as unknown as typeof ResizeObserver;
 
     // Fake promise not called
-    global.fetch = (() => ({
-      then() {
-        return this;
-      },
-      catch() {
-        return this;
-      },
-      finally() {
-        return this;
-      },
-    })) as unknown as typeof fetch;
+    global.fetch = function mockFetch() {
+      return {
+        then() {
+          return this;
+        },
+        catch() {
+          return this;
+        },
+        finally() {
+          return this;
+        },
+      };
+    } as unknown as typeof fetch;
 
     // Fake matchMedia
     win.matchMedia = (() => ({
