@@ -178,7 +178,8 @@ export default function imageTest(
 
       await page.evaluate(
         (innerHTML: string, ssrStyle: string, triggerClassName?: string) => {
-          document.querySelector<HTMLDivElement>('#root')!.innerHTML = innerHTML;
+          const root = document.querySelector<HTMLDivElement>('#root')!;
+          root.innerHTML = innerHTML;
           const head = document.querySelector<HTMLElement>('head')!;
           head.innerHTML += ssrStyle;
           // Inject open trigger with block style
