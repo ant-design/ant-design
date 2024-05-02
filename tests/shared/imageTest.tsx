@@ -66,11 +66,13 @@ export default function imageTest(
     });
 
     // Fake Resize Observer
-    global.ResizeObserver = (() => ({
-      observe() {},
-      unobserve() {},
-      disconnect() {},
-    })) as unknown as typeof ResizeObserver;
+    global.ResizeObserver = function FakeResizeObserver() {
+      return {
+        observe() {},
+        unobserve() {},
+        disconnect() {},
+      };
+    } as unknown as typeof ResizeObserver;
 
     // Fake promise not called
     global.fetch = function mockFetch() {
@@ -151,7 +153,9 @@ export default function imageTest(
         html = ReactDOMServer.renderToString(element);
         styleStr = extractStyle(cache);
       } else {
-        const { unmount } = render(element, { container });
+        const { unmount } = render(element, {
+          container,
+        });
         html = container.innerHTML;
         styleStr = extractStyle(cache);
 
@@ -174,14 +178,9 @@ export default function imageTest(
 
       await page.evaluate(
         (innerHTML: string, ssrStyle: string, triggerClassName?: string) => {
-          const root = document.querySelector<HTMLDivElement>('#root');
-          if (root) {
-            root.innerHTML = innerHTML;
-          }
-          const head = document.querySelector<HTMLHeadElement>('head');
-          if (head) {
-            head.innerHTML += ssrStyle;
-          }
+          document.querySelector<HTMLDivElement>('#root')!.innerHTML = innerHTML;
+          const head = document.querySelector<HTMLElement>('head')!;
+          head.innerHTML += ssrStyle;
           // Inject open trigger with block style
           if (triggerClassName) {
             document.querySelectorAll<HTMLElement>(`.${triggerClassName}`).forEach((node) => {
@@ -203,7 +202,9 @@ export default function imageTest(
         await page.setViewport({ width: 800, height: bodyHeight });
       }
 
-      const image = await page.screenshot({ fullPage: !options.onlyViewport });
+      const image = await page.screenshot({
+        fullPage: !options.onlyViewport,
+      });
 
       await fse.writeFile(path.join(snapshotPath, `${identifier}${suffix}.png`), image);
 
