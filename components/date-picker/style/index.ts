@@ -336,6 +336,11 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
               animationName: slideUpIn,
             },
 
+          // https://github.com/ant-design/ant-design/issues/48727
+          [`&${antCls}-slide-up-leave ${componentCls}-panel-container`]: {
+            pointerEvents: 'none',
+          },
+
           [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-dropdown-placement-topLeft,
           &${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-dropdown-placement-topRight`]:
             {

@@ -1,7 +1,7 @@
 import React from 'react';
 import type { SingleValueType } from 'rc-cascader/lib/Cascader';
 
-import type { BaseOptionType, DefaultOptionType } from '..';
+import type { DefaultOptionType } from '..';
 import Cascader from '..';
 import { resetWarned } from '../../_util/warning';
 import excludeAllWarning from '../../../tests/shared/excludeWarning';
@@ -71,11 +71,13 @@ const options = [
   },
 ];
 
-function filter<OptionType extends BaseOptionType = DefaultOptionType>(
+function filter<OptionType extends DefaultOptionType = DefaultOptionType>(
   inputValue: string,
   path: OptionType[],
 ): boolean {
-  return path.some((option) => option.label.toLowerCase().includes(inputValue.toLowerCase()));
+  return path.some((option) =>
+    option.label?.toString().toLowerCase().includes(inputValue.toLowerCase()),
+  );
 }
 
 describe('Cascader', () => {
@@ -183,7 +185,7 @@ describe('Cascader', () => {
         ],
       },
     ];
-    function customFilter<OptionType extends BaseOptionType = DefaultOptionType>(
+    function customFilter<OptionType extends DefaultOptionType = DefaultOptionType>(
       inputValue: string,
       path: OptionType[],
     ): boolean {
@@ -374,7 +376,7 @@ describe('Cascader', () => {
           {
             value: 'hangzhou',
             label: 'Hangzhou',
-            children: null,
+            children: null as any,
           },
         ],
       },
@@ -516,7 +518,7 @@ describe('Cascader', () => {
 
   it('onChange works correctly when the label of fieldNames is the same as value', () => {
     const onChange = jest.fn();
-    const sameNames = { label: 'label', value: 'label' };
+    const sameNames = { label: 'label', value: 'label' } as const;
     const { container } = render(
       <Cascader options={options} onChange={onChange} showSearch fieldNames={sameNames} />,
     );

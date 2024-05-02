@@ -19,6 +19,7 @@ import Editable from '../Editable';
 import useCopyClick from '../hooks/useCopyClick';
 import useMergedConfig from '../hooks/useMergedConfig';
 import useUpdatedEffect from '../hooks/useUpdatedEffect';
+import usePrevious from '../hooks/usePrevious';
 import type { TypographyProps } from '../Typography';
 import Typography from '../Typography';
 import CopyBtn from './CopyBtn';
@@ -33,6 +34,7 @@ export interface CopyConfig {
   icon?: React.ReactNode;
   tooltips?: React.ReactNode;
   format?: 'text/plain' | 'text/html';
+  tabIndex?: number;
 }
 
 interface EditConfig {
@@ -48,6 +50,7 @@ interface EditConfig {
   autoSize?: boolean | AutoSizeType;
   triggerType?: ('icon' | 'text')[];
   enterIcon?: React.ReactNode;
+  tabIndex?: number;
 }
 
 export interface EllipsisConfig {
@@ -157,8 +160,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   };
 
   // Focus edit icon when back
+  const prevEditing = usePrevious(editing);
   useUpdatedEffect(() => {
-    if (!editing) {
+    if (!editing && prevEditing) {
       editIconRef.current?.focus();
     }
   }, [editing]);
@@ -372,8 +376,12 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const renderExpand = () => {
     const { expandable, symbol } = ellipsisConfig;
 
-    if (!expandable) return null;
-    if (expanded && expandable !== 'collapsible') return null;
+    if (!expandable) {
+      return null;
+    }
+    if (expanded && expandable !== 'collapsible') {
+      return null;
+    }
 
     return (
       <a
@@ -389,9 +397,11 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   // Edit
   const renderEdit = () => {
-    if (!enableEdit) return;
+    if (!enableEdit) {
+      return;
+    }
 
-    const { icon, tooltip } = editConfig;
+    const { icon, tooltip, tabIndex } = editConfig;
 
     const editTitle = toArray(tooltip)[0] || textLocale?.edit;
     const ariaLabel = typeof editTitle === 'string' ? editTitle : '';
@@ -403,6 +413,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
           className={`${prefixCls}-edit`}
           onClick={onEditClick}
           aria-label={ariaLabel}
+          tabIndex={tabIndex}
         >
           {icon || <EditOutlined role="button" />}
         </TransButton>
