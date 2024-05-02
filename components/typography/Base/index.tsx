@@ -493,7 +493,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
                 wrapperDecorations(
                   props,
                   <>
-                    {node.length && canEllipsis && !expanded && topAriaLabel ? (
+                    {node.length > 0 && canEllipsis && !expanded && topAriaLabel ? (
                       <span key="show-content" aria-hidden>
                         {node}
                       </span>
