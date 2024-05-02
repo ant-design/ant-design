@@ -489,26 +489,21 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               expanded={expanded}
               miscDeps={[copied, expanded, copyLoading, enableEdit, enableCopy]}
             >
-              {(node, canEllipsis) => {
-                let renderNode: React.ReactNode = node;
-                if (node.length && canEllipsis && !expanded && topAriaLabel) {
-                  renderNode = (
-                    <span key="show-content" aria-hidden>
-                      {renderNode}
-                    </span>
-                  );
-                }
-
-                const wrappedContext = wrapperDecorations(
+              {(node, canEllipsis) =>
+                wrapperDecorations(
                   props,
                   <>
-                    {renderNode}
+                    {node.length && canEllipsis && !expanded && topAriaLabel ? (
+                      <span key="show-content" aria-hidden>
+                        {node}
+                      </span>
+                    ) : (
+                      node
+                    )}
                     {renderEllipsis(canEllipsis)}
                   </>,
-                );
-
-                return wrappedContext;
-              }}
+                )
+              }
             </Ellipsis>
           </Typography>
         </EllipsisTooltip>
