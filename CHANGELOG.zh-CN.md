@@ -19,7 +19,7 @@ tag: vVERSION
 
 `2024-05-02`
 
-- 🔥🔥🔥 StyleProvider 支持配置 `layer` 统一降级 默认 CSS 优先级。经过降权后，antd 的样式将始终低于默认的 CSS 选择器优先级，以便于用户进行样式覆盖（请务必注意检查 [@layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer#browser_compatibility) 浏览器兼容性），详情可见[文档](https://ant.design/docs/react/compatible-style-cn#layer-%E9%99%8D%E6%9D%83)。[#48229](https://github.com/ant-design/ant-design/pull/48229)
+- 🔥🔥🔥 `@ant-design/cssinjs` StyleProvider 支持配置 `layer` 统一降级 默认 CSS 优先级。经过降权后，antd 的样式将始终低于默认的 CSS 选择器优先级，以便于用户进行样式覆盖（请务必注意检查 [@layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer#browser_compatibility) 浏览器兼容性），详情可见[文档](https://ant.design/docs/react/compatible-style-cn#layer-%E9%99%8D%E6%9D%83)。[#48229](https://github.com/ant-design/ant-design/pull/48229)
 - 🆕 Carousel 现在支持 `arrows` 来开启箭头切换功能。[#48542](https://github.com/ant-design/ant-design/pull/48542)
 - Form
   - 🛠 Form 依赖的 `async-validator` 替换为 `@rc-component/async-validator`，并修复 `transform` 没有自动检测返回值类型的问题。[#48486](https://github.com/ant-design/ant-design/pull/48486) [@crazyair](https://github.com/crazyair)
@@ -119,7 +119,7 @@ tag: vVERSION
 - 💄 修复 Steps 的进度样式在紧凑模式下不正确的问题。[#48251](https://github.com/ant-design/ant-design/pull/48251)
 - 💄 重构 Tabs 和波纹样式相关组件的 CSS 过渡时间值，替换为 `motionDurationSlow` Component Token。[#48311](https://github.com/ant-design/ant-design/pull/48311) [#48312](https://github.com/ant-design/ant-design/pull/48312) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🇯🇵 补充 Transfer 的 ja_JP 本地化文案。[#48411](https://github.com/ant-design/ant-design/pull/48411) [@Inshiku-Han](https://github.com/Inshiku-Han)
-- 🌐 修复 Picker 的 ja_JP 和 ko_KR 本地化文案。[#48382](https://github.com/ant-design/ant-design/pull/48382) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🇯🇵🇰🇷 修复 Picker 的 ja_JP 和 ko_KR 本地化文案。[#48382](https://github.com/ant-design/ant-design/pull/48382) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🛠 使用常量替代枚举减小包体积。[#48406](https://github.com/ant-design/ant-design/pull/48406) [@kiner-tang](https://github.com/kiner-tang)
 
 ## 5.16.1
@@ -143,7 +143,7 @@ tag: vVERSION
 - 🆕 Table 支持 `onScroll` 事件用于监听表单内容滚动。[#47986](https://github.com/ant-design/ant-design/pull/47986)
 - 🆕 Typography 省略支持展开和收起。[#47264](https://github.com/ant-design/ant-design/pull/47264) [@crazyair](https://github.com/crazyair)
 - 🆕 ConfigProvider 支持配置 FloatButton.Group 的 `closeIcon` 属性。[#47953](https://github.com/ant-design/ant-design/pull/47953) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🆕 Table 支持配置排序的 `showSorterTooltip.target` 属性.[#47409](https://github.com/ant-design/ant-design/pull/47409) [@Ke1sy](https://github.com/Ke1sy)
+- 🆕 Table 支持配置排序的 `showSorterTooltip.target` 属性。[#47409](https://github.com/ant-design/ant-design/pull/47409) [@Ke1sy](https://github.com/Ke1sy)
 - 🆕 Cascader 支持 `optionRender`。[#47727](https://github.com/ant-design/ant-design/pull/47727) [@crazyair](https://github.com/crazyair)
 - ⌨️ Popover 当 `trigger` 是 `focus` 或 `click` 时能被 ESC 按键所关闭。[#47928](https://github.com/ant-design/ant-design/pull/47928) [@CooperHash](https://github.com/CooperHash)
 - 🐞 修复 Button 图标位置居中问题。[#48178](https://github.com/ant-design/ant-design/pull/48178) [@momesana](https://github.com/momesana)
