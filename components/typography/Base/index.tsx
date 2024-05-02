@@ -19,6 +19,7 @@ import Editable from '../Editable';
 import useCopyClick from '../hooks/useCopyClick';
 import useMergedConfig from '../hooks/useMergedConfig';
 import useUpdatedEffect from '../hooks/useUpdatedEffect';
+import usePrevious from '../hooks/usePrevious';
 import type { TypographyProps } from '../Typography';
 import Typography from '../Typography';
 import CopyBtn from './CopyBtn';
@@ -159,8 +160,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   };
 
   // Focus edit icon when back
+  const prevEditing = usePrevious(editing);
   useUpdatedEffect(() => {
-    if (!editing) {
+    if (!editing && prevEditing) {
       editIconRef.current?.focus();
     }
   }, [editing]);
