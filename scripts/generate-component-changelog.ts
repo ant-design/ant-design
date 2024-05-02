@@ -53,6 +53,7 @@ const miscKeys = [
   'reset.css',
   '📖',
   '🛠',
+  '📦',
   '🌐',
   ' locale ',
   ' RTL ',
