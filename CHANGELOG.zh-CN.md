@@ -40,7 +40,7 @@ tag: vVERSION
 - Button
   - 🆕 Button 新增 `iconPosition` 以指定预置图标位置。[#47791](https://github.com/ant-design/ant-design/pull/47791) [@GeorgeHcc](https://github.com/GeorgeHcc)
   - 🆕 Button 组件支持 `autoInsertSpace` 属性，用来移除两个汉字之间的空格。[#48348](https://github.com/ant-design/ant-design/pull/48348) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🆕 ConfigProvider 组件支持 `button.autoInsertSpace` 属性，用来移除两个汉字之间的空格，并废弃 CP 组件的 `autoInsertSpaceInButton` 属性。[#48348](https://github.com/ant-design/ant-design/pull/48348) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 ConfigProvider 组件支持 `button.autoInsertSpace` 属性并废弃 `autoInsertSpaceInButton` 属性。[#48348](https://github.com/ant-design/ant-design/pull/48348) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 TreeSelect 支持 `onPopScroll` 属性。[#48636](https://github.com/ant-design/ant-design/pull/48636) [@wanpan11](https://github.com/wanpan11)
 - 🆕 Tabs 新增 `more={{ ... }}` 属性以支持自定义下拉菜单的属性。[#48321](https://github.com/ant-design/ant-design/pull/48321) [@CooperHash](https://github.com/CooperHash)
 - 🆕 Flex 组件 `wrap` 参数支持 boolean 类型。[#48391](https://github.com/ant-design/ant-design/pull/48391) [@li-jia-nan](https://github.com/li-jia-nan)
