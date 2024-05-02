@@ -20,7 +20,7 @@ tag: vVERSION
 
 `2024-05-02`
 
-- 🔥🔥🔥 Ant Design StyleProvider supports configuring `layer` for unified downgrade CSS priority. After the downgrade, the style of antd will always be lower than the default CSS selector priority, so that users can override the style (please be sure to check the browser compatibility of [@layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer#browser_compatibility)), check [ full documentation](https://ant.design/docs/react/compatible-style#layer-downgrade). [#48229](https://github.com/ant-design/ant-design/pull/48229)
+- 🔥🔥🔥 StyleProvider supports configuring `layer` for unified downgrade CSS priority. After the downgrade, the style of antd will always be lower than the default CSS selector priority, so that users can override the style (please be sure to check the browser compatibility of [@layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer#browser_compatibility)), see [full documentation](https://ant.design/docs/react/compatible-style#layer-downgrade) for usage. [#48229](https://github.com/ant-design/ant-design/pull/48229)
 - 🆕 Carousel supports `arrows` to switching between slides now. [#48542](https://github.com/ant-design/ant-design/pull/48542)
 - Form
   - 🛠 Form change it's dependency from `async-validator` to `@rc-component/async-validator`, fix a bug that `transform` don't check it's return value type. [#48486](https://github.com/ant-design/ant-design/pull/48486) [@crazyair](https://github.com/crazyair)
