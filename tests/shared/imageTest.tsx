@@ -1,4 +1,3 @@
-/* eslint-disable jest/no-export */
 import path from 'path';
 import React from 'react';
 // Reference: https://github.com/ant-design/ant-design/pull/24003#discussion_r427267386
@@ -33,16 +32,19 @@ interface ImageTestOptions {
   openTriggerClassName?: string;
 }
 
-const imageTest = (
+// eslint-disable-next-line jest/no-export
+export default function imageTest(
   component: React.ReactElement,
   identifier: string,
   options: ImageTestOptions,
-) => {
+) {
   let doc: Document;
   let container: HTMLDivElement;
 
   beforeAll(async () => {
-    const dom = new JSDOM('<!DOCTYPE html><body></body></p>', { url: 'http://localhost/' });
+    const dom = new JSDOM('<!DOCTYPE html><body></body></p>', {
+      url: 'http://localhost/',
+    });
     const win = dom.window;
     doc = win.document;
 
@@ -176,7 +178,10 @@ const imageTest = (
           if (root) {
             root.innerHTML = innerHTML;
           }
-          document.head.innerHTML += ssrStyle;
+          const head = document.querySelector<HTMLHeadElement>('head');
+          if (head) {
+            head.innerHTML += ssrStyle;
+          }
           // Inject open trigger with block style
           if (triggerClassName) {
             document.querySelectorAll<HTMLElement>(`.${triggerClassName}`).forEach((node) => {
@@ -223,7 +228,7 @@ const imageTest = (
       </div>,
     );
   });
-};
+}
 
 type Options = {
   skip?: boolean | string[];
@@ -234,7 +239,8 @@ type Options = {
   openTriggerClassName?: string;
 };
 
-export const imageDemoTest = (component: string, options: Options = {}) => {
+// eslint-disable-next-line jest/no-export
+export function imageDemoTest(component: string, options: Options = {}) {
   let describeMethod = options.skip === true ? describe.skip : describe;
   const files = globSync(`./components/${component}/demo/*.tsx`).filter(
     (file) => !file.includes('_semantic'),
@@ -262,6 +268,4 @@ export const imageDemoTest = (component: string, options: Options = {}) => {
       });
     });
   });
-};
-
-export default imageTest;
+}
