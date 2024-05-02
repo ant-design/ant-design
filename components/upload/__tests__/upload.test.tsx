@@ -1082,4 +1082,11 @@ describe('Upload', () => {
       expect(file.status).toBe('done');
     });
   });
+
+  it('container ref', () => {
+    const ref = React.createRef<any>();
+    render(<Upload ref={ref} />);
+    expect(ref.current?.nativeElement).toBeTruthy();
+    expect(ref.current?.nativeElement instanceof HTMLElement).toBeTruthy();
+  });
 });

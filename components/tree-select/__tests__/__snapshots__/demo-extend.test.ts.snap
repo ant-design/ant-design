@@ -423,7 +423,7 @@ exports[`renders components/tree-select/demo/basic.tsx extend context correctly 
                   </div>
                   <div
                     aria-grabbed="false"
-                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open"
                     draggable="false"
                   >
                     <span
@@ -448,6 +448,126 @@ exports[`renders components/tree-select/demo/basic.tsx extend context correctly 
                         class="ant-select-tree-title"
                       >
                         leaf2
+                      </span>
+                    </span>
+                  </div>
+                  <div
+                    aria-grabbed="false"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open"
+                    draggable="false"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-tree-indent"
+                    >
+                      <span
+                        class="ant-select-tree-indent-unit ant-select-tree-indent-unit-start ant-select-tree-indent-unit-end"
+                      />
+                      <span
+                        class="ant-select-tree-indent-unit ant-select-tree-indent-unit-start"
+                      />
+                    </span>
+                    <span
+                      class="ant-select-tree-switcher ant-select-tree-switcher-noop"
+                    />
+                    <span
+                      class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-normal"
+                      title="leaf3"
+                    >
+                      <span
+                        class="ant-select-tree-title"
+                      >
+                        leaf3
+                      </span>
+                    </span>
+                  </div>
+                  <div
+                    aria-grabbed="false"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open"
+                    draggable="false"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-tree-indent"
+                    >
+                      <span
+                        class="ant-select-tree-indent-unit ant-select-tree-indent-unit-start ant-select-tree-indent-unit-end"
+                      />
+                      <span
+                        class="ant-select-tree-indent-unit ant-select-tree-indent-unit-start"
+                      />
+                    </span>
+                    <span
+                      class="ant-select-tree-switcher ant-select-tree-switcher-noop"
+                    />
+                    <span
+                      class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-normal"
+                      title="leaf4"
+                    >
+                      <span
+                        class="ant-select-tree-title"
+                      >
+                        leaf4
+                      </span>
+                    </span>
+                  </div>
+                  <div
+                    aria-grabbed="false"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open"
+                    draggable="false"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-tree-indent"
+                    >
+                      <span
+                        class="ant-select-tree-indent-unit ant-select-tree-indent-unit-start ant-select-tree-indent-unit-end"
+                      />
+                      <span
+                        class="ant-select-tree-indent-unit ant-select-tree-indent-unit-start"
+                      />
+                    </span>
+                    <span
+                      class="ant-select-tree-switcher ant-select-tree-switcher-noop"
+                    />
+                    <span
+                      class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-normal"
+                      title="leaf5"
+                    >
+                      <span
+                        class="ant-select-tree-title"
+                      >
+                        leaf5
+                      </span>
+                    </span>
+                  </div>
+                  <div
+                    aria-grabbed="false"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
+                    draggable="false"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-tree-indent"
+                    >
+                      <span
+                        class="ant-select-tree-indent-unit ant-select-tree-indent-unit-start ant-select-tree-indent-unit-end"
+                      />
+                      <span
+                        class="ant-select-tree-indent-unit ant-select-tree-indent-unit-start"
+                      />
+                    </span>
+                    <span
+                      class="ant-select-tree-switcher ant-select-tree-switcher-noop"
+                    />
+                    <span
+                      class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-normal"
+                      title="leaf6"
+                    >
+                      <span
+                        class="ant-select-tree-title"
+                      >
+                        leaf6
                       </span>
                     </span>
                   </div>
@@ -527,7 +647,7 @@ exports[`renders components/tree-select/demo/basic.tsx extend context correctly 
                         <b
                           style="color: rgb(0, 136, 204);"
                         >
-                          leaf3
+                          leaf11
                         </b>
                       </span>
                     </span>

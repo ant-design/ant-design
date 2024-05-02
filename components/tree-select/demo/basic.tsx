@@ -1,3 +1,4 @@
+import type { SyntheticEvent } from 'react';
 import React, { useState } from 'react';
 import { TreeSelect } from 'antd';
 
@@ -18,6 +19,22 @@ const treeData = [
             value: 'leaf2',
             title: 'leaf2',
           },
+          {
+            value: 'leaf3',
+            title: 'leaf3',
+          },
+          {
+            value: 'leaf4',
+            title: 'leaf4',
+          },
+          {
+            value: 'leaf5',
+            title: 'leaf5',
+          },
+          {
+            value: 'leaf6',
+            title: 'leaf6',
+          },
         ],
       },
       {
@@ -25,8 +42,8 @@ const treeData = [
         title: 'parent 1-1',
         children: [
           {
-            value: 'leaf3',
-            title: <b style={{ color: '#08c' }}>leaf3</b>,
+            value: 'leaf11',
+            title: <b style={{ color: '#08c' }}>leaf11</b>,
           },
         ],
       },
@@ -40,6 +57,10 @@ const App: React.FC = () => {
     setValue(newValue);
   };
 
+  const onPopupScroll = (e: SyntheticEvent) => {
+    console.log('onPopupScroll', e);
+  };
+
   return (
     <TreeSelect
       showSearch
@@ -51,6 +72,7 @@ const App: React.FC = () => {
       treeDefaultExpandAll
       onChange={onChange}
       treeData={treeData}
+      onPopupScroll={onPopupScroll}
     />
   );
 };

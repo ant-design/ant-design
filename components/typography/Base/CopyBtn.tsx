@@ -14,18 +14,28 @@ export interface CopyBtnProps extends Omit<CopyConfig, 'onCopy'> {
   prefixCls: string;
   copied: boolean;
   locale: Locale['Text'];
-  onCopy: React.MouseEventHandler<HTMLDivElement>;
+  onCopy: (e?: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   iconOnly: boolean;
   loading: boolean;
 }
 
-export default function CopyBtn(props: CopyBtnProps) {
-  const { prefixCls, copied, locale = {}, onCopy, iconOnly, tooltips, icon, loading } = props;
+const CopyBtn: React.FC<CopyBtnProps> = (props) => {
+  const {
+    prefixCls,
+    copied,
+    locale,
+    iconOnly,
+    tooltips,
+    icon,
+    loading: btnLoading,
+    tabIndex,
+    onCopy,
+  } = props;
 
   const tooltipNodes = toList(tooltips);
   const iconNodes = toList(icon);
 
-  const { copied: copiedText, copy: copyText } = locale;
+  const { copied: copiedText, copy: copyText } = locale ?? {};
 
   const copyTitle = copied
     ? getNode(tooltipNodes[1], copiedText)
@@ -40,13 +50,16 @@ export default function CopyBtn(props: CopyBtnProps) {
           [`${prefixCls}-copy-success`]: copied,
           [`${prefixCls}-copy-icon-only`]: iconOnly,
         })}
-        onClick={onCopy as any}
+        onClick={onCopy}
         aria-label={ariaLabel}
+        tabIndex={tabIndex}
       >
         {copied
           ? getNode(iconNodes[1], <CheckOutlined />, true)
-          : getNode(iconNodes[0], loading ? <LoadingOutlined /> : <CopyOutlined />, true)}
+          : getNode(iconNodes[0], btnLoading ? <LoadingOutlined /> : <CopyOutlined />, true)}
       </TransButton>
     </Tooltip>
   );
-}
+};
+
+export default CopyBtn;
