@@ -106,7 +106,7 @@ const {
 | breadcrumb | Set Breadcrumb common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | button | Set Button common props | { className?: string, style?: React.CSSProperties, classNames?: { icon: string }, styles?: { icon: React.CSSProperties }, autoInsertSpace?: boolean } | - | 5.6.0, autoInsertSpace: 5.17.0 |
 | card | Set Card common props | { className?: string, style?: React.CSSProperties, classNames?: [CardProps\["classNames"\]](/components/card#api), styles?: [CardProps\["styles"\]](/components/card#api) } | - | 5.7.0, `classNames` and `styles`: 5.14.0 |
-| chatbox | Set Chatbox common props | { className?: string, style?: React.CSSProperties, classNames?: { avatar?: string; content?: string; }, styles?: { avatar?: CSSProperties, content?: CSSProperties } } | - | 5.17.0 |
+| chatbox | Set Chatbox common props | { className?: string, style?: React.CSSProperties, classNames?: { avatar?: string; content?: string; }, styles?: { avatar?: CSSProperties, content?: CSSProperties } } | - | 5.18.0 |
 | calendar | Set Calendar common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | carousel | Set Carousel common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | cascader | Set Cascader common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
