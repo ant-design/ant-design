@@ -30,6 +30,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 <code src="./demo/nested.tsx">嵌套</code>
 <code src="./demo/preview-group-top-progress.tsx" debug>多图预览时顶部进度自定义</code>
 <code src="./demo/component-token.tsx" debug>自定义组件 Token</code>
+<code src="./demo/preview-imgInfo.tsx" debug>在渲染函数中获取图片信息</code>
 
 ## API
 
@@ -97,7 +98,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | forceRender | 强制渲染预览图 | boolean | - | - |
 | countRender | 自定义预览计数内容 | (current: number, total: number) => React.ReactNode | - | 4.20.0 |
 | toolbarRender | 自定义工具栏 | (originalNode: React.ReactElement, info: [ToolbarRenderInfoType](#toolbarrenderinfotype)) => React.ReactNode | - | 5.7.0 |
-| imageRender | 自定义预览内容 | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), current: number }) => React.ReactNode | - | 5.7.0 |
+| imageRender | 自定义预览内容 | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo), current: number }) => React.ReactNode | - | 5.7.0 |
 | onTransform | 预览图 transform 变化的回调 | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - | 5.7.0 |
 | onChange | 切换预览图的回调 | (current: number, prevCurrent: number) => void | - | 5.3.0 |
 | onVisibleChange | 当 `visible` 发生改变时的回调 | (visible: boolean, prevVisible: boolean, current: number) => void | - | current 参数 5.3.0 |
@@ -159,6 +160,18 @@ type TransformAction =
   transform: TransformType,
   current: number;
   total: number;
+  image: ImgInfo
+}
+```
+
+### ImgInfo
+
+```typescript
+{
+  url: string;
+  alt: string;
+  width: string | number;
+  height: string | number;
 }
 ```
 
