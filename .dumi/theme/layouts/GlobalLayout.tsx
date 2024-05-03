@@ -204,7 +204,6 @@ const GlobalLayout: React.FC = () => {
       <StyleProvider
         cache={styleCache}
         linters={[legacyNotSelectorLinter, parentSelectorLinter, NaNLinter]}
-        layer
       >
         <SiteContext.Provider value={siteContextValue}>
           <SiteThemeProvider theme={themeConfig}>
