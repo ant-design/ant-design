@@ -31,26 +31,17 @@ const App: React.FC = () => {
 
   return (
     <Image
-      width={200}
-      src={src}
+      src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+      width="200px"
+      height="200px"
+      alt="test"
       preview={{
-        toolbarRender: (
-          _,
-          {
-            transform: { scale },
-            actions: { onFlipY, onFlipX, onRotateLeft, onRotateRight, onZoomOut, onZoomIn },
-          },
-        ) => (
-          <Space size={12} className="toolbar-wrapper">
-            <DownloadOutlined onClick={onDownload} />
-            <SwapOutlined rotate={90} onClick={onFlipY} />
-            <SwapOutlined onClick={onFlipX} />
-            <RotateLeftOutlined onClick={onRotateLeft} />
-            <RotateRightOutlined onClick={onRotateRight} />
-            <ZoomOutOutlined disabled={scale === 1} onClick={onZoomOut} />
-            <ZoomInOutlined disabled={scale === 50} onClick={onZoomIn} />
-          </Space>
-        ),
+        imageRender(_, { imgInfo }) {
+          return <div>{JSON.stringify(imgInfo)}</div>;
+        },
+        toolbarRender(_, { imgInfo }) {
+          return <div>{JSON.stringify(imgInfo)}</div>;
+        },
       }}
     />
   );
