@@ -8,6 +8,15 @@ import { useRouteMeta, useTabMeta } from 'dumi';
 const useStyle = createStyles(({ token, css }) => {
   const { antCls } = token;
   return {
+    anchorToc: css`
+      scrollbar-width: thin;
+      scrollbar-color: unset;
+      ${antCls}-anchor {
+        ${antCls}-anchor-link-title {
+          font-size: ${token.fontSizeSM}px;
+        }
+      }
+    `,
     tocWrapper: css`
       position: fixed;
       top: ${token.headerHeight + token.contentMarginTop - 8}px;
@@ -36,15 +45,6 @@ const useStyle = createStyles(({ token, css }) => {
 
       @media only screen and (max-width: ${token.screenLG}px) {
         display: none;
-      }
-    `,
-    anchorToc: css`
-      scrollbar-width: thin;
-      scrollbar-color: unset;
-      ${antCls}-anchor {
-        ${antCls}-anchor-link-title {
-          font-size: ${token.fontSizeSM}px;
-        }
       }
     `,
     articleWrapper: css`
