@@ -10,12 +10,8 @@ const App: React.FC = () => (
     height="200px"
     alt="test"
     preview={{
-      imageRender(_, { image }) {
-        return <div>{JSON.stringify(image)}</div>;
-      },
-      toolbarRender(_, { image }) {
-        return <div>{JSON.stringify(image)}</div>;
-      },
+      imageRender: (_, { image }) => <div>{JSON.stringify(image)}</div>,
+      toolbarRender: (_, { image }) => <div>{JSON.stringify(image)}</div>,
     }}
   />
 );
