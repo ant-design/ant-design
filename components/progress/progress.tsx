@@ -144,11 +144,11 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
 
     return (
       <span
-        className={classNames(
-          `${prefixCls}-text`,
-          isBrightInnerColor && `${prefixCls}-text-bright`,
-          isPureLineType && [`${prefixCls}-text-${infoPosition}`, `${prefixCls}-text-${infoAlign}`],
-        )}
+        className={classNames(`${prefixCls}-text`, {
+          [`${prefixCls}-text-bright`]: isBrightInnerColor,
+          [`${prefixCls}-text-${infoAlign}`]: isPureLineType,
+          [`${prefixCls}-text-${infoPosition}`]: isPureLineType,
+        })}
         title={typeof text === 'string' ? text : undefined}
       >
         {text}

@@ -15,7 +15,6 @@ import { getSize, getSuccessPercent, validProgress } from './utils';
 interface LineProps extends ProgressProps {
   prefixCls: string;
   direction?: DirectionType;
-  children: React.ReactNode;
   strokeColor?: string | ProgressGradient;
   percentPosition: PercentPositionType;
 }
@@ -103,7 +102,7 @@ const Line: React.FC<LineProps> = (props) => {
 
   const mergedSize = size ?? [-1, strokeWidth || (size === 'small' ? 6 : 8)];
 
-  const height = getSize(mergedSize, 'line', { strokeWidth })[1];
+  const [width, height] = getSize(mergedSize, 'line', { strokeWidth });
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Progress');
@@ -133,6 +132,10 @@ const Line: React.FC<LineProps> = (props) => {
     backgroundColor: success?.strokeColor,
   } as React.CSSProperties;
 
+  const outerStyle: React.CSSProperties = {
+    width: width < 0 ? '100%' : width,
+  };
+
   const lineInner = (
     <div className={`${prefixCls}-inner`} style={trailStyle}>
       <div
@@ -147,16 +150,19 @@ const Line: React.FC<LineProps> = (props) => {
     </div>
   );
 
+  const isOuterStart = infoPosition === 'outer' && infoAlign === 'start';
+  const isOuterEnd = infoPosition === 'outer' && infoAlign === 'end';
+
   return infoPosition === 'outer' && infoAlign === 'center' ? (
     <div className={`${prefixCls}-layout-bottom`}>
       {lineInner}
       {children}
     </div>
   ) : (
-    <div className={`${prefixCls}-outer`}>
-      {infoPosition === 'outer' && infoAlign === 'start' && children}
+    <div className={`${prefixCls}-outer`} style={outerStyle}>
+      {isOuterStart && children}
       {lineInner}
-      {infoPosition === 'outer' && infoAlign === 'end' && children}
+      {isOuterEnd && children}
     </div>
   );
 };

@@ -251,6 +251,7 @@ exports[`Progress render format 1`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%;"
   >
     <div
       class="ant-progress-inner"
@@ -265,7 +266,7 @@ exports[`Progress render format 1`] = `
       />
     </div>
     <span
-      class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+      class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
       title="50 10"
     >
       50 10
@@ -282,6 +283,7 @@ exports[`Progress render inner info position 1`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 400px;"
   >
     <div
       class="ant-progress-inner"
@@ -291,7 +293,7 @@ exports[`Progress render inner info position 1`] = `
         style="width: 100%; height: 20px; --progress-percent: 1;"
       >
         <span
-          class="ant-progress-text ant-progress-text-inner ant-progress-text-center"
+          class="ant-progress-text ant-progress-text-center ant-progress-text-inner"
           title="100%"
         >
           100%
@@ -310,6 +312,7 @@ exports[`Progress render negative progress 1`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%;"
   >
     <div
       class="ant-progress-inner"
@@ -320,7 +323,7 @@ exports[`Progress render negative progress 1`] = `
       />
     </div>
     <span
-      class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+      class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
       title="0%"
     >
       0%
@@ -337,6 +340,7 @@ exports[`Progress render negative successPercent 1`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%;"
   >
     <div
       class="ant-progress-inner"
@@ -351,7 +355,7 @@ exports[`Progress render negative successPercent 1`] = `
       />
     </div>
     <span
-      class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+      class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
       title="50%"
     >
       50%
@@ -368,6 +372,7 @@ exports[`Progress render normal progress 1`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%;"
   >
     <div
       class="ant-progress-inner"
@@ -378,7 +383,7 @@ exports[`Progress render normal progress 1`] = `
       />
     </div>
     <span
-      class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+      class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
       title="0%"
     >
       0%
@@ -395,6 +400,7 @@ exports[`Progress render out-of-range progress 1`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%;"
   >
     <div
       class="ant-progress-inner"
@@ -405,7 +411,7 @@ exports[`Progress render out-of-range progress 1`] = `
       />
     </div>
     <span
-      class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+      class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
     >
       <span
         aria-label="check-circle"
@@ -439,6 +445,7 @@ exports[`Progress render out-of-range progress with info 1`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%;"
   >
     <div
       class="ant-progress-inner"
@@ -449,7 +456,7 @@ exports[`Progress render out-of-range progress with info 1`] = `
       />
     </div>
     <span
-      class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+      class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
     >
       <span
         aria-label="check-circle"
@@ -538,6 +545,7 @@ exports[`Progress render strokeColor 2`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%;"
   >
     <div
       class="ant-progress-inner"
@@ -548,7 +556,7 @@ exports[`Progress render strokeColor 2`] = `
       />
     </div>
     <span
-      class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+      class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
       title="50%"
     >
       50%
@@ -565,6 +573,7 @@ exports[`Progress render strokeColor 3`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%;"
   >
     <div
       class="ant-progress-inner"
@@ -575,7 +584,7 @@ exports[`Progress render strokeColor 3`] = `
       />
     </div>
     <span
-      class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+      class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
       title="50%"
     >
       50%
@@ -649,6 +658,7 @@ exports[`Progress render successColor progress 1`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%;"
   >
     <div
       class="ant-progress-inner"
@@ -663,7 +673,7 @@ exports[`Progress render successColor progress 1`] = `
       />
     </div>
     <span
-      class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+      class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
       title="60%"
     >
       60%
@@ -790,6 +800,7 @@ exports[`Progress render trailColor progress 1`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%;"
   >
     <div
       class="ant-progress-inner"
@@ -801,7 +812,7 @@ exports[`Progress render trailColor progress 1`] = `
       />
     </div>
     <span
-      class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+      class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
       title="0%"
     >
       0%
@@ -818,6 +829,7 @@ exports[`Progress rtl render component should be rendered correctly in RTL direc
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%;"
   >
     <div
       class="ant-progress-inner"
@@ -828,7 +840,7 @@ exports[`Progress rtl render component should be rendered correctly in RTL direc
       />
     </div>
     <span
-      class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+      class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
       title="0%"
     >
       0%

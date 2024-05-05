@@ -718,6 +718,7 @@ Array [
       >
         <div
           class="ant-progress-outer"
+          style="width:100%"
         >
           <div
             class="ant-progress-inner"
@@ -728,7 +729,7 @@ Array [
             />
           </div>
           <span
-            class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+            class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
             title="50%"
           >
             50%
@@ -746,6 +747,7 @@ Array [
       >
         <div
           class="ant-progress-outer"
+          style="width:100%"
         >
           <div
             class="ant-progress-inner"
@@ -756,7 +758,7 @@ Array [
             />
           </div>
           <span
-            class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+            class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
             title="50%"
           >
             50%
@@ -774,6 +776,7 @@ Array [
       >
         <div
           class="ant-progress-outer"
+          style="width:300px"
         >
           <div
             class="ant-progress-inner"
@@ -784,7 +787,7 @@ Array [
             />
           </div>
           <span
-            class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+            class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
             title="50%"
           >
             50%
@@ -1394,6 +1397,7 @@ exports[`renders components/progress/demo/dynamic.tsx correctly 1`] = `
     >
       <div
         class="ant-progress-outer"
+        style="width:100%"
       >
         <div
           class="ant-progress-inner"
@@ -1404,7 +1408,7 @@ exports[`renders components/progress/demo/dynamic.tsx correctly 1`] = `
           />
         </div>
         <span
-          class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+          class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
           title="0%"
         >
           0%
@@ -1652,6 +1656,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
   >
     <div
       class="ant-progress-outer"
+      style="width:100%"
     >
       <div
         class="ant-progress-inner"
@@ -1662,7 +1667,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
         title="99.9%"
       >
         99.9%
@@ -1676,6 +1681,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
   >
     <div
       class="ant-progress-outer"
+      style="width:100%"
     >
       <div
         class="ant-progress-inner"
@@ -1686,7 +1692,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
         title="50%"
       >
         50%
@@ -2181,6 +2187,7 @@ exports[`renders components/progress/demo/info-position.tsx correctly 1`] = `
   >
     <div
       class="ant-progress-outer"
+      style="width:200px"
     >
       <div
         class="ant-progress-inner"
@@ -2190,7 +2197,7 @@ exports[`renders components/progress/demo/info-position.tsx correctly 1`] = `
           style="width:0%;height:20px;--progress-line-stroke-color:#E6F4FF;background:#E6F4FF;--progress-percent:0"
         >
           <span
-            class="ant-progress-text ant-progress-text-bright ant-progress-text-inner ant-progress-text-center"
+            class="ant-progress-text ant-progress-text-bright ant-progress-text-center ant-progress-text-inner"
             title="0%"
           >
             0%
@@ -2206,6 +2213,7 @@ exports[`renders components/progress/demo/info-position.tsx correctly 1`] = `
   >
     <div
       class="ant-progress-outer"
+      style="width:300px"
     >
       <div
         class="ant-progress-inner"
@@ -2215,7 +2223,7 @@ exports[`renders components/progress/demo/info-position.tsx correctly 1`] = `
           style="width:10%;height:20px;--progress-percent:0.1"
         >
           <span
-            class="ant-progress-text ant-progress-text-inner ant-progress-text-center"
+            class="ant-progress-text ant-progress-text-center ant-progress-text-inner"
             title="10%"
           >
             10%
@@ -2231,6 +2239,7 @@ exports[`renders components/progress/demo/info-position.tsx correctly 1`] = `
   >
     <div
       class="ant-progress-outer"
+      style="width:300px"
     >
       <div
         class="ant-progress-inner"
@@ -2240,7 +2249,7 @@ exports[`renders components/progress/demo/info-position.tsx correctly 1`] = `
           style="width:50%;height:20px;--progress-line-stroke-color:#B7EB8F;background:#B7EB8F;--progress-percent:0.5"
         >
           <span
-            class="ant-progress-text ant-progress-text-bright ant-progress-text-inner ant-progress-text-start"
+            class="ant-progress-text ant-progress-text-bright ant-progress-text-start ant-progress-text-inner"
             title="50%"
           >
             50%
@@ -2256,6 +2265,7 @@ exports[`renders components/progress/demo/info-position.tsx correctly 1`] = `
   >
     <div
       class="ant-progress-outer"
+      style="width:300px"
     >
       <div
         class="ant-progress-inner"
@@ -2265,7 +2275,7 @@ exports[`renders components/progress/demo/info-position.tsx correctly 1`] = `
           style="width:60%;height:20px;--progress-line-stroke-color:#001342;background:#001342;--progress-percent:0.6"
         >
           <span
-            class="ant-progress-text ant-progress-text-inner ant-progress-text-end"
+            class="ant-progress-text ant-progress-text-end ant-progress-text-inner"
             title="60%"
           >
             60%
@@ -2281,6 +2291,7 @@ exports[`renders components/progress/demo/info-position.tsx correctly 1`] = `
   >
     <div
       class="ant-progress-outer"
+      style="width:400px"
     >
       <div
         class="ant-progress-inner"
@@ -2290,7 +2301,7 @@ exports[`renders components/progress/demo/info-position.tsx correctly 1`] = `
           style="width:100%;height:20px;--progress-percent:1"
         >
           <span
-            class="ant-progress-text ant-progress-text-inner ant-progress-text-center"
+            class="ant-progress-text ant-progress-text-center ant-progress-text-inner"
             title="100%"
           >
             100%
@@ -2306,9 +2317,10 @@ exports[`renders components/progress/demo/info-position.tsx correctly 1`] = `
   >
     <div
       class="ant-progress-outer"
+      style="width:100%"
     >
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-start"
+        class="ant-progress-text ant-progress-text-start ant-progress-text-outer"
         title="60%"
       >
         60%
@@ -2330,9 +2342,10 @@ exports[`renders components/progress/demo/info-position.tsx correctly 1`] = `
   >
     <div
       class="ant-progress-outer"
+      style="width:100%"
     >
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-start"
+        class="ant-progress-text ant-progress-text-start ant-progress-text-outer"
       >
         <span
           aria-label="check-circle"
@@ -2381,7 +2394,7 @@ exports[`renders components/progress/demo/info-position.tsx correctly 1`] = `
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-center"
+        class="ant-progress-text ant-progress-text-center ant-progress-text-outer"
         title="60%"
       >
         60%
@@ -2405,7 +2418,7 @@ exports[`renders components/progress/demo/info-position.tsx correctly 1`] = `
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-center"
+        class="ant-progress-text ant-progress-text-center ant-progress-text-outer"
       >
         <span
           aria-label="check-circle"
@@ -2443,6 +2456,7 @@ exports[`renders components/progress/demo/line.tsx correctly 1`] = `
   >
     <div
       class="ant-progress-outer"
+      style="width:100%"
     >
       <div
         class="ant-progress-inner"
@@ -2453,7 +2467,7 @@ exports[`renders components/progress/demo/line.tsx correctly 1`] = `
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
         title="30%"
       >
         30%
@@ -2467,6 +2481,7 @@ exports[`renders components/progress/demo/line.tsx correctly 1`] = `
   >
     <div
       class="ant-progress-outer"
+      style="width:100%"
     >
       <div
         class="ant-progress-inner"
@@ -2477,7 +2492,7 @@ exports[`renders components/progress/demo/line.tsx correctly 1`] = `
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
         title="50%"
       >
         50%
@@ -2491,6 +2506,7 @@ exports[`renders components/progress/demo/line.tsx correctly 1`] = `
   >
     <div
       class="ant-progress-outer"
+      style="width:100%"
     >
       <div
         class="ant-progress-inner"
@@ -2501,7 +2517,7 @@ exports[`renders components/progress/demo/line.tsx correctly 1`] = `
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
       >
         <span
           aria-label="close-circle"
@@ -2533,6 +2549,7 @@ exports[`renders components/progress/demo/line.tsx correctly 1`] = `
   >
     <div
       class="ant-progress-outer"
+      style="width:100%"
     >
       <div
         class="ant-progress-inner"
@@ -2543,7 +2560,7 @@ exports[`renders components/progress/demo/line.tsx correctly 1`] = `
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
       >
         <span
           aria-label="check-circle"
@@ -2574,6 +2591,7 @@ exports[`renders components/progress/demo/line.tsx correctly 1`] = `
   >
     <div
       class="ant-progress-outer"
+      style="width:100%"
     >
       <div
         class="ant-progress-inner"
@@ -2600,6 +2618,7 @@ exports[`renders components/progress/demo/line-mini.tsx correctly 1`] = `
   >
     <div
       class="ant-progress-outer"
+      style="width:100%"
     >
       <div
         class="ant-progress-inner"
@@ -2610,7 +2629,7 @@ exports[`renders components/progress/demo/line-mini.tsx correctly 1`] = `
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
         title="30%"
       >
         30%
@@ -2624,6 +2643,7 @@ exports[`renders components/progress/demo/line-mini.tsx correctly 1`] = `
   >
     <div
       class="ant-progress-outer"
+      style="width:100%"
     >
       <div
         class="ant-progress-inner"
@@ -2634,7 +2654,7 @@ exports[`renders components/progress/demo/line-mini.tsx correctly 1`] = `
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
         title="50%"
       >
         50%
@@ -2648,6 +2668,7 @@ exports[`renders components/progress/demo/line-mini.tsx correctly 1`] = `
   >
     <div
       class="ant-progress-outer"
+      style="width:100%"
     >
       <div
         class="ant-progress-inner"
@@ -2658,7 +2679,7 @@ exports[`renders components/progress/demo/line-mini.tsx correctly 1`] = `
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
       >
         <span
           aria-label="close-circle"
@@ -2690,6 +2711,7 @@ exports[`renders components/progress/demo/line-mini.tsx correctly 1`] = `
   >
     <div
       class="ant-progress-outer"
+      style="width:100%"
     >
       <div
         class="ant-progress-inner"
@@ -2700,7 +2722,7 @@ exports[`renders components/progress/demo/line-mini.tsx correctly 1`] = `
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
       >
         <span
           aria-label="check-circle"
@@ -2738,6 +2760,7 @@ exports[`renders components/progress/demo/linecap.tsx correctly 1`] = `
   >
     <div
       class="ant-progress-outer"
+      style="width:100%"
     >
       <div
         class="ant-progress-inner"
@@ -2749,7 +2772,7 @@ exports[`renders components/progress/demo/linecap.tsx correctly 1`] = `
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
         title="75%"
       >
         75%
@@ -2878,6 +2901,7 @@ exports[`renders components/progress/demo/segment.tsx correctly 1`] = `
   >
     <div
       class="ant-progress-outer"
+      style="width:100%"
     >
       <div
         class="ant-progress-inner"
@@ -2892,7 +2916,7 @@ exports[`renders components/progress/demo/segment.tsx correctly 1`] = `
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
         title="60%"
       >
         60%
@@ -3025,6 +3049,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
     >
       <div
         class="ant-progress-outer"
+        style="width:100%"
       >
         <div
           class="ant-progress-inner"
@@ -3035,7 +3060,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
           />
         </div>
         <span
-          class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+          class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
           title="50%"
         >
           50%
@@ -3049,6 +3074,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
     >
       <div
         class="ant-progress-outer"
+        style="width:100%"
       >
         <div
           class="ant-progress-inner"
@@ -3059,7 +3085,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
           />
         </div>
         <span
-          class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+          class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
           title="50%"
         >
           50%
@@ -3073,6 +3099,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
     >
       <div
         class="ant-progress-outer"
+        style="width:300px"
       >
         <div
           class="ant-progress-inner"
@@ -3083,7 +3110,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
           />
         </div>
         <span
-          class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+          class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
           title="50%"
         >
           50%
