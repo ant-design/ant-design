@@ -31,7 +31,7 @@ Array [
         >
           <div
             class="ant-qrcode ant-qrcode-borderless"
-            style="width: 160px; height: 160px; background-color: transparent;"
+            style="background-color: transparent; width: 160px; height: 160px;"
           >
             <canvas
               height="160"
@@ -56,7 +56,7 @@ exports[`renders components/qr-code/demo/base.tsx extend context correctly 1`] =
   >
     <div
       class="ant-qrcode"
-      style="width: 160px; height: 160px; background-color: transparent;"
+      style="background-color: transparent; width: 160px; height: 160px;"
     >
       <canvas
         height="160"
@@ -89,7 +89,7 @@ exports[`renders components/qr-code/demo/customColor.tsx extend context correctl
   >
     <div
       class="ant-qrcode"
-      style="width: 160px; height: 160px; background-color: transparent;"
+      style="background-color: transparent; width: 160px; height: 160px;"
     >
       <canvas
         height="160"
@@ -102,7 +102,7 @@ exports[`renders components/qr-code/demo/customColor.tsx extend context correctl
   >
     <div
       class="ant-qrcode"
-      style="width: 160px; height: 160px; background-color: rgb(245, 245, 245);"
+      style="background-color: rgb(245, 245, 245); width: 160px; height: 160px;"
     >
       <canvas
         height="160"
@@ -189,7 +189,7 @@ Array [
   </div>,
   <div
     class="ant-qrcode"
-    style="width: 160px; height: 160px; background-color: transparent;"
+    style="background-color: transparent; width: 160px; height: 160px;"
   >
     <canvas
       height="160"
@@ -211,7 +211,7 @@ exports[`renders components/qr-code/demo/download.tsx extend context correctly 1
 >
   <div
     class="ant-qrcode"
-    style="width: 160px; height: 160px; background-color: rgb(255, 255, 255); margin-bottom: 16px;"
+    style="background-color: rgb(255, 255, 255); margin-bottom: 16px; width: 160px; height: 160px;"
   >
     <canvas
       height="160"
@@ -235,7 +235,7 @@ exports[`renders components/qr-code/demo/errorlevel.tsx extend context correctly
 Array [
   <div
     class="ant-qrcode"
-    style="width: 160px; height: 160px; background-color: transparent; margin-bottom: 16px;"
+    style="background-color: transparent; margin-bottom: 16px; width: 160px; height: 160px;"
   >
     <canvas
       height="160"
@@ -315,7 +315,7 @@ exports[`renders components/qr-code/demo/errorlevel.tsx extend context correctly
 exports[`renders components/qr-code/demo/icon.tsx extend context correctly 1`] = `
 <div
   class="ant-qrcode"
-  style="width: 160px; height: 160px; background-color: transparent;"
+  style="background-color: transparent; width: 160px; height: 160px;"
 >
   <canvas
     height="160"
@@ -336,7 +336,7 @@ exports[`renders components/qr-code/demo/status.tsx extend context correctly 1`]
 >
   <div
     class="ant-qrcode"
-    style="width: 160px; height: 160px; background-color: transparent;"
+    style="background-color: transparent; width: 160px; height: 160px;"
   >
     <div
       class="ant-qrcode-mask"
@@ -371,7 +371,7 @@ exports[`renders components/qr-code/demo/status.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-qrcode"
-    style="width: 160px; height: 160px; background-color: transparent;"
+    style="background-color: transparent; width: 160px; height: 160px;"
   >
     <div
       class="ant-qrcode-mask"
@@ -420,7 +420,7 @@ exports[`renders components/qr-code/demo/status.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-qrcode"
-    style="width: 160px; height: 160px; background-color: transparent;"
+    style="background-color: transparent; width: 160px; height: 160px;"
   >
     <div
       class="ant-qrcode-mask"
@@ -450,7 +450,7 @@ exports[`renders components/qr-code/demo/type.tsx extend context correctly 1`] =
   >
     <div
       class="ant-qrcode"
-      style="width: 160px; height: 160px; background-color: transparent;"
+      style="background-color: transparent; width: 160px; height: 160px;"
     >
       <canvas
         height="160"
@@ -463,7 +463,7 @@ exports[`renders components/qr-code/demo/type.tsx extend context correctly 1`] =
   >
     <div
       class="ant-qrcode"
-      style="width: 160px; height: 160px; background-color: transparent;"
+      style="background-color: transparent; width: 160px; height: 160px;"
     >
       <svg
         height="160"
