@@ -128,7 +128,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     let text: React.ReactNode;
     const textFormatter = format || ((number) => `${number}%`);
     const isLineType = type === 'line';
-    const isLineSteps = isLineType && steps;
+    const isPureLineType = isLineType && !steps;
     const isBrightInnerColor = isLineType && strokeColorIsBright && infoPosition === 'inner';
     if (
       infoPosition === 'inner' ||
@@ -147,8 +147,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
         className={classNames(
           `${prefixCls}-text`,
           isBrightInnerColor && `${prefixCls}-text-bright`,
-          isLineType && [`${prefixCls}-text-${infoPosition}`, `${prefixCls}-text-${infoAlign}`],
-          isLineSteps && `${prefixCls}-text-auto`,
+          isPureLineType && [`${prefixCls}-text-${infoPosition}`, `${prefixCls}-text-${infoAlign}`],
         )}
         title={typeof text === 'string' ? text : undefined}
       >

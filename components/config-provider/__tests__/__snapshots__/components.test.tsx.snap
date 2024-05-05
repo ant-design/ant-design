@@ -21796,26 +21796,22 @@ exports[`ConfigProvider components Progress configProvider 1`] = `
   role="progressbar"
 >
   <div
-    class="config-progress-outer-box"
+    class="config-progress-outer"
   >
     <div
-      class="config-progress-outer"
+      class="config-progress-inner"
     >
       <div
-        class="config-progress-inner"
-      >
-        <div
-          class="config-progress-bg config-progress-bg-outer"
-          style="width: 0%; height: 8px; --progress-percent: 0;"
-        />
-      </div>
-      <span
-        class="config-progress-text config-progress-text-outer config-progress-text-end"
-        title="0%"
-      >
-        0%
-      </span>
+        class="config-progress-bg config-progress-bg-outer"
+        style="width: 0%; height: 8px; --progress-percent: 0;"
+      />
     </div>
+    <span
+      class="config-progress-text config-progress-text-outer config-progress-text-end"
+      title="0%"
+    >
+      0%
+    </span>
   </div>
 </div>
 `;
@@ -21827,26 +21823,22 @@ exports[`ConfigProvider components Progress configProvider componentDisabled 1`]
   role="progressbar"
 >
   <div
-    class="config-progress-outer-box"
+    class="config-progress-outer"
   >
     <div
-      class="config-progress-outer"
+      class="config-progress-inner"
     >
       <div
-        class="config-progress-inner"
-      >
-        <div
-          class="config-progress-bg config-progress-bg-outer"
-          style="width: 0%; height: 8px; --progress-percent: 0;"
-        />
-      </div>
-      <span
-        class="config-progress-text config-progress-text-outer config-progress-text-end"
-        title="0%"
-      >
-        0%
-      </span>
+        class="config-progress-bg config-progress-bg-outer"
+        style="width: 0%; height: 8px; --progress-percent: 0;"
+      />
     </div>
+    <span
+      class="config-progress-text config-progress-text-outer config-progress-text-end"
+      title="0%"
+    >
+      0%
+    </span>
   </div>
 </div>
 `;
@@ -21858,26 +21850,22 @@ exports[`ConfigProvider components Progress configProvider componentSize large 1
   role="progressbar"
 >
   <div
-    class="config-progress-outer-box"
+    class="config-progress-outer"
   >
     <div
-      class="config-progress-outer"
+      class="config-progress-inner"
     >
       <div
-        class="config-progress-inner"
-      >
-        <div
-          class="config-progress-bg config-progress-bg-outer"
-          style="width: 0%; height: 8px; --progress-percent: 0;"
-        />
-      </div>
-      <span
-        class="config-progress-text config-progress-text-outer config-progress-text-end"
-        title="0%"
-      >
-        0%
-      </span>
+        class="config-progress-bg config-progress-bg-outer"
+        style="width: 0%; height: 8px; --progress-percent: 0;"
+      />
     </div>
+    <span
+      class="config-progress-text config-progress-text-outer config-progress-text-end"
+      title="0%"
+    >
+      0%
+    </span>
   </div>
 </div>
 `;
@@ -21889,26 +21877,22 @@ exports[`ConfigProvider components Progress configProvider componentSize middle 
   role="progressbar"
 >
   <div
-    class="config-progress-outer-box"
+    class="config-progress-outer"
   >
     <div
-      class="config-progress-outer"
+      class="config-progress-inner"
     >
       <div
-        class="config-progress-inner"
-      >
-        <div
-          class="config-progress-bg config-progress-bg-outer"
-          style="width: 0%; height: 8px; --progress-percent: 0;"
-        />
-      </div>
-      <span
-        class="config-progress-text config-progress-text-outer config-progress-text-end"
-        title="0%"
-      >
-        0%
-      </span>
+        class="config-progress-bg config-progress-bg-outer"
+        style="width: 0%; height: 8px; --progress-percent: 0;"
+      />
     </div>
+    <span
+      class="config-progress-text config-progress-text-outer config-progress-text-end"
+      title="0%"
+    >
+      0%
+    </span>
   </div>
 </div>
 `;
@@ -21920,26 +21904,22 @@ exports[`ConfigProvider components Progress configProvider componentSize small 1
   role="progressbar"
 >
   <div
-    class="config-progress-outer-box"
+    class="config-progress-outer"
   >
     <div
-      class="config-progress-outer"
+      class="config-progress-inner"
     >
       <div
-        class="config-progress-inner"
-      >
-        <div
-          class="config-progress-bg config-progress-bg-outer"
-          style="width: 0%; height: 8px; --progress-percent: 0;"
-        />
-      </div>
-      <span
-        class="config-progress-text config-progress-text-outer config-progress-text-end"
-        title="0%"
-      >
-        0%
-      </span>
+        class="config-progress-bg config-progress-bg-outer"
+        style="width: 0%; height: 8px; --progress-percent: 0;"
+      />
     </div>
+    <span
+      class="config-progress-text config-progress-text-outer config-progress-text-end"
+      title="0%"
+    >
+      0%
+    </span>
   </div>
 </div>
 `;
@@ -21951,26 +21931,22 @@ exports[`ConfigProvider components Progress normal 1`] = `
   role="progressbar"
 >
   <div
-    class="ant-progress-outer-box"
+    class="ant-progress-outer"
   >
     <div
-      class="ant-progress-outer"
+      class="ant-progress-inner"
     >
       <div
-        class="ant-progress-inner"
-      >
-        <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width: 0%; height: 8px; --progress-percent: 0;"
-        />
-      </div>
-      <span
-        class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
-        title="0%"
-      >
-        0%
-      </span>
+        class="ant-progress-bg ant-progress-bg-outer"
+        style="width: 0%; height: 8px; --progress-percent: 0;"
+      />
     </div>
+    <span
+      class="ant-progress-text ant-progress-text-outer ant-progress-text-end"
+      title="0%"
+    >
+      0%
+    </span>
   </div>
 </div>
 `;
@@ -21982,26 +21958,22 @@ exports[`ConfigProvider components Progress prefixCls 1`] = `
   role="progressbar"
 >
   <div
-    class="prefix-Progress-outer-box"
+    class="prefix-Progress-outer"
   >
     <div
-      class="prefix-Progress-outer"
+      class="prefix-Progress-inner"
     >
       <div
-        class="prefix-Progress-inner"
-      >
-        <div
-          class="prefix-Progress-bg prefix-Progress-bg-outer"
-          style="width: 0%; height: 8px; --progress-percent: 0;"
-        />
-      </div>
-      <span
-        class="prefix-Progress-text prefix-Progress-text-outer prefix-Progress-text-end"
-        title="0%"
-      >
-        0%
-      </span>
+        class="prefix-Progress-bg prefix-Progress-bg-outer"
+        style="width: 0%; height: 8px; --progress-percent: 0;"
+      />
     </div>
+    <span
+      class="prefix-Progress-text prefix-Progress-text-outer prefix-Progress-text-end"
+      title="0%"
+    >
+      0%
+    </span>
   </div>
 </div>
 `;
