@@ -448,30 +448,117 @@ describe('Form', () => {
     });
   });
 
-  it('scrollToFirstError', async () => {
-    const onFinishFailed = jest.fn();
+  describe('scrollToFirstError', () => {
+    it('should work with scrollToFirstError', async () => {
+      const onFinishFailed = jest.fn();
 
-    const { container } = render(
-      <Form scrollToFirstError={{ block: 'center' }} onFinishFailed={onFinishFailed}>
-        <Form.Item name="test" rules={[{ required: true }]}>
-          <input />
-        </Form.Item>
-        <Form.Item>
-          <Button htmlType="submit">Submit</Button>
-        </Form.Item>
-      </Form>,
-    );
+      const { container } = render(
+        <Form scrollToFirstError={{ block: 'center' }} onFinishFailed={onFinishFailed}>
+          <Form.Item name="test" rules={[{ required: true }]}>
+            <input />
+          </Form.Item>
+          <Form.Item>
+            <Button htmlType="submit">Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
 
-    expect(scrollIntoView).not.toHaveBeenCalled();
-    fireEvent.submit(container.querySelector('form')!);
-    await waitFakeTimer();
+      expect(scrollIntoView).not.toHaveBeenCalled();
+      fireEvent.submit(container.querySelector('form')!);
+      await waitFakeTimer();
 
-    const inputNode = document.getElementById('test');
-    expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
-      block: 'center',
-      scrollMode: 'if-needed',
+      const inputNode = document.getElementById('test');
+      expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
+        block: 'center',
+        scrollMode: 'if-needed',
+      });
+      expect(onFinishFailed).toHaveBeenCalled();
     });
-    expect(onFinishFailed).toHaveBeenCalled();
+
+    it('should work with scrollToFirstError with ref', async () => {
+      const ForwardRefInput = React.forwardRef<HTMLInputElement, any>(({ id, ...props }, ref) => (
+        <input {...props} ref={ref} />
+      ));
+
+      const NativeInput = React.forwardRef<any, any>(({ id, ...props }, ref) => {
+        const internalRef = React.useRef<HTMLInputElement>(null);
+        React.useImperativeHandle(ref, () => ({
+          nativeElement: internalRef.current,
+        }));
+        return <input {...props} ref={internalRef} />;
+      });
+
+      const NormalInput = (props: any) => <input {...props} />;
+
+      const { getByRole, getAllByRole } = render(
+        <Form scrollToFirstError>
+          <Form.Item name="foo" rules={[{ required: true }]}>
+            <ForwardRefInput />
+          </Form.Item>
+          <Form.Item name="bar" rules={[{ required: true }]}>
+            <NativeInput />
+          </Form.Item>
+          <Form.Item name="baz" rules={[{ required: true }]}>
+            <NormalInput />
+          </Form.Item>
+          <Form.Item>
+            <Button htmlType="submit">Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
+
+      // click submit to trigger validate
+      const allInputs = getAllByRole('textbox');
+      const button = getByRole('button');
+      expect(allInputs).toHaveLength(3);
+
+      fireEvent.click(button);
+      await waitFakeTimer();
+
+      expect(scrollIntoView).toHaveBeenNthCalledWith(1, allInputs[0], expect.any(Object));
+
+      // change the value of the first input
+      fireEvent.change(allInputs[0], { target: { value: '123' } });
+      fireEvent.click(button);
+      await waitFakeTimer();
+
+      expect(scrollIntoView).toHaveBeenNthCalledWith(2, allInputs[1], expect.any(Object));
+
+      // change the value of the second input
+      fireEvent.change(allInputs[1], { target: { value: 'abc' } });
+      fireEvent.click(button);
+      await waitFakeTimer();
+
+      expect(scrollIntoView).toHaveBeenNthCalledWith(3, allInputs[2], expect.any(Object));
+
+      expect(scrollIntoView).toHaveBeenCalledTimes(3);
+    });
+
+    // https://github.com/ant-design/ant-design/issues/28869
+    it('should work with Upload', async () => {
+      const uploadRef = React.createRef<any>();
+
+      const { getByRole } = render(
+        <Form scrollToFirstError>
+          <Form.Item
+            name="demo-form_dragger"
+            valuePropName="fileList"
+            getValueFromEvent={(e) => (Array.isArray(e) ? e : e?.fileList)}
+            rules={[{ required: true }]}
+          >
+            <Upload name="files" action="/upload.do" ref={uploadRef} />
+          </Form.Item>
+          <Form.Item>
+            <Button htmlType="submit">Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
+      fireEvent.click(getByRole('button'));
+      await waitFakeTimer();
+
+      expect(scrollIntoView).toHaveBeenCalled();
+      expect((scrollIntoView as any).mock.calls[0][0]).toBe(uploadRef.current.nativeElement);
+    });
   });
 
   it('Form.Item should support data-*、aria-* and custom attribute', () => {
@@ -495,6 +582,15 @@ describe('Form', () => {
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Form.Item] `name` is only used for validate React element. If you are using Form.Item as layout display, please remove `name` instead.',
     );
+  });
+
+  it('No warning when use noStyle and children is empty', () => {
+    render(
+      <Form>
+        <Form.Item name="noWarning" noStyle />
+      </Form>,
+    );
+    expect(errorSpy).not.toHaveBeenCalled();
   });
 
   it('dynamic change required', async () => {
@@ -1214,7 +1310,7 @@ describe('Form', () => {
             mark: 'pro_table_render',
             render: (_: any, doms: any) => (
               <div>
-                <h1>warning title</h1>
+                <div className="bamboo">warning title</div>
                 {doms.input}
                 {doms.errorList}
                 {doms.extra}
@@ -1227,7 +1323,7 @@ describe('Form', () => {
       </Form>,
     );
 
-    expect(container.querySelector('h1')!).toHaveTextContent(/warning title/i);
+    expect(container.querySelector('.bamboo')!).toHaveTextContent(/warning title/i);
   });
 
   it('Form Item element id will auto add form_item prefix if form name is empty and item name is in the black list', async () => {

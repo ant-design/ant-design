@@ -20,7 +20,7 @@ exports[`renders components/qr-code/demo/base.tsx correctly 1`] = `
   >
     <div
       class="ant-qrcode"
-      style="width:160px;height:160px;background-color:transparent"
+      style="background-color:transparent;width:160px;height:160px"
     >
       <canvas
         height="160"
@@ -51,7 +51,7 @@ exports[`renders components/qr-code/demo/customColor.tsx correctly 1`] = `
   >
     <div
       class="ant-qrcode"
-      style="width:160px;height:160px;background-color:transparent"
+      style="background-color:transparent;width:160px;height:160px"
     >
       <canvas
         height="160"
@@ -64,7 +64,7 @@ exports[`renders components/qr-code/demo/customColor.tsx correctly 1`] = `
   >
     <div
       class="ant-qrcode"
-      style="width:160px;height:160px;background-color:#f5f5f5"
+      style="background-color:#f5f5f5;width:160px;height:160px"
     >
       <canvas
         height="160"
@@ -149,7 +149,7 @@ Array [
   </div>,
   <div
     class="ant-qrcode"
-    style="width:160px;height:160px;background-color:transparent"
+    style="background-color:transparent;width:160px;height:160px"
   >
     <canvas
       height="160"
@@ -169,7 +169,7 @@ exports[`renders components/qr-code/demo/download.tsx correctly 1`] = `
 >
   <div
     class="ant-qrcode"
-    style="width:160px;height:160px;background-color:#fff;margin-bottom:16px"
+    style="background-color:#fff;margin-bottom:16px;width:160px;height:160px"
   >
     <canvas
       height="160"
@@ -191,7 +191,7 @@ exports[`renders components/qr-code/demo/errorlevel.tsx correctly 1`] = `
 Array [
   <div
     class="ant-qrcode"
-    style="width:160px;height:160px;background-color:transparent;margin-bottom:16px"
+    style="background-color:transparent;margin-bottom:16px;width:160px;height:160px"
   >
     <canvas
       height="160"
@@ -269,7 +269,7 @@ Array [
 exports[`renders components/qr-code/demo/icon.tsx correctly 1`] = `
 <div
   class="ant-qrcode"
-  style="width:160px;height:160px;background-color:transparent"
+  style="background-color:transparent;width:160px;height:160px"
 >
   <canvas
     height="160"
@@ -288,7 +288,7 @@ exports[`renders components/qr-code/demo/status.tsx correctly 1`] = `
 >
   <div
     class="ant-qrcode"
-    style="width:160px;height:160px;background-color:transparent"
+    style="background-color:transparent;width:160px;height:160px"
   >
     <div
       class="ant-qrcode-mask"
@@ -323,7 +323,7 @@ exports[`renders components/qr-code/demo/status.tsx correctly 1`] = `
   </div>
   <div
     class="ant-qrcode"
-    style="width:160px;height:160px;background-color:transparent"
+    style="background-color:transparent;width:160px;height:160px"
   >
     <div
       class="ant-qrcode-mask"
@@ -372,7 +372,7 @@ exports[`renders components/qr-code/demo/status.tsx correctly 1`] = `
   </div>
   <div
     class="ant-qrcode"
-    style="width:160px;height:160px;background-color:transparent"
+    style="background-color:transparent;width:160px;height:160px"
   >
     <div
       class="ant-qrcode-mask"
@@ -400,7 +400,7 @@ exports[`renders components/qr-code/demo/type.tsx correctly 1`] = `
   >
     <div
       class="ant-qrcode"
-      style="width:160px;height:160px;background-color:transparent"
+      style="background-color:transparent;width:160px;height:160px"
     >
       <canvas
         height="160"
@@ -413,7 +413,7 @@ exports[`renders components/qr-code/demo/type.tsx correctly 1`] = `
   >
     <div
       class="ant-qrcode"
-      style="width:160px;height:160px;background-color:transparent"
+      style="background-color:transparent;width:160px;height:160px"
     >
       <svg
         height="160"

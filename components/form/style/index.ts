@@ -46,6 +46,11 @@ export interface ComponentToken {
    */
   itemMarginBottom: number;
   /**
+   * @desc 行内布局表单项间距
+   * @descEN Inline layout form item margin bottom
+   */
+  inlineItemMarginBottom: number;
+  /**
    * @desc 垂直布局标签内边距
    * @descEN Vertical layout label padding
    */
@@ -410,7 +415,7 @@ const genHorizontalStyle: GenerateStyle<FormToken> = (token) => {
 };
 
 const genInlineStyle: GenerateStyle<FormToken> = (token) => {
-  const { componentCls, formItemCls } = token;
+  const { componentCls, formItemCls, inlineItemMarginBottom } = token;
 
   return {
     [`${componentCls}-inline`]: {
@@ -420,7 +425,7 @@ const genInlineStyle: GenerateStyle<FormToken> = (token) => {
       [formItemCls]: {
         flex: 'none',
         marginInlineEnd: token.margin,
-        marginBottom: 0,
+        marginBottom: inlineItemMarginBottom,
 
         '&-row': {
           flexWrap: 'nowrap',
@@ -552,6 +557,7 @@ export const prepareComponentToken: GetDefaultToken<'Form'> = (token) => ({
   itemMarginBottom: token.marginLG,
   verticalLabelPadding: `0 0 ${token.paddingXS}px`,
   verticalLabelMargin: 0,
+  inlineItemMarginBottom: 0,
 });
 
 export const prepareToken: (

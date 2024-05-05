@@ -86,6 +86,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onSearch | A callback function, can be executed when the search input changes | function(value: string) | - |  |
 | onSelect | A callback function, can be executed when you select a treeNode | function(value, node, extra) | - |  |
 | onTreeExpand | A callback function, can be executed when treeNode expanded | function(expandedKeys) | - |  |
+| onPopupScroll | Called when dropdown scrolls | (event: MouseEvent) => void | - | 5.17.0 |
 
 ### Tree Methods
 

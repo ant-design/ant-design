@@ -4,11 +4,10 @@ import CSSMotion from 'rc-motion';
 import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { resetWarned } from 'rc-util/lib/warning';
-import TestUtils from 'react-dom/test-utils';
 
 import type { ModalFuncProps } from '..';
 import Modal from '..';
-import { act, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import type { ModalFunc } from '../confirm';
 import destroyFns from '../destroyFns';
@@ -191,9 +190,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     await waitFakeTimer();
 
     expect($$(`.ant-modal-confirm-confirm`)).toHaveLength(1);
-    TestUtils.Simulate.keyDown($$('.ant-modal')[0], {
-      keyCode: KeyCode.ESC,
-    });
+    fireEvent.keyDown($$('.ant-modal')[0], { keyCode: KeyCode.ESC });
 
     await waitFakeTimer(0);
 
@@ -706,9 +703,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
         await waitFakeTimer();
 
         expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
-        TestUtils.Simulate.keyDown($$('.ant-modal')[0], {
-          keyCode: KeyCode.ESC,
-        });
+        fireEvent.keyDown($$('.ant-modal')[0], { keyCode: KeyCode.ESC });
 
         await waitFakeTimer(0);
 

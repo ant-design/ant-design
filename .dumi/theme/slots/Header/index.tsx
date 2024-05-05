@@ -51,6 +51,7 @@ const useStyle = createStyles(({ token, css }) => {
 
       @media only screen and (max-width: ${token.mobileMaxWidth}px) {
         text-align: center;
+        border: none;
       }
 
       .nav-search-wrapper {
@@ -111,7 +112,7 @@ const useStyle = createStyles(({ token, css }) => {
       }
     `,
     dataDirectionIcon: css`
-      width: 16px;
+      width: 20px;
     `,
     popoverMenu: {
       width: 300,
@@ -174,9 +175,6 @@ const Header: React.FC = () => {
   }, []);
   const onWindowResize = useCallback(() => {
     setHeaderState((prev) => ({ ...prev, windowWidth: window.innerWidth }));
-  }, []);
-  const handleShowMenu = useCallback(() => {
-    setHeaderState((prev) => ({ ...prev, menuVisible: true }));
   }, []);
   const onMenuVisibleChange = useCallback((visible: boolean) => {
     setHeaderState((prev) => ({ ...prev, menuVisible: visible }));
@@ -362,7 +360,7 @@ const Header: React.FC = () => {
           arrow={{ pointAtCenter: true }}
           onOpenChange={onMenuVisibleChange}
         >
-          <MenuOutlined className="nav-phone-icon" onClick={handleShowMenu} />
+          <MenuOutlined className="nav-phone-icon" />
         </Popover>
       )}
       {isZhCN && bannerVisible && (

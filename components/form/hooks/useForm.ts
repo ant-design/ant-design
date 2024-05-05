@@ -23,6 +23,23 @@ function toNamePathStr(name: NamePath) {
   return namePath.join('_');
 }
 
+function getFieldDOMNode(name: NamePath, wrapForm: FormInstance) {
+  const field = wrapForm.getFieldInstance(name);
+
+  if (field instanceof HTMLElement) {
+    return field;
+  }
+
+  if (field?.nativeElement instanceof HTMLElement) {
+    return field.nativeElement;
+  }
+
+  const fieldId = getFieldId(toArray(name), wrapForm.__INTERNAL__.name);
+  if (fieldId) {
+    return document.getElementById(fieldId);
+  }
+}
+
 export default function useForm<Values = any>(form?: FormInstance<Values>): [FormInstance<Values>] {
   const [rcForm] = useRcForm();
   const itemsRef = React.useRef<Record<string, React.ReactElement>>({});
@@ -42,9 +59,7 @@ export default function useForm<Values = any>(form?: FormInstance<Values>): [For
           },
         },
         scrollToField: (name: NamePath, options: ScrollOptions = {}) => {
-          const namePath = toArray(name);
-          const fieldId = getFieldId(namePath, wrapForm.__INTERNAL__.name);
-          const node: HTMLElement | null = fieldId ? document.getElementById(fieldId) : null;
+          const node = getFieldDOMNode(name, wrapForm);
 
           if (node) {
             scrollIntoView(node, {
