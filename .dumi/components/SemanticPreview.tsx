@@ -65,12 +65,11 @@ const useStyle = createStyles(({ token }, markPos: [number, number, number, numb
 }));
 
 export interface SemanticPreviewProps {
-  semantics: { name: string; desc: string; version?: string }[];
-  children: React.ReactElement;
   height?: number;
+  semantics: { name: string; desc: string; version?: string }[];
 }
 
-const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
+const SemanticPreview: React.FC<React.PropsWithChildren<SemanticPreviewProps>> = (props) => {
   const { semantics = [], children, height } = props;
   const { token } = theme.useToken();
 
@@ -90,7 +89,7 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
     return classNames;
   }, [semantics]);
 
-  const cloneNode = React.cloneElement(children, {
+  const cloneNode = React.cloneElement(children as React.ReactElement, {
     classNames: semanticClassNames,
   });
 
