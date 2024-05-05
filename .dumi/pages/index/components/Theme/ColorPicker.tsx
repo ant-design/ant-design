@@ -36,12 +36,11 @@ const useStyle = createStyles(({ token, css }) => ({
 
 export interface ColorPickerProps {
   id?: string;
-  children?: React.ReactNode;
   value?: string | Color;
   onChange?: (value?: Color | string) => void;
 }
 
-const DebouncedColorPicker: React.FC<ColorPickerProps> = (props) => {
+const DebouncedColorPicker: React.FC<React.PropsWithChildren<ColorPickerProps>> = (props) => {
   const { value: color, children, onChange } = props;
   const [value, setValue] = useState(color);
 
