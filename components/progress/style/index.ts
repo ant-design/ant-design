@@ -179,7 +179,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
           position: 'relative',
           zIndex: 1,
           [`&${progressCls}-text-bright`]: {
-            color: token.colorTextTertiary,
+            color: 'rgba(0, 0, 0, 0.45)',
           },
         },
       },
@@ -248,7 +248,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
             position: 'relative',
             zIndex: 1,
             [`&${progressCls}-text-bright`]: {
-              color: token.colorTextTertiary,
+              color: 'rgba(0, 0, 0, 0.45)',
             },
           },
         },
