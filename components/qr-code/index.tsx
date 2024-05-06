@@ -52,7 +52,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     level: errorLevel,
     bgColor,
     fgColor: color,
-    style: { width: undefined, height: undefined },
+    style: { width: style?.width, height: style?.height },
     imageSettings: icon ? imageSettings : undefined,
   };
 
@@ -79,10 +79,10 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   });
 
   const mergedStyle: React.CSSProperties = {
-    width: size,
-    height: size,
     backgroundColor: bgColor,
     ...style,
+    width: style?.width ?? size,
+    height: style?.height ?? size,
   };
 
   return wrapCSSVar(

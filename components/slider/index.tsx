@@ -154,7 +154,6 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
   // =============================== Open ===============================
   const [hoverOpen, setHoverOpen] = useRafLock();
   const [focusOpen, setFocusOpen] = useRafLock();
-  const activeOpen = hoverOpen || focusOpen;
 
   const tooltipProps: SliderTooltipProps = {
     ...tooltip,
@@ -168,6 +167,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
   } = tooltipProps;
 
   const lockOpen = tooltipOpen ?? legacyTooltipVisible;
+  const activeOpen = (hoverOpen || focusOpen) && lockOpen !== false;
 
   const mergedTipFormatter = getTipFormatter(tipFormatter, legacyTipFormatter);
 
@@ -291,6 +291,8 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
 
     const cloneNode = React.cloneElement(node, passedProps);
 
+    const open = (!!lockOpen || activeOpen) && mergedTipFormatter !== null;
+
     // Wrap on handle with Tooltip when is single mode or multiple with all show tooltip
     if (!useActiveTooltipHandle) {
       return (
@@ -298,7 +300,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
           {...tooltipProps}
           prefixCls={getPrefixCls('tooltip', customizeTooltipPrefixCls ?? legacyTooltipPrefixCls)}
           title={mergedTipFormatter ? mergedTipFormatter(info.value) : ''}
-          open={!!lockOpen || activeOpen}
+          open={open}
           placement={getTooltipPlacement(tooltipPlacement ?? legacyTooltipPlacement, vertical)}
           key={index}
           overlayClassName={`${prefixCls}-tooltip`}
@@ -329,7 +331,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
             {...tooltipProps}
             prefixCls={getPrefixCls('tooltip', customizeTooltipPrefixCls ?? legacyTooltipPrefixCls)}
             title={mergedTipFormatter ? mergedTipFormatter(info.value) : ''}
-            open={activeOpen}
+            open={mergedTipFormatter !== null && activeOpen}
             placement={getTooltipPlacement(tooltipPlacement ?? legacyTooltipPlacement, vertical)}
             key="tooltip"
             overlayClassName={`${prefixCls}-tooltip`}

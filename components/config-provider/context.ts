@@ -128,7 +128,7 @@ export type ModalConfig = ComponentStyleConfig &
   Pick<ModalProps, 'classNames' | 'styles' | 'closeIcon' | 'closable'>;
 
 export type TabsConfig = ComponentStyleConfig &
-  Pick<TabsProps, 'indicator' | 'indicatorSize' | 'moreIcon' | 'addIcon' | 'removeIcon'>;
+  Pick<TabsProps, 'indicator' | 'indicatorSize' | 'more' | 'moreIcon' | 'addIcon' | 'removeIcon'>;
 
 export type AlertConfig = ComponentStyleConfig & Pick<AlertProps, 'closable' | 'closeIcon'>;
 
@@ -140,7 +140,8 @@ export type InputConfig = ComponentStyleConfig &
 export type TextAreaConfig = ComponentStyleConfig &
   Pick<TextAreaProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear'>;
 
-export type ButtonConfig = ComponentStyleConfig & Pick<ButtonProps, 'classNames' | 'styles'>;
+export type ButtonConfig = ComponentStyleConfig &
+  Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace'>;
 
 export type NotificationConfig = ComponentStyleConfig & Pick<ArgsProps, 'closeIcon'>;
 
@@ -194,6 +195,7 @@ export interface ConfigConsumerProps {
    * @descEN Set the [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) config.
    */
   csp?: CSPConfig;
+  /** @deprecated Please use `{ button: { autoInsertSpace: boolean }}` instead */
   autoInsertSpaceInButton?: boolean;
   input?: InputConfig;
   textArea?: TextAreaConfig;

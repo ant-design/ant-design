@@ -11,11 +11,13 @@ interface PriceValue {
 }
 
 interface PriceInputProps {
+  id?: string;
   value?: PriceValue;
   onChange?: (value: PriceValue) => void;
 }
 
-const PriceInput: React.FC<PriceInputProps> = ({ value = {}, onChange }) => {
+const PriceInput: React.FC<PriceInputProps> = (props) => {
+  const { id, value = {}, onChange } = props;
   const [number, setNumber] = useState(0);
   const [currency, setCurrency] = useState<Currency>('rmb');
 
@@ -42,7 +44,7 @@ const PriceInput: React.FC<PriceInputProps> = ({ value = {}, onChange }) => {
   };
 
   return (
-    <span>
+    <span id={id}>
       <Input
         type="text"
         value={value.number || number}

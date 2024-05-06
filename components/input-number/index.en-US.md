@@ -95,3 +95,9 @@ Developer handle data by their own in control. It will make data out of sync if 
 ### Why `onBlur` or other event can not get correct value?
 
 InputNumber's value is wrapped by internal logic. The `event.target.value` you get from `onBlur` or other event is the DOM element's `value` instead of the actual value of InputNumber. For example, if you change the display format through `formatter` or `decimalSeparator`, you will get the formatted string in the DOM. You should always get the current value through `onChange`.
+
+### Why `changeOnWheel` unable to control whether the mouse scroll wheel changes value?
+
+> The use of the `type` attribute is deprecated
+
+The InputNumber component allows you to use all the attributes of the input element and ultimately pass them to the input element, This attribute will also be added to the input element when you pass in `type='number'`, which will cause the input element to trigger native properties (allowing the mouse wheel to change the value), As a result `changeOnWheel` cannot control whether the mouse wheel changes the value.

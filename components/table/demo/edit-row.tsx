@@ -25,10 +25,9 @@ interface EditableCellProps extends React.HTMLAttributes<HTMLElement> {
   inputType: 'number' | 'text';
   record: Item;
   index: number;
-  children: React.ReactNode;
 }
 
-const EditableCell: React.FC<EditableCellProps> = ({
+const EditableCell: React.FC<React.PropsWithChildren<EditableCellProps>> = ({
   editing,
   dataIndex,
   title,
