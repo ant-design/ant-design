@@ -238,27 +238,11 @@ const HeaderNavigation: React.FC<NavigationProps> = (props) => {
               ),
               key: 'antgroup',
             },
-            {
-              label: (
-                <a href="https://ant-design.gitee.io" target="_blank" rel="noreferrer">
-                  Gitee 镜像
-                </a>
-              ),
-              icon: (
-                <img
-                  alt="gitee"
-                  src="https://gw.alipayobjects.com/zos/bmw-prod/9e91e124-9bab-4113-b500-301412f6b370.svg"
-                  width={16}
-                  style={{ verticalAlign: 'text-bottom' }}
-                />
-              ),
-              key: 'gitee',
-            },
           ],
         }
       : null,
     ...(additional ?? []),
-  ];
+  ].filter(Boolean);
 
   return (
     <Menu
