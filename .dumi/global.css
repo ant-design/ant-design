@@ -18,3 +18,7 @@ html {
   scrollbar-width: thin;
   scrollbar-color: unset;
 }
+
+.ant-app {
+  overflow-x: hidden;
+}
