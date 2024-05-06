@@ -365,7 +365,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
     [`${componentCls}-contain-tabs`]: {
       [`> ${componentCls}-head`]: {
-        minHeight: 0,
+        minHeight: '0 !important',
         [`${componentCls}-head-title, ${componentCls}-extra`]: {
           paddingTop: cardHeadPadding,
         },
