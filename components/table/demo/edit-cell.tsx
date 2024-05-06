@@ -31,13 +31,12 @@ const EditableRow: React.FC<EditableRowProps> = ({ index, ...props }) => {
 interface EditableCellProps {
   title: React.ReactNode;
   editable: boolean;
-  children: React.ReactNode;
   dataIndex: keyof Item;
   record: Item;
   handleSave: (record: Item) => void;
 }
 
-const EditableCell: React.FC<EditableCellProps> = ({
+const EditableCell: React.FC<React.PropsWithChildren<EditableCellProps>> = ({
   title,
   editable,
   children,
