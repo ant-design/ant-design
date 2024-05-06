@@ -117,7 +117,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
   // Used for nest case like Modal, Drawer
   const [subElements, setSubElements] = React.useState(new Set<HTMLElement>());
   // Used for re-rendering the watermark Container
-  const [containerKey, setContainerKey] = React.useState(new Date().getTime());
+  const [containerKey, setContainerKey] = React.useState(0);
   // Nest elements should also support watermark
   const targetElements = React.useMemo(() => {
     const list = container ? [container] : [];
@@ -225,7 +225,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
       if (reRendering(mutation, isWatermarkEle)) {
         syncWatermark();
       } else if (reRendering(mutation, isWatermarkContainer)) {
-        setContainerKey(containerKey + 1);
+        setContainerKey((x) => x + 1);
       }
     });
   };
