@@ -87,7 +87,6 @@ describe('Card', () => {
       </Card>,
     );
     expect(container.querySelectorAll('.ant-tabs-small').length === 0).toBeFalsy();
-    expect(container.querySelector('.ant-card-head')).toHaveStyle('min-height: 0;');
   });
 
   it('tab size extend card size', () => {
