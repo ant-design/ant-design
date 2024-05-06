@@ -159,8 +159,14 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       position: 'absolute',
       width: `calc(100% - ${unit(borderRadiusLG)} * 2)`,
       height: '2px',
-      left: borderRadiusLG,
-      right: borderRadiusLG,
+      left: {
+        _skip_check_: true,
+        value: borderRadiusLG,
+      },
+      right: {
+        _skip_check_: true,
+        value: borderRadiusLG,
+      },
       bottom: '-2px',
 
       '.rc-progress-line': {
