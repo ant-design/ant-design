@@ -48,9 +48,24 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         marginInlineStart: token.marginXS,
       },
 
-      [`&:not(${componentCls}-icon-only) > ${componentCls}-icon`]: {
-        [`&${componentCls}-loading-icon, &:not(:last-child)`]: {
-          marginInlineEnd: token.marginXS,
+      [`&:not(${componentCls}-icon-only)`]: {
+        // https://github.com/ant-design/ant-design/issues/48807
+        [`&:not(${componentCls}-rtl) > ${componentCls}-icon`]: {
+          [`&:not(:last-child)`]: {
+            marginInlineEnd: token.marginXS,
+          },
+          '&-end': {
+            marginInlineStart: token.marginXS,
+          },
+        },
+
+        [`&${componentCls}-rtl > ${componentCls}-icon`]: {
+          [`&:last-child`]: {
+            marginInlineStart: token.marginXS,
+          },
+          '&-end': {
+            marginInlineEnd: token.marginXS,
+          },
         },
       },
 

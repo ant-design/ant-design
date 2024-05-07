@@ -251,7 +251,8 @@ const InternalCompoundedButton = React.forwardRef<
         existIcon={!!icon}
         prefixCls={prefixCls}
         loading={!!innerLoading}
-        iconPosition={iconPosition}
+        className={iconClasses}
+        style={iconStyle}
       />
     );
 
