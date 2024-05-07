@@ -124,7 +124,7 @@ const HeaderNavigation: React.FC<NavigationProps> = (props) => {
     activeMenuItem = 'docs/resources';
   }
 
-  let additional: MenuProps['items'];
+  let additional: MenuProps['items'] = [];
 
   const additionalItems: MenuProps['items'] = [
     {
@@ -215,30 +215,12 @@ const HeaderNavigation: React.FC<NavigationProps> = (props) => {
     },
     isZhCN
       ? {
+          key: 'mirror',
           label: (
             <a href="https://ant-design.antgroup.com" target="_blank" rel="noreferrer">
               国内镜像
             </a>
           ),
-          key: 'mirror',
-          children: [
-            {
-              label: (
-                <a href="https://ant-design.antgroup.com" target="_blank" rel="noreferrer">
-                  官方镜像
-                </a>
-              ),
-              icon: (
-                <img
-                  alt="logo"
-                  src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-                  width={16}
-                  style={{ verticalAlign: 'text-bottom' }}
-                />
-              ),
-              key: 'antgroup',
-            },
-          ],
         }
       : null,
     ...(additional ?? []),
