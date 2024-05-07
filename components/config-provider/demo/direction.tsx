@@ -93,7 +93,7 @@ const cascaderOptions = [
 
 type Placement = 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';
 
-const Page: React.FC<{ popupPlacement: Placement }> = ({ popupPlacement }) => {
+const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
   const [badgeCount, setBadgeCount] = useState(5);
@@ -169,7 +169,7 @@ const Page: React.FC<{ popupPlacement: Placement }> = ({ popupPlacement }) => {
             options={cascaderOptions}
             onChange={onCascaderChange}
             placeholder="یک مورد انتخاب کنید"
-            popupPlacement={popupPlacement}
+            placement={placement}
           />
           &nbsp;&nbsp;&nbsp;&nbsp;With search:&nbsp;&nbsp;
           <Cascader
@@ -177,7 +177,7 @@ const Page: React.FC<{ popupPlacement: Placement }> = ({ popupPlacement }) => {
             options={cascaderOptions}
             onChange={onCascaderChange}
             placeholder="Select an item"
-            popupPlacement={popupPlacement}
+            placement={placement}
             showSearch={{ filter: cascaderFilter }}
           />
         </Col>
@@ -495,15 +495,15 @@ const Page: React.FC<{ popupPlacement: Placement }> = ({ popupPlacement }) => {
 
 const App: React.FC = () => {
   const [direction, setDirection] = useState<DirectionType>('ltr');
-  const [popupPlacement, setPopupPlacement] = useState<Placement>('bottomLeft');
+  const [placement, setPlacement] = useState<Placement>('bottomLeft');
 
   const changeDirection = (e: RadioChangeEvent) => {
     const directionValue = e.target.value;
     setDirection(directionValue);
     if (directionValue === 'rtl') {
-      setPopupPlacement('bottomRight');
+      setPlacement('bottomRight');
     } else {
-      setPopupPlacement('bottomLeft');
+      setPlacement('bottomLeft');
     }
   };
 
@@ -521,7 +521,7 @@ const App: React.FC = () => {
         </Radio.Group>
       </div>
       <ConfigProvider direction={direction}>
-        <Page popupPlacement={popupPlacement} />
+        <Page placement={placement} />
       </ConfigProvider>
     </>
   );
