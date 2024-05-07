@@ -51,12 +51,25 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         marginInlineStart: token.marginXS,
       },
 
-      [`&:not(${componentCls}-icon-only) > ${componentCls}-icon`]: {
+      [`&:not(${componentCls}-icon-only):not(${componentCls}-rtl) > ${componentCls}-icon`]: {
         [`&${componentCls}-loading-icon, &:not(:last-child)`]: {
           marginInlineEnd: token.marginXS,
         },
         [`&${componentCls}-loading-icon-end`]: {
           marginInlineStart: token.marginXS,
+        },
+      },
+
+      [`&${componentCls}-rtl:not(${componentCls}-icon-only) > ${componentCls}-icon`]: {
+        [`&${componentCls}-loading-icon, &:not(:first-child)`]: {
+          marginInlineStart: token.marginXS,
+        },
+        [`&${componentCls}-loading-icon-end`]: {
+          marginInlineEnd: token.marginXS,
+        },
+        [`&${componentCls}-icon-end`]: {
+          marginInlineEnd: token.marginXS,
+          marginInlineStart: 0,
         },
       },
 
