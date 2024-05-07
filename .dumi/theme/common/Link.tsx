@@ -10,6 +10,8 @@ export interface LinkProps {
   onClick?: MouseEventHandler;
 }
 
+nprogress.configure({ showSpinner: false });
+
 const Link = forwardRef<HTMLAnchorElement, React.PropsWithChildren<LinkProps>>((props, ref) => {
   const { to, children, ...rest } = props;
   const [isPending, startTransition] = useTransition();
