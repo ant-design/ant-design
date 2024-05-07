@@ -81,8 +81,8 @@ export const getSize = (
     } else if (typeof size === 'number') {
       [width, height] = [size, size];
     } else if (!Array.isArray(size) && typeof size === 'object') {
-      width = size.width ?? 120;
-      height = size.height ?? 120;
+      width = size.width ?? size.height ?? 120;
+      height = size.width ?? size.height ?? 120;
     } else {
       width = (size[0] ?? size[1] ?? 120) as number;
       height = (size[0] ?? size[1] ?? 120) as number;

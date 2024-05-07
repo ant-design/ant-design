@@ -128,12 +128,20 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     warning.deprecated(!('successPercent' in props), 'successPercent', 'success.percent');
     warning.deprecated(!('width' in props), 'width', 'size');
 
-    if ((type === 'circle' || type === 'dashboard') && Array.isArray(size)) {
-      warning(
-        false,
-        'usage',
-        'Type "circle" and "dashboard" do not accept array as `size`, please use number or preset size instead.',
-      );
+    if (type === 'circle' || type === 'dashboard') {
+      if (Array.isArray(size)) {
+        warning(
+          false,
+          'usage',
+          'Type "circle" and "dashboard" do not accept array as `size`, please use number or preset size instead.',
+        );
+      } else if (typeof size === 'object') {
+        warning(
+          false,
+          'usage',
+          'Type "circle" and "dashboard" do not accept object as `size`, please use number or preset size instead.',
+        );
+      }
     }
 
     if (props.success && 'progress' in props.success) {
