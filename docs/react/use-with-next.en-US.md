@@ -1,7 +1,7 @@
 ---
 group:
   title: Basic Usage
-order: 2
+order: 3
 title: Usage with Next.js
 tag: Updated
 ---
