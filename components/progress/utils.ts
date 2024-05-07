@@ -56,6 +56,9 @@ export const getSize = (
       height = strokeWidth ?? 8;
     } else if (typeof size === 'number') {
       [width, height] = [size, size];
+    } else if (!Array.isArray(size) && typeof size === 'object') {
+      width = size.width ?? 14;
+      height = size.height ?? 8;
     } else {
       [width = 14, height = 8] = size as [number, number];
     }
@@ -66,6 +69,9 @@ export const getSize = (
       height = strokeWidth || (size === 'small' ? 6 : 8);
     } else if (typeof size === 'number') {
       [width, height] = [size, size];
+    } else if (!Array.isArray(size) && typeof size === 'object') {
+      width = size.width ?? -1;
+      height = size.height ?? 8;
     } else {
       [width = -1, height = 8] = size as [number, number];
     }
@@ -74,6 +80,9 @@ export const getSize = (
       [width, height] = size === 'small' ? [60, 60] : [120, 120];
     } else if (typeof size === 'number') {
       [width, height] = [size, size];
+    } else if (!Array.isArray(size) && typeof size === 'object') {
+      width = size.width ?? 120;
+      height = size.height ?? 120;
     } else {
       width = (size[0] ?? size[1] ?? 120) as number;
       height = (size[0] ?? size[1] ?? 120) as number;
