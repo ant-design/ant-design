@@ -56,12 +56,13 @@ export const getSize = (
       height = strokeWidth ?? 8;
     } else if (typeof size === 'number') {
       [width, height] = [size, size];
-    } else if (!Array.isArray(size) && typeof size === 'object') {
-      width = size.width ?? 14;
-      height = size.height ?? 8;
     } else {
-      [width = 14, height = 8] = size as [number, number];
+      [width = 14, height = 8] = (Array.isArray(size) ? size : [size.width, size.height]) as [
+        number,
+        number,
+      ];
     }
+
     width *= steps;
   } else if (type === 'line') {
     const strokeWidth = extra?.strokeWidth;
@@ -69,23 +70,23 @@ export const getSize = (
       height = strokeWidth || (size === 'small' ? 6 : 8);
     } else if (typeof size === 'number') {
       [width, height] = [size, size];
-    } else if (!Array.isArray(size) && typeof size === 'object') {
-      width = size.width ?? -1;
-      height = size.height ?? 8;
     } else {
-      [width = -1, height = 8] = size as [number, number];
+      [width = -1, height = 8] = (Array.isArray(size) ? size : [size.width, size.height]) as [
+        number,
+        number,
+      ];
     }
   } else if (type === 'circle' || type === 'dashboard') {
     if (typeof size === 'string' || typeof size === 'undefined') {
       [width, height] = size === 'small' ? [60, 60] : [120, 120];
     } else if (typeof size === 'number') {
       [width, height] = [size, size];
-    } else if (!Array.isArray(size) && typeof size === 'object') {
-      width = size.width ?? size.height ?? 120;
-      height = size.width ?? size.height ?? 120;
     } else {
-      width = (size[0] ?? size[1] ?? 120) as number;
-      height = (size[0] ?? size[1] ?? 120) as number;
+      [width, height] = (
+        Array.isArray(size)
+          ? [size[0] ?? size[1], size[0] ?? size[1]]
+          : [size.width ?? size.height, size.width ?? size.height]
+      ) as [number, number];
     }
   }
   return [width, height];
