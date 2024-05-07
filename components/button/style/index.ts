@@ -13,6 +13,7 @@ export type { ComponentToken };
 // ============================== Shared ==============================
 const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSSObject => {
   const { componentCls, iconCls, fontWeight } = token;
+
   return {
     [componentCls]: {
       outline: 'none',
@@ -40,10 +41,6 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
 
       [`${componentCls}-icon`]: {
         lineHeight: 0,
-        // iconPosition in end
-        [`&-end`]: {
-          marginInlineStart: token.marginXS,
-        },
       },
 
       // Leave a space between icon and text.
@@ -54,9 +51,6 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       [`&:not(${componentCls}-icon-only) > ${componentCls}-icon`]: {
         [`&${componentCls}-loading-icon, &:not(:last-child)`]: {
           marginInlineEnd: token.marginXS,
-        },
-        [`&${componentCls}-loading-icon-end`]: {
-          marginInlineStart: token.marginXS,
         },
       },
 

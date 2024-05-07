@@ -1,9 +1,7 @@
-import React, { forwardRef } from 'react';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
-
-import type { ButtonProps } from './button';
+import React, { forwardRef } from 'react';
 import IconWrapper from './IconWrapper';
 
 type InnerLoadingIconProps = {
@@ -11,29 +9,27 @@ type InnerLoadingIconProps = {
   className?: string;
   style?: React.CSSProperties;
   iconClassName?: string;
-} & Pick<ButtonProps, 'iconPosition'>;
+};
 
-const InnerLoadingIcon = forwardRef<HTMLSpanElement, InnerLoadingIconProps>((props, ref) => {
-  const { prefixCls, className, style, iconClassName, iconPosition = 'start' } = props;
-  const mergedIconCls = classNames(className, {
-    [`${prefixCls}-loading-icon-end`]: iconPosition === 'end',
-    [`${prefixCls}-loading-icon`]: iconPosition === 'start',
-  });
+const InnerLoadingIcon = forwardRef<HTMLSpanElement, InnerLoadingIconProps>(
+  ({ prefixCls, className, style, iconClassName }, ref) => {
+    const mergedIconCls = classNames(`${prefixCls}-loading-icon`, className);
 
-  return (
-    <IconWrapper prefixCls={prefixCls} className={mergedIconCls} style={style} ref={ref}>
-      <LoadingOutlined className={iconClassName} />
-    </IconWrapper>
-  );
-});
+    return (
+      <IconWrapper prefixCls={prefixCls} className={mergedIconCls} style={style} ref={ref}>
+        <LoadingOutlined className={iconClassName} />
+      </IconWrapper>
+    );
+  },
+);
 
-export type LoadingIconProps = {
+export interface LoadingIconProps {
   prefixCls: string;
   existIcon: boolean;
   loading?: boolean | object;
   className?: string;
   style?: React.CSSProperties;
-} & Pick<ButtonProps, 'iconPosition'>;
+}
 
 const getCollapsedWidth = (): React.CSSProperties => ({
   width: 0,
@@ -48,18 +44,11 @@ const getRealWidth = (node: HTMLElement): React.CSSProperties => ({
 });
 
 const LoadingIcon: React.FC<LoadingIconProps> = (props) => {
-  const { prefixCls, loading, existIcon, className, style, iconPosition } = props;
+  const { prefixCls, loading, existIcon, className, style } = props;
   const visible = !!loading;
 
   if (existIcon) {
-    return (
-      <InnerLoadingIcon
-        prefixCls={prefixCls}
-        className={className}
-        style={style}
-        iconPosition={iconPosition}
-      />
-    );
+    return <InnerLoadingIcon prefixCls={prefixCls} className={className} style={style} />;
   }
 
   return (
@@ -83,7 +72,6 @@ const LoadingIcon: React.FC<LoadingIconProps> = (props) => {
           style={{ ...style, ...motionStyle }}
           ref={ref}
           iconClassName={motionCls}
-          iconPosition={iconPosition}
         />
       )}
     </CSSMotion>
