@@ -1,5 +1,5 @@
 import React from 'react';
-import { SearchOutlined } from '@ant-design/icons';
+import { SearchOutlined, AntDesignOutlined } from '@ant-design/icons';
 import { Button, ConfigProvider, Divider, Flex, Radio, Tooltip } from 'antd';
 import type { ConfigProviderProps } from 'antd';
 
@@ -17,42 +17,60 @@ const App: React.FC = () => {
       <Divider orientation="left" plain>
         Preview
       </Divider>
-      <ConfigProvider componentSize={size}>
-        <Flex gap="small" vertical>
+      <Flex gap="small" vertical>
+        <ConfigProvider componentSize={size}>
+          <Flex gap="small" vertical>
+            <Flex gap="small" wrap>
+              <Tooltip title="search">
+                <Button type="primary" shape="circle" icon={<SearchOutlined />} />
+              </Tooltip>
+              <Button type="primary" shape="circle">
+                A
+              </Button>
+              <Button type="primary" icon={<SearchOutlined />}>
+                Search
+              </Button>
+              <Tooltip title="search">
+                <Button shape="circle" icon={<SearchOutlined />} />
+              </Tooltip>
+              <Button icon={<SearchOutlined />}>Search</Button>
+            </Flex>
+            <Flex gap="small" wrap>
+              <Tooltip title="search">
+                <Button shape="circle" icon={<SearchOutlined />} />
+              </Tooltip>
+              <Button icon={<SearchOutlined />}>Search</Button>
+              <Tooltip title="search">
+                <Button type="dashed" shape="circle" icon={<SearchOutlined />} />
+              </Tooltip>
+              <Button type="dashed" icon={<SearchOutlined />}>
+                Search
+              </Button>
+              <Button icon={<SearchOutlined />} href="https://www.google.com" />
+              <Button>
+                <SearchOutlined />
+                Search
+              </Button>
+            </Flex>
+          </Flex>
+        </ConfigProvider>
+        <ConfigProvider direction="rtl" componentSize={size}>
           <Flex gap="small" wrap>
-            <Tooltip title="search">
-              <Button type="primary" shape="circle" icon={<SearchOutlined />} />
-            </Tooltip>
+            <Button type="primary" shape="circle" icon={<SearchOutlined />} />
             <Button type="primary" shape="circle">
               A
             </Button>
-            <Button type="primary" icon={<SearchOutlined />}>
+            <Button type="primary" shape="circle" loading />
+            <Button type="primary" icon={<SearchOutlined />} loading>
               Search
             </Button>
-            <Tooltip title="search">
-              <Button shape="circle" icon={<SearchOutlined />} />
-            </Tooltip>
-            <Button icon={<SearchOutlined />}>Search</Button>
-          </Flex>
-          <Flex gap="small" wrap>
-            <Tooltip title="search">
-              <Button shape="circle" icon={<SearchOutlined />} />
-            </Tooltip>
-            <Button icon={<SearchOutlined />}>Search</Button>
-            <Tooltip title="search">
-              <Button type="dashed" shape="circle" icon={<SearchOutlined />} />
-            </Tooltip>
-            <Button type="dashed" icon={<SearchOutlined />}>
-              Search
-            </Button>
-            <Button icon={<SearchOutlined />} href="https://www.google.com" />
-            <Button>
-              <SearchOutlined />
+            <Button type="primary" icon={<SearchOutlined />} loading>
+              <AntDesignOutlined />
               Search
             </Button>
           </Flex>
-        </Flex>
-      </ConfigProvider>
+        </ConfigProvider>
+      </Flex>
     </>
   );
 };
