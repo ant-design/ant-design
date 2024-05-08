@@ -81,12 +81,9 @@ export const getSize = (
       [width, height] = size === 'small' ? [60, 60] : [120, 120];
     } else if (typeof size === 'number') {
       [width, height] = [size, size];
-    } else {
-      [width = 120, height = 120] = (
-        Array.isArray(size)
-          ? [size[0] ?? size[1], size[0] ?? size[1]]
-          : [size.width ?? size.height, size.width ?? size.height]
-      ) as [number, number];
+    } else if (Array.isArray(size)) {
+      width = (size[0] ?? size[1] ?? 120) as number;
+      height = (size[0] ?? size[1] ?? 120) as number;
     }
   }
   return [width, height];
