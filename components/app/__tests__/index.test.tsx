@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 import type { NotificationConfig } from 'antd/es/notification/interface';
+import ConfigProvider from 'antd/es/config-provider';
 
 import App from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -211,6 +212,16 @@ describe('App', () => {
   });
 
   describe('component', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    afterEach(() => {
+      errorSpy.mockReset();
+    });
+
+    afterAll(() => {
+      errorSpy.mockRestore();
+    });
+
     it('replace', () => {
       const { container } = render(
         <App component="section">
@@ -222,15 +233,25 @@ describe('App', () => {
     });
 
     it('to false', () => {
-      const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(
         <App component={false}>
           <p />
         </App>,
       );
-      expect(warnSpy).not.toHaveBeenCalled();
+      expect(errorSpy).not.toHaveBeenCalled();
       expect(container.querySelector('.ant-app')).toBeFalsy();
-      warnSpy.mockRestore();
+    });
+
+    it('should warn if component is false and cssVarCls is not empty', () => {
+      render(
+        <ConfigProvider theme={{ cssVar: true }}>
+          <App component={false} />
+        </ConfigProvider>,
+      );
+
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: App] When using cssVar, ensure `component` is assigned a valid React component string.',
+      );
     });
   });
 });
