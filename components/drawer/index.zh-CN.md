@@ -22,7 +22,7 @@ demo:
 <!-- prettier-ignore -->
 <code src="./demo/basic-right.tsx">基础抽屉</code>
 <code src="./demo/placement.tsx">自定义位置</code>
-<code src="./demo/loading.tsx">加载中</code>
+<code src="./demo/loading.tsx" version="5.17.0">加载中</code>
 <code src="./demo/extra.tsx">额外操作</code>
 <code src="./demo/render-in-current.tsx">渲染在当前 DOM</code>
 <code src="./demo/form-in-drawer.tsx">抽屉表单</code>
