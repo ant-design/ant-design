@@ -3,7 +3,6 @@ import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 
-import type { ButtonProps } from './button';
 import IconWrapper from './IconWrapper';
 
 type InnerLoadingIconProps = {
