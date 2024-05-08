@@ -258,16 +258,18 @@ const InternalCompoundedButton = React.forwardRef<
   const kids =
     children || children === 0 ? spaceChildren(children, needInserted && mergedInsertSpace) : null;
 
-  const genButtonContent = (iconComponent: React.ReactNode, kidsComponent: React.ReactNode) => {
-    const isRTL = direction === 'rtl';
-    const iconFirst = (iconPosition === 'start' && !isRTL) || (iconPosition === 'end' && isRTL);
-    return (
+  const genButtonContent = (iconComponent: React.ReactNode, kidsComponent: React.ReactNode) =>
+    iconPosition === 'start' ? (
       <>
-        {iconFirst ? iconComponent : kidsComponent}
-        {iconFirst ? kidsComponent : iconComponent}
+        {iconComponent}
+        {kidsComponent}
+      </>
+    ) : (
+      <>
+        {kidsComponent}
+        {iconComponent}
       </>
     );
-  };
 
   if (linkButtonRestProps.href !== undefined) {
     return wrapCSSVar(
