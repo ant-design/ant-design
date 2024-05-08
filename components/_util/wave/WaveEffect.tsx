@@ -20,7 +20,7 @@ export interface WaveEffectProps {
 
 const WaveEffect: React.FC<WaveEffectProps> = (props) => {
   const { className, target, component } = props;
-  const divRef = React.useRef<HTMLDivElement>(null);
+  const divRef = React.useRef<HTMLDivElement | null>(null);
 
   const [color, setWaveColor] = React.useState<string | null>(null);
   const [borderRadius, setBorderRadius] = React.useState<number[]>([]);
@@ -125,9 +125,12 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
         return false;
       }}
     >
-      {({ className: motionClassName }) => (
+      {({ className: motionClassName }, setNodeRef) => (
         <div
-          ref={divRef}
+          ref={(node) => {
+            divRef.current = node;
+            setNodeRef(node);
+          }}
           className={classNames(
             className,
             {
