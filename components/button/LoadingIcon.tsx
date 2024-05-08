@@ -11,14 +11,11 @@ type InnerLoadingIconProps = {
   className?: string;
   style?: React.CSSProperties;
   iconClassName?: string;
-} & Pick<ButtonProps, 'iconPosition'>;
+};
 
 const InnerLoadingIcon = forwardRef<HTMLSpanElement, InnerLoadingIconProps>((props, ref) => {
-  const { prefixCls, className, style, iconClassName, iconPosition = 'start' } = props;
-  const mergedIconCls = classNames(className, {
-    [`${prefixCls}-loading-icon-end`]: iconPosition === 'end',
-    [`${prefixCls}-loading-icon`]: iconPosition === 'start',
-  });
+  const { prefixCls, className, style, iconClassName } = props;
+  const mergedIconCls = classNames(`${prefixCls}-loading-icon`, className);
 
   return (
     <IconWrapper prefixCls={prefixCls} className={mergedIconCls} style={style} ref={ref}>
@@ -33,7 +30,7 @@ export type LoadingIconProps = {
   loading?: boolean | object;
   className?: string;
   style?: React.CSSProperties;
-} & Pick<ButtonProps, 'iconPosition'>;
+};
 
 const getCollapsedWidth = (): React.CSSProperties => ({
   width: 0,
@@ -48,18 +45,11 @@ const getRealWidth = (node: HTMLElement): React.CSSProperties => ({
 });
 
 const LoadingIcon: React.FC<LoadingIconProps> = (props) => {
-  const { prefixCls, loading, existIcon, className, style, iconPosition } = props;
+  const { prefixCls, loading, existIcon, className, style } = props;
   const visible = !!loading;
 
   if (existIcon) {
-    return (
-      <InnerLoadingIcon
-        prefixCls={prefixCls}
-        className={className}
-        style={style}
-        iconPosition={iconPosition}
-      />
-    );
+    return <InnerLoadingIcon prefixCls={prefixCls} className={className} style={style} />;
   }
 
   return (
@@ -83,7 +73,6 @@ const LoadingIcon: React.FC<LoadingIconProps> = (props) => {
           style={{ ...style, ...motionStyle }}
           ref={ref}
           iconClassName={motionCls}
-          iconPosition={iconPosition}
         />
       )}
     </CSSMotion>

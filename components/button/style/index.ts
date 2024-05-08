@@ -41,28 +41,6 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         display: 'inline-block',
       },
 
-      [`${componentCls}-icon`]: {
-        lineHeight: 0,
-        // iconPosition in end
-        [`&-end`]: {
-          marginInlineStart: token.marginXS,
-        },
-      },
-
-      // Leave a space between icon and text.
-      [`> ${iconCls} + span, > span + ${iconCls}`]: {
-        marginInlineStart: token.marginXS,
-      },
-
-      [`&:not(${componentCls}-icon-only) > ${componentCls}-icon`]: {
-        [`&${componentCls}-loading-icon, &:not(:last-child)`]: {
-          marginInlineEnd: token.marginXS,
-        },
-        [`&${componentCls}-loading-icon-end`]: {
-          marginInlineStart: token.marginXS,
-        },
-      },
-
       '> a': {
         color: 'currentColor',
       },
@@ -78,6 +56,11 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       [`&${componentCls}-two-chinese-chars > *:not(${iconCls})`]: {
         marginInlineEnd: '-0.34em',
         letterSpacing: '0.34em',
+      },
+
+      // iconPosition="end"
+      '&-icon-end': {
+        flexDirection: 'row-reverse',
       },
 
       // make `btn-icon-only` not too narrow
