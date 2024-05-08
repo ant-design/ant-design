@@ -1357,13 +1357,12 @@ Array [
         class="ant-radio-group ant-radio-group-outline"
       >
         <label
-          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+          class="ant-radio-button-wrapper"
         >
           <span
-            class="ant-radio-button ant-radio-button-checked"
+            class="ant-radio-button"
           >
             <input
-              checked=""
               class="ant-radio-button-input"
               type="radio"
               value="start"
@@ -1377,12 +1376,13 @@ Array [
           </span>
         </label>
         <label
-          class="ant-radio-button-wrapper"
+          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
         >
           <span
-            class="ant-radio-button"
+            class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              checked=""
               class="ant-radio-button-input"
               type="radio"
               value="end"
@@ -1454,8 +1454,11 @@ Array [
         class="ant-btn ant-btn-primary"
         type="button"
       >
+        <span>
+          Search
+        </span>
         <span
-          class="ant-btn-icon"
+          class="ant-btn-icon ant-btn-icon-end"
         >
           <span
             aria-label="search"
@@ -1476,9 +1479,6 @@ Array [
               />
             </svg>
           </span>
-        </span>
-        <span>
-          Search
         </span>
       </button>
       <button
@@ -1513,8 +1513,11 @@ Array [
         class="ant-btn ant-btn-default"
         type="button"
       >
+        <span>
+          Search
+        </span>
         <span
-          class="ant-btn-icon"
+          class="ant-btn-icon ant-btn-icon-end"
         >
           <span
             aria-label="search"
@@ -1535,9 +1538,6 @@ Array [
               />
             </svg>
           </span>
-        </span>
-        <span>
-          Search
         </span>
       </button>
     </div>
@@ -1576,8 +1576,11 @@ Array [
         class="ant-btn ant-btn-text"
         type="button"
       >
+        <span>
+          Search
+        </span>
         <span
-          class="ant-btn-icon"
+          class="ant-btn-icon ant-btn-icon-end"
         >
           <span
             aria-label="search"
@@ -1598,9 +1601,6 @@ Array [
               />
             </svg>
           </span>
-        </span>
-        <span>
-          Search
         </span>
       </button>
       <button
@@ -1635,8 +1635,11 @@ Array [
         class="ant-btn ant-btn-dashed"
         type="button"
       >
+        <span>
+          Search
+        </span>
         <span
-          class="ant-btn-icon"
+          class="ant-btn-icon ant-btn-icon-end"
         >
           <span
             aria-label="search"
@@ -1657,9 +1660,6 @@ Array [
               />
             </svg>
           </span>
-        </span>
-        <span>
-          Search
         </span>
       </button>
       <a
@@ -1695,8 +1695,11 @@ Array [
         class="ant-btn ant-btn-primary ant-btn-loading"
         type="button"
       >
+        <span>
+          Loading
+        </span>
         <span
-          class="ant-btn-icon ant-btn-loading-icon"
+          class="ant-btn-icon ant-btn-loading-icon-end"
         >
           <span
             aria-label="loading"
@@ -1717,9 +1720,6 @@ Array [
               />
             </svg>
           </span>
-        </span>
-        <span>
-          Loading
         </span>
       </button>
     </div>
