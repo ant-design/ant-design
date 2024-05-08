@@ -110,7 +110,7 @@ fi
 if ! has_arg '--skip-node' "$@"; then
   echo "[TEST ALL] test node"
   echo "[TEST ALL] test node" > ~test-all.txt
-  npm run test-node -- --bail
+  npm run test:node -- --bail
 else
   echo "[TEST ALL] test node...skip"
 fi

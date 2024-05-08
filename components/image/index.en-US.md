@@ -2,12 +2,11 @@
 category: Components
 group: Data Display
 title: Image
+description: Preview-able image.
 cols: 2
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*FbOCS6aFMeUAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-Previewable image.
 
 ## When To Use
 
@@ -68,6 +67,7 @@ Other attributes [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/El
 | forceRender | Force render preview dialog | boolean | - | - |
 | toolbarRender | Custom toolbar render | (originalNode: React.ReactElement, info: Omit<[ToolbarRenderInfoType](#toolbarrenderinfotype), 'current' \| 'total'>) => React.ReactNode | - | 5.7.0 |
 | imageRender | Custom preview content | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype) }) => React.ReactNode | - | 5.7.0 |
+| destroyOnClose | Destroy child elements when closing preview | boolean | false |  |
 | onTransform | Callback when the transform of image changed | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - | 5.7.0 |
 | onVisibleChange | Callback when `visible` changed | (visible: boolean, prevVisible: boolean) => void | - | - |
 

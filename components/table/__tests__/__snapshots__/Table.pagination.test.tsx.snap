@@ -519,7 +519,7 @@ exports[`Table.pagination should not crash when trigger onChange in render 1`] =
                 class="ant-table-thead"
               >
                 <tr>
-                  <td
+                  <th
                     class="ant-table-cell"
                   />
                 </tr>

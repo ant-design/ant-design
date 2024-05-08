@@ -1,22 +1,21 @@
 /* eslint-disable compat/compat */
-/* eslint-disable no-console, no-await-in-loop, import/no-extraneous-dependencies, lodash/import-scope, no-restricted-syntax */
+/* eslint-disable no-console, no-await-in-loop, import/no-extraneous-dependencies, no-restricted-syntax */
 import { assert } from 'console';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
 import { Readable } from 'stream';
 import { finished } from 'stream/promises';
+import simpleGit from 'simple-git';
 import chalk from 'chalk';
 import fse from 'fs-extra';
-import _ from 'lodash';
+import difference from 'lodash/difference';
 import minimist from 'minimist';
 import pixelmatch from 'pixelmatch';
 import { PNG } from 'pngjs';
-import { remark } from 'remark';
-import remarkGfm from 'remark-gfm';
-import remarkHtml from 'remark-html';
 import sharp from 'sharp';
-import tar from 'tar';
+
+import markdown2Html from './convert';
 
 const ROOT_DIR = process.cwd();
 const ALI_OSS_BUCKET = 'antd-visual-diff';
@@ -106,6 +105,7 @@ async function getBranchLatestRef(branchName: string) {
 }
 
 async function downloadBaseSnapshots(ref: string, targetDir: string) {
+  const tar = await import('tar');
   // download imageSnapshotsUrl
   const imageSnapshotsUrl = `${ossDomain}/${ref}/imageSnapshots.tar.gz`;
   const targzPath = path.resolve(os.tmpdir(), `./${path.basename(targetDir)}.tar.gz`);
@@ -119,36 +119,126 @@ async function downloadBaseSnapshots(ref: string, targetDir: string) {
   });
 }
 
+interface IImageDesc {
+  src: string;
+  alt: string;
+}
+
+function getMdImageTag(desc: IImageDesc, extraCaption?: boolean) {
+  const { src, alt } = desc;
+  if (!extraCaption || !alt) {
+    // in md2html report, we use `@microflash/rehype-figure` to generate a figure
+    return `![${alt}](${src})`;
+  }
+  // show caption with image in github markdown comment
+  return `![${alt}](${src}) ${alt}`;
+}
+
 interface IBadCase {
-  type: 'removed' | 'changed';
+  type: 'removed' | 'changed' | 'added';
   filename: string;
+  /**
+   * compare target file
+   */
+  targetFilename?: string;
   /**
    * 0 - 1
    */
   weight: number;
 }
 
-function md2Html(md: string) {
-  return remark().use(remarkGfm).use(remarkHtml).processSync(md).toString();
-}
+const git = simpleGit();
 
-function parseArgs() {
+async function parseArgs() {
   // parse args from -- --pr-id=123 --base_ref=feature
   const argv = minimist(process.argv.slice(2));
   const prId = argv['pr-id'];
   assert(prId, 'Missing --pr-id');
   const baseRef = argv['base-ref'];
   assert(baseRef, 'Missing --base-ref');
+
+  const { latest } = await git.log();
+
   return {
     prId,
     baseRef,
+    currentRef: latest?.hash.slice(0, 8) || '',
   };
+}
+
+function generateLineReport(
+  badCase: IBadCase,
+  publicPath: string,
+  currentRef: string,
+  extraCaption?: boolean,
+) {
+  const { filename, type, targetFilename } = badCase;
+
+  let lineHTMLReport = '';
+  if (type === 'changed') {
+    lineHTMLReport += '| ';
+    lineHTMLReport += [
+      // add ref as query to avoid github cache image object
+      getMdImageTag(
+        {
+          src: `${publicPath}/images/base/${filename}?ref=${currentRef}`,
+          alt: targetFilename || '',
+        },
+        extraCaption,
+      ),
+      getMdImageTag(
+        {
+          src: `${publicPath}/images/current/${filename}?ref=${currentRef}`,
+          alt: filename,
+        },
+        extraCaption,
+      ),
+      getMdImageTag(
+        {
+          src: `${publicPath}/images/diff/${filename}?ref=${currentRef}`,
+          alt: '',
+        },
+        extraCaption,
+      ),
+    ].join(' | ');
+    lineHTMLReport += ' |\n';
+  } else if (type === 'removed') {
+    lineHTMLReport += '| ';
+    lineHTMLReport += [
+      getMdImageTag(
+        {
+          src: `${publicPath}/images/base/${filename}?ref=${currentRef}`,
+          alt: filename || '',
+        },
+        extraCaption,
+      ),
+      `⛔️⛔️⛔️ Missing ⛔️⛔️⛔️`,
+      `🚨🚨🚨 Removed 🚨🚨🚨`,
+    ].join(' | ');
+    lineHTMLReport += ' |\n';
+  } else if (type === 'added') {
+    lineHTMLReport += '| ';
+    lineHTMLReport += [
+      '',
+      getMdImageTag(
+        {
+          src: `${publicPath}/images/current/${filename}?ref=${currentRef}`,
+          alt: filename,
+        },
+        extraCaption,
+      ),
+      `🆕🆕🆕 Added 🆕🆕🆕`,
+    ].join(' | ');
+    lineHTMLReport += ' |\n';
+  }
+  return lineHTMLReport;
 }
 
 function generateReport(
   badCases: IBadCase[],
   targetBranch: string,
   targetRef: string,
+  currentRef: string,
   prId: string,
 ): [string, string] {
   const reportDirname = path.basename(REPORT_DIR);
@@ -174,15 +264,15 @@ function generateReport(
       '<img src="https://github.com/ant-design/ant-design/assets/507615/2d1a77dc-dbc6-4b0f-9cbc-19a43d3c29cd" width="300" />',
     ].join('\n');
 
-    return [mdStr, md2Html(mdStr)];
+    return [mdStr, markdown2Html(mdStr)];
   }
 
   let reportMdStr = `
 ${commonHeader}
 ${fullReport}
 
-| Image name | Expected | Actual | Diff |
-| --- | --- | --- | --- |
+| Expected (Branch ${targetBranch}) | Actual (Current PR) | Diff |
+| --- | --- | --- |
     `.trim();
 
   reportMdStr += '\n';
@@ -192,44 +282,23 @@ ${fullReport}
   let diffCount = 0;
 
   for (const badCase of badCases) {
-    const { filename, type } = badCase;
-    let lineReportMdStr = '';
-    if (type === 'changed') {
-      lineReportMdStr += '| ';
-      lineReportMdStr += [
-        `\`${badCase.filename}\``,
-        `![${targetBranch}: ${targetRef}](${publicPath}/images/base/${filename})`,
-        `![current: pr-${prId}](${publicPath}/images/current/${filename})`,
-        `![diff](${publicPath}/images/diff/${filename})`,
-      ].join(' | ');
-      lineReportMdStr += ' |\n';
-    } else if (type === 'removed') {
-      lineReportMdStr += '| ';
-      lineReportMdStr += [
-        `\`${badCase.filename}\``,
-        `![${targetBranch}: ${targetRef}](${publicPath}/images/base/${filename})`,
-        `⛔️⛔️⛔️ Missing ⛔️⛔️⛔️`,
-        `🚨🚨🚨 Removed 🚨🚨🚨`,
-      ].join(' | ');
-      lineReportMdStr += ' |\n';
-    }
-
     diffCount += 1;
     if (diffCount <= 10) {
-      reportMdStr += lineReportMdStr;
+      // 将图片下方增加文件名
+      reportMdStr += generateLineReport(badCase, publicPath, currentRef, true);
     }
 
-    fullVersionMd += lineReportMdStr;
+    fullVersionMd += generateLineReport(badCase, publicPath, currentRef, false);
   }
 
   reportMdStr += addonFullReportDesc;
 
   // convert fullVersionMd to html
-  return [reportMdStr, md2Html(fullVersionMd)];
+  return [reportMdStr, markdown2Html(fullVersionMd)];
 }
 
 async function boot() {
-  const { prId, baseRef: targetBranch = 'master' } = parseArgs();
+  const { prId, baseRef: targetBranch = 'master', currentRef } = await parseArgs();
 
   const baseImgSourceDir = path.resolve(ROOT_DIR, `./imageSnapshots-${targetBranch}`);
 
@@ -282,6 +351,7 @@ async function boot() {
     .filter((i) => !i.endsWith('.css-var.png'))
     .map((n) => path.basename(n, path.extname(n)));
 
+  // compare to target branch
   for (const basename of cssInJsImgNames) {
     for (const extname of ['.png', '.css-var.png']) {
       // baseImg always use cssinjs png
@@ -324,12 +394,40 @@ async function boot() {
         badCases.push({
           type: 'changed',
           filename: compareImgName,
+          targetFilename: baseImgName,
           weight: mismatchedPxPercent,
         });
       } else {
         console.log('Passed for: %s\n', chalk.green(compareImgName));
       }
     }
+  }
+
+  // collect all new added cases
+  const currentImgFileList = readPngs(currentImgSourceDir);
+  /* --- text report stage --- */
+  console.log(
+    chalk.blue(`📊 Text report from pr #${prId} comparing to ${targetBranch}@${targetCommitSha}\n`),
+  );
+  // new images
+  const newImgs = difference(currentImgFileList, baseImgFileList);
+  if (newImgs.length) {
+    console.log(chalk.green(`🆕 ${newImgs.length} images added from this pr`));
+    console.log(chalk.green('🆕 Added images list:\n'));
+    console.log(prettyList(newImgs));
+    console.log('\n');
+  }
+
+  for (const newImg of newImgs) {
+    badCases.push({
+      type: 'added',
+      filename: newImg,
+      weight: 0,
+    });
+    await fse.copy(
+      path.join(currentImgSourceDir, newImg),
+      path.resolve(currentImgReportDir, newImg),
+    );
   }
 
   /* --- generate report stage --- */
@@ -340,6 +438,7 @@ async function boot() {
     badCases,
     targetBranch,
     targetCommitSha,
+    currentRef,
     prId,
   );
   await fse.writeFile(path.join(REPORT_DIR, './report.md'), reportMdStr);
@@ -350,7 +449,7 @@ async function boot() {
     htmlTemplate.replace('{{reportContent}}', reportHtmlStr),
     'utf-8',
   );
-
+  const tar = await import('tar');
   await tar.c(
     {
       gzip: true,
@@ -361,21 +460,9 @@ async function boot() {
     await fse.readdir(REPORT_DIR),
   );
 
-  const currentImgFileList = readPngs(currentImgSourceDir);
-  /* --- text report stage --- */
-  console.log(
-    chalk.blue(`📊 Text report from pr #${prId} comparing to ${targetBranch}@${targetCommitSha}\n`),
-  );
-  // new images
-  const newImgs = _.difference(currentImgFileList, baseImgFileList);
-  if (newImgs.length) {
-    console.log(chalk.green(`🆕 ${newImgs.length} images added from this pr`));
-    console.log(chalk.green('🆕 Added images list:\n'));
-    console.log(prettyList(newImgs));
-    console.log('\n');
-  }
+  const validBadCases = badCases.filter((i) => ['removed', 'changed'].includes(i.type));
 
-  if (!badCases.length) {
+  if (!validBadCases.length) {
     console.log(chalk.green('🎉 All passed!'));
     console.log('\n');
     return;

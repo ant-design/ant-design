@@ -7,11 +7,11 @@ import type { PanelProps } from 'rc-dialog/lib/Dialog/Content/Panel';
 
 import { withPureRenderTheme } from '../_util/PurePanel';
 import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { ConfirmContent } from './ConfirmDialog';
 import type { ModalFuncProps } from './interface';
 import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export interface PurePanelProps
   extends Omit<PanelProps, 'prefixCls' | 'footer'>,

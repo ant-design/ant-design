@@ -1,6 +1,7 @@
 ---
 category: Components
 title: QRCode
+description: Components that can convert text into QR codes, and support custom color and logo.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cJopQrf0ncwAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*M4PBTZ_n9OgAAAAAAAAAAAAADrJ8AQ/original
 demo:
@@ -8,16 +9,8 @@ demo:
 group:
   title: Data Display
   order: 5
-tag: New
+tag: 5.1.0
 ---
-
-Components that can convert text into QR codes, and support custom color and logo. Available since `antd@5.1.0`.
-
-<!-- prettier-ignore -->
-:::info
-If the QR code cannot be scanned for identification, it may be because the link address is too long, which leads to too dense pixels.
-You can configure the QR code to be larger through size, or shorten the link through short link services.
-:::
 
 ## When To Use
 
@@ -69,3 +62,9 @@ The ErrorLevel means that the QR code can be scanned normally after being blocke
 Generally, the QR code is divided into 4 error correction levels: Level `L` can correct about `7%` errors, Level `M` can correct about `15%` errors, Level `Q` can correct about `25%` errors, and Level `H` can correct about `30%` errors. When the content encoding of the QR code carries less information, in other words, when the value link is short, set different error correction levels, and the generated image will not change.
 
 > For more information, see the: [https://www.qrcode.com/en/about/error_correction](https://www.qrcode.com/en/about/error_correction.html)
+
+### ⚠️⚠️⚠️ Cannot scan the QR code?
+
+If the QR code cannot be scanned for identification, it may be because the link address is too long, which leads to too dense pixels.
+
+You can configure the QR code to be larger through size, or shorten the link through short link services.

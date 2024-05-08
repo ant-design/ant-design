@@ -1,8 +1,7 @@
-import type { FC, ReactNode } from 'react';
 import React, { Suspense } from 'react';
-import { useSearchParams } from 'dumi';
-import { createStyles } from 'antd-style';
 import { Skeleton } from 'antd';
+import { createStyles } from 'antd-style';
+import { useSearchParams } from 'dumi';
 
 const OriginSandpack = React.lazy(() => import('./Sandpack'));
 
@@ -20,12 +19,12 @@ const useStyle = createStyles(({ token, css }) => ({
     width: 100%;
     > * {
       width: 100% !important;
-      border-radius: 8px;
+      border-radius: ${token.borderRadiusLG}px;
     }
   `,
   placeholder: css`
     color: ${token.colorTextDescription};
-    font-size: 16px;
+    font-size: ${token.fontSizeLG}px;
   `,
 }));
 
@@ -41,14 +40,13 @@ const SandpackFallback = () => {
   );
 };
 
-type SandpackProps = {
-  children?: ReactNode;
+interface SandpackProps {
   dark?: boolean;
   autorun?: boolean;
   dependencies?: string;
-};
+}
 
-const Sandpack: FC<SandpackProps> = ({
+const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
   children,
   dark,
   dependencies: extraDeps,

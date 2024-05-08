@@ -20,6 +20,7 @@ demo:
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/range-picker.tsx">范围选择器</code>
 <code src="./demo/multiple.tsx" version="5.14.0">多选</code>
+<code src="./demo/multiple-debug.tsx" debug>多选 Debug</code>
 <code src="./demo/needConfirm.tsx" version="5.14.0">选择确认</code>
 <code src="./demo/switchable.tsx">切换不同的选择器</code>
 <code src="./demo/format.tsx">日期格式</code>
@@ -65,30 +66,25 @@ demo:
 
 如有特殊需求（仅修改单一组件的语言），请使用 locale 参数，参考：[默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)。
 
-<!-- prettier-ignore -->
-:::warning
-在搭配 Nextjs 的 App Router 使用时，注意在引入 dayjs 的 locale 文件时加上 `'use client'`。这是由于 Ant Design 的组件都是客户端组件，在 RSC 中引入 dayjs 的 locale 文件将不会在客户端生效。
-:::
-
-```jsx
-import locale from 'antd/es/date-picker/locale/zh_CN';
-
-import 'dayjs/locale/zh-cn';
-
-<DatePicker locale={locale} />;
-```
-
 ```jsx
 // 默认语言为 en-US，如果你需要设置其他语言，推荐在入口文件全局设置 locale
+// 确保还导入相关的 dayjs 文件，否则所有文本的区域设置都不会更改（例如范围选择器月份）
 import locale from 'antd/locale/zh_CN';
 import dayjs from 'dayjs';
 
 import 'dayjs/locale/zh-cn';
 
+dayjs.locale('zh-cn');
+
 <ConfigProvider locale={locale}>
   <DatePicker defaultValue={dayjs('2015-01-01', 'YYYY-MM-DD')} />
 </ConfigProvider>;
 ```
+
+<!-- prettier-ignore -->
+:::warning
+在搭配 Next.js 的 App Router 使用时，注意在引入 dayjs 的 locale 文件时加上 `'use client'`。这是由于 Ant Design 的组件都是客户端组件，在 RSC 中引入 dayjs 的 locale 文件将不会在客户端生效。
+:::
 
 ### 共同的 API
 
@@ -217,7 +213,7 @@ import 'dayjs/locale/zh-cn';
 | defaultPickerValue | 默认面板日期，每次面板打开时会被重置到该日期 | [dayjs](https://day.js.org/)[] | - | 5.14.0 |
 | defaultValue | 默认日期 | [dayjs](https://day.js.org/)\[] | - |  |
 | disabled | 禁用起始项 | \[boolean, boolean] | - |  |
-| disabledTime | 不可选择的时间 | function(date: dayjs, partial: `start` \| `end`) | - |  |
+| disabledTime | 不可选择的时间 | function(date: dayjs, partial: `start` \| `end`, info: { from?: dayjs }) | - | `info.from`: 5.17.0 |
 | format | 展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。 | [formatType](#formattype) | `YYYY-MM-DD HH:mm:ss` |  |
 | id | 设置输入框 `id` 属性。 | { start?: string, end?: string } | - | 5.14.0 |
 | pickerValue | 面板日期，可以用于受控切换面板所在日期。配合 `onPanelChange` 使用。 | [dayjs](https://day.js.org/)[] | - | 5.14.0 |

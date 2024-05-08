@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { ItemGroup } from 'rc-menu';
 import type {
   MenuDividerType as RcMenuDividerType,
@@ -5,7 +6,7 @@ import type {
   MenuItemType as RcMenuItemType,
   SubMenuType as RcSubMenuType,
 } from 'rc-menu/lib/interface';
-import * as React from 'react';
+
 import MenuDivider from '../MenuDivider';
 import MenuItem from '../MenuItem';
 import SubMenu from '../SubMenu';

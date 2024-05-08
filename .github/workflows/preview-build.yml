@@ -73,7 +73,6 @@ jobs:
         id: site
         run: npm run site
         env:
-          SITE_ENV: development
           NODE_OPTIONS: "--max_old_space_size=4096"
 
       - name: upload site artifact
@@ -122,4 +121,4 @@ jobs:
           path: _site
 
       - name: run e2e test
-        run: npm run site:test
+        run: npm run test:site

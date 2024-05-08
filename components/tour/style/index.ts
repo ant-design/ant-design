@@ -1,16 +1,16 @@
+import { unit } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
-import { resetComponent } from '../../style';
+import { genFocusStyle, resetComponent } from '../../style';
 import type { ArrowOffsetToken } from '../../style/placementArrow';
 import getArrowStyle, {
   getArrowOffsetToken,
   MAX_VERTICAL_CONTENT_RADIUS,
 } from '../../style/placementArrow';
-import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genStyleHooks, mergeToken } from '../../theme/internal';
 import type { ArrowToken } from '../../style/roundedArrow';
 import { getArrowToken } from '../../style/roundedArrow';
-import { unit } from '@ant-design/cssinjs';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken extends ArrowOffsetToken, ArrowToken {
   /**
@@ -33,8 +33,6 @@ export interface ComponentToken extends ArrowOffsetToken, ArrowToken {
    * @descEN Hover background color of next button in primary type
    */
   primaryNextBtnHoverBg: string;
-  /** @internal */
-  closeBtnHoverBg: string;
 }
 
 interface TourToken extends FullToken<'Tour'> {
@@ -117,7 +115,8 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
             top: padding,
             insetInlineEnd: padding,
             color: token.colorIcon,
-            outline: 'none',
+            background: 'none',
+            border: 'none',
             width: closeBtnSize,
             height: closeBtnSize,
             borderRadius: token.borderRadiusSM,
@@ -129,8 +128,14 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
 
             '&:hover': {
               color: token.colorIconHover,
-              backgroundColor: token.closeBtnHoverBg,
+              backgroundColor: token.colorBgTextHover,
             },
+
+            '&:active': {
+              backgroundColor: token.colorBgTextActive,
+            },
+
+            ...genFocusStyle(token),
           },
 
           [`${componentCls}-cover`]: {
@@ -271,7 +276,6 @@ export const prepareComponentToken: GetDefaultToken<'Tour'> = (token) => ({
   zIndexPopup: token.zIndexPopupBase + 70,
   closeBtnSize: token.fontSize * token.lineHeight,
   primaryPrevBtnBg: new TinyColor(token.colorTextLightSolid).setAlpha(0.15).toRgbString(),
-  closeBtnHoverBg: token.wireframe ? 'transparent' : token.colorFillContent,
   primaryNextBtnHoverBg: new TinyColor(token.colorBgTextHover)
     .onBackground(token.colorWhite)
     .toRgbString(),

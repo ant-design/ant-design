@@ -1,6 +1,7 @@
-import { TinyColor } from '@ctrl/tinycolor';
 import * as React from 'react';
 import { useMemo } from 'react';
+import { TinyColor } from '@ctrl/tinycolor';
+
 import { useToken } from '../theme/internal';
 
 const Simple: React.FC = () => {

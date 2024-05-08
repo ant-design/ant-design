@@ -1,3 +1,6 @@
+import type { CSSProperties } from 'react';
+import { unit } from '@ant-design/cssinjs';
+
 import { genFocusStyle, resetComponent } from '../../style';
 import {
   initMoveMotion,
@@ -10,13 +13,11 @@ import {
 } from '../../style/motion';
 import type { ArrowOffsetToken } from '../../style/placementArrow';
 import getArrowStyle, { getArrowOffsetToken } from '../../style/placementArrow';
+import type { ArrowToken } from '../../style/roundedArrow';
+import { getArrowToken } from '../../style/roundedArrow';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genStatusStyle from './status';
-import type { ArrowToken } from '../../style/roundedArrow';
-import { getArrowToken } from '../../style/roundedArrow';
-import type { CSSProperties } from 'react';
-import { unit } from '@ant-design/cssinjs';
 
 export interface ComponentToken extends ArrowToken, ArrowOffsetToken {
   /**

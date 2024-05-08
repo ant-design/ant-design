@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   DownloadOutlined,
   RotateLeftOutlined,
@@ -6,7 +7,6 @@ import {
   ZoomInOutlined,
   ZoomOutOutlined,
 } from '@ant-design/icons';
-import React from 'react';
 import { Image, Space } from 'antd';
 
 const src = 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';

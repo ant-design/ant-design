@@ -1,10 +1,12 @@
-import classNames from 'classnames';
 import * as React from 'react';
+import classNames from 'classnames';
+
 import extendsObject from '../_util/extendsObject';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import useSize from '../config-provider/hooks/useSize';
 import { Row } from '../grid';
 import type { RowProps } from '../grid';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
@@ -12,10 +14,9 @@ import type { PaginationConfig } from '../pagination';
 import Pagination from '../pagination';
 import type { SpinProps } from '../spin';
 import Spin from '../spin';
-import Item from './Item';
 import { ListContext } from './context';
+import Item from './Item';
 import useStyle from './style';
-import useSize from '../config-provider/hooks/useSize';
 
 export type { ListItemMetaProps, ListItemProps } from './Item';
 export type { ListConsumerProps } from './context';
@@ -251,7 +252,7 @@ function List<T>({
         maxWidth: `${100 / columnCount}%`,
       };
     }
-  }, [grid?.column, currentBreakpoint]);
+  }, [JSON.stringify(grid), currentBreakpoint]);
 
   let childrenContent: React.ReactNode = isLoading && <div style={{ minHeight: 53 }} />;
   if (splitDataSource.length > 0) {

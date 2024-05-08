@@ -1,11 +1,8 @@
 import React from 'react';
-import { isValidElement, cloneElement, isFragment, replaceElement } from '../reactNode';
+
+import { cloneElement, isFragment, replaceElement } from '../reactNode';
 
 describe('reactNode test', () => {
-  it('isValidElement', () => {
-    expect(isValidElement(null)).toBe(false);
-    expect(isValidElement(<p>test</p>)).toBe(true);
-  });
   it('isFragment', () => {
     expect(isFragment(<p>test</p>)).toBe(false);
     expect(isFragment(<>test</>)).toBe(true);

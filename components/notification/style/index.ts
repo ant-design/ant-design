@@ -2,12 +2,12 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes, unit } from '@ant-design/cssinjs';
 
 import { CONTAINER_MAX_OFFSET } from '../../_util/hooks/useZIndex';
-import { resetComponent } from '../../style';
+import { genFocusStyle, resetComponent } from '../../style';
 import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
 import genNotificationPlacementStyle from './placement';
 import genStackStyle from './stack';
-import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -21,8 +21,6 @@ export interface ComponentToken {
    * @descEN Width of Notification
    */
   width: number;
-  /** @internal */
-  closeBtnHoverBg: string;
 }
 
 export interface NotificationToken extends FullToken<'Notification'> {
@@ -78,11 +76,6 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       overflow: 'hidden',
       lineHeight,
       wordWrap: 'break-word',
-    },
-
-    [`${componentCls}-close-icon`]: {
-      fontSize,
-      cursor: 'pointer',
     },
 
     [`${noticeCls}-message`]: {
@@ -151,8 +144,14 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
 
       '&:hover': {
         color: token.colorIconHover,
-        backgroundColor: token.closeBtnHoverBg,
+        backgroundColor: token.colorBgTextHover,
       },
+
+      '&:active': {
+        backgroundColor: token.colorBgTextActive,
+      },
+
+      ...genFocusStyle(token),
     },
 
     [`${noticeCls}-btn`]: {
@@ -262,7 +261,6 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
 export const prepareComponentToken = (token: AliasToken) => ({
   zIndexPopup: token.zIndexPopupBase + CONTAINER_MAX_OFFSET + 50,
   width: 384,
-  closeBtnHoverBg: token.wireframe ? 'transparent' : token.colorFillContent,
 });
 
 export const prepareNotificationToken: (

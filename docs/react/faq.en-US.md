@@ -5,7 +5,7 @@ order: 2
 title: FAQ
 ---
 
-Here are the frequently asked questions about Ant Design and antd that you should look up before you ask in the community or create a new issue. We also maintain a [FAQ issues label](http://u.ant.design/faq) for common github issues.
+Here are the frequently asked questions about Ant Design and antd that you should look up before you ask in the community or create a new issue. We also maintain a [FAQ issues label](http://u.ant.design/faq) for common GitHub issues.
 
 ---
 
@@ -53,12 +53,12 @@ While you can override a component's style, we don't recommend doing so. antd is
 
 ## How to avoid breaking change when update version?
 
-antd will avoid breaking change in minor & patch version. You can safe do follow things:
+antd will avoid breaking change in minor & patch version. You can safely do the following things:
 
 - Official demo usage
 - FAQ suggestion. Including codesandbox sample, marked as FAQ issue
 
-And which you should avoid to do:
+And which you should avoid doing:
 
 - Bug as feature. It will break in any other case (e.g. Use div as Tabs children)
 - Use magic code to realize requirement but which can be realized with normal API
@@ -113,6 +113,8 @@ Yes, you can [import `antd` with script tag](https://ant.design/docs/react/intro
 
 If you need some features which should not be included in antd, try to extend antd's component with [HOC](https://gist.github.com/sebmarkbage/ef0bf1f338a7182b6775). [more](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.eeu8q01s1)
 
+antd will have a strict discussion on the demand for new components to prevent API corruption and become [historical debt](/docs/blog/historical-debt). And it is also more inclined to provide atomic capabilities for APIs so that developers can customize the features they need more flexibly.
+
 ## How to get the definition which is not export?
 
 antd expose the basic component definitions. For the unexposed props, you can get them via the utility types provided by antd. For example:
@@ -135,6 +137,8 @@ type InputRef = GetRef<typeof Input>;
 Please check whether you have imported dayjs locale correctly.
 
 ```jsx
+import dayjs from 'dayjs';
+
 import 'dayjs/locale/zh-cn';
 
 dayjs.locale('zh-cn');

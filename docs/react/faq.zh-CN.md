@@ -135,6 +135,8 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 如果你需要一些 antd 没有包含的功能，你可以尝试通过 [HOC](https://gist.github.com/sebmarkbage/ef0bf1f338a7182b6775) 拓展 antd 的组件。 [更多](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.eeu8q01s1)
 
+antd 对新增组件需求会进行严格的讨论，以防止 API 腐败而变为[历史债务](/docs/blog/historical-debt)。antd 侧对于 API 也更倾向于提供原子化的能力使开发者可以更灵活的定制自己所需要的功能。
+
 ## 如何获取未导出的属性定义？
 
 antd 会透出基本组件定义。对于未透出属性，你可以通过 antd 提供的工具类型来获取。例如：
@@ -163,6 +165,8 @@ type InputRef = GetRef<typeof Input>;
 请检查是否正确设置了 dayjs 语言包。
 
 ```js
+import dayjs from 'dayjs';
+
 import 'dayjs/locale/zh-cn';
 
 dayjs.locale('zh-cn');
@@ -225,7 +229,7 @@ message/notification/Modal.confirm 等静态方法不同于 `<Button />` 的渲�
 
 ## CSS-in-JS 如何与 Shadow DOM 一同使用？
 
-请参考文档 [Shadow Dom 场景](/docs/react/compatible-style-cn#shadow-dom-场景) 内容。
+请参考文档 [Shadow DOM 场景](/docs/react/compatible-style-cn#shadow-dom-场景) 内容。
 
 ## 如何关闭组件动画
 

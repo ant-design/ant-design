@@ -1,17 +1,16 @@
 ---
 category: Components
-subtitle: 颜色选择器
 title: ColorPicker
+subtitle: 颜色选择器
+description: 用于选择颜色。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PpY4RYNM8UcAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EHL-QYJofZsAAAAAAAAAAAAADrJ8AQ/original
-tag: New
+tag: 5.5.0
 demo:
   cols: 2
 group:
   title: 数据录入
 ---
-
-提供颜色选取的组件，自 `5.5.0` 版本开始提供该组件。
 
 ## 何时使用
 

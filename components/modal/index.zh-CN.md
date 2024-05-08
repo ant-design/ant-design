@@ -1,15 +1,14 @@
 ---
 group: 反馈
 category: Components
-subtitle: 对话框
 title: Modal
+subtitle: 对话框
+description: 展示一个对话框，提供标题、内容区、操作区。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Z9vzQZAdJDQAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WtgsSLPa1Z4AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-模态对话框。
 
 ## 何时使用
 
@@ -104,7 +103,7 @@ demo:
 | cancelText | 设置 Modal.confirm 取消按钮文字 | string | `取消` |  |
 | centered | 垂直居中展示 Modal | boolean | false |  |
 | className | 容器类名 | string | - |  |
-| closable | 是否显示右上角的关闭按钮 | boolean | false | 4.9.0 |
+| closable | 是否显示右上角的关闭按钮 | boolean | true | 4.9.0 |
 | closeIcon | 自定义关闭图标 | ReactNode | undefined | 4.9.0 |
 | content | 内容 | ReactNode | - |  |
 | footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer: null` | (params:[footerRenderParams](/components/modal-cn#footerrenderparams))=> React.ReactNode \| React.ReactNode | - | 5.9.0 |

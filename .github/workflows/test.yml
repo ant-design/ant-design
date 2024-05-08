@@ -51,6 +51,7 @@ jobs:
 
   lint:
     runs-on: ubuntu-latest
+    needs: setup
     steps:
       - name: checkout
         uses: actions/checkout@v4
@@ -79,10 +80,10 @@ jobs:
 
       - name: lint:react-17
         run: npm run compile && npm run install-react-17 && npm run tsc:old
-    needs: setup
 
   check_metadata:
     runs-on: ubuntu-latest
+    needs: setup
     steps:
       - name: checkout
         uses: actions/checkout@v4
@@ -102,44 +103,6 @@ jobs:
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-    needs: setup
-
-  ################################ Dist ################################
-  dist:
-    name: dist
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v4
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-
-      - name: cache dist
-        uses: actions/cache@v4
-        with:
-          path: dist
-          key: dist-${{ github.sha }}
-
-      - name: dist
-        run: npm run dist
-        env:
-          NODE_OPTIONS: "--max_old_space_size=4096"
-          CI: 1
-    needs: setup
 
   ################################ Test ################################
   normal-test:
@@ -152,6 +115,7 @@ jobs:
     env:
       REACT: ${{ matrix.react }}
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: checkout
         uses: actions/checkout@v4
@@ -222,7 +186,7 @@ jobs:
       # node test
       - name: node test
         if: ${{ matrix.module == 'node' }}
-        run: npm run test-node
+        run: npm run test:node
 
       # dist test
       - name: dist test
@@ -237,13 +201,12 @@ jobs:
         run: npm test
         env:
           LIB_DIR: dist-min
-    needs: [setup, dist]
 
   ############################ Test Coverage ###########################
   upload-test-coverage:
     name: test-coverage
     runs-on: ubuntu-latest
-    needs: [normal-test]
+    needs: normal-test
     steps:
       - uses: actions/checkout@v4
 
@@ -268,8 +231,9 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
 
   ########################### Compile & Test ###########################
-  compile:
+  build:
     runs-on: ubuntu-latest
+    needs: setup
     steps:
       - name: checkout
         uses: actions/checkout@v4
@@ -311,11 +275,44 @@ jobs:
       - name: check use client
         run: node ./tests/dekko/use-client.test.js
 
-    needs: setup
+      - name: cache dist
+        uses: actions/cache@v4
+        with:
+          path: dist
+          key: dist-${{ github.sha }}
+
+      - name: dist
+        run: npm run dist
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
+          CI: 1
+
+      # Artifact build files
+      - uses: actions/upload-artifact@v4
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        with:
+          name: build artifacts
+          path: |
+            dist
+            locale
+            es
+            lib
+
+      - name: zip builds
+        if: github.repository == 'ant-design/ant-design' && github.event_name == 'push' && github.ref == 'refs/heads/master'
+        env:
+          ALI_OSS_AK_ID: ${{ secrets.ALI_OSS_AK_ID }}
+          ALI_OSS_AK_SECRET: ${{ secrets.ALI_OSS_AK_SECRET }}
+          HEAD_SHA: ${{ github.sha }}
+        run: |
+          zip -r oss-artifacts.zip dist locale es lib
+          echo "🤖 Uploading"
+          node scripts/visual-regression/upload.js ./oss-artifacts.zip --ref=$HEAD_SHA
 
   compiled-module-test:
     name: module test
     runs-on: ubuntu-latest
+    needs: build
     strategy:
       matrix:
         react: ['16', '17', '18']
@@ -375,4 +372,3 @@ jobs:
         run: npm test -- --maxWorkers=2 --shard=${{matrix.shard}}
         env:
           LIB_DIR: ${{ matrix.module }}
-    needs: compile

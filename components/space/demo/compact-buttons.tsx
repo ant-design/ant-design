@@ -1,17 +1,17 @@
 import React from 'react';
 import {
+  CommentOutlined,
   DownloadOutlined,
   EllipsisOutlined,
   HeartOutlined,
   LikeOutlined,
-  CommentOutlined,
-  StarOutlined,
-  ShareAltOutlined,
-  WarningOutlined,
   MailOutlined,
   MobileOutlined,
+  ShareAltOutlined,
+  StarOutlined,
+  WarningOutlined,
 } from '@ant-design/icons';
-import { Button, Menu, Dropdown, Space, Tooltip } from 'antd';
+import { Button, Dropdown, Menu, Space, Tooltip } from 'antd';
 
 const App: React.FC = () => (
   <div>

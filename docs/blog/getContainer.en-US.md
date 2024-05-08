@@ -110,4 +110,4 @@ After putting `getContainer` into effect management, we can manage nodes in a wa
 
 ## Finally
 
-Due to the fix that `getContainer` does not support dynamic changes, it also introduces a potential breaking change at the same time. If the developer customizes `getContainer` to create a new dom node every time, it will cause an infinite loop because of the continuous execution of the effect, resulting in the continuous creation of nodes. If you use this method and encounter problems, you need to pay attention to check.
+Due to the fix that `getContainer` does not support dynamic changes, it also introduces a potential breaking change at the same time. If the developer customizes `getContainer` to create a new DOM node every time, it will cause an infinite loop because of the continuous execution of the effect, resulting in the continuous creation of nodes. If you use this method and encounter problems, you need to pay attention to check.

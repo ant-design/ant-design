@@ -259,6 +259,17 @@ exports[`renders components/drawer/demo/form-in-drawer.tsx correctly 1`] = `
 </button>
 `;
 
+exports[`renders components/drawer/demo/loading.tsx correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Open
+  </span>
+</button>
+`;
+
 exports[`renders components/drawer/demo/multi-level-drawer.tsx correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"

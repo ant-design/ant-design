@@ -2,8 +2,11 @@ import * as React from 'react';
 import classNames from 'classnames';
 import type { DrawerProps as RCDrawerProps } from 'rc-drawer';
 
-import useClosable from '../_util/hooks/useClosable';
+import useClosable, { pickClosable } from '../_util/hooks/useClosable';
+import type { ClosableType } from '../_util/hooks/useClosable';
 import { ConfigContext } from '../config-provider';
+import Spin from '../spin';
+import type { SpinProps } from '../spin';
 
 export interface DrawerClassNames extends NonNullable<RCDrawerProps['classNames']> {
   header?: string;
@@ -30,13 +33,14 @@ export interface DrawerPanelProps {
    *
    * `<Drawer closeIcon={false} />`
    */
-  closable?: boolean;
+  closable?: ClosableType;
   closeIcon?: React.ReactNode;
   onClose?: RCDrawerProps['onClose'];
 
   children?: React.ReactNode;
   classNames?: DrawerClassNames;
   styles?: DrawerStyles;
+  loading?: boolean | Omit<SpinProps, 'fullscreen' | 'tip'>;
 
   /** @deprecated Please use `styles.header` instead */
   headerStyle?: React.CSSProperties;
@@ -58,8 +62,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     title,
     footer,
     extra,
-    closeIcon,
-    closable,
+    loading,
     onClose,
     headerStyle,
     bodyStyle,
@@ -80,12 +83,26 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
   );
 
   const [mergedClosable, mergedCloseIcon] = useClosable(
-    closable,
-    typeof closeIcon !== 'undefined' ? closeIcon : drawerContext?.closeIcon,
-    customCloseIconRender,
-    undefined,
-    true,
+    pickClosable(props),
+    pickClosable(drawerContext),
+    {
+      closable: true,
+      closeIconRender: customCloseIconRender,
+    },
   );
+
+  // >>>>>>>>> Spinning
+  let spinProps: SpinProps | undefined;
+  if (typeof loading === 'boolean') {
+    spinProps = {
+      spinning: loading,
+    };
+  } else if (typeof loading === 'object') {
+    spinProps = {
+      spinning: true,
+      ...loading,
+    };
+  }
 
   const headerNode = React.useMemo<React.ReactNode>(() => {
     if (!title && !mergedClosable) {
@@ -138,6 +155,21 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
       </div>
     );
   }, [footer, footerStyle, prefixCls]);
+
+  if (spinProps?.spinning) {
+    return (
+      <Spin
+        spinning={false}
+        style={{
+          height: '100%',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+        {...spinProps}
+      />
+    );
+  }
 
   return (
     <>
