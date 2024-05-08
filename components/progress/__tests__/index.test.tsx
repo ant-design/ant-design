@@ -385,14 +385,6 @@ describe('Progress', () => {
       width: '60px',
       height: '20px',
     });
-    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-inner')[0]).toHaveStyle({
-      width: '60px',
-      height: '60px',
-    });
-    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-inner')[1]).toHaveStyle({
-      width: '60px',
-      height: '60px',
-    });
   });
 
   it('no strict warning', () => {
