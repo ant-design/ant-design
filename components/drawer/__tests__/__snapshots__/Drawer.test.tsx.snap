@@ -27,7 +27,6 @@ exports[`Drawer Drawer loading have a spinner 1`] = `
         aria-busy="true"
         aria-live="polite"
         class="ant-spin ant-spin-spinning"
-        style="height: 100%; display: flex; justify-content: center; align-items: center;"
       >
         <span
           class="ant-spin-dot ant-spin-dot-spin"
