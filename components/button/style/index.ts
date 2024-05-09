@@ -41,6 +41,10 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         display: 'inline-block',
       },
 
+      [`${componentCls}-icon`]: {
+        lineHeight: 0,
+      },
+
       '> a': {
         color: 'currentColor',
       },
