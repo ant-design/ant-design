@@ -12,6 +12,7 @@ import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { NoFormStyle } from '../form/context';
+import Skeleton from '../skeleton';
 import { NoCompactStyle } from '../space/Compact';
 import { usePanelRef } from '../watermark/context';
 import type { ModalProps, MousePosition } from './interface';
@@ -86,6 +87,8 @@ const Modal: React.FC<ModalProps> = (props) => {
     footer,
     classNames: modalClassNames,
     styles: modalStyles,
+    children,
+    loading,
     ...restProps
   } = props;
 
@@ -149,12 +152,11 @@ const Modal: React.FC<ModalProps> = (props) => {
               ...modalClassNames,
               wrapper: classNames(wrapClassNameExtended, modalClassNames?.wrapper),
             }}
-            styles={{
-              ...modalContext?.styles,
-              ...modalStyles,
-            }}
+            styles={{ ...modalContext?.styles, ...modalStyles }}
             panelRef={panelRef}
-          />
+          >
+            {loading ? <Skeleton active /> : children}
+          </Dialog>
         </zIndexContext.Provider>
       </NoFormStyle>
     </NoCompactStyle>,
