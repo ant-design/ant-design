@@ -16,9 +16,15 @@ jest.mock('rc-util/lib/Dom/isVisible', () => {
 });
 
 jest.mock('rc-motion', () => (props: CSSMotionProps) => {
-  (global as any).motionChildren = jest.fn(props.children);
   const CSSMotion = jest.requireActual('rc-motion').default;
-  return <CSSMotion {...props}>{(global as any).motionChildren}</CSSMotion>;
+  return (
+    <CSSMotion {...props}>
+      {(props2: any, ref: (node: any) => void) => {
+        (global as any).motionRef = jest.fn(ref);
+        return props.children?.(props2, (global as any).motionRef);
+      }}
+    </CSSMotion>
+  );
 });
 
 describe('Wave component', () => {
@@ -97,10 +103,11 @@ describe('Wave component', () => {
     waitRaf();
     expect(document.querySelector('.ant-wave')).toBeTruthy();
 
-    expect((global as any).motionChildren.mock.calls[0].length).toBe(2);
-
     // Match deadline
     await waitFakeTimer();
+
+    // Is Ref called
+    expect((global as any).motionRef).toHaveBeenCalled();
 
     expect(document.querySelector('.ant-wave')).toBeFalsy();
 
