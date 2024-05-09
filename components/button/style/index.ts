@@ -66,11 +66,6 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       '&-icon-end': {
         flexDirection: 'row-reverse',
       },
-
-      // make `btn-icon-only` not too narrow
-      [`&-icon-only${componentCls}-compact-item`]: {
-        flex: 'none',
-      },
     },
   };
 };
@@ -415,15 +410,18 @@ const genButtonStyle = (token: ButtonToken, prefixCls: string = ''): CSSInterpol
         borderRadius,
 
         [`&${iconOnlyCls}`]: {
-          display: 'inline-flex',
-          alignItems: 'center',
-          justifyContent: 'center',
           width: controlHeight,
-          paddingInlineStart: 0,
-          paddingInlineEnd: 0,
+          paddingInline: 0,
+
+          // make `btn-icon-only` not too narrow
+          [`&${componentCls}-compact-item`]: {
+            flex: 'none',
+          },
+
           [`&${componentCls}-round`]: {
             width: 'auto',
           },
+
           [iconCls]: {
             fontSize: token.buttonIconOnlyFontSize,
           },
