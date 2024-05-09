@@ -166,7 +166,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormComRef, FormProps> = (pro
   );
 
   React.useImperativeHandle(ref, () =>
-    Object.assign(wrapForm, { nativeForm: nativeFormRef.current?.nativeForm }),
+    Object.assign(wrapForm, { nativeForm: nativeFormRef.current }),
   );
 
   const scrollToField = (options: boolean | Options, fieldName: InternalNamePath) => {
@@ -232,6 +232,6 @@ if (process.env.NODE_ENV !== 'production') {
   Form.displayName = 'Form';
 }
 
-export { List, useForm, useWatch, type FormInstance };
+export { List, useForm, useWatch, type FormInstance, type FormComRef };
 
 export default Form;

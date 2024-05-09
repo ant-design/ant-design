@@ -1,11 +1,11 @@
 import React from 'react';
-import type { FormComRef } from 'rc-field-form/lib/interface';
 
 import Form from '..';
 import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
 import type { InputRef } from '../../input';
 import Input from '../../input';
+import type { FormComRef } from '../Form';
 
 interface TestProps {
   show?: boolean;
@@ -92,6 +92,6 @@ describe('Form.Ref', () => {
     const formRef = React.createRef<FormComRef>();
     render(<Form ref={formRef} />);
 
-    expect(formRef.current?.nativeForm).toBeTruthy();
+    expect(formRef.current?.nativeElement).toBeTruthy();
   });
 });
