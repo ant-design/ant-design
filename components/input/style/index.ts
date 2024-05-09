@@ -295,7 +295,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       },
 
       '& > *': {
-        display: 'inline-block',
+        display: 'inline-flex',
         float: 'none',
         verticalAlign: 'top', // https://github.com/ant-design/ant-design-pro/issues/139
         borderRadius: 0,

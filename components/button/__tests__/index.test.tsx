@@ -88,7 +88,7 @@ describe('Button', () => {
   });
 
   it('renders Chinese characters correctly in HOC', () => {
-    const Text = ({ children }: { children: React.ReactNode }) => <span>{children}</span>;
+    const Text: React.FC<React.PropsWithChildren> = ({ children }) => <span>{children}</span>;
     const { container, rerender } = render(
       <Button>
         <Text>按钮</Text>

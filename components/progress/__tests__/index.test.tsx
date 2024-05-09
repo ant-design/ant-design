@@ -279,6 +279,13 @@ describe('Progress', () => {
       'Warning: [antd: Progress] Type "circle" and "dashboard" do not accept array as `size`, please use number or preset size instead.',
     );
   });
+  it('should warnning if pass object into `size` in type dashboard', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<Progress size={{ width: 60, height: 20 }} type="dashboard" />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Progress] Type "circle" and "dashboard" do not accept object as `size`, please use number or preset size instead.',
+    );
+  });
 
   it('should update the percentage based on the value of percent', () => {
     const Content: React.FC = () => {
@@ -362,6 +369,17 @@ describe('Progress', () => {
     expect(container.querySelectorAll('.ant-progress-circle .ant-progress-inner')[1]).toHaveStyle({
       width: '60px',
       height: '60px',
+    });
+
+    rerender(<App size={{ width: 60, height: 20 }} />);
+
+    expect(container.querySelector('.ant-progress-line .ant-progress-outer')).toHaveStyle({
+      width: '60px',
+      height: '20px',
+    });
+    expect(container.querySelector('.ant-progress-steps .ant-progress-steps-item')).toHaveStyle({
+      width: '60px',
+      height: '20px',
     });
   });
 
