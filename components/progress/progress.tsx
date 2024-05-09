@@ -120,6 +120,8 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   const prefixCls = getPrefixCls('progress', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
+  const isLineType = type === 'line';
+  const isPureLineType = isLineType && !steps;
   const progressInfo = React.useMemo<React.ReactNode>(() => {
     if (!showInfo) {
       return null;
@@ -127,8 +129,6 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     const successPercent = getSuccessPercent(props);
     let text: React.ReactNode;
     const textFormatter = format || ((number) => `${number}%`);
-    const isLineType = type === 'line';
-    const isPureLineType = isLineType && !steps;
     const isBrightInnerColor = isLineType && strokeColorIsBright && infoPosition === 'inner';
     if (
       infoPosition === 'inner' ||
@@ -220,9 +220,9 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     {
       [`${prefixCls}-${(type === 'dashboard' && 'circle') || type}`]: type !== 'line',
       [`${prefixCls}-inline-circle`]: type === 'circle' && getSize(size, 'circle')[0] <= 20,
-      [`${prefixCls}-line`]: !steps && type === 'line',
-      [`${prefixCls}-line-align-${infoAlign}`]: !steps && type === 'line',
-      [`${prefixCls}-line-position-${infoPosition}`]: !steps && type === 'line',
+      [`${prefixCls}-line`]: isPureLineType,
+      [`${prefixCls}-line-align-${infoAlign}`]: isPureLineType,
+      [`${prefixCls}-line-position-${infoPosition}`]: isPureLineType,
       [`${prefixCls}-steps`]: steps,
       [`${prefixCls}-show-info`]: showInfo,
       [`${prefixCls}-${size}`]: typeof size === 'string',
