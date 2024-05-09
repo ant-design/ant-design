@@ -1645,14 +1645,11 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-icon-end"
         type="button"
       >
-        <span>
-          Search
-        </span>
         <span
-          class="ant-btn-icon ant-btn-icon-end"
+          class="ant-btn-icon"
         >
           <span
             aria-label="search"
@@ -1673,6 +1670,9 @@ Array [
               />
             </svg>
           </span>
+        </span>
+        <span>
+          Search
         </span>
       </button>
       <button
@@ -1723,14 +1723,11 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-icon-end"
         type="button"
       >
-        <span>
-          Search
-        </span>
         <span
-          class="ant-btn-icon ant-btn-icon-end"
+          class="ant-btn-icon"
         >
           <span
             aria-label="search"
@@ -1751,6 +1748,9 @@ Array [
               />
             </svg>
           </span>
+        </span>
+        <span>
+          Search
         </span>
       </button>
     </div>
@@ -1805,14 +1805,11 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-text"
+        class="ant-btn ant-btn-text ant-btn-icon-end"
         type="button"
       >
-        <span>
-          Search
-        </span>
         <span
-          class="ant-btn-icon ant-btn-icon-end"
+          class="ant-btn-icon"
         >
           <span
             aria-label="search"
@@ -1833,6 +1830,9 @@ Array [
               />
             </svg>
           </span>
+        </span>
+        <span>
+          Search
         </span>
       </button>
       <button
@@ -1883,14 +1883,11 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-dashed"
+        class="ant-btn ant-btn-dashed ant-btn-icon-end"
         type="button"
       >
-        <span>
-          Search
-        </span>
         <span
-          class="ant-btn-icon ant-btn-icon-end"
+          class="ant-btn-icon"
         >
           <span
             aria-label="search"
@@ -1912,9 +1909,12 @@ Array [
             </svg>
           </span>
         </span>
+        <span>
+          Search
+        </span>
       </button>
       <a
-        class="ant-btn ant-btn-default ant-btn-icon-only"
+        class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-icon-end"
         href="https://www.google.com"
         tabindex="0"
       >
@@ -1943,14 +1943,11 @@ Array [
         </span>
       </a>
       <button
-        class="ant-btn ant-btn-primary ant-btn-loading"
+        class="ant-btn ant-btn-primary ant-btn-loading ant-btn-icon-end"
         type="button"
       >
-        <span>
-          Loading
-        </span>
         <span
-          class="ant-btn-icon ant-btn-loading-icon-end"
+          class="ant-btn-icon ant-btn-loading-icon"
           style="width: 0px; opacity: 0; transform: scale(0);"
         >
           <span
@@ -1972,6 +1969,9 @@ Array [
               />
             </svg>
           </span>
+        </span>
+        <span>
+          Loading
         </span>
       </button>
     </div>
