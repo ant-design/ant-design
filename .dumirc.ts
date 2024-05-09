@@ -42,13 +42,10 @@ export default defineConfig({
   extraRemarkPlugins: [remarkAntd],
   metas: [
     { name: 'theme-color', content: '#1677ff' },
-    {
-      name: 'build-time',
-      content: new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai', hour12: false }),
-    },
+    { name: 'build-time', content: Date.now().toString() },
     // https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables
-    { name: 'build-hash', content: process.env.GITHUB_SHA || 'unknown' },
-  ],
+    process.env.GITHUB_SHA && { name: 'build-hash', content: process.env.GITHUB_SHA },
+  ].filter(Boolean) as ReturnType<typeof defineConfig>['metas'],
   analytics: {
     ga_v2: 'UA-72788897-1',
   },
