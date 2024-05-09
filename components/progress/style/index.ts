@@ -130,8 +130,6 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
         overflow: 'hidden',
         '&::after': {
           content: '""',
-          position: 'absolute',
-          top: 0,
           background: {
             _multi_value_: true,
             value: ['inherit', `var(${LineStrokeColorVar})`],
@@ -142,10 +140,11 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
         },
         [`&${progressCls}-bg-inner`]: {
           minWidth: 'max-content',
+          '&::after': {
+            content: 'none',
+          },
           [`${progressCls}-text-inner`]: {
             color: token.colorWhite,
-            position: 'relative',
-            zIndex: 1,
             [`&${progressCls}-text-bright`]: {
               color: 'rgba(0, 0, 0, 0.45)',
             },
