@@ -76,7 +76,7 @@ export interface ModalProps extends ModalCommonProps {
   /**
    * @since 5.18.0
    */
-  loading?: React.ReactNode;
+  loading?: boolean;
 }
 
 type getContainerFunc = () => HTMLElement;
