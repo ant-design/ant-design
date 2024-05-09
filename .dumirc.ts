@@ -4,10 +4,16 @@ import * as fs from 'fs-extra';
 
 import rehypeAntd from './.dumi/rehypeAntd';
 import remarkAntd from './.dumi/remarkAntd';
+import { getBuildInfo } from './.dumi/_utils';
 import { version } from './package.json';
 
+let buildInfo: any;
+(async () => {
+  buildInfo = await getBuildInfo();
+})();
+
 export default defineConfig({
-  plugins: ['dumi-plugin-color-chunk', './.dumi/plugin'],
+  plugins: ['dumi-plugin-color-chunk'],
   conventionRoutes: {
     // to avoid generate routes for .dumi/pages/index/components/xx
     exclude: [new RegExp('index/components/')],
@@ -40,7 +46,7 @@ export default defineConfig({
   },
   extraRehypePlugins: [rehypeAntd],
   extraRemarkPlugins: [remarkAntd],
-  metas: [{ name: 'theme-color', content: '#1677ff' }],
+  metas: [{ name: 'theme-color', content: '#1677ff' }, ...buildInfo],
   analytics: {
     ga_v2: 'UA-72788897-1',
   },
