@@ -42,7 +42,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       },
 
       [`${componentCls}-icon`]: {
-        lineHeight: 0,
+        lineHeight: 1,
       },
 
       '> a': {
