@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import raf from 'rc-util/lib/raf';
 import { render, unmount } from 'rc-util/lib/React/render';
-import { composeRef } from 'rc-util/lib/ref';
+import { composeRef } from 'rc-util/es/ref';
 
 import { TARGET_CLS } from './interface';
 import type { ShowWaveEffect } from './interface';
