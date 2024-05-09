@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import type { CSSMotionProps } from 'rc-motion';
 
 import mountTest from '../../../tests/shared/mountTest';
 import { act, fireEvent, getByText, render, waitFakeTimer } from '../../../tests/utils';
@@ -12,6 +13,12 @@ import { TARGET_CLS } from '../wave/interface';
 jest.mock('rc-util/lib/Dom/isVisible', () => {
   const mockFn = () => (global as any).isVisible;
   return mockFn;
+});
+
+jest.mock('rc-motion', () => (props: CSSMotionProps) => {
+  (global as any).motionChildren = jest.fn(props.children);
+  const CSSMotion = jest.requireActual('rc-motion').default;
+  return <CSSMotion {...props}>{(global as any).motionChildren}</CSSMotion>;
 });
 
 describe('Wave component', () => {
@@ -89,6 +96,8 @@ describe('Wave component', () => {
     fireEvent.click(container.querySelector('button')!);
     waitRaf();
     expect(document.querySelector('.ant-wave')).toBeTruthy();
+
+    expect((global as any).motionChildren.mock.calls[0].length).toBe(2);
 
     // Match deadline
     await waitFakeTimer();
