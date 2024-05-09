@@ -404,8 +404,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
               dangerouslySetInnerHTML={{ __html: description }}
             />
           )}
-
-          <Flex wrap="wrap" gap="middle" className="code-box-actions">
+          <Flex wrap gap="middle" className="code-box-actions">
             {showOnlineUrl && (
               <Tooltip title={<FormattedMessage id="app.demo.online" />}>
                 <a

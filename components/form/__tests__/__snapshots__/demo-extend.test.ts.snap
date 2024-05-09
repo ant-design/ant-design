@@ -2143,7 +2143,9 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
           <div
             class="ant-form-item-control-input-content"
           >
-            <span>
+            <span
+              id="customized_form_controls_price"
+            >
               <input
                 class="ant-input ant-input-outlined"
                 style="width: 100px;"
@@ -2329,142 +2331,6 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
 `;
 
 exports[`renders components/form/demo/customized-form-controls.tsx extend context correctly 2`] = `[]`;
-
-exports[`renders components/form/demo/dependencies.tsx extend context correctly 1`] = `
-<form
-  autocomplete="off"
-  class="ant-form ant-form-vertical"
-  id="dependencies"
-  style="max-width: 600px;"
->
-  <div
-    class="ant-alert ant-alert-info"
-    data-show="true"
-    role="alert"
-  >
-    <span
-      aria-label="info-circle"
-      class="anticon anticon-info-circle ant-alert-icon"
-      role="img"
-    >
-      <svg
-        aria-hidden="true"
-        data-icon="info-circle"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="64 64 896 896"
-        width="1em"
-      >
-        <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm32 664c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-        />
-      </svg>
-    </span>
-    <div
-      class="ant-alert-content"
-    >
-      <div
-        class="ant-alert-message"
-      >
-         Try modify \`Password2\` and then modify \`Password\`
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-form-item"
-  >
-    <div
-      class="ant-row ant-form-item-row"
-    >
-      <div
-        class="ant-col ant-form-item-label"
-      >
-        <label
-          class="ant-form-item-required"
-          for="dependencies_password"
-          title="Password"
-        >
-          Password
-        </label>
-      </div>
-      <div
-        class="ant-col ant-form-item-control"
-      >
-        <div
-          class="ant-form-item-control-input"
-        >
-          <div
-            class="ant-form-item-control-input-content"
-          >
-            <input
-              aria-required="true"
-              class="ant-input ant-input-outlined"
-              id="dependencies_password"
-              type="text"
-              value=""
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-form-item"
-  >
-    <div
-      class="ant-row ant-form-item-row"
-    >
-      <div
-        class="ant-col ant-form-item-label"
-      >
-        <label
-          class="ant-form-item-required"
-          for="dependencies_password2"
-          title="Confirm Password"
-        >
-          Confirm Password
-        </label>
-      </div>
-      <div
-        class="ant-col ant-form-item-control"
-      >
-        <div
-          class="ant-form-item-control-input"
-        >
-          <div
-            class="ant-form-item-control-input-content"
-          >
-            <input
-              aria-required="true"
-              class="ant-input ant-input-outlined"
-              id="dependencies_password2"
-              type="text"
-              value=""
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <article
-    class="ant-typography"
-  >
-    <p>
-      Only Update when 
-      <code>
-        password2
-      </code>
-       updated:
-    </p>
-    <pre>
-      {}
-    </pre>
-  </article>
-</form>
-`;
-
-exports[`renders components/form/demo/dependencies.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/disabled.tsx extend context correctly 1`] = `
 Array [
@@ -7288,6 +7154,142 @@ exports[`renders components/form/demo/form-context.tsx extend context correctly 
   "Warning: [antd: Form.Item] \`name\` is only used for validate React element. If you are using Form.Item as layout display, please remove \`name\` instead.",
 ]
 `;
+
+exports[`renders components/form/demo/form-dependencies.tsx extend context correctly 1`] = `
+<form
+  autocomplete="off"
+  class="ant-form ant-form-vertical"
+  id="dependencies"
+  style="max-width: 600px;"
+>
+  <div
+    class="ant-alert ant-alert-info"
+    data-show="true"
+    role="alert"
+  >
+    <span
+      aria-label="info-circle"
+      class="anticon anticon-info-circle ant-alert-icon"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="info-circle"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm32 664c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+        />
+      </svg>
+    </span>
+    <div
+      class="ant-alert-content"
+    >
+      <div
+        class="ant-alert-message"
+      >
+         Try modify \`Password2\` and then modify \`Password\`
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class="ant-form-item-required"
+          for="dependencies_password"
+          title="Password"
+        >
+          Password
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              aria-required="true"
+              class="ant-input ant-input-outlined"
+              id="dependencies_password"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class="ant-form-item-required"
+          for="dependencies_password2"
+          title="Confirm Password"
+        >
+          Confirm Password
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              aria-required="true"
+              class="ant-input ant-input-outlined"
+              id="dependencies_password2"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <article
+    class="ant-typography"
+  >
+    <p>
+      Only Update when 
+      <code>
+        password2
+      </code>
+       updated:
+    </p>
+    <pre>
+      {}
+    </pre>
+  </article>
+</form>
+`;
+
+exports[`renders components/form/demo/form-dependencies.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/form-in-modal.tsx extend context correctly 1`] = `
 Array [
@@ -22211,6 +22213,380 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
 `;
 
 exports[`renders components/form/demo/validate-other.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/form/demo/validate-scroll-to-field.tsx extend context correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+  style="padding-block: 32px;"
+>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-col-offset-6 ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                Scroll to Bio
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-col-6 ant-form-item-label"
+      >
+        <label
+          class="ant-form-item-required"
+          for="username"
+          title="UserName"
+        >
+          UserName
+        </label>
+      </div>
+      <div
+        class="ant-col ant-col-14 ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              aria-required="true"
+              class="ant-input ant-input-outlined"
+              id="username"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-col-6 ant-form-item-label"
+      >
+        <label
+          class=""
+          for="occupation"
+          title="Occupation"
+        >
+          Occupation
+        </label>
+      </div>
+      <div
+        class="ant-col ant-col-14 ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow"
+            >
+              <div
+                class="ant-select-selector"
+              >
+                <span
+                  class="ant-select-selection-search"
+                >
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="occupation_list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-owns="occupation_list"
+                    autocomplete="off"
+                    class="ant-select-selection-search-input"
+                    id="occupation"
+                    readonly=""
+                    role="combobox"
+                    style="opacity: 0;"
+                    type="search"
+                    unselectable="on"
+                    value=""
+                  />
+                </span>
+                <span
+                  class="ant-select-selection-placeholder"
+                />
+              </div>
+              <div
+                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              >
+                <div>
+                  <div
+                    id="occupation_list"
+                    role="listbox"
+                    style="height: 0px; width: 0px; overflow: hidden;"
+                  >
+                    <div
+                      aria-label="Designer"
+                      aria-selected="false"
+                      id="occupation_list_0"
+                      role="option"
+                    >
+                      designer
+                    </div>
+                    <div
+                      aria-label="Developer"
+                      aria-selected="false"
+                      id="occupation_list_1"
+                      role="option"
+                    >
+                      developer
+                    </div>
+                  </div>
+                  <div
+                    class="rc-virtual-list"
+                    style="position: relative;"
+                  >
+                    <div
+                      class="rc-virtual-list-holder"
+                      style="max-height: 256px; overflow-y: auto;"
+                    >
+                      <div>
+                        <div
+                          class="rc-virtual-list-holder-inner"
+                          style="display: flex; flex-direction: column;"
+                        >
+                          <div
+                            aria-selected="false"
+                            class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                            title="Designer"
+                          >
+                            <div
+                              class="ant-select-item-option-content"
+                            >
+                              Designer
+                            </div>
+                            <span
+                              aria-hidden="true"
+                              class="ant-select-item-option-state"
+                              style="user-select: none;"
+                              unselectable="on"
+                            />
+                          </div>
+                          <div
+                            aria-selected="false"
+                            class="ant-select-item ant-select-item-option"
+                            title="Developer"
+                          >
+                            <div
+                              class="ant-select-item-option-content"
+                            >
+                              Developer
+                            </div>
+                            <span
+                              aria-hidden="true"
+                              class="ant-select-item-option-state"
+                              style="user-select: none;"
+                              unselectable="on"
+                            />
+                          </div>
+                          <div
+                            aria-selected="false"
+                            class="ant-select-item ant-select-item-option"
+                            title="Product Manager"
+                          >
+                            <div
+                              class="ant-select-item-option-content"
+                            >
+                              Product Manager
+                            </div>
+                            <span
+                              aria-hidden="true"
+                              class="ant-select-item-option-state"
+                              style="user-select: none;"
+                              unselectable="on"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <span
+                aria-hidden="true"
+                class="ant-select-arrow"
+                style="user-select: none;"
+                unselectable="on"
+              >
+                <span
+                  aria-label="down"
+                  class="anticon anticon-down ant-select-suffix"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="down"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-col-6 ant-form-item-label"
+      >
+        <label
+          class=""
+          for="motto"
+          title="Motto"
+        >
+          Motto
+        </label>
+      </div>
+      <div
+        class="ant-col ant-col-14 ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <textarea
+              class="ant-input ant-input-outlined"
+              id="motto"
+              rows="4"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-col-6 ant-form-item-label"
+      >
+        <label
+          class="ant-form-item-required"
+          for="bio"
+          title="Bio"
+        >
+          Bio
+        </label>
+      </div>
+      <div
+        class="ant-col ant-col-14 ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <textarea
+              aria-required="true"
+              class="ant-input ant-input-outlined"
+              id="bio"
+              rows="6"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-col-offset-6 ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-flex ant-flex-gap-small"
+            >
+              <button
+                class="ant-btn ant-btn-primary"
+                type="submit"
+              >
+                <span>
+                  Submit
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-default ant-btn-dangerous"
+                type="button"
+              >
+                <span>
+                  Reset
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`renders components/form/demo/validate-scroll-to-field.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/validate-static.tsx extend context correctly 1`] = `
 <form

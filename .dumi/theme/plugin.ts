@@ -7,14 +7,16 @@ import type { IApi, IRoute } from 'dumi';
 import ReactTechStack from 'dumi/dist/techStacks/react';
 import sylvanas from 'sylvanas';
 
-import localPackage from '../../package.json';
+import { dependencies, devDependencies } from '../../package.json';
 
 function extractEmotionStyle(html: string) {
   // copy from emotion ssr
   // https://github.com/vercel/next.js/blob/deprecated-main/examples/with-emotion-vanilla/pages/_document.js
   const styles = global.__ANTD_STYLE_CACHE_MANAGER_FOR_SSR__.getCacheList().map((cache) => {
     const result = createEmotionServer(cache).extractCritical(html);
-    if (!result.css) return null;
+    if (!result.css) {
+      return null;
+    }
 
     const { css, ids } = result;
 
@@ -46,10 +48,7 @@ class AntdReactTechStack extends ReactTechStack {
       const codePath = opts.fileAbsPath!.replace(/\.\w+$/, '.tsx');
       const code = fs.existsSync(codePath) ? fs.readFileSync(codePath, 'utf-8') : '';
 
-      props.pkgDependencyList = {
-        ...localPackage.devDependencies,
-        ...localPackage.dependencies,
-      };
+      props.pkgDependencyList = { ...devDependencies, ...dependencies };
       props.jsx = sylvanas.parseText(code);
 
       if (md) {
@@ -222,7 +221,8 @@ const RoutesPlugin = (api: IApi) => {
         const matchRegex = /<style data-type="antd-cssinjs">([\S\s]+?)<\/style>/;
         const matchList = file.content.match(matchRegex) || [];
 
-        let antdStyle = '';
+        // Init to order the `@layer`
+        let antdStyle = '@layer global, antd;';
 
         matchList.forEach((text) => {
           file.content = file.content.replace(text, '');

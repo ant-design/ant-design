@@ -1,10 +1,9 @@
 import React from 'react';
+import { Image } from 'antd';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
-import { Image } from 'antd';
 
 interface ImagePreviewProps {
-  children: React.ReactNode[];
   className?: string;
   /** Do not show padding & background */
   pure?: boolean;
@@ -29,11 +28,22 @@ function isGoodBadImg(imgMeta: any): boolean {
 function isCompareImg(imgMeta: any): boolean {
   return isGoodBadImg(imgMeta) || imgMeta.inline;
 }
-const ImagePreview: React.FC<ImagePreviewProps> = (props) => {
+
+interface MateType {
+  className: string;
+  alt: string;
+  description: string;
+  src: string;
+  isGood: boolean;
+  isBad: boolean;
+  inline: boolean;
+}
+
+const ImagePreview: React.FC<React.PropsWithChildren<ImagePreviewProps>> = (props) => {
   const { children, className: rootClassName, pure } = props;
   const imgs = toArray(children).filter((ele) => ele.type === 'img');
 
-  const imgsMeta = imgs.map((img) => {
+  const imgsMeta = imgs.map<Partial<MateType>>((img) => {
     const { alt, description, src, className } = img.props;
     return {
       className,
@@ -107,7 +117,7 @@ const ImagePreview: React.FC<ImagePreviewProps> = (props) => {
             <div className="preview-image-title">{coverMeta.alt}</div>
             <div
               className="preview-image-description"
-              dangerouslySetInnerHTML={{ __html: coverMeta.description }}
+              dangerouslySetInnerHTML={{ __html: coverMeta.description ?? '' }}
             />
           </div>
         );

@@ -75,7 +75,6 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
       ...resetComponent(token),
       backgroundColor: headerBg,
       border: borderBase,
-      borderBottom: 0,
       borderRadius: collapsePanelBorderRadius,
 
       [`&-rtl`]: {
@@ -199,6 +198,8 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
       },
 
       [`${componentCls}-item:last-child`]: {
+        borderBottom: 0,
+
         [`> ${componentCls}-content`]: {
           borderRadius: `0 0 ${unit(collapsePanelBorderRadius)} ${unit(collapsePanelBorderRadius)}`,
         },
