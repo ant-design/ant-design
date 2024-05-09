@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import raf from 'rc-util/lib/raf';
 import { render, unmount } from 'rc-util/lib/React/render';
+import { composeRef } from 'rc-util/lib/ref';
 
 import { TARGET_CLS } from './interface';
 import type { ShowWaveEffect } from './interface';
@@ -125,12 +126,9 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
         return false;
       }}
     >
-      {({ className: motionClassName }, setNodeRef) => (
+      {({ className: motionClassName }, ref) => (
         <div
-          ref={(node) => {
-            divRef.current = node;
-            setNodeRef(node);
-          }}
+          ref={composeRef(divRef, ref)}
           className={classNames(
             className,
             {
