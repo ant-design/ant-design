@@ -355,6 +355,9 @@ describe('Progress', () => {
 
     rerender(<App size={[60, 20]} />);
 
+    expect(container.querySelector('.ant-progress-line .ant-progress-outer')).toHaveStyle({
+      width: '60px',
+    });
     expect(container.querySelector('.ant-progress-line .ant-progress-bg')).toHaveStyle({
       height: '20px',
     });
@@ -375,6 +378,8 @@ describe('Progress', () => {
 
     expect(container.querySelector('.ant-progress-line .ant-progress-outer')).toHaveStyle({
       width: '60px',
+    });
+    expect(container.querySelector('.ant-progress-line .ant-progress-bg')).toHaveStyle({
       height: '20px',
     });
     expect(container.querySelector('.ant-progress-steps .ant-progress-steps-item')).toHaveStyle({
