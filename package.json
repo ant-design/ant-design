@@ -162,6 +162,7 @@
     "rc-tree-select": "~5.19.0",
     "rc-upload": "~4.5.2",
     "rc-util": "^5.39.1",
+    "react-focus-lock": "^2.11.3",
     "scroll-into-view-if-needed": "^3.1.0",
     "throttle-debounce": "^5.0.0"
   },

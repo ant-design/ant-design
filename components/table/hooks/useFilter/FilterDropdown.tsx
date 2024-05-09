@@ -3,6 +3,7 @@ import FilterFilled from '@ant-design/icons/FilterFilled';
 import classNames from 'classnames';
 import type { FieldDataNode } from 'rc-tree';
 import isEqual from 'rc-util/lib/isEqual';
+import FocusLock from 'react-focus-lock';
 
 import type { FilterState } from '.';
 import useSyncState from '../../../_util/hooks/useSyncState';
@@ -172,6 +173,8 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     onFilterDropdownVisibleChange,
   } = column;
   const [visible, setVisible] = React.useState(false);
+  const dropdownContentRef: React.RefObject<HTMLDivElement> = React.useRef(null);
+  const triggerBtnRef: React.RefObject<HTMLButtonElement> = React.useRef(null);
 
   const filtered: boolean = !!(
     filterState &&
@@ -300,6 +303,34 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     internalTriggerFilter(getFilteredKeysSync());
   };
 
+  React.useEffect(() => {
+    if (visible) {
+      const handleClickOutside = (event: MouseEvent) => {
+        if (!dropdownContentRef.current?.contains(event.target as Node)) {
+          triggerVisible(false);
+        }
+      };
+
+      const handleKeyDown = (event: KeyboardEvent) => {
+        switch (event.key) {
+          case 'Escape':
+            triggerVisible(false);
+            break;
+          default:
+            break;
+        }
+      };
+
+      document.addEventListener('click', handleClickOutside);
+      window.addEventListener('keydown', handleKeyDown);
+
+      return () => {
+        document.removeEventListener('click', handleClickOutside);
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    }
+  }, [visible]);
+
   const onVisibleChange: DropdownProps['onOpenChange'] = (newVisible, info) => {
     if (info.source === 'trigger') {
       if (newVisible && propFilteredKeys !== undefined) {
@@ -307,10 +338,8 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
         setFilteredKeysSync(wrapStringListType(propFilteredKeys));
       }
 
-      triggerVisible(newVisible);
-
-      if (!newVisible && !column.filterDropdown && filterOnClose) {
-        onConfirm();
+      if (newVisible) {
+        triggerVisible(newVisible);
       }
     }
   };
@@ -510,9 +539,21 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   }
 
   const menu = () => (
-    <FilterDropdownMenuWrapper className={`${prefixCls}-dropdown`}>
-      {dropdownContent}
-    </FilterDropdownMenuWrapper>
+    <FocusLock
+      ref={dropdownContentRef}
+      onDeactivation={() => {
+        if (!column.filterDropdown && filterOnClose) {
+          onConfirm();
+        } else {
+          triggerVisible(false);
+        }
+        triggerBtnRef.current?.focus();
+      }}
+    >
+      <FilterDropdownMenuWrapper className={`${prefixCls}-dropdown`}>
+        {dropdownContent}
+      </FilterDropdownMenuWrapper>
+    </FocusLock>
   );
 
   let filterIcon: React.ReactNode;
@@ -537,15 +578,25 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
         getPopupContainer={getPopupContainer}
         placement={direction === 'rtl' ? 'bottomLeft' : 'bottomRight'}
         rootClassName={rootClassName}
+        destroyPopupOnHide
       >
         <span
           role="button"
-          tabIndex={-1}
+          ref={triggerBtnRef}
+          tabIndex={0}
           className={classNames(`${prefixCls}-trigger`, {
             active: filtered,
           })}
           onClick={(e) => {
+            triggerVisible(!visible);
             e.stopPropagation();
+          }}
+          onKeyDown={(e) => {
+            const { key } = e;
+            if (key === 'Enter' || key === ' ') {
+              triggerVisible(true);
+              e.stopPropagation();
+            }
           }}
         >
           {filterIcon}
