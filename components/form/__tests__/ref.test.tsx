@@ -1,4 +1,5 @@
 import React from 'react';
+import type { FormComRef } from 'rc-field-form/lib/interface';
 
 import Form from '..';
 import { fireEvent, render } from '../../../tests/utils';
@@ -85,5 +86,12 @@ describe('Form.Ref', () => {
     rerender(<Test onRef={onRef} show={false} />);
     fireEvent.click(container.querySelector('.ref-remove')!);
     expect(onRef).toHaveBeenCalledWith(undefined, null);
+  });
+
+  it('should have nativeForm', () => {
+    const formRef = React.createRef<FormComRef>();
+    render(<Form ref={formRef} />);
+
+    expect(formRef.current?.nativeForm).toBeTruthy();
   });
 });

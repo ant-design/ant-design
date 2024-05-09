@@ -3,7 +3,11 @@ import { useMemo } from 'react';
 import classNames from 'classnames';
 import FieldForm, { List, useWatch } from 'rc-field-form';
 import type { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
-import type { InternalNamePath, ValidateErrorEntity } from 'rc-field-form/lib/interface';
+import type {
+  FormComRef,
+  InternalNamePath,
+  ValidateErrorEntity,
+} from 'rc-field-form/lib/interface';
 import type { Options } from 'scroll-into-view-if-needed';
 
 import { ConfigContext } from '../config-provider';
@@ -51,9 +55,11 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   variant?: Variant;
 }
 
-const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (props, ref) => {
+const InternalForm: React.ForwardRefRenderFunction<FormComRef, FormProps> = (props, ref) => {
   const contextDisabled = React.useContext(DisabledContext);
   const { getPrefixCls, direction, form: contextForm } = React.useContext(ConfigContext);
+
+  const nativeFormRef = React.useRef<FormComRef>(null);
 
   const {
     prefixCls: customizePrefixCls,
@@ -159,7 +165,9 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     ],
   );
 
-  React.useImperativeHandle(ref, () => wrapForm);
+  React.useImperativeHandle(ref, () =>
+    Object.assign(wrapForm, { nativeForm: nativeFormRef.current?.nativeForm }),
+  );
 
   const scrollToField = (options: boolean | Options, fieldName: InternalNamePath) => {
     if (options) {
@@ -203,6 +211,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
                 name={name}
                 onFinishFailed={onInternalFinishFailed}
                 form={wrapForm}
+                ref={nativeFormRef}
                 style={{ ...contextForm?.style, ...style }}
                 className={formClassName}
               />
@@ -214,8 +223,8 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
   );
 };
 
-const Form = React.forwardRef<FormInstance, FormProps>(InternalForm) as (<Values = any>(
-  props: React.PropsWithChildren<FormProps<Values>> & React.RefAttributes<FormInstance<Values>>,
+const Form = React.forwardRef<FormComRef, FormProps>(InternalForm) as (<Values = any>(
+  props: React.PropsWithChildren<FormProps<Values>> & React.RefAttributes<FormComRef<Values>>,
 ) => React.ReactElement) &
   Pick<React.FC, 'displayName'>;
 
