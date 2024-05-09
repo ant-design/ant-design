@@ -243,7 +243,6 @@
     "dekko": "^0.2.1",
     "dumi": "^2.3.2",
     "dumi-plugin-color-chunk": "^1.1.0",
-    "envinfo": "^7.13.0",
     "esbuild-loader": "^4.1.0",
     "eslint": "^8.57.0",
     "eslint-config-airbnb": "^19.0.4",
