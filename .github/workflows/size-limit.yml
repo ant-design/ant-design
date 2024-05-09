@@ -1,6 +1,7 @@
 name: 📦 Size Limit
 
 on:
+  push:
   pull_request:
     types: [opened, synchronize]
 
