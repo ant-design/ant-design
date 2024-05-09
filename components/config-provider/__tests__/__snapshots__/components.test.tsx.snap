@@ -26647,7 +26647,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                       <span
                         class="config-dropdown-trigger config-table-filter-trigger config-dropdown-open"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -26674,113 +26674,127 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
-                          class="config-table-filter-dropdown"
+                          data-focus-guard="true"
+                          style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                          tabindex="0"
+                        />
+                        <div
+                          data-focus-lock-disabled="false"
                         >
-                          <ul
-                            class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light"
-                            data-menu-list="true"
-                            role="menu"
-                            tabindex="0"
+                          <div
+                            class="config-table-filter-dropdown"
                           >
-                            <li
-                              class="config-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-test-Joe"
-                              role="menuitem"
-                              tabindex="-1"
+                            <ul
+                              class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light"
+                              data-menu-list="true"
+                              role="menu"
+                              tabindex="0"
                             >
-                              <span
-                                class="config-dropdown-menu-title-content"
-                              >
-                                <label
-                                  class="config-checkbox-wrapper"
-                                >
-                                  <span
-                                    class="config-checkbox ant-wave-target"
-                                  >
-                                    <input
-                                      class="config-checkbox-input"
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="config-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                                <span>
-                                  Joe
-                                </span>
-                              </span>
-                            </li>
-                            <li
-                              class="config-dropdown-menu-submenu config-dropdown-menu-submenu-vertical"
-                              role="none"
-                            >
-                              <div
-                                aria-controls="rc-menu-uuid-test-Submenu-popup"
-                                aria-expanded="false"
-                                aria-haspopup="true"
-                                class="config-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-test-Submenu"
+                              <li
+                                class="config-dropdown-menu-item"
+                                data-menu-id="rc-menu-uuid-test-Joe"
                                 role="menuitem"
                                 tabindex="-1"
                               >
                                 <span
                                   class="config-dropdown-menu-title-content"
                                 >
-                                  Submenu
-                                </span>
-                                <span
-                                  class="config-dropdown-menu-submenu-expand-icon config-dropdown-menu-submenu-arrow"
-                                >
-                                  <span
-                                    aria-label="right"
-                                    class="anticon anticon-right config-dropdown-menu-submenu-arrow-icon"
-                                    role="img"
+                                  <label
+                                    class="config-checkbox-wrapper"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="right"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
+                                    <span
+                                      class="config-checkbox ant-wave-target"
                                     >
-                                      <path
-                                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                                      <input
+                                        class="config-checkbox-input"
+                                        type="checkbox"
                                       />
-                                    </svg>
+                                      <span
+                                        class="config-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    Joe
                                   </span>
                                 </span>
-                              </div>
-                            </li>
-                          </ul>
-                          <div
-                            aria-hidden="true"
-                            style="display: none;"
-                          />
-                          <div
-                            class="config-table-filter-dropdown-btns"
-                          >
-                            <button
-                              class="config-btn config-btn-link config-btn-sm"
-                              disabled=""
-                              type="button"
+                              </li>
+                              <li
+                                class="config-dropdown-menu-submenu config-dropdown-menu-submenu-vertical"
+                                role="none"
+                              >
+                                <div
+                                  aria-controls="rc-menu-uuid-test-Submenu-popup"
+                                  aria-expanded="false"
+                                  aria-haspopup="true"
+                                  class="config-dropdown-menu-submenu-title"
+                                  data-menu-id="rc-menu-uuid-test-Submenu"
+                                  role="menuitem"
+                                  tabindex="-1"
+                                >
+                                  <span
+                                    class="config-dropdown-menu-title-content"
+                                  >
+                                    Submenu
+                                  </span>
+                                  <span
+                                    class="config-dropdown-menu-submenu-expand-icon config-dropdown-menu-submenu-arrow"
+                                  >
+                                    <span
+                                      aria-label="right"
+                                      class="anticon anticon-right config-dropdown-menu-submenu-arrow-icon"
+                                      role="img"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="right"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </span>
+                                </div>
+                              </li>
+                            </ul>
+                            <div
+                              aria-hidden="true"
+                              style="display: none;"
+                            />
+                            <div
+                              class="config-table-filter-dropdown-btns"
                             >
-                              <span>
-                                Reset
-                              </span>
-                            </button>
-                            <button
-                              class="config-btn config-btn-primary config-btn-sm"
-                              type="button"
-                            >
-                              <span>
-                                OK
-                              </span>
-                            </button>
+                              <button
+                                class="config-btn config-btn-link config-btn-sm"
+                                disabled=""
+                                type="button"
+                              >
+                                <span>
+                                  Reset
+                                </span>
+                              </button>
+                              <button
+                                class="config-btn config-btn-primary config-btn-sm"
+                                type="button"
+                              >
+                                <span>
+                                  OK
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
+                        <div
+                          data-focus-guard="true"
+                          style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                          tabindex="0"
+                        />
                       </div>
                     </div>
                   </th>
@@ -26951,7 +26965,7 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                       <span
                         class="config-dropdown-trigger config-table-filter-trigger config-dropdown-open"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -26978,115 +26992,129 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
-                          class="config-table-filter-dropdown"
+                          data-focus-guard="true"
+                          style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                          tabindex="0"
+                        />
+                        <div
+                          data-focus-lock-disabled="false"
                         >
-                          <ul
-                            class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light"
-                            data-menu-list="true"
-                            role="menu"
-                            tabindex="0"
+                          <div
+                            class="config-table-filter-dropdown"
                           >
-                            <li
-                              class="config-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-test-Joe"
-                              role="menuitem"
-                              tabindex="-1"
+                            <ul
+                              class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light"
+                              data-menu-list="true"
+                              role="menu"
+                              tabindex="0"
                             >
-                              <span
-                                class="config-dropdown-menu-title-content"
-                              >
-                                <label
-                                  class="config-checkbox-wrapper config-checkbox-wrapper-disabled"
-                                >
-                                  <span
-                                    class="config-checkbox ant-wave-target config-checkbox-disabled"
-                                  >
-                                    <input
-                                      class="config-checkbox-input"
-                                      disabled=""
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="config-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                                <span>
-                                  Joe
-                                </span>
-                              </span>
-                            </li>
-                            <li
-                              class="config-dropdown-menu-submenu config-dropdown-menu-submenu-vertical"
-                              role="none"
-                            >
-                              <div
-                                aria-controls="rc-menu-uuid-test-Submenu-popup"
-                                aria-expanded="false"
-                                aria-haspopup="true"
-                                class="config-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-test-Submenu"
+                              <li
+                                class="config-dropdown-menu-item"
+                                data-menu-id="rc-menu-uuid-test-Joe"
                                 role="menuitem"
                                 tabindex="-1"
                               >
                                 <span
                                   class="config-dropdown-menu-title-content"
                                 >
-                                  Submenu
-                                </span>
-                                <span
-                                  class="config-dropdown-menu-submenu-expand-icon config-dropdown-menu-submenu-arrow"
-                                >
-                                  <span
-                                    aria-label="right"
-                                    class="anticon anticon-right config-dropdown-menu-submenu-arrow-icon"
-                                    role="img"
+                                  <label
+                                    class="config-checkbox-wrapper config-checkbox-wrapper-disabled"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="right"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
+                                    <span
+                                      class="config-checkbox ant-wave-target config-checkbox-disabled"
                                     >
-                                      <path
-                                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                                      <input
+                                        class="config-checkbox-input"
+                                        disabled=""
+                                        type="checkbox"
                                       />
-                                    </svg>
+                                      <span
+                                        class="config-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    Joe
                                   </span>
                                 </span>
-                              </div>
-                            </li>
-                          </ul>
-                          <div
-                            aria-hidden="true"
-                            style="display: none;"
-                          />
-                          <div
-                            class="config-table-filter-dropdown-btns"
-                          >
-                            <button
-                              class="config-btn config-btn-link config-btn-sm"
-                              disabled=""
-                              type="button"
+                              </li>
+                              <li
+                                class="config-dropdown-menu-submenu config-dropdown-menu-submenu-vertical"
+                                role="none"
+                              >
+                                <div
+                                  aria-controls="rc-menu-uuid-test-Submenu-popup"
+                                  aria-expanded="false"
+                                  aria-haspopup="true"
+                                  class="config-dropdown-menu-submenu-title"
+                                  data-menu-id="rc-menu-uuid-test-Submenu"
+                                  role="menuitem"
+                                  tabindex="-1"
+                                >
+                                  <span
+                                    class="config-dropdown-menu-title-content"
+                                  >
+                                    Submenu
+                                  </span>
+                                  <span
+                                    class="config-dropdown-menu-submenu-expand-icon config-dropdown-menu-submenu-arrow"
+                                  >
+                                    <span
+                                      aria-label="right"
+                                      class="anticon anticon-right config-dropdown-menu-submenu-arrow-icon"
+                                      role="img"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="right"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </span>
+                                </div>
+                              </li>
+                            </ul>
+                            <div
+                              aria-hidden="true"
+                              style="display: none;"
+                            />
+                            <div
+                              class="config-table-filter-dropdown-btns"
                             >
-                              <span>
-                                Reset
-                              </span>
-                            </button>
-                            <button
-                              class="config-btn config-btn-primary config-btn-sm"
-                              disabled=""
-                              type="button"
-                            >
-                              <span>
-                                OK
-                              </span>
-                            </button>
+                              <button
+                                class="config-btn config-btn-link config-btn-sm"
+                                disabled=""
+                                type="button"
+                              >
+                                <span>
+                                  Reset
+                                </span>
+                              </button>
+                              <button
+                                class="config-btn config-btn-primary config-btn-sm"
+                                disabled=""
+                                type="button"
+                              >
+                                <span>
+                                  OK
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
+                        <div
+                          data-focus-guard="true"
+                          style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                          tabindex="0"
+                        />
                       </div>
                     </div>
                   </th>
@@ -27257,7 +27285,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                       <span
                         class="config-dropdown-trigger config-table-filter-trigger config-dropdown-open"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -27284,113 +27312,127 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
-                          class="config-table-filter-dropdown"
+                          data-focus-guard="true"
+                          style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                          tabindex="0"
+                        />
+                        <div
+                          data-focus-lock-disabled="false"
                         >
-                          <ul
-                            class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light"
-                            data-menu-list="true"
-                            role="menu"
-                            tabindex="0"
+                          <div
+                            class="config-table-filter-dropdown"
                           >
-                            <li
-                              class="config-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-test-Joe"
-                              role="menuitem"
-                              tabindex="-1"
+                            <ul
+                              class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light"
+                              data-menu-list="true"
+                              role="menu"
+                              tabindex="0"
                             >
-                              <span
-                                class="config-dropdown-menu-title-content"
-                              >
-                                <label
-                                  class="config-checkbox-wrapper"
-                                >
-                                  <span
-                                    class="config-checkbox ant-wave-target"
-                                  >
-                                    <input
-                                      class="config-checkbox-input"
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="config-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                                <span>
-                                  Joe
-                                </span>
-                              </span>
-                            </li>
-                            <li
-                              class="config-dropdown-menu-submenu config-dropdown-menu-submenu-vertical"
-                              role="none"
-                            >
-                              <div
-                                aria-controls="rc-menu-uuid-test-Submenu-popup"
-                                aria-expanded="false"
-                                aria-haspopup="true"
-                                class="config-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-test-Submenu"
+                              <li
+                                class="config-dropdown-menu-item"
+                                data-menu-id="rc-menu-uuid-test-Joe"
                                 role="menuitem"
                                 tabindex="-1"
                               >
                                 <span
                                   class="config-dropdown-menu-title-content"
                                 >
-                                  Submenu
-                                </span>
-                                <span
-                                  class="config-dropdown-menu-submenu-expand-icon config-dropdown-menu-submenu-arrow"
-                                >
-                                  <span
-                                    aria-label="right"
-                                    class="anticon anticon-right config-dropdown-menu-submenu-arrow-icon"
-                                    role="img"
+                                  <label
+                                    class="config-checkbox-wrapper"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="right"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
+                                    <span
+                                      class="config-checkbox ant-wave-target"
                                     >
-                                      <path
-                                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                                      <input
+                                        class="config-checkbox-input"
+                                        type="checkbox"
                                       />
-                                    </svg>
+                                      <span
+                                        class="config-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    Joe
                                   </span>
                                 </span>
-                              </div>
-                            </li>
-                          </ul>
-                          <div
-                            aria-hidden="true"
-                            style="display: none;"
-                          />
-                          <div
-                            class="config-table-filter-dropdown-btns"
-                          >
-                            <button
-                              class="config-btn config-btn-link config-btn-sm"
-                              disabled=""
-                              type="button"
+                              </li>
+                              <li
+                                class="config-dropdown-menu-submenu config-dropdown-menu-submenu-vertical"
+                                role="none"
+                              >
+                                <div
+                                  aria-controls="rc-menu-uuid-test-Submenu-popup"
+                                  aria-expanded="false"
+                                  aria-haspopup="true"
+                                  class="config-dropdown-menu-submenu-title"
+                                  data-menu-id="rc-menu-uuid-test-Submenu"
+                                  role="menuitem"
+                                  tabindex="-1"
+                                >
+                                  <span
+                                    class="config-dropdown-menu-title-content"
+                                  >
+                                    Submenu
+                                  </span>
+                                  <span
+                                    class="config-dropdown-menu-submenu-expand-icon config-dropdown-menu-submenu-arrow"
+                                  >
+                                    <span
+                                      aria-label="right"
+                                      class="anticon anticon-right config-dropdown-menu-submenu-arrow-icon"
+                                      role="img"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="right"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </span>
+                                </div>
+                              </li>
+                            </ul>
+                            <div
+                              aria-hidden="true"
+                              style="display: none;"
+                            />
+                            <div
+                              class="config-table-filter-dropdown-btns"
                             >
-                              <span>
-                                Reset
-                              </span>
-                            </button>
-                            <button
-                              class="config-btn config-btn-primary config-btn-sm"
-                              type="button"
-                            >
-                              <span>
-                                OK
-                              </span>
-                            </button>
+                              <button
+                                class="config-btn config-btn-link config-btn-sm"
+                                disabled=""
+                                type="button"
+                              >
+                                <span>
+                                  Reset
+                                </span>
+                              </button>
+                              <button
+                                class="config-btn config-btn-primary config-btn-sm"
+                                type="button"
+                              >
+                                <span>
+                                  OK
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
+                        <div
+                          data-focus-guard="true"
+                          style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                          tabindex="0"
+                        />
                       </div>
                     </div>
                   </th>
@@ -27561,7 +27603,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                       <span
                         class="config-dropdown-trigger config-table-filter-trigger config-dropdown-open"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -27588,113 +27630,127 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
-                          class="config-table-filter-dropdown"
+                          data-focus-guard="true"
+                          style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                          tabindex="0"
+                        />
+                        <div
+                          data-focus-lock-disabled="false"
                         >
-                          <ul
-                            class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light"
-                            data-menu-list="true"
-                            role="menu"
-                            tabindex="0"
+                          <div
+                            class="config-table-filter-dropdown"
                           >
-                            <li
-                              class="config-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-test-Joe"
-                              role="menuitem"
-                              tabindex="-1"
+                            <ul
+                              class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light"
+                              data-menu-list="true"
+                              role="menu"
+                              tabindex="0"
                             >
-                              <span
-                                class="config-dropdown-menu-title-content"
-                              >
-                                <label
-                                  class="config-checkbox-wrapper"
-                                >
-                                  <span
-                                    class="config-checkbox ant-wave-target"
-                                  >
-                                    <input
-                                      class="config-checkbox-input"
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="config-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                                <span>
-                                  Joe
-                                </span>
-                              </span>
-                            </li>
-                            <li
-                              class="config-dropdown-menu-submenu config-dropdown-menu-submenu-vertical"
-                              role="none"
-                            >
-                              <div
-                                aria-controls="rc-menu-uuid-test-Submenu-popup"
-                                aria-expanded="false"
-                                aria-haspopup="true"
-                                class="config-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-test-Submenu"
+                              <li
+                                class="config-dropdown-menu-item"
+                                data-menu-id="rc-menu-uuid-test-Joe"
                                 role="menuitem"
                                 tabindex="-1"
                               >
                                 <span
                                   class="config-dropdown-menu-title-content"
                                 >
-                                  Submenu
-                                </span>
-                                <span
-                                  class="config-dropdown-menu-submenu-expand-icon config-dropdown-menu-submenu-arrow"
-                                >
-                                  <span
-                                    aria-label="right"
-                                    class="anticon anticon-right config-dropdown-menu-submenu-arrow-icon"
-                                    role="img"
+                                  <label
+                                    class="config-checkbox-wrapper"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="right"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
+                                    <span
+                                      class="config-checkbox ant-wave-target"
                                     >
-                                      <path
-                                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                                      <input
+                                        class="config-checkbox-input"
+                                        type="checkbox"
                                       />
-                                    </svg>
+                                      <span
+                                        class="config-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    Joe
                                   </span>
                                 </span>
-                              </div>
-                            </li>
-                          </ul>
-                          <div
-                            aria-hidden="true"
-                            style="display: none;"
-                          />
-                          <div
-                            class="config-table-filter-dropdown-btns"
-                          >
-                            <button
-                              class="config-btn config-btn-link config-btn-sm"
-                              disabled=""
-                              type="button"
+                              </li>
+                              <li
+                                class="config-dropdown-menu-submenu config-dropdown-menu-submenu-vertical"
+                                role="none"
+                              >
+                                <div
+                                  aria-controls="rc-menu-uuid-test-Submenu-popup"
+                                  aria-expanded="false"
+                                  aria-haspopup="true"
+                                  class="config-dropdown-menu-submenu-title"
+                                  data-menu-id="rc-menu-uuid-test-Submenu"
+                                  role="menuitem"
+                                  tabindex="-1"
+                                >
+                                  <span
+                                    class="config-dropdown-menu-title-content"
+                                  >
+                                    Submenu
+                                  </span>
+                                  <span
+                                    class="config-dropdown-menu-submenu-expand-icon config-dropdown-menu-submenu-arrow"
+                                  >
+                                    <span
+                                      aria-label="right"
+                                      class="anticon anticon-right config-dropdown-menu-submenu-arrow-icon"
+                                      role="img"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="right"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </span>
+                                </div>
+                              </li>
+                            </ul>
+                            <div
+                              aria-hidden="true"
+                              style="display: none;"
+                            />
+                            <div
+                              class="config-table-filter-dropdown-btns"
                             >
-                              <span>
-                                Reset
-                              </span>
-                            </button>
-                            <button
-                              class="config-btn config-btn-primary config-btn-sm"
-                              type="button"
-                            >
-                              <span>
-                                OK
-                              </span>
-                            </button>
+                              <button
+                                class="config-btn config-btn-link config-btn-sm"
+                                disabled=""
+                                type="button"
+                              >
+                                <span>
+                                  Reset
+                                </span>
+                              </button>
+                              <button
+                                class="config-btn config-btn-primary config-btn-sm"
+                                type="button"
+                              >
+                                <span>
+                                  OK
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
+                        <div
+                          data-focus-guard="true"
+                          style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                          tabindex="0"
+                        />
                       </div>
                     </div>
                   </th>
@@ -27865,7 +27921,7 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
                       <span
                         class="config-dropdown-trigger config-table-filter-trigger config-dropdown-open"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -27892,113 +27948,127 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
                         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
-                          class="config-table-filter-dropdown"
+                          data-focus-guard="true"
+                          style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                          tabindex="0"
+                        />
+                        <div
+                          data-focus-lock-disabled="false"
                         >
-                          <ul
-                            class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light"
-                            data-menu-list="true"
-                            role="menu"
-                            tabindex="0"
+                          <div
+                            class="config-table-filter-dropdown"
                           >
-                            <li
-                              class="config-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-test-Joe"
-                              role="menuitem"
-                              tabindex="-1"
+                            <ul
+                              class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light"
+                              data-menu-list="true"
+                              role="menu"
+                              tabindex="0"
                             >
-                              <span
-                                class="config-dropdown-menu-title-content"
-                              >
-                                <label
-                                  class="config-checkbox-wrapper"
-                                >
-                                  <span
-                                    class="config-checkbox ant-wave-target"
-                                  >
-                                    <input
-                                      class="config-checkbox-input"
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="config-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                                <span>
-                                  Joe
-                                </span>
-                              </span>
-                            </li>
-                            <li
-                              class="config-dropdown-menu-submenu config-dropdown-menu-submenu-vertical"
-                              role="none"
-                            >
-                              <div
-                                aria-controls="rc-menu-uuid-test-Submenu-popup"
-                                aria-expanded="false"
-                                aria-haspopup="true"
-                                class="config-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-test-Submenu"
+                              <li
+                                class="config-dropdown-menu-item"
+                                data-menu-id="rc-menu-uuid-test-Joe"
                                 role="menuitem"
                                 tabindex="-1"
                               >
                                 <span
                                   class="config-dropdown-menu-title-content"
                                 >
-                                  Submenu
-                                </span>
-                                <span
-                                  class="config-dropdown-menu-submenu-expand-icon config-dropdown-menu-submenu-arrow"
-                                >
-                                  <span
-                                    aria-label="right"
-                                    class="anticon anticon-right config-dropdown-menu-submenu-arrow-icon"
-                                    role="img"
+                                  <label
+                                    class="config-checkbox-wrapper"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="right"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
+                                    <span
+                                      class="config-checkbox ant-wave-target"
                                     >
-                                      <path
-                                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                                      <input
+                                        class="config-checkbox-input"
+                                        type="checkbox"
                                       />
-                                    </svg>
+                                      <span
+                                        class="config-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    Joe
                                   </span>
                                 </span>
-                              </div>
-                            </li>
-                          </ul>
-                          <div
-                            aria-hidden="true"
-                            style="display: none;"
-                          />
-                          <div
-                            class="config-table-filter-dropdown-btns"
-                          >
-                            <button
-                              class="config-btn config-btn-link config-btn-sm"
-                              disabled=""
-                              type="button"
+                              </li>
+                              <li
+                                class="config-dropdown-menu-submenu config-dropdown-menu-submenu-vertical"
+                                role="none"
+                              >
+                                <div
+                                  aria-controls="rc-menu-uuid-test-Submenu-popup"
+                                  aria-expanded="false"
+                                  aria-haspopup="true"
+                                  class="config-dropdown-menu-submenu-title"
+                                  data-menu-id="rc-menu-uuid-test-Submenu"
+                                  role="menuitem"
+                                  tabindex="-1"
+                                >
+                                  <span
+                                    class="config-dropdown-menu-title-content"
+                                  >
+                                    Submenu
+                                  </span>
+                                  <span
+                                    class="config-dropdown-menu-submenu-expand-icon config-dropdown-menu-submenu-arrow"
+                                  >
+                                    <span
+                                      aria-label="right"
+                                      class="anticon anticon-right config-dropdown-menu-submenu-arrow-icon"
+                                      role="img"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="right"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </span>
+                                </div>
+                              </li>
+                            </ul>
+                            <div
+                              aria-hidden="true"
+                              style="display: none;"
+                            />
+                            <div
+                              class="config-table-filter-dropdown-btns"
                             >
-                              <span>
-                                Reset
-                              </span>
-                            </button>
-                            <button
-                              class="config-btn config-btn-primary config-btn-sm"
-                              type="button"
-                            >
-                              <span>
-                                OK
-                              </span>
-                            </button>
+                              <button
+                                class="config-btn config-btn-link config-btn-sm"
+                                disabled=""
+                                type="button"
+                              >
+                                <span>
+                                  Reset
+                                </span>
+                              </button>
+                              <button
+                                class="config-btn config-btn-primary config-btn-sm"
+                                type="button"
+                              >
+                                <span>
+                                  OK
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
+                        <div
+                          data-focus-guard="true"
+                          style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                          tabindex="0"
+                        />
                       </div>
                     </div>
                   </th>
@@ -28169,7 +28239,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger ant-dropdown-open"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -28196,113 +28266,127 @@ exports[`ConfigProvider components Table normal 1`] = `
                         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
-                          class="ant-table-filter-dropdown"
+                          data-focus-guard="true"
+                          style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                          tabindex="0"
+                        />
+                        <div
+                          data-focus-lock-disabled="false"
                         >
-                          <ul
-                            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-                            data-menu-list="true"
-                            role="menu"
-                            tabindex="0"
+                          <div
+                            class="ant-table-filter-dropdown"
                           >
-                            <li
-                              class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-test-Joe"
-                              role="menuitem"
-                              tabindex="-1"
+                            <ul
+                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                              data-menu-list="true"
+                              role="menu"
+                              tabindex="0"
                             >
-                              <span
-                                class="ant-dropdown-menu-title-content"
-                              >
-                                <label
-                                  class="ant-checkbox-wrapper"
-                                >
-                                  <span
-                                    class="ant-checkbox ant-wave-target"
-                                  >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                                <span>
-                                  Joe
-                                </span>
-                              </span>
-                            </li>
-                            <li
-                              class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
-                              role="none"
-                            >
-                              <div
-                                aria-controls="rc-menu-uuid-test-Submenu-popup"
-                                aria-expanded="false"
-                                aria-haspopup="true"
-                                class="ant-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-test-Submenu"
+                              <li
+                                class="ant-dropdown-menu-item"
+                                data-menu-id="rc-menu-uuid-test-Joe"
                                 role="menuitem"
                                 tabindex="-1"
                               >
                                 <span
                                   class="ant-dropdown-menu-title-content"
                                 >
-                                  Submenu
-                                </span>
-                                <span
-                                  class="ant-dropdown-menu-submenu-expand-icon ant-dropdown-menu-submenu-arrow"
-                                >
-                                  <span
-                                    aria-label="right"
-                                    class="anticon anticon-right ant-dropdown-menu-submenu-arrow-icon"
-                                    role="img"
+                                  <label
+                                    class="ant-checkbox-wrapper"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="right"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
+                                    <span
+                                      class="ant-checkbox ant-wave-target"
                                     >
-                                      <path
-                                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
                                       />
-                                    </svg>
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    Joe
                                   </span>
                                 </span>
-                              </div>
-                            </li>
-                          </ul>
-                          <div
-                            aria-hidden="true"
-                            style="display: none;"
-                          />
-                          <div
-                            class="ant-table-filter-dropdown-btns"
-                          >
-                            <button
-                              class="ant-btn ant-btn-link ant-btn-sm"
-                              disabled=""
-                              type="button"
+                              </li>
+                              <li
+                                class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
+                                role="none"
+                              >
+                                <div
+                                  aria-controls="rc-menu-uuid-test-Submenu-popup"
+                                  aria-expanded="false"
+                                  aria-haspopup="true"
+                                  class="ant-dropdown-menu-submenu-title"
+                                  data-menu-id="rc-menu-uuid-test-Submenu"
+                                  role="menuitem"
+                                  tabindex="-1"
+                                >
+                                  <span
+                                    class="ant-dropdown-menu-title-content"
+                                  >
+                                    Submenu
+                                  </span>
+                                  <span
+                                    class="ant-dropdown-menu-submenu-expand-icon ant-dropdown-menu-submenu-arrow"
+                                  >
+                                    <span
+                                      aria-label="right"
+                                      class="anticon anticon-right ant-dropdown-menu-submenu-arrow-icon"
+                                      role="img"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="right"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </span>
+                                </div>
+                              </li>
+                            </ul>
+                            <div
+                              aria-hidden="true"
+                              style="display: none;"
+                            />
+                            <div
+                              class="ant-table-filter-dropdown-btns"
                             >
-                              <span>
-                                Reset
-                              </span>
-                            </button>
-                            <button
-                              class="ant-btn ant-btn-primary ant-btn-sm"
-                              type="button"
-                            >
-                              <span>
-                                OK
-                              </span>
-                            </button>
+                              <button
+                                class="ant-btn ant-btn-link ant-btn-sm"
+                                disabled=""
+                                type="button"
+                              >
+                                <span>
+                                  Reset
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary ant-btn-sm"
+                                type="button"
+                              >
+                                <span>
+                                  OK
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
+                        <div
+                          data-focus-guard="true"
+                          style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                          tabindex="0"
+                        />
                       </div>
                     </div>
                   </th>
@@ -28473,7 +28557,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                       <span
                         class="ant-dropdown-trigger prefix-Table-filter-trigger ant-dropdown-open"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -28500,113 +28584,127 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
-                          class="prefix-Table-filter-dropdown"
+                          data-focus-guard="true"
+                          style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                          tabindex="0"
+                        />
+                        <div
+                          data-focus-lock-disabled="false"
                         >
-                          <ul
-                            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-                            data-menu-list="true"
-                            role="menu"
-                            tabindex="0"
+                          <div
+                            class="prefix-Table-filter-dropdown"
                           >
-                            <li
-                              class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-test-Joe"
-                              role="menuitem"
-                              tabindex="-1"
+                            <ul
+                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                              data-menu-list="true"
+                              role="menu"
+                              tabindex="0"
                             >
-                              <span
-                                class="ant-dropdown-menu-title-content"
-                              >
-                                <label
-                                  class="ant-checkbox-wrapper"
-                                >
-                                  <span
-                                    class="ant-checkbox ant-wave-target"
-                                  >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                                <span>
-                                  Joe
-                                </span>
-                              </span>
-                            </li>
-                            <li
-                              class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
-                              role="none"
-                            >
-                              <div
-                                aria-controls="rc-menu-uuid-test-Submenu-popup"
-                                aria-expanded="false"
-                                aria-haspopup="true"
-                                class="ant-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-test-Submenu"
+                              <li
+                                class="ant-dropdown-menu-item"
+                                data-menu-id="rc-menu-uuid-test-Joe"
                                 role="menuitem"
                                 tabindex="-1"
                               >
                                 <span
                                   class="ant-dropdown-menu-title-content"
                                 >
-                                  Submenu
-                                </span>
-                                <span
-                                  class="ant-dropdown-menu-submenu-expand-icon ant-dropdown-menu-submenu-arrow"
-                                >
-                                  <span
-                                    aria-label="right"
-                                    class="anticon anticon-right ant-dropdown-menu-submenu-arrow-icon"
-                                    role="img"
+                                  <label
+                                    class="ant-checkbox-wrapper"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="right"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
+                                    <span
+                                      class="ant-checkbox ant-wave-target"
                                     >
-                                      <path
-                                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
                                       />
-                                    </svg>
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    Joe
                                   </span>
                                 </span>
-                              </div>
-                            </li>
-                          </ul>
-                          <div
-                            aria-hidden="true"
-                            style="display: none;"
-                          />
-                          <div
-                            class="prefix-Table-filter-dropdown-btns"
-                          >
-                            <button
-                              class="ant-btn ant-btn-link ant-btn-sm"
-                              disabled=""
-                              type="button"
+                              </li>
+                              <li
+                                class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
+                                role="none"
+                              >
+                                <div
+                                  aria-controls="rc-menu-uuid-test-Submenu-popup"
+                                  aria-expanded="false"
+                                  aria-haspopup="true"
+                                  class="ant-dropdown-menu-submenu-title"
+                                  data-menu-id="rc-menu-uuid-test-Submenu"
+                                  role="menuitem"
+                                  tabindex="-1"
+                                >
+                                  <span
+                                    class="ant-dropdown-menu-title-content"
+                                  >
+                                    Submenu
+                                  </span>
+                                  <span
+                                    class="ant-dropdown-menu-submenu-expand-icon ant-dropdown-menu-submenu-arrow"
+                                  >
+                                    <span
+                                      aria-label="right"
+                                      class="anticon anticon-right ant-dropdown-menu-submenu-arrow-icon"
+                                      role="img"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="right"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </span>
+                                </div>
+                              </li>
+                            </ul>
+                            <div
+                              aria-hidden="true"
+                              style="display: none;"
+                            />
+                            <div
+                              class="prefix-Table-filter-dropdown-btns"
                             >
-                              <span>
-                                Reset
-                              </span>
-                            </button>
-                            <button
-                              class="ant-btn ant-btn-primary ant-btn-sm"
-                              type="button"
-                            >
-                              <span>
-                                OK
-                              </span>
-                            </button>
+                              <button
+                                class="ant-btn ant-btn-link ant-btn-sm"
+                                disabled=""
+                                type="button"
+                              >
+                                <span>
+                                  Reset
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary ant-btn-sm"
+                                type="button"
+                              >
+                                <span>
+                                  OK
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
+                        <div
+                          data-focus-guard="true"
+                          style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                          tabindex="0"
+                        />
                       </div>
                     </div>
                   </th>
