@@ -80,6 +80,7 @@ describe('Wave component', () => {
   }
 
   it('work', async () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { container, unmount } = render(
       <Wave>
         <button type="button">button</button>
@@ -95,7 +96,6 @@ describe('Wave component', () => {
 
     expect(document.querySelector('.ant-wave')).toBeFalsy();
 
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     expect(errorSpy).not.toHaveBeenCalled();
 
     unmount();
