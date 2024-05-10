@@ -11,15 +11,29 @@ export interface OTPInputProps extends Omit<InputProps, 'onChange'> {
   onActiveChange: (nextIndex: number) => void;
 
   mask?: boolean | string;
+  /**
+   * @internal Only for `OTP` usage. Do not use in production.
+   */
+  __internalLastIndex?: number;
 }
 
 const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
-  const { value, onChange, onActiveChange, index, mask, ...restProps } = props;
+  const {
+    value,
+    onChange,
+    onActiveChange,
+    index,
+    mask,
+    __internalLastIndex = index,
+    ...restProps
+  } = props;
 
   const internalValue = value && typeof mask === 'string' ? mask : value;
 
-  const onInternalChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    onChange(index, e.target.value);
+  const nextIndex = React.useRef<number>(index);
+
+  const onInternalChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+    onChange(index, event.target.value);
   };
 
   // ========================== Ref ===========================
@@ -37,18 +51,25 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
   };
 
   // ======================== Keyboard ========================
-  const onInternalKeyDown: React.KeyboardEventHandler<HTMLInputElement> = ({ key }) => {
-    if (key === 'ArrowLeft') {
+  const onInternalKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (event) => {
+    if (event.key === 'Delete' && nextIndex.current < __internalLastIndex) {
+      event.preventDefault();
+      onChange(++nextIndex.current, '');
+      return;
+    }
+    nextIndex.current = index;
+
+    if (event.key === 'ArrowLeft') {
       onActiveChange(index - 1);
-    } else if (key === 'ArrowRight') {
+    } else if (event.key === 'ArrowRight') {
       onActiveChange(index + 1);
     }
 
     syncSelection();
   };
 
-  const onInternalKeyUp: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
-    if (e.key === 'Backspace' && !value) {
+  const onInternalKeyUp: React.KeyboardEventHandler<HTMLInputElement> = (event) => {
+    if (event.key === 'Backspace' && !value) {
       onActiveChange(index - 1);
     }
 

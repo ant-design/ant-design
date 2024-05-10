@@ -249,6 +249,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
               onActiveChange={onInputActiveChange}
               autoFocus={index === 0 && autoFocus}
               {...inputSharedProps}
+              __internalLastIndex={length - 1}
             />
           );
         })}
