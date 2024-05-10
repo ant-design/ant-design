@@ -1,4 +1,5 @@
 import React from 'react';
+import { LoadingOutlined } from '@ant-design/icons';
 import { Button, Modal } from 'antd';
 
 const App: React.FC = () => {
@@ -28,8 +29,13 @@ const App: React.FC = () => {
         Open Modal
       </Button>
       <Modal
+        title={
+          <>
+            Loading Modal
+            {isLoading && <LoadingOutlined style={{ marginInlineStart: 12 }} />}
+          </>
+        }
         loading={isLoading}
-        title={<div>Loading Modal</div>}
         open={open}
         onOk={() => setOpen(false)}
         onCancel={() => setOpen(false)}
