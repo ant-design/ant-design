@@ -37,9 +37,8 @@ describe('Alert', () => {
       />,
     );
 
-    await userEvent.click(screen.getByRole('button', { name: /close/i }));
-
-    act(() => {
+    await act(async () => {
+      await userEvent.click(screen.getByRole('button', { name: /close/i }));
       jest.runAllTimers();
     });
 
