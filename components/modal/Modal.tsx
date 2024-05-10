@@ -159,7 +159,12 @@ const Modal: React.FC<ModalProps> = (props) => {
             panelRef={panelRef}
           >
             {loading ? (
-              <Skeleton active title={false} className={`${prefixCls}-body-skeleton`} />
+              <Skeleton
+                active
+                title={false}
+                paragraph={{ rows: 4 }}
+                className={`${prefixCls}-body-skeleton`}
+              />
             ) : (
               children
             )}
