@@ -8,6 +8,7 @@ import { useZIndex } from '../_util/hooks/useZIndex';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
+import { cloneElement } from '../_util/reactNode';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import type {
@@ -55,6 +56,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
 ) => {
   const {
     prefixCls: customizePrefixCls,
+    status,
     className,
     popupClassName,
     dropdownClassName,
@@ -74,7 +76,12 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     [customizeInput] = childNodes;
   }
 
-  const getInputElement = customizeInput ? (): React.ReactElement => customizeInput! : undefined;
+  const getInputElement = customizeInput
+    ? (): React.ReactElement =>
+        cloneElement(customizeInput, {
+          status: customizeInput.props.status || status,
+        })
+    : undefined;
 
   // ============================ Options ============================
   let optionChildren: React.ReactNode;
