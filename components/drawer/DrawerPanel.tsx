@@ -156,23 +156,8 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     );
   }, [footer, footerStyle, prefixCls]);
 
-  if (spinProps?.spinning) {
-    return (
-      <Spin
-        spinning={false}
-        style={{
-          height: '100%',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-        {...spinProps}
-      />
-    );
-  }
-
   return (
-    <>
+    <Spin {...spinProps}>
       {headerNode}
       <div
         className={classNames(
@@ -189,7 +174,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
         {children}
       </div>
       {footerNode}
-    </>
+    </Spin>
   );
 };
 
