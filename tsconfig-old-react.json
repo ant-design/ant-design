@@ -8,5 +8,5 @@
       "antd/locale/*": ["locale/*"]
     }
   },
-  "include": ["components/*/demo/*.tsx"]
+  "include": [".dumirc.ts", "components/*/demo/*.tsx"]
 }
