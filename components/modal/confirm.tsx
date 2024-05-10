@@ -121,7 +121,7 @@ export default function confirm(config: ModalFuncProps) {
         if (typeof config.afterClose === 'function') {
           config.afterClose();
         }
-
+        // @ts-ignore
         destroy.apply(this, args);
       },
     };

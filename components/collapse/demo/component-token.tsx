@@ -1,6 +1,5 @@
 import React from 'react';
 import { Collapse, ConfigProvider } from 'antd';
-
 /** Test usage. Do not use in your production. */
 import type { CollapseProps } from 'antd';
 

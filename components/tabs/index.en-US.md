@@ -2,11 +2,10 @@
 category: Components
 group: Data Display
 title: Tabs
+description: Tabs make it easy to explore and switch between different views.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*72NDQqXkyOEAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8HMoTZUoSGoAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-Tabs make it easy to switch between different views.
 
 ### When To Use
 
@@ -51,7 +50,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | addIcon | Customize add icon, only works with `type="editable-card"` | ReactNode | `<PlusOutlined />` | 4.4.0 |
 | animated | Whether to change tabs with animation. | boolean \| { inkBar: boolean, tabPane: boolean } | { inkBar: true, tabPane: false } |  |
 | centered | Centers tabs | boolean | false | 4.4.0 |
-| defaultActiveKey | Initial active TabPane's key, if `activeKey` is not set | string | - |  |
+| defaultActiveKey | Initial active TabPane's key, if `activeKey` is not set | string | `The key of first tab` |  |
 | hideAdd | Hide plus icon or not. Only works while `type="editable-card"` | boolean | false |  |
 | indicator | Customize `size` and `align` of indicator | { size?: number \| (origin: number) => number; align: `start` \| `center` \| `end`; } | - | 5.13.0 |
 | items | Configure tab content | [TabItemType](#tabitemtype) | [] | 4.23.0 |

@@ -11,7 +11,8 @@ import Button from '../../../button';
 import type { CheckboxChangeEvent } from '../../../checkbox';
 import Checkbox from '../../../checkbox';
 import { ConfigContext } from '../../../config-provider/context';
-import Dropdown, { type DropdownProps } from '../../../dropdown';
+import Dropdown from '../../../dropdown';
+import type { DropdownProps } from '../../../dropdown';
 import Empty from '../../../empty';
 import type { MenuProps } from '../../../menu';
 import Menu from '../../../menu';
@@ -352,7 +353,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   if (typeof column.filterDropdown === 'function') {
     dropdownContent = column.filterDropdown({
       prefixCls: `${dropdownPrefixCls}-custom`,
-      setSelectedKeys: (selectedKeys: string[]) => onSelectKeys({ selectedKeys }),
+      setSelectedKeys: (selectedKeys) => onSelectKeys({ selectedKeys: selectedKeys as string[] }),
       selectedKeys: getFilteredKeysSync(),
       confirm: doFilter,
       clearFilters: onReset,
@@ -367,20 +368,21 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   } else {
     const selectedKeys = getFilteredKeysSync() || [];
     const getFilterComponent = () => {
+      const empty = (
+        <Empty
+          image={Empty.PRESENTED_IMAGE_SIMPLE}
+          description={locale.filterEmptyText}
+          imageStyle={{
+            height: 24,
+          }}
+          style={{
+            margin: 0,
+            padding: '16px 0',
+          }}
+        />
+      );
       if ((column.filters || []).length === 0) {
-        return (
-          <Empty
-            image={Empty.PRESENTED_IMAGE_SIMPLE}
-            description={locale.filterEmptyText}
-            imageStyle={{
-              height: 24,
-            }}
-            style={{
-              margin: 0,
-              padding: '16px 0',
-            }}
-          />
-        );
+        return empty;
       }
       if (filterMode === 'tree') {
         return (
@@ -413,7 +415,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
                 multiple={filterMultiple}
                 checkStrictly={!filterMultiple}
                 className={`${dropdownPrefixCls}-menu`}
-                onCheck={onCheck}
+                onCheck={onCheck as any}
                 checkedKeys={selectedKeys}
                 selectedKeys={selectedKeys}
                 showIcon={false}
@@ -435,6 +437,16 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
           </>
         );
       }
+      const items = renderFilterItems({
+        filters: column.filters || [],
+        filterSearch,
+        prefixCls,
+        filteredKeys: getFilteredKeysSync(),
+        filterMultiple,
+        searchValue,
+      });
+      const isEmpty = items.every((item) => item === null);
+
       return (
         <>
           <FilterSearch
@@ -444,26 +456,23 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
             tablePrefixCls={tablePrefixCls}
             locale={locale}
           />
-          <Menu
-            selectable
-            multiple={filterMultiple}
-            prefixCls={`${dropdownPrefixCls}-menu`}
-            className={dropdownMenuClass}
-            onSelect={onSelectKeys}
-            onDeselect={onSelectKeys}
-            selectedKeys={selectedKeys}
-            getPopupContainer={getPopupContainer}
-            openKeys={openKeys}
-            onOpenChange={onOpenChange}
-            items={renderFilterItems({
-              filters: column.filters || [],
-              filterSearch,
-              prefixCls,
-              filteredKeys: getFilteredKeysSync(),
-              filterMultiple,
-              searchValue,
-            })}
-          />
+          {isEmpty ? (
+            empty
+          ) : (
+            <Menu
+              selectable
+              multiple={filterMultiple}
+              prefixCls={`${dropdownPrefixCls}-menu`}
+              className={dropdownMenuClass}
+              onSelect={onSelectKeys}
+              onDeselect={onSelectKeys}
+              selectedKeys={selectedKeys}
+              getPopupContainer={getPopupContainer}
+              openKeys={openKeys}
+              onOpenChange={onOpenChange}
+              items={items}
+            />
+          )}
         </>
       );
     };

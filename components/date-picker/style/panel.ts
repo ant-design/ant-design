@@ -1,4 +1,5 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
 import type { GenerateStyle } from '../../theme/internal';
@@ -307,10 +308,8 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           width: pickerControlIconSize,
           height: pickerControlIconSize,
           border: `0 solid currentcolor`,
-          borderBlockStartWidth: pickerControlIconBorderWidth,
-          borderBlockEndWidth: 0,
-          borderInlineStartWidth: pickerControlIconBorderWidth,
-          borderInlineEndWidth: 0,
+          borderBlockWidth: `${unit(pickerControlIconBorderWidth)} 0`,
+          borderInlineWidth: `${unit(pickerControlIconBorderWidth)} 0`,
           content: '""',
         },
       },
@@ -325,10 +324,8 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           width: pickerControlIconSize,
           height: pickerControlIconSize,
           border: '0 solid currentcolor',
-          borderBlockStartWidth: pickerControlIconBorderWidth,
-          borderBlockEndWidth: 0,
-          borderInlineStartWidth: pickerControlIconBorderWidth,
-          borderInlineEndWidth: 0,
+          borderBlockWidth: `${unit(pickerControlIconBorderWidth)} 0`,
+          borderInlineWidth: `${unit(pickerControlIconBorderWidth)} 0`,
           content: '""',
         },
       },
@@ -470,7 +467,8 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 
           [`&-range-start td,
             &-range-end td,
-            &-selected td`]: {
+            &-selected td,
+            &-hover td`]: {
             // Rise priority to override hover style
             [`&${pickerCellCls}`]: {
               '&:before': {
@@ -560,7 +558,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 
           '&::-webkit-scrollbar-thumb': {
             backgroundColor: token.colorTextTertiary,
-            borderRadius: 4,
+            borderRadius: token.borderRadiusSM,
           },
 
           // For Firefox

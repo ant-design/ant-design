@@ -1,12 +1,12 @@
 import React, { Suspense, useRef, useState } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import { resetWarned } from 'rc-util/lib/warning';
-import { act } from 'react-dom/test-utils';
 
 import Button from '..';
+import type { GetRef } from '../../_util/type';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import type { BaseButtonProps } from '../button';
 
@@ -88,7 +88,7 @@ describe('Button', () => {
   });
 
   it('renders Chinese characters correctly in HOC', () => {
-    const Text = ({ children }: { children: React.ReactNode }) => <span>{children}</span>;
+    const Text: React.FC<React.PropsWithChildren> = ({ children }) => <span>{children}</span>;
     const { container, rerender } = render(
       <Button>
         <Text>按钮</Text>
@@ -292,7 +292,7 @@ describe('Button', () => {
   });
 
   it('skip check 2 words when ConfigProvider disable this', () => {
-    const buttonInstance = React.createRef<HTMLElement>();
+    const buttonInstance = React.createRef<GetRef<typeof Button>>();
     render(
       <ConfigProvider autoInsertSpaceInButton={false}>
         <Button ref={buttonInstance}>test</Button>
@@ -369,13 +369,13 @@ describe('Button', () => {
       />
     );
 
-    const btnRef = React.createRef<HTMLButtonElement>();
+    const btnRef = React.createRef<GetRef<typeof Button>>();
     const refBtn = <Button ref={btnRef} />;
 
-    const anchorRef = React.createRef<HTMLAnchorElement>();
+    const anchorRef = React.createRef<GetRef<typeof Button>>();
     const refAnchor = <Button ref={anchorRef} />;
 
-    const htmlRef = React.createRef<HTMLElement>();
+    const htmlRef = React.createRef<GetRef<typeof Button>>();
     const refHtml = <Button ref={htmlRef} />;
 
     const btnAttr = <Button name="hello" />;
@@ -440,5 +440,11 @@ describe('Button', () => {
   it('Compatible with original `type` behavior', async () => {
     const { container } = render(<Button type={'' as any} />);
     expect(container.querySelector('.ant-btn-default')).toBeTruthy();
+  });
+
+  it('should support autoInsertSpace', () => {
+    const text = '确定';
+    const { container } = render(<Button autoInsertSpace={false}>{text}</Button>);
+    expect(container.querySelector<HTMLButtonElement>('button')?.textContent).toBe(text);
   });
 });

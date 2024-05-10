@@ -2,13 +2,12 @@
 category: Components
 group: Data Entry
 title: TreeSelect
+description: Tree selection control.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*1zcHQLltaJcAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*hjwGSIa4J8QAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-Tree selection control.
 
 ## When To Use
 
@@ -87,6 +86,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onSearch | A callback function, can be executed when the search input changes | function(value: string) | - |  |
 | onSelect | A callback function, can be executed when you select a treeNode | function(value, node, extra) | - |  |
 | onTreeExpand | A callback function, can be executed when treeNode expanded | function(expandedKeys) | - |  |
+| onPopupScroll | Called when dropdown scrolls | (event: MouseEvent) => void | - | 5.17.0 |
 
 ### Tree Methods
 

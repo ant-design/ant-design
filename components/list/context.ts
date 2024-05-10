@@ -1,4 +1,5 @@
 import React from 'react';
+
 import type { ListGridType } from '.';
 
 export interface ListConsumerProps {

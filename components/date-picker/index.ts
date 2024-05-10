@@ -50,4 +50,4 @@ const PureRangePanel = genPurePanel(DatePicker.RangePicker, 'picker', null, post
 (DatePicker as DatePickerType)._InternalRangePanelDoNotUseOrYouWillBeFired = PureRangePanel;
 (DatePicker as DatePickerType).generatePicker = generatePicker;
 
-export default (DatePicker as DatePickerType);
+export default DatePicker as DatePickerType;

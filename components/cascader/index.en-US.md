@@ -2,13 +2,12 @@
 category: Components
 group: Data Entry
 title: Cascader
+description: Cascade selection box.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ngTnQZNOcK0AAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Nt8xR7afyr0AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-Cascade selection box.
 
 ## When To Use
 
@@ -89,6 +88,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onSearch | The callback function triggered when input changed | (search: string) => void | - | 4.17.0 |
 | dropdownMenuColumnStyle | The style of the drop-down menu column | CSSProperties | - |  |
 | loadingIcon | The appearance of lazy loading (now is useless) | ReactNode | - |  |
+| optionRender | Customize the rendering dropdown options | (option: Option) => React.ReactNode | - | 5.16.0 |
 
 ### showSearch
 

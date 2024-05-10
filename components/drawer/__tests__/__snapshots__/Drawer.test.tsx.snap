@@ -1,5 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Drawer Drawer loading have a spinner 1`] = `
+<div
+  class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+  tabindex="-1"
+>
+  <div
+    class="ant-drawer-mask"
+  />
+  <div
+    aria-hidden="true"
+    data-sentinel="start"
+    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+    tabindex="0"
+  />
+  <div
+    class="ant-drawer-content-wrapper"
+    style="width: 378px;"
+  >
+    <div
+      aria-modal="true"
+      class="ant-drawer-content"
+      role="dialog"
+    >
+      <div
+        aria-busy="true"
+        aria-live="polite"
+        class="ant-spin ant-spin-spinning ant-drawer-content-spin"
+      >
+        <span
+          class="ant-spin-dot ant-spin-dot-spin"
+        >
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-hidden="true"
+    data-sentinel="end"
+    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+    tabindex="0"
+  />
+</div>
+`;
+
 exports[`Drawer className is test_drawer 1`] = `
 <div
   class="ant-drawer ant-drawer-right test_drawer ant-drawer-open ant-drawer-inline"

@@ -1,9 +1,10 @@
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { FC } from 'react';
 import React, { useMemo } from 'react';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+
 import Select from '../../select';
 import type { Color } from '../color';
-import type { ColorPickerBaseProps } from '../interface';
+import type { ColorFormatType, ColorPickerBaseProps } from '../interface';
 import { ColorFormat } from '../interface';
 import ColorAlphaInput from './ColorAlphaInput';
 import ColorHexInput from './ColorHexInput';
@@ -30,7 +31,7 @@ const ColorInput: FC<ColorInputProps> = (props) => {
 
   const colorInputPrefixCls = `${prefixCls}-input`;
 
-  const handleFormatChange = (newFormat: ColorFormat) => {
+  const handleFormatChange = (newFormat: ColorFormatType) => {
     setColorFormat(newFormat);
   };
 

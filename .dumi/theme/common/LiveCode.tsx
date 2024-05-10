@@ -22,12 +22,12 @@ const useStyle = createStyles(({ token, css }) => {
         .dumi-default-source-code > pre,
         .dumi-default-source-code-scroll-content > pre,
         .dumi-default-source-code-editor-textarea {
-          padding: 12px 16px;
+          padding: ${token.paddingSM}px ${token.padding}px;
         }
 
         .dumi-default-source-code > pre,
         .dumi-default-source-code-scroll-content > pre {
-          font-size: 13px;
+          font-size: ${token.fontSize}px;
           line-height: 2;
           font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
         }

@@ -9,19 +9,19 @@ import type {
 } from 'rc-mentions/lib/Mentions';
 import { composeRef } from 'rc-util/lib/ref';
 
+import getAllowClear from '../_util/getAllowClear';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
-import { FormItemInputContext } from '../form/context';
-import Spin from '../spin';
-import useStyle from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import { FormItemInputContext } from '../form/context';
 import type { Variant } from '../form/hooks/useVariants';
 import useVariant from '../form/hooks/useVariants';
-import getAllowClear from '../_util/getAllowClear';
+import Spin from '../spin';
+import useStyle from './style';
 
 export const { Option } = RcMentions;
 
@@ -64,18 +64,7 @@ interface MentionsEntity {
   value: string;
 }
 
-type CompoundedComponent = React.ForwardRefExoticComponent<
-  MentionProps & React.RefAttributes<MentionsRef>
-> & {
-  Option: typeof Option;
-  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
-  getMentions: (value: string, config?: MentionsConfig) => MentionsEntity[];
-};
-
-const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps> = (
-  props,
-  ref,
-) => {
+const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -223,14 +212,20 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
   );
 
   return wrapCSSVar(mentions);
+});
+
+type CompoundedComponent = typeof InternalMentions & {
+  Option: typeof Option;
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+  getMentions: (value: string, config?: MentionsConfig) => MentionsEntity[];
 };
 
-const Mentions = React.forwardRef<MentionsRef, MentionProps>(
-  InternalMentions,
-) as CompoundedComponent;
+const Mentions = InternalMentions as CompoundedComponent;
+
 if (process.env.NODE_ENV !== 'production') {
   Mentions.displayName = 'Mentions';
 }
+
 Mentions.Option = Option;
 
 // We don't care debug panel

@@ -7,16 +7,12 @@ import { fireEvent, render } from '../../../tests/utils';
 import type { QRCodeProps } from '../interface';
 
 describe('QRCode test', () => {
-  mountTest(QRCode);
-  rtlTest(QRCode);
+  mountTest(() => <QRCode value="" />);
+  rtlTest(() => <QRCode value="" />);
 
   it('should correct render', () => {
     const { container } = render(<QRCode value="test" />);
-    expect(
-      container
-        ?.querySelector<HTMLDivElement>('.ant-qrcode')
-        ?.querySelector<HTMLCanvasElement>('canvas'),
-    ).toBeTruthy();
+    expect(container?.querySelector<HTMLCanvasElement>('.ant-qrcode canvas')).toBeTruthy();
     expect(container).toMatchSnapshot();
   });
 
@@ -31,25 +27,21 @@ describe('QRCode test', () => {
 
   it('support custom icon', () => {
     const { container } = render(<QRCode value="test" icon="test" />);
-    expect(
-      container
-        ?.querySelector<HTMLDivElement>('.ant-qrcode')
-        ?.querySelector<HTMLImageElement>('img'),
-    ).toBeTruthy();
+    expect(container?.querySelector<HTMLImageElement>('.ant-qrcode img')).toBeTruthy();
   });
 
   it('support custom size', () => {
     const { container } = render(<QRCode value="test" size={100} />);
-    expect(container.querySelector('.ant-qrcode')).toHaveStyle('width: 100px; height: 100px');
+    const canvas = container.querySelector<HTMLCanvasElement>('.ant-qrcode > canvas')!;
+    expect(canvas.width).toBe(100);
+    expect(canvas.height).toBe(100);
   });
 
   it('support refresh', () => {
     const refresh = jest.fn();
     const { container } = render(<QRCode value="test" status="expired" onRefresh={refresh} />);
     fireEvent.click(
-      container
-        ?.querySelector<HTMLDivElement>('.ant-qrcode')
-        ?.querySelector<HTMLButtonElement>('button.ant-btn-link')!,
+      container?.querySelector<HTMLButtonElement>('.ant-qrcode button.ant-btn-link')!,
     );
     expect(refresh).toHaveBeenCalled();
   });
@@ -86,5 +78,17 @@ describe('QRCode test', () => {
       'Warning: [antd: QRCode] ErrorLevel `L` is not recommended to be used with `icon`, for scanning result would be affected by low level.',
     );
     errSpy.mockRestore();
+  });
+
+  it('correct style for wrapper & canvas', () => {
+    const { container } = render(
+      <QRCode value="test" size={60} style={{ width: '100%', height: '80%' }} />,
+    );
+    expect(container.querySelector<HTMLElement>('.ant-qrcode')).toHaveStyle(
+      'width: 100%; height: 80%;',
+    );
+    expect(container.querySelector<HTMLElement>('.ant-qrcode canvas')).toHaveStyle(
+      'width: 100%; height: 80%;',
+    );
   });
 });

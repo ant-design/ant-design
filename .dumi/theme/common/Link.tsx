@@ -5,13 +5,14 @@ import nprogress from 'nprogress';
 
 export interface LinkProps {
   to: string | { pathname?: string; search?: string; hash?: string };
-  children?: React.ReactNode;
   style?: React.CSSProperties;
   className?: string;
   onClick?: MouseEventHandler;
 }
 
-const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
+nprogress.configure({ showSpinner: false });
+
+const Link = forwardRef<HTMLAnchorElement, React.PropsWithChildren<LinkProps>>((props, ref) => {
   const { to, children, ...rest } = props;
   const [isPending, startTransition] = useTransition();
   const navigate = useNavigate();

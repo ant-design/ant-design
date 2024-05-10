@@ -71,25 +71,6 @@ Array [
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
-      >
-        <div
-          class="ant-tooltip-inner"
-          role="tooltip"
-        >
-          20
-        </div>
-      </div>
-    </div>
-    <div
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="100"
@@ -99,6 +80,11 @@ Array [
       role="slider"
       style="left: 50%; transform: translateX(-50%);"
       tabindex="0"
+    />
+    <div
+      aria-hidden="true"
+      class="ant-slider-handle"
+      style="transform: translateX(-50%); pointer-events: none; visibility: hidden;"
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
@@ -114,9 +100,7 @@ Array [
         <div
           class="ant-tooltip-inner"
           role="tooltip"
-        >
-          50
-        </div>
+        />
       </div>
     </div>
   </div>,
@@ -216,25 +200,6 @@ Array [
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
-      >
-        <div
-          class="ant-tooltip-inner"
-          role="tooltip"
-        >
-          20
-        </div>
-      </div>
-    </div>
-    <div
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="100"
@@ -244,6 +209,11 @@ Array [
       role="slider"
       style="left: 50%; transform: translateX(-50%);"
       tabindex="0"
+    />
+    <div
+      aria-hidden="true"
+      class="ant-slider-handle"
+      style="transform: translateX(-50%); pointer-events: none; visibility: hidden;"
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
@@ -259,9 +229,7 @@ Array [
         <div
           class="ant-tooltip-inner"
           role="tooltip"
-        >
-          50
-        </div>
+        />
       </div>
     </div>
   </div>,
@@ -341,25 +309,6 @@ Array [
         tabindex="0"
       />
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        />
-        <div
-          class="ant-tooltip-content"
-        >
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            20
-          </div>
-        </div>
-      </div>
-      <div
         aria-disabled="false"
         aria-orientation="vertical"
         aria-valuemax="100"
@@ -369,6 +318,11 @@ Array [
         role="slider"
         style="bottom: 50%; transform: translateY(50%);"
         tabindex="0"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-slider-handle"
+        style="transform: translateY(50%); pointer-events: none; visibility: hidden;"
       />
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-right"
@@ -384,9 +338,7 @@ Array [
           <div
             class="ant-tooltip-inner"
             role="tooltip"
-          >
-            50
-          </div>
+          />
         </div>
       </div>
     </div>
@@ -436,25 +388,6 @@ Array [
         tabindex="0"
       />
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        />
-        <div
-          class="ant-tooltip-content"
-        >
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            26
-          </div>
-        </div>
-      </div>
-      <div
         aria-disabled="false"
         aria-orientation="vertical"
         aria-valuemax="100"
@@ -464,6 +397,11 @@ Array [
         role="slider"
         style="bottom: 37%; transform: translateY(50%);"
         tabindex="0"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-slider-handle"
+        style="transform: translateY(50%); pointer-events: none; visibility: hidden;"
       />
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-right"
@@ -479,9 +417,7 @@ Array [
           <div
             class="ant-tooltip-inner"
             role="tooltip"
-          >
-            37
-          </div>
+          />
         </div>
       </div>
       <div
@@ -547,25 +483,6 @@ exports[`renders components/slider/demo/draggableTrack.tsx extend context correc
     tabindex="0"
   />
   <div
-    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-  >
-    <div
-      class="ant-tooltip-arrow"
-      style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="ant-tooltip-content"
-    >
-      <div
-        class="ant-tooltip-inner"
-        role="tooltip"
-      >
-        20
-      </div>
-    </div>
-  </div>
-  <div
     aria-disabled="false"
     aria-orientation="horizontal"
     aria-valuemax="100"
@@ -575,6 +492,11 @@ exports[`renders components/slider/demo/draggableTrack.tsx extend context correc
     role="slider"
     style="left: 50%; transform: translateX(-50%);"
     tabindex="0"
+  />
+  <div
+    aria-hidden="true"
+    class="ant-slider-handle"
+    style="transform: translateX(-50%); pointer-events: none; visibility: hidden;"
   />
   <div
     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
@@ -590,9 +512,7 @@ exports[`renders components/slider/demo/draggableTrack.tsx extend context correc
       <div
         class="ant-tooltip-inner"
         role="tooltip"
-      >
-        50
-      </div>
+      />
     </div>
   </div>
 </div>
@@ -671,25 +591,6 @@ Array [
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
-      >
-        <div
-          class="ant-tooltip-inner"
-          role="tooltip"
-        >
-          20
-        </div>
-      </div>
-    </div>
-    <div
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="100"
@@ -699,6 +600,11 @@ Array [
       role="slider"
       style="left: 50%; transform: translateX(-50%);"
       tabindex="0"
+    />
+    <div
+      aria-hidden="true"
+      class="ant-slider-handle"
+      style="transform: translateX(-50%); pointer-events: none; visibility: hidden;"
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
@@ -714,9 +620,7 @@ Array [
         <div
           class="ant-tooltip-inner"
           role="tooltip"
-        >
-          50
-        </div>
+        />
       </div>
     </div>
   </div>,
@@ -1238,25 +1142,6 @@ Array [
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
-      >
-        <div
-          class="ant-tooltip-inner"
-          role="tooltip"
-        >
-          26
-        </div>
-      </div>
-    </div>
-    <div
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="100"
@@ -1266,6 +1151,11 @@ Array [
       role="slider"
       style="left: 37%; transform: translateX(-50%);"
       tabindex="0"
+    />
+    <div
+      aria-hidden="true"
+      class="ant-slider-handle"
+      style="transform: translateX(-50%); pointer-events: none; visibility: hidden;"
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
@@ -1281,9 +1171,7 @@ Array [
         <div
           class="ant-tooltip-inner"
           role="tooltip"
-        >
-          37
-        </div>
+        />
       </div>
     </div>
     <div
@@ -1634,25 +1522,6 @@ exports[`renders components/slider/demo/multiple.tsx extend context correctly 1`
     tabindex="0"
   />
   <div
-    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-  >
-    <div
-      class="ant-tooltip-arrow"
-      style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="ant-tooltip-content"
-    >
-      <div
-        class="ant-tooltip-inner"
-        role="tooltip"
-      >
-        0
-      </div>
-    </div>
-  </div>
-  <div
     aria-disabled="false"
     aria-orientation="horizontal"
     aria-valuemax="100"
@@ -1663,25 +1532,6 @@ exports[`renders components/slider/demo/multiple.tsx extend context correctly 1`
     style="left: 10%; transform: translateX(-50%);"
     tabindex="0"
   />
-  <div
-    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-  >
-    <div
-      class="ant-tooltip-arrow"
-      style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="ant-tooltip-content"
-    >
-      <div
-        class="ant-tooltip-inner"
-        role="tooltip"
-      >
-        10
-      </div>
-    </div>
-  </div>
   <div
     aria-disabled="false"
     aria-orientation="horizontal"
@@ -1694,6 +1544,11 @@ exports[`renders components/slider/demo/multiple.tsx extend context correctly 1`
     tabindex="0"
   />
   <div
+    aria-hidden="true"
+    class="ant-slider-handle"
+    style="transform: translateX(-50%); pointer-events: none; visibility: hidden;"
+  />
+  <div
     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
@@ -1707,9 +1562,7 @@ exports[`renders components/slider/demo/multiple.tsx extend context correctly 1`
       <div
         class="ant-tooltip-inner"
         role="tooltip"
-      >
-        20
-      </div>
+      />
     </div>
   </div>
 </div>
@@ -1788,25 +1641,6 @@ Array [
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
-      >
-        <div
-          class="ant-tooltip-inner"
-          role="tooltip"
-        >
-          20
-        </div>
-      </div>
-    </div>
-    <div
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="100"
@@ -1816,6 +1650,11 @@ Array [
       role="slider"
       style="right: 50%; transform: translateX(50%);"
       tabindex="0"
+    />
+    <div
+      aria-hidden="true"
+      class="ant-slider-handle"
+      style="transform: translateX(50%); pointer-events: none; visibility: hidden;"
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
@@ -1831,9 +1670,7 @@ Array [
         <div
           class="ant-tooltip-inner"
           role="tooltip"
-        >
-          50
-        </div>
+        />
       </div>
     </div>
   </div>,
@@ -2083,25 +1920,6 @@ Array [
         tabindex="0"
       />
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        />
-        <div
-          class="ant-tooltip-content"
-        >
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            20
-          </div>
-        </div>
-      </div>
-      <div
         aria-disabled="false"
         aria-orientation="vertical"
         aria-valuemax="100"
@@ -2111,6 +1929,11 @@ Array [
         role="slider"
         style="bottom: 50%; transform: translateY(50%);"
         tabindex="0"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-slider-handle"
+        style="transform: translateY(50%); pointer-events: none; visibility: hidden;"
       />
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-right"
@@ -2126,9 +1949,7 @@ Array [
           <div
             class="ant-tooltip-inner"
             role="tooltip"
-          >
-            50
-          </div>
+          />
         </div>
       </div>
     </div>
@@ -2178,25 +1999,6 @@ Array [
         tabindex="0"
       />
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        />
-        <div
-          class="ant-tooltip-content"
-        >
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            26
-          </div>
-        </div>
-      </div>
-      <div
         aria-disabled="false"
         aria-orientation="vertical"
         aria-valuemax="100"
@@ -2206,6 +2008,11 @@ Array [
         role="slider"
         style="bottom: 37%; transform: translateY(50%);"
         tabindex="0"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-slider-handle"
+        style="transform: translateY(50%); pointer-events: none; visibility: hidden;"
       />
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-right"
@@ -2221,9 +2028,7 @@ Array [
           <div
             class="ant-tooltip-inner"
             role="tooltip"
-          >
-            37
-          </div>
+          />
         </div>
       </div>
       <div

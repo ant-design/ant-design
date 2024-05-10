@@ -1,5 +1,83 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Progress circle progress should accept steps 1`] = `
+<div
+  aria-valuenow="70"
+  class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info ant-progress-default"
+  role="progressbar"
+>
+  <div
+    class="ant-progress-steps-outer"
+  >
+    <div
+      class="ant-progress-steps-item ant-progress-steps-item-active"
+      style="width: 14px; height: 8px;"
+    />
+    <div
+      class="ant-progress-steps-item ant-progress-steps-item-active"
+      style="width: 14px; height: 8px;"
+    />
+    <div
+      class="ant-progress-steps-item ant-progress-steps-item-active"
+      style="width: 14px; height: 8px;"
+    />
+    <div
+      class="ant-progress-steps-item ant-progress-steps-item-active"
+      style="width: 14px; height: 8px;"
+    />
+    <div
+      class="ant-progress-steps-item"
+      style="width: 14px; height: 8px;"
+    />
+    <span
+      class="ant-progress-text"
+      title="70%"
+    >
+      70%
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Progress circle progress steps can be number 1`] = `
+<div
+  aria-valuenow="70"
+  class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info ant-progress-default"
+  role="progressbar"
+>
+  <div
+    class="ant-progress-steps-outer"
+  >
+    <div
+      class="ant-progress-steps-item ant-progress-steps-item-active"
+      style="width: 14px; height: 8px;"
+    />
+    <div
+      class="ant-progress-steps-item ant-progress-steps-item-active"
+      style="width: 14px; height: 8px;"
+    />
+    <div
+      class="ant-progress-steps-item ant-progress-steps-item-active"
+      style="width: 14px; height: 8px;"
+    />
+    <div
+      class="ant-progress-steps-item ant-progress-steps-item-active"
+      style="width: 14px; height: 8px;"
+    />
+    <div
+      class="ant-progress-steps-item"
+      style="width: 14px; height: 8px;"
+    />
+    <span
+      class="ant-progress-text"
+      title="70%"
+    >
+      70%
+    </span>
+  </div>
+</div>
+`;
+
 exports[`Progress render dashboard 295 gapDegree 1`] = `
 <div
   aria-valuenow="0"

@@ -2781,6 +2781,74 @@ Array [
 
 exports[`renders components/drawer/demo/form-in-drawer.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/drawer/demo/loading.tsx extend context correctly 1`] = `
+Array [
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Open
+    </span>
+  </button>,
+  <div
+    class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+    tabindex="-1"
+  >
+    <div
+      class="ant-drawer-mask"
+    />
+    <div
+      aria-hidden="true"
+      data-sentinel="start"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+      tabindex="0"
+    />
+    <div
+      class="ant-drawer-content-wrapper"
+      style="width: 378px;"
+    >
+      <div
+        aria-modal="true"
+        class="ant-drawer-content"
+        role="dialog"
+      >
+        <div
+          aria-busy="true"
+          aria-live="polite"
+          class="ant-spin ant-spin-spinning ant-drawer-content-spin"
+        >
+          <span
+            class="ant-spin-dot ant-spin-dot-spin"
+          >
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      data-sentinel="end"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+      tabindex="0"
+    />
+  </div>,
+]
+`;
+
+exports[`renders components/drawer/demo/loading.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/drawer/demo/multi-level-drawer.tsx extend context correctly 1`] = `
 Array [
   <button

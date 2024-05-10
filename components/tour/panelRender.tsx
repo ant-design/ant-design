@@ -52,9 +52,9 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
     }
 
     return (
-      <span onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
+      <button type="button" onClick={onClose} className={`${prefixCls}-close`}>
         {defaultCloseIcon}
-      </span>
+      </button>
     );
   }, [closable]);
 
@@ -86,12 +86,12 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
 
   const coverNode = isValidNode(cover) ? <div className={`${prefixCls}-cover`}>{cover}</div> : null;
 
-  let mergeIndicatorNode: ReactNode;
+  let mergedIndicatorNode: ReactNode;
 
   if (indicatorsRender) {
-    mergeIndicatorNode = indicatorsRender(current, total);
+    mergedIndicatorNode = indicatorsRender(current, total);
   } else {
-    mergeIndicatorNode = [...Array.from({ length: total }).keys()].map<ReactNode>(
+    mergedIndicatorNode = [...Array.from({ length: total }).keys()].map<ReactNode>(
       (stepItem, index) => (
         <span
           key={stepItem}
@@ -121,7 +121,7 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
         {headerNode}
         {descriptionNode}
         <div className={`${prefixCls}-footer`}>
-          {total > 1 && <div className={`${prefixCls}-indicators`}>{mergeIndicatorNode}</div>}
+          {total > 1 && <div className={`${prefixCls}-indicators`}>{mergedIndicatorNode}</div>}
           <div className={`${prefixCls}-buttons`}>
             {current !== 0 ? (
               <Button

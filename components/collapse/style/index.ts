@@ -75,7 +75,6 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
       ...resetComponent(token),
       backgroundColor: headerBg,
       border: borderBase,
-      borderBottom: 0,
       borderRadius: collapsePanelBorderRadius,
 
       [`&-rtl`]: {
@@ -124,7 +123,9 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
           [`${componentCls}-arrow`]: {
             ...resetIcon(),
             fontSize: fontSizeIcon,
-
+            // when `transform: rotate()` is applied to icon's root element
+            transition: `transform ${motionDurationSlow}`,
+            // when `transform: rotate()` is applied to icon's child element
             svg: {
               transition: `transform ${motionDurationSlow}`,
             },
@@ -197,6 +198,8 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
       },
 
       [`${componentCls}-item:last-child`]: {
+        borderBottom: 0,
+
         [`> ${componentCls}-content`]: {
           borderRadius: `0 0 ${unit(collapsePanelBorderRadius)} ${unit(collapsePanelBorderRadius)}`,
         },
@@ -231,7 +234,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
 const genArrowStyle: GenerateStyle<CollapseToken> = (token) => {
   const { componentCls } = token;
 
-  const fixedSelector = `> ${componentCls}-item > ${componentCls}-header ${componentCls}-arrow svg`;
+  const fixedSelector = `> ${componentCls}-item > ${componentCls}-header ${componentCls}-arrow`;
 
   return {
     [`${componentCls}-rtl`]: {

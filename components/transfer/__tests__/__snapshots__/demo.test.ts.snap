@@ -6708,44 +6708,10 @@ Array [
       <div
         class="ant-transfer-list-header"
       >
-        <label
-          class="ant-checkbox-wrapper ant-transfer-list-checkbox"
-        >
-          <span
-            class="ant-checkbox ant-wave-target"
-          >
-            <input
-              class="ant-checkbox-input"
-              type="checkbox"
-            />
-            <span
-              class="ant-checkbox-inner"
-            />
-          </span>
-        </label>
-        <span
-          aria-label="down"
-          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
-        </span>
         <span
           class="ant-transfer-list-header-selected"
         >
-          14
+          20
           <!-- -->
           <!-- -->
           items
@@ -6755,8 +6721,75 @@ Array [
         />
       </div>
       <div
-        class="ant-transfer-list-body"
+        class="ant-transfer-list-body ant-transfer-list-body-with-search"
       >
+        <div
+          class="ant-transfer-list-body-search-wrapper"
+        >
+          <span
+            class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search"
+          >
+            <span
+              class="ant-input-prefix"
+            >
+              <span
+                aria-label="search"
+                class="anticon anticon-search"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="search"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <input
+              class="ant-input"
+              placeholder="Search here"
+              type="text"
+              value=""
+            />
+            <span
+              class="ant-input-suffix"
+            >
+              <span
+                class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                role="button"
+                tabindex="-1"
+              >
+                <span
+                  aria-label="close-circle"
+                  class="anticon anticon-close-circle"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close-circle"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </span>
+          </span>
+        </div>
         <div
           class="ant-transfer-list-body-customize-wrapper"
         >
@@ -6804,7 +6837,7 @@ Array [
                                     class="ant-checkbox ant-wave-target"
                                   >
                                     <input
-                                      aria-label="Select all"
+                                      aria-label="Custom selection"
                                       class="ant-checkbox-input"
                                       type="checkbox"
                                     />
@@ -6813,6 +6846,33 @@ Array [
                                     />
                                   </span>
                                 </label>
+                                <div
+                                  class="ant-table-selection-extra"
+                                >
+                                  <span
+                                    class="ant-dropdown-trigger"
+                                  >
+                                    <span
+                                      aria-label="down"
+                                      class="anticon anticon-down"
+                                      role="img"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="down"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </span>
+                                </div>
                               </div>
                             </th>
                             <th
@@ -6846,14 +6906,13 @@ Array [
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+                                class="ant-checkbox-wrapper"
                               >
                                 <span
-                                  class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
-                                    disabled=""
                                     type="checkbox"
                                   />
                                   <span
@@ -6871,9 +6930,10 @@ Array [
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag"
+                                class="ant-tag ant-tag-cyan"
+                                style="margin-inline-end:0"
                               >
-                                cat
+                                CAT
                               </span>
                             </td>
                             <td
@@ -6914,15 +6974,60 @@ Array [
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag"
+                                class="ant-tag ant-tag-cyan"
+                                style="margin-inline-end:0"
                               >
-                                dog
+                                DOG
                               </span>
                             </td>
                             <td
                               class="ant-table-cell"
                             >
                               description of content2
+                            </td>
+                          </tr>
+                          <tr
+                            class="ant-table-row ant-table-row-level-0"
+                            data-row-key="2"
+                          >
+                            <td
+                              class="ant-table-cell ant-table-selection-column"
+                            >
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox ant-wave-target"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              content3
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              <span
+                                class="ant-tag ant-tag-cyan"
+                                style="margin-inline-end:0"
+                              >
+                                BIRD
+                              </span>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              description of content3
                             </td>
                           </tr>
                           <tr
@@ -6957,9 +7062,10 @@ Array [
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag"
+                                class="ant-tag ant-tag-cyan"
+                                style="margin-inline-end:0"
                               >
-                                cat
+                                CAT
                               </span>
                             </td>
                             <td
@@ -6976,14 +7082,13 @@ Array [
                               class="ant-table-cell ant-table-selection-column"
                             >
                               <label
-                                class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+                                class="ant-checkbox-wrapper"
                               >
                                 <span
-                                  class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
-                                    disabled=""
                                     type="checkbox"
                                   />
                                   <span
@@ -7001,15 +7106,60 @@ Array [
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag"
+                                class="ant-tag ant-tag-cyan"
+                                style="margin-inline-end:0"
                               >
-                                dog
+                                DOG
                               </span>
                             </td>
                             <td
                               class="ant-table-cell"
                             >
                               description of content5
+                            </td>
+                          </tr>
+                          <tr
+                            class="ant-table-row ant-table-row-level-0"
+                            data-row-key="5"
+                          >
+                            <td
+                              class="ant-table-cell ant-table-selection-column"
+                            >
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox ant-wave-target"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              content6
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              <span
+                                class="ant-tag ant-tag-cyan"
+                                style="margin-inline-end:0"
+                              >
+                                BIRD
+                              </span>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              description of content6
                             </td>
                           </tr>
                           <tr
@@ -7044,9 +7194,10 @@ Array [
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag"
+                                class="ant-tag ant-tag-cyan"
+                                style="margin-inline-end:0"
                               >
-                                cat
+                                CAT
                               </span>
                             </td>
                             <td
@@ -7087,15 +7238,60 @@ Array [
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag"
+                                class="ant-tag ant-tag-cyan"
+                                style="margin-inline-end:0"
                               >
-                                dog
+                                DOG
                               </span>
                             </td>
                             <td
                               class="ant-table-cell"
                             >
                               description of content8
+                            </td>
+                          </tr>
+                          <tr
+                            class="ant-table-row ant-table-row-level-0"
+                            data-row-key="8"
+                          >
+                            <td
+                              class="ant-table-cell ant-table-selection-column"
+                            >
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox ant-wave-target"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              content9
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              <span
+                                class="ant-tag ant-tag-cyan"
+                                style="margin-inline-end:0"
+                              >
+                                BIRD
+                              </span>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              description of content9
                             </td>
                           </tr>
                           <tr
@@ -7130,145 +7326,16 @@ Array [
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag"
+                                class="ant-tag ant-tag-cyan"
+                                style="margin-inline-end:0"
                               >
-                                cat
+                                CAT
                               </span>
                             </td>
                             <td
                               class="ant-table-cell"
                             >
                               description of content10
-                            </td>
-                          </tr>
-                          <tr
-                            class="ant-table-row ant-table-row-level-0"
-                            data-row-key="10"
-                          >
-                            <td
-                              class="ant-table-cell ant-table-selection-column"
-                            >
-                              <label
-                                class="ant-checkbox-wrapper"
-                              >
-                                <span
-                                  class="ant-checkbox ant-wave-target"
-                                >
-                                  <input
-                                    class="ant-checkbox-input"
-                                    type="checkbox"
-                                  />
-                                  <span
-                                    class="ant-checkbox-inner"
-                                  />
-                                </span>
-                              </label>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              content11
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              <span
-                                class="ant-tag"
-                              >
-                                dog
-                              </span>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              description of content11
-                            </td>
-                          </tr>
-                          <tr
-                            class="ant-table-row ant-table-row-level-0"
-                            data-row-key="12"
-                          >
-                            <td
-                              class="ant-table-cell ant-table-selection-column"
-                            >
-                              <label
-                                class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
-                              >
-                                <span
-                                  class="ant-checkbox ant-wave-target ant-checkbox-disabled"
-                                >
-                                  <input
-                                    class="ant-checkbox-input"
-                                    disabled=""
-                                    type="checkbox"
-                                  />
-                                  <span
-                                    class="ant-checkbox-inner"
-                                  />
-                                </span>
-                              </label>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              content13
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              <span
-                                class="ant-tag"
-                              >
-                                cat
-                              </span>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              description of content13
-                            </td>
-                          </tr>
-                          <tr
-                            class="ant-table-row ant-table-row-level-0"
-                            data-row-key="13"
-                          >
-                            <td
-                              class="ant-table-cell ant-table-selection-column"
-                            >
-                              <label
-                                class="ant-checkbox-wrapper"
-                              >
-                                <span
-                                  class="ant-checkbox ant-wave-target"
-                                >
-                                  <input
-                                    class="ant-checkbox-input"
-                                    type="checkbox"
-                                  />
-                                  <span
-                                    class="ant-checkbox-inner"
-                                  />
-                                </span>
-                              </label>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              content14
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              <span
-                                class="ant-tag"
-                              >
-                                dog
-                              </span>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              description of content14
                             </td>
                           </tr>
                         </tbody>
@@ -7440,55 +7507,88 @@ Array [
       <div
         class="ant-transfer-list-header"
       >
-        <label
-          class="ant-checkbox-wrapper ant-transfer-list-checkbox"
-        >
-          <span
-            class="ant-checkbox ant-wave-target"
-          >
-            <input
-              class="ant-checkbox-input"
-              type="checkbox"
-            />
-            <span
-              class="ant-checkbox-inner"
-            />
-          </span>
-        </label>
-        <span
-          aria-label="down"
-          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
-        </span>
         <span
           class="ant-transfer-list-header-selected"
         >
-          6
+          0
           <!-- -->
           <!-- -->
-          items
+          item
         </span>
         <span
           class="ant-transfer-list-header-title"
         />
       </div>
       <div
-        class="ant-transfer-list-body"
+        class="ant-transfer-list-body ant-transfer-list-body-with-search"
       >
+        <div
+          class="ant-transfer-list-body-search-wrapper"
+        >
+          <span
+            class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search"
+          >
+            <span
+              class="ant-input-prefix"
+            >
+              <span
+                aria-label="search"
+                class="anticon anticon-search"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="search"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <input
+              class="ant-input"
+              placeholder="Search here"
+              type="text"
+              value=""
+            />
+            <span
+              class="ant-input-suffix"
+            >
+              <span
+                class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                role="button"
+                tabindex="-1"
+              >
+                <span
+                  aria-label="close-circle"
+                  class="anticon anticon-close-circle"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close-circle"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </span>
+          </span>
+        </div>
         <div
           class="ant-transfer-list-body-customize-wrapper"
         >
@@ -7502,7 +7602,7 @@ Array [
                 class="ant-spin-container"
               >
                 <div
-                  class="ant-table ant-table-small"
+                  class="ant-table ant-table-small ant-table-empty"
                 >
                   <div
                     class="ant-table-container"
@@ -7530,14 +7630,15 @@ Array [
                                 class="ant-table-selection"
                               >
                                 <label
-                                  class="ant-checkbox-wrapper"
+                                  class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
                                 >
                                   <span
-                                    class="ant-checkbox ant-wave-target"
+                                    class="ant-checkbox ant-wave-target ant-checkbox-disabled"
                                   >
                                     <input
-                                      aria-label="Select all"
+                                      aria-label="Custom selection"
                                       class="ant-checkbox-input"
+                                      disabled=""
                                       type="checkbox"
                                     />
                                     <span
@@ -7545,6 +7646,33 @@ Array [
                                     />
                                   </span>
                                 </label>
+                                <div
+                                  class="ant-table-selection-extra"
+                                >
+                                  <span
+                                    class="ant-dropdown-trigger"
+                                  >
+                                    <span
+                                      aria-label="down"
+                                      class="anticon anticon-down"
+                                      role="img"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="down"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </span>
+                                </div>
                               </div>
                             </th>
                             <th
@@ -7553,184 +7681,75 @@ Array [
                             >
                               Name
                             </th>
+                            <th
+                              class="ant-table-cell"
+                              scope="col"
+                            >
+                              Tag
+                            </th>
+                            <th
+                              class="ant-table-cell"
+                              scope="col"
+                            >
+                              Description
+                            </th>
                           </tr>
                         </thead>
                         <tbody
                           class="ant-table-tbody"
                         >
                           <tr
-                            class="ant-table-row ant-table-row-level-0"
-                            data-row-key="2"
+                            class="ant-table-placeholder"
                           >
                             <td
-                              class="ant-table-cell ant-table-selection-column"
-                            >
-                              <label
-                                class="ant-checkbox-wrapper"
-                              >
-                                <span
-                                  class="ant-checkbox ant-wave-target"
-                                >
-                                  <input
-                                    class="ant-checkbox-input"
-                                    type="checkbox"
-                                  />
-                                  <span
-                                    class="ant-checkbox-inner"
-                                  />
-                                </span>
-                              </label>
-                            </td>
-                            <td
                               class="ant-table-cell"
+                              colspan="4"
                             >
-                              content3
-                            </td>
-                          </tr>
-                          <tr
-                            class="ant-table-row ant-table-row-level-0"
-                            data-row-key="5"
-                          >
-                            <td
-                              class="ant-table-cell ant-table-selection-column"
-                            >
-                              <label
-                                class="ant-checkbox-wrapper"
+                              <div
+                                class="ant-empty ant-empty-normal"
                               >
-                                <span
-                                  class="ant-checkbox ant-wave-target"
+                                <div
+                                  class="ant-empty-image"
                                 >
-                                  <input
-                                    class="ant-checkbox-input"
-                                    type="checkbox"
-                                  />
-                                  <span
-                                    class="ant-checkbox-inner"
-                                  />
-                                </span>
-                              </label>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              content6
-                            </td>
-                          </tr>
-                          <tr
-                            class="ant-table-row ant-table-row-level-0"
-                            data-row-key="8"
-                          >
-                            <td
-                              class="ant-table-cell ant-table-selection-column"
-                            >
-                              <label
-                                class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
-                              >
-                                <span
-                                  class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+                                  <svg
+                                    height="41"
+                                    viewBox="0 0 64 41"
+                                    width="64"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <g
+                                      fill="none"
+                                      fill-rule="evenodd"
+                                      transform="translate(0 1)"
+                                    >
+                                      <ellipse
+                                        cx="32"
+                                        cy="33"
+                                        fill="#f5f5f5"
+                                        rx="32"
+                                        ry="7"
+                                      />
+                                      <g
+                                        fill-rule="nonzero"
+                                        stroke="#d9d9d9"
+                                      >
+                                        <path
+                                          d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                                        />
+                                        <path
+                                          d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                          fill="#fafafa"
+                                        />
+                                      </g>
+                                    </g>
+                                  </svg>
+                                </div>
+                                <div
+                                  class="ant-empty-description"
                                 >
-                                  <input
-                                    class="ant-checkbox-input"
-                                    disabled=""
-                                    type="checkbox"
-                                  />
-                                  <span
-                                    class="ant-checkbox-inner"
-                                  />
-                                </span>
-                              </label>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              content9
-                            </td>
-                          </tr>
-                          <tr
-                            class="ant-table-row ant-table-row-level-0"
-                            data-row-key="11"
-                          >
-                            <td
-                              class="ant-table-cell ant-table-selection-column"
-                            >
-                              <label
-                                class="ant-checkbox-wrapper"
-                              >
-                                <span
-                                  class="ant-checkbox ant-wave-target"
-                                >
-                                  <input
-                                    class="ant-checkbox-input"
-                                    type="checkbox"
-                                  />
-                                  <span
-                                    class="ant-checkbox-inner"
-                                  />
-                                </span>
-                              </label>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              content12
-                            </td>
-                          </tr>
-                          <tr
-                            class="ant-table-row ant-table-row-level-0"
-                            data-row-key="14"
-                          >
-                            <td
-                              class="ant-table-cell ant-table-selection-column"
-                            >
-                              <label
-                                class="ant-checkbox-wrapper"
-                              >
-                                <span
-                                  class="ant-checkbox ant-wave-target"
-                                >
-                                  <input
-                                    class="ant-checkbox-input"
-                                    type="checkbox"
-                                  />
-                                  <span
-                                    class="ant-checkbox-inner"
-                                  />
-                                </span>
-                              </label>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              content15
-                            </td>
-                          </tr>
-                          <tr
-                            class="ant-table-row ant-table-row-level-0"
-                            data-row-key="17"
-                          >
-                            <td
-                              class="ant-table-cell ant-table-selection-column"
-                            >
-                              <label
-                                class="ant-checkbox-wrapper"
-                              >
-                                <span
-                                  class="ant-checkbox ant-wave-target"
-                                >
-                                  <input
-                                    class="ant-checkbox-input"
-                                    type="checkbox"
-                                  />
-                                  <span
-                                    class="ant-checkbox-inner"
-                                  />
-                                </span>
-                              </label>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              content18
+                                  No data
+                                </div>
+                              </div>
                             </td>
                           </tr>
                         </tbody>
@@ -7738,85 +7757,6 @@ Array [
                     </div>
                   </div>
                 </div>
-                <ul
-                  class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                >
-                  <li
-                    aria-disabled="true"
-                    class="ant-pagination-prev ant-pagination-disabled"
-                    title="Previous Page"
-                  >
-                    <button
-                      class="ant-pagination-item-link"
-                      disabled=""
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        aria-label="left"
-                        class="anticon anticon-left"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="left"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-                          />
-                        </svg>
-                      </span>
-                    </button>
-                  </li>
-                  <li
-                    class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-                    tabindex="0"
-                    title="1"
-                  >
-                    <a
-                      rel="nofollow"
-                    >
-                      1
-                    </a>
-                  </li>
-                  <li
-                    aria-disabled="true"
-                    class="ant-pagination-next ant-pagination-disabled"
-                    title="Next Page"
-                  >
-                    <button
-                      class="ant-pagination-item-link"
-                      disabled=""
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        aria-label="right"
-                        class="anticon anticon-right"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="right"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                          />
-                        </svg>
-                      </span>
-                    </button>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
@@ -7852,34 +7792,6 @@ Array [
             class="ant-switch-inner-unchecked"
           >
             disabled
-          </span>
-        </span>
-      </button>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <button
-        aria-checked="false"
-        class="ant-switch"
-        role="switch"
-        type="button"
-      >
-        <div
-          class="ant-switch-handle"
-        />
-        <span
-          class="ant-switch-inner"
-        >
-          <span
-            class="ant-switch-inner-checked"
-          >
-            showSearch
-          </span>
-          <span
-            class="ant-switch-inner-unchecked"
-          >
-            showSearch
           </span>
         </span>
       </button>

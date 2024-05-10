@@ -27,7 +27,7 @@ const initCollapseMotion = (rootCls: string = 'ant'): CSSMotionProps => ({
 
 const SelectPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight'] as const;
 
-export type SelectCommonPlacement = typeof SelectPlacements[number];
+export type SelectCommonPlacement = (typeof SelectPlacements)[number];
 
 const getTransitionName = (rootPrefixCls: string, motion: string, transitionName?: string) => {
   if (transitionName !== undefined) {

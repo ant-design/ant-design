@@ -4,7 +4,7 @@ import IconContext from '@ant-design/icons/lib/components/Context';
 import useMemo from 'rc-util/lib/hooks/useMemo';
 import { merge } from 'rc-util/lib/utils/set';
 
-import warning, { WarningContext } from '../_util/warning';
+import warning, { devUseWarning, WarningContext } from '../_util/warning';
 import type { WarningContextProps } from '../_util/warning';
 import ValidateMessagesContext from '../form/validateMessagesContext';
 import type { Locale } from '../locale';
@@ -26,6 +26,7 @@ import type {
   DirectionType,
   DrawerConfig,
   FlexConfig,
+  FloatButtonGroupConfig,
   FormConfig,
   ImageConfig,
   InputConfig,
@@ -121,17 +122,32 @@ export interface ConfigProviderProps {
   children?: React.ReactNode;
   renderEmpty?: RenderEmptyHandler;
   csp?: CSPConfig;
+  /** @deprecated Please use `{ button: { autoInsertSpace: boolean }}` instead */
   autoInsertSpaceInButton?: boolean;
   form?: FormConfig;
   input?: InputConfig;
   textArea?: TextAreaConfig;
   select?: SelectConfig;
   pagination?: PaginationConfig;
+  /**
+   * @descCN 语言包配置，语言包可到 `antd/locale` 目录下寻找。
+   * @descEN Language package setting, you can find the packages in `antd/locale`.
+   */
   locale?: Locale;
   componentSize?: SizeType;
   componentDisabled?: boolean;
+  /**
+   * @descCN 设置布局展示方向。
+   * @descEN Set direction of layout.
+   * @default ltr
+   */
   direction?: DirectionType;
   space?: SpaceConfig;
+  /**
+   * @descCN 设置 `false` 时关闭虚拟滚动。
+   * @descEN Close the virtual scrolling when setting `false`.
+   * @default true
+   */
   virtual?: boolean;
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean;
@@ -164,6 +180,7 @@ export interface ConfigProviderProps {
   slider?: ComponentStyleConfig;
   breadcrumb?: ComponentStyleConfig;
   menu?: MenuConfig;
+  floatButtonGroup?: FloatButtonGroupConfig;
   checkbox?: ComponentStyleConfig;
   descriptions?: ComponentStyleConfig;
   empty?: ComponentStyleConfig;
@@ -348,6 +365,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     dropdown,
     warning: warningConfig,
     tour,
+    floatButtonGroup,
   } = props;
 
   // =================================== Context ===================================
@@ -443,13 +461,23 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     dropdown,
     warning: warningConfig,
     tour,
+    floatButtonGroup,
   };
+
+  if (process.env.NODE_ENV !== 'production') {
+    const warningFn = devUseWarning('ConfigProvider');
+    warningFn(
+      !('autoInsertSpaceInButton' in props),
+      'deprecated',
+      '`autoInsertSpaceInButton` is deprecated. Please use `{ button: { autoInsertSpace: boolean }}` instead.',
+    );
+  }
 
   const config: ConfigConsumerProps = {
     ...parentContext,
   };
 
-  Object.keys(baseConfig).forEach((key: keyof typeof baseConfig) => {
+  (Object.keys(baseConfig) as (keyof typeof baseConfig)[]).forEach((key) => {
     if (baseConfig[key] !== undefined) {
       (config as any)[key] = baseConfig[key];
     }
@@ -463,6 +491,14 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
       (config as any)[propName] = propValue;
     }
   });
+
+  if (typeof autoInsertSpaceInButton !== 'undefined') {
+    // merge deprecated api
+    config.button = {
+      autoInsertSpace: autoInsertSpaceInButton,
+      ...config.button,
+    };
+  }
 
   // https://github.com/ant-design/ant-design/issues/27617
   const memoedConfig = useMemo(
