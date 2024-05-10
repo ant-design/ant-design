@@ -26,6 +26,7 @@ describe('Alert', () => {
   });
 
   it('should show close button and could be closed', async () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const onClose = jest.fn();
     render(
       <Alert
@@ -43,6 +44,8 @@ describe('Alert', () => {
     });
 
     expect(onClose).toHaveBeenCalledTimes(1);
+    expect(errSpy).not.toHaveBeenCalled();
+    errSpy.mockRestore();
   });
 
   it('custom action', () => {
