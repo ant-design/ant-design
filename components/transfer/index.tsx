@@ -67,6 +67,7 @@ export interface TransferLocale {
   itemsUnit: string;
   remove?: string;
   selectAll?: string;
+  deselectAll?: string;
   selectCurrent?: string;
   selectInvert?: string;
   removeAll?: string;
@@ -342,7 +343,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     const holder = [...(isLeftDirection ? sourceSelectedKeys : targetSelectedKeys)];
     const holderSet = new Set(holder);
     const data = [...(isLeftDirection ? leftDataSource : rightDataSource)].filter(
-      (item) => !item.disabled,
+      (item) => !item?.disabled,
     );
     const currentSelectedIndex = data.findIndex((item) => item.key === selectedKey);
     // multiple select by hold down the shift key

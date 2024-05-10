@@ -24,6 +24,7 @@ export type LegacyButtonType = ButtonType | 'danger';
 export interface BaseButtonProps {
   type?: ButtonType;
   icon?: React.ReactNode;
+  iconPosition?: 'start' | 'end';
   shape?: ButtonShape;
   size?: SizeType;
   disabled?: boolean;
@@ -50,6 +51,7 @@ type MergedHTMLAttributes = Omit<
 export interface ButtonProps extends BaseButtonProps, MergedHTMLAttributes {
   href?: string;
   htmlType?: ButtonHTMLType;
+  autoInsertSpace?: boolean;
 }
 
 type LoadingConfigType = {
@@ -90,12 +92,14 @@ const InternalCompoundedButton = React.forwardRef<
     rootClassName,
     children,
     icon,
+    iconPosition = 'start',
     ghost = false,
     block = false,
     // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
     htmlType = 'button',
     classNames: customClassNames,
     style: customStyle = {},
+    autoInsertSpace,
     ...rest
   } = props;
 
@@ -103,7 +107,10 @@ const InternalCompoundedButton = React.forwardRef<
   // Compatible with original `type` behavior
   const mergedType = type || 'default';
 
-  const { getPrefixCls, autoInsertSpaceInButton, direction, button } = useContext(ConfigContext);
+  const { getPrefixCls, direction, button } = useContext(ConfigContext);
+
+  const mergedInsertSpace = autoInsertSpace ?? button?.autoInsertSpace ?? true;
+
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
@@ -149,7 +156,7 @@ const InternalCompoundedButton = React.forwardRef<
 
   useEffect(() => {
     // FIXME: for HOC usage like <FormatMessage />
-    if (!buttonRef || !(buttonRef as any).current || autoInsertSpaceInButton === false) {
+    if (!buttonRef || !(buttonRef as any).current || !mergedInsertSpace) {
       return;
     }
     const buttonText = (buttonRef as any).current.textContent;
@@ -188,7 +195,6 @@ const InternalCompoundedButton = React.forwardRef<
     );
   }
 
-  const autoInsertSpace = autoInsertSpaceInButton !== false;
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
@@ -212,7 +218,7 @@ const InternalCompoundedButton = React.forwardRef<
       [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
       [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonType(mergedType),
       [`${prefixCls}-loading`]: innerLoading,
-      [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && autoInsertSpace && !innerLoading,
+      [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && mergedInsertSpace && !innerLoading,
       [`${prefixCls}-block`]: block,
       [`${prefixCls}-dangerous`]: !!danger,
       [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -225,7 +231,11 @@ const InternalCompoundedButton = React.forwardRef<
 
   const fullStyle: React.CSSProperties = { ...button?.style, ...customStyle };
 
-  const iconClasses = classNames(customClassNames?.icon, button?.classNames?.icon);
+  const isIconPositionEnd = iconPosition === 'end' && children && children !== 0 && iconType;
+
+  const iconClasses = classNames(customClassNames?.icon, button?.classNames?.icon, {
+    [`${prefixCls}-icon-end`]: isIconPositionEnd,
+  });
   const iconStyle: React.CSSProperties = {
     ...(styles?.icon || {}),
     ...(button?.styles?.icon || {}),
@@ -237,11 +247,29 @@ const InternalCompoundedButton = React.forwardRef<
         {icon}
       </IconWrapper>
     ) : (
-      <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={!!innerLoading} />
+      <LoadingIcon
+        existIcon={!!icon}
+        prefixCls={prefixCls}
+        loading={!!innerLoading}
+        iconPosition={iconPosition}
+      />
     );
 
   const kids =
-    children || children === 0 ? spaceChildren(children, needInserted && autoInsertSpace) : null;
+    children || children === 0 ? spaceChildren(children, needInserted && mergedInsertSpace) : null;
+
+  const genButtonContent = (iconComponent: React.ReactNode, kidsComponent: React.ReactNode) =>
+    iconPosition === 'start' ? (
+      <>
+        {iconComponent}
+        {kidsComponent}
+      </>
+    ) : (
+      <>
+        {kidsComponent}
+        {iconComponent}
+      </>
+    );
 
   if (linkButtonRestProps.href !== undefined) {
     return wrapCSSVar(
@@ -256,8 +284,7 @@ const InternalCompoundedButton = React.forwardRef<
         ref={buttonRef as React.Ref<HTMLAnchorElement>}
         tabIndex={mergedDisabled ? -1 : 0}
       >
-        {iconNode}
-        {kids}
+        {genButtonContent(iconNode, kids)}
       </a>,
     );
   }
@@ -272,8 +299,7 @@ const InternalCompoundedButton = React.forwardRef<
       disabled={mergedDisabled}
       ref={buttonRef as React.Ref<HTMLButtonElement>}
     >
-      {iconNode}
-      {kids}
+      {genButtonContent(iconNode, kids)}
 
       {/* Styles: compact */}
       {!!compactItemClassnames && <CompactCmp key="compact" prefixCls={prefixCls} />}

@@ -40,7 +40,12 @@ export default defineConfig({
   },
   extraRehypePlugins: [rehypeAntd],
   extraRemarkPlugins: [remarkAntd],
-  metas: [{ name: 'theme-color', content: '#1677ff' }],
+  metas: [
+    { name: 'theme-color', content: '#1677ff' },
+    { name: 'build-time', content: Date.now().toString() },
+    // https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables
+    { name: 'build-hash', content: process.env.GITHUB_SHA ?? 'unknown' },
+  ],
   analytics: {
     ga_v2: 'UA-72788897-1',
   },

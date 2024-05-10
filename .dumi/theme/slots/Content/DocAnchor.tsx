@@ -8,7 +8,9 @@ import { useRouteMeta, useTabMeta } from 'dumi';
 const useStyle = createStyles(({ token, css }) => {
   const { antCls } = token;
   return {
-    toc: css`
+    anchorToc: css`
+      scrollbar-width: thin;
+      scrollbar-color: unset;
       ${antCls}-anchor {
         ${antCls}-anchor-link-title {
           font-size: ${token.fontSizeSM}px;
@@ -120,8 +122,8 @@ const DocAnchor: React.FC<DocAnchorProps> = ({ showDebug, debugDemos = [] }) => 
   return (
     <section className={styles.tocWrapper}>
       <Anchor
-        className={styles.toc}
         affix={false}
+        className={styles.anchorToc}
         targetOffset={token.anchorTop}
         showInkInFixed
         items={anchorItems.map<AnchorLinkItemProps>(renderAnchorItem)}

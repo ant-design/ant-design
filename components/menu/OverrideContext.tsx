@@ -39,7 +39,7 @@ export const OverrideProvider = React.forwardRef<
   );
 
   const canRef = supportNodeRef(children);
-  const mergedRef = useComposeRef(ref, canRef ? (children as any).ref : null);
+  const mergedRef = useComposeRef(ref, canRef ? children.ref : null);
 
   return (
     <OverrideContext.Provider value={context}>

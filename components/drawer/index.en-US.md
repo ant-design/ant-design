@@ -22,6 +22,7 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 <!-- prettier-ignore -->
 <code src="./demo/basic-right.tsx">Basic</code>
 <code src="./demo/placement.tsx">Custom Placement</code>
+<code src="./demo/loading.tsx" version="5.17.0">Loading</code>
 <code src="./demo/extra.tsx">Extra Actions</code>
 <code src="./demo/render-in-current.tsx">Render in current dom</code>
 <code src="./demo/form-in-drawer.tsx">Submit form in drawer</code>
@@ -68,6 +69,7 @@ v5 use `rootClassName` & `rootStyle` to config wrapper style instead of `classNa
 | styles | Semantic structure style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.10.0 |
 | size | preset size of drawer, default `378px` and large `736px` | 'default' \| 'large' | 'default' | 4.17.0 |
 | title | The title for Drawer | ReactNode | - |  |
+| loading | Show spinning indicator | boolean \| `Omit<SpinProp, 'fullScreen' \| 'tip'>` | false | 5.17.0 |
 | open | Whether the Drawer dialog is visible or not | boolean | false |  |
 | width | Width of the Drawer dialog | string \| number | 378 |  |
 | zIndex | The `z-index` of the Drawer | number | 1000 |  |

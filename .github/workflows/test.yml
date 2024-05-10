@@ -299,7 +299,7 @@ jobs:
             lib
 
       - name: zip builds
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        if: github.repository == 'ant-design/ant-design' && github.event_name == 'push' && github.ref == 'refs/heads/master'
         env:
           ALI_OSS_AK_ID: ${{ secrets.ALI_OSS_AK_ID }}
           ALI_OSS_AK_SECRET: ${{ secrets.ALI_OSS_AK_SECRET }}
