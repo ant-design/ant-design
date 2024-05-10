@@ -21792,196 +21792,196 @@ exports[`ConfigProvider components Popover prefixCls 1`] = `
 exports[`ConfigProvider components Progress configProvider 1`] = `
 <div
   aria-valuenow="0"
-  class="config-progress config-progress-status-normal config-progress-line config-progress-show-info config-progress-default"
+  class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info config-progress-default"
   role="progressbar"
 >
   <div
     class="config-progress-outer"
-    style="width: 100%; height: 8px;"
+    style="width: 100%;"
   >
     <div
       class="config-progress-inner"
     >
       <div
-        class="config-progress-bg"
+        class="config-progress-bg config-progress-bg-outer"
         style="width: 0%; height: 8px; --progress-percent: 0;"
       />
     </div>
+    <span
+      class="config-progress-text config-progress-text-end config-progress-text-outer"
+      title="0%"
+    >
+      0%
+    </span>
   </div>
-  <span
-    class="config-progress-text"
-    title="0%"
-  >
-    0%
-  </span>
 </div>
 `;
 
 exports[`ConfigProvider components Progress configProvider componentDisabled 1`] = `
 <div
   aria-valuenow="0"
-  class="config-progress config-progress-status-normal config-progress-line config-progress-show-info config-progress-default"
+  class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info config-progress-default"
   role="progressbar"
 >
   <div
     class="config-progress-outer"
-    style="width: 100%; height: 8px;"
+    style="width: 100%;"
   >
     <div
       class="config-progress-inner"
     >
       <div
-        class="config-progress-bg"
+        class="config-progress-bg config-progress-bg-outer"
         style="width: 0%; height: 8px; --progress-percent: 0;"
       />
     </div>
+    <span
+      class="config-progress-text config-progress-text-end config-progress-text-outer"
+      title="0%"
+    >
+      0%
+    </span>
   </div>
-  <span
-    class="config-progress-text"
-    title="0%"
-  >
-    0%
-  </span>
 </div>
 `;
 
 exports[`ConfigProvider components Progress configProvider componentSize large 1`] = `
 <div
   aria-valuenow="0"
-  class="config-progress config-progress-status-normal config-progress-line config-progress-show-info config-progress-default"
+  class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info config-progress-default"
   role="progressbar"
 >
   <div
     class="config-progress-outer"
-    style="width: 100%; height: 8px;"
+    style="width: 100%;"
   >
     <div
       class="config-progress-inner"
     >
       <div
-        class="config-progress-bg"
+        class="config-progress-bg config-progress-bg-outer"
         style="width: 0%; height: 8px; --progress-percent: 0;"
       />
     </div>
+    <span
+      class="config-progress-text config-progress-text-end config-progress-text-outer"
+      title="0%"
+    >
+      0%
+    </span>
   </div>
-  <span
-    class="config-progress-text"
-    title="0%"
-  >
-    0%
-  </span>
 </div>
 `;
 
 exports[`ConfigProvider components Progress configProvider componentSize middle 1`] = `
 <div
   aria-valuenow="0"
-  class="config-progress config-progress-status-normal config-progress-line config-progress-show-info config-progress-default"
+  class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info config-progress-default"
   role="progressbar"
 >
   <div
     class="config-progress-outer"
-    style="width: 100%; height: 8px;"
+    style="width: 100%;"
   >
     <div
       class="config-progress-inner"
     >
       <div
-        class="config-progress-bg"
+        class="config-progress-bg config-progress-bg-outer"
         style="width: 0%; height: 8px; --progress-percent: 0;"
       />
     </div>
+    <span
+      class="config-progress-text config-progress-text-end config-progress-text-outer"
+      title="0%"
+    >
+      0%
+    </span>
   </div>
-  <span
-    class="config-progress-text"
-    title="0%"
-  >
-    0%
-  </span>
 </div>
 `;
 
 exports[`ConfigProvider components Progress configProvider componentSize small 1`] = `
 <div
   aria-valuenow="0"
-  class="config-progress config-progress-status-normal config-progress-line config-progress-show-info config-progress-default"
+  class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info config-progress-default"
   role="progressbar"
 >
   <div
     class="config-progress-outer"
-    style="width: 100%; height: 8px;"
+    style="width: 100%;"
   >
     <div
       class="config-progress-inner"
     >
       <div
-        class="config-progress-bg"
+        class="config-progress-bg config-progress-bg-outer"
         style="width: 0%; height: 8px; --progress-percent: 0;"
       />
     </div>
+    <span
+      class="config-progress-text config-progress-text-end config-progress-text-outer"
+      title="0%"
+    >
+      0%
+    </span>
   </div>
-  <span
-    class="config-progress-text"
-    title="0%"
-  >
-    0%
-  </span>
 </div>
 `;
 
 exports[`ConfigProvider components Progress normal 1`] = `
 <div
   aria-valuenow="0"
-  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
   role="progressbar"
 >
   <div
     class="ant-progress-outer"
-    style="width: 100%; height: 8px;"
+    style="width: 100%;"
   >
     <div
       class="ant-progress-inner"
     >
       <div
-        class="ant-progress-bg"
+        class="ant-progress-bg ant-progress-bg-outer"
         style="width: 0%; height: 8px; --progress-percent: 0;"
       />
     </div>
+    <span
+      class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+      title="0%"
+    >
+      0%
+    </span>
   </div>
-  <span
-    class="ant-progress-text"
-    title="0%"
-  >
-    0%
-  </span>
 </div>
 `;
 
 exports[`ConfigProvider components Progress prefixCls 1`] = `
 <div
   aria-valuenow="0"
-  class="prefix-Progress prefix-Progress-status-normal prefix-Progress-line prefix-Progress-show-info prefix-Progress-default"
+  class="prefix-Progress prefix-Progress-status-normal prefix-Progress-line prefix-Progress-line-align-end prefix-Progress-line-position-outer prefix-Progress-show-info prefix-Progress-default"
   role="progressbar"
 >
   <div
     class="prefix-Progress-outer"
-    style="width: 100%; height: 8px;"
+    style="width: 100%;"
   >
     <div
       class="prefix-Progress-inner"
     >
       <div
-        class="prefix-Progress-bg"
+        class="prefix-Progress-bg prefix-Progress-bg-outer"
         style="width: 0%; height: 8px; --progress-percent: 0;"
       />
     </div>
+    <span
+      class="prefix-Progress-text prefix-Progress-text-end prefix-Progress-text-outer"
+      title="0%"
+    >
+      0%
+    </span>
   </div>
-  <span
-    class="prefix-Progress-text"
-    title="0%"
-  >
-    0%
-  </span>
 </div>
 `;
 
