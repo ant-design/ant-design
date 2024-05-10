@@ -2,10 +2,7 @@
 const originError = console.error;
 
 export function isSafeWarning(message: boolean, all = false) {
-  const list = [
-    'useLayoutEffect does nothing on the server',
-    'findDOMNode is deprecated and will be removed',
-  ];
+  const list = ['useLayoutEffect does nothing on the server'];
   if (all) {
     list.push('is deprecated in StrictMode');
   }
