@@ -8,6 +8,14 @@ import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 const { BackTop } = FloatButton;
 
 describe('BackTop', () => {
+  let errSpy: jest.SpyInstance;
+
+  beforeAll(() => {
+    errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  });
+  afterAll(() => {
+    errSpy.mockRestore();
+  });
   beforeEach(() => {
     jest.useFakeTimers();
   });
@@ -55,9 +63,6 @@ describe('BackTop', () => {
   });
 
   it('no error when BackTop work', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<BackTop visibilityHeight={0} />);
     expect(errSpy).not.toHaveBeenCalled();
-    errSpy.mockRestore();
   });
 });
