@@ -8,6 +8,5 @@
       "antd/locale/*": ["locale/*"]
     }
   },
-  "include": ["components/*/demo/*.tsx"],
-  "exclude": ["components/*/demo/_semantic*"]
+  "include": ["components/*/demo/*.tsx"]
 }
