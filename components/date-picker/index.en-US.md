@@ -29,7 +29,7 @@ By clicking the input box, you can select a date from a popup calendar.
 <code src="./demo/disabled.tsx">Disabled</code>
 <code src="./demo/disabled-date.tsx">Disabled Date & Time</code>
 <code src="./demo/allow-empty.tsx">Allow Empty</code>
-<code src="./demo/select-in-range.tsx">Select range dates in 7 days</code>
+<code src="./demo/select-in-range.tsx">Select range dates</code>
 <code src="./demo/preset-ranges.tsx">Preset Ranges</code>
 <code src="./demo/extra-footer.tsx">Extra Footer</code>
 <code src="./demo/size.tsx">Three Sizes</code>
