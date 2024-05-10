@@ -155,7 +155,7 @@ const Modal: React.FC<ModalProps> = (props) => {
             styles={{ ...modalContext?.styles, ...modalStyles }}
             panelRef={panelRef}
           >
-            {loading ? <Skeleton active /> : children}
+            {loading ? <Skeleton className={`${prefixCls}-body-skeleton`} active /> : children}
           </Dialog>
         </zIndexContext.Provider>
       </NoFormStyle>

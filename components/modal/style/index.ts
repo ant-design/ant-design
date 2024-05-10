@@ -135,7 +135,7 @@ export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = 
 };
 
 const genModalStyle: GenerateStyle<ModalToken> = (token) => {
-  const { antCls, componentCls } = token;
+  const { componentCls } = token;
 
   return [
     // ======================== Root =========================
@@ -270,7 +270,7 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
           lineHeight: token.lineHeight,
           wordWrap: 'break-word',
           padding: token.bodyPadding,
-          [`${antCls}-skeleton`]: {
+          [`${componentCls}-body-skeleton`]: {
             width: '100%',
             height: '100%',
             display: 'flex',
