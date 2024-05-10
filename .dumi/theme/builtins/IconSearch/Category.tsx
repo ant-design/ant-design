@@ -13,12 +13,13 @@ interface CategoryProps {
 }
 
 const Category: React.FC<CategoryProps> = (props) => {
+  const [messageApi, contextHolder] = message.useMessage();
   const { icons, title, newIcons, theme } = props;
   const intl = useIntl();
   const [justCopied, setJustCopied] = React.useState<string | null>(null);
   const copyId = React.useRef<ReturnType<typeof setTimeout> | null>(null);
   const onCopied = React.useCallback((type: string, text: string) => {
-    message.success(
+    messageApi.success(
       <span>
         <code className="copied-code">{text}</code> copied 🎉
       </span>,
@@ -38,6 +39,7 @@ const Category: React.FC<CategoryProps> = (props) => {
   );
   return (
     <div>
+      {contextHolder}
       <h3>{intl.formatMessage({ id: `app.docs.components.icon.category.${title}` })}</h3>
       <ul className="anticons-list">
         {icons.map((name) => (
