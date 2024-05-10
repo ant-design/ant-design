@@ -1,5 +1,7 @@
-import { type CSSObject, unit } from '@ant-design/cssinjs';
 import type { CSSProperties } from 'react';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks } from '../../theme/internal';
 import genLayoutLightStyle from './light';
@@ -270,6 +272,7 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
     // =================== Content ====================
     [`${componentCls}-content`]: {
       flex: 'auto',
+      color: colorText,
 
       // fix firefox can't set height smaller than content on flex item
       minHeight: 0,

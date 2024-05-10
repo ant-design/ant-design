@@ -39,8 +39,8 @@
   .mirror-modal-mask {
     position: fixed;
     inset: 0;
-    height: '100vh';
-    width: '100vw';
+    height: 100vh;
+    width: 100vw;
     background: rgba(0, 0, 0, 0.3);
     z-index: 9999;
     animation: mirror-fade-in 0.3s forwards;
@@ -48,12 +48,11 @@
 
   .mirror-modal-dialog {
     position: fixed;
-    inset: 0;
     top: 120px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 400px;
-    height: 120px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 420px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -63,6 +62,9 @@
     padding: 20px 24px;
     box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
     animation: mirror-zoom-in 0.3s forwards;
+    box-sizing: border-box;
+    max-width: 100vw;
+    z-index: 9999;
   }
 
   .mirror-modal-title {
@@ -75,7 +77,7 @@
   .mirror-modal-content {
     font-size: 14px;
     align-self: flex-start;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
   }
 
   .mirror-modal-btns {
@@ -114,7 +116,7 @@
   .mirror-modal-cancel-btn {
     border: 1px solid #eee;
     color: #000;
-    margin-right: 8px;
+    margin-inline-end: 8px;
   }
 
   .mirror-modal-cancel-btn:hover {
@@ -143,7 +145,7 @@
 
     const content = document.createElement('div');
     content.className = 'mirror-modal-content';
-    content.innerText = '国内用户推荐访问国内镜像以获得极速体验～';
+    content.innerText = '🚀 国内用户推荐访问国内镜像以获得极速体验～';
     dialog.append(content);
 
     const btnWrapper = document.createElement('div');

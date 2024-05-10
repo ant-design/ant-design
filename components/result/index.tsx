@@ -125,7 +125,7 @@ const Result: ResultType = ({
   const prefixCls = getPrefixCls('result', customizePrefixCls);
 
   // Style
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const className = classNames(
     prefixCls,
@@ -135,6 +135,7 @@ const Result: ResultType = ({
     rootClassName,
     { [`${prefixCls}-rtl`]: direction === 'rtl' },
     hashId,
+    cssVarCls,
   );
 
   const mergedStyle: React.CSSProperties = { ...result?.style, ...style };

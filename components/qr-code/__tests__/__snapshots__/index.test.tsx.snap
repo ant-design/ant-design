@@ -6,7 +6,7 @@ exports[`QRCode test should correct render 1`] = `
 <div>
   <div
     class="ant-qrcode"
-    style="width: 160px; height: 160px; background-color: transparent;"
+    style="background-color: transparent; width: 160px; height: 160px;"
   >
     <canvas
       height="160"

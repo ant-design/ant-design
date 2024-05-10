@@ -1,14 +1,15 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
-import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import Popover from '../popover';
+
 import { cloneElement } from '../_util/reactNode';
+import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import Popover from '../popover';
 import Avatar from './avatar';
 import AvatarContext from './AvatarContext';
 import type { AvatarContextType, AvatarSize } from './AvatarContext';
 import useStyle from './style';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 interface ContextProps {
   children?: React.ReactNode;
@@ -61,8 +62,8 @@ const Group: React.FC<GroupProps> = (props) => {
 
   const prefixCls = getPrefixCls('avatar', customizePrefixCls);
   const groupPrefixCls = `${prefixCls}-group`;
-  const cssVarCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const cls = classNames(
     groupPrefixCls,
@@ -70,6 +71,7 @@ const Group: React.FC<GroupProps> = (props) => {
       [`${groupPrefixCls}-rtl`]: direction === 'rtl',
     },
     cssVarCls,
+    rootCls,
     className,
     rootClassName,
     hashId,
@@ -90,6 +92,7 @@ const Group: React.FC<GroupProps> = (props) => {
         trigger={maxPopoverTrigger}
         placement={maxPopoverPlacement}
         overlayClassName={`${groupPrefixCls}-popover`}
+        destroyTooltipOnHide
       >
         <Avatar style={maxStyle}>{`+${numOfChildren - maxCount}`}</Avatar>
       </Popover>,

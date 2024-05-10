@@ -8,8 +8,8 @@ const App: React.FC = () => (
     items={[AppleOutlined, AndroidOutlined].map((Icon, i) => {
       const id = String(i + 1);
       return {
-        label: <span>Tab {id}</span>,
         key: id,
+        label: `Tab ${id}`,
         children: `Tab ${id}`,
         icon: <Icon />,
       };

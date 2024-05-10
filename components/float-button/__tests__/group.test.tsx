@@ -1,4 +1,5 @@
 import React from 'react';
+
 import FloatButton from '..';
 import { fireEvent, render } from '../../../tests/utils';
 

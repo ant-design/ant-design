@@ -1,0 +1,115 @@
+# Each PR will visual-regression diff that help to check code is work as expect.
+
+name: 👀 Visual Regression Diff Build
+
+on:
+  pull_request:
+    branches: [master, feature]
+    types: [opened, synchronize, reopened]
+
+# Cancel prev CI if new commit come
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  # Prepare node modules. Reuse cache if available
+  setup:
+    name: prepare node_modules
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: cache package-lock.json
+        uses: actions/cache@v4
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: create package-lock.json
+        run: npm i --package-lock-only --ignore-scripts
+
+      - name: hack for single file
+        run: |
+          if [ ! -d "package-temp-dir" ]; then
+            mkdir package-temp-dir
+          fi
+          cp package-lock.json package-temp-dir
+
+      - name: cache node_modules
+        id: node_modules_cache_id
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: install
+        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
+        run: npm ci
+
+  visual-diff-report:
+    name: visual-diff report
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@v4
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: generate image snapshots
+        id: test-image
+        run: |
+          node node_modules/puppeteer/install.mjs
+          npm run version
+          npm run test:image
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
+
+      # Execute visual regression diff task and zip then
+      # output as visualRegressionReport.tar.gz
+      - name: visual regression diff
+        env:
+          EVENT_NUMBER: ${{ github.event.number }}
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          npm run test:visual-regression -- --pr-id=$EVENT_NUMBER --base-ref=$BASE_REF
+
+      # Upload report in `visualRegressionReport`
+      - name: upload report artifact
+        uses: actions/upload-artifact@v4
+        if: ${{ always() }}
+        with:
+          name: visual-regression-report
+          path: visualRegressionReport.tar.gz
+
+      # Upload git ref for next workflow `visual-regression-diff-finish` use
+      - name: Save persist key
+        if: ${{ always() }}
+        # should be pr id
+        run: echo ${{ github.event.number }} > ./visual-regression-pr-id.txt
+
+      - name: Upload persist key
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-regression-diff-ref
+          path: ./visual-regression-pr-id.txt

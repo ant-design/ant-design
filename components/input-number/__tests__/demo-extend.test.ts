@@ -1,3 +1,5 @@
 import { extendTest } from '../../../tests/shared/demoTest';
 
-extendTest('input-number');
+extendTest('input-number', {
+  skip: ['debug-token.tsx'],
+});

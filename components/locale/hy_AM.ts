@@ -1,5 +1,5 @@
-import type { PickerLocale } from '../date-picker/generatePicker';
 import type { Locale } from '.';
+import type { PickerLocale } from '../date-picker/generatePicker';
 
 const datePickerLocale: PickerLocale = {
   lang: {
@@ -106,9 +106,6 @@ const localeValues: Locale = {
     copy: 'Պատճենել',
     copied: 'Պատճենվել է',
     expand: 'Տեսնել ավելին',
-  },
-  PageHeader: {
-    back: 'Հետ',
   },
 };
 

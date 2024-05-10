@@ -418,7 +418,7 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
               class="ant-avatar ant-avatar-circle ant-avatar-image"
             >
               <img
-                src="https://xsgames.co/randomusers/avatar.php?g=pixel"
+                src="https://api.dicebear.com/7.x/miniavs/svg?seed=8"
               />
             </span>
             <div>
@@ -446,7 +446,7 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
             >
               <span
                 class="ant-avatar-string"
-                style="transform: scale(1) translateX(-50%);"
+                style="transform: scale(1);"
               >
                 K
               </span>
@@ -1266,7 +1266,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
       </div>
     </div>
     <input
-      class="ant-input"
+      class="ant-input ant-input-outlined"
       placeholder="default size"
       style="width: 150px;"
       type="text"
@@ -1327,7 +1327,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
       </div>
     </div>
     <div
-      class="ant-select ant-select-sm ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-sm ant-select-outlined ant-select-single ant-select-show-arrow"
       style="width: 150px;"
     >
       <div

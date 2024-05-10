@@ -12,8 +12,8 @@ const Demo: React.FC = () => {
 
   return (
     <Space direction="vertical">
-      <Segmented value={foo} options={Object.values(LogicalOperator)} onChange={(v) => setFoo(v)} />
-      <Segmented value={foo} options={['AND', 'OR', 'NOT']} onChange={(v) => setFoo(v)} />
+      <Segmented value={foo} options={Object.values(LogicalOperator)} onChange={setFoo} />
+      <Segmented value={foo} options={['AND', 'OR', 'NOT'] as any} onChange={setFoo} />
     </Space>
   );
 };

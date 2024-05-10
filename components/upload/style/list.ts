@@ -1,4 +1,5 @@
 import { unit } from '@ant-design/cssinjs';
+
 import type { UploadToken } from '.';
 import { clearFix, textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
@@ -38,18 +39,15 @@ const genListStyle: GenerateStyle<UploadToken> = (token) => {
           },
 
           [actionsCls]: {
+            whiteSpace: 'nowrap',
+
             [actionCls]: {
               opacity: 0,
             },
 
-            [`${actionCls}${antCls}-btn-sm`]: {
-              height: listItemHeightSM,
-              border: 0,
-              lineHeight: 1,
-              // FIXME: should not override small button
-              '> span': {
-                transform: 'scale(1)',
-              },
+            [iconCls]: {
+              color: token.actionsColor,
+              transition: `all ${token.motionDurationSlow}`,
             },
 
             [`
@@ -59,13 +57,10 @@ const genListStyle: GenerateStyle<UploadToken> = (token) => {
               opacity: 1,
             },
 
-            [iconCls]: {
-              color: token.actionsColor,
-              transition: `all ${token.motionDurationSlow}`,
-            },
-
-            [`&:hover ${iconCls}`]: {
-              color: token.colorText,
+            [`${actionCls}${antCls}-btn`]: {
+              height: listItemHeightSM,
+              border: 0,
+              lineHeight: 1,
             },
           },
 
@@ -91,7 +86,6 @@ const genListStyle: GenerateStyle<UploadToken> = (token) => {
 
         [`${itemCls}:hover ${actionCls}`]: {
           opacity: 1,
-          color: token.colorText,
         },
 
         [`${itemCls}-error`]: {

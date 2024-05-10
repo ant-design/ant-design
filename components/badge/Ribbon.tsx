@@ -34,7 +34,8 @@ const Ribbon: React.FC<RibbonProps> = (props) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('ribbon', customizePrefixCls);
 
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  const wrapperCls = `${prefixCls}-wrapper`;
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, wrapperCls);
 
   const colorInPreset = isPresetColor(color, false);
   const ribbonCls = classNames(
@@ -54,7 +55,7 @@ const Ribbon: React.FC<RibbonProps> = (props) => {
     cornerColorStyle.color = color;
   }
   return wrapCSSVar(
-    <div className={classNames(`${prefixCls}-wrapper`, rootClassName, hashId)}>
+    <div className={classNames(wrapperCls, rootClassName, hashId, cssVarCls)}>
       {children}
       <div className={classNames(ribbonCls, hashId)} style={{ ...colorStyle, ...style }}>
         <span className={`${prefixCls}-text`}>{text}</span>

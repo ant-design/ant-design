@@ -35,7 +35,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('qrcode', customizePrefixCls);
 
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const imageSettings: QRProps['imageSettings'] = {
     src: icon,
@@ -52,7 +52,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     level: errorLevel,
     bgColor,
     fgColor: color,
-    style: { width: undefined, height: undefined },
+    style: { width: style?.width, height: style?.height },
     imageSettings: icon ? imageSettings : undefined,
   };
 
@@ -74,15 +74,19 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     return null;
   }
 
-  const mergedCls = classNames(prefixCls, className, rootClassName, hashId, {
+  const mergedCls = classNames(prefixCls, className, rootClassName, hashId, cssVarCls, {
     [`${prefixCls}-borderless`]: !bordered,
   });
 
+  const mergedStyle: React.CSSProperties = {
+    backgroundColor: bgColor,
+    ...style,
+    width: style?.width ?? size,
+    height: style?.height ?? size,
+  };
+
   return wrapCSSVar(
-    <div
-      className={mergedCls}
-      style={{ ...style, width: size, height: size, backgroundColor: bgColor }}
-    >
+    <div className={mergedCls} style={mergedStyle}>
       {status !== 'active' && (
         <div className={`${prefixCls}-mask`}>
           {status === 'loading' && <Spin />}
@@ -96,6 +100,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
               )}
             </>
           )}
+          {status === 'scanned' && <p className={`${prefixCls}-scanned`}>{locale?.scanned}</p>}
         </div>
       )}
       {type === 'canvas' ? <QRCodeCanvas {...qrCodeProps} /> : <QRCodeSVG {...qrCodeProps} />}

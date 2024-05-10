@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Mentions, { Option } from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
@@ -83,6 +84,20 @@ describe('Mentions', () => {
     simulateInput(wrapper, '@');
     expect(wrapper.container.querySelectorAll('li.ant-mentions-dropdown-menu-item').length).toBe(1);
     expect(wrapper.container.querySelectorAll('.bamboo-light').length).toBeTruthy();
+  });
+
+  it('allowClear', () => {
+    const wrapper = render(<Mentions allowClear />);
+    simulateInput(wrapper, '111');
+    const textareaInstance = wrapper.container.querySelector('textarea')!;
+    expect(textareaInstance.value).toEqual('111');
+    fireEvent.click(wrapper.container.querySelector('.ant-mentions-clear-icon')!);
+    expect(textareaInstance.value).toEqual('');
+  });
+
+  it('should support custom clearIcon', () => {
+    const { container } = render(<Mentions allowClear={{ clearIcon: 'clear' }} />);
+    expect(container.querySelector('.ant-mentions-clear-icon')?.textContent).toBe('clear');
   });
 
   it('warning if use Mentions.Option', () => {

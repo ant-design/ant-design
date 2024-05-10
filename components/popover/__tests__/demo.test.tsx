@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 
 demoTest('popover', {
@@ -12,7 +13,5 @@ rootPropsTest(
       <span />
     </Popover>
   ),
-  {
-    findRootElements: () => document.querySelector('.ant-popover')!,
-  },
+  { findRootElements: () => document.querySelector('.ant-popover')! },
 );

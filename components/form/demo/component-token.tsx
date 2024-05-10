@@ -1,5 +1,5 @@
-import { ConfigProvider, Form, Input } from 'antd';
 import React from 'react';
+import { ConfigProvider, Form, Input } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider
@@ -13,6 +13,7 @@ const App: React.FC = () => (
           labelColonMarginInlineStart: 4,
           labelColonMarginInlineEnd: 12,
           itemMarginBottom: 18,
+          inlineItemMarginBottom: 18,
         },
       },
     }}

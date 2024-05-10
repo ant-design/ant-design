@@ -70,6 +70,8 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       },
 
       [`${componentCls}-container`]: {
+        position: 'relative',
+
         '&::before, &::after': {
           position: 'absolute',
           top: 0,
@@ -91,12 +93,8 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       },
 
       [`${componentCls}-ping-left`]: {
-        [`&:not(${componentCls}-has-fix-left) ${componentCls}-container`]: {
-          position: 'relative',
-
-          '&::before': {
-            boxShadow: `inset 10px 0 8px -8px ${shadowColor}`,
-          },
+        [`&:not(${componentCls}-has-fix-left) ${componentCls}-container::before`]: {
+          boxShadow: `inset 10px 0 8px -8px ${shadowColor}`,
         },
 
         [`
@@ -112,12 +110,8 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       },
 
       [`${componentCls}-ping-right`]: {
-        [`&:not(${componentCls}-has-fix-right) ${componentCls}-container`]: {
-          position: 'relative',
-
-          '&::after': {
-            boxShadow: `inset -10px 0 8px -8px ${shadowColor}`,
-          },
+        [`&:not(${componentCls}-has-fix-right) ${componentCls}-container::after`]: {
+          boxShadow: `inset -10px 0 8px -8px ${shadowColor}`,
         },
 
         [`
@@ -125,6 +119,18 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           ${componentCls}-cell-fix-right-last::after
         `]: {
           boxShadow: `inset -10px 0 8px -8px ${shadowColor}`,
+        },
+      },
+
+      // Gapped fixed Columns do not show the shadow
+      [`${componentCls}-fixed-column-gapped`]: {
+        [`
+        ${componentCls}-cell-fix-left-first::after,
+        ${componentCls}-cell-fix-left-last::after,
+        ${componentCls}-cell-fix-right-first::after,
+        ${componentCls}-cell-fix-right-last::after
+      `]: {
+          boxShadow: 'none',
         },
       },
     },

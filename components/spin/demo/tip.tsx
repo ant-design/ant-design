@@ -1,17 +1,23 @@
 import React from 'react';
 import { Alert, Flex, Spin } from 'antd';
 
+const contentStyle: React.CSSProperties = {
+  padding: 50,
+  background: 'rgba(0, 0, 0, 0.05)',
+  borderRadius: 4,
+};
+
+const content = <div style={contentStyle} />;
+
 const App: React.FC = () => (
   <Flex gap="small" vertical>
     <Flex gap="small">
       <Spin tip="Loading" size="small">
-        <div className="content" />
+        {content}
       </Spin>
-      <Spin tip="Loading">
-        <div className="content" />
-      </Spin>
+      <Spin tip="Loading">{content}</Spin>
       <Spin tip="Loading" size="large">
-        <div className="content" />
+        {content}
       </Spin>
     </Flex>
     <Spin tip="Loading...">

@@ -1,6 +1,7 @@
+import * as React from 'react';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import classNames from 'classnames';
-import * as React from 'react';
+
 import type { PopconfirmProps } from '.';
 import ActionButton from '../_util/ActionButton';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
@@ -73,7 +74,7 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
       <div className={`${prefixCls}-buttons`}>
         {showCancel && (
           <Button onClick={onCancel} size="small" {...cancelButtonProps}>
-            {cancelText ?? contextLocale?.cancelText}
+            {cancelText || contextLocale?.cancelText}
           </Button>
         )}
         <ActionButton
@@ -88,7 +89,7 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
           quitOnNullishReturnValue
           emitEvent
         >
-          {okText ?? contextLocale?.okText}
+          {okText || contextLocale?.okText}
         </ActionButton>
       </div>
     </div>

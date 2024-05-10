@@ -1,12 +1,12 @@
 import React, { Suspense } from 'react';
-import { Button, ConfigProvider, Space, Typography } from 'antd';
-import { createStyles, useTheme } from 'antd-style';
+import { Button, ConfigProvider, Flex, Typography } from 'antd';
+import { createStyles } from 'antd-style';
 import { Link, useLocation } from 'dumi';
 
 import useLocale from '../../../../hooks/useLocale';
 import SiteContext from '../../../../theme/slots/SiteContext';
 import * as utils from '../../../../theme/utils';
-import { GroupMask } from '../Group';
+import GroupMaskLayer from '../GroupMaskLayer';
 
 const ComponentsBlock = React.lazy(() => import('./ComponentsBlock'));
 
@@ -28,7 +28,7 @@ const useStyle = () => {
   const { direction } = React.useContext(ConfigProvider.ConfigContext);
   const isRTL = direction === 'rtl';
   return createStyles(({ token, css, cx }) => {
-    const textShadow = `0 0 3px ${token.colorBgContainer}`;
+    const textShadow = `0 0 4px ${token.colorBgContainer}`;
 
     const mask = cx(css`
       position: absolute;
@@ -91,32 +91,30 @@ const useStyle = () => {
         top: -38px;
         transform: ${isRTL ? 'rotate3d(24, 83, -45, 57deg)' : 'rotate3d(24, -83, 45, 57deg)'};
       `,
-
       child: css`
         position: relative;
         width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
         z-index: 1;
+      `,
+      btnWrap: css`
+        margin-bottom: ${token.marginXL}px;
       `,
     };
   })();
 };
 
-export interface PreviewBannerProps {
-  children?: React.ReactNode;
-}
-
-const PreviewBanner: React.FC<PreviewBannerProps> = (props) => {
+const PreviewBanner: React.FC<React.PropsWithChildren> = (props) => {
   const { children } = props;
-
   const [locale] = useLocale(locales);
   const { styles } = useStyle();
   const { isMobile } = React.useContext(SiteContext);
-  const token = useTheme();
   const { pathname, search } = useLocation();
   const isZhCN = utils.isZhCN(pathname);
 
   return (
-    <GroupMask>
+    <GroupMaskLayer>
       {/* Image Left Top */}
       <img
         style={{ position: 'absolute', left: isMobile ? -120 : 0, top: 0, width: 240 }}
@@ -140,13 +138,11 @@ const PreviewBanner: React.FC<PreviewBannerProps> = (props) => {
           )}
         </Suspense>
         <div className={styles.mask} />
-
         <Typography className={styles.typography}>
           <h1>Ant Design 5.0</h1>
           <p>{locale.slogan}</p>
         </Typography>
-
-        <Space size="middle" style={{ marginBottom: token.marginXL }}>
+        <Flex gap="middle" className={styles.btnWrap}>
           <Link to={utils.getLocalizedPathname('/components/overview/', isZhCN, search)}>
             <Button size="large" type="primary">
               {locale.start}
@@ -155,10 +151,10 @@ const PreviewBanner: React.FC<PreviewBannerProps> = (props) => {
           <Link to={utils.getLocalizedPathname('/docs/spec/introduce/', isZhCN, search)}>
             <Button size="large">{locale.designLanguage}</Button>
           </Link>
-        </Space>
+        </Flex>
         <div className={styles.child}>{children}</div>
       </div>
-    </GroupMask>
+    </GroupMaskLayer>
   );
 };
 

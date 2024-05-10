@@ -1,7 +1,7 @@
 import React, { useMemo, useRef, useState } from 'react';
-import debounce from 'lodash/debounce';
 import { Select, Spin } from 'antd';
-import type { SelectProps } from 'antd/es/select';
+import type { SelectProps } from 'antd';
+import debounce from 'lodash/debounce';
 
 export interface DebounceSelectProps<ValueType = any>
   extends Omit<SelectProps<ValueType | ValueType[]>, 'options' | 'children'> {

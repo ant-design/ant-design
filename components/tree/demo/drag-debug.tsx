@@ -1,16 +1,15 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 import React from 'react';
 import { CarryOutOutlined } from '@ant-design/icons';
-import type { TreeProps } from 'antd';
+import type { TreeDataNode, TreeProps } from 'antd';
 import { Switch, Tree } from 'antd';
-import type { DataNode } from 'rc-tree/lib/interface';
 
 const x = 3;
 const y = 2;
 const z = 1;
-const data: DataNode[] = [];
+const data: TreeDataNode[] = [];
 
-const generateData = (_level: number, preKey = '0', tns = data): DataNode[] | void => {
+const generateData = (_level: number, preKey = '0', tns = data): TreeDataNode[] | void => {
   const children: string[] = [];
   for (let i = 0; i < x; i++) {
     const key = `${preKey}-${i}`;
@@ -32,7 +31,7 @@ const generateData = (_level: number, preKey = '0', tns = data): DataNode[] | vo
 generateData(z);
 
 const App: React.FC = () => {
-  const [gData, setGData] = React.useState<DataNode[]>(data);
+  const [gData, setGData] = React.useState<TreeDataNode[]>(data);
   const [showLine, setShowLine] = React.useState<any>(true);
   const [showIcon, setShowIcon] = React.useState<boolean>(true);
   const [showLeafIcon, setShowLeafIcon] = React.useState<boolean>(true);
@@ -52,9 +51,9 @@ const App: React.FC = () => {
     const dropPosition = info.dropPosition - Number(dropPos[dropPos.length - 1]);
 
     const loop = (
-      data: DataNode[],
+      data: TreeDataNode[],
       key: number,
-      callback: (item: DataNode, index: number, err: DataNode[]) => void,
+      callback: (item: TreeDataNode, index: number, err: TreeDataNode[]) => void,
     ): void => {
       for (let i = 0; i < data.length; i++) {
         if (data[i].key === key) {
@@ -69,7 +68,7 @@ const App: React.FC = () => {
     const data = [...gData];
 
     // Find dragObject
-    let dragObj: DataNode;
+    let dragObj: TreeDataNode;
     loop(data, dragKey, (item, index, arr) => {
       arr.splice(index, 1);
       dragObj = item;
@@ -93,7 +92,7 @@ const App: React.FC = () => {
         item.children.unshift(dragObj);
       });
     } else {
-      let ar: DataNode[];
+      let ar: TreeDataNode[];
       let i: number;
       loop(data, dropKey, (_, index, arr) => {
         ar = arr;

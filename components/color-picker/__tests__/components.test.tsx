@@ -1,5 +1,6 @@
-import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
+import { fireEvent, render } from '@testing-library/react';
+
 import ColorAlphaInput from '../components/ColorAlphaInput';
 import ColorHexInput from '../components/ColorHexInput';
 import ColorHsbInput from '../components/ColorHsbInput';

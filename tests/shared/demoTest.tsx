@@ -2,6 +2,7 @@
 import path from 'path';
 import * as React from 'react';
 import { createCache, StyleProvider } from '@ant-design/cssinjs';
+import { ConfigProvider } from 'antd';
 import { globSync } from 'glob';
 import kebabCase from 'lodash/kebabCase';
 import { renderToString } from 'react-dom/server';
@@ -11,7 +12,6 @@ import { render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
 import { excludeWarning, isSafeWarning } from './excludeWarning';
 import rootPropsTest from './rootPropsTest';
-import { ConfigProvider } from 'antd';
 
 export { rootPropsTest };
 
@@ -28,7 +28,9 @@ export type Options = {
 };
 
 function baseText(doInject: boolean, component: string, options: Options = {}) {
-  const files = globSync(`./components/${component}/demo/*.tsx`);
+  const files = globSync(`./components/${component}/demo/*.tsx`).filter(
+    (file) => !file.includes('_semantic'),
+  );
   files.forEach((file) => {
     // to compatible windows path
     file = file.split(path.sep).join('/');

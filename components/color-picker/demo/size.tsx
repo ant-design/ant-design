@@ -4,14 +4,14 @@ import { ColorPicker, Space } from 'antd';
 const Demo = () => (
   <Space>
     <Space direction="vertical">
-      <ColorPicker size="small" />
-      <ColorPicker />
-      <ColorPicker size="large" />
+      <ColorPicker defaultValue="#1677ff" size="small" />
+      <ColorPicker defaultValue="#1677ff" />
+      <ColorPicker defaultValue="#1677ff" size="large" />
     </Space>
     <Space direction="vertical">
-      <ColorPicker size="small" showText />
-      <ColorPicker showText />
-      <ColorPicker size="large" showText />
+      <ColorPicker defaultValue="#1677ff" size="small" showText />
+      <ColorPicker defaultValue="#1677ff" showText />
+      <ColorPicker defaultValue="#1677ff" size="large" showText />
     </Space>
   </Space>
 );

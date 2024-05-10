@@ -2,11 +2,10 @@
 category: Components
 group: Data Display
 title: Collapse
+description: A content area which can be collapsed and expanded.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*B7HKR5OBe8gAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sir-TK0HkWcAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-A content area which can be collapsed and expanded.
 
 ## When To Use
 
@@ -94,7 +93,10 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### Collapse.Panel
 
-<Alert message="&gt;= 5.6.0 configure the panel by `items`."></Alert>
+<!-- prettier-ignore -->
+:::info{title=Deprecated}
+When using version >= 5.6.0, we prefer to configuring the panel by `items`.
+:::
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |

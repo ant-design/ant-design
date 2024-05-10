@@ -1,7 +1,7 @@
 ---
 group:
   title: Basic Usage
-order: 2
+order: 4
 title: Usage with Umi
 ---
 
@@ -133,12 +133,18 @@ Create a new `src/components/ProductList.tsx` file with the following code.
 ```tsx
 import React from 'react';
 import { Button, Popconfirm, Table } from 'antd';
+import type { TableProps } from 'antd';
 
-const ProductList: React.FC<{ products: { name: string }[]; onDelete: (id: string) => void }> = ({
+interface DataType {
+  id: string;
+  name: string;
+}
+
+const ProductList: React.FC<{ products: DataType[]; onDelete: (id: string) => void }> = ({
   onDelete,
   products,
 }) => {
-  const columns = [
+  const columns: TableProps<DataType>['columns'] = [
     {
       title: 'Name',
       dataIndex: 'name',
@@ -164,7 +170,7 @@ export default ProductList;
 
 Assuming we have agreed on an API interface with the backend developers, we can now use Mock data to locally mock up the data that the API should return, so that front-end and back-end development can proceed simultaneously without the front-end work being blocked because the back-end API is still being developed. Umi provides an out-of-the-box [Mock function](https://umijs.org/docs/guides/mock) that allows you to set up Mock data in a convenient and easy way.
 
-Create a `mock` directory and add a new `products.ts` file to this directory with the following code.
+Create a new `mock/products.ts` file in the root directory with the following code.
 
 ```ts
 import { defineMock } from 'umi';
@@ -221,11 +227,12 @@ export default defineConfig({
 Edit `src/pages/products.tsx` with the following code.
 
 ```tsx
-import axios from 'axios';
 import React from 'react';
+import axios from 'axios';
 import { useMutation, useQuery, useQueryClient } from 'umi';
-import ProductList from '@/components/ProductList';
+
 import styles from './products.less';
+import ProductList from '@/components/ProductList';
 
 export default function Page() {
   const queryClient = useQueryClient();

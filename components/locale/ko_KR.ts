@@ -1,8 +1,9 @@
 /* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/ko_KR';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/ko_KR';
 import DatePicker from '../date-picker/locale/ko_KR';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/ko_KR';
 
 const typeTemplate = '${label} 유효하지 않은 ${type}';
@@ -79,9 +80,6 @@ const localeValues: Locale = {
     copy: '복사',
     copied: '복사 됨',
     expand: '확장',
-  },
-  PageHeader: {
-    back: '뒤로',
   },
   Form: {
     optional: '(선택사항)',

@@ -293,7 +293,7 @@ exports[`renders components/flex/demo/combination.tsx correctly 1`] = `
           target="_blank"
         >
           <span>
-            Get Start
+            Get Started
           </span>
         </a>
       </div>

@@ -1,5 +1,6 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { Keyframes, unit } from '@ant-design/cssinjs';
+
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 import { genFocusOutline, resetComponent } from '../../style';
 import { genCollapseMotion } from '../../style/motion';
@@ -182,7 +183,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         },
 
         [`&-active ${treeCls}-node-content-wrapper`]: {
-          ...genFocusOutline(token),
+          background: token.controlItemBgHover,
         },
 
         [`&:not(${treeNodeCls}-disabled).filter-node ${treeCls}-title`]: {
@@ -191,6 +192,8 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         },
 
         '&-draggable': {
+          cursor: 'grab',
+
           [`${treeCls}-draggable-icon`]: {
             // https://github.com/ant-design/ant-design/issues/41915
             flexShrink: 0,
@@ -242,9 +245,15 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         textAlign: 'center',
         cursor: 'pointer',
         userSelect: 'none',
+        transition: `all ${token.motionDurationSlow}`,
+        borderRadius: token.borderRadius,
 
         '&-noop': {
-          cursor: 'default',
+          cursor: 'unset',
+        },
+
+        [`&:not(${treeCls}-switcher-noop):hover`]: {
+          backgroundColor: token.colorBgTextHover,
         },
 
         '&_close': {

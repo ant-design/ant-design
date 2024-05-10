@@ -1,15 +1,14 @@
 ---
 category: Components
-subtitle: 多选框
 group: 数据录入
 title: Checkbox
+subtitle: 多选框
+description: 收集用户的多项选择。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*DzgiRbW3khIAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*G3MjTYXL6AIAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-多选框。
 
 ## 何时使用
 
@@ -27,6 +26,7 @@ demo:
 <code src="./demo/layout.tsx">布局</code>
 <code src="./demo/debug-line.tsx" debug>同行布局</code>
 <code src="./demo/debug-disable-popover.tsx" debug>禁用下的 Tooltip</code>
+<code src="./demo/custom-line-width.tsx" debug>自定义 lineWidth</code>
 
 ## API
 

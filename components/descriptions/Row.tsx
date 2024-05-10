@@ -7,7 +7,7 @@ import DescriptionsContext from './DescriptionsContext';
 
 interface CellConfig {
   component: string | [string, string];
-  type: string;
+  type: 'label' | 'content' | 'item';
   showLabel?: boolean;
   showContent?: boolean;
 }
@@ -54,6 +54,7 @@ function renderCells(
             bordered={bordered}
             label={showLabel ? label : null}
             content={showContent ? children : null}
+            type={type}
           />
         );
       }
@@ -69,6 +70,7 @@ function renderCells(
           itemPrefixCls={itemPrefixCls}
           bordered={bordered}
           label={label}
+          type="label"
         />,
         <Cell
           key={`content-${key || index}`}
@@ -79,6 +81,7 @@ function renderCells(
           itemPrefixCls={itemPrefixCls}
           bordered={bordered}
           content={children}
+          type="content"
         />,
       ];
     },

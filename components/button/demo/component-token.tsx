@@ -18,17 +18,18 @@ const App: React.FC = () => (
           borderRadius: 4,
           colorTextDisabled: 'rgba(0, 0, 0, 0.26)',
           colorBgContainerDisabled: 'rgba(0, 0, 0, 0.12)',
+          contentFontSizeSM: 12,
         },
       },
     }}
   >
     <Flex gap="small" vertical>
-      <Flex wrap="wrap" gap="small">
+      <Flex wrap gap="small">
         <Button type="text">TEXT</Button>
         <Button type="primary">CONTAINED</Button>
         <Button>OUTLINED</Button>
       </Flex>
-      <Flex wrap="wrap" gap="small">
+      <Flex wrap gap="small">
         <Button type="text" disabled>
           TEXT
         </Button>
@@ -36,6 +37,15 @@ const App: React.FC = () => (
           CONTAINED
         </Button>
         <Button disabled>OUTLINED</Button>
+      </Flex>
+      <Flex wrap gap="small">
+        <Button type="text" size="small">
+          TEXT
+        </Button>
+        <Button type="primary" size="small">
+          CONTAINED
+        </Button>
+        <Button size="small">OUTLINED</Button>
       </Flex>
     </Flex>
   </ConfigProvider>

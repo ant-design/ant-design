@@ -1,9 +1,10 @@
+import * as React from 'react';
 import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
 import DownloadOutlined from '@ant-design/icons/DownloadOutlined';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
-import * as React from 'react';
+
 import { ConfigContext } from '../../config-provider';
 import Progress from '../../progress';
 import Tooltip from '../../tooltip';
@@ -36,6 +37,7 @@ export interface ListItemProps {
     callback: () => void,
     prefixCls: string,
     title?: string,
+    acceptUploadDisabled?: boolean,
   ) => React.ReactNode;
   itemRender?: ItemRender;
   onPreview: (file: UploadFile, e: React.SyntheticEvent<HTMLElement>) => void;
@@ -142,6 +144,9 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
           () => onClose(file),
           prefixCls,
           locale.removeFile,
+          // acceptUploadDisabled is true, only remove icon will follow Upload disabled prop
+          // https://github.com/ant-design/ant-design/issues/46171
+          true,
         )
       : null;
 
@@ -195,25 +200,21 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
           </span>,
           downloadOrDelete,
         ];
-    const previewStyle: React.CSSProperties = {
-      pointerEvents: 'none',
-      opacity: 0.5,
-    };
 
-    const previewIcon = showPreviewIcon ? (
-      <a
-        href={file.url || file.thumbUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={file.url || file.thumbUrl ? undefined : previewStyle}
-        onClick={(e) => onPreview(file, e)}
-        title={locale.previewFile}
-      >
-        {typeof customPreviewIcon === 'function'
-          ? customPreviewIcon(file)
-          : customPreviewIcon || <EyeOutlined />}
-      </a>
-    ) : null;
+    const previewIcon =
+      showPreviewIcon && (file.url || file.thumbUrl) ? (
+        <a
+          href={file.url || file.thumbUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => onPreview(file, e)}
+          title={locale.previewFile}
+        >
+          {typeof customPreviewIcon === 'function'
+            ? customPreviewIcon(file)
+            : customPreviewIcon || <EyeOutlined />}
+        </a>
+      ) : null;
 
     const pictureCardActions = (listType === 'picture-card' || listType === 'picture-circle') &&
       mergedStatus !== 'uploading' && (
@@ -284,7 +285,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
         {itemRender
           ? itemRender(item, file, items, {
               download: onDownload.bind(null, file),
-              preview: onPreview.bind(null, file),
+              preview: onPreview.bind(null, file) as any,
               remove: onClose.bind(null, file),
             })
           : item}

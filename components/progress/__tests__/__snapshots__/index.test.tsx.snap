@@ -1,5 +1,83 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Progress circle progress should accept steps 1`] = `
+<div
+  aria-valuenow="70"
+  class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info ant-progress-default"
+  role="progressbar"
+>
+  <div
+    class="ant-progress-steps-outer"
+  >
+    <div
+      class="ant-progress-steps-item ant-progress-steps-item-active"
+      style="width: 14px; height: 8px;"
+    />
+    <div
+      class="ant-progress-steps-item ant-progress-steps-item-active"
+      style="width: 14px; height: 8px;"
+    />
+    <div
+      class="ant-progress-steps-item ant-progress-steps-item-active"
+      style="width: 14px; height: 8px;"
+    />
+    <div
+      class="ant-progress-steps-item ant-progress-steps-item-active"
+      style="width: 14px; height: 8px;"
+    />
+    <div
+      class="ant-progress-steps-item"
+      style="width: 14px; height: 8px;"
+    />
+    <span
+      class="ant-progress-text"
+      title="70%"
+    >
+      70%
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Progress circle progress steps can be number 1`] = `
+<div
+  aria-valuenow="70"
+  class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info ant-progress-default"
+  role="progressbar"
+>
+  <div
+    class="ant-progress-steps-outer"
+  >
+    <div
+      class="ant-progress-steps-item ant-progress-steps-item-active"
+      style="width: 14px; height: 8px;"
+    />
+    <div
+      class="ant-progress-steps-item ant-progress-steps-item-active"
+      style="width: 14px; height: 8px;"
+    />
+    <div
+      class="ant-progress-steps-item ant-progress-steps-item-active"
+      style="width: 14px; height: 8px;"
+    />
+    <div
+      class="ant-progress-steps-item ant-progress-steps-item-active"
+      style="width: 14px; height: 8px;"
+    />
+    <div
+      class="ant-progress-steps-item"
+      style="width: 14px; height: 8px;"
+    />
+    <span
+      class="ant-progress-text"
+      title="70%"
+    >
+      70%
+    </span>
+  </div>
+</div>
+`;
+
 exports[`Progress render dashboard 295 gapDegree 1`] = `
 <div
   aria-valuenow="0"
@@ -180,11 +258,11 @@ exports[`Progress render format 1`] = `
     >
       <div
         class="ant-progress-bg"
-        style="width: 100%; height: 8px; clip-path: inset(0 50% 0 0 round 100px);"
+        style="width: 50%; height: 8px; --progress-percent: 0.5;"
       />
       <div
         class="ant-progress-success-bg"
-        style="width: 100%; height: 8px; clip-path: inset(0 90% 0 0 round 100px);"
+        style="width: 10%; height: 8px;"
       />
     </div>
   </div>
@@ -212,7 +290,7 @@ exports[`Progress render negative progress 1`] = `
     >
       <div
         class="ant-progress-bg"
-        style="width: 100%; height: 8px; clip-path: inset(0 100% 0 0 round 100px);"
+        style="width: 0%; height: 8px; --progress-percent: 0;"
       />
     </div>
   </div>
@@ -240,11 +318,11 @@ exports[`Progress render negative successPercent 1`] = `
     >
       <div
         class="ant-progress-bg"
-        style="width: 100%; height: 8px; clip-path: inset(0 50% 0 0 round 100px);"
+        style="width: 50%; height: 8px; --progress-percent: 0.5;"
       />
       <div
         class="ant-progress-success-bg"
-        style="width: 100%; height: 8px; clip-path: inset(0 100% 0 0 round 100px);"
+        style="width: 0%; height: 8px;"
       />
     </div>
   </div>
@@ -272,7 +350,7 @@ exports[`Progress render normal progress 1`] = `
     >
       <div
         class="ant-progress-bg"
-        style="width: 100%; height: 8px; clip-path: inset(0 100% 0 0 round 100px);"
+        style="width: 0%; height: 8px; --progress-percent: 0;"
       />
     </div>
   </div>
@@ -300,7 +378,7 @@ exports[`Progress render out-of-range progress 1`] = `
     >
       <div
         class="ant-progress-bg"
-        style="width: 100%; height: 8px; clip-path: inset(0 0% 0 0 round 100px);"
+        style="width: 100%; height: 8px; --progress-percent: 1;"
       />
     </div>
   </div>
@@ -345,7 +423,7 @@ exports[`Progress render out-of-range progress with info 1`] = `
     >
       <div
         class="ant-progress-bg"
-        style="width: 100%; height: 8px; clip-path: inset(0 0% 0 0 round 100px);"
+        style="width: 100%; height: 8px; --progress-percent: 1;"
       />
     </div>
   </div>
@@ -445,7 +523,7 @@ exports[`Progress render strokeColor 2`] = `
     >
       <div
         class="ant-progress-bg"
-        style="width: 100%; height: 8px; clip-path: inset(0 50% 0 0 round 100px);"
+        style="width: 50%; height: 8px; --progress-line-stroke-color: linear-gradient(to right, #108ee9, #87d068); --progress-percent: 0.5;"
       />
     </div>
   </div>
@@ -473,7 +551,7 @@ exports[`Progress render strokeColor 3`] = `
     >
       <div
         class="ant-progress-bg"
-        style="width: 100%; height: 8px; clip-path: inset(0 50% 0 0 round 100px);"
+        style="width: 50%; height: 8px; --progress-line-stroke-color: linear-gradient(to right, #108ee9 0%, #87d068 100%); --progress-percent: 0.5;"
       />
     </div>
   </div>
@@ -558,11 +636,11 @@ exports[`Progress render successColor progress 1`] = `
     >
       <div
         class="ant-progress-bg"
-        style="width: 100%; height: 8px; clip-path: inset(0 40% 0 0 round 100px);"
+        style="width: 60%; height: 8px; --progress-percent: 0.6;"
       />
       <div
         class="ant-progress-success-bg"
-        style="width: 100%; height: 8px; clip-path: inset(0 70% 0 0 round 100px); background-color: rgb(255, 255, 255);"
+        style="width: 30%; height: 8px; background-color: rgb(255, 255, 255);"
       />
     </div>
   </div>
@@ -701,7 +779,7 @@ exports[`Progress render trailColor progress 1`] = `
     >
       <div
         class="ant-progress-bg"
-        style="width: 100%; height: 8px; clip-path: inset(0 100% 0 0 round 100px);"
+        style="width: 0%; height: 8px; --progress-percent: 0;"
       />
     </div>
   </div>
@@ -729,7 +807,7 @@ exports[`Progress rtl render component should be rendered correctly in RTL direc
     >
       <div
         class="ant-progress-bg"
-        style="width: 100%; height: 8px; clip-path: inset(0 0 0 100% round 100px);"
+        style="width: 0%; height: 8px; --progress-percent: 0;"
       />
     </div>
   </div>

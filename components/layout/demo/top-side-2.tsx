@@ -32,14 +32,20 @@ const items2: MenuProps['items'] = [UserOutlined, LaptopOutlined, NotificationOu
 
 const App: React.FC = () => {
   const {
-    token: { colorBgContainer },
+    token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
   return (
     <Layout>
       <Header style={{ display: 'flex', alignItems: 'center' }}>
         <div className="demo-logo" />
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} items={items1} />
+        <Menu
+          theme="dark"
+          mode="horizontal"
+          defaultSelectedKeys={['2']}
+          items={items1}
+          style={{ flex: 1, minWidth: 0 }}
+        />
       </Header>
       <Layout>
         <Sider width={200} style={{ background: colorBgContainer }}>
@@ -63,6 +69,7 @@ const App: React.FC = () => {
               margin: 0,
               minHeight: 280,
               background: colorBgContainer,
+              borderRadius: borderRadiusLG,
             }}
           >
             Content

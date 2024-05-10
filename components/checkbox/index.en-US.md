@@ -2,13 +2,12 @@
 category: Components
 group: Data Entry
 title: Checkbox
+description: Collect user's choices.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*DzgiRbW3khIAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*G3MjTYXL6AIAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-Checkbox component.
 
 ## When To Use
 
@@ -26,6 +25,7 @@ Checkbox component.
 <code src="./demo/layout.tsx">Use with Grid</code>
 <code src="./demo/debug-line.tsx" debug>Same line</code>
 <code src="./demo/debug-disable-popover.tsx" debug>Disabled to show Tooltip</code>
+<code src="./demo/custom-line-width.tsx" debug>customize lineWidth</code>
 
 ## API
 

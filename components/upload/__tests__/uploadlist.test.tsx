@@ -1,11 +1,12 @@
 import React from 'react';
+
 import type { UploadFile, UploadProps } from '..';
 import Upload from '..';
 import { act, fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
 import type { FormInstance } from '../../form';
 import Form from '../../form';
-import UploadList from '../UploadList';
 import type { UploadListProps, UploadLocale } from '../interface';
+import UploadList from '../UploadList';
 import { previewImage } from '../utils';
 import { setup, teardown } from './mock';
 import { errorRequest, successRequest } from './requests';
@@ -73,7 +74,9 @@ describe('Upload List', () => {
     mockWidthGet.mockImplementation(() => size.width);
     mockHeightGet.mockImplementation(() => size.height);
     mockSrcSet.mockImplementation(function fn() {
+      // @ts-ignore
       if (this.onload) {
+        // @ts-ignore
         this.onload();
       }
     });
@@ -604,6 +607,46 @@ describe('Upload List', () => {
       </Upload>,
     );
     expect(wrapper.querySelector('.anticon-delete')).toBeTruthy();
+    unmount();
+  });
+
+  it('disabled should not affect preview and download icon', () => {
+    const list = [
+      {
+        name: 'image',
+        status: 'done',
+        uid: '-4',
+        url: 'https://cdn.xxx.com/aaa',
+      },
+    ];
+
+    const { container: wrapper, unmount } = render(
+      <Upload
+        listType="picture-card"
+        defaultFileList={list as UploadProps['defaultFileList']}
+        showUploadList={{
+          showPreviewIcon: true,
+          showDownloadIcon: true,
+          showRemoveIcon: true,
+        }}
+        disabled
+      >
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    // preview icon
+    expect(
+      wrapper.querySelectorAll('.ant-upload-list-item-actions > *')[0].hasAttribute('disabled'),
+    ).toBeFalsy();
+    // download icon
+
+    expect(
+      wrapper.querySelectorAll('.ant-upload-list-item-actions > *')[1].hasAttribute('disabled'),
+    ).toBeFalsy();
+    // delete icon
+    expect(
+      wrapper.querySelectorAll('.ant-upload-list-item-actions > *')[2].hasAttribute('disabled'),
+    ).toBeTruthy();
     unmount();
   });
 
@@ -1282,7 +1325,7 @@ describe('Upload List', () => {
         <Upload
           ref={uploadRef}
           fileList={testFileList}
-          action="https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188"
+          action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
           multiple
           onChange={(info) => {
             setTestFileList([...info.fileList]);

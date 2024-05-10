@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
+
 import List from '..';
+import type { GetRef } from '../../_util/type';
 import { pureRender, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
@@ -9,7 +11,7 @@ describe('List Item Layout', () => {
       key: 1,
       href: 'https://ant.design',
       title: 'ant design',
-      avatar: 'https://xsgames.co/randomusers/avatar.php?g=pixel',
+      avatar: 'https://api.dicebear.com/7.x/miniavs/svg?seed=10',
       description:
         'Ant Design, a design language for background applications, is refined by Ant UED Team.',
       content:
@@ -188,15 +190,13 @@ describe('List Item Layout', () => {
   });
 
   it('should ref', () => {
-    const ref = React.createRef<HTMLElement>();
-
+    const ref = React.createRef<GetRef<typeof List.Item>>();
     render(<List.Item ref={ref}>Item</List.Item>);
     expect(ref.current).toHaveClass('ant-list-item');
   });
 
   it('should grid ref', () => {
-    const ref = React.createRef<HTMLElement>();
-
+    const ref = React.createRef<GetRef<typeof List.Item>>();
     render(
       <List grid={{}}>
         <List.Item ref={ref}>Item</List.Item>,

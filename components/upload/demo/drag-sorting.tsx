@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { UploadOutlined } from '@ant-design/icons';
 import type { DragEndEvent } from '@dnd-kit/core';
 import { DndContext, PointerSensor, useSensor } from '@dnd-kit/core';
@@ -8,9 +9,8 @@ import {
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import React, { useState } from 'react';
 import { Button, Upload } from 'antd';
-import type { UploadFile, UploadProps } from 'antd/es/upload/interface';
+import type { UploadFile, UploadProps } from 'antd';
 
 interface DraggableUploadListItemProps {
   originNode: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
@@ -23,7 +23,7 @@ const DraggableUploadListItem = ({ originNode, file }: DraggableUploadListItemPr
   });
 
   const style: React.CSSProperties = {
-    transform: CSS.Transform.toString(transform),
+    transform: CSS.Translate.toString(transform),
     transition,
     cursor: 'move',
   };
@@ -98,7 +98,7 @@ const App: React.FC = () => {
     <DndContext sensors={[sensor]} onDragEnd={onDragEnd}>
       <SortableContext items={fileList.map((i) => i.uid)} strategy={verticalListSortingStrategy}>
         <Upload
-          action="https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188"
+          action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
           fileList={fileList}
           onChange={onChange}
           itemRender={(originNode, file) => (

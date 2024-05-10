@@ -3,13 +3,12 @@ category: Components
 group: 数据展示
 title: Carousel
 subtitle: 走马灯
+description: 一组轮播的区域。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*bPMSSqbaTMkAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a-58QpYnqOsAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-旋转木马，一组轮播的区域。
 
 ## 何时使用
 
@@ -24,6 +23,7 @@ demo:
 <code src="./demo/position.tsx">位置</code>
 <code src="./demo/autoplay.tsx">自动切换</code>
 <code src="./demo/fade.tsx">渐显</code>
+<code src="./demo/arrows.tsx" version="5.17.0">切换箭头</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
@@ -32,6 +32,7 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| arrows | 是否显示箭头 | boolean | false | 5.17.0 |
 | autoplay | 是否自动切换 | boolean | false |  |
 | autoplaySpeed | 自动切换的间隔（毫秒） | number | 3000 |  |
 | dotPosition | 面板指示点位置，可选 `top` `bottom` `left` `right` | string | `bottom` |  |

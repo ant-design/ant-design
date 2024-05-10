@@ -10,14 +10,7 @@ enum Options {
 const Demo: React.FC = () => {
   const [value, setValue] = useState(Options.Map);
 
-  return (
-    <Segmented
-      options={Object.values(Options)}
-      value={value}
-      // Why not `onChange={setValue}`? Need tsconfig.json `strict:true`
-      onChange={(v) => setValue(v)}
-    />
-  );
+  return <Segmented options={Object.values(Options)} value={value} onChange={setValue} />;
 };
 
 export default Demo;

@@ -1,5 +1,5 @@
-import { UserOutlined } from '@ant-design/icons';
 import React from 'react';
+import { UserOutlined } from '@ant-design/icons';
 import { Avatar, Space } from 'antd';
 
 const App: React.FC = () => (
@@ -9,12 +9,14 @@ const App: React.FC = () => (
       <Avatar size="large" icon={<UserOutlined />} />
       <Avatar icon={<UserOutlined />} />
       <Avatar size="small" icon={<UserOutlined />} />
+      <Avatar size={14} icon={<UserOutlined />} />
     </Space>
     <Space wrap size={16}>
       <Avatar shape="square" size={64} icon={<UserOutlined />} />
       <Avatar shape="square" size="large" icon={<UserOutlined />} />
       <Avatar shape="square" icon={<UserOutlined />} />
       <Avatar shape="square" size="small" icon={<UserOutlined />} />
+      <Avatar shape="square" size={14} icon={<UserOutlined />} />
     </Space>
   </Space>
 );

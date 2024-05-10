@@ -1,12 +1,13 @@
-import { CloseOutlined } from '@ant-design/icons';
 import React from 'react';
+import { CloseOutlined } from '@ant-design/icons';
+
 import type { SelectProps } from '..';
 import Select from '..';
+import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
-import { resetWarned } from '../../_util/warning';
 
 const { Option } = Select;
 
@@ -170,6 +171,29 @@ describe('Select', () => {
       );
       expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
 
+      errSpy.mockRestore();
+    });
+
+    it('deprecate bordered', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<Select bordered={false} />);
+      expect(errSpy).toHaveBeenCalledWith(
+        expect.stringContaining('Warning: [antd: Select] `bordered` is deprecated'),
+      );
+      expect(container.querySelector('.ant-select-borderless')).toBeTruthy();
+
+      errSpy.mockRestore();
+    });
+
+    it('Select maxCount warning', () => {
+      resetWarned();
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      render(<Select maxCount={10} />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `maxCount` only works with mode `multiple` or `tags`',
+      );
       errSpy.mockRestore();
     });
   });

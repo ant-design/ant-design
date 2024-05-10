@@ -9,16 +9,19 @@ import type {
 } from 'rc-mentions/lib/Mentions';
 import { composeRef } from 'rc-util/lib/ref';
 
+import getAllowClear from '../_util/getAllowClear';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { FormItemInputContext } from '../form/context';
+import type { Variant } from '../form/hooks/useVariants';
+import useVariant from '../form/hooks/useVariants';
 import Spin from '../spin';
 import useStyle from './style';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export const { Option } = RcMentions;
 
@@ -42,6 +45,11 @@ export interface MentionProps extends Omit<RcMentionsProps, 'suffix'> {
   status?: InputStatus;
   options?: MentionsOptionProps[];
   popupClassName?: string;
+  /**
+   * @since 5.13.0
+   * @default "outlined"
+   */
+  variant?: Variant;
 }
 
 export interface MentionsRef extends RcMentionsRef {}
@@ -56,18 +64,7 @@ interface MentionsEntity {
   value: string;
 }
 
-type CompoundedComponent = React.ForwardRefExoticComponent<
-  MentionProps & React.RefAttributes<MentionsRef>
-> & {
-  Option: typeof Option;
-  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
-  getMentions: (value: string, config?: MentionsConfig) => MentionsEntity[];
-};
-
-const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps> = (
-  props,
-  ref,
-) => {
+const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -79,8 +76,10 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
     notFoundContent,
     options,
     status: customStatus,
+    allowClear = false,
     popupClassName,
     style,
+    variant: customVariant,
     ...restProps
   } = props;
   const [focused, setFocused] = React.useState(false);
@@ -154,21 +153,22 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
 
   const prefixCls = getPrefixCls('mentions', customizePrefixCls);
 
+  const mergedAllowClear = getAllowClear(allowClear);
+
   // Style
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+
+  const [variant, enableVariantCls] = useVariant(customVariant);
+
+  // eslint-disable-next-line react/jsx-no-useless-fragment
+  const suffixNode = hasFeedback && <>{feedbackIcon}</>;
 
   const mergedClassName = classNames(
-    {
-      [`${prefixCls}-disabled`]: disabled,
-      [`${prefixCls}-focused`]: focused,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    },
-    getStatusClassNames(prefixCls, mergedStatus),
     contextMentions?.className,
-    !hasFeedback && className,
+    className,
     rootClassName,
-    hashId,
+    cssVarCls,
     rootCls,
   );
 
@@ -178,31 +178,54 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
       notFoundContent={notFoundContentEle}
       className={mergedClassName}
       disabled={disabled}
+      allowClear={mergedAllowClear}
       direction={direction}
       style={{ ...contextMentions?.style, ...style }}
       {...restProps}
       filterOption={mentionsfilterOption}
       onFocus={onFocus}
       onBlur={onBlur}
-      dropdownClassName={classNames(popupClassName, rootClassName, hashId, rootCls)}
+      dropdownClassName={classNames(popupClassName, rootClassName, hashId, cssVarCls, rootCls)}
       ref={mergedRef}
       options={mergedOptions}
-      suffix={hasFeedback && feedbackIcon}
-      classes={{ affixWrapper: classNames(rootCls, hashId, className) }}
+      suffix={suffixNode}
+      classNames={{
+        mentions: classNames(
+          {
+            [`${prefixCls}-disabled`]: disabled,
+            [`${prefixCls}-focused`]: focused,
+            [`${prefixCls}-rtl`]: direction === 'rtl',
+          },
+          hashId,
+        ),
+        variant: classNames(
+          {
+            [`${prefixCls}-${variant}`]: enableVariantCls,
+          },
+          getStatusClassNames(prefixCls, mergedStatus),
+        ),
+        affixWrapper: hashId,
+      }}
     >
       {mentionOptions}
     </RcMentions>
   );
 
   return wrapCSSVar(mentions);
+});
+
+type CompoundedComponent = typeof InternalMentions & {
+  Option: typeof Option;
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+  getMentions: (value: string, config?: MentionsConfig) => MentionsEntity[];
 };
 
-const Mentions = React.forwardRef<MentionsRef, MentionProps>(
-  InternalMentions,
-) as CompoundedComponent;
+const Mentions = InternalMentions as CompoundedComponent;
+
 if (process.env.NODE_ENV !== 'production') {
   Mentions.displayName = 'Mentions';
 }
+
 Mentions.Option = Option;
 
 // We don't care debug panel

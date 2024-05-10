@@ -1,10 +1,9 @@
 import { blue } from '@ant-design/colors';
-import { TinyColor } from '@ctrl/tinycolor';
+import { unit } from '@ant-design/cssinjs';
 
 import type { UploadToken } from '.';
 import { clearFix, textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
-import { unit } from '@ant-design/cssinjs';
 
 const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
   const { componentCls, iconCls, uploadThumbnailSize, uploadProgressOffset, calc } = token;
@@ -108,14 +107,11 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
       ${componentCls}-wrapper${componentCls}-picture-circle-wrapper
     `]: {
       ...clearFix(),
-      display: 'inline-block',
-      width: '100%',
+      display: 'block',
 
       [`${componentCls}${componentCls}-select`]: {
         width: uploadPictureCardSize,
         height: uploadPictureCardSize,
-        marginInlineEnd: token.marginXS,
-        marginBottom: token.marginXS,
         textAlign: 'center',
         verticalAlign: 'top',
         backgroundColor: token.colorFillAlter,
@@ -139,16 +135,30 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
 
       // list
       [`${listCls}${listCls}-picture-card, ${listCls}${listCls}-picture-circle`]: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        '@supports not (gap: 1px)': {
+          '& > *': {
+            marginBlockEnd: token.marginXS,
+            marginInlineEnd: token.marginXS,
+          },
+        },
+        '@supports (gap: 1px)': {
+          gap: token.marginXS,
+        },
+
         [`${listCls}-item-container`]: {
           display: 'inline-block',
           width: uploadPictureCardSize,
           height: uploadPictureCardSize,
-          marginBlock: `0 ${unit(token.marginXS)}`,
-          marginInline: `0 ${unit(token.marginXS)}`,
           verticalAlign: 'top',
         },
 
         '&::after': {
+          display: 'none',
+        },
+
+        '&::before': {
           display: 'none',
         },
 
@@ -184,25 +194,25 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
           opacity: 0,
           transition: `all ${token.motionDurationSlow}`,
 
-          [`${iconCls}-eye, ${iconCls}-download, ${iconCls}-delete`]: {
+          [`
+            ${iconCls}-eye,
+            ${iconCls}-download,
+            ${iconCls}-delete
+          `]: {
             zIndex: 10,
             width: fontSizeLG,
             margin: `0 ${unit(token.marginXXS)}`,
             fontSize: fontSizeLG,
             cursor: 'pointer',
             transition: `all ${token.motionDurationSlow}`,
+            color: colorTextLightSolid,
+
+            '&:hover': {
+              color: colorTextLightSolid,
+            },
 
             svg: {
               verticalAlign: 'baseline',
-            },
-          },
-        },
-
-        [`${itemCls}-actions, ${itemCls}-actions:hover`]: {
-          [`${iconCls}-eye, ${iconCls}-download, ${iconCls}-delete`]: {
-            color: new TinyColor(colorTextLightSolid).setAlpha(0.65).toRgbString(),
-            '&:hover': {
-              color: colorTextLightSolid,
             },
           },
         },

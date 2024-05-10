@@ -35,6 +35,8 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
   const {
     dots = true,
     arrows = false,
+    prevArrow = <button type="button" aria-label="prev" />,
+    nextArrow = <button type="button" aria-label="next" />,
     draggable = false,
     waitForAnimate = false,
     dotPosition = 'bottom',
@@ -94,7 +96,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     typeof dots === 'boolean' ? false : dots?.className,
   );
 
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const className = classNames(
     prefixCls,
@@ -103,6 +105,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
       [`${prefixCls}-vertical`]: newProps.vertical,
     },
     hashId,
+    cssVarCls,
     rootClassName,
   );
 
@@ -114,6 +117,8 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
         dots={enableDots}
         dotsClass={dsClass}
         arrows={arrows}
+        prevArrow={prevArrow}
+        nextArrow={nextArrow}
         draggable={draggable}
         verticalSwiping={vertical}
         waitForAnimate={waitForAnimate}

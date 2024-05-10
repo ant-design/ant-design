@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { UploadOutlined } from '@ant-design/icons';
-import type { UploadProps } from 'antd';
+import type { UploadFile, UploadProps } from 'antd';
 import { Button, Upload } from 'antd';
-import type { UploadFile } from 'antd/es/upload/interface';
 
 const App: React.FC = () => {
   const [fileList, setFileList] = useState<UploadFile[]>([
@@ -34,7 +33,7 @@ const App: React.FC = () => {
   };
 
   const props = {
-    action: 'https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188',
+    action: 'https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload',
     onChange: handleChange,
     multiple: true,
   };

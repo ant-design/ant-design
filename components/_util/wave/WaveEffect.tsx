@@ -1,10 +1,13 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
-import { render, unmount } from 'rc-util/lib/React/render';
 import raf from 'rc-util/lib/raf';
-import * as React from 'react';
+import { render, unmount } from 'rc-util/lib/React/render';
+import { composeRef } from 'rc-util/es/ref';
+
+import { TARGET_CLS } from './interface';
+import type { ShowWaveEffect } from './interface';
 import { getTargetWaveColor } from './util';
-import { type ShowWaveEffect, TARGET_CLS } from './interface';
 
 function validateNum(value: number) {
   return Number.isNaN(value) ? 0 : value;
@@ -18,7 +21,7 @@ export interface WaveEffectProps {
 
 const WaveEffect: React.FC<WaveEffectProps> = (props) => {
   const { className, target, component } = props;
-  const divRef = React.useRef<HTMLDivElement>(null);
+  const divRef = React.useRef<HTMLDivElement | null>(null);
 
   const [color, setWaveColor] = React.useState<string | null>(null);
   const [borderRadius, setBorderRadius] = React.useState<number[]>([]);
@@ -123,9 +126,9 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
         return false;
       }}
     >
-      {({ className: motionClassName }) => (
+      {({ className: motionClassName }, ref) => (
         <div
-          ref={divRef}
+          ref={composeRef(divRef, ref)}
           className={classNames(
             className,
             {

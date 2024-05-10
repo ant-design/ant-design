@@ -1,4 +1,5 @@
 import { unit } from '@ant-design/cssinjs';
+
 import type { UploadToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
@@ -19,7 +20,7 @@ const genDraggerStyle: GenerateStyle<UploadToken> = (token) => {
         transition: `border-color ${token.motionDurationSlow}`,
 
         [componentCls]: {
-          padding: `${unit(token.padding)} 0`,
+          padding: token.padding,
         },
 
         [`${componentCls}-btn`]: {
@@ -27,6 +28,11 @@ const genDraggerStyle: GenerateStyle<UploadToken> = (token) => {
           width: '100%',
           height: '100%',
           outline: 'none',
+          borderRadius: token.borderRadiusLG,
+
+          '&:focus-visible': {
+            outline: `${unit(token.lineWidthFocus)} solid ${token.colorPrimaryBorder}`,
+          },
         },
 
         [`${componentCls}-drag-container`]: {

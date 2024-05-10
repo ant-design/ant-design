@@ -1,4 +1,5 @@
-import { type CSSObject, unit } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
@@ -94,7 +95,7 @@ const genGridColStyle: GenerateStyle<GridColToken> = (token): CSSObject => {
 };
 
 const genLoopGridColumnsStyle = (token: GridColToken, sizeCls: string): CSSObject => {
-  const { componentCls, gridColumns } = token;
+  const { prefixCls, componentCls, gridColumns } = token;
 
   const gridColumnsStyle: CSSObject = {};
   for (let i = gridColumns; i >= 0; i--) {
@@ -151,6 +152,11 @@ const genLoopGridColumnsStyle = (token: GridColToken, sizeCls: string): CSSObjec
     }
   }
 
+  // Flex CSS Var
+  gridColumnsStyle[`${componentCls}${sizeCls}-flex`] = {
+    flex: `var(--${prefixCls}${sizeCls}-flex)`,
+  };
+
   return gridColumnsStyle;
 };
 
@@ -193,7 +199,7 @@ export const useColStyle = genStyleHooks(
       genGridStyle(gridToken, ''),
       genGridStyle(gridToken, '-xs'),
       Object.keys(gridMediaSizesMap)
-        .map((key: GridMediaSize) => genGridMediaStyle(gridToken, gridMediaSizesMap[key], key))
+        .map((key) => genGridMediaStyle(gridToken, gridMediaSizesMap[key as GridMediaSize], key))
         .reduce((pre, cur) => ({ ...pre, ...cur }), {}),
     ];
   },

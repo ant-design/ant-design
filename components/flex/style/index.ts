@@ -115,4 +115,9 @@ export default genStyleHooks(
     ];
   },
   prepareComponentToken,
+  {
+    // Flex component don't apply extra font style
+    // https://github.com/ant-design/ant-design/issues/46403
+    resetStyle: false,
+  },
 );

@@ -3,14 +3,15 @@
  *
  * This helps accessibility reader to tread as a interactive button to operation.
  */
-import KeyCode from 'rc-util/lib/KeyCode';
 import * as React from 'react';
+import KeyCode from 'rc-util/lib/KeyCode';
 
 interface TransButtonProps extends React.HTMLAttributes<HTMLDivElement> {
-  onClick?: (e?: React.MouseEvent<HTMLDivElement>) => void;
+  onClick?: (e?: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   noStyle?: boolean;
   autoFocus?: boolean;
   disabled?: boolean;
+  tabIndex?: number;
 }
 
 const inlineStyle: React.CSSProperties = {
@@ -37,7 +38,7 @@ const TransButton = React.forwardRef<HTMLDivElement, TransButtonProps>((props, r
     }
   };
 
-  const { style, noStyle, disabled, ...restProps } = props;
+  const { style, noStyle, disabled, tabIndex = 0, ...restProps } = props;
 
   let mergedStyle: React.CSSProperties = {};
 
@@ -59,7 +60,7 @@ const TransButton = React.forwardRef<HTMLDivElement, TransButtonProps>((props, r
   return (
     <div
       role="button"
-      tabIndex={0}
+      tabIndex={tabIndex}
       ref={ref}
       {...restProps}
       onKeyDown={onKeyDown}

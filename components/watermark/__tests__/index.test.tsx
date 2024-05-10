@@ -15,6 +15,7 @@ describe('Watermark', () => {
 
   beforeAll(() => {
     mockSrcSet.mockImplementation(function fn() {
+      // @ts-ignore
       this.onload?.();
     });
   });
@@ -77,6 +78,7 @@ describe('Watermark', () => {
 
   it('Invalid image watermark', () => {
     mockSrcSet.mockImplementation(function fn() {
+      // @ts-ignore
       this.onerror?.();
     });
     const { container } = render(
@@ -114,9 +116,7 @@ describe('Watermark', () => {
 
         const watermark = getWatermarkElement();
 
-        expect(watermark).toHaveStyle({
-          zIndex: '9',
-        });
+        expect(watermark).toHaveStyle({ zIndex: '9' });
 
         // Not crash when children removed
         rerender(<Watermark className="test" />);
@@ -144,7 +144,7 @@ describe('Watermark', () => {
       await waitFakeTimer();
 
       expect(document.body.querySelector('.ant-drawer-content')!.lastChild).toHaveClass(
-        'ant-drawer-wrapper-body',
+        'ant-drawer-body',
       );
     });
   });

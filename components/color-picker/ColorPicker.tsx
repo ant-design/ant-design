@@ -1,9 +1,4 @@
-import type { CSSProperties, FC } from 'react';
-import React, { useContext, useMemo, useRef, useState } from 'react';
-import type {
-  HsbaColorType,
-  ColorPickerProps as RcColorPickerProps,
-} from '@rc-component/color-picker';
+import React, { useContext, useMemo, useRef } from 'react';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
@@ -12,61 +7,20 @@ import { getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import DisabledContext from '../config-provider/DisabledContext';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
-import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext, NoFormStyle } from '../form/context';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';
-import { useToken } from '../theme/internal';
 import type { Color } from './color';
+import type { ColorPickerPanelProps } from './ColorPickerPanel';
 import ColorPickerPanel from './ColorPickerPanel';
 import ColorTrigger from './components/ColorTrigger';
 import useColorState from './hooks/useColorState';
-import type {
-  ColorFormat,
-  ColorPickerBaseProps,
-  ColorValueType,
-  PresetsItem,
-  TriggerPlacement,
-  TriggerType,
-} from './interface';
+import type { ColorPickerBaseProps, ColorPickerProps, TriggerPlacement } from './interface';
 import useStyle from './style';
-import { customizePrefixCls, genAlphaColor, generateColor, getAlphaColor } from './util';
-
-export type ColorPickerProps = Omit<
-  RcColorPickerProps,
-  'onChange' | 'value' | 'defaultValue' | 'panelRender' | 'disabledAlpha' | 'onChangeComplete'
-> & {
-  value?: ColorValueType;
-  defaultValue?: ColorValueType;
-  children?: React.ReactNode;
-  open?: boolean;
-  disabled?: boolean;
-  placement?: TriggerPlacement;
-  trigger?: TriggerType;
-  format?: keyof typeof ColorFormat;
-  defaultFormat?: keyof typeof ColorFormat;
-  allowClear?: boolean;
-  presets?: PresetsItem[];
-  arrow?: boolean | { pointAtCenter: boolean };
-  panelRender?: (
-    panel: React.ReactNode,
-    extra: { components: { Picker: FC; Presets: FC } },
-  ) => React.ReactNode;
-  showText?: boolean | ((color: Color) => React.ReactNode);
-  size?: SizeType;
-  styles?: { popup?: CSSProperties; popupOverlayInner?: CSSProperties };
-  rootClassName?: string;
-  disabledAlpha?: boolean;
-  [key: `data-${string}`]: string;
-  onOpenChange?: (open: boolean) => void;
-  onFormatChange?: (format: ColorFormat) => void;
-  onChange?: (value: Color, hex: string) => void;
-  onClear?: () => void;
-  onChangeComplete?: (value: Color) => void;
-} & Pick<PopoverProps, 'getPopupContainer' | 'autoAdjustOverflow' | 'destroyTooltipOnHide'>;
+import { genAlphaColor, generateColor, getAlphaColor } from './util';
 
 type CompoundedComponent = React.FC<ColorPickerProps> & {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
@@ -92,6 +46,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     className,
     size: customizeSize,
     rootClassName,
+    prefixCls: customizePrefixCls,
     styles,
     disabledAlpha = false,
     onFormatChange,
@@ -108,9 +63,8 @@ const ColorPicker: CompoundedComponent = (props) => {
   const { getPrefixCls, direction, colorPicker } = useContext<ConfigConsumerProps>(ConfigContext);
   const contextDisabled = useContext(DisabledContext);
   const mergedDisabled = disabled ?? contextDisabled;
-  const [, token] = useToken();
 
-  const [colorValue, setColorValue] = useColorState(token.colorPrimary, {
+  const [colorValue, setColorValue, prevValue] = useColorState('', {
     value,
     defaultValue,
   });
@@ -125,8 +79,6 @@ const ColorPicker: CompoundedComponent = (props) => {
     onChange: onFormatChange,
   });
 
-  const [colorCleared, setColorCleared] = useState(false);
-
   const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
 
   const isAlphaColor = useMemo(() => getAlphaColor(colorValue) < 100, [colorValue]);
@@ -137,21 +89,21 @@ const ColorPicker: CompoundedComponent = (props) => {
   // ===================== Style =====================
   const mergedSize = useSize(customizeSize);
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   const rtlCls = { [`${prefixCls}-rtl`]: direction };
-  const mergeRootCls = classNames(rootClassName, rootCls, rtlCls);
-  const mergeCls = classNames(
+  const mergedRootCls = classNames(rootClassName, cssVarCls, rootCls, rtlCls);
+  const mergedCls = classNames(
     getStatusClassNames(prefixCls, contextStatus),
     {
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-lg`]: mergedSize === 'large',
     },
     colorPicker?.className,
-    mergeRootCls,
+    mergedRootCls,
     className,
     hashId,
   );
-  const mergePopupCls = classNames(prefixCls, mergeRootCls);
+  const mergedPopupCls = classNames(prefixCls, mergedRootCls);
 
   const popupAllowCloseRef = useRef(true);
 
@@ -166,16 +118,18 @@ const ColorPicker: CompoundedComponent = (props) => {
     );
   }
 
-  const handleChange = (data: Color, type?: HsbaColorType, pickColor?: boolean) => {
-    let color: Color = generateColor(data);
+  const handleChange: ColorPickerPanelProps['onChange'] = (data, type, pickColor) => {
+    let color: Color = generateColor(data as Color);
+
+    // If color is cleared, reset alpha to 100
     const isNull = value === null || (!value && defaultValue === null);
-    if (colorCleared || isNull) {
-      setColorCleared(false);
+    if (prevValue.current?.cleared || isNull) {
       // ignore alpha slider
       if (getAlphaColor(colorValue) === 0 && type !== 'alpha') {
         color = genAlphaColor(color);
       }
     }
+
     // ignore alpha color
     if (disabledAlpha && isAlphaColor) {
       color = genAlphaColor(color);
@@ -193,7 +147,6 @@ const ColorPicker: CompoundedComponent = (props) => {
   };
 
   const handleClear = () => {
-    setColorCleared(true);
     onClear?.();
   };
 
@@ -222,7 +175,6 @@ const ColorPicker: CompoundedComponent = (props) => {
     prefixCls,
     color: colorValue,
     allowClear,
-    colorCleared,
     disabled: mergedDisabled,
     disabledAlpha,
     presets,
@@ -255,21 +207,20 @@ const ColorPicker: CompoundedComponent = (props) => {
           />
         </NoFormStyle>
       }
-      overlayClassName={mergePopupCls}
+      overlayClassName={mergedPopupCls}
       {...popoverProps}
     >
       {children || (
         <ColorTrigger
           open={popupOpen}
-          className={mergeCls}
+          className={mergedCls}
           style={mergedStyle}
-          color={value ? generateColor(value) : colorValue}
           prefixCls={prefixCls}
           disabled={mergedDisabled}
-          colorCleared={colorCleared}
           showText={showText}
           format={formatValue}
           {...rest}
+          color={colorValue}
         />
       )}
     </Popover>,
