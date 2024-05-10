@@ -103,9 +103,12 @@ const Modal: React.FC<ModalProps> = (props) => {
     [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
   });
 
-  const dialogFooter = footer !== null && (
-    <Footer {...props} onOk={handleOk} onCancel={handleCancel} />
-  );
+  const dialogFooter = React.useMemo<React.ReactNode>(() => {
+    if (footer === null || loading) {
+      return null;
+    }
+    return <Footer {...props} onOk={handleOk} onCancel={handleCancel} />;
+  }, []);
 
   const [mergedClosable, mergedCloseIcon] = useClosable(
     pickClosable(props),
@@ -155,7 +158,11 @@ const Modal: React.FC<ModalProps> = (props) => {
             styles={{ ...modalContext?.styles, ...modalStyles }}
             panelRef={panelRef}
           >
-            {loading ? <Skeleton className={`${prefixCls}-body-skeleton`} active /> : children}
+            {loading ? (
+              <Skeleton active className={classNames(`${prefixCls}-body-skeleton`)} />
+            ) : (
+              children
+            )}
           </Dialog>
         </zIndexContext.Provider>
       </NoFormStyle>
