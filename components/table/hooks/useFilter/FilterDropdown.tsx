@@ -176,6 +176,8 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const dropdownContentRef: React.RefObject<HTMLDivElement> = React.useRef(null);
   const triggerBtnRef: React.RefObject<HTMLButtonElement> = React.useRef(null);
 
+  const CLOSE_OTHER_DROPDOWNS = 'closeOtherDropdowns';
+
   const filtered: boolean = !!(
     filterState &&
     (filterState.filteredKeys?.length || filterState.forceFiltered)
@@ -303,18 +305,26 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     internalTriggerFilter(getFilteredKeysSync());
   };
 
+  const handleClose = () => {
+    if (!column.filterDropdown && filterOnClose) {
+      onConfirm();
+    } else {
+      triggerVisible(false);
+    }
+  };
+
   React.useEffect(() => {
     if (visible) {
       const handleClickOutside = (event: MouseEvent) => {
         if (!dropdownContentRef.current?.contains(event.target as Node)) {
-          triggerVisible(false);
+          handleClose();
         }
       };
 
       const handleKeyDown = (event: KeyboardEvent) => {
         switch (event.key) {
           case 'Escape':
-            triggerVisible(false);
+            handleClose();
             break;
           default:
             break;
@@ -323,10 +333,12 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
       document.addEventListener('click', handleClickOutside);
       window.addEventListener('keydown', handleKeyDown);
+      document.addEventListener(CLOSE_OTHER_DROPDOWNS, handleClose);
 
       return () => {
         document.removeEventListener('click', handleClickOutside);
         window.removeEventListener('keydown', handleKeyDown);
+        document.removeEventListener(CLOSE_OTHER_DROPDOWNS, handleClose);
       };
     }
   }, [visible]);
@@ -539,17 +551,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   }
 
   const menu = () => (
-    <FocusLock
-      ref={dropdownContentRef}
-      onDeactivation={() => {
-        if (!column.filterDropdown && filterOnClose) {
-          onConfirm();
-        } else {
-          triggerVisible(false);
-        }
-        triggerBtnRef.current?.focus();
-      }}
-    >
+    <FocusLock ref={dropdownContentRef} returnFocus>
       <FilterDropdownMenuWrapper className={`${prefixCls}-dropdown`}>
         {dropdownContent}
       </FilterDropdownMenuWrapper>
@@ -588,8 +590,12 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
             active: filtered,
           })}
           onClick={(e) => {
-            triggerVisible(!visible);
             e.stopPropagation();
+            if (!visible) {
+              document.dispatchEvent(new CustomEvent(CLOSE_OTHER_DROPDOWNS));
+            } else {
+              handleClose();
+            }
           }}
           onKeyDown={(e) => {
             const { key } = e;

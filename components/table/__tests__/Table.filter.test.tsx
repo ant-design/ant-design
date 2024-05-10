@@ -2942,4 +2942,82 @@ describe('Table.filter', () => {
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     expect(handleChange).not.toHaveBeenCalled();
   });
+
+  describe('filter should be keyboard accessible', () => {
+    it('should move focus on first focusable element on open', () => {
+      const handleChange = jest.fn();
+      const { container } = render(
+        createTable({
+          onChange: handleChange,
+          columns: [
+            {
+              ...column,
+            },
+          ],
+        }),
+      );
+      act(() => {
+        fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
+      });
+      expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
+      expect(container.querySelector('.ant-dropdown-menu')).toHaveFocus();
+    });
+
+    it('should move focus back to trigger on Escape', () => {
+      const handleChange = jest.fn();
+      const { container } = render(
+        createTable({
+          onChange: handleChange,
+          columns: [
+            {
+              ...column,
+              filterSearch: true,
+            },
+          ],
+        }),
+      );
+      act(() => {
+        fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
+      });
+      expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
+      expect(container.querySelector('.ant-input')).toHaveFocus();
+
+      act(() => {
+        fireEvent.keyDown(document, { key: 'Escape', code: 'Escape' });
+      });
+
+      expect(container.querySelector('.ant-dropdown-open')).toBeFalsy();
+      setTimeout(() => {
+        expect(container.querySelector('.ant-dropdown-trigger')).toHaveFocus();
+      });
+    });
+
+    it('should not close filter dropdown on Tab', async () => {
+      const handleChange = jest.fn();
+      const { container } = render(
+        createTable({
+          onChange: handleChange,
+          columns: [
+            {
+              ...column,
+              filterSearch: true,
+            },
+          ],
+        }),
+      );
+      act(() => {
+        fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
+      });
+      expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
+      expect(container.querySelector('.ant-input')).toHaveFocus();
+      act(() => {
+        fireEvent.keyDown(document, { key: 'Tab', code: 'Tab' });
+      });
+
+      setTimeout(() => {
+        expect(container.querySelector('.ant-dropdown-menu')).toHaveFocus();
+        expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
+      });
+    });
+  });
 });
