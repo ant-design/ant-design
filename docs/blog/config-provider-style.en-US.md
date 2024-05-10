@@ -80,7 +80,7 @@ const useButtonStyle = () => {
   }))();
 };
 
-function GeekProvider(props: { children?: React.ReactNode }) {
+function GeekProvider(props: React.PropsWithChildren) {
   const { styles } = useButtonStyle();
 
   return <ConfigProvider button={{ className: styles.btn }}>{props.children}</ConfigProvider>;
@@ -92,7 +92,7 @@ function GeekProvider(props: { children?: React.ReactNode }) {
 It's also easy to extend for scenarios that need to inherit `className`:
 
 ```tsx
-function GeekProvider(props: { children?: React.ReactNode }) {
+function GeekProvider(props: React.PropsWithChildren) {
   const { button } = React.useContext(ConfigProvider.ConfigContext);
   const { styles } = useButtonStyle();
 

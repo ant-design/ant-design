@@ -2816,8 +2816,7 @@ Array [
         <div
           aria-busy="true"
           aria-live="polite"
-          class="ant-spin ant-spin-spinning"
-          style="height: 100%; display: flex; justify-content: center; align-items: center;"
+          class="ant-spin ant-spin-spinning ant-drawer-content-spin"
         >
           <span
             class="ant-spin-dot ant-spin-dot-spin"

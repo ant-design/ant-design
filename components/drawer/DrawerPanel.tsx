@@ -159,14 +159,8 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
   if (spinProps?.spinning) {
     return (
       <Spin
-        spinning={false}
-        style={{
-          height: '100%',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
         {...spinProps}
+        className={classNames(spinProps.className, `${prefixCls}-content-spin`)}
       />
     );
   }

@@ -7,10 +7,13 @@ type LinkProps = Parameters<typeof Link>[0];
 
 export interface LocaleLinkProps extends LinkProps {
   sourceType: 'a' | 'Link';
-  children?: React.ReactNode;
 }
 
-const LocaleLink: React.FC<LocaleLinkProps> = ({ sourceType, to, ...props }) => {
+const LocaleLink: React.FC<React.PropsWithChildren<LocaleLinkProps>> = ({
+  sourceType,
+  to,
+  ...props
+}) => {
   const Component = sourceType === 'a' ? 'a' : Link;
 
   const [, localeType] = useLocale();

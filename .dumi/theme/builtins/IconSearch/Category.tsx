@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useIntl } from 'dumi';
-import { message } from 'antd';
+import { App } from 'antd';
 import CopyableIcon from './CopyableIcon';
 import type { ThemeType } from './index';
 import type { CategoriesKeys } from './fields';
@@ -13,6 +13,7 @@ interface CategoryProps {
 }
 
 const Category: React.FC<CategoryProps> = (props) => {
+  const { message } = App.useApp();
   const { icons, title, newIcons, theme } = props;
   const intl = useIntl();
   const [justCopied, setJustCopied] = React.useState<string | null>(null);
