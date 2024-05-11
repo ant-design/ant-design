@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import type { BaseOptionType } from '..';
+import type { BaseOptionType, CascaderType } from '..';
 import Cascader from '..';
 import { render } from '../../../tests/utils';
 
@@ -87,5 +87,18 @@ describe('Cascader.typescript', () => {
   it('multiple onChange', () => {
     const { container } = render(<Cascader multiple onChange={(values) => values} />);
     expect(container).toBeTruthy();
+  });
+  it('props', () => {
+    const demo: CascaderType = {
+      multiple: true,
+      // eslint-disable-next-line no-unused-vars
+      onChange: (value) => {},
+    };
+    expect(demo).toBeTruthy();
+    const demo2: CascaderType = {
+      // eslint-disable-next-line no-unused-vars
+      onChange: (value) => {},
+    };
+    expect(demo2).toBeTruthy();
   });
 });

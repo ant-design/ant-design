@@ -135,6 +135,19 @@ export interface CascaderProps<
    */
   variant?: Variant;
 }
+export type CascaderType<
+  OptionType extends DefaultOptionType = DefaultOptionType,
+  ValueField extends keyof OptionType = keyof OptionType,
+> =
+  | CascaderProps<OptionType, ValueField>
+  | (CascaderProps<OptionType, ValueField, true> & { multiple: true });
+
+export const demo: CascaderType = {
+  multiple: true,
+  onChange: (value) => {
+    console.log('v', value);
+  },
+};
 
 export interface CascaderRef {
   focus: () => void;
@@ -348,9 +361,8 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 }) as unknown as (<
   OptionType extends DefaultOptionType = DefaultOptionType,
   ValueField extends keyof OptionType = keyof OptionType,
-  Multiple extends boolean = false,
 >(
-  props: React.PropsWithChildren<CascaderProps<OptionType, ValueField, Multiple>> &
+  props: React.PropsWithChildren<CascaderType<OptionType, ValueField>> &
     React.RefAttributes<CascaderRef>,
 ) => React.ReactElement) & {
   displayName: string;
