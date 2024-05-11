@@ -132,10 +132,16 @@ export default () => {
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| component | 设置渲染元素，为 `false` 则不创建 DOM 节点 | ComponentType | div | 5.11.0 |
+| component | 设置渲染元素，为 `false` 则不创建 DOM 节点 | ComponentType \| false | div | 5.11.0 |
 | message | App 内 Message 的全局配置 | [MessageConfig](/components/message-cn/#messageconfig) | - | 5.3.0 |
 | notification | App 内 Notification 的全局配置 | [NotificationConfig](/components/notification-cn/#notificationconfig) | - | 5.3.0 |
 
 ## 主题变量（Design Token）
 
 <ComponentTokenTable component="App"></ComponentTokenTable>
+
+## FAQ
+
+### CSS Var 在 `<App component={false}>` 内不起作用
+
+请确保 App 的 `component` 是一个有效的 React 组件字符串，以便在启用 CSS 变量时，有一个容器来承载 CSS 类名。

@@ -1,7 +1,7 @@
 ---
 group:
   title: Basic Usage
-order: 2
+order: 4
 title: Usage with Umi
 ---
 

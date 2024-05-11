@@ -1,32 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import type { DrawerProps } from 'antd';
 import { Button, Drawer } from 'antd';
 
 const App: React.FC = () => {
-  const [open, setOpen] = useState(false);
-  const [loading, setLoading] = useState<DrawerProps['loading']>(true);
-  let id: NodeJS.Timer;
+  const [open, setOpen] = React.useState(false);
+  const [loading, setLoading] = React.useState<DrawerProps['loading']>(true);
+  const timerRef = React.useRef<ReturnType<typeof setTimeout>>();
+
+  const clearTimer = () => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+    }
+  };
 
   const showDrawer = () => {
     setOpen(true);
-  };
-
-  const onClose = () => {
-    setOpen(false);
-    clearTimeout(Number(id));
-  };
-
-  useEffect(() => {
     setLoading(true);
-  }, []);
+    timerRef.current = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  };
 
-  useEffect(() => {
-    if (open) {
-      id = setTimeout(() => {
-        setLoading(false);
-      }, 1000);
-    }
-  }, [open]);
+  React.useEffect(() => clearTimer, []);
 
   return (
     <>
@@ -34,15 +29,17 @@ const App: React.FC = () => {
         Open
       </Button>
       <Drawer
+        destroyOnClose
         title="Basic Drawer"
         placement="right"
         closable={false}
-        onClose={onClose}
         open={open}
         loading={loading}
-        afterOpenChange={(visible) => !visible && setLoading(true)}
+        onClose={() => setOpen(false)}
       >
-        <Button onClick={() => setLoading(true)}>set Loading true</Button>
+        <Button type="primary" style={{ marginBottom: 16 }} onClick={() => setLoading(true)}>
+          set Loading true
+        </Button>
         <p>Some contents...</p>
         <p>Some contents...</p>
         <p>Some contents...</p>

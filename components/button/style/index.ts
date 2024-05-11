@@ -17,7 +17,10 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
     [componentCls]: {
       outline: 'none',
       position: 'relative',
-      display: 'inline-block',
+      display: 'inline-flex',
+      gap: token.marginXS,
+      alignItems: 'center',
+      justifyContent: 'center',
       fontWeight,
       whiteSpace: 'nowrap',
       textAlign: 'center',
@@ -39,25 +42,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       },
 
       [`${componentCls}-icon`]: {
-        lineHeight: 0,
-        // iconPosition in end
-        [`&-end`]: {
-          marginInlineStart: token.marginXS,
-        },
-      },
-
-      // Leave a space between icon and text.
-      [`> ${iconCls} + span, > span + ${iconCls}`]: {
-        marginInlineStart: token.marginXS,
-      },
-
-      [`&:not(${componentCls}-icon-only) > ${componentCls}-icon`]: {
-        [`&${componentCls}-loading-icon, &:not(:last-child)`]: {
-          marginInlineEnd: token.marginXS,
-        },
-        [`&${componentCls}-loading-icon-end`]: {
-          marginInlineStart: token.marginXS,
-        },
+        lineHeight: 1,
       },
 
       '> a': {
@@ -77,9 +62,9 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         letterSpacing: '0.34em',
       },
 
-      // make `btn-icon-only` not too narrow
-      [`&-icon-only${componentCls}-compact-item`]: {
-        flex: 'none',
+      // iconPosition="end"
+      '&-icon-end': {
+        flexDirection: 'row-reverse',
       },
     },
   };
@@ -425,15 +410,18 @@ const genButtonStyle = (token: ButtonToken, prefixCls: string = ''): CSSInterpol
         borderRadius,
 
         [`&${iconOnlyCls}`]: {
-          display: 'inline-flex',
-          alignItems: 'center',
-          justifyContent: 'center',
           width: controlHeight,
-          paddingInlineStart: 0,
-          paddingInlineEnd: 0,
+          paddingInline: 0,
+
+          // make `btn-icon-only` not too narrow
+          [`&${componentCls}-compact-item`]: {
+            flex: 'none',
+          },
+
           [`&${componentCls}-round`]: {
             width: 'auto',
           },
+
           [iconCls]: {
             fontSize: token.buttonIconOnlyFontSize,
           },

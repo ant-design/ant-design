@@ -200,9 +200,7 @@ describe('Tooltip', () => {
         </Button>
       </Tooltip>,
     );
-    expect(getComputedStyle(containerInline.querySelector('button')!)?.display).toBe(
-      'inline-block',
-    );
+    expect(getComputedStyle(containerInline.querySelector('button')!)?.display).toBe('inline-flex');
     expect(getComputedStyle(containerBlock.querySelector('button')!)?.display).toBe('block');
   });
 
