@@ -142,13 +142,6 @@ export type CascaderType<
   | CascaderProps<OptionType, ValueField>
   | (CascaderProps<OptionType, ValueField, true> & { multiple: true });
 
-export const demo: CascaderType = {
-  multiple: true,
-  onChange: (value) => {
-    console.log('v', value);
-  },
-};
-
 export interface CascaderRef {
   focus: () => void;
   blur: () => void;

@@ -89,9 +89,9 @@ describe('Cascader.typescript', () => {
     expect(container).toBeTruthy();
   });
   it('props', () => {
-    const list: { props: CascaderType }[] = [
+    const list: { props?: CascaderType }[] = [
       { props: { multiple: true, onChange: (value) => value } },
-      { props: { onChange: (value) => value } },
+      { props: { multiple: false, onChange: (value) => value } },
     ];
     expect(list).toBeTruthy();
   });
