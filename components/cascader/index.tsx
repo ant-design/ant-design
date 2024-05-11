@@ -135,7 +135,7 @@ export interface CascaderProps<
    */
   variant?: Variant;
 }
-export type CascaderType<
+export type CascaderAutoProps<
   OptionType extends DefaultOptionType = DefaultOptionType,
   ValueField extends keyof OptionType = keyof OptionType,
 > =
@@ -355,7 +355,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   OptionType extends DefaultOptionType = DefaultOptionType,
   ValueField extends keyof OptionType = keyof OptionType,
 >(
-  props: React.PropsWithChildren<CascaderType<OptionType, ValueField>> &
+  props: React.PropsWithChildren<CascaderAutoProps<OptionType, ValueField>> &
     React.RefAttributes<CascaderRef>,
 ) => React.ReactElement) & {
   displayName: string;

@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import type { BaseOptionType, CascaderType } from '..';
+import type { BaseOptionType, CascaderAutoProps } from '..';
 import Cascader from '..';
 import { render } from '../../../tests/utils';
-import type { CascaderPanelType } from '../Panel';
+import type { CascaderPanelAutoProps } from '../Panel';
 
 describe('Cascader.typescript', () => {
   it('options value', () => {
@@ -90,13 +90,13 @@ describe('Cascader.typescript', () => {
     expect(container).toBeTruthy();
   });
   it('props', () => {
-    const list: { props?: CascaderType }[] = [
+    const list: { props?: CascaderAutoProps }[] = [
       { props: { multiple: true, onChange: (value) => value } },
       { props: { multiple: false, onChange: (value) => value } },
     ];
     expect(list).toBeTruthy();
 
-    const list2: { props?: CascaderPanelType }[] = [
+    const list2: { props?: CascaderPanelAutoProps }[] = [
       { props: { multiple: true, onChange: (value) => value } },
       { props: { multiple: false, onChange: (value) => value } },
     ];
