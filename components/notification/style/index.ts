@@ -45,7 +45,6 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
     fontSizeLG,
     notificationMarginBottom,
     borderRadiusLG,
-    colorPrimary,
     colorSuccess,
     colorInfo,
     colorWarning,
@@ -175,18 +174,18 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       blockSize: notificationProgressHeight,
       border: 0,
 
-      '&, &::progress-bar': {
+      '&, &::-webkit-progress-bar': {
         borderRadius: borderRadiusLG,
         backgroundColor: `rgba(0, 0, 0, 0.04)`,
       },
 
       [`&::-moz-progress-bar`]: {
-        backgroundColor: colorPrimary,
+        background: `linear-gradient(90deg, #31afff, #1677ff)`,
       },
 
       [`&::-webkit-progress-value`]: {
         borderRadius: borderRadiusLG,
-        backgroundColor: colorPrimary,
+        background: `linear-gradient(90deg, #31afff, #1677ff)`,
       },
     },
 
