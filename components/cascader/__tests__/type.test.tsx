@@ -3,6 +3,7 @@ import * as React from 'react';
 import type { BaseOptionType, CascaderType } from '..';
 import Cascader from '..';
 import { render } from '../../../tests/utils';
+import type { CascaderPanelType } from '../Panel';
 
 describe('Cascader.typescript', () => {
   it('options value', () => {
@@ -94,5 +95,11 @@ describe('Cascader.typescript', () => {
       { props: { multiple: false, onChange: (value) => value } },
     ];
     expect(list).toBeTruthy();
+
+    const list2: { props?: CascaderPanelType }[] = [
+      { props: { multiple: true, onChange: (value) => value } },
+      { props: { multiple: false, onChange: (value) => value } },
+    ];
+    expect(list2).toBeTruthy();
   });
 });
