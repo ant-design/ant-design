@@ -34,7 +34,7 @@ export interface NotificationToken extends FullToken<'Notification'> {
   notificationMarginBottom: number;
   notificationMarginEdge: number;
   notificationStackLayer: number;
-  notificationProgressBarSize: number;
+  notificationProgressHeight: number;
 }
 
 export const genNoticeStyle = (token: NotificationToken): CSSObject => {
@@ -54,13 +54,12 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
     notificationBg,
     notificationPadding,
     notificationMarginEdge,
-    notificationProgressBarSize,
+    notificationProgressHeight,
     fontSize,
     lineHeight,
     width,
     notificationIconSize,
     colorText,
-    calc,
   } = token;
 
   const noticeCls = `${componentCls}-notice`;
@@ -172,11 +171,11 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
         _skip_check_: true,
         value: borderRadiusLG,
       },
-      bottom: calc(notificationProgressBarSize).mul(-1).equal(),
-      blockSize: notificationProgressBarSize,
+      bottom: 0,
+      blockSize: notificationProgressHeight,
       border: 0,
 
-      '&, &::-webkit-progress-bar': {
+      '&, &::progress-bar': {
         borderRadius: borderRadiusLG,
         backgroundColor: `rgba(0, 0, 0, 0.04)`,
       },
@@ -316,7 +315,7 @@ export const prepareNotificationToken: (
     notificationMarginEdge: token.marginLG,
     animationMaxHeight: 150,
     notificationStackLayer: 3,
-    notificationProgressBarSize: 2,
+    notificationProgressHeight: 2,
   });
 
   return notificationToken;
