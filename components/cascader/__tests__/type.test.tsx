@@ -89,16 +89,10 @@ describe('Cascader.typescript', () => {
     expect(container).toBeTruthy();
   });
   it('props', () => {
-    const demo: CascaderType = {
-      multiple: true,
-      // eslint-disable-next-line no-unused-vars
-      onChange: (value) => {},
-    };
-    expect(demo).toBeTruthy();
-    const demo2: CascaderType = {
-      // eslint-disable-next-line no-unused-vars
-      onChange: (value) => {},
-    };
-    expect(demo2).toBeTruthy();
+    const list: { props: CascaderType }[] = [
+      { props: { multiple: true, onChange: (value) => value } },
+      { props: { onChange: (value) => value } },
+    ];
+    expect(list).toBeTruthy();
   });
 });
