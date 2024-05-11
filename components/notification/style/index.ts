@@ -34,6 +34,7 @@ export interface NotificationToken extends FullToken<'Notification'> {
   notificationMarginBottom: number;
   notificationMarginEdge: number;
   notificationStackLayer: number;
+  notificationProgressBarSize: number;
 }
 
 export const genNoticeStyle = (token: NotificationToken): CSSObject => {
@@ -53,11 +54,13 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
     notificationBg,
     notificationPadding,
     notificationMarginEdge,
+    notificationProgressBarSize,
     fontSize,
     lineHeight,
     width,
     notificationIconSize,
     colorText,
+    calc,
   } = token;
 
   const noticeCls = `${componentCls}-notice`;
@@ -157,8 +160,10 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
 
     [`${noticeCls}-progress`]: {
       position: 'absolute',
-      width: `calc(100% - ${unit(borderRadiusLG)} * 2)`,
-      height: '2px',
+      display: 'block',
+      appearance: 'none',
+      WebkitAppearance: 'none',
+      inlineSize: `calc(100% - ${unit(borderRadiusLG)} * 2)`,
       left: {
         _skip_check_: true,
         value: borderRadiusLG,
@@ -167,16 +172,22 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
         _skip_check_: true,
         value: borderRadiusLG,
       },
-      bottom: '-2px',
+      bottom: calc(notificationProgressBarSize).mul(-1).equal(),
+      blockSize: notificationProgressBarSize,
+      border: 0,
 
-      '.rc-progress-line': {
-        '&-trail': {
-          stroke: `rgba(0, 0, 0, 0.04)`,
-        },
+      '&, &::-webkit-progress-bar': {
+        borderRadius: borderRadiusLG,
+        backgroundColor: `rgba(0, 0, 0, 0.04)`,
+      },
 
-        '&-path': {
-          stroke: colorPrimary,
-        },
+      [`&::-moz-progress-bar`]: {
+        backgroundColor: colorPrimary,
+      },
+
+      [`&::-webkit-progress-value`]: {
+        borderRadius: borderRadiusLG,
+        backgroundColor: colorPrimary,
       },
     },
 
@@ -305,6 +316,7 @@ export const prepareNotificationToken: (
     notificationMarginEdge: token.marginLG,
     animationMaxHeight: 150,
     notificationStackLayer: 3,
+    notificationProgressBarSize: 2,
   });
 
   return notificationToken;
