@@ -158,10 +158,13 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
 
   if (spinProps?.spinning) {
     return (
-      <Spin
-        {...spinProps}
-        className={classNames(spinProps.className, `${prefixCls}-content-spin`)}
-      />
+      <>
+        {headerNode}
+        <Spin
+          {...spinProps}
+          className={classNames(spinProps.className, `${prefixCls}-content-spin`)}
+        />
+      </>
     );
   }
 
