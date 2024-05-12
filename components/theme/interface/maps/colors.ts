@@ -477,6 +477,14 @@ interface ColorErrorMapToken {
   colorErrorBgHover: string; // 2
 
   /**
+   * @nameZH 错误色的浅色背景色激活态
+   * @nameEN Error background color active state
+   * @desc 错误色的浅色背景色激活态
+   * @descEN The active state background color of the error state.
+   */
+  colorErrorBgActive: string; // 3
+
+  /**
    * @nameZH 错误色的描边色
    * @nameEN Error border color
    * @desc 错误色的描边色
