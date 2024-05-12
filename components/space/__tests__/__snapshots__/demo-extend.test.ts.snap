@@ -10005,11 +10005,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
 </div>
 `;
 
-exports[`renders components/space/demo/compact-buttons.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Dropdown] \`overlay\` is deprecated. Please use \`menu\` instead.",
-]
-`;
+exports[`renders components/space/demo/compact-buttons.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/space/demo/compact-debug.tsx extend context correctly 1`] = `
 <div
