@@ -2853,26 +2853,27 @@ Array [
           </div>
         </div>
         <div
-          aria-busy="true"
-          aria-live="polite"
-          class="ant-spin ant-spin-spinning ant-drawer-content-spin"
+          class="ant-drawer-body"
         >
-          <span
-            class="ant-spin-dot ant-spin-dot-spin"
+          <div
+            class="ant-skeleton ant-skeleton-active ant-drawer-body-skeleton"
           >
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
-          </span>
+            <div
+              class="ant-skeleton-content"
+            >
+              <ul
+                class="ant-skeleton-paragraph"
+              >
+                <li />
+                <li />
+                <li />
+                <li />
+                <li
+                  style="width: 61%;"
+                />
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>

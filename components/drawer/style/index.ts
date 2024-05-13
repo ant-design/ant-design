@@ -147,13 +147,6 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         overflow: 'auto',
         background: colorBgElevated,
         pointerEvents: 'auto',
-        [`${componentCls}-content-spin`]: {
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        },
       },
 
       // Header
@@ -230,6 +223,13 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         minHeight: 0,
         padding: paddingLG,
         overflow: 'auto',
+        [`${componentCls}-body-skeleton`]: {
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        },
       },
 
       // Footer

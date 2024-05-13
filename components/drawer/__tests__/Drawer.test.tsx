@@ -190,20 +190,14 @@ describe('Drawer', () => {
       expect(wrapper.firstChild).toMatchSnapshot();
     });
     it('have a custom loading', () => {
-      const loadingContent = 'Custom Loading...';
-      const { container: wrapper } = render(
-        <Drawer
-          open
-          loading={{ indicator: <span>{loadingContent}</span>, spinning: true }}
-          getContainer={false}
-        >
+      const { container } = render(
+        <Drawer open loading getContainer={false}>
           Here is content of Drawer
         </Drawer>,
       );
-
       triggerMotion();
-      const [loadingWrapper] = wrapper.getElementsByClassName('ant-spin-dot');
-      expect(loadingWrapper).toHaveTextContent(loadingContent);
+      const wrapper = container.querySelector<HTMLDivElement>('.ant-skeleton');
+      expect(wrapper).toBeTruthy();
     });
   });
 
