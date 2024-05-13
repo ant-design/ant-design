@@ -25,7 +25,7 @@ tag: vVERSION
   - 🐞 修复 Button 抛出 `findDOMNode` 警告的问题。[#48830](https://github.com/ant-design/ant-design/pull/48830) [@wanpan11](https://github.com/wanpan11)
 - 🐞 修复 Badge 抛出 `findDOMNode` 警告的问题。[#48878](https://github.com/ant-design/ant-design/pull/48878) [@wanpan11](https://github.com/wanpan11)
 - 🐞 Alert 修复 findDOMNode 报错。[#48868](https://github.com/ant-design/ant-design/pull/48868) [@wanpan11](https://github.com/wanpan11)
-- 🐞 FloatButton 修复 fFloatButton.backTop findDOMNode 报错。[#48865](https://github.com/ant-design/ant-design/pull/48865) [@wanpan11](https://github.com/wanpan11)
+- 🐞 修复 FloatButton.BackTop 抛出 `findDOMNode` 警告的问题。[#48865](https://github.com/ant-design/ant-design/pull/48865) [@wanpan11](https://github.com/wanpan11)
 - 💄 Drawer 给的内部组件 Spin 添加 className，防止内部 Spin 样式覆盖用户传入的 Spin 样式。[#48857](https://github.com/ant-design/ant-design/pull/48857) [@li-jia-nan](https://github.com/li-jia-nan)
 - 💄 Card 修复组件 small 模式下使用 tabs 组件 heard minHeight 样式权重不够问题。[#48787](https://github.com/ant-design/ant-design/pull/48787) [@wanpan11](https://github.com/wanpan11)
 - 🐞 AutoComplete 修复 `tagRender` 对 maxTag 无效的问题和 点击边缘会触发弹层意外关闭的问题。[#48798](https://github.com/ant-design/ant-design/pull/48798)
