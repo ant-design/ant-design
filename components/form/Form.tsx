@@ -3,11 +3,7 @@ import { useMemo } from 'react';
 import classNames from 'classnames';
 import FieldForm, { List, useWatch } from 'rc-field-form';
 import type { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
-import type {
-  FormComRef,
-  InternalNamePath,
-  ValidateErrorEntity,
-} from 'rc-field-form/lib/interface';
+import type { FormRef, InternalNamePath, ValidateErrorEntity } from 'rc-field-form/lib/interface';
 import type { Options } from 'scroll-into-view-if-needed';
 
 import { ConfigContext } from '../config-provider';
@@ -55,11 +51,11 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   variant?: Variant;
 }
 
-const InternalForm: React.ForwardRefRenderFunction<FormComRef, FormProps> = (props, ref) => {
+const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props, ref) => {
   const contextDisabled = React.useContext(DisabledContext);
   const { getPrefixCls, direction, form: contextForm } = React.useContext(ConfigContext);
 
-  const nativeFormRef = React.useRef<FormComRef>(null);
+  const nativeFormRef = React.useRef<FormRef>(null);
 
   const {
     prefixCls: customizePrefixCls,
@@ -221,8 +217,8 @@ const InternalForm: React.ForwardRefRenderFunction<FormComRef, FormProps> = (pro
   );
 };
 
-const Form = React.forwardRef<FormComRef, FormProps>(InternalForm) as (<Values = any>(
-  props: React.PropsWithChildren<FormProps<Values>> & React.RefAttributes<FormComRef<Values>>,
+const Form = React.forwardRef<FormRef, FormProps>(InternalForm) as (<Values = any>(
+  props: React.PropsWithChildren<FormProps<Values>> & React.RefAttributes<FormRef<Values>>,
 ) => React.ReactElement) &
   Pick<React.FC, 'displayName'>;
 
@@ -230,6 +226,6 @@ if (process.env.NODE_ENV !== 'production') {
   Form.displayName = 'Form';
 }
 
-export { List, useForm, useWatch, type FormInstance, type FormComRef };
+export { List, useForm, useWatch, type FormInstance };
 
 export default Form;

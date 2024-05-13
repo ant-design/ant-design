@@ -5,7 +5,7 @@ import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
 import type { InputRef } from '../../input';
 import Input from '../../input';
-import type { FormComRef } from '../Form';
+import type { FormRef } from 'rc-field-form/es/interface';
 
 interface TestProps {
   show?: boolean;
@@ -89,7 +89,7 @@ describe('Form.Ref', () => {
   });
 
   it('should have nativeForm', () => {
-    const formRef = React.createRef<FormComRef>();
+    const formRef = React.createRef<FormRef>();
     render(<Form ref={formRef} />);
 
     expect(formRef.current?.nativeElement).toBeTruthy();
