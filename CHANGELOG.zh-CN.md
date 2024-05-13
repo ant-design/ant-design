@@ -21,7 +21,7 @@ tag: vVERSION
 
 - 🐞 Tooltip 解决内容在只有一个字符时视觉不居中的问题。[#48890](https://github.com/ant-design/ant-design/pull/48890) [@kiner-tang](https://github.com/kiner-tang)
 - Button
-  - 🐞 Button 组件新增错误激活态浅色背景 token。[#48876](https://github.com/ant-design/ant-design/pull/48876) [@LonelySnowman](https://github.com/LonelySnowman)
+  - 🐞 修复 Button type="text"`` 和 `danger` 同时使用时 hover 和 active 样式没有区分的问题。[#48876](https://github.com/ant-design/ant-design/pull/48876) [@LonelySnowman](https://github.com/LonelySnowman)
   - 🐞 Button 修复组件 findDOMNode 报错。[#48830](https://github.com/ant-design/ant-design/pull/48830) [@wanpan11](https://github.com/wanpan11)
 - 🐞 Badge 修复内部使用 CSSMotion setref 错误问题。[#48878](https://github.com/ant-design/ant-design/pull/48878) [@wanpan11](https://github.com/wanpan11)
 - 🐞 Alert 修复 findDOMNode 报错。[#48868](https://github.com/ant-design/ant-design/pull/48868) [@wanpan11](https://github.com/wanpan11)
