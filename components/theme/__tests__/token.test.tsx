@@ -310,13 +310,13 @@ describe('Theme', () => {
   });
 
   it('component token should support algorithm', () => {
-    const Demo = ({ algorithm }: { algorithm?: boolean | typeof theme.darkAlgorithm }) => (
+    const Demo: React.FC<{ algorithm?: boolean | typeof theme.darkAlgorithm }> = (props) => (
       <ConfigProvider
         theme={{
           components: {
             Slider: {
               colorPrimary: '#00B96B',
-              algorithm,
+              algorithm: props?.algorithm,
             },
           },
         }}
@@ -326,18 +326,18 @@ describe('Theme', () => {
     );
 
     const { container, rerender } = render(<Demo />);
-    expect(container.querySelector('.ant-slider-track')).toHaveStyle({
-      'background-color': '#91caff',
+    expect(container.querySelector<HTMLElement>('.ant-slider-track')).toHaveStyle({
+      'background-color': '#69B1FF',
     });
 
     rerender(<Demo algorithm />);
-    expect(container.querySelector('.ant-slider-track')).toHaveStyle({
-      'background-color': '#6ce0a4',
+    expect(container.querySelector<HTMLElement>('.ant-slider-track')).toHaveStyle({
+      'background-color': '#44D48E',
     });
 
     rerender(<Demo algorithm={theme.darkAlgorithm} />);
-    expect(container.querySelector('.ant-slider-track')).toHaveStyle({
-      'background-color': '#0e462e',
+    expect(container.querySelector<HTMLElement>('.ant-slider-track')).toHaveStyle({
+      'background-color': '#0B5E3B',
     });
   });
 });
