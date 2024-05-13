@@ -2945,10 +2945,8 @@ describe('Table.filter', () => {
 
   describe('filter should be keyboard accessible', () => {
     it('should move focus on first focusable element on open', () => {
-      const handleChange = jest.fn();
       const { container } = render(
         createTable({
-          onChange: handleChange,
           columns: [
             {
               ...column,
@@ -2963,11 +2961,45 @@ describe('Table.filter', () => {
       expect(container.querySelector('.ant-dropdown-menu')).toHaveFocus();
     });
 
-    it('should move focus back to trigger on Escape', () => {
-      const handleChange = jest.fn();
+    it('should open dropdown on Enter', () => {
       const { container } = render(
         createTable({
-          onChange: handleChange,
+          columns: [
+            {
+              ...column,
+            },
+          ],
+        }),
+      );
+      const triggerElement = container.querySelector('.ant-dropdown-trigger')!;
+      act(() => {
+        fireEvent.keyDown(triggerElement, { key: 'Enter', code: 'Enter' });
+      });
+      expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
+      expect(container.querySelector('.ant-dropdown-menu')).toHaveFocus();
+    });
+
+    it('should open dropdown on Space', () => {
+      const { container } = render(
+        createTable({
+          columns: [
+            {
+              ...column,
+            },
+          ],
+        }),
+      );
+      const triggerElement = container.querySelector('.ant-dropdown-trigger')!;
+      act(() => {
+        fireEvent.keyDown(triggerElement, { key: ' ', code: 'Space' });
+      });
+      expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
+      expect(container.querySelector('.ant-dropdown-menu')).toHaveFocus();
+    });
+
+    it('should move focus back to trigger on Escape', () => {
+      const { container } = render(
+        createTable({
           columns: [
             {
               ...column,
@@ -2992,11 +3024,9 @@ describe('Table.filter', () => {
       });
     });
 
-    it('should not close filter dropdown on Tab', async () => {
-      const handleChange = jest.fn();
+    it('should not close filter dropdown on Tab', () => {
       const { container } = render(
         createTable({
-          onChange: handleChange,
           columns: [
             {
               ...column,
@@ -3010,10 +3040,10 @@ describe('Table.filter', () => {
       });
       expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
       expect(container.querySelector('.ant-input')).toHaveFocus();
+
       act(() => {
         fireEvent.keyDown(document, { key: 'Tab', code: 'Tab' });
       });
-
       setTimeout(() => {
         expect(container.querySelector('.ant-dropdown-menu')).toHaveFocus();
         expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
