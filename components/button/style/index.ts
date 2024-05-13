@@ -418,11 +418,12 @@ const genButtonStyle = (token: ButtonToken, prefixCls: string = ''): CSSInterpol
   return [
     {
       [`${prefixCls}`]: {
-        fontSize,
         lineHeight,
         height: controlHeight,
         padding: `${unit(buttonPaddingVertical!)} ${unit(buttonPaddingHorizontal!)}`,
         borderRadius,
+
+        ' *': { fontSize },
 
         [`&${iconOnlyCls}`]: {
           display: 'inline-flex',
