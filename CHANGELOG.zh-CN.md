@@ -15,6 +15,25 @@ tag: vVERSION
 
 ---
 
+## 5.17.1
+
+`2024-05-13`
+
+- 🐞 Tooltip 解决内容在只有一个字符时视觉不居中的问题。[#48890](https://github.com/ant-design/ant-design/pull/48890) [@kiner-tang](https://github.com/kiner-tang)
+- Button
+  - 🐞 Button 组件新增错误激活态浅色背景 token。[#48876](https://github.com/ant-design/ant-design/pull/48876) [@LonelySnowman](https://github.com/LonelySnowman)
+  - 🐞 Button 修复组件 findDOMNode 报错。[#48830](https://github.com/ant-design/ant-design/pull/48830) [@wanpan11](https://github.com/wanpan11)
+- 🐞 Badge 修复内部使用 CSSMotion setref 错误问题。[#48878](https://github.com/ant-design/ant-design/pull/48878) [@wanpan11](https://github.com/wanpan11)
+- 🐞 Alert 修复 findDOMNode 报错。[#48868](https://github.com/ant-design/ant-design/pull/48868) [@wanpan11](https://github.com/wanpan11)
+- 🐞 FloatButton 修复 fFloatButton.backTop findDOMNode 报错。[#48865](https://github.com/ant-design/ant-design/pull/48865) [@wanpan11](https://github.com/wanpan11)
+- 💄 Drawer 给的内部组件 Spin 添加 className，防止内部 Spin 样式覆盖用户传入的 Spin 样式。[#48857](https://github.com/ant-design/ant-design/pull/48857) [@li-jia-nan](https://github.com/li-jia-nan)
+- 💄 Card 修复组件 small 模式下使用 tabs 组件 heard minHeight 样式权重不够问题。[#48787](https://github.com/ant-design/ant-design/pull/48787) [@wanpan11](https://github.com/wanpan11)
+- 🐞 AutoComplete 修复 `tagRender` 对 maxTag 无效的问题和 点击边缘会触发弹层意外关闭的问题。[#48798](https://github.com/ant-design/ant-design/pull/48798)
+- RTL
+  - 💄 Button 修复在 RTL 下的图标顺序和边距缺失问题。[#48821](https://github.com/ant-design/ant-design/pull/48821)
+- TypeScript
+  - 🤖 Cascader 修复多余泛型问题。[#48879](https://github.com/ant-design/ant-design/pull/48879) [@crazyair](https://github.com/crazyair)
+
 ## 5.17.0
 
 `2024-05-03`
