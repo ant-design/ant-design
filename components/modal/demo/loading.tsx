@@ -29,14 +29,16 @@ const App: React.FC = () => {
       </Button>
       <Modal
         title={<p>Loading Modal</p>}
+        footer={
+          <Button type="primary" onClick={() => setIsLoading(true)}>
+            set Loading true
+          </Button>
+        }
         loading={isLoading}
         open={open}
         onOk={() => setOpen(false)}
         onCancel={() => setOpen(false)}
       >
-        <Button type="primary" style={{ margin: '16px 0' }} onClick={() => setIsLoading(true)}>
-          set Loading true
-        </Button>
         <p>Some contents...</p>
         <p>Some contents...</p>
         <p>Some contents...</p>
