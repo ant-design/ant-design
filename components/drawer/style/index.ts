@@ -28,7 +28,6 @@ export interface DrawerToken extends FullToken<'Drawer'> {}
 // =============================== Base ===============================
 const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
   const {
-    antCls,
     borderRadiusSM,
     componentCls,
     zIndexPopup,
@@ -148,7 +147,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         overflow: 'auto',
         background: colorBgElevated,
         pointerEvents: 'auto',
-        [`${antCls}-spin`]: {
+        [`${componentCls}-content-spin`]: {
           width: '100%',
           height: '100%',
           display: 'flex',

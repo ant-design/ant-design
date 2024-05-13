@@ -26,7 +26,7 @@ exports[`Drawer Drawer loading have a spinner 1`] = `
       <div
         aria-busy="true"
         aria-live="polite"
-        class="ant-spin ant-spin-spinning"
+        class="ant-spin ant-spin-spinning ant-drawer-content-spin"
       >
         <span
           class="ant-spin-dot ant-spin-dot-spin"

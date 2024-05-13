@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
+import { composeRef } from 'rc-util/es/ref';
 
 import getScroll from '../_util/getScroll';
 import scrollTo from '../_util/scrollTo';
@@ -87,9 +88,9 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
 
   return (
     <CSSMotion visible={visible} motionName={`${rootPrefixCls}-fade`}>
-      {({ className: motionClassName }) => (
+      {({ className: motionClassName }, setRef) => (
         <FloatButton
-          ref={internalRef}
+          ref={composeRef(internalRef, setRef)}
           {...contentProps}
           onClick={scrollToTop}
           className={classNames(className, motionClassName)}
