@@ -21,9 +21,9 @@ tag: vVERSION
 
 - 🐞 修复 Tooltip 内容只有一个字符时视觉不居中的问题。[#48890](https://github.com/ant-design/ant-design/pull/48890) [@kiner-tang](https://github.com/kiner-tang)
 - Button
-  - 🐞 修复 Button type="text"``和`danger` 同时使用时 hover 和 active 样式没有区分的问题。[#48876](https://github.com/ant-design/ant-design/pull/48876) [@LonelySnowman](https://github.com/LonelySnowman)
+  - 🐞 修复 Button `type="text"` 和`type="danger"` 同时使用时 hover 和 active 样式没有区分的问题。[#48876](https://github.com/ant-design/ant-design/pull/48876) [@LonelySnowman](https://github.com/LonelySnowman)
+- 修复部分组件抛出 findDOMNode 警告的问题
   - 🐞 修复 Button 抛出 `findDOMNode` 警告的问题。[#48830](https://github.com/ant-design/ant-design/pull/48830) [@wanpan11](https://github.com/wanpan11)
-- findDOMNode
   - 🐞 修复 Badge 抛出 `findDOMNode` 警告的问题。[#48878](https://github.com/ant-design/ant-design/pull/48878) [@wanpan11](https://github.com/wanpan11)
   - 🐞 修复 Alert 抛出 `findDOMNode` 警告的问题。[#48868](https://github.com/ant-design/ant-design/pull/48868) [@wanpan11](https://github.com/wanpan11)
   - 🐞 修复 FloatButton.BackTop 抛出 `findDOMNode` 警告的问题。[#48865](https://github.com/ant-design/ant-design/pull/48865) [@wanpan11](https://github.com/wanpan11)

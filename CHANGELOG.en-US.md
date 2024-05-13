@@ -21,19 +21,19 @@ tag: vVERSION
 `2024-05-13`.
 
 - 🐞 Fix visually not centered when Tooltip content is only one character. [#48890](https://github.com/ant-design/ant-design/pull/48890) [@kiner-tang](https://github.com/kiner-tang)
-- Button.
-  - 🐞 Fix hover and active styles not differentiating when Button `type="text"` and `danger` are used together. [#48876](https://github.com/ant-design/ant-design/pull/48876) [@LonelySnowman](https://github.com/LonelySnowman)
+- Button
+  - 🐞 Fix hover and active styles not differentiating when Button `type="text"`and `type="danger"` are used together. [#48876](https://github.com/ant-design/ant-design/pull/48876) [@LonelySnowman](https://github.com/LonelySnowman)
+- Fix issue where some components throw findDOMNode warnings
   - 🐞 Fix Button throwing `findDOMNode` warning. [#48830](https://github.com/ant-design/ant-design/pull/48830) [@wanpan11](https://github.com/wanpan11)
-- findDOMNode
   - 🐞 Fix Badge throwing `findDOMNode` warnings. [#48878](https://github.com/ant-design/ant-design/pull/48878) [@wanpan11](https://github.com/wanpan11)
   - 🐞 Fix Alert throwing `findDOMNode` warnings. [#48868](https://github.com/ant-design/ant-design/pull/48868) [@wanpan11](https://github.com/wanpan11)
   - 🐞 Fix FloatButton.BackTop throwing `findDOMNode` warnings. [#48865](https://github.com/ant-design/ant-design/pull/48865) [@wanpan11](https://github.com/wanpan11)
 - 💄 Add className to internal component Spin given by Drawer to prevent internal Spin styles from overriding user-passed Spin styles. [#48857](https://github.com/ant-design/ant-design/pull/48857) [@li-jia-nan](https://github.com/li-jia-nan)
-- 💄 Fix missing bottom border when Card `size=“small”`. [#48787](https://github.com/ant-design/ant-design/pull/48787) [@wanpan11](https://github.com/wanpan11)
-- 🐞 AutoComplete fix for `tagRender` not working for maxTag and clicking on an edge triggering unexpected closure of the layer. [#48798](https://github.com/ant-design/ant-design/pull/48798)
+- 💄 Fix missing bottom border when Card `size="small"`. [#48787](https://github.com/ant-design/ant-design/pull/48787) [@wanpan11](https://github.com/wanpan11)
+- 🐞 Fix AutoComplete `tagRender` not working for maxTag and clicking on an edge triggering unexpected closure of the layer. [#48798](https://github.com/ant-design/ant-design/pull/48798)
 - RTL
   - 💄 Fix Button's missing icon order and margins under RTL. [#48821](https://github.com/ant-design/ant-design/pull/48821)
-- TypeScript.
+- TypeScript
   - 🤖 Fix Cascader redundant generalization issue. [#48879](https://github.com/ant-design/ant-design/pull/48879) [@crazyair](https://github.com/crazyair)
 
 ## 5.17.0
