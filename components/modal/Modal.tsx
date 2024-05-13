@@ -103,12 +103,10 @@ const Modal: React.FC<ModalProps> = (props) => {
     [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
   });
 
-  const renderFooter = (): React.ReactNode => {
-    if (footer === null || loading) {
-      return null;
-    }
-    return <Footer {...props} onOk={handleOk} onCancel={handleCancel} />;
-  };
+  const dialogFooter =
+    footer !== null && !loading ? (
+      <Footer {...props} onOk={handleOk} onCancel={handleCancel} />
+    ) : null;
 
   const [mergedClosable, mergedCloseIcon] = useClosable(
     pickClosable(props),
@@ -139,7 +137,7 @@ const Modal: React.FC<ModalProps> = (props) => {
             getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
             prefixCls={prefixCls}
             rootClassName={classNames(hashId, rootClassName, cssVarCls, rootCls)}
-            footer={renderFooter()}
+            footer={dialogFooter}
             visible={open ?? visible}
             mousePosition={restProps.mousePosition ?? mousePosition}
             onClose={handleCancel as any}
