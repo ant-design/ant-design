@@ -55,8 +55,6 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
   const contextDisabled = React.useContext(DisabledContext);
   const { getPrefixCls, direction, form: contextForm } = React.useContext(ConfigContext);
 
-  const nativeFormRef = React.useRef<FormRef>(null);
-
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -161,7 +159,8 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     ],
   );
 
-  React.useImperativeHandle(ref, () => Object.assign(wrapForm, nativeFormRef.current));
+  const nativeElementRef = React.useRef<FormRef>(wrapForm);
+  React.useImperativeHandle(ref, () => nativeElementRef.current);
 
   const scrollToField = (options: boolean | Options, fieldName: InternalNamePath) => {
     if (options) {
@@ -205,7 +204,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
                 name={name}
                 onFinishFailed={onInternalFinishFailed}
                 form={wrapForm}
-                ref={nativeFormRef}
+                ref={nativeElementRef}
                 style={{ ...contextForm?.style, ...style }}
                 className={formClassName}
               />
