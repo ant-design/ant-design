@@ -32,7 +32,7 @@ tag: vVERSION
 - RTL
   - 💄 修复 Button 在 RTL 下的图标顺序和边距缺失问题。[#48821](https://github.com/ant-design/ant-design/pull/48821)
 - TypeScript
-  - 🤖 Cascader 修复多余泛型问题。[#48879](https://github.com/ant-design/ant-design/pull/48879) [@crazyair](https://github.com/crazyair)
+  - 🤖 修复 Cascader 多余泛型问题。[#48879](https://github.com/ant-design/ant-design/pull/48879) [@crazyair](https://github.com/crazyair)
 
 ## 5.17.0
 
