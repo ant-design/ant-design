@@ -3049,5 +3049,28 @@ describe('Table.filter', () => {
         expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
       });
     });
+
+    it('should close filter on click outside of the dropdown', () => {
+      const { container } = render(
+        createTable({
+          columns: [
+            {
+              ...column,
+              filterSearch: true,
+            },
+          ],
+        }),
+      );
+
+      act(() => {
+        fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
+      });
+      expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
+
+      act(() => {
+        fireEvent.click(document.body);
+      });
+      expect(container.querySelector('.ant-dropdown-open')).toBeFalsy();
+    });
   });
 });
