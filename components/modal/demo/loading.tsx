@@ -8,7 +8,8 @@ const App: React.FC = () => {
   const showLoading = () => {
     setOpen(true);
     setIsLoading(true);
-    // Better do the clean up in React.useEffect
+
+    // Simple loading mock. You should add cleanup logic in real world.
     setTimeout(() => {
       setIsLoading(false);
     }, 2000);
