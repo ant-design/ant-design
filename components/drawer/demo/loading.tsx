@@ -29,10 +29,10 @@ const App: React.FC = () => {
         Open
       </Button>
       <Drawer
+        closable
         destroyOnClose
-        title="Basic Drawer"
+        title="Loading Drawer"
         placement="right"
-        closable={false}
         open={open}
         loading={loading}
         onClose={() => setOpen(false)}
