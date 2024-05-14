@@ -18,8 +18,9 @@ tag: vVERSION
 
 ## 5.17.1
 
-`2024-05-13`.
+`2024-05-14`
 
+- 🐞 Optimize the internal logic of the Form, fix the problem that antd takes too long time to build in Next.js. [react-component/async-validator#9](https://github.com/react-component/async-validator/pull/9)
 - 🐞 Fix visually not centered when Tooltip content is only one character. [#48890](https://github.com/ant-design/ant-design/pull/48890) [@kiner-tang](https://github.com/kiner-tang)
 - Button
   - 🐞 Fix hover and active styles not differentiating when Button `type="text"`and `type="danger"` are used together. [#48876](https://github.com/ant-design/ant-design/pull/48876) [@LonelySnowman](https://github.com/LonelySnowman)
