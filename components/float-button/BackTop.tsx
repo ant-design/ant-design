@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
-import { composeRef } from 'rc-util/es/ref';
+import { composeRef } from 'rc-util/lib/ref';
 
 import getScroll from '../_util/getScroll';
 import scrollTo from '../_util/scrollTo';

@@ -7,7 +7,7 @@ import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
-import { composeRef } from 'rc-util/es/ref';
+import { composeRef } from 'rc-util/lib/ref';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import type { ClosableType } from '../_util/hooks/useClosable';
