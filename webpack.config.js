@@ -72,6 +72,9 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
         new DuplicatePackageCheckerPlugin({
           verbose: true,
           emitError: true,
+          exclude(instance) {
+            return instance.name === 'react-is';
+          },
         }),
       );
     }
