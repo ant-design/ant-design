@@ -1,4 +1,5 @@
 import React from 'react';
+import { ReloadOutlined } from '@ant-design/icons';
 import { Button, Modal } from 'antd';
 
 const App: React.FC = () => {
@@ -6,37 +7,26 @@ const App: React.FC = () => {
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
   const timerRef = React.useRef<ReturnType<typeof setTimeout>>();
 
-  const clearTimer = () => {
-    if (timerRef.current) {
-      clearTimeout(timerRef.current);
-    }
-  };
-
-  const showModal = () => {
+  const showLoading = () => {
     setOpen(true);
     setIsLoading(true);
+
+    // Better do the clean up in React.useEffect
     timerRef.current = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
   };
 
-  React.useEffect(() => clearTimer, []);
-
   return (
     <>
-      <Button type="primary" onClick={showModal}>
+      <Button type="primary" onClick={showLoading}>
         Open Modal
       </Button>
       <Modal
         title={<p>Loading Modal</p>}
-        footer={
-          <Button type="primary" onClick={() => setIsLoading(true)}>
-            set Loading true
-          </Button>
-        }
+        footer={<ReloadOutlined onClick={() => setIsLoading(true)} />}
         loading={isLoading}
         open={open}
-        onOk={() => setOpen(false)}
         onCancel={() => setOpen(false)}
       >
         <p>Some contents...</p>
