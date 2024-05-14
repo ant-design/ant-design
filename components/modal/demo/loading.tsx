@@ -1,5 +1,4 @@
 import React from 'react';
-import { ReloadOutlined } from '@ant-design/icons';
 import { Button, Modal } from 'antd';
 
 const App: React.FC = () => {
@@ -24,7 +23,11 @@ const App: React.FC = () => {
       </Button>
       <Modal
         title={<p>Loading Modal</p>}
-        footer={<ReloadOutlined onClick={() => setIsLoading(true)} />}
+        footer={
+          <Button type="primary" onClick={() => setIsLoading(true)}>
+            Reload
+          </Button>
+        }
         loading={isLoading}
         open={open}
         onCancel={() => setOpen(false)}
