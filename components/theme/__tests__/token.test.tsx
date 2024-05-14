@@ -5,8 +5,8 @@ import theme from '..';
 import { render, renderHook } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import type { ThemeConfig } from '../../config-provider/context';
+import Input from '../../input';
 import Row from '../../row';
-import Slider from '../../slider';
 import genRadius from '../themes/shared/genRadius';
 
 const { useToken } = theme;
@@ -314,30 +314,24 @@ describe('Theme', () => {
       <ConfigProvider
         theme={{
           components: {
-            Slider: {
+            Input: {
               colorPrimary: '#00B96B',
               algorithm,
             },
           },
         }}
       >
-        <Slider value={5} />
+        <Input />
       </ConfigProvider>
     );
 
     const { container, rerender } = render(<Demo />);
-    expect(container.querySelector('.ant-slider-track')).toHaveStyle({
-      'background-color': '#91caff',
-    });
+    expect(container.querySelector('input')).toHaveStyle({ 'border-color': '#4096ff' });
 
     rerender(<Demo algorithm />);
-    expect(container.querySelector('.ant-slider-track')).toHaveStyle({
-      'background-color': '#6ce0a4',
-    });
+    expect(container.querySelector('input')).toHaveStyle({ 'border-color': '#20c77c' });
 
     rerender(<Demo algorithm={theme.darkAlgorithm} />);
-    expect(container.querySelector('.ant-slider-track')).toHaveStyle({
-      'background-color': '#0e462e',
-    });
+    expect(container.querySelector('input')).toHaveStyle({ 'border-color': '#1fb572' });
   });
 });
