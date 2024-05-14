@@ -39,9 +39,7 @@ const App: React.FC = () => {
             name="form_in_modal"
             initialValues={{ modifier: 'public' }}
             clearOnDestroy
-            onFinish={(values) => {
-              onCreate(values);
-            }}
+            onFinish={(values) => onCreate(values)}
           >
             {dom}
           </Form>
