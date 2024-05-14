@@ -423,7 +423,7 @@ const genButtonStyle = (token: ButtonToken, prefixCls: string = ''): CSSInterpol
         padding: `${unit(buttonPaddingVertical!)} ${unit(buttonPaddingHorizontal!)}`,
         borderRadius,
 
-        '*': { fontSize },
+        [`&[type='button']`]: { fontSize },
 
         [`&${iconOnlyCls}`]: {
           display: 'inline-flex',
