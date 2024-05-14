@@ -359,7 +359,7 @@ const genTextButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
       },
       {
         color: token.colorErrorHover,
-        background: token.colorErrorBg,
+        background: token.colorErrorBgActive,
       },
     ),
   },
