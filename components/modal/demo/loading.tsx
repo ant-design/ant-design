@@ -4,14 +4,12 @@ import { Button, Modal } from 'antd';
 const App: React.FC = () => {
   const [open, setOpen] = React.useState<boolean>(false);
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
-  const timerRef = React.useRef<ReturnType<typeof setTimeout>>();
 
   const showLoading = () => {
     setOpen(true);
     setIsLoading(true);
-
     // Better do the clean up in React.useEffect
-    timerRef.current = setTimeout(() => {
+    setTimeout(() => {
       setIsLoading(false);
     }, 2000);
   };
