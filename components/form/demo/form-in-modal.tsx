@@ -29,7 +29,7 @@ const App: React.FC = () => {
         title="Create a new collection"
         okText="Create"
         cancelText="Cancel"
-        okButtonProps={{ autoFocus: true }}
+        okButtonProps={{ autoFocus: true, htmlType: 'submit' }}
         onCancel={() => setOpen(false)}
         destroyOnClose
         modalRender={(dom) => (
@@ -39,18 +39,13 @@ const App: React.FC = () => {
             name="form_in_modal"
             initialValues={{ modifier: 'public' }}
             clearOnDestroy
+            onFinish={(values) => {
+              onCreate(values);
+            }}
           >
             {dom}
           </Form>
         )}
-        onOk={async () => {
-          try {
-            const values = await form?.validateFields();
-            onCreate(values);
-          } catch (error) {
-            console.log('Failed:', error);
-          }
-        }}
       >
         <Form.Item
           name="title"
