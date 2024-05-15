@@ -160,7 +160,10 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
   );
 
   const nativeElementRef = React.useRef<FormRef>(null);
-  React.useImperativeHandle(ref, () => ({ ...nativeElementRef.current, ...wrapForm }));
+  React.useImperativeHandle(ref, () => ({
+    ...wrapForm,
+    nativeElement: nativeElementRef.current?.nativeElement,
+  }));
 
   const scrollToField = (options: boolean | Options, fieldName: InternalNamePath) => {
     if (options) {
