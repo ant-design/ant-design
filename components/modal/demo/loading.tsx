@@ -3,15 +3,15 @@ import { Button, Modal } from 'antd';
 
 const App: React.FC = () => {
   const [open, setOpen] = React.useState<boolean>(false);
-  const [isLoading, setIsLoading] = React.useState<boolean>(true);
+  const [loading, setLoading] = React.useState<boolean>(true);
 
   const showLoading = () => {
     setOpen(true);
-    setIsLoading(true);
+    setLoading(true);
 
     // Simple loading mock. You should add cleanup logic in real world.
     setTimeout(() => {
-      setIsLoading(false);
+      setLoading(false);
     }, 2000);
   };
 
@@ -23,11 +23,11 @@ const App: React.FC = () => {
       <Modal
         title={<p>Loading Modal</p>}
         footer={
-          <Button type="primary" onClick={() => setIsLoading(true)}>
+          <Button type="primary" onClick={showLoading}>
             Reload
           </Button>
         }
-        loading={isLoading}
+        loading={loading}
         open={open}
         onCancel={() => setOpen(false)}
       >
