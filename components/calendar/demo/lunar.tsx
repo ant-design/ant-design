@@ -84,9 +84,9 @@ const useStyle = createStyles(({ token, css, cx }) => {
     `,
     weekend: css`
       color: ${token.colorError};
-    `,
-    gray: css`
-      filter: grayscale(1);
+      &.gray {
+        opacity: .4
+      }
     `,
   };
 });
@@ -125,7 +125,7 @@ const App: React.FC = () => {
             <span
               className={classNames({
                 [styles.weekend]: isWeekend,
-                [styles.gray]: !info.today.isSame(date, 'M'),
+                gray: !info.today.isSame(date, 'M'),
               })}
             >
               {date.get('date')}
