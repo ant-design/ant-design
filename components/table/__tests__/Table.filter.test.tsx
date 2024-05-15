@@ -2944,7 +2944,7 @@ describe('Table.filter', () => {
   });
 
   describe('filter should be keyboard accessible', () => {
-    it('should move focus on first focusable element on open', () => {
+    it('should move focus on first focusable element on open', async () => {
       const { container } = render(
         createTable({
           columns: [
@@ -2958,10 +2958,10 @@ describe('Table.filter', () => {
         fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
       });
       expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
-      expect(container.querySelector('.ant-dropdown-menu')).toHaveFocus();
+      await waitFor(() => expect(container.querySelector('.ant-dropdown-menu')).toHaveFocus());
     });
 
-    it('should open dropdown on Enter', () => {
+    it('should open dropdown on Enter', async () => {
       const { container } = render(
         createTable({
           columns: [
@@ -2976,10 +2976,10 @@ describe('Table.filter', () => {
         fireEvent.keyDown(triggerElement, { key: 'Enter', code: 'Enter' });
       });
       expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
-      expect(container.querySelector('.ant-dropdown-menu')).toHaveFocus();
+      await waitFor(() => expect(container.querySelector('.ant-dropdown-menu')).toHaveFocus());
     });
 
-    it('should open dropdown on Space', () => {
+    it('should open dropdown on Space', async () => {
       const { container } = render(
         createTable({
           columns: [
@@ -2994,10 +2994,10 @@ describe('Table.filter', () => {
         fireEvent.keyDown(triggerElement, { key: ' ', code: 'Space' });
       });
       expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
-      expect(container.querySelector('.ant-dropdown-menu')).toHaveFocus();
+      await waitFor(() => expect(container.querySelector('.ant-dropdown-menu')).toHaveFocus());
     });
 
-    it('should move focus back to trigger on Escape', () => {
+    it('should move focus back to trigger on Escape', async () => {
       const { container } = render(
         createTable({
           columns: [
@@ -3012,19 +3012,17 @@ describe('Table.filter', () => {
         fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
       });
       expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
-      expect(container.querySelector('.ant-input')).toHaveFocus();
-
+      await waitFor(() => expect(container.querySelector('.ant-input')).toHaveFocus());
       act(() => {
         fireEvent.keyDown(document, { key: 'Escape', code: 'Escape' });
       });
-
       expect(container.querySelector('.ant-dropdown-open')).toBeFalsy();
       setTimeout(() => {
         expect(container.querySelector('.ant-dropdown-trigger')).toHaveFocus();
       });
     });
 
-    it('should not close filter dropdown on Tab', () => {
+    it('should not close filter dropdown on Tab', async () => {
       const { container } = render(
         createTable({
           columns: [
@@ -3039,14 +3037,13 @@ describe('Table.filter', () => {
         fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
       });
       expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
-      expect(container.querySelector('.ant-input')).toHaveFocus();
-
+      await waitFor(() => expect(container.querySelector('.ant-input')).toHaveFocus());
       act(() => {
         fireEvent.keyDown(document, { key: 'Tab', code: 'Tab' });
       });
+      expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
       setTimeout(() => {
         expect(container.querySelector('.ant-dropdown-menu')).toHaveFocus();
-        expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
       });
     });
 
@@ -3061,12 +3058,10 @@ describe('Table.filter', () => {
           ],
         }),
       );
-
       act(() => {
         fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
       });
       expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
-
       act(() => {
         fireEvent.click(document.body);
       });

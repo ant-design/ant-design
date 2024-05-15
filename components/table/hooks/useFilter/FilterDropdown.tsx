@@ -313,6 +313,22 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     }
   };
 
+  const focusFirstFocusableElement = () => {
+    const focusableElements =
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+    const container = dropdownContentRef.current;
+
+    if (container) {
+      const firstFocusableElement = container.querySelector<HTMLElement>(focusableElements);
+
+      if (firstFocusableElement) {
+        setTimeout(() => {
+          firstFocusableElement.focus();
+        });
+      }
+    }
+  };
+
   React.useEffect(() => {
     if (visible) {
       const handleClickOutside = (event: MouseEvent) => {
@@ -551,8 +567,16 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   }
 
   const menu = () => (
-    <FocusLock ref={dropdownContentRef} returnFocus>
-      <FilterDropdownMenuWrapper className={`${prefixCls}-dropdown`}>
+    <FocusLock
+      onActivation={() => {
+        focusFirstFocusableElement();
+      }}
+      onDeactivation={() => {
+        triggerBtnRef.current?.focus();
+      }}
+      autoFocus={false}
+    >
+      <FilterDropdownMenuWrapper className={`${prefixCls}-dropdown`} ref={dropdownContentRef}>
         {dropdownContent}
       </FilterDropdownMenuWrapper>
     </FocusLock>
