@@ -155,6 +155,8 @@ type TransformAction =
     onRotateRight: () => void;
     onZoomOut: () => void;
     onZoomIn: () => void;
+    onReset: () => void;
+    onClose: () => void;
   };
   transform: TransformType,
   current: number;
