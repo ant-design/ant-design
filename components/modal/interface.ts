@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import type React from 'react';
 import type { DialogProps } from 'rc-dialog';
 
 import type { ClosableType } from '../_util/hooks/useClosable';
@@ -7,7 +7,7 @@ import type { DirectionType } from '../config-provider';
 
 export type ModalFooterRender = (
   originNode: React.ReactNode,
-  extra: { OkBtn: FC; CancelBtn: FC },
+  extra: { OkBtn: React.FC; CancelBtn: React.FC },
 ) => React.ReactNode;
 interface ModalCommonProps {
   styles?: Omit<NonNullable<DialogProps['styles']>, 'wrapper'>;
@@ -73,6 +73,10 @@ export interface ModalProps extends ModalCommonProps {
   // Legacy
   /** @deprecated Please use `open` instead. */
   visible?: boolean;
+  /**
+   * @since 5.18.0
+   */
+  loading?: boolean;
 }
 
 type getContainerFunc = () => HTMLElement;
