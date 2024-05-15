@@ -156,7 +156,7 @@ type TransformAction =
     onRotateRight: () => void;
     onZoomOut: () => void;
     onZoomIn: () => void;
-    onReset: () => void;
+    onReset: () => void;// support after 5.17.3
     onClose: () => void;
   };
   transform: TransformType,
