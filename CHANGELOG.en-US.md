@@ -16,6 +16,12 @@ tag: vVERSION
 
 ---
 
+## 5.17.2
+
+`2024-05-14`
+
+- 🐞 MISC: Fix `lib` bundle mistake deps on the `es` module which break the build progress. [#48914](https://github.com/ant-design/ant-design/pull/48914)
+
 ## 5.17.1
 
 `2024-05-14`
