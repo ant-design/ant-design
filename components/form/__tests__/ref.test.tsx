@@ -1,11 +1,11 @@
 import React from 'react';
+import type { FormRef } from 'rc-field-form/lib/interface';
 
 import Form from '..';
 import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
 import type { InputRef } from '../../input';
 import Input from '../../input';
-import type { FormRef } from 'rc-field-form/es/interface';
 
 interface TestProps {
   show?: boolean;
@@ -90,8 +90,8 @@ describe('Form.Ref', () => {
 
   it('should have nativeForm', () => {
     const formRef = React.createRef<FormRef>();
-    render(<Form ref={formRef} />);
+    const { container } = render(<Form ref={formRef} />);
 
-    expect(formRef.current?.nativeElement).toBeTruthy();
+    expect(container.querySelector('.ant-form')).toBe(formRef.current?.nativeElement);
   });
 });
