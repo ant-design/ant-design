@@ -155,6 +155,16 @@ module.exports = {
 };
 ```
 
+You can import SVG icon as a react component by using `vite` and [`vite-plugin-svgr`](https://www.npmjs.com/package/vite-plugin-svgr). `@svgr/webpack`'s `options` [reference](https://github.com/smooth-code/svgr#options).
+
+```js
+// vite.config.js
+export default defineConfig(async () => ({
+  // ... other config
+  plugins: [svgr({ svgrOptions: { icon: true } })],
+}));
+```
+
 ```jsx
 import React from 'react';
 import Icon from '@ant-design/icons';

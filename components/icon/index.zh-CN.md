@@ -150,6 +150,16 @@ module.exports = {
 };
 ```
 
+如果使用 `vite`，可以通过配置 [vite-plugin-svgr](https://www.npmjs.com/package/vite-plugin-svgr) 来将 `svg` 图标作为 `React` 组件导入。`vite-plugin-svgr` 的 `options` 选项请参阅 [svgr 文档](https://github.com/smooth-code/svgr#options)。
+
+```js
+// vite.config.js
+export default defineConfig(async () => ({
+  // ... other config
+  plugins: [svgr({ svgrOptions: { icon: true } })],
+}));
+```
+
 ```jsx
 import React from 'react';
 import Icon from '@ant-design/icons';
