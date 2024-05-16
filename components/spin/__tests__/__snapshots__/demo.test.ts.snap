@@ -26,29 +26,6 @@ exports[`renders components/spin/demo/basic.tsx correctly 1`] = `
       />
     </span>
   </span>
-  <span
-    class="ant-spin-dot-holder ant-spin-dot-holder-fixed ant-spin-dot-holder-hidden"
-  >
-    <svg
-      viewBox="0 0 100 100"
-    >
-      <circle
-        class="ant-spin-dot-circle-bg ant-spin-dot-circle"
-        cx="50"
-        cy="50"
-        r="40"
-        stroke-width="20"
-      />
-      <circle
-        class="ant-spin-dot-circle"
-        cx="50"
-        cy="50"
-        r="40"
-        stroke-width="20"
-        style="stroke-dasharray:0 251.32741228718342;stroke-dashoffset:62.83185307179586"
-      />
-    </svg>
-  </span>
 </div>
 `;
 
@@ -177,29 +154,6 @@ Array [
           />
         </span>
       </span>
-      <span
-        class="ant-spin-dot-holder ant-spin-dot-holder-fixed ant-spin-dot-holder-hidden"
-      >
-        <svg
-          viewBox="0 0 100 100"
-        >
-          <circle
-            class="ant-spin-dot-circle-bg ant-spin-dot-circle"
-            cx="50"
-            cy="50"
-            r="40"
-            stroke-width="20"
-          />
-          <circle
-            class="ant-spin-dot-circle"
-            cx="50"
-            cy="50"
-            r="40"
-            stroke-width="20"
-            style="stroke-dasharray:0 251.32741228718342;stroke-dashoffset:62.83185307179586"
-          />
-        </svg>
-      </span>
     </div>
   </div>,
 ]
@@ -295,29 +249,6 @@ exports[`renders components/spin/demo/percent.tsx correctly 1`] = `
           />
         </span>
       </span>
-      <span
-        class="ant-spin-dot-holder ant-spin-dot-holder-fixed ant-spin-dot-holder-hidden"
-      >
-        <svg
-          viewBox="0 0 100 100"
-        >
-          <circle
-            class="ant-spin-dot-circle-bg ant-spin-dot-circle"
-            cx="50"
-            cy="50"
-            r="40"
-            stroke-width="20"
-          />
-          <circle
-            class="ant-spin-dot-circle"
-            cx="50"
-            cy="50"
-            r="40"
-            stroke-width="20"
-            style="stroke-dasharray:0 251.32741228718342;stroke-dashoffset:62.83185307179586"
-          />
-        </svg>
-      </span>
     </div>
   </div>
   <div
@@ -348,29 +279,6 @@ exports[`renders components/spin/demo/percent.tsx correctly 1`] = `
           />
         </span>
       </span>
-      <span
-        class="ant-spin-dot-holder ant-spin-dot-holder-fixed ant-spin-dot-holder-hidden"
-      >
-        <svg
-          viewBox="0 0 100 100"
-        >
-          <circle
-            class="ant-spin-dot-circle-bg ant-spin-dot-circle"
-            cx="50"
-            cy="50"
-            r="40"
-            stroke-width="20"
-          />
-          <circle
-            class="ant-spin-dot-circle"
-            cx="50"
-            cy="50"
-            r="40"
-            stroke-width="20"
-            style="stroke-dasharray:0 251.32741228718342;stroke-dashoffset:62.83185307179586"
-          />
-        </svg>
-      </span>
     </div>
   </div>
   <div
@@ -400,29 +308,6 @@ exports[`renders components/spin/demo/percent.tsx correctly 1`] = `
             class="ant-spin-dot-item"
           />
         </span>
-      </span>
-      <span
-        class="ant-spin-dot-holder ant-spin-dot-holder-fixed ant-spin-dot-holder-hidden"
-      >
-        <svg
-          viewBox="0 0 100 100"
-        >
-          <circle
-            class="ant-spin-dot-circle-bg ant-spin-dot-circle"
-            cx="50"
-            cy="50"
-            r="40"
-            stroke-width="20"
-          />
-          <circle
-            class="ant-spin-dot-circle"
-            cx="50"
-            cy="50"
-            r="40"
-            stroke-width="20"
-            style="stroke-dasharray:0 251.32741228718342;stroke-dashoffset:62.83185307179586"
-          />
-        </svg>
       </span>
     </div>
   </div>
@@ -458,29 +343,6 @@ exports[`renders components/spin/demo/size.tsx correctly 1`] = `
         />
       </span>
     </span>
-    <span
-      class="ant-spin-dot-holder ant-spin-dot-holder-fixed ant-spin-dot-holder-hidden"
-    >
-      <svg
-        viewBox="0 0 100 100"
-      >
-        <circle
-          class="ant-spin-dot-circle-bg ant-spin-dot-circle"
-          cx="50"
-          cy="50"
-          r="40"
-          stroke-width="20"
-        />
-        <circle
-          class="ant-spin-dot-circle"
-          cx="50"
-          cy="50"
-          r="40"
-          stroke-width="20"
-          style="stroke-dasharray:0 251.32741228718342;stroke-dashoffset:62.83185307179586"
-        />
-      </svg>
-    </span>
   </div>
   <div
     aria-busy="true"
@@ -507,29 +369,6 @@ exports[`renders components/spin/demo/size.tsx correctly 1`] = `
         />
       </span>
     </span>
-    <span
-      class="ant-spin-dot-holder ant-spin-dot-holder-fixed ant-spin-dot-holder-hidden"
-    >
-      <svg
-        viewBox="0 0 100 100"
-      >
-        <circle
-          class="ant-spin-dot-circle-bg ant-spin-dot-circle"
-          cx="50"
-          cy="50"
-          r="40"
-          stroke-width="20"
-        />
-        <circle
-          class="ant-spin-dot-circle"
-          cx="50"
-          cy="50"
-          r="40"
-          stroke-width="20"
-          style="stroke-dasharray:0 251.32741228718342;stroke-dashoffset:62.83185307179586"
-        />
-      </svg>
-    </span>
   </div>
   <div
     aria-busy="true"
@@ -555,29 +394,6 @@ exports[`renders components/spin/demo/size.tsx correctly 1`] = `
           class="ant-spin-dot-item"
         />
       </span>
-    </span>
-    <span
-      class="ant-spin-dot-holder ant-spin-dot-holder-fixed ant-spin-dot-holder-hidden"
-    >
-      <svg
-        viewBox="0 0 100 100"
-      >
-        <circle
-          class="ant-spin-dot-circle-bg ant-spin-dot-circle"
-          cx="50"
-          cy="50"
-          r="40"
-          stroke-width="20"
-        />
-        <circle
-          class="ant-spin-dot-circle"
-          cx="50"
-          cy="50"
-          r="40"
-          stroke-width="20"
-          style="stroke-dasharray:0 251.32741228718342;stroke-dashoffset:62.83185307179586"
-        />
-      </svg>
     </span>
   </div>
 </div>
@@ -618,29 +434,6 @@ exports[`renders components/spin/demo/tip.tsx correctly 1`] = `
                 class="ant-spin-dot-item"
               />
             </span>
-          </span>
-          <span
-            class="ant-spin-dot-holder ant-spin-dot-holder-fixed ant-spin-dot-holder-hidden"
-          >
-            <svg
-              viewBox="0 0 100 100"
-            >
-              <circle
-                class="ant-spin-dot-circle-bg ant-spin-dot-circle"
-                cx="50"
-                cy="50"
-                r="40"
-                stroke-width="20"
-              />
-              <circle
-                class="ant-spin-dot-circle"
-                cx="50"
-                cy="50"
-                r="40"
-                stroke-width="20"
-                style="stroke-dasharray:0 251.32741228718342;stroke-dashoffset:62.83185307179586"
-              />
-            </svg>
           </span>
           <div
             class="ant-spin-text"
@@ -686,29 +479,6 @@ exports[`renders components/spin/demo/tip.tsx correctly 1`] = `
               />
             </span>
           </span>
-          <span
-            class="ant-spin-dot-holder ant-spin-dot-holder-fixed ant-spin-dot-holder-hidden"
-          >
-            <svg
-              viewBox="0 0 100 100"
-            >
-              <circle
-                class="ant-spin-dot-circle-bg ant-spin-dot-circle"
-                cx="50"
-                cy="50"
-                r="40"
-                stroke-width="20"
-              />
-              <circle
-                class="ant-spin-dot-circle"
-                cx="50"
-                cy="50"
-                r="40"
-                stroke-width="20"
-                style="stroke-dasharray:0 251.32741228718342;stroke-dashoffset:62.83185307179586"
-              />
-            </svg>
-          </span>
           <div
             class="ant-spin-text"
           >
@@ -752,29 +522,6 @@ exports[`renders components/spin/demo/tip.tsx correctly 1`] = `
                 class="ant-spin-dot-item"
               />
             </span>
-          </span>
-          <span
-            class="ant-spin-dot-holder ant-spin-dot-holder-fixed ant-spin-dot-holder-hidden"
-          >
-            <svg
-              viewBox="0 0 100 100"
-            >
-              <circle
-                class="ant-spin-dot-circle-bg ant-spin-dot-circle"
-                cx="50"
-                cy="50"
-                r="40"
-                stroke-width="20"
-              />
-              <circle
-                class="ant-spin-dot-circle"
-                cx="50"
-                cy="50"
-                r="40"
-                stroke-width="20"
-                style="stroke-dasharray:0 251.32741228718342;stroke-dashoffset:62.83185307179586"
-              />
-            </svg>
           </span>
           <div
             class="ant-spin-text"
@@ -820,29 +567,6 @@ exports[`renders components/spin/demo/tip.tsx correctly 1`] = `
               class="ant-spin-dot-item"
             />
           </span>
-        </span>
-        <span
-          class="ant-spin-dot-holder ant-spin-dot-holder-fixed ant-spin-dot-holder-hidden"
-        >
-          <svg
-            viewBox="0 0 100 100"
-          >
-            <circle
-              class="ant-spin-dot-circle-bg ant-spin-dot-circle"
-              cx="50"
-              cy="50"
-              r="40"
-              stroke-width="20"
-            />
-            <circle
-              class="ant-spin-dot-circle"
-              cx="50"
-              cy="50"
-              r="40"
-              stroke-width="20"
-              style="stroke-dasharray:0 251.32741228718342;stroke-dashoffset:62.83185307179586"
-            />
-          </svg>
         </span>
         <div
           class="ant-spin-text"
