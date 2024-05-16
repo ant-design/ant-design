@@ -154,7 +154,7 @@ module.exports = {
 
 ```js
 // vite.config.js
-export default defineConfig(async () => ({
+export default defineConfig(() => ({
   // ... other config
   plugins: [svgr({ svgrOptions: { icon: true } })],
 }));
@@ -164,6 +164,8 @@ export default defineConfig(async () => ({
 import React from 'react';
 import Icon from '@ant-design/icons';
 import MessageSvg from 'path/to/message.svg'; // 你的 '*.svg' 文件路径
+
+// import MessageSvg from 'path/to/message.svg?react'; // 使用vite 你的 '*.svg?react' 文件路径.
 import ReactDOM from 'react-dom/client';
 
 // in create-react-app:
