@@ -18,11 +18,11 @@ When part of the page is waiting for asynchronous data or during a rendering pro
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic Usage</code>
 <code src="./demo/size.tsx">Size</code>
-<code src="./demo/inside.tsx">Inside a container</code>
 <code src="./demo/nested.tsx">Embedded mode</code>
 <code src="./demo/tip.tsx">Customized description</code>
 <code src="./demo/delayAndDebounce.tsx">Delay</code>
 <code src="./demo/custom-indicator.tsx">Custom spinning indicator</code>
+<code src="./demo/percent.tsx" version="5.18.0">Progress</code>
 <code src="./demo/fullscreen.tsx">Fullscreen</code>
 
 ## API

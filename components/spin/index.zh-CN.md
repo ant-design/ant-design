@@ -19,11 +19,11 @@ demo:
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本用法</code>
 <code src="./demo/size.tsx">各种大小</code>
-<code src="./demo/inside.tsx">容器</code>
 <code src="./demo/nested.tsx">卡片加载中</code>
 <code src="./demo/tip.tsx">自定义描述文案</code>
 <code src="./demo/delayAndDebounce.tsx">延迟</code>
 <code src="./demo/custom-indicator.tsx">自定义指示符</code>
+<code src="./demo/percent.tsx" version="5.18.0">进度</code>
 <code src="./demo/fullscreen.tsx">全屏</code>
 
 ## API
