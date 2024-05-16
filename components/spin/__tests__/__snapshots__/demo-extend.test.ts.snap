@@ -234,6 +234,34 @@ exports[`renders components/spin/demo/percent.tsx extend context correctly 1`] =
   <div
     class="ant-space-item"
   >
+    <button
+      aria-checked="false"
+      class="ant-switch"
+      role="switch"
+      type="button"
+    >
+      <div
+        class="ant-switch-handle"
+      />
+      <span
+        class="ant-switch-inner"
+      >
+        <span
+          class="ant-switch-inner-checked"
+        >
+          Auto
+        </span>
+        <span
+          class="ant-switch-inner-unchecked"
+        >
+          Auto
+        </span>
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
     <div
       aria-busy="true"
       aria-live="polite"

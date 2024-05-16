@@ -7,6 +7,7 @@ import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import Indicator from './Indicator';
 import useStyle from './style/index';
+import usePercent from './usePercent';
 
 const SpinSizes = ['small', 'default', 'large'] as const;
 export type SpinSize = (typeof SpinSizes)[number];
@@ -25,7 +26,7 @@ export interface SpinProps {
   indicator?: SpinIndicator;
   children?: React.ReactNode;
   fullscreen?: boolean;
-  percent?: number;
+  percent?: number | 'auto';
 }
 
 export type SpinType = React.FC<SpinProps> & {
@@ -66,6 +67,8 @@ const Spin: SpinType = (props) => {
   const [spinning, setSpinning] = React.useState<boolean>(
     () => customSpinning && !shouldDelay(customSpinning, delay),
   );
+
+  const mergedPercent = usePercent(spinning, percent);
 
   React.useEffect(() => {
     if (customSpinning) {
@@ -131,7 +134,7 @@ const Spin: SpinType = (props) => {
       <Indicator
         prefixCls={prefixCls}
         indicator={indicator ?? defaultIndicator}
-        percent={percent}
+        percent={mergedPercent}
       />
       {tip && (isNestedPattern || fullscreen) ? (
         <div className={`${prefixCls}-text`}>{tip}</div>

@@ -1,7 +1,8 @@
 import React from 'react';
-import { Space, Spin } from 'antd';
+import { Space, Spin, Switch } from 'antd';
 
 const App: React.FC = () => {
+  const [auto, setAuto] = React.useState(false);
   const [percent, setPercent] = React.useState(-50);
 
   React.useEffect(() => {
@@ -16,11 +17,22 @@ const App: React.FC = () => {
     };
   }, [percent]);
 
+  const mergedPercent = auto ? 'auto' : percent;
+
   return (
     <Space>
-      <Spin percent={percent} size="small" />
-      <Spin percent={percent} />
-      <Spin percent={percent} size="large" />
+      <Switch
+        checkedChildren="Auto"
+        unCheckedChildren="Auto"
+        checked={auto}
+        onChange={() => {
+          setAuto(!auto);
+          setPercent(-50);
+        }}
+      />
+      <Spin percent={mergedPercent} size="small" />
+      <Spin percent={mergedPercent} />
+      <Spin percent={mergedPercent} size="large" />
     </Space>
   );
 };
