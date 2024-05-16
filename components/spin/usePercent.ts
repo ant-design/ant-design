@@ -1,6 +1,11 @@
 import * as React from 'react';
 
 const AUTO_INTERVAL = 200;
+const STEP_BUCKETS: [limit: number, stepPtg: number][] = [
+  [30, 0.05],
+  [70, 0.03],
+  [96, 0.01],
+];
 
 export default function usePercent(
   spinning: boolean,
@@ -19,15 +24,15 @@ export default function usePercent(
         setMockPercent((prev) => {
           const restPTG = 100 - prev;
 
-          if (prev < 40) {
-            return prev + restPTG * 0.05;
+          for (let i = 0; i < STEP_BUCKETS.length; i += 1) {
+            const [limit, stepPtg] = STEP_BUCKETS[i];
+
+            if (prev <= limit) {
+              return prev + restPTG * stepPtg;
+            }
           }
 
-          if (prev < 70) {
-            return prev + restPTG * 0.03;
-          }
-
-          return prev + restPTG * 0.01;
+          return prev;
         });
       }, AUTO_INTERVAL);
     }
