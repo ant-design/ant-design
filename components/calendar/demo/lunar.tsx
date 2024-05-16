@@ -84,9 +84,9 @@ const useStyle = createStyles(({ token, css, cx }) => {
     `,
     weekend: css`
       color: ${token.colorError};
-    `,
-    gray: css`
-      filter: grayscale(1);
+      &.gray {
+        opacity: .4
+      }
     `,
   };
 });
@@ -95,9 +95,11 @@ const App: React.FC = () => {
   const { styles } = useStyle({ test: true });
 
   const [selectDate, setSelectDate] = React.useState<Dayjs>(dayjs());
+  const [panelDateDate, setPanelDate] = React.useState<Dayjs>(dayjs());
 
   const onPanelChange = (value: Dayjs, mode: CalendarProps<Dayjs>['mode']) => {
     console.log(value.format('YYYY-MM-DD'), mode);
+    setPanelDate(value);
   };
 
   const onDateChange: CalendarProps<Dayjs>['onSelect'] = (value, selectInfo) => {
@@ -125,7 +127,7 @@ const App: React.FC = () => {
             <span
               className={classNames({
                 [styles.weekend]: isWeekend,
-                [styles.gray]: !info.today.isSame(date, 'M'),
+                gray: !panelDateDate.isSame(date, 'month'),
               })}
             >
               {date.get('date')}
