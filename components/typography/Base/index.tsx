@@ -19,6 +19,7 @@ import Editable from '../Editable';
 import useCopyClick from '../hooks/useCopyClick';
 import useMergedConfig from '../hooks/useMergedConfig';
 import useUpdatedEffect from '../hooks/useUpdatedEffect';
+import usePrevious from '../hooks/usePrevious';
 import type { TypographyProps } from '../Typography';
 import Typography from '../Typography';
 import CopyBtn from './CopyBtn';
@@ -159,8 +160,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   };
 
   // Focus edit icon when back
+  const prevEditing = usePrevious(editing);
   useUpdatedEffect(() => {
-    if (!editing) {
+    if (!editing && prevEditing) {
       editIconRef.current?.focus();
     }
   }, [editing]);
@@ -498,26 +500,21 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               expanded={expanded}
               miscDeps={[copied, expanded, copyLoading, enableEdit, enableCopy]}
             >
-              {(node, canEllipsis) => {
-                let renderNode: React.ReactNode = node;
-                if (node.length && canEllipsis && !expanded && topAriaLabel) {
-                  renderNode = (
-                    <span key="show-content" aria-hidden>
-                      {renderNode}
-                    </span>
-                  );
-                }
-
-                const wrappedContext = wrapperDecorations(
+              {(node, canEllipsis) =>
+                wrapperDecorations(
                   props,
                   <>
-                    {renderNode}
+                    {node.length > 0 && canEllipsis && !expanded && topAriaLabel ? (
+                      <span key="show-content" aria-hidden>
+                        {node}
+                      </span>
+                    ) : (
+                      node
+                    )}
                     {renderEllipsis(canEllipsis)}
                   </>,
-                );
-
-                return wrappedContext;
-              }}
+                )
+              }
             </Ellipsis>
           </Typography>
         </EllipsisTooltip>

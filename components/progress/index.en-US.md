@@ -33,6 +33,7 @@ If it will take a long time to complete an operation, you can use `Progress` to 
 <code src="./demo/steps.tsx">Progress bar with steps</code>
 <code src="./demo/circle-steps.tsx" version="5.16.0">Circular progress bar whit steps</code>
 <code src="./demo/size.tsx">Progress size</code>
+<code src="./demo/info-position.tsx" version="5.18.0">Change progress value position</code>
 
 ## API
 
@@ -51,7 +52,7 @@ Properties that shared by all types.
 | success | Configs of successfully progress bar | { percent: number, strokeColor: string } | - | - |
 | trailColor | The color of unfilled part | string | - | - |
 | type | To set the type, options: `line` `circle` `dashboard` | string | `line` |
-| size | Progress size | number \| \[number \| string, number] \| "small" \| "default" | "default" | v5.3.0 |
+| size | Progress size | number \| \[number \| string, number] \| { width: number, height: number } \| "small" \| "default" | "default" | 5.3.0, Object: 5.18.0 |
 
 ### `type="line"`
 
@@ -59,6 +60,7 @@ Properties that shared by all types.
 | --- | --- | --- | --- | --- |
 | steps | The total step count | number | - | - |
 | strokeColor | The color of progress bar, render `linear-gradient` when passing an object, could accept `string[]` when has `steps`. | string \| string[] \| { from: string; to: string; direction: string } | - | 4.21.0: `string[]` |
+| percentPosition | Progress value position, passed in object, `align` indicates the horizontal position of the value, `type` indicates whether the value is inside or outside the progress bar | { align: string; type: string } | { align: \"end\", type: \"outer\" } | 5.18.0 |
 
 ### `type="circle"`
 

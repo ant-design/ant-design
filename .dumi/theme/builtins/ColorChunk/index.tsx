@@ -3,11 +3,6 @@ import type { ColorInput } from '@ctrl/tinycolor';
 import { TinyColor } from '@ctrl/tinycolor';
 import { createStyles } from 'antd-style';
 
-interface ColorChunkProps {
-  children?: React.ReactNode;
-  value?: ColorInput;
-}
-
 const useStyle = createStyles(({ token, css }) => ({
   codeSpan: css`
     padding: 0.2em 0.4em;
@@ -26,7 +21,11 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
 }));
 
-const ColorChunk: React.FC<ColorChunkProps> = (props) => {
+interface ColorChunkProps {
+  value?: ColorInput;
+}
+
+const ColorChunk: React.FC<React.PropsWithChildren<ColorChunkProps>> = (props) => {
   const { styles } = useStyle();
   const { value, children } = props;
 

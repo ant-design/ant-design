@@ -13,7 +13,7 @@ tag: 5.1.0
 ## When To Use
 
 - Provide reset styles based on `.ant-app` element.
-- You could use static methods of `message/notification/Modal` form `useApp` without writing `contextHolder` manually.
+- You could use static methods of `message/notification/Modal` from `useApp` without writing `contextHolder` manually.
 
 ## Examples
 
@@ -131,10 +131,16 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| component | Config render element, if `false` will not create DOM node | ComponentType | div | 5.11.0 |
+| component | Config render element, if `false` will not create DOM node | ComponentType \| false | div | 5.11.0 |
 | message | Global config for Message | [MessageConfig](/components/message/#messageconfig) | - | 5.3.0 |
 | notification | Global config for Notification | [NotificationConfig](/components/notification/#notificationconfig) | - | 5.3.0 |
 
 ## Design Token
 
 <ComponentTokenTable component="App"></ComponentTokenTable>
+
+## FAQ
+
+### CSS Var doesn't work inside `<App component={false}>`
+
+Make sure the App `component` is a legit React component string, so when you're turning on CSS variables, there's a container to hold the CSS class name.

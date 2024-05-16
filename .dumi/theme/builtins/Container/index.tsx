@@ -2,16 +2,20 @@
  * copied: https://github.com/arvinxx/dumi-theme-antd-style/tree/master/src/builtins/Container
  */
 import * as React from 'react';
-import type { FC, ReactNode } from 'react';
 import { Alert } from 'antd';
 
 import useStyles from './style';
 
-const Container: FC<{
+interface ContainerProps {
   type: 'info' | 'warning' | 'success' | 'error';
   title?: string;
-  children: ReactNode;
-}> = ({ type, title, children }) => {
+}
+
+const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
+  type,
+  title,
+  children,
+}) => {
   const { styles, cx } = useStyles();
 
   return (

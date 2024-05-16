@@ -5,6 +5,7 @@ import type { DrawerProps as RCDrawerProps } from 'rc-drawer';
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
 import type { ClosableType } from '../_util/hooks/useClosable';
 import { ConfigContext } from '../config-provider';
+import Skeleton from '../skeleton';
 
 export interface DrawerClassNames extends NonNullable<RCDrawerProps['classNames']> {
   header?: string;
@@ -38,6 +39,7 @@ export interface DrawerPanelProps {
   children?: React.ReactNode;
   classNames?: DrawerClassNames;
   styles?: DrawerStyles;
+  loading?: boolean;
 
   /** @deprecated Please use `styles.header` instead */
   headerStyle?: React.CSSProperties;
@@ -59,6 +61,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     title,
     footer,
     extra,
+    loading,
     onClose,
     headerStyle,
     bodyStyle,
@@ -148,13 +151,18 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
           drawerClassNames?.body,
           drawerContext?.classNames?.body,
         )}
-        style={{
-          ...drawerContext?.styles?.body,
-          ...bodyStyle,
-          ...drawerStyles?.body,
-        }}
+        style={{ ...drawerContext?.styles?.body, ...bodyStyle, ...drawerStyles?.body }}
       >
-        {children}
+        {loading ? (
+          <Skeleton
+            active
+            title={false}
+            paragraph={{ rows: 5 }}
+            className={`${prefixCls}-body-skeleton`}
+          />
+        ) : (
+          children
+        )}
       </div>
       {footerNode}
     </>

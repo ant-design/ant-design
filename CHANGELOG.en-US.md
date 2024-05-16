@@ -16,6 +16,94 @@ tag: vVERSION
 
 ---
 
+## 5.17.2
+
+`2024-05-14`
+
+- 🐞 MISC: Fix `lib` bundle mistake deps on the `es` module which break the build progress. [#48914](https://github.com/ant-design/ant-design/pull/48914)
+
+## 5.17.1
+
+`2024-05-14`
+
+- 🐞 Optimize the internal logic of the Form, fix the problem that antd takes too long time to build in Next.js. [react-component/async-validator#9](https://github.com/react-component/async-validator/pull/9)
+- 🐞 Fix visually not centered when Tooltip content is only one character. [#48890](https://github.com/ant-design/ant-design/pull/48890) [@kiner-tang](https://github.com/kiner-tang)
+- Button
+  - 🐞 Fix hover and active styles not differentiating when Button `type="text"`and `type="danger"` are used together. [#48876](https://github.com/ant-design/ant-design/pull/48876) [@LonelySnowman](https://github.com/LonelySnowman)
+- Fix issue where some components throw findDOMNode warnings
+  - 🐞 Fix Button throwing `findDOMNode` warning. [#48830](https://github.com/ant-design/ant-design/pull/48830) [@wanpan11](https://github.com/wanpan11)
+  - 🐞 Fix Badge throwing `findDOMNode` warnings. [#48878](https://github.com/ant-design/ant-design/pull/48878) [@wanpan11](https://github.com/wanpan11)
+  - 🐞 Fix Alert throwing `findDOMNode` warnings. [#48868](https://github.com/ant-design/ant-design/pull/48868) [@wanpan11](https://github.com/wanpan11)
+  - 🐞 Fix FloatButton.BackTop throwing `findDOMNode` warnings. [#48865](https://github.com/ant-design/ant-design/pull/48865) [@wanpan11](https://github.com/wanpan11)
+- 💄 Add className to internal component Spin given by Drawer to prevent internal Spin styles from overriding user-passed Spin styles. [#48857](https://github.com/ant-design/ant-design/pull/48857) [@li-jia-nan](https://github.com/li-jia-nan)
+- 💄 Fix missing bottom border when Card `size="small"`. [#48787](https://github.com/ant-design/ant-design/pull/48787) [@wanpan11](https://github.com/wanpan11)
+- 🐞 Fix AutoComplete `tagRender` not working for maxTag and clicking on an edge triggering unexpected closure of the layer. [#48798](https://github.com/ant-design/ant-design/pull/48798)
+- RTL
+  - 💄 Fix Button's missing icon order and margins under RTL. [#48821](https://github.com/ant-design/ant-design/pull/48821)
+- TypeScript
+  - 🤖 Fix Cascader redundant generalization issue. [#48879](https://github.com/ant-design/ant-design/pull/48879) [@crazyair](https://github.com/crazyair)
+
+## 5.17.0
+
+`2024-05-03`
+
+- 🔥🔥🔥 `@ant-design/cssinjs` StyleProvider supports configuring `layer` to unified downgrade CSS priority. After the downgrade, the style of antd will always be lower than the default CSS selector priority, so that users can override the style (please be sure to check the browser compatibility of [@layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer#browser_compatibility)), see [full documentation](https://ant.design/docs/react/compatible-style#layer-downgrade) for usage. [#48229](https://github.com/ant-design/ant-design/pull/48229)
+- 🆕 Carousel supports `arrows` to switching between slides now. [#48542](https://github.com/ant-design/ant-design/pull/48542)
+- Form
+  - 🛠 Form move dependency from `async-validator` to `@rc-component/async-validator`, fix a bug that `transform` don't check it's return value type. [#48486](https://github.com/ant-design/ant-design/pull/48486) [@crazyair](https://github.com/crazyair)
+  - 🆕 Form add `inlineMargin` token. [#48362](https://github.com/ant-design/ant-design/pull/48362) [@CooperHash](https://github.com/CooperHash)
+  - 🐞 Fix Form `scrollToFirstError` cannot work on Upload. [#48211](https://github.com/ant-design/ant-design/pull/48211) [@Wxh16144](https://github.com/Wxh16144)
+- Typography
+  - 🆕 Typography.Paragraph could customize `tabIndex` prop for editable and copyable buttons. [#48567](https://github.com/ant-design/ant-design/pull/48567) [@nova1751](https://github.com/nova1751)
+  - 🐞 Fix Typography `editable` will trigger focus unexpectedly on mounting. [#48741](https://github.com/ant-design/ant-design/pull/48741)
+- DatePicker
+  - 🆕 DatePicker.RangePicker `showTime.disabledTime` supports `info.from` for customize time level limitation. [#48625](https://github.com/ant-design/ant-design/pull/48625)
+  - 🐞 Fix DatePicker hover value flickering issue when closing panel. [#48734](https://github.com/ant-design/ant-design/pull/48734)
+- Drawer
+  - 🆕 Drawer supports `loading` prop now. [#48563](https://github.com/ant-design/ant-design/pull/48563) [@Enigama](https://github.com/Enigama)
+  - 🐞 Fix Drawer `classNames.wrapper` not working. [#48721](https://github.com/ant-design/ant-design/pull/48721) [@replygirl](https://github.com/replygirl)
+- Slider
+  - 🐞 Fix Slider tooltip cannot be hidden when `tooltip={{ formatter: null }}`. [#48673](https://github.com/ant-design/ant-design/pull/48673) [@wanpan11](https://github.com/wanpan11)
+  - 🐞 Slider tooltip should not display when `tooltip={{ open: false }}`. [#48708](https://github.com/ant-design/ant-design/pull/48708)
+- Button
+  - 🆕 Button add `iconPosition` prop to specify icon position. [#47791](https://github.com/ant-design/ant-design/pull/47791) [@GeorgeHcc](https://github.com/GeorgeHcc)
+  - 🆕 Button supports `autoInsertSpace` prop. [#48348](https://github.com/ant-design/ant-design/pull/48348) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 ConfigProvider supports `button.autoInsertSpace` prop and deprecated `autoInsertSpaceInButton` prop. [#48348](https://github.com/ant-design/ant-design/pull/48348) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 TreeSelect supports `onPopScroll` prop now. [#48636](https://github.com/ant-design/ant-design/pull/48636) [@wanpan11](https://github.com/wanpan11)
+- 🆕 Tabs supports `more={{ .. }}` to customize more dropdown. [#48321](https://github.com/ant-design/ant-design/pull/48321) [@CooperHash](https://github.com/CooperHash)
+- 🆕 Flex `wrap` could be boolean type now. [#48391](https://github.com/ant-design/ant-design/pull/48391) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 Input.OTP supports `mask` prop. [#48257](https://github.com/ant-design/ant-design/pull/48257) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 Alert supports `id` and `ref` props. [#48336](https://github.com/ant-design/ant-design/pull/48336) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 Upload supports `ref.nativeElenent`. [#48210](https://github.com/ant-design/ant-design/pull/48210) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Fix List would not rerender when `grid` changed. [#48683](https://github.com/ant-design/ant-design/pull/48683) [@coderz-w](https://github.com/coderz-w)
+- 🐞 Fix QRCode size cannot fit it's container and remove default padding of `bordered={false}`. [#48194](https://github.com/ant-design/ant-design/pull/48194) [@thinkasany](https://github.com/thinkasany)
+- 🐞 Fix Table shadow should be show when there are columns where `fixed={false}`. [#1113](https://github.com/react-component/table/pull/1113) [@linxianxi](https://github.com/linxianxi)
+- 🐞 Fix Progress tooltip wrong distance. [#48686](https://github.com/ant-design/ant-design/pull/48686)
+- 📖 Table add column-drag sorting demo. [#48434](https://github.com/ant-design/ant-design/pull/48434) [@GeorgeHcc](https://github.com/GeorgeHcc)
+- TypeScript
+  - 🤖 Optimize Cascader typing. [#48420](https://github.com/ant-design/ant-design/pull/48420) [@crazyair](https://github.com/crazyair)
+- Locales
+  - 🇯🇵 Fix missing Japanese locale translation. [#48704](https://github.com/ant-design/ant-design/pull/48704) [@edikurniawan-dev](https://github.com/edikurniawan-dev)
+  - 🇮🇩 Fix missing Indonesian locale translation. [#48703](https://github.com/ant-design/ant-design/pull/48703) [@edikurniawan-dev](https://github.com/edikurniawan-dev)
+
+## 5.16.5
+
+`2024-04-28`
+
+- 🐞 Fix Transfer component issue when trying to select item from the right column while it has "unknown-key" within targetKeys. [#48664](https://github.com/ant-design/ant-design/pull/48664) [@andreyk1512](https://github.com/andreyk1512)
+- 🐞 Fix Steps custom icon not vertically centered error. [#48650](https://github.com/ant-design/ant-design/pull/48650) [@ZinkWu](https://github.com/ZinkWu)
+- 🐞 Fix Badge number centered but slightly right-aligned. [#48605](https://github.com/ant-design/ant-design/pull/48605) [@akinocccc](https://github.com/akinocccc)
+- 🐞 Fix Popover and Popconfirm blinking when open on the right edge of screen. [#48591](https://github.com/ant-design/ant-design/pull/48591)
+- 🐞 Fix ColorPicker that cleared icon should change when initial value is `undefined`. [#48584](https://github.com/ant-design/ant-design/pull/48584) [@MadCcc](https://github.com/MadCcc)
+- 💄 Fix Collapse bottom border issue. [#48561](https://github.com/ant-design/ant-design/pull/48561) [@hamzaseif13](https://github.com/hamzaseif13)
+- 💄 Adjust Input border style in form validation when disabled. [#48616](https://github.com/ant-design/ant-design/pull/48616) [@nova1751](https://github.com/nova1751)
+- TypeScript
+  - 🤖 Add missing generic type of Upload prop. [#48614](https://github.com/ant-design/ant-design/pull/48614) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🤖 Fix missing generic type of Upload `customRequest` prop. [#48612](https://github.com/ant-design/ant-design/pull/48612) [@jas0ncn](https://github.com/jas0ncn)
+- Locales
+  - 🇪🇸 Added missing es_ES translations for DatePicker component. [#48601](https://github.com/ant-design/ant-design/pull/48601) [@JMMOLLER](https://github.com/JMMOLLER)
+  - 🇩🇪 Added missing german translations for DatePicker component. [#48586](https://github.com/ant-design/ant-design/pull/48586) [@sebhs](https://github.com/sebhs)
+
 ## 5.16.4
 
 `2024-04-22`
@@ -60,8 +148,8 @@ tag: vVERSION
 - 💄 Fix Steps in compact theme not show the correct progress style. [#48251](https://github.com/ant-design/ant-design/pull/48251)
 - 💄 Refactor Tabs and wave-related components CSS duration values with `motionDurationSlow` Component Token. [#48311](https://github.com/ant-design/ant-design/pull/48311) [#48312](https://github.com/ant-design/ant-design/pull/48312) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🇯🇵 Add Transfer missing ja_JP translations. [#48411](https://github.com/ant-design/ant-design/pull/48411) [@Inshiku-Han](https://github.com/Inshiku-Han)
-- 🌐 Fix Picker ja-JP and ko-KR translations. [#48382](https://github.com/ant-design/ant-design/pull/48382) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🛠 Use constant instead of enumeration to reduce package size. [#48406](https://github.com/ant-design/ant-design/pull/48406) [@kiner-tang](https://github.com/kiner-tang)
+- 🇯🇵🇰🇷 Fix Picker ja-JP and ko-KR translations. [#48382](https://github.com/ant-design/ant-design/pull/48382) [@li-jia-nan](https://github.com/li-jia-nan)
+- 📦 Use constant instead of enumeration to reduce package size. [#48406](https://github.com/ant-design/ant-design/pull/48406) [@kiner-tang](https://github.com/kiner-tang)
 
 ## 5.16.1
 

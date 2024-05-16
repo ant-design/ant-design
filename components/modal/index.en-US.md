@@ -21,6 +21,7 @@ Additionally, if you need to show a simple confirmation dialog, you can use [`Ap
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/async.tsx">Asynchronously close</code>
 <code src="./demo/footer.tsx">Customized Footer</code>
+<code src="./demo/loading.tsx" version="5.18.0">Loading</code>
 <code src="./demo/footer-render.tsx">Customized Footer render function</code>
 <code src="./demo/hooks.tsx">Use hooks to get context</code>
 <code src="./demo/locale.tsx">Internationalization</code>
@@ -67,6 +68,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | okText | Text of the OK button | ReactNode | `OK` |  |
 | okType | Button `type` of the OK button | string | `primary` |  |
 | style | Style of floating layer, typically used at least for adjusting the position | CSSProperties | - |  |
+| loading | Show the skeleton | boolean |  | 5.18.0 |
 | title | The modal dialog's title | ReactNode | - |  |
 | open | Whether the modal dialog is visible or not | boolean | false |  |
 | width | Width of the modal dialog | string \| number | 520 |  |

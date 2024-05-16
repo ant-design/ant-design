@@ -46,7 +46,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/without-form-create.tsx">Handle Form Data Manually</code>
 <code src="./demo/validate-static.tsx">Customized Validation</code>
 <code src="./demo/dynamic-rule.tsx">Dynamic Rules</code>
-<code src="./demo/dependencies.tsx">Dependencies</code>
+<code src="./demo/form-dependencies.tsx">Dependencies</code>
 <code src="./demo/validate-scroll-to-field.tsx" iframe="360">Slide to error field</code>
 <code src="./demo/validate-other.tsx">Other Form Controls</code>
 <code src="./demo/disabled-input-debug.tsx" debug>Disabled Input Debug</code>
@@ -88,6 +88,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onFinish | Trigger after submitting the form and verifying data successfully | function(values) | - |  |
 | onFinishFailed | Trigger after submitting the form and verifying data failed | function({ values, errorFields, outOfDate }) | - |  |
 | onValuesChange | Trigger when value updated | function(changedValues, allValues) | - |  |
+| clearOnDestroy | Clear form values when the form is uninstalled | boolean | false | 5.18.0 |
 
 ### validateMessages
 
