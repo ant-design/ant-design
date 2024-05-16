@@ -186,8 +186,13 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
         color: token.spinDotDefault,
       },
 
-      // progress
+      // holder
       // ------------------------------
+      [`${componentCls}-dot-progress`]: {
+        position: 'absolute',
+        top: 0,
+        insetInlineStart: 0,
+      },
       [`${componentCls}-dot-holder`]: {
         width: '1em',
         height: '1em',
@@ -198,16 +203,18 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
         lineHeight: 1,
         color: token.colorPrimary,
 
-        '&-fixed': {
-          position: 'absolute',
-          top: 0,
-          insetInlineStart: 0,
-        },
-
         '&-hidden': {
           transform: 'scale(0.3)',
           opacity: 0,
         },
+      },
+
+      // progress
+      // ------------------------------
+      [`${componentCls}-dot-progress`]: {
+        position: 'absolute',
+        top: 0,
+        insetInlineStart: 0,
       },
 
       // dots

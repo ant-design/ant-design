@@ -1,15 +1,25 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
 export interface ProgressProps {
   prefixCls: string;
-  percent?: number;
+  percent: number;
 }
 
-export default function Progress({ percent = 0, prefixCls }: ProgressProps) {
+export default function Progress({ percent, prefixCls }: ProgressProps) {
   const dotClassName = `${prefixCls}-dot`;
   const holderClassName = `${dotClassName}-holder`;
   const hideClassName = `${holderClassName}-hidden`;
+
+  const [render, setRender] = React.useState(false);
+
+  // ==================== Visible =====================
+  useLayoutEffect(() => {
+    if (percent !== 0) {
+      setRender(true);
+    }
+  }, [percent !== 0]);
 
   // ==================== Progress ====================
   const safePtg = Math.max(Math.min(percent, 100), 0);
@@ -31,11 +41,15 @@ export default function Progress({ percent = 0, prefixCls }: ProgressProps) {
   );
 
   // ===================== Render =====================
+  if (!render) {
+    return null;
+  }
+
   return (
     <span
       className={classNames(
         holderClassName,
-        `${holderClassName}-fixed`,
+        `${dotClassName}-progress`,
         safePtg <= 0 && hideClassName,
       )}
     >
