@@ -13,7 +13,7 @@ import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import Divider from '../divider';
+import Divider from './MenuDivider';
 import type { SiderContextProps } from '../layout/Sider';
 import type { ItemType } from './interface';
 import type { MenuContextProps, MenuTheme } from './MenuContext';
