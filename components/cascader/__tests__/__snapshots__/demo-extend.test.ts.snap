@@ -755,7 +755,11 @@ exports[`renders components/cascader/demo/custom-trigger.tsx extend context corr
 </span>
 `;
 
-exports[`renders components/cascader/demo/custom-trigger.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/cascader/demo/custom-trigger.tsx extend context correctly 2`] = `
+[
+  "Warning: findDOMNode is deprecated and will be removed in the next major release. Instead, add a ref directly to the element you want to reference. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-find-node%s",
+]
+`;
 
 exports[`renders components/cascader/demo/default-value.tsx extend context correctly 1`] = `
 <div
