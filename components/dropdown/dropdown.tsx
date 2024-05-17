@@ -43,7 +43,8 @@ export type DropdownArrowOptions = {
 };
 
 export interface DropdownProps {
-  menu?: MenuProps;
+  menu: MenuProps;
+  menuLabel?: string;
   autoFocus?: boolean;
   arrow?: boolean | DropdownArrowOptions;
   trigger?: ('click' | 'hover' | 'contextMenu')[];
@@ -96,6 +97,7 @@ const Dropdown: CompoundedComponent = (props) => {
     overlayStyle,
     open,
     onOpenChange,
+    menuLabel = Math.random(),
     // Deprecated
     visible,
     onVisibleChange,
@@ -177,23 +179,6 @@ const Dropdown: CompoundedComponent = (props) => {
 
   const child = React.Children.only(children) as React.ReactElement<any>;
 
-  const dropdownTrigger = cloneElement(child, {
-    className: classNames(
-      `${prefixCls}-trigger`,
-      {
-        [`${prefixCls}-rtl`]: direction === 'rtl',
-      },
-      child.props.className,
-    ),
-    disabled,
-  });
-
-  const triggerActions = disabled ? [] : trigger;
-  let alignPoint: boolean;
-  if (triggerActions && triggerActions.includes('contextMenu')) {
-    alignPoint = true;
-  }
-
   // =========================== Open ============================
   const [mergedOpen, setOpen] = useMergedState(false, {
     value: open ?? visible,
@@ -204,6 +189,33 @@ const Dropdown: CompoundedComponent = (props) => {
     onVisibleChange?.(nextOpen);
     setOpen(nextOpen);
   });
+
+  const dropdownTrigger = cloneElement(child, {
+    className: classNames(
+      `${prefixCls}-trigger`,
+      {
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      },
+      child.props.className,
+    ),
+    disabled,
+    onKeyDown: (e: KeyboardEvent) => {
+        if (e.key === 'Enter' || e.code === 'Space') {
+          onInnerOpenChange(true)
+      };
+    },
+    id: `${menuLabel}-button`,
+    role: 'button',
+    'aria-haspopup': true,
+    'aria-expanded': mergedOpen,
+    'aria-controls': `${menuLabel}-menu`,
+  });
+
+  const triggerActions = disabled ? [] : trigger;
+  let alignPoint: boolean;
+  if (triggerActions && triggerActions.includes('contextMenu')) {
+    alignPoint = true;
+  }
 
   // =========================== Overlay ============================
   const overlayClassNameCustomized = classNames(
@@ -238,7 +250,9 @@ const Dropdown: CompoundedComponent = (props) => {
 
     let overlayNode: React.ReactNode;
     if (menu?.items) {
-      overlayNode = <Menu {...menu} />;
+      overlayNode = (
+        <Menu aria-labelledby={`${menuLabel}-button`} id={`${menuLabel}-menu`} {...menu} />
+      );
     } else if (typeof overlay === 'function') {
       overlayNode = overlay();
     } else {
@@ -276,10 +290,8 @@ const Dropdown: CompoundedComponent = (props) => {
       </OverrideProvider>
     );
   };
-
   // =========================== zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Dropdown', overlayStyle?.zIndex as number);
-
   // ============================ Render ============================
   let renderNode = (
     <RcDropdown
@@ -324,7 +336,6 @@ function postPureProps(props: DropdownProps) {
     },
   };
 }
-
 // We don't care debug panel
 const PurePanel = genPurePanel(Dropdown, 'dropdown', (prefixCls) => prefixCls, postPureProps);
 
