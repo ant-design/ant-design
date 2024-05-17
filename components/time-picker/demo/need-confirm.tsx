@@ -6,6 +6,6 @@ const onChange: TimePickerProps['onChange'] = (time, timeString) => {
   console.log(time, timeString);
 };
 
-const App: React.FC = () => <TimePicker onChange={onChange} needConfirm={false} />;
+const App: React.FC = () => <TimePicker onChange={onChange} needConfirm />;
 
 export default App;
