@@ -15,7 +15,7 @@ import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import Divider from '../divider';
 import type { SiderContextProps } from '../layout/Sider';
-import type { ItemType } from './hooks/useItems';
+import type { ItemType } from './interface';
 import type { MenuContextProps, MenuTheme } from './MenuContext';
 import MenuContext from './MenuContext';
 import MenuItem from './MenuItem';
