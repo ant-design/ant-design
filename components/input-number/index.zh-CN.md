@@ -68,12 +68,13 @@ demo:
 | onPressEnter | 按下回车的回调 | function(e) | - | - |
 | onStep | 点击上下箭头的回调 | (value: number, info: { offset: number, type: 'up' \| 'down' }) => void | - | 4.7.0 |
 
-## 方法
+## Ref
 
-| 名称    | 描述     |
-| ------- | -------- |
-| blur()  | 移除焦点 |
-| focus() | 获取焦点 |
+| 名称          | 描述              | 版本   |
+| ------------- | ----------------- | ------ |
+| blur()        | 移除焦点          |        |
+| focus()       | 获取焦点          |        |
+| nativeElement | 获取原生 DOM 元素 | 5.17.3 |
 
 ## 主题变量（Design Token）
 
