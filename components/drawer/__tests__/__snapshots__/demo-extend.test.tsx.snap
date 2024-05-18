@@ -2848,7 +2848,9 @@ Array [
             <div
               class="ant-drawer-title"
             >
-              Loading Drawer
+              <p>
+                Loading Drawer
+              </p>
             </div>
           </div>
         </div>
