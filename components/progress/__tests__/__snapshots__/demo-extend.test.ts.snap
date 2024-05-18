@@ -249,28 +249,28 @@ exports[`renders components/progress/demo/circle-micro.tsx extend context correc
           style="stroke: #52C41A; stroke-dasharray: 251.32741228718345px 251.32741228718345; stroke-dashoffset: 251.31741228718346; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
         />
       </svg>
+    </div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        />
-        <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
+          <span
+            class="ant-progress-text"
+            title="进行中，已完成60%"
           >
-            <span
-              class="ant-progress-text"
-              title="进行中，已完成60%"
-            >
-              进行中，已完成60%
-            </span>
-          </div>
+            进行中，已完成60%
+          </span>
         </div>
       </div>
     </div>
@@ -1031,28 +1031,28 @@ Array [
               style="stroke: #52C41A; stroke-dasharray: 267.0353755551324px 267.0353755551324; stroke-dashoffset: 267.0253755551324; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
             />
           </svg>
+        </div>
+        <div
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        >
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            class="ant-tooltip-arrow"
+            style="position: absolute; bottom: 0px; left: 0px;"
+          />
+          <div
+            class="ant-tooltip-content"
           >
             <div
-              class="ant-tooltip-arrow"
-              style="position: absolute; bottom: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
+              class="ant-tooltip-inner"
+              role="tooltip"
             >
-              <div
-                class="ant-tooltip-inner"
-                role="tooltip"
+              <span
+                class="ant-progress-text"
+                title="50%"
               >
-                <span
-                  class="ant-progress-text"
-                  title="50%"
-                >
-                  50%
-                </span>
-              </div>
+                50%
+              </span>
             </div>
           </div>
         </div>
@@ -1224,28 +1224,28 @@ Array [
               style="stroke: #52C41A; stroke-dasharray: 211.40300564781316px 267.0353755551324; stroke-dashoffset: 211.39300564781317; transform: rotate(127.5deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
             />
           </svg>
+        </div>
+        <div
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        >
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            class="ant-tooltip-arrow"
+            style="position: absolute; bottom: 0px; left: 0px;"
+          />
+          <div
+            class="ant-tooltip-content"
           >
             <div
-              class="ant-tooltip-arrow"
-              style="position: absolute; bottom: 0px; left: 0px;"
-            />
-            <div
-              class="ant-tooltip-content"
+              class="ant-tooltip-inner"
+              role="tooltip"
             >
-              <div
-                class="ant-tooltip-inner"
-                role="tooltip"
+              <span
+                class="ant-progress-text"
+                title="50%"
               >
-                <span
-                  class="ant-progress-text"
-                  title="50%"
-                >
-                  50%
-                </span>
-              </div>
+                50%
+              </span>
             </div>
           </div>
         </div>
@@ -3465,28 +3465,28 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
             style="stroke: #52C41A; stroke-dasharray: 267.0353755551324px 267.0353755551324; stroke-dashoffset: 267.0253755551324; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
           />
         </svg>
+      </div>
+      <div
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        />
+        <div
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; bottom: 0px; left: 0px;"
-          />
-          <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-inner"
+            role="tooltip"
           >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
+            <span
+              class="ant-progress-text"
+              title="50%"
             >
-              <span
-                class="ant-progress-text"
-                title="50%"
-              >
-                50%
-              </span>
-            </div>
+              50%
+            </span>
           </div>
         </div>
       </div>
@@ -3644,28 +3644,28 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
             style="stroke: #52C41A; stroke-dasharray: 211.40300564781316px 267.0353755551324; stroke-dashoffset: 211.39300564781317; transform: rotate(127.5deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
           />
         </svg>
+      </div>
+      <div
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        />
+        <div
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; bottom: 0px; left: 0px;"
-          />
-          <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-inner"
+            role="tooltip"
           >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
+            <span
+              class="ant-progress-text"
+              title="50%"
             >
-              <span
-                class="ant-progress-text"
-                title="50%"
-              >
-                50%
-              </span>
-            </div>
+              50%
+            </span>
           </div>
         </div>
       </div>

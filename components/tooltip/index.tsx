@@ -32,6 +32,8 @@ export interface TooltipRef {
   /** @deprecated Please use `forceAlign` instead */
   forcePopupAlign: VoidFunction;
   forceAlign: VoidFunction;
+  /** Wrapped dom element. Not promise valid if child not support ref */
+  nativeElement: HTMLElement;
 }
 
 export type TooltipPlacement =
@@ -168,6 +170,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       warning.deprecated(false, 'forcePopupAlign', 'forceAlign');
       forceAlign();
     },
+    nativeElement: tooltipRef.current?.nativeElement!,
   }));
 
   // ============================== Warn ==============================
