@@ -20,6 +20,7 @@ tag: vVERSION
 
 `2024-05-19`
 
+- 🐞 MISC: Fix some components throws `findDOMNode` warning in React 18.3.0. [#48958](https://github.com/ant-design/ant-design/pull/48958)
 - 🐞 Fix Button that `fontSize` token not works. [#48893](https://github.com/ant-design/ant-design/pull/48893) [@wanpan11](https://github.com/wanpan11)
 - 💄 Fix Pagination size-changer element style. [#48931](https://github.com/ant-design/ant-design/pull/48931) [@wanpan11](https://github.com/wanpan11)
 
