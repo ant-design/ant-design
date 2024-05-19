@@ -44,18 +44,28 @@ const getInputPaddingBlock = (
   controlHeight: number,
   inputFontSize: number,
   lineHeight: number,
+  lineWidth: number,
 ) => {
   const textHeight = token.calc(inputFontSize).mul(lineHeight).equal();
-  return token.calc(controlHeight).sub(textHeight).div(2).equal();
+  const borderWidth = token.calc(lineWidth).mul(2).equal();
+  return token.calc(controlHeight).sub(textHeight).sub(borderWidth).div(2).equal();
 };
 
 const genInputLargeStyle = (token: InputToken): CSSObject => {
-  const { lineHeightLG, inputFontSizeLG, borderRadiusLG, controlHeightLG, paddingInlineLG } = token;
+  const {
+    lineHeightLG,
+    inputFontSizeLG,
+    borderRadiusLG,
+    controlHeightLG,
+    lineWidth,
+    paddingInlineLG,
+  } = token;
   const inputPaddingBlock = getInputPaddingBlock(
     token,
     controlHeightLG,
     inputFontSizeLG,
     lineHeightLG,
+    lineWidth,
   );
   return {
     padding: `${unit(inputPaddingBlock)} ${unit(paddingInlineLG)}`,
@@ -66,12 +76,20 @@ const genInputLargeStyle = (token: InputToken): CSSObject => {
 };
 
 export const genInputSmallStyle = (token: InputToken): CSSObject => {
-  const { lineHeight, inputFontSizeSM, borderRadiusSM, controlHeightSM, paddingInlineSM } = token;
+  const {
+    lineHeight,
+    inputFontSizeSM,
+    borderRadiusSM,
+    controlHeightSM,
+    lineWidth,
+    paddingInlineSM,
+  } = token;
   const inputPaddingBlock = getInputPaddingBlock(
     token,
     controlHeightSM,
     inputFontSizeSM,
     lineHeight,
+    lineWidth,
   );
   return {
     padding: `${unit(inputPaddingBlock)} ${unit(paddingInlineSM)}`,
@@ -85,6 +103,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => {
     lineHeight,
     inputFontSize,
     controlHeight,
+    lineWidth,
     borderRadius,
     motionDurationMid,
     motionDurationSlow,
@@ -92,7 +111,13 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => {
     colorTextPlaceholder,
     paddingInline,
   } = token;
-  const inputPaddingBlock = getInputPaddingBlock(token, controlHeight, inputFontSize, lineHeight);
+  const inputPaddingBlock = getInputPaddingBlock(
+    token,
+    controlHeight,
+    inputFontSize,
+    lineHeight,
+    lineWidth,
+  );
   return {
     position: 'relative',
     display: 'inline-block',
