@@ -126,11 +126,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => {
     },
 
     // RTL
-    '&-rtl': {
-      direction: 'rtl',
-    },
-
-    '&-textarea-rtl': {
+    '&-rtl, &-textarea-rtl': {
       direction: 'rtl',
     },
   };
@@ -322,11 +318,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         '&:not(:first-child):not(:last-child)': {
           borderInlineEndWidth: token.lineWidth,
 
-          '&:hover': {
-            zIndex: 1,
-          },
-
-          '&:focus': {
+          '&:hover, &:focus': {
             zIndex: 1,
           },
         },
@@ -365,11 +357,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         borderInlineEndWidth: token.lineWidth,
         borderRadius: 0,
 
-        '&:hover': {
-          zIndex: 1,
-        },
-
-        '&:focus': {
+        '&:hover, &:focus': {
           zIndex: 1,
         },
       },
@@ -791,7 +779,7 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         [`> ${componentCls}-group-addon ${componentCls}-search-button,
         > ${componentCls},
         ${componentCls}-affix-wrapper`]: {
-          '&:hover,&:focus,&:active': {
+          '&:hover, &:focus, &:active': {
             zIndex: 2,
           },
         },
@@ -828,16 +816,11 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
         },
       },
 
-      '&-allow-clear': {
-        [`> ${componentCls}`]: {
-          paddingInlineEnd: paddingLG,
-        },
-      },
-
-      [`&-affix-wrapper${textareaPrefixCls}-has-feedback`]: {
-        [`${componentCls}`]: {
-          paddingInlineEnd: paddingLG,
-        },
+      [`
+        &-allow-clear > ${componentCls},
+        &-affix-wrapper${textareaPrefixCls}-has-feedback ${componentCls}
+      `]: {
+        paddingInlineEnd: paddingLG,
       },
 
       [`&-affix-wrapper${componentCls}-affix-wrapper`]: {
