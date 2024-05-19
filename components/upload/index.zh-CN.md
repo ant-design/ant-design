@@ -132,7 +132,79 @@ demo:
 ### 服务端如何实现？
 
 - 服务端上传接口实现可以参考 [jQuery-File-Upload](https://github.com/blueimp/jQuery-File-Upload/wiki#server-side)。
-- 如果要做本地 mock 可以参考这个 [express 的例子](https://github.com/react-component/upload/blob/master/server.js)。
+- 如果要做本地 mock 可以参考这个express 的例子
+
+  ```js | pure
+  'use strict';
+
+  const app = require('rc-tools/lib/server/')();
+  const parse = require('co-busboy');
+  const fs = require('fs');
+
+  function wait(time) {
+    return function (callback) {
+      setTimeout(callback, time);
+    };
+  }
+
+  app.post('/upload.do', function* () {
+    try {
+      const parts = parse(this, {
+        autoFields: true,
+      });
+      let part,
+        files = [];
+      while ((part = yield parts)) {
+        files.push(part.filename);
+        part.resume();
+      }
+      let ret = '';
+      this.status = 200;
+      this.set('Content-Type', 'text/html');
+      yield wait(2000);
+      if (parts.fields[0] && parts.fields[0][0] === '_documentDomain') {
+        ret += '<script>document.domain="' + parts.fields[0][1] + '";</script>';
+      }
+      ret += JSON.stringify(files);
+      console.log(ret);
+      this.body = ret;
+    } catch (e) {
+      this.body = e.stack;
+    }
+  });
+
+  app.post('/test', function* () {
+    this.set('Content-Type', 'text/html');
+
+    const parts = parse(this, {
+      autoFields: true,
+    });
+    let part;
+    const files = [];
+    while ((part = yield parts)) {
+      files.push(part.filename);
+      part.resume();
+    }
+
+    const ret = parts.fields[2];
+
+    if (ret[1].indexOf('success') > -1) {
+      this.status = 200;
+      this.body = ret;
+    } else {
+      this.status = 400;
+      this.body = 'error 400';
+    }
+  });
+
+  const port = process.env.npm_package_config_port;
+  app.listen(port);
+  console.log('listen at ' + port);
+
+  process.on('uncaughtException', (err) => {
+    console.log(err.stack);
+  });
+  ```
 
 ### 如何显示下载链接？
 
