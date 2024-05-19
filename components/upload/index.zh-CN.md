@@ -132,7 +132,7 @@ demo:
 ### 服务端如何实现？
 
 - 服务端上传接口实现可以参考 [jQuery-File-Upload](https://github.com/blueimp/jQuery-File-Upload/wiki#server-side)。
-- 如果要做本地 mock 可以参考这个express 的例子
+- 如果要做本地 mock 可以参考这个 express 的例子
 
   ```js | pure
   'use strict';
