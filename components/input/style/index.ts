@@ -39,64 +39,102 @@ export const genActiveStyle = (token: InputToken) => ({
   backgroundColor: token.activeBg,
 });
 
-const genInputLargeStyle = (token: InputToken): CSSObject => {
-  const { paddingBlockLG, lineHeightLG, borderRadiusLG, paddingInlineLG } = token;
+const getInputPaddingBlock = (
+  token: InputToken,
+  controlHeight: number,
+  inputFontSize: number,
+  lineHeight: number,
+) => {
+  const textHeight = token.calc(inputFontSize).mul(lineHeight).equal();
+  return token.calc(controlHeight).sub(textHeight).div(2).equal();
+};
 
+const genInputLargeStyle = (token: InputToken): CSSObject => {
+  const { lineHeightLG, inputFontSizeLG, borderRadiusLG, controlHeightLG, paddingInlineLG } = token;
+  const inputPaddingBlock = getInputPaddingBlock(
+    token,
+    controlHeightLG,
+    inputFontSizeLG,
+    lineHeightLG,
+  );
   return {
-    padding: `${unit(paddingBlockLG)} ${unit(paddingInlineLG)}`,
-    fontSize: token.inputFontSizeLG,
+    padding: `${unit(inputPaddingBlock)} ${unit(paddingInlineLG)}`,
+    fontSize: inputFontSizeLG,
     lineHeight: lineHeightLG,
     borderRadius: borderRadiusLG,
   };
 };
 
-export const genInputSmallStyle = (token: InputToken): CSSObject => ({
-  padding: `${unit(token.paddingBlockSM)} ${unit(token.paddingInlineSM)}`,
-  fontSize: token.inputFontSizeSM,
-  borderRadius: token.borderRadiusSM,
-});
+export const genInputSmallStyle = (token: InputToken): CSSObject => {
+  const { lineHeight, inputFontSizeSM, borderRadiusSM, controlHeightSM, paddingInlineSM } = token;
+  const inputPaddingBlock = getInputPaddingBlock(
+    token,
+    controlHeightSM,
+    inputFontSizeSM,
+    lineHeight,
+  );
+  return {
+    padding: `${unit(inputPaddingBlock)} ${unit(paddingInlineSM)}`,
+    fontSize: inputFontSizeSM,
+    borderRadius: borderRadiusSM,
+  };
+};
 
-export const genBasicInputStyle = (token: InputToken): CSSObject => ({
-  position: 'relative',
-  display: 'inline-block',
-  width: '100%',
-  minWidth: 0,
-  padding: `${unit(token.paddingBlock)} ${unit(token.paddingInline)}`,
-  color: token.colorText,
-  fontSize: token.inputFontSize,
-  lineHeight: token.lineHeight,
-  borderRadius: token.borderRadius,
-  transition: `all ${token.motionDurationMid}`,
-  ...genPlaceholderStyle(token.colorTextPlaceholder),
+export const genBasicInputStyle = (token: InputToken): CSSObject => {
+  const {
+    lineHeight,
+    inputFontSize,
+    controlHeight,
+    borderRadius,
+    motionDurationMid,
+    motionDurationSlow,
+    colorText,
+    colorTextPlaceholder,
+    paddingInline,
+  } = token;
+  const inputPaddingBlock = getInputPaddingBlock(token, controlHeight, inputFontSize, lineHeight);
+  return {
+    position: 'relative',
+    display: 'inline-block',
+    width: '100%',
+    minWidth: 0,
+    padding: `${unit(inputPaddingBlock)} ${unit(paddingInline)}`,
+    color: colorText,
+    fontSize: inputFontSize,
+    lineHeight,
+    borderRadius,
+    transition: `all ${motionDurationMid}`,
+    ...genPlaceholderStyle(colorTextPlaceholder),
 
-  // Reset height for `textarea`s
-  'textarea&': {
-    maxWidth: '100%', // prevent textarea resize from coming out of its container
-    height: 'auto',
-    minHeight: token.controlHeight,
-    lineHeight: token.lineHeight,
-    verticalAlign: 'bottom',
-    transition: `all ${token.motionDurationSlow}, height 0s`,
-    resize: 'vertical',
-  },
+    // Reset height for `textarea`s
+    'textarea&': {
+      maxWidth: '100%', // prevent textarea resize from coming out of its container
+      height: 'auto',
+      minHeight: controlHeight,
+      lineHeight,
+      verticalAlign: 'bottom',
+      transition: `all ${motionDurationSlow}, height 0s`,
+      resize: 'vertical',
+    },
 
-  // Size
-  '&-lg': {
-    ...genInputLargeStyle(token),
-  },
-  '&-sm': {
-    ...genInputSmallStyle(token),
-  },
+    // Size
+    '&-lg': {
+      ...genInputLargeStyle(token),
+    },
+    '&-sm': {
+      ...genInputSmallStyle(token),
+    },
 
-  // RTL
-  '&-rtl': {
-    direction: 'rtl',
-  },
+    // RTL
+    '&-rtl': {
+      direction: 'rtl',
+    },
 
-  '&-textarea-rtl': {
-    direction: 'rtl',
-  },
-});
+    '&-textarea-rtl': {
+      direction: 'rtl',
+    },
+  };
+};
 
 export const genInputGroupStyle = (token: InputToken): CSSObject => {
   const { componentCls, antCls } = token;
