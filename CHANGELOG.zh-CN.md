@@ -15,6 +15,13 @@ tag: vVERSION
 
 ---
 
+## 5.17.3
+
+`2024-05-19`
+
+- 🐞 修复 Button 字体大小 token 无效的问题。[#48893](https://github.com/ant-design/ant-design/pull/48893) [@wanpan11](https://github.com/wanpan11)
+- 💄 修复 Pagination 组件跳转选择元素样式问题。[#48931](https://github.com/ant-design/ant-design/pull/48931) [@wanpan11](https://github.com/wanpan11)
+
 ## 5.17.2
 
 `2024-05-14`
