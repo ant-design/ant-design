@@ -11,7 +11,7 @@ permissions:
   contents: read
 
 jobs:
-  rebase:
+  approval:
     permissions:
       pull-requests: read
     name: Check Virtual Regression Approval
@@ -25,12 +25,16 @@ jobs:
       id: check_approval
       uses: actions/github-script@v7
       with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
-          const { data: comments } = await github.rest.issues.listComments({
+          const issue_number = context.payload.issue.number;
+          const comments = await github.rest.issues.listComments({
             owner: context.repo.owner,
             repo: context.repo.repo,
-            issue_number: context.issue.number,
+            issue_number: issue_number
           });
+
+          console.log('Comments:', comments.length);
 
           let hasDiffSuccess = false;
           let hasDiffFailed = false;
@@ -48,6 +52,20 @@ jobs:
             }
           }
 
+          console.log('hasDiffSuccess:', hasDiffSuccess);
+          console.log('hasDiffFailed:', hasDiffFailed);
+          console.log('hasMemberApprove:', hasMemberApprove);
+
+          const mergedStatus = hasDiffSuccess || (hasDiffFailed && hasMemberApprove) ? 'success' : hasDiffFailed ? 'failure' : 'pending';
+          await github.rest.repos.createCommitStatus({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            sha: context.payload.pull_request.head.sha,
+            state: mergedStatus,
+            context: 'Visual Regression Diff Wait Approve',
+            description: 'Visual diff approved',
+          });
+
           if (hasDiffSuccess || (hasDiffFailed && hasMemberApprove)) {
             return 'success';
           } else if (hasDiffFailed) {
@@ -56,9 +74,6 @@ jobs:
             return 'waiting';
           }
 
-    # Console need approve message and throw failure if the result is `failed`
-    - name: Fail if Visual Diff Failed
-      if: steps.check_approval.outputs.result == 'failed'
-      run: |
-        echo "Visual Diff Failed, please check the diff and approve it."
-        exit 1
+    # Console check_approval status
+    - name: Console Status
+      run: echo "Result -> ${{ steps.check_approval.outputs.result }}"
