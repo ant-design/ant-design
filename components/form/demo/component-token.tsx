@@ -19,7 +19,7 @@ const App: React.FC = () => (
     }}
   >
     <Form
-      name="basic"
+      name="component-token"
       labelCol={{ span: 8 }}
       wrapperCol={{ span: 16 }}
       style={{ maxWidth: 600 }}
