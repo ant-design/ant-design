@@ -19,8 +19,6 @@ const App: React.FC = () => {
         setPercent(0);
       }
     }, 100);
-
-    // setPercent(33);
   };
 
   return (
