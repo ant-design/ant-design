@@ -67,10 +67,11 @@ interface Option {
 
 #### Checkbox
 
-| Name    | Description  | Version |
-| ------- | ------------ | ------- |
-| blur()  | Remove focus |         |
-| focus() | Get focus    |         |
+| Name          | Description                          | Version |
+| ------------- | ------------------------------------ | ------- |
+| blur()        | Remove focus                         |         |
+| focus()       | Get focus                            |         |
+| nativeElement | Returns the DOM node of the Checkbox | 5.17.3  |
 
 ## Design Token
 
