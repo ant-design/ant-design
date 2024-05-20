@@ -13,7 +13,6 @@ permissions:
 jobs:
   rebase:
     permissions:
-      contents: write
       pull-requests: read
     name: Check Virtual Regression Approval
     if: github.event.issue.pull_request != ''
