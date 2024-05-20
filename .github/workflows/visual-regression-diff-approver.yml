@@ -59,6 +59,8 @@ jobs:
           console.log('hasMemberApprove:', hasMemberApprove);
 
           const mergedStatus = hasDiffSuccess || (hasDiffFailed && hasMemberApprove) ? 'success' : hasDiffFailed ? 'failure' : 'pending';
+          console.log('Status:', mergedStatus);
+
           await github.rest.repos.createCommitStatus({
             owner: context.repo.owner,
             repo: context.repo.repo,
