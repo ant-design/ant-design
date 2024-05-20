@@ -173,5 +173,9 @@ export default defineConfig({
       async: true,
       content: fs.readFileSync(path.join(__dirname, '.dumi', 'mirror-modal.js')).toString(),
     },
+    {
+      async: true,
+      content: fs.readFileSync(path.join(__dirname, '.dumi', 'clarity.js')).toString(),
+    },
   ],
 });
