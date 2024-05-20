@@ -44,16 +44,8 @@ jobs:
             if (comment.body.includes('VISUAL_DIFF_FAILED')) {
               hasDiffFailed = true;
             }
-            if (comment.body.includes('Pass Visual Diff')) {
-              const isMember = await github.rest.repos.checkCollaborator({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                username: comment.user.login,
-              });
-
-              if (isMember) {
-                hasMemberApprove = true;
-              }
+            if (comment.body.includes('- [x] Visual diff is acceptable')) {
+              hasMemberApprove = true;
             }
           }
 

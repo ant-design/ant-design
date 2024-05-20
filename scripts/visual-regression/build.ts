@@ -302,11 +302,9 @@ ${fullReport}
 
 -----
 
-If you think the visual diff is acceptable, please comment:
+If you think the visual diff is acceptable, please check:
 
-\`\`\`
-Pass Visual Diff
-\`\`\`
+- [ ] Visual diff is acceptable
 `;
   }
 
