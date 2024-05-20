@@ -6,7 +6,6 @@ import os from 'os';
 import path from 'path';
 import { Readable } from 'stream';
 import { finished } from 'stream/promises';
-import simpleGit from 'simple-git';
 import chalk from 'chalk';
 import fse from 'fs-extra';
 import difference from 'lodash/difference';
@@ -14,6 +13,7 @@ import minimist from 'minimist';
 import pixelmatch from 'pixelmatch';
 import { PNG } from 'pngjs';
 import sharp from 'sharp';
+import simpleGit from 'simple-git';
 
 import markdown2Html from './convert';
 
@@ -248,12 +248,13 @@ function generateReport(
   const passed = badCases.length === 0;
 
   const commonHeader = `
+<!-- ${passed ? 'VISUAL_DIFF_SUCCESS' : 'VISUAL_DIFF_FAILED'} -->
+
 ## 👁 Visual Regression Report for PR #${prId} ${passed ? 'Passed ✅' : 'Failed ❌'}
 > **🎯 Target branch:** ${targetBranch} (${targetRef})
   `.trim();
 
   const htmlReportLink = `${publicPath}/report.html`;
-  const addonFullReportDesc = `\n\nCheck <a href="${htmlReportLink}" target="_blank">Full Report</a> for details`;
 
   const fullReport = `> 📖 <a href="${htmlReportLink}" target="_blank">View Full Report ↗︎</a>`;
   if (passed) {
@@ -291,7 +292,19 @@ ${fullReport}
     fullVersionMd += generateLineReport(badCase, publicPath, currentRef, false);
   }
 
-  reportMdStr += addonFullReportDesc;
+  reportMdStr += `\n\nCheck <a href="${htmlReportLink}" target="_blank">Full Report</a> for details`;
+
+  // tips for comment `Pass Visual Diff` will pass the CI
+  if (!passed) {
+    reportMdStr += `
+
+-----
+
+If you think the visual diff is acceptable, please check:
+
+- [ ] Visual diff is acceptable
+`;
+  }
 
   // convert fullVersionMd to html
   return [reportMdStr, markdown2Html(fullVersionMd)];
@@ -472,8 +485,9 @@ async function boot() {
   console.log(chalk.red('⛔️ Failed cases:\n'));
   console.log(prettyList(sortedBadCases.map((i) => `[${i.type}] ${i.filename}`)));
   console.log('\n');
-  // let job failed
-  process.exit(1);
+
+  // let job failed. Skip to let CI/CD to handle it
+  // process.exit(1);
 }
 
 boot();
