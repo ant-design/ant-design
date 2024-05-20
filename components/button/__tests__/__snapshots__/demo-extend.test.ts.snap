@@ -2722,11 +2722,7 @@ exports[`renders components/button/demo/multiple.tsx extend context correctly 1`
 </div>
 `;
 
-exports[`renders components/button/demo/multiple.tsx extend context correctly 2`] = `
-[
-  "Warning: findDOMNode is deprecated and will be removed in the next major release. Instead, add a ref directly to the element you want to reference. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-find-node%s",
-]
-`;
+exports[`renders components/button/demo/multiple.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/button/demo/noSpace.tsx extend context correctly 1`] = `
 <div

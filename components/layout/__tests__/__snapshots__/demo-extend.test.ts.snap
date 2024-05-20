@@ -3372,7 +3372,6 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
 exports[`renders components/layout/demo/top.tsx extend context correctly 2`] = `
 [
   "Warning: [antd: Breadcrumb] \`Breadcrumb.Item and Breadcrumb.Separator\` is deprecated. Please use \`items\` instead.",
-  "Warning: findDOMNode is deprecated and will be removed in the next major release. Instead, add a ref directly to the element you want to reference. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-find-node%s",
 ]
 `;
 
