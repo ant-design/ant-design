@@ -559,6 +559,26 @@ describe('Form', () => {
       expect(scrollIntoView).toHaveBeenCalled();
       expect((scrollIntoView as any).mock.calls[0][0]).toBe(uploadRef.current.nativeElement);
     });
+
+    // https://github.com/ant-design/ant-design/issues/48981
+    it('should not throw error when use InputNumber', async () => {
+      const inputNumberRef = React.createRef<any>();
+
+      const { getByText } = render(
+        <Form scrollToFirstError>
+          <Form.Item name="demo-form_input-number" rules={[{ required: true }]}>
+            <InputNumber ref={inputNumberRef} />
+          </Form.Item>
+          <Form.Item>
+            <Button htmlType="submit">Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
+      fireEvent.click(getByText('Submit'));
+      await waitFakeTimer();
+      expect(scrollIntoView).toHaveBeenCalled();
+      expect((scrollIntoView as any).mock.calls[0][0]).toBe(inputNumberRef.current?.nativeElement);
+    });
   });
 
   it('Form.Item should support data-*、aria-* and custom attribute', () => {
