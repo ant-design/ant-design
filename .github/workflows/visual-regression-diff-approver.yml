@@ -2,14 +2,72 @@
 
 name: 🤖 Visual Regression Diff Approver
 
+# on comment event
 on:
-  workflow_run:
-    workflows: ["👀 Visual Regression Diff Build"]
-    types:
-      - completed
+  issue_comment:
+    types: [created, edited, deleted]
 
 permissions:
   contents: read
 
 jobs:
-  
+  rebase:
+    permissions:
+      contents: write
+      pull-requests: read
+    name: Check Virtual Regression Approval
+    if: github.event.issue.pull_request != ''
+    runs-on: ubuntu-latest
+    steps:
+    # Check all the comments if contains `VISUAL_DIFF_SUCCESS` or `VISUAL_DIFF_FAILED`
+    # Check if member of repo comment `Pass Visual Diff`
+    # Return type: `success` or `failed` or `waiting`
+    - name: Check Virtual Regression Approval
+      id: check_approval
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const { data: comments } = await github.rest.issues.listComments({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: context.issue.number,
+          });
+
+          let hasDiffSuccess = false;
+          let hasDiffFailed = false;
+          let hasMemberApprove = false;
+
+          for (const comment of comments) {
+            if (comment.body.includes('VISUAL_DIFF_SUCCESS')) {
+              hasDiffSuccess = true;
+            }
+            if (comment.body.includes('VISUAL_DIFF_FAILED')) {
+              hasDiffFailed = true;
+            }
+            if (comment.body.includes('Pass Visual Diff')) {
+              const isMember = await github.rest.repos.checkCollaborator({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                username: comment.user.login,
+              });
+
+              if (isMember) {
+                hasMemberApprove = true;
+              }
+            }
+          }
+
+          if (hasDiffSuccess || (hasDiffFailed && hasMemberApprove)) {
+            return 'success';
+          } else if (hasDiffFailed) {
+            return 'failed';
+          } else {
+            return 'waiting';
+          }
+
+    # Console need approve message and throw failure if the result is `failed`
+    - name: Fail if Visual Diff Failed
+      if: steps.check_approval.outputs.result == 'failed'
+      run: |
+        echo "Visual Diff Failed, please check the diff and approve it."
+        exit 1

@@ -250,12 +250,13 @@ function generateReport(
   const passed = badCases.length === 0;
 
   const commonHeader = `
+<!-- ${passed ? 'VISUAL_DIFF_SUCCESS' : 'VISUAL_DIFF_FAILED'} -->
+
 ## 👁 Visual Regression Report for PR #${prId} ${passed ? 'Passed ✅' : 'Failed ❌'}
 > **🎯 Target branch:** ${targetBranch} (${targetRef})
   `.trim();
 
   const htmlReportLink = `${publicPath}/report.html`;
-  const addonFullReportDesc = `\n\nCheck <a href="${htmlReportLink}" target="_blank">Full Report</a> for details`;
 
   const fullReport = `> 📖 <a href="${htmlReportLink}" target="_blank">View Full Report ↗︎</a>`;
   if (passed) {
@@ -293,7 +294,21 @@ ${fullReport}
     fullVersionMd += generateLineReport(badCase, publicPath, currentRef, false);
   }
 
-  reportMdStr += addonFullReportDesc;
+  reportMdStr += `\n\nCheck <a href="${htmlReportLink}" target="_blank">Full Report</a> for details`;
+
+  // tips for comment `Pass Visual Diff` will pass the CI
+  if (!passed) {
+    reportMdStr += `
+
+-----
+
+If you think the visual diff is acceptable, please comment:
+
+\`\`\`
+Pass Visual Diff
+\`\`\`
+`;
+  }
 
   // convert fullVersionMd to html
   return [reportMdStr, markdown2Html(fullVersionMd)];
