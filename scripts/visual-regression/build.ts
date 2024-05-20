@@ -22,8 +22,6 @@ const ALI_OSS_BUCKET = 'antd-visual-diff';
 
 const REPORT_DIR = path.join(ROOT_DIR, './visualRegressionReport');
 
-const DIFF_RESULT_FILE = path.join(ROOT_DIR, 'visual-regression-diff-result.txt');
-
 const isLocalEnv = process.env.LOCAL;
 
 const compareScreenshots = async (
@@ -477,14 +475,6 @@ async function boot() {
 
   const validBadCases = badCases.filter((i) => ['removed', 'changed'].includes(i.type));
 
-  // Write to result file
-  await fse.writeFile(
-    DIFF_RESULT_FILE,
-    // SUCCESS or FAILED
-    validBadCases.length ? 'FAILED' : 'SUCCESS',
-    'utf-8',
-  );
-
   if (!validBadCases.length) {
     console.log(chalk.green('🎉 All passed!'));
     console.log('\n');
@@ -495,7 +485,8 @@ async function boot() {
   console.log(chalk.red('⛔️ Failed cases:\n'));
   console.log(prettyList(sortedBadCases.map((i) => `[${i.type}] ${i.filename}`)));
   console.log('\n');
-  // let job failed
+
+  // let job failed. Skip to let CI/CD to handle it
   // process.exit(1);
 }
 
