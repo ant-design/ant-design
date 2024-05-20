@@ -6,7 +6,6 @@ import os from 'os';
 import path from 'path';
 import { Readable } from 'stream';
 import { finished } from 'stream/promises';
-import simpleGit from 'simple-git';
 import chalk from 'chalk';
 import fse from 'fs-extra';
 import difference from 'lodash/difference';
@@ -14,6 +13,7 @@ import minimist from 'minimist';
 import pixelmatch from 'pixelmatch';
 import { PNG } from 'pngjs';
 import sharp from 'sharp';
+import simpleGit from 'simple-git';
 
 import markdown2Html from './convert';
 
@@ -21,6 +21,8 @@ const ROOT_DIR = process.cwd();
 const ALI_OSS_BUCKET = 'antd-visual-diff';
 
 const REPORT_DIR = path.join(ROOT_DIR, './visualRegressionReport');
+
+const DIFF_RESULT_FILE = path.join(ROOT_DIR, 'visual-regression-diff-result.txt');
 
 const isLocalEnv = process.env.LOCAL;
 
@@ -462,6 +464,14 @@ async function boot() {
 
   const validBadCases = badCases.filter((i) => ['removed', 'changed'].includes(i.type));
 
+  // Write to result file
+  await fse.writeFile(
+    DIFF_RESULT_FILE,
+    // SUCCESS or FAILED
+    validBadCases.length ? 'FAILED' : 'SUCCESS',
+    'utf-8',
+  );
+
   if (!validBadCases.length) {
     console.log(chalk.green('🎉 All passed!'));
     console.log('\n');
@@ -473,7 +483,7 @@ async function boot() {
   console.log(prettyList(sortedBadCases.map((i) => `[${i.type}] ${i.filename}`)));
   console.log('\n');
   // let job failed
-  process.exit(1);
+  // process.exit(1);
 }
 
 boot();

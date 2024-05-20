@@ -1,0 +1,15 @@
+# Check the report passed or developer confirmed the diff
+
+name: 🤖 Visual Regression Diff Approver
+
+on:
+  workflow_run:
+    workflows: ["👀 Visual Regression Diff Build"]
+    types:
+      - completed
+
+permissions:
+  contents: read
+
+jobs:
+  

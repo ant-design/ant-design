@@ -101,6 +101,14 @@ jobs:
           name: visual-regression-report
           path: visualRegressionReport.tar.gz
 
+      # Upload report result
+      - name: upload report result
+        uses: actions/upload-artifact@v4
+        if: ${{ always() }}
+        with:
+          name: visual-regression-diff-result
+          path: ./visual-regression-diff-result.txt
+
       # Upload git ref for next workflow `visual-regression-diff-finish` use
       - name: Save persist key
         if: ${{ always() }}
