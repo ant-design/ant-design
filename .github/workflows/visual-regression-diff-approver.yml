@@ -1,6 +1,6 @@
 # Check the report passed or developer confirmed the diff
 
-name: 🤖 Visual Regression Diff Approver
+name: 🤖 Visual Regression Diff Approval
 
 # on comment event
 on:
