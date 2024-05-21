@@ -79,6 +79,7 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 | --- | --- | --- | --- | --- |
 | actions | The actions content of list item. If `itemLayout` is `vertical`, shows the content on bottom, otherwise shows content on the far right | Array&lt;ReactNode> | - |  |
 | extra | The extra content of list item. If `itemLayout` is `vertical`, shows the content on right, otherwise shows content on the far right | ReactNode | - |  |
+| styles | Effective when `itemLayout = vertical`. Semantic DOM style | `Record<extra , CSSProperties>` | - | 5.18.0 |
 
 ### List.Item.Meta
 

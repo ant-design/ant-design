@@ -12,6 +12,9 @@ export interface ListItemProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode;
   prefixCls?: string;
   style?: CSSProperties;
+  styles?: {
+    extra: CSSProperties;
+  };
   extra?: ReactNode;
   actions?: ReactNode[];
   colStyle?: CSSProperties;
@@ -61,6 +64,7 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
     children,
     actions,
     extra,
+    styles,
     className,
     colStyle,
     ...others
@@ -116,7 +120,7 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
               {children}
               {actionsContent}
             </div>,
-            <div className={`${prefixCls}-item-extra`} key="extra">
+            <div className={`${prefixCls}-item-extra`} key="extra" style={styles?.extra}>
               {extra}
             </div>,
           ]
