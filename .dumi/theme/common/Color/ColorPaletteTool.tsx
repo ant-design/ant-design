@@ -11,14 +11,14 @@ const primaryMinBrightness = 70; // 主色推荐最小亮度
 
 const locales = {
   cn: {
-    saturation: (s: string) => `饱和度建议不低于${primaryMinSaturation}（现在${s}）`,
-    brightness: (b: string) => `亮度建议不低于${primaryMinBrightness}（现在${b}）`,
+    saturation: (s: string) => `饱和度建议不低于${primaryMinSaturation}（当前值 ${s}）`,
+    brightness: (b: string) => `亮度建议不低于${primaryMinBrightness}（当前值 ${b}）`,
   },
   en: {
     saturation: (s: string) =>
-      `Saturation is recommended not to be lower than ${primaryMinSaturation}（currently${s}）`,
+      `Saturation is recommended not to be lower than ${primaryMinSaturation} (currently ${s})`,
     brightness: (b: string) =>
-      `Brightness is recommended not to be lower than ${primaryMinBrightness}（currently${b}）`,
+      `Brightness is recommended not to be lower than ${primaryMinBrightness} (currently ${b})`,
   },
 };
 
@@ -41,7 +41,7 @@ const ColorPaletteTool: React.FC = () => {
         text += locale.saturation((s * 100).toFixed(2));
       }
       if (b * 100 < primaryMinBrightness) {
-        text += locale.brightness((s * 100).toFixed(2));
+        text += locale.brightness((b * 100).toFixed(2));
       }
     }
     return <span className="color-palette-picker-validation">{text.trim()}</span>;
