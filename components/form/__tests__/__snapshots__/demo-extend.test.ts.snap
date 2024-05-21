@@ -807,7 +807,7 @@ Array [
   <form
     autocomplete="off"
     class="ant-form ant-form-horizontal"
-    id="basic"
+    id="col-24-debug"
     style="max-width: 600px;"
   >
     <div
@@ -821,7 +821,7 @@ Array [
         >
           <label
             class="ant-form-item-required"
-            for="basic_username"
+            for="col-24-debug_username"
             title="Username"
           >
             Username
@@ -839,7 +839,7 @@ Array [
               <input
                 aria-required="true"
                 class="ant-input ant-input-outlined"
-                id="basic_username"
+                id="col-24-debug_username"
                 type="text"
                 value=""
               />
@@ -859,7 +859,7 @@ Array [
         >
           <label
             class="ant-form-item-required"
-            for="basic_password"
+            for="col-24-debug_password"
             title="Password"
           >
             Password
@@ -880,7 +880,7 @@ Array [
                 <input
                   aria-required="true"
                   class="ant-input"
-                  id="basic_password"
+                  id="col-24-debug_password"
                   type="password"
                   value=""
                 />
@@ -929,7 +929,7 @@ Array [
         >
           <label
             class=""
-            for="basic_select"
+            for="col-24-debug_select"
             title=""
           >
             <a
@@ -1010,13 +1010,13 @@ Array [
                       >
                         <input
                           aria-autocomplete="list"
-                          aria-controls="basic_select_list"
+                          aria-controls="col-24-debug_select_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="basic_select_list"
+                          aria-owns="col-24-debug_select_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
-                          id="basic_select"
+                          id="col-24-debug_select"
                           readonly=""
                           role="combobox"
                           style="opacity: 0;"
@@ -1039,14 +1039,14 @@ Array [
                 >
                   <div>
                     <div
-                      id="basic_select_list"
+                      id="col-24-debug_select_list"
                       role="listbox"
                       style="height: 0px; width: 0px; overflow: hidden;"
                     >
                       <div
                         aria-label="Bamboo"
                         aria-selected="true"
-                        id="basic_select_list_0"
+                        id="col-24-debug_select_list_0"
                         role="option"
                       >
                         bamboo
@@ -1054,7 +1054,7 @@ Array [
                       <div
                         aria-label="Little"
                         aria-selected="false"
-                        id="basic_select_list_1"
+                        id="col-24-debug_select_list_1"
                         role="option"
                       >
                         little
@@ -7036,25 +7036,6 @@ exports[`renders components/form/demo/form-context.tsx extend context correctly 
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-hidden"
-  >
-    <div
-      class="ant-row ant-form-item-row"
-    >
-      <div
-        class="ant-col ant-col-16 ant-form-item-control"
-      >
-        <div
-          class="ant-form-item-control-input"
-        >
-          <div
-            class="ant-form-item-control-input-content"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
     class="ant-form-item"
   >
     <div
@@ -7149,11 +7130,7 @@ exports[`renders components/form/demo/form-context.tsx extend context correctly 
 </form>
 `;
 
-exports[`renders components/form/demo/form-context.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Form.Item] \`name\` is only used for validate React element. If you are using Form.Item as layout display, please remove \`name\` instead.",
-]
-`;
+exports[`renders components/form/demo/form-context.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/form-dependencies.tsx extend context correctly 1`] = `
 <form
