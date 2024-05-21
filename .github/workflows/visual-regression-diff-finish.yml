@@ -141,29 +141,31 @@ jobs:
           body-include: '<!-- VISUAL_DIFF_REGRESSION_HOOK -->'
           number: ${{ steps.pr.outputs.id }}
 
-      # Update PR description with updated time: `snapshot:[TIMESTAMP]`
-      - name: Update timestamp
-        if: ${{ always() }}
+      # Resync commit status. This will be also reset by `visual-regression-diff-approver`
+      - name: Reset Commit Status
         uses: actions/github-script@v7
+        if: ${{ steps.report.outcome == 'success' }}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const timestamp = Date.now();
-
-            const prNumber = ${{ steps.pr.outputs.id }};
-            const { data } = await github.rest.pulls.get({
+            const prResponse = await github.rest.pulls.get({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              pull_number: prNumber
+              pull_number: ${{ steps.pr.outputs.id }},
             });
-            const { body: currentBody } = data;
+            const prHeadSha = prResponse.data.head.sha;
 
-            let newBody = currentBody.replace(/<!-- timestamp:[^>]-->/, '').trim();
-            newBody = newBody + `\n\n<!-- timestamp: ${timestamp} -->`;
+            const fullContent = `${{ toJSON(steps.report.outputs.content) }}`;
+            const hasVisualDiffSuccess = fullContent.includes('VISUAL_DIFF_SUCCESS');
+            const hasVisualDiffFailed = fullContent.includes('VISUAL_DIFF_FAILED');
 
-            github.rest.pulls.update({
+            const mergedStatus = hasVisualDiffSuccess ? 'success' : hasVisualDiffFailed ? 'failure' : 'pending';
+
+            await github.rest.repos.createCommitStatus({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              pull_number: prNumber,
-              body: newBody
+              sha: prHeadSha,
+              state: mergedStatus,
+              context: 'Visual Regression Diff Wait Approve',
+              description: hasVisualDiffSuccess ? 'Visual diff check pass' : 'Visual diff check failed',
             });
