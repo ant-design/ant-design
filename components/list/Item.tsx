@@ -13,7 +13,8 @@ export interface ListItemProps extends HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   style?: CSSProperties;
   styles?: {
-    extra: CSSProperties;
+    actions?: CSSProperties;
+    extra?: CSSProperties;
   };
   extra?: ReactNode;
   actions?: ReactNode[];
@@ -91,7 +92,7 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
 
   const prefixCls = getPrefixCls('list', customizePrefixCls);
   const actionsContent = actions && actions.length > 0 && (
-    <ul className={`${prefixCls}-item-action`} key="actions">
+    <ul className={`${prefixCls}-item-action`} key="actions" style={styles?.actions}>
       {actions.map((action: ReactNode, i: number) => (
         // eslint-disable-next-line react/no-array-index-key
         <li key={`${prefixCls}-item-action-${i}`}>
@@ -124,7 +125,13 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
               {extra}
             </div>,
           ]
-        : [children, actionsContent, cloneElement(extra, { key: 'extra' })]}
+        : [
+            children,
+            actionsContent,
+            <span key="extra" style={styles?.extra}>
+              {cloneElement(extra)}
+            </span>,
+          ]}
     </Element>
   );
   return grid ? (
