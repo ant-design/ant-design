@@ -49,7 +49,6 @@ exports[`renders components/list/demo/basic.tsx extend context correctly 1`] = `
               </div>
             </div>
           </div>
-          <span />
         </li>
         <li
           class="ant-list-item"
@@ -87,7 +86,6 @@ exports[`renders components/list/demo/basic.tsx extend context correctly 1`] = `
               </div>
             </div>
           </div>
-          <span />
         </li>
         <li
           class="ant-list-item"
@@ -125,7 +123,6 @@ exports[`renders components/list/demo/basic.tsx extend context correctly 1`] = `
               </div>
             </div>
           </div>
-          <span />
         </li>
         <li
           class="ant-list-item"
@@ -163,7 +160,6 @@ exports[`renders components/list/demo/basic.tsx extend context correctly 1`] = `
               </div>
             </div>
           </div>
-          <span />
         </li>
       </ul>
     </div>
@@ -215,7 +211,6 @@ Array [
               </mark>
             </span>
              Racing car sprays burning fuel into crowd.
-            <span />
           </li>
           <li
             class="ant-list-item ant-list-item-no-flex"
@@ -228,7 +223,6 @@ Array [
               </mark>
             </span>
              Japanese princess to wed commoner.
-            <span />
           </li>
           <li
             class="ant-list-item ant-list-item-no-flex"
@@ -241,7 +235,6 @@ Array [
               </mark>
             </span>
              Australian walks 100km after outback crash.
-            <span />
           </li>
           <li
             class="ant-list-item ant-list-item-no-flex"
@@ -254,7 +247,6 @@ Array [
               </mark>
             </span>
              Man charged over missing wedding girl.
-            <span />
           </li>
           <li
             class="ant-list-item ant-list-item-no-flex"
@@ -267,7 +259,6 @@ Array [
               </mark>
             </span>
              Los Angeles battles huge wildfires.
-            <span />
           </li>
         </ul>
       </div>
@@ -313,31 +304,26 @@ Array [
             class="ant-list-item"
           >
             Racing car sprays burning fuel into crowd.
-            <span />
           </li>
           <li
             class="ant-list-item"
           >
             Japanese princess to wed commoner.
-            <span />
           </li>
           <li
             class="ant-list-item"
           >
             Australian walks 100km after outback crash.
-            <span />
           </li>
           <li
             class="ant-list-item"
           >
             Man charged over missing wedding girl.
-            <span />
           </li>
           <li
             class="ant-list-item"
           >
             Los Angeles battles huge wildfires.
-            <span />
           </li>
         </ul>
       </div>
@@ -383,31 +369,26 @@ Array [
             class="ant-list-item"
           >
             Racing car sprays burning fuel into crowd.
-            <span />
           </li>
           <li
             class="ant-list-item"
           >
             Japanese princess to wed commoner.
-            <span />
           </li>
           <li
             class="ant-list-item"
           >
             Australian walks 100km after outback crash.
-            <span />
           </li>
           <li
             class="ant-list-item"
           >
             Man charged over missing wedding girl.
-            <span />
           </li>
           <li
             class="ant-list-item"
           >
             Los Angeles battles huge wildfires.
-            <span />
           </li>
         </ul>
       </div>
@@ -478,7 +459,6 @@ Array [
                 </div>
               </div>
             </div>
-            <span />
           </li>
           <li
             class="ant-list-item"
@@ -516,7 +496,6 @@ Array [
                 </div>
               </div>
             </div>
-            <span />
           </li>
           <li
             class="ant-list-item"
@@ -554,7 +533,6 @@ Array [
                 </div>
               </div>
             </div>
-            <span />
           </li>
           <li
             class="ant-list-item"
@@ -592,7 +570,6 @@ Array [
                 </div>
               </div>
             </div>
-            <span />
           </li>
         </ul>
       </div>
@@ -656,7 +633,6 @@ Array [
                 </div>
               </div>
             </div>
-            <span />
           </li>
           <li
             class="ant-list-item ant-list-item-no-flex"
@@ -694,7 +670,6 @@ Array [
                 </div>
               </div>
             </div>
-            <span />
           </li>
           <li
             class="ant-list-item ant-list-item-no-flex"
@@ -732,7 +707,6 @@ Array [
                 </div>
               </div>
             </div>
-            <span />
           </li>
           <li
             class="ant-list-item ant-list-item-no-flex"
@@ -770,7 +744,6 @@ Array [
                 </div>
               </div>
             </div>
-            <span />
           </li>
         </ul>
       </div>
@@ -898,7 +871,6 @@ exports[`renders components/list/demo/grid.tsx extend context correctly 1`] = `
                   Card content
                 </div>
               </div>
-              <span />
             </div>
           </div>
         </div>
@@ -934,7 +906,6 @@ exports[`renders components/list/demo/grid.tsx extend context correctly 1`] = `
                   Card content
                 </div>
               </div>
-              <span />
             </div>
           </div>
         </div>
@@ -970,7 +941,6 @@ exports[`renders components/list/demo/grid.tsx extend context correctly 1`] = `
                   Card content
                 </div>
               </div>
-              <span />
             </div>
           </div>
         </div>
@@ -1006,7 +976,6 @@ exports[`renders components/list/demo/grid.tsx extend context correctly 1`] = `
                   Card content
                 </div>
               </div>
-              <span />
             </div>
           </div>
         </div>
@@ -1065,7 +1034,6 @@ Array [
                     Card content
                   </div>
                 </div>
-                <span />
               </div>
             </div>
           </div>
@@ -1101,7 +1069,6 @@ Array [
                     Card content
                   </div>
                 </div>
-                <span />
               </div>
             </div>
           </div>
@@ -1137,7 +1104,6 @@ Array [
                     Card content
                   </div>
                 </div>
-                <span />
               </div>
             </div>
           </div>
@@ -1173,7 +1139,6 @@ Array [
                     Card content
                   </div>
                 </div>
-                <span />
               </div>
             </div>
           </div>
@@ -1209,7 +1174,6 @@ Array [
                     Card content
                   </div>
                 </div>
-                <span />
               </div>
             </div>
           </div>
@@ -1245,7 +1209,6 @@ Array [
                     Card content
                   </div>
                 </div>
-                <span />
               </div>
             </div>
           </div>
@@ -1298,7 +1261,6 @@ Array [
                     Card content
                   </div>
                 </div>
-                <span />
               </div>
             </div>
           </div>
@@ -1334,7 +1296,6 @@ Array [
                     Card content
                   </div>
                 </div>
-                <span />
               </div>
             </div>
           </div>
@@ -1370,7 +1331,6 @@ Array [
                     Card content
                   </div>
                 </div>
-                <span />
               </div>
             </div>
           </div>
@@ -1406,7 +1366,6 @@ Array [
                     Card content
                   </div>
                 </div>
-                <span />
               </div>
             </div>
           </div>
@@ -1442,7 +1401,6 @@ Array [
                     Card content
                   </div>
                 </div>
-                <span />
               </div>
             </div>
           </div>
@@ -1478,7 +1436,6 @@ Array [
                     Card content
                   </div>
                 </div>
-                <span />
               </div>
             </div>
           </div>
@@ -1531,7 +1488,6 @@ Array [
                     Card content
                   </div>
                 </div>
-                <span />
               </div>
             </div>
             <div />
@@ -1568,7 +1524,6 @@ Array [
                     Card content
                   </div>
                 </div>
-                <span />
               </div>
             </div>
             <div />
@@ -1605,7 +1560,6 @@ Array [
                     Card content
                   </div>
                 </div>
-                <span />
               </div>
             </div>
             <div />
@@ -1642,7 +1596,6 @@ Array [
                     Card content
                   </div>
                 </div>
-                <span />
               </div>
             </div>
             <div />
@@ -1679,7 +1632,6 @@ Array [
                     Card content
                   </div>
                 </div>
-                <span />
               </div>
             </div>
             <div />
@@ -1716,7 +1668,6 @@ Array [
                     Card content
                   </div>
                 </div>
-                <span />
               </div>
             </div>
             <div />
@@ -2095,7 +2046,6 @@ Array [
                 </div>
               </div>
             </div>
-            <span />
           </li>
           <li
             class="ant-list-item"
@@ -2133,7 +2083,6 @@ Array [
                 </div>
               </div>
             </div>
-            <span />
           </li>
           <li
             class="ant-list-item"
@@ -2171,7 +2120,6 @@ Array [
                 </div>
               </div>
             </div>
-            <span />
           </li>
           <li
             class="ant-list-item"
@@ -2209,7 +2157,6 @@ Array [
                 </div>
               </div>
             </div>
-            <span />
           </li>
         </ul>
       </div>
@@ -2349,7 +2296,6 @@ exports[`renders components/list/demo/responsive.tsx extend context correctly 1`
                   Card content
                 </div>
               </div>
-              <span />
             </div>
           </div>
         </div>
@@ -2385,7 +2331,6 @@ exports[`renders components/list/demo/responsive.tsx extend context correctly 1`
                   Card content
                 </div>
               </div>
-              <span />
             </div>
           </div>
         </div>
@@ -2421,7 +2366,6 @@ exports[`renders components/list/demo/responsive.tsx extend context correctly 1`
                   Card content
                 </div>
               </div>
-              <span />
             </div>
           </div>
         </div>
@@ -2457,7 +2401,6 @@ exports[`renders components/list/demo/responsive.tsx extend context correctly 1`
                   Card content
                 </div>
               </div>
-              <span />
             </div>
           </div>
         </div>
@@ -2493,7 +2436,6 @@ exports[`renders components/list/demo/responsive.tsx extend context correctly 1`
                   Card content
                 </div>
               </div>
-              <span />
             </div>
           </div>
         </div>
@@ -2529,7 +2471,6 @@ exports[`renders components/list/demo/responsive.tsx extend context correctly 1`
                   Card content
                 </div>
               </div>
-              <span />
             </div>
           </div>
         </div>
@@ -2583,7 +2524,6 @@ Array [
               </mark>
             </span>
              Racing car sprays burning fuel into crowd.
-            <span />
           </li>
           <li
             class="ant-list-item ant-list-item-no-flex"
@@ -2596,7 +2536,6 @@ Array [
               </mark>
             </span>
              Japanese princess to wed commoner.
-            <span />
           </li>
           <li
             class="ant-list-item ant-list-item-no-flex"
@@ -2609,7 +2548,6 @@ Array [
               </mark>
             </span>
              Australian walks 100km after outback crash.
-            <span />
           </li>
           <li
             class="ant-list-item ant-list-item-no-flex"
@@ -2622,7 +2560,6 @@ Array [
               </mark>
             </span>
              Man charged over missing wedding girl.
-            <span />
           </li>
           <li
             class="ant-list-item ant-list-item-no-flex"
@@ -2635,7 +2572,6 @@ Array [
               </mark>
             </span>
              Los Angeles battles huge wildfires.
-            <span />
           </li>
         </ul>
       </div>
@@ -2681,31 +2617,26 @@ Array [
             class="ant-list-item"
           >
             Racing car sprays burning fuel into crowd.
-            <span />
           </li>
           <li
             class="ant-list-item"
           >
             Japanese princess to wed commoner.
-            <span />
           </li>
           <li
             class="ant-list-item"
           >
             Australian walks 100km after outback crash.
-            <span />
           </li>
           <li
             class="ant-list-item"
           >
             Man charged over missing wedding girl.
-            <span />
           </li>
           <li
             class="ant-list-item"
           >
             Los Angeles battles huge wildfires.
-            <span />
           </li>
         </ul>
       </div>
@@ -2751,31 +2682,26 @@ Array [
             class="ant-list-item"
           >
             Racing car sprays burning fuel into crowd.
-            <span />
           </li>
           <li
             class="ant-list-item"
           >
             Japanese princess to wed commoner.
-            <span />
           </li>
           <li
             class="ant-list-item"
           >
             Australian walks 100km after outback crash.
-            <span />
           </li>
           <li
             class="ant-list-item"
           >
             Man charged over missing wedding girl.
-            <span />
           </li>
           <li
             class="ant-list-item"
           >
             Los Angeles battles huge wildfires.
-            <span />
           </li>
         </ul>
       </div>

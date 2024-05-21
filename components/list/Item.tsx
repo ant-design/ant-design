@@ -128,9 +128,10 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
         : [
             children,
             actionsContent,
-            <span key="extra" style={styles?.extra}>
-              {cloneElement(extra)}
-            </span>,
+            cloneElement(typeof extra === 'string' ? <span>{extra}</span> : extra, {
+              key: 'extra',
+              style: styles?.extra,
+            }),
           ]}
     </Element>
   );

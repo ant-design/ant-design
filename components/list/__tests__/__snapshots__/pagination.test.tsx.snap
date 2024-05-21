@@ -110,13 +110,11 @@ exports[`List.pagination renders pagination correctly 1`] = `
           class="ant-list-item ant-list-item-no-flex"
         >
           Jack
-          <span />
         </li>
         <li
           class="ant-list-item ant-list-item-no-flex"
         >
           Lucy
-          <span />
         </li>
       </ul>
     </div>
