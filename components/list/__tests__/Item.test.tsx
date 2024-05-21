@@ -246,4 +246,20 @@ describe('List Item Layout', () => {
     const title = container.querySelector('.ant-list-item-meta-title');
     expect(title && getComputedStyle(title).margin).toEqual('0px 0px 4px 0px');
   });
+
+  it('List.Item', () => {
+    const { container } = render(
+      <List
+        itemLayout="vertical"
+        dataSource={[{ id: 1, title: `ant design` }]}
+        renderItem={(item) => (
+          <List.Item extra="extra" styles={{ extra: { color: 'red' } }}>
+            {item.title}
+          </List.Item>
+        )}
+      />,
+    );
+
+    expect(container.querySelector('.ant-list-item-extra')!).toHaveStyle('color: red');
+  });
 });

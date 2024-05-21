@@ -82,6 +82,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAA
 | --- | --- | --- | --- | --- |
 | actions | 列表操作组，根据 `itemLayout` 的不同，位置在卡片底部或者最右侧 | Array&lt;ReactNode> | - |  |
 | extra | 额外内容，通常用在 `itemLayout` 为 `vertical` 的情况下，展示右侧内容; `horizontal` 展示在列表元素最右侧 | ReactNode | - |  |
+| styles | `itemLayout = vertical` 时生效，语义化结构 style | `Record<extra , CSSProperties>` | - | 5.18.0 |
 
 ### List.Item.Meta
 
