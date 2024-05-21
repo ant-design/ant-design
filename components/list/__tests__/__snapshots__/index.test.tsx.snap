@@ -67,5 +67,7 @@ exports[`List rtl render component should be rendered correctly in RTL direction
 exports[`List rtl render component should be rendered correctly in RTL direction 2`] = `
 <li
   class="ant-list-item"
-/>
+>
+  <span />
+</li>
 `;

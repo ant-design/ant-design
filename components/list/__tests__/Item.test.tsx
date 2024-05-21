@@ -247,19 +247,28 @@ describe('List Item Layout', () => {
     expect(title && getComputedStyle(title).margin).toEqual('0px 0px 4px 0px');
   });
 
-  it('List.Item', () => {
-    const { container } = render(
-      <List
-        itemLayout="vertical"
-        dataSource={[{ id: 1, title: `ant design` }]}
-        renderItem={(item) => (
-          <List.Item extra="extra" styles={{ extra: { color: 'red' } }}>
-            {item.title}
-          </List.Item>
-        )}
-      />,
+  it('List.Item support styles', () => {
+    const dataSource = [{ id: 1, title: `ant design` }];
+    const getItem = (item: any) => (
+      <List.Item
+        extra="extra"
+        actions={['actions']}
+        styles={{ extra: { color: 'red' }, actions: { color: 'blue' } }}
+      >
+        {item.title}
+      </List.Item>
+    );
+
+    const { container, rerender } = render(
+      <List itemLayout="vertical" dataSource={dataSource} renderItem={(item) => getItem(item)} />,
     );
 
     expect(container.querySelector('.ant-list-item-extra')!).toHaveStyle('color: red');
+    expect(container.querySelector('.ant-list-item-action')!).toHaveStyle('color: blue');
+
+    rerender(<List dataSource={dataSource} renderItem={(item) => getItem(item)} />);
+
+    expect(container.querySelector('span')!).toHaveStyle('color: red');
+    expect(container.querySelector('.ant-list-item-action')!).toHaveStyle('color: blue');
   });
 });
