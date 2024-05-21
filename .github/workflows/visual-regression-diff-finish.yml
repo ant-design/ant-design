@@ -140,3 +140,30 @@ jobs:
             <!-- VISUAL_DIFF_REGRESSION_HOOK -->
           body-include: '<!-- VISUAL_DIFF_REGRESSION_HOOK -->'
           number: ${{ steps.pr.outputs.id }}
+
+      # Update PR description with updated time: `snapshot:[TIMESTAMP]`
+      - name: Update timestamp
+        if: ${{ always() }}
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const timestamp = Date.now();
+
+            const prNumber = ${{ steps.pr.outputs.id }};
+            const { data } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: prNumber
+            });
+            const { body: currentBody } = data;
+
+            let newBody = currentBody.replace(/<!-- timestamp:[^>]-->/, '').trim();
+            newBody = newBody + `\n\n<!-- timestamp: ${timestamp} -->`;
+
+            github.rest.pulls.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: prNumber,
+              body: newBody
+            });
