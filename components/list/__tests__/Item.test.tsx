@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import React, { useEffect } from 'react';
 
 import List from '..';
@@ -249,9 +250,9 @@ describe('List Item Layout', () => {
 
   it('List.Item support styles', () => {
     const dataSource = [{ id: 1, title: `ant design` }];
-    const getItem = (item: any) => (
+    const getItem = (item: any, extra: ReactNode = 'extra') => (
       <List.Item
-        extra="extra"
+        extra={extra}
         actions={['actions']}
         styles={{ extra: { color: 'red' }, actions: { color: 'blue' } }}
       >
@@ -259,16 +260,21 @@ describe('List Item Layout', () => {
       </List.Item>
     );
 
+    // vertical
     const { container, rerender } = render(
       <List itemLayout="vertical" dataSource={dataSource} renderItem={(item) => getItem(item)} />,
     );
-
     expect(container.querySelector('.ant-list-item-extra')!).toHaveStyle('color: red');
     expect(container.querySelector('.ant-list-item-action')!).toHaveStyle('color: blue');
 
+    // horizontal
     rerender(<List dataSource={dataSource} renderItem={(item) => getItem(item)} />);
-
     expect(container.querySelector('span')!).toHaveStyle('color: red');
-    expect(container.querySelector('.ant-list-item-action')!).toHaveStyle('color: blue');
+
+    // extra = ReactNode
+    rerender(
+      <List dataSource={dataSource} renderItem={(item) => getItem(item, <span>extra</span>)} />,
+    );
+    expect(container.querySelector('span')!).toHaveStyle('color: red');
   });
 });

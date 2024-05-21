@@ -48,9 +48,7 @@ exports[`List Item Layout horizontal itemLayout List should accept extra node 1`
             </li>
           </ul>
           <span>
-            <span>
-              extra
-            </span>
+            extra
           </span>
         </li>
       </ul>
@@ -76,19 +74,16 @@ exports[`List Item Layout rowKey could be function 1`] = `
           class="ant-list-item"
         >
           ant design
-          <span />
         </li>
         <li
           class="ant-list-item"
         >
           ant design
-          <span />
         </li>
         <li
           class="ant-list-item"
         >
           ant design
-          <span />
         </li>
       </ul>
     </div>
@@ -113,19 +108,16 @@ exports[`List Item Layout rowKey could be string 1`] = `
           class="ant-list-item"
         >
           ant design
-          <span />
         </li>
         <li
           class="ant-list-item"
         >
           ant design
-          <span />
         </li>
         <li
           class="ant-list-item"
         >
           ant design
-          <span />
         </li>
       </ul>
     </div>
@@ -181,9 +173,7 @@ exports[`List Item Layout should render in RTL direction 1`] = `
             </li>
           </ul>
           <span>
-            <span>
-              extra
-            </span>
+            extra
           </span>
         </li>
       </ul>
