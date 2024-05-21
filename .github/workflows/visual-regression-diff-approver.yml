@@ -14,6 +14,7 @@ jobs:
   approval:
     permissions:
       pull-requests: write
+      statuses: write  # Allow to modfiy commit status
     name: Check Virtual Regression Approval
     if: github.event.issue.pull_request != ''
     runs-on: ubuntu-latest
