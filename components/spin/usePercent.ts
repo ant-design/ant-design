@@ -12,7 +12,7 @@ export default function usePercent(
   percent?: number | 'auto',
 ): number | undefined {
   const [mockPercent, setMockPercent] = React.useState(0);
-  const mockIntervalRef = React.useRef<NodeJS.Timeout>();
+  const mockIntervalRef = React.useRef<ReturnType<typeof setInterval>>();
 
   const isAuto = percent === 'auto';
 
