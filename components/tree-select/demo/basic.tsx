@@ -1,4 +1,4 @@
-import type { SyntheticEvent } from 'react';
+import type { UIEvent } from 'react';
 import React, { useState } from 'react';
 import { TreeSelect } from 'antd';
 
@@ -57,7 +57,7 @@ const App: React.FC = () => {
     setValue(newValue);
   };
 
-  const onPopupScroll = (e: SyntheticEvent) => {
+  const onPopupScroll = (e: UIEvent) => {
     console.log('onPopupScroll', e);
   };
 
