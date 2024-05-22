@@ -1,6 +1,5 @@
-import type { UIEvent } from 'react';
 import React, { useState } from 'react';
-import { TreeSelect } from 'antd';
+import { TreeSelect, type TreeSelectProps } from 'antd';
 
 const treeData = [
   {
@@ -57,7 +56,7 @@ const App: React.FC = () => {
     setValue(newValue);
   };
 
-  const onPopupScroll = (e: UIEvent) => {
+  const onPopupScroll: TreeSelectProps['onPopupScroll'] = (e) => {
     console.log('onPopupScroll', e);
   };
 
