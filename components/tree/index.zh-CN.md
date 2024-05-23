@@ -65,8 +65,8 @@ demo:
 | rootStyle | 添加在 Tree 最外层的 style | CSSProperties | - | 4.20.0 |
 | selectable | 是否可选中 | boolean | true |  |
 | selectedKeys | （受控）设置选中的树节点，多选需设置 `multiple` 为 true | string\[] | - |  |
-| icon | 在标题之前插入自定义图标。 | ReactNode \| (props) => ReactNode | - |  |
-| showIcon | 是否展示 `icon` 节点，没有默认样式，如设置为 true，需要配置 `icon` 属性 | boolean | false |  |
+| icon | 在标题之前插入自定义图标。需要设置 `showIcon` 为 true | ReactNode \| (props) => ReactNode | - |  |
+| showIcon | 控制是否展示 `icon` 节点，没有默认样式 | boolean | false |  |
 | switcherIcon | 自定义树节点的展开/折叠图标（带有默认样式） | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 |
 | showLine | 是否展示连接线 | boolean \| { showLeafIcon: ReactNode \| ((props: AntTreeNodeProps) => ReactNode) } | false |  |
 | titleRender | 自定义渲染节点 | (nodeData) => ReactNode | - | 4.5.0 |

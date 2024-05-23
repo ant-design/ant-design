@@ -63,8 +63,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | rootStyle | Style on the root element | CSSProperties | - | 4.20.0 |
 | selectable | Whether can be selected | boolean | true |  |
 | selectedKeys | (Controlled) Specifies the keys of the selected treeNodes, multiple selection needs to set `multiple` to true | string\[] | - |  |
-| icon | Insert a custom icon before the title. | ReactNode \| (props) => ReactNode | - |  |
-| showIcon | Controls whether the `icon` node is displayed or not, and has no default style. If set to true, you need to configure the `icon` attribute | boolean | false |  |
+| icon | Insert a custom icon before the title. Need to set `showIcon` to true | ReactNode \| (props) => ReactNode | - |  |
+| showIcon | Controls whether to display the `icon` node, no default style | boolean | false |  |
 | switcherIcon | Customize expand/collapse icons for tree nodes (with default styles) | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 |
 | showLine | Shows a connecting line | boolean \| {showLeafIcon: ReactNode \| ((props: AntTreeNodeProps) => ReactNode)} | false |  |
 | titleRender | Customize tree node title render | (nodeData) => ReactNode | - | 4.5.0 |
