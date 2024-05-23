@@ -32,7 +32,7 @@ const App: React.FC = () => {
   return (
     <>
       <Form
-        name="basic"
+        name="col-24-debug"
         labelCol={{ span: 24 }}
         wrapperCol={{ span: 24 }}
         initialValues={{ remember: true }}

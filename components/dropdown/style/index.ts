@@ -366,4 +366,5 @@ export default genStyleHooks(
     return [genBaseStyle(dropdownToken), genStatusStyle(dropdownToken)];
   },
   prepareComponentToken,
+  { resetStyle: false },
 );

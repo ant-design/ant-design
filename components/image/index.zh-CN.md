@@ -135,7 +135,8 @@ type TransformAction =
   | 'wheel'
   | 'doubleClick'
   | 'move'
-  | 'dragRebound';
+  | 'dragRebound'
+  | 'reset';
 ```
 
 ### ToolbarRenderInfoType
@@ -157,6 +158,8 @@ type TransformAction =
     onRotateRight: () => void;
     onZoomOut: () => void;
     onZoomIn: () => void;
+    onReset: () => void; // 5.17.3 之后支持
+    onClose: () => void;
   };
   transform: TransformType,
   current: number;
