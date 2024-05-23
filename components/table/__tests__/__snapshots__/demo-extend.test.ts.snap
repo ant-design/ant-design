@@ -2041,168 +2041,147 @@ Array [
                           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                         >
                           <div
-                            class="ant-table-filter-dropdown"
+                            data-focus-guard="true"
+                            style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                            tabindex="0"
+                          />
+                          <div
+                            data-focus-lock-disabled="false"
                           >
-                            <ul
-                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
-                              data-menu-list="true"
-                              role="menu"
-                              tabindex="0"
-                            >
-                              <li
-                                class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-test-London"
-                                role="menuitem"
-                                tabindex="-1"
-                              >
-                                <span
-                                  class="ant-dropdown-menu-title-content"
-                                >
-                                  <label
-                                    class="ant-checkbox-wrapper"
-                                  >
-                                    <span
-                                      class="ant-checkbox ant-wave-target"
-                                    >
-                                      <input
-                                        class="ant-checkbox-input"
-                                        type="checkbox"
-                                      />
-                                      <span
-                                        class="ant-checkbox-inner"
-                                      />
-                                    </span>
-                                  </label>
-                                  <span>
-                                    London
-                                  </span>
-                                </span>
-                              </li>
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
-                              <li
-                                class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-test-New York"
-                                role="menuitem"
-                                tabindex="-1"
-                              >
-                                <span
-                                  class="ant-dropdown-menu-title-content"
-                                >
-                                  <label
-                                    class="ant-checkbox-wrapper"
-                                  >
-                                    <span
-                                      class="ant-checkbox ant-wave-target"
-                                    >
-                                      <input
-                                        class="ant-checkbox-input"
-                                        type="checkbox"
-                                      />
-                                      <span
-                                        class="ant-checkbox-inner"
-                                      />
-                                    </span>
-                                  </label>
-                                  <span>
-                                    New York
-                                  </span>
-                                </span>
-                              </li>
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
-                            </ul>
                             <div
-                              aria-hidden="true"
-                              style="display: none;"
+                              class="ant-table-filter-dropdown"
                             >
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                              <ul
+                                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
+                                data-menu-list="true"
+                                role="menu"
+                                tabindex="0"
                               >
+                                <li
+                                  class="ant-dropdown-menu-item"
+                                  data-menu-id="rc-menu-uuid-test-London"
+                                  role="menuitem"
+                                  tabindex="-1"
+                                >
+                                  <span
+                                    class="ant-dropdown-menu-title-content"
+                                  >
+                                    <label
+                                      class="ant-checkbox-wrapper"
+                                    >
+                                      <span
+                                        class="ant-checkbox ant-wave-target"
+                                      >
+                                        <input
+                                          class="ant-checkbox-input"
+                                          type="checkbox"
+                                        />
+                                        <span
+                                          class="ant-checkbox-inner"
+                                        />
+                                      </span>
+                                    </label>
+                                    <span>
+                                      London
+                                    </span>
+                                  </span>
+                                </li>
                                 <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
+                                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                 >
                                   <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
+                                    class="ant-tooltip-arrow"
+                                    style="position: absolute; top: 0px; left: 0px;"
                                   />
+                                  <div
+                                    class="ant-tooltip-content"
+                                  >
+                                    <div
+                                      class="ant-tooltip-inner"
+                                      role="tooltip"
+                                    />
+                                  </div>
                                 </div>
-                              </div>
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                              >
+                                <li
+                                  class="ant-dropdown-menu-item"
+                                  data-menu-id="rc-menu-uuid-test-New York"
+                                  role="menuitem"
+                                  tabindex="-1"
+                                >
+                                  <span
+                                    class="ant-dropdown-menu-title-content"
+                                  >
+                                    <label
+                                      class="ant-checkbox-wrapper"
+                                    >
+                                      <span
+                                        class="ant-checkbox ant-wave-target"
+                                      >
+                                        <input
+                                          class="ant-checkbox-input"
+                                          type="checkbox"
+                                        />
+                                        <span
+                                          class="ant-checkbox-inner"
+                                        />
+                                      </span>
+                                    </label>
+                                    <span>
+                                      New York
+                                    </span>
+                                  </span>
+                                </li>
                                 <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
+                                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                 >
                                   <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
+                                    class="ant-tooltip-arrow"
+                                    style="position: absolute; top: 0px; left: 0px;"
                                   />
+                                  <div
+                                    class="ant-tooltip-content"
+                                  >
+                                    <div
+                                      class="ant-tooltip-inner"
+                                      role="tooltip"
+                                    />
+                                  </div>
                                 </div>
+                              </ul>
+                              <div
+                                aria-hidden="true"
+                                style="display: none;"
+                              />
+                              <div
+                                class="ant-table-filter-dropdown-btns"
+                              >
+                                <button
+                                  class="ant-btn ant-btn-link ant-btn-sm"
+                                  disabled=""
+                                  type="button"
+                                >
+                                  <span>
+                                    Reset
+                                  </span>
+                                </button>
+                                <button
+                                  class="ant-btn ant-btn-primary ant-btn-sm"
+                                  type="button"
+                                >
+                                  <span>
+                                    OK
+                                  </span>
+                                </button>
                               </div>
-                            </div>
-                            <div
-                              class="ant-table-filter-dropdown-btns"
-                            >
-                              <button
-                                class="ant-btn ant-btn-link ant-btn-sm"
-                                disabled=""
-                                type="button"
-                              >
-                                <span>
-                                  Reset
-                                </span>
-                              </button>
-                              <button
-                                class="ant-btn ant-btn-primary ant-btn-sm"
-                                type="button"
-                              >
-                                <span>
-                                  OK
-                                </span>
-                              </button>
                             </div>
                           </div>
+                          <div
+                            data-focus-guard="true"
+                            style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                            tabindex="0"
+                          />
                         </div>
                       </div>
                     </th>
@@ -6247,168 +6226,147 @@ Array [
                           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                         >
                           <div
-                            class="ant-table-filter-dropdown"
+                            data-focus-guard="true"
+                            style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                            tabindex="0"
+                          />
+                          <div
+                            data-focus-lock-disabled="false"
                           >
-                            <ul
-                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
-                              data-menu-list="true"
-                              role="menu"
-                              tabindex="0"
-                            >
-                              <li
-                                class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-test-London"
-                                role="menuitem"
-                                tabindex="-1"
-                              >
-                                <span
-                                  class="ant-dropdown-menu-title-content"
-                                >
-                                  <label
-                                    class="ant-checkbox-wrapper"
-                                  >
-                                    <span
-                                      class="ant-checkbox ant-wave-target"
-                                    >
-                                      <input
-                                        class="ant-checkbox-input"
-                                        type="checkbox"
-                                      />
-                                      <span
-                                        class="ant-checkbox-inner"
-                                      />
-                                    </span>
-                                  </label>
-                                  <span>
-                                    London
-                                  </span>
-                                </span>
-                              </li>
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
-                              <li
-                                class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-test-New York"
-                                role="menuitem"
-                                tabindex="-1"
-                              >
-                                <span
-                                  class="ant-dropdown-menu-title-content"
-                                >
-                                  <label
-                                    class="ant-checkbox-wrapper"
-                                  >
-                                    <span
-                                      class="ant-checkbox ant-wave-target"
-                                    >
-                                      <input
-                                        class="ant-checkbox-input"
-                                        type="checkbox"
-                                      />
-                                      <span
-                                        class="ant-checkbox-inner"
-                                      />
-                                    </span>
-                                  </label>
-                                  <span>
-                                    New York
-                                  </span>
-                                </span>
-                              </li>
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
-                            </ul>
                             <div
-                              aria-hidden="true"
-                              style="display: none;"
+                              class="ant-table-filter-dropdown"
                             >
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                              <ul
+                                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
+                                data-menu-list="true"
+                                role="menu"
+                                tabindex="0"
                               >
+                                <li
+                                  class="ant-dropdown-menu-item"
+                                  data-menu-id="rc-menu-uuid-test-London"
+                                  role="menuitem"
+                                  tabindex="-1"
+                                >
+                                  <span
+                                    class="ant-dropdown-menu-title-content"
+                                  >
+                                    <label
+                                      class="ant-checkbox-wrapper"
+                                    >
+                                      <span
+                                        class="ant-checkbox ant-wave-target"
+                                      >
+                                        <input
+                                          class="ant-checkbox-input"
+                                          type="checkbox"
+                                        />
+                                        <span
+                                          class="ant-checkbox-inner"
+                                        />
+                                      </span>
+                                    </label>
+                                    <span>
+                                      London
+                                    </span>
+                                  </span>
+                                </li>
                                 <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
+                                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                 >
                                   <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
+                                    class="ant-tooltip-arrow"
+                                    style="position: absolute; top: 0px; left: 0px;"
                                   />
+                                  <div
+                                    class="ant-tooltip-content"
+                                  >
+                                    <div
+                                      class="ant-tooltip-inner"
+                                      role="tooltip"
+                                    />
+                                  </div>
                                 </div>
-                              </div>
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                              >
+                                <li
+                                  class="ant-dropdown-menu-item"
+                                  data-menu-id="rc-menu-uuid-test-New York"
+                                  role="menuitem"
+                                  tabindex="-1"
+                                >
+                                  <span
+                                    class="ant-dropdown-menu-title-content"
+                                  >
+                                    <label
+                                      class="ant-checkbox-wrapper"
+                                    >
+                                      <span
+                                        class="ant-checkbox ant-wave-target"
+                                      >
+                                        <input
+                                          class="ant-checkbox-input"
+                                          type="checkbox"
+                                        />
+                                        <span
+                                          class="ant-checkbox-inner"
+                                        />
+                                      </span>
+                                    </label>
+                                    <span>
+                                      New York
+                                    </span>
+                                  </span>
+                                </li>
                                 <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
+                                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                 >
                                   <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
+                                    class="ant-tooltip-arrow"
+                                    style="position: absolute; top: 0px; left: 0px;"
                                   />
+                                  <div
+                                    class="ant-tooltip-content"
+                                  >
+                                    <div
+                                      class="ant-tooltip-inner"
+                                      role="tooltip"
+                                    />
+                                  </div>
                                 </div>
+                              </ul>
+                              <div
+                                aria-hidden="true"
+                                style="display: none;"
+                              />
+                              <div
+                                class="ant-table-filter-dropdown-btns"
+                              >
+                                <button
+                                  class="ant-btn ant-btn-link ant-btn-sm"
+                                  disabled=""
+                                  type="button"
+                                >
+                                  <span>
+                                    Reset
+                                  </span>
+                                </button>
+                                <button
+                                  class="ant-btn ant-btn-primary ant-btn-sm"
+                                  type="button"
+                                >
+                                  <span>
+                                    OK
+                                  </span>
+                                </button>
                               </div>
-                            </div>
-                            <div
-                              class="ant-table-filter-dropdown-btns"
-                            >
-                              <button
-                                class="ant-btn ant-btn-link ant-btn-sm"
-                                disabled=""
-                                type="button"
-                              >
-                                <span>
-                                  Reset
-                                </span>
-                              </button>
-                              <button
-                                class="ant-btn ant-btn-primary ant-btn-sm"
-                                type="button"
-                              >
-                                <span>
-                                  OK
-                                </span>
-                              </button>
                             </div>
                           </div>
+                          <div
+                            data-focus-guard="true"
+                            style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                            tabindex="0"
+                          />
                         </div>
                       </div>
                     </th>
@@ -10449,206 +10407,185 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
-                          class="ant-table-filter-dropdown"
+                          data-focus-guard="true"
+                          style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                          tabindex="0"
+                        />
+                        <div
+                          data-focus-lock-disabled="false"
                         >
                           <div
-                            class="ant-table-filter-dropdown-search"
+                            class="ant-table-filter-dropdown"
                           >
-                            <span
-                              class="ant-input-affix-wrapper ant-input-outlined ant-table-filter-dropdown-search-input"
+                            <div
+                              class="ant-table-filter-dropdown-search"
                             >
                               <span
-                                class="ant-input-prefix"
+                                class="ant-input-affix-wrapper ant-input-outlined ant-table-filter-dropdown-search-input"
                               >
                                 <span
-                                  aria-label="search"
-                                  class="anticon anticon-search"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="search"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                                    />
-                                  </svg>
-                                </span>
-                              </span>
-                              <input
-                                class="ant-input"
-                                placeholder="Search in filters"
-                                size="1"
-                                type="text"
-                                value=""
-                              />
-                            </span>
-                          </div>
-                          <ul
-                            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
-                            data-menu-list="true"
-                            role="menu"
-                            tabindex="0"
-                          >
-                            <li
-                              class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-test-London"
-                              role="menuitem"
-                              tabindex="-1"
-                            >
-                              <span
-                                class="ant-dropdown-menu-title-content"
-                              >
-                                <label
-                                  class="ant-checkbox-wrapper"
+                                  class="ant-input-prefix"
                                 >
                                   <span
-                                    class="ant-checkbox ant-wave-target"
+                                    aria-label="search"
+                                    class="anticon anticon-search"
+                                    role="img"
                                   >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="search"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                                      />
+                                    </svg>
                                   </span>
-                                </label>
-                                <span>
-                                  London
                                 </span>
-                              </span>
-                            </li>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
+                                <input
+                                  class="ant-input"
+                                  placeholder="Search in filters"
+                                  size="1"
+                                  type="text"
+                                  value=""
                                 />
-                              </div>
+                              </span>
                             </div>
-                            <li
-                              class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-test-New York"
-                              role="menuitem"
-                              tabindex="-1"
+                            <ul
+                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
+                              data-menu-list="true"
+                              role="menu"
+                              tabindex="0"
                             >
-                              <span
-                                class="ant-dropdown-menu-title-content"
+                              <li
+                                class="ant-dropdown-menu-item"
+                                data-menu-id="rc-menu-uuid-test-London"
+                                role="menuitem"
+                                tabindex="-1"
                               >
-                                <label
-                                  class="ant-checkbox-wrapper"
+                                <span
+                                  class="ant-dropdown-menu-title-content"
                                 >
-                                  <span
-                                    class="ant-checkbox ant-wave-target"
+                                  <label
+                                    class="ant-checkbox-wrapper"
                                   >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
                                     <span
-                                      class="ant-checkbox-inner"
-                                    />
+                                      class="ant-checkbox ant-wave-target"
+                                    >
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    London
                                   </span>
-                                </label>
-                                <span>
-                                  New York
                                 </span>
-                              </span>
-                            </li>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
+                              </li>
                               <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
+                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                               >
                                 <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
+                                  class="ant-tooltip-arrow"
+                                  style="position: absolute; top: 0px; left: 0px;"
                                 />
+                                <div
+                                  class="ant-tooltip-content"
+                                >
+                                  <div
+                                    class="ant-tooltip-inner"
+                                    role="tooltip"
+                                  />
+                                </div>
                               </div>
-                            </div>
-                          </ul>
-                          <div
-                            aria-hidden="true"
-                            style="display: none;"
-                          >
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
+                              <li
+                                class="ant-dropdown-menu-item"
+                                data-menu-id="rc-menu-uuid-test-New York"
+                                role="menuitem"
+                                tabindex="-1"
+                              >
+                                <span
+                                  class="ant-dropdown-menu-title-content"
+                                >
+                                  <label
+                                    class="ant-checkbox-wrapper"
+                                  >
+                                    <span
+                                      class="ant-checkbox ant-wave-target"
+                                    >
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    New York
+                                  </span>
+                                </span>
+                              </li>
                               <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
+                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                               >
                                 <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
+                                  class="ant-tooltip-arrow"
+                                  style="position: absolute; top: 0px; left: 0px;"
                                 />
-                              </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
                                 <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
+                                  class="ant-tooltip-content"
+                                >
+                                  <div
+                                    class="ant-tooltip-inner"
+                                    role="tooltip"
+                                  />
+                                </div>
                               </div>
+                            </ul>
+                            <div
+                              aria-hidden="true"
+                              style="display: none;"
+                            />
+                            <div
+                              class="ant-table-filter-dropdown-btns"
+                            >
+                              <button
+                                class="ant-btn ant-btn-link ant-btn-sm"
+                                disabled=""
+                                type="button"
+                              >
+                                <span>
+                                  Reset
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary ant-btn-sm"
+                                type="button"
+                              >
+                                <span>
+                                  OK
+                                </span>
+                              </button>
                             </div>
-                          </div>
-                          <div
-                            class="ant-table-filter-dropdown-btns"
-                          >
-                            <button
-                              class="ant-btn ant-btn-link ant-btn-sm"
-                              disabled=""
-                              type="button"
-                            >
-                              <span>
-                                Reset
-                              </span>
-                            </button>
-                            <button
-                              class="ant-btn ant-btn-primary ant-btn-sm"
-                              type="button"
-                            >
-                              <span>
-                                OK
-                              </span>
-                            </button>
                           </div>
                         </div>
+                        <div
+                          data-focus-guard="true"
+                          style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                          tabindex="0"
+                        />
                       </div>
                     </div>
                   </th>
@@ -11262,206 +11199,185 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
-                          class="ant-table-filter-dropdown"
+                          data-focus-guard="true"
+                          style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                          tabindex="0"
+                        />
+                        <div
+                          data-focus-lock-disabled="false"
                         >
                           <div
-                            class="ant-table-filter-dropdown-search"
+                            class="ant-table-filter-dropdown"
                           >
-                            <span
-                              class="ant-input-affix-wrapper ant-input-outlined ant-table-filter-dropdown-search-input"
+                            <div
+                              class="ant-table-filter-dropdown-search"
                             >
                               <span
-                                class="ant-input-prefix"
+                                class="ant-input-affix-wrapper ant-input-outlined ant-table-filter-dropdown-search-input"
                               >
                                 <span
-                                  aria-label="search"
-                                  class="anticon anticon-search"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="search"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                                    />
-                                  </svg>
-                                </span>
-                              </span>
-                              <input
-                                class="ant-input"
-                                placeholder="Search in filters"
-                                size="1"
-                                type="text"
-                                value=""
-                              />
-                            </span>
-                          </div>
-                          <ul
-                            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
-                            data-menu-list="true"
-                            role="menu"
-                            tabindex="0"
-                          >
-                            <li
-                              class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-test-London"
-                              role="menuitem"
-                              tabindex="-1"
-                            >
-                              <span
-                                class="ant-dropdown-menu-title-content"
-                              >
-                                <label
-                                  class="ant-checkbox-wrapper"
+                                  class="ant-input-prefix"
                                 >
                                   <span
-                                    class="ant-checkbox ant-wave-target"
+                                    aria-label="search"
+                                    class="anticon anticon-search"
+                                    role="img"
                                   >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="search"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                                      />
+                                    </svg>
                                   </span>
-                                </label>
-                                <span>
-                                  London
                                 </span>
-                              </span>
-                            </li>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
+                                <input
+                                  class="ant-input"
+                                  placeholder="Search in filters"
+                                  size="1"
+                                  type="text"
+                                  value=""
                                 />
-                              </div>
+                              </span>
                             </div>
-                            <li
-                              class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-test-New York"
-                              role="menuitem"
-                              tabindex="-1"
+                            <ul
+                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
+                              data-menu-list="true"
+                              role="menu"
+                              tabindex="0"
                             >
-                              <span
-                                class="ant-dropdown-menu-title-content"
+                              <li
+                                class="ant-dropdown-menu-item"
+                                data-menu-id="rc-menu-uuid-test-London"
+                                role="menuitem"
+                                tabindex="-1"
                               >
-                                <label
-                                  class="ant-checkbox-wrapper"
+                                <span
+                                  class="ant-dropdown-menu-title-content"
                                 >
-                                  <span
-                                    class="ant-checkbox ant-wave-target"
+                                  <label
+                                    class="ant-checkbox-wrapper"
                                   >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
                                     <span
-                                      class="ant-checkbox-inner"
-                                    />
+                                      class="ant-checkbox ant-wave-target"
+                                    >
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    London
                                   </span>
-                                </label>
-                                <span>
-                                  New York
                                 </span>
-                              </span>
-                            </li>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
+                              </li>
                               <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
+                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                               >
                                 <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
+                                  class="ant-tooltip-arrow"
+                                  style="position: absolute; top: 0px; left: 0px;"
                                 />
+                                <div
+                                  class="ant-tooltip-content"
+                                >
+                                  <div
+                                    class="ant-tooltip-inner"
+                                    role="tooltip"
+                                  />
+                                </div>
                               </div>
-                            </div>
-                          </ul>
-                          <div
-                            aria-hidden="true"
-                            style="display: none;"
-                          >
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
+                              <li
+                                class="ant-dropdown-menu-item"
+                                data-menu-id="rc-menu-uuid-test-New York"
+                                role="menuitem"
+                                tabindex="-1"
+                              >
+                                <span
+                                  class="ant-dropdown-menu-title-content"
+                                >
+                                  <label
+                                    class="ant-checkbox-wrapper"
+                                  >
+                                    <span
+                                      class="ant-checkbox ant-wave-target"
+                                    >
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    New York
+                                  </span>
+                                </span>
+                              </li>
                               <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
+                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                               >
                                 <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
+                                  class="ant-tooltip-arrow"
+                                  style="position: absolute; top: 0px; left: 0px;"
                                 />
-                              </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
                                 <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
+                                  class="ant-tooltip-content"
+                                >
+                                  <div
+                                    class="ant-tooltip-inner"
+                                    role="tooltip"
+                                  />
+                                </div>
                               </div>
+                            </ul>
+                            <div
+                              aria-hidden="true"
+                              style="display: none;"
+                            />
+                            <div
+                              class="ant-table-filter-dropdown-btns"
+                            >
+                              <button
+                                class="ant-btn ant-btn-link ant-btn-sm"
+                                disabled=""
+                                type="button"
+                              >
+                                <span>
+                                  Reset
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary ant-btn-sm"
+                                type="button"
+                              >
+                                <span>
+                                  OK
+                                </span>
+                              </button>
                             </div>
-                          </div>
-                          <div
-                            class="ant-table-filter-dropdown-btns"
-                          >
-                            <button
-                              class="ant-btn ant-btn-link ant-btn-sm"
-                              disabled=""
-                              type="button"
-                            >
-                              <span>
-                                Reset
-                              </span>
-                            </button>
-                            <button
-                              class="ant-btn ant-btn-primary ant-btn-sm"
-                              type="button"
-                            >
-                              <span>
-                                OK
-                              </span>
-                            </button>
                           </div>
                         </div>
+                        <div
+                          data-focus-guard="true"
+                          style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                          tabindex="0"
+                        />
                       </div>
                     </div>
                   </th>
@@ -15167,168 +15083,147 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
-                          class="ant-table-filter-dropdown"
+                          data-focus-guard="true"
+                          style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                          tabindex="0"
+                        />
+                        <div
+                          data-focus-lock-disabled="false"
                         >
-                          <ul
-                            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
-                            data-menu-list="true"
-                            role="menu"
-                            tabindex="0"
-                          >
-                            <li
-                              class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-test-Joe"
-                              role="menuitem"
-                              tabindex="-1"
-                            >
-                              <span
-                                class="ant-dropdown-menu-title-content"
-                              >
-                                <label
-                                  class="ant-checkbox-wrapper"
-                                >
-                                  <span
-                                    class="ant-checkbox ant-wave-target"
-                                  >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                                <span>
-                                  Joe
-                                </span>
-                              </span>
-                            </li>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <li
-                              class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-test-John"
-                              role="menuitem"
-                              tabindex="-1"
-                            >
-                              <span
-                                class="ant-dropdown-menu-title-content"
-                              >
-                                <label
-                                  class="ant-checkbox-wrapper"
-                                >
-                                  <span
-                                    class="ant-checkbox ant-wave-target"
-                                  >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                                <span>
-                                  John
-                                </span>
-                              </span>
-                            </li>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                          </ul>
                           <div
-                            aria-hidden="true"
-                            style="display: none;"
+                            class="ant-table-filter-dropdown"
                           >
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                            <ul
+                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
+                              data-menu-list="true"
+                              role="menu"
+                              tabindex="0"
                             >
+                              <li
+                                class="ant-dropdown-menu-item"
+                                data-menu-id="rc-menu-uuid-test-Joe"
+                                role="menuitem"
+                                tabindex="-1"
+                              >
+                                <span
+                                  class="ant-dropdown-menu-title-content"
+                                >
+                                  <label
+                                    class="ant-checkbox-wrapper"
+                                  >
+                                    <span
+                                      class="ant-checkbox ant-wave-target"
+                                    >
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    Joe
+                                  </span>
+                                </span>
+                              </li>
                               <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
+                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                               >
                                 <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
+                                  class="ant-tooltip-arrow"
+                                  style="position: absolute; top: 0px; left: 0px;"
                                 />
+                                <div
+                                  class="ant-tooltip-content"
+                                >
+                                  <div
+                                    class="ant-tooltip-inner"
+                                    role="tooltip"
+                                  />
+                                </div>
                               </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
+                              <li
+                                class="ant-dropdown-menu-item"
+                                data-menu-id="rc-menu-uuid-test-John"
+                                role="menuitem"
+                                tabindex="-1"
+                              >
+                                <span
+                                  class="ant-dropdown-menu-title-content"
+                                >
+                                  <label
+                                    class="ant-checkbox-wrapper"
+                                  >
+                                    <span
+                                      class="ant-checkbox ant-wave-target"
+                                    >
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    John
+                                  </span>
+                                </span>
+                              </li>
                               <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
+                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                               >
                                 <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
+                                  class="ant-tooltip-arrow"
+                                  style="position: absolute; top: 0px; left: 0px;"
                                 />
+                                <div
+                                  class="ant-tooltip-content"
+                                >
+                                  <div
+                                    class="ant-tooltip-inner"
+                                    role="tooltip"
+                                  />
+                                </div>
                               </div>
+                            </ul>
+                            <div
+                              aria-hidden="true"
+                              style="display: none;"
+                            />
+                            <div
+                              class="ant-table-filter-dropdown-btns"
+                            >
+                              <button
+                                class="ant-btn ant-btn-link ant-btn-sm"
+                                disabled=""
+                                type="button"
+                              >
+                                <span>
+                                  Reset
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary ant-btn-sm"
+                                type="button"
+                              >
+                                <span>
+                                  OK
+                                </span>
+                              </button>
                             </div>
-                          </div>
-                          <div
-                            class="ant-table-filter-dropdown-btns"
-                          >
-                            <button
-                              class="ant-btn ant-btn-link ant-btn-sm"
-                              disabled=""
-                              type="button"
-                            >
-                              <span>
-                                Reset
-                              </span>
-                            </button>
-                            <button
-                              class="ant-btn ant-btn-primary ant-btn-sm"
-                              type="button"
-                            >
-                              <span>
-                                OK
-                              </span>
-                            </button>
                           </div>
                         </div>
+                        <div
+                          data-focus-guard="true"
+                          style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                          tabindex="0"
+                        />
                       </div>
                     </div>
                   </th>
@@ -16543,349 +16438,294 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
-                          class="ant-table-filter-dropdown"
+                          data-focus-guard="true"
+                          style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                          tabindex="0"
+                        />
+                        <div
+                          data-focus-lock-disabled="false"
                         >
-                          <ul
-                            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-                            data-menu-list="true"
-                            role="menu"
-                            tabindex="0"
+                          <div
+                            class="ant-table-filter-dropdown"
                           >
-                            <li
-                              class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-test-Joe"
-                              role="menuitem"
-                              tabindex="-1"
+                            <ul
+                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                              data-menu-list="true"
+                              role="menu"
+                              tabindex="0"
                             >
-                              <span
-                                class="ant-dropdown-menu-title-content"
-                              >
-                                <label
-                                  class="ant-checkbox-wrapper"
-                                >
-                                  <span
-                                    class="ant-checkbox ant-wave-target"
-                                  >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                                <span>
-                                  Joe
-                                </span>
-                              </span>
-                            </li>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <li
-                              class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-test-Jim"
-                              role="menuitem"
-                              tabindex="-1"
-                            >
-                              <span
-                                class="ant-dropdown-menu-title-content"
-                              >
-                                <label
-                                  class="ant-checkbox-wrapper"
-                                >
-                                  <span
-                                    class="ant-checkbox ant-wave-target"
-                                  >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                                <span>
-                                  Jim
-                                </span>
-                              </span>
-                            </li>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <li
-                              class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
-                              role="none"
-                            >
-                              <div
-                                aria-controls="rc-menu-uuid-test-Submenu-popup"
-                                aria-expanded="false"
-                                aria-haspopup="true"
-                                class="ant-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-test-Submenu"
+                              <li
+                                class="ant-dropdown-menu-item"
+                                data-menu-id="rc-menu-uuid-test-Joe"
                                 role="menuitem"
                                 tabindex="-1"
                               >
                                 <span
                                   class="ant-dropdown-menu-title-content"
                                 >
-                                  Submenu
-                                </span>
-                                <span
-                                  class="ant-dropdown-menu-submenu-expand-icon ant-dropdown-menu-submenu-arrow"
-                                >
-                                  <span
-                                    aria-label="right"
-                                    class="anticon anticon-right ant-dropdown-menu-submenu-arrow-icon"
-                                    role="img"
+                                  <label
+                                    class="ant-checkbox-wrapper"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="right"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
+                                    <span
+                                      class="ant-checkbox ant-wave-target"
                                     >
-                                      <path
-                                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
                                       />
-                                    </svg>
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    Joe
                                   </span>
                                 </span>
-                              </div>
+                              </li>
                               <div
-                                class="ant-dropdown-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-dropdown-menu-submenu-popup ant-dropdown-menu ant-table-filter-dropdown-submenu ant-dropdown-menu-light ant-dropdown-menu-submenu-placement-rightTop"
+                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                               >
-                                <ul
-                                  class="ant-dropdown-menu ant-dropdown-menu-sub ant-dropdown-menu-vertical"
-                                  data-menu-list="true"
-                                  id="rc-menu-uuid-test-Submenu-popup"
-                                  role="menu"
+                                <div
+                                  class="ant-tooltip-arrow"
+                                  style="position: absolute; top: 0px; left: 0px;"
+                                />
+                                <div
+                                  class="ant-tooltip-content"
                                 >
-                                  <li
-                                    class="ant-dropdown-menu-item"
-                                    data-menu-id="rc-menu-uuid-test-Green"
-                                    role="menuitem"
-                                    tabindex="-1"
+                                  <div
+                                    class="ant-tooltip-inner"
+                                    role="tooltip"
+                                  />
+                                </div>
+                              </div>
+                              <li
+                                class="ant-dropdown-menu-item"
+                                data-menu-id="rc-menu-uuid-test-Jim"
+                                role="menuitem"
+                                tabindex="-1"
+                              >
+                                <span
+                                  class="ant-dropdown-menu-title-content"
+                                >
+                                  <label
+                                    class="ant-checkbox-wrapper"
                                   >
                                     <span
-                                      class="ant-dropdown-menu-title-content"
+                                      class="ant-checkbox ant-wave-target"
                                     >
-                                      <label
-                                        class="ant-checkbox-wrapper"
-                                      >
-                                        <span
-                                          class="ant-checkbox ant-wave-target"
-                                        >
-                                          <input
-                                            class="ant-checkbox-input"
-                                            type="checkbox"
-                                          />
-                                          <span
-                                            class="ant-checkbox-inner"
-                                          />
-                                        </span>
-                                      </label>
-                                      <span>
-                                        Green
-                                      </span>
-                                    </span>
-                                  </li>
-                                  <div
-                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                  >
-                                    <div
-                                      class="ant-tooltip-arrow"
-                                      style="position: absolute; top: 0px; left: 0px;"
-                                    />
-                                    <div
-                                      class="ant-tooltip-content"
-                                    >
-                                      <div
-                                        class="ant-tooltip-inner"
-                                        role="tooltip"
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
                                       />
-                                    </div>
-                                  </div>
-                                  <li
-                                    class="ant-dropdown-menu-item"
-                                    data-menu-id="rc-menu-uuid-test-Black"
-                                    role="menuitem"
-                                    tabindex="-1"
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    Jim
+                                  </span>
+                                </span>
+                              </li>
+                              <div
+                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                              >
+                                <div
+                                  class="ant-tooltip-arrow"
+                                  style="position: absolute; top: 0px; left: 0px;"
+                                />
+                                <div
+                                  class="ant-tooltip-content"
+                                >
+                                  <div
+                                    class="ant-tooltip-inner"
+                                    role="tooltip"
+                                  />
+                                </div>
+                              </div>
+                              <li
+                                class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
+                                role="none"
+                              >
+                                <div
+                                  aria-controls="rc-menu-uuid-test-Submenu-popup"
+                                  aria-expanded="false"
+                                  aria-haspopup="true"
+                                  class="ant-dropdown-menu-submenu-title"
+                                  data-menu-id="rc-menu-uuid-test-Submenu"
+                                  role="menuitem"
+                                  tabindex="-1"
+                                >
+                                  <span
+                                    class="ant-dropdown-menu-title-content"
+                                  >
+                                    Submenu
+                                  </span>
+                                  <span
+                                    class="ant-dropdown-menu-submenu-expand-icon ant-dropdown-menu-submenu-arrow"
                                   >
                                     <span
-                                      class="ant-dropdown-menu-title-content"
+                                      aria-label="right"
+                                      class="anticon anticon-right ant-dropdown-menu-submenu-arrow-icon"
+                                      role="img"
                                     >
-                                      <label
-                                        class="ant-checkbox-wrapper"
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="right"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
                                       >
-                                        <span
-                                          class="ant-checkbox ant-wave-target"
-                                        >
-                                          <input
-                                            class="ant-checkbox-input"
-                                            type="checkbox"
-                                          />
-                                          <span
-                                            class="ant-checkbox-inner"
-                                          />
-                                        </span>
-                                      </label>
-                                      <span>
-                                        Black
-                                      </span>
+                                        <path
+                                          d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                                        />
+                                      </svg>
                                     </span>
-                                  </li>
-                                  <div
-                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                                  </span>
+                                </div>
+                                <div
+                                  class="ant-dropdown-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-dropdown-menu-submenu-popup ant-dropdown-menu ant-table-filter-dropdown-submenu ant-dropdown-menu-light ant-dropdown-menu-submenu-placement-rightTop"
+                                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                                >
+                                  <ul
+                                    class="ant-dropdown-menu ant-dropdown-menu-sub ant-dropdown-menu-vertical"
+                                    data-menu-list="true"
+                                    id="rc-menu-uuid-test-Submenu-popup"
+                                    role="menu"
                                   >
+                                    <li
+                                      class="ant-dropdown-menu-item"
+                                      data-menu-id="rc-menu-uuid-test-Green"
+                                      role="menuitem"
+                                      tabindex="-1"
+                                    >
+                                      <span
+                                        class="ant-dropdown-menu-title-content"
+                                      >
+                                        <label
+                                          class="ant-checkbox-wrapper"
+                                        >
+                                          <span
+                                            class="ant-checkbox ant-wave-target"
+                                          >
+                                            <input
+                                              class="ant-checkbox-input"
+                                              type="checkbox"
+                                            />
+                                            <span
+                                              class="ant-checkbox-inner"
+                                            />
+                                          </span>
+                                        </label>
+                                        <span>
+                                          Green
+                                        </span>
+                                      </span>
+                                    </li>
                                     <div
-                                      class="ant-tooltip-arrow"
-                                      style="position: absolute; top: 0px; left: 0px;"
-                                    />
-                                    <div
-                                      class="ant-tooltip-content"
+                                      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                     >
                                       <div
-                                        class="ant-tooltip-inner"
-                                        role="tooltip"
+                                        class="ant-tooltip-arrow"
+                                        style="position: absolute; top: 0px; left: 0px;"
                                       />
+                                      <div
+                                        class="ant-tooltip-content"
+                                      >
+                                        <div
+                                          class="ant-tooltip-inner"
+                                          role="tooltip"
+                                        />
+                                      </div>
                                     </div>
-                                  </div>
-                                </ul>
-                              </div>
-                            </li>
-                          </ul>
-                          <div
-                            aria-hidden="true"
-                            style="display: none;"
-                          >
+                                    <li
+                                      class="ant-dropdown-menu-item"
+                                      data-menu-id="rc-menu-uuid-test-Black"
+                                      role="menuitem"
+                                      tabindex="-1"
+                                    >
+                                      <span
+                                        class="ant-dropdown-menu-title-content"
+                                      >
+                                        <label
+                                          class="ant-checkbox-wrapper"
+                                        >
+                                          <span
+                                            class="ant-checkbox ant-wave-target"
+                                          >
+                                            <input
+                                              class="ant-checkbox-input"
+                                              type="checkbox"
+                                            />
+                                            <span
+                                              class="ant-checkbox-inner"
+                                            />
+                                          </span>
+                                        </label>
+                                        <span>
+                                          Black
+                                        </span>
+                                      </span>
+                                    </li>
+                                    <div
+                                      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                                    >
+                                      <div
+                                        class="ant-tooltip-arrow"
+                                        style="position: absolute; top: 0px; left: 0px;"
+                                      />
+                                      <div
+                                        class="ant-tooltip-content"
+                                      >
+                                        <div
+                                          class="ant-tooltip-inner"
+                                          role="tooltip"
+                                        />
+                                      </div>
+                                    </div>
+                                  </ul>
+                                </div>
+                              </li>
+                            </ul>
                             <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
+                              aria-hidden="true"
+                              style="display: none;"
+                            />
                             <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                              class="ant-table-filter-dropdown-btns"
                             >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
+                              <button
+                                class="ant-btn ant-btn-link ant-btn-sm"
+                                disabled=""
+                                type="button"
                               >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
+                                <span>
+                                  Reset
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary ant-btn-sm"
+                                type="button"
                               >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
+                                <span>
+                                  OK
+                                </span>
+                              </button>
                             </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                          <div
-                            class="ant-table-filter-dropdown-btns"
-                          >
-                            <button
-                              class="ant-btn ant-btn-link ant-btn-sm"
-                              disabled=""
-                              type="button"
-                            >
-                              <span>
-                                Reset
-                              </span>
-                            </button>
-                            <button
-                              class="ant-btn ant-btn-primary ant-btn-sm"
-                              type="button"
-                            >
-                              <span>
-                                OK
-                              </span>
-                            </button>
                           </div>
                         </div>
+                        <div
+                          data-focus-guard="true"
+                          style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                          tabindex="0"
+                        />
                       </div>
                     </div>
                   </th>
@@ -17013,168 +16853,147 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
-                          class="ant-table-filter-dropdown"
+                          data-focus-guard="true"
+                          style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                          tabindex="0"
+                        />
+                        <div
+                          data-focus-lock-disabled="false"
                         >
-                          <ul
-                            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
-                            data-menu-list="true"
-                            role="menu"
-                            tabindex="0"
-                          >
-                            <li
-                              class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-test-London"
-                              role="menuitem"
-                              tabindex="-1"
-                            >
-                              <span
-                                class="ant-dropdown-menu-title-content"
-                              >
-                                <label
-                                  class="ant-checkbox-wrapper"
-                                >
-                                  <span
-                                    class="ant-checkbox ant-wave-target"
-                                  >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                                <span>
-                                  London
-                                </span>
-                              </span>
-                            </li>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <li
-                              class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-test-New York"
-                              role="menuitem"
-                              tabindex="-1"
-                            >
-                              <span
-                                class="ant-dropdown-menu-title-content"
-                              >
-                                <label
-                                  class="ant-checkbox-wrapper"
-                                >
-                                  <span
-                                    class="ant-checkbox ant-wave-target"
-                                  >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                                <span>
-                                  New York
-                                </span>
-                              </span>
-                            </li>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                          </ul>
                           <div
-                            aria-hidden="true"
-                            style="display: none;"
+                            class="ant-table-filter-dropdown"
                           >
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                            <ul
+                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
+                              data-menu-list="true"
+                              role="menu"
+                              tabindex="0"
                             >
+                              <li
+                                class="ant-dropdown-menu-item"
+                                data-menu-id="rc-menu-uuid-test-London"
+                                role="menuitem"
+                                tabindex="-1"
+                              >
+                                <span
+                                  class="ant-dropdown-menu-title-content"
+                                >
+                                  <label
+                                    class="ant-checkbox-wrapper"
+                                  >
+                                    <span
+                                      class="ant-checkbox ant-wave-target"
+                                    >
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    London
+                                  </span>
+                                </span>
+                              </li>
                               <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
+                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                               >
                                 <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
+                                  class="ant-tooltip-arrow"
+                                  style="position: absolute; top: 0px; left: 0px;"
                                 />
+                                <div
+                                  class="ant-tooltip-content"
+                                >
+                                  <div
+                                    class="ant-tooltip-inner"
+                                    role="tooltip"
+                                  />
+                                </div>
                               </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
+                              <li
+                                class="ant-dropdown-menu-item"
+                                data-menu-id="rc-menu-uuid-test-New York"
+                                role="menuitem"
+                                tabindex="-1"
+                              >
+                                <span
+                                  class="ant-dropdown-menu-title-content"
+                                >
+                                  <label
+                                    class="ant-checkbox-wrapper"
+                                  >
+                                    <span
+                                      class="ant-checkbox ant-wave-target"
+                                    >
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    New York
+                                  </span>
+                                </span>
+                              </li>
                               <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
+                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                               >
                                 <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
+                                  class="ant-tooltip-arrow"
+                                  style="position: absolute; top: 0px; left: 0px;"
                                 />
+                                <div
+                                  class="ant-tooltip-content"
+                                >
+                                  <div
+                                    class="ant-tooltip-inner"
+                                    role="tooltip"
+                                  />
+                                </div>
                               </div>
+                            </ul>
+                            <div
+                              aria-hidden="true"
+                              style="display: none;"
+                            />
+                            <div
+                              class="ant-table-filter-dropdown-btns"
+                            >
+                              <button
+                                class="ant-btn ant-btn-link ant-btn-sm"
+                                disabled=""
+                                type="button"
+                              >
+                                <span>
+                                  Reset
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary ant-btn-sm"
+                                type="button"
+                              >
+                                <span>
+                                  OK
+                                </span>
+                              </button>
                             </div>
-                          </div>
-                          <div
-                            class="ant-table-filter-dropdown-btns"
-                          >
-                            <button
-                              class="ant-btn ant-btn-link ant-btn-sm"
-                              disabled=""
-                              type="button"
-                            >
-                              <span>
-                                Reset
-                              </span>
-                            </button>
-                            <button
-                              class="ant-btn ant-btn-primary ant-btn-sm"
-                              type="button"
-                            >
-                              <span>
-                                OK
-                              </span>
-                            </button>
                           </div>
                         </div>
+                        <div
+                          data-focus-guard="true"
+                          style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                          tabindex="0"
+                        />
                       </div>
                     </div>
                   </th>
@@ -23501,168 +23320,147 @@ Array [
                           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                         >
                           <div
-                            class="ant-table-filter-dropdown"
+                            data-focus-guard="true"
+                            style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                            tabindex="0"
+                          />
+                          <div
+                            data-focus-lock-disabled="false"
                           >
-                            <ul
-                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
-                              data-menu-list="true"
-                              role="menu"
-                              tabindex="0"
-                            >
-                              <li
-                                class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-test-Joe"
-                                role="menuitem"
-                                tabindex="-1"
-                              >
-                                <span
-                                  class="ant-dropdown-menu-title-content"
-                                >
-                                  <label
-                                    class="ant-checkbox-wrapper"
-                                  >
-                                    <span
-                                      class="ant-checkbox ant-wave-target"
-                                    >
-                                      <input
-                                        class="ant-checkbox-input"
-                                        type="checkbox"
-                                      />
-                                      <span
-                                        class="ant-checkbox-inner"
-                                      />
-                                    </span>
-                                  </label>
-                                  <span>
-                                    Joe
-                                  </span>
-                                </span>
-                              </li>
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
-                              <li
-                                class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-test-Jim"
-                                role="menuitem"
-                                tabindex="-1"
-                              >
-                                <span
-                                  class="ant-dropdown-menu-title-content"
-                                >
-                                  <label
-                                    class="ant-checkbox-wrapper"
-                                  >
-                                    <span
-                                      class="ant-checkbox ant-wave-target"
-                                    >
-                                      <input
-                                        class="ant-checkbox-input"
-                                        type="checkbox"
-                                      />
-                                      <span
-                                        class="ant-checkbox-inner"
-                                      />
-                                    </span>
-                                  </label>
-                                  <span>
-                                    Jim
-                                  </span>
-                                </span>
-                              </li>
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
-                            </ul>
                             <div
-                              aria-hidden="true"
-                              style="display: none;"
+                              class="ant-table-filter-dropdown"
                             >
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                              <ul
+                                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
+                                data-menu-list="true"
+                                role="menu"
+                                tabindex="0"
                               >
+                                <li
+                                  class="ant-dropdown-menu-item"
+                                  data-menu-id="rc-menu-uuid-test-Joe"
+                                  role="menuitem"
+                                  tabindex="-1"
+                                >
+                                  <span
+                                    class="ant-dropdown-menu-title-content"
+                                  >
+                                    <label
+                                      class="ant-checkbox-wrapper"
+                                    >
+                                      <span
+                                        class="ant-checkbox ant-wave-target"
+                                      >
+                                        <input
+                                          class="ant-checkbox-input"
+                                          type="checkbox"
+                                        />
+                                        <span
+                                          class="ant-checkbox-inner"
+                                        />
+                                      </span>
+                                    </label>
+                                    <span>
+                                      Joe
+                                    </span>
+                                  </span>
+                                </li>
                                 <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
+                                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                 >
                                   <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
+                                    class="ant-tooltip-arrow"
+                                    style="position: absolute; top: 0px; left: 0px;"
                                   />
+                                  <div
+                                    class="ant-tooltip-content"
+                                  >
+                                    <div
+                                      class="ant-tooltip-inner"
+                                      role="tooltip"
+                                    />
+                                  </div>
                                 </div>
-                              </div>
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                              >
+                                <li
+                                  class="ant-dropdown-menu-item"
+                                  data-menu-id="rc-menu-uuid-test-Jim"
+                                  role="menuitem"
+                                  tabindex="-1"
+                                >
+                                  <span
+                                    class="ant-dropdown-menu-title-content"
+                                  >
+                                    <label
+                                      class="ant-checkbox-wrapper"
+                                    >
+                                      <span
+                                        class="ant-checkbox ant-wave-target"
+                                      >
+                                        <input
+                                          class="ant-checkbox-input"
+                                          type="checkbox"
+                                        />
+                                        <span
+                                          class="ant-checkbox-inner"
+                                        />
+                                      </span>
+                                    </label>
+                                    <span>
+                                      Jim
+                                    </span>
+                                  </span>
+                                </li>
                                 <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
+                                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                 >
                                   <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
+                                    class="ant-tooltip-arrow"
+                                    style="position: absolute; top: 0px; left: 0px;"
                                   />
+                                  <div
+                                    class="ant-tooltip-content"
+                                  >
+                                    <div
+                                      class="ant-tooltip-inner"
+                                      role="tooltip"
+                                    />
+                                  </div>
                                 </div>
+                              </ul>
+                              <div
+                                aria-hidden="true"
+                                style="display: none;"
+                              />
+                              <div
+                                class="ant-table-filter-dropdown-btns"
+                              >
+                                <button
+                                  class="ant-btn ant-btn-link ant-btn-sm"
+                                  disabled=""
+                                  type="button"
+                                >
+                                  <span>
+                                    Reset
+                                  </span>
+                                </button>
+                                <button
+                                  class="ant-btn ant-btn-primary ant-btn-sm"
+                                  type="button"
+                                >
+                                  <span>
+                                    OK
+                                  </span>
+                                </button>
                               </div>
-                            </div>
-                            <div
-                              class="ant-table-filter-dropdown-btns"
-                            >
-                              <button
-                                class="ant-btn ant-btn-link ant-btn-sm"
-                                disabled=""
-                                type="button"
-                              >
-                                <span>
-                                  Reset
-                                </span>
-                              </button>
-                              <button
-                                class="ant-btn ant-btn-primary ant-btn-sm"
-                                type="button"
-                              >
-                                <span>
-                                  OK
-                                </span>
-                              </button>
                             </div>
                           </div>
+                          <div
+                            data-focus-guard="true"
+                            style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                            tabindex="0"
+                          />
                         </div>
                       </div>
                     </th>
@@ -23868,168 +23666,147 @@ Array [
                           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                         >
                           <div
-                            class="ant-table-filter-dropdown"
+                            data-focus-guard="true"
+                            style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                            tabindex="0"
+                          />
+                          <div
+                            data-focus-lock-disabled="false"
                           >
-                            <ul
-                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
-                              data-menu-list="true"
-                              role="menu"
-                              tabindex="0"
-                            >
-                              <li
-                                class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-test-London"
-                                role="menuitem"
-                                tabindex="-1"
-                              >
-                                <span
-                                  class="ant-dropdown-menu-title-content"
-                                >
-                                  <label
-                                    class="ant-checkbox-wrapper"
-                                  >
-                                    <span
-                                      class="ant-checkbox ant-wave-target"
-                                    >
-                                      <input
-                                        class="ant-checkbox-input"
-                                        type="checkbox"
-                                      />
-                                      <span
-                                        class="ant-checkbox-inner"
-                                      />
-                                    </span>
-                                  </label>
-                                  <span>
-                                    London
-                                  </span>
-                                </span>
-                              </li>
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
-                              <li
-                                class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-test-New York"
-                                role="menuitem"
-                                tabindex="-1"
-                              >
-                                <span
-                                  class="ant-dropdown-menu-title-content"
-                                >
-                                  <label
-                                    class="ant-checkbox-wrapper"
-                                  >
-                                    <span
-                                      class="ant-checkbox ant-wave-target"
-                                    >
-                                      <input
-                                        class="ant-checkbox-input"
-                                        type="checkbox"
-                                      />
-                                      <span
-                                        class="ant-checkbox-inner"
-                                      />
-                                    </span>
-                                  </label>
-                                  <span>
-                                    New York
-                                  </span>
-                                </span>
-                              </li>
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
-                            </ul>
                             <div
-                              aria-hidden="true"
-                              style="display: none;"
+                              class="ant-table-filter-dropdown"
                             >
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                              <ul
+                                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
+                                data-menu-list="true"
+                                role="menu"
+                                tabindex="0"
                               >
+                                <li
+                                  class="ant-dropdown-menu-item"
+                                  data-menu-id="rc-menu-uuid-test-London"
+                                  role="menuitem"
+                                  tabindex="-1"
+                                >
+                                  <span
+                                    class="ant-dropdown-menu-title-content"
+                                  >
+                                    <label
+                                      class="ant-checkbox-wrapper"
+                                    >
+                                      <span
+                                        class="ant-checkbox ant-wave-target"
+                                      >
+                                        <input
+                                          class="ant-checkbox-input"
+                                          type="checkbox"
+                                        />
+                                        <span
+                                          class="ant-checkbox-inner"
+                                        />
+                                      </span>
+                                    </label>
+                                    <span>
+                                      London
+                                    </span>
+                                  </span>
+                                </li>
                                 <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
+                                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                 >
                                   <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
+                                    class="ant-tooltip-arrow"
+                                    style="position: absolute; top: 0px; left: 0px;"
                                   />
+                                  <div
+                                    class="ant-tooltip-content"
+                                  >
+                                    <div
+                                      class="ant-tooltip-inner"
+                                      role="tooltip"
+                                    />
+                                  </div>
                                 </div>
-                              </div>
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                              >
+                                <li
+                                  class="ant-dropdown-menu-item"
+                                  data-menu-id="rc-menu-uuid-test-New York"
+                                  role="menuitem"
+                                  tabindex="-1"
+                                >
+                                  <span
+                                    class="ant-dropdown-menu-title-content"
+                                  >
+                                    <label
+                                      class="ant-checkbox-wrapper"
+                                    >
+                                      <span
+                                        class="ant-checkbox ant-wave-target"
+                                      >
+                                        <input
+                                          class="ant-checkbox-input"
+                                          type="checkbox"
+                                        />
+                                        <span
+                                          class="ant-checkbox-inner"
+                                        />
+                                      </span>
+                                    </label>
+                                    <span>
+                                      New York
+                                    </span>
+                                  </span>
+                                </li>
                                 <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
+                                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                 >
                                   <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
+                                    class="ant-tooltip-arrow"
+                                    style="position: absolute; top: 0px; left: 0px;"
                                   />
+                                  <div
+                                    class="ant-tooltip-content"
+                                  >
+                                    <div
+                                      class="ant-tooltip-inner"
+                                      role="tooltip"
+                                    />
+                                  </div>
                                 </div>
+                              </ul>
+                              <div
+                                aria-hidden="true"
+                                style="display: none;"
+                              />
+                              <div
+                                class="ant-table-filter-dropdown-btns"
+                              >
+                                <button
+                                  class="ant-btn ant-btn-link ant-btn-sm"
+                                  disabled=""
+                                  type="button"
+                                >
+                                  <span>
+                                    Reset
+                                  </span>
+                                </button>
+                                <button
+                                  class="ant-btn ant-btn-primary ant-btn-sm"
+                                  type="button"
+                                >
+                                  <span>
+                                    OK
+                                  </span>
+                                </button>
                               </div>
-                            </div>
-                            <div
-                              class="ant-table-filter-dropdown-btns"
-                            >
-                              <button
-                                class="ant-btn ant-btn-link ant-btn-sm"
-                                disabled=""
-                                type="button"
-                              >
-                                <span>
-                                  Reset
-                                </span>
-                              </button>
-                              <button
-                                class="ant-btn ant-btn-primary ant-btn-sm"
-                                type="button"
-                              >
-                                <span>
-                                  OK
-                                </span>
-                              </button>
                             </div>
                           </div>
+                          <div
+                            data-focus-guard="true"
+                            style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
+                            tabindex="0"
+                          />
                         </div>
                       </div>
                     </th>
