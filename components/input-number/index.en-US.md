@@ -67,12 +67,13 @@ Common props ref：[Common props](/docs/react/common-props)
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - | - |
 | onStep | The callback function that is triggered when click up or down buttons | (value: number, info: { offset: number, type: 'up' \| 'down' }) => void | - | 4.7.0 |
 
-## Methods
+## Ref
 
-| Name    | Description  |
-| ------- | ------------ |
-| blur()  | Remove focus |
-| focus() | Get focus    |
+| Name          | Description            | Version |
+| ------------- | ---------------------- | ------- |
+| blur()        | Remove focus           |         |
+| focus()       | Get focus              |         |
+| nativeElement | The native DOM element | 5.17.3  |
 
 ## Design Token
 

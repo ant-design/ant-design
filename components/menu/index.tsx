@@ -4,7 +4,7 @@ import type { MenuRef as RcMenuRef } from 'rc-menu';
 import { ItemGroup } from 'rc-menu';
 
 import { SiderContext } from '../layout/Sider';
-import type { ItemType, MenuItemType } from './hooks/useItems';
+import type { ItemType, MenuItemType } from './interface';
 import type { MenuProps } from './menu';
 import InternalMenu from './menu';
 import type { MenuTheme } from './MenuContext';

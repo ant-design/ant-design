@@ -12,9 +12,7 @@ Array [
       <button
         aria-label="prev"
         class="slick-arrow slick-prev slick-disabled"
-        currentslide="0"
         data-role="none"
-        slidecount="4"
         style="display: block;"
         type="button"
       />
@@ -110,9 +108,7 @@ Array [
       <button
         aria-label="next"
         class="slick-arrow slick-next"
-        currentslide="0"
         data-role="none"
-        slidecount="4"
         style="display: block;"
         type="button"
       />
@@ -162,9 +158,7 @@ Array [
       <button
         aria-label="prev"
         class="slick-arrow slick-prev slick-disabled"
-        currentslide="0"
         data-role="none"
-        slidecount="4"
         style="display: block;"
         type="button"
       />
@@ -261,9 +255,7 @@ Array [
       <button
         aria-label="next"
         class="slick-arrow slick-next"
-        currentslide="0"
         data-role="none"
-        slidecount="4"
         style="display: block;"
         type="button"
       />
@@ -305,11 +297,7 @@ Array [
 ]
 `;
 
-exports[`renders components/carousel/demo/arrows.tsx extend context correctly 2`] = `
-[
-  "Warning: React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.%s",
-]
-`;
+exports[`renders components/carousel/demo/arrows.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/carousel/demo/autoplay.tsx extend context correctly 1`] = `
 <div
