@@ -949,4 +949,24 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(document.querySelector('.ant-btn-primary')?.textContent).toBe('test');
     ConfigProvider.config({ holderRender: undefined });
   });
+
+  it('onCancel and onOk return any results and should be closed', async () => {
+    Modal.confirm({ onOk: () => true });
+    await waitFakeTimer();
+    $$('.ant-btn-primary')[0].click();
+    await waitFakeTimer();
+    expect(document.querySelector('.ant-modal-root')).toBeFalsy();
+
+    Modal.confirm({ onOk: () => false });
+    await waitFakeTimer();
+    $$('.ant-btn-primary')[0].click();
+    await waitFakeTimer();
+    expect(document.querySelector('.ant-modal-root')).toBeFalsy();
+
+    Modal.confirm({ onCancel: () => undefined });
+    await waitFakeTimer();
+    $$('.ant-btn')[0].click();
+    await waitFakeTimer();
+    expect(document.querySelector('.ant-modal-root')).toBeFalsy();
+  });
 });
