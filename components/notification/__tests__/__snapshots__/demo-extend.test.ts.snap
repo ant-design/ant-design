@@ -537,6 +537,19 @@ exports[`renders components/notification/demo/render-panel.tsx extend context co
 
 exports[`renders components/notification/demo/render-panel.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/notification/demo/show-with-progress.tsx extend context correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Open the notification box
+  </span>
+</button>
+`;
+
+exports[`renders components/notification/demo/show-with-progress.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/notification/demo/stack.tsx extend context correctly 1`] = `
 <div>
   <div

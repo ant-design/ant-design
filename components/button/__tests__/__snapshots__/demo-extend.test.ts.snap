@@ -1532,13 +1532,12 @@ Array [
         class="ant-radio-group ant-radio-group-outline"
       >
         <label
-          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+          class="ant-radio-button-wrapper"
         >
           <span
-            class="ant-radio-button ant-radio-button-checked"
+            class="ant-radio-button"
           >
             <input
-              checked=""
               class="ant-radio-button-input"
               type="radio"
               value="start"
@@ -1552,12 +1551,13 @@ Array [
           </span>
         </label>
         <label
-          class="ant-radio-button-wrapper"
+          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
         >
           <span
-            class="ant-radio-button"
+            class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              checked=""
               class="ant-radio-button-input"
               type="radio"
               value="end"
@@ -1645,7 +1645,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-icon-end"
         type="button"
       >
         <span
@@ -1723,7 +1723,7 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-icon-end"
         type="button"
       >
         <span
@@ -1805,7 +1805,7 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-text"
+        class="ant-btn ant-btn-text ant-btn-icon-end"
         type="button"
       >
         <span
@@ -1883,7 +1883,7 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-dashed"
+        class="ant-btn ant-btn-dashed ant-btn-icon-end"
         type="button"
       >
         <span
@@ -1914,7 +1914,7 @@ Array [
         </span>
       </button>
       <a
-        class="ant-btn ant-btn-default ant-btn-icon-only"
+        class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-icon-end"
         href="https://www.google.com"
         tabindex="0"
       >
@@ -1943,7 +1943,7 @@ Array [
         </span>
       </a>
       <button
-        class="ant-btn ant-btn-primary ant-btn-loading"
+        class="ant-btn ant-btn-primary ant-btn-loading ant-btn-icon-end"
         type="button"
       >
         <span
@@ -2716,59 +2716,7 @@ exports[`renders components/button/demo/multiple.tsx extend context correctly 1`
       <div
         aria-hidden="true"
         style="display: none;"
-      >
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
-      </div>
+      />
     </div>
   </div>
 </div>

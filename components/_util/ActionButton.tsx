@@ -111,7 +111,7 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
       clickedRef.current = false;
     } else {
       returnValueOfOnOk = actionFn();
-      if (!returnValueOfOnOk) {
+      if (!isThenable(returnValueOfOnOk)) {
         onInternalClose();
         return;
       }

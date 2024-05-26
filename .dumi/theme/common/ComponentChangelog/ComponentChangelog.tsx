@@ -31,7 +31,7 @@ const useStyle = createStyles(({ token, css }) => ({
   history: css`
     position: absolute;
     top: 0;
-    inset-inline-end: 0;
+    inset-inline-end: ${token.marginXS}px;
   `,
 
   li: css`

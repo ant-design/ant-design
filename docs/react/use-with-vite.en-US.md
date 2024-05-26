@@ -1,7 +1,7 @@
 ---
 group:
   title: Basic Usage
-order: 3
+order: 2
 title: Usage with Vite
 ---
 

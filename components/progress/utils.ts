@@ -57,8 +57,12 @@ export const getSize = (
     } else if (typeof size === 'number') {
       [width, height] = [size, size];
     } else {
-      [width = 14, height = 8] = size as [number, number];
+      [width = 14, height = 8] = (Array.isArray(size) ? size : [size.width, size.height]) as [
+        number,
+        number,
+      ];
     }
+
     width *= steps;
   } else if (type === 'line') {
     const strokeWidth = extra?.strokeWidth;
@@ -67,14 +71,17 @@ export const getSize = (
     } else if (typeof size === 'number') {
       [width, height] = [size, size];
     } else {
-      [width = -1, height = 8] = size as [number, number];
+      [width = -1, height = 8] = (Array.isArray(size) ? size : [size.width, size.height]) as [
+        number,
+        number,
+      ];
     }
   } else if (type === 'circle' || type === 'dashboard') {
     if (typeof size === 'string' || typeof size === 'undefined') {
       [width, height] = size === 'small' ? [60, 60] : [120, 120];
     } else if (typeof size === 'number') {
       [width, height] = [size, size];
-    } else {
+    } else if (Array.isArray(size)) {
       width = (size[0] ?? size[1] ?? 120) as number;
       height = (size[0] ?? size[1] ?? 120) as number;
     }

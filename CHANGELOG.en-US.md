@@ -16,6 +16,41 @@ tag: vVERSION
 
 ---
 
+## 5.17.3
+
+`2024-05-19`
+
+- 🐞 MISC: Fix some components throws `findDOMNode` warning in React 18.3.0. [#48958](https://github.com/ant-design/ant-design/pull/48958)
+- 🐞 Fix Button that `fontSize` token not works. [#48893](https://github.com/ant-design/ant-design/pull/48893) [@wanpan11](https://github.com/wanpan11)
+- 💄 Fix Pagination size-changer element style. [#48931](https://github.com/ant-design/ant-design/pull/48931) [@wanpan11](https://github.com/wanpan11)
+
+## 5.17.2
+
+`2024-05-14`
+
+- 🐞 MISC: Fix `lib` bundle mistake deps on the `es` module which break the build progress. [#48914](https://github.com/ant-design/ant-design/pull/48914)
+
+## 5.17.1
+
+`2024-05-14`
+
+- 🐞 Optimize the internal logic of the Form, fix the problem that antd takes too long time to build in Next.js. [react-component/async-validator#9](https://github.com/react-component/async-validator/pull/9)
+- 🐞 Fix visually not centered when Tooltip content is only one character. [#48890](https://github.com/ant-design/ant-design/pull/48890) [@kiner-tang](https://github.com/kiner-tang)
+- Button
+  - 🐞 Fix hover and active styles not differentiating when Button `type="text"`and `type="danger"` are used together. [#48876](https://github.com/ant-design/ant-design/pull/48876) [@LonelySnowman](https://github.com/LonelySnowman)
+- Fix issue where some components throw findDOMNode warnings
+  - 🐞 Fix Button throwing `findDOMNode` warning. [#48830](https://github.com/ant-design/ant-design/pull/48830) [@wanpan11](https://github.com/wanpan11)
+  - 🐞 Fix Badge throwing `findDOMNode` warnings. [#48878](https://github.com/ant-design/ant-design/pull/48878) [@wanpan11](https://github.com/wanpan11)
+  - 🐞 Fix Alert throwing `findDOMNode` warnings. [#48868](https://github.com/ant-design/ant-design/pull/48868) [@wanpan11](https://github.com/wanpan11)
+  - 🐞 Fix FloatButton.BackTop throwing `findDOMNode` warnings. [#48865](https://github.com/ant-design/ant-design/pull/48865) [@wanpan11](https://github.com/wanpan11)
+- 💄 Add className to internal component Spin given by Drawer to prevent internal Spin styles from overriding user-passed Spin styles. [#48857](https://github.com/ant-design/ant-design/pull/48857) [@li-jia-nan](https://github.com/li-jia-nan)
+- 💄 Fix missing bottom border when Card `size="small"`. [#48787](https://github.com/ant-design/ant-design/pull/48787) [@wanpan11](https://github.com/wanpan11)
+- 🐞 Fix AutoComplete `tagRender` not working for maxTag and clicking on an edge triggering unexpected closure of the layer. [#48798](https://github.com/ant-design/ant-design/pull/48798)
+- RTL
+  - 💄 Fix Button's missing icon order and margins under RTL. [#48821](https://github.com/ant-design/ant-design/pull/48821)
+- TypeScript
+  - 🤖 Fix Cascader redundant generalization issue. [#48879](https://github.com/ant-design/ant-design/pull/48879) [@crazyair](https://github.com/crazyair)
+
 ## 5.17.0
 
 `2024-05-03`
