@@ -139,7 +139,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
       colon={false}
       column={1}
       style={{ marginTop: token.margin }}
-      labelStyle={{ paddingInlineEnd: token.padding, width: 54 }}
+      labelStyle={{ paddingInlineEnd: token.padding, width: 56 }}
       items={
         [
           {
