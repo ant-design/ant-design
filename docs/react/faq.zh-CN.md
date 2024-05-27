@@ -111,10 +111,6 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 | --- | --- |
 | Ant Design 5.x | https://ant-design.antgroup.com |
 | Ant Design 4.x | https://4x-ant-design.antgroup.com |
-| Ant Design 3.x | https://3x.ant.design |
-| Ant Design 2.x | https://2x.ant.design |
-| Ant Design 1.x | https://1x.ant.design |
-| Ant Design Pro | https://pro.ant.design/zh-CN/ |
 | Ant Design Mobile | https://ant-design-mobile.antgroup.com/zh |
 | Ant Design Mini | https://ant-design-mini.antgroup.com |
 | Ant Design Charts | https://ant-design-charts.antgroup.com |
