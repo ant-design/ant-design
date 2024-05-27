@@ -25,6 +25,7 @@ tag: vVERSION
 - TypeScript
   - 🤖 修复 Modal `styles.wrapper` TS 定义丢失的问题。[#49055](https://github.com/ant-design/ant-design/pull/49055)
   - 🤖 优化 Spin 的 TypeScript 定义并提供更详细的描述信息。[#49036](https://github.com/ant-design/ant-design/pull/49036) [@arvinxx](https://github.com/arvinxx)
+  - 🤖 优化 Checkbox.Group 的 TypeScript 类型约束。[#49073](https://github.com/ant-design/ant-design/pull/49073)
 
 ## 5.17.3
 

@@ -26,6 +26,7 @@ tag: vVERSION
 - TypeScript
   - 🤖 Fix Modal missing `styles.wrapper` type. [#49055](https://github.com/ant-design/ant-design/pull/49055)
   - 🤖 Enhance Spin component TypeScript definitions and documentation. [#49036](https://github.com/ant-design/ant-design/pull/49036) [@arvinxx](https://github.com/arvinxx)
+  - 🤖 Enhance Checkbox.Group TypeScript generic limitation. [#49073](https://github.com/ant-design/ant-design/pull/49073)
 
 ## 5.17.3
 
