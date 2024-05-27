@@ -16,6 +16,18 @@ tag: vVERSION
 
 ---
 
+## 5.17.4
+
+`2024-05-27`
+
+- 🐞 Fix Modal with `confirm` would not close correctly when returning `true` in `onOk` or `onCancel`. [#49054](https://github.com/ant-design/ant-design/pull/49054) [@wanpan11](https://github.com/wanpan11)
+- 🐞 Fix Carousel was warned about having non-standard DOM attributes by React. [#49031](https://github.com/ant-design/ant-design/pull/49031)
+- 🐞 Fix Form prop of `scrollToFirstError` not working for InputNumber. [#48989](https://github.com/ant-design/ant-design/pull/48989) [@Wxh16144](https://github.com/Wxh16144)
+- TypeScript
+  - 🤖 Fix Modal missing `styles.wrapper` type. [#49055](https://github.com/ant-design/ant-design/pull/49055)
+  - 🤖 Enhance Spin component TypeScript definitions and documentation. [#49036](https://github.com/ant-design/ant-design/pull/49036) [@arvinxx](https://github.com/arvinxx)
+  - 🤖 Enhance Checkbox.Group TypeScript generic limitation. [#49073](https://github.com/ant-design/ant-design/pull/49073)
+
 ## 5.17.3
 
 `2024-05-19`
