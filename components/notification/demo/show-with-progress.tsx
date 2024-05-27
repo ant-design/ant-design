@@ -1,24 +1,30 @@
 import React from 'react';
-import { Button, notification } from 'antd';
+import { Button, Space, notification } from 'antd';
 
 const App: React.FC = () => {
   const [api, contextHolder] = notification.useNotification();
 
-  const openNotification = () => {
+  const openNotification = (pauseOnHover: boolean) => () => {
     api.open({
       message: 'Notification Title',
       description:
         'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
       showProgress: true,
+      pauseOnHover,
     });
   };
 
   return (
     <>
       {contextHolder}
-      <Button type="primary" onClick={openNotification}>
-        Open the notification box
-      </Button>
+      <Space>
+        <Button type="primary" onClick={openNotification(true)}>
+          Pause on hover
+        </Button>
+        <Button type="primary" onClick={openNotification(false)}>
+          Don&apos;t pause on hover
+        </Button>
+      </Space>
     </>
   );
 };
