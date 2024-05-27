@@ -41,6 +41,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | okButtonProps | The ok button props | [ButtonProps](/components/button/#api) | - |  |
 | okText | The text of the Confirm button | string | `OK` |  |
 | okType | Button `type` of the Confirm button | string | `primary` |  |
+| overlayClassName | Additional class to Steps | string | - |  |
 | showCancel | Show cancel button | boolean | true | 4.18.0 |
 | title | The title of the confirmation box | ReactNode \| () => ReactNode | - |  |
 | description | The description of the confirmation box title | ReactNode \| () => ReactNode | - | 5.1.0 |

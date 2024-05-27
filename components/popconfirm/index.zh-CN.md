@@ -41,6 +41,7 @@ demo:
 | icon | 自定义弹出气泡 Icon 图标 | ReactNode | &lt;ExclamationCircle /> |  |
 | okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | okText | 确认按钮文字 | string | `确定` |  |
+| overlayClassName | 自定义样式类名 | string | - |  |
 | okType | 确认按钮类型 | string | `primary` |  |
 | showCancel | 是否显示取消按钮 | boolean | true | 4.18.0 |
 | title | 确认框标题 | ReactNode \| () => ReactNode | - |  |

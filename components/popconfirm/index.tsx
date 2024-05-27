@@ -31,6 +31,7 @@ export interface PopconfirmProps extends AbstractTooltipProps {
     e?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLDivElement>,
   ) => void;
   onPopupClick?: (e: React.MouseEvent<HTMLElement>) => void;
+  overlayClassName?: string;
 }
 
 export interface PopconfirmState {
