@@ -51,7 +51,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | name | The `name` property of all `input[type="checkbox"]` children | string | - |  |
 | options | Specifies options | string\[] \| number\[] \| Option\[] | \[] |  |
 | value | Used for setting the currently selected value | (string \| number \| boolean)\[] | \[] |  |
-| onChange | The callback function that is triggered when the state changes | (checkedValue: CheckboxValueType[]) => void | - |  |
+| onChange | The callback function that is triggered when the state changes | (checkedValue: T[]) => void | - |  |
 
 ##### Option
 
