@@ -7413,7 +7413,7 @@ exports[`renders components/form/demo/form-item-path.tsx extend context correctl
 
 exports[`renders components/form/demo/form-item-path.tsx extend context correctly 2`] = `[]`;
 
-exports[`renders components/form/demo/getValueProps.tsx extend context correctly 1`] = `
+exports[`renders components/form/demo/getValueProps-normalize.tsx extend context correctly 1`] = `
 <form
   autocomplete="off"
   class="ant-form ant-form-horizontal"
@@ -8116,7 +8116,7 @@ exports[`renders components/form/demo/getValueProps.tsx extend context correctly
 </form>
 `;
 
-exports[`renders components/form/demo/getValueProps.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/form/demo/getValueProps-normalize.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/global-state.tsx extend context correctly 1`] = `
 Array [

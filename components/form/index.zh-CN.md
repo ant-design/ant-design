@@ -50,7 +50,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/form-dependencies.tsx">校验与更新依赖</code>
 <code src="./demo/validate-scroll-to-field.tsx" iframe="360">滑动到错误字段</code>
 <code src="./demo/validate-other.tsx">校验其他组件</code>
-<code src="./demo/getValueProps.tsx">getValueProps</code>
+<code src="./demo/getValueProps-normalize.tsx">getValueProps-normalize</code>
 <code src="./demo/disabled-input-debug.tsx" debug>Disabled Input Debug</code>
 <code src="./demo/label-debug.tsx" debug>测试 label 省略</code>
 <code src="./demo/col-24-debug.tsx" debug>测试特殊 col 24 用法</code>

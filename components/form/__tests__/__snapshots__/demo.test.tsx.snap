@@ -4340,7 +4340,7 @@ exports[`renders components/form/demo/form-item-path.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders components/form/demo/getValueProps.tsx correctly 1`] = `
+exports[`renders components/form/demo/getValueProps-normalize.tsx correctly 1`] = `
 <form
   autocomplete="off"
   class="ant-form ant-form-horizontal"
