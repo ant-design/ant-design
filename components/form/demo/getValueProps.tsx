@@ -26,7 +26,7 @@ const App: React.FC = () => (
       name="date"
       rules={[{ required: true }]}
       getValueProps={(value) => ({ value: value && dayjs(Number(value)) })}
-      getValueFromEvent={(value) => value && `${dayjs(value).valueOf()}`}
+      normalize={(value) => value && `${dayjs(value).valueOf()}`}
     >
       <DatePicker />
     </Form.Item>
