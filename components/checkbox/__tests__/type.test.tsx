@@ -27,4 +27,21 @@ describe('Checkbox.typescript', () => {
     );
     expect(group).toBeTruthy();
   });
+  it('Checkbox.Group defaultValue', () => {
+    const defaultValue: React.Key[] = ['test-type-1'];
+    const group = (
+      <Checkbox.Group
+        options={[
+          {
+            label: <span>test</span>,
+            value: 'test-type-1',
+          },
+        ]}
+        defaultValue={defaultValue}
+      >
+        <Input />
+      </Checkbox.Group>
+    );
+    expect(group).toBeTruthy();
+  });
 });
