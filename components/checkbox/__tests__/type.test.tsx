@@ -30,9 +30,7 @@ describe('Checkbox.typescript', () => {
   it('Checkbox.Group defaultValue', () => {
     const defaultValue: React.Key[] = ['1'];
     const group = (
-      <Checkbox.Group options={[{ label: 'test', value: '1' }]} defaultValue={defaultValue}>
-        <Input />
-      </Checkbox.Group>
+      <Checkbox.Group options={[{ label: 'test', value: '1' }]} defaultValue={defaultValue} />
     );
     expect(group).toBeTruthy();
   });
