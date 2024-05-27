@@ -10,8 +10,6 @@ import type { CheckboxGroupContext } from './GroupContext';
 import GroupContext from './GroupContext';
 import useStyle from './style';
 
-export type CheckboxValueType = string | number | boolean;
-
 export interface CheckboxOptionType<T = any> {
   label: React.ReactNode;
   value: T;
@@ -40,8 +38,10 @@ export interface CheckboxGroupProps<T = any> extends AbstractCheckboxGroupProps<
   children?: React.ReactNode;
 }
 
+type InternalCheckboxValueType = string | number | boolean;
+
 const CheckboxGroup = React.forwardRef(
-  <T extends CheckboxValueType = CheckboxValueType>(
+  <T extends InternalCheckboxValueType = InternalCheckboxValueType>(
     props: CheckboxGroupProps<T>,
     ref: React.ForwardedRef<HTMLDivElement>,
   ) => {
