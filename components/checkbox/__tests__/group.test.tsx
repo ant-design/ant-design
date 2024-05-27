@@ -88,7 +88,7 @@ describe('CheckboxGroup', () => {
     const renderCheckbox = (props: CheckboxGroupProps) => <Checkbox.Group {...props} />;
     const { container, rerender } = render(renderCheckbox({ options }));
     expect(container.querySelectorAll('.ant-checkbox-checked').length).toBe(0);
-    rerender(renderCheckbox({ options, value: 'Apple' }));
+    rerender(renderCheckbox({ options, value: 'Apple' as any }));
     expect(container.querySelectorAll('.ant-checkbox-checked').length).toBe(1);
   });
 
