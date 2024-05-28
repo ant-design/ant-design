@@ -1,10 +1,12 @@
 /* eslint-disable no-console, import/prefer-default-export */
 import util from 'util';
 import React from 'react';
+import dayjs from 'dayjs';
 import type { DOMWindow } from 'jsdom';
 
 // eslint-disable-next-line no-console
 console.log('Current React Version:', React.version);
+console.log('Current date:', dayjs().format('YYYY-MM-DD'));
 
 const originConsoleErr = console.error;
 
