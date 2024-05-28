@@ -15,6 +15,8 @@ permissions:
 jobs:
   setup:
     runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
     steps:
       - name: checkout
         uses: actions/checkout@v4
@@ -51,6 +53,8 @@ jobs:
 
   lint:
     runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
     needs: setup
     steps:
       - name: checkout
@@ -83,6 +87,8 @@ jobs:
 
   check_metadata:
     runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
     needs: setup
     steps:
       - name: checkout
@@ -114,6 +120,7 @@ jobs:
         shard: ['1/2', '2/2']
     env:
       REACT: ${{ matrix.react }}
+      TZ: Asia/Shanghai
     runs-on: ubuntu-latest
     needs: build
     steps:
@@ -206,6 +213,8 @@ jobs:
   upload-test-coverage:
     name: test-coverage
     runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
     needs: normal-test
     steps:
       - uses: actions/checkout@v4
@@ -233,6 +242,8 @@ jobs:
   ########################### Compile & Test ###########################
   build:
     runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
     needs: setup
     steps:
       - name: checkout
@@ -320,6 +331,7 @@ jobs:
         shard: ['1/2', '2/2']
     env:
       REACT: ${{ matrix.react }}
+      TZ: Asia/Shanghai
     steps:
       - name: checkout
         # lib only run in master branch not in pull request
