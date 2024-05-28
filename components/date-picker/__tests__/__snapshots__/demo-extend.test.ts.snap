@@ -33574,7 +33574,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
                   id="getValueProps_date"
                   placeholder="Select date"
                   size="12"
-                  value="2024-05-11"
+                  value="2024-05-10"
                 />
                 <span
                   class="ant-picker-suffix"
@@ -33860,7 +33860,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
                                   </div>
                                 </td>
                                 <td
-                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  class="ant-picker-cell ant-picker-cell-hover ant-picker-cell-selected ant-picker-cell-in-view"
                                   title="2024-05-10"
                                 >
                                   <div
@@ -33870,7 +33870,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
                                   </div>
                                 </td>
                                 <td
-                                  class="ant-picker-cell ant-picker-cell-hover ant-picker-cell-selected ant-picker-cell-in-view"
+                                  class="ant-picker-cell ant-picker-cell-in-view"
                                   title="2024-05-11"
                                 >
                                   <div
