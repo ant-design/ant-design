@@ -115,7 +115,6 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 | Ant Design Mini | https://ant-design-mini.antgroup.com |
 | Ant Design Charts | https://ant-design-charts.antgroup.com |
 | AntV | https://antv.antgroup.com |
-| Ant Motion | https://motion.ant.design |
 
 ## `antd` 可以像 `React` 那样使用单文件引入吗？
 
