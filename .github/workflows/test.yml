@@ -4,6 +4,9 @@ name: ✅ test
 
 on: [push, pull_request]
 
+env:
+  TZ: Asia/Shanghai
+
 # Cancel prev CI if new commit come
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -15,8 +18,6 @@ permissions:
 jobs:
   setup:
     runs-on: ubuntu-latest
-    env:
-      TZ: Asia/Shanghai
     steps:
       - name: checkout
         uses: actions/checkout@v4
@@ -53,8 +54,6 @@ jobs:
 
   lint:
     runs-on: ubuntu-latest
-    env:
-      TZ: Asia/Shanghai
     needs: setup
     steps:
       - name: checkout
@@ -87,8 +86,6 @@ jobs:
 
   check_metadata:
     runs-on: ubuntu-latest
-    env:
-      TZ: Asia/Shanghai
     needs: setup
     steps:
       - name: checkout
@@ -120,7 +117,6 @@ jobs:
         shard: ['1/2', '2/2']
     env:
       REACT: ${{ matrix.react }}
-      TZ: Asia/Shanghai
     runs-on: ubuntu-latest
     needs: build
     steps:
@@ -213,8 +209,6 @@ jobs:
   upload-test-coverage:
     name: test-coverage
     runs-on: ubuntu-latest
-    env:
-      TZ: Asia/Shanghai
     needs: normal-test
     steps:
       - uses: actions/checkout@v4
@@ -242,8 +236,6 @@ jobs:
   ########################### Compile & Test ###########################
   build:
     runs-on: ubuntu-latest
-    env:
-      TZ: Asia/Shanghai
     needs: setup
     steps:
       - name: checkout
@@ -331,7 +323,6 @@ jobs:
         shard: ['1/2', '2/2']
     env:
       REACT: ${{ matrix.react }}
-      TZ: Asia/Shanghai
     steps:
       - name: checkout
         # lib only run in master branch not in pull request
