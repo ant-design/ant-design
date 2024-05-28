@@ -7,6 +7,7 @@ import type { DOMWindow } from 'jsdom';
 // eslint-disable-next-line no-console
 console.log('Current React Version:', React.version);
 console.log('Current date:', dayjs().format('YYYY-MM-DD HH:mm:ss'));
+console.log('Current date2:', new Date().toString());
 
 const originConsoleErr = console.error;
 

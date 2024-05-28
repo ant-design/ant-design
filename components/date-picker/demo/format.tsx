@@ -3,10 +3,6 @@ import type { FormProps } from 'antd';
 import { Button, DatePicker, Form } from 'antd';
 import dayjs from 'dayjs';
 
-import 'dayjs/plugin/timezone';
-
-dayjs().tz('PRC').format('YYYY-MM-DD HH:mm:ss');
-
 type FieldType = {
   date?: string;
 };
