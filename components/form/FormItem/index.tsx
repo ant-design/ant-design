@@ -15,7 +15,7 @@ import type { FormInstance, FormItemLayout } from '../Form';
 import type { FormItemInputProps } from '../FormItemInput';
 import type { FormItemLabelProps, LabelTooltipType } from '../FormItemLabel';
 import useChildren from '../hooks/useChildren';
-import type useFormItemStatus from '../hooks/useFormItemStatus';
+import useFormItemStatus from '../hooks/useFormItemStatus';
 import useFrameState from '../hooks/useFrameState';
 import useItemRef from '../hooks/useItemRef';
 import useStyle from '../style';
@@ -450,5 +450,6 @@ type CompoundedComponent = InternalFormItemType & {
 };
 
 const FormItem = InternalFormItem as CompoundedComponent;
+FormItem.useStatus = useFormItemStatus;
 
 export default FormItem;
