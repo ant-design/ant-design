@@ -499,15 +499,15 @@ const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
   return {
     [`${componentCls}-vertical`]: {
       [formItemCls]: {
-        '&-row': {
+        [`${formItemCls}-row`]: {
           flexDirection: 'column',
         },
 
-        '&-label > label': {
+        [`${formItemCls}-label > label`]: {
           height: 'auto',
         },
 
-        [`${componentCls}-item-control`]: {
+        [`${formItemCls}-control`]: {
           width: '100%',
         },
       },
@@ -540,6 +540,56 @@ const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
 
     [`@media (max-width: ${unit(token.screenLGMax)})`]: {
       [componentCls]: {
+        [`.${rootPrefixCls}-col-lg-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
+      },
+    },
+  };
+};
+
+const genItemVerticalStyle: GenerateStyle<FormToken> = (token) => {
+  const { formItemCls, rootPrefixCls } = token;
+  return {
+    [`${formItemCls}-vertical`]: {
+      [`${formItemCls}-row`]: {
+        flexDirection: 'column',
+      },
+
+      [`${formItemCls}-label > label`]: {
+        height: 'auto',
+      },
+
+      [`${formItemCls}-control`]: {
+        width: '100%',
+      },
+    },
+
+    [`${formItemCls}-vertical ${formItemCls}-label,
+      .${rootPrefixCls}-col-24${formItemCls}-label,
+      .${rootPrefixCls}-col-xl-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
+
+    [`@media (max-width: ${unit(token.screenXSMax)})`]: [
+      makeVerticalLayout(token),
+      {
+        [formItemCls]: {
+          [`.${rootPrefixCls}-col-xs-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
+        },
+      },
+    ],
+
+    [`@media (max-width: ${unit(token.screenSMMax)})`]: {
+      [formItemCls]: {
+        [`.${rootPrefixCls}-col-sm-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
+      },
+    },
+
+    [`@media (max-width: ${unit(token.screenMDMax)})`]: {
+      [formItemCls]: {
+        [`.${rootPrefixCls}-col-md-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
+      },
+    },
+
+    [`@media (max-width: ${unit(token.screenLGMax)})`]: {
+      [formItemCls]: {
         [`.${rootPrefixCls}-col-lg-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
       },
     },
@@ -584,6 +634,7 @@ export default genStyleHooks(
       genHorizontalStyle(formToken),
       genInlineStyle(formToken),
       genVerticalStyle(formToken),
+      genItemVerticalStyle(formToken),
       genCollapseMotion(formToken),
       zoomIn,
     ];
