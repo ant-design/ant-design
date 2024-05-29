@@ -91,7 +91,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 | onFinishFailed | 提交表单且数据验证失败后回调事件 | function({ values, errorFields, outOfDate }) | - |  |
 | onValuesChange | 字段值更新时触发回调事件 | function(changedValues, allValues) | - |  |
 | clearOnDestroy | 当表单被卸载时清空表单值 | boolean | false | 5.18.0 |
-| layout | 表单项布局 | `horizontal` \| `vertical` \| `inline` | `horizontal` | 5.20.0 |
+| layout | 表单项布局 | `horizontal` \| `vertical` \| | - | 5.20.0 |
 
 ### validateMessages
 
