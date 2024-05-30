@@ -38,10 +38,12 @@ const App: React.FC = () => (
     </Avatar.Group>
     <Divider />
     <Avatar.Group
-      maxCount={2}
-      maxPopoverTrigger="click"
       size="large"
-      maxStyle={{ color: '#f56a00', backgroundColor: '#fde3cf', cursor: 'pointer' }}
+      max={{
+        count: 2,
+        style: { color: '#f56a00', backgroundColor: '#fde3cf', cursor: 'pointer' },
+        popover: { trigger: 'click' },
+      }}
     >
       <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
       <Avatar style={{ backgroundColor: '#f56a00' }}>K</Avatar>

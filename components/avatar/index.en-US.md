@@ -49,13 +49,13 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| max | Set maximum display related configurations | `{ count?: number; style?: CSSProperties; popover?: PopoverProps }` | - | 5.18.0 |
 | maxCount | Max avatars to show | number | - |  |
 | maxPopoverPlacement | The placement of excess avatar Popover | `top` \| `bottom` | `top` |  |
 | maxPopoverTrigger | Set the trigger of excess avatar Popover | `hover` \| `focus` \| `click` | `hover` | 4.17.0 |
 | maxStyle | The style of excess avatar style | CSSProperties | - |  |
 | size | The size of the avatar | number \| `large` \| `small` \| `default` \| { xs: number, sm: number, ...} | `default` | 4.8.0 |
 | shape | The shape of the avatar | `circle` \| `square` | `circle` | 5.8.0 |
-| max | Set maximum display related configurations | `{ count?: number; style?: CSSProperties; popover?: PopoverProps }` | - | 5.18.0 |
 
 ## Design Token
 
