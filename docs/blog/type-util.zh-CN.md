@@ -53,7 +53,7 @@ type CheckboxGroupType = GetProps<typeof Checkbox.Group>;
 
 #### GetProp 获取属性类型
 
-对于组件的属性类型，我们可以通过 `GetProp` 来获取。它已经将 `NonNullable` 进行了封装。所以不用在考虑为空的情况：
+对于组件的属性类型，我们可以通过 `GetProp` 来获取。它已经将 `NonNullable` 进行了封装。所以不用再考虑为空的情况：
 
 ```tsx
 import type { GetProp, Select, SelectProps } from 'antd';
