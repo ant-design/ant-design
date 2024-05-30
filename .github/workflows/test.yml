@@ -4,7 +4,7 @@ name: ✅ test
 
 on:
   push:
-    branches:
+    branches-ignore:
       - master
       - feature
   pull_request:
