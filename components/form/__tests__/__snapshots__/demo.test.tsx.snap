@@ -4386,7 +4386,7 @@ exports[`renders components/form/demo/getValueProps-normalize.tsx correctly 1`] 
                   id="getValueProps_date"
                   placeholder="Select date"
                   size="12"
-                  value="2024-05-11"
+                  value="2024-01-01"
                 />
                 <span
                   class="ant-picker-suffix"
