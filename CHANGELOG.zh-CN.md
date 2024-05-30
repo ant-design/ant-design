@@ -15,6 +15,18 @@ tag: vVERSION
 
 ---
 
+## 5.17.4
+
+`2024-05-27`
+
+- 🐞 修复 Modal 的 `confirm` 在 `onOk` 或 `onCancel` 中返回 `true` 时，窗体不会正确关闭的问题。[#49054](https://github.com/ant-design/ant-design/pull/49054) [@wanpan11](https://github.com/wanpan11)
+- 🐞 修复 Carousel 会被提示存在非标准 dom 属性的问题。[#49031](https://github.com/ant-design/ant-design/pull/49031)
+- 🐞 修复 Form 的 `scrollToFirstError` 对 InputNumber 无效的问题。[#48989](https://github.com/ant-design/ant-design/pull/48989) [@Wxh16144](https://github.com/Wxh16144)
+- TypeScript
+  - 🤖 修复 Modal `styles.wrapper` TS 定义丢失的问题。[#49055](https://github.com/ant-design/ant-design/pull/49055)
+  - 🤖 优化 Spin 的 TypeScript 定义并提供更详细的描述信息。[#49036](https://github.com/ant-design/ant-design/pull/49036) [@arvinxx](https://github.com/arvinxx)
+  - 🤖 优化 Checkbox.Group 的 TypeScript 类型约束。[#49073](https://github.com/ant-design/ant-design/pull/49073)
+
 ## 5.17.3
 
 `2024-05-19`
