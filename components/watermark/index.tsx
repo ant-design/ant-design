@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useMutateObserver } from '@rc-component/mutate-observer';
 import classNames from 'classnames';
+import { useEvent } from 'rc-util';
 
 import { useToken } from '../theme/internal';
 import WatermarkContext from './context';
@@ -45,6 +46,11 @@ function getSizeDiff<T>(prev: Set<T>, next: Set<T>) {
 const DEFAULT_GAP_X = 100;
 const DEFAULT_GAP_Y = 100;
 
+const fixedStyle: React.CSSProperties = {
+  position: 'relative',
+  overflow: 'hidden',
+};
+
 const Watermark: React.FC<WatermarkProps> = (props) => {
   const {
     /**
@@ -66,6 +72,12 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     children,
     inherit = true,
   } = props;
+
+  const mergedStyle = {
+    ...fixedStyle,
+    ...style,
+  };
+
   const [, token] = useToken();
   const {
     color = token.colorFill,
@@ -83,7 +95,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
   const offsetTop = offset?.[1] ?? gapYCenter;
 
   const markStyle = React.useMemo(() => {
-    const mergedStyle: React.CSSProperties = {
+    const mergedMarkStyle: React.CSSProperties = {
       zIndex,
       position: 'absolute',
       left: 0,
@@ -98,18 +110,18 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     let positionLeft = offsetLeft - gapXCenter;
     let positionTop = offsetTop - gapYCenter;
     if (positionLeft > 0) {
-      mergedStyle.left = `${positionLeft}px`;
-      mergedStyle.width = `calc(100% - ${positionLeft}px)`;
+      mergedMarkStyle.left = `${positionLeft}px`;
+      mergedMarkStyle.width = `calc(100% - ${positionLeft}px)`;
       positionLeft = 0;
     }
     if (positionTop > 0) {
-      mergedStyle.top = `${positionTop}px`;
-      mergedStyle.height = `calc(100% - ${positionTop}px)`;
+      mergedMarkStyle.top = `${positionTop}px`;
+      mergedMarkStyle.height = `calc(100% - ${positionTop}px)`;
       positionTop = 0;
     }
-    mergedStyle.backgroundPosition = `${positionLeft}px ${positionTop}px`;
+    mergedMarkStyle.backgroundPosition = `${positionLeft}px ${positionTop}px`;
 
-    return mergedStyle;
+    return mergedMarkStyle;
   }, [zIndex, offsetLeft, gapXCenter, offsetTop, gapYCenter]);
 
   const [container, setContainer] = React.useState<HTMLDivElement | null>();
@@ -218,13 +230,27 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
   }, [watermarkInfo, targetElements]);
 
   // ============================ Observe =============================
-  const onMutate = (mutations: MutationRecord[]) => {
+  const onMutate = useEvent((mutations: MutationRecord[]) => {
     mutations.forEach((mutation) => {
       if (reRendering(mutation, isWatermarkEle)) {
         syncWatermark();
+      } else if (mutation.target === container && mutation.attributeName === 'style') {
+        // We've only force container not modify.
+        // Not consider nest case.
+        const keyStyles = Object.keys(fixedStyle);
+
+        for (let i = 0; i < keyStyles.length; i += 1) {
+          const key = keyStyles[i];
+          const oriValue = (mergedStyle as any)[key];
+          const currentValue = (container.style as any)[key];
+
+          if (oriValue && oriValue !== currentValue) {
+            (container.style as any)[key] = oriValue;
+          }
+        }
       }
     });
-  };
+  });
 
   useMutateObserver(targetElements, onMutate);
 
@@ -279,11 +305,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
   );
 
   return (
-    <div
-      ref={setContainer}
-      className={classNames(className, rootClassName)}
-      style={{ position: 'relative', ...style }}
-    >
+    <div ref={setContainer} className={classNames(className, rootClassName)} style={mergedStyle}>
       {childNode}
     </div>
   );
