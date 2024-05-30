@@ -565,6 +565,31 @@ describe('Tour', () => {
     expect(document.querySelector('.should-be-primary')).toHaveClass('ant-tour-primary');
   });
 
+  // https://github.com/ant-design/ant-design/issues/49117
+  it('onClose current is correct', () => {
+    const onClose = jest.fn();
+    const { container } = render(
+      <Tour
+        onClose={onClose}
+        open
+        steps={[
+          {
+            title: '',
+            description: '',
+            type: 'primary',
+            className: 'should-be-primary',
+          },
+          {
+            title: '',
+          },
+        ]}
+      />,
+    );
+    fireEvent.click(container.querySelector('.ant-tour-next-btn')!);
+    fireEvent.click(container.querySelector('.ant-tour-close-icon')!);
+    expect(onClose).toHaveBeenLastCalledWith(1);
+  });
+
   // This test is for PurePanel which means safe to remove.
   describe('PurePanel', () => {
     const PurePanel = Tour._InternalPanelDoNotUseOrYouWillBeFired;
