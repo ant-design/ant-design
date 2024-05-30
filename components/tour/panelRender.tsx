@@ -46,7 +46,7 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
 
   const mergedCloseIcon = (
     <button type="button" onClick={onClose} className={`${prefixCls}-close`}>
-      {closable?.closeIcon ?? <CloseOutlined className={`${prefixCls}-close-icon`} />}
+      {closable?.closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
     </button>
   );
 
