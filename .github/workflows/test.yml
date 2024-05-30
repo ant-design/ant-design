@@ -2,14 +2,14 @@
 # https://github.com/ant-design/ant-design/blob/79f566b7f8abb1012ef55b0d2793bfdf5595b85d/.github/workflows/test.yml
 name: ✅ test
 
-on: [push, pull_request]
+on: [push]
 
 env:
   TZ: Asia/Shanghai
 
 # Cancel prev CI if new commit come
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
