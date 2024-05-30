@@ -55,6 +55,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | maxStyle | The style of excess avatar style | CSSProperties | - |  |
 | size | The size of the avatar | number \| `large` \| `small` \| `default` \| { xs: number, sm: number, ...} | `default` | 4.8.0 |
 | shape | The shape of the avatar | `circle` \| `square` | `circle` | 5.8.0 |
+| max | Set maximum display related configurations | `{ count?: number; style?: CSSProperties; popover?: PopoverProps }` | - | 5.18.0 |
 
 ## Design Token
 
