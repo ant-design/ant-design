@@ -78,6 +78,7 @@ v5 use `rootClassName` & `rootStyle` to config wrapper style instead of `classNa
 | width | Width of the Drawer dialog | string \| number | 378 |  |
 | zIndex | The `z-index` of the Drawer | number | 1000 |  |
 | onClose | Specify a callback that will be called when a user clicks mask, close button or Cancel button | function(e) | - |  |
+| drawerRender | Custom drawer content render | (node: ReactNode) => ReactNode | - | 5.19.0 |
 
 ## Semantic DOM
 
