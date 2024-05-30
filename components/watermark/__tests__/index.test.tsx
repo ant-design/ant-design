@@ -108,6 +108,21 @@ describe('Watermark', () => {
       await waitFakeTimer();
       expect(container).toMatchSnapshot();
     });
+
+    it('container', async () => {
+      const { container } = render(
+        <Watermark offset={[-200, -200]} className="watermark" content="MutationObserver" />,
+      );
+
+      const target = container.querySelector<HTMLDivElement>('.watermark');
+      await waitFakeTimer();
+      target?.setAttribute('style', '');
+      await waitFakeTimer();
+
+      expect(target).toHaveStyle({
+        overflow: 'hidden',
+      });
+    });
   });
 
   describe('nest component', () => {

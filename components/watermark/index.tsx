@@ -244,7 +244,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
           const oriValue = (mergedStyle as any)[key];
           const currentValue = (container.style as any)[key];
 
-          if (oriValue !== currentValue) {
+          if (oriValue && oriValue !== currentValue) {
             (container.style as any)[key] = oriValue;
           }
         }
