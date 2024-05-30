@@ -223,7 +223,8 @@ describe('Avatar Render', () => {
     expect(container.querySelector('.ant-avatar-lg')).toBeTruthy();
   });
 
-  it('Avatar.Group support max series props', async () => {
+  it('Avatar.Group support max series props and prompt to deprecated', async () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     jest.useFakeTimers();
     const { container } = render(
       <Avatar.Group maxCount={2} maxStyle={{ color: 'blue' }} maxPopoverPlacement="bottom">
@@ -249,6 +250,10 @@ describe('Avatar Render', () => {
     const popover = container.querySelector('.ant-avatar-group-popover');
     expect(popover).toBeTruthy();
     expect(popover).toHaveClass('ant-popover-placement-bottom');
+
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Avatar.Group] `maxCount maxStyle maxPopoverPlacement maxPopoverTrigger` is deprecated. Please use `max` instead.',
+    );
   });
   it('Avatar.Group support max object props', () => {
     const { container } = render(

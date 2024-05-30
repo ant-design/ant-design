@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 
 import { cloneElement } from '../_util/reactNode';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { PopoverProps } from '../popover';
@@ -33,21 +34,25 @@ export interface GroupProps {
   children?: React.ReactNode;
   style?: React.CSSProperties;
   prefixCls?: string;
+  /** @deprecated Please use `max` */
   maxCount?: number;
+  /** @deprecated Please use `max` */
   maxStyle?: React.CSSProperties;
+  /** @deprecated Please use `max` */
   maxPopoverPlacement?: 'top' | 'bottom';
+  /** @deprecated Please use `max` */
   maxPopoverTrigger?: 'hover' | 'focus' | 'click';
+  max?: {
+    count?: number;
+    style?: React.CSSProperties;
+    popover?: PopoverProps;
+  };
   /*
    * Size of avatar, options: `large`, `small`, `default`
    * or a custom number size
    * */
   size?: AvatarSize;
   shape?: 'circle' | 'square';
-  max?: {
-    count?: number;
-    style?: React.CSSProperties;
-    popover?: PopoverProps;
-  };
 }
 
 const Group: React.FC<GroupProps> = (props) => {
@@ -66,6 +71,15 @@ const Group: React.FC<GroupProps> = (props) => {
     children,
     max,
   } = props;
+
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Avatar.Group');
+    warning.deprecated(
+      !maxCount || !maxStyle || !maxPopoverPlacement || !maxPopoverTrigger,
+      'maxCount maxStyle maxPopoverPlacement maxPopoverTrigger',
+      'max',
+    );
+  }
 
   const prefixCls = getPrefixCls('avatar', customizePrefixCls);
   const groupPrefixCls = `${prefixCls}-group`;
