@@ -4,6 +4,9 @@ name: ✅ test
 
 on: [push, pull_request]
 
+env:
+  TZ: Asia/Shanghai
+
 # Cancel prev CI if new commit come
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}

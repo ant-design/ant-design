@@ -10,9 +10,7 @@ import type { CheckboxGroupContext } from './GroupContext';
 import GroupContext from './GroupContext';
 import useStyle from './style';
 
-export type CheckboxValueType = string | number | boolean;
-
-export interface CheckboxOptionType<T extends CheckboxValueType = CheckboxValueType> {
+export interface CheckboxOptionType<T = any> {
   label: React.ReactNode;
   value: T;
   style?: React.CSSProperties;
@@ -23,7 +21,7 @@ export interface CheckboxOptionType<T extends CheckboxValueType = CheckboxValueT
   required?: boolean;
 }
 
-export interface AbstractCheckboxGroupProps<T extends CheckboxValueType = CheckboxValueType> {
+export interface AbstractCheckboxGroupProps<T = any> {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
@@ -32,8 +30,7 @@ export interface AbstractCheckboxGroupProps<T extends CheckboxValueType = Checkb
   style?: React.CSSProperties;
 }
 
-export interface CheckboxGroupProps<T extends CheckboxValueType = CheckboxValueType>
-  extends AbstractCheckboxGroupProps<T> {
+export interface CheckboxGroupProps<T = any> extends AbstractCheckboxGroupProps<T> {
   name?: string;
   defaultValue?: T[];
   value?: T[];
@@ -41,8 +38,10 @@ export interface CheckboxGroupProps<T extends CheckboxValueType = CheckboxValueT
   children?: React.ReactNode;
 }
 
+type InternalCheckboxValueType = string | number | boolean;
+
 const CheckboxGroup = React.forwardRef(
-  <T extends CheckboxValueType = CheckboxValueType>(
+  <T extends InternalCheckboxValueType = InternalCheckboxValueType>(
     props: CheckboxGroupProps<T>,
     ref: React.ForwardedRef<HTMLDivElement>,
   ) => {
@@ -168,6 +167,6 @@ const CheckboxGroup = React.forwardRef(
 export type { CheckboxGroupContext } from './GroupContext';
 export { GroupContext };
 
-export default CheckboxGroup as <T extends CheckboxValueType = CheckboxValueType>(
+export default CheckboxGroup as <T = any>(
   props: CheckboxGroupProps<T> & React.RefAttributes<HTMLDivElement>,
 ) => React.ReactElement;
