@@ -54,7 +54,7 @@ group:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| max | 设置最多显示相关配置 | `{ count?: number; style?: CSSProperties; popover?: PopoverProps }` | - | 5.18.0 |
+| max | 设置最多显示相关配置，`5.18.0` 前可使用 [参数](https://github.com/ant-design/ant-design/blob/master/components/avatar/group.tsx#L37-L44) | `{ count?: number; style?: CSSProperties; popover?: PopoverProps }` | - | 5.18.0 |
 | size | 设置头像的大小 | number \| `large` \| `small` \| `default` \| { xs: number, sm: number, ...} | `default` | 4.8.0 |
 | shape | 设置头像的形状 | `circle` \| `square` | `circle` | 5.8.0 |
 
