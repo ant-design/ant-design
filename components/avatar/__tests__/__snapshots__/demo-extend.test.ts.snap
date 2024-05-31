@@ -634,7 +634,12 @@ Array [
 ]
 `;
 
-exports[`renders components/avatar/demo/component-token.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/avatar/demo/component-token.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Avatar.Group] \`maxPopoverPlacement\` is deprecated. Please use \`max={{ popover: PopoverProps }}\` instead.",
+  "Warning: [antd: Avatar.Group] \`maxPopoverTrigger\` is deprecated. Please use \`max={{ popover: PopoverProps }}\` instead.",
+]
+`;
 
 exports[`renders components/avatar/demo/dynamic.tsx extend context correctly 1`] = `
 Array [
@@ -1257,7 +1262,12 @@ Array [
 ]
 `;
 
-exports[`renders components/avatar/demo/group.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/avatar/demo/group.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Avatar.Group] \`maxPopoverPlacement\` is deprecated. Please use \`max={{ popover: PopoverProps }}\` instead.",
+  "Warning: [antd: Avatar.Group] \`maxPopoverTrigger\` is deprecated. Please use \`max={{ popover: PopoverProps }}\` instead.",
+]
+`;
 
 exports[`renders components/avatar/demo/responsive.tsx extend context correctly 1`] = `
 <span
