@@ -26,6 +26,7 @@ export interface ArgsProps {
   onClose?: () => void;
   duration?: number | null;
   showProgress?: boolean;
+  pauseOnHover?: boolean;
   icon?: React.ReactNode;
   placement?: NotificationPlacement;
   style?: React.CSSProperties;
@@ -54,6 +55,7 @@ export interface GlobalConfigProps {
   bottom?: number;
   duration?: number;
   showProgress?: boolean;
+  pauseOnHover?: boolean;
   prefixCls?: string;
   getContainer?: () => HTMLElement | ShadowRoot;
   placement?: NotificationPlacement;
@@ -75,4 +77,5 @@ export interface NotificationConfig {
   stack?: boolean | { threshold?: number };
   duration?: number;
   showProgress?: boolean;
+  pauseOnHover?: boolean;
 }
