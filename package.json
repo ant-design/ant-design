@@ -218,7 +218,7 @@
     "@types/react": "^18.3.1",
     "@types/react-copy-to-clipboard": "^5.0.7",
     "@types/react-dom": "^18.3.0",
-    "@types/react-highlight-words": "^0.16.7",
+    "@types/react-highlight-words": "^0.20.0",
     "@types/react-resizable": "^3.0.7",
     "@types/semver": "^7.5.8",
     "@types/spinnies": "^0.5.3",
