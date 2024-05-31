@@ -8794,7 +8794,7 @@ exports[`renders components/form/demo/layout-multiple.tsx extend context correct
 Array [
   <form
     class="ant-form"
-    id="layout-multiple"
+    id="layout-multiple-horizontal"
   >
     <div
       class="ant-form-item ant-form-item-horizontal"
@@ -8807,7 +8807,7 @@ Array [
         >
           <label
             class="ant-form-item-required"
-            for="layout-multiple_name"
+            for="layout-multiple-horizontal_name"
             title="name"
           >
             name
@@ -8825,7 +8825,7 @@ Array [
               <input
                 aria-required="true"
                 class="ant-input ant-input-outlined"
-                id="layout-multiple_name"
+                id="layout-multiple-horizontal_name"
                 type="text"
                 value=""
               />
@@ -8845,7 +8845,7 @@ Array [
         >
           <label
             class="ant-form-item-required"
-            for="layout-multiple_age"
+            for="layout-multiple-horizontal_long"
             title="loooooooooooooooooooooooooooooooong"
           >
             loooooooooooooooooooooooooooooooong
@@ -8863,7 +8863,7 @@ Array [
               <input
                 aria-required="true"
                 class="ant-input ant-input-outlined"
-                id="layout-multiple_age"
+                id="layout-multiple-horizontal_long"
                 type="text"
                 value=""
               />
@@ -8876,7 +8876,7 @@ Array [
   <br />,
   <form
     class="ant-form"
-    id="layout-multiple"
+    id="layout-multiple-vertical"
   >
     <div
       class="ant-form-item ant-form-item-vertical"
@@ -8889,7 +8889,7 @@ Array [
         >
           <label
             class="ant-form-item-required"
-            for="layout-multiple_name"
+            for="layout-multiple-vertical_name"
             title="name"
           >
             name
@@ -8907,7 +8907,7 @@ Array [
               <input
                 aria-required="true"
                 class="ant-input ant-input-outlined"
-                id="layout-multiple_name"
+                id="layout-multiple-vertical_name"
                 type="text"
                 value=""
               />
@@ -8927,7 +8927,7 @@ Array [
         >
           <label
             class="ant-form-item-required"
-            for="layout-multiple_age"
+            for="layout-multiple-vertical_horizontal"
             title="horizontal"
           >
             horizontal
@@ -8945,7 +8945,7 @@ Array [
               <input
                 aria-required="true"
                 class="ant-input ant-input-outlined"
-                id="layout-multiple_age"
+                id="layout-multiple-vertical_horizontal"
                 type="text"
                 value=""
               />
@@ -8958,11 +8958,7 @@ Array [
 ]
 `;
 
-exports[`renders components/form/demo/layout-multiple.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Form] There exist multiple Form with same \`name\`.",
-]
-`;
+exports[`renders components/form/demo/layout-multiple.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/nest-messages.tsx extend context correctly 1`] = `
 <form
