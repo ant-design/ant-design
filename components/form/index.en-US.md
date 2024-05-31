@@ -91,7 +91,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onFinishFailed | Trigger after submitting the form and verifying data failed | function({ values, errorFields, outOfDate }) | - |  |
 | onValuesChange | Trigger when value updated | function(changedValues, allValues) | - |  |
 | clearOnDestroy | Clear form values when the form is uninstalled | boolean | false | 5.18.0 |
-| layout | Form item layout | `horizontal` \| `vertical` | - | 5.20.0 |
+| layout | Form item layout | `horizontal` \| `vertical` | - | 5.18.0 |
 
 ### validateMessages
 
