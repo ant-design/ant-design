@@ -18,6 +18,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/basic.tsx">Basic Usage</code>
 <code src="./demo/control-hooks.tsx">Form methods</code>
 <code src="./demo/layout.tsx">Form Layout</code>
+<code src="./demo/layout-multiple.tsx">Form mix layout</code>
 <code src="./demo/disabled.tsx">Form disabled</code>
 <code src="./demo/variant.tsx" version="5.13.0">Form variants</code>
 <code src="./demo/required-mark.tsx">Required style</code>
@@ -90,6 +91,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onFinishFailed | Trigger after submitting the form and verifying data failed | function({ values, errorFields, outOfDate }) | - |  |
 | onValuesChange | Trigger when value updated | function(changedValues, allValues) | - |  |
 | clearOnDestroy | Clear form values when the form is uninstalled | boolean | false | 5.18.0 |
+| layout | Form item layout | `horizontal` \| `vertical` | - | 5.20.0 |
 
 ### validateMessages
 

@@ -8790,6 +8790,92 @@ exports[`renders components/form/demo/layout-can-wrap.tsx extend context correct
 
 exports[`renders components/form/demo/layout-can-wrap.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/form/demo/layout-multiple.tsx extend context correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+  id="layout-multiple"
+>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-col-4 ant-form-item-label"
+      >
+        <label
+          class="ant-form-item-required"
+          for="layout-multiple_name"
+          title="name"
+        >
+          name
+        </label>
+      </div>
+      <div
+        class="ant-col ant-col-20 ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              aria-required="true"
+              class="ant-input ant-input-outlined"
+              id="layout-multiple_name"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item ant-form-item-vertical"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-col-24 ant-form-item-label"
+      >
+        <label
+          class="ant-form-item-required"
+          for="layout-multiple_age"
+          title="loooooooooooooooooooooooooooooooong"
+        >
+          loooooooooooooooooooooooooooooooong
+        </label>
+      </div>
+      <div
+        class="ant-col ant-col-24 ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              aria-required="true"
+              class="ant-input ant-input-outlined"
+              id="layout-multiple_age"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`renders components/form/demo/layout-multiple.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/form/demo/nest-messages.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
