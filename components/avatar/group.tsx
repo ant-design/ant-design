@@ -66,8 +66,8 @@ const Group: React.FC<GroupProps> = (props) => {
     maxStyle,
     size,
     shape,
-    maxPopoverPlacement = 'top',
-    maxPopoverTrigger = 'hover',
+    maxPopoverPlacement,
+    maxPopoverTrigger,
     children,
     max,
   } = props;
@@ -112,12 +112,15 @@ const Group: React.FC<GroupProps> = (props) => {
     const childrenHidden = childrenWithProps.slice(mergeCount, numOfChildren);
 
     const mergeStyle = max?.style || maxStyle;
+    const mergePopoverTrigger = max?.popover?.trigger || maxPopoverTrigger || 'hover';
+    const mergePopoverPlacement = max?.popover?.placement || maxPopoverPlacement || 'top';
+
     const mergeProps = {
       content: childrenHidden,
-      trigger: maxPopoverTrigger,
-      placement: maxPopoverPlacement,
       ...max?.popover,
       overlayClassName: classNames(`${groupPrefixCls}-popover`, max?.popover?.overlayClassName),
+      placement: mergePopoverPlacement,
+      trigger: mergePopoverTrigger,
     };
 
     childrenShow.push(
