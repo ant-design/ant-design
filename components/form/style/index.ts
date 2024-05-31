@@ -171,6 +171,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
     iconCls,
     componentCls,
     rootPrefixCls,
+    antCls,
     labelRequiredMarkColor,
     labelColor,
     labelFontSize,
@@ -192,7 +193,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
       },
 
       [`&-hidden,
-        &-hidden.${rootPrefixCls}-row`]: {
+        &-hidden${antCls}-row`]: {
         // https://github.com/ant-design/ant-design/issues/26141
         display: 'none',
       },
@@ -494,7 +495,7 @@ const makeVerticalLayout = (token: FormToken): CSSObject => {
 };
 
 const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
-  const { componentCls, formItemCls, rootPrefixCls } = token;
+  const { componentCls, formItemCls, antCls } = token;
 
   return {
     [`${componentCls}-vertical`]: {
@@ -511,8 +512,8 @@ const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
           width: '100%',
         },
         [`${formItemCls}-label,
-        .${rootPrefixCls}-col-24${formItemCls}-label,
-        .${rootPrefixCls}-col-xl-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
+        ${antCls}-col-24${formItemCls}-label,
+        ${antCls}-col-xl-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
       },
     },
 
@@ -521,7 +522,7 @@ const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
       {
         [componentCls]: {
           [`${formItemCls}:not(${formItemCls}-horizontal)`]: {
-            [`.${rootPrefixCls}-col-xs-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
+            [`${antCls}-col-xs-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
           },
         },
       },
@@ -530,7 +531,7 @@ const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
     [`@media (max-width: ${unit(token.screenSMMax)})`]: {
       [componentCls]: {
         [`${formItemCls}:not(${formItemCls}-horizontal)`]: {
-          [`.${rootPrefixCls}-col-sm-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
+          [`${antCls}-col-sm-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
         },
       },
     },
@@ -538,7 +539,7 @@ const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
     [`@media (max-width: ${unit(token.screenMDMax)})`]: {
       [componentCls]: {
         [`${formItemCls}:not(${formItemCls}-horizontal)`]: {
-          [`.${rootPrefixCls}-col-md-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
+          [`${antCls}-col-md-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
         },
       },
     },
@@ -546,7 +547,7 @@ const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
     [`@media (max-width: ${unit(token.screenLGMax)})`]: {
       [componentCls]: {
         [`${formItemCls}:not(${formItemCls}-horizontal)`]: {
-          [`.${rootPrefixCls}-col-lg-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
+          [`${antCls}-col-lg-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
         },
       },
     },
@@ -554,7 +555,7 @@ const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
 };
 
 const genItemVerticalStyle: GenerateStyle<FormToken> = (token) => {
-  const { formItemCls, rootPrefixCls } = token;
+  const { formItemCls, antCls } = token;
   return {
     [`${formItemCls}-vertical`]: {
       [`${formItemCls}-row`]: {
@@ -571,33 +572,33 @@ const genItemVerticalStyle: GenerateStyle<FormToken> = (token) => {
     },
 
     [`${formItemCls}-vertical ${formItemCls}-label,
-      .${rootPrefixCls}-col-24${formItemCls}-label,
-      .${rootPrefixCls}-col-xl-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
+      ${antCls}-col-24${formItemCls}-label,
+      ${antCls}-col-xl-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
 
     [`@media (max-width: ${unit(token.screenXSMax)})`]: [
       makeVerticalLayout(token),
       {
         [formItemCls]: {
-          [`.${rootPrefixCls}-col-xs-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
+          [`${antCls}-col-xs-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
         },
       },
     ],
 
     [`@media (max-width: ${unit(token.screenSMMax)})`]: {
       [formItemCls]: {
-        [`.${rootPrefixCls}-col-sm-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
+        [`${antCls}-col-sm-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
       },
     },
 
     [`@media (max-width: ${unit(token.screenMDMax)})`]: {
       [formItemCls]: {
-        [`.${rootPrefixCls}-col-md-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
+        [`${antCls}-col-md-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
       },
     },
 
     [`@media (max-width: ${unit(token.screenLGMax)})`]: {
       [formItemCls]: {
-        [`.${rootPrefixCls}-col-lg-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
+        [`${antCls}-col-lg-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
       },
     },
   };
