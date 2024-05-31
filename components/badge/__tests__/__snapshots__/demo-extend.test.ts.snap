@@ -1670,7 +1670,7 @@ showZero={true}
       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
     >
       <span
-        class="ant-badge-status-dot ant-badge-status-default"
+        class="ant-badge-status-default"
         style="color: rgb(238, 119, 221); background: rgb(238, 119, 221);"
       />
     </span>
@@ -1763,7 +1763,7 @@ showZero={true}
       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
     >
       <span
-        class="ant-badge-status-dot ant-badge-status-default ant-badge-color-yellow"
+        class="ant-badge-status-default ant-badge-color-yellow"
       />
     </span>
   </div>
@@ -2228,7 +2228,7 @@ showZero={true}
       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
     >
       <span
-        class="ant-badge-status-dot ant-badge-status-success"
+        class="ant-badge-status-success"
         style="color: rgb(238, 119, 221); background: rgb(238, 119, 221);"
       />
     </span>
@@ -2321,7 +2321,7 @@ showZero={true}
       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
     >
       <span
-        class="ant-badge-status-dot ant-badge-status-success ant-badge-color-yellow"
+        class="ant-badge-status-success ant-badge-color-yellow"
       />
     </span>
   </div>
@@ -2786,7 +2786,7 @@ showZero={true}
       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
     >
       <span
-        class="ant-badge-status-dot ant-badge-status-processing"
+        class="ant-badge-status-processing"
         style="color: rgb(238, 119, 221); background: rgb(238, 119, 221);"
       />
     </span>
@@ -2879,7 +2879,7 @@ showZero={true}
       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
     >
       <span
-        class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-yellow"
+        class="ant-badge-status-processing ant-badge-color-yellow"
       />
     </span>
   </div>
@@ -3344,7 +3344,7 @@ showZero={true}
       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
     >
       <span
-        class="ant-badge-status-dot ant-badge-status-default"
+        class="ant-badge-status-default"
         style="color: rgb(238, 119, 221); background: rgb(238, 119, 221);"
       />
     </span>
@@ -3437,7 +3437,7 @@ showZero={true}
       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
     >
       <span
-        class="ant-badge-status-dot ant-badge-status-default ant-badge-color-yellow"
+        class="ant-badge-status-default ant-badge-color-yellow"
       />
     </span>
   </div>
@@ -3962,7 +3962,7 @@ showZero={true}
       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
     >
       <span
-        class="ant-badge-status-dot ant-badge-status-success"
+        class="ant-badge-status-success"
         style="color: rgb(238, 119, 221); background: rgb(238, 119, 221);"
       />
     </span>
@@ -4055,7 +4055,7 @@ showZero={true}
       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
     >
       <span
-        class="ant-badge-status-dot ant-badge-status-success ant-badge-color-yellow"
+        class="ant-badge-status-success ant-badge-color-yellow"
       />
     </span>
   </div>
@@ -4580,7 +4580,7 @@ showZero={true}
       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
     >
       <span
-        class="ant-badge-status-dot ant-badge-status-processing"
+        class="ant-badge-status-processing"
         style="color: rgb(238, 119, 221); background: rgb(238, 119, 221);"
       />
     </span>
@@ -4673,7 +4673,7 @@ showZero={true}
       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
     >
       <span
-        class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-yellow"
+        class="ant-badge-status-processing ant-badge-color-yellow"
       />
     </span>
   </div>

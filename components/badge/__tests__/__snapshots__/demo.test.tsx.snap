@@ -1624,7 +1624,7 @@ exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
     >
       <span
-        class="ant-badge-status-dot ant-badge-status-default"
+        class="ant-badge-status-default"
         style="color:#e7d;background:#e7d"
       />
     </span>
@@ -1651,7 +1651,7 @@ exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
     >
       <span
-        class="ant-badge-status-dot ant-badge-status-default ant-badge-color-yellow"
+        class="ant-badge-status-default ant-badge-color-yellow"
       />
     </span>
   </div>
@@ -1786,7 +1786,7 @@ exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
     >
       <span
-        class="ant-badge-status-dot ant-badge-status-success"
+        class="ant-badge-status-success"
         style="color:#e7d;background:#e7d"
       />
     </span>
@@ -1813,7 +1813,7 @@ exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
     >
       <span
-        class="ant-badge-status-dot ant-badge-status-success ant-badge-color-yellow"
+        class="ant-badge-status-success ant-badge-color-yellow"
       />
     </span>
   </div>
@@ -1948,7 +1948,7 @@ exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
     >
       <span
-        class="ant-badge-status-dot ant-badge-status-processing"
+        class="ant-badge-status-processing"
         style="color:#e7d;background:#e7d"
       />
     </span>
@@ -1975,7 +1975,7 @@ exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
     >
       <span
-        class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-yellow"
+        class="ant-badge-status-processing ant-badge-color-yellow"
       />
     </span>
   </div>
@@ -2110,7 +2110,7 @@ exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
     >
       <span
-        class="ant-badge-status-dot ant-badge-status-default"
+        class="ant-badge-status-default"
         style="color:#e7d;background:#e7d"
       />
     </span>
@@ -2137,7 +2137,7 @@ exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
     >
       <span
-        class="ant-badge-status-dot ant-badge-status-default ant-badge-color-yellow"
+        class="ant-badge-status-default ant-badge-color-yellow"
       />
     </span>
   </div>
@@ -2332,7 +2332,7 @@ exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
     >
       <span
-        class="ant-badge-status-dot ant-badge-status-success"
+        class="ant-badge-status-success"
         style="color:#e7d;background:#e7d"
       />
     </span>
@@ -2359,7 +2359,7 @@ exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
     >
       <span
-        class="ant-badge-status-dot ant-badge-status-success ant-badge-color-yellow"
+        class="ant-badge-status-success ant-badge-color-yellow"
       />
     </span>
   </div>
@@ -2554,7 +2554,7 @@ exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
     >
       <span
-        class="ant-badge-status-dot ant-badge-status-processing"
+        class="ant-badge-status-processing"
         style="color:#e7d;background:#e7d"
       />
     </span>
@@ -2581,7 +2581,7 @@ exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
     >
       <span
-        class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-yellow"
+        class="ant-badge-status-processing ant-badge-color-yellow"
       />
     </span>
   </div>
