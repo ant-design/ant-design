@@ -261,20 +261,29 @@ describe('List Item Layout', () => {
     );
 
     // vertical
-    const { container, rerender } = render(
+    const { container } = render(
       <List itemLayout="vertical" dataSource={dataSource} renderItem={(item) => getItem(item)} />,
     );
     expect(container.querySelector('.ant-list-item-extra')!).toHaveStyle('color: red');
     expect(container.querySelector('.ant-list-item-action')!).toHaveStyle('color: blue');
-
-    // horizontal
-    rerender(<List dataSource={dataSource} renderItem={(item) => getItem(item)} />);
-    expect(container.querySelector('span')!).toHaveStyle('color: red');
-
-    // extra = ReactNode
-    rerender(
-      <List dataSource={dataSource} renderItem={(item) => getItem(item, <span>extra</span>)} />,
+  });
+  it('List.Item support classNames', () => {
+    const dataSource = [{ id: 1, title: `ant design` }];
+    const getItem = (item: any, extra: ReactNode = 'extra') => (
+      <List.Item
+        extra={extra}
+        actions={['actions']}
+        classNames={{ extra: 'test-extra', actions: 'test-actions' }}
+      >
+        {item.title}
+      </List.Item>
     );
-    expect(container.querySelector('span')!).toHaveStyle('color: red');
+
+    // vertical
+    const { container } = render(
+      <List itemLayout="vertical" dataSource={dataSource} renderItem={(item) => getItem(item)} />,
+    );
+    expect(container.querySelector('.ant-list-item-extra')!).toHaveClass('test-extra');
+    expect(container.querySelector('.ant-list-item-action')!).toHaveClass('test-actions');
   });
 });

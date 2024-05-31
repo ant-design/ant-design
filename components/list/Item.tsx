@@ -9,6 +9,10 @@ import { ListContext } from './context';
 
 export interface ListItemProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
+  classNames?: {
+    actions?: string;
+    extra?: string;
+  };
   children?: ReactNode;
   prefixCls?: string;
   style?: CSSProperties;
@@ -67,6 +71,7 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
     extra,
     styles,
     className,
+    classNames: customizeClassNames,
     colStyle,
     ...others
   } = props;
@@ -92,7 +97,11 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
 
   const prefixCls = getPrefixCls('list', customizePrefixCls);
   const actionsContent = actions && actions.length > 0 && (
-    <ul className={`${prefixCls}-item-action`} key="actions" style={styles?.actions}>
+    <ul
+      className={classNames(`${prefixCls}-item-action`, customizeClassNames?.actions)}
+      key="actions"
+      style={styles?.actions}
+    >
       {actions.map((action: ReactNode, i: number) => (
         // eslint-disable-next-line react/no-array-index-key
         <li key={`${prefixCls}-item-action-${i}`}>
@@ -121,18 +130,15 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
               {children}
               {actionsContent}
             </div>,
-            <div className={`${prefixCls}-item-extra`} key="extra" style={styles?.extra}>
+            <div
+              className={classNames(`${prefixCls}-item-extra`, customizeClassNames?.extra)}
+              key="extra"
+              style={styles?.extra}
+            >
               {extra}
             </div>,
           ]
-        : [
-            children,
-            actionsContent,
-            cloneElement(typeof extra === 'string' ? <span>{extra}</span> : extra, {
-              key: 'extra',
-              style: styles?.extra,
-            }),
-          ]}
+        : [children, actionsContent, cloneElement(extra, { key: 'extra' })]}
     </Element>
   );
   return grid ? (
