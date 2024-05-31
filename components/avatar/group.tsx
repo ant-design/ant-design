@@ -74,11 +74,14 @@ const Group: React.FC<GroupProps> = (props) => {
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Avatar.Group');
+    warning.deprecated(!maxCount, 'maxCount', 'max={{ count: number }}');
+    warning.deprecated(!maxStyle, 'maxStyle', 'max={{ style: CSSProperties }}');
     warning.deprecated(
-      !maxCount || !maxStyle || !maxPopoverPlacement || !maxPopoverTrigger,
-      'maxCount maxStyle maxPopoverPlacement maxPopoverTrigger',
-      'max',
+      !maxPopoverPlacement,
+      'maxPopoverPlacement',
+      'max={{ popover: PopoverProps }}',
     );
+    warning.deprecated(!maxPopoverTrigger, 'maxPopoverTrigger', 'max={{ popover: PopoverProps }}');
   }
 
   const prefixCls = getPrefixCls('avatar', customizePrefixCls);
@@ -114,9 +117,7 @@ const Group: React.FC<GroupProps> = (props) => {
       trigger: maxPopoverTrigger,
       placement: maxPopoverPlacement,
       ...max?.popover,
-      overlayClassName: max?.popover?.overlayClassName
-        ? `${groupPrefixCls}-popover ${max?.popover?.overlayClassName}`
-        : `${groupPrefixCls}-popover`,
+      overlayClassName: classNames(`${groupPrefixCls}-popover`, max?.popover?.overlayClassName),
     };
 
     childrenShow.push(

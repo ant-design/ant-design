@@ -251,8 +251,17 @@ describe('Avatar Render', () => {
     expect(popover).toBeTruthy();
     expect(popover).toHaveClass('ant-popover-placement-bottom');
 
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Avatar.Group] `maxCount maxStyle maxPopoverPlacement maxPopoverTrigger` is deprecated. Please use `max` instead.',
+    expect(errSpy).toHaveBeenNthCalledWith(
+      1,
+      'Warning: [antd: Avatar.Group] `maxCount` is deprecated. Please use `max={{ count: number }}` instead.',
+    );
+    expect(errSpy).toHaveBeenNthCalledWith(
+      2,
+      'Warning: [antd: Avatar.Group] `maxStyle` is deprecated. Please use `max={{ style: CSSProperties }}` instead.',
+    );
+    expect(errSpy).toHaveBeenNthCalledWith(
+      3,
+      'Warning: [antd: Avatar.Group] `maxPopoverPlacement` is deprecated. Please use `max={{ popover: PopoverProps }}` instead.',
     );
   });
   it('Avatar.Group support max object props', () => {
