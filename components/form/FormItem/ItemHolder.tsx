@@ -103,7 +103,7 @@ export default function ItemHolder(props: ItemHolderProps) {
     [`${itemPrefixCls}-hidden`]: hidden,
 
     // Layout
-    [`${prefixCls}-item-${layout}`]: layout,
+    [`${itemPrefixCls}-${layout}`]: layout,
   });
 
   return (
