@@ -354,6 +354,9 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
+  "overrides": {
+    "dumi": "2.4.0-alpha.1"
+  },
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
