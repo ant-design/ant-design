@@ -11442,7 +11442,7 @@ exports[`renders components/table/demo/fixed-columns.tsx extend context correctl
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
+        class="ant-table ant-table-ping-right ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
       >
         <div
           class="ant-table-container"
@@ -11953,7 +11953,7 @@ exports[`renders components/table/demo/fixed-columns-header.tsx extend context c
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-fixed-header ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
+        class="ant-table ant-table-ping-right ant-table-fixed-header ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
       >
         <div
           class="ant-table-container"
@@ -13190,7 +13190,7 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx extend context c
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-bordered ant-table-fixed-column ant-table-fixed-column-gapped ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
+        class="ant-table ant-table-bordered ant-table-ping-right ant-table-fixed-column ant-table-fixed-column-gapped ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
       >
         <div
           class="ant-table-container"
@@ -29621,7 +29621,7 @@ exports[`renders components/table/demo/sticky.tsx extend context correctly 1`] =
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
+        class="ant-table ant-table-ping-right ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
       >
         <div
           class="ant-table-container"
@@ -31101,7 +31101,7 @@ Array [
         class="ant-spin-container"
       >
         <div
-          class="ant-table ant-table-bordered ant-table-fixed-header ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left"
+          class="ant-table ant-table-bordered ant-table-ping-right ant-table-fixed-header ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left"
         >
           <div
             class="ant-table-container"
