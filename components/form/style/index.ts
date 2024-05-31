@@ -386,7 +386,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
   };
 };
 
-const genHorizontalStyle = (token: FormToken, className: string) => {
+const genHorizontalStyle = (token: FormToken, className: string): CSSObject => {
   const { formItemCls } = token;
 
   return {
