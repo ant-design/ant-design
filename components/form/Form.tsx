@@ -115,8 +115,8 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
 
   const formClassName = classNames(
     prefixCls,
-    `${prefixCls}-${layout}`,
     {
+      [`${prefixCls}-${layout}`]: layout === 'inline',
       [`${prefixCls}-hide-required-mark`]: mergedRequiredMark === false,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-${mergedSize}`]: mergedSize,
@@ -141,6 +141,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
       labelWrap,
       wrapperCol,
       vertical: layout === 'vertical',
+      layout,
       colon: mergedColon,
       requiredMark: mergedRequiredMark,
       itemRef: __INTERNAL__.itemRef,

@@ -2,10 +2,10 @@
 
 exports[`Form Form item hidden noStyle should not work when hidden 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form"
 >
   <div
-    class="ant-form-item ant-form-item-hidden"
+    class="ant-form-item ant-form-item-hidden ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -35,10 +35,10 @@ exports[`Form Form item hidden noStyle should not work when hidden 1`] = `
 
 exports[`Form Form item hidden should work 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form"
 >
   <div
-    class="ant-form-item ant-form-item-hidden"
+    class="ant-form-item ant-form-item-hidden ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -68,10 +68,10 @@ exports[`Form Form item hidden should work 1`] = `
 
 exports[`Form Form.Item should support data-*、aria-* and custom attribute 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       aria-hidden="true"
@@ -99,10 +99,10 @@ exports[`Form Form.Item should support data-*、aria-* and custom attribute 1`] 
 
 exports[`Form form should support disabled 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -153,7 +153,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -227,7 +227,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -263,7 +263,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -351,7 +351,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -439,7 +439,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -527,7 +527,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -596,7 +596,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -711,7 +711,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -815,7 +815,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -850,7 +850,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -901,7 +901,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -953,7 +953,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -992,7 +992,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1046,7 +1046,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1087,10 +1087,10 @@ exports[`Form form should support disabled 1`] = `
 
 exports[`Form form.item should support layout 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1205,7 +1205,7 @@ exports[`Form form.item should support layout 1`] = `
 
 exports[`Form rtl render component should be rendered correctly in RTL direction 1`] = `
 <form
-  class="ant-form ant-form-horizontal ant-form-rtl"
+  class="ant-form ant-form-rtl"
 />
 `;
 

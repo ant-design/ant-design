@@ -3,7 +3,7 @@
 exports[`renders components/form/demo/advanced-search.tsx extend context correctly 1`] = `
 Array [
   <form
-    class="ant-form ant-form-horizontal"
+    class="ant-form"
     id="advanced_search"
     style="max-width: none; background: rgba(0, 0, 0, 0.02); border-radius: 8px; padding: 24px;"
   >
@@ -16,7 +16,7 @@ Array [
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-item-horizontal"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -60,7 +60,7 @@ Array [
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-item-horizontal"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -238,7 +238,7 @@ Array [
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-item-horizontal"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -282,7 +282,7 @@ Array [
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-item-horizontal"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -326,7 +326,7 @@ Array [
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-item-horizontal"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -504,7 +504,7 @@ Array [
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-item-horizontal"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -618,12 +618,12 @@ exports[`renders components/form/demo/advanced-search.tsx extend context correct
 exports[`renders components/form/demo/basic.tsx extend context correctly 1`] = `
 <form
   autocomplete="off"
-  class="ant-form ant-form-horizontal"
+  class="ant-form"
   id="basic"
   style="max-width: 600px;"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -661,7 +661,7 @@ exports[`renders components/form/demo/basic.tsx extend context correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -730,7 +730,7 @@ exports[`renders components/form/demo/basic.tsx extend context correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -770,7 +770,7 @@ exports[`renders components/form/demo/basic.tsx extend context correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -806,12 +806,12 @@ exports[`renders components/form/demo/col-24-debug.tsx extend context correctly 
 Array [
   <form
     autocomplete="off"
-    class="ant-form ant-form-horizontal"
+    class="ant-form"
     id="col-24-debug"
     style="max-width: 600px;"
   >
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -849,7 +849,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -918,7 +918,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-horizontal"
       style="box-shadow: 0 0 3px red;"
     >
       <div
@@ -1171,7 +1171,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1201,11 +1201,11 @@ Array [
   </form>,
   <form
     autocomplete="off"
-    class="ant-form ant-form-horizontal"
+    class="ant-form"
     id="responsive"
   >
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1243,7 +1243,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1312,7 +1312,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1345,10 +1345,10 @@ Array [
     role="separator"
   />,
   <form
-    class="ant-form ant-form-vertical"
+    class="ant-form"
   >
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
       style="box-shadow: 0 0 3px red;"
     >
       <div
@@ -1601,7 +1601,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1645,12 +1645,12 @@ exports[`renders components/form/demo/col-24-debug.tsx extend context correctly 
 
 exports[`renders components/form/demo/control-hooks.tsx extend context correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form"
   id="control-hooks"
   style="max-width: 600px;"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1688,7 +1688,7 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1877,7 +1877,7 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1943,12 +1943,12 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
 
 exports[`renders components/form/demo/custom-feedback-icons.tsx extend context correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form"
   id="custom-feedback-icons"
   style="max-width: 600px;"
 >
   <div
-    class="ant-form-item acss-140b0ev ant-form-item-with-help"
+    class="ant-form-item acss-140b0ev ant-form-item-with-help ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -2014,7 +2014,7 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx extend context c
     />
   </div>
   <div
-    class="ant-form-item acss-140b0ev ant-form-item-with-help"
+    class="ant-form-item acss-140b0ev ant-form-item-with-help ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -2080,7 +2080,7 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx extend context c
     />
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -2354,11 +2354,11 @@ Array [
     </span>
   </label>,
   <form
-    class="ant-form ant-form-horizontal"
+    class="ant-form"
     style="max-width: 600px;"
   >
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -2409,7 +2409,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -2483,7 +2483,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -2519,7 +2519,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -2662,7 +2662,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -2845,7 +2845,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -2985,7 +2985,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -3623,7 +3623,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -4839,7 +4839,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -4943,7 +4943,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -4978,7 +4978,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5029,7 +5029,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5113,7 +5113,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5152,7 +5152,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5225,7 +5225,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-horizontal"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5644,11 +5644,11 @@ exports[`renders components/form/demo/disabled.tsx extend context correctly 2`] 
 
 exports[`renders components/form/demo/disabled-input-debug.tsx extend context correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form"
   style="max-width: 600px;"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5684,7 +5684,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item ant-form-item-with-help ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5742,7 +5742,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
     />
   </div>
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item ant-form-item-with-help ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5801,7 +5801,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
     />
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5837,7 +5837,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item ant-form-item-with-help ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5895,7 +5895,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
     />
   </div>
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item ant-form-item-with-help ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5954,7 +5954,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
     />
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6003,7 +6003,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item ant-form-item-with-help ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6074,7 +6074,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
     />
   </div>
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item ant-form-item-with-help ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6146,7 +6146,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
     />
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6191,7 +6191,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item ant-form-item-with-help ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6258,7 +6258,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
     />
   </div>
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item ant-form-item-with-help ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6332,12 +6332,12 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
 
 exports[`renders components/form/demo/dynamic-form-item.tsx extend context correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form"
   id="dynamic_form_item"
   style="max-width: 600px;"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6427,7 +6427,7 @@ exports[`renders components/form/demo/dynamic-form-item.tsx extend context corre
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6462,12 +6462,12 @@ exports[`renders components/form/demo/dynamic-form-item.tsx extend context corre
 exports[`renders components/form/demo/dynamic-form-items.tsx extend context correctly 1`] = `
 <form
   autocomplete="off"
-  class="ant-form ant-form-horizontal"
+  class="ant-form"
   id="dynamic_form_nest_item"
   style="max-width: 600px;"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6521,7 +6521,7 @@ exports[`renders components/form/demo/dynamic-form-items.tsx extend context corr
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6556,7 +6556,7 @@ exports[`renders components/form/demo/dynamic-form-items.tsx extend context corr
 exports[`renders components/form/demo/dynamic-form-items-complex.tsx extend context correctly 1`] = `
 <form
   autocomplete="off"
-  class="ant-form ant-form-horizontal"
+  class="ant-form"
   id="dynamic_form_complex"
   style="max-width: 600px;"
 >
@@ -6608,7 +6608,7 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx extend cont
         class="ant-card-body"
       >
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-item-horizontal"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -6645,7 +6645,7 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx extend cont
           </div>
         </div>
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-item-horizontal"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -6716,12 +6716,12 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx extend cont
 exports[`renders components/form/demo/dynamic-form-items-no-style.tsx extend context correctly 1`] = `
 <form
   autocomplete="off"
-  class="ant-form ant-form-horizontal"
+  class="ant-form"
   id="dynamic_form_no_style"
   style="max-width: 600px;"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6746,7 +6746,7 @@ exports[`renders components/form/demo/dynamic-form-items-no-style.tsx extend con
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-form-item"
+              class="ant-form-item ant-form-item-horizontal"
             >
               <div
                 class="ant-row ant-form-item-row"
@@ -6805,7 +6805,7 @@ exports[`renders components/form/demo/dynamic-form-items-no-style.tsx extend con
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6839,12 +6839,12 @@ exports[`renders components/form/demo/dynamic-form-items-no-style.tsx extend con
 
 exports[`renders components/form/demo/dynamic-rule.tsx extend context correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form"
   id="dynamic_rule"
   style="max-width: 600px;"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6883,7 +6883,7 @@ exports[`renders components/form/demo/dynamic-rule.tsx extend context correctly 
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-is-validating"
+    class="ant-form-item ant-form-item-is-validating ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6921,7 +6921,7 @@ exports[`renders components/form/demo/dynamic-rule.tsx extend context correctly 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6959,7 +6959,7 @@ exports[`renders components/form/demo/dynamic-rule.tsx extend context correctly 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6993,12 +6993,12 @@ exports[`renders components/form/demo/dynamic-rule.tsx extend context correctly 
 
 exports[`renders components/form/demo/form-context.tsx extend context correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form"
   id="basicForm"
   style="max-width: 600px;"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7036,7 +7036,7 @@ exports[`renders components/form/demo/form-context.tsx extend context correctly 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7091,7 +7091,7 @@ exports[`renders components/form/demo/form-context.tsx extend context correctly 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7135,7 +7135,7 @@ exports[`renders components/form/demo/form-context.tsx extend context correctly 
 exports[`renders components/form/demo/form-dependencies.tsx extend context correctly 1`] = `
 <form
   autocomplete="off"
-  class="ant-form ant-form-vertical"
+  class="ant-form"
   id="dependencies"
   style="max-width: 600px;"
 >
@@ -7174,7 +7174,7 @@ exports[`renders components/form/demo/form-dependencies.tsx extend context corre
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7212,7 +7212,7 @@ exports[`renders components/form/demo/form-dependencies.tsx extend context corre
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7286,11 +7286,11 @@ exports[`renders components/form/demo/form-in-modal.tsx extend context correctly
 
 exports[`renders components/form/demo/form-item-path.tsx extend context correctly 1`] = `
 <form
-  class="ant-form ant-form-vertical"
+  class="ant-form"
   id="form_item_path"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7327,7 +7327,7 @@ exports[`renders components/form/demo/form-item-path.tsx extend context correctl
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7364,7 +7364,7 @@ exports[`renders components/form/demo/form-item-path.tsx extend context correctl
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7416,12 +7416,12 @@ exports[`renders components/form/demo/form-item-path.tsx extend context correctl
 exports[`renders components/form/demo/getValueProps-normalize.tsx extend context correctly 1`] = `
 <form
   autocomplete="off"
-  class="ant-form ant-form-horizontal"
+  class="ant-form"
   id="getValueProps"
   style="max-width: 600px;"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8086,7 +8086,7 @@ exports[`renders components/form/demo/getValueProps-normalize.tsx extend context
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8334,12 +8334,12 @@ exports[`renders components/form/demo/inline-login.tsx extend context correctly 
 
 exports[`renders components/form/demo/label-debug.tsx extend context correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form"
   id="label-ellipsis"
   style="max-width: 600px;"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8380,7 +8380,7 @@ exports[`renders components/form/demo/label-debug.tsx extend context correctly 1
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8458,11 +8458,11 @@ exports[`renders components/form/demo/label-debug.tsx extend context correctly 2
 
 exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form"
   style="max-width: 600px;"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8556,7 +8556,7 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8592,7 +8592,7 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8628,7 +8628,7 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8662,12 +8662,12 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 2`] = 
 
 exports[`renders components/form/demo/layout-can-wrap.tsx extend context correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form"
   id="wrap"
   style="max-width: 600px;"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8707,7 +8707,7 @@ exports[`renders components/form/demo/layout-can-wrap.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8747,7 +8747,7 @@ exports[`renders components/form/demo/layout-can-wrap.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8791,99 +8791,187 @@ exports[`renders components/form/demo/layout-can-wrap.tsx extend context correct
 exports[`renders components/form/demo/layout-can-wrap.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/layout-multiple.tsx extend context correctly 1`] = `
-<form
-  class="ant-form ant-form-horizontal"
-  id="layout-multiple"
->
-  <div
-    class="ant-form-item"
+Array [
+  <form
+    class="ant-form"
+    id="layout-multiple"
   >
     <div
-      class="ant-row ant-form-item-row"
+      class="ant-form-item ant-form-item-horizontal"
     >
       <div
-        class="ant-col ant-col-4 ant-form-item-label"
-      >
-        <label
-          class="ant-form-item-required"
-          for="layout-multiple_name"
-          title="name"
-        >
-          name
-        </label>
-      </div>
-      <div
-        class="ant-col ant-col-20 ant-form-item-control"
+        class="ant-row ant-form-item-row"
       >
         <div
-          class="ant-form-item-control-input"
+          class="ant-col ant-col-4 ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="layout-multiple_name"
+            title="name"
+          >
+            name
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-20 ant-form-item-control"
         >
           <div
-            class="ant-form-item-control-input-content"
+            class="ant-form-item-control-input"
           >
-            <input
-              aria-required="true"
-              class="ant-input ant-input-outlined"
-              id="layout-multiple_name"
-              type="text"
-              value=""
-            />
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                aria-required="true"
+                class="ant-input ant-input-outlined"
+                id="layout-multiple_name"
+                type="text"
+                value=""
+              />
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="ant-form-item ant-form-item-vertical"
-  >
     <div
-      class="ant-row ant-form-item-row"
+      class="ant-form-item ant-form-item-vertical"
     >
       <div
-        class="ant-col ant-col-24 ant-form-item-label"
-      >
-        <label
-          class="ant-form-item-required"
-          for="layout-multiple_age"
-          title="loooooooooooooooooooooooooooooooong"
-        >
-          loooooooooooooooooooooooooooooooong
-        </label>
-      </div>
-      <div
-        class="ant-col ant-col-24 ant-form-item-control"
+        class="ant-row ant-form-item-row"
       >
         <div
-          class="ant-form-item-control-input"
+          class="ant-col ant-col-24 ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="layout-multiple_age"
+            title="loooooooooooooooooooooooooooooooong"
+          >
+            loooooooooooooooooooooooooooooooong
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-24 ant-form-item-control"
         >
           <div
-            class="ant-form-item-control-input-content"
+            class="ant-form-item-control-input"
           >
-            <input
-              aria-required="true"
-              class="ant-input ant-input-outlined"
-              id="layout-multiple_age"
-              type="text"
-              value=""
-            />
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                aria-required="true"
+                class="ant-input ant-input-outlined"
+                id="layout-multiple_age"
+                type="text"
+                value=""
+              />
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</form>
+  </form>,
+  <br />,
+  <form
+    class="ant-form"
+    id="layout-multiple"
+  >
+    <div
+      class="ant-form-item ant-form-item-vertical"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-col-4 ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="layout-multiple_name"
+            title="name"
+          >
+            name
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-20 ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                aria-required="true"
+                class="ant-input ant-input-outlined"
+                id="layout-multiple_name"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item ant-form-item-horizontal"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-col-4 ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="layout-multiple_age"
+            title="horizontal"
+          >
+            horizontal
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-20 ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                aria-required="true"
+                class="ant-input ant-input-outlined"
+                id="layout-multiple_age"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>,
+]
 `;
 
-exports[`renders components/form/demo/layout-multiple.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/form/demo/layout-multiple.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Form] There exist multiple Form with same \`name\`.",
+]
+`;
 
 exports[`renders components/form/demo/nest-messages.tsx extend context correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form"
   id="nest-messages"
   style="max-width: 600px;"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8921,7 +9009,7 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8958,7 +9046,7 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9063,7 +9151,7 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9100,7 +9188,7 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9135,7 +9223,7 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9169,11 +9257,11 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
 
 exports[`renders components/form/demo/normal-login.tsx extend context correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal login-form"
+  class="ant-form login-form"
   id="normal_login"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9228,7 +9316,7 @@ exports[`renders components/form/demo/normal-login.tsx extend context correctly 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9283,7 +9371,7 @@ exports[`renders components/form/demo/normal-login.tsx extend context correctly 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9329,7 +9417,7 @@ exports[`renders components/form/demo/normal-login.tsx extend context correctly 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9369,11 +9457,11 @@ exports[`renders components/form/demo/normal-login.tsx extend context correctly 
 
 exports[`renders components/form/demo/ref-item.tsx extend context correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form"
   style="max-width: 600px;"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9410,7 +9498,7 @@ exports[`renders components/form/demo/ref-item.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9458,12 +9546,12 @@ exports[`renders components/form/demo/ref-item.tsx extend context correctly 2`] 
 
 exports[`renders components/form/demo/register.tsx extend context correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form"
   id="register"
   style="max-width: 600px;"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9501,7 +9589,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9570,7 +9658,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9639,7 +9727,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9719,7 +9807,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9927,7 +10015,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -10119,7 +10207,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -10376,7 +10464,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -10451,7 +10539,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -10502,7 +10590,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -10691,7 +10779,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -10756,7 +10844,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -10800,7 +10888,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -10834,10 +10922,10 @@ exports[`renders components/form/demo/register.tsx extend context correctly 2`] 
 
 exports[`renders components/form/demo/required-mark.tsx extend context correctly 1`] = `
 <form
-  class="ant-form ant-form-vertical"
+  class="ant-form"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -10956,7 +11044,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -11034,7 +11122,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -11118,7 +11206,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -11152,11 +11240,11 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
 
 exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal ant-form-default"
+  class="ant-form ant-form-default"
   style="max-width: 600px;"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -11250,7 +11338,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -11285,7 +11373,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -11427,7 +11515,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -11609,7 +11697,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -11748,7 +11836,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -12385,7 +12473,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -12488,7 +12576,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -12538,7 +12626,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -12582,12 +12670,12 @@ exports[`renders components/form/demo/size.tsx extend context correctly 2`] = `[
 
 exports[`renders components/form/demo/time-related-controls.tsx extend context correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form"
   id="time_related_controls"
   style="max-width: 600px;"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -13227,7 +13315,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -15355,7 +15443,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -15623,7 +15711,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -16841,7 +16929,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -19013,7 +19101,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -20603,7 +20691,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -20639,10 +20727,10 @@ exports[`renders components/form/demo/useWatch.tsx extend context correctly 1`] 
 Array [
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical"
+    class="ant-form"
   >
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -20679,7 +20767,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -20802,11 +20890,11 @@ exports[`renders components/form/demo/useWatch.tsx extend context correctly 2`] 
 exports[`renders components/form/demo/validate-only.tsx extend context correctly 1`] = `
 <form
   autocomplete="off"
-  class="ant-form ant-form-vertical"
+  class="ant-form"
   id="validateOnly"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -20844,7 +20932,7 @@ exports[`renders components/form/demo/validate-only.tsx extend context correctly
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -20882,7 +20970,7 @@ exports[`renders components/form/demo/validate-only.tsx extend context correctly
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -20937,12 +21025,12 @@ exports[`renders components/form/demo/validate-only.tsx extend context correctly
 
 exports[`renders components/form/demo/validate-other.tsx extend context correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form"
   id="validate_other"
   style="max-width: 600px;"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -20977,7 +21065,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -21149,7 +21237,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -21335,7 +21423,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -21448,7 +21536,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -21500,7 +21588,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -21640,7 +21728,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -21733,7 +21821,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -21827,7 +21915,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -22014,7 +22102,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -22342,7 +22430,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -22432,7 +22520,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -22522,7 +22610,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -22930,7 +23018,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -22984,11 +23072,11 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
 
 exports[`renders components/form/demo/validate-scroll-to-field.tsx extend context correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form"
   style="padding-block: 32px;"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -23016,7 +23104,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -23054,7 +23142,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -23239,7 +23327,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -23275,7 +23363,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -23312,7 +23400,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -23358,11 +23446,11 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
 
 exports[`renders components/form/demo/validate-static.tsx extend context correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form"
   style="max-width: 600px;"
 >
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item ant-form-item-with-help ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -23421,7 +23509,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
     />
   </div>
   <div
-    class="ant-form-item ant-form-item-has-warning"
+    class="ant-form-item ant-form-item-has-warning ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -23485,7 +23573,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-is-validating"
+    class="ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-is-validating ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -23575,7 +23663,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
     />
   </div>
   <div
-    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
+    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-success ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -23643,7 +23731,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-warning"
+    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-warning ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -23711,7 +23799,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-error"
+    class="ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -23802,7 +23890,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
     />
   </div>
   <div
-    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
+    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-success ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -24463,7 +24551,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-warning"
+    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-warning ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -26074,7 +26162,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-error"
+    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -27313,7 +27401,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-error"
+    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -27523,7 +27611,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-error"
+    class="ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -27687,7 +27775,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
     />
   </div>
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-warning"
+    class="ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-warning ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -27896,7 +27984,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
     />
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
     style="margin-bottom: 0px;"
   >
     <div
@@ -27922,7 +28010,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
+              class="ant-form-item ant-form-item-with-help ant-form-item-has-error ant-form-item-horizontal"
               style="display: inline-block; width: calc(50% - 12px);"
             >
               <div
@@ -28577,7 +28665,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               -
             </span>
             <div
-              class="ant-form-item"
+              class="ant-form-item ant-form-item-horizontal"
               style="display: inline-block; width: calc(50% - 12px);"
             >
               <div
@@ -29210,7 +29298,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
+    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-success ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -29345,7 +29433,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
+    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-success ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -29438,7 +29526,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-warning"
+    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-warning ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -29528,7 +29616,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-error"
+    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -29645,7 +29733,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
+    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-success ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -29715,7 +29803,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-warning"
+    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-warning ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -29785,7 +29873,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-error"
+    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -29855,7 +29943,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-error"
+    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -29925,7 +30013,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-error"
+    class="ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -30055,7 +30143,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
 exports[`renders components/form/demo/validate-trigger.tsx extend context correctly 1`] = `
 <form
   autocomplete="off"
-  class="ant-form ant-form-vertical"
+  class="ant-form"
   id="trigger"
   style="max-width: 600px;"
 >
@@ -30075,7 +30163,7 @@ exports[`renders components/form/demo/validate-trigger.tsx extend context correc
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -30120,7 +30208,7 @@ exports[`renders components/form/demo/validate-trigger.tsx extend context correc
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -30165,7 +30253,7 @@ exports[`renders components/form/demo/validate-trigger.tsx extend context correc
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -30216,11 +30304,11 @@ exports[`renders components/form/demo/validate-trigger.tsx extend context correc
 
 exports[`renders components/form/demo/variant.tsx extend context correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form"
   style="max-width: 600px;"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -30258,7 +30346,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -30365,7 +30453,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -30401,7 +30489,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -30442,7 +30530,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -30590,7 +30678,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -30752,7 +30840,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -30899,7 +30987,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -31539,7 +31627,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -32757,7 +32845,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -32792,10 +32880,10 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 2`] =
 exports[`renders components/form/demo/warning-only.tsx extend context correctly 1`] = `
 <form
   autocomplete="off"
-  class="ant-form ant-form-vertical"
+  class="ant-form"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -32834,7 +32922,7 @@ exports[`renders components/form/demo/warning-only.tsx extend context correctly 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-vertical"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -32888,11 +32976,11 @@ exports[`renders components/form/demo/warning-only.tsx extend context correctly 
 
 exports[`renders components/form/demo/without-form-create.tsx extend context correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form"
   style="max-width: 600px;"
 >
   <div
-    class="ant-form-item ant-form-item-with-help"
+    class="ant-form-item ant-form-item-with-help ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"

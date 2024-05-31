@@ -136,7 +136,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     layout,
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
-  const { name: formName } = React.useContext(FormContext);
+  const { name: formName, layout: formLayout } = React.useContext(FormContext);
 
   const mergedChildren = useChildren(children);
 
@@ -275,7 +275,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
         warnings={mergedWarnings}
         meta={meta}
         onSubItemMetaChange={onSubItemMetaChange}
-        layout={layout}
+        layout={layout || (formLayout === 'inline' ? undefined : formLayout)}
       >
         {baseChildren}
       </ItemHolder>
