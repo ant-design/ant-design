@@ -19,10 +19,9 @@ export default function Looper(props: IndicatorProps) {
     <>
       <span className={classNames(holderClassName, percent > 0 && hideClassName)}>
         <span className={classNames(dotClassName, `${prefixCls}-dot-spin`)}>
-          <i className={`${prefixCls}-dot-item`} key={1} />
-          <i className={`${prefixCls}-dot-item`} key={2} />
-          <i className={`${prefixCls}-dot-item`} key={3} />
-          <i className={`${prefixCls}-dot-item`} key={4} />
+          {[1, 2, 3, 4].map((i) => (
+            <i className={`${prefixCls}-dot-item`} key={i} />
+          ))}
         </span>
       </span>
       <Progress prefixCls={prefixCls} percent={percent} />
