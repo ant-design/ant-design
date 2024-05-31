@@ -385,39 +385,11 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
   };
 };
 
-const genHorizontalStyle: GenerateStyle<FormToken> = (token) => {
-  const { componentCls, formItemCls } = token;
-
-  return {
-    [`${componentCls}-horizontal`]: {
-      [`${formItemCls}-label`]: {
-        flexGrow: 0,
-      },
-
-      [`${formItemCls}-control`]: {
-        flex: '1 1 0',
-        // https://github.com/ant-design/ant-design/issues/32777
-        // https://github.com/ant-design/ant-design/issues/33773
-        minWidth: 0,
-      },
-
-      // Do not change this to `ant-col-24`! `-24` match all the responsive rules
-      // https://github.com/ant-design/ant-design/issues/32980
-      // https://github.com/ant-design/ant-design/issues/34903
-      // https://github.com/ant-design/ant-design/issues/44538
-      [`${formItemCls}-label[class$='-24'], ${formItemCls}-label[class*='-24 ']`]: {
-        [`& + ${formItemCls}-control`]: {
-          minWidth: 'unset',
-        },
-      },
-    },
-  };
-};
-const genItemHorizontalStyle: GenerateStyle<FormToken> = (token) => {
+const genHorizontalStyle = (token: FormToken, className: string) => {
   const { formItemCls } = token;
 
   return {
-    [`${formItemCls}-horizontal`]: {
+    [`${className}-horizontal`]: {
       [`${formItemCls}-label`]: {
         flexGrow: 0,
       },
@@ -666,8 +638,8 @@ export default genStyleHooks(
       genFormStyle(formToken),
       genFormItemStyle(formToken),
       genFormValidateMotionStyle(formToken),
-      genHorizontalStyle(formToken),
-      genItemHorizontalStyle(formToken),
+      genHorizontalStyle(formToken, formToken.componentCls),
+      genHorizontalStyle(formToken, formToken.formItemCls),
       genInlineStyle(formToken),
       genVerticalStyle(formToken),
       genItemVerticalStyle(formToken),
