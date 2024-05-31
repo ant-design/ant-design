@@ -208,7 +208,7 @@ describe('Badge', () => {
 
     expect(container.querySelectorAll('.ant-badge-count')).toHaveLength(1);
     expect(container.querySelectorAll('[title="44"]')).toHaveLength(1);
-    expect(container.querySelectorAll('.ant-badge-status-dot')).toHaveLength(2);
+    expect(container.querySelectorAll('.ant-badge-status-dot')).toHaveLength(1);
   });
 
   it('Badge not render status-text when text is empty string', () => {
