@@ -35,6 +35,9 @@ export interface ListItemMetaProps {
   title?: ReactNode;
 }
 
+type ListItemClassNamesModule = keyof Exclude<ListItemProps['classNames'], undefined>;
+type ListItemStylesModule = keyof Exclude<ListItemProps['styles'], undefined>;
+
 export const Meta: FC<ListItemMetaProps> = ({
   prefixCls: customizePrefixCls,
   className,
@@ -76,7 +79,15 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
     ...others
   } = props;
   const { grid, itemLayout } = useContext(ListContext);
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls, list } = useContext(ConfigContext);
+
+  const moduleClass = (moduleName: ListItemClassNamesModule) =>
+    classNames(list?.item?.classNames?.[moduleName], customizeClassNames?.[moduleName]);
+
+  const moduleStyle = (moduleName: ListItemStylesModule) => ({
+    ...list?.item?.styles?.[moduleName],
+    ...styles?.[moduleName],
+  });
 
   const isItemContainsTextNodeAndNotSingular = () => {
     let result;
@@ -98,9 +109,9 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
   const prefixCls = getPrefixCls('list', customizePrefixCls);
   const actionsContent = actions && actions.length > 0 && (
     <ul
-      className={classNames(`${prefixCls}-item-action`, customizeClassNames?.actions)}
+      className={classNames(`${prefixCls}-item-action`, moduleClass('actions'))}
       key="actions"
-      style={styles?.actions}
+      style={moduleStyle('actions')}
     >
       {actions.map((action: ReactNode, i: number) => (
         // eslint-disable-next-line react/no-array-index-key
@@ -131,9 +142,9 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
               {actionsContent}
             </div>,
             <div
-              className={classNames(`${prefixCls}-item-extra`, customizeClassNames?.extra)}
+              className={classNames(`${prefixCls}-item-extra`, moduleClass('extra'))}
               key="extra"
-              style={styles?.extra}
+              style={moduleStyle('extra')}
             >
               {extra}
             </div>,

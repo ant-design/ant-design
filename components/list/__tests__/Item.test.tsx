@@ -1,4 +1,3 @@
-import type { ReactNode } from 'react';
 import React, { useEffect } from 'react';
 
 import List from '..';
@@ -248,42 +247,61 @@ describe('List Item Layout', () => {
     expect(title && getComputedStyle(title).margin).toEqual('0px 0px 4px 0px');
   });
 
-  it('List.Item support styles', () => {
+  it('List.Item support styles and classNames', () => {
     const dataSource = [{ id: 1, title: `ant design` }];
-    const getItem = (item: any, extra: ReactNode = 'extra') => (
-      <List.Item
-        extra={extra}
-        actions={['actions']}
-        styles={{ extra: { color: 'red' }, actions: { color: 'blue' } }}
+    const getItem = (item: any, provider?: boolean) => {
+      const styles = provider ? { extra: { color: 'red' }, actions: { color: 'blue' } } : undefined;
+      return (
+        <List.Item
+          extra="test-extra"
+          actions={['test-actions']}
+          styles={styles}
+          classNames={{ extra: 'test-extra', actions: 'test-actions' }}
+        >
+          {item.title}
+        </List.Item>
+      );
+    };
+
+    // ConfigProvider
+    const { container, rerender } = render(
+      <ConfigProvider
+        list={{
+          item: {
+            styles: { extra: { color: 'pink' }, actions: { color: 'green' } },
+            classNames: { extra: 'test-provider-extra', actions: 'test-provider-actions' },
+          },
+        }}
       >
-        {item.title}
-      </List.Item>
+        <List itemLayout="vertical" dataSource={dataSource} renderItem={(item) => getItem(item)} />,
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-list-item-extra')!).toHaveStyle('color: pink');
+    expect(container.querySelector('.ant-list-item-action')!).toHaveStyle('color: green');
+
+    expect(container.querySelector('.ant-list-item-extra')!).toHaveClass(
+      'test-provider-extra test-extra',
+    );
+    expect(container.querySelector('.ant-list-item-action')!).toHaveClass(
+      'test-provider-actions test-actions',
     );
 
-    // vertical
-    const { container } = render(
-      <List itemLayout="vertical" dataSource={dataSource} renderItem={(item) => getItem(item)} />,
+    // item styles is high priority
+    rerender(
+      <ConfigProvider
+        list={{
+          item: { styles: { extra: { color: 'pink' }, actions: { color: 'green' } } },
+        }}
+      >
+        <List
+          itemLayout="vertical"
+          dataSource={dataSource}
+          renderItem={(item) => getItem(item, true)}
+        />
+        ,
+      </ConfigProvider>,
     );
     expect(container.querySelector('.ant-list-item-extra')!).toHaveStyle('color: red');
     expect(container.querySelector('.ant-list-item-action')!).toHaveStyle('color: blue');
-  });
-  it('List.Item support classNames', () => {
-    const dataSource = [{ id: 1, title: `ant design` }];
-    const getItem = (item: any, extra: ReactNode = 'extra') => (
-      <List.Item
-        extra={extra}
-        actions={['actions']}
-        classNames={{ extra: 'test-extra', actions: 'test-actions' }}
-      >
-        {item.title}
-      </List.Item>
-    );
-
-    // vertical
-    const { container } = render(
-      <List itemLayout="vertical" dataSource={dataSource} renderItem={(item) => getItem(item)} />,
-    );
-    expect(container.querySelector('.ant-list-item-extra')!).toHaveClass('test-extra');
-    expect(container.querySelector('.ant-list-item-action')!).toHaveClass('test-actions');
   });
 });
