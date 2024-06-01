@@ -56,6 +56,7 @@ v5 use `rootClassName` & `rootStyle` to config wrapper style instead of `classNa
 | className | Config Drawer Panel className. Use `rootClassName` if want to config top DOM style | string | - |  |
 | classNames | Semantic structure className | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.10.0 |
 | closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | ReactNode | &lt;CloseOutlined /> |  |
+| closePlacement | The placement of the close button | `left` \| `right` | `left` | 5.18.0 |
 | destroyOnClose | Whether to unmount child components on closing drawer or not | boolean | false |  |
 | extra | Extra actions area at corner | ReactNode | - | 4.17.0 |
 | footer | The footer for Drawer | ReactNode | - |  |
