@@ -123,7 +123,6 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
             <FloatButton
               ref={floatButtonRef}
               type={type}
-              shape={shape}
               icon={open ? mergedCloseIcon : icon}
               description={description}
               aria-label={props['aria-label']}
