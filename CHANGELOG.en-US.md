@@ -16,6 +16,15 @@ tag: vVERSION
 
 ---
 
+## 5.17.5
+
+`2024-06-02`
+
+- 🐞 Fix Anchor scroll animation lost bug when set `replace` property. [#49136](https://github.com/ant-design/ant-design/pull/49136) [@mySkey](https://github.com/mySkey)
+- 🐞 Fix Tour `current` argument of `onClose` is wrong. [#49124](https://github.com/ant-design/ant-design/pull/49124)
+- 🇯🇵 Add DatePicker missing ja_JP translations. [#49155](https://github.com/ant-design/ant-design/pull/49155) [@huyikai](https://github.com/huyikai)
+- 🛠 Simplify several logics and type definitions. [#49146](https://github.com/ant-design/ant-design/pull/49146) [#49156](https://github.com/ant-design/ant-design/pull/49156) [#49169](https://github.com/ant-design/ant-design/pull/49169) [#49162](https://github.com/ant-design/ant-design/pull/49162) [@coding-ice](https://github.com/coding-ice)
+
 ## 5.17.4
 
 `2024-05-27`
