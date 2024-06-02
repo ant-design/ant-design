@@ -83,7 +83,7 @@ const InternalCompoundedButton = React.forwardRef<
     loading = false,
     prefixCls: customizePrefixCls,
     type,
-    danger,
+    danger = false,
     shape = 'default',
     size: customizeSize,
     styles,
@@ -220,7 +220,7 @@ const InternalCompoundedButton = React.forwardRef<
       [`${prefixCls}-loading`]: innerLoading,
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && mergedInsertSpace && !innerLoading,
       [`${prefixCls}-block`]: block,
-      [`${prefixCls}-dangerous`]: !!danger,
+      [`${prefixCls}-dangerous`]: danger,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-icon-end`]: iconPosition === 'end',
     },
@@ -244,7 +244,7 @@ const InternalCompoundedButton = React.forwardRef<
         {icon}
       </IconWrapper>
     ) : (
-      <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={!!innerLoading} />
+      <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={innerLoading} />
     );
 
   const kids =
@@ -288,7 +288,7 @@ const InternalCompoundedButton = React.forwardRef<
 
   if (!isUnBorderedButtonType(mergedType)) {
     buttonNode = (
-      <Wave component="Button" disabled={!!innerLoading}>
+      <Wave component="Button" disabled={innerLoading}>
         {buttonNode}
       </Wave>
     );
