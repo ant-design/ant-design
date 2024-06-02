@@ -18,7 +18,7 @@ const App: React.FC = () => {
 
   return (
     <Layout>
-      <Sider trigger={null} collapsible collapsed={collapsed}>
+      <Sider trigger={null} collapsible collapsed={collapsed} style={{width: "300px"}}>
         <div className="demo-logo-vertical" />
         <Menu
           theme="dark"
