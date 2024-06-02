@@ -1,6 +1,6 @@
 import raf from 'rc-util/lib/raf';
 
-function throttleByAnimationFrame<T extends any[]>(fn: (...args: T) => void) {
+function throttleByAnimationFrame<T extends unknown[]>(fn: (...args: T) => void) {
   let requestId: number | null;
 
   const later = (args: T) => () => {
@@ -15,7 +15,7 @@ function throttleByAnimationFrame<T extends any[]>(fn: (...args: T) => void) {
   };
 
   throttled.cancel = () => {
-    raf.cancel(requestId!);
+    requestId && raf.cancel(requestId);
     requestId = null;
   };
 
