@@ -195,7 +195,7 @@
     "@types/ali-oss": "^6.16.11",
     "@types/cli-progress": "^3.11.5",
     "@types/fs-extra": "^11.0.4",
-    "@types/gtag.js": "^0.0.19",
+    "@types/gtag.js": "^0.0.20",
     "@types/http-server": "^0.12.4",
     "@types/inquirer": "^9.0.7",
     "@types/isomorphic-fetch": "^0.0.39",

@@ -15,7 +15,12 @@ const App: React.FC = () => (
       <Avatar style={{ backgroundColor: '#1677ff' }} icon={<AntDesignOutlined />} />
     </Avatar.Group>
     <Divider />
-    <Avatar.Group maxCount={2} maxStyle={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>
+    <Avatar.Group
+      max={{
+        count: 2,
+        style: { color: '#f56a00', backgroundColor: '#fde3cf' },
+      }}
+    >
       <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=2" />
       <Avatar style={{ backgroundColor: '#f56a00' }}>K</Avatar>
       <Tooltip title="Ant User" placement="top">
@@ -25,9 +30,11 @@ const App: React.FC = () => (
     </Avatar.Group>
     <Divider />
     <Avatar.Group
-      maxCount={2}
       size="large"
-      maxStyle={{ color: '#f56a00', backgroundColor: '#fde3cf' }}
+      max={{
+        count: 2,
+        style: { color: '#f56a00', backgroundColor: '#fde3cf' },
+      }}
     >
       <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=3" />
       <Avatar style={{ backgroundColor: '#f56a00' }}>K</Avatar>
@@ -38,10 +45,12 @@ const App: React.FC = () => (
     </Avatar.Group>
     <Divider />
     <Avatar.Group
-      maxCount={2}
-      maxPopoverTrigger="click"
       size="large"
-      maxStyle={{ color: '#f56a00', backgroundColor: '#fde3cf', cursor: 'pointer' }}
+      max={{
+        count: 2,
+        style: { color: '#f56a00', backgroundColor: '#fde3cf', cursor: 'pointer' },
+        popover: { trigger: 'click' },
+      }}
     >
       <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
       <Avatar style={{ backgroundColor: '#f56a00' }}>K</Avatar>
