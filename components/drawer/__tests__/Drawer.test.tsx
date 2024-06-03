@@ -190,20 +190,14 @@ describe('Drawer', () => {
       expect(wrapper.firstChild).toMatchSnapshot();
     });
     it('have a custom loading', () => {
-      const loadingContent = 'Custom Loading...';
-      const { container: wrapper } = render(
-        <Drawer
-          open
-          loading={{ indicator: <span>{loadingContent}</span>, spinning: true }}
-          getContainer={false}
-        >
+      const { container } = render(
+        <Drawer open loading getContainer={false}>
           Here is content of Drawer
         </Drawer>,
       );
-
       triggerMotion();
-      const [loadingWrapper] = wrapper.getElementsByClassName('ant-spin-dot');
-      expect(loadingWrapper).toHaveTextContent(loadingContent);
+      const wrapper = container.querySelector<HTMLDivElement>('.ant-skeleton');
+      expect(wrapper).toBeTruthy();
     });
   });
 
@@ -405,5 +399,16 @@ describe('Drawer', () => {
     expect(baseElement.querySelector('.ant-drawer-close')).not.toBeNull();
     expect(baseElement.querySelector('.custom-close')).not.toBeNull();
     expect(baseElement.querySelector('*[aria-label="Close"]')).not.toBeNull();
+  });
+
+  it('drawerRender', () => {
+    const { container } = render(
+      <Drawer open getContainer={false} drawerRender={(dom) => <div id="test">{dom}</div>}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    triggerMotion();
+    expect(container.querySelector('#test')).toBeTruthy();
   });
 });

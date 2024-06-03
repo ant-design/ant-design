@@ -130,17 +130,17 @@ ${makeGrayPalette(index + 1)}
         .main-color {
           ${makePalette('blue')}
           ${makePalette('purple')}
-  ${makePalette('cyan')}
-  ${makePalette('green')}
-  ${makePalette('magenta')}
-  ${makePalette('red')}
-  ${makePalette('volcano')}
-  ${makePalette('orange')}
-  ${makePalette('gold')}
-  ${makePalette('yellow')}
-  ${makePalette('lime')}
-  ${makePalette('geekblue')}
-  ${makeGrayPalette()}
+          ${makePalette('cyan')}
+          ${makePalette('green')}
+          ${makePalette('magenta')}
+          ${makePalette('red')}
+          ${makePalette('volcano')}
+          ${makePalette('orange')}
+          ${makePalette('gold')}
+          ${makePalette('yellow')}
+          ${makePalette('lime')}
+          ${makePalette('geekblue')}
+          ${makeGrayPalette()}
 
   text-align: left;
 

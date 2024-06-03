@@ -4386,7 +4386,7 @@ exports[`renders components/form/demo/getValueProps-normalize.tsx correctly 1`] 
                   id="getValueProps_date"
                   placeholder="Select date"
                   size="12"
-                  value="2024-05-11"
+                  value="2024-01-01"
                 />
                 <span
                   class="ant-picker-suffix"
@@ -5136,6 +5136,174 @@ exports[`renders components/form/demo/layout-can-wrap.tsx correctly 1`] = `
     </div>
   </div>
 </form>
+`;
+
+exports[`renders components/form/demo/layout-multiple.tsx correctly 1`] = `
+Array [
+  <form
+    class="ant-form ant-form-horizontal"
+    id="layout-multiple-horizontal"
+  >
+    <div
+      class="ant-form-item"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-col-4 ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="layout-multiple-horizontal_horizontal"
+            title="horizontal"
+          >
+            horizontal
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-20 ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                aria-required="true"
+                class="ant-input ant-input-outlined"
+                id="layout-multiple-horizontal_horizontal"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item ant-form-item-vertical"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-col-24 ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="layout-multiple-horizontal_vertical"
+            title="vertical"
+          >
+            vertical
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-24 ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                aria-required="true"
+                class="ant-input ant-input-outlined"
+                id="layout-multiple-horizontal_vertical"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>,
+  <br />,
+  <form
+    class="ant-form ant-form-vertical"
+    id="layout-multiple-vertical"
+  >
+    <div
+      class="ant-form-item"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-col-4 ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="layout-multiple-vertical_vertical"
+            title="vertical"
+          >
+            vertical
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-20 ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                aria-required="true"
+                class="ant-input ant-input-outlined"
+                id="layout-multiple-vertical_vertical"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item ant-form-item-horizontal"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-col-4 ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="layout-multiple-vertical_horizontal"
+            title="horizontal"
+          >
+            horizontal
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-20 ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                aria-required="true"
+                class="ant-input ant-input-outlined"
+                id="layout-multiple-vertical_horizontal"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>,
+]
 `;
 
 exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
