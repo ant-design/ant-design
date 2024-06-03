@@ -67,8 +67,8 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
 
   const {
     size,
-    direction,
-    block,
+    direction = 'horizontal',
+    block = false,
     prefixCls: customizePrefixCls,
     className,
     rootClassName,
