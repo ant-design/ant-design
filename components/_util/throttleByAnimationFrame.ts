@@ -15,8 +15,10 @@ function throttleByAnimationFrame<T extends unknown[]>(fn: (...args: T) => void)
   };
 
   throttled.cancel = () => {
-    requestId !== null && raf.cancel(requestId);
-    requestId = null;
+    if (requestId !== null) {
+      raf.cancel(requestId);
+      requestId = null;
+    }
   };
 
   return throttled;
