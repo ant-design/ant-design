@@ -26,13 +26,13 @@ tag: vVERSION
 - Form
   - 🆕 Form.Item 新增 `layout` 属性以切换布局方式。[#49119](https://github.com/ant-design/ant-design/pull/49119) [@crazyair](https://github.com/crazyair)
   - 🆕 Form 的 `ref` 属性支持获取原生节点。[#48841](https://github.com/ant-design/ant-design/pull/48841) [@wanpan11](https://github.com/wanpan11)
-  - 🆕 Form 新增 `clearOnDestroy` 属性以在卸载时情况表单数据。[#48921](https://github.com/ant-design/ant-design/pull/48921) [@crazyair](https://github.com/crazyair)
+  - 🆕 Form 新增 `clearOnDestroy` 属性以在卸载时清空表单数据。[#48921](https://github.com/ant-design/ant-design/pull/48921) [@crazyair](https://github.com/crazyair)
 - Image
   - 🆕 Image 新增 `onReset` 和 `onClose` 属性。[#48936](https://github.com/ant-design/ant-design/pull/48936) [@kiner-tang](https://github.com/kiner-tang)
   - 🆕 Image 的 `toolbarRender` 和 `imageRender` 渲染函数入参新增 `ImgInfo` 信息。[#48729](https://github.com/ant-design/ant-design/pull/48729) [@nova1751](https://github.com/nova1751)
-- Notification
-  - 🆕 Notification 增加 `pauseOnHover` 属性以暂停计时器。[#49024](https://github.com/ant-design/ant-design/pull/49024) [@yociduo](https://github.com/yociduo)
-  - 🆕 Notification 新增 `showProgress` 属性以显示进度条。[#48353](https://github.com/ant-design/ant-design/pull/48353) [@yociduo](https://github.com/yociduo)
+- notification
+  - 🆕 notification 增加 `pauseOnHover` 属性以暂停计时器。[#49024](https://github.com/ant-design/ant-design/pull/49024) [@yociduo](https://github.com/yociduo)
+  - 🆕 notification 新增 `showProgress` 属性以显示进度条。[#48353](https://github.com/ant-design/ant-design/pull/48353) [@yociduo](https://github.com/yociduo)
 - Progress
   - 🆕 Progress 新增 `percentPosition` 属性用于控制数值位置。[#48157](https://github.com/ant-design/ant-design/pull/48157) [@LonelySnowman](https://github.com/LonelySnowman)
   - 🆕 Progress 的 `size` 属性支持配置为对象值。[#48805](https://github.com/ant-design/ant-design/pull/48805) [@crazyair](https://github.com/crazyair)
