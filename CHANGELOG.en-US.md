@@ -31,9 +31,9 @@ tag: vVERSION
 - Image
   - 🆕 Image add `onReset` and `onClose` properties. [#48936](https://github.com/ant-design/ant-design/pull/48936) [@kiner-tang](https://github.com/kiner-tang)
   - 🆕 Image supports get `imgInfo` from arguments of `toolbarRender` and `imageRender` render functions. [#48729](https://github.com/ant-design/ant-design/pull/48729) [@nova1751](https://github.com/nova1751)
-- Notification
-  - 🆕 Notification add `pauseOnHover` property to pause the timer. [#49024](https://github.com/ant-design/ant-design/pull/49024) [@yociduo](https://github.com/yociduo)
-  - 🆕 Notification add `showProgress` property to show the progress bar. [#48353](https://github.com/ant-design/ant-design/pull/48353) [@yociduo](https://github.com/yociduo)
+- notification
+  - 🆕 notification add `pauseOnHover` property to pause the timer. [#49024](https://github.com/ant-design/ant-design/pull/49024) [@yociduo](https://github.com/yociduo)
+  - 🆕 notification add `showProgress` property to show the progress bar. [#48353](https://github.com/ant-design/ant-design/pull/48353) [@yociduo](https://github.com/yociduo)
 - Progress
   - 🆕 Progress add `percentPosition` property to control position for percent value. [#48157](https://github.com/ant-design/ant-design/pull/48157) [@LonelySnowman](https://github.com/LonelySnowman)
   - 🆕 Progress `size` property supports object value. [#48805](https://github.com/ant-design/ant-design/pull/48805) [@crazyair](https://github.com/crazyair)
