@@ -22,6 +22,7 @@ demo:
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/async.tsx">异步关闭</code>
 <code src="./demo/footer.tsx">自定义页脚</code>
+<code src="./demo/loading.tsx" version="5.18.0">加载中</code>
 <code src="./demo/footer-render.tsx">自定义页脚渲染函数</code>
 <code src="./demo/hooks.tsx">使用 hooks 获得上下文</code>
 <code src="./demo/locale.tsx">国际化</code>
@@ -53,6 +54,7 @@ demo:
 | cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | cancelText | 取消按钮文字 | ReactNode | `取消` |  |
 | centered | 垂直居中展示 Modal | boolean | false |  |
+| closable | 是否显示右上角的关闭按钮 | boolean \| { closeIcon?: React.ReactNode } | true |  |
 | closeIcon | 自定义关闭图标。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | ReactNode | &lt;CloseOutlined /> |  |
 | confirmLoading | 确定按钮 loading | boolean | false |  |
 | destroyOnClose | 关闭时销毁 Modal 里的子元素 | boolean | false |  |
@@ -68,6 +70,7 @@ demo:
 | okText | 确认按钮文字 | ReactNode | `确定` |  |
 | okType | 确认按钮类型 | string | `primary` |  |
 | style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - |  |
+| loading | 显示骨架屏 | boolean |  | 5.18.0 |
 | title | 标题 | ReactNode | - |  |
 | open | 对话框是否可见 | boolean | - |  |
 | width | 宽度 | string \| number | 520 |  |
