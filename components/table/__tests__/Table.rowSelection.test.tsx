@@ -3,7 +3,7 @@ import React from 'react';
 import type { TableProps } from '..';
 import Table from '..';
 import { resetWarned } from '../../_util/warning';
-import { act, fireEvent, render, triggerResize } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import type { TableRowSelection } from '../interface';
 
