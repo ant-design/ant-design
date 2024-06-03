@@ -84,7 +84,7 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
   const moduleClass = (moduleName: ListItemClassNamesModule) =>
     classNames(list?.item?.classNames?.[moduleName], customizeClassNames?.[moduleName]);
 
-  const moduleStyle = (moduleName: ListItemStylesModule) => ({
+  const moduleStyle = (moduleName: ListItemStylesModule): React.CSSProperties => ({
     ...list?.item?.styles?.[moduleName],
     ...styles?.[moduleName],
   });
