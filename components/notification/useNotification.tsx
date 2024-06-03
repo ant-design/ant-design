@@ -89,6 +89,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     closable: true,
     closeIcon: getCloseIcon(prefixCls),
     duration: duration ?? DEFAULT_DURATION,
+    pauseOnHover: true,
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
     maxCount,
     onAllRemoved,
