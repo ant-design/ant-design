@@ -31,6 +31,7 @@ import type {
   FormConfig,
   ImageConfig,
   InputConfig,
+  ListConfig,
   MenuConfig,
   ModalConfig,
   NotificationConfig,
@@ -174,7 +175,7 @@ export interface ConfigProviderProps {
   steps?: ComponentStyleConfig;
   image?: ImageConfig;
   layout?: ComponentStyleConfig;
-  list?: ComponentStyleConfig;
+  list?: ListConfig;
   mentions?: ComponentStyleConfig;
   modal?: ModalConfig;
   progress?: ComponentStyleConfig;
