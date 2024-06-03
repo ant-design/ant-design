@@ -14,11 +14,6 @@ export default function Indicator(props: IndicatorProps) {
   const { prefixCls, indicator, percent } = props;
   const dotClassName = `${prefixCls}-dot`;
 
-  // should not be render default indicator when indicator value is null
-  if (indicator === null) {
-    return null;
-  }
-
   if (indicator && React.isValidElement(indicator)) {
     return cloneElement(indicator, {
       className: classNames(indicator.props.className, dotClassName),

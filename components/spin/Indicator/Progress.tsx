@@ -53,7 +53,13 @@ export default function Progress({ percent, prefixCls }: ProgressProps) {
         safePtg <= 0 && hideClassName,
       )}
     >
-      <svg viewBox={`0 0 ${viewSize} ${viewSize}`}>
+      <svg
+        viewBox={`0 0 ${viewSize} ${viewSize}`}
+        role="progressbar"
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={safePtg}
+      >
         {renderCircle(`${dotClassName}-circle-bg`)}
         {renderCircle('', {
           strokeDasharray: `${(circumference * safePtg) / 100} ${

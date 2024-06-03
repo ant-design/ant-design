@@ -1,12 +1,20 @@
 import React from 'react';
-import { render } from '@testing-library/react';
 
 import Spin from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { waitFakeTimer } from '../../../tests/utils';
+import { act, render, waitFakeTimer } from '../../../tests/utils';
 
 describe('Spin', () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.clearAllTimers();
+    jest.useRealTimers();
+  });
+
   mountTest(Spin);
   rtlTest(Spin);
 
@@ -91,5 +99,19 @@ describe('Spin', () => {
     const { container } = render(<Spin fullscreen spinning />);
     const element = container.querySelector<HTMLDivElement>('.ant-spin-fullscreen');
     expect(element).not.toHaveStyle({ pointerEvents: 'none' });
+  });
+
+  it('percent support auto', () => {
+    const { container } = render(<Spin percent="auto" />);
+
+    act(() => {
+      jest.advanceTimersByTime(100000);
+    });
+
+    const nowPTG = Number(
+      container.querySelector('[role="progressbar"]')?.getAttribute('aria-valuenow'),
+    );
+
+    expect(nowPTG).toBeGreaterThanOrEqual(1);
   });
 });
