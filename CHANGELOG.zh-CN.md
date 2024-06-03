@@ -17,7 +17,7 @@ tag: vVERSION
 
 ## 5.17.5
 
-`2024-06-02`
+`2024-06-03`
 
 - 🐞 修复 Anchor 组件设置 `replace` 属性时滚动动画丢失的问题。[#49136](https://github.com/ant-design/ant-design/pull/49136) [@mySkey](https://github.com/mySkey)
 - 🐞 修复 Tour `onClose` 的 `current` 参数错误的问题。[#49124](https://github.com/ant-design/ant-design/pull/49124)

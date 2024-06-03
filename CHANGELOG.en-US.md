@@ -18,7 +18,7 @@ tag: vVERSION
 
 ## 5.17.5
 
-`2024-06-02`
+`2024-06-03`
 
 - 🐞 Fix Anchor scroll animation lost bug when set `replace` property. [#49136](https://github.com/ant-design/ant-design/pull/49136) [@mySkey](https://github.com/mySkey)
 - 🐞 Fix Tour `current` argument of `onClose` is wrong. [#49124](https://github.com/ant-design/ant-design/pull/49124)
