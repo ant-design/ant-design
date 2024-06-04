@@ -23,7 +23,7 @@ const localeValues: Locale = {
     filterReset: 'Sıfırla',
     emptyText: 'Məlumat yoxdur',
     selectAll: 'Cari səhifəni seç',
-    selectInvert: 'Invert current page',
+    selectInvert: 'Mövcud səhifənin elementlərinin sırasını tərs çevir',
     filterEmptyText: 'Filter yoxdur',
     filterCheckall: 'Bütün maddələri seç',
     filterSearchPlaceholder: 'Filterlərdə axtar',
@@ -62,7 +62,7 @@ const localeValues: Locale = {
     selectAll: 'Bütün məlumatı seç',
     deselectAll: 'Bütün seçmə nişanlarını sil',
     removeAll: 'Bütün məlumatı sil',
-    selectInvert: 'Invert current page',
+    selectInvert: 'Mövcud səhifənin elementlərinin sırasını tərs çevir',
   },
   Select: {
     notFoundContent: 'Tapılmadı',
