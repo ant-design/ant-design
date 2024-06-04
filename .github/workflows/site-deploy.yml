@@ -160,14 +160,19 @@ jobs:
         id: build-docker-version
         shell: bash
         run: |
-          # 5.2.2 => output: 5, 5.2, 5.2.2, latest
+          # 5.2.2 => output: 5, 5.2, 5.2.2
           docker_name=${{ github.repository }} # ant-design/ant-design
           version=${{ github.ref_name }}
           major=$(echo $version | cut -d '.' -f 1)
           minor=$(echo $version | cut -d '.' -f 2)
           # patch=$(echo $version | cut -d '.' -f 3)
 
-          tags="$docker_name:$version,$docker_name:$major.$minor,$docker_name:$major,$docker_name:latest"
+          tags="$docker_name:$version,$docker_name:$major.$minor,$docker_name:$major"
+
+          # If it's not manually triggered, then it's just adding a latest tag
+          if [ "${{ github.event_name }}" != "workflow_dispatch" ]; then
+            tags="$tags,$docker_name:latest"
+          fi
 
           echo "tags=$tags" >> $GITHUB_OUTPUT
 
