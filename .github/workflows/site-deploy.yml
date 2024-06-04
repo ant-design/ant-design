@@ -44,7 +44,8 @@ jobs:
         if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: npm ci
 
-  build-and-deploy:
+  build-site:
+    name: release site
     runs-on: ubuntu-latest
     needs: setup
     steps:
@@ -78,6 +79,23 @@ jobs:
           ANALYZER: 1
           NODE_OPTIONS: "--max_old_space_size=4096"
 
+      - name: Upload site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-site
+          path: _site
+          # retention-days: 5 # Follow default value
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [setup, build-site]
+    steps:
+      - name: download site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: release-site
+          path: _site
+
       - name: Get version
         id: publish-version
         run: echo "VERSION=$(echo ${{ github.ref_name }} | sed 's/\./-/g')" >> $GITHUB_OUTPUT
@@ -110,4 +128,6 @@ jobs:
           body: |
             - Documentation site for this release: https://ant-design-${{ steps.publish-version.outputs.VERSION }}.surge.sh
             - Webpack bundle analyzer report page: https://ant-design-${{ steps.publish-version.outputs.VERSION }}.surge.sh/report.html
+
+
 
