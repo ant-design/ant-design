@@ -222,6 +222,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
       [`${componentCls}-dot`]: {
         position: 'relative',
         display: 'inline-block',
+        fontSize: token.dotSize,
         width: '1em',
         height: '1em',
 
@@ -288,7 +289,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
         },
       },
       // small
-      [`&-sm ${componentCls}-dot-holder`]: {
+      [`&-sm ${componentCls}-dot-holder, &-sm ${componentCls}-dot`]: {
         fontSize: token.dotSizeSM,
         i: {
           width: calc(calc(token.dotSizeSM).sub(calc(token.marginXXS).div(2)))
@@ -300,7 +301,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
         },
       },
       // large
-      [`&-lg ${componentCls}-dot-holder`]: {
+      [`&-lg ${componentCls}-dot-holder, &-lg ${componentCls}-dot`]: {
         fontSize: token.dotSizeLG,
         i: {
           width: calc(calc(token.dotSizeLG).sub(token.marginXXS)).div(2).equal(),
