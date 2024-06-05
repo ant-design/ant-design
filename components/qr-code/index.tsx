@@ -31,6 +31,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     rootClassName,
     prefixCls: customizePrefixCls,
     bgColor = 'transparent',
+    onClick,
   } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('qrcode', customizePrefixCls);
@@ -41,8 +42,8 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     src: icon,
     x: undefined,
     y: undefined,
-    height: iconSize,
-    width: iconSize,
+    height: typeof iconSize === 'number' ? iconSize : iconSize?.height,
+    width: typeof iconSize === 'number' ? iconSize : iconSize?.width,
     excavate: true,
   };
 
@@ -86,7 +87,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   };
 
   return wrapCSSVar(
-    <div className={mergedCls} style={mergedStyle}>
+    <div className={mergedCls} style={mergedStyle} onClick={onClick}>
       {status !== 'active' && (
         <div className={`${prefixCls}-mask`}>
           {status === 'loading' && <Spin />}
