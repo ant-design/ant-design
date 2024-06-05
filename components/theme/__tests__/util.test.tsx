@@ -148,6 +148,11 @@ describe('util', () => {
         'calc(var(--var1) + var(--var2))',
       );
     });
+
+    it('css calc var should skip zIndex', () => {
+      const calc = genCalc('css');
+      expect(calc('var(--ant-z-index)').add(93).equal()).toBe('calc(var(--ant-z-index) + 10)');
+    });
   });
 
   describe('maxmin', () => {
