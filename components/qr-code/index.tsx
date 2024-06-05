@@ -20,7 +20,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     type = 'canvas',
     icon = '',
     size = 160,
-    iconSize = 40,
+    iconSize,
     color = token.colorText,
     errorLevel = 'M',
     status = 'active',
@@ -31,7 +31,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     rootClassName,
     prefixCls: customizePrefixCls,
     bgColor = 'transparent',
-    onClick,
+    ...rest
   } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('qrcode', customizePrefixCls);
@@ -42,8 +42,8 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     src: icon,
     x: undefined,
     y: undefined,
-    height: typeof iconSize === 'number' ? iconSize : iconSize?.height,
-    width: typeof iconSize === 'number' ? iconSize : iconSize?.width,
+    height: typeof iconSize === 'number' ? iconSize : iconSize?.height ?? 40,
+    width: typeof iconSize === 'number' ? iconSize : iconSize?.width ?? 40,
     excavate: true,
   };
 
@@ -87,7 +87,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   };
 
   return wrapCSSVar(
-    <div className={mergedCls} style={mergedStyle} onClick={onClick}>
+    <div {...rest} className={mergedCls} style={mergedStyle}>
       {status !== 'active' && (
         <div className={`${prefixCls}-mask`}>
           {status === 'loading' && <Spin />}

@@ -49,7 +49,7 @@ describe('QRCode test', () => {
   it('support click', () => {
     const handleClick = jest.fn();
     const { container } = render(<QRCode value="test" onClick={handleClick} />);
-    fireEvent.click(container?.querySelector<HTMLButtonElement>('.ant-qrcode')!);
+    fireEvent.click(container?.querySelector<HTMLDivElement>('.ant-qrcode')!);
     expect(handleClick).toHaveBeenCalled();
   });
 

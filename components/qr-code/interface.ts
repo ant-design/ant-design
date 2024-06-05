@@ -24,7 +24,7 @@ export type QRPropsCanvas = QRProps & React.CanvasHTMLAttributes<HTMLCanvasEleme
 
 export type QRPropsSvg = QRProps & React.SVGAttributes<SVGSVGElement>;
 
-export interface QRCodeProps extends QRProps {
+export interface QRCodeProps extends QRProps, React.HTMLAttributes<HTMLDivElement> {
   className?: string;
   rootClassName?: string;
   prefixCls?: string;
@@ -34,5 +34,4 @@ export interface QRCodeProps extends QRProps {
   errorLevel?: 'L' | 'M' | 'Q' | 'H';
   status?: 'active' | 'expired' | 'loading' | 'scanned';
   onRefresh?: () => void;
-  onClick?: () => void;
 }
