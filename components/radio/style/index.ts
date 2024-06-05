@@ -293,9 +293,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
         [`&${componentCls}-checked`]: {
           [radioInnerPrefixCls]: {
             '&::after': {
-              transform: `scale(${calc(radioDotDisabledSize)
-                .div(radioSize)
-                .equal({ unit: false })})`,
+              transform: `scale(${calc(radioDotDisabledSize).div(radioSize).equal()})`,
             },
           },
         },

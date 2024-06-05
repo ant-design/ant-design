@@ -94,8 +94,6 @@ export default class CSSCalculator extends AbstractCalculator {
       mergedUnit = false;
     }
 
-    console.log('>>>>', this.result, cssUnit, mergedUnit, this.unitlessCssVar);
-
     this.result = this.result.replace(regexp, mergedUnit ? 'px' : '');
     if (typeof this.lowPriority !== 'undefined') {
       return `calc(${this.result})`;
