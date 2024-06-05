@@ -11,30 +11,19 @@ function unit(value: string | number) {
   return value;
 }
 
-/**
- * For css var, some properties are unitless.
- * The `num` passed to `constructor` will be transformed as `var(--ant-z-index-popup-base)`.
- * We do the key string mapping here to avoid the `unit` transformation.
- *
- * It's a little hack since it deps on the css var name,
- * But currently `token.calc` can not get the real css prop name.
- */
-const UNITLESS_LIST = ['z-index'];
-
 export default class CSSCalculator extends AbstractCalculator {
   result: string = '';
 
-  unitless?: boolean;
+  unitlessCssVar: Set<string>;
 
   lowPriority?: boolean;
 
-  constructor(num: number | string | AbstractCalculator) {
+  constructor(num: number | string | AbstractCalculator, unitlessCssVar: Set<string>) {
     super();
 
     const numType = typeof num;
 
-    this.unitless =
-      numType === 'string' && UNITLESS_LIST.some((unitless) => (num as string).includes(unitless));
+    this.unitlessCssVar = unitlessCssVar;
 
     if (num instanceof CSSCalculator) {
       this.result = `(${num.result})`;
@@ -49,7 +38,7 @@ export default class CSSCalculator extends AbstractCalculator {
     if (num instanceof CSSCalculator) {
       this.result = `${this.result} + ${num.getResult()}`;
     } else if (typeof num === 'number' || typeof num === 'string') {
-      this.result = `${this.result} + ${this.unitless ? num : unit(num)}`;
+      this.result = `${this.result} + ${unit(num)}`;
     }
     this.lowPriority = true;
     return this;
@@ -59,7 +48,7 @@ export default class CSSCalculator extends AbstractCalculator {
     if (num instanceof CSSCalculator) {
       this.result = `${this.result} - ${num.getResult()}`;
     } else if (typeof num === 'number' || typeof num === 'string') {
-      this.result = `${this.result} - ${this.unitless ? num : unit(num)}`;
+      this.result = `${this.result} - ${unit(num)}`;
     }
     this.lowPriority = true;
     return this;
@@ -96,8 +85,18 @@ export default class CSSCalculator extends AbstractCalculator {
   }
 
   equal(options?: { unit?: boolean }): string {
-    const { unit: cssUnit = true } = options || {};
-    this.result = this.result.replace(regexp, cssUnit ? 'px' : '');
+    const { unit: cssUnit } = options || {};
+
+    let mergedUnit: boolean = true;
+    if (typeof cssUnit === 'boolean') {
+      mergedUnit = cssUnit;
+    } else if (Array.from(this.unitlessCssVar).some((cssVar) => this.result.includes(cssVar))) {
+      mergedUnit = false;
+    }
+
+    console.log('>>>>', this.result, cssUnit, mergedUnit, this.unitlessCssVar);
+
+    this.result = this.result.replace(regexp, mergedUnit ? 'px' : '');
     if (typeof this.lowPriority !== 'undefined') {
       return `calc(${this.result})`;
     }
