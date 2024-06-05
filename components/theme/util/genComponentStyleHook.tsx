@@ -3,7 +3,7 @@ import type { ComponentType, FC, ReactElement } from 'react';
 import React, { useContext } from 'react';
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { token2CSSVar, useCSSVarRegister, useStyleRegister } from '@ant-design/cssinjs';
-import useUniqueMemo from 'antd/es/_util/hooks/useUniqueMemo';
+import useUniqueMemo from '../../_util/hooks/useUniqueMemo';
 import { warning } from 'rc-util';
 
 import { ConfigContext } from '../../config-provider/context';
