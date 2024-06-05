@@ -1320,6 +1320,24 @@ describe('Form', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
+  it('form.item should support layout', () => {
+    const App: React.FC = () => (
+      <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }} layout="horizontal">
+        <Form.Item label="name" name="name">
+          <Input />
+        </Form.Item>
+        <Form.Item label="horizontal" name="horizontal" layout="horizontal">
+          <Input />
+        </Form.Item>
+        <Form.Item label="vertical" name="vertical" layout="vertical">
+          <Input />
+        </Form.Item>
+      </Form>
+    );
+    const { container } = render(<App />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
   it('_internalItemRender api test', () => {
     const { container } = render(
       <Form>

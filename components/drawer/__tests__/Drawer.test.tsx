@@ -400,4 +400,15 @@ describe('Drawer', () => {
     expect(baseElement.querySelector('.custom-close')).not.toBeNull();
     expect(baseElement.querySelector('*[aria-label="Close"]')).not.toBeNull();
   });
+
+  it('drawerRender', () => {
+    const { container } = render(
+      <Drawer open getContainer={false} drawerRender={(dom) => <div id="test">{dom}</div>}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    triggerMotion();
+    expect(container.querySelector('#test')).toBeTruthy();
+  });
 });

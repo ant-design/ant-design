@@ -1,8 +1,8 @@
 import React from 'react';
 
-import type { CheckboxOptionType, CheckboxValueType } from './Group';
+import type { CheckboxOptionType } from './Group';
 
-export interface CheckboxGroupContext<T extends CheckboxValueType = CheckboxValueType> {
+export interface CheckboxGroupContext<T = any> {
   name?: string;
   toggleOption?: (option: CheckboxOptionType<T>) => void;
   value?: any;

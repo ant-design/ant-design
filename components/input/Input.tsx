@@ -51,7 +51,6 @@ export function triggerFocus(
         break;
       default:
         element.setSelectionRange(0, len);
-        break;
     }
   }
 }
@@ -172,6 +171,15 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     </>
   );
 
+  const getAddon = (addon: React.ReactNode) =>
+    addon && (
+      <NoCompactStyle>
+        <NoFormStyle override status>
+          {addon}
+        </NoFormStyle>
+      </NoCompactStyle>
+    );
+
   const mergedAllowClear = getAllowClear(allowClear ?? input?.allowClear);
 
   const [variant, enableVariantCls] = useVariant(customVariant, bordered);
@@ -198,24 +206,8 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
         input?.className,
       )}
       onChange={handleChange}
-      addonAfter={
-        addonAfter && (
-          <NoCompactStyle>
-            <NoFormStyle override status>
-              {addonAfter}
-            </NoFormStyle>
-          </NoCompactStyle>
-        )
-      }
-      addonBefore={
-        addonBefore && (
-          <NoCompactStyle>
-            <NoFormStyle override status>
-              {addonBefore}
-            </NoFormStyle>
-          </NoCompactStyle>
-        )
-      }
+      addonBefore={getAddon(addonBefore)}
+      addonAfter={getAddon(addonAfter)}
       classNames={{
         ...classes,
         ...input?.classNames,

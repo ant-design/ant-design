@@ -140,7 +140,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   const moduleClass = (moduleName: CardClassNamesModule) =>
     classNames(card?.classNames?.[moduleName], customClassNames?.[moduleName]);
 
-  const moduleStyle = (moduleName: CardStylesModule) => ({
+  const moduleStyle = (moduleName: CardStylesModule): React.CSSProperties => ({
     ...card?.styles?.[moduleName],
     ...customStyles?.[moduleName],
   });

@@ -19,6 +19,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/basic.tsx">基本使用</code>
 <code src="./demo/control-hooks.tsx">表单方法调用</code>
 <code src="./demo/layout.tsx">表单布局</code>
+<code src="./demo/layout-multiple.tsx">表单混合布局</code>
 <code src="./demo/disabled.tsx">表单禁用</code>
 <code src="./demo/variant.tsx" version="5.13.0">表单变体</code>
 <code src="./demo/required-mark.tsx">必选样式</code>
@@ -50,6 +51,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/form-dependencies.tsx">校验与更新依赖</code>
 <code src="./demo/validate-scroll-to-field.tsx" iframe="360">滑动到错误字段</code>
 <code src="./demo/validate-other.tsx">校验其他组件</code>
+<code src="./demo/getValueProps-normalize.tsx">getValueProps + normalize</code>
 <code src="./demo/disabled-input-debug.tsx" debug>Disabled Input Debug</code>
 <code src="./demo/label-debug.tsx" debug>测试 label 省略</code>
 <code src="./demo/col-24-debug.tsx" debug>测试特殊 col 24 用法</code>
@@ -90,6 +92,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 | onFinishFailed | 提交表单且数据验证失败后回调事件 | function({ values, errorFields, outOfDate }) | - |  |
 | onValuesChange | 字段值更新时触发回调事件 | function(changedValues, allValues) | - |  |
 | clearOnDestroy | 当表单被卸载时清空表单值 | boolean | false | 5.18.0 |
+| layout | 表单项布局 | `horizontal` \| `vertical` \| | - | 5.18.0 |
 
 ### validateMessages
 
