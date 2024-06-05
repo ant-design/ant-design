@@ -25791,20 +25791,24 @@ exports[`ConfigProvider components Spin configProvider 1`] = `
   class="config-spin config-spin-spinning"
 >
   <span
-    class="config-spin-dot config-spin-dot-spin"
+    class="config-spin-dot-holder"
   >
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
+    <span
+      class="config-spin-dot config-spin-dot-spin"
+    >
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+    </span>
   </span>
 </div>
 `;
@@ -25816,20 +25820,24 @@ exports[`ConfigProvider components Spin configProvider componentDisabled 1`] = `
   class="config-spin config-spin-spinning"
 >
   <span
-    class="config-spin-dot config-spin-dot-spin"
+    class="config-spin-dot-holder"
   >
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
+    <span
+      class="config-spin-dot config-spin-dot-spin"
+    >
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+    </span>
   </span>
 </div>
 `;
@@ -25841,20 +25849,24 @@ exports[`ConfigProvider components Spin configProvider componentSize large 1`] =
   class="config-spin config-spin-spinning"
 >
   <span
-    class="config-spin-dot config-spin-dot-spin"
+    class="config-spin-dot-holder"
   >
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
+    <span
+      class="config-spin-dot config-spin-dot-spin"
+    >
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+    </span>
   </span>
 </div>
 `;
@@ -25866,20 +25878,24 @@ exports[`ConfigProvider components Spin configProvider componentSize middle 1`] 
   class="config-spin config-spin-spinning"
 >
   <span
-    class="config-spin-dot config-spin-dot-spin"
+    class="config-spin-dot-holder"
   >
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
+    <span
+      class="config-spin-dot config-spin-dot-spin"
+    >
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+    </span>
   </span>
 </div>
 `;
@@ -25891,20 +25907,24 @@ exports[`ConfigProvider components Spin configProvider componentSize small 1`] =
   class="config-spin config-spin-spinning"
 >
   <span
-    class="config-spin-dot config-spin-dot-spin"
+    class="config-spin-dot-holder"
   >
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
+    <span
+      class="config-spin-dot config-spin-dot-spin"
+    >
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+    </span>
   </span>
 </div>
 `;
@@ -25916,20 +25936,24 @@ exports[`ConfigProvider components Spin normal 1`] = `
   class="ant-spin ant-spin-spinning"
 >
   <span
-    class="ant-spin-dot ant-spin-dot-spin"
+    class="ant-spin-dot-holder"
   >
-    <i
-      class="ant-spin-dot-item"
-    />
-    <i
-      class="ant-spin-dot-item"
-    />
-    <i
-      class="ant-spin-dot-item"
-    />
-    <i
-      class="ant-spin-dot-item"
-    />
+    <span
+      class="ant-spin-dot ant-spin-dot-spin"
+    >
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
+    </span>
   </span>
 </div>
 `;
@@ -25941,20 +25965,24 @@ exports[`ConfigProvider components Spin prefixCls 1`] = `
   class="prefix-Spin prefix-Spin-spinning"
 >
   <span
-    class="prefix-Spin-dot prefix-Spin-dot-spin"
+    class="prefix-Spin-dot-holder"
   >
-    <i
-      class="prefix-Spin-dot-item"
-    />
-    <i
-      class="prefix-Spin-dot-item"
-    />
-    <i
-      class="prefix-Spin-dot-item"
-    />
-    <i
-      class="prefix-Spin-dot-item"
-    />
+    <span
+      class="prefix-Spin-dot prefix-Spin-dot-spin"
+    >
+      <i
+        class="prefix-Spin-dot-item"
+      />
+      <i
+        class="prefix-Spin-dot-item"
+      />
+      <i
+        class="prefix-Spin-dot-item"
+      />
+      <i
+        class="prefix-Spin-dot-item"
+      />
+    </span>
   </span>
 </div>
 `;
