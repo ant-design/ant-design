@@ -169,18 +169,15 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
 
     // Use unique memo to share the result across all instances
     const calc = useUniqueMemo(() => {
-      const unitlessCssVar = new Set<string>(
-        cssVar
-          ? Object.keys(options.unitless || {}).map((key) =>
-              token2CSSVar(
-                key,
-                // If from shared `unitless` use `cssVar.prefix` directly.
-                // Else it's from component, use component prefix.
-                (unitless as any)[key] ? cssVar.prefix : getCompVarPrefix(component, cssVar.prefix),
-              ),
-            )
-          : [],
-      );
+      const unitlessCssVar = new Set<string>();
+      if (cssVar) {
+        Object.keys(options.unitless || {}).forEach((key) => {
+          // Some component proxy the AliasToken (e.g. Image) and some not (e.g. Modal)
+          // We should both pass in `unitlessCssVar` to make sure the CSSVar can be unitless.
+          unitlessCssVar.add(token2CSSVar(key, cssVar.prefix));
+          unitlessCssVar.add(token2CSSVar(key, getCompVarPrefix(component, cssVar.prefix)));
+        });
+      }
 
       return genCalc(type, unitlessCssVar);
     }, [type, component, cssVar && cssVar.prefix]);

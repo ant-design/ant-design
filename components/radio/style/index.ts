@@ -145,7 +145,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
 
   const dotPadding = 4;
   const radioDotDisabledSize = calc(radioSize).sub(calc(dotPadding).mul(2));
-  const radioSizeCalc = calc(1).mul(radioSize).equal();
+  const radioSizeCalc = calc(1).mul(radioSize).equal({ unit: true });
 
   return {
     [`${componentCls}-wrapper`]: {
@@ -219,8 +219,8 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
           display: 'block',
           width: radioSizeCalc,
           height: radioSizeCalc,
-          marginBlockStart: calc(1).mul(radioSize).div(-2).equal(),
-          marginInlineStart: calc(1).mul(radioSize).div(-2).equal(),
+          marginBlockStart: calc(1).mul(radioSize).div(-2).equal({ unit: true }),
+          marginInlineStart: calc(1).mul(radioSize).div(-2).equal({ unit: true }),
           backgroundColor: radioColor,
           borderBlockStart: 0,
           borderInlineStart: 0,
