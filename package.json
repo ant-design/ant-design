@@ -82,7 +82,7 @@
     "pub": "echo 'Please use `npm publish` instead.'",
     "postpublish": "tsx scripts/post-publish.ts",
     "presite": "npm run prestart",
-    "site": "df -h && dumi build && cp .surgeignore _site",
+    "site": "dumi build && cp .surgeignore _site",
     "size-limit": "size-limit",
     "sort:api-table": "antd-tools run sort-api-table",
     "sort:package-json": "npx sort-package-json",
@@ -241,7 +241,7 @@
     "cross-fetch": "^4.0.0",
     "crypto": "^1.0.1",
     "dekko": "^0.2.1",
-    "dumi": "^2.4.0-alpha.4",
+    "dumi": "^2.4.0-alpha.6",
     "dumi-plugin-color-chunk": "^1.1.0",
     "esbuild-loader": "^4.1.0",
     "eslint": "^8.57.0",
@@ -356,7 +356,7 @@
   },
   "overrides": {
     "dumi-plugin-color-chunk": {
-      "dumi": "^2.4.0-alpha.4"
+      "dumi": "^2.4.0-alpha.6"
     }
   },
   "size-limit": [
