@@ -19,6 +19,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/basic.tsx">基本使用</code>
 <code src="./demo/control-hooks.tsx">表单方法调用</code>
 <code src="./demo/layout.tsx">表单布局</code>
+<code src="./demo/layout-multiple.tsx">表单混合布局</code>
 <code src="./demo/disabled.tsx">表单禁用</code>
 <code src="./demo/variant.tsx" version="5.13.0">表单变体</code>
 <code src="./demo/required-mark.tsx">必选样式</code>
@@ -50,6 +51,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/form-dependencies.tsx">校验与更新依赖</code>
 <code src="./demo/validate-scroll-to-field.tsx" iframe="360">滑动到错误字段</code>
 <code src="./demo/validate-other.tsx">校验其他组件</code>
+<code src="./demo/getValueProps-normalize.tsx">getValueProps + normalize</code>
 <code src="./demo/disabled-input-debug.tsx" debug>Disabled Input Debug</code>
 <code src="./demo/label-debug.tsx" debug>测试 label 省略</code>
 <code src="./demo/col-24-debug.tsx" debug>测试特殊 col 24 用法</code>
@@ -89,6 +91,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 | onFinish | 提交表单且数据验证成功后回调事件 | function(values) | - |  |
 | onFinishFailed | 提交表单且数据验证失败后回调事件 | function({ values, errorFields, outOfDate }) | - |  |
 | onValuesChange | 字段值更新时触发回调事件 | function(changedValues, allValues) | - |  |
+| clearOnDestroy | 当表单被卸载时清空表单值 | boolean | false | 5.18.0 |
 
 ### validateMessages
 
@@ -151,6 +154,7 @@ const validateMessages = {
 | validateTrigger | 设置字段校验的时机 | string \| string\[] | `onChange` |  |
 | valuePropName | 子节点的值的属性。注意：Switch、Checkbox 的 valuePropName 应该是是 `checked`，否则无法获取这个两个组件的值。该属性为 `getValueProps` 的封装，自定义 `getValueProps` 后会失效 | string | `value` |  |
 | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 `labelCol`。你可以通过 Form 的 `wrapperCol` 进行统一设置，不会作用于嵌套 Item。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid-cn#col) | - |  |
+| layout | 表单项布局 | `horizontal` \| `vertical` | - | 5.18.0 |
 
 被设置了 `name` 属性的 `Form.Item` 包装的控件，表单控件会自动添加 `value`（或 `valuePropName` 指定的其他属性） `onChange`（或 `trigger` 指定的其他属性），数据同步将被 Form 接管，这会导致以下结果：
 
@@ -467,17 +471,17 @@ export default () => (
 
 Form 仅会对变更的 Field 进行刷新，从而避免完整的组件刷新可能引发的性能问题。因而你无法在 render 阶段通过 `form.getFieldsValue` 来实时获取字段值，而 `useWatch` 提供了一种特定字段访问的方式，从而使得在当前组件中可以直接消费字段的值。同时，如果为了更好的渲染性能，你可以通过 Field 的 renderProps 仅更新需要更新的部分。而当当前组件更新或者 effect 都不需要消费字段值时，则可以通过 `onValuesChange` 将数据抛出，从而避免组件更新。
 
-### Interface
+## Interface
 
-#### NamePath
+### NamePath
 
 `string | number | (string | number)[]`
 
-#### GetFieldsValue
+### GetFieldsValue
 
 `getFieldsValue` 提供了多种重载方法：
 
-##### getFieldsValue(nameList?: true | [NamePath](#namepath)\[], filterFunc?: FilterFunc)
+#### getFieldsValue(nameList?: true | [NamePath](#namepath)\[], filterFunc?: FilterFunc)
 
 当不提供 `nameList` 时，返回所有注册字段，这也包含 List 下所有的值（即便 List 下没有绑定 Item）。
 
@@ -496,11 +500,11 @@ form.getFieldsValue([
 ]);
 ```
 
-##### getFieldsValue({ strict?: boolean, filter?: FilterFunc })
+#### getFieldsValue({ strict?: boolean, filter?: FilterFunc })
 
 `5.8.0` 新增接受配置参数。当 `strict` 为 `true` 时会仅匹配 Item 的值。例如 `{ list: [{ bamboo: 1, little: 2 }] }` 中，如果 List 仅绑定了 `bamboo` 字段，那么 `getFieldsValue({ strict: true })` 会只获得 `{ list: [{ bamboo: 1 }] }`。
 
-#### FilterFunc
+### FilterFunc
 
 用于过滤一些字段值，`meta` 会返回字段相关信息。例如可以用来获取仅被用户修改过的值等等。
 
@@ -508,7 +512,7 @@ form.getFieldsValue([
 type FilterFunc = (meta: { touched: boolean; validating: boolean }) => boolean;
 ```
 
-#### FieldData
+### FieldData
 
 | 名称       | 说明             | 类型                     |
 | ---------- | ---------------- | ------------------------ |
@@ -519,7 +523,7 @@ type FilterFunc = (meta: { touched: boolean; validating: boolean }) => boolean;
 | validating | 是否正在校验     | boolean                  |
 | value      | 字段对应值       | any                      |
 
-#### Rule
+### Rule
 
 Rule 支持接收 object 进行配置，也支持 function 来动态获取 form 的数据：
 
@@ -545,7 +549,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | warningOnly | 仅警告，不阻塞表单提交 | boolean | 4.17.0 |
 | whitespace | 如果字段仅包含空格则校验不通过，只在 `type: 'string'` 时生效 | boolean |  |
 
-#### WatchOptions
+### WatchOptions
 
 | 名称     | 说明                                  | 类型         | 默认值                 | 版本  |
 | -------- | ------------------------------------- | ------------ | ---------------------- | ----- |

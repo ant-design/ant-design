@@ -17,6 +17,10 @@ demo:
 - 当需要一个附加的面板来控制父窗体内容，这个面板在需要时呼出。比如，控制界面展示样式，往界面中添加内容。
 - 当需要在当前任务流中插入临时任务，创建或预览附加内容。比如展示协议条款，创建子对象。
 
+> 开发者注意事项：
+>
+> 自 `5.17.0` 版本，我们提供了 `loading` 属性，内置 Spin 组件作为加载状态，但是自 `5.18.0` 版本开始，我们修复了设计失误，将内置的 Spin 组件替换成了 Skeleton 组件，同时收窄了 `loading` api 的类型范围，只能接收 boolean 类型。
+
 ## 代码演示
 
 <!-- prettier-ignore -->
@@ -68,11 +72,12 @@ v5 使用 `rootClassName` 与 `rootStyle` 来配置最外层元素样式。原 v
 | style | 设计 Drawer 容器样式，如果你只需要设置内容部分请使用 `bodyStyle` | CSSProperties | - |  |
 | styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.10.0 |
 | title | 标题 | ReactNode | - |  |
-| loading | 显示旋转指示器 | boolean | false | 5.17.0 |
+| loading | 显示骨架屏 | boolean | false | 5.17.0 |
 | open | Drawer 是否可见 | boolean | - |
 | width | 宽度 | string \| number | 378 |  |
 | zIndex | 设置 Drawer 的 `z-index` | number | 1000 |  |
 | onClose | 点击遮罩层或左上角叉或取消按钮的回调 | function(e) | - |  |
+| drawerRender | 自定义渲染抽屉 | (node: ReactNode) => ReactNode | - | 5.18.0 |
 
 ## Semantic DOM
 

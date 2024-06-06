@@ -12,6 +12,7 @@ import type { FlexProps } from '../flex/interface';
 import type { FloatButtonGroupProps } from '../float-button/interface';
 import type { FormProps } from '../form/Form';
 import type { InputProps, TextAreaProps } from '../input';
+import type { ListItemProps } from '../list';
 import type { Locale } from '../locale';
 import type { MenuProps } from '../menu';
 import type { ModalProps } from '../modal';
@@ -169,6 +170,10 @@ export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'clas
 
 export type PopupOverflow = 'viewport' | 'scroll';
 
+export interface ListConfig extends ComponentStyleConfig {
+  item?: Pick<ListItemProps, 'classNames' | 'styles'>;
+}
+
 export interface WaveConfig {
   /**
    * @descCN 是否开启水波纹效果。如果需要关闭，可以设置为 `false`。
@@ -227,7 +232,7 @@ export interface ConfigConsumerProps {
   statistic?: ComponentStyleConfig;
   image?: ImageConfig;
   layout?: ComponentStyleConfig;
-  list?: ComponentStyleConfig;
+  list?: ListConfig;
   mentions?: ComponentStyleConfig;
   modal?: ModalConfig;
   progress?: ComponentStyleConfig;

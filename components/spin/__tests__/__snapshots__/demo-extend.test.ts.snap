@@ -7,20 +7,24 @@ exports[`renders components/spin/demo/basic.tsx extend context correctly 1`] = `
   class="ant-spin ant-spin-spinning"
 >
   <span
-    class="ant-spin-dot ant-spin-dot-spin"
+    class="ant-spin-dot-holder"
   >
-    <i
-      class="ant-spin-dot-item"
-    />
-    <i
-      class="ant-spin-dot-item"
-    />
-    <i
-      class="ant-spin-dot-item"
-    />
-    <i
-      class="ant-spin-dot-item"
-    />
+    <span
+      class="ant-spin-dot ant-spin-dot-spin"
+    >
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
+    </span>
   </span>
 </div>
 `;
@@ -29,30 +33,125 @@ exports[`renders components/spin/demo/basic.tsx extend context correctly 2`] = `
 
 exports[`renders components/spin/demo/custom-indicator.tsx extend context correctly 1`] = `
 <div
-  aria-busy="true"
-  aria-live="polite"
-  class="ant-spin ant-spin-spinning"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
-  <span
-    aria-label="loading"
-    class="anticon anticon-loading anticon-spin ant-spin-dot"
-    role="img"
-    style="font-size: 24px;"
+  <div
+    class="ant-space-item"
   >
-    <svg
-      aria-hidden="true"
-      data-icon="loading"
-      fill="currentColor"
-      focusable="false"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
+    <div
+      aria-busy="true"
+      aria-live="polite"
+      class="ant-spin ant-spin-sm ant-spin-spinning"
     >
-      <path
-        d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-      />
-    </svg>
-  </span>
+      <span
+        aria-label="loading"
+        class="anticon anticon-loading anticon-spin ant-spin-dot"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="loading"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      aria-busy="true"
+      aria-live="polite"
+      class="ant-spin ant-spin-spinning"
+    >
+      <span
+        aria-label="loading"
+        class="anticon anticon-loading anticon-spin ant-spin-dot"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="loading"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      aria-busy="true"
+      aria-live="polite"
+      class="ant-spin ant-spin-lg ant-spin-spinning"
+    >
+      <span
+        aria-label="loading"
+        class="anticon anticon-loading anticon-spin ant-spin-dot"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="loading"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      aria-busy="true"
+      aria-live="polite"
+      class="ant-spin ant-spin-spinning"
+    >
+      <span
+        aria-label="loading"
+        class="anticon anticon-loading anticon-spin ant-spin-dot"
+        role="img"
+        style="font-size: 48px;"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="loading"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
 </div>
 `;
 
@@ -125,66 +224,43 @@ Array [
     type="button"
   >
     <span>
-      Show fullscreen for 3s
+      Show fullscreen
     </span>
   </button>,
   <div
-    aria-busy="false"
-    aria-live="polite"
-    class="ant-spin ant-spin-fullscreen"
+    class="ant-spin-fullscreen"
   >
-    <span
-      class="ant-spin-dot ant-spin-dot-spin"
+    <div
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin"
     >
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-    </span>
+      <span
+        class="ant-spin-dot-holder"
+      >
+        <span
+          class="ant-spin-dot ant-spin-dot-spin"
+        >
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+        </span>
+      </span>
+    </div>
   </div>,
 ]
 `;
 
 exports[`renders components/spin/demo/fullscreen.tsx extend context correctly 2`] = `[]`;
-
-exports[`renders components/spin/demo/inside.tsx extend context correctly 1`] = `
-<div
-  class="example"
->
-  <div
-    aria-busy="true"
-    aria-live="polite"
-    class="ant-spin ant-spin-spinning"
-  >
-    <span
-      class="ant-spin-dot ant-spin-dot-spin"
-    >
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-    </span>
-  </div>
-</div>
-`;
-
-exports[`renders components/spin/demo/inside.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/spin/demo/nested.tsx extend context correctly 1`] = `
 Array [
@@ -246,6 +322,214 @@ Array [
 
 exports[`renders components/spin/demo/nested.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/spin/demo/percent.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      aria-checked="false"
+      class="ant-switch"
+      role="switch"
+      type="button"
+    >
+      <div
+        class="ant-switch-handle"
+      />
+      <span
+        class="ant-switch-inner"
+      >
+        <span
+          class="ant-switch-inner-checked"
+        >
+          Auto
+        </span>
+        <span
+          class="ant-switch-inner-unchecked"
+        >
+          Auto
+        </span>
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      aria-busy="true"
+      aria-live="polite"
+      class="ant-spin ant-spin-sm ant-spin-spinning"
+    >
+      <span
+        class="ant-spin-dot-holder"
+      >
+        <span
+          class="ant-spin-dot ant-spin-dot-spin"
+        >
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+        </span>
+      </span>
+      <span
+        class="ant-spin-dot-holder ant-spin-dot-progress ant-spin-dot-holder-hidden"
+      >
+        <svg
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="0"
+          role="progressbar"
+          viewBox="0 0 100 100"
+        >
+          <circle
+            class="ant-spin-dot-circle-bg ant-spin-dot-circle"
+            cx="50"
+            cy="50"
+            r="40"
+            stroke-width="20"
+          />
+          <circle
+            class="ant-spin-dot-circle"
+            cx="50"
+            cy="50"
+            r="40"
+            stroke-width="20"
+            style="stroke-dasharray: 0 251.32741228718342; stroke-dashoffset: 62.83185307179586;"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      aria-busy="true"
+      aria-live="polite"
+      class="ant-spin ant-spin-spinning"
+    >
+      <span
+        class="ant-spin-dot-holder"
+      >
+        <span
+          class="ant-spin-dot ant-spin-dot-spin"
+        >
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+        </span>
+      </span>
+      <span
+        class="ant-spin-dot-holder ant-spin-dot-progress ant-spin-dot-holder-hidden"
+      >
+        <svg
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="0"
+          role="progressbar"
+          viewBox="0 0 100 100"
+        >
+          <circle
+            class="ant-spin-dot-circle-bg ant-spin-dot-circle"
+            cx="50"
+            cy="50"
+            r="40"
+            stroke-width="20"
+          />
+          <circle
+            class="ant-spin-dot-circle"
+            cx="50"
+            cy="50"
+            r="40"
+            stroke-width="20"
+            style="stroke-dasharray: 0 251.32741228718342; stroke-dashoffset: 62.83185307179586;"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      aria-busy="true"
+      aria-live="polite"
+      class="ant-spin ant-spin-lg ant-spin-spinning"
+    >
+      <span
+        class="ant-spin-dot-holder"
+      >
+        <span
+          class="ant-spin-dot ant-spin-dot-spin"
+        >
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+        </span>
+      </span>
+      <span
+        class="ant-spin-dot-holder ant-spin-dot-progress ant-spin-dot-holder-hidden"
+      >
+        <svg
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="0"
+          role="progressbar"
+          viewBox="0 0 100 100"
+        >
+          <circle
+            class="ant-spin-dot-circle-bg ant-spin-dot-circle"
+            cx="50"
+            cy="50"
+            r="40"
+            stroke-width="20"
+          />
+          <circle
+            class="ant-spin-dot-circle"
+            cx="50"
+            cy="50"
+            r="40"
+            stroke-width="20"
+            style="stroke-dasharray: 0 251.32741228718342; stroke-dashoffset: 62.83185307179586;"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/spin/demo/percent.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/spin/demo/size.tsx extend context correctly 1`] = `
 <div
   class="ant-flex ant-flex-align-center ant-flex-gap-middle"
@@ -256,20 +540,24 @@ exports[`renders components/spin/demo/size.tsx extend context correctly 1`] = `
     class="ant-spin ant-spin-sm ant-spin-spinning"
   >
     <span
-      class="ant-spin-dot ant-spin-dot-spin"
+      class="ant-spin-dot-holder"
     >
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
+      <span
+        class="ant-spin-dot ant-spin-dot-spin"
+      >
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+      </span>
     </span>
   </div>
   <div
@@ -278,20 +566,24 @@ exports[`renders components/spin/demo/size.tsx extend context correctly 1`] = `
     class="ant-spin ant-spin-spinning"
   >
     <span
-      class="ant-spin-dot ant-spin-dot-spin"
+      class="ant-spin-dot-holder"
     >
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
+      <span
+        class="ant-spin-dot ant-spin-dot-spin"
+      >
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+      </span>
     </span>
   </div>
   <div
@@ -300,20 +592,24 @@ exports[`renders components/spin/demo/size.tsx extend context correctly 1`] = `
     class="ant-spin ant-spin-lg ant-spin-spinning"
   >
     <span
-      class="ant-spin-dot ant-spin-dot-spin"
+      class="ant-spin-dot-holder"
     >
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
+      <span
+        class="ant-spin-dot ant-spin-dot-spin"
+      >
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+      </span>
     </span>
   </div>
 </div>
@@ -338,20 +634,24 @@ exports[`renders components/spin/demo/tip.tsx extend context correctly 1`] = `
           class="ant-spin ant-spin-sm ant-spin-spinning ant-spin-show-text"
         >
           <span
-            class="ant-spin-dot ant-spin-dot-spin"
+            class="ant-spin-dot-holder"
           >
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
+            <span
+              class="ant-spin-dot ant-spin-dot-spin"
+            >
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+            </span>
           </span>
           <div
             class="ant-spin-text"
@@ -378,20 +678,24 @@ exports[`renders components/spin/demo/tip.tsx extend context correctly 1`] = `
           class="ant-spin ant-spin-spinning ant-spin-show-text"
         >
           <span
-            class="ant-spin-dot ant-spin-dot-spin"
+            class="ant-spin-dot-holder"
           >
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
+            <span
+              class="ant-spin-dot ant-spin-dot-spin"
+            >
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+            </span>
           </span>
           <div
             class="ant-spin-text"
@@ -418,20 +722,24 @@ exports[`renders components/spin/demo/tip.tsx extend context correctly 1`] = `
           class="ant-spin ant-spin-lg ant-spin-spinning ant-spin-show-text"
         >
           <span
-            class="ant-spin-dot ant-spin-dot-spin"
+            class="ant-spin-dot-holder"
           >
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
+            <span
+              class="ant-spin-dot ant-spin-dot-spin"
+            >
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+            </span>
           </span>
           <div
             class="ant-spin-text"
@@ -459,20 +767,24 @@ exports[`renders components/spin/demo/tip.tsx extend context correctly 1`] = `
         class="ant-spin ant-spin-spinning ant-spin-show-text"
       >
         <span
-          class="ant-spin-dot ant-spin-dot-spin"
+          class="ant-spin-dot-holder"
         >
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
+          <span
+            class="ant-spin-dot ant-spin-dot-spin"
+          >
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+          </span>
         </span>
         <div
           class="ant-spin-text"

@@ -58,7 +58,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| allowClear | Show clear button | boolean \| { clearIcon?: ReactNode } | false | 5.13.0 |
+| allowClear | If allow to remove mentions content with clear icon | boolean \| { clearIcon?: ReactNode } | false | 5.13.0 |
 | autoFocus | Auto get focus when component mounted | boolean | false |  |
 | autoSize | Textarea height autosize feature, can be set to true \| false or an object { minRows: 2, maxRows: 6 } | boolean \| object | false |  |
 | defaultValue | Default value | string | - |  |

@@ -630,6 +630,19 @@ exports[`renders components/modal/demo/hooks.tsx extend context correctly 1`] = 
 
 exports[`renders components/modal/demo/hooks.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/modal/demo/loading.tsx extend context correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Open Modal
+  </span>
+</button>
+`;
+
+exports[`renders components/modal/demo/loading.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/modal/demo/locale.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"

@@ -287,7 +287,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       },
 
       '& > *': {
-        display: 'inline-block',
+        display: 'inline-flex',
         float: 'none',
         verticalAlign: 'top', // https://github.com/ant-design/ant-design-pro/issues/139
         borderRadius: 0,
@@ -659,7 +659,7 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       // fix slight height diff in Firefox:
       // https://ant.design/components/auto-complete-cn/#components-auto-complete-demo-certain-category
       [`${componentCls}-lg`]: {
-        lineHeight: token.calc(token.lineHeightLG).sub(0.0002).equal({ unit: false }),
+        lineHeight: token.calc(token.lineHeightLG).sub(0.0002).equal(),
       },
 
       [`> ${componentCls}-group`]: {

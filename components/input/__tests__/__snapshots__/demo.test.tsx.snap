@@ -449,7 +449,7 @@ Array [
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
       tabindex="0"
     >
       <span
