@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.17.4",
+  "version": "5.18.0",
   "description": "An enterprise-class UI design language and React components implementation",
   "keywords": [
     "ant",
@@ -137,7 +137,7 @@
     "rc-drawer": "~7.2.0",
     "rc-dropdown": "~4.2.0",
     "rc-field-form": "~2.2.0",
-    "rc-image": "~7.8.0",
+    "rc-image": "~7.8.1",
     "rc-input": "~1.5.1",
     "rc-input-number": "~9.1.0",
     "rc-mentions": "~2.13.1",
@@ -189,7 +189,7 @@
     "@stackblitz/sdk": "^1.9.0",
     "@testing-library/dom": "^10.1.0",
     "@testing-library/jest-dom": "^6.4.2",
-    "@testing-library/react": "^15.0.5",
+    "@testing-library/react": "^16.0.0",
     "@testing-library/user-event": "^14.5.2",
     "@types/adm-zip": "^0.5.5",
     "@types/ali-oss": "^6.16.11",
