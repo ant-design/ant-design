@@ -70,7 +70,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | notFoundContent | Specify content to show when no result matches | string | `Not Found` |  |
 | open | Set visible of cascader popup | boolean | - | 4.17.0 |
 | options | The data options of cascade | [Option](#option)\[] | - |  |
-| placeholder | The input placeholder | string | `Please select` |  |
+| placeholder | The input placeholder | string | - |  |
 | placement | Use preset popup align config from builtinPlacements | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | 4.17.0 |
 | showSearch | Whether show search input in single mode | boolean \| [Object](#showsearch) | false |  |
 | size | The input size | `large` \| `middle` \| `small` | - |  |

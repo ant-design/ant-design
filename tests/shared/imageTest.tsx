@@ -215,18 +215,25 @@ export default function imageTest(
   }
 
   Object.entries(themes).forEach(([key, algorithm]) => {
+    const configTheme = {
+      algorithm,
+      token: {
+        fontFamily: 'Arial',
+      },
+    };
+
     test(
       `component image screenshot should correct ${key}`,
       `.${key}`,
       <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
-        <ConfigProvider theme={{ algorithm }}>{component}</ConfigProvider>
+        <ConfigProvider theme={configTheme}>{component}</ConfigProvider>
       </div>,
     );
     test(
       `[CSS Var] component image screenshot should correct ${key}`,
       `.${key}.css-var`,
       <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
-        <ConfigProvider theme={{ algorithm, cssVar: true }}>{component}</ConfigProvider>
+        <ConfigProvider theme={{ ...configTheme, cssVar: true }}>{component}</ConfigProvider>
       </div>,
     );
   });
