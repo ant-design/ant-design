@@ -472,17 +472,17 @@ export default () => (
 
 Form only update the Field which changed to avoid full refresh perf issue. Thus you can not get real time value with `getFieldsValue` in render. And `useWatch` will rerender current component to sync with latest value. You can also use Field renderProps to get better performance if only want to do conditional render. If component no need care field value change, you can use `onValuesChange` to give to parent component to avoid current one rerender.
 
-### Interface
+## Interface
 
-#### NamePath
+### NamePath
 
 `string | number | (string | number)[]`
 
-#### GetFieldsValue
+### GetFieldsValue
 
 `getFieldsValue` provides overloaded methods:
 
-##### getFieldsValue(nameList?: true | [NamePath](#namepath)\[], filterFunc?: FilterFunc)
+#### getFieldsValue(nameList?: true | [NamePath](#namepath)\[], filterFunc?: FilterFunc)
 
 When `nameList` is empty, return all registered fields, including values of List (even if List has no Item children).
 
@@ -501,11 +501,11 @@ form.getFieldsValue([
 ]);
 ```
 
-##### getFieldsValue({ strict?: boolean, filter?: FilterFunc })
+#### getFieldsValue({ strict?: boolean, filter?: FilterFunc })
 
 New in `5.8.0`. Accept configuration parameters. When `strict` is `true`, only the value of Item will be matched. For example, in `{ list: [{ bamboo: 1, little: 2 }] }`, if List is only bound to the `bamboo` field, then `getFieldsValue({ strict: true })` will only get `{ list: [{ bamboo: 1 }] }`.
 
-#### FilterFunc
+### FilterFunc
 
 To filter certain field values, `meta` will provide information related to the fields. For example, it can be used to retrieve values that have only been modified by the user, and so on.
 
@@ -513,7 +513,7 @@ To filter certain field values, `meta` will provide information related to the f
 type FilterFunc = (meta: { touched: boolean; validating: boolean }) => boolean;
 ```
 
-#### FieldData
+### FieldData
 
 | Name       | Description              | Type                     |
 | ---------- | ------------------------ | ------------------------ |
@@ -524,7 +524,7 @@ type FilterFunc = (meta: { touched: boolean; validating: boolean }) => boolean;
 | validating | Whether is in validating | boolean                  |
 | value      | Field value              | any                      |
 
-#### Rule
+### Rule
 
 Rule supports a config object, or a function returning config object:
 
@@ -550,7 +550,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | warningOnly | Warning only. Not block form submit | boolean | 4.17.0 |
 | whitespace | Failed if only has whitespace, only work with `type: 'string'` rule | boolean |  |
 
-#### WatchOptions
+### WatchOptions
 
 | Name | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
