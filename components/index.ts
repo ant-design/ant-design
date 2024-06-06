@@ -85,7 +85,7 @@ export type { LayoutProps, SiderProps } from './layout';
 export { default as List } from './list';
 export type { ListProps } from './list';
 export { default as Mentions } from './mentions';
-export type { MentionProps } from './mentions';
+export type { MentionProps, MentionsProps } from './mentions';
 export { default as Menu } from './menu';
 export type { MenuItemProps, MenuProps, MenuRef, MenuTheme, SubMenuProps } from './menu';
 export { default as message } from './message';
