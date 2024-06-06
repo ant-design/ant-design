@@ -142,17 +142,12 @@ interface ChangelogInfo {
 }
 
 const useChangelog = (componentPath: string, lang: 'cn' | 'en'): ChangelogInfo[] => {
-  const data = useFetch(
-    lang === 'cn'
-      ? {
-          key: 'component-changelog-cn',
-          request: () => import('../../../preset/components-changelog-cn.json'),
-        }
-      : {
-          key: 'component-changelog-en',
-          request: () => import('../../../preset/components-changelog-en.json'),
-        },
-  );
+  const logFileName = `components-changelog-${lang}.json`;
+
+  const data = useFetch({
+    key: `component-changelog-${lang}`,
+    request: () => import(`../../../preset/${logFileName}`),
+  });
   return React.useMemo(() => {
     const component = componentPath.replace(/-/g, '');
     const componentName = Object.keys(data).find(

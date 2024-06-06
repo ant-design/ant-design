@@ -355,9 +355,9 @@
     "registry": "https://registry.npmjs.org/"
   },
   "overrides": {
-      "dumi-plugin-color-chunk": {
-          "dumi": "^2.4.0-alpha.4"
-      }
+    "dumi-plugin-color-chunk": {
+      "dumi": "^2.4.0-alpha.4"
+    }
   },
   "size-limit": [
     {
