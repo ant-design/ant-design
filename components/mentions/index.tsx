@@ -39,8 +39,6 @@ export interface OptionProps {
   [key: string]: any;
 }
 
-export interface MentionsProps extends RcMentionsProps {}
-
 export interface MentionProps extends Omit<RcMentionsProps, 'suffix'> {
   rootClassName?: string;
   loading?: boolean;
@@ -53,6 +51,8 @@ export interface MentionProps extends Omit<RcMentionsProps, 'suffix'> {
    */
   variant?: Variant;
 }
+
+export interface MentionsProps extends MentionProps {}
 
 export interface MentionsRef extends RcMentionsRef {}
 
