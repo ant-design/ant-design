@@ -41,7 +41,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | type | render type | `canvas \| svg ` | `canvas` | 5.6.0 |
 | icon | include image url (only image link are supported) | string | - |
 | size | QRCode size | number | 160 |
-| iconSize | include image size | number | 32 |
+| iconSize | include image size | number | 40 |
 | color | QRCode Color | string | `#000` |
 | bgColor | QRCode Background Color | string | `transparent` | 5.5.0 |
 | bordered | Whether has border style | boolean | `true` |

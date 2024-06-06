@@ -91,7 +91,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | onFinishFailed | Trigger after submitting the form and verifying data failed | function({ values, errorFields, outOfDate }) | - |  |
 | onValuesChange | Trigger when value updated | function(changedValues, allValues) | - |  |
 | clearOnDestroy | Clear form values when the form is uninstalled | boolean | false | 5.18.0 |
-| layout | Form item layout | `horizontal` \| `vertical` | - | 5.18.0 |
 
 ### validateMessages
 
@@ -154,6 +153,7 @@ Form field component for data bidirectional binding, validation, layout, and so 
 | validateTrigger | When to validate the value of children node | string \| string\[] | `onChange` |  |
 | valuePropName | Props of children node, for example, the prop of Switch or Checkbox is `checked`. This prop is an encapsulation of `getValueProps`, which will be invalid after customizing `getValueProps` | string | `value` |  |
 | wrapperCol | The layout for input controls, same as `labelCol`. You can set `wrapperCol` on Form which will not affect nest Item. If both exists, use Item first | [object](/components/grid/#col) | - |  |
+| layout | Form item layout | `horizontal` \| `vertical` | - | 5.18.0 |
 
 After wrapped by `Form.Item` with `name` property, `value`(or other property defined by `valuePropName`) `onChange`(or other property defined by `trigger`) props will be added to form controls, the flow of form data will be handled by Form which will cause:
 

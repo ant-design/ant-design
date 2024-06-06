@@ -101,17 +101,27 @@ describe('Spin', () => {
     expect(element).not.toHaveStyle({ pointerEvents: 'none' });
   });
 
-  it('percent support auto', () => {
-    const { container } = render(<Spin percent="auto" />);
+  describe('percent', () => {
+    it('percent support auto', () => {
+      const { container } = render(<Spin percent="auto" />);
 
-    act(() => {
-      jest.advanceTimersByTime(100000);
+      act(() => {
+        jest.advanceTimersByTime(100000);
+      });
+
+      const nowPTG = Number(
+        container.querySelector('[role="progressbar"]')?.getAttribute('aria-valuenow'),
+      );
+
+      expect(nowPTG).toBeGreaterThanOrEqual(1);
     });
 
-    const nowPTG = Number(
-      container.querySelector('[role="progressbar"]')?.getAttribute('aria-valuenow'),
-    );
-
-    expect(nowPTG).toBeGreaterThanOrEqual(1);
+    it('custom indicator has percent', () => {
+      const MyIndicator = ({ percent }: { percent?: number }) => (
+        <div className="custom-indicator">{percent}</div>
+      );
+      const { container } = render(<Spin indicator={<MyIndicator />} percent={23} />);
+      expect(container.querySelector('.custom-indicator')?.textContent).toBe('23');
+    });
   });
 });

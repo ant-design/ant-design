@@ -38,6 +38,20 @@ describe('Space', () => {
     expect(container.children).toMatchSnapshot();
   });
 
+  it('should render width ConfigProvider support 0', () => {
+    const { container } = render(
+      <ConfigProvider space={{ size: 0 }}>
+        <Space>
+          <span>1</span>
+          <span>2</span>
+        </Space>
+      </ConfigProvider>,
+    );
+
+    const item = container.querySelector('.ant-space-gap-row-small.ant-space-gap-col-small');
+    expect(item).toBe(null);
+  });
+
   it('should render width rtl', () => {
     const { container } = render(
       <ConfigProvider direction="rtl">
