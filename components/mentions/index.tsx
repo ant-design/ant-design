@@ -52,6 +52,8 @@ export interface MentionProps extends Omit<RcMentionsProps, 'suffix'> {
   variant?: Variant;
 }
 
+export interface MentionsProps extends MentionProps {}
+
 export interface MentionsRef extends RcMentionsRef {}
 
 interface MentionsConfig {
