@@ -87,9 +87,10 @@ describe('Modal', () => {
     };
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelectorAll('#trigger')[0]);
+    // https://github.com/react-component/dialog/pull/434
     expect(
       (container.querySelectorAll('.ant-modal')[0] as HTMLDivElement).style.transformOrigin,
-    ).toBeTruthy();
+    ).toBeFalsy();
   });
 
   it('custom mouse position', () => {
