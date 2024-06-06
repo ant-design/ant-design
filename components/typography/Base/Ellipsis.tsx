@@ -245,7 +245,6 @@ export default function EllipsisMeasure(props: EllipsisProps) {
   // ============================ Render ============================
   const measureStyle: React.CSSProperties = {
     width,
-    whiteSpace: 'normal',
     margin: 0,
     padding: 0,
   };

@@ -1,5 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { Keyframes } from '@ant-design/cssinjs';
+import { unit, Keyframes } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
@@ -189,7 +189,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
         width: '100%',
         height: '100%',
         marginInlineStart: 0,
-        padding: `0 ${token.paddingXXS}`,
+        padding: `0 ${unit(token.paddingXXS)}`,
         [`&${progressCls}-text-start`]: {
           justifyContent: 'start',
         },
