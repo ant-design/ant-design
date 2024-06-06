@@ -82,7 +82,7 @@
     "pub": "echo 'Please use `npm publish` instead.'",
     "postpublish": "tsx scripts/post-publish.ts",
     "presite": "npm run prestart",
-    "site": "dumi build && cp .surgeignore _site",
+    "site": "df -h && dumi build && cp .surgeignore _site",
     "size-limit": "size-limit",
     "sort:api-table": "antd-tools run sort-api-table",
     "sort:package-json": "npx sort-package-json",
