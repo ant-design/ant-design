@@ -4,6 +4,7 @@ import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
 import classNames from 'classnames';
 import KeyCode from 'rc-util/lib/KeyCode';
 
+import type { TableProps } from '..';
 import type { TooltipProps } from '../../tooltip';
 import Tooltip from '../../tooltip';
 import type {
@@ -62,6 +63,7 @@ function collectSortStates<RecordType>(
   columns: ColumnsType<RecordType>,
   init: boolean,
   pos?: string,
+  sorter?: TableProps['sorter'],
 ): SortState<RecordType>[] {
   let sortStates: SortState<RecordType>[] = [];
 
@@ -74,8 +76,16 @@ function collectSortStates<RecordType>(
     });
   }
 
-  (columns || []).forEach((column, index) => {
+  (columns || []).forEach((itemColumn, index) => {
     const columnPos = getColumnPos(index, pos);
+    const column = { ...itemColumn };
+    if (
+      sorter &&
+      'dataIndex' in column &&
+      column.dataIndex?.toString() === sorter.dataIndex?.toString()
+    ) {
+      column.sortOrder = sorter.order;
+    }
 
     if ((column as ColumnGroupType<RecordType>).children) {
       if ('sortOrder' in column) {
@@ -376,6 +386,7 @@ interface SorterConfig<RecordType> {
   sortDirections: SortOrder[];
   tableLocale?: TableLocale;
   showSorterTooltip?: boolean | SorterTooltipProps;
+  sorter?: TableProps['sorter'];
 }
 
 export default function useFilterSorter<RecordType>({
@@ -385,6 +396,7 @@ export default function useFilterSorter<RecordType>({
   sortDirections,
   tableLocale,
   showSorterTooltip,
+  sorter,
 }: SorterConfig<RecordType>): [
   TransformColumns<RecordType>,
   SortState<RecordType>[],
@@ -392,12 +404,12 @@ export default function useFilterSorter<RecordType>({
   () => SorterResult<RecordType> | SorterResult<RecordType>[],
 ] {
   const [sortStates, setSortStates] = React.useState<SortState<RecordType>[]>(
-    collectSortStates(mergedColumns, true),
+    collectSortStates(mergedColumns, true, undefined, sorter),
   );
 
   const mergedSorterStates = React.useMemo<SortState<RecordType>[]>(() => {
     let validate = true;
-    const collectedStates = collectSortStates(mergedColumns, false);
+    const collectedStates = collectSortStates(mergedColumns, false, undefined, sorter);
 
     // Return if not controlled
     if (!collectedStates.length) {

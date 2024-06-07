@@ -1,5 +1,5 @@
-import React from 'react';
-import { Space, Table, Tag } from 'antd';
+import React, { useState } from 'react';
+import { Table } from 'antd';
 import type { TableProps } from 'antd';
 
 interface DataType {
@@ -7,82 +7,40 @@ interface DataType {
   name: string;
   age: number;
   address: string;
-  tags: string[];
 }
 
 const columns: TableProps<DataType>['columns'] = [
   {
+    key: 'name',
     title: 'Name',
     dataIndex: 'name',
-    key: 'name',
-    render: (text) => <a>{text}</a>,
+    sorter: (a, b) => a.name.length - b.name.length,
   },
-  {
-    title: 'Age',
-    dataIndex: 'age',
-    key: 'age',
-  },
-  {
-    title: 'Address',
-    dataIndex: 'address',
-    key: 'address',
-  },
-  {
-    title: 'Tags',
-    key: 'tags',
-    dataIndex: 'tags',
-    render: (_, { tags }) => (
-      <>
-        {tags.map((tag) => {
-          let color = tag.length > 5 ? 'geekblue' : 'green';
-          if (tag === 'loser') {
-            color = 'volcano';
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          );
-        })}
-      </>
-    ),
-  },
-  {
-    title: 'Action',
-    key: 'action',
-    render: (_, record) => (
-      <Space size="middle">
-        <a>Invite {record.name}</a>
-        <a>Delete</a>
-      </Space>
-    ),
-  },
+  { key: 'age', title: 'Age', dataIndex: ['age'], sorter: (a, b) => a.age - b.age },
+  { key: 'address', title: 'Address', dataIndex: 'address' },
 ];
 
 const data: DataType[] = [
-  {
-    key: '1',
-    name: 'John Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
-    tags: ['nice', 'developer'],
-  },
-  {
-    key: '2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-    tags: ['loser'],
-  },
-  {
-    key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sydney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
-  },
+  { key: '1', name: 'John Brown', age: 32, address: 'New York No. 1 Lake Park' },
+  { key: '2', name: 'Jim Green', age: 42, address: 'London No. 1 Lake Park' },
+  { key: '3', name: 'Joe Black', age: 33, address: 'Sydney No. 1 Lake Park' },
 ];
 
-const App: React.FC = () => <Table columns={columns} dataSource={data} />;
+const App: React.FC = () => {
+  const [sorter, setSorter] = useState<TableProps['sorter']>({ dataIndex: 'age', order: 'ascend' });
+
+  return (
+    <Table
+      columns={columns}
+      dataSource={data}
+      sorter={sorter}
+      onChange={(pagination, filters, tableSorter) => {
+        if (!Array.isArray(tableSorter)) {
+          setSorter({ dataIndex: tableSorter.columnKey, order: tableSorter.order });
+        }
+      }}
+    />
+  );
+};
 
 export default App;
