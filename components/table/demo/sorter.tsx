@@ -16,7 +16,7 @@ const columns: TableProps<DataType>['columns'] = [
     dataIndex: 'name',
     sorter: (a, b) => a.name.length - b.name.length,
   },
-  { key: 'age', title: 'Age', dataIndex: ['age'], sorter: (a, b) => a.age - b.age },
+  { key: 'age', title: 'Age', dataIndex: 'age', sorter: (a, b) => a.age - b.age },
   { key: 'address', title: 'Address', dataIndex: 'address' },
 ];
 
