@@ -70,9 +70,10 @@ export function spaceChildren(children: React.ReactNode, needInserted: boolean) 
     isPrevChildPure = isCurrentChildPure;
   });
 
-  return React.Children.map(childList, (child) =>
+  const kid = React.Children.map(childList, (child) =>
     splitCNCharsBySpace(child as React.ReactElement | string | number, needInserted),
   );
+  return childList.length > 1 ? <span>{kid}</span> : kid;
 }
 
 const ButtonTypes = ['default', 'primary', 'dashed', 'link', 'text'] as const;
