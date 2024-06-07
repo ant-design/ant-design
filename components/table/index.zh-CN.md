@@ -109,6 +109,7 @@ const columns = [
 <code src="./demo/dynamic-settings.tsx">动态控制表格属性</code>
 <code src="./demo/selections-debug.tsx" debug>带下拉箭头的表头</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
+<code src="./demo/sorter.tsx" debug>表格排序</code>
 
 ## API
 
