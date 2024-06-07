@@ -146,6 +146,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onHeaderRow | Set props on per header row | function(columns, index) | - |  |
 | onRow | Set props on per row | function(record, index) | - |  |
 | onScroll | Triggered when the table body is scrolled. Note that only vertical scrolling will trigger the event when `virtual` | function(event) | - | 5.16.0 |
+| sorter | Table sorter | { dataIndex?: dataIndex; order?: SortOrder } | - | 5.19.0 |
 
 ### Table ref
 

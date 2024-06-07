@@ -147,6 +147,7 @@ const columns = [
 | onHeaderRow | 设置头部行属性 | function(columns, index) | - |  |
 | onRow | 设置行属性 | function(record, index) | - |  |
 | onScroll | 表单内容滚动时触发（虚拟滚动下只有垂直滚动会触发事件） | function(event) | - | 5.16.0 |
+| sorter | 表格排序 | { dataIndex?: dataIndex; order?: SortOrder } | - | 5.19.0 |
 
 ### Table ref
 
