@@ -4,7 +4,9 @@ exports[`Typography rtl render component should be rendered correctly in RTL dir
 <div
   class="ant-typography ant-typography-rtl"
 >
-  <span />
+  <span
+    class="ant-typography ant-typography-rtl"
+  />
 </div>
 `;
 
@@ -12,7 +14,9 @@ exports[`Typography rtl render component should be rendered correctly in RTL dir
 <article
   class="ant-typography ant-typography-rtl"
 >
-  <span />
+  <span
+    class="ant-typography ant-typography-rtl"
+  />
 </article>
 `;
 
@@ -20,7 +24,9 @@ exports[`Typography rtl render component should be rendered correctly in RTL dir
 <h1
   class="ant-typography ant-typography-rtl"
 >
-  <span />
+  <span
+    class="ant-typography ant-typography-rtl"
+  />
 </h1>
 `;
 
@@ -28,6 +34,8 @@ exports[`Typography rtl render component should be rendered correctly in RTL dir
 <a
   class="ant-typography ant-typography-rtl"
 >
-  <span />
+  <span
+    class="ant-typography ant-typography-rtl"
+  />
 </a>
 `;

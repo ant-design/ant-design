@@ -457,6 +457,10 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     <ResizeObserver onResize={onResize} disabled={!mergedEnableEllipsis}>
       {(resizeRef: React.RefObject<HTMLElement>) => (
         <Typography
+          component={component}
+          aria-label={topAriaLabel?.toString()}
+          prefixCls={customizePrefixCls}
+          ref={composeRef(resizeRef, typographyRef, ref)}
           className={classNames(
             {
               [`${prefixCls}-${type}`]: type,
@@ -467,51 +471,51 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
             },
             className,
           )}
-          prefixCls={customizePrefixCls}
           style={{
             ...style,
             WebkitLineClamp: cssLineClamp ? rows : undefined,
           }}
-          component={component}
-          ref={composeRef(resizeRef, typographyRef, ref)}
-          direction={direction}
-          onClick={triggerType.includes('text') ? onEditClick : undefined}
-          aria-label={topAriaLabel?.toString()}
           title={title}
-          {...textProps}
         >
           <EllipsisTooltip
             tooltipProps={tooltipProps}
             enableEllipsis={mergedEnableEllipsis}
             isEllipsis={isMergedEllipsis}
           >
-            <Ellipsis
-              enableMeasure={mergedEnableEllipsis && !cssEllipsis}
-              text={children}
-              rows={rows}
-              width={ellipsisWidth}
-              onEllipsis={onJsEllipsis}
-              expanded={expanded}
-              miscDeps={[copied, expanded, copyLoading, enableEdit, enableCopy]}
+            <Typography
+              component="span"
+              direction={direction}
+              onClick={triggerType.includes('text') ? onEditClick : undefined}
+              {...textProps}
             >
-              {(node, canEllipsis, isReal) =>
-                wrapperDecorations(
-                  props,
-                  <>
-                    {node.length > 0 && canEllipsis && !expanded && topAriaLabel ? (
-                      <span key="show-content" aria-hidden>
-                        {node}
-                      </span>
-                    ) : (
-                      node
-                    )}
-                    {renderEllipsis(canEllipsis)}
-                    {canEllipsis && renderExpand()}
-                    {isReal ? null : renderOperations()}
-                  </>,
-                )
-              }
-            </Ellipsis>
+              <Ellipsis
+                enableMeasure={mergedEnableEllipsis && !cssEllipsis}
+                text={children}
+                rows={rows}
+                width={ellipsisWidth}
+                onEllipsis={onJsEllipsis}
+                expanded={expanded}
+                miscDeps={[copied, expanded, copyLoading, enableEdit, enableCopy]}
+              >
+                {(node, canEllipsis, isReal) =>
+                  wrapperDecorations(
+                    props,
+                    <>
+                      {node.length > 0 && canEllipsis && !expanded && topAriaLabel ? (
+                        <span key="show-content" aria-hidden>
+                          {node}
+                        </span>
+                      ) : (
+                        node
+                      )}
+                      {renderEllipsis(canEllipsis)}
+                      {canEllipsis && renderExpand()}
+                      {isReal ? null : renderOperations()}
+                    </>,
+                  )
+                }
+              </Ellipsis>
+            </Typography>
           </EllipsisTooltip>
           {renderOperations()}
         </Typography>
