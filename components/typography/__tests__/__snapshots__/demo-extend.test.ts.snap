@@ -7,94 +7,195 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
   <h1
     class="ant-typography"
   >
-    Introduction
+    <span>
+      Introduction
+    </span>
   </h1>
   <div
-    class="ant-typography"
+    style="width: 100px;"
   >
-    In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
+    <span
+      aria-label="1111111111111111111111111111111111111111111111111"
+      class="ant-typography ant-typography-ellipsis"
+    >
+      <span>
+        1111111111111111111111111111111111111111111111111
+      </span>
+      <div
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            1111111111111111111111111111111111111111111111111
+          </div>
+        </div>
+      </div>
+      <div
+        aria-label="Copy"
+        class="ant-typography-copy"
+        role="button"
+        style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+        tabindex="0"
+      >
+        <span
+          aria-label="copy"
+          class="anticon anticon-copy"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="copy"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            Copy
+          </div>
+        </div>
+      </div>
+    </span>
   </div>
   <div
     class="ant-typography"
   >
-    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to 
-    <span
-      class="ant-typography"
-    >
-      <strong>
-        uniform the user interface specs for internal background projects, lower the unnecessary cost of design differences and implementation and liberate the resources of design and front-end development
-      </strong>
+    <span>
+      In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
     </span>
-    .
+  </div>
+  <div
+    class="ant-typography"
+  >
+    <span>
+      After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to 
+      <span
+        class="ant-typography"
+      >
+        <span>
+          <strong>
+            uniform the user interface specs for internal background projects, lower the unnecessary cost of design differences and implementation and liberate the resources of design and front-end development
+          </strong>
+        </span>
+      </span>
+      .
+    </span>
   </div>
   <h2
     class="ant-typography"
   >
-    Guidelines and Resources
+    <span>
+      Guidelines and Resources
+    </span>
   </h2>
   <div
     class="ant-typography"
   >
-    We supply a series of design principles, practical patterns and high quality design resources (
-    <span
-      class="ant-typography"
-    >
-      <code>
-        Sketch
-      </code>
+    <span>
+      We supply a series of design principles, practical patterns and high quality design resources (
+      <span
+        class="ant-typography"
+      >
+        <span>
+          <code>
+            Sketch
+          </code>
+        </span>
+      </span>
+       and 
+      <span
+        class="ant-typography"
+      >
+        <span>
+          <code>
+            Axure
+          </code>
+        </span>
+      </span>
+      ), to help people create their product prototypes beautifully and efficiently.
     </span>
-     and 
-    <span
-      class="ant-typography"
-    >
-      <code>
-        Axure
-      </code>
-    </span>
-    ), to help people create their product prototypes beautifully and efficiently.
   </div>
   <div
     class="ant-typography"
   >
-    <ul>
-      <li>
-        <a
-          class="ant-typography"
-          href="/docs/spec/proximity"
-        >
-          Principles
-        </a>
-      </li>
-      <li>
-        <a
-          class="ant-typography"
-          href="/docs/spec/overview"
-        >
-          Patterns
-        </a>
-      </li>
-      <li>
-        <a
-          class="ant-typography"
-          href="/docs/resources"
-        >
-          Resource Download
-        </a>
-      </li>
-    </ul>
+    <span>
+      <ul>
+        <li>
+          <a
+            class="ant-typography"
+            href="/docs/spec/proximity"
+          >
+            <span>
+              Principles
+            </span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="ant-typography"
+            href="/docs/spec/overview"
+          >
+            <span>
+              Patterns
+            </span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="ant-typography"
+            href="/docs/resources"
+          >
+            <span>
+              Resource Download
+            </span>
+          </a>
+        </li>
+      </ul>
+    </span>
   </div>
   <div
     class="ant-typography"
   >
-    Press 
-    <span
-      class="ant-typography"
-    >
-      <kbd>
-        Esc
-      </kbd>
+    <span>
+      Press 
+      <span
+        class="ant-typography"
+      >
+        <span>
+          <kbd>
+            Esc
+          </kbd>
+        </span>
+      </span>
+       to exit...
     </span>
-     to exit...
   </div>
   <div
     class="ant-divider ant-divider-horizontal"
@@ -103,114 +204,146 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
   <h1
     class="ant-typography"
   >
-    介绍
+    <span>
+      介绍
+    </span>
   </h1>
   <div
     class="ant-typography"
   >
-    蚂蚁的企业级产品是一个庞大且复杂的体系。这类产品不仅量级巨大且功能复杂，而且变动和并发频繁，常常需要设计与开发能够快速的做出响应。同时这类产品中有存在很多类似的页面以及组件，可以通过抽象得到一些稳定且高复用性的内容。
+    <span>
+      蚂蚁的企业级产品是一个庞大且复杂的体系。这类产品不仅量级巨大且功能复杂，而且变动和并发频繁，常常需要设计与开发能够快速的做出响应。同时这类产品中有存在很多类似的页面以及组件，可以通过抽象得到一些稳定且高复用性的内容。
+    </span>
   </div>
   <div
     class="ant-typography"
   >
-    随着商业化的趋势，越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标，我们（蚂蚁集团体验技术部）经过大量的项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 Ant Design。基于
-    <span
-      class="ant-typography"
-    >
-      <mark>
-        『确定』和『自然』
-      </mark>
+    <span>
+      随着商业化的趋势，越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标，我们（蚂蚁集团体验技术部）经过大量的项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 Ant Design。基于
+      <span
+        class="ant-typography"
+      >
+        <span>
+          <mark>
+            『确定』和『自然』
+          </mark>
+        </span>
+      </span>
+      的设计价值观，通过模块化的解决方案，降低冗余的生产成本，让设计者专注于
+      <span
+        class="ant-typography"
+      >
+        <span>
+          <strong>
+            更好的用户体验
+          </strong>
+        </span>
+      </span>
+      。
     </span>
-    的设计价值观，通过模块化的解决方案，降低冗余的生产成本，让设计者专注于
-    <span
-      class="ant-typography"
-    >
-      <strong>
-        更好的用户体验
-      </strong>
-    </span>
-    。
   </div>
   <h2
     class="ant-typography"
   >
-    设计资源
+    <span>
+      设计资源
+    </span>
   </h2>
   <div
     class="ant-typography"
   >
-    我们提供完善的设计原则、最佳实践和设计资源文件（
-    <span
-      class="ant-typography"
-    >
-      <code>
-        Sketch
-      </code>
+    <span>
+      我们提供完善的设计原则、最佳实践和设计资源文件（
+      <span
+        class="ant-typography"
+      >
+        <span>
+          <code>
+            Sketch
+          </code>
+        </span>
+      </span>
+       和
+      <span
+        class="ant-typography"
+      >
+        <span>
+          <code>
+            Axure
+          </code>
+        </span>
+      </span>
+      ），来帮助业务快速设计出高质量的产品原型。
     </span>
-     和
-    <span
-      class="ant-typography"
-    >
-      <code>
-        Axure
-      </code>
-    </span>
-    ），来帮助业务快速设计出高质量的产品原型。
   </div>
   <div
     class="ant-typography"
   >
-    <ul>
-      <li>
-        <a
-          class="ant-typography"
-          href="/docs/spec/proximity-cn"
-        >
-          设计原则
-        </a>
-      </li>
-      <li>
-        <a
-          class="ant-typography"
-          href="/docs/spec/overview-cn"
-        >
-          设计模式
-        </a>
-      </li>
-      <li>
-        <a
-          class="ant-typography"
-          href="/docs/resources-cn"
-        >
-          设计资源
-        </a>
-      </li>
-    </ul>
+    <span>
+      <ul>
+        <li>
+          <a
+            class="ant-typography"
+            href="/docs/spec/proximity-cn"
+          >
+            <span>
+              设计原则
+            </span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="ant-typography"
+            href="/docs/spec/overview-cn"
+          >
+            <span>
+              设计模式
+            </span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="ant-typography"
+            href="/docs/resources-cn"
+          >
+            <span>
+              设计资源
+            </span>
+          </a>
+        </li>
+      </ul>
+    </span>
   </div>
   <div
     class="ant-typography"
   >
-    <blockquote>
-      AntV 是蚂蚁集团全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、不限可能的数据可视化最佳实践。得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑整个阿里集团内外 20000+ 业务系统，通过了日均千万级 UV 产品的严苛考验。
+    <span>
+      <blockquote>
+        AntV 是蚂蚁集团全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、不限可能的数据可视化最佳实践。得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑整个阿里集团内外 20000+ 业务系统，通过了日均千万级 UV 产品的严苛考验。
 我们正在基础图表，图分析，图编辑，地理空间可视化，智能可视化等各个可视化的领域耕耘，欢迎同路人一起前行。
-    </blockquote>
-    <pre>
-      AntV 是蚂蚁集团全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、不限可能的数据可视化最佳实践。得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑整个阿里集团内外 20000+ 业务系统，通过了日均千万级 UV 产品的严苛考验。
+      </blockquote>
+      <pre>
+        AntV 是蚂蚁集团全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、不限可能的数据可视化最佳实践。得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑整个阿里集团内外 20000+ 业务系统，通过了日均千万级 UV 产品的严苛考验。
 我们正在基础图表，图分析，图编辑，地理空间可视化，智能可视化等各个可视化的领域耕耘，欢迎同路人一起前行。
-    </pre>
+      </pre>
+    </span>
   </div>
   <div
     class="ant-typography"
   >
-    按
-    <span
-      class="ant-typography"
-    >
-      <kbd>
-        Esc
-      </kbd>
+    <span>
+      按
+      <span
+        class="ant-typography"
+      >
+        <span>
+          <kbd>
+            Esc
+          </kbd>
+        </span>
+      </span>
+      键退出阅读……
     </span>
-    键退出阅读……
   </div>
 </article>
 `;
@@ -224,94 +357,122 @@ exports[`renders components/typography/demo/componentToken-debug.tsx extend cont
   <h1
     class="ant-typography"
   >
-    Introduction
+    <span>
+      Introduction
+    </span>
   </h1>
   <div
     class="ant-typography"
   >
-    In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
+    <span>
+      In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
+    </span>
   </div>
   <div
     class="ant-typography"
   >
-    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to 
-    <span
-      class="ant-typography"
-    >
-      <strong>
-        uniform the user interface specs for internal background projects, lower the unnecessary cost of design differences and implementation and liberate the resources of design and front-end development
-      </strong>
+    <span>
+      After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to 
+      <span
+        class="ant-typography"
+      >
+        <span>
+          <strong>
+            uniform the user interface specs for internal background projects, lower the unnecessary cost of design differences and implementation and liberate the resources of design and front-end development
+          </strong>
+        </span>
+      </span>
+      .
     </span>
-    .
   </div>
   <h2
     class="ant-typography"
   >
-    Guidelines and Resources
+    <span>
+      Guidelines and Resources
+    </span>
   </h2>
   <div
     class="ant-typography"
   >
-    We supply a series of design principles, practical patterns and high quality design resources (
-    <span
-      class="ant-typography"
-    >
-      <code>
-        Sketch
-      </code>
+    <span>
+      We supply a series of design principles, practical patterns and high quality design resources (
+      <span
+        class="ant-typography"
+      >
+        <span>
+          <code>
+            Sketch
+          </code>
+        </span>
+      </span>
+       and 
+      <span
+        class="ant-typography"
+      >
+        <span>
+          <code>
+            Axure
+          </code>
+        </span>
+      </span>
+      ), to help people create their product prototypes beautifully and efficiently.
     </span>
-     and 
-    <span
-      class="ant-typography"
-    >
-      <code>
-        Axure
-      </code>
-    </span>
-    ), to help people create their product prototypes beautifully and efficiently.
   </div>
   <div
     class="ant-typography"
   >
-    <ul>
-      <li>
-        <a
-          class="ant-typography"
-          href="/docs/spec/proximity"
-        >
-          Principles
-        </a>
-      </li>
-      <li>
-        <a
-          class="ant-typography"
-          href="/docs/spec/overview"
-        >
-          Patterns
-        </a>
-      </li>
-      <li>
-        <a
-          class="ant-typography"
-          href="/docs/resources"
-        >
-          Resource Download
-        </a>
-      </li>
-    </ul>
+    <span>
+      <ul>
+        <li>
+          <a
+            class="ant-typography"
+            href="/docs/spec/proximity"
+          >
+            <span>
+              Principles
+            </span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="ant-typography"
+            href="/docs/spec/overview"
+          >
+            <span>
+              Patterns
+            </span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="ant-typography"
+            href="/docs/resources"
+          >
+            <span>
+              Resource Download
+            </span>
+          </a>
+        </li>
+      </ul>
+    </span>
   </div>
   <div
     class="ant-typography"
   >
-    Press 
-    <span
-      class="ant-typography"
-    >
-      <kbd>
-        Esc
-      </kbd>
+    <span>
+      Press 
+      <span
+        class="ant-typography"
+      >
+        <span>
+          <kbd>
+            Esc
+          </kbd>
+        </span>
+      </span>
+       to exit...
     </span>
-     to exit...
   </div>
   <div
     class="ant-divider ant-divider-horizontal"
@@ -320,114 +481,146 @@ exports[`renders components/typography/demo/componentToken-debug.tsx extend cont
   <h1
     class="ant-typography"
   >
-    介绍
+    <span>
+      介绍
+    </span>
   </h1>
   <div
     class="ant-typography"
   >
-    蚂蚁的企业级产品是一个庞大且复杂的体系。这类产品不仅量级巨大且功能复杂，而且变动和并发频繁，常常需要设计与开发能够快速的做出响应。同时这类产品中有存在很多类似的页面以及组件，可以通过抽象得到一些稳定且高复用性的内容。
+    <span>
+      蚂蚁的企业级产品是一个庞大且复杂的体系。这类产品不仅量级巨大且功能复杂，而且变动和并发频繁，常常需要设计与开发能够快速的做出响应。同时这类产品中有存在很多类似的页面以及组件，可以通过抽象得到一些稳定且高复用性的内容。
+    </span>
   </div>
   <div
     class="ant-typography"
   >
-    随着商业化的趋势，越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标，我们（蚂蚁集团体验技术部）经过大量的项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 Ant Design。基于
-    <span
-      class="ant-typography"
-    >
-      <mark>
-        『确定』和『自然』
-      </mark>
+    <span>
+      随着商业化的趋势，越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标，我们（蚂蚁集团体验技术部）经过大量的项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 Ant Design。基于
+      <span
+        class="ant-typography"
+      >
+        <span>
+          <mark>
+            『确定』和『自然』
+          </mark>
+        </span>
+      </span>
+      的设计价值观，通过模块化的解决方案，降低冗余的生产成本，让设计者专注于
+      <span
+        class="ant-typography"
+      >
+        <span>
+          <strong>
+            更好的用户体验
+          </strong>
+        </span>
+      </span>
+      。
     </span>
-    的设计价值观，通过模块化的解决方案，降低冗余的生产成本，让设计者专注于
-    <span
-      class="ant-typography"
-    >
-      <strong>
-        更好的用户体验
-      </strong>
-    </span>
-    。
   </div>
   <h2
     class="ant-typography"
   >
-    设计资源
+    <span>
+      设计资源
+    </span>
   </h2>
   <div
     class="ant-typography"
   >
-    我们提供完善的设计原则、最佳实践和设计资源文件（
-    <span
-      class="ant-typography"
-    >
-      <code>
-        Sketch
-      </code>
+    <span>
+      我们提供完善的设计原则、最佳实践和设计资源文件（
+      <span
+        class="ant-typography"
+      >
+        <span>
+          <code>
+            Sketch
+          </code>
+        </span>
+      </span>
+       和
+      <span
+        class="ant-typography"
+      >
+        <span>
+          <code>
+            Axure
+          </code>
+        </span>
+      </span>
+      ），来帮助业务快速设计出高质量的产品原型。
     </span>
-     和
-    <span
-      class="ant-typography"
-    >
-      <code>
-        Axure
-      </code>
-    </span>
-    ），来帮助业务快速设计出高质量的产品原型。
   </div>
   <div
     class="ant-typography"
   >
-    <ul>
-      <li>
-        <a
-          class="ant-typography"
-          href="/docs/spec/proximity-cn"
-        >
-          设计原则
-        </a>
-      </li>
-      <li>
-        <a
-          class="ant-typography"
-          href="/docs/spec/overview-cn"
-        >
-          设计模式
-        </a>
-      </li>
-      <li>
-        <a
-          class="ant-typography"
-          href="/docs/resources-cn"
-        >
-          设计资源
-        </a>
-      </li>
-    </ul>
+    <span>
+      <ul>
+        <li>
+          <a
+            class="ant-typography"
+            href="/docs/spec/proximity-cn"
+          >
+            <span>
+              设计原则
+            </span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="ant-typography"
+            href="/docs/spec/overview-cn"
+          >
+            <span>
+              设计模式
+            </span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="ant-typography"
+            href="/docs/resources-cn"
+          >
+            <span>
+              设计资源
+            </span>
+          </a>
+        </li>
+      </ul>
+    </span>
   </div>
   <div
     class="ant-typography"
   >
-    <blockquote>
-      AntV 是蚂蚁集团全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、不限可能的数据可视化最佳实践。得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑整个阿里集团内外 20000+ 业务系统，通过了日均千万级 UV 产品的严苛考验。
+    <span>
+      <blockquote>
+        AntV 是蚂蚁集团全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、不限可能的数据可视化最佳实践。得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑整个阿里集团内外 20000+ 业务系统，通过了日均千万级 UV 产品的严苛考验。
 我们正在基础图表，图分析，图编辑，地理空间可视化，智能可视化等各个可视化的领域耕耘，欢迎同路人一起前行。
-    </blockquote>
-    <pre>
-      AntV 是蚂蚁集团全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、不限可能的数据可视化最佳实践。得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑整个阿里集团内外 20000+ 业务系统，通过了日均千万级 UV 产品的严苛考验。
+      </blockquote>
+      <pre>
+        AntV 是蚂蚁集团全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、不限可能的数据可视化最佳实践。得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑整个阿里集团内外 20000+ 业务系统，通过了日均千万级 UV 产品的严苛考验。
 我们正在基础图表，图分析，图编辑，地理空间可视化，智能可视化等各个可视化的领域耕耘，欢迎同路人一起前行。
-    </pre>
+      </pre>
+    </span>
   </div>
   <div
     class="ant-typography"
   >
-    按
-    <span
-      class="ant-typography"
-    >
-      <kbd>
-        Esc
-      </kbd>
+    <span>
+      按
+      <span
+        class="ant-typography"
+      >
+        <span>
+          <kbd>
+            Esc
+          </kbd>
+        </span>
+      </span>
+      键退出阅读……
     </span>
-    键退出阅读……
   </div>
 </article>
 `;
@@ -439,7 +632,9 @@ Array [
   <div
     class="ant-typography"
   >
-    This is a copyable text.
+    <span>
+      This is a copyable text.
+    </span>
     <div
       aria-label="Copy"
       class="ant-typography-copy"
@@ -490,7 +685,9 @@ Array [
   <div
     class="ant-typography"
   >
-    Replace copy text.
+    <span>
+      Replace copy text.
+    </span>
     <div
       aria-label="Copy"
       class="ant-typography-copy"
@@ -541,7 +738,9 @@ Array [
   <div
     class="ant-typography"
   >
-    Custom Copy icon and replace tooltips text.
+    <span>
+      Custom Copy icon and replace tooltips text.
+    </span>
     <div
       aria-label="click here"
       class="ant-typography-copy"
@@ -592,7 +791,9 @@ Array [
   <div
     class="ant-typography"
   >
-    Hide Copy tooltips.
+    <span>
+      Hide Copy tooltips.
+    </span>
     <div
       aria-label="Copy"
       class="ant-typography-copy"
@@ -641,6 +842,7 @@ Array [
   <span
     class="ant-typography"
   >
+    <span />
     <div
       aria-label="Copy"
       class="ant-typography-copy ant-typography-copy-icon-only"
@@ -691,7 +893,9 @@ Array [
   <div
     class="ant-typography"
   >
-    Request copy text.
+    <span>
+      Request copy text.
+    </span>
     <div
       aria-label="Copy"
       class="ant-typography-copy"
@@ -749,7 +953,9 @@ Array [
   <div
     class="ant-typography"
   >
-    This is an editable text.
+    <span>
+      This is an editable text.
+    </span>
     <div
       aria-label="Edit"
       class="ant-typography-edit"
@@ -801,7 +1007,9 @@ Array [
     aria-label="This is a loooooooooooooooooooooooooooooooong editable text with suffix."
     class="ant-typography ant-typography-ellipsis"
   >
-    This is a loooooooooooooooooooooooooooooooong editable text with suffix.
+    <span>
+      This is a loooooooooooooooooooooooooooooooong editable text with suffix.
+    </span>
     <div
       aria-label="Edit"
       class="ant-typography-edit"
@@ -852,7 +1060,9 @@ Array [
   <div
     class="ant-typography"
   >
-    Custom Edit icon and replace tooltip text.
+    <span>
+      Custom Edit icon and replace tooltip text.
+    </span>
     <div
       aria-label="click to edit text"
       class="ant-typography-edit"
@@ -966,7 +1176,9 @@ Array [
   <div
     class="ant-typography"
   >
-    Text or icon as trigger - click to start editing.
+    <span>
+      Text or icon as trigger - click to start editing.
+    </span>
     <div
       aria-label="click to edit text"
       class="ant-typography-edit"
@@ -1017,7 +1229,9 @@ Array [
   <div
     class="ant-typography"
   >
-    Editable text with a custom enter icon in edit field.
+    <span>
+      Editable text with a custom enter icon in edit field.
+    </span>
     <div
       aria-label="click to edit text"
       class="ant-typography-edit"
@@ -1068,7 +1282,9 @@ Array [
   <div
     class="ant-typography"
   >
-    Editable text with no enter icon in edit field.
+    <span>
+      Editable text with no enter icon in edit field.
+    </span>
     <div
       aria-label="click to edit text"
       class="ant-typography-edit"
@@ -1119,7 +1335,9 @@ Array [
   <div
     class="ant-typography"
   >
-    Hide Edit tooltip.
+    <span>
+      Hide Edit tooltip.
+    </span>
     <div
       aria-label="Edit"
       class="ant-typography-edit"
@@ -1168,7 +1386,9 @@ Array [
   <div
     class="ant-typography"
   >
-    This is an editable text with limited length.
+    <span>
+      This is an editable text with limited length.
+    </span>
     <div
       aria-label="Edit"
       class="ant-typography-edit"
@@ -1220,7 +1440,9 @@ Array [
     class="ant-typography"
     style="margin: 0px;"
   >
-    h1. Ant Design
+    <span>
+      h1. Ant Design
+    </span>
     <div
       aria-label="Edit"
       class="ant-typography-edit"
@@ -1272,7 +1494,9 @@ Array [
     class="ant-typography"
     style="margin: 0px;"
   >
-    h2. Ant Design
+    <span>
+      h2. Ant Design
+    </span>
     <div
       aria-label="Edit"
       class="ant-typography-edit"
@@ -1324,7 +1548,9 @@ Array [
     class="ant-typography"
     style="margin: 0px;"
   >
-    h3. Ant Design
+    <span>
+      h3. Ant Design
+    </span>
     <div
       aria-label="Edit"
       class="ant-typography-edit"
@@ -1376,7 +1602,9 @@ Array [
     class="ant-typography"
     style="margin: 0px;"
   >
-    h4. Ant Design
+    <span>
+      h4. Ant Design
+    </span>
     <div
       aria-label="Edit"
       class="ant-typography-edit"
@@ -1428,7 +1656,9 @@ Array [
     class="ant-typography"
     style="margin: 0px;"
   >
-    h5. Ant Design
+    <span>
+      h5. Ant Design
+    </span>
     <div
       aria-label="Edit"
       class="ant-typography-edit"
@@ -1506,66 +1736,74 @@ Array [
   <div
     class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
   >
-    Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
+    <span>
+      Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
+    </span>
   </div>,
   <div
     aria-label="Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team."
     class="ant-typography ant-typography-ellipsis"
   >
-    Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
+    <span>
+      Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
+    </span>
   </div>,
   <span
     class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
     style="width: 200px;"
   >
-    Ant Design, a design language for background applications, is refined by Ant UED Team.
-  </span>,
-  <div
-    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-  >
-    <div
-      class="ant-tooltip-arrow"
-      style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="ant-tooltip-content"
-    >
-      <div
-        class="ant-tooltip-inner"
-        role="tooltip"
-      >
-        I am ellipsis now!
-      </div>
-    </div>
-  </div>,
-  <span
-    class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-    style="width: 200px;"
-  >
-    <code>
+    <span>
       Ant Design, a design language for background applications, is refined by Ant UED Team.
-    </code>
-  </span>,
-  <div
-    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-  >
+    </span>
     <div
-      class="ant-tooltip-arrow"
-      style="position: absolute; bottom: 0px; left: 0px;"
-    />
-    <div
-      class="ant-tooltip-content"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
-        class="ant-tooltip-inner"
-        role="tooltip"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
       >
-        I am ellipsis now!
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          I am ellipsis now!
+        </div>
       </div>
     </div>
-  </div>,
+  </span>,
+  <span
+    class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+    style="width: 200px;"
+  >
+    <span>
+      <code>
+        Ant Design, a design language for background applications, is refined by Ant UED Team.
+      </code>
+    </span>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          I am ellipsis now!
+        </div>
+      </div>
+    </div>
+  </span>,
 ]
 `;
 
@@ -1651,7 +1889,9 @@ exports[`renders components/typography/demo/ellipsis-controlled.tsx extend conte
     aria-label="Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team."
     class="ant-typography ant-typography-ellipsis"
   >
-    Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.
+    <span>
+      Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.
+    </span>
     <div
       aria-label="Copy"
       class="ant-typography-copy"
@@ -1835,26 +2075,32 @@ Array [
   <div
     class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
   >
-    Ant Design, a design language for background applications, is refined by Ant UED Team. This is a nest sample 
-    <span
-      class="ant-typography"
-    >
-      <code>
-        <del>
-          <strong>
-            Test
-          </strong>
-        </del>
-      </code>
+    <span>
+      Ant Design, a design language for background applications, is refined by Ant UED Team. This is a nest sample 
+      <span
+        class="ant-typography"
+      >
+        <span>
+          <code>
+            <del>
+              <strong>
+                Test
+              </strong>
+            </del>
+          </code>
+        </span>
+      </span>
+       case. Bnt Design, a design language for background applications, is refined by Ant UED Team. Cnt Design, a design language for background applications, is refined by Ant UED Team. Dnt Design, a design language for background applications, is refined by Ant UED Team. Ent Design, a design language for background applications, is refined by Ant UED Team.
     </span>
-     case. Bnt Design, a design language for background applications, is refined by Ant UED Team. Cnt Design, a design language for background applications, is refined by Ant UED Team. Dnt Design, a design language for background applications, is refined by Ant UED Team. Ent Design, a design language for background applications, is refined by Ant UED Team.
   </div>,
   <span
     aria-label="In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development."
     class="ant-typography ant-typography-ellipsis"
     style="max-width: 400px; font-size: 24px;"
   >
-    In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
+    <span>
+      In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
+    </span>
     <div
       aria-label="Copy"
       class="ant-typography-copy"
@@ -1908,7 +2154,9 @@ Array [
     class="ant-typography ant-typography-ellipsis"
     style="max-width: 400px; font-size: 12px;"
   >
-    In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
+    <span>
+      In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
+    </span>
     <div
       aria-label="Copy"
       class="ant-typography-copy"
@@ -1962,7 +2210,9 @@ Array [
     class="ant-typography ant-typography-ellipsis"
     style="width: 400px; font-size: 24px;"
   >
-    In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
+    <span>
+      In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
+    </span>
     <div
       aria-label="Copy"
       class="ant-typography-copy"
@@ -2016,7 +2266,9 @@ Array [
     class="ant-typography ant-typography-ellipsis"
     style="width: 100px;"
   >
-    Ant Design is a design language for background applications, is refined by Ant UED Team.
+    <span>
+      Ant Design is a design language for background applications, is refined by Ant UED Team.
+    </span>
     <div
       aria-label="Copy"
       class="ant-typography-copy"
@@ -2069,7 +2321,9 @@ Array [
     <span
       class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
     >
-      not ellipsis
+      <span>
+        not ellipsis
+      </span>
     </span>
     [After]
   </p>,
@@ -2080,39 +2334,43 @@ Array [
       class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
       style="width: 100px;"
     >
-      默认display none 样式的超长文字， 悬停tooltip失效了
-    </span>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-    >
+      <span>
+        默认display none 样式的超长文字， 悬停tooltip失效了
+      </span>
       <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-inner"
-          role="tooltip"
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        />
+        <div
+          class="ant-tooltip-content"
         >
-          I am ellipsis now!
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            I am ellipsis now!
+          </div>
         </div>
       </div>
-    </div>
+    </span>
   </div>,
   <div
     class="ant-typography ant-typography-ellipsis"
     style="width: 300px;"
   >
-    In the process of internal desktop applications development,
-    <span
-      style="font-size: 5em;"
-    >
-      ANTD
+    <span>
+      In the process of internal desktop applications development,
+      <span
+        style="font-size: 5em;"
+      >
+        ANTD
+      </span>
+       many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
     </span>
-     many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
   </div>,
   <pre>
     <div
@@ -2124,12 +2382,14 @@ Array [
   and that"
       class="ant-typography ant-typography-ellipsis"
     >
-      this is a multiline
+      <span>
+        this is a multiline
   text that has many
   lines and 
     - render like this
     - and this
   and that
+      </span>
     </div>
   </pre>,
 ]
@@ -2143,7 +2403,9 @@ exports[`renders components/typography/demo/ellipsis-middle.tsx extend context c
   class="ant-typography ant-typography-ellipsis"
   style="max-width: 100%;"
 >
-  In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
+  <span>
+    In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
+  </span>
 </span>
 `;
 
@@ -2154,198 +2416,238 @@ Array [
   <h1
     class="ant-typography"
   >
-    Introduction
+    <span>
+      Introduction
+    </span>
   </h1>,
   <div
     class="ant-typography"
   >
-    In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
+    <span>
+      In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
+    </span>
   </div>,
   <div
     class="ant-typography"
   >
-    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to
-    <span
-      class="ant-typography"
-    >
-      <strong>
-        uniform the user interface specs for internal background projects, lower the unnecessary cost of design differences and implementation and liberate the resources of design and front-end development
-      </strong>
+    <span>
+      After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to
+      <span
+        class="ant-typography"
+      >
+        <span>
+          <strong>
+            uniform the user interface specs for internal background projects, lower the unnecessary cost of design differences and implementation and liberate the resources of design and front-end development
+          </strong>
+        </span>
+      </span>
+      .
     </span>
-    .
   </div>,
   <h2
     class="ant-typography"
   >
-    Guidelines and Resources
+    <span>
+      Guidelines and Resources
+    </span>
   </h2>,
   <div
     class="ant-typography"
   >
-    We supply a series of design principles, practical patterns and high quality design resources (
-    <span
-      class="ant-typography"
-    >
-      <code>
-        Sketch
-      </code>
+    <span>
+      We supply a series of design principles, practical patterns and high quality design resources (
+      <span
+        class="ant-typography"
+      >
+        <span>
+          <code>
+            Sketch
+          </code>
+        </span>
+      </span>
+       and 
+      <span
+        class="ant-typography"
+      >
+        <span>
+          <code>
+            Axure
+          </code>
+        </span>
+      </span>
+      ), to help people create their product prototypes beautifully and efficiently.
     </span>
-     and 
-    <span
-      class="ant-typography"
-    >
-      <code>
-        Axure
-      </code>
-    </span>
-    ), to help people create their product prototypes beautifully and efficiently.
   </div>,
   <div
     class="ant-typography"
   >
-    <ul>
-      <li>
-        <a
-          href="/docs/spec/proximity"
-        >
-          Principles
-        </a>
-      </li>
-      <li>
-        <a
-          href="/docs/pattern/navigation"
-        >
-          Patterns
-        </a>
-      </li>
-      <li>
-        <a
-          href="/docs/resource/download"
-        >
-          Resource Download
-        </a>
-      </li>
-    </ul>
+    <span>
+      <ul>
+        <li>
+          <a
+            href="/docs/spec/proximity"
+          >
+            Principles
+          </a>
+        </li>
+        <li>
+          <a
+            href="/docs/pattern/navigation"
+          >
+            Patterns
+          </a>
+        </li>
+        <li>
+          <a
+            href="/docs/resource/download"
+          >
+            Resource Download
+          </a>
+        </li>
+      </ul>
+    </span>
   </div>,
   <h1
     class="ant-typography"
     id="intro"
   >
-    介绍
+    <span>
+      介绍
+    </span>
   </h1>,
   <div
     class="ant-typography"
   >
-    蚂蚁的企业级产品是一个庞大且复杂的体系。这类产品不仅量级巨大且功能复杂，而且变动和并发频繁，常常需要设计与开发能够快速的做出响应。同时这类产品中有存在很多类似的页面以及组件，可以通过抽象得到一些稳定且高复用性的内容。
+    <span>
+      蚂蚁的企业级产品是一个庞大且复杂的体系。这类产品不仅量级巨大且功能复杂，而且变动和并发频繁，常常需要设计与开发能够快速的做出响应。同时这类产品中有存在很多类似的页面以及组件，可以通过抽象得到一些稳定且高复用性的内容。
+    </span>
   </div>,
   <div
     class="ant-typography"
   >
-    随着商业化的趋势，越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标，我们（蚂蚁集团体验技术部）经过大量的项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 Ant Design。基于
-    <span
-      class="ant-typography"
-    >
-      <mark>
-        『确定』和『自然』
-      </mark>
+    <span>
+      随着商业化的趋势，越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标，我们（蚂蚁集团体验技术部）经过大量的项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 Ant Design。基于
+      <span
+        class="ant-typography"
+      >
+        <span>
+          <mark>
+            『确定』和『自然』
+          </mark>
+        </span>
+      </span>
+      的设计价值观，通过模块化的解决方案，降低冗余的生产成本，让设计者专注于
+      <span
+        class="ant-typography"
+      >
+        <span>
+          <strong>
+            更好的用户体验
+          </strong>
+        </span>
+      </span>
+      。
     </span>
-    的设计价值观，通过模块化的解决方案，降低冗余的生产成本，让设计者专注于
-    <span
-      class="ant-typography"
-    >
-      <strong>
-        更好的用户体验
-      </strong>
-    </span>
-    。
   </div>,
   <h2
     class="ant-typography"
   >
-    设计资源
+    <span>
+      设计资源
+    </span>
   </h2>,
   <div
     class="ant-typography"
   >
-    我们提供完善的设计原则、最佳实践和设计资源文件（
-    <span
-      class="ant-typography"
-    >
-      <code>
-        Sketch
-      </code>
+    <span>
+      我们提供完善的设计原则、最佳实践和设计资源文件（
+      <span
+        class="ant-typography"
+      >
+        <span>
+          <code>
+            Sketch
+          </code>
+        </span>
+      </span>
+       和
+      <span
+        class="ant-typography"
+      >
+        <span>
+          <code>
+            Axure
+          </code>
+        </span>
+      </span>
+      ），来帮助业务快速设计出高质量的产品原型。
     </span>
-     和
-    <span
-      class="ant-typography"
-    >
-      <code>
-        Axure
-      </code>
-    </span>
-    ），来帮助业务快速设计出高质量的产品原型。
   </div>,
   <div
     class="ant-typography"
   >
-    <ul>
-      <li>
-        <a
-          href="/docs/spec/proximity"
-        >
-          设计原则
-        </a>
-      </li>
-      <li>
-        <a
-          href="/docs/pattern/navigation"
-        >
-          设计模式
-        </a>
-      </li>
-      <li>
-        <a
-          href="/docs/resource/download"
-        >
-          设计资源
-        </a>
-      </li>
-    </ul>
+    <span>
+      <ul>
+        <li>
+          <a
+            href="/docs/spec/proximity"
+          >
+            设计原则
+          </a>
+        </li>
+        <li>
+          <a
+            href="/docs/pattern/navigation"
+          >
+            设计模式
+          </a>
+        </li>
+        <li>
+          <a
+            href="/docs/resource/download"
+          >
+            设计资源
+          </a>
+        </li>
+      </ul>
+    </span>
   </div>,
   <div
     class="ant-typography"
   >
-    <ul>
-      <li>
-        I am an unordered item
-      </li>
-      <li>
-        I am an unordered item with an ordered sublist
-        <ol>
-          <li>
-            I am ordered
-          </li>
-        </ol>
-        <ul>
-          <li>
-            I am unordered
-          </li>
-        </ul>
-      </li>
-    </ul>
-    <ol>
-      <li>
-        Ordered list item with unordered sublist
-        <ul>
-          <li>
-            I am unordered!
-          </li>
-          <li>
-            I am also unordered!
-          </li>
-        </ul>
-      </li>
-    </ol>
+    <span>
+      <ul>
+        <li>
+          I am an unordered item
+        </li>
+        <li>
+          I am an unordered item with an ordered sublist
+          <ol>
+            <li>
+              I am ordered
+            </li>
+          </ol>
+          <ul>
+            <li>
+              I am unordered
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ol>
+        <li>
+          Ordered list item with unordered sublist
+          <ul>
+            <li>
+              I am unordered!
+            </li>
+            <li>
+              I am also unordered!
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </span>
   </div>,
 ]
 `;
@@ -2403,7 +2705,9 @@ Array [
     class="ant-typography ant-typography-ellipsis"
     title="To be, or not to be, that is the question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life--William Shakespeare"
   >
-    To be, or not to be, that is the question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life--William Shakespeare
+    <span>
+      To be, or not to be, that is the question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life--William Shakespeare
+    </span>
   </div>,
 ]
 `;
@@ -2420,7 +2724,9 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
     <span
       class="ant-typography"
     >
-      Ant Design (default)
+      <span>
+        Ant Design (default)
+      </span>
     </span>
   </div>
   <div
@@ -2429,7 +2735,9 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
     <span
       class="ant-typography ant-typography-secondary"
     >
-      Ant Design (secondary)
+      <span>
+        Ant Design (secondary)
+      </span>
     </span>
   </div>
   <div
@@ -2438,7 +2746,9 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
     <span
       class="ant-typography ant-typography-success"
     >
-      Ant Design (success)
+      <span>
+        Ant Design (success)
+      </span>
     </span>
   </div>
   <div
@@ -2447,7 +2757,9 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
     <span
       class="ant-typography ant-typography-warning"
     >
-      Ant Design (warning)
+      <span>
+        Ant Design (warning)
+      </span>
     </span>
   </div>
   <div
@@ -2456,7 +2768,9 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
     <span
       class="ant-typography ant-typography-danger"
     >
-      Ant Design (danger)
+      <span>
+        Ant Design (danger)
+      </span>
     </span>
   </div>
   <div
@@ -2465,7 +2779,9 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
     <span
       class="ant-typography ant-typography-disabled"
     >
-      Ant Design (disabled)
+      <span>
+        Ant Design (disabled)
+      </span>
     </span>
   </div>
   <div
@@ -2474,9 +2790,11 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
     <span
       class="ant-typography"
     >
-      <mark>
-        Ant Design (mark)
-      </mark>
+      <span>
+        <mark>
+          Ant Design (mark)
+        </mark>
+      </span>
     </span>
   </div>
   <div
@@ -2485,9 +2803,11 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
     <span
       class="ant-typography"
     >
-      <code>
-        Ant Design (code)
-      </code>
+      <span>
+        <code>
+          Ant Design (code)
+        </code>
+      </span>
     </span>
   </div>
   <div
@@ -2496,9 +2816,11 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
     <span
       class="ant-typography"
     >
-      <kbd>
-        Ant Design (keyboard)
-      </kbd>
+      <span>
+        <kbd>
+          Ant Design (keyboard)
+        </kbd>
+      </span>
     </span>
   </div>
   <div
@@ -2507,9 +2829,11 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
     <span
       class="ant-typography"
     >
-      <u>
-        Ant Design (underline)
-      </u>
+      <span>
+        <u>
+          Ant Design (underline)
+        </u>
+      </span>
     </span>
   </div>
   <div
@@ -2518,9 +2842,11 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
     <span
       class="ant-typography"
     >
-      <del>
-        Ant Design (delete)
-      </del>
+      <span>
+        <del>
+          Ant Design (delete)
+        </del>
+      </span>
     </span>
   </div>
   <div
@@ -2529,9 +2855,11 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
     <span
       class="ant-typography"
     >
-      <strong>
-        Ant Design (strong)
-      </strong>
+      <span>
+        <strong>
+          Ant Design (strong)
+        </strong>
+      </span>
     </span>
   </div>
   <div
@@ -2540,9 +2868,11 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
     <span
       class="ant-typography"
     >
-      <i>
-        Ant Design (italic)
-      </i>
+      <span>
+        <i>
+          Ant Design (italic)
+        </i>
+      </span>
     </span>
   </div>
   <div
@@ -2554,7 +2884,9 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
       rel="noopener noreferrer"
       target="_blank"
     >
-      Ant Design (Link)
+      <span>
+        Ant Design (Link)
+      </span>
     </a>
   </div>
 </div>
@@ -2567,27 +2899,37 @@ Array [
   <h1
     class="ant-typography"
   >
-    h1. Ant Design
+    <span>
+      h1. Ant Design
+    </span>
   </h1>,
   <h2
     class="ant-typography"
   >
-    h2. Ant Design
+    <span>
+      h2. Ant Design
+    </span>
   </h2>,
   <h3
     class="ant-typography"
   >
-    h3. Ant Design
+    <span>
+      h3. Ant Design
+    </span>
   </h3>,
   <h4
     class="ant-typography"
   >
-    h4. Ant Design
+    <span>
+      h4. Ant Design
+    </span>
   </h4>,
   <h5
     class="ant-typography"
   >
-    h5. Ant Design
+    <span>
+      h5. Ant Design
+    </span>
   </h5>,
 ]
 `;

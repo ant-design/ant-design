@@ -18,8 +18,8 @@ import Tooltip from '../../tooltip';
 import Editable from '../Editable';
 import useCopyClick from '../hooks/useCopyClick';
 import useMergedConfig from '../hooks/useMergedConfig';
-import useUpdatedEffect from '../hooks/useUpdatedEffect';
 import usePrevious from '../hooks/usePrevious';
+import useUpdatedEffect from '../hooks/useUpdatedEffect';
 import type { TypographyProps } from '../Typography';
 import Typography from '../Typography';
 import CopyBtn from './CopyBtn';
@@ -249,8 +249,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     setCssEllipsis(canUseCssEllipsis && mergedEnableEllipsis);
   }, [canUseCssEllipsis, mergedEnableEllipsis]);
 
-  const isMergedEllipsis = mergedEnableEllipsis && (cssEllipsis ? isNativeEllipsis : isJsEllipsis);
-
+  const isMergedEllipsis = mergedEnableEllipsis && (cssEllipsis ? isNativeEllipsis : isJsEllipsis); // 错误就在这里了，stack 1
   const cssTextOverflow = mergedEnableEllipsis && rows === 1 && cssEllipsis;
   const cssLineClamp = mergedEnableEllipsis && rows > 1 && cssEllipsis;
 
@@ -277,14 +276,13 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   // >>>>> Native ellipsis
   React.useEffect(() => {
-    const textEle = typographyRef.current;
-
+    const textEle = typographyRef.current?.children?.[0] || typographyRef.current;
     if (enableEllipsis && cssEllipsis && textEle) {
       const currentEllipsis = cssLineClamp
         ? textEle.offsetHeight < textEle.scrollHeight
         : textEle.offsetWidth < textEle.scrollWidth;
       if (isNativeEllipsis !== currentEllipsis) {
-        setIsNativeEllipsis(currentEllipsis);
+        setIsNativeEllipsis(currentEllipsis); // 错误就在这里了，stack 2
       }
     }
   }, [enableEllipsis, cssEllipsis, children, cssLineClamp, isNativeVisible, ellipsisWidth]);
@@ -441,9 +439,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     );
   };
 
-  const renderOperations = (canEllipsis: boolean) => [
+  const renderOperations = () => [
     // (renderExpanded || ellipsisConfig.collapsible) && renderExpand(),
-    canEllipsis && renderExpand(),
     renderEdit(),
     renderCopy(),
   ];
@@ -455,40 +452,38 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
       </span>
     ),
     ellipsisConfig.suffix,
-    renderOperations(canEllipsis),
   ];
-
   return (
     <ResizeObserver onResize={onResize} disabled={!mergedEnableEllipsis}>
       {(resizeRef: React.RefObject<HTMLElement>) => (
-        <EllipsisTooltip
-          tooltipProps={tooltipProps}
-          enableEllipsis={mergedEnableEllipsis}
-          isEllipsis={isMergedEllipsis}
+        <Typography
+          className={classNames(
+            {
+              [`${prefixCls}-${type}`]: type,
+              [`${prefixCls}-disabled`]: disabled,
+              [`${prefixCls}-ellipsis`]: enableEllipsis,
+              [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
+              [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
+            },
+            className,
+          )}
+          prefixCls={customizePrefixCls}
+          style={{
+            ...style,
+            WebkitLineClamp: cssLineClamp ? rows : undefined,
+          }}
+          component={component}
+          ref={composeRef(resizeRef, typographyRef, ref)}
+          direction={direction}
+          onClick={triggerType.includes('text') ? onEditClick : undefined}
+          aria-label={topAriaLabel?.toString()}
+          title={title}
+          {...textProps}
         >
-          <Typography
-            className={classNames(
-              {
-                [`${prefixCls}-${type}`]: type,
-                [`${prefixCls}-disabled`]: disabled,
-                [`${prefixCls}-ellipsis`]: enableEllipsis,
-                [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
-                [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
-              },
-              className,
-            )}
-            prefixCls={customizePrefixCls}
-            style={{
-              ...style,
-              WebkitLineClamp: cssLineClamp ? rows : undefined,
-            }}
-            component={component}
-            ref={composeRef(resizeRef, typographyRef, ref)}
-            direction={direction}
-            onClick={triggerType.includes('text') ? onEditClick : undefined}
-            aria-label={topAriaLabel?.toString()}
-            title={title}
-            {...textProps}
+          <EllipsisTooltip
+            tooltipProps={tooltipProps}
+            enableEllipsis={mergedEnableEllipsis}
+            isEllipsis={isMergedEllipsis}
           >
             <Ellipsis
               enableMeasure={mergedEnableEllipsis && !cssEllipsis}
@@ -499,7 +494,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               expanded={expanded}
               miscDeps={[copied, expanded, copyLoading, enableEdit, enableCopy]}
             >
-              {(node, canEllipsis) =>
+              {(node, canEllipsis, isReal) =>
                 wrapperDecorations(
                   props,
                   <>
@@ -511,12 +506,15 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
                       node
                     )}
                     {renderEllipsis(canEllipsis)}
+                    {canEllipsis && renderExpand()}
+                    {isReal ? null : renderOperations()}
                   </>,
                 )
               }
             </Ellipsis>
-          </Typography>
-        </EllipsisTooltip>
+          </EllipsisTooltip>
+          {renderOperations()}
+        </Typography>
       )}
     </ResizeObserver>
   );
