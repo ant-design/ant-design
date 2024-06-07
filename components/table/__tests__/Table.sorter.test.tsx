@@ -1,5 +1,5 @@
 /* eslint-disable react/no-multi-comp */
-import React from 'react';
+import React, { useState } from 'react';
 
 import type { ColumnType, TableProps } from '..';
 import Table from '..';
@@ -1212,5 +1212,45 @@ describe('Table.sorter', () => {
       ]),
       expect.anything(),
     );
+  });
+  it('should support Table sorter', () => {
+    const Demo = () => {
+      const [sorter, setSorter] = useState<TableProps['sorter']>({
+        dataIndex: 'age',
+        order: 'ascend',
+      });
+
+      return (
+        <Table
+          rowKey="key"
+          columns={[
+            {
+              key: 'name',
+              title: 'Name',
+              dataIndex: 'name',
+              sorter: (a, b) => a.name.length - b.name.length,
+            },
+            { key: 'age', title: 'Age', dataIndex: ['age'], sorter: (a, b) => a.age - b.age },
+          ]}
+          dataSource={[
+            { key: 0, name: 'Jack', age: 1 },
+            { key: 1, name: 'Lucy', age: 3 },
+            { key: 2, name: 'Tom', age: 2 },
+          ]}
+          sorter={sorter}
+          onChange={(pagination, filters, tableSorter) => {
+            if (!Array.isArray(tableSorter)) {
+              setSorter({ dataIndex: tableSorter.columnKey, order: tableSorter.order });
+            }
+          }}
+        />
+      );
+    };
+    const { container } = render(<Demo />);
+    expect(renderedNames(container)).toEqual(['Jack', 'Tom', 'Lucy']);
+    fireEvent.click(container.querySelectorAll('.ant-table-column-sorters')[1]);
+    expect(renderedNames(container)).toEqual(['Lucy', 'Tom', 'Jack']);
+    fireEvent.click(container.querySelectorAll('.ant-table-column-sorters')[0]);
+    expect(renderedNames(container)).toEqual(['Tom', 'Jack', 'Lucy']);
   });
 });
