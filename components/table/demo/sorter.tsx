@@ -31,6 +31,7 @@ const App: React.FC = () => {
 
   return (
     <Table
+      rowKey="key"
       columns={columns}
       dataSource={data}
       sorter={sorter}
