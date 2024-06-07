@@ -11,7 +11,11 @@ const onChange: TimePickerProps['onChange'] = (time, timeString) => {
 };
 
 const App: React.FC = () => (
-  <TimePicker onChange={onChange} defaultOpenValue={dayjs('00:00:00', 'HH:mm:ss')} />
+  <TimePicker
+    placement="topRight"
+    onChange={onChange}
+    defaultOpenValue={dayjs('00:00:00', 'HH:mm:ss')}
+  />
 );
 
 export default App;
