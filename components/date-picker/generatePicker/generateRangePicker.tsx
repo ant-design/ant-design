@@ -116,6 +116,7 @@ export default function generateRangePicker<DateType extends AnyObject>(
           disabled={mergedDisabled}
           ref={innerRef as any} // Need to modify PickerRef
           popupAlign={transPlacement2DropdownAlign(direction, placement)}
+          placement={placement}
           placeholder={getRangePlaceholder(locale, picker, placeholder)}
           suffixIcon={suffixNode}
           prevIcon={<span className={`${prefixCls}-prev-icon`} />}
