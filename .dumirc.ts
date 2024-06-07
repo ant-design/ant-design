@@ -8,11 +8,17 @@ import { version } from './package.json';
 
 export default defineConfig({
   plugins: ['dumi-plugin-color-chunk'],
+  manifest: {},
   conventionRoutes: {
     // to avoid generate routes for .dumi/pages/index/components/xx
     exclude: [new RegExp('index/components/')],
   },
-  ssr: process.env.NODE_ENV === 'production' ? {} : false,
+  ssr:
+    process.env.NODE_ENV === 'production'
+      ? {
+          builder: 'mako',
+        }
+      : false,
   hash: true,
   mfsu: false,
   mako: {},
