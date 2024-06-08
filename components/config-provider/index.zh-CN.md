@@ -109,7 +109,7 @@ const {
 | button | 设置 Button 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: { icon: string }, styles?: { icon: React.CSSProperties }, autoInsertSpace?: boolean } | - | 5.6.0, autoInsertSpace: 5.17.0 |
 | calendar | 设置 Calendar 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | card | 设置 Card 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [CardProps\["classNames"\]](/components/card-cn#api), styles?: [CardProps\["styles"\]](/components/card-cn#api) } | - | 5.7.0, `classNames` 和 `styles`: 5.14.0 |
-| chatbox | 设置 Chatbox 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: { avatar?: string; content?: string; }, styles?: { avatar?: CSSProperties, content?: CSSProperties } } | - | 5.18.0 |
+| chatbox | 设置 Chatbox 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: { avatar?: string; content?: string; }, styles?: { avatar?: CSSProperties, content?: CSSProperties } } | - | 5.19.0 |
 | carousel | 设置 Carousel 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | cascader | 设置 Cascader 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | checkbox | 设置 Checkbox 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |

@@ -21,8 +21,8 @@ const App: React.FC = () => {
   return (
     <SemanticPreview
       semantics={[
-        { name: 'avatar', desc: locale.avatar, version: '5.17.0' },
-        { name: 'content', desc: locale.content, version: '5.17.0' },
+        { name: 'avatar', desc: locale.avatar, version: '5.19.0' },
+        { name: 'content', desc: locale.content, version: '5.19.0' },
       ]}
     >
       <Chatbox

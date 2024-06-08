@@ -1,11 +1,11 @@
 export interface TypingOption {
   /**
-   * @since 5.18.0
+   * @since 5.19.0
    * @default 1
    */
   step?: number;
   /**
-   * @since 5.18.0
+   * @since 5.19.0
    * @default 100
    */
   interval?: number;
