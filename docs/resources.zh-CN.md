@@ -79,7 +79,7 @@ description: 这里汇总了与 Ant Design 相关的所有资源。
 
 ## 致敬
 
-在 Ant Design 4.0 的改版中，我们汲取顶级设计体系的精华，同时结合我们自身业务特性做了大量优化。我们希望通过不断努力和打磨，成为世界级设计体系的一份子，为「用户」和「设计者」带来极致体验。如果你也想追求卓越，建议去研究这些体系： [Fiori Design](https://experience.sap.com/fiori-design-web/)、 [Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/themes/)、 [Lightning Design System](https://lightningdesignsystem.com/getting-started/)、 [Material Design](https://material.io/)
+在 Ant Design 4.0 的改版中，我们汲取顶级设计体系的精华，同时结合我们自身业务特性做了大量优化。我们希望通过不断努力和打磨，成为世界级设计体系的一份子，为「用户」和「设计者」带来极致体验。如果你也想追求卓越，建议去研究这些体系： [Fiori Design](https://experience.sap.com/fiori-design-web/)、 [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)、 [Lightning Design System](https://lightningdesignsystem.com/getting-started/)、 [Material Design](https://material.io/)
 
 <div class="next-block-use-cards"></div>
 
