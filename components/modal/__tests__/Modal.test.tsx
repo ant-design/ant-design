@@ -5,7 +5,7 @@ import Modal from '..';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { createEvent, fireEvent, render } from '../../../tests/utils';
 
 jest.mock('rc-util/lib/Portal');
 
@@ -86,7 +86,12 @@ describe('Modal', () => {
       );
     };
     const { container } = render(<Demo />);
-    fireEvent.click(container.querySelectorAll('#trigger')[0]);
+    const triggerEle = container.querySelectorAll('#trigger')[0];
+    const clickEvent = createEvent.click(triggerEle) as any;
+    clickEvent.pageX = 100;
+    clickEvent.pageY = 100;
+    fireEvent(triggerEle, clickEvent);
+
     expect(
       (container.querySelectorAll('.ant-modal')[0] as HTMLDivElement).style.transformOrigin,
     ).toBeTruthy();
