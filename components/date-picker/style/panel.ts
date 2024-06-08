@@ -543,13 +543,12 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         '&-column': {
           flex: '1 0 auto',
           width: timeColumnWidth,
-          margin: `${unit(paddingXXS)} 0`,
+          margin: `${unit(token.calc(paddingXXS).div(2).equal())} 0`,
           padding: 0,
-          overflowY: 'hidden',
+          overflow: 'hidden',
           textAlign: 'start',
           listStyle: 'none',
           transition: `background ${motionDurationMid}`,
-          overflowX: 'hidden',
 
           '&::-webkit-scrollbar': {
             width: 8,
@@ -591,6 +590,8 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 
             [`&${componentCls}-time-panel-cell`]: {
               marginInline: marginXXS,
+              transition: `all ${motionDurationMid}`,
+
               [`${componentCls}-time-panel-cell-inner`]: {
                 display: 'block',
                 width: token.calc(timeColumnWidth).sub(token.calc(marginXXS).mul(2)).equal(),
@@ -611,6 +612,10 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
               },
 
               '&-selected': {
+                '&:first-child': {
+                  marginTop: token.calc(paddingXXS).div(2).equal(),
+                },
+
                 [`${componentCls}-time-panel-cell-inner`]: {
                   background: controlItemBgActive,
                 },

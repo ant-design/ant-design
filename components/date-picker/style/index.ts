@@ -353,11 +353,6 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
               animationName: slideUpOut,
             },
 
-          // Time picker with additional style
-          [`${componentCls}-panel > ${componentCls}-time-panel`]: {
-            paddingTop: paddingXXS,
-          },
-
           // ======================== Ranges ========================
 
           [`${componentCls}-range-wrapper`]: {
