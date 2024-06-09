@@ -99,7 +99,7 @@ export interface ComponentToken {
    */
   finishIconBgColor: string;
   /**
-   * @Internal
+   * @internal
    */
   finishIconBorderColor: string;
 }
