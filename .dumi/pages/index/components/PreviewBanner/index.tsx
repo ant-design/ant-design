@@ -143,12 +143,12 @@ const PreviewBanner: React.FC<React.PropsWithChildren> = (props) => {
           <p>{locale.slogan}</p>
         </Typography>
         <Flex gap="middle" className={styles.btnWrap}>
-          <Link to={utils.getLocalizedPathname('/components/overview/', isZhCN, search)}>
+          <Link to={utils.getLocalizedPathname('/components/overview/', isZhCN, search)} prefetch>
             <Button size="large" type="primary">
               {locale.start}
             </Button>
           </Link>
-          <Link to={utils.getLocalizedPathname('/docs/spec/introduce/', isZhCN, search)}>
+          <Link to={utils.getLocalizedPathname('/docs/spec/introduce/', isZhCN, search)} prefetch>
             <Button size="large">{locale.designLanguage}</Button>
           </Link>
         </Flex>
