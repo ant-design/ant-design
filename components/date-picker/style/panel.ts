@@ -297,7 +297,6 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         &-super-prev-icon,
         &-super-next-icon`]: {
         position: 'relative',
-        display: 'inline-block',
         width: pickerControlIconSize,
         height: pickerControlIconSize,
 
@@ -305,7 +304,6 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           position: 'absolute',
           top: 0,
           insetInlineStart: 0,
-          display: 'inline-block',
           width: pickerControlIconSize,
           height: pickerControlIconSize,
           border: `0 solid currentcolor`,
