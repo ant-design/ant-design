@@ -3,8 +3,7 @@ import React,{useState} from 'react';
 import Table from '..';
 import { render ,fireEvent} from '../../../tests/utils';
 describe('Sorter.value.test.tsx', () => {
-  window.requestAnimationFrame = (callback) => window.setTimeout(callback, 16);
-  window.cancelAnimationFrame = window.clearTimeout;
+
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
   afterEach(() => {
     errorSpy.mockReset();
