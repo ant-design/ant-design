@@ -31,10 +31,21 @@ export interface CarouselRef {
   innerSlider: any;
 }
 
+interface ArrowType extends React.ButtonHTMLAttributes<HTMLElement> {
+  currentSlide?: number;
+  slideCount?: number;
+}
+
+function ArrowButton({ currentSlide, slideCount, ...rest }: ArrowType) {
+  return <button type="button" {...rest} />;
+}
+
 const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
   const {
     dots = true,
     arrows = false,
+    prevArrow = <ArrowButton aria-label="prev" />,
+    nextArrow = <ArrowButton aria-label="next" />,
     draggable = false,
     waitForAnimate = false,
     dotPosition = 'bottom',
@@ -115,6 +126,8 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
         dots={enableDots}
         dotsClass={dsClass}
         arrows={arrows}
+        prevArrow={prevArrow}
+        nextArrow={nextArrow}
         draggable={draggable}
         verticalSwiping={vertical}
         waitForAnimate={waitForAnimate}

@@ -1,5 +1,6 @@
-import useState from 'rc-util/lib/hooks/useState';
 import * as React from 'react';
+import useState from 'rc-util/lib/hooks/useState';
+
 import Button from '../button';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import { convertLegacyProps } from '../button/buttonHelpers';
@@ -110,7 +111,7 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
       clickedRef.current = false;
     } else {
       returnValueOfOnOk = actionFn();
-      if (!returnValueOfOnOk) {
+      if (!isThenable(returnValueOfOnOk)) {
         onInternalClose();
         return;
       }

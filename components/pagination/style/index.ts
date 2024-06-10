@@ -1,16 +1,18 @@
-import { type CSSObject, unit } from '@ant-design/cssinjs';
-import type { SharedComponentToken, SharedInputToken } from '../../input/style/token';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { GenStyleFn } from 'antd/es/theme/util/genComponentStyleHook';
+
 import {
   genBasicInputStyle,
   genInputSmallStyle,
   initComponentToken,
   initInputToken,
 } from '../../input/style';
+import type { SharedComponentToken, SharedInputToken } from '../../input/style/token';
+import { genBaseOutlinedStyle, genDisabledStyle } from '../../input/style/variants';
 import { genFocusOutline, genFocusStyle, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
-import type { GenStyleFn } from 'antd/es/theme/util/genComponentStyleHook';
-import { genBaseOutlinedStyle, genDisabledStyle } from '../../input/style/variants';
 
 export interface ComponentToken {
   /**
@@ -329,7 +331,7 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
 };
 
 const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
-  const { componentCls } = token;
+  const { componentCls, antCls } = token;
 
   return {
     [`${componentCls}-jump-prev, ${componentCls}-jump-next`]: {
@@ -458,9 +460,14 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
       marginInlineStart: token.margin,
       verticalAlign: 'middle',
 
-      '&-size-changer.-select': {
+      '&-size-changer': {
         display: 'inline-block',
         width: 'auto',
+
+        // https://github.com/ant-design/ant-design/issues/49258
+        [`${antCls}-select-arrow:not(:last-child)`]: {
+          opacity: 1,
+        },
       },
 
       '&-quick-jumper': {

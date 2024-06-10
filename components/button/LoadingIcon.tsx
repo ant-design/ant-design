@@ -1,7 +1,8 @@
+import React, { forwardRef } from 'react';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
-import React, { forwardRef } from 'react';
+
 import IconWrapper from './IconWrapper';
 
 type InnerLoadingIconProps = {
@@ -11,25 +12,24 @@ type InnerLoadingIconProps = {
   iconClassName?: string;
 };
 
-const InnerLoadingIcon = forwardRef<HTMLSpanElement, InnerLoadingIconProps>(
-  ({ prefixCls, className, style, iconClassName }, ref) => {
-    const mergedIconCls = classNames(`${prefixCls}-loading-icon`, className);
+const InnerLoadingIcon = forwardRef<HTMLSpanElement, InnerLoadingIconProps>((props, ref) => {
+  const { prefixCls, className, style, iconClassName } = props;
+  const mergedIconCls = classNames(`${prefixCls}-loading-icon`, className);
 
-    return (
-      <IconWrapper prefixCls={prefixCls} className={mergedIconCls} style={style} ref={ref}>
-        <LoadingOutlined className={iconClassName} />
-      </IconWrapper>
-    );
-  },
-);
+  return (
+    <IconWrapper prefixCls={prefixCls} className={mergedIconCls} style={style} ref={ref}>
+      <LoadingOutlined className={iconClassName} />
+    </IconWrapper>
+  );
+});
 
-export interface LoadingIconProps {
+export type LoadingIconProps = {
   prefixCls: string;
   existIcon: boolean;
   loading?: boolean | object;
   className?: string;
   style?: React.CSSProperties;
-}
+};
 
 const getCollapsedWidth = (): React.CSSProperties => ({
   width: 0,

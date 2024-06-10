@@ -2,8 +2,10 @@ import * as React from 'react';
 import classNames from 'classnames';
 import type { DrawerProps as RCDrawerProps } from 'rc-drawer';
 
-import useClosable from '../_util/hooks/useClosable';
+import useClosable, { pickClosable } from '../_util/hooks/useClosable';
+import type { ClosableType } from '../_util/hooks/useClosable';
 import { ConfigContext } from '../config-provider';
+import Skeleton from '../skeleton';
 
 export interface DrawerClassNames extends NonNullable<RCDrawerProps['classNames']> {
   header?: string;
@@ -30,13 +32,14 @@ export interface DrawerPanelProps {
    *
    * `<Drawer closeIcon={false} />`
    */
-  closable?: boolean;
+  closable?: ClosableType;
   closeIcon?: React.ReactNode;
   onClose?: RCDrawerProps['onClose'];
 
   children?: React.ReactNode;
   classNames?: DrawerClassNames;
   styles?: DrawerStyles;
+  loading?: boolean;
 
   /** @deprecated Please use `styles.header` instead */
   headerStyle?: React.CSSProperties;
@@ -58,8 +61,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     title,
     footer,
     extra,
-    closeIcon,
-    closable,
+    loading,
     onClose,
     headerStyle,
     bodyStyle,
@@ -80,11 +82,12 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
   );
 
   const [mergedClosable, mergedCloseIcon] = useClosable(
-    closable,
-    typeof closeIcon !== 'undefined' ? closeIcon : drawerContext?.closeIcon,
-    customCloseIconRender,
-    undefined,
-    true,
+    pickClosable(props),
+    pickClosable(drawerContext),
+    {
+      closable: true,
+      closeIconRender: customCloseIconRender,
+    },
   );
 
   const headerNode = React.useMemo<React.ReactNode>(() => {
@@ -148,13 +151,18 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
           drawerClassNames?.body,
           drawerContext?.classNames?.body,
         )}
-        style={{
-          ...drawerContext?.styles?.body,
-          ...bodyStyle,
-          ...drawerStyles?.body,
-        }}
+        style={{ ...drawerContext?.styles?.body, ...bodyStyle, ...drawerStyles?.body }}
       >
-        {children}
+        {loading ? (
+          <Skeleton
+            active
+            title={false}
+            paragraph={{ rows: 5 }}
+            className={`${prefixCls}-body-skeleton`}
+          />
+        ) : (
+          children
+        )}
       </div>
       {footerNode}
     </>

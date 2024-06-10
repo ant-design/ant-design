@@ -1,6 +1,6 @@
-import getAlphaColor from '../util/getAlphaColor';
 import genCalc from '../util/calc';
 import type AbstractCalculator from '../util/calc/calculator';
+import getAlphaColor from '../util/getAlphaColor';
 import genMaxMin from '../util/maxmin';
 
 describe('util', () => {
@@ -134,19 +134,24 @@ describe('util', () => {
 
     cases.forEach(([exp, { js, css }], index) => {
       it(`js calc ${index + 1}`, () => {
-        expect(exp(genCalc('js'))).toBe(js);
+        expect(exp(genCalc('js', new Set()))).toBe(js);
       });
 
       it(`css calc ${index + 1}`, () => {
-        expect(exp(genCalc('css'))).toBe(css);
+        expect(exp(genCalc('css', new Set()))).toBe(css);
       });
     });
 
     it('css calc should work with string', () => {
-      const calc = genCalc('css');
+      const calc = genCalc('css', new Set());
       expect(calc('var(--var1)').add('var(--var2)').equal()).toBe(
         'calc(var(--var1) + var(--var2))',
       );
+    });
+
+    it('css calc var should skip zIndex', () => {
+      const calc = genCalc('css', new Set(['--ant-z-index']));
+      expect(calc('var(--ant-z-index)').add(93).equal()).toBe('calc(var(--ant-z-index) + 93)');
     });
   });
 

@@ -1,4 +1,5 @@
 import { genTable } from 'rc-table';
+
 import type { InternalTableProps } from '../InternalTable';
 
 /**

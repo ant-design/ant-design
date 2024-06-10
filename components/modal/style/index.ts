@@ -1,4 +1,5 @@
 import type React from 'react';
+import { unit } from '@ant-design/cssinjs';
 
 import { genFocusStyle, resetComponent } from '../../style';
 import { initFadeMotion, initZoomMotion } from '../../style/motion';
@@ -6,7 +7,6 @@ import type { GlobalToken } from '../../theme';
 import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import type { GenStyleFn, TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
-import { unit } from '@ant-design/cssinjs';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -43,10 +43,6 @@ export interface ComponentToken {
   footerBg: string;
 
   /** @internal */
-  closeBtnHoverBg: string;
-  /** @internal */
-  closeBtnActiveBg: string;
-  /** @internal */
   contentPadding: number | string;
   /** @internal */
   headerPadding: string | number;
@@ -78,8 +74,8 @@ export interface ModalToken extends FullToken<'Modal'> {
   modalFooterBorderColorSplit: string;
   modalFooterBorderStyle: string;
   modalFooterBorderWidth: number;
-  modalIconHoverColor: string;
   modalCloseIconColor: string;
+  modalCloseIconHoverColor: string;
   modalCloseBtnSize: number | string;
   modalConfirmIconSize: number | string;
   modalTitleHeight: number | string;
@@ -131,12 +127,6 @@ export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = 
           overflow: 'auto',
           outline: 0,
           WebkitOverflowScrolling: 'touch',
-
-          // Note: Firefox not support `:has` yet
-          [`&:has(${componentCls}${antCls}-zoom-enter), &:has(${componentCls}${antCls}-zoom-appear)`]:
-            {
-              pointerEvents: 'none',
-            },
         },
       },
     },
@@ -254,13 +244,13 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
           },
 
           '&:hover': {
-            color: token.modalIconHoverColor,
-            backgroundColor: token.closeBtnHoverBg,
+            color: token.modalCloseIconHoverColor,
+            backgroundColor: token.colorBgTextHover,
             textDecoration: 'none',
           },
 
           '&:active': {
-            backgroundColor: token.closeBtnActiveBg,
+            backgroundColor: token.colorBgTextActive,
           },
 
           ...genFocusStyle(token),
@@ -280,6 +270,14 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
           lineHeight: token.lineHeight,
           wordWrap: 'break-word',
           padding: token.bodyPadding,
+          [`${componentCls}-body-skeleton`]: {
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            margin: `${unit(token.margin)} auto`,
+          },
         },
 
         [`${componentCls}-footer`]: {
@@ -354,9 +352,9 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Modal'>>[0]) => ModalT
     modalFooterBorderColorSplit: token.colorSplit,
     modalFooterBorderStyle: token.lineType,
     modalFooterBorderWidth: token.lineWidth,
-    modalIconHoverColor: token.colorIconHover,
     modalCloseIconColor: token.colorIcon,
-    modalCloseBtnSize: token.fontHeight,
+    modalCloseIconHoverColor: token.colorIconHover,
+    modalCloseBtnSize: token.controlHeight,
     modalConfirmIconSize: token.fontHeight,
     modalTitleHeight: token.calc(token.titleFontSize).mul(token.titleLineHeight).equal(),
   });
@@ -373,8 +371,6 @@ export const prepareComponentToken = (token: GlobalToken) => ({
   titleColor: token.colorTextHeading,
 
   // internal
-  closeBtnHoverBg: token.wireframe ? 'transparent' : token.colorFillContent,
-  closeBtnActiveBg: token.wireframe ? 'transparent' : token.colorFillContentHover,
   contentPadding: token.wireframe
     ? 0
     : `${unit(token.paddingMD)} ${unit(token.paddingContentHorizontalLG)}`,

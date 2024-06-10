@@ -58,6 +58,12 @@ export interface TableLocale {
 
 export type SortOrder = 'descend' | 'ascend' | null;
 
+export type SorterTooltipTarget = 'full-header' | 'sorter-icon';
+
+export type SorterTooltipProps = TooltipProps & {
+  target?: SorterTooltipTarget;
+};
+
 const TableActions = ['paginate', 'sort', 'filter'] as const;
 export type TableAction = (typeof TableActions)[number];
 
@@ -123,12 +129,13 @@ export interface ColumnType<RecordType> extends Omit<RcColumnType<RecordType>, '
   defaultSortOrder?: SortOrder;
   sortDirections?: SortOrder[];
   sortIcon?: (props: { sortOrder: SortOrder }) => React.ReactNode;
-  showSorterTooltip?: boolean | TooltipProps;
+  showSorterTooltip?: boolean | SorterTooltipProps;
 
   // Filter
   filtered?: boolean;
   filters?: ColumnFilterItem[];
   filterDropdown?: React.ReactNode | ((props: FilterDropdownProps) => React.ReactNode);
+  filterOnClose?: boolean;
   filterMultiple?: boolean;
   filteredValue?: FilterValue | null;
   defaultFilteredValue?: FilterValue | null;
@@ -154,7 +161,7 @@ export interface ColumnGroupType<RecordType> extends Omit<ColumnType<RecordType>
   children: ColumnsType<RecordType>;
 }
 
-export type ColumnsType<RecordType = unknown> = (
+export type ColumnsType<RecordType = any> = (
   | ColumnGroupType<RecordType>
   | ColumnType<RecordType>
 )[];

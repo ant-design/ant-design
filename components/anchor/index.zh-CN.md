@@ -2,6 +2,7 @@
 category: Components
 title: Anchor
 subtitle: 锚点
+description: 用于跳转到页面指定位置。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ufP1TLS5VvIAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*_9_eTrgvHNQAAAAAAAAAAAAADrJ8AQ/original
 demo:
@@ -9,8 +10,6 @@ group:
   title: 导航
   order: 3
 ---
-
-用于跳转到页面指定位置。
 
 ## 何时使用
 

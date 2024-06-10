@@ -1,5 +1,6 @@
-import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import * as React from 'react';
+import SearchOutlined from '@ant-design/icons/SearchOutlined';
+
 import Input from '../../../input';
 import type { FilterSearchType, TableLocale } from '../../interface';
 

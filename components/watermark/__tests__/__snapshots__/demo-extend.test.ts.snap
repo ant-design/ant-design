@@ -3,7 +3,7 @@
 exports[`renders components/watermark/demo/basic.tsx extend context correctly 1`] = `
 <div
   class=""
-  style="position: relative;"
+  style="position: relative; overflow: hidden;"
 >
   <div
     style="height: 500px;"
@@ -22,7 +22,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
 >
   <div
     class=""
-    style="position: relative;"
+    style="position: relative; overflow: hidden;"
   >
     <article
       class="ant-typography"
@@ -1196,7 +1196,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 2
 exports[`renders components/watermark/demo/image.tsx extend context correctly 1`] = `
 <div
   class=""
-  style="position: relative;"
+  style="position: relative; overflow: hidden;"
 >
   <div
     style="height: 500px;"
@@ -1209,7 +1209,7 @@ exports[`renders components/watermark/demo/image.tsx extend context correctly 2`
 exports[`renders components/watermark/demo/multi-line.tsx extend context correctly 1`] = `
 <div
   class=""
-  style="position: relative;"
+  style="position: relative; overflow: hidden;"
 >
   <div
     style="height: 500px;"
@@ -1254,7 +1254,7 @@ Array [
   </div>,
   <div
     class=""
-    style="position: relative;"
+    style="position: relative; overflow: hidden;"
   >
     <div
       style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 218px; visibility: visible !important;"
@@ -1262,7 +1262,7 @@ Array [
   </div>,
   <div
     class=""
-    style="position: relative;"
+    style="position: relative; overflow: hidden;"
   >
     <div
       style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 218px; visibility: visible !important;"

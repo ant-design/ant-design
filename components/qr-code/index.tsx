@@ -52,7 +52,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     level: errorLevel,
     bgColor,
     fgColor: color,
-    style: { width: undefined, height: undefined },
+    style: { width: style?.width, height: style?.height },
     imageSettings: icon ? imageSettings : undefined,
   };
 
@@ -78,11 +78,15 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     [`${prefixCls}-borderless`]: !bordered,
   });
 
+  const mergedStyle: React.CSSProperties = {
+    backgroundColor: bgColor,
+    ...style,
+    width: style?.width ?? size,
+    height: style?.height ?? size,
+  };
+
   return wrapCSSVar(
-    <div
-      className={mergedCls}
-      style={{ ...style, width: size, height: size, backgroundColor: bgColor }}
-    >
+    <div className={mergedCls} style={mergedStyle}>
       {status !== 'active' && (
         <div className={`${prefixCls}-mask`}>
           {status === 'loading' && <Spin />}

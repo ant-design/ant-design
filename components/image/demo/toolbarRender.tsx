@@ -1,12 +1,13 @@
+import React from 'react';
 import {
   DownloadOutlined,
+  UndoOutlined,
   RotateLeftOutlined,
   RotateRightOutlined,
   SwapOutlined,
   ZoomInOutlined,
   ZoomOutOutlined,
 } from '@ant-design/icons';
-import React from 'react';
 import { Image, Space } from 'antd';
 
 const src = 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
@@ -38,7 +39,15 @@ const App: React.FC = () => {
           _,
           {
             transform: { scale },
-            actions: { onFlipY, onFlipX, onRotateLeft, onRotateRight, onZoomOut, onZoomIn },
+            actions: {
+              onFlipY,
+              onFlipX,
+              onRotateLeft,
+              onRotateRight,
+              onZoomOut,
+              onZoomIn,
+              onReset,
+            },
           },
         ) => (
           <Space size={12} className="toolbar-wrapper">
@@ -49,6 +58,7 @@ const App: React.FC = () => {
             <RotateRightOutlined onClick={onRotateRight} />
             <ZoomOutOutlined disabled={scale === 1} onClick={onZoomOut} />
             <ZoomInOutlined disabled={scale === 50} onClick={onZoomIn} />
+            <UndoOutlined onClick={onReset} />
           </Space>
         ),
       }}

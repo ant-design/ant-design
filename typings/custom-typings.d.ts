@@ -10,6 +10,8 @@ declare module '*.svg' {
 
 declare module 'rc-util*';
 
+declare module 'jsonml-to-react-element';
+
 declare module 'jsonml.js/*';
 
 declare module '*.json' {
@@ -17,3 +19,11 @@ declare module '*.json' {
   export const version: string;
   export default value;
 }
+
+declare module '@npmcli/run-script' {
+  export default function runScript(options: {
+    [key: string]: string | string[] | boolean | NodeJS.ProcessEnv;
+  }): Promise<void>;
+}
+
+declare module '@microflash/rehype-figure';

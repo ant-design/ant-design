@@ -89,6 +89,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     closable: true,
     closeIcon: getCloseIcon(prefixCls),
     duration: duration ?? DEFAULT_DURATION,
+    pauseOnHover: true,
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
     maxCount,
     onAllRemoved,
@@ -148,6 +149,7 @@ export function useInternalNotification(
         style,
         role = 'alert',
         closeIcon,
+        closable,
         ...restConfig
       } = config;
 
@@ -178,7 +180,7 @@ export function useInternalNotification(
         ),
         style: { ...notification?.style, ...style },
         closeIcon: realCloseIcon,
-        closable: !!realCloseIcon,
+        closable: closable ?? !!realCloseIcon,
       });
     };
 

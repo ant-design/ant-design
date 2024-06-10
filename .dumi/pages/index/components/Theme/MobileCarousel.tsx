@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { useState } from 'react';
+import { Carousel, Typography } from 'antd';
 import { createStyles, css, useTheme } from 'antd-style';
-import { Typography, Carousel } from 'antd';
+
 import { getCarouselStyle } from '../util';
 
 const useStyle = createStyles(() => {
@@ -17,6 +18,9 @@ const useStyle = createStyles(() => {
       z-index: 1;
       width: 100%;
       text-align: center;
+    `,
+    img: css`
+      width: 100%;
     `,
   };
 });
@@ -75,7 +79,7 @@ export interface MobileCarouselProps {
   description?: React.ReactNode;
 }
 
-export default function MobileCarousel(props: MobileCarouselProps) {
+const MobileCarousel: React.FC<MobileCarouselProps> = (props) => {
   const { styles } = useStyle();
   const { id, title, description } = props;
   const token = useTheme();
@@ -109,10 +113,12 @@ export default function MobileCarousel(props: MobileCarouselProps) {
       <Carousel className={styles.carousel} afterChange={setCurrentSlider}>
         {mobileImageConfigList.map((item, index) => (
           <div key={index}>
-            <img src={item.imageSrc} alt="" style={{ width: '100%' }} />
+            <img src={item.imageSrc} className={styles.img} alt="" />
           </div>
         ))}
       </Carousel>
     </div>
   );
-}
+};
+
+export default MobileCarousel;

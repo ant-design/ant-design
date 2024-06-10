@@ -2,11 +2,10 @@
 category: Components
 group: Data Entry
 title: Transfer
+description: Double column transfer choice box.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*fkfzT5BbwNIAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g9vUQq2nkpEAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-Double column transfer choice box.
 
 ## When To Use
 
@@ -53,11 +52,11 @@ Common props ref：[Common props](/docs/react/common-props)
 | pagination | Use pagination. Not work in render props | boolean \| { pageSize: number, simple: boolean, showSizeChanger?: boolean, showLessItems?: boolean } | false | 4.3.0 |
 | render | The function to generate the item shown on a column. Based on an record (element of the dataSource array), this function should return a React element which is generated from that record. Also, it can return a plain object with `value` and `label`, `label` is a React element and `value` is for title | (record) => ReactNode | - |  |
 | selectAllLabels | A set of customized labels for select all checkboxes on the header | (ReactNode \| (info: { selectedCount: number, totalCount: number }) => ReactNode)\[] | - |  |
-| selectedKeys | A set of keys of selected items | string\[] | \[] |  |
+| selectedKeys | A set of keys of selected items | string\[] \| number\[] | \[] |  |
 | showSearch | If included, a search box is shown on each column | boolean | false |  |
 | showSelectAll | Show select all checkbox on the header | boolean | true |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
-| targetKeys | A set of keys of elements that are listed on the right column | string\[] | \[] |  |
+| targetKeys | A set of keys of elements that are listed on the right column | string\[] \| number\[] | \[] |  |
 | titles | A set of titles that are sorted from left to right | ReactNode\[] | - |  |
 | onChange | A callback function that is executed when the transfer between columns is complete | (targetKeys, direction, moveKeys): void | - |  |
 | onScroll | A callback function which is executed when scroll options list | (direction, event): void | - |  |
@@ -68,14 +67,14 @@ Common props ref：[Common props](/docs/react/common-props)
 
 Transfer accept `children` to customize render list, using follow props:
 
-| Property        | Description             | Type                                 | Version |
-| --------------- | ----------------------- | ------------------------------------ | ------- |
-| direction       | List render direction   | `left` \| `right`                    |         |
-| disabled        | Disable list or not     | boolean                              |         |
-| filteredItems   | Filtered items          | RecordType\[]                        |         |
-| selectedKeys    | Selected items          | string\[]                            |         |
-| onItemSelect    | Select item             | (key: string, selected: boolean)     |         |
-| onItemSelectAll | Select a group of items | (keys: string\[], selected: boolean) |         |
+| Property | Description | Type | Version |
+| --- | --- | --- | --- |
+| direction | List render direction | `left` \| `right` |  |
+| disabled | Disable list or not | boolean |  |
+| filteredItems | Filtered items | RecordType\[] |  |
+| selectedKeys | Selected items | string\[] \| number\[] |  |
+| onItemSelect | Select item | (key: string \| number, selected: boolean) |  |
+| onItemSelectAll | Select a group of items | (keys: string\[] \| number\[], selected: boolean) |  |
 
 #### example
 

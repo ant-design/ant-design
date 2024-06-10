@@ -17,6 +17,7 @@ import CodeSandboxIcon from '../../common/CodeSandboxIcon';
 import EditButton from '../../common/EditButton';
 import ExternalLinkIcon from '../../common/ExternalLinkIcon';
 import RiddleIcon from '../../common/RiddleIcon';
+import DemoContext from '../../slots/DemoContext';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
 import { ping } from '../../utils';
@@ -63,6 +64,9 @@ const useStyle = createStyles(({ token }) => {
   const { borderRadius } = token;
   return {
     codeHideBtn: css`
+      position: sticky;
+      bottom: 0;
+      z-index: 1;
       width: 100%;
       height: 40px;
       display: flex;
@@ -71,14 +75,14 @@ const useStyle = createStyles(({ token }) => {
       border-radius: 0 0 ${borderRadius}px ${borderRadius}px;
       border-top: 1px solid ${token.colorSplit};
       color: ${token.colorTextSecondary};
-      transition: all 0.2s ease-in-out;
+      transition: all ${token.motionDurationMid} ease-in-out;
       background-color: ${token.colorBgElevated};
       cursor: pointer;
       &:hover {
         color: ${token.colorPrimary};
       }
       span {
-        margin-right: ${token.marginXXS}px;
+        margin-inline-end: ${token.marginXXS}px;
       }
     `,
   };
@@ -104,6 +108,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     clientOnly,
     pkgDependencyList,
   } = props;
+  const { showDebug, codeType } = useContext(DemoContext);
 
   const { pkg } = useSiteData();
   const location = useLocation();
@@ -129,7 +134,6 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const riddleIconRef = useRef<HTMLFormElement>(null);
   const codepenIconRef = useRef<HTMLFormElement>(null);
   const [codeExpand, setCodeExpand] = useState<boolean>(false);
-  const [codeType, setCodeType] = useState<string>('tsx');
   const { theme } = useContext<SiteContextProps>(SiteContext);
 
   const { hash, pathname, search } = location;
@@ -400,8 +404,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
               dangerouslySetInnerHTML={{ __html: description }}
             />
           )}
-
-          <Flex wrap="wrap" gap="middle" className="code-box-actions">
+          <Flex wrap gap="middle" className="code-box-actions">
             {showOnlineUrl && (
               <Tooltip title={<FormattedMessage id="app.demo.online" />}>
                 <a
@@ -432,26 +435,22 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 </Tooltip>
               </form>
             ) : null}
-            <form
-              className="code-box-code-action"
-              action="https://codesandbox.io/api/v1/sandboxes/define"
-              method="POST"
-              target="_blank"
-              ref={codeSandboxIconRef}
-              onClick={() => {
-                track({ type: 'codesandbox', demo: asset.id });
-                codeSandboxIconRef.current?.submit();
-              }}
-            >
-              <input
-                type="hidden"
-                name="parameters"
-                value={compress(JSON.stringify(codesanboxPrefillConfig))}
-              />
-              <Tooltip title={<FormattedMessage id="app.demo.codesandbox" />}>
-                <CodeSandboxIcon className="code-box-codesandbox" />
-              </Tooltip>
-            </form>
+            <Tooltip title={<FormattedMessage id="app.demo.stackblitz" />}>
+              <span
+                className="code-box-code-action"
+                onClick={() => {
+                  track({ type: 'stackblitz', demo: asset.id });
+                  stackblitzSdk.openProject(stackblitzPrefillConfig, {
+                    openFile: [`demo.${suffix}`],
+                  });
+                }}
+              >
+                <ThunderboltOutlined
+                  className="code-box-stackblitz"
+                  style={{ transform: 'scale(1.2)' }}
+                />
+              </span>
+            </Tooltip>
             <form
               className="code-box-code-action"
               action="https://codepen.io/pen/define"
@@ -470,19 +469,28 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 <CodePenIcon className="code-box-codepen" />
               </Tooltip>
             </form>
-            <Tooltip title={<FormattedMessage id="app.demo.stackblitz" />}>
-              <span
+            {showDebug && (
+              <form
                 className="code-box-code-action"
+                action="https://codesandbox.io/api/v1/sandboxes/define"
+                method="POST"
+                target="_blank"
+                ref={codeSandboxIconRef}
                 onClick={() => {
-                  track({ type: 'stackblitz', demo: asset.id });
-                  stackblitzSdk.openProject(stackblitzPrefillConfig, {
-                    openFile: [`demo.${suffix}`],
-                  });
+                  track({ type: 'codesandbox', demo: asset.id });
+                  codeSandboxIconRef.current?.submit();
                 }}
               >
-                <ThunderboltOutlined className="code-box-stackblitz" />
-              </span>
-            </Tooltip>
+                <input
+                  type="hidden"
+                  name="parameters"
+                  value={compress(JSON.stringify(codesanboxPrefillConfig))}
+                />
+                <Tooltip title={<FormattedMessage id="app.demo.codesandbox" />}>
+                  <CodeSandboxIcon className="code-box-codesandbox" />
+                </Tooltip>
+              </form>
+            )}
             <Tooltip title={<FormattedMessage id="app.demo.separate" />}>
               <a
                 className="code-box-code-action"
@@ -531,7 +539,6 @@ createRoot(document.getElementById('container')).render(<Demo />);
             styleCode={style}
             error={liveDemoError}
             entryName={entryName}
-            onCodeTypeChange={setCodeType}
             onSourceChange={setLiveDemoSource}
           />
           <div

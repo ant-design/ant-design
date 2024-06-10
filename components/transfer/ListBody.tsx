@@ -4,19 +4,19 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import type { KeyWiseTransferItem } from '.';
 import Pagination from '../pagination';
-import type { PaginationType } from './interface';
+import type { PaginationType, TransferKey } from './interface';
 import type { RenderedItem, TransferListProps } from './list';
 import ListItem from './ListItem';
 
 export const OmitProps = ['handleFilter', 'handleClear', 'checkedKeys'] as const;
-export type OmitProp = typeof OmitProps[number];
+export type OmitProp = (typeof OmitProps)[number];
 type PartialTransferListProps<RecordType> = Omit<TransferListProps<RecordType>, OmitProp>;
 type ExistPagination = Exclude<PaginationType, boolean>;
 
 export interface TransferListBodyProps<RecordType> extends PartialTransferListProps<RecordType> {
   filteredItems: RecordType[];
   filteredRenderItems: RenderedItem<RecordType>[];
-  selectedKeys: string[];
+  selectedKeys: TransferKey[];
 }
 
 const parsePagination = (pagination?: ExistPagination) => {
@@ -130,8 +130,8 @@ const TransferListBody: React.ForwardRefRenderFunction<
             renderedEl={renderedEl}
             prefixCls={prefixCls}
             showRemove={showRemove}
-            onClick={onInternalClick}
-            onRemove={onRemove}
+            onClick={onInternalClick as any}
+            onRemove={onRemove as any}
             checked={selectedKeys.includes(item.key)}
             disabled={globalDisabled || item.disabled}
           />

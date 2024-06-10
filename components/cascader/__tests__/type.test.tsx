@@ -1,7 +1,9 @@
 import * as React from 'react';
-import type { BaseOptionType } from '..';
+
+import type { BaseOptionType, CascaderAutoProps } from '..';
 import Cascader from '..';
 import { render } from '../../../tests/utils';
+import type { CascaderPanelAutoProps } from '../Panel';
 
 describe('Cascader.typescript', () => {
   it('options value', () => {
@@ -79,16 +81,25 @@ describe('Cascader.typescript', () => {
   });
 
   it('single onChange', () => {
-    const { container } = render(
-      <Cascader multiple={false} onChange={(values: (string | number)[]) => values} />,
-    );
+    const { container } = render(<Cascader multiple={false} onChange={(values) => values} />);
     expect(container).toBeTruthy();
   });
 
   it('multiple onChange', () => {
-    const { container } = render(
-      <Cascader multiple onChange={(values: (string | number)[][]) => values} />,
-    );
+    const { container } = render(<Cascader multiple onChange={(values) => values} />);
     expect(container).toBeTruthy();
+  });
+  it('props', () => {
+    const list: { props?: CascaderAutoProps }[] = [
+      { props: { multiple: true, onChange: (value) => value } },
+      { props: { multiple: false, onChange: (value) => value } },
+    ];
+    expect(list).toBeTruthy();
+
+    const list2: { props?: CascaderPanelAutoProps }[] = [
+      { props: { multiple: true, onChange: (value) => value } },
+      { props: { multiple: false, onChange: (value) => value } },
+    ];
+    expect(list2).toBeTruthy();
   });
 });

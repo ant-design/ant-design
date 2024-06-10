@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import type { TableProps } from 'antd';
 import { Form, Input, InputNumber, Popconfirm, Table, Typography } from 'antd';
 
 interface Item {
@@ -24,10 +25,9 @@ interface EditableCellProps extends React.HTMLAttributes<HTMLElement> {
   inputType: 'number' | 'text';
   record: Item;
   index: number;
-  children: React.ReactNode;
 }
 
-const EditableCell: React.FC<EditableCellProps> = ({
+const EditableCell: React.FC<React.PropsWithChildren<EditableCellProps>> = ({
   editing,
   dataIndex,
   title,
@@ -143,7 +143,7 @@ const App: React.FC = () => {
     },
   ];
 
-  const mergedColumns = columns.map((col) => {
+  const mergedColumns: TableProps['columns'] = columns.map((col) => {
     if (!col.editable) {
       return col;
     }

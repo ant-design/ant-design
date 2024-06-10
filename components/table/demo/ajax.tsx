@@ -85,7 +85,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     fetchData();
-  }, [JSON.stringify(tableParams)]);
+  }, [tableParams.pagination?.current, tableParams.pagination?.pageSize]);
 
   const handleTableChange: TableProps['onChange'] = (pagination, filters, sorter) => {
     setTableParams({

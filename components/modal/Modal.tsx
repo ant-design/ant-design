@@ -3,7 +3,7 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import Dialog from 'rc-dialog';
 
-import useClosable from '../_util/hooks/useClosable';
+import useClosable, { pickClosable } from '../_util/hooks/useClosable';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import { canUseDocElement } from '../_util/styleChecker';
@@ -12,6 +12,7 @@ import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { NoFormStyle } from '../form/context';
+import Skeleton from '../skeleton';
 import { NoCompactStyle } from '../space/Compact';
 import { usePanelRef } from '../watermark/context';
 import type { ModalProps, MousePosition } from './interface';
@@ -44,7 +45,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     direction,
-    modal,
+    modal: modalContext,
   } = React.useContext(ConfigContext);
 
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -77,8 +78,6 @@ const Modal: React.FC<ModalProps> = (props) => {
     wrapClassName,
     centered,
     getContainer,
-    closeIcon,
-    closable,
     focusTriggerAfterClose = true,
     style,
     // Deprecated
@@ -88,6 +87,8 @@ const Modal: React.FC<ModalProps> = (props) => {
     footer,
     classNames: modalClassNames,
     styles: modalStyles,
+    children,
+    loading,
     ...restProps
   } = props;
 
@@ -102,16 +103,19 @@ const Modal: React.FC<ModalProps> = (props) => {
     [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
   });
 
-  const dialogFooter = footer !== null && (
-    <Footer {...props} onOk={handleOk} onCancel={handleCancel} />
-  );
+  const dialogFooter =
+    footer !== null && !loading ? (
+      <Footer {...props} onOk={handleOk} onCancel={handleCancel} />
+    ) : null;
 
   const [mergedClosable, mergedCloseIcon] = useClosable(
-    closable,
-    typeof closeIcon !== 'undefined' ? closeIcon : modal?.closeIcon,
-    (icon) => renderCloseIcon(prefixCls, icon),
-    <CloseOutlined className={`${prefixCls}-close-icon`} />,
-    true,
+    pickClosable(props),
+    pickClosable(modalContext),
+    {
+      closable: true,
+      closeIcon: <CloseOutlined className={`${prefixCls}-close-icon`} />,
+      closeIconRender: (icon) => renderCloseIcon(prefixCls, icon),
+    },
   );
 
   // ============================ Refs ============================
@@ -136,25 +140,33 @@ const Modal: React.FC<ModalProps> = (props) => {
             footer={dialogFooter}
             visible={open ?? visible}
             mousePosition={restProps.mousePosition ?? mousePosition}
-            onClose={handleCancel}
+            onClose={handleCancel as any}
             closable={mergedClosable}
             closeIcon={mergedCloseIcon}
             focusTriggerAfterClose={focusTriggerAfterClose}
             transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
             maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
-            className={classNames(hashId, className, modal?.className)}
-            style={{ ...modal?.style, ...style }}
+            className={classNames(hashId, className, modalContext?.className)}
+            style={{ ...modalContext?.style, ...style }}
             classNames={{
-              ...modal?.classNames,
+              ...modalContext?.classNames,
               ...modalClassNames,
               wrapper: classNames(wrapClassNameExtended, modalClassNames?.wrapper),
             }}
-            styles={{
-              ...modal?.styles,
-              ...modalStyles,
-            }}
+            styles={{ ...modalContext?.styles, ...modalStyles }}
             panelRef={panelRef}
-          />
+          >
+            {loading ? (
+              <Skeleton
+                active
+                title={false}
+                paragraph={{ rows: 4 }}
+                className={`${prefixCls}-body-skeleton`}
+              />
+            ) : (
+              children
+            )}
+          </Dialog>
         </zIndexContext.Provider>
       </NoFormStyle>
     </NoCompactStyle>,

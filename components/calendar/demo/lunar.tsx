@@ -1,11 +1,11 @@
-import dayjs from 'dayjs';
-import type { Dayjs } from 'dayjs';
 import React from 'react';
-import { Lunar, HolidayUtil } from 'lunar-typescript';
-import { createStyles } from 'antd-style';
-import classNames from 'classnames';
 import { Calendar, Col, Radio, Row, Select } from 'antd';
 import type { CalendarProps } from 'antd';
+import { createStyles } from 'antd-style';
+import classNames from 'classnames';
+import dayjs from 'dayjs';
+import type { Dayjs } from 'dayjs';
+import { HolidayUtil, Lunar } from 'lunar-typescript';
 
 const useStyle = createStyles(({ token, css, cx }) => {
   const lunar = css`
@@ -82,6 +82,12 @@ const useStyle = createStyles(({ token, css, cx }) => {
         opacity: 0.8;
       }
     `,
+    weekend: css`
+      color: ${token.colorError};
+      &.gray {
+        opacity: .4
+      }
+    `,
   };
 });
 
@@ -89,9 +95,11 @@ const App: React.FC = () => {
   const { styles } = useStyle({ test: true });
 
   const [selectDate, setSelectDate] = React.useState<Dayjs>(dayjs());
+  const [panelDateDate, setPanelDate] = React.useState<Dayjs>(dayjs());
 
   const onPanelChange = (value: Dayjs, mode: CalendarProps<Dayjs>['mode']) => {
     console.log(value.format('YYYY-MM-DD'), mode);
+    setPanelDate(value);
   };
 
   const onDateChange: CalendarProps<Dayjs>['onSelect'] = (value, selectInfo) => {
@@ -104,6 +112,7 @@ const App: React.FC = () => {
     const d = Lunar.fromDate(date.toDate());
     const lunar = d.getDayInChinese();
     const solarTerm = d.getJieQi();
+    const isWeekend = date.day() === 6 || date.day() === 0;
     const h = HolidayUtil.getHoliday(date.get('year'), date.get('month') + 1, date.get('date'));
     const displayHoliday = h?.getTarget() === h?.getDay() ? h?.getName() : undefined;
     if (info.type === 'date') {
@@ -115,7 +124,14 @@ const App: React.FC = () => {
         }),
         children: (
           <div className={styles.text}>
-            {date.get('date')}
+            <span
+              className={classNames({
+                [styles.weekend]: isWeekend,
+                gray: !panelDateDate.isSame(date, 'month'),
+              })}
+            >
+              {date.get('date')}
+            </span>
             {info.type === 'date' && (
               <div className={styles.lunar}>{displayHoliday || solarTerm || lunar}</div>
             )}

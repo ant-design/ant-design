@@ -1,6 +1,7 @@
+import * as React from 'react';
 import { createStyles } from 'antd-style';
 import { Link, useLocation } from 'dumi';
-import * as React from 'react';
+
 import * as utils from '../../utils';
 
 const useStyle = createStyles(({ token, css }) => {
@@ -29,7 +30,7 @@ const useStyle = createStyles(({ token, css }) => {
       img {
         height: 32px;
         vertical-align: middle;
-        margin-inline-end: 12px;
+        margin-inline-end: ${token.marginSM}px;
       }
 
       @media only screen and (max-width: ${mobileMaxWidth}px) {
@@ -53,7 +54,7 @@ const Logo: React.FC<LogoProps> = ({ isZhCN }) => {
   const { styles } = useStyle();
   return (
     <h1>
-      <Link to={utils.getLocalizedPathname('/', isZhCN, search)} className={styles.logo}>
+      <Link to={utils.getLocalizedPathname('/', isZhCN, search)} className={styles.logo} prefetch>
         <img
           src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
           height={32}

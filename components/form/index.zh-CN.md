@@ -1,13 +1,12 @@
 ---
 category: Components
-subtitle: 表单
 group: 数据录入
 title: Form
+subtitle: 表单
+description: 高性能表单控件，自带数据域管理。包含数据录入、校验以及对应样式。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-lcdS5Qm1bsAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-高性能表单控件，自带数据域管理。包含数据录入、校验以及对应样式。
 
 ## 何时使用
 
@@ -20,6 +19,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/basic.tsx">基本使用</code>
 <code src="./demo/control-hooks.tsx">表单方法调用</code>
 <code src="./demo/layout.tsx">表单布局</code>
+<code src="./demo/layout-multiple.tsx">表单混合布局</code>
 <code src="./demo/disabled.tsx">表单禁用</code>
 <code src="./demo/variant.tsx" version="5.13.0">表单变体</code>
 <code src="./demo/required-mark.tsx">必选样式</code>
@@ -48,8 +48,10 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/without-form-create.tsx">自行处理表单数据</code>
 <code src="./demo/validate-static.tsx">自定义校验</code>
 <code src="./demo/dynamic-rule.tsx">动态校验规则</code>
-<code src="./demo/dependencies.tsx">校验与更新依赖</code>
+<code src="./demo/form-dependencies.tsx">校验与更新依赖</code>
+<code src="./demo/validate-scroll-to-field.tsx" iframe="360">滑动到错误字段</code>
 <code src="./demo/validate-other.tsx">校验其他组件</code>
+<code src="./demo/getValueProps-normalize.tsx">getValueProps + normalize</code>
 <code src="./demo/disabled-input-debug.tsx" debug>Disabled Input Debug</code>
 <code src="./demo/label-debug.tsx" debug>测试 label 省略</code>
 <code src="./demo/col-24-debug.tsx" debug>测试特殊 col 24 用法</code>
@@ -89,6 +91,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 | onFinish | 提交表单且数据验证成功后回调事件 | function(values) | - |  |
 | onFinishFailed | 提交表单且数据验证失败后回调事件 | function({ values, errorFields, outOfDate }) | - |  |
 | onValuesChange | 字段值更新时触发回调事件 | function(changedValues, allValues) | - |  |
+| clearOnDestroy | 当表单被卸载时清空表单值 | boolean | false | 5.18.0 |
 
 ### validateMessages
 
@@ -149,8 +152,9 @@ const validateMessages = {
 | validateDebounce | 设置防抖，延迟毫秒数后进行校验 | number | - | 5.9.0 |
 | validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating' | string | - |  |
 | validateTrigger | 设置字段校验的时机 | string \| string\[] | `onChange` |  |
-| valuePropName | 子节点的值的属性，如 Switch、Checkbox 的是 `checked`。该属性为 `getValueProps` 的封装，自定义 `getValueProps` 后会失效 | string | `value` |  |
+| valuePropName | 子节点的值的属性。注意：Switch、Checkbox 的 valuePropName 应该是是 `checked`，否则无法获取这个两个组件的值。该属性为 `getValueProps` 的封装，自定义 `getValueProps` 后会失效 | string | `value` |  |
 | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 `labelCol`。你可以通过 Form 的 `wrapperCol` 进行统一设置，不会作用于嵌套 Item。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid-cn#col) | - |  |
+| layout | 表单项布局 | `horizontal` \| `vertical` | - | 5.18.0 |
 
 被设置了 `name` 属性的 `Form.Item` 包装的控件，表单控件会自动添加 `value`（或 `valuePropName` 指定的其他属性） `onChange`（或 `trigger` 指定的其他属性），数据同步将被 Form 接管，这会导致以下结果：
 
@@ -467,17 +471,17 @@ export default () => (
 
 Form 仅会对变更的 Field 进行刷新，从而避免完整的组件刷新可能引发的性能问题。因而你无法在 render 阶段通过 `form.getFieldsValue` 来实时获取字段值，而 `useWatch` 提供了一种特定字段访问的方式，从而使得在当前组件中可以直接消费字段的值。同时，如果为了更好的渲染性能，你可以通过 Field 的 renderProps 仅更新需要更新的部分。而当当前组件更新或者 effect 都不需要消费字段值时，则可以通过 `onValuesChange` 将数据抛出，从而避免组件更新。
 
-### Interface
+## Interface
 
-#### NamePath
+### NamePath
 
 `string | number | (string | number)[]`
 
-#### GetFieldsValue
+### GetFieldsValue
 
 `getFieldsValue` 提供了多种重载方法：
 
-##### getFieldsValue(nameList?: true | [NamePath](#namepath)\[], filterFunc?: FilterFunc)
+#### getFieldsValue(nameList?: true | [NamePath](#namepath)\[], filterFunc?: FilterFunc)
 
 当不提供 `nameList` 时，返回所有注册字段，这也包含 List 下所有的值（即便 List 下没有绑定 Item）。
 
@@ -496,11 +500,11 @@ form.getFieldsValue([
 ]);
 ```
 
-##### getFieldsValue({ strict?: boolean, filter?: FilterFunc })
+#### getFieldsValue({ strict?: boolean, filter?: FilterFunc })
 
 `5.8.0` 新增接受配置参数。当 `strict` 为 `true` 时会仅匹配 Item 的值。例如 `{ list: [{ bamboo: 1, little: 2 }] }` 中，如果 List 仅绑定了 `bamboo` 字段，那么 `getFieldsValue({ strict: true })` 会只获得 `{ list: [{ bamboo: 1 }] }`。
 
-#### FilterFunc
+### FilterFunc
 
 用于过滤一些字段值，`meta` 会返回字段相关信息。例如可以用来获取仅被用户修改过的值等等。
 
@@ -508,7 +512,7 @@ form.getFieldsValue([
 type FilterFunc = (meta: { touched: boolean; validating: boolean }) => boolean;
 ```
 
-#### FieldData
+### FieldData
 
 | 名称       | 说明             | 类型                     |
 | ---------- | ---------------- | ------------------------ |
@@ -519,7 +523,7 @@ type FilterFunc = (meta: { touched: boolean; validating: boolean }) => boolean;
 | validating | 是否正在校验     | boolean                  |
 | value      | 字段对应值       | any                      |
 
-#### Rule
+### Rule
 
 Rule 支持接收 object 进行配置，也支持 function 来动态获取 form 的数据：
 
@@ -539,13 +543,13 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | pattern | 正则表达式匹配 | RegExp |  |
 | required | 是否为必选字段 | boolean |  |
 | transform | 将字段值转换成目标值后进行校验 | (value) => any |  |
-| type | 类型，常见有 `string` \|`number` \|`boolean` \|`url` \| `email`。更多请参考[此处](https://github.com/yiminghe/async-validator#type) | string |  |
+| type | 类型，常见有 `string` \|`number` \|`boolean` \|`url` \| `email`。更多请参考[此处](https://github.com/react-component/async-validator#type) | string |  |
 | validateTrigger | 设置触发验证时机，必须是 Form.Item 的 `validateTrigger` 的子集 | string \| string\[] |  |
 | validator | 自定义校验，接收 Promise 作为返回值。[示例](#components-form-demo-register)参考 | ([rule](#rule), value) => Promise |  |
 | warningOnly | 仅警告，不阻塞表单提交 | boolean | 4.17.0 |
 | whitespace | 如果字段仅包含空格则校验不通过，只在 `type: 'string'` 时生效 | boolean |  |
 
-#### WatchOptions
+### WatchOptions
 
 | 名称     | 说明                                  | 类型         | 默认值                 | 版本  |
 | -------- | ------------------------------------- | ------------ | ---------------------- | ----- |
@@ -665,6 +669,8 @@ React 中异步更新会导致受控组件交互行为异常。当用户交互�
 1. 使用了自定义表单控件
 
 类似问题：[#28370](https://github.com/ant-design/ant-design/issues/28370) [#27994](https://github.com/ant-design/ant-design/issues/27994)
+
+从 `5.17.0` 版本开始，滑动操作将优先使用表单控件元素所转发的 ref 元素。因此，在考虑自定义组件支持校验滚动时，请优先考虑将其转发给表单控件元素。
 
 滚动依赖于表单控件元素上绑定的 `id` 字段，如果自定义控件没有将 `id` 赋到正确的元素上，这个功能将失效。你可以参考这个 [codesandbox](https://codesandbox.io/s/antd-reproduction-template-forked-25nul?file=/index.js)。
 

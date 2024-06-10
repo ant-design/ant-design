@@ -25,6 +25,7 @@ if (process.env.LIB_DIR === 'dist') {
 
   $('{es,lib}/typography/Base/*.js')
     .isFile()
+    .filter((filename) => !filename.endsWith('/util.js'))
     .assert('contain use client', (filename) => includeUseClient(filename));
 }
 

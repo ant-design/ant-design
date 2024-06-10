@@ -722,7 +722,7 @@ Array [
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
       tabindex="0"
     >
       <span
@@ -10114,6 +10114,262 @@ exports[`renders components/input/demo/group.tsx extend context correctly 2`] = 
 ]
 `;
 
+exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex ant-flex-align-flex-start ant-flex-gap-middle ant-flex-vertical"
+>
+  <h5
+    class="ant-typography"
+  >
+    With formatter (Upcase)
+  </h5>
+  <div
+    class="ant-otp"
+  >
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+  </div>
+  <h5
+    class="ant-typography"
+  >
+    With Disabled
+  </h5>
+  <div
+    class="ant-otp"
+  >
+    <input
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      disabled=""
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      disabled=""
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      disabled=""
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      disabled=""
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      disabled=""
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      disabled=""
+      size="1"
+      type="text"
+      value=""
+    />
+  </div>
+  <h5
+    class="ant-typography"
+  >
+    With Length (8)
+  </h5>
+  <div
+    class="ant-otp"
+  >
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+  </div>
+  <h5
+    class="ant-typography"
+  >
+    With variant
+  </h5>
+  <div
+    class="ant-otp"
+  >
+    <input
+      class="ant-input ant-input-filled ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-filled ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-filled ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-filled ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-filled ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-filled ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+  </div>
+  <h5
+    class="ant-typography"
+  >
+    With custom display character
+  </h5>
+  <div
+    class="ant-otp"
+  >
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`renders components/input/demo/otp.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Input.OTP] \`mask\` prop should be a single character.",
+]
+`;
+
 exports[`renders components/input/demo/password-input.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
@@ -10277,8 +10533,9 @@ Array [
     >
       <span
         aria-label="user"
-        class="anticon anticon-user site-form-item-icon"
+        class="anticon anticon-user"
         role="img"
+        style="color: rgba(0, 0, 0, 0.25);"
       >
         <svg
           aria-hidden="true"

@@ -4,19 +4,14 @@ import IconContext from '@ant-design/icons/lib/components/Context';
 import useMemo from 'rc-util/lib/hooks/useMemo';
 import { merge } from 'rc-util/lib/utils/set';
 
-import warning, { WarningContext } from '../_util/warning';
+import warning, { devUseWarning, WarningContext } from '../_util/warning';
 import type { WarningContextProps } from '../_util/warning';
-import type { FormProps } from '../form/Form';
 import ValidateMessagesContext from '../form/validateMessagesContext';
-import type { InputProps } from '../input';
 import type { Locale } from '../locale';
 import LocaleProvider, { ANT_MARK } from '../locale';
 import type { LocaleContextProps } from '../locale/context';
 import LocaleContext from '../locale/context';
 import defaultLocale from '../locale/en_US';
-import type { PaginationProps } from '../pagination';
-import type { SelectProps } from '../select';
-import type { SpaceProps } from '../space';
 import { defaultTheme, DesignTokenContext } from '../theme/context';
 import defaultSeedToken from '../theme/themes/seed';
 import type {
@@ -24,19 +19,29 @@ import type {
   BadgeConfig,
   ButtonConfig,
   CardConfig,
+  CollapseConfig,
   ComponentStyleConfig,
   ConfigConsumerProps,
   CSPConfig,
   DirectionType,
   DrawerConfig,
   FlexConfig,
+  FloatButtonGroupConfig,
+  FormConfig,
   ImageConfig,
+  InputConfig,
+  ListConfig,
+  MenuConfig,
   ModalConfig,
   NotificationConfig,
+  PaginationConfig,
   PopupOverflow,
+  SelectConfig,
+  SpaceConfig,
   TableConfig,
   TabsConfig,
   TagConfig,
+  TextAreaConfig,
   Theme,
   ThemeConfig,
   TourConfig,
@@ -118,17 +123,32 @@ export interface ConfigProviderProps {
   children?: React.ReactNode;
   renderEmpty?: RenderEmptyHandler;
   csp?: CSPConfig;
+  /** @deprecated Please use `{ button: { autoInsertSpace: boolean }}` instead */
   autoInsertSpaceInButton?: boolean;
-  form?: ComponentStyleConfig &
-    Pick<FormProps, 'requiredMark' | 'colon' | 'scrollToFirstError' | 'validateMessages'>;
-  input?: ComponentStyleConfig & Pick<InputProps, 'autoComplete' | 'classNames' | 'styles'>;
-  select?: ComponentStyleConfig & Pick<SelectProps, 'showSearch'>;
-  pagination?: ComponentStyleConfig & Pick<PaginationProps, 'showSizeChanger'>;
+  form?: FormConfig;
+  input?: InputConfig;
+  textArea?: TextAreaConfig;
+  select?: SelectConfig;
+  pagination?: PaginationConfig;
+  /**
+   * @descCN 语言包配置，语言包可到 `antd/locale` 目录下寻找。
+   * @descEN Language package setting, you can find the packages in `antd/locale`.
+   */
   locale?: Locale;
   componentSize?: SizeType;
   componentDisabled?: boolean;
+  /**
+   * @descCN 设置布局展示方向。
+   * @descEN Set direction of layout.
+   * @default ltr
+   */
   direction?: DirectionType;
-  space?: Pick<SpaceProps, 'size' | 'className' | 'classNames' | 'style' | 'styles'>;
+  space?: SpaceConfig;
+  /**
+   * @descCN 设置 `false` 时关闭虚拟滚动。
+   * @descEN Close the virtual scrolling when setting `false`.
+   * @default true
+   */
   virtual?: boolean;
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean;
@@ -142,7 +162,7 @@ export interface ConfigProviderProps {
   calendar?: ComponentStyleConfig;
   carousel?: ComponentStyleConfig;
   cascader?: ComponentStyleConfig;
-  collapse?: ComponentStyleConfig;
+  collapse?: CollapseConfig;
   divider?: ComponentStyleConfig;
   drawer?: DrawerConfig;
   typography?: ComponentStyleConfig;
@@ -153,14 +173,15 @@ export interface ConfigProviderProps {
   steps?: ComponentStyleConfig;
   image?: ImageConfig;
   layout?: ComponentStyleConfig;
-  list?: ComponentStyleConfig;
+  list?: ListConfig;
   mentions?: ComponentStyleConfig;
   modal?: ModalConfig;
   progress?: ComponentStyleConfig;
   result?: ComponentStyleConfig;
   slider?: ComponentStyleConfig;
   breadcrumb?: ComponentStyleConfig;
-  menu?: ComponentStyleConfig;
+  menu?: MenuConfig;
+  floatButtonGroup?: FloatButtonGroupConfig;
   checkbox?: ComponentStyleConfig;
   descriptions?: ComponentStyleConfig;
   empty?: ComponentStyleConfig;
@@ -319,6 +340,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     menu,
     pagination,
     input,
+    textArea,
     empty,
     badge,
     radio,
@@ -344,6 +366,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     dropdown,
     warning: warningConfig,
     tour,
+    floatButtonGroup,
   } = props;
 
   // =================================== Context ===================================
@@ -367,7 +390,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
 
   useStyle(iconPrefixCls, csp);
 
-  const mergedTheme = useTheme(theme, parentContext.theme);
+  const mergedTheme = useTheme(theme, parentContext.theme, { prefixCls: getPrefixCls('') });
 
   if (process.env.NODE_ENV !== 'production') {
     existThemeConfig = existThemeConfig || !!mergedTheme;
@@ -403,6 +426,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     steps,
     image,
     input,
+    textArea,
     layout,
     list,
     mentions,
@@ -438,13 +462,23 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     dropdown,
     warning: warningConfig,
     tour,
+    floatButtonGroup,
   };
+
+  if (process.env.NODE_ENV !== 'production') {
+    const warningFn = devUseWarning('ConfigProvider');
+    warningFn(
+      !('autoInsertSpaceInButton' in props),
+      'deprecated',
+      '`autoInsertSpaceInButton` is deprecated. Please use `{ button: { autoInsertSpace: boolean }}` instead.',
+    );
+  }
 
   const config: ConfigConsumerProps = {
     ...parentContext,
   };
 
-  Object.keys(baseConfig).forEach((key: keyof typeof baseConfig) => {
+  (Object.keys(baseConfig) as (keyof typeof baseConfig)[]).forEach((key) => {
     if (baseConfig[key] !== undefined) {
       (config as any)[key] = baseConfig[key];
     }
@@ -458,6 +492,14 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
       (config as any)[propName] = propValue;
     }
   });
+
+  if (typeof autoInsertSpaceInButton !== 'undefined') {
+    // merge deprecated api
+    config.button = {
+      autoInsertSpace: autoInsertSpaceInButton,
+      ...config.button,
+    };
+  }
 
   // https://github.com/ant-design/ant-design/issues/27617
   const memoedConfig = useMemo(

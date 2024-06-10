@@ -1,4 +1,5 @@
 import React from 'react';
+import type { CascaderProps } from 'antd';
 import { Cascader, Flex } from 'antd';
 
 interface Option {
@@ -42,14 +43,18 @@ const options: Option[] = [
   },
 ];
 
-const onChange = (value: string[]) => {
+const onChange: CascaderProps<Option>['onChange'] = (value) => {
+  console.log(value);
+};
+
+const onMultipleChange: CascaderProps<Option, 'value', true>['onChange'] = (value) => {
   console.log(value);
 };
 
 const App: React.FC = () => (
   <Flex vertical gap="small" align="flex-start">
     <Cascader.Panel options={options} onChange={onChange} />
-    <Cascader.Panel multiple options={options} onChange={onChange} />
+    <Cascader.Panel multiple options={options} onChange={onMultipleChange} />
     <Cascader.Panel />
   </Flex>
 );

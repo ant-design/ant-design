@@ -1,11 +1,11 @@
 import type * as React from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
-import { unit } from '@ant-design/cssinjs';
 
 // Direction naming standard:
 // Horizontal base:
@@ -253,6 +253,12 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
               .equal(),
             insetBlockStart: token.calc(token.handleSize).sub(token.handleSizeHover).div(2).equal(),
           },
+        },
+      },
+
+      [`&-lock ${componentCls}-handle`]: {
+        [`&::before, &::after`]: {
+          transition: 'none',
         },
       },
 

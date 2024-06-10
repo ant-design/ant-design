@@ -1,15 +1,14 @@
 ---
 category: Components
-subtitle: 树选择
 group: 数据录入
 title: TreeSelect
+subtitle: 树选择
+description: 树型选择控件。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*1zcHQLltaJcAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*hjwGSIa4J8QAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-树型选择控件。
 
 ## 何时使用
 
@@ -88,6 +87,7 @@ demo:
 | onSearch | 文本框值变化时的回调 | function(value: string) | - |  |
 | onSelect | 被选中时调用 | function(value, node, extra) | - |  |
 | onTreeExpand | 展示节点时调用 | function(expandedKeys) | - |  |
+| onPopupScroll | 下拉列表滚动时的回调 | (event: UIEvent) => void | - | 5.17.0 |
 
 ### Tree 方法
 

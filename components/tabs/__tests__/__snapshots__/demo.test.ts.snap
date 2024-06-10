@@ -516,17 +516,17 @@ exports[`renders components/tabs/demo/card-top.tsx correctly 1`] = `
           tabindex="0"
         >
           <p>
-            Content of Tab Pane
+            Content of Tab Pane 
             <!-- -->
             1
           </p>
           <p>
-            Content of Tab Pane
+            Content of Tab Pane 
             <!-- -->
             1
           </p>
           <p>
-            Content of Tab Pane
+            Content of Tab Pane 
             <!-- -->
             1
           </p>

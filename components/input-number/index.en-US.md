@@ -2,13 +2,12 @@
 category: Components
 group: Data Entry
 title: InputNumber
+description: Enter a number within certain range with the mouse or keyboard.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JvWbSYhuNlIAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*1uH-R5kLAMIAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-Enter a number within certain range with the mouse or keyboard.
 
 ## When To Use
 
@@ -68,12 +67,13 @@ Common props ref：[Common props](/docs/react/common-props)
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - | - |
 | onStep | The callback function that is triggered when click up or down buttons | (value: number, info: { offset: number, type: 'up' \| 'down' }) => void | - | 4.7.0 |
 
-## Methods
+## Ref
 
-| Name    | Description  |
-| ------- | ------------ |
-| blur()  | Remove focus |
-| focus() | Get focus    |
+| Name          | Description            | Version |
+| ------------- | ---------------------- | ------- |
+| blur()        | Remove focus           |         |
+| focus()       | Get focus              |         |
+| nativeElement | The native DOM element | 5.17.3  |
 
 ## Design Token
 
@@ -96,3 +96,9 @@ Developer handle data by their own in control. It will make data out of sync if 
 ### Why `onBlur` or other event can not get correct value?
 
 InputNumber's value is wrapped by internal logic. The `event.target.value` you get from `onBlur` or other event is the DOM element's `value` instead of the actual value of InputNumber. For example, if you change the display format through `formatter` or `decimalSeparator`, you will get the formatted string in the DOM. You should always get the current value through `onChange`.
+
+### Why `changeOnWheel` unable to control whether the mouse scroll wheel changes value?
+
+> The use of the `type` attribute is deprecated
+
+The InputNumber component allows you to use all the attributes of the input element and ultimately pass them to the input element, This attribute will also be added to the input element when you pass in `type='number'`, which will cause the input element to trigger native properties (allowing the mouse wheel to change the value), As a result `changeOnWheel` cannot control whether the mouse wheel changes the value.

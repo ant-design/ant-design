@@ -1,15 +1,14 @@
 ---
 category: Components
-subtitle: 时间选择框
 group: 数据录入
 title: TimePicker
+subtitle: 时间选择框
+description: 输入或选择时间的控件。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*kGmGSLk_1fwAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*1hDmQJIDFJQAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-输入或选择时间的控件。
 
 ## 何时使用
 
@@ -21,6 +20,7 @@ demo:
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/value.tsx">受控组件</code>
 <code src="./demo/size.tsx">三种大小</code>
+<code src="./demo/need-confirm.tsx" version="5.14.0">选择确认</code>
 <code src="./demo/disabled.tsx">禁用</code>
 <code src="./demo/hide-column.tsx">选择时分</code>
 <code src="./demo/interval-options.tsx">步长选项</code>
@@ -79,6 +79,7 @@ dayjs.extend(customParseFormat)
 | use12Hours | 使用 12 小时制，为 true 时 `format` 默认为 `h:mm:ss a` | boolean | false |  |
 | value | 当前时间 | [dayjs](http://day.js.org/) | - |  |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| onCalendarChange | 待选日期发生变化的回调。`info` 参数自 4.4.0 添加 | function(dates: \[dayjs, dayjs], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  |
 | onChange | 时间发生变化的回调 | function(time: dayjs, timeString: string): void | - |  |
 | onOpenChange | 面板打开/关闭时的回调 | (open: boolean) => void | - |  |
 

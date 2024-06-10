@@ -1,9 +1,10 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import type { CascaderProps as RcCascaderProps } from 'rc-cascader';
 import { Panel } from 'rc-cascader';
 import type { PickType } from 'rc-cascader/lib/Panel';
 
-import type { CascaderProps } from '.';
+import type { CascaderProps, DefaultOptionType } from '.';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useBase from './hooks/useBase';
@@ -14,9 +15,23 @@ import usePanelStyle from './style/panel';
 
 export type PanelPickType = Exclude<PickType, 'checkable'> | 'multiple' | 'rootClassName';
 
-export type CascaderPanelProps = Pick<CascaderProps, PanelPickType>;
+export type CascaderPanelProps<
+  OptionType extends DefaultOptionType = DefaultOptionType,
+  ValueField extends keyof OptionType = keyof OptionType,
+  Multiple extends boolean = false,
+> = Pick<CascaderProps<OptionType, ValueField, Multiple>, PanelPickType>;
 
-const CascaderPanel: React.FC<CascaderPanelProps> = (props) => {
+export type CascaderPanelAutoProps<
+  OptionType extends DefaultOptionType = DefaultOptionType,
+  ValueField extends keyof OptionType = keyof OptionType,
+> =
+  | CascaderPanelProps<OptionType, ValueField>
+  | (CascaderPanelProps<OptionType, ValueField, true> & { multiple: true });
+
+function CascaderPanel<
+  OptionType extends DefaultOptionType = DefaultOptionType,
+  ValueField extends keyof OptionType = keyof OptionType,
+>(props: CascaderPanelAutoProps<OptionType, ValueField>) {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -53,7 +68,7 @@ const CascaderPanel: React.FC<CascaderPanelProps> = (props) => {
 
   return wrapCSSVar(
     <Panel
-      {...props}
+      {...(props as Pick<RcCascaderProps, PickType>)}
       checkable={checkable}
       prefixCls={cascaderPrefixCls}
       className={classNames(className, hashId, rootClassName, cssVarCls, rootCls)}
@@ -63,6 +78,6 @@ const CascaderPanel: React.FC<CascaderPanelProps> = (props) => {
       loadingIcon={loadingIcon}
     />,
   );
-};
+}
 
 export default CascaderPanel;

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Modal, type ModalProps } from 'antd';
+import type { ModalProps } from 'antd';
+import { Modal } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
@@ -31,16 +32,14 @@ const BlockModal = (props: ModalProps) => {
       <Modal
         getContainer={() => divRef.current!}
         {...props}
-        styles={
-          {
-            mask: {
-              position: 'absolute',
-            },
-            wrapper: {
-              position: 'absolute',
-            },
-          } as any
-        }
+        styles={{
+          mask: {
+            position: 'absolute',
+          },
+          wrapper: {
+            position: 'absolute',
+          },
+        }}
         style={{
           top: '50%',
           transform: 'translateY(-50%)',
@@ -54,30 +53,13 @@ const BlockModal = (props: ModalProps) => {
 
 const App: React.FC = () => {
   const [locale] = useLocale(locales);
-
   return (
     <SemanticPreview
       semantics={[
-        {
-          name: 'mask',
-          desc: locale.mask,
-          version: '5.13.0',
-        },
-        {
-          name: 'header',
-          desc: locale.header,
-          version: '5.13.0',
-        },
-        {
-          name: 'body',
-          desc: locale.body,
-          version: '5.13.0',
-        },
-        {
-          name: 'footer',
-          desc: locale.footer,
-          version: '5.13.0',
-        },
+        { name: 'mask', desc: locale.mask, version: '5.13.0' },
+        { name: 'header', desc: locale.header, version: '5.13.0' },
+        { name: 'body', desc: locale.body, version: '5.13.0' },
+        { name: 'footer', desc: locale.footer, version: '5.13.0' },
       ]}
     >
       <BlockModal title="Title" closable={false} open getContainer={false} width={400}>
