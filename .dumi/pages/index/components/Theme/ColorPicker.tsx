@@ -105,7 +105,6 @@ const ThemeColorPicker: React.FC<ColorPickerProps> = ({ value, onChange, id }) =
               key={color}
               className={classNames(styles.color, { [styles.colorActive]: active })}
               style={{ background: color }}
-              htmlFor={picker ? 'picker' : 'color'}
               onClick={() => {
                 if (!picker) {
                   onChange?.(color);
