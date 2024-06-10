@@ -1,17 +1,19 @@
-import type { FC } from 'react';
+import type React from 'react';
 import type { DialogProps } from 'rc-dialog';
 
 import type { ClosableType } from '../_util/hooks/useClosable';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import type { DirectionType } from '../config-provider';
 
-export type ModalFooterRender = (
-  originNode: React.ReactNode,
-  extra: { OkBtn: FC; CancelBtn: FC },
-) => React.ReactNode;
-interface ModalCommonProps {
-  styles?: Omit<NonNullable<DialogProps['styles']>, 'wrapper'>;
+interface ModalCommonProps extends Omit<DialogProps, 'footer'> {
+  footer?:
+    | React.ReactNode
+    | ((
+        originNode: React.ReactNode,
+        extra: { OkBtn: React.FC; CancelBtn: React.FC },
+      ) => React.ReactNode);
 }
+
 export interface ModalProps extends ModalCommonProps {
   /** Whether the modal dialog is visible or not */
   open?: boolean;
@@ -32,8 +34,6 @@ export interface ModalProps extends ModalCommonProps {
   centered?: boolean;
   /** Width of the modal dialog */
   width?: string | number;
-  /** Footer content */
-  footer?: ModalFooterRender | React.ReactNode;
   /** Text of the OK button */
   okText?: React.ReactNode;
   /** Button `type` of the OK button */
@@ -73,6 +73,10 @@ export interface ModalProps extends ModalCommonProps {
   // Legacy
   /** @deprecated Please use `open` instead. */
   visible?: boolean;
+  /**
+   * @since 5.18.0
+   */
+  loading?: boolean;
 }
 
 type getContainerFunc = () => HTMLElement;

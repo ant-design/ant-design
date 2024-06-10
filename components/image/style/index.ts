@@ -189,7 +189,7 @@ export const genPreviewSwitchStyle = (token: ImageToken): CSSObject => {
     [`${previewCls}-switch-left, ${previewCls}-switch-right`]: {
       position: 'fixed',
       insetBlockStart: '50%',
-      zIndex: token.calc(zIndexPopup).add(1).equal({ unit: false }),
+      zIndex: token.calc(zIndexPopup).add(1).equal(),
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -308,7 +308,7 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
     {
       [`${componentCls}-preview-operations-wrapper`]: {
         position: 'fixed',
-        zIndex: token.calc(token.zIndexPopup).add(1).equal({ unit: false }),
+        zIndex: token.calc(token.zIndexPopup).add(1).equal(),
       },
       '&': [genPreviewOperationsStyle(token), genPreviewSwitchStyle(token)],
     },

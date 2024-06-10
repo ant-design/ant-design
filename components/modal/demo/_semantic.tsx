@@ -32,16 +32,14 @@ const BlockModal = (props: ModalProps) => {
       <Modal
         getContainer={() => divRef.current!}
         {...props}
-        styles={
-          {
-            mask: {
-              position: 'absolute',
-            },
-            wrapper: {
-              position: 'absolute',
-            },
-          } as any
-        }
+        styles={{
+          mask: {
+            position: 'absolute',
+          },
+          wrapper: {
+            position: 'absolute',
+          },
+        }}
         style={{
           top: '50%',
           transform: 'translateY(-50%)',

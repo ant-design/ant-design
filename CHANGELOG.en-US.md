@@ -16,6 +16,50 @@ tag: vVERSION
 
 ---
 
+## 5.18.0
+
+`2024-06-03`
+
+- 🛎 Fix Button icon and text align issue by changing `inline-block` to `inline-flex` and simplify `iconPosition` implementation. [#47318](https://github.com/ant-design/ant-design/pull/47318)
+- Drawer
+  - 🆕 Drawer add `drawerRender` property to control render. [#49125](https://github.com/ant-design/ant-design/pull/49125) [@crazyair](https://github.com/crazyair)
+  - 🛠 Drawer loading implementation changes to Skeleton from Spin. [#48886](https://github.com/ant-design/ant-design/pull/48886) [@li-jia-nan](https://github.com/li-jia-nan)
+- Form
+  - 🆕 Form.Item add `layout` property to toggle layout mode. [#49119](https://github.com/ant-design/ant-design/pull/49119) [@crazyair](https://github.com/crazyair)
+  - 🆕 Form `ref` property supports to access the native element. [#48841](https://github.com/ant-design/ant-design/pull/48841) [@wanpan11](https://github.com/wanpan11)
+  - 🆕 Form add `clearOnDestroy` property to clear form data when destroy. [#48921](https://github.com/ant-design/ant-design/pull/48921) [@crazyair](https://github.com/crazyair)
+- Image
+  - 🆕 Image add `onReset` and `onClose` properties. [#48936](https://github.com/ant-design/ant-design/pull/48936) [@kiner-tang](https://github.com/kiner-tang)
+  - 🆕 Image supports get `imgInfo` from arguments of `toolbarRender` and `imageRender` render functions. [#48729](https://github.com/ant-design/ant-design/pull/48729) [@nova1751](https://github.com/nova1751)
+- notification
+  - 🆕 notification add `pauseOnHover` property to pause the timer. [#49024](https://github.com/ant-design/ant-design/pull/49024) [@yociduo](https://github.com/yociduo)
+  - 🆕 notification add `showProgress` property to show the progress bar. [#48353](https://github.com/ant-design/ant-design/pull/48353) [@yociduo](https://github.com/yociduo)
+- Progress
+  - 🆕 Progress add `percentPosition` property to control position for percent value. [#48157](https://github.com/ant-design/ant-design/pull/48157) [@LonelySnowman](https://github.com/LonelySnowman)
+  - 🆕 Progress `size` property supports object value. [#48805](https://github.com/ant-design/ant-design/pull/48805) [@crazyair](https://github.com/crazyair)
+- 🆕 Avatar.Group add `max` property for replace `maxCount`、`maxStyle`、`maxPopoverPlacement` and `maxPopoverTrigger` properties. [#49131](https://github.com/ant-design/ant-design/pull/49131) [@wanpan11](https://github.com/wanpan11)
+- 🆕 Modal add `loading` property to show the skeleton. [#48848](https://github.com/ant-design/ant-design/pull/48848) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 Rate add `keyboard` property to ignore keyboard events. [#49132](https://github.com/ant-design/ant-design/pull/49132) [@Wxh16144](https://github.com/Wxh16144)
+- 🆕 Spin support `percent` to render as progress. [#48657](https://github.com/ant-design/ant-design/pull/48657)
+- 🐞 Watermark add `overflow: hidden` style to prevent set `height: 0` to hide the watermark case. [#49130](https://github.com/ant-design/ant-design/pull/49130)
+- 🐞 Anchor fix scroll animation lost bug when set `replace` property. [#49136](https://github.com/ant-design/ant-design/pull/49136) [@mySkey](https://github.com/mySkey)
+- 🐞 Tour fix `current` argument of `onClose` is wrong. [#49124](https://github.com/ant-design/ant-design/pull/49124)
+- 💄 List.Item add `styles` and `className` properties. [#49154](https://github.com/ant-design/ant-design/pull/49154) [@wanpan11](https://github.com/wanpan11)
+- 🇯🇵 DatePicker add missing ja_JP translations. [#49155](https://github.com/ant-design/ant-design/pull/49155) [@huyikai](https://github.com/huyikai)
+- 🛠 Simplify several logics and type definitions. [#49146](https://github.com/ant-design/ant-design/pull/49146) [#49156](https://github.com/ant-design/ant-design/pull/49156) [#49169](https://github.com/ant-design/ant-design/pull/49169) [#49162](https://github.com/ant-design/ant-design/pull/49162) [@coding-ice](https://github.com/coding-ice)
+
+## 5.17.4
+
+`2024-05-27`
+
+- 🐞 Fix Modal with `confirm` would not close correctly when returning `true` in `onOk` or `onCancel`. [#49054](https://github.com/ant-design/ant-design/pull/49054) [@wanpan11](https://github.com/wanpan11)
+- 🐞 Fix Carousel was warned about having non-standard DOM attributes by React. [#49031](https://github.com/ant-design/ant-design/pull/49031)
+- 🐞 Fix Form prop of `scrollToFirstError` not working for InputNumber. [#48989](https://github.com/ant-design/ant-design/pull/48989) [@Wxh16144](https://github.com/Wxh16144)
+- TypeScript
+  - 🤖 Fix Modal missing `styles.wrapper` type. [#49055](https://github.com/ant-design/ant-design/pull/49055)
+  - 🤖 Enhance Spin component TypeScript definitions and documentation. [#49036](https://github.com/ant-design/ant-design/pull/49036) [@arvinxx](https://github.com/arvinxx)
+  - 🤖 Enhance Checkbox.Group TypeScript generic limitation. [#49073](https://github.com/ant-design/ant-design/pull/49073)
+
 ## 5.17.3
 
 `2024-05-19`

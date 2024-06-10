@@ -54,7 +54,7 @@ const Logo: React.FC<LogoProps> = ({ isZhCN }) => {
   const { styles } = useStyle();
   return (
     <h1>
-      <Link to={utils.getLocalizedPathname('/', isZhCN, search)} className={styles.logo}>
+      <Link to={utils.getLocalizedPathname('/', isZhCN, search)} className={styles.logo} prefetch>
         <img
           src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
           height={32}

@@ -5331,7 +5331,7 @@ Array [
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
               role="button"
-              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
               tabindex="0"
             >
               <span
@@ -5368,7 +5368,7 @@ Array [
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
               role="button"
-              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
               tabindex="0"
             >
               <span
@@ -5405,7 +5405,7 @@ Array [
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
               role="button"
-              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
               tabindex="0"
             >
               <span
@@ -5442,7 +5442,7 @@ Array [
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
               role="button"
-              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
               tabindex="0"
             >
               <span
@@ -5479,7 +5479,7 @@ Array [
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
               role="button"
-              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
               tabindex="0"
             >
               <span
@@ -5516,7 +5516,7 @@ Array [
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
               role="button"
-              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
               tabindex="0"
             >
               <span

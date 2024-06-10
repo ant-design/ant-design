@@ -34,6 +34,8 @@ export interface NotificationToken extends FullToken<'Notification'> {
   notificationMarginBottom: number;
   notificationMarginEdge: number;
   notificationStackLayer: number;
+  notificationProgressBg: string;
+  notificationProgressHeight: number;
 }
 
 export const genNoticeStyle = (token: NotificationToken): CSSObject => {
@@ -52,6 +54,8 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
     notificationBg,
     notificationPadding,
     notificationMarginEdge,
+    notificationProgressBg,
+    notificationProgressHeight,
     fontSize,
     lineHeight,
     width,
@@ -152,6 +156,39 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       },
 
       ...genFocusStyle(token),
+    },
+
+    [`${noticeCls}-progress`]: {
+      position: 'absolute',
+      display: 'block',
+      appearance: 'none',
+      WebkitAppearance: 'none',
+      inlineSize: `calc(100% - ${unit(borderRadiusLG)} * 2)`,
+      left: {
+        _skip_check_: true,
+        value: borderRadiusLG,
+      },
+      right: {
+        _skip_check_: true,
+        value: borderRadiusLG,
+      },
+      bottom: 0,
+      blockSize: notificationProgressHeight,
+      border: 0,
+
+      '&, &::-webkit-progress-bar': {
+        borderRadius: borderRadiusLG,
+        backgroundColor: `rgba(0, 0, 0, 0.04)`,
+      },
+
+      '&::-moz-progress-bar': {
+        background: notificationProgressBg,
+      },
+
+      '&::-webkit-progress-value': {
+        borderRadius: borderRadiusLG,
+        background: notificationProgressBg,
+      },
     },
 
     [`${noticeCls}-btn`]: {
@@ -279,6 +316,8 @@ export const prepareNotificationToken: (
     notificationMarginEdge: token.marginLG,
     animationMaxHeight: 150,
     notificationStackLayer: 3,
+    notificationProgressHeight: 2,
+    notificationProgressBg: `linear-gradient(90deg, ${token.colorPrimaryBorderHover}, ${token.colorPrimary})`,
   });
 
   return notificationToken;

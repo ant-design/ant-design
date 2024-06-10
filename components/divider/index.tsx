@@ -38,7 +38,6 @@ const Divider: React.FC<DividerProps> = (props) => {
 
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
-  const orientationPrefix = orientation.length > 0 ? `-${orientation}` : orientation;
   const hasChildren = !!children;
   const hasCustomMarginLeft = orientation === 'left' && orientationMargin != null;
   const hasCustomMarginRight = orientation === 'right' && orientationMargin != null;
@@ -50,7 +49,7 @@ const Divider: React.FC<DividerProps> = (props) => {
     `${prefixCls}-${type}`,
     {
       [`${prefixCls}-with-text`]: hasChildren,
-      [`${prefixCls}-with-text${orientationPrefix}`]: hasChildren,
+      [`${prefixCls}-with-text-${orientation}`]: hasChildren,
       [`${prefixCls}-dashed`]: !!dashed,
       [`${prefixCls}-plain`]: !!plain,
       [`${prefixCls}-rtl`]: direction === 'rtl',

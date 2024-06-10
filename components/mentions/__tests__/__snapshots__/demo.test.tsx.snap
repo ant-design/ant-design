@@ -370,7 +370,8 @@ Array [
       style="width:100%"
     >
       <textarea
-        class="rc-textarea"
+        class="rc-textarea rc-textarea-disabled"
+        disabled=""
         placeholder="this is disabled Mentions"
         rows="1"
       />

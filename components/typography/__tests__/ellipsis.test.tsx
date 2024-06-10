@@ -514,17 +514,23 @@ describe('Typography.Ellipsis', () => {
     expect(document.querySelector('.ant-tooltip')).toBeTruthy();
   });
 
-  it('not force single line if expanded', () => {
+  it('not force single line if expanded', async () => {
+    const ref = React.createRef<HTMLElement>();
+
     const renderDemo = (expanded: boolean) => (
-      <Base ellipsis={{ rows: 1, expanded, expandable: 'collapsible' }} component="p">
+      <Base ellipsis={{ rows: 1, expanded, expandable: 'collapsible' }} component="p" ref={ref}>
         {fullStr}
       </Base>
     );
 
     const { container, rerender } = render(renderDemo(false));
-    expect(container.querySelector('.ant-typography-single-line')).toBeTruthy();
+
+    triggerResize(ref.current!);
+    await waitFakeTimer();
+
+    expect(container.querySelector('.ant-typography-expand')).toBeTruthy();
 
     rerender(renderDemo(true));
-    expect(container.querySelector('.ant-typography-single-line')).toBeFalsy();
+    expect(container.querySelector('.ant-typography-collapse')).toBeTruthy();
   });
 });
