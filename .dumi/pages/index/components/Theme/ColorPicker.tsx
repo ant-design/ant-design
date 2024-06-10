@@ -105,6 +105,7 @@ const ThemeColorPicker: React.FC<ColorPickerProps> = ({ value, onChange, id }) =
               key={color}
               className={classNames(styles.color, { [styles.colorActive]: active })}
               style={{ background: color }}
+              htmlFor={picker ? 'picker' : 'color'}
               onClick={() => {
                 if (!picker) {
                   onChange?.(color);
@@ -114,6 +115,7 @@ const ThemeColorPicker: React.FC<ColorPickerProps> = ({ value, onChange, id }) =
               <input
                 type="radio"
                 name={picker ? 'picker' : 'color'}
+                aria-label={color}
                 tabIndex={picker ? -1 : 0}
                 onClick={(e) => e.stopPropagation()}
               />
