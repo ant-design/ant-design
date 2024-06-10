@@ -80,12 +80,12 @@ export interface ThemePickerProps {
 }
 
 const ThemePicker: React.FC<ThemePickerProps> = (props) => {
-  const { value, onChange } = props;
+  const { value, id, onChange } = props;
   const { styles } = useStyle();
   const [locale] = useLocale(locales);
   return (
     <Flex gap="large" wrap>
-      {(Object.keys(THEMES) as (keyof typeof THEMES)[]).map<React.ReactNode>((theme) => (
+      {(Object.keys(THEMES) as (keyof typeof THEMES)[]).map<React.ReactNode>((theme, id) => (
         <Flex vertical gap="small" justify="center" align="center" key={theme}>
           <label
             onClick={() => onChange?.(theme)}
@@ -93,7 +93,7 @@ const ThemePicker: React.FC<ThemePickerProps> = (props) => {
               [styles.themeCardActive]: value === theme,
             })}
           >
-            <input type="radio" name="theme" />
+            <input type="radio" name="theme" id={index === 0 ? id : undefined} />
             <img src={THEMES[theme]} alt={theme} />
           </label>
           <span>{locale[theme]}</span>
