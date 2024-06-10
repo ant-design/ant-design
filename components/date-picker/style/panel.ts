@@ -276,6 +276,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         '&-view': {
           flex: 'auto',
           fontWeight: fontWeightStrong,
+          lineHeight: unit(textHeight),
 
           '> button': {
             color: 'inherit',
