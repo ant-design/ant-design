@@ -81,9 +81,6 @@ const localeValues: Locale = {
     copied: 'Berjaya menyalin',
     expand: 'Kembang',
   },
-  PageHeader: {
-    back: 'Kembali',
-  },
   Form: {
     optional: '(Opsional)',
     defaultValidateMessages: {
