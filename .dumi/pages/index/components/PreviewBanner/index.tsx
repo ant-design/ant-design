@@ -1,11 +1,12 @@
 import React, { Suspense } from 'react';
 import { Button, ConfigProvider, Flex, Typography } from 'antd';
 import { createStyles } from 'antd-style';
-import { Link, useLocation } from 'dumi';
+import { useLocation } from 'dumi';
 
 import useLocale from '../../../../hooks/useLocale';
 import SiteContext from '../../../../theme/slots/SiteContext';
 import * as utils from '../../../../theme/utils';
+import Link from '../../../../theme/common/Link';
 import GroupMaskLayer from '../GroupMaskLayer';
 
 const ComponentsBlock = React.lazy(() => import('./ComponentsBlock'));
@@ -143,12 +144,12 @@ const PreviewBanner: React.FC<React.PropsWithChildren> = (props) => {
           <p>{locale.slogan}</p>
         </Typography>
         <Flex gap="middle" className={styles.btnWrap}>
-          <Link to={utils.getLocalizedPathname('/components/overview/', isZhCN, search)} prefetch>
+          <Link to={utils.getLocalizedPathname('/components/overview/', isZhCN, search)}>
             <Button size="large" type="primary">
               {locale.start}
             </Button>
           </Link>
-          <Link to={utils.getLocalizedPathname('/docs/spec/introduce/', isZhCN, search)} prefetch>
+          <Link to={utils.getLocalizedPathname('/docs/spec/introduce/', isZhCN, search)}>
             <Button size="large">{locale.designLanguage}</Button>
           </Link>
         </Flex>
