@@ -39,22 +39,27 @@ export const genActiveStyle = (token: InputToken) => ({
   backgroundColor: token.activeBg,
 });
 
-const genInputLargeStyle = (token: InputToken): CSSObject => {
-  const { paddingBlockLG, lineHeightLG, borderRadiusLG, paddingInlineLG } = token;
+export const genInputLargeStyle = (token: InputToken): CSSObject => {
+  const { paddingBlockLG, lineHeightLG, borderRadiusLG, paddingInlineLG, inputFontSizeLG } = token;
 
   return {
     padding: `${unit(paddingBlockLG)} ${unit(paddingInlineLG)}`,
-    fontSize: token.inputFontSizeLG,
+    fontSize: inputFontSizeLG,
     lineHeight: lineHeightLG,
     borderRadius: borderRadiusLG,
   };
 };
 
-export const genInputSmallStyle = (token: InputToken): CSSObject => ({
-  padding: `${unit(token.paddingBlockSM)} ${unit(token.paddingInlineSM)}`,
-  fontSize: token.inputFontSizeSM,
-  borderRadius: token.borderRadiusSM,
-});
+export const genInputSmallStyle = (token: InputToken): CSSObject => {
+  const { paddingBlockSM, lineHeightSM, borderRadiusSM, paddingInlineSM, inputFontSizeSM } = token;
+
+  return {
+    padding: `${unit(paddingBlockSM)} ${unit(paddingInlineSM)}`,
+    fontSize: inputFontSizeSM,
+    borderRadius: borderRadiusSM,
+    lineHeight: lineHeightSM,
+  };
+};
 
 export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   position: 'relative',

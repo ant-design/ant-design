@@ -3,6 +3,8 @@ import { unit } from '@ant-design/cssinjs';
 import {
   genBasicInputStyle,
   genInputGroupStyle,
+  genInputLargeStyle,
+  genInputSmallStyle,
   genPlaceholderStyle,
   initInputToken,
 } from '../../input/style';
@@ -49,7 +51,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     lineWidth,
     lineType,
     borderRadius,
-    fontSizeLG,
     controlHeightLG,
     controlHeightSM,
     colorError,
@@ -71,7 +72,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     handleOpacity,
     handleBorderColor,
     filledHandleBg,
-    lineHeightLG,
     calc,
   } = token;
 
@@ -121,10 +121,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         },
 
         '&-lg': {
+          ...genInputLargeStyle(token),
           padding: 0,
-          fontSize: fontSizeLG,
-          lineHeight: lineHeightLG,
-          borderRadius: borderRadiusLG,
 
           [`input${componentCls}-input`]: {
             height: calc(controlHeightLG).sub(calc(lineWidth).mul(2)).equal(),
@@ -133,8 +131,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         },
 
         '&-sm': {
+          ...genInputSmallStyle(token),
           padding: 0,
-          borderRadius: borderRadiusSM,
 
           [`input${componentCls}-input`]: {
             height: calc(controlHeightSM).sub(calc(lineWidth).mul(2)).equal(),
