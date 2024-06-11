@@ -105,7 +105,7 @@ const InternalCompoundedButton = React.forwardRef<
 
   // https://github.com/ant-design/ant-design/issues/47605
   // Compatible with original `type` behavior
-  const mergedType = type || 'default';
+  const mergedType = type || 'primary';
 
   const { getPrefixCls, direction, button } = useContext(ConfigContext);
 
