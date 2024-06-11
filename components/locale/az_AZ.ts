@@ -64,9 +64,6 @@ const localeValues: Locale = {
     removeAll: 'Bütün məlumatı sil',
     selectInvert: 'Mövcud səhifənin elementlərinin sırasını tərs çevir',
   },
-  Select: {
-    notFoundContent: 'Tapılmadı',
-  },
   Upload: {
     uploading: 'Yüklənir...',
     removeFile: 'Faylı sil',

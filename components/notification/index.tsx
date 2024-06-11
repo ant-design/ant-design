@@ -34,10 +34,10 @@ let taskQueue: Task[] = [];
 let defaultGlobalConfig: GlobalConfigProps = {};
 
 function getGlobalContext() {
-  const { getContainer, rtl, maxCount, top, bottom } = defaultGlobalConfig;
+  const { getContainer, rtl, maxCount, top, bottom, showProgress, pauseOnHover } = defaultGlobalConfig;
   const mergedContainer = getContainer?.() || document.body;
 
-  return { getContainer: () => mergedContainer, rtl, maxCount, top, bottom };
+  return { getContainer: () => mergedContainer, rtl, maxCount, top, bottom, showProgress, pauseOnHover };
 }
 
 interface GlobalHolderRef {

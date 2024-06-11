@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { createStyles } from 'antd-style';
-import { Link, useLocation } from 'dumi';
+import { useLocation } from 'dumi';
 
 import * as utils from '../../utils';
+import Link from '../../common/Link';
 
 const useStyle = createStyles(({ token, css }) => {
   const { headerHeight, colorTextHeading, fontFamily, mobileMaxWidth } = token;
@@ -54,7 +55,7 @@ const Logo: React.FC<LogoProps> = ({ isZhCN }) => {
   const { styles } = useStyle();
   return (
     <h1>
-      <Link to={utils.getLocalizedPathname('/', isZhCN, search)} className={styles.logo} prefetch>
+      <Link to={utils.getLocalizedPathname('/', isZhCN, search)} className={styles.logo}>
         <img
           src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
           height={32}
