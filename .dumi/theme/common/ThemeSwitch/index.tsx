@@ -39,6 +39,7 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = (props) => {
       <Link
         to={getLocalizedPathname('/theme-editor', isZhCN(pathname), search)}
         style={{ display: 'block', marginBottom: token.margin }}
+        prefetch
       >
         <FloatButton
           icon={<BgColorsOutlined />}

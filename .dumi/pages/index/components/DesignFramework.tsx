@@ -131,7 +131,7 @@ const DesignFramework: React.FC = () => {
 
         return (
           <Col key={index} span={colSpan}>
-            <Link to={path}>
+            <Link to={path} prefetch>
               <div className={styles.card}>
                 <img alt={title} src={img} />
 

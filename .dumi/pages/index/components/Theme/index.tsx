@@ -518,11 +518,12 @@ const Theme: React.FC = () => {
                   title={locale.myTheme}
                   extra={
                     <Flex gap="small">
-                      <Link to={getLocalizedPathname('/theme-editor', isZhCN, search)}>
+                      <Link to={getLocalizedPathname('/theme-editor', isZhCN, search)} prefetch>
                         <Button type="default">{locale.toDef}</Button>
                       </Link>
                       <Link
                         to={getLocalizedPathname('/docs/react/customize-theme', isZhCN, search)}
+                        prefetch
                       >
                         <Button type="primary">{locale.toUse}</Button>
                       </Link>

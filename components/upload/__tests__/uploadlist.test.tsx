@@ -1341,7 +1341,7 @@ describe('Upload List', () => {
     // Mock async update in a frame
     const fileNames = ['light', 'bamboo', 'little'];
 
-    await act(() => {
+    act(() => {
       uploadRef.current.onBatchStart(
         fileNames.map((fileName) => {
           const file = new File([], fileName);
