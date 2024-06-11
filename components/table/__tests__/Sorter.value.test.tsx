@@ -10,7 +10,7 @@ describe('Sorter.value.test.tsx', () => {
     });
 
     afterAll(() => {
-        errorSpy.mockRestore();
+           errorSpy.mockRestore();
     });
 
     interface stateType {
