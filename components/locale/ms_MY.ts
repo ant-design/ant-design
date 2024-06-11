@@ -50,9 +50,6 @@ const localeValues: Locale = {
   Icon: {
     icon: 'ikon',
   },
-  Select: {
-    notFoundContent: 'Tidak Dijumpai',
-  },
   Upload: {
     uploading: 'Sedang memuat naik...',
     removeFile: 'Buang fail',
