@@ -8,15 +8,11 @@ You can customize the toolbar and add a button for downloading the original imag
 
 ```css
 .toolbar-wrapper {
-  position: fixed;
-  bottom: 32px;
-  left: 50%;
   padding: 0px 24px;
   color: #fff;
   font-size: 20px;
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 100px;
-  transform: translateX(-50%);
 }
 
 .toolbar-wrapper .anticon {
