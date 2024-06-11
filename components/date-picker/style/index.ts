@@ -304,7 +304,10 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             display: 'none',
           },
 
-          [`&${componentCls}-dropdown-placement-bottomLeft`]: {
+          [`&${componentCls}-dropdown-placement-bottomLeft,
+                        &${componentCls}-dropdown-placement-bottomRight
+
+            `]: {
             [`${componentCls}-range-arrow`]: {
               top: 0,
               display: 'block',
@@ -312,7 +315,8 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             },
           },
 
-          [`&${componentCls}-dropdown-placement-topLeft`]: {
+          [`&${componentCls}-dropdown-placement-topLeft,
+            &${componentCls}-dropdown-placement-topRight`]: {
             [`${componentCls}-range-arrow`]: {
               bottom: 0,
               display: 'block',
