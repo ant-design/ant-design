@@ -151,6 +151,7 @@ export default function generatePicker<DateType extends AnyObject>(
             placeholder={getPlaceholder(locale, mergedPicker, placeholder)}
             suffixIcon={suffixNode}
             dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
+            placement={placement}
             prevIcon={<span className={`${prefixCls}-prev-icon`} />}
             nextIcon={<span className={`${prefixCls}-next-icon`} />}
             superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
