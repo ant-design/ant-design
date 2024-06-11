@@ -1,5 +1,5 @@
+/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/ms_MY';
-
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/ms_MY';
 import DatePicker from '../date-picker/locale/ms_MY';
@@ -16,25 +16,13 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Sila pilih',
   },
-  PageHeader: {
-    back: 'Kembali',
-  },
-  Text: {
-    edit: 'Sunting',
-    copy: 'Salin',
-    copied: 'Berjaya menyalin',
-    expand: 'Kembang',
-  },
-  Empty: {
-    description: 'Tiada data',
-  },
   Table: {
-    filterTitle: 'Saring',
+    filterTitle: 'Cari dengan tajuk',
     filterConfirm: 'OK',
-    filterReset: 'Reset',
-    emptyText: 'Kosong',
+    filterReset: 'Menetapkan semula',
+    emptyText: 'Tiada data',
     selectAll: 'Pilih Semua',
-    selectInvert: 'Balikkan',
+    selectInvert: 'Terbalikkan',
     filterEmptyText: 'Tiada Saringan',
     filterCheckall: 'Semak Semua',
     filterSearchPlaceholder: 'Cari',
@@ -52,6 +40,11 @@ const localeValues: Locale = {
     cancelText: 'Batal',
     justOkText: 'OK',
   },
+  Tour: {
+    Next: 'Seterusnya',
+    Previous: 'Sebelumnya',
+    Finish: 'Tamat',
+  },  
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Batal',
@@ -59,7 +52,7 @@ const localeValues: Locale = {
   Transfer: {
     titles: ['', ''],
     notFoundContent: 'Tidak dijumpai',
-    searchPlaceholder: 'Carian',
+    searchPlaceholder: 'Carian di sini',
     itemUnit: 'item',
     itemsUnit: 'item',
     remove: 'Buang',
@@ -69,9 +62,6 @@ const localeValues: Locale = {
     removeAll: 'Buang Semua',
     selectInvert: 'Balik Pilihan',
   },
-  Icon: {
-    icon: 'ikon',
-  },
   Upload: {
     uploading: 'Sedang memuat naik...',
     removeFile: 'Buang fail',
@@ -79,11 +69,21 @@ const localeValues: Locale = {
     previewFile: 'Tengok fail',
     downloadFile: 'Muat turun fail',
   },
-  Tour: {
-    Next: 'Seterusnya',
-    Previous: 'Sebelumnya',
-    Finish: 'Tamat',
-  },  
+  Empty: {
+    description: 'Tiada data',
+  },
+  Icon: {
+    icon: 'ikon',
+  },
+  Text: {
+    edit: 'Sunting',
+    copy: 'Salin',
+    copied: 'Berjaya menyalin',
+    expand: 'Kembang',
+  },
+  PageHeader: {
+    back: 'Kembali',
+  },
   Form: {
     optional: '(Opsional)',
     defaultValidateMessages: {
