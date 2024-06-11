@@ -40,9 +40,6 @@ const localeValues: Locale = {
     itemUnit: 'ವಿಷಯ',
     itemsUnit: 'ವಿಷಯಗಳು',
   },
-  Select: {
-    notFoundContent: 'ದೊರೆತಿಲ್ಲ',
-  },
   Upload: {
     uploading: 'ಏರಿಸಿ...',
     removeFile: 'ಫೈಲ್ ತೆಗೆದುಹಾಕಿ',
