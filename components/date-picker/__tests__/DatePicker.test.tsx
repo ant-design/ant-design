@@ -355,13 +355,25 @@ describe('DatePicker', () => {
     expect(container.querySelectorAll('.ant-picker-time-panel').length).toBe(1);
   });
 
-  it('placement api work correctly', () => {
+  it('DatePicker placement api work correctly', () => {
+    const { rerender } = render(<DatePicker open placement="topLeft" />);
+    expect(triggerProps?.popupPlacement).toEqual('topLeft');
+    rerender(<DatePicker open placement="topRight" />);
+    expect(triggerProps?.popupPlacement).toEqual('topRight');
+    rerender(<DatePicker open placement="bottomLeft" />);
+    expect(triggerProps?.popupPlacement).toEqual('bottomLeft');
+    rerender(<DatePicker open placement="bottomRight" />);
+    expect(triggerProps?.popupPlacement).toEqual('bottomRight');
+  });
+
+  it('RangePicker placement api work correctly', () => {
     const { rerender } = render(<DatePicker.RangePicker open placement="topLeft" />);
     expect(triggerProps?.builtinPlacements).toEqual(
       expect.objectContaining({
         topLeft: expect.objectContaining({ offset: [0, -4], points: ['bl', 'tl'] }),
       }),
     );
+    expect(triggerProps?.popupPlacement).toEqual('topLeft');
 
     rerender(<DatePicker.RangePicker open placement="topRight" />);
     expect(triggerProps?.builtinPlacements).toEqual(
@@ -369,6 +381,7 @@ describe('DatePicker', () => {
         topRight: expect.objectContaining({ offset: [0, -4], points: ['br', 'tr'] }),
       }),
     );
+    expect(triggerProps?.popupPlacement).toEqual('topRight');
 
     rerender(<DatePicker.RangePicker open placement="bottomLeft" />);
     expect(triggerProps?.builtinPlacements).toEqual(
@@ -376,6 +389,7 @@ describe('DatePicker', () => {
         bottomLeft: expect.objectContaining({ offset: [0, 4], points: ['tl', 'bl'] }),
       }),
     );
+    expect(triggerProps?.popupPlacement).toEqual('bottomLeft');
 
     rerender(<DatePicker.RangePicker open placement="bottomRight" />);
     expect(triggerProps?.builtinPlacements).toEqual(
@@ -383,6 +397,7 @@ describe('DatePicker', () => {
         bottomRight: expect.objectContaining({ offset: [0, 4], points: ['tr', 'br'] }),
       }),
     );
+    expect(triggerProps?.popupPlacement).toEqual('bottomRight');
   });
 
   it('legacy dropdownClassName', () => {

@@ -166,7 +166,7 @@ const HeaderNavigation: React.FC<NavigationProps> = (props) => {
   const items: MenuProps['items'] = [
     {
       label: (
-        <Link to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN, search)}>
+        <Link to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN, search)} prefetch>
           {locale.design}
         </Link>
       ),
@@ -174,7 +174,7 @@ const HeaderNavigation: React.FC<NavigationProps> = (props) => {
     },
     {
       label: (
-        <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN, search)}>
+        <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN, search)} prefetch>
           {locale.development}
         </Link>
       ),
@@ -182,7 +182,7 @@ const HeaderNavigation: React.FC<NavigationProps> = (props) => {
     },
     {
       label: (
-        <Link to={utils.getLocalizedPathname('/components/overview/', isZhCN, search)}>
+        <Link to={utils.getLocalizedPathname('/components/overview/', isZhCN, search)} prefetch>
           {locale.components}
         </Link>
       ),

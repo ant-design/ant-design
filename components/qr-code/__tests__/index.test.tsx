@@ -46,6 +46,13 @@ describe('QRCode test', () => {
     expect(refresh).toHaveBeenCalled();
   });
 
+  it('support click', () => {
+    const handleClick = jest.fn();
+    const { container } = render(<QRCode value="test" onClick={handleClick} />);
+    fireEvent.click(container?.querySelector<HTMLDivElement>('.ant-qrcode')!);
+    expect(handleClick).toHaveBeenCalled();
+  });
+
   it('support loading', () => {
     const Demo: React.FC = () => {
       const [status, setStatus] = useState<QRCodeProps['status']>('active');
