@@ -49,7 +49,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     lineWidth,
     lineType,
     borderRadius,
-    fontSizeLG,
+    inputFontSizeSM,
+    inputFontSizeLG,
     controlHeightLG,
     controlHeightSM,
     colorError,
@@ -74,6 +75,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     lineHeightLG,
     calc,
   } = token;
+
+  console.log('>>>>>', token.inputFontSize, token.inputFontSizeSM, token.inputFontSizeLG);
 
   return [
     {
@@ -122,7 +125,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 
         '&-lg': {
           padding: 0,
-          fontSize: fontSizeLG,
+          fontSize: inputFontSizeLG,
           lineHeight: lineHeightLG,
           borderRadius: borderRadiusLG,
 
@@ -134,6 +137,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 
         '&-sm': {
           padding: 0,
+          fontSize: inputFontSizeSM,
           borderRadius: borderRadiusSM,
 
           [`input${componentCls}-input`]: {
