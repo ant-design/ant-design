@@ -39,8 +39,8 @@ tag: vVERSION
   - 🤖 Mentions added new export type `MentionsProps`. [#49281](https://github.com/ant-design/ant-design/pull/49281) [@thinkasany](https://github.com/thinkasany)
   - 🤖 Remove duplicate union type from Statistic. [#49218](https://github.com/ant-design/ant-design/pull/49218) [@thinkasany](https://github.com/thinkasany)
 - 🌐 Locales
-  - 🇲🇾 Add ms_MY local. [#49353](https://github.com/ant-design/ant-design/pull/49353) [@cs-gavin-huang](https://github.com/cs-gavin-huang)
-  - 🇦🇿 Add az_AZ local. [#49247](https://github.com/ant-design/ant-design/pull/49247) [@sabitalizade](https://github.com/sabitalizade)
+  - 🇲🇾 Add ms_MY locale. [#49353](https://github.com/ant-design/ant-design/pull/49353) [@cs-gavin-huang](https://github.com/cs-gavin-huang)
+  - 🇦🇿 Add az_AZ locale. [#49247](https://github.com/ant-design/ant-design/pull/49247) [@sabitalizade](https://github.com/sabitalizade)
 
 ## 5.18.0
 

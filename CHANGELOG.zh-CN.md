@@ -38,8 +38,8 @@ tag: vVERSION
   - 🤖 Mentions 新增导出类型 `MentionsProps`。[#49281](https://github.com/ant-design/ant-design/pull/49281) [@thinkasany](https://github.com/thinkasany)
   - 🤖 移除 Statistic 重复的联合类型。[#49218](https://github.com/ant-design/ant-design/pull/49218) [@thinkasany](https://github.com/thinkasany)
 - 🌐 国际化
-  - 🇲🇾 补充 ms_MY 文案。[#49353](https://github.com/ant-design/ant-design/pull/49353) [@cs-gavin-huang](https://github.com/cs-gavin-huang)
-  - 🇦🇿 补充 az_AZ 文案。[#49247](https://github.com/ant-design/ant-design/pull/49247) [@sabitalizade](https://github.com/sabitalizade)
+  - 🇲🇾 补充 Table、Form、Tour 等 ms_MY 文案。[#49353](https://github.com/ant-design/ant-design/pull/49353) [@cs-gavin-huang](https://github.com/cs-gavin-huang)
+  - 🇦🇿 补充 DatePicker az_AZ 文案。[#49247](https://github.com/ant-design/ant-design/pull/49247) [@sabitalizade](https://github.com/sabitalizade)
 
 ## 5.18.0
 
