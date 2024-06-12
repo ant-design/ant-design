@@ -76,8 +76,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     calc,
   } = token;
 
-  console.log('>>>>>', token.inputFontSize, token.inputFontSizeSM, token.inputFontSizeLG);
-
   return [
     {
       [componentCls]: {
