@@ -40,7 +40,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| affix | Fixed mode of Anchor | boolean | true |  |
+| affix | Fixed mode of Anchor | boolean \| Omit<AffixProps, 'offsetTop' \| 'target' \| 'children'> | true | object: 5.19.0 |
 | bounds | Bounding distance of anchor area | number | 5 |  |
 | getContainer | Scrolling container | () => HTMLElement | () => window |  |
 | getCurrentAnchor | Customize the anchor highlight | (activeLink: string) => string | - |  |
