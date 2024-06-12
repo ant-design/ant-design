@@ -42,7 +42,7 @@ tag: 5.1.0
 | type | 渲染类型 | `canvas \| svg ` | `canvas` | 5.6.0 |
 | icon | 二维码中图片的地址（目前只支持图片地址） | string | - |
 | size | 二维码大小 | number | 160 |
-| iconSize | 二维码中图片的大小 | number | 40 |
+| iconSize | 二维码中图片的大小 | number \| { width: number; height: number } | 40 | 5.19.0 |
 | color | 二维码颜色 | string | `#000` |
 | bgColor | 二维码背景颜色 | string | `transparent` | 5.5.0 |
 | bordered | 是否有边框 | boolean | `true` |

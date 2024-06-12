@@ -4,4 +4,4 @@
 
 ## en-US
 
-Set component disabled, only works for antd components.
+Set component to disabled, only works for antd components.
