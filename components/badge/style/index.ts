@@ -225,6 +225,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token) => {
           overflow: 'visible',
           color: token.colorInfo,
           backgroundColor: token.colorInfo,
+          borderColor: 'currentcolor',
 
           '&::after': {
             position: 'absolute',
