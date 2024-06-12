@@ -1,4 +1,5 @@
 import React from 'react';
+import ConfigProvider from 'antd/es/config-provider';
 import classNames from 'classnames';
 
 import mountTest from '../../../tests/shared/mountTest';
@@ -327,22 +328,19 @@ describe('Wave component', () => {
   });
 
   it('Wave can match target', () => {
+    const testPrefixCls = 'abc';
     const Demo: React.FC = () => (
-      <Wave>
-        <div>
-          <div
-            className={classNames('bamboo', getWaveTargetCls())}
-            style={{ borderColor: 'red' }}
-          />
-        </div>
-      </Wave>
+      <ConfigProvider prefixCls={testPrefixCls}>
+        <Wave>
+          <div className={classNames('bamboo', getWaveTargetCls(testPrefixCls))} />
+        </Wave>
+      </ConfigProvider>
     );
     const { container } = render(<Demo />);
     // Click
-    fireEvent.click(container.querySelector('.bamboo')!);
+    fireEvent.click(container.querySelector<HTMLDivElement>('.bamboo')!);
     waitRaf();
-
-    expect(container.querySelector('.ant-wave')).toBeTruthy();
+    expect(container.querySelector(`.${testPrefixCls}-wave`)).toBeTruthy();
   });
 
   it('Checkbox with uncheck should not trigger wave', () => {
