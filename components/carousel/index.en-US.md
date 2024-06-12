@@ -34,8 +34,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | arrows | Whether to show switch arrows | boolean | false | 5.17.0 |
 | autoplay | Whether to scroll automatically | boolean | false |  |
 | autoplaySpeed | Delay between each auto scroll (in milliseconds) | number | 3000 |  |
+| adaptiveHeight | Adjust the slide's height automatically | boolean | false |  |
 | dotPosition | The position of the dots, which can be one of `top` `bottom` `left` `right` | string | `bottom` |  |
 | dots | Whether to show the dots at the bottom of the gallery, `object` for `dotsClass` and any others | boolean \| { className?: string } | true |  |
+| draggable | Enable scrollable via dragging on desktop | boolean | false |  |
 | fade | Whether to use fade transition | boolean | false |  |
 | infinite | Infinitely wrap around contents | boolean | true |  |
 | speed | Animation speed in milliseconds | number | 500 |  |
@@ -45,6 +47,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | beforeChange | Callback function called before the current index changes | (current: number, next: number) => void | - |  |
 | waitForAnimate | Whether to wait for the animation when switching | boolean | false |  |
 
+Find more APIs in react-slick [documentation](https://react-slick.neostack.com/docs/api).
+
 ## Methods
 
 | Name | Description |
@@ -52,8 +56,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | goTo(slideNumber, dontAnimate) | Go to slide index, if dontAnimate=true, it happens without animation |
 | next() | Change current slide to next slide |
 | prev() | Change current slide to previous slide |
-
-Find more APIs in react-slick [documentation](https://react-slick.neostack.com/docs/api).
 
 ## Design Token
 
