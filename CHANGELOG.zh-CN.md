@@ -15,6 +15,32 @@ tag: vVERSION
 
 ---
 
+## 5.18.1
+
+`2024-06-12`
+
+- Typography
+  - 🐞 修复 Typography 组件的 `ellipsis` 在 `pre` 标签中没有正常工作的问题。[#49168](https://github.com/ant-design/ant-design/pull/49168) [@nova1751](https://github.com/nova1751)
+  - 🐞 修复 Typography `ellipsis` 在 Safari 中有时不生效的问题。[#49221](https://github.com/ant-design/ant-design/pull/49221)
+- 🐞 修复 Space `size` 设置 0 不生效的问题。[#49192](https://github.com/ant-design/ant-design/pull/49192) [@coding-ice](https://github.com/coding-ice)
+- 🐞 修复 Progress 文本的 padding 在 cssinjs 下单位失效问题。[#49250](https://github.com/ant-design/ant-design/pull/49250) [@vagusX](https://github.com/vagusX)
+- 🐞 修复 Modal 关闭按钮的 `zIndex` 在 `cssVar` 模式下不正确的问题。[#49238](https://github.com/ant-design/ant-design/pull/49238)
+- 🐞 修复 Image `width` `height` 被应用到预览图片上的问题。[#49259](https://github.com/ant-design/ant-design/pull/49259) [@nova1751](https://github.com/nova1751)
+- 🐞 修复 Pagination 页码切换器 hover 时图标消失的问题。[#49262](https://github.com/ant-design/ant-design/pull/49262)
+- 🐞 修复 Mentions 当 `loading=true` 时不响应 Enter 事件的问题。[#49292](https://github.com/ant-design/ant-design/pull/49292) [@wanpan11](https://github.com/wanpan11)
+- 🐞 修复 Notification 没有继承 App config 属性的问题。[#49339](https://github.com/ant-design/ant-design/pull/49339) [@hemengke1997](https://github.com/hemengke1997)
+- 💄 修复 Drawer 在暗黑模式下，文本颜色不正确的问题。[#49217](https://github.com/ant-design/ant-design/pull/49217)
+- 💄 修复 Spin 自定义 `indicator` 时，样式不可见以及 `percent` 进度没有传递的问题。[#49211](https://github.com/ant-design/ant-design/pull/49211) [@wanpan11](https://github.com/wanpan11)
+- DatePicker
+  - 🐞 修复 DatePicker/TimePicker `placement` 属性失效的问题。[#49303](https://github.com/ant-design/ant-design/pull/49303)
+  - 💄 修复 DatePicker 头部区域内容不居中对齐的问题。[#49332](https://github.com/ant-design/ant-design/pull/49332)
+- TypeScript
+  - 🤖 Mentions 新增导出类型 `MentionsProps`。[#49281](https://github.com/ant-design/ant-design/pull/49281) [@thinkasany](https://github.com/thinkasany)
+  - 🤖 移除 Statistic 重复的联合类型。[#49218](https://github.com/ant-design/ant-design/pull/49218) [@thinkasany](https://github.com/thinkasany)
+- 🌐 国际化
+  - 🇲🇾 补充 Table、Form、Tour 等 ms_MY 文案。[#49353](https://github.com/ant-design/ant-design/pull/49353) [@cs-gavin-huang](https://github.com/cs-gavin-huang)
+  - 🇦🇿 补充 DatePicker az_AZ 文案。[#49247](https://github.com/ant-design/ant-design/pull/49247) [@sabitalizade](https://github.com/sabitalizade)
+
 ## 5.18.0
 
 `2024-06-03`
