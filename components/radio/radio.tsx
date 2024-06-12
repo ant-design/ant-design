@@ -5,7 +5,7 @@ import { composeRef } from 'rc-util/lib/ref';
 
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
-import { TARGET_CLS } from '../_util/wave/interface';
+import { getWaveTargetCls } from '../_util/wave/interface';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -44,6 +44,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
     ...restProps
   } = props;
   const radioPrefixCls = getPrefixCls('radio', customizePrefixCls);
+  const rootPrefixCls = getPrefixCls();
 
   const isButtonType = (groupContext?.optionType || radioOptionTypeContext) === 'button';
   const prefixCls = isButtonType ? `${radioPrefixCls}-button` : radioPrefixCls;
@@ -94,7 +95,9 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
         {/* @ts-ignore */}
         <RcCheckbox
           {...radioProps}
-          className={classNames(radioProps.className, !isButtonType && TARGET_CLS)}
+          className={classNames(radioProps.className, {
+            [getWaveTargetCls(rootPrefixCls)]: !isButtonType,
+          })}
           type="radio"
           prefixCls={prefixCls}
           ref={mergedRef}

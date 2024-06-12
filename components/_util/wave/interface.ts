@@ -1,6 +1,6 @@
 import type { GlobalToken } from '../../theme';
 
-export const TARGET_CLS = 'ant-wave-target';
+export const getWaveTargetCls = (rootPrefixCls = 'ant') => `${rootPrefixCls}-wave-target`;
 
 export type ShowWaveEffect = (
   element: HTMLElement,

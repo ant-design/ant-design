@@ -5,7 +5,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import { act, fireEvent, getByText, render, waitFakeTimer } from '../../../tests/utils';
 import Checkbox from '../../checkbox';
 import Wave from '../wave';
-import { TARGET_CLS } from '../wave/interface';
+import { getWaveTargetCls } from '../wave/interface';
 
 (global as any).isVisible = true;
 
@@ -327,14 +327,17 @@ describe('Wave component', () => {
   });
 
   it('Wave can match target', () => {
-    const { container } = render(
+    const Demo: React.FC = () => (
       <Wave>
         <div>
-          <div className={classNames('bamboo', TARGET_CLS)} style={{ borderColor: 'red' }} />
+          <div
+            className={classNames('bamboo', getWaveTargetCls())}
+            style={{ borderColor: 'red' }}
+          />
         </div>
-      </Wave>,
+      </Wave>
     );
-
+    const { container } = render(<Demo />);
     // Click
     fireEvent.click(container.querySelector('.bamboo')!);
     waitRaf();

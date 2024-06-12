@@ -5,7 +5,8 @@ import raf from 'rc-util/lib/raf';
 import { render, unmount } from 'rc-util/lib/React/render';
 import { composeRef } from 'rc-util/lib/ref';
 
-import { TARGET_CLS } from './interface';
+import { ConfigContext } from '../../config-provider';
+import { getWaveTargetCls } from './interface';
 import type { ShowWaveEffect } from './interface';
 import { getTargetWaveColor } from './util';
 
@@ -22,6 +23,9 @@ export interface WaveEffectProps {
 const WaveEffect: React.FC<WaveEffectProps> = (props) => {
   const { className, target, component } = props;
   const divRef = React.useRef<HTMLDivElement | null>(null);
+
+  const { getPrefixCls } = React.useContext(ConfigContext);
+  const rootPrefixCls = getPrefixCls();
 
   const [color, setWaveColor] = React.useState<string | null>(null);
   const [borderRadius, setBorderRadius] = React.useState<number[]>([]);
@@ -108,7 +112,8 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
   }
 
   const isSmallComponent =
-    (component === 'Checkbox' || component === 'Radio') && target?.classList.contains(TARGET_CLS);
+    (component === 'Checkbox' || component === 'Radio') &&
+    target?.classList.contains(getWaveTargetCls(rootPrefixCls));
 
   return (
     <CSSMotion
@@ -141,7 +146,7 @@ const showWaveEffect: ShowWaveEffect = (target, info) => {
   const { component } = info;
 
   // Skip for unchecked checkbox
-  if (component === 'Checkbox' && !target.querySelector('input')?.checked) {
+  if (component === 'Checkbox' && !target.querySelector<HTMLInputElement>('input')?.checked) {
     return;
   }
 
