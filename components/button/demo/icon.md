@@ -4,4 +4,4 @@
 
 ## en-US
 
-You can add an icon through the `icon` property and adjust the position of the icon using `iconPosition`.
+You can add an icon using the `icon` property, additionally you can adjust the position of the icon using `iconPosition`.

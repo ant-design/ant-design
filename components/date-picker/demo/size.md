@@ -4,4 +4,4 @@
 
 ## en-US
 
-The input box comes in three sizes. `middle` will be used if `size` is omitted.
+The input box comes in three sizes: small, middle and large. The `middle` size will be used if `size` is omitted.
