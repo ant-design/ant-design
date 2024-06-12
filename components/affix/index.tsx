@@ -1,7 +1,7 @@
-import React from 'react';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import omit from 'rc-util/lib/omit';
+import React from 'react';
 
 import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -263,7 +263,7 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
 
   return wrapCSSVar(
     <ResizeObserver onResize={updatePosition}>
-      <div style={style} className={className} ref={placeholderNodeRef} {...otherProps}>
+      <div style={style} className={className} ref={placeholderNodeRef} {...otherProps} data-testid={className} data-cy={className}>
         {affixStyle && <div style={placeholderStyle} aria-hidden="true" />}
         <div className={mergedCls} ref={fixedNodeRef} style={affixStyle}>
           <ResizeObserver onResize={updatePosition}>{children}</ResizeObserver>
