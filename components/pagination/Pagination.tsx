@@ -24,6 +24,7 @@ export interface PaginationProps extends RcPaginationProps {
   role?: string;
   totalBoundaryShowSizeChanger?: number;
   rootClassName?: string;
+  showSizeOptionsSearch?: boolean;
 }
 
 export type PaginationPosition = 'top' | 'bottom' | 'both';
@@ -49,6 +50,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     selectComponentClass,
     responsive,
     showSizeChanger,
+    showSizeOptionsSearch = true,
     ...restProps
   } = props;
   const { xs } = useBreakpoint(responsive);
@@ -139,6 +141,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
         selectComponentClass={selectComponentClass || (isSmall ? MiniSelect : MiddleSelect)}
         locale={locale}
         showSizeChanger={mergedShowSizeChanger}
+        showSizeOptionsSearch={showSizeOptionsSearch}
       />
     </>,
   );
