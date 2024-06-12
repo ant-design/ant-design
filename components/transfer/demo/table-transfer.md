@@ -4,4 +4,4 @@
 
 ## en-US
 
-Customize render list with Table component.
+Customize the render list with a Table component.
