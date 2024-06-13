@@ -31,7 +31,7 @@ exports[`Drawer render correctly 1`] = `
         >
           <button
             aria-label="Close"
-            class="ant-drawer-close"
+            class="ant-drawer-close ant-drawer-close-left"
             type="button"
           >
             <span

@@ -7,6 +7,8 @@ import type { ClosableType } from '../_util/hooks/useClosable';
 import { ConfigContext } from '../config-provider';
 import Skeleton from '../skeleton';
 
+export type DrawerClosePlacement = 'right' | 'left';
+
 export interface DrawerClassNames extends NonNullable<RCDrawerProps['classNames']> {
   header?: string;
   body?: string;
@@ -32,6 +34,7 @@ export interface DrawerPanelProps {
    *
    * `<Drawer closeIcon={false} />`
    */
+  closePlacement?: DrawerClosePlacement;
   closable?: ClosableType;
   closeIcon?: React.ReactNode;
   onClose?: RCDrawerProps['onClose'];
@@ -62,6 +65,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     footer,
     extra,
     loading,
+    closePlacement = 'left',
     onClose,
     headerStyle,
     bodyStyle,
@@ -74,7 +78,12 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
 
   const customCloseIconRender = React.useCallback(
     (icon: React.ReactNode) => (
-      <button type="button" onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
+      <button
+        type="button"
+        onClick={onClose}
+        aria-label="Close"
+        className={`${prefixCls}-close ${prefixCls}-close-${closePlacement}`}
+      >
         {icon}
       </button>
     ),
@@ -111,10 +120,11 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
         )}
       >
         <div className={`${prefixCls}-header-title`}>
-          {mergedCloseIcon}
+          {closePlacement === 'left' && mergedCloseIcon}
           {title && <div className={`${prefixCls}-title`}>{title}</div>}
         </div>
         {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
+        {closePlacement === 'right' && mergedCloseIcon}
       </div>
     );
   }, [mergedClosable, mergedCloseIcon, extra, headerStyle, prefixCls, title]);

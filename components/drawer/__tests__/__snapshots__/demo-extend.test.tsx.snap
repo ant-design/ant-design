@@ -40,7 +40,7 @@ Array [
           >
             <button
               aria-label="Close"
-              class="ant-drawer-close"
+              class="ant-drawer-close ant-drawer-close-left"
               type="button"
             >
               <span
@@ -160,7 +160,7 @@ Array [
           >
             <button
               aria-label="Close"
-              class="ant-drawer-close"
+              class="ant-drawer-close ant-drawer-close-left"
               type="button"
             >
               <span
@@ -252,7 +252,7 @@ Array [
           >
             <button
               aria-label="Close"
-              class="ant-drawer-close"
+              class="ant-drawer-close ant-drawer-close-left"
               type="button"
             >
               <span
@@ -333,7 +333,7 @@ exports[`renders components/drawer/demo/component-token.tsx extend context corre
       >
         <button
           aria-label="Close"
-          class="ant-drawer-close"
+          class="ant-drawer-close ant-drawer-close-left"
           type="button"
         >
           <span
@@ -423,7 +423,7 @@ exports[`renders components/drawer/demo/config-provider.tsx extend context corre
           >
             <button
               aria-label="Close"
-              class="ant-drawer-close"
+              class="ant-drawer-close ant-drawer-close-left"
               type="button"
             >
               <span
@@ -614,7 +614,7 @@ Array [
           >
             <button
               aria-label="Close"
-              class="ant-drawer-close"
+              class="ant-drawer-close ant-drawer-close-left"
               type="button"
             >
               <span
@@ -770,7 +770,7 @@ Array [
           >
             <button
               aria-label="Close"
-              class="ant-drawer-close"
+              class="ant-drawer-close ant-drawer-close-left"
               type="button"
             >
               <span
@@ -2821,7 +2821,7 @@ Array [
           >
             <button
               aria-label="Close"
-              class="ant-drawer-close"
+              class="ant-drawer-close ant-drawer-close-left"
               type="button"
             >
               <span
@@ -3049,7 +3049,7 @@ Array [
           >
             <button
               aria-label="Close"
-              class="ant-drawer-close"
+              class="ant-drawer-close ant-drawer-close-left"
               type="button"
             >
               <span
@@ -3361,7 +3361,7 @@ exports[`renders components/drawer/demo/render-panel.tsx extend context correctl
       >
         <button
           aria-label="Close"
-          class="ant-drawer-close"
+          class="ant-drawer-close ant-drawer-close-left"
           type="button"
         >
           <span
@@ -3558,7 +3558,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
           >
             <button
               aria-label="Close"
-              class="ant-drawer-close"
+              class="ant-drawer-close ant-drawer-close-left"
               type="button"
             >
               <span
@@ -3624,7 +3624,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
                   >
                     <button
                       aria-label="Close"
-                      class="ant-drawer-close"
+                      class="ant-drawer-close ant-drawer-close-left"
                       type="button"
                     >
                       <span
@@ -3709,7 +3709,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
           >
             <button
               aria-label="Close"
-              class="ant-drawer-close"
+              class="ant-drawer-close ant-drawer-close-left"
               type="button"
             >
               <span
@@ -3819,7 +3819,7 @@ Array [
           >
             <button
               aria-label="Close"
-              class="ant-drawer-close"
+              class="ant-drawer-close ant-drawer-close-left"
               type="button"
             >
               <span

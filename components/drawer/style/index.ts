@@ -180,7 +180,6 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         borderRadius: borderRadiusSM,
         justifyContent: 'center',
         alignItems: 'center',
-        marginInlineEnd: marginXS,
         color: colorIcon,
         fontWeight: fontWeightStrong,
         fontSize: fontSizeLG,
@@ -206,6 +205,14 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         },
 
         ...genFocusStyle(token),
+      },
+
+      '&-left': {
+        marginInlineEnd: marginXS,
+      },
+
+      '&-right': {
+        marginInlineStart: marginXS,
       },
 
       [`${componentCls}-title`]: {
