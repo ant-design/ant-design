@@ -10,7 +10,7 @@ import Form from '..';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, fireEvent, pureRender, render, screen, waitFakeTimer } from '../../../tests/utils';
+import { fireEvent, pureRender, render, screen, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import Cascader from '../../cascader';
 import Checkbox from '../../checkbox';
@@ -2262,9 +2262,8 @@ describe('Form', () => {
 
     expect(container.querySelector('.ant-input-number-suffix')).toBeTruthy();
 
-    act(() => {
-      fireEvent.focus(input);
-    });
+    fireEvent.focus(input);
+
     expect(container.querySelector('.ant-input-number-focused')).toBeTruthy();
 
     fireEvent.change(input, {
