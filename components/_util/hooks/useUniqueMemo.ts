@@ -6,20 +6,20 @@ const BEAT_LIMIT = 1000 * 60 * 10;
  * A helper class to map keys to values.
  * It supports both primitive keys and object keys.
  */
-class ArrayKeyMap {
-  map = new Map();
+class ArrayKeyMap<T> {
+  map = new Map<string, T>();
 
   // Use WeakMap to avoid memory leak
-  objectIDMap = new WeakMap();
+  objectIDMap = new WeakMap<object, number>();
 
   nextID = 0;
 
-  lastAccessBeat = new Map();
+  lastAccessBeat = new Map<string, number>();
 
   // We will clean up the cache when reach the limit
   accessBeat = 0;
 
-  set(keys: any[], value: any) {
+  set(keys: React.DependencyList, value: any) {
     // New set will trigger clear
     this.clear();
 
@@ -29,7 +29,7 @@ class ArrayKeyMap {
     this.lastAccessBeat.set(compositeKey, Date.now());
   }
 
-  get(keys: any[]) {
+  get(keys: React.DependencyList) {
     const compositeKey = this.getCompositeKey(keys);
 
     const cache = this.map.get(compositeKey);
@@ -39,8 +39,8 @@ class ArrayKeyMap {
     return cache;
   }
 
-  getCompositeKey(keys: any[]) {
-    const ids = keys.map((key) => {
+  getCompositeKey(keys: React.DependencyList) {
+    const ids = keys.map<string>((key) => {
       if (key && typeof key === 'object') {
         return `obj_${this.getObjectID(key)}`;
       }
@@ -82,15 +82,16 @@ const uniqueMap = new ArrayKeyMap();
 /**
  * Like `useMemo`, but this hook result will be shared across all instances.
  */
-export default function useUniqueMemo<T>(memoFn: () => T, deps: any[]): T {
-  return React.useMemo(() => {
+function useUniqueMemo<T>(memoFn: () => T, deps: React.DependencyList) {
+  return React.useMemo<T>(() => {
     const cachedValue = uniqueMap.get(deps);
     if (cachedValue) {
-      return cachedValue;
+      return cachedValue as T;
     }
-
     const newValue = memoFn();
     uniqueMap.set(deps, newValue);
     return newValue;
   }, deps);
 }
+
+export default useUniqueMemo;
