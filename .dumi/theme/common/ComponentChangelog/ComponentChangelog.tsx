@@ -1,4 +1,4 @@
-/* eslint-disable global-require */
+/* eslint-disable global-require, import/no-unresolved */
 import React from 'react';
 import { BugOutlined, HistoryOutlined } from '@ant-design/icons';
 import { Button, Drawer, Grid, Popover, Timeline, Typography } from 'antd';
@@ -142,9 +142,11 @@ interface ChangelogInfo {
 }
 
 const useChangelog = (componentPath: string, lang: 'cn' | 'en'): ChangelogInfo[] => {
+  const logFileName = `components-changelog-${lang}.json`;
+
   const data = useFetch({
     key: `component-changelog-${lang}`,
-    request: () => import(`../../../preset/components-changelog-${lang}.json`),
+    request: () => import(`../../../preset/${logFileName}`),
   });
   return React.useMemo(() => {
     const component = componentPath.replace(/-/g, '');
