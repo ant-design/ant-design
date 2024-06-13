@@ -51,8 +51,12 @@ jobs:
         if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: npm ci
 
-  visual-diff-report:
-    name: visual-diff report
+  ############################ Generate Snapshot ###########################
+  visual-diff-snapshot:
+    name: visual-diff snapshot
+    strategy:
+      matrix:
+        shard: ['1/2', '2/2']
     runs-on: ubuntu-latest
     needs: setup
     steps:
@@ -80,9 +84,46 @@ jobs:
         run: |
           node node_modules/puppeteer/install.mjs
           npm run version
-          npm run test:image
+          npm run test:image -- --shard=${{matrix.shard}}
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"
+
+      - uses: actions/upload-artifact@v4
+        name: artifact snapshot
+        with:
+          name: snapshot-artifacts-${{ strategy.job-index }}
+          path: imageSnapshots/
+          retention-days: 2
+
+  ############################### Diff Images ##############################
+  visual-diff-report:
+    name: visual-diff report
+    runs-on: ubuntu-latest
+    needs: visual-diff-snapshot
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@v4
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: snapshot-artifacts-*
+          merge-multiple: true
+          path: imageSnapshots/
 
       # Execute visual regression diff task and zip then
       # output as visualRegressionReport.tar.gz
