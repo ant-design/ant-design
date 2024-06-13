@@ -1,5 +1,6 @@
 import React from 'react';
 import ConfigProvider from 'antd/es/config-provider';
+import Radio from 'antd/es/radio/radio';
 import classNames from 'classnames';
 
 import mountTest from '../../../tests/shared/mountTest';
@@ -341,6 +342,19 @@ describe('Wave component', () => {
     fireEvent.click(container.querySelector<HTMLDivElement>('.bamboo')!);
     waitRaf();
     expect(container.querySelector(`.${testPrefixCls}-wave`)).toBeTruthy();
+  });
+
+  it('Wave can match target with smallComponent', () => {
+    const testPrefixCls = 'abc';
+    const Demo: React.FC = () => (
+      <ConfigProvider prefixCls={testPrefixCls}>
+        <Radio>test</Radio>
+      </ConfigProvider>
+    );
+    const { container } = render(<Demo />);
+    expect(container.querySelector<HTMLSpanElement>(`.${testPrefixCls}-radio`)).toHaveClass(
+      `${testPrefixCls}-wave-target`,
+    );
   });
 
   it('Checkbox with uncheck should not trigger wave', () => {

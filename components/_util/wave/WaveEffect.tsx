@@ -134,8 +134,8 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
       {({ className: motionClassName }, ref) => (
         <div
           ref={composeRef(divRef, ref)}
-          className={classNames(className, { 'wave-quick': isSmallComponent }, motionClassName)}
           style={waveStyle}
+          className={classNames(className, motionClassName, { 'wave-quick': isSmallComponent })}
         />
       )}
     </CSSMotion>
