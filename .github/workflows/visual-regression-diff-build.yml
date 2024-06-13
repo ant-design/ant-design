@@ -93,6 +93,7 @@ jobs:
         with:
           name: snapshot-artifacts-${{ strategy.job-index }}
           path: imageSnapshots/
+          retention-days: 2
 
   ############################### Diff Images ##############################
   visual-diff-report:
