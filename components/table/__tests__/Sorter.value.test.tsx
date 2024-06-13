@@ -131,7 +131,7 @@ describe('Sorter.value.test.tsx', () => {
             onChange={onChange}
             showSorterTooltip={{ target: 'sorter-icon' }}
           />
-          <button className="change-column" onClick={handleClick}>
+          <button className="change-column" type="button" onClick={handleClick}>
             change11
           </button>
         </>
