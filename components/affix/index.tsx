@@ -9,7 +9,7 @@ import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 import { getFixedBottom, getFixedTop, getTargetRect } from './utils';
 
-const TRIGGER_EVENTS = [
+const TRIGGER_EVENTS: (keyof WindowEventMap)[] = [
   'resize',
   'scroll',
   'touchstart',
@@ -17,7 +17,7 @@ const TRIGGER_EVENTS = [
   'touchend',
   'pageshow',
   'load',
-] as const;
+];
 
 function getDefaultTarget() {
   return typeof window !== 'undefined' ? window : null;

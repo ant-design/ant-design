@@ -6,7 +6,7 @@ import throttle from 'lodash/throttle';
 
 import scrollTo from '../../../../components/_util/scrollTo';
 
-const listenerEvents = ['scroll', 'resize'] as const;
+const listenerEvents: (keyof WindowEventMap)[] = ['scroll', 'resize'];
 
 const useStyle = createStyles(({ token, css }) => {
   const { boxShadowSecondary, antCls } = token;
