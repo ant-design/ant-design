@@ -14,7 +14,6 @@ const useWave = (
   component?: 'Tag' | 'Button' | 'Checkbox' | 'Radio' | 'Switch',
 ) => {
   const { wave } = React.useContext(ConfigContext);
-
   const [, token, hashId] = useToken();
 
   const showWave = useEvent<ShowWave>((event) => {
