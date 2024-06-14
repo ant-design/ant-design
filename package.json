@@ -241,7 +241,7 @@
     "cross-fetch": "^4.0.0",
     "crypto": "^1.0.1",
     "dekko": "^0.2.1",
-    "dumi": "2.4.0-alpha.12",
+    "dumi": "2.4.0-alpha.16",
     "dumi-plugin-color-chunk": "^1.1.0",
     "esbuild-loader": "^4.1.0",
     "eslint": "^8.57.0",
