@@ -106,7 +106,6 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
   }, [restProps.value]);
 
   const prefixCls = getPrefixCls('checkbox', customizePrefixCls);
-
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
@@ -143,7 +142,6 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     TARGET_CLS,
     hashId,
   );
-
   const ariaChecked = indeterminate ? 'mixed' : undefined;
   return wrapCSSVar(
     <Wave component="Checkbox" disabled={mergedDisabled}>
