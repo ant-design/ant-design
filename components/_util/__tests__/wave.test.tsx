@@ -1,11 +1,11 @@
 import React from 'react';
-import ConfigProvider from 'antd/es/config-provider';
 import Radio from 'antd/es/radio/radio';
 import classNames from 'classnames';
 
 import mountTest from '../../../tests/shared/mountTest';
 import { act, fireEvent, getByText, render, waitFakeTimer } from '../../../tests/utils';
 import Checkbox from '../../checkbox';
+import ConfigProvider from '../../config-provider';
 import Wave from '../wave';
 import { getWaveTargetCls } from '../wave/interface';
 
