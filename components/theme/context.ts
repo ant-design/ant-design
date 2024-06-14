@@ -1,12 +1,10 @@
 import React from 'react';
 import type { Theme } from '@ant-design/cssinjs';
-import { createTheme } from '@ant-design/cssinjs';
 
 import type { AliasToken, MapToken, OverrideToken, SeedToken } from './interface';
-import defaultDerivative from './themes/default';
 import defaultSeedToken from './themes/seed';
 
-export const defaultTheme = createTheme(defaultDerivative);
+export { default as defaultTheme } from './themes/default/theme';
 
 // ================================ Context =================================
 // To ensure snapshot stable. We disable hashed in test env.
