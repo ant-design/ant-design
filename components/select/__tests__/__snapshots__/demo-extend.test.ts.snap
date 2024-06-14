@@ -10415,27 +10415,25 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
               <span
                 class="ant-select-selection-item-content"
               >
-                <div>
-                  <span>
-                    Hover Me
-                  </span>
+                <span>
+                  Hover Me
+                </span>
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; pointer-events: none;"
+                >
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; bottom: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
                   >
                     <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; bottom: 0px; left: 0px;"
-                    />
-                    <div
-                      class="ant-tooltip-content"
+                      class="ant-tooltip-inner"
+                      role="tooltip"
                     >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      >
-                        Long Label: c12, Long Label: h17, Long Label: j19, Long Label: k20
-                      </div>
+                      Long Label: c12, Long Label: h17, Long Label: j19, Long Label: k20
                     </div>
                   </div>
                 </div>

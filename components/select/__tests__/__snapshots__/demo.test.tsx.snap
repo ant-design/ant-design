@@ -3531,11 +3531,9 @@ exports[`renders components/select/demo/responsive.tsx correctly 1`] = `
               <span
                 class="ant-select-selection-item-content"
               >
-                <div>
-                  <span>
-                    Hover Me
-                  </span>
-                </div>
+                <span>
+                  Hover Me
+                </span>
               </span>
             </span>
           </div>
