@@ -6,6 +6,7 @@ import { render, unmount } from 'rc-util/lib/React/render';
 import { composeRef } from 'rc-util/lib/ref';
 
 import { ConfigContext } from '../../config-provider';
+import type { ConfigConsumerProps } from '../../config-provider';
 import { getWaveTargetCls } from './interface';
 import type { ShowWaveEffect } from './interface';
 import { getTargetWaveColor } from './util';
@@ -22,9 +23,10 @@ export interface WaveEffectProps {
 
 const WaveEffect: React.FC<WaveEffectProps> = (props) => {
   const { className, target, component } = props;
-  const divRef = React.useRef<HTMLDivElement | null>(null);
+  const divRef = React.useRef<HTMLDivElement>(null);
 
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
+
   const rootPrefixCls = getPrefixCls();
 
   const [color, setWaveColor] = React.useState<string | null>(null);

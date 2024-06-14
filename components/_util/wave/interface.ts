@@ -1,6 +1,9 @@
+import { defaultPrefixCls } from '../../config-provider';
 import type { GlobalToken } from '../../theme';
 
-export const getWaveTargetCls = (rootPrefixCls = 'ant') => `${rootPrefixCls}-wave-target`;
+export function getWaveTargetCls(rootPrefixCls: string = defaultPrefixCls) {
+  return `${rootPrefixCls}-wave-target`;
+}
 
 export type ShowWaveEffect = (
   element: HTMLElement,
