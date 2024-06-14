@@ -1020,7 +1020,9 @@ exports[`renders components/empty/demo/customize.tsx extend context correctly 1`
   <div
     class="ant-empty-description"
   >
-    <span>
+    <span
+      class="ant-typography"
+    >
       Customize 
       <a
         href="#API"
