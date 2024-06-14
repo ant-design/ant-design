@@ -1,13 +1,11 @@
 import React from 'react';
-import Radio from 'antd/es/radio/radio';
 import classNames from 'classnames';
 
 import mountTest from '../../../tests/shared/mountTest';
 import { act, fireEvent, getByText, render, waitFakeTimer } from '../../../tests/utils';
 import Checkbox from '../../checkbox';
-import ConfigProvider from '../../config-provider';
 import Wave from '../wave';
-import { getWaveTargetCls } from '../wave/interface';
+import { TARGET_CLS } from '../wave/interface';
 
 (global as any).isVisible = true;
 
@@ -329,32 +327,19 @@ describe('Wave component', () => {
   });
 
   it('Wave can match target', () => {
-    const testPrefixCls = 'abc';
-    const Demo: React.FC = () => (
-      <ConfigProvider prefixCls={testPrefixCls}>
-        <Wave>
-          <div className={classNames('bamboo', getWaveTargetCls(testPrefixCls))} />
-        </Wave>
-      </ConfigProvider>
+    const { container } = render(
+      <Wave>
+        <div>
+          <div className={classNames('bamboo', TARGET_CLS)} style={{ borderColor: 'red' }} />
+        </div>
+      </Wave>,
     );
-    const { container } = render(<Demo />);
-    // Click
-    fireEvent.click(container.querySelector<HTMLDivElement>('.bamboo')!);
-    waitRaf();
-    expect(container.querySelector(`.${testPrefixCls}-wave`)).toBeTruthy();
-  });
 
-  it('Wave can match target with smallComponent', () => {
-    const testPrefixCls = 'abc';
-    const Demo: React.FC = () => (
-      <ConfigProvider prefixCls={testPrefixCls}>
-        <Radio>test</Radio>
-      </ConfigProvider>
-    );
-    const { container } = render(<Demo />);
-    expect(container.querySelector<HTMLSpanElement>(`.${testPrefixCls}-radio`)).toHaveClass(
-      `${testPrefixCls}-wave-target`,
-    );
+    // Click
+    fireEvent.click(container.querySelector('.bamboo')!);
+    waitRaf();
+
+    expect(container.querySelector('.ant-wave')).toBeTruthy();
   });
 
   it('Checkbox with uncheck should not trigger wave', () => {

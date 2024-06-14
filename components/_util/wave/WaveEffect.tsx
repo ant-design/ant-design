@@ -5,9 +5,7 @@ import raf from 'rc-util/lib/raf';
 import { render, unmount } from 'rc-util/lib/React/render';
 import { composeRef } from 'rc-util/lib/ref';
 
-import { ConfigContext } from '../../config-provider';
-import type { ConfigConsumerProps } from '../../config-provider';
-import { getWaveTargetCls } from './interface';
+import { TARGET_CLS } from './interface';
 import type { ShowWaveEffect } from './interface';
 import { getTargetWaveColor } from './util';
 
@@ -24,10 +22,6 @@ export interface WaveEffectProps {
 const WaveEffect: React.FC<WaveEffectProps> = (props) => {
   const { className, target, component } = props;
   const divRef = React.useRef<HTMLDivElement>(null);
-
-  const { getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
-
-  const rootPrefixCls = getPrefixCls();
 
   const [color, setWaveColor] = React.useState<string | null>(null);
   const [borderRadius, setBorderRadius] = React.useState<number[]>([]);
@@ -114,8 +108,7 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
   }
 
   const isSmallComponent =
-    (component === 'Checkbox' || component === 'Radio') &&
-    target?.classList.contains(getWaveTargetCls(rootPrefixCls));
+    (component === 'Checkbox' || component === 'Radio') && target?.classList.contains(TARGET_CLS);
 
   return (
     <CSSMotion
@@ -136,8 +129,8 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
       {({ className: motionClassName }, ref) => (
         <div
           ref={composeRef(divRef, ref)}
-          style={waveStyle}
           className={classNames(className, motionClassName, { 'wave-quick': isSmallComponent })}
+          style={waveStyle}
         />
       )}
     </CSSMotion>
