@@ -165,6 +165,8 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     screenXXL,
     screenXXLMin: screenXXL,
 
+    hoverDisplay: 'block',
+
     boxShadowPopoverArrow: '2px 2px 5px rgba(0, 0, 0, 0.05)',
     boxShadowCard: `
       0 1px 2px -2px ${new TinyColor('rgba(0, 0, 0, 0.16)').toRgbString()},
