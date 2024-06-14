@@ -4,7 +4,7 @@ import raf from 'rc-util/lib/raf';
 
 import { ConfigContext } from '../../config-provider';
 import useToken from '../../theme/useToken';
-import { getWaveTargetCls } from './interface';
+import { TARGET_CLS } from './interface';
 import type { ShowWave } from './interface';
 import showWaveEffect from './WaveEffect';
 
@@ -13,8 +13,8 @@ const useWave = (
   className: string,
   component?: 'Tag' | 'Button' | 'Checkbox' | 'Radio' | 'Switch',
 ) => {
-  const { wave, getPrefixCls } = React.useContext(ConfigContext);
-  const rootPrefixCls = getPrefixCls();
+  const { wave } = React.useContext(ConfigContext);
+
   const [, token, hashId] = useToken();
 
   const showWave = useEvent<ShowWave>((event) => {
@@ -24,8 +24,7 @@ const useWave = (
       return;
     }
 
-    const targetNode =
-      node.querySelector<HTMLElement>(`.${getWaveTargetCls(rootPrefixCls)}`) || node;
+    const targetNode = node.querySelector<HTMLElement>(`.${TARGET_CLS}`) || node;
 
     const { showEffect } = wave || {};
 
