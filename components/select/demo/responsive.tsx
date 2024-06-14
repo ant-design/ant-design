@@ -41,7 +41,7 @@ const App: React.FC = () => {
         {...sharedProps}
         {...selectProps}
         maxTagPlaceholder={(omittedValues) => (
-          <div onMouseDown={(evt) => evt.stopPropagation()}>
+          <div onMouseDown={(e) => e.stopPropagation()}>
             <Tooltip title={omittedValues.map(({ label }) => label).join(', ')}>
               <span>Hover Me</span>
             </Tooltip>
