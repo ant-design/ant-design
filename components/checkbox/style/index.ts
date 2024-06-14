@@ -6,7 +6,7 @@ import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {}
 
-interface CheckboxToken extends FullToken<'Checkbox'> {
+export interface CheckboxToken extends FullToken<'Checkbox'> {
   checkboxCls: string;
   checkboxSize: number;
 }
