@@ -1,11 +1,12 @@
 import React, { Suspense } from 'react';
 import { Button, ConfigProvider, Flex, Typography } from 'antd';
 import { createStyles } from 'antd-style';
-import { Link, useLocation } from 'dumi';
+import { useLocation } from 'dumi';
 
 import useLocale from '../../../../hooks/useLocale';
 import SiteContext from '../../../../theme/slots/SiteContext';
 import * as utils from '../../../../theme/utils';
+import Link from '../../../../theme/common/Link';
 import GroupMaskLayer from '../GroupMaskLayer';
 
 const ComponentsBlock = React.lazy(() => import('./ComponentsBlock'));

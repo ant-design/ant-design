@@ -208,7 +208,7 @@ const Overview: React.FC = () => {
 
                     return (
                       <Col xs={24} sm={12} lg={8} xl={6} key={component?.title}>
-                        <Link to={url}>
+                        <Link to={url} prefetch>
                           <Card
                             onClick={() => onClickCard(url)}
                             styles={{

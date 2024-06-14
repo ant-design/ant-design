@@ -14,13 +14,32 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    placeholder: 'Zəhmət olmasa seçin',
+  },
   Table: {
     filterTitle: 'Filter menyu',
     filterConfirm: 'Axtar',
     filterReset: 'Sıfırla',
     emptyText: 'Məlumat yoxdur',
     selectAll: 'Cari səhifəni seç',
-    selectInvert: 'Invert current page',
+    selectInvert: 'Mövcud səhifənin elementlərinin sırasını tərs çevir',
+    filterEmptyText: 'Filter yoxdur',
+    filterCheckall: 'Bütün maddələri seç',
+    filterSearchPlaceholder: 'Filterlərdə axtar',
+    selectNone: 'Bütün məlumatı sil',
+    selectionAll: 'Bütün məlumatı seç',
+    sortTitle: 'Sırala',
+    expand: 'Sıranı genişləndir',
+    collapse: 'Sıranı qapadın',
+    triggerDesc: 'Azalan sıralama üçün klik edin',
+    triggerAsc: 'Artan sıralama üçün klik edin',
+    cancelSort: 'Sıralamayı ləğv edin',
+  },
+  Tour: {
+    Next: 'Növbəti',
+    Previous: 'Əvvəlki',
+    Finish: 'Bitir',
   },
   Modal: {
     okText: 'Bəli',
@@ -37,15 +56,33 @@ const localeValues: Locale = {
     searchPlaceholder: 'Burada axtar',
     itemUnit: 'item',
     itemsUnit: 'items',
-  },
-  Select: {
-    notFoundContent: 'Tapılmadı',
+    remove: 'Sil',
+    selectCurrent: 'Cari səhifəni seç',
+    removeCurrent: 'Cari səhifəni sil',
+    selectAll: 'Bütün məlumatı seç',
+    deselectAll: 'Bütün seçmə nişanlarını sil',
+    removeAll: 'Bütün məlumatı sil',
+    selectInvert: 'Mövcud səhifənin elementlərinin sırasını tərs çevir',
   },
   Upload: {
     uploading: 'Yüklənir...',
     removeFile: 'Faylı sil',
     uploadError: 'Yükləmə xətası',
     previewFile: 'Fayla önbaxış',
+    downloadFile: 'Faylı yüklə',
+  },
+  Empty: {
+    description: 'Məlumat yoxdur',
+  },
+  Icon: {
+    icon: 'icon',
+  },
+  Text: {
+    edit: 'Dəyişiklik et',
+    copy: 'Kopyala',
+    copied: 'Kopyalandı',
+    expand: 'Genişləndir',
+    collapse: 'Yığılma',
   },
   Form: {
     optional: '（Seçimli）',
@@ -96,6 +133,17 @@ const localeValues: Locale = {
         mismatch: '${label}Şablona uyğun gəlmir${pattern}',
       },
     },
+  },
+  Image: {
+    preview: 'Önbaxış',
+  },
+  QRCode: {
+    expired: 'QR kodunun müddəti bitmişdir',
+    refresh: 'Yenilə',
+    scanned: 'Gözətildi',
+  },
+  ColorPicker: {
+    presetEmpty: 'Boşdur',
   },
 };
 

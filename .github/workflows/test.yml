@@ -105,12 +105,12 @@ jobs:
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
   ################################ Test ################################
-  normal-test:
-    name: test
+  normal-test-legacy:
+    name: test-legacy
     strategy:
       matrix:
-        react: ['16', '17', '18']
-        module: ['dom', 'node', 'dist', 'dist-min']
+        react: ['16', '17']
+        module: ['dom', 'dist']
         shard: ['1/2', '2/2']
     env:
       REACT: ${{ matrix.react }}
@@ -143,6 +143,66 @@ jobs:
       - name: install react 17
         if: ${{ matrix.react == '17' }}
         run: npm run install-react-17
+
+      - name: restore cache from dist
+        if: ${{ matrix.module == 'dist' }}
+        uses: actions/cache@v4
+        with:
+          path: dist
+          key: dist-${{ github.sha }}
+
+      - name: check
+        if: ${{ matrix.module == 'dist' }}
+        run: node ./tests/dekko/dist.test.js
+
+      - name: check use client
+        if: ${{ matrix.module == 'dist' }}
+        run: node ./tests/dekko/use-client.test.js
+        env:
+          LIB_DIR: dist
+
+      # dom test
+      - name: dom test
+        if: ${{ matrix.module == 'dom' }}
+        run: npm test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
+
+      # dist test
+      - name: dist test
+        if: ${{ matrix.module == 'dist' }}
+        run: npm test
+        env:
+          LIB_DIR: dist
+
+  normal-test-latest:
+    name: test-latest
+    strategy:
+      matrix:
+        react: ['18']
+        module: ['dom', 'node', 'dist', 'dist-min']
+        shard: ['1/2', '2/2']
+    env:
+      REACT: ${{ matrix.react }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@v4
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
       - name: install react 18
         if: ${{ matrix.react == '18' }}
@@ -206,7 +266,7 @@ jobs:
   upload-test-coverage:
     name: test-coverage
     runs-on: ubuntu-latest
-    needs: normal-test
+    needs: normal-test-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -315,7 +375,7 @@ jobs:
     needs: build
     strategy:
       matrix:
-        react: ['16', '17', '18']
+        react: ['18']
         module: [lib, es]
         shard: ['1/2', '2/2']
     env:
@@ -353,14 +413,6 @@ jobs:
         with:
           path: ${{ matrix.module }}
           key: ${{ matrix.module }}-${{ github.sha }}
-
-      - name: install react 16
-        if: ${{ matrix.react == '16' && (github.event_name != 'pull_request' || matrix.module != 'lib') }}
-        run: npm run install-react-16
-
-      - name: install react 17
-        if: ${{ matrix.react == '17' && (github.event_name != 'pull_request' || matrix.module != 'lib') }}
-        run: npm run install-react-17
 
       - name: install react 18
         if: ${{ matrix.react == '18' && (github.event_name != 'pull_request' || matrix.module != 'lib') }}
