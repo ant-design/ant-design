@@ -356,7 +356,7 @@
   },
   "overrides": {
     "dumi-plugin-color-chunk": {
-      "dumi": "^2.4.0-alpha.12"
+     "dumi": "^2.4.0-alpha.16"
     }
   },
   "size-limit": [
