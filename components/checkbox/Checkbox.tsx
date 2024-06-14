@@ -5,6 +5,7 @@ import RcCheckbox from 'rc-checkbox';
 
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
+import { TARGET_CLS } from '../_util/wave/interface';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -137,7 +138,12 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     rootCls,
     hashId,
   );
-  const checkboxClass = classNames({ [`${prefixCls}-indeterminate`]: indeterminate }, hashId);
+  const checkboxClass = classNames(
+    { [`${prefixCls}-indeterminate`]: indeterminate },
+    TARGET_CLS,
+    hashId,
+  );
+
   const ariaChecked = indeterminate ? 'mixed' : undefined;
   return wrapCSSVar(
     <Wave component="Checkbox" disabled={mergedDisabled}>
