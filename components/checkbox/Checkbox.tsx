@@ -138,9 +138,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     hashId,
   );
   const checkboxClass = classNames(
-    {
-      [`${prefixCls}-indeterminate`]: indeterminate,
-    },
+    { [`${prefixCls}-indeterminate`]: indeterminate },
     TARGET_CLS,
     hashId,
   );
