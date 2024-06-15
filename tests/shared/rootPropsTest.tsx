@@ -31,7 +31,7 @@ export default function rootPropsTest(
   const componentNames = Array.isArray(component) ? component : [component];
   const [componentName, subComponentName] = componentNames;
 
-  const Component = require(`../../components/${componentName}`).default as any;
+  const Component = require(`../../components/${componentName}`).default;
   const name = options?.name ? `(${options.name})` : '';
 
   describe(`RootProps${name}`, () => {

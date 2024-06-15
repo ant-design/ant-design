@@ -124,6 +124,19 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   );
   const wrapperClassName = `${prefixCls}-group`;
 
+  const getAddon = (addon: React.ReactNode): React.ReactNode => {
+    if (!addon) {
+      return null;
+    }
+    return (
+      <NoCompactStyle>
+        <NoFormStyle override status>
+          {addon}
+        </NoFormStyle>
+      </NoCompactStyle>
+    );
+  };
+
   const element = (
     <RcInputNumber
       ref={inputRef}
@@ -136,31 +149,14 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       controls={controlsTemp}
       prefix={prefix}
       suffix={suffixNode}
-      addonAfter={
-        addonAfter && (
-          <NoCompactStyle>
-            <NoFormStyle override status>
-              {addonAfter}
-            </NoFormStyle>
-          </NoCompactStyle>
-        )
-      }
-      addonBefore={
-        addonBefore && (
-          <NoCompactStyle>
-            <NoFormStyle override status>
-              {addonBefore}
-            </NoFormStyle>
-          </NoCompactStyle>
-        )
-      }
+      addonBefore={getAddon(addonBefore)}
+      addonAfter={getAddon(addonAfter)}
       classNames={{
         input: inputNumberClass,
         variant: classNames(
           {
             [`${prefixCls}-${variant}`]: enableVariantCls,
           },
-
           getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
         ),
         affixWrapper: classNames(

@@ -101,7 +101,7 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
       data-popover-inject
     >
       {cloneElement(children, {
-        onKeyDown: (e: React.KeyboardEvent<any>) => {
+        onKeyDown: (e: React.KeyboardEvent<HTMLDivElement>) => {
           if (React.isValidElement(children)) {
             children?.props.onKeyDown?.(e);
           }

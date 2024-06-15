@@ -171,7 +171,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     </>
   );
 
-  const getAddon = (addon: React.ReactNode) =>
+  const getAddon = (addon: React.ReactNode): React.ReactNode =>
     addon && (
       <NoCompactStyle>
         <NoFormStyle override status>
