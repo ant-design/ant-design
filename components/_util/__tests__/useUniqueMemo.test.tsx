@@ -19,7 +19,7 @@ describe('Table', () => {
 
     let calledTimes = 0;
 
-    const Test = ({ depName }: { depName: string }) => {
+    const Test: React.FC<{ depName?: string }> = ({ depName }) => {
       useUniqueMemo(() => {
         calledTimes += 1;
         return depName;
