@@ -94,7 +94,6 @@ const genMessageStyle: GenerateStyle<MessageToken> = (token) => {
     },
 
     [`${componentCls}-custom-content > ${iconCls}`]: {
-      verticalAlign: 'text-bottom',
       marginInlineEnd: marginXS, // affected by ltr or rtl
       fontSize: fontSizeLG,
     },
