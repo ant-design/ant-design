@@ -256,7 +256,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
       }
 
       const container = getCurrentContainer();
-      const scrollTop = getScroll(container, true);
+      const scrollTop = getScroll(container);
       const eleOffsetTop = getOffsetTop(targetElement, container);
       let y = scrollTop + eleOffsetTop;
       y -= targetOffset !== undefined ? targetOffset : offsetTop || 0;
