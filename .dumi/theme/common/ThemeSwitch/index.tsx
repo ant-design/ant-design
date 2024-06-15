@@ -4,10 +4,11 @@ import { FloatButton } from 'antd';
 import { useTheme } from 'antd-style';
 import { CompactTheme, DarkTheme } from 'antd-token-previewer/es/icons';
 // import { Motion } from 'antd-token-previewer/es/icons';
-import { FormattedMessage, Link, useLocation } from 'dumi';
+import { FormattedMessage, useLocation } from 'dumi';
 
 import useThemeAnimation from '../../../hooks/useThemeAnimation';
 import { getLocalizedPathname, isZhCN } from '../../utils';
+import Link from '../Link';
 import ThemeIcon from './ThemeIcon';
 
 export type ThemeName = 'light' | 'dark' | 'compact' | 'motion-off' | 'happy-work';

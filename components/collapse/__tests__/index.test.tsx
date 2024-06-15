@@ -251,4 +251,28 @@ describe('Collapse', () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+
+  it('Check expandIcon aria-label value', () => {
+    const { container, rerender } = render(
+      <Collapse activeKey="1">
+        <Collapse.Panel header="header" key="1" />
+      </Collapse>,
+    );
+
+    expect(container.querySelector('.ant-collapse-arrow')).toHaveAttribute(
+      'aria-label',
+      'expanded',
+    );
+
+    rerender(
+      <Collapse>
+        <Collapse.Panel header="header" key="1" />
+      </Collapse>,
+    );
+
+    expect(container.querySelector('.ant-collapse-arrow')).toHaveAttribute(
+      'aria-label',
+      'collapsed',
+    );
+  });
 });
