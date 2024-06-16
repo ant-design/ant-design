@@ -16,6 +16,32 @@ tag: vVERSION
 
 ---
 
+## 5.18.1
+
+`2024-06-12`
+
+- Typography
+  - 🐞 Fix Typography component's `ellipsis` not working properly in `pre` tag. [#49168](https://github.com/ant-design/ant-design/pull/49168) [@nova1751](https://github.com/nova1751)
+  - 🐞 Fix Typography `ellipsis` sometimes not working in Safari. [#49221](https://github.com/ant-design/ant-design/pull/49221)
+- 🐞 Fix Space `size` setting to 0 did not take effect. [#49192](https://github.com/ant-design/ant-design/pull/49192) [@coding-ice](https://github.com/coding-ice)
+- 🐞 Fix `padding` of Progress text is invalid in cssinjs. [#49250](https://github.com/ant-design/ant-design/pull/49250) [@vagusX](https://github.com/vagusX)
+- 🐞 Fix Modal close button's `zIndex` being incorrect in `cssVar` mode. [#49238](https://github.com/ant-design/ant-design/pull/49238)
+- 🐞 Fix Image `width` `height` being applied to preview images. [#49259](https://github.com/ant-design/ant-design/pull/49259) [@nova1751](https://github.com/nova1751)
+- 🐞 Fix the icon of the Pagination page switcher disappears when hovering. [#49262](https://github.com/ant-design/ant-design/pull/49262)
+- 🐞 Fix Mentions not responding to Enter event when `loading=true`. [#49292](https://github.com/ant-design/ant-design/pull/49292) [@wanpan11](https://github.com/wanpan11)
+- 🐞 Fix Notification did not inherit App config properties. [#49339](https://github.com/ant-design/ant-design/pull/49339) [@hemengke1997](https://github.com/hemengke1997)
+- 💄 Fix the text color of Drawer was incorrect in dark mode. [#49217](https://github.com/ant-design/ant-design/pull/49217)
+- 💄 Fix the style was not visible and the `percent` progress was not passed when customizing the `indicator` of Spin. [#49211](https://github.com/ant-design/ant-design/pull/49211) [@wanpan11](https://github.com/wanpan11)
+- DatePicker
+  - 🐞 Fix the `placement` property of DatePicker/TimePicker was invalid. [#49303](https://github.com/ant-design/ant-design/pull/49303)
+  - 💄 Fix the content in the DatePicker header area is not centered. [#49332](https://github.com/ant-design/ant-design/pull/49332)
+- TypeScript
+  - 🤖 Mentions added new export type `MentionsProps`. [#49281](https://github.com/ant-design/ant-design/pull/49281) [@thinkasany](https://github.com/thinkasany)
+  - 🤖 Remove duplicate union type from Statistic. [#49218](https://github.com/ant-design/ant-design/pull/49218) [@thinkasany](https://github.com/thinkasany)
+- 🌐 Locales
+  - 🇲🇾 Add Table、Form、Tour etc. ms_MY locale. [#49353](https://github.com/ant-design/ant-design/pull/49353) [@cs-gavin-huang](https://github.com/cs-gavin-huang)
+  - 🇦🇿 Add DatePicker az_AZ locale. [#49247](https://github.com/ant-design/ant-design/pull/49247) [@sabitalizade](https://github.com/sabitalizade)
+
 ## 5.18.0
 
 `2024-06-03`
