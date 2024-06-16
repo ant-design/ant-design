@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import type { InputNumberProps as RcInputNumberProps, ValueType } from 'rc-input-number';
 import RcInputNumber from 'rc-input-number';
 
+import getInputAddon from '../_util/InputAddon';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -13,10 +14,10 @@ import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
-import { FormItemInputContext, NoFormStyle } from '../form/context';
+import { FormItemInputContext } from '../form/context';
 import type { Variant } from '../form/hooks/useVariants';
 import useVariant from '../form/hooks/useVariants';
-import { NoCompactStyle, useCompactItemContext } from '../space/Compact';
+import { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
 
 export interface InputNumberProps<T extends ValueType = ValueType>
@@ -124,19 +125,6 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   );
   const wrapperClassName = `${prefixCls}-group`;
 
-  const getAddon = (addon: React.ReactNode): React.ReactNode => {
-    if (!addon) {
-      return null;
-    }
-    return (
-      <NoCompactStyle>
-        <NoFormStyle override status>
-          {addon}
-        </NoFormStyle>
-      </NoCompactStyle>
-    );
-  };
-
   const element = (
     <RcInputNumber
       ref={inputRef}
@@ -149,8 +137,8 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       controls={controlsTemp}
       prefix={prefix}
       suffix={suffixNode}
-      addonBefore={getAddon(addonBefore)}
-      addonAfter={getAddon(addonAfter)}
+      addonBefore={getInputAddon(addonBefore)}
+      addonAfter={getInputAddon(addonAfter)}
       classNames={{
         input: inputNumberClass,
         variant: classNames(
