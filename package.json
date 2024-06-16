@@ -248,7 +248,7 @@
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-compat": "^4.2.0",
+    "eslint-plugin-compat": "^5.0.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jest": "^28.6.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
