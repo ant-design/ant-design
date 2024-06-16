@@ -5,7 +5,7 @@ import RcInput from 'rc-input';
 import { composeRef } from 'rc-util/lib/ref';
 
 import getAllowClear from '../_util/getAllowClear';
-import InputAddon from '../_util/InputAddon';
+import getInputAddon from '../_util/InputAddon';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -198,8 +198,8 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
         input?.className,
       )}
       onChange={handleChange}
-      addonBefore={<InputAddon addon={addonBefore} />}
-      addonAfter={<InputAddon addon={addonAfter} />}
+      addonBefore={getInputAddon(addonBefore)}
+      addonAfter={getInputAddon(addonAfter)}
       classNames={{
         ...classes,
         ...input?.classNames,
