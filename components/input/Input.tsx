@@ -5,6 +5,7 @@ import RcInput from 'rc-input';
 import { composeRef } from 'rc-util/lib/ref';
 
 import getAllowClear from '../_util/getAllowClear';
+import getInputAddon from '../_util/InputAddon';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -13,10 +14,10 @@ import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
-import { FormItemInputContext, NoFormStyle } from '../form/context';
+import { FormItemInputContext } from '../form/context';
 import type { Variant } from '../form/hooks/useVariants';
 import useVariant from '../form/hooks/useVariants';
-import { NoCompactStyle, useCompactItemContext } from '../space/Compact';
+import { useCompactItemContext } from '../space/Compact';
 import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
 import useStyle from './style';
 import { hasPrefixSuffix } from './utils';
@@ -171,15 +172,6 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     </>
   );
 
-  const getAddon = (addon: React.ReactNode): React.ReactNode =>
-    addon && (
-      <NoCompactStyle>
-        <NoFormStyle override status>
-          {addon}
-        </NoFormStyle>
-      </NoCompactStyle>
-    );
-
   const mergedAllowClear = getAllowClear(allowClear ?? input?.allowClear);
 
   const [variant, enableVariantCls] = useVariant(customVariant, bordered);
@@ -206,8 +198,8 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
         input?.className,
       )}
       onChange={handleChange}
-      addonBefore={getAddon(addonBefore)}
-      addonAfter={getAddon(addonAfter)}
+      addonBefore={getInputAddon(addonBefore)}
+      addonAfter={getInputAddon(addonAfter)}
       classNames={{
         ...classes,
         ...input?.classNames,
