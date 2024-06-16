@@ -198,8 +198,8 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
         input?.className,
       )}
       onChange={handleChange}
-      addonBefore={<ContextIsolator>{addonBefore}</ContextIsolator>}
-      addonAfter={<ContextIsolator>{addonAfter}</ContextIsolator>}
+      addonBefore={!!addonBefore && <ContextIsolator>{addonBefore}</ContextIsolator>}
+      addonAfter={!!addonAfter && <ContextIsolator>{addonAfter}</ContextIsolator>}
       classNames={{
         ...classes,
         ...input?.classNames,

@@ -137,8 +137,8 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       controls={controlsTemp}
       prefix={prefix}
       suffix={suffixNode}
-      addonBefore={<ContextIsolator>{addonBefore}</ContextIsolator>}
-      addonAfter={<ContextIsolator>{addonAfter}</ContextIsolator>}
+      addonBefore={!!addonBefore && <ContextIsolator>{addonBefore}</ContextIsolator>}
+      addonAfter={!!addonAfter && <ContextIsolator>{addonAfter}</ContextIsolator>}
       classNames={{
         input: inputNumberClass,
         variant: classNames(
