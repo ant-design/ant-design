@@ -313,15 +313,7 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
                 <Select defaultValue="مورچه" style={{ width: 120 }} loading>
                   <Option value="مورچه">مورچه</Option>
                 </Select>
-                <Select
-                  showSearch
-                  style={{ width: 200 }}
-                  placeholder="Select a person"
-                  optionFilterProp="children"
-                  filterOption={(input, option) =>
-                    option?.props.children.toLowerCase().includes(input.toLowerCase())
-                  }
-                >
+                <Select showSearch style={{ width: 200 }} placeholder="Select a person">
                   <Option value="jack">Jack</Option>
                   <Option value="سعید">سعید</Option>
                   <Option value="tom">Tom</Option>
