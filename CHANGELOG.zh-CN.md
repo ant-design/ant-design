@@ -19,7 +19,7 @@ tag: vVERSION
 
 `2024-06-17`
 
-- 🐞 修复了 `Message` 组件的图标与文本内容没有严格居中对齐的问题。[#49429](https://github.com/ant-design/ant-design/pull/49429) [@nova1751](https://github.com/nova1751)
+- 🐞 修复了 message 图标与文本内容没有严格居中对齐的问题。[#49429](https://github.com/ant-design/ant-design/pull/49429) [@nova1751](https://github.com/nova1751)
 - 🐞 修复 #49134 [#49289](https://github.com/ant-design/ant-design/pull/49289) 中提到的 Table 组件的 `onChange` 事件中排序器参数的问题。[@Zyf665](https://github.com/Zyf665)
 - 🐞 为 Collapse 组件中展开/折叠图标 添加具有语义的 `aria-label` 属性值。[#49395](https://github.com/ant-design/ant-design/pull/49395) [@wanpan11](https://github.com/wanpan11)
 - 🐞 修复 InputNumber 组件中 token `inputFontSizeSM` 和 `inputFontSizeLG` 不生效的问题。[#49369](https://github.com/ant-design/ant-design/pull/49369)
