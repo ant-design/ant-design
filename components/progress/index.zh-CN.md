@@ -35,6 +35,7 @@ demo:
 <code src="./demo/circle-steps.tsx" version="5.16.0">步骤进度圈</code>
 <code src="./demo/size.tsx">尺寸</code>
 <code src="./demo/info-position.tsx" version="5.18.0">改变进度数值位置</code>
+<code src="./demo/line-indicator.tsx">图标指示器</code>
 
 ## API
 

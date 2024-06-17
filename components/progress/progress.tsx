@@ -3,6 +3,7 @@ import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import { TinyColor } from '@ctrl/tinycolor';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 
@@ -14,7 +15,6 @@ import Line from './Line';
 import Steps from './Steps';
 import useStyle from './style';
 import { getSize, getSuccessPercent, validProgress } from './utils';
-import { TinyColor } from '@ctrl/tinycolor';
 
 export const ProgressTypes = ['line', 'circle', 'dashboard'] as const;
 export type ProgressType = (typeof ProgressTypes)[number];
@@ -62,6 +62,7 @@ export interface ProgressProps extends ProgressAriaProps {
   successPercent?: number;
   percentPosition?: PercentPositionType;
   children?: React.ReactNode;
+  indicatorIcon?: React.ReactNode;
 }
 
 const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) => {

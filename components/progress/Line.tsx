@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { presetPrimaryColors } from '@ant-design/colors';
 import classNames from 'classnames';
+
 import { devUseWarning } from '../_util/warning';
 import type { DirectionType } from '../config-provider';
 import type {
+  PercentPositionType,
   ProgressGradient,
   ProgressProps,
   StringGradients,
-  PercentPositionType,
 } from './progress';
 import { LineStrokeColorVar, Percent } from './style';
 import { getSize, getSuccessPercent, validProgress } from './utils';
@@ -89,6 +90,7 @@ const Line: React.FC<LineProps> = (props) => {
     trailColor = null,
     percentPosition,
     success,
+    indicatorIcon,
   } = props;
 
   const { align: infoAlign, type: infoPosition } = percentPosition;
@@ -109,6 +111,10 @@ const Line: React.FC<LineProps> = (props) => {
 
     warning.deprecated(!('strokeWidth' in props), 'strokeWidth', 'size');
   }
+
+  const progressStyle: React.CSSProperties = {
+    marginRight: indicatorIcon ? '10px' : undefined,
+  };
 
   const trailStyle: React.CSSProperties = {
     backgroundColor: trailColor || undefined,
@@ -132,20 +138,31 @@ const Line: React.FC<LineProps> = (props) => {
     backgroundColor: success?.strokeColor,
   } as React.CSSProperties;
 
+  const successIndicatorStyle = {
+    left: `${validProgress(percent) - 1}%`,
+  };
+
   const outerStyle: React.CSSProperties = {
     width: width < 0 ? '100%' : width,
   };
 
   const lineInner = (
-    <div className={`${prefixCls}-inner`} style={trailStyle}>
-      <div
-        className={classNames(`${prefixCls}-bg`, `${prefixCls}-bg-${infoPosition}`)}
-        style={percentStyle}
-      >
-        {infoPosition === 'inner' && children}
+    <div className={`${prefixCls}-mid`} style={progressStyle}>
+      <div className={`${prefixCls}-inner`} style={trailStyle}>
+        <div
+          className={classNames(`${prefixCls}-bg`, `${prefixCls}-bg-${infoPosition}`)}
+          style={percentStyle}
+        >
+          {infoPosition === 'inner' && children}
+        </div>
+        {successPercent !== undefined && (
+          <div className={`${prefixCls}-success-bg`} style={successPercentStyle} />
+        )}
       </div>
-      {successPercent !== undefined && (
-        <div className={`${prefixCls}-success-bg`} style={successPercentStyle} />
+      {indicatorIcon !== undefined && (
+        <div className={`${prefixCls}-icon`} style={successIndicatorStyle}>
+          {indicatorIcon}
+        </div>
       )}
     </div>
   );
