@@ -40,6 +40,7 @@ return (
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic Usage</code>
 <code src="./demo/search.tsx">Select with search field</code>
+<code src="./demo/search-filter-option.tsx">Custom Search</code>
 <code src="./demo/multiple.tsx">multiple selection</code>
 <code src="./demo/size.tsx">Sizes</code>
 <code src="./demo/option-render.tsx">Custom dropdown options</code>
