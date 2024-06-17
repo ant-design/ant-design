@@ -27,7 +27,7 @@ tag: vVERSION
 - 💄 Fix Empty sometimes doesn't take `colorTextDescription` as description text color. [#49408](https://github.com/ant-design/ant-design/pull/49408)
 - 💄 Resolve Badge `processing` status style conflict with Tailwind CSS. [#49379](https://github.com/ant-design/ant-design/pull/49379)
 - 🌐 Locales
-  - 🇲🇳 添加蒙古语言 (mn_MN) 翻译。 [#49373](https://github.com/ant-design/ant-design/pull/49373) [@JiyinShao](https://github.com/JiyinShao)
+  - 🇲🇳 Add missing translations for Mongol language (mn_MN). [#49373](https://github.com/ant-design/ant-design/pull/49373) [@JiyinShao](https://github.com/JiyinShao)
 
 ## 5.18.1
 
