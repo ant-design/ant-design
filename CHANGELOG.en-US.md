@@ -20,7 +20,7 @@ tag: vVERSION
 
 `2024-06-17`
 
-- 🐞 Fix the bug where the icon and the text aren't strictly centered in Message component. [#49429](https://github.com/ant-design/ant-design/pull/49429) [@nova1751](https://github.com/nova1751)
+- 🐞 Fix the bug where the icon and the text aren't strictly centered in message. [#49429](https://github.com/ant-design/ant-design/pull/49429) [@nova1751](https://github.com/nova1751)
 - 🐞 Fix Table sorter argument of `onChange` with unexpected value for #49134. [#49289](https://github.com/ant-design/ant-design/pull/49289) [@Zyf665](https://github.com/Zyf665)
 - 🐞 Add `aria-label` for expand icon in Collapse. [#49395](https://github.com/ant-design/ant-design/pull/49395) [@wanpan11](https://github.com/wanpan11)
 - 🐞 Fix token `inputFontSizeSM` and `inputFontSizeLG` not working in InputNumber. [#49369](https://github.com/ant-design/ant-design/pull/49369)
