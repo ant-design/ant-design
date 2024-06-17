@@ -30,13 +30,13 @@ const App: React.FC = () => {
     fetch(url)
       .then((response) => response.blob())
       .then((blob) => {
-        const url = URL.createObjectURL(new Blob([blob]));
+        const blobUrl = URL.createObjectURL(new Blob([blob]));
         const link = document.createElement('a');
-        link.href = url;
+        link.href = blobUrl;
         link.download = filename;
         document.body.appendChild(link);
         link.click();
-        URL.revokeObjectURL(url);
+        URL.revokeObjectURL(blobUrl);
         link.remove();
       });
   };
