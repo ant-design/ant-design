@@ -4,4 +4,4 @@
 
 ## en-US
 
-Multiple selection. Not support `showTime` and `picker="time"`.
+Multiple selections. Does not support `showTime` and `picker="time"`.

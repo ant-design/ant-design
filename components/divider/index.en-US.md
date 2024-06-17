@@ -13,7 +13,7 @@ group:
 
 ## When To Use
 
-- Divide sections of article.
+- Divide sections of an article.
 - Divide inline text and links such as the operation column of table.
 
 ## Examples

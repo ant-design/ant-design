@@ -4,4 +4,4 @@
 
 ## en-US
 
-There are `primary` button, `default` button, `dashed` button, `text` button and `link` button in antd.
+There are five type of buttons in antd, namely they are: `primary` buttons, `default` buttons, `dashed` buttons, `text` buttons, and `link` buttons.

@@ -41,7 +41,7 @@ group:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| affix | 固定模式 | boolean | true |  |
+| affix | 固定模式 | boolean \| Omit<AffixProps, 'offsetTop' \| 'target' \| 'children'> | true | object: 5.19.0 |
 | bounds | 锚点区域边界 | number | 5 |  |
 | getContainer | 指定滚动的容器 | () => HTMLElement | () => window |  |
 | getCurrentAnchor | 自定义高亮的锚点 | (activeLink: string) => string | - |  |

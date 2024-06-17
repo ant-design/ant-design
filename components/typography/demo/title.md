@@ -4,4 +4,4 @@
 
 ## en-US
 
-Display title in different level.
+Display title in different levels.

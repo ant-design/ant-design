@@ -474,7 +474,7 @@ const Theme: React.FC = () => {
                     filter:
                       closestColor === DEFAULT_COLOR ? undefined : rgbToColorMatrix(logoColor),
                   }}
-                  alt=""
+                  alt="antd logo"
                 />
               </div>
               <h1>Ant Design 5.0</h1>

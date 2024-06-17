@@ -4,4 +4,4 @@
 
 ## en-US
 
-Make range track draggable when set `range.draggableTrack`.
+Make range track draggable by setting `range.draggableTrack`.

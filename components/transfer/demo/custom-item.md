@@ -4,4 +4,4 @@
 
 ## en-US
 
-Custom each Transfer Item, and in this way you can render a complex datasource.
+Customize each Transfer Item, allowing you to render a complex datasource.

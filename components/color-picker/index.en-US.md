@@ -13,7 +13,7 @@ group:
 
 ## When To Use
 
-Used when the user needs to customize the color selection.
+Used when the user needs to make a customized color selection.
 
 ## Examples
 

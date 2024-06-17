@@ -47,7 +47,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | min | The minimum value the slider can slide to | number | 0 |  |
 | range | Dual thumb mode | boolean | false |  |
 | reverse | Reverse the component | boolean | false |  |
-| step | The granularity the slider can step through values. Must greater than 0, and be divided by (max - min) . When `marks` no null, `step` can be null | number \| null | 1 |  |
+| step | The granularity the slider can step through values. Must greater than 0, and be divided by (max - min) . When `step` is `null` but exist `marks`, the valid point will only be the `mark`, `min` and `max` | number \| null | 1 |  |
 | styles | Semantic structure style | [Record<SemanticDOM, React.CSSProperties>](#semantic-dom) | - | 5.10.0 |
 | tooltip | The tooltip relate props | [tooltip](#tooltip) | - | 4.23.0 |
 | value | The value of slider. When `range` is false, use number, otherwise, use \[number, number] | number \| \[number, number] | - |  |

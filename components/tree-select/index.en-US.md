@@ -69,6 +69,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | treeCheckStrictly | Whether to check nodes precisely (in the `checkable` mode), means parent and child nodes are not associated, and it will make `labelInValue` be true | boolean | false |  |
 | treeData | Data of the treeNodes, manual construction work is no longer needed if this property has been set(ensure the Uniqueness of each value) | array&lt;{ value, title, children, \[disabled, disableCheckbox, selectable, checkable] }> | \[] |  |
 | treeDataSimpleMode | Enable simple mode of treeData. Changes the `treeData` schema to: \[{id:1, pId:0, value:'1', title:"test1",...},...] where pId is parent node's id). It is possible to replace the default `id` and `pId` keys by providing object to `treeDataSimpleMode` | boolean \| object&lt;{ id: string, pId: string, rootPId: string }> | false |  |
+| treeTitleRender | Customize tree node title render | (nodeData) => ReactNode | - | 5.12.0 |
 | treeDefaultExpandAll | Whether to expand all treeNodes by default | boolean | false |  |
 | treeDefaultExpandedKeys | Default expanded treeNodes | string\[] | - |  |
 | treeExpandAction | Tree title open logic when click, optional: false \| `click` \| `doubleClick` | string \| boolean | false | 4.21.0 |

@@ -4366,7 +4366,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                 class="ant-collapse-expand-icon"
                               >
                                 <span
-                                  aria-label="right"
+                                  aria-label="expanded"
                                   class="anticon anticon-right ant-collapse-arrow"
                                   role="img"
                                 >
@@ -4503,7 +4503,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                 class="ant-collapse-expand-icon"
                               >
                                 <span
-                                  aria-label="right"
+                                  aria-label="expanded"
                                   class="anticon anticon-right ant-collapse-arrow"
                                   role="img"
                                 >
@@ -4640,7 +4640,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                 class="ant-collapse-expand-icon"
                               >
                                 <span
-                                  aria-label="right"
+                                  aria-label="expanded"
                                   class="anticon anticon-right ant-collapse-arrow"
                                   role="img"
                                 >
@@ -4777,7 +4777,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                 class="ant-collapse-expand-icon"
                               >
                                 <span
-                                  aria-label="right"
+                                  aria-label="expanded"
                                   class="anticon anticon-right ant-collapse-arrow"
                                   role="img"
                                 >
@@ -5665,7 +5665,7 @@ Array [
                         class="ant-collapse-expand-icon"
                       >
                         <span
-                          aria-label="right"
+                          aria-label="expanded"
                           class="anticon anticon-right ant-collapse-arrow"
                           role="img"
                         >
@@ -5802,7 +5802,7 @@ Array [
                         class="ant-collapse-expand-icon"
                       >
                         <span
-                          aria-label="right"
+                          aria-label="expanded"
                           class="anticon anticon-right ant-collapse-arrow"
                           role="img"
                         >
@@ -5939,7 +5939,7 @@ Array [
                         class="ant-collapse-expand-icon"
                       >
                         <span
-                          aria-label="right"
+                          aria-label="expanded"
                           class="anticon anticon-right ant-collapse-arrow"
                           role="img"
                         >

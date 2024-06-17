@@ -4,4 +4,4 @@
 
 ## en-US
 
-Divider is `horizontal` by default. You can add text within Divider.
+A Divider is `horizontal` by default. You can add text within Divider.

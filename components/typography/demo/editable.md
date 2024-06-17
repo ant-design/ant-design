@@ -4,4 +4,4 @@
 
 ## en-US
 
-Make Typography editable.
+Makes Typography editable.

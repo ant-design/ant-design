@@ -48,7 +48,7 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
 
   const handleScroll = throttleByAnimationFrame(
     (e: React.UIEvent<HTMLElement, UIEvent> | { target: any }) => {
-      const scrollTop = getScroll(e.target, true);
+      const scrollTop = getScroll(e.target);
       setVisible(scrollTop >= visibilityHeight);
     },
   );

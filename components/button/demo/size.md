@@ -6,6 +6,6 @@
 
 ## en-US
 
-Ant Design supports a default button size as well as a large and small size.
+Ant Design supports three sizes of buttons: small, default and large.
 
 If a large or small button is desired, set the `size` property to either `large` or `small` respectively. Omit the `size` property for a button with the default size.

@@ -181,26 +181,6 @@ const RoutesPlugin = (api: IApi) => {
       // exclude dynamic route path, to avoid deploy failed by `:id` directory
       .filter((f) => !f.path.includes(':'))
       .map((file) => {
-        let globalStyles = '';
-
-        // Debug for file content: uncomment this if need check raw out
-        // const tmpFileName = `_${file.path.replace(/\//g, '-')}`;
-        // const tmpFilePath = path.join(api.paths.absOutputPath, tmpFileName);
-        // fs.writeFileSync(tmpFilePath, file.content, 'utf8');
-
-        // extract all emotion style tags from body
-        file.content = file.content.replace(
-          /<style (data-emotion|data-sandpack)[\S\s]+?<\/style>/g,
-          (s) => {
-            globalStyles += s;
-
-            return '';
-          },
-        );
-
-        // insert emotion style tags to head
-        file.content = file.content.replace('</head>', `${globalStyles}</head>`);
-
         // 1. 提取 antd-style 样式
         const styles = extractEmotionStyle(file.content);
 
@@ -215,30 +195,6 @@ const RoutesPlugin = (api: IApi) => {
           const cssFile = writeCSSFile(result!.key, result!.ids.join(''), result!.css);
 
           file.content = addLinkStyle(file.content, cssFile);
-        });
-
-        // Insert antd style to head
-        const matchRegex = /<style data-type="antd-cssinjs">([\S\s]+?)<\/style>/;
-        const matchList = file.content.match(matchRegex) || [];
-
-        // Init to order the `@layer`
-        let antdStyle = '@layer global, antd;';
-
-        matchList.forEach((text) => {
-          file.content = file.content.replace(text, '');
-          antdStyle += text.replace(matchRegex, '$1');
-        });
-
-        const cssFile = writeCSSFile('antd', antdStyle, antdStyle);
-        file.content = addLinkStyle(file.content, cssFile, true);
-
-        // Insert antd cssVar to head
-        const cssVarMatchRegex = /<style data-type="antd-css-var"[\S\s]+?<\/style>/;
-        const cssVarMatchList = file.content.match(cssVarMatchRegex) || [];
-
-        cssVarMatchList.forEach((text) => {
-          file.content = file.content.replace(text, '');
-          file.content = file.content.replace('<head>', `<head>${text}`);
         });
 
         return file;
