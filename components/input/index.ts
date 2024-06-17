@@ -26,4 +26,5 @@ Input.Search = Search;
 Input.TextArea = TextArea;
 Input.Password = Password;
 Input.OTP = OTP;
+
 export default Input;
