@@ -205,8 +205,6 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         },
 
         '&-rtl': {
-          direction: 'rtl',
-
           [`${componentCls}-prev-icon,
               ${componentCls}-super-prev-icon`]: {
             transform: 'rotate(45deg)',
@@ -532,7 +530,6 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
       '&-time-panel': {
         width: 'auto',
         minWidth: 'auto',
-        direction: 'ltr',
 
         [`${componentCls}-content`]: {
           display: 'flex',
@@ -647,6 +644,9 @@ const genPickerPanelStyle: GenerateStyle<PickerToken> = (token) => {
 
   return {
     [`${componentCls}-dropdown`]: {
+      '&-rtl': {
+        direction: 'rtl',
+      },
       // ======================== Footer ========================
       [`${componentCls}-footer`]: {
         borderTop: `${unit(lineWidth)} ${lineType} ${colorSplit}`,

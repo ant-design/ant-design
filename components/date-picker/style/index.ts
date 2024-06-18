@@ -441,7 +441,6 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             [`${componentCls}-panels`]: {
               display: 'inline-flex',
               flexWrap: 'nowrap',
-              direction: 'ltr',
 
               // [`${componentCls}-panel`]: {
               //   borderWidth: `0 0 ${unit(lineWidth)}`,
