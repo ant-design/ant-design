@@ -117,7 +117,7 @@
   ],
   "dependencies": {
     "@ant-design/colors": "^7.0.2",
-    "@ant-design/cssinjs": "^1.20.0",
+    "@ant-design/cssinjs": "^1.21.0",
     "@ant-design/icons": "^5.3.7",
     "@ant-design/react-slick": "~1.1.2",
     "@babel/runtime": "^7.24.7",
@@ -356,7 +356,7 @@
   },
   "overrides": {
     "dumi-plugin-color-chunk": {
-     "dumi": "^2.4.0-alpha.16"
+      "dumi": "^2.4.0-alpha.16"
     }
   },
   "size-limit": [
