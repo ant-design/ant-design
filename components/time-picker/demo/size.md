@@ -4,4 +4,4 @@
 
 ## en-US
 
-The input box comes in three sizes. large is used in the form, while the medium size is the default.
+The input box comes in three sizes: large, middle and small. Large is used in the form, while the medium size is the default.
