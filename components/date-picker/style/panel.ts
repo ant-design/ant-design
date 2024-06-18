@@ -644,9 +644,6 @@ const genPickerPanelStyle: GenerateStyle<PickerToken> = (token) => {
 
   return {
     [`${componentCls}-dropdown`]: {
-      '&-rtl': {
-        direction: 'rtl',
-      },
       // ======================== Footer ========================
       [`${componentCls}-footer`]: {
         borderTop: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
