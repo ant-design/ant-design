@@ -15,6 +15,19 @@ tag: vVERSION
 
 ---
 
+## 5.18.2
+
+`2024-06-17`
+
+- 🐞 修复了 message 图标与文本内容没有严格居中对齐的问题。[#49429](https://github.com/ant-design/ant-design/pull/49429) [@nova1751](https://github.com/nova1751)
+- 🐞 修复 #49134 [#49289](https://github.com/ant-design/ant-design/pull/49289) 中提到的 Table 组件的 `onChange` 事件中排序器参数的问题。[@Zyf665](https://github.com/Zyf665)
+- 🐞 为 Collapse 组件中展开/折叠图标 添加具有语义的 `aria-label` 属性值。[#49395](https://github.com/ant-design/ant-design/pull/49395) [@wanpan11](https://github.com/wanpan11)
+- 🐞 修复 InputNumber 组件中 token `inputFontSizeSM` 和 `inputFontSizeLG` 不生效的问题。[#49369](https://github.com/ant-design/ant-design/pull/49369)
+- 💄 修复 Empty 部分样式下，描述的 `colorTextDescription` 不生效的问题。[#49408](https://github.com/ant-design/ant-design/pull/49408)
+- 💄 解决 Badge `processing` 与 Tailwind CSS 样式冲突的问题。[#49379](https://github.com/ant-design/ant-design/pull/49379)
+- 🌐 国际化
+  - 🇲🇳 添加蒙古语言 (mn_MN) 翻译。[#49373](https://github.com/ant-design/ant-design/pull/49373) [@JiyinShao](https://github.com/JiyinShao)
+
 ## 5.18.1
 
 `2024-06-12`

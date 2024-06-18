@@ -16,6 +16,19 @@ tag: vVERSION
 
 ---
 
+## 5.18.2
+
+`2024-06-17`
+
+- 🐞 Fix the bug where the icon and the text aren't strictly centered in message. [#49429](https://github.com/ant-design/ant-design/pull/49429) [@nova1751](https://github.com/nova1751)
+- 🐞 Fix Table sorter argument of `onChange` with unexpected value for #49134. [#49289](https://github.com/ant-design/ant-design/pull/49289) [@Zyf665](https://github.com/Zyf665)
+- 🐞 Add `aria-label` for expand icon in Collapse. [#49395](https://github.com/ant-design/ant-design/pull/49395) [@wanpan11](https://github.com/wanpan11)
+- 🐞 Fix token `inputFontSizeSM` and `inputFontSizeLG` not working in InputNumber. [#49369](https://github.com/ant-design/ant-design/pull/49369)
+- 💄 Fix Empty sometimes doesn't take `colorTextDescription` as description text color. [#49408](https://github.com/ant-design/ant-design/pull/49408)
+- 💄 Resolve Badge `processing` status style conflict with Tailwind CSS. [#49379](https://github.com/ant-design/ant-design/pull/49379)
+- 🌐 Locales
+  - 🇲🇳 Add missing translations for Mongol language (mn_MN). [#49373](https://github.com/ant-design/ant-design/pull/49373) [@JiyinShao](https://github.com/JiyinShao)
+
 ## 5.18.1
 
 `2024-06-12`
