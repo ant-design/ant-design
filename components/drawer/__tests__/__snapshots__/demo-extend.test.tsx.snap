@@ -1583,7 +1583,7 @@ Array [
                             </div>
                             <div
                               class="ant-picker-active-bar"
-                              style="position: absolute; width: 0px; left: 0px;"
+                              style="position: absolute; width: 0px;"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -1618,7 +1618,7 @@ Array [
                             >
                               <div
                                 class="ant-picker-range-arrow"
-                                style="left: 0px;"
+                                style="inset-inline-start: 0;"
                               />
                               <div
                                 class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -1643,6 +1643,7 @@ Array [
                                             class="ant-picker-header"
                                           >
                                             <button
+                                              aria-label="super-prev-year"
                                               class="ant-picker-header-super-prev-btn"
                                               tabindex="-1"
                                               type="button"
@@ -1652,6 +1653,7 @@ Array [
                                               />
                                             </button>
                                             <button
+                                              aria-label="prev-year"
                                               class="ant-picker-header-prev-btn"
                                               tabindex="-1"
                                               type="button"
@@ -1664,6 +1666,7 @@ Array [
                                               class="ant-picker-header-view"
                                             >
                                               <button
+                                                aria-label="month panel"
                                                 class="ant-picker-month-btn"
                                                 tabindex="-1"
                                                 type="button"
@@ -1671,6 +1674,7 @@ Array [
                                                 Nov
                                               </button>
                                               <button
+                                                aria-label="year panel"
                                                 class="ant-picker-year-btn"
                                                 tabindex="-1"
                                                 type="button"
@@ -1679,6 +1683,7 @@ Array [
                                               </button>
                                             </div>
                                             <button
+                                              aria-label="next-year"
                                               class="ant-picker-header-next-btn"
                                               style="visibility: hidden;"
                                               tabindex="-1"
@@ -1689,6 +1694,7 @@ Array [
                                               />
                                             </button>
                                             <button
+                                              aria-label="super-next-year"
                                               class="ant-picker-header-super-next-btn"
                                               style="visibility: hidden;"
                                               tabindex="-1"
@@ -2179,6 +2185,7 @@ Array [
                                             class="ant-picker-header"
                                           >
                                             <button
+                                              aria-label="super-prev-year"
                                               class="ant-picker-header-super-prev-btn"
                                               style="visibility: hidden;"
                                               tabindex="-1"
@@ -2189,6 +2196,7 @@ Array [
                                               />
                                             </button>
                                             <button
+                                              aria-label="prev-year"
                                               class="ant-picker-header-prev-btn"
                                               style="visibility: hidden;"
                                               tabindex="-1"
@@ -2202,6 +2210,7 @@ Array [
                                               class="ant-picker-header-view"
                                             >
                                               <button
+                                                aria-label="month panel"
                                                 class="ant-picker-month-btn"
                                                 tabindex="-1"
                                                 type="button"
@@ -2209,6 +2218,7 @@ Array [
                                                 Dec
                                               </button>
                                               <button
+                                                aria-label="year panel"
                                                 class="ant-picker-year-btn"
                                                 tabindex="-1"
                                                 type="button"
@@ -2217,6 +2227,7 @@ Array [
                                               </button>
                                             </div>
                                             <button
+                                              aria-label="next-year"
                                               class="ant-picker-header-next-btn"
                                               tabindex="-1"
                                               type="button"
@@ -2226,6 +2237,7 @@ Array [
                                               />
                                             </button>
                                             <button
+                                              aria-label="super-next-year"
                                               class="ant-picker-header-super-next-btn"
                                               tabindex="-1"
                                               type="button"

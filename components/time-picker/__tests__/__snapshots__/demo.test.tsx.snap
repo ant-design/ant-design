@@ -579,7 +579,7 @@ exports[`renders components/time-picker/demo/range-picker.tsx correctly 1`] = `
   </div>
   <div
     class="ant-picker-active-bar"
-    style="position:absolute;width:0;left:0"
+    style="position:absolute;width:0"
   />
   <span
     class="ant-picker-suffix"
@@ -1031,7 +1031,7 @@ exports[`renders components/time-picker/demo/status.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -1121,7 +1121,7 @@ exports[`renders components/time-picker/demo/status.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -1346,7 +1346,7 @@ exports[`renders components/time-picker/demo/variant.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -1478,7 +1478,7 @@ exports[`renders components/time-picker/demo/variant.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -1610,7 +1610,7 @@ exports[`renders components/time-picker/demo/variant.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
