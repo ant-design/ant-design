@@ -126,7 +126,7 @@ const Modal: React.FC<ModalProps> = (props) => {
 
   // =========================== Render ===========================
   return wrapCSSVar(
-    <ContextIsolator>
+    <ContextIsolator isolateFormContext isolateSpaceContext>
       <zIndexContext.Provider value={contextZIndex}>
         <Dialog
           width={width}

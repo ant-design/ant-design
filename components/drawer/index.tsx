@@ -160,7 +160,7 @@ const Drawer: React.FC<DrawerProps> & {
   const { classNames: contextClassNames = {}, styles: contextStyles = {} } = drawer || {};
 
   return wrapCSSVar(
-    <ContextIsolator>
+    <ContextIsolator isolateFormContext isolateSpaceContext>
       <zIndexContext.Provider value={contextZIndex}>
         <RcDrawer
           prefixCls={prefixCls}
