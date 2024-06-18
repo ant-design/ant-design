@@ -96,7 +96,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
         position: 'relative',
       },
 
-      [`${progressCls}-icon`]: {
+      [`${progressCls}-indicator`]: {
         height: '100%',
         display: 'flex',
         alignItems: 'center',

@@ -2738,6 +2738,307 @@ exports[`renders components/progress/demo/line.tsx extend context correctly 1`] 
 
 exports[`renders components/progress/demo/line.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/progress/demo/line-indicator.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+>
+  <div
+    class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+  >
+    <div
+      aria-valuenow="60"
+      class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
+      indicator="[object Object]"
+      role="progressbar"
+    >
+      <div
+        class="ant-progress-outer"
+        style="width: 100%;"
+      >
+        <div
+          class="ant-progress-mid"
+          style="margin-right: 10px;"
+        >
+          <div
+            class="ant-progress-inner"
+          >
+            <div
+              class="ant-progress-bg ant-progress-bg-outer"
+              style="width: 60%; height: 6px; --progress-percent: 0.6;"
+            />
+          </div>
+          <div
+            class="ant-progress-indicator"
+            style="left: 59%;"
+          >
+            <span
+              class="anticon"
+              role="img"
+              style="font-size: 32px;"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                width="1em"
+              >
+                <use
+                  xlink:href="#icon-feiji"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+        <span
+          class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+          title="60%"
+        >
+          60%
+        </span>
+      </div>
+    </div>
+    <div
+      aria-valuenow="90"
+      class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
+      indicator="[object Object]"
+      role="progressbar"
+    >
+      <div
+        class="ant-progress-outer"
+        style="width: 100%;"
+      >
+        <div
+          class="ant-progress-mid"
+          style="margin-right: 10px;"
+        >
+          <div
+            class="ant-progress-inner"
+          >
+            <div
+              class="ant-progress-bg ant-progress-bg-outer"
+              style="width: 90%; height: 6px; --progress-line-stroke-color: #B7EB8F; background: rgb(183, 235, 143); --progress-percent: 0.9;"
+            />
+          </div>
+          <div
+            class="ant-progress-indicator"
+            style="left: 89%;"
+          >
+            <span
+              class="anticon"
+              role="img"
+              style="font-size: 26px;"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                width="1em"
+              >
+                <use
+                  xlink:href="#icon-hangzou"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+        <span
+          class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+          title="90%"
+        >
+          90%
+        </span>
+      </div>
+    </div>
+    <div
+      aria-valuenow="70"
+      class="ant-progress ant-progress-status-exception ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
+      indicator="[object Object]"
+      role="progressbar"
+    >
+      <div
+        class="ant-progress-outer"
+        style="width: 100%;"
+      >
+        <div
+          class="ant-progress-mid"
+          style="margin-right: 10px;"
+        >
+          <div
+            class="ant-progress-inner"
+          >
+            <div
+              class="ant-progress-bg ant-progress-bg-outer"
+              style="width: 70%; height: 8px; --progress-percent: 0.7;"
+            />
+          </div>
+          <div
+            class="ant-progress-indicator"
+            style="left: 69%;"
+          >
+            <span
+              class="anticon"
+              role="img"
+              style="font-size: 22px;"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                width="1em"
+              >
+                <use
+                  xlink:href="#icon-group43"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+        <span
+          class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+        >
+          <span
+            aria-label="close-circle"
+            class="anticon anticon-close-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="close-circle"
+              fill="currentColor"
+              fill-rule="evenodd"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+    <div
+      aria-valuenow="0"
+      class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-default"
+      indicator="[object Object]"
+      role="progressbar"
+    >
+      <div
+        class="ant-progress-outer"
+        style="width: 100%;"
+      >
+        <div
+          class="ant-progress-mid"
+          style="margin-right: 10px;"
+        >
+          <div
+            class="ant-progress-inner"
+          >
+            <div
+              class="ant-progress-bg ant-progress-bg-outer"
+              style="width: 0%; height: 8px; --progress-line-stroke-color: #fadb14; background: rgb(250, 219, 20); --progress-percent: 0;"
+            />
+          </div>
+          <div
+            class="ant-progress-indicator"
+            style="left: -1%;"
+          >
+            <span
+              class="anticon"
+              role="img"
+              style="font-size: 26px;"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                width="1em"
+              >
+                <use
+                  xlink:href="#icon-tongchengwaimai"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-btn-group"
+  >
+    <button
+      class="ant-btn ant-btn-default ant-btn-icon-only"
+      type="button"
+    >
+      <span
+        class="ant-btn-icon"
+      >
+        <span
+          aria-label="retweet"
+          class="anticon anticon-retweet"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="retweet"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M136 552h63.6c4.4 0 8-3.6 8-8V288.7h528.6v72.6c0 1.9.6 3.7 1.8 5.2a8.3 8.3 0 0011.7 1.4L893 255.4c4.3-5 3.6-10.3 0-13.2L749.7 129.8a8.22 8.22 0 00-5.2-1.8c-4.6 0-8.4 3.8-8.4 8.4V209H199.7c-39.5 0-71.7 32.2-71.7 71.8V544c0 4.4 3.6 8 8 8zm752-80h-63.6c-4.4 0-8 3.6-8 8v255.3H287.8v-72.6c0-1.9-.6-3.7-1.8-5.2a8.3 8.3 0 00-11.7-1.4L131 768.6c-4.3 5-3.6 10.3 0 13.2l143.3 112.4c1.5 1.2 3.3 1.8 5.2 1.8 4.6 0 8.4-3.8 8.4-8.4V815h536.6c39.5 0 71.7-32.2 71.7-71.8V480c-.2-4.4-3.8-8-8.2-8z"
+            />
+          </svg>
+        </span>
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-icon-only"
+      type="button"
+    >
+      <span
+        class="ant-btn-icon"
+      >
+        <span
+          aria-label="caret-right"
+          class="anticon anticon-caret-right"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="caret-right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M715.8 493.5L335 165.1c-14.2-12.2-35-1.2-35 18.5v656.8c0 19.7 20.8 30.7 35 18.5l380.8-328.4c10.9-9.4 10.9-27.6 0-37z"
+            />
+          </svg>
+        </span>
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/progress/demo/line-indicator.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/progress/demo/line-mini.tsx extend context correctly 1`] = `
 <div
   class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"

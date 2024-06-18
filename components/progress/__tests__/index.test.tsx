@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { BugFilled } from '@ant-design/icons';
 import { Tooltip } from 'antd';
 
 import type { ProgressProps } from '..';
@@ -467,6 +468,13 @@ describe('Progress', () => {
         percentPosition={{ align: 'center', type: 'inner' }}
         size={[400, 20]}
       />,
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('render progress indicator', () => {
+    const { container } = render(
+      <Progress percent={60} indicator={<BugFilled style={{ fontSize: 22 }} />} />,
     );
     expect(container.firstChild).toMatchSnapshot();
   });

@@ -62,7 +62,7 @@ export interface ProgressProps extends ProgressAriaProps {
   successPercent?: number;
   percentPosition?: PercentPositionType;
   children?: React.ReactNode;
-  indicatorIcon?: React.ReactNode;
+  indicator?: React.ReactNode;
 }
 
 const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) => {

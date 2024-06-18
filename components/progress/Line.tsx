@@ -90,7 +90,7 @@ const Line: React.FC<LineProps> = (props) => {
     trailColor = null,
     percentPosition,
     success,
-    indicatorIcon,
+    indicator,
   } = props;
 
   const { align: infoAlign, type: infoPosition } = percentPosition;
@@ -113,7 +113,7 @@ const Line: React.FC<LineProps> = (props) => {
   }
 
   const progressStyle: React.CSSProperties = {
-    marginRight: indicatorIcon ? '10px' : undefined,
+    marginRight: indicator ? '10px' : undefined,
   };
 
   const trailStyle: React.CSSProperties = {
@@ -159,9 +159,9 @@ const Line: React.FC<LineProps> = (props) => {
           <div className={`${prefixCls}-success-bg`} style={successPercentStyle} />
         )}
       </div>
-      {indicatorIcon !== undefined && (
-        <div className={`${prefixCls}-icon`} style={successIndicatorStyle}>
-          {indicatorIcon}
+      {indicator !== undefined && (
+        <div className={`${prefixCls}-indicator`} style={successIndicatorStyle}>
+          {indicator}
         </div>
       )}
     </div>
