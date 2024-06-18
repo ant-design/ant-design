@@ -1977,7 +1977,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </div>
         <div
           class="ant-picker-active-bar"
-          style="position: absolute; width: 0px; left: 0px;"
+          style="position: absolute; width: 0px;"
         />
         <span
           class="ant-picker-suffix"
@@ -2012,7 +2012,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-picker-range-arrow"
-            style="left: 0px;"
+            style="inset-inline-start: 0;"
           />
           <div
             class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -3202,7 +3202,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </div>
         <div
           class="ant-picker-active-bar"
-          style="position: absolute; width: 0px; left: 0px;"
+          style="position: absolute; width: 0px;"
         />
         <span
           class="ant-picker-suffix"
@@ -3237,7 +3237,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-picker-range-arrow"
-            style="left: 0px;"
+            style="inset-inline-start: 0;"
           />
           <div
             class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -6829,7 +6829,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </div>
         <div
           class="ant-picker-active-bar"
-          style="position: absolute; width: 0px; left: 0px;"
+          style="position: absolute; width: 0px;"
         />
         <span
           class="ant-picker-suffix"
@@ -6867,7 +6867,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-picker-range-arrow"
-            style="left: 0px;"
+            style="inset-inline-start: 0;"
           />
           <div
             class="ant-picker-panel-container ant-picker-time-panel-container"
@@ -12366,7 +12366,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </div>
         <div
           class="ant-picker-active-bar"
-          style="position: absolute; width: 0px; left: 0px;"
+          style="position: absolute; width: 0px;"
         />
         <span
           class="ant-picker-suffix"
@@ -12401,7 +12401,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <div
             class="ant-picker-range-arrow"
-            style="left: 0px;"
+            style="inset-inline-start: 0;"
           />
           <div
             class="ant-picker-panel-container ant-picker-date-panel-container"
