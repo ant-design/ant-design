@@ -9,7 +9,7 @@ const ContextIsolator: React.FC<
   >
 > = (props) => {
   const { isolateSpaceContext, isolateFormContext, children } = props;
-  if (!children) {
+  if (children === undefined || children === null) {
     return null;
   }
   let result: React.ReactNode = children;
