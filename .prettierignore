@@ -3,7 +3,6 @@
 CODEOWNERS
 .dockerignore
 Dockerfile.ui-test
-package.json
 .dumi/tmp
 .dumi/tmp-production
 AUTHORS.txt
