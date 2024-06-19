@@ -318,4 +318,4 @@ To test the quality of the navigation system, conduct a stress test: parachute i
 - [Windows - UWP Navigation Design Basics](https://docs.microsoft.com/zh-cn/windows/uwp/design/basics/navigation-basics)
 - [When You Should Use a Breadcrumb Navigation?](https://uxmovement.com/navigation/when-you-should-use-a-breadcrumb-navigation/)
 - [Books: "Information Architecture for the World Wide Web" - Navigation Systems](https://www.oreilly.com/library/view/information-architecture-for/0596527349)
-- [Books: "Web Navigation Design"](https://www.oreilly.com/library/view/designing-web-navigation/9780596528102/)
+- [Books: "Designing Web Navigation"](https://www.oreilly.com/library/view/designing-web-navigation/9780596528102/)
