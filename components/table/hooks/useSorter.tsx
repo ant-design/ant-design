@@ -402,7 +402,9 @@ export default function useFilterSorter<RecordType>({
     // Return if not controlled
     if (!collectedStates.length) {
       return sortStates.filter((item) =>
-        mergedColumns.some((col) => JSON.stringify(col) === JSON.stringify(item.column)),
+        collectSortStates(mergedColumns, true).some((i) =>
+          i.key ? i.key === item.key : i.column.dataIndex === item.column.dataIndex,
+        ),
       );
     }
 
