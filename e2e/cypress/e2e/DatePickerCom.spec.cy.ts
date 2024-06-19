@@ -11,6 +11,7 @@ describe('DatePicker Component', () => {
       it('should respond to click', () => {
         cy.contains('Danger Button').click();
         cy.contains('Loading Button').should('exist');
+        cy.contains('Loading Button Float').should('exist');
         cy.get('.button-result').should('contain', 'Clicked');
       });
     });
@@ -19,6 +20,7 @@ describe('DatePicker Component', () => {
       it('should display the Float DatePicker', () => {
         const floatButton = cy.contains('FloatBtn');
         floatButton.should('exist');
+        floatButton.contains('Loading Button Float').should('exist');
         floatButton.should('contain', 'FloatBtn');
       });
   
