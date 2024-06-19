@@ -401,7 +401,9 @@ export default function useFilterSorter<RecordType>({
 
     // Return if not controlled
     if (!collectedStates.length) {
-      return sortStates.filter(item => mergedColumns.includes(item.column));
+      return sortStates.filter((item) =>
+        mergedColumns.some((col) => JSON.stringify(col) === JSON.stringify(item.column)),
+      );
     }
 
     const validateStates: SortState<RecordType>[] = [];
