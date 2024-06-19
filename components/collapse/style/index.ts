@@ -97,7 +97,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
           position: 'relative', // Compatible with old version of antd, should remove in next version
           display: 'flex',
           flexWrap: 'nowrap',
-          alignItems: 'flex-start',
+          alignItems: 'center',
           padding: headerPadding,
           color: colorTextHeading,
           lineHeight,
