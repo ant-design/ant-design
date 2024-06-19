@@ -16,6 +16,13 @@ tag: vVERSION
 
 ---
 
+## 5.18.3
+
+`2024-06-19`
+
+- 🐞 Revert [#49289](https://github.com/ant-design/ant-design/pull/49289) to resolve Table sort state missing in some cases. [#49487](https://github.com/ant-design/ant-design/pull/49487)
+- 🛠 Migrate the `genCalc` and `AbstractCalculator ` to `@ant-design/cssinjs`. [#49463](https://github.com/ant-design/ant-design/pull/49463) [@YumoImer](https://github.com/YumoImer)
+
 ## 5.18.2
 
 `2024-06-17`
