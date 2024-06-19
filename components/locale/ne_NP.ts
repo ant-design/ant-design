@@ -47,10 +47,6 @@ const localeValues: Locale = {
     Previous: 'अघिल्लो',
     Finish: 'भ्रमण अन्त्य गर्नुहोस्',
   },
-  Popconfirm: {
-    cancelText: 'रद्द गर्नुहोस्',
-    okText: 'निश्चित',
-  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'यहाँ खोज्नुहोस्',
