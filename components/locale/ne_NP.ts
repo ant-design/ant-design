@@ -11,9 +11,9 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
-  global:{
-    placeholder: 'कृपया छान्नुहोस्'
-  }
+  global: {
+    placeholder: 'कृपया छान्नुहोस्',
+  },
   Table: {
     filterTitle: 'फिल्टर मेनु',
     filterConfirm: 'हो',
