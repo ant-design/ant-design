@@ -5,6 +5,8 @@ import Calendar from '../calendar/locale/en_US';
 import DatePicker from '../date-picker/locale/en_US';
 import TimePicker from '../time-picker/locale/en_US';
 
+const typeTemplate = '${label} यो एक मान्य ${type} होइन';
+
 const localeValues: Locale = {
   locale: 'ne-np',
   Pagination,
