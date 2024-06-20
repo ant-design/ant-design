@@ -141,7 +141,7 @@
     "rc-input": "~1.5.1",
     "rc-input-number": "~9.1.0",
     "rc-mentions": "~2.14.0",
-    "rc-menu": "~9.14.0",
+    "rc-menu": "~9.14.1",
     "rc-motion": "^2.9.2",
     "rc-notification": "~5.6.0",
     "rc-pagination": "~4.0.4",
