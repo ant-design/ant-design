@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import type { InputNumberProps as RcInputNumberProps, ValueType } from 'rc-input-number';
 import RcInputNumber from 'rc-input-number';
 
-import getInputAddon from '../_util/InputAddon';
+import ContextIsolator from '../_util/ContextIsolator';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -137,8 +137,20 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       controls={controlsTemp}
       prefix={prefix}
       suffix={suffixNode}
-      addonBefore={getInputAddon(addonBefore)}
-      addonAfter={getInputAddon(addonAfter)}
+      addonBefore={
+        addonBefore && (
+          <ContextIsolator isolateFormContext isolateSpaceContext>
+            {addonBefore}
+          </ContextIsolator>
+        )
+      }
+      addonAfter={
+        addonAfter && (
+          <ContextIsolator isolateFormContext isolateSpaceContext>
+            {addonAfter}
+          </ContextIsolator>
+        )
+      }
       classNames={{
         input: inputNumberClass,
         variant: classNames(
