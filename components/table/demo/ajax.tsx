@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Table } from 'antd';
 import type { GetProp, TableProps } from 'antd';
+import { Table } from 'antd';
+import type { SorterResult } from 'antd/es/table/interface';
 import qs from 'qs';
 
 type ColumnsType<T> = TableProps<T>['columns'];
@@ -20,8 +21,8 @@ interface DataType {
 
 interface TableParams {
   pagination?: TablePaginationConfig;
-  sortField?: string;
-  sortOrder?: string;
+  sortField?: SorterResult<any>['field'];
+  sortOrder?: SorterResult<any>['order'];
   filters?: Parameters<GetProp<TableProps, 'onChange'>>[1];
 }
 
@@ -85,13 +86,20 @@ const App: React.FC = () => {
 
   useEffect(() => {
     fetchData();
-  }, [tableParams.pagination?.current, tableParams.pagination?.pageSize]);
+  }, [
+    tableParams.pagination?.current,
+    tableParams.pagination?.pageSize,
+    tableParams?.sortOrder,
+    tableParams?.sortField,
+    JSON.stringify(tableParams.filters),
+  ]);
 
   const handleTableChange: TableProps['onChange'] = (pagination, filters, sorter) => {
     setTableParams({
       pagination,
       filters,
-      ...sorter,
+      sortOrder: Array.isArray(sorter) ? undefined : sorter.order,
+      sortField: Array.isArray(sorter) ? undefined : sorter.field,
     });
 
     // `dataSource` is useless since `pageSize` changed
