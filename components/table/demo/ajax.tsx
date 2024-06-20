@@ -91,7 +91,7 @@ const App: React.FC = () => {
     tableParams.pagination?.pageSize,
     tableParams?.sortOrder,
     tableParams?.sortField,
-    tableParams.filters,
+    JSON.stringify(tableParams.filters),
   ]);
 
   const handleTableChange: TableProps['onChange'] = (pagination, filters, sorter) => {
