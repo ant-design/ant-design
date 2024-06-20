@@ -41,6 +41,7 @@ return (
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本使用</code>
 <code src="./demo/search.tsx">带搜索框</code>
+<code src="./demo/search-filter-option.tsx">自定义搜索</code>
 <code src="./demo/multiple.tsx">多选</code>
 <code src="./demo/size.tsx">三种大小</code>
 <code src="./demo/option-render.tsx">自定义下拉选项</code>
