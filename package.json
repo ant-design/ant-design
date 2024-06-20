@@ -242,7 +242,7 @@
     "crypto": "^1.0.1",
     "dekko": "^0.2.1",
     "dumi": "2.4.0-alpha.16",
-    "dumi-plugin-color-chunk": "^1.1.0",
+    "dumi-plugin-color-chunk": "^1.1.1",
     "esbuild-loader": "^4.1.0",
     "eslint": "^8.57.0",
     "eslint-config-airbnb": "^19.0.4",
@@ -353,11 +353,6 @@
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
-  },
-  "overrides": {
-    "dumi-plugin-color-chunk": {
-      "dumi": "^2.4.0-alpha.16"
-    }
   },
   "size-limit": [
     {
