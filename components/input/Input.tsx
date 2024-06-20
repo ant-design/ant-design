@@ -4,8 +4,8 @@ import type { InputRef, InputProps as RcInputProps } from 'rc-input';
 import RcInput from 'rc-input';
 import { composeRef } from 'rc-util/lib/ref';
 
+import ContextIsolator from '../_util/ContextIsolator';
 import getAllowClear from '../_util/getAllowClear';
-import getInputAddon from '../_util/InputAddon';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -198,8 +198,20 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
         input?.className,
       )}
       onChange={handleChange}
-      addonBefore={getInputAddon(addonBefore)}
-      addonAfter={getInputAddon(addonAfter)}
+      addonBefore={
+        addonBefore && (
+          <ContextIsolator isolateFormContext isolateSpaceContext>
+            {addonBefore}
+          </ContextIsolator>
+        )
+      }
+      addonAfter={
+        addonAfter && (
+          <ContextIsolator isolateFormContext isolateSpaceContext>
+            {addonAfter}
+          </ContextIsolator>
+        )
+      }
       classNames={{
         ...classes,
         ...input?.classNames,
