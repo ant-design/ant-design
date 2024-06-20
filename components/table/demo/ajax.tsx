@@ -48,7 +48,7 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-const getRandomuserParams = (params: TableParams) => ({
+const getRandomUserParams = (params: TableParams) => ({
   results: params.pagination?.pageSize,
   page: params.pagination?.current,
   ...params,
@@ -57,16 +57,11 @@ const getRandomuserParams = (params: TableParams) => ({
 const App: React.FC = () => {
   const [data, setData] = useState<DataType[]>();
   const [loading, setLoading] = useState(false);
-  const [tableParams, setTableParams] = useState<TableParams>({
-    pagination: {
-      current: 1,
-      pageSize: 10,
-    },
-  });
+  const [tableParams, setTableParams] = useState<TableParams>({});
 
   const fetchData = () => {
     setLoading(true);
-    fetch(`https://randomuser.me/api?${qs.stringify(getRandomuserParams(tableParams))}`)
+    fetch(`https://randomuser.me/api?${qs.stringify(getRandomUserParams(tableParams))}`)
       .then((res) => res.json())
       .then(({ results }) => {
         setData(results);
@@ -85,19 +80,17 @@ const App: React.FC = () => {
 
   useEffect(() => {
     fetchData();
-  }, [tableParams.pagination?.current, tableParams.pagination?.pageSize]);
+  }, []);
 
   const handleTableChange: TableProps['onChange'] = (pagination, filters, sorter) => {
-    setTableParams({
-      pagination,
-      filters,
-      ...sorter,
-    });
+    setTableParams({ pagination, filters, ...sorter });
 
     // `dataSource` is useless since `pageSize` changed
     if (pagination.pageSize !== tableParams.pagination?.pageSize) {
       setData([]);
     }
+
+    setTimeout(() => fetchData());
   };
 
   return (
