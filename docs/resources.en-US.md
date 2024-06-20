@@ -41,9 +41,9 @@ Please find below some of the design resources and tools about Ant Design that w
   - Landing Templates
   - https://landing.ant.design/docs/download-cn
   - Official
-- UI Kit for Figma
+- Figma Resources
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
-  - Library of components for Desktop
+  - Always up-to-date Ant Design Figma resources
   - https://www.antforfigma.com
 - Figma Open Source Library
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
