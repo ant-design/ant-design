@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import type { GetProp, TableProps } from 'antd';
 import { Table } from 'antd';
+import type { SorterResult } from 'antd/es/table/interface';
 import qs from 'qs';
 
 type ColumnsType<T> = TableProps<T>['columns'];
@@ -20,8 +21,8 @@ interface DataType {
 
 interface TableParams {
   pagination?: TablePaginationConfig;
-  sortField?: string;
-  sortOrder?: string;
+  sortField?: SorterResult<any>['field'];
+  sortOrder?: SorterResult<any>['order'];
   filters?: Parameters<GetProp<TableProps, 'onChange'>>[1];
 }
 
@@ -64,17 +65,17 @@ const App: React.FC = () => {
     },
   });
 
-  const fetchData = (params: TableParams) => {
+  const fetchData = () => {
     setLoading(true);
-    fetch(`https://randomuser.me/api?${qs.stringify(getRandomuserParams(params))}`)
+    fetch(`https://randomuser.me/api?${qs.stringify(getRandomuserParams(tableParams))}`)
       .then((res) => res.json())
       .then(({ results }) => {
         setData(results);
         setLoading(false);
         setTableParams({
-          ...params,
+          ...tableParams,
           pagination: {
-            ...params.pagination,
+            ...tableParams.pagination,
             total: 200,
             // 200 is mock data, you should read it from server
             // total: data.totalCount,
@@ -84,11 +85,22 @@ const App: React.FC = () => {
   };
 
   useEffect(() => {
-    fetchData(tableParams);
-  }, []);
+    fetchData();
+  }, [
+    tableParams.pagination?.current,
+    tableParams.pagination?.pageSize,
+    tableParams?.sortOrder,
+    tableParams?.sortField,
+  ]);
 
   const handleTableChange: TableProps['onChange'] = (pagination, filters, sorter) => {
-    fetchData({ pagination, filters, ...sorter });
+    console.log('sorter', sorter);
+    setTableParams({
+      pagination,
+      filters,
+      sortOrder: Array.isArray(sorter) ? undefined : sorter.order,
+      sortField: Array.isArray(sorter) ? undefined : sorter.field,
+    });
 
     // `dataSource` is useless since `pageSize` changed
     if (pagination.pageSize !== tableParams.pagination?.pageSize) {
