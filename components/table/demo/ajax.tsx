@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Table } from 'antd';
 import type { GetProp, TableProps } from 'antd';
+import { Table } from 'antd';
 import qs from 'qs';
 
 type ColumnsType<T> = TableProps<T>['columns'];
@@ -48,7 +48,7 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-const getRandomUserParams = (params: TableParams) => ({
+const getRandomuserParams = (params: TableParams) => ({
   results: params.pagination?.pageSize,
   page: params.pagination?.current,
   ...params,
@@ -57,19 +57,24 @@ const getRandomUserParams = (params: TableParams) => ({
 const App: React.FC = () => {
   const [data, setData] = useState<DataType[]>();
   const [loading, setLoading] = useState(false);
-  const [tableParams, setTableParams] = useState<TableParams>({});
+  const [tableParams, setTableParams] = useState<TableParams>({
+    pagination: {
+      current: 1,
+      pageSize: 10,
+    },
+  });
 
-  const fetchData = () => {
+  const fetchData = (params: TableParams) => {
     setLoading(true);
-    fetch(`https://randomuser.me/api?${qs.stringify(getRandomUserParams(tableParams))}`)
+    fetch(`https://randomuser.me/api?${qs.stringify(getRandomuserParams(params))}`)
       .then((res) => res.json())
       .then(({ results }) => {
         setData(results);
         setLoading(false);
         setTableParams({
-          ...tableParams,
+          ...params,
           pagination: {
-            ...tableParams.pagination,
+            ...params.pagination,
             total: 200,
             // 200 is mock data, you should read it from server
             // total: data.totalCount,
@@ -79,18 +84,16 @@ const App: React.FC = () => {
   };
 
   useEffect(() => {
-    fetchData();
+    fetchData(tableParams);
   }, []);
 
   const handleTableChange: TableProps['onChange'] = (pagination, filters, sorter) => {
-    setTableParams({ pagination, filters, ...sorter });
+    fetchData({ pagination, filters, ...sorter });
 
     // `dataSource` is useless since `pageSize` changed
     if (pagination.pageSize !== tableParams.pagination?.pageSize) {
       setData([]);
     }
-
-    setTimeout(() => fetchData());
   };
 
   return (
