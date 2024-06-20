@@ -95,7 +95,6 @@ const App: React.FC = () => {
   ]);
 
   const handleTableChange: TableProps['onChange'] = (pagination, filters, sorter) => {
-    console.log('sorter', sorter);
     setTableParams({
       pagination,
       filters,
