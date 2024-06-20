@@ -1,4 +1,4 @@
-import type { QRProps } from 'rc-qrcode-kiner';
+import type { QRProps } from '@rc-component/qrcode';
 
 type ImageSettings = QRProps['imageSettings'];
 

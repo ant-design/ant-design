@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import ReloadOutlined from '@ant-design/icons/ReloadOutlined';
 import classNames from 'classnames';
-import { QRCodeCanvas, QRCodeSVG } from 'rc-qrcode-kiner';
+import { QRCodeCanvas, QRCodeSVG } from '@rc-component/qrcode';
 
 import { devUseWarning } from '../_util/warning';
 import Button from '../button';
