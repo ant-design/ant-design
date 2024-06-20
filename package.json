@@ -347,6 +347,11 @@
     "webpack-bundle-analyzer": "^4.10.2",
     "xhr-mock": "^2.5.1"
   },
+  "overrides": {
+    "react": "19.0.0-rc-e684ca66ab-20240619",
+    "react-dom": "19.0.0-rc-e684ca66ab-20240619"
+    
+  },
   "peerDependencies": {
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"
