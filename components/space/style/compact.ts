@@ -1,7 +1,8 @@
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 
 /** Component only token. Which will handle additional calculation of alias token */
-export type ComponentToken = unknown;
+// biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
+export interface ComponentToken {}
 
 interface SpaceToken extends FullToken<'Space'> {
   // Custom token here

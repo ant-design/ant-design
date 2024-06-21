@@ -8,7 +8,8 @@ import genInputStyle from './input';
 import genPickerStyle from './picker';
 import genPresetsStyle from './presets';
 
-export type ComponentToken = unknown;
+// biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
+export interface ComponentToken {}
 
 export interface ColorPickerToken extends FullToken<'ColorPicker'> {
   colorPickerWidth: number;

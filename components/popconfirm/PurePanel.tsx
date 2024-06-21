@@ -33,7 +33,7 @@ export interface OverlayProps
     | 'onPopupClick'
   > {
   prefixCls: string;
-  close?: React.MouseEventHandler<HTMLButtonElement>;
+  close?: (...args: any[]) => void;
   onConfirm?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   onCancel?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
 }

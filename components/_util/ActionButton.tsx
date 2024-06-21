@@ -8,7 +8,7 @@ import { convertLegacyProps } from '../button/buttonHelpers';
 export interface ActionButtonProps {
   type?: LegacyButtonType;
   actionFn?: (...args: any[]) => any | PromiseLike<any>;
-  close?: React.MouseEventHandler<HTMLButtonElement>;
+  close?: (...args: any[]) => void;
   autoFocus?: boolean;
   prefixCls: string;
   buttonProps?: ButtonProps;
