@@ -39,7 +39,7 @@ const createDot = (
   dot.style.borderRadius = '50%';
   dot.style.background = color;
   dot.style.transform = 'translate(-50%, -50%)';
-  dot.style.transition = `all 1s ease-out`;
+  dot.style.transition = 'all 1s ease-out';
   holder.appendChild(dot);
 
   return dot;
