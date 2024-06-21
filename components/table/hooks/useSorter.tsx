@@ -401,7 +401,11 @@ export default function useFilterSorter<RecordType>({
 
     // Return if not controlled
     if (!collectedStates.length) {
-      return sortStates.filter(item => mergedColumns.includes(item.column));
+      const mergedColumnsKeys = mergedColumns.map((item, index) =>
+        getColumnKey(item, getColumnPos(index)),
+      );
+
+      return sortStates.filter(({ key }) => mergedColumnsKeys.includes(key));
     }
 
     const validateStates: SortState<RecordType>[] = [];
