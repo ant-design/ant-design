@@ -164,11 +164,19 @@ describe('ConfigProvider', () => {
             <Input id="variant-input-3" />
           </Form>
         </ConfigProvider>
+        <ConfigProvider input={{ variant: 'filled' }}>
+          <Input id="variant-input-4" />
+        </ConfigProvider>
+        <ConfigProvider variant="borderless" input={{ variant: 'filled' }}>
+          <Input id="variant-input-5" />
+        </ConfigProvider>
       </>,
     );
 
     expect(container.querySelector('#variant-input-1')).toHaveClass('ant-input-filled');
     expect(container.querySelector('#variant-input-2')).toHaveClass('ant-input-outlined');
     expect(container.querySelector('#variant-input-3')).toHaveClass('ant-input-borderless');
+    expect(container.querySelector('#variant-input-4')).toHaveClass('ant-input-filled');
+    expect(container.querySelector('#variant-input-5')).toHaveClass('ant-input-filled');
   });
 });
