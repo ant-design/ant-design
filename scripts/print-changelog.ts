@@ -268,7 +268,6 @@ async function printLog() {
   console.log(chalk.yellow('🇺🇸 English changelog:'));
   console.log('\n');
   printPR('english', (english: string) => {
-    // biome-ignore lint/style/noParameterAssign: we could ignore it in script files
     english = english.trim();
     if (english[english.length - 1] !== '.' || !english) {
       english = `${english}.`;

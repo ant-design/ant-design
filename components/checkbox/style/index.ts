@@ -4,7 +4,7 @@ import { genFocusOutline, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
-export type ComponentToken = {};
+export type ComponentToken = unknown;
 
 interface CheckboxToken extends FullToken<'Checkbox'> {
   checkboxCls: string;

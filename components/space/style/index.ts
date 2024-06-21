@@ -3,7 +3,7 @@ import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genSpaceCompactStyle from './compact';
 
 /** Component only token. Which will handle additional calculation of alias token */
-export type ComponentToken = {};
+export type ComponentToken = unknown;
 
 interface SpaceToken extends FullToken<'Space'> {
   spaceGapSmallSize: number;

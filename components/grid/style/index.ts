@@ -4,7 +4,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
-export type ComponentToken = {};
+export type ComponentToken = unknown;
 
 interface GridRowToken extends FullToken<'Grid'> {
   //

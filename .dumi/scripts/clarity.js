@@ -1,4 +1,3 @@
-// biome-ignore lint: reason
 /* eslint-disable */
 // https://clarity.microsoft.com
 ((c, l, a, r, i, t, y) => {

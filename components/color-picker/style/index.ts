@@ -8,7 +8,7 @@ import genInputStyle from './input';
 import genPickerStyle from './picker';
 import genPresetsStyle from './presets';
 
-export type ComponentToken = {};
+export type ComponentToken = unknown;
 
 export interface ColorPickerToken extends FullToken<'ColorPicker'> {
   colorPickerWidth: number;

@@ -107,7 +107,7 @@
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
-      "biome format --write"
+      "biome check --write"
     ],
     "*.{json,less,md}": [
       "prettier --ignore-unknown --write"

@@ -1,7 +1,7 @@
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks } from '../../theme/internal';
 
-export type ComponentToken = {};
+export type ComponentToken = unknown;
 
 interface AppToken extends FullToken<'App'> {}
 

@@ -5,7 +5,7 @@ import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
-export type ComponentToken = {};
+export type ComponentToken = unknown;
 
 interface QRCodeToken extends FullToken<'QRCode'> {
   QRCodeTextColor: string;

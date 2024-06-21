@@ -1,5 +1,5 @@
-import type { CSSProperties } from 'react';
 import { unit } from '@ant-design/cssinjs';
+import type { CSSProperties } from 'react';
 
 import { genFocusStyle, resetComponent } from '../../style';
 import {
@@ -251,7 +251,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
             transition: `all ${motionDurationMid}`,
             borderRadius: token.borderRadiusSM,
 
-            [`&:hover, &-active`]: {
+            '&:hover, &-active': {
               backgroundColor: token.controlItemBgHover,
             },
 

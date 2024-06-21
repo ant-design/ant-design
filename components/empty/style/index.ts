@@ -4,7 +4,7 @@ import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 /** Component only token. Which will handle additional calculation of alias token */
-export type ComponentToken = {};
+export type ComponentToken = unknown;
 
 interface EmptyToken extends FullToken<'Empty'> {
   emptyImgCls: string;

@@ -75,6 +75,7 @@ function rehypeAntd(): UnifiedTransformer<HastRoot> {
           const configRegx = /^const sandpackConfig = ([\S\s]*?});/;
           const [configString] = code.match(configRegx) || [];
           // eslint-disable-next-line no-eval
+          // biome-ignore lint/security/noGlobalEval: used in documentation
           const config = configString && eval(`(${configString.replace(configRegx, '$1')})`);
           Object.keys(config || {}).forEach((key) => {
             if (typeof config[key] === 'object') {

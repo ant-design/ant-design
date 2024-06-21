@@ -1,6 +1,14 @@
 {
   "files": {
-    "ignore": [".dumi/tmp", "./dist/*", "./es/**/*", "./lib/**/*", "_site/**/*", "node_modules"]
+    "ignore": [
+      ".dumi/tmp",
+      "./dist/*",
+      "./es/**/*",
+      "./lib/**/*",
+      "_site/**/*",
+      "node_modules",
+      ".dumi/scripts/clarity.js"
+    ]
   },
   "formatter": {
     "enabled": true,
@@ -31,9 +39,49 @@
         "useExhaustiveDependencies": "off"
       },
       "suspicious": {
+        "noGlobalIsNan": "off",
         "noExplicitAny": "off",
         "noArrayIndexKey": "off"
+      },
+      "performance": {
+        "noDelete": "off",
+        "noAccumulatingSpread": "off"
       }
     }
-  }
+  },
+  "overrides": [
+    {
+      "include": ["**/*.test.ts", "**/*.test.tsx", "tests/**/*", "scripts/**/*"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noParameterAssign": "off"
+          },
+          "suspicious": {
+            "noThenProperty": "off"
+          },
+          "a11y": {
+            "useValidAnchor": "off",
+            "useAnchorContent": "off",
+            "useKeyWithClickEvents": "off"
+          }
+        }
+      }
+    },
+    {
+      "include": ["components/*/demo/*"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noVoidTypeReturn": "off"
+          },
+          "a11y": {
+            "useValidAnchor": "off",
+            "useAnchorContent": "off",
+            "useKeyWithClickEvents": "off"
+          }
+        }
+      }
+    }
+  ]
 }

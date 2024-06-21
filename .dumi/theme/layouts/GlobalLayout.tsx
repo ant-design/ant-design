@@ -1,24 +1,24 @@
-import React, { Suspense, useCallback, useEffect } from 'react';
 import {
+  NaNLinter,
+  StyleProvider,
   createCache,
   extractStyle,
   legacyNotSelectorLinter,
-  NaNLinter,
   parentSelectorLinter,
-  StyleProvider,
 } from '@ant-design/cssinjs';
 import { HappyProvider } from '@ant-design/happy-work-theme';
 import { getSandpackCssText } from '@codesandbox/sandpack-react';
-import { theme as antdTheme, App } from 'antd';
+import { App, theme as antdTheme } from 'antd';
 import type { MappingAlgorithm } from 'antd';
 import type { DirectionType, ThemeConfig } from 'antd/es/config-provider';
 import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML } from 'dumi';
+import React, { Suspense, useCallback, useEffect } from 'react';
 
 import { DarkContext } from '../../hooks/useDark';
 import useLayoutState from '../../hooks/useLayoutState';
 import useLocation from '../../hooks/useLocation';
-import type { ThemeName } from '../common/ThemeSwitch';
 import SiteThemeProvider from '../SiteThemeProvider';
+import type { ThemeName } from '../common/ThemeSwitch';
 import type { SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
 
@@ -153,6 +153,7 @@ const GlobalLayout: React.FC = () => {
       plain: true,
       types: 'style',
     });
+    // biome-ignore lint/security/noDangerouslySetInnerHtml: only used in .dumi
     return <style data-type="antd-cssinjs" dangerouslySetInnerHTML={{ __html: styleText }} />;
   });
 
@@ -166,6 +167,7 @@ const GlobalLayout: React.FC = () => {
         data-type="antd-css-var"
         data-rc-order="prepend"
         data-rc-priority="-9999"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: only used in .dumi
         dangerouslySetInnerHTML={{ __html: styleText }}
       />
     );
@@ -175,6 +177,7 @@ const GlobalLayout: React.FC = () => {
     <style
       data-sandpack="true"
       id="sandpack"
+      // biome-ignore lint/security/noDangerouslySetInnerHtml: only used in .dumi
       dangerouslySetInnerHTML={{ __html: getSandpackCssText() }}
     />
   ));

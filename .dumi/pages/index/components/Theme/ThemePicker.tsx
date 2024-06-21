@@ -1,8 +1,8 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-import * as React from 'react';
 import { Flex } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import * as React from 'react';
 
 import useLocale from '../../../../hooks/useLocale';
 
@@ -87,6 +87,7 @@ const ThemePicker: React.FC<ThemePickerProps> = (props) => {
     <Flex gap="large" wrap>
       {(Object.keys(THEMES) as (keyof typeof THEMES)[]).map<React.ReactNode>((theme, index) => (
         <Flex vertical gap="small" justify="center" align="center" key={theme}>
+          {/* biome-ignore lint/a11y/useKeyWithClickEvents: no need in this case */}
           <label
             onClick={() => onChange?.(theme)}
             className={classNames(styles.themeCard, {

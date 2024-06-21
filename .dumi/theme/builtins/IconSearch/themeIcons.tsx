@@ -1,5 +1,5 @@
-import * as React from 'react';
 import type { CustomIconComponentProps } from '@ant-design/icons/es/components/Icon';
+import * as React from 'react';
 
 type CustomIconComponent = React.ComponentType<
   CustomIconComponentProps | React.SVGProps<SVGSVGElement>
@@ -12,6 +12,7 @@ export const FilledIcon: CustomIconComponent = (props) => {
     '0c0-53-43-96-96-96z';
   return (
     <svg {...props} viewBox="0 0 1024 1024">
+      <title>Filled Icon</title>
       <path d={path} />
     </svg>
   );
@@ -26,6 +27,7 @@ export const OutlinedIcon: CustomIconComponent = (props) => {
     ' 12 12v680c0 6.6-5.4 12-12 12z';
   return (
     <svg {...props} viewBox="0 0 1024 1024">
+      <title>Outlined Icon</title>
       <path d={path} />
     </svg>
   );
@@ -39,6 +41,7 @@ export const TwoToneIcon: CustomIconComponent = (props) => {
     '68 368 0 203.41-164.622 368-368 368z';
   return (
     <svg {...props} viewBox="0 0 1024 1024">
+      <title>TwoTone Icon</title>
       <path d={path} />
     </svg>
   );

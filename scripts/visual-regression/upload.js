@@ -27,7 +27,6 @@ function retry(promise, retries, delay) {
           setTimeout(() => {
             attempt();
           }, delay);
-          // biome-ignore lint/style/noParameterAssign: we need to decrease the retries
           retries--;
         } else {
           reject(error);
