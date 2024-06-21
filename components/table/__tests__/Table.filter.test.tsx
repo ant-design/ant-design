@@ -2954,24 +2954,30 @@ describe('Table.filter', () => {
         <p>Data Not Found</p>
       </div>
     );
-    const tableProps = {
-      columns: [
-        {
-          title: 'Name',
-          dataIndex: 'name',
-          key: 'name',
-          filters: [],
-        },
-        {
-          title: 'Age',
-          dataIndex: 'age',
-          key: 'age',
-        },
-      ],
-    };
+
+    interface DataType {
+      key: string;
+      name: string;
+      age: number;
+    }
+
+    const columns: TableProps<DataType>['columns'] = [
+      {
+        title: 'Name',
+        dataIndex: 'name',
+        key: 'name',
+        filters: [],
+      },
+      {
+        title: 'Age',
+        dataIndex: 'age',
+        key: 'age',
+      },
+    ];
+
     const { container } = render(
       <ConfigProvider renderEmpty={customizeRenderEmpty}>
-        <Table {...tableProps} />;
+        <Table columns={columns} />;
       </ConfigProvider>,
     );
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
