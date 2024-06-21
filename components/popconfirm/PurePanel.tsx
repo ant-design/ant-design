@@ -1,6 +1,6 @@
-import * as React from 'react';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import classNames from 'classnames';
+import * as React from 'react';
 
 import type { PopconfirmProps } from '.';
 import ActionButton from '../_util/ActionButton';
@@ -33,7 +33,7 @@ export interface OverlayProps
     | 'onPopupClick'
   > {
   prefixCls: string;
-  close?: Function;
+  close?: () => void;
   onConfirm?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   onCancel?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
 }

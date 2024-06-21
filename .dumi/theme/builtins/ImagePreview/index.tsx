@@ -1,7 +1,7 @@
-import React from 'react';
 import { Image } from 'antd';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
+import React from 'react';
 
 interface ImagePreviewProps {
   className?: string;
@@ -117,6 +117,7 @@ const ImagePreview: React.FC<React.PropsWithChildren<ImagePreviewProps>> = (prop
             <div className="preview-image-title">{coverMeta.alt}</div>
             <div
               className="preview-image-description"
+              // biome-ignore lint/security/noDangerouslySetInnerHtml: it's for markdown
               dangerouslySetInnerHTML={{ __html: coverMeta.description ?? '' }}
             />
           </div>

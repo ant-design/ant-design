@@ -1,15 +1,16 @@
-import * as React from 'react';
-import { flushSync } from 'react-dom';
 import classNames from 'classnames';
 import type { UploadProps as RcUploadProps } from 'rc-upload';
 import RcUpload from 'rc-upload';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import * as React from 'react';
+import { flushSync } from 'react-dom';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
+import UploadList from './UploadList';
 import type {
   RcFile,
   ShowUploadListInterface,
@@ -18,7 +19,6 @@ import type {
   UploadProps,
 } from './interface';
 import useStyle from './style';
-import UploadList from './UploadList';
 import { file2Obj, getFileItem, removeFileItem, updateFileList } from './utils';
 
 export const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
@@ -214,7 +214,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
       if (!filteredFileInfoList[index].parsedFile) {
         // `beforeUpload` return false
         const { originFileObj } = fileObj;
-        let clone;
+        let clone: UploadFile;
 
         try {
           clone = new File([originFileObj], originFileObj.name, {
@@ -243,6 +243,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   const onSuccess = (response: any, file: RcFile, xhr: any) => {
     try {
       if (typeof response === 'string') {
+        // biome-ignore lint/style/noParameterAssign: we need to modify response
         response = JSON.parse(response);
       }
     } catch (e) {

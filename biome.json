@@ -40,30 +40,35 @@
       },
       "suspicious": {
         "noGlobalIsNan": "off",
+        "noGlobalIsFinite": "off",
         "noExplicitAny": "off",
-        "noArrayIndexKey": "off"
+        "noArrayIndexKey": "off",
+        "noThenProperty": "off"
       },
       "performance": {
         "noDelete": "off",
         "noAccumulatingSpread": "off"
+      },
+      "a11y": {
+        "useKeyWithClickEvents": "off"
       }
     }
   },
   "overrides": [
     {
-      "include": ["**/*.test.ts", "**/*.test.tsx", "tests/**/*", "scripts/**/*"],
+      "include": ["**/*.test.ts", "**/*.test.tsx", "tests/**/*", "scripts/**/*", ".dumi/**/*"],
       "linter": {
         "rules": {
           "style": {
             "noParameterAssign": "off"
           },
           "suspicious": {
-            "noThenProperty": "off"
+            "noThenProperty": "off",
+            "noImplicitAnyLet": "off"
           },
           "a11y": {
             "useValidAnchor": "off",
-            "useAnchorContent": "off",
-            "useKeyWithClickEvents": "off"
+            "useAnchorContent": "off"
           }
         }
       }

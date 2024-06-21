@@ -1,7 +1,7 @@
-import type * as React from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
+import type * as React from 'react';
 
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
@@ -132,7 +132,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
       cursor: 'pointer',
       touchAction: 'none',
 
-      [`&-vertical`]: {
+      '&-vertical': {
         margin: `${unit(marginFull)} ${unit(marginPart)}`,
       },
 
@@ -257,7 +257,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
       },
 
       [`&-lock ${componentCls}-handle`]: {
-        [`&::before, &::after`]: {
+        '&::before, &::after': {
           transition: 'none',
         },
       },

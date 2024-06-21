@@ -1,11 +1,12 @@
-import * as React from 'react';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
+import * as React from 'react';
 
+import { TinyColor } from '@ctrl/tinycolor';
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
@@ -14,7 +15,6 @@ import Line from './Line';
 import Steps from './Steps';
 import useStyle from './style';
 import { getSize, getSuccessPercent, validProgress } from './utils';
-import { TinyColor } from '@ctrl/tinycolor';
 
 export const ProgressTypes = ['line', 'circle', 'dashboard'] as const;
 export type ProgressType = (typeof ProgressTypes)[number];
@@ -250,6 +250,8 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
       className={classString}
       role="progressbar"
       aria-valuenow={percentNumber}
+      aria-valuemin={0}
+      aria-valuemax={100}
       {...omit(restProps, [
         'trailColor',
         'strokeWidth',

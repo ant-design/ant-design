@@ -1,14 +1,14 @@
-import React, { useEffect, useRef } from 'react';
 import { produce } from 'immer';
 import cloneDeep from 'lodash/cloneDeep';
 import type { UploadRequestOption } from 'rc-upload/lib/interface';
+import React, { useEffect, useRef } from 'react';
 
 import type { RcFile, UploadFile, UploadProps } from '..';
 import Upload from '..';
-import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { resetWarned } from '../../_util/warning';
 import Form from '../../form';
 import { getFileItem, isImageUrl, removeFileItem } from '../utils';
 import { setup, teardown } from './mock';
@@ -460,7 +460,7 @@ describe('Upload', () => {
       url: 'http://www.baidu.com/xxx.png',
     };
 
-    let removePromise: (value: boolean | Promise<void | boolean>) => void;
+    let removePromise: (value: boolean | Promise<undefined | boolean>) => void;
 
     const onRemove: UploadProps['onRemove'] = () =>
       new Promise((resolve) => {

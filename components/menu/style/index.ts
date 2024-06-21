@@ -1,8 +1,8 @@
-import type { CSSProperties } from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import type { CssUtil } from 'antd-style';
+import type { CSSProperties } from 'react';
 
 import { clearFix, resetComponent, resetIcon } from '../../style';
 import { genCollapseMotion, initSlideMotion, initZoomMotion } from '../../style/motion';
@@ -467,7 +467,7 @@ const genSubMenuArrowStyle = (token: MenuToken): CSSObject => {
 
   return {
     [`${componentCls}-submenu`]: {
-      [`&-expand-icon, &-arrow`]: {
+      '&-expand-icon, &-arrow': {
         position: 'absolute',
         top: '50%',
         insetInlineEnd: token.margin,
@@ -539,7 +539,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
           ...clearFix(),
 
           // Hidden
-          [`&-hidden`]: {
+          '&-hidden': {
             display: 'none',
           },
         },
@@ -562,14 +562,14 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
         // Magic cubic here but smooth transition
         transition: `width ${motionDurationSlow} cubic-bezier(0.2, 0, 0, 1) 0s`,
 
-        [`ul, ol`]: {
+        'ul, ol': {
           margin: 0,
           padding: 0,
           listStyle: 'none',
         },
 
         // Overflow ellipsis
-        [`&-overflow`]: {
+        '&-overflow': {
           display: 'flex',
 
           [`${componentCls}-item`]: {

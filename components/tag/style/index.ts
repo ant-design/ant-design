@@ -1,7 +1,7 @@
-import type React from 'react';
 import { unit } from '@ant-design/cssinjs';
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
+import type React from 'react';
 
 import { resetComponent } from '../../style';
 import type { FullToken } from '../../theme/internal';
@@ -84,7 +84,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         },
       },
 
-      [`&-checkable`]: {
+      '&-checkable': {
         backgroundColor: 'transparent',
         borderColor: 'transparent',
         cursor: 'pointer',
@@ -110,7 +110,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         },
       },
 
-      [`&-hidden`]: {
+      '&-hidden': {
         display: 'none',
       },
 

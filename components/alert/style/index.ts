@@ -1,6 +1,6 @@
-import type { CSSProperties } from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
+import type { CSSProperties } from 'react';
 
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
@@ -85,7 +85,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
         lineHeight: 0,
       },
 
-      [`&-description`]: {
+      '&-description': {
         display: 'none',
         fontSize,
         lineHeight,
@@ -204,7 +204,7 @@ export const genActionStyle: GenerateStyle<AlertToken> = (token: AlertToken): CS
 
   return {
     [componentCls]: {
-      [`&-action`]: {
+      '&-action': {
         marginInlineStart: marginXS,
       },
 

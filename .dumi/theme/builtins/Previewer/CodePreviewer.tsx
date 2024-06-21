@@ -1,4 +1,3 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
 import { LinkOutlined, ThunderboltOutlined, UpOutlined } from '@ant-design/icons';
 import type { Project } from '@stackblitz/sdk';
 import stackblitzSdk from '@stackblitz/sdk';
@@ -7,6 +6,7 @@ import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
 import { FormattedMessage, useLiveDemo, useSiteData } from 'dumi';
 import LZString from 'lz-string';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
@@ -401,6 +401,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
           {description && (
             <div
               className="code-box-description"
+              // biome-ignore lint/security/noDangerouslySetInnerHtml: it's for markdown
               dangerouslySetInnerHTML={{ __html: description }}
             />
           )}

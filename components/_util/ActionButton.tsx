@@ -1,5 +1,5 @@
-import * as React from 'react';
 import useState from 'rc-util/lib/hooks/useState';
+import * as React from 'react';
 
 import Button from '../button';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
@@ -8,7 +8,7 @@ import { convertLegacyProps } from '../button/buttonHelpers';
 export interface ActionButtonProps {
   type?: LegacyButtonType;
   actionFn?: (...args: any[]) => any | PromiseLike<any>;
-  close?: Function;
+  close?: () => void;
   autoFocus?: boolean;
   prefixCls: string;
   buttonProps?: ButtonProps;
