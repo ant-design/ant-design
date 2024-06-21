@@ -313,7 +313,7 @@ describe('Form.List', () => {
 
     render(
       <Form>
-        <Form.List name={null!!}>
+        <Form.List name={null!}>
           {(fields) =>
             fields.map((field) => (
               <Form.Item {...field} key={field.key}>

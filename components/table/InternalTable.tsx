@@ -256,7 +256,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const triggerOnChange = (
     info: Partial<ChangeEventInfo<RecordType>>,
     action: TableAction,
-    reset: boolean = false,
+    reset = false,
   ) => {
     const changeInfo = {
       ...changeEventInfo,

@@ -45,7 +45,7 @@ export interface AutoCompleteProps<
   popupMatchSelectWidth?: boolean | number;
 }
 
-function isSelectOptionOrSelectOptGroup(child: any): Boolean {
+function isSelectOptionOrSelectOptGroup(child: any): boolean {
   return child && child.type && (child.type.isSelectOption || child.type.isSelectOptGroup);
 }
 

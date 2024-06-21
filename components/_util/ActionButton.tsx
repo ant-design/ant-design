@@ -22,7 +22,7 @@ export interface ActionButtonProps {
   isSilent?: () => boolean;
 }
 
-function isThenable<T extends any>(thing?: PromiseLike<T>): boolean {
+function isThenable<T>(thing?: PromiseLike<T>): boolean {
   return !!(thing && thing.then);
 }
 

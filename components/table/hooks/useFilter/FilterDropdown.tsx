@@ -36,8 +36,8 @@ import FilterDropdownMenuWrapper from './FilterWrapper';
 type FilterTreeDataNode = FieldDataNode<{ title: React.ReactNode; key: string }>;
 
 interface FilterRestProps {
-  confirm?: Boolean;
-  closeDropdown?: Boolean;
+  confirm?: boolean;
+  closeDropdown?: boolean;
 }
 
 export function flattenKeys(filters?: ColumnFilterItem[]) {

@@ -106,8 +106,12 @@
     "version": "tsx scripts/generate-version.ts"
   },
   "lint-staged": {
-    "*.{ts,tsx,js,jsx}": "biome format --write",
-    "*.{json,less,md}": "prettier --ignore-unknown --write"
+    "*.{ts,tsx,js,jsx}": [
+      "biome format --write"
+    ],
+    "*.{json,less,md}": [
+      "prettier --ignore-unknown --write"
+    ]
   },
   "browserslist": [
     "> 0.5%",

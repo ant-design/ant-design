@@ -1,7 +1,7 @@
 import { genComponentStyleHook } from '../../theme/internal';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 
-export interface ComponentToken {}
+export type ComponentToken = {};
 
 export interface WaveToken extends FullToken<'Wave'> {}
 

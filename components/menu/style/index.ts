@@ -934,7 +934,7 @@ export const prepareComponentToken: GetDefaultToken<'Menu'> = (token) => {
 };
 
 // ============================== Export ==============================
-export default (prefixCls: string, rootCls: string = prefixCls, injectStyle: boolean = true) => {
+export default (prefixCls: string, rootCls: string = prefixCls, injectStyle = true) => {
   const useStyle = genStyleHooks(
     'Menu',
     (token) => {

@@ -236,7 +236,7 @@ Mentions.Option = Option;
 const PurePanel = genPurePanel(Mentions, 'mentions');
 Mentions._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
-Mentions.getMentions = (value: string = '', config: MentionsConfig = {}): MentionsEntity[] => {
+Mentions.getMentions = (value = '', config: MentionsConfig = {}): MentionsEntity[] => {
   const { prefix = '@', split = ' ' } = config;
   const prefixList: string[] = Array.isArray(prefix) ? prefix : [prefix];
 

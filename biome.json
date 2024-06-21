@@ -1,8 +1,7 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.0.0/schema.json",
   "formatter": {
     "enabled": true,
-    "ignore": ["./dist/*", "./es/**/*", "./lib/**/*", "_site/**/*"],
+    "ignore": [".dumi/tmp", "./dist/*", "./es/**/*", "./lib/**/*", "_site/**/*", "node_modules"],
     "indentStyle": "space",
     "lineWidth": 100,
     "indentWidth": 2
@@ -10,6 +9,27 @@
   "javascript": {
     "formatter": {
       "quoteStyle": "single"
+    }
+  },
+  "linter": {
+    "ignore": [".dumi/tmp", "./dist/*", "./es/**/*", "./lib/**/*", "_site/**/*", "node_modules"],
+    "rules": {
+      "style": {
+        "useImportType": "off",
+        "useNumberNamespace": "off",
+        "useNodejsImportProtocol": "off",
+        "noNonNullAssertion": "off"
+      },
+      "complexity": {
+        "noUselessTypeConstraint": "off",
+        "noForEach": "off"
+      },
+      "correctness": {
+        "useExhaustiveDependencies": "off"
+      },
+      "suspicious": {
+        "noExplicitAny": "off"
+      }
     }
   }
 }

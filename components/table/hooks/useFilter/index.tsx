@@ -212,7 +212,7 @@ export interface FilterConfig<RecordType> {
   rootClassName?: string;
 }
 
-const getMergedColumns = <RecordType extends unknown>(
+const getMergedColumns = <RecordType,>(
   rawMergedColumns: ColumnsType<RecordType>,
 ): ColumnsType<RecordType> =>
   rawMergedColumns.flatMap((column) => {
