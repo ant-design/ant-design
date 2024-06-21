@@ -36,7 +36,8 @@ const useVariant = (
   } else if (legacyBordered === false) {
     mergedVariant = 'borderless';
   } else {
-    mergedVariant = configComponentVariant ?? ctxVariant ?? configVariant ?? 'outlined';
+    // form variant > component global variant > global variant
+    mergedVariant = ctxVariant ?? configComponentVariant ?? configVariant ?? 'outlined';
   }
 
   const enableVariantCls = Variants.includes(mergedVariant);
