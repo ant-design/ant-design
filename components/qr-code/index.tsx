@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import ReloadOutlined from '@ant-design/icons/ReloadOutlined';
 import classNames from 'classnames';
-import { QRCodeCanvas, QRCodeSVG } from 'qrcode.react';
+import { QRCodeCanvas, QRCodeSVG } from '@rc-component/qrcode';
 
 import { devUseWarning } from '../_util/warning';
 import Button from '../button';
@@ -45,6 +45,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     height: typeof iconSize === 'number' ? iconSize : iconSize?.height ?? 40,
     width: typeof iconSize === 'number' ? iconSize : iconSize?.width ?? 40,
     excavate: true,
+    crossOrigin: 'anonymous',
   };
 
   const qrCodeProps = {

@@ -10,6 +10,7 @@ exports[`QRCode test should correct render 1`] = `
   >
     <canvas
       height="160"
+      role="img"
       width="160"
     />
   </div>

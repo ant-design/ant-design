@@ -24,6 +24,7 @@ exports[`renders components/qr-code/demo/base.tsx correctly 1`] = `
     >
       <canvas
         height="160"
+        role="img"
         width="160"
       />
     </div>
@@ -55,6 +56,7 @@ exports[`renders components/qr-code/demo/customColor.tsx correctly 1`] = `
     >
       <canvas
         height="160"
+        role="img"
         width="160"
       />
     </div>
@@ -68,6 +70,7 @@ exports[`renders components/qr-code/demo/customColor.tsx correctly 1`] = `
     >
       <canvas
         height="160"
+        role="img"
         width="160"
       />
     </div>
@@ -153,9 +156,11 @@ Array [
   >
     <canvas
       height="160"
+      role="img"
       width="160"
     />
     <img
+      crossorigin="anonymous"
       src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
       style="display:none"
     />
@@ -173,7 +178,13 @@ exports[`renders components/qr-code/demo/download.tsx correctly 1`] = `
   >
     <canvas
       height="160"
+      role="img"
       width="160"
+    />
+    <img
+      crossorigin="anonymous"
+      src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+      style="display:none"
     />
   </div>
   <button
@@ -195,6 +206,7 @@ Array [
   >
     <canvas
       height="160"
+      role="img"
       width="160"
     />
   </div>,
@@ -273,9 +285,11 @@ exports[`renders components/qr-code/demo/icon.tsx correctly 1`] = `
 >
   <canvas
     height="160"
+    role="img"
     width="160"
   />
   <img
+    crossorigin="anonymous"
     src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
     style="display:none"
   />
@@ -322,6 +336,7 @@ exports[`renders components/qr-code/demo/status.tsx correctly 1`] = `
     </div>
     <canvas
       height="160"
+      role="img"
       width="160"
     />
   </div>
@@ -371,6 +386,7 @@ exports[`renders components/qr-code/demo/status.tsx correctly 1`] = `
     </div>
     <canvas
       height="160"
+      role="img"
       width="160"
     />
   </div>
@@ -389,6 +405,7 @@ exports[`renders components/qr-code/demo/status.tsx correctly 1`] = `
     </div>
     <canvas
       height="160"
+      role="img"
       width="160"
     />
   </div>
@@ -408,6 +425,7 @@ exports[`renders components/qr-code/demo/type.tsx correctly 1`] = `
     >
       <canvas
         height="160"
+        role="img"
         width="160"
       />
     </div>
@@ -421,6 +439,7 @@ exports[`renders components/qr-code/demo/type.tsx correctly 1`] = `
     >
       <svg
         height="160"
+        role="img"
         viewBox="0 0 25 25"
         width="160"
       >

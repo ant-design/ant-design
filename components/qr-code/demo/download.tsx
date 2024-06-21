@@ -16,7 +16,12 @@ const downloadQRCode = () => {
 
 const App: React.FC = () => (
   <div id="myqrcode">
-    <QRCode value="https://ant.design/" bgColor="#fff" style={{ marginBottom: 16 }} />
+    <QRCode
+      value="https://ant.design/"
+      bgColor="#fff"
+      style={{ marginBottom: 16 }}
+      icon="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+    />
     <Button type="primary" onClick={downloadQRCode}>
       Download
     </Button>
