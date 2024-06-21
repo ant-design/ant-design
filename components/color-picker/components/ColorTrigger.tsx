@@ -1,7 +1,7 @@
-import type { CSSProperties, MouseEventHandler } from 'react';
-import React, { forwardRef, useMemo } from 'react';
 import { ColorBlock } from '@rc-component/color-picker';
 import classNames from 'classnames';
+import type { CSSProperties, MouseEventHandler } from 'react';
+import React, { forwardRef, useMemo } from 'react';
 
 import type { ColorPickerBaseProps, ColorPickerProps } from '../interface';
 import { getAlphaColor } from '../util';
@@ -41,7 +41,7 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
         return color.toRgbString();
       case 'hsb':
         return color.toHsbString();
-      case 'hex':
+      // case 'hex':
       default:
         return alpha < 100 ? `${hexString.slice(0, 7)},${alpha}%` : hexString;
     }

@@ -1,6 +1,6 @@
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { FC } from 'react';
 import React, { useMemo } from 'react';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import Select from '../../select';
 import type { Color } from '../color';
@@ -42,7 +42,7 @@ const ColorInput: FC<ColorInputProps> = (props) => {
         return <ColorHsbInput {...inputProps} />;
       case ColorFormat.rgb:
         return <ColorRgbInput {...inputProps} />;
-      case ColorFormat.hex:
+      // case ColorFormat.hex:
       default:
         return <ColorHexInput {...inputProps} />;
     }

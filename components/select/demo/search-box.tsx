@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
 import { Select } from 'antd';
 import type { SelectProps } from 'antd';
 import jsonp from 'fetch-jsonp';
 import qs from 'qs';
+import React, { useState } from 'react';
 
 let timeout: ReturnType<typeof setTimeout> | null;
 let currentValue: string;
 
-const fetch = (value: string, callback: Function) => {
+const fetch = (value: string, callback: () => void) => {
   if (timeout) {
     clearTimeout(timeout);
     timeout = null;

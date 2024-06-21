@@ -1,10 +1,10 @@
-import type { FC } from 'react';
-import React, { useRef } from 'react';
 import { CheckOutlined, SketchOutlined } from '@ant-design/icons';
 import { App } from 'antd';
 import { createStyles } from 'antd-style';
 import copy from 'copy-to-clipboard';
 import { nodeToGroup } from 'html2sketch';
+import type { FC } from 'react';
+import React, { useRef } from 'react';
 
 import type { AntdPreviewerProps } from './Previewer';
 
@@ -80,6 +80,7 @@ const DesignPreviewer: FC<AntdPreviewerProps> = ({ children, title, description,
         {title}
       </a>
       {description && (
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: description is from markdown
         <div className={styles.description} dangerouslySetInnerHTML={{ __html: description }} />
       )}
       <div className={styles.copy}>
@@ -89,10 +90,10 @@ const DesignPreviewer: FC<AntdPreviewerProps> = ({ children, title, description,
             <span style={{ marginInlineStart: 8 }}>已复制，使用 Kitchen 插件即可粘贴</span>
           </div>
         ) : (
-          <div onClick={handleCopy} className={styles.copyTip}>
+          <button type="button" onClick={handleCopy} className={styles.copyTip}>
             <SketchOutlined />
             <span style={{ marginInlineStart: 8 }}>复制 Sketch JSON</span>
-          </div>
+          </button>
         )}
       </div>
       <div className={styles.demo} ref={demoRef}>

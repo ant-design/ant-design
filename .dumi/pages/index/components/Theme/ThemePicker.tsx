@@ -87,7 +87,6 @@ const ThemePicker: React.FC<ThemePickerProps> = (props) => {
     <Flex gap="large" wrap>
       {(Object.keys(THEMES) as (keyof typeof THEMES)[]).map<React.ReactNode>((theme, index) => (
         <Flex vertical gap="small" justify="center" align="center" key={theme}>
-          {/* biome-ignore lint/a11y/useKeyWithClickEvents: no need in this case */}
           <label
             onClick={() => onChange?.(theme)}
             className={classNames(styles.themeCard, {

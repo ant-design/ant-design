@@ -1,12 +1,12 @@
-import React, { Suspense, useRef, useState } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import { resetWarned } from 'rc-util/lib/warning';
+import React, { Suspense, useRef, useState } from 'react';
 
 import Button from '..';
-import type { GetRef } from '../../_util/type';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import type { GetRef } from '../../_util/type';
 import ConfigProvider from '../../config-provider';
 import type { BaseButtonProps } from '../button';
 
@@ -401,9 +401,11 @@ describe('Button', () => {
           promiseCache.resolve = resolve;
         });
         throw promiseCache.promise;
-      } else if (freeze) {
+      }
+      if (freeze) {
         throw promiseCache.promise;
-      } else if (promiseCache.promise) {
+      }
+      if (promiseCache.promise) {
         promiseCache.resolve?.();
         promiseCache.promise = undefined;
       }

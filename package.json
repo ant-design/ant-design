@@ -26,23 +26,13 @@
     "url": "https://opencollective.com/ant-design"
   },
   "license": "MIT",
-  "contributors": [
-    "ant"
-  ],
-  "sideEffects": [
-    "*.css"
-  ],
+  "contributors": ["ant"],
+  "sideEffects": ["*.css"],
   "main": "lib/index.js",
   "unpkg": "dist/antd.min.js",
   "module": "es/index.js",
   "typings": "es/index.d.ts",
-  "files": [
-    "dist",
-    "es",
-    "lib",
-    "locale",
-    "BUG_VERSIONS.json"
-  ],
+  "files": ["dist", "es", "lib", "locale", "BUG_VERSIONS.json"],
   "scripts": {
     "api-collection": "antd-tools run api-collection",
     "authors": "tsx scripts/generate-authors.ts",
@@ -106,19 +96,10 @@
     "version": "tsx scripts/generate-version.ts"
   },
   "lint-staged": {
-    "*.{ts,tsx,js,jsx}": [
-      "biome check --write"
-    ],
-    "*.{json,less,md}": [
-      "prettier --ignore-unknown --write"
-    ]
+    "*.{ts,tsx,js,jsx,json,css}": ["biome check --write"],
+    "*.{md}": ["prettier --ignore-unknown --write"]
   },
-  "browserslist": [
-    "> 0.5%",
-    "last 2 versions",
-    "Firefox ESR",
-    "not dead"
-  ],
+  "browserslist": ["> 0.5%", "last 2 versions", "Firefox ESR", "not dead"],
   "dependencies": {
     "@ant-design/colors": "^7.0.2",
     "@ant-design/cssinjs": "^1.21.0",

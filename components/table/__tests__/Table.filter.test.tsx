@@ -4,8 +4,8 @@ import React, { useEffect, useState } from 'react';
 
 import type { ColumnGroupType, ColumnType, TableProps } from '..';
 import Table from '..';
-import { resetWarned } from '../../_util/warning';
 import { act, fireEvent, render, waitFor } from '../../../tests/utils';
+import { resetWarned } from '../../_util/warning';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Input from '../../input';
@@ -2508,8 +2508,9 @@ describe('Table.filter', () => {
       return (
         <div className={`${prefixCls}-view`} id="customFilter">
           {filterConfig.map(([text, id, param]) => (
-            <>
-              <span
+            <React.Fragment key={`set${id}`}>
+              <button
+                type="button"
                 onClick={() => {
                   setSelectedKeys([text as React.Key]);
                   confirm();
@@ -2517,11 +2518,15 @@ describe('Table.filter', () => {
                 id={`set${id}`}
               >
                 setSelectedKeys
-              </span>
-              <span onClick={() => (clearFilters as any)?.(param)} id={`reset${id}`}>
+              </button>
+              <button
+                type="button"
+                onClick={() => (clearFilters as any)?.(param)}
+                id={`reset${id}`}
+              >
                 Reset
-              </span>
-            </>
+              </button>
+            </React.Fragment>
           ))}
         </div>
       );

@@ -1,6 +1,6 @@
-import * as React from 'react';
 import classNames from 'classnames';
 import { useEvent } from 'rc-util';
+import * as React from 'react';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import getScroll from '../_util/getScroll';
@@ -35,8 +35,7 @@ function getOffsetTop(element: HTMLElement, container: AnchorContainer): number 
 
   if (rect.width || rect.height) {
     if (container === window) {
-      container = element.ownerDocument!.documentElement!;
-      return rect.top - container.clientTop;
+      return rect.top - element.ownerDocument!.documentElement!.clientTop;
     }
     return rect.top - (container as HTMLElement).getBoundingClientRect().top;
   }

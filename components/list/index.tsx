@@ -1,5 +1,5 @@
-import * as React from 'react';
 import classNames from 'classnames';
+import * as React from 'react';
 
 import extendsObject from '../_util/extendsObject';
 import type { Breakpoint } from '../_util/responsiveObserver';
@@ -14,8 +14,8 @@ import type { PaginationConfig } from '../pagination';
 import Pagination from '../pagination';
 import type { SpinProps } from '../spin';
 import Spin from '../spin';
-import { ListContext } from './context';
 import Item from './Item';
+import { ListContext } from './context';
 import useStyle from './style';
 
 export type { ListItemMetaProps, ListItemProps } from './Item';
@@ -120,7 +120,7 @@ function List<T>({
   const renderInnerItem = (item: T, index: number) => {
     if (!renderItem) return null;
 
-    let key;
+    let key: any;
 
     if (typeof rowKey === 'function') {
       key = rowKey(item);

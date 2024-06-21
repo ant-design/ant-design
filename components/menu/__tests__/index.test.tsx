@@ -1,4 +1,3 @@
-import React, { useMemo, useState } from 'react';
 import {
   AppstoreOutlined,
   InboxOutlined,
@@ -6,15 +5,16 @@ import {
   PieChartOutlined,
   UserOutlined,
 } from '@ant-design/icons';
+import React, { useMemo, useState } from 'react';
 
 import type { MenuProps, MenuRef } from '..';
 import Menu from '..';
-import initCollapseMotion from '../../_util/motion';
-import { noop } from '../../_util/warning';
 import { TriggerMockContext } from '../../../tests/shared/demoTestContext';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
+import initCollapseMotion from '../../_util/motion';
+import { noop } from '../../_util/warning';
 import Layout from '../../layout';
 import OverrideContext from '../OverrideContext';
 
@@ -91,10 +91,13 @@ describe('Menu', () => {
   beforeEach(() => {
     jest.useFakeTimers();
     jest.clearAllTimers();
+    div = document.createElement('div');
+    document.body.appendChild(div);
   });
 
   afterEach(() => {
     jest.useRealTimers();
+    document.body.removeChild(div);
   });
 
   mountTest(() => (
@@ -139,15 +142,6 @@ describe('Menu', () => {
   rtlTest(RtlDemo);
 
   let div: HTMLDivElement;
-
-  beforeEach(() => {
-    div = document.createElement('div');
-    document.body.appendChild(div);
-  });
-
-  afterEach(() => {
-    document.body.removeChild(div);
-  });
 
   it('If has select nested submenu item ,the menu items on the grandfather level should be highlight', () => {
     const { container } = render(

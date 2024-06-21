@@ -1,6 +1,6 @@
-import * as React from 'react';
 import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
+import * as React from 'react';
 
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps, DirectionType } from '../config-provider';
@@ -17,7 +17,7 @@ export interface TypographyProps<C extends keyof JSX.IntrinsicElements>
   children?: React.ReactNode;
   /** @internal */
   component?: C;
-  ['aria-label']?: string;
+  'aria-label'?: string;
   direction?: DirectionType;
 }
 

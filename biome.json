@@ -66,9 +66,13 @@
             "noThenProperty": "off",
             "noImplicitAnyLet": "off"
           },
+          "complexity": {
+            "noUselessFragments": "off"
+          },
           "a11y": {
             "useValidAnchor": "off",
-            "useAnchorContent": "off"
+            "useAnchorContent": "off",
+            "useKeyWithClickEvents": "off"
           }
         }
       }

@@ -1,6 +1,6 @@
+import classNames from 'classnames';
 import type { CSSProperties, FC, HTMLAttributes, ReactElement, ReactNode } from 'react';
 import React, { Children, useContext } from 'react';
-import classNames from 'classnames';
 
 import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
@@ -90,7 +90,7 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
   });
 
   const isItemContainsTextNodeAndNotSingular = () => {
-    let result;
+    let result = false;
     Children.forEach(children as ReactElement, (element) => {
       if (typeof element === 'string') {
         result = true;

@@ -1,4 +1,3 @@
-import * as React from 'react';
 import EditOutlined from '@ant-design/icons/EditOutlined';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
@@ -8,6 +7,7 @@ import useIsomorphicLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
 import { composeRef } from 'rc-util/lib/ref';
+import * as React from 'react';
 
 import { isStyleSupport } from '../../_util/styleChecker';
 import TransButton from '../../_util/transButton';
@@ -16,12 +16,12 @@ import useLocale from '../../locale/useLocale';
 import type { TooltipProps } from '../../tooltip';
 import Tooltip from '../../tooltip';
 import Editable from '../Editable';
-import useCopyClick from '../hooks/useCopyClick';
-import useMergedConfig from '../hooks/useMergedConfig';
-import useUpdatedEffect from '../hooks/useUpdatedEffect';
-import usePrevious from '../hooks/usePrevious';
 import type { TypographyProps } from '../Typography';
 import Typography from '../Typography';
+import useCopyClick from '../hooks/useCopyClick';
+import useMergedConfig from '../hooks/useMergedConfig';
+import usePrevious from '../hooks/usePrevious';
+import useUpdatedEffect from '../hooks/useUpdatedEffect';
 import CopyBtn from './CopyBtn';
 import Ellipsis from './Ellipsis';
 import EllipsisTooltip from './EllipsisTooltip';
@@ -384,14 +384,15 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     }
 
     return (
-      <a
+      <button
+        type="button"
         key="expand"
         className={`${prefixCls}-${expanded ? 'collapse' : 'expand'}`}
         onClick={(e) => onExpandClick(e, { expanded: !expanded })}
         aria-label={expanded ? textLocale.collapse : textLocale?.expand}
       >
         {typeof symbol === 'function' ? symbol(expanded) : symbol}
-      </a>
+      </button>
     );
   };
 

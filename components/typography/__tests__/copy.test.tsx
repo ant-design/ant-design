@@ -1,6 +1,6 @@
-import React from 'react';
 import { LikeOutlined, SmileOutlined } from '@ant-design/icons';
 import * as copyObj from 'copy-to-clipboard';
+import React from 'react';
 
 import { fireEvent, render, renderHook, waitFakeTimer, waitFor } from '../../../tests/utils';
 import Base from '../Base';
@@ -135,10 +135,10 @@ describe('Typography copy', () => {
       copyTest({
         name: 'icon custom icon3',
         icon: [
-          <>
+          <React.Fragment key="a">
             <SmileOutlined />
             <SmileOutlined />
-          </>,
+          </React.Fragment>,
           <LikeOutlined key="b" />,
         ],
         iconClassNames: ['.anticon-smile', '.anticon-like'],

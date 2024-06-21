@@ -137,8 +137,8 @@ describe('Form.List', () => {
           {(fields, { add, remove }) => (
             <>
               {fields.map((field) => (
-                // key is in a field
                 // eslint-disable-next-line react/jsx-key
+                // biome-ignore lint/correctness/useJsxKeyInIterable: key is in a field
                 <Form.Item {...field}>
                   <Input />
                 </Form.Item>

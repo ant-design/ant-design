@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
 import { render } from 'rc-util/lib/React/render';
+import React, { useContext } from 'react';
 
 import { AppConfigContext } from '../app/context';
 import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
-import type { ArgsProps, GlobalConfigProps, NotificationInstance } from './interface';
 import PurePanel from './PurePanel';
+import type { ArgsProps, GlobalConfigProps, NotificationInstance } from './interface';
 import useNotification, { useInternalNotification } from './useNotification';
 
 export type { ArgsProps };
@@ -34,10 +34,19 @@ let taskQueue: Task[] = [];
 let defaultGlobalConfig: GlobalConfigProps = {};
 
 function getGlobalContext() {
-  const { getContainer, rtl, maxCount, top, bottom, showProgress, pauseOnHover } = defaultGlobalConfig;
+  const { getContainer, rtl, maxCount, top, bottom, showProgress, pauseOnHover } =
+    defaultGlobalConfig;
   const mergedContainer = getContainer?.() || document.body;
 
-  return { getContainer: () => mergedContainer, rtl, maxCount, top, bottom, showProgress, pauseOnHover };
+  return {
+    getContainer: () => mergedContainer,
+    rtl,
+    maxCount,
+    top,
+    bottom,
+    showProgress,
+    pauseOnHover,
+  };
 }
 
 interface GlobalHolderRef {
@@ -82,7 +91,7 @@ const GlobalHolder = React.forwardRef<
   return holder;
 });
 
-const GlobalHolderWrapper = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
+const GlobalHolderWrapper = React.forwardRef<GlobalHolderRef, unknown>((_, ref) => {
   const [notificationConfig, setNotificationConfig] =
     React.useState<GlobalConfigProps>(getGlobalContext);
 

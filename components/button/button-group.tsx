@@ -1,5 +1,5 @@
-import * as React from 'react';
 import classNames from 'classnames';
+import * as React from 'react';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
@@ -33,7 +33,6 @@ const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
     case 'small':
       sizeCls = 'sm';
       break;
-    case 'middle':
     default:
     // Do nothing
   }
