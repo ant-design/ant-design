@@ -19,17 +19,20 @@
         "useImportType": "off",
         "useNumberNamespace": "off",
         "useNodejsImportProtocol": "off",
-        "noNonNullAssertion": "off"
+        "noNonNullAssertion": "off",
+        "noUnusedTemplateLiteral": "off"
       },
       "complexity": {
         "noUselessTypeConstraint": "off",
-        "noForEach": "off"
+        "noForEach": "off",
+        "useOptionalChain": "off"
       },
       "correctness": {
         "useExhaustiveDependencies": "off"
       },
       "suspicious": {
-        "noExplicitAny": "off"
+        "noExplicitAny": "off",
+        "noArrayIndexKey": "off"
       }
     }
   }
