@@ -47,8 +47,9 @@ import type {
   TourConfig,
   TransferConfig,
   WaveConfig,
+  Variant,
 } from './context';
-import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
+import { ConfigConsumer, ConfigContext, defaultIconPrefixCls, Variants } from './context';
 import { registerTheme } from './cssVariables';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import { DisabledContextProvider } from './DisabledContext';
@@ -59,6 +60,10 @@ import PropWarning from './PropWarning';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
 import useStyle from './style';
+
+export type { Variant };
+
+export { Variants };
 
 /**
  * Since too many feedback using static method like `Modal.confirm` not getting theme, we record the
@@ -125,6 +130,7 @@ export interface ConfigProviderProps {
   csp?: CSPConfig;
   /** @deprecated Please use `{ button: { autoInsertSpace: boolean }}` instead */
   autoInsertSpaceInButton?: boolean;
+  variant?: Variant;
   form?: FormConfig;
   input?: InputConfig;
   textArea?: TextAreaConfig;
@@ -367,6 +373,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     warning: warningConfig,
     tour,
     floatButtonGroup,
+    variant,
   } = props;
 
   // =================================== Context ===================================
@@ -463,6 +470,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     warning: warningConfig,
     tour,
     floatButtonGroup,
+    variant,
   };
 
   if (process.env.NODE_ENV !== 'production') {

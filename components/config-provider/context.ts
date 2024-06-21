@@ -174,6 +174,9 @@ export interface ListConfig extends ComponentStyleConfig {
   item?: Pick<ListItemProps, 'classNames' | 'styles'>;
 }
 
+export const Variants = ['outlined', 'borderless', 'filled'] as const;
+export type Variant = (typeof Variants)[number];
+
 export interface WaveConfig {
   /**
    * @descCN 是否开启水波纹效果。如果需要关闭，可以设置为 `false`。
@@ -202,6 +205,7 @@ export interface ConfigConsumerProps {
   csp?: CSPConfig;
   /** @deprecated Please use `{ button: { autoInsertSpace: boolean }}` instead */
   autoInsertSpaceInButton?: boolean;
+  variant?: Variant;
   input?: InputConfig;
   textArea?: TextAreaConfig;
   pagination?: PaginationConfig;

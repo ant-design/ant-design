@@ -10,6 +10,7 @@ import Button from '../../button';
 import Input from '../../input';
 import Select from '../../select';
 import Table from '../../table';
+import Form from '../../form';
 
 describe('ConfigProvider', () => {
   mountTest(() => (
@@ -147,5 +148,27 @@ describe('ConfigProvider', () => {
 
     errSpy.mockRestore();
     warnSpy.mockRestore();
+  });
+
+  it('should support variant', () => {
+    const { container } = render(
+      <>
+        <ConfigProvider variant="filled">
+          <Input id="variant-input-1" />
+        </ConfigProvider>
+        <ConfigProvider variant="filled">
+          <Input id="variant-input-2" variant="outlined" />
+        </ConfigProvider>
+        <ConfigProvider variant="filled">
+          <Form variant="borderless">
+            <Input id="variant-input-3" />
+          </Form>
+        </ConfigProvider>
+      </>,
+    );
+
+    expect(container.querySelector('#variant-input-1')).toHaveClass('ant-input-filled');
+    expect(container.querySelector('#variant-input-2')).toHaveClass('ant-input-outlined');
+    expect(container.querySelector('#variant-input-3')).toHaveClass('ant-input-borderless');
   });
 });
