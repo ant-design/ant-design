@@ -6,8 +6,7 @@ const App: React.FC = () => (
     showSearch
     style={{ width: 200 }}
     placeholder="Search to Select"
-    optionFilterProp="children"
-    filterOption={(input, option) => (option?.label ?? '').includes(input)}
+    optionFilterProp="label"
     filterSort={(optionA, optionB) =>
       (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
     }
