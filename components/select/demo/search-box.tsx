@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 let timeout: ReturnType<typeof setTimeout> | null;
 let currentValue: string;
 
-const fetch = (value: string, callback: () => void) => {
+const fetch = (value: string, callback: (data: { value: string; text: string }[]) => void) => {
   if (timeout) {
     clearTimeout(timeout);
     timeout = null;

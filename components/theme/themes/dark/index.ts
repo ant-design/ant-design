@@ -18,10 +18,10 @@ const derivative: DerivativeFunc<SeedToken, MapToken> = (token, mapToken) => {
     .map((colorKey) => {
       const colors = generate(token[colorKey as keyof PresetColorType], { theme: 'dark' });
 
-      return new Array(10).fill(1).reduce((acc, _, i) => {
-        acc[`${colorKey}-${i + 1}`] = colors[i];
-        acc[`${colorKey}${i + 1}`] = colors[i];
-        return acc;
+      return new Array(10).fill(1).reduce((prev, _, i) => {
+        prev[`${colorKey}-${i + 1}`] = colors[i];
+        prev[`${colorKey}${i + 1}`] = colors[i];
+        return prev;
       }, {}) as ColorPalettes & LegacyColorPalettes;
     })
     .reduce(

@@ -85,7 +85,7 @@ type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>;
 type TransformFileHandler = (
   file: RcFile,
 ) => string | Blob | File | PromiseLike<string | Blob | File>;
-type BeforeUploadValueType = undefined | boolean | string | Blob | File;
+type BeforeUploadValueType = void | boolean | string | Blob | File;
 
 export interface UploadProps<T = any> extends Pick<RcUploadProps, 'capture' | 'hasControlInside'> {
   type?: UploadType;
@@ -113,7 +113,7 @@ export interface UploadProps<T = any> extends Pick<RcUploadProps, 'capture' | 'h
   rootClassName?: string;
   onPreview?: (file: UploadFile<T>) => void;
   onDownload?: (file: UploadFile<T>) => void;
-  onRemove?: (file: UploadFile<T>) => undefined | boolean | Promise<undefined | boolean>;
+  onRemove?: (file: UploadFile<T>) => void | boolean | Promise<void | boolean>;
   supportServerRender?: boolean;
   style?: React.CSSProperties;
   disabled?: boolean;
@@ -144,7 +144,7 @@ export interface UploadListProps<T = any> {
   listType?: UploadListType;
   onPreview?: (file: UploadFile<T>) => void;
   onDownload?: (file: UploadFile<T>) => void;
-  onRemove?: (file: UploadFile<T>) => undefined | boolean;
+  onRemove?: (file: UploadFile<T>) => void | boolean;
   items?: Array<UploadFile<T>>;
   progress?: UploadListProgressProps;
   prefixCls?: string;

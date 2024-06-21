@@ -43,6 +43,7 @@
         "noGlobalIsFinite": "off",
         "noExplicitAny": "off",
         "noArrayIndexKey": "off",
+        "noConfusingVoidType": "off",
         "noThenProperty": "off"
       },
       "performance": {
