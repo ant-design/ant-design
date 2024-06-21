@@ -100,7 +100,7 @@ describe('Sorter.value.test.tsx', () => {
         ]);
       };
       return (
-        <div>
+        <>
           <Table
             columns={columns}
             dataSource={tableData}
@@ -110,7 +110,7 @@ describe('Sorter.value.test.tsx', () => {
           <button type="button" className="change-column" onClick={handleClick}>
             resetData
           </button>
-        </div>
+        </>
       );
     };
     const { container } = render(<TableSorter />);
@@ -179,7 +179,7 @@ describe('Sorter.value.test.tsx', () => {
         });
       };
       return (
-        <div>
+        <>
           <Table
             columns={tableData.columns}
             dataSource={tableData.data}
@@ -189,7 +189,7 @@ describe('Sorter.value.test.tsx', () => {
           <button type="button" className="change-column" onClick={handleClick}>
             change11
           </button>
-        </div>
+        </>
       );
     };
     const { container } = render(<TableSorter />);
