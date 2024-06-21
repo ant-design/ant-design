@@ -48,6 +48,13 @@ import type {
   TransferConfig,
   WaveConfig,
   Variant,
+  InputNumberConfig,
+  RangePickerConfig,
+  DatePickerConfig,
+  TimePickerConfig,
+  CascaderConfig,
+  TreeSelectConfig,
+  MentionsConfig,
 } from './context';
 import { ConfigConsumer, ConfigContext, defaultIconPrefixCls, Variants } from './context';
 import { registerTheme } from './cssVariables';
@@ -133,6 +140,7 @@ export interface ConfigProviderProps {
   variant?: Variant;
   form?: FormConfig;
   input?: InputConfig;
+  inputNumber?: InputNumberConfig;
   textArea?: TextAreaConfig;
   select?: SelectConfig;
   pagination?: PaginationConfig;
@@ -167,7 +175,8 @@ export interface ConfigProviderProps {
   button?: ButtonConfig;
   calendar?: ComponentStyleConfig;
   carousel?: ComponentStyleConfig;
-  cascader?: ComponentStyleConfig;
+  cascader?: CascaderConfig;
+  treeSelect?: TreeSelectConfig;
   collapse?: CollapseConfig;
   divider?: ComponentStyleConfig;
   drawer?: DrawerConfig;
@@ -180,7 +189,7 @@ export interface ConfigProviderProps {
   image?: ImageConfig;
   layout?: ComponentStyleConfig;
   list?: ListConfig;
-  mentions?: ComponentStyleConfig;
+  mentions?: MentionsConfig;
   modal?: ModalConfig;
   progress?: ComponentStyleConfig;
   result?: ComponentStyleConfig;
@@ -203,13 +212,13 @@ export interface ConfigProviderProps {
   card?: CardConfig;
   tabs?: TabsConfig;
   timeline?: ComponentStyleConfig;
-  timePicker?: ComponentStyleConfig;
+  timePicker?: TimePickerConfig;
   upload?: ComponentStyleConfig;
   notification?: NotificationConfig;
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
-  datePicker?: ComponentStyleConfig;
-  rangePicker?: ComponentStyleConfig;
+  datePicker?: DatePickerConfig;
+  rangePicker?: RangePickerConfig;
   dropdown?: ComponentStyleConfig;
   flex?: FlexConfig;
   /**
@@ -374,6 +383,8 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     tour,
     floatButtonGroup,
     variant,
+    inputNumber,
+    treeSelect,
   } = props;
 
   // =================================== Context ===================================
@@ -471,6 +482,8 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     tour,
     floatButtonGroup,
     variant,
+    inputNumber,
+    treeSelect,
   };
 
   if (process.env.NODE_ENV !== 'production') {
