@@ -1,7 +1,9 @@
 {
+  "files": {
+    "ignore": [".dumi/tmp", "./dist/*", "./es/**/*", "./lib/**/*", "_site/**/*", "node_modules"]
+  },
   "formatter": {
     "enabled": true,
-    "ignore": [".dumi/tmp", "./dist/*", "./es/**/*", "./lib/**/*", "_site/**/*", "node_modules"],
     "indentStyle": "space",
     "lineWidth": 100,
     "indentWidth": 2
@@ -12,7 +14,6 @@
     }
   },
   "linter": {
-    "ignore": [".dumi/tmp", "./dist/*", "./es/**/*", "./lib/**/*", "_site/**/*", "node_modules"],
     "rules": {
       "style": {
         "useImportType": "off",
