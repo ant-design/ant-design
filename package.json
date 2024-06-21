@@ -97,7 +97,7 @@
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx,json,css}": ["biome check --write"],
-    "*.{md}": ["prettier --ignore-unknown --write"]
+    "*.{md,yml}": ["prettier --ignore-unknown --write"]
   },
   "browserslist": ["> 0.5%", "last 2 versions", "Firefox ESR", "not dead"],
   "dependencies": {
