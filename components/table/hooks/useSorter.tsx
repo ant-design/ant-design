@@ -276,7 +276,7 @@ function injectSorter<RecordType>(
   });
 }
 
-const stateToInfo = <RecordType,>(
+const stateToInfo = <RecordType extends any>(
   sorterStates: SortState<RecordType>,
 ): SorterResult<RecordType> => {
   const { column, sortOrder } = sorterStates;
@@ -288,7 +288,7 @@ const stateToInfo = <RecordType,>(
   };
 };
 
-const generateSorterInfo = <RecordType,>(
+const generateSorterInfo = <RecordType extends any>(
   sorterStates: SortState<RecordType>[],
 ): SorterResult<RecordType> | SorterResult<RecordType>[] => {
   const list = sorterStates
