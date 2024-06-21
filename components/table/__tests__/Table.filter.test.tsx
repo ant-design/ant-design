@@ -2942,4 +2942,38 @@ describe('Table.filter', () => {
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     expect(handleChange).not.toHaveBeenCalled();
   });
+
+  it('Fixed the problem that the custom global component did not take effect in the filter', () => {
+    const customizeRenderEmpty = () => (
+      <div
+        style={{
+          textAlign: 'center',
+          color: '#ccc',
+        }}
+      >
+        <p>Data Not Found</p>
+      </div>
+    );
+    const tableProps = {
+      columns: [
+        {
+          title: 'Name',
+          dataIndex: 'name',
+          key: 'name',
+          filters: [],
+        },
+        {
+          title: 'Age',
+          dataIndex: 'age',
+          key: 'age',
+        },
+      ],
+    };
+    const { container } = render(
+      <ConfigProvider renderEmpty={customizeRenderEmpty}>
+        <Table {...tableProps} />;
+      </ConfigProvider>,
+    );
+    fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
+  });
 });
