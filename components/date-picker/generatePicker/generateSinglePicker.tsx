@@ -71,7 +71,7 @@ export default function generatePicker<DateType extends AnyObject>(
       const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
       const innerRef = React.useRef<PickerRef>(null);
 
-      const [variant, enableVariantCls] = useVariant(customVariant, bordered);
+      const [variant, enableVariantCls] = useVariant('datePicker', customVariant, bordered);
 
       const rootCls = useCSSVarCls(prefixCls);
       const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);

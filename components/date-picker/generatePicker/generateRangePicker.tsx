@@ -59,7 +59,7 @@ export default function generateRangePicker<DateType extends AnyObject>(
     const { picker } = props;
     const rootPrefixCls = getPrefixCls();
 
-    const [variant, enableVariantCls] = useVariant(customVariant, bordered);
+    const [variant, enableVariantCls] = useVariant('rangePicker', customVariant, bordered);
 
     const rootCls = useCSSVarCls(prefixCls);
     const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);

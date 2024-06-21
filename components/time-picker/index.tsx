@@ -11,6 +11,7 @@ import type {
   PickerPropsWithMultiple,
   RangePickerProps,
 } from '../date-picker/generatePicker/interface';
+import useVariant from '../form/hooks/useVariants';
 
 export type PickerTimeProps<DateType extends AnyObject> = PickerPropsWithMultiple<
   DateType,
@@ -45,12 +46,14 @@ export interface TimePickerProps extends Omit<PickerTimeProps<Dayjs>, 'picker'> 
 }
 
 const TimePicker = React.forwardRef<any, TimePickerProps>(
-  ({ addon, renderExtraFooter, ...restProps }, ref) => {
+  ({ addon, renderExtraFooter, variant, bordered, ...restProps }, ref) => {
     if (process.env.NODE_ENV !== 'production') {
       const warning = devUseWarning('TimePicker');
 
       warning.deprecated(!addon, 'addon', 'renderExtraFooter');
     }
+
+    const [mergedVariant] = useVariant('timePicker', variant, bordered);
 
     const internalRenderExtraFooter = React.useMemo(() => {
       if (renderExtraFooter) {
@@ -69,6 +72,7 @@ const TimePicker = React.forwardRef<any, TimePickerProps>(
         mode={undefined}
         ref={ref}
         renderExtraFooter={internalRenderExtraFooter}
+        variant={mergedVariant}
       />
     );
   },
