@@ -13,15 +13,10 @@ export default defineConfig({
     // to avoid generate routes for .dumi/pages/index/components/xx
     exclude: [new RegExp('index/components/')],
   },
-  ssr:
-    process.env.NODE_ENV === 'production'
-      ? {
-          builder: 'mako',
-        }
-      : false,
+  ssr: process.env.NODE_ENV === 'production' ? {} : false,
   hash: true,
   mfsu: false,
-  mako: {},
+  // mako: {},
   crossorigin: {},
   outputPath: '_site',
   favicons: ['https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png'],
