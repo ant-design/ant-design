@@ -183,7 +183,7 @@
     "@madccc/duplicate-package-checker-webpack-plugin": "^1.0.0",
     "@microflash/rehype-figure": "^2.1.0",
     "@npmcli/run-script": "^8.1.0",
-    "@octokit/rest": "^20.1.1",
+    "@octokit/rest": "^21.0.0",
     "@qixian.cs/github-contributors-list": "^2.0.2",
     "@size-limit/file": "^11.1.4",
     "@stackblitz/sdk": "^1.10.0",
