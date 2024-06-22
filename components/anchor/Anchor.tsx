@@ -1,6 +1,6 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import { useEvent } from 'rc-util';
-import * as React from 'react';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import getScroll from '../_util/getScroll';

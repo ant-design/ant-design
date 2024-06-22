@@ -90,10 +90,10 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 
 ### MoreProps
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | ---- | ---- |
-| icon | 自定义折叠图标 | ReactNode | -  |    |
-| [DropdownProps](/components/dropdown-cn#api) |      |      |    |     |
+| 参数                                         | 说明           | 类型      | 默认值 | 版本 |
+| -------------------------------------------- | -------------- | --------- | ------ | ---- |
+| icon                                         | 自定义折叠图标 | ReactNode | -      |      |
+| [DropdownProps](/components/dropdown-cn#api) |                |           |        |      |
 
 ## 主题变量（Design Token）
 

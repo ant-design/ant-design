@@ -1,11 +1,11 @@
-import type { AbstractCalculator, CSSInterpolation } from '@ant-design/cssinjs';
-import { genCalc, token2CSSVar, useCSSVarRegister, useStyleRegister } from '@ant-design/cssinjs';
-import { warning } from 'rc-util';
 /* eslint-disable no-redeclare */
 import type { ComponentType, FC, ReactElement } from 'react';
 import React, { useContext } from 'react';
-import useUniqueMemo from '../../_util/hooks/useUniqueMemo';
+import type { AbstractCalculator, CSSInterpolation } from '@ant-design/cssinjs';
+import { genCalc, token2CSSVar, useCSSVarRegister, useStyleRegister } from '@ant-design/cssinjs';
+import { warning } from 'rc-util';
 
+import useUniqueMemo from '../../_util/hooks/useUniqueMemo';
 import { ConfigContext } from '../../config-provider/context';
 import { genCommonStyle, genLinkStyle } from '../../style';
 import type {

@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { presetPrimaryColors } from '@ant-design/colors';
 import classNames from 'classnames';
+
 import { devUseWarning } from '../_util/warning';
 import type { DirectionType } from '../config-provider';
 import type {
+  PercentPositionType,
   ProgressGradient,
   ProgressProps,
   StringGradients,
-  PercentPositionType,
 } from './progress';
 import { LineStrokeColorVar, Percent } from './style';
 import { getSize, getSuccessPercent, validProgress } from './utils';

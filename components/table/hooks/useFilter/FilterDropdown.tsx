@@ -1,8 +1,8 @@
+import * as React from 'react';
 import FilterFilled from '@ant-design/icons/FilterFilled';
 import classNames from 'classnames';
 import type { FieldDataNode } from 'rc-tree';
 import isEqual from 'rc-util/lib/isEqual';
-import * as React from 'react';
 
 import type { FilterState } from '.';
 import useSyncState from '../../../_util/hooks/useSyncState';

@@ -1,21 +1,21 @@
+import * as React from 'react';
 import CaretDownOutlined from '@ant-design/icons/CaretDownOutlined';
 import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
 import classNames from 'classnames';
 import KeyCode from 'rc-util/lib/KeyCode';
-import * as React from 'react';
 
 import type { TooltipProps } from '../../tooltip';
 import Tooltip from '../../tooltip';
 import type {
   ColumnGroupType,
+  ColumnsType,
   ColumnTitleProps,
   ColumnType,
-  ColumnsType,
   CompareFn,
   Key,
-  SortOrder,
   SorterResult,
   SorterTooltipProps,
+  SortOrder,
   TableLocale,
   TransformColumns,
 } from '../interface';

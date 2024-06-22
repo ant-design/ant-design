@@ -1,7 +1,7 @@
+import React from 'react';
 import Icon, { HomeOutlined } from '@ant-design/icons';
 import { Space } from 'antd';
 import type { GetProps } from 'antd';
-import React from 'react';
 
 type CustomIconComponentProps = GetProps<typeof Icon>;
 

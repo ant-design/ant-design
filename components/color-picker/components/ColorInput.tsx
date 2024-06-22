@@ -1,6 +1,6 @@
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { FC } from 'react';
 import React, { useMemo } from 'react';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import Select from '../../select';
 import type { Color } from '../color';

@@ -1,22 +1,22 @@
+import React, { useContext, useMemo, useRef } from 'react';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import React, { useContext, useMemo, useRef } from 'react';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import genPurePanel from '../_util/PurePanel';
 import { getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
-import DisabledContext from '../config-provider/DisabledContext';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
+import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import { FormItemInputContext } from '../form/context';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';
+import type { Color } from './color';
 import type { ColorPickerPanelProps } from './ColorPickerPanel';
 import ColorPickerPanel from './ColorPickerPanel';
-import type { Color } from './color';
 import ColorTrigger from './components/ColorTrigger';
 import useColorState from './hooks/useColorState';
 import type { ColorPickerBaseProps, ColorPickerProps, TriggerPlacement } from './interface';

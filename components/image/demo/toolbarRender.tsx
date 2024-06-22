@@ -1,10 +1,10 @@
 import React from 'react';
 import {
   DownloadOutlined,
-  UndoOutlined,
   RotateLeftOutlined,
   RotateRightOutlined,
   SwapOutlined,
+  UndoOutlined,
   ZoomInOutlined,
   ZoomOutOutlined,
 } from '@ant-design/icons';

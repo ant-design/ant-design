@@ -1,7 +1,7 @@
+import type * as React from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import type * as React from 'react';
 
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';

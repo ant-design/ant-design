@@ -1,7 +1,7 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import type { Tab } from 'rc-tabs/lib/interface';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';

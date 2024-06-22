@@ -1,9 +1,9 @@
+import type * as React from 'react';
 import type {
   RcFile as OriRcFile,
   UploadRequestOption as RcCustomRequestOptions,
   UploadProps as RcUploadProps,
 } from 'rc-upload/lib/interface';
-import type * as React from 'react';
 
 import type { ProgressAriaProps, ProgressProps } from '../progress';
 

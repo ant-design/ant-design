@@ -1,6 +1,6 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
-import * as React from 'react';
 
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps, DirectionType } from '../config-provider';

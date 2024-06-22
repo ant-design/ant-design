@@ -1,5 +1,5 @@
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import React from 'react';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
 
 import { DisabledContextProvider } from '../config-provider/DisabledContext';
 import { useLocale } from '../locale';

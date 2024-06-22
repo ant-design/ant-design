@@ -1,3 +1,5 @@
+// eslint-disable-next-line import/no-named-as-default
+import * as React from 'react';
 import classNames from 'classnames';
 import RcMentions from 'rc-mentions';
 import type {
@@ -6,11 +8,9 @@ import type {
   MentionsRef as RcMentionsRef,
 } from 'rc-mentions/lib/Mentions';
 import { composeRef } from 'rc-util/lib/ref';
-// eslint-disable-next-line import/no-named-as-default
-import * as React from 'react';
 
-import genPurePanel from '../_util/PurePanel';
 import getAllowClear from '../_util/getAllowClear';
+import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';

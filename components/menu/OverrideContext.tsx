@@ -1,5 +1,5 @@
-import { supportNodeRef, useComposeRef } from 'rc-util';
 import * as React from 'react';
+import { supportNodeRef, useComposeRef } from 'rc-util';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import type { MenuProps } from './menu';

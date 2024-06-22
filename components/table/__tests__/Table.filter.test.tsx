@@ -4,8 +4,8 @@ import React, { useEffect, useState } from 'react';
 
 import type { ColumnGroupType, ColumnType, TableProps } from '..';
 import Table from '..';
-import { act, fireEvent, render, waitFor } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
+import { act, fireEvent, render, waitFor } from '../../../tests/utils';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Input from '../../input';

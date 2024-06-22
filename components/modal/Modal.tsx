@@ -1,7 +1,7 @@
+import * as React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import Dialog from 'rc-dialog';
-import * as React from 'react';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';

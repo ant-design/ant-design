@@ -1,5 +1,5 @@
-import { unit } from '@ant-design/cssinjs';
 import type { CSSProperties } from 'react';
+import { unit } from '@ant-design/cssinjs';
 
 import { resetComponent, resetIcon } from '../../style';
 import { genCollapseMotion } from '../../style/motion';
