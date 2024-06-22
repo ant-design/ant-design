@@ -170,31 +170,79 @@ Array [
 
 exports[`renders components/qr-code/demo/download.tsx correctly 1`] = `
 <div
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
   id="myqrcode"
 >
   <div
-    class="ant-qrcode"
-    style="background-color:#fff;margin-bottom:16px;width:160px;height:160px"
+    class="ant-space-item"
   >
-    <canvas
-      height="160"
-      role="img"
-      width="160"
-    />
-    <img
-      crossorigin="anonymous"
-      src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-      style="display:none"
-    />
+    <div
+      class="ant-segmented"
+    >
+      <div
+        class="ant-segmented-group"
+      >
+        <label
+          class="ant-segmented-item ant-segmented-item-selected"
+        >
+          <input
+            checked=""
+            class="ant-segmented-item-input"
+            type="radio"
+          />
+          <div
+            class="ant-segmented-item-label"
+            title="canvas"
+          >
+            canvas
+          </div>
+        </label>
+        <label
+          class="ant-segmented-item"
+        >
+          <input
+            class="ant-segmented-item-input"
+            type="radio"
+          />
+          <div
+            class="ant-segmented-item-label"
+            title="svg"
+          >
+            svg
+          </div>
+        </label>
+      </div>
+    </div>
   </div>
-  <button
-    class="ant-btn ant-btn-primary"
-    type="button"
+  <div
+    class="ant-space-item"
   >
-    <span>
-      Download
-    </span>
-  </button>
+    <div>
+      <div
+        class="ant-qrcode"
+        style="background-color:#fff;margin-bottom:16px;width:160px;height:160px"
+      >
+        <canvas
+          height="160"
+          role="img"
+          width="160"
+        />
+        <img
+          crossorigin="anonymous"
+          src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+          style="display:none"
+        />
+      </div>
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          Download
+        </span>
+      </button>
+    </div>
+  </div>
 </div>
 `;
 
