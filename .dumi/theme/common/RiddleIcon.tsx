@@ -1,5 +1,5 @@
-import Icon from '@ant-design/icons';
 import React from 'react';
+import Icon from '@ant-design/icons';
 
 const SVGIcon: React.FC = () => (
   <svg viewBox="0 0 14 14" fill="currentColor">

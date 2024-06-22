@@ -1,6 +1,6 @@
+import React from 'react';
 import Icon from '@ant-design/icons';
 import type { DirectionType } from 'antd/es/config-provider';
-import React from 'react';
 
 interface DirectionIconProps {
   className?: string;

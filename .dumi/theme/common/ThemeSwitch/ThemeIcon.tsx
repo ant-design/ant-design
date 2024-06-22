@@ -1,5 +1,5 @@
-import Icon from '@ant-design/icons';
 import React from 'react';
+import Icon from '@ant-design/icons';
 
 const ThemeIcon: React.FC<{ className?: string }> = (props) => {
   const SVGIcon = React.useCallback(

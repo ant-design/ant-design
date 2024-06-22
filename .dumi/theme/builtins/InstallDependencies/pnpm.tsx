@@ -1,6 +1,6 @@
+import React from 'react';
 import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
-import React from 'react';
 
 interface IconProps {
   className?: string;

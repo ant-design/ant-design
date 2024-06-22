@@ -1,7 +1,7 @@
+import React from 'react';
 import { Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
-import React from 'react';
 
 export interface LangBtnProps {
   label1: React.ReactNode;

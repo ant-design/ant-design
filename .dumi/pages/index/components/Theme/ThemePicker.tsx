@@ -1,8 +1,8 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import * as React from 'react';
 import { Flex } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
-/* eslint-disable jsx-a11y/label-has-associated-control */
-import * as React from 'react';
 
 import useLocale from '../../../../hooks/useLocale';
 

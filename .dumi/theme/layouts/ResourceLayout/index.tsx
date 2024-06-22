@@ -1,8 +1,8 @@
+import type { PropsWithChildren } from 'react';
+import React from 'react';
 import { ConfigProvider, Layout, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import { FormattedMessage, useRouteMeta } from 'dumi';
-import type { PropsWithChildren } from 'react';
-import React from 'react';
 
 import useDark from '../../../hooks/useDark';
 import CommonHelmet from '../../common/CommonHelmet';
