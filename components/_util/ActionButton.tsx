@@ -23,7 +23,7 @@ export interface ActionButtonProps {
 }
 
 function isThenable<T>(thing?: PromiseLike<T>): boolean {
-  return !!(thing && thing.then);
+  return !!thing?.then;
 }
 
 const ActionButton: React.FC<ActionButtonProps> = (props) => {

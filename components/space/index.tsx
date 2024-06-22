@@ -1,14 +1,14 @@
-import * as React from 'react';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
+import * as React from 'react';
 
 import { isPresetSize, isValidGapNumber } from '../_util/gapSize';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 import Compact from './Compact';
+import Item from './Item';
 import { SpaceContextProvider } from './context';
 import type { SpaceContextType } from './context';
-import Item from './Item';
 import useStyle from './style';
 
 export { SpaceContext } from './context';
@@ -93,7 +93,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
       latestIndex = i;
     }
 
-    const key = (child && child.key) || `${itemClassName}-${i}`;
+    const key = child?.key || `${itemClassName}-${i}`;
 
     return (
       <Item

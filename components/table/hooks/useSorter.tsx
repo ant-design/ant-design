@@ -1,21 +1,21 @@
-import * as React from 'react';
 import CaretDownOutlined from '@ant-design/icons/CaretDownOutlined';
 import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
 import classNames from 'classnames';
 import KeyCode from 'rc-util/lib/KeyCode';
+import * as React from 'react';
 
 import type { TooltipProps } from '../../tooltip';
 import Tooltip from '../../tooltip';
 import type {
   ColumnGroupType,
-  ColumnsType,
   ColumnTitleProps,
   ColumnType,
+  ColumnsType,
   CompareFn,
   Key,
+  SortOrder,
   SorterResult,
   SorterTooltipProps,
-  SortOrder,
   TableLocale,
   TransformColumns,
 } from '../interface';
@@ -212,8 +212,7 @@ function injectSorter<RecordType>(
           return renderSortTitle;
         },
         onHeaderCell: (col) => {
-          const cell: React.HTMLAttributes<HTMLElement> =
-            (column.onHeaderCell && column.onHeaderCell(col)) || {};
+          const cell: React.HTMLAttributes<HTMLElement> = column.onHeaderCell?.(col) || {};
           const originOnClick = cell.onClick;
           const originOKeyDown = cell.onKeyDown;
           cell.onClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -450,8 +449,8 @@ export default function useFilterSorter<RecordType>({
     return {
       sortColumns,
       // Legacy
-      sortColumn: sortColumns[0] && sortColumns[0].column,
-      sortOrder: sortColumns[0] && sortColumns[0].order,
+      sortColumn: sortColumns[0]?.column,
+      sortOrder: sortColumns[0]?.order,
     };
   }, [mergedSorterStates]);
 

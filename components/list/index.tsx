@@ -108,7 +108,7 @@ function List<T>({
     (eventName: 'onChange' | 'onShowSizeChange') => (page: number, pageSize: number) => {
       setPaginationCurrent(page);
       setPaginationSize(pageSize);
-      if (pagination && pagination[eventName]) {
+      if (pagination) {
         pagination?.[eventName]?.(page, pageSize);
       }
     };
@@ -150,7 +150,7 @@ function List<T>({
       spinning: loadingProp,
     };
   }
-  const isLoading = loadingProp && loadingProp.spinning;
+  const isLoading = !!loadingProp?.spinning;
 
   const mergedSize = useSize(customizeSize);
 
@@ -271,9 +271,7 @@ function List<T>({
   } else if (!children && !isLoading) {
     childrenContent = (
       <div className={`${prefixCls}-empty-text`}>
-        {(locale && locale.emptyText) || renderEmpty?.('List') || (
-          <DefaultRenderEmpty componentName="List" />
-        )}
+        {locale?.emptyText || renderEmpty?.('List') || <DefaultRenderEmpty componentName="List" />}
       </div>
     );
   }

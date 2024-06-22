@@ -34,8 +34,7 @@
       },
       "complexity": {
         "noUselessTypeConstraint": "off",
-        "noForEach": "off",
-        "useOptionalChain": "off"
+        "noForEach": "off"
       },
       "correctness": {
         "useExhaustiveDependencies": "off"

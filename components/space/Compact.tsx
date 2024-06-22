@@ -98,7 +98,7 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
   const nodes = React.useMemo(
     () =>
       childNodes.map((child, i) => {
-        const key = (child && child.key) || `${prefixCls}-item-${i}`;
+        const key = child?.key || `${prefixCls}-item-${i}`;
         return (
           <CompactItem
             key={key}

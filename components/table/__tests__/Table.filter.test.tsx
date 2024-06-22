@@ -586,7 +586,7 @@ describe('Table.filter', () => {
             ...column,
             defaultFilteredValue: ['Jim', 'Tom'],
             onFilter: (value, record) => {
-              if (record.children && record.children.length) {
+              if (record.children?.length) {
                 return true;
               }
               return record.name.includes(value);

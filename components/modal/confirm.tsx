@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
 import { render as reactRender, unmount as reactUnmount } from 'rc-util/lib/React/render';
+import React, { useContext } from 'react';
 
 import warning from '../_util/warning';
 import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
@@ -73,9 +73,9 @@ export default function confirm(config: ModalFuncProps) {
   let timeoutId: ReturnType<typeof setTimeout>;
 
   function destroy(...args: any[]) {
-    const triggerCancel = args.some((param) => param && param.triggerCancel);
-    if (config.onCancel && triggerCancel) {
-      config.onCancel(() => {}, ...args.slice(1));
+    const triggerCancel = args.some((param) => param?.triggerCancel);
+    if (triggerCancel) {
+      config.onCancel?.(() => {}, ...args.slice(1));
     }
     for (let i = 0; i < destroyFns.length; i++) {
       const fn = destroyFns[i];

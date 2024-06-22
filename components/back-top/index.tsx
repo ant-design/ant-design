@@ -1,8 +1,8 @@
-import * as React from 'react';
 import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import omit from 'rc-util/lib/omit';
+import * as React from 'react';
 
 import getScroll from '../_util/getScroll';
 import { cloneElement } from '../_util/reactNode';
@@ -40,7 +40,7 @@ const BackTop: React.FC<BackTopProps> = (props) => {
   const ref = React.useRef<HTMLDivElement>(null);
 
   const getDefaultTarget = (): HTMLElement | Document | Window =>
-    ref.current && ref.current.ownerDocument ? ref.current.ownerDocument : window;
+    ref.current?.ownerDocument || window;
 
   const handleScroll = throttleByAnimationFrame(
     (e: React.UIEvent<HTMLElement, UIEvent> | { target: any }) => {

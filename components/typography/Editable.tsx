@@ -54,7 +54,7 @@ const Editable: React.FC<EditableProps> = (props) => {
   }, [value]);
 
   React.useEffect(() => {
-    if (ref.current && ref.current.resizableTextArea) {
+    if (ref.current?.resizableTextArea) {
       const { textArea } = ref.current.resizableTextArea;
       textArea.focus();
       const { length } = textArea.value;

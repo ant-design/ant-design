@@ -1,4 +1,3 @@
-import * as React from 'react';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import type { AlignType } from '@rc-component/trigger';
 import classNames from 'classnames';
@@ -6,11 +5,12 @@ import RcDropdown from 'rc-dropdown';
 import { useEvent } from 'rc-util';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
+import * as React from 'react';
 
+import genPurePanel from '../_util/PurePanel';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import type { AdjustOverflow } from '../_util/placements';
 import getPlacements from '../_util/placements';
-import genPurePanel from '../_util/PurePanel';
 import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
@@ -189,10 +189,7 @@ const Dropdown: CompoundedComponent = (props) => {
   });
 
   const triggerActions = disabled ? [] : trigger;
-  let alignPoint: boolean;
-  if (triggerActions && triggerActions.includes('contextMenu')) {
-    alignPoint = true;
-  }
+  const alignPoint = !!triggerActions?.includes('contextMenu');
 
   // =========================== Open ============================
   const [mergedOpen, setOpen] = useMergedState(false, {
@@ -283,7 +280,7 @@ const Dropdown: CompoundedComponent = (props) => {
   // ============================ Render ============================
   let renderNode = (
     <RcDropdown
-      alignPoint={alignPoint!}
+      alignPoint={alignPoint}
       {...omit(props, ['rootClassName'])}
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}

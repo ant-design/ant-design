@@ -1,16 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react';
 import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import { composeRef } from 'rc-util/lib/ref';
+import React, { useContext, useEffect, useState } from 'react';
 
 import getScroll from '../_util/getScroll';
 import scrollTo from '../_util/scrollTo';
 import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import FloatButtonGroupContext from './context';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
+import FloatButtonGroupContext from './context';
 import type {
   BackTopProps,
   FloatButtonElement,
@@ -42,9 +42,7 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
   }));
 
   const getDefaultTarget = (): HTMLElement | Document | Window =>
-    internalRef.current && internalRef.current.ownerDocument
-      ? internalRef.current.ownerDocument
-      : window;
+    internalRef.current?.ownerDocument || window;
 
   const handleScroll = throttleByAnimationFrame(
     (e: React.UIEvent<HTMLElement, UIEvent> | { target: any }) => {

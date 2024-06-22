@@ -1,5 +1,5 @@
-import * as React from 'react';
 import type { ValidateMessages } from 'rc-field-form/lib/interface';
+import * as React from 'react';
 
 import { devUseWarning } from '../_util/warning';
 import type { PickerLocale as DatePickerLocale } from '../date-picker/generatePicker';
@@ -80,7 +80,7 @@ const LocaleProvider: React.FC<LocaleProviderProps> = (props) => {
   }
 
   React.useEffect(() => {
-    const clearLocale = changeConfirmLocale(locale && locale.Modal);
+    const clearLocale = changeConfirmLocale(locale?.Modal);
     return clearLocale;
   }, [locale]);
 

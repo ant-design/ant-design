@@ -1,8 +1,8 @@
-import * as React from 'react';
 import FilterFilled from '@ant-design/icons/FilterFilled';
 import classNames from 'classnames';
 import type { FieldDataNode } from 'rc-tree';
 import isEqual from 'rc-util/lib/isEqual';
+import * as React from 'react';
 
 import type { FilterState } from '.';
 import useSyncState from '../../../_util/hooks/useSyncState';
@@ -253,7 +253,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
   // ======================= Submit ========================
   const internalTriggerFilter = (keys?: string[]) => {
-    const mergedKeys = keys && keys.length ? keys : null;
+    const mergedKeys = keys?.length ? keys : null;
     if (mergedKeys === null && (!filterState || !filterState.filteredKeys)) {
       return null;
     }
