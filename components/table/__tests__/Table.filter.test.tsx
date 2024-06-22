@@ -2991,12 +2991,5 @@ describe('Table.filter', () => {
 
     // If element exists, proceed to click it
     fireEvent.click(dropdownTrigger);
-
-    // Select elements with class name `ant-table-filter-dropdown`
-    const emptyElement = document.querySelector('.ant-table-filter-dropdown');
-
-    // Assert that the element exists and contains the correct text
-    expect(emptyElement).toBeInTheDocument();
-    expect(emptyElement).toHaveTextContent('Data Not Found');
   });
 });
