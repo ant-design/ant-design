@@ -2,13 +2,14 @@
   "files": {
     "ignore": [
       ".dumi/tmp*",
-      "./dist/*",
-      "./es/**/*",
-      "./lib/**/*",
+      ".dumi/scripts/clarity.js",
+      "dist/*",
+      "es/**/*",
+      "lib/**/*",
       "_site/**/*",
       "node_modules",
       "server",
-      ".dumi/scripts/clarity.js"
+      "scripts/previewEditor/**/*"
     ]
   },
   "formatter": {
