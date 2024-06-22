@@ -1,9 +1,9 @@
-import * as React from 'react';
 import classNames from 'classnames';
 import type { DrawerProps as RcDrawerProps } from 'rc-drawer';
 import RcDrawer from 'rc-drawer';
 import type { Placement } from 'rc-drawer/lib/Drawer';
 import type { CSSMotionProps } from 'rc-motion';
+import * as React from 'react';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import { useZIndex } from '../_util/hooks/useZIndex';
@@ -160,7 +160,7 @@ const Drawer: React.FC<DrawerProps> & {
   const { classNames: contextClassNames = {}, styles: contextStyles = {} } = drawer || {};
 
   return wrapCSSVar(
-    <ContextIsolator isolateFormContext isolateSpaceContext>
+    <ContextIsolator form space>
       <zIndexContext.Provider value={contextZIndex}>
         <RcDrawer
           prefixCls={prefixCls}

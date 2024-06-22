@@ -1,5 +1,3 @@
-import * as React from 'react';
-import { forwardRef, useContext, useImperativeHandle } from 'react';
 import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import classNames from 'classnames';
@@ -7,6 +5,8 @@ import RCPicker from 'rc-picker';
 import type { PickerRef } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
 import type { PickerMode } from 'rc-picker/lib/interface';
+import * as React from 'react';
+import { forwardRef, useContext, useImperativeHandle } from 'react';
 
 import ContextIsolator from '../../_util/ContextIsolator';
 import { useZIndex } from '../../_util/hooks/useZIndex';
@@ -146,7 +146,7 @@ export default function generatePicker<DateType extends AnyObject>(
       const [zIndex] = useZIndex('DatePicker', props.popupStyle?.zIndex as number);
 
       return wrapCSSVar(
-        <ContextIsolator isolateSpaceContext>
+        <ContextIsolator space>
           <RCPicker<DateType>
             ref={innerRef}
             placeholder={getPlaceholder(locale, mergedPicker, placeholder)}

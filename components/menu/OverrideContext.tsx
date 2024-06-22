@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { supportNodeRef, useComposeRef } from 'rc-util';
+import * as React from 'react';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import type { MenuProps } from './menu';
@@ -43,7 +43,7 @@ export const OverrideProvider = React.forwardRef<
 
   return (
     <OverrideContext.Provider value={context}>
-      <ContextIsolator isolateSpaceContext>
+      <ContextIsolator space>
         {canRef ? React.cloneElement(children as React.ReactElement, { ref: mergedRef }) : children}
       </ContextIsolator>
     </OverrideContext.Provider>
