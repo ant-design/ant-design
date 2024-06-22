@@ -200,14 +200,14 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       onChange={handleChange}
       addonBefore={
         addonBefore && (
-          <ContextIsolator isolateFormContext isolateSpaceContext>
+          <ContextIsolator form space>
             {addonBefore}
           </ContextIsolator>
         )
       }
       addonAfter={
         addonAfter && (
-          <ContextIsolator isolateFormContext isolateSpaceContext>
+          <ContextIsolator form space>
             {addonAfter}
           </ContextIsolator>
         )

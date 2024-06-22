@@ -55,6 +55,7 @@ export default function Progress({ percent, prefixCls }: ProgressProps) {
     >
       <svg
         viewBox={`0 0 ${viewSize} ${viewSize}`}
+        // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: progressbar could be readonly
         role="progressbar"
         aria-valuemin={0}
         aria-valuemax={100}

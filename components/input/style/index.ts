@@ -105,7 +105,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
     borderSpacing: 0,
 
     // Undo padding and float of grid classes
-    [`&[class*='col-']`]: {
+    "&[class*='col-']": {
       paddingInlineEnd: token.paddingXS,
 
       '&:last-child': {
@@ -140,7 +140,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
     },
 
     [`${componentCls}-group`]: {
-      [`&-addon, &-wrap`]: {
+      '&-addon, &-wrap': {
         display: 'table-cell',
         width: 1,
         whiteSpace: 'nowrap',

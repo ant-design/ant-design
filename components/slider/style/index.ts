@@ -132,7 +132,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
       cursor: 'pointer',
       touchAction: 'none',
 
-      [`&-vertical`]: {
+      '&-vertical': {
         margin: `${unit(marginFull)} ${unit(marginPart)}`,
       },
 
@@ -257,7 +257,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
       },
 
       [`&-lock ${componentCls}-handle`]: {
-        [`&::before, &::after`]: {
+        '&::before, &::after': {
           transition: 'none',
         },
       },

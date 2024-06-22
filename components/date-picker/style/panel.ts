@@ -330,13 +330,11 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         },
       },
 
-      [`&-prev-icon,
-        &-super-prev-icon`]: {
+      '&-prev-icon, &-super-prev-icon': {
         transform: 'rotate(-45deg)',
       },
 
-      [`&-next-icon,
-        &-super-next-icon`]: {
+      '&-next-icon, &-super-next-icon': {
         transform: 'rotate(135deg)',
       },
 
@@ -459,16 +457,13 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
             },
           },
 
-          [`&:hover td`]: {
+          '&:hover td': {
             '&:before': {
               background: cellHoverBg,
             },
           },
 
-          [`&-range-start td,
-            &-range-end td,
-            &-selected td,
-            &-hover td`]: {
+          '&-range-start td, &-range-end td, &-selected td, &-hover td': {
             // Rise priority to override hover style
             [`&${pickerCellCls}`]: {
               '&:before': {
@@ -485,14 +480,14 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
             },
           },
 
-          [`&-range-hover td:before`]: {
+          '&-range-hover td:before': {
             background: controlItemBgActive,
           },
         },
       },
 
       // >>> ShowWeek
-      [`&-week-panel, &-date-panel-show-week`]: {
+      '&-week-panel, &-date-panel-show-week': {
         [`${componentCls}-body`]: {
           padding: `${unit(paddingXS)} ${unit(paddingSM)}`,
         },

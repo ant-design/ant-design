@@ -139,7 +139,7 @@ export const prepareComponentToken: GetDefaultToken<'Tooltip'> = (token) => ({
   ),
 });
 
-export default (prefixCls: string, injectStyle: boolean = true) => {
+export default (prefixCls: string, injectStyle = true) => {
   const useStyle = genStyleHooks(
     'Tooltip',
     (token) => {

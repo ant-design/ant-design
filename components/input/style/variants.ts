@@ -17,7 +17,7 @@ export const genDisabledStyle = (token: InputToken): CSSObject => ({
   cursor: 'not-allowed',
   opacity: 1,
 
-  [`input[disabled], textarea[disabled]`]: {
+  'input[disabled], textarea[disabled]': {
     cursor: 'not-allowed',
   },
 
@@ -203,7 +203,7 @@ const genBaseFilledStyle = (
   borderStyle: token.lineType,
   borderColor: 'transparent',
 
-  [`input&, & input, textarea&, & textarea`]: {
+  'input&, & input, textarea&, & textarea': {
     color: options?.inputColor,
   },
 

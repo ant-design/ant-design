@@ -52,7 +52,7 @@ export interface SiderState {
 
 const generateId = (() => {
   let i = 0;
-  return (prefix: string = '') => {
+  return (prefix = '') => {
     i += 1;
     return `${prefix}${i}`;
   };

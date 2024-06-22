@@ -2,8 +2,8 @@ import * as React from 'react';
 import { createStyles } from 'antd-style';
 import { useLocation } from 'dumi';
 
-import * as utils from '../../utils';
 import Link from '../../common/Link';
+import * as utils from '../../utils';
 
 const useStyle = createStyles(({ token, css }) => {
   const { headerHeight, colorTextHeading, fontFamily, mobileMaxWidth } = token;

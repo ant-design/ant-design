@@ -757,6 +757,9 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                           width="64"
                           xmlns="http://www.w3.org/2000/svg"
                         >
+                          <title>
+                            Simple Empty
+                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -905,6 +908,9 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                             width="64"
                             xmlns="http://www.w3.org/2000/svg"
                           >
+                            <title>
+                              Simple Empty
+                            </title>
                             <g
                               fill="none"
                               fill-rule="evenodd"
@@ -1191,6 +1197,9 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                             width="64"
                             xmlns="http://www.w3.org/2000/svg"
                           >
+                            <title>
+                              Simple Empty
+                            </title>
                             <g
                               fill="none"
                               fill-rule="evenodd"
@@ -1407,6 +1416,9 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                             width="64"
                             xmlns="http://www.w3.org/2000/svg"
                           >
+                            <title>
+                              Simple Empty
+                            </title>
                             <g
                               fill="none"
                               fill-rule="evenodd"
@@ -1636,6 +1648,9 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                             width="64"
                             xmlns="http://www.w3.org/2000/svg"
                           >
+                            <title>
+                              Simple Empty
+                            </title>
                             <g
                               fill="none"
                               fill-rule="evenodd"

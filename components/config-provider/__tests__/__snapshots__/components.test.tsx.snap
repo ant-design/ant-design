@@ -14999,6 +14999,9 @@ exports[`ConfigProvider components Empty configProvider 1`] = `
       width="184"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        empty image
+      </title>
       <g
         fill="none"
         fill-rule="evenodd"
@@ -15074,6 +15077,9 @@ exports[`ConfigProvider components Empty configProvider componentDisabled 1`] = 
       width="184"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        empty image
+      </title>
       <g
         fill="none"
         fill-rule="evenodd"
@@ -15149,6 +15155,9 @@ exports[`ConfigProvider components Empty configProvider componentSize large 1`] 
       width="184"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        empty image
+      </title>
       <g
         fill="none"
         fill-rule="evenodd"
@@ -15224,6 +15233,9 @@ exports[`ConfigProvider components Empty configProvider componentSize middle 1`]
       width="184"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        empty image
+      </title>
       <g
         fill="none"
         fill-rule="evenodd"
@@ -15299,6 +15311,9 @@ exports[`ConfigProvider components Empty configProvider componentSize small 1`] 
       width="184"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        empty image
+      </title>
       <g
         fill="none"
         fill-rule="evenodd"
@@ -15374,6 +15389,9 @@ exports[`ConfigProvider components Empty normal 1`] = `
       width="184"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        empty image
+      </title>
       <g
         fill="none"
         fill-rule="evenodd"
@@ -15449,6 +15467,9 @@ exports[`ConfigProvider components Empty prefixCls 1`] = `
       width="184"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        empty image
+      </title>
       <g
         fill="none"
         fill-rule="evenodd"
@@ -21791,6 +21812,8 @@ exports[`ConfigProvider components Popover prefixCls 1`] = `
 
 exports[`ConfigProvider components Progress configProvider 1`] = `
 <div
+  aria-valuemax="100"
+  aria-valuemin="0"
   aria-valuenow="0"
   class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info config-progress-default"
   role="progressbar"
@@ -21819,6 +21842,8 @@ exports[`ConfigProvider components Progress configProvider 1`] = `
 
 exports[`ConfigProvider components Progress configProvider componentDisabled 1`] = `
 <div
+  aria-valuemax="100"
+  aria-valuemin="0"
   aria-valuenow="0"
   class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info config-progress-default"
   role="progressbar"
@@ -21847,6 +21872,8 @@ exports[`ConfigProvider components Progress configProvider componentDisabled 1`]
 
 exports[`ConfigProvider components Progress configProvider componentSize large 1`] = `
 <div
+  aria-valuemax="100"
+  aria-valuemin="0"
   aria-valuenow="0"
   class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info config-progress-default"
   role="progressbar"
@@ -21875,6 +21902,8 @@ exports[`ConfigProvider components Progress configProvider componentSize large 1
 
 exports[`ConfigProvider components Progress configProvider componentSize middle 1`] = `
 <div
+  aria-valuemax="100"
+  aria-valuemin="0"
   aria-valuenow="0"
   class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info config-progress-default"
   role="progressbar"
@@ -21903,6 +21932,8 @@ exports[`ConfigProvider components Progress configProvider componentSize middle 
 
 exports[`ConfigProvider components Progress configProvider componentSize small 1`] = `
 <div
+  aria-valuemax="100"
+  aria-valuemin="0"
   aria-valuenow="0"
   class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info config-progress-default"
   role="progressbar"
@@ -21931,6 +21962,8 @@ exports[`ConfigProvider components Progress configProvider componentSize small 1
 
 exports[`ConfigProvider components Progress normal 1`] = `
 <div
+  aria-valuemax="100"
+  aria-valuemin="0"
   aria-valuenow="0"
   class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
   role="progressbar"
@@ -21959,6 +21992,8 @@ exports[`ConfigProvider components Progress normal 1`] = `
 
 exports[`ConfigProvider components Progress prefixCls 1`] = `
 <div
+  aria-valuemax="100"
+  aria-valuemin="0"
   aria-valuenow="0"
   class="prefix-Progress prefix-Progress-status-normal prefix-Progress-line prefix-Progress-line-align-end prefix-Progress-line-position-outer prefix-Progress-show-info prefix-Progress-default"
   role="progressbar"
@@ -26835,6 +26870,9 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                           width="64"
                           xmlns="http://www.w3.org/2000/svg"
                         >
+                          <title>
+                            Simple Empty
+                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -27141,6 +27179,9 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                           width="64"
                           xmlns="http://www.w3.org/2000/svg"
                         >
+                          <title>
+                            Simple Empty
+                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -27445,6 +27486,9 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                           width="64"
                           xmlns="http://www.w3.org/2000/svg"
                         >
+                          <title>
+                            Simple Empty
+                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -27749,6 +27793,9 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                           width="64"
                           xmlns="http://www.w3.org/2000/svg"
                         >
+                          <title>
+                            Simple Empty
+                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -28053,6 +28100,9 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
                           width="64"
                           xmlns="http://www.w3.org/2000/svg"
                         >
+                          <title>
+                            Simple Empty
+                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -28357,6 +28407,9 @@ exports[`ConfigProvider components Table normal 1`] = `
                           width="64"
                           xmlns="http://www.w3.org/2000/svg"
                         >
+                          <title>
+                            Simple Empty
+                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -28661,6 +28714,9 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                           width="64"
                           xmlns="http://www.w3.org/2000/svg"
                         >
+                          <title>
+                            Simple Empty
+                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -39284,6 +39340,9 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -39451,6 +39510,9 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -39563,6 +39625,9 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -39730,6 +39795,9 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -39842,6 +39910,9 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -40009,6 +40080,9 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -40121,6 +40195,9 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -40288,6 +40365,9 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -40400,6 +40480,9 @@ exports[`ConfigProvider components Transfer configProvider componentSize small 1
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -40567,6 +40650,9 @@ exports[`ConfigProvider components Transfer configProvider componentSize small 1
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -40679,6 +40765,9 @@ exports[`ConfigProvider components Transfer normal 1`] = `
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -40846,6 +40935,9 @@ exports[`ConfigProvider components Transfer normal 1`] = `
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -40958,6 +41050,9 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -41125,6 +41220,9 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"

@@ -77,13 +77,13 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
       border: borderBase,
       borderRadius: collapsePanelBorderRadius,
 
-      [`&-rtl`]: {
+      '&-rtl': {
         direction: 'rtl',
       },
 
       [`& > ${componentCls}-item`]: {
         borderBottom: borderBase,
-        [`&:last-child`]: {
+        '&:last-child': {
           [`
             &,
             & > ${componentCls}-header`]: {
@@ -155,12 +155,12 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
           padding: contentPadding,
         },
 
-        [`&-hidden`]: {
+        '&-hidden': {
           display: 'none',
         },
       },
 
-      [`&-small`]: {
+      '&-small': {
         [`> ${componentCls}-item`]: {
           [`> ${componentCls}-header`]: {
             padding: collapseHeaderPaddingSM,
@@ -177,7 +177,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
         },
       },
 
-      [`&-large`]: {
+      '&-large': {
         [`> ${componentCls}-item`]: {
           fontSize: fontSizeLG,
           lineHeight: lineHeightLG,

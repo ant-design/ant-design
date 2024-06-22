@@ -9,22 +9,22 @@ function use<T>(promise: PromiseLike<T>): T {
   }
   if (internal.status === 'rejected') {
     throw internal.reason;
-  } else if (internal.status === 'pending') {
-    throw internal;
-  } else {
-    internal.status = 'pending';
-    internal.then(
-      (result) => {
-        internal.status = 'fulfilled';
-        internal.value = result;
-      },
-      (reason) => {
-        internal.status = 'rejected';
-        internal.reason = reason;
-      },
-    );
+  }
+  if (internal.status === 'pending') {
     throw internal;
   }
+  internal.status = 'pending';
+  internal.then(
+    (result) => {
+      internal.status = 'fulfilled';
+      internal.value = result;
+    },
+    (reason) => {
+      internal.status = 'rejected';
+      internal.reason = reason;
+    },
+  );
+  throw internal;
 }
 
 export default use;

@@ -107,14 +107,14 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 有的，你可以访问 https://ant-design.antgroup.com/index-cn 。
 
-| 产品/版本 | 地址 |
-| --- | --- |
-| Ant Design 5.x | https://ant-design.antgroup.com |
-| Ant Design 4.x | https://4x-ant-design.antgroup.com |
+| 产品/版本         | 地址                                      |
+| ----------------- | ----------------------------------------- |
+| Ant Design 5.x    | https://ant-design.antgroup.com           |
+| Ant Design 4.x    | https://4x-ant-design.antgroup.com        |
 | Ant Design Mobile | https://ant-design-mobile.antgroup.com/zh |
-| Ant Design Mini | https://ant-design-mini.antgroup.com |
-| Ant Design Charts | https://ant-design-charts.antgroup.com |
-| AntV | https://antv.antgroup.com |
+| Ant Design Mini   | https://ant-design-mini.antgroup.com      |
+| Ant Design Charts | https://ant-design-charts.antgroup.com    |
+| AntV              | https://antv.antgroup.com                 |
 
 ## `antd` 可以像 `React` 那样使用单文件引入吗？
 

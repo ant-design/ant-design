@@ -107,7 +107,7 @@ export default function generateRangePicker<DateType extends AnyObject>(
     const [zIndex] = useZIndex('DatePicker', props.popupStyle?.zIndex as number);
 
     return wrapCSSVar(
-      <ContextIsolator isolateSpaceContext>
+      <ContextIsolator space>
         <RCRangePicker<DateType>
           separator={
             <span aria-label="to" className={`${prefixCls}-separator`}>

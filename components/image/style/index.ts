@@ -208,7 +208,7 @@ export const genPreviewSwitchStyle = (token: ImageToken): CSSObject => {
         background: operationBgHover.toRgbString(),
       },
 
-      [`&-disabled`]: {
+      '&-disabled': {
         '&, &:hover': {
           color: previewOperationColorDisabled,
           background: 'transparent',
@@ -353,7 +353,7 @@ const genPreviewMotion: GenerateStyle<ImageToken> = (token) => {
 
   return {
     [`${previewCls}-root`]: initZoomMotion(token, 'zoom'),
-    [`&`]: initFadeMotion(token, true),
+    '&': initFadeMotion(token, true),
   };
 };
 

@@ -173,7 +173,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
           userSelect: 'none',
           pointerEvents: 'none',
 
-          [`&::after`]: {
+          '&::after': {
             opacity: 0.4,
             pointerEvents: 'auto',
           },
@@ -182,7 +182,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
 
       // tip
       // ------------------------------
-      [`&-tip`]: {
+      '&-tip': {
         color: token.spinDotDefault,
       },
 

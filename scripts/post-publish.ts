@@ -1,12 +1,12 @@
 /* eslint-disable no-console */
-import { spawnSync, execSync } from 'child_process';
+import { execSync, spawnSync } from 'child_process';
 import chalk from 'chalk';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import inquirer from 'inquirer';
 import fetch from 'isomorphic-fetch';
-import semver from 'semver';
 import ora from 'ora';
+import semver from 'semver';
 
 import deprecatedVersions from '../BUG_VERSIONS.json';
 import { version as packageVersion } from '../package.json';
@@ -85,7 +85,7 @@ const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be
     .reverse();
 
   // Find safe version
-  let defaultVersionObj;
+  let defaultVersionObj = null;
   for (let i = 0; i < defaultVersionList.length - 1; i += 1) {
     defaultVersionObj = defaultVersionList[i];
     const nextVersionObj = defaultVersionList[i + 1];

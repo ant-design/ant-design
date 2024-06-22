@@ -152,7 +152,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken> = (token) => {
 
 const genArrowsStyle: GenerateStyle<CarouselToken> = (token) => {
   const { componentCls, motionDurationSlow, arrowSize, arrowOffset } = token;
-  const arrowLength = token.calc(arrowSize).div(1.414).equal();
+  const arrowLength = token.calc(arrowSize).div(Math.SQRT2).equal();
 
   return [
     {

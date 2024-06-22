@@ -84,8 +84,7 @@ export const genLinkStyle = (token: DerivativeToken): CSSObject => ({
       color: token.colorLinkActive,
     },
 
-    [`&:active,
-  &:hover`]: {
+    '&:active, &:hover': {
       textDecoration: token.linkHoverDecoration,
       outline: 0,
     },

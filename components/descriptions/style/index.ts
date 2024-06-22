@@ -113,7 +113,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
     [componentCls]: {
       ...resetComponent(token),
       ...genBorderedStyle(token),
-      [`&-rtl`]: {
+      '&-rtl': {
         direction: 'rtl',
       },
       [`${componentCls}-header`]: {

@@ -68,11 +68,11 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         transition: `all ${motionDurationSlow}`,
         userSelect: 'none',
 
-        [`&:focus, &:hover, &:active`]: {
+        '&:focus, &:hover, &:active': {
           borderColor: 'currentcolor',
         },
 
-        [`&::before, &::after`]: {
+        '&::before, &::after': {
           position: 'absolute',
           background: 'currentcolor',
           transition: `transform ${motionDurationSlow} ease-out`,
@@ -121,7 +121,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
       [`tr${componentCls}-expanded-row`]: {
         '&, &:hover': {
-          [`> th, > td`]: {
+          '> th, > td': {
             background: tableExpandedRowBg,
           },
         },

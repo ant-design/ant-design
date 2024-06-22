@@ -67,7 +67,8 @@ After adding the brightness overlay, we get a blue color with brightness variati
 
 ```css
 background-color: rgb(0, 106, 255);
-background-image: linear-gradient(0deg, rgb(0, 0, 0), transparent), linear-gradient(90deg, rgb(255, 255, 255), rgba(255, 255, 255, 0));
+background-image: linear-gradient(0deg, rgb(0, 0, 0), transparent),
+  linear-gradient(90deg, rgb(255, 255, 255), rgba(255, 255, 255, 0));
 ```
 
 After adding the saturation overlay, we get a blue color with brightness variation <img style="width:auto" src="https://user-images.githubusercontent.com/21119589/266243231-6d682bf5-fb74-4a8e-9930-19a604d1203f.png"/>

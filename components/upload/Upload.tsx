@@ -214,7 +214,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
       if (!filteredFileInfoList[index].parsedFile) {
         // `beforeUpload` return false
         const { originFileObj } = fileObj;
-        let clone;
+        let clone: UploadFile;
 
         try {
           clone = new File([originFileObj], originFileObj.name, {
@@ -243,6 +243,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   const onSuccess = (response: any, file: RcFile, xhr: any) => {
     try {
       if (typeof response === 'string') {
+        // biome-ignore lint/style/noParameterAssign: we need to modify response
         response = JSON.parse(response);
       }
     } catch (e) {

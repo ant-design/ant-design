@@ -189,10 +189,7 @@ const Dropdown: CompoundedComponent = (props) => {
   });
 
   const triggerActions = disabled ? [] : trigger;
-  let alignPoint: boolean;
-  if (triggerActions && triggerActions.includes('contextMenu')) {
-    alignPoint = true;
-  }
+  const alignPoint = !!triggerActions?.includes('contextMenu');
 
   // =========================== Open ============================
   const [mergedOpen, setOpen] = useMergedState(false, {
@@ -283,7 +280,7 @@ const Dropdown: CompoundedComponent = (props) => {
   // ============================ Render ============================
   let renderNode = (
     <RcDropdown
-      alignPoint={alignPoint!}
+      alignPoint={alignPoint}
       {...omit(props, ['rootClassName'])}
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}

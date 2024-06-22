@@ -146,7 +146,7 @@ export default function generatePicker<DateType extends AnyObject>(
       const [zIndex] = useZIndex('DatePicker', props.popupStyle?.zIndex as number);
 
       return wrapCSSVar(
-        <ContextIsolator isolateSpaceContext>
+        <ContextIsolator space>
           <RCPicker<DateType>
             ref={innerRef}
             placeholder={getPlaceholder(locale, mergedPicker, placeholder)}

@@ -18,8 +18,8 @@ import Tooltip from '../../tooltip';
 import Editable from '../Editable';
 import useCopyClick from '../hooks/useCopyClick';
 import useMergedConfig from '../hooks/useMergedConfig';
-import useUpdatedEffect from '../hooks/useUpdatedEffect';
 import usePrevious from '../hooks/usePrevious';
+import useUpdatedEffect from '../hooks/useUpdatedEffect';
 import type { TypographyProps } from '../Typography';
 import Typography from '../Typography';
 import CopyBtn from './CopyBtn';
@@ -384,14 +384,15 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     }
 
     return (
-      <a
+      <button
+        type="button"
         key="expand"
         className={`${prefixCls}-${expanded ? 'collapse' : 'expand'}`}
         onClick={(e) => onExpandClick(e, { expanded: !expanded })}
         aria-label={expanded ? textLocale.collapse : textLocale?.expand}
       >
         {typeof symbol === 'function' ? symbol(expanded) : symbol}
-      </a>
+      </button>
     );
   };
 

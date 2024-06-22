@@ -5,8 +5,8 @@ import { createStyles, css } from 'antd-style';
 import useDark from '../../hooks/useDark';
 import useLocale from '../../hooks/useLocale';
 import BannerRecommends from './components/BannerRecommends';
-import PreviewBanner from './components/PreviewBanner';
 import Group from './components/Group';
+import PreviewBanner from './components/PreviewBanner';
 
 const ComponentsList = React.lazy(() => import('./components/ComponentsList'));
 const DesignFramework = React.lazy(() => import('./components/DesignFramework'));

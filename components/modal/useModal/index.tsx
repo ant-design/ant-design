@@ -68,7 +68,7 @@ function useModal(): readonly [instance: HookAPI, contextHolder: React.ReactElem
         });
         let silent = false;
 
-        let closeFunc: Function | undefined;
+        let closeFunc: (() => void) | undefined;
         const modal = (
           <HookModal
             key={`modal-${uuid}`}

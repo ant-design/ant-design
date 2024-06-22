@@ -56,7 +56,7 @@ export interface AntTreeNodeProps {
   [customProp: string]: any;
 }
 
-export interface AntTreeNode extends Component<AntTreeNodeProps, {}> {}
+export interface AntTreeNode extends Component<AntTreeNodeProps> {}
 
 export interface AntTreeNodeBaseEvent {
   node: AntTreeNode;

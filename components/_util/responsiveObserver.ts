@@ -67,7 +67,7 @@ export default function useResponsiveObserver() {
 
   // To avoid repeat create instance, we add `useMemo` here.
   return React.useMemo(() => {
-    const subscribers = new Map<Number, SubscribeFunc>();
+    const subscribers = new Map<number, SubscribeFunc>();
     let subUid = -1;
     let screens = {};
 

@@ -79,7 +79,7 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
   return [
     {
       [componentCls]: {
-        [`&-inline, &-vertical`]: {
+        '&-inline, &-vertical': {
           [`&${componentCls}-root`]: {
             boxShadow: 'none',
           },

@@ -13,7 +13,7 @@ import useStyle from './style';
 interface EditableProps {
   prefixCls: string;
   value: string;
-  ['aria-label']?: string;
+  'aria-label'?: string;
   onSave: (value: string) => void;
   onCancel: () => void;
   onEnd?: () => void;
@@ -54,7 +54,7 @@ const Editable: React.FC<EditableProps> = (props) => {
   }, [value]);
 
   React.useEffect(() => {
-    if (ref.current && ref.current.resizableTextArea) {
+    if (ref.current?.resizableTextArea) {
       const { textArea } = ref.current.resizableTextArea;
       textArea.focus();
       const { length } = textArea.value;

@@ -1,11 +1,11 @@
 /* eslint-disable no-redeclare */
 import type { ComponentType, FC, ReactElement } from 'react';
 import React, { useContext } from 'react';
-import type { CSSInterpolation, AbstractCalculator } from '@ant-design/cssinjs';
-import { token2CSSVar, useCSSVarRegister, useStyleRegister, genCalc } from '@ant-design/cssinjs';
-import useUniqueMemo from '../../_util/hooks/useUniqueMemo';
+import type { AbstractCalculator, CSSInterpolation } from '@ant-design/cssinjs';
+import { genCalc, token2CSSVar, useCSSVarRegister, useStyleRegister } from '@ant-design/cssinjs';
 import { warning } from 'rc-util';
 
+import useUniqueMemo from '../../_util/hooks/useUniqueMemo';
 import { ConfigContext } from '../../config-provider/context';
 import { genCommonStyle, genLinkStyle } from '../../style';
 import type {
@@ -178,7 +178,7 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
       }
 
       return genCalc(type, unitlessCssVar);
-    }, [type, component, cssVar && cssVar.prefix]);
+    }, [type, component, cssVar?.prefix]);
     const { max, min } = genMaxMin(type);
 
     // Shared config
@@ -420,7 +420,7 @@ export const genStyleHooks = <C extends OverrideComponent>(
   }
 
   // Fill unitless
-  const originUnitless = (options && options.unitless) || {};
+  const originUnitless = options?.unitless || {};
   const compUnitless: any = {
     ...unitless,
     [prefixToken('zIndexPopup')]: true,

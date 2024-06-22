@@ -243,11 +243,11 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = (token
     [`&${componentCls}-mini ${componentCls}-options`]: {
       marginInlineStart: token.paginationMiniOptionsMarginInlineStart,
 
-      [`&-size-changer`]: {
+      '&-size-changer': {
         top: token.miniOptionsSizeChangerTop,
       },
 
-      [`&-quick-jumper`]: {
+      '&-quick-jumper': {
         height: token.itemSizeSM,
         lineHeight: unit(token.itemSizeSM),
 

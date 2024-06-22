@@ -251,7 +251,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
             transition: `all ${motionDurationMid}`,
             borderRadius: token.borderRadiusSM,
 
-            [`&:hover, &-active`]: {
+            '&:hover, &-active': {
               backgroundColor: token.controlItemBgHover,
             },
 

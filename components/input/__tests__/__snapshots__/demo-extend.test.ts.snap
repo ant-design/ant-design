@@ -519,6 +519,9 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                               width="64"
                               xmlns="http://www.w3.org/2000/svg"
                             >
+                              <title>
+                                Simple Empty
+                              </title>
                               <g
                                 fill="none"
                                 fill-rule="evenodd"
@@ -3519,6 +3522,9 @@ Array [
                 width="64"
                 xmlns="http://www.w3.org/2000/svg"
               >
+                <title>
+                  Simple Empty
+                </title>
                 <g
                   fill="none"
                   fill-rule="evenodd"

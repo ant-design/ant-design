@@ -94,13 +94,13 @@ const App: React.FC = () => {
         const afterStr = strTitle.slice(index + searchValue.length);
         const title =
           index > -1 ? (
-            <span>
+            <span key={item.key}>
               {beforeStr}
               <span className="site-tree-search-value">{searchValue}</span>
               {afterStr}
             </span>
           ) : (
-            <span>{strTitle}</span>
+            <span key={item.key}>{strTitle}</span>
           );
         if (item.children) {
           return { title, key: item.key, children: loop(item.children) };

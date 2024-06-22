@@ -5,13 +5,13 @@ CODEOWNERS
 Dockerfile.ui-test
 .dumi/tmp
 .dumi/tmp-production
+!dumi
 AUTHORS.txt
 lib/
 es/
 dist/
 _site/
 server
-.dumi/tmp
 coverage/
 CNAME
 LICENSE

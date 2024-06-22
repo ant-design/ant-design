@@ -58,14 +58,12 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   const inputRef = React.useRef<InputRef>(null);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e && e.target && e.type === 'click' && customOnSearch) {
+    if (e?.target && e.type === 'click' && customOnSearch) {
       customOnSearch((e as React.ChangeEvent<HTMLInputElement>).target.value, e, {
         source: 'clear',
       });
     }
-    if (customOnChange) {
-      customOnChange(e);
-    }
+    customOnChange?.(e);
   };
 
   const onMouseDown: React.MouseEventHandler<HTMLElement> = (e) => {
