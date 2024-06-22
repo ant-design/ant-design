@@ -343,7 +343,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       // ============================ Body ============================
       [`${componentCls}-tbody`]: {
         '> tr': {
-          [`> th, > td`]: {
+          '> th, > td': {
             transition: `background ${motionDurationMid}, border-color ${motionDurationMid}`,
             borderBottom: tableBorder,
 

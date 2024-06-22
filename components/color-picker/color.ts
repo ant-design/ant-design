@@ -19,7 +19,7 @@ export class ColorFactory implements Color {
   /** Original Color object */
   private metaColor: RcColor;
 
-  public cleared: boolean = false;
+  public cleared = false;
 
   constructor(color: ColorGenInput<Color>) {
     this.metaColor = new RcColor(color as ColorGenInput);

@@ -2,6 +2,7 @@ import * as React from 'react';
 
 const NoFound: React.FC = () => (
   <svg width="252" height="294">
+    <title>No Found</title>
     <defs>
       <path d="M0 .387h251.772v251.772H0z" />
     </defs>

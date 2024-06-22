@@ -67,7 +67,8 @@ background-image: linear-gradient(0deg, rgb(0, 0, 0), transparent);
 
 ```css
 background-color: rgb(0, 106, 255);
-background-image: linear-gradient(0deg, rgb(0, 0, 0), transparent), linear-gradient(90deg, rgb(255, 255, 255), rgba(255, 255, 255, 0));
+background-image: linear-gradient(0deg, rgb(0, 0, 0), transparent),
+  linear-gradient(90deg, rgb(255, 255, 255), rgba(255, 255, 255, 0));
 ```
 
 叠加饱和度图层后，我们得到了具有明度变化和饱和度变化的蓝色 <img style="width:auto" src="https://user-images.githubusercontent.com/21119589/266243231-6d682bf5-fb74-4a8e-9930-19a604d1203f.png"/>

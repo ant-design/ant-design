@@ -9,7 +9,6 @@ skip: true
 ## Design Goals
 
 - The empty state should provide a prompt to help users understand the reason for the empty state, avoiding confusion and misunderstanding;
-  
 - Provide recommended action tips to help users get out of the empty state.
 
 ---

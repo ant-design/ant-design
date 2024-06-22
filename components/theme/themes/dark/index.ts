@@ -18,6 +18,7 @@ const derivative: DerivativeFunc<SeedToken, MapToken> = (token, mapToken) => {
       }, {});
     })
     .reduce((prev, cur) => {
+      // biome-ignore lint/style/noParameterAssign: it is a reduce
       prev = { ...prev, ...cur };
       return prev;
     }, {});

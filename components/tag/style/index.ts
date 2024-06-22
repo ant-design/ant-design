@@ -84,7 +84,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         },
       },
 
-      [`&-checkable`]: {
+      '&-checkable': {
         backgroundColor: 'transparent',
         borderColor: 'transparent',
         cursor: 'pointer',
@@ -110,7 +110,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         },
       },
 
-      [`&-hidden`]: {
+      '&-hidden': {
         display: 'none',
       },
 

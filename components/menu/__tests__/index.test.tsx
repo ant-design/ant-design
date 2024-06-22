@@ -28,13 +28,13 @@ type MouseEvent = 'click' | 'mouseEnter' | 'mouseLeave';
 const { SubMenu } = Menu;
 
 describe('Menu', () => {
-  function triggerAllTimer() {
+  const triggerAllTimer = () => {
     for (let i = 0; i < 10; i += 1) {
       act(() => {
         jest.runAllTimers();
       });
     }
-  }
+  };
 
   const expectSubMenuBehavior = (
     defaultTestProps: MenuProps,
@@ -59,11 +59,10 @@ describe('Menu', () => {
     // React concurrent may delay creating this
     triggerAllTimer();
 
-    function getSubMenu() {
-      return container.querySelector<HTMLUListElement | HTMLDivElement>(
+    const getSubMenu = () =>
+      container.querySelector<HTMLUListElement | HTMLDivElement>(
         mode === 'inline' ? 'ul.ant-menu-sub.ant-menu-inline' : 'div.ant-menu-submenu-popup',
       );
-    }
 
     expect(
       getSubMenu()?.classList.contains('ant-menu-hidden') ||
@@ -85,16 +84,18 @@ describe('Menu', () => {
     }
   };
 
-  // window.requestAnimationFrame = callback => window.setTimeout(callback, 16);
-  // window.cancelAnimationFrame = window.clearTimeout;
+  let div: HTMLDivElement;
 
   beforeEach(() => {
     jest.useFakeTimers();
     jest.clearAllTimers();
+    div = document.createElement('div');
+    document.body.appendChild(div);
   });
 
   afterEach(() => {
     jest.useRealTimers();
+    document.body.removeChild(div);
   });
 
   mountTest(() => (
@@ -137,17 +138,6 @@ describe('Menu', () => {
   );
 
   rtlTest(RtlDemo);
-
-  let div: HTMLDivElement;
-
-  beforeEach(() => {
-    div = document.createElement('div');
-    document.body.appendChild(div);
-  });
-
-  afterEach(() => {
-    document.body.removeChild(div);
-  });
 
   it('If has select nested submenu item ,the menu items on the grandfather level should be highlight', () => {
     const { container } = render(

@@ -1,4 +1,5 @@
 import fetch from 'cross-fetch';
+
 import use from '../use';
 import FetchCache from './cache';
 

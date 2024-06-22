@@ -158,7 +158,7 @@ export const initSlideMotion = (
         opacity: 0,
         animationTimingFunction: token.motionEaseOutQuint,
 
-        [`&-prepare`]: {
+        '&-prepare': {
           transform: 'scale(1)',
         },
       },
