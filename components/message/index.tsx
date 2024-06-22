@@ -98,7 +98,7 @@ const GlobalHolder = React.forwardRef<
   return holder;
 });
 
-const GlobalHolderWrapper = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
+const GlobalHolderWrapper = React.forwardRef<GlobalHolderRef, unknown>((_, ref) => {
   const [messageConfig, setMessageConfig] = React.useState<ConfigOptions>(getGlobalContext);
 
   const sync = () => {

@@ -199,7 +199,7 @@ const ColorPicker: CompoundedComponent = (props) => {
         }
       }}
       content={
-        <ContextIsolator isolateFormContext>
+        <ContextIsolator form>
           <ColorPickerPanel
             {...colorBaseProps}
             onChange={handleChange}

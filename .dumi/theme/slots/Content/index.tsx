@@ -1,5 +1,5 @@
 import React, { useContext, useLayoutEffect, useMemo, useState } from 'react';
-import { Space, Col, Flex, Typography } from 'antd';
+import { Col, Flex, Space, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 import { FormattedMessage, useRouteMeta } from 'dumi';
