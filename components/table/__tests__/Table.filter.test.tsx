@@ -2943,13 +2943,14 @@ describe('Table.filter', () => {
     expect(handleChange).not.toHaveBeenCalled();
   });
 
-  it('Fixed the problem that the custom global component did not take effect in the filter', () => {
+  it('Fixed the problem that the custom global component did not take effect in the filter', async () => {
     const customizeRenderEmpty = () => (
       <div
         style={{
           textAlign: 'center',
           color: '#ccc',
         }}
+        className="renderEmpty"
       >
         <p>Data Not Found</p>
       </div>
@@ -2977,19 +2978,25 @@ describe('Table.filter', () => {
 
     const { container } = render(
       <ConfigProvider renderEmpty={customizeRenderEmpty}>
-        <Table columns={columns} />;
+        <Table columns={columns} />
       </ConfigProvider>,
     );
 
-    // Ensure element exists and handle scenario where element is not found
+    // Ensure element exists
     const dropdownTrigger = container.querySelector('.ant-dropdown-trigger');
-    expect(dropdownTrigger).toBeTruthy(); // Assert that dropdownTrigger exists
+    expect(dropdownTrigger).toBeInTheDocument(); // Assert that dropdownTrigger exists
 
-    if (!dropdownTrigger) {
-      throw new Error('Dropdown trigger element not found');
+    if (dropdownTrigger) {
+      fireEvent.click(dropdownTrigger);
     }
 
-    // If element exists, proceed to click it
-    fireEvent.click(dropdownTrigger);
+    // Wait for DOM updates after clicking
+    await waitFor(() => {
+      const emptyElement = document.querySelector('.ant-table-filter-dropdown .renderEmpty');
+      expect(emptyElement).toBeInTheDocument();
+
+      // Verify the contents of the emptyElement
+      expect(emptyElement).toHaveTextContent('Data Not Found');
+    });
   });
 });
