@@ -13,7 +13,7 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
-  global:{
+  global: {
     placeholder: 'Сонгоно уу',
   },
   Table: {

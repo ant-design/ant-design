@@ -27,6 +27,12 @@ import type { TagProps } from '../tag';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 import type { TourProps } from '../tour/interface';
 import type { TransferProps } from '../transfer';
+import type { InputNumberProps } from '../input-number';
+import type { TreeSelectProps } from '../tree-select';
+import type { DatePickerProps, RangePickerProps } from '../date-picker';
+import type { TimePickerProps } from '../time-picker';
+import type { CascaderProps } from '../cascader';
+import type { MentionsProps } from '../mentions';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 
 export const defaultIconPrefixCls = 'anticon';
@@ -137,10 +143,10 @@ export type AlertConfig = ComponentStyleConfig & Pick<AlertProps, 'closable' | '
 export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
 
 export type InputConfig = ComponentStyleConfig &
-  Pick<InputProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear'>;
+  Pick<InputProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
 
 export type TextAreaConfig = ComponentStyleConfig &
-  Pick<TextAreaProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear'>;
+  Pick<TextAreaProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
 
 export type ButtonConfig = ComponentStyleConfig &
   Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace'>;
@@ -161,21 +167,38 @@ export type FlexConfig = ComponentStyleConfig & Pick<FlexProps, 'vertical'>;
 export type TransferConfig = ComponentStyleConfig & Pick<TransferProps, 'selectionsIcon'>;
 
 export type FormConfig = ComponentStyleConfig &
-  Pick<FormProps, 'requiredMark' | 'colon' | 'scrollToFirstError' | 'validateMessages'>;
+  Pick<FormProps, 'requiredMark' | 'colon' | 'scrollToFirstError' | 'validateMessages' | 'variant'>;
 
 export type FloatButtonGroupConfig = Pick<FloatButtonGroupProps, 'closeIcon'>;
 
 export type PaginationConfig = ComponentStyleConfig & Pick<PaginationProps, 'showSizeChanger'>;
 
-export type SelectConfig = ComponentStyleConfig & Pick<SelectProps, 'showSearch'>;
+export type SelectConfig = ComponentStyleConfig & Pick<SelectProps, 'showSearch' | 'variant'>;
 
 export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'classNames' | 'styles'>;
+
+export type InputNumberConfig = ComponentStyleConfig & Pick<InputNumberProps, 'variant'>;
+
+export type CascaderConfig = ComponentStyleConfig & Pick<CascaderProps, 'variant'>;
+
+export type TreeSelectConfig = ComponentStyleConfig & Pick<TreeSelectProps, 'variant'>;
+
+export type DatePickerConfig = ComponentStyleConfig & Pick<DatePickerProps, 'variant'>;
+
+export type RangePickerConfig = ComponentStyleConfig & Pick<RangePickerProps, 'variant'>;
+
+export type TimePickerConfig = ComponentStyleConfig & Pick<TimePickerProps, 'variant'>;
+
+export type MentionsConfig = ComponentStyleConfig & Pick<MentionsProps, 'variant'>;
 
 export type PopupOverflow = 'viewport' | 'scroll';
 
 export interface ListConfig extends ComponentStyleConfig {
   item?: Pick<ListItemProps, 'classNames' | 'styles'>;
 }
+
+export const Variants = ['outlined', 'borderless', 'filled'] as const;
+export type Variant = (typeof Variants)[number];
 
 export interface WaveConfig {
   /**
@@ -205,8 +228,10 @@ export interface ConfigConsumerProps {
   csp?: CSPConfig;
   /** @deprecated Please use `{ button: { autoInsertSpace: boolean }}` instead */
   autoInsertSpaceInButton?: boolean;
+  variant?: Variant;
   input?: InputConfig;
   textArea?: TextAreaConfig;
+  inputNumber?: InputNumberConfig;
   pagination?: PaginationConfig;
   locale?: Locale;
   direction?: DirectionType;
@@ -224,8 +249,9 @@ export interface ConfigConsumerProps {
   drawer?: DrawerConfig;
   calendar?: ComponentStyleConfig;
   carousel?: ComponentStyleConfig;
-  cascader?: ComponentStyleConfig;
   chatbox?: ChatboxConfig;
+  cascader?: CascaderConfig;
+  treeSelect?: TreeSelectConfig;
   collapse?: CollapseConfig;
   floatButtonGroup?: FloatButtonGroupConfig;
   typography?: ComponentStyleConfig;
@@ -237,7 +263,7 @@ export interface ConfigConsumerProps {
   image?: ImageConfig;
   layout?: ComponentStyleConfig;
   list?: ListConfig;
-  mentions?: ComponentStyleConfig;
+  mentions?: MentionsConfig;
   modal?: ModalConfig;
   progress?: ComponentStyleConfig;
   result?: ComponentStyleConfig;
@@ -259,14 +285,14 @@ export interface ConfigConsumerProps {
   card?: CardConfig;
   tabs?: TabsConfig;
   timeline?: ComponentStyleConfig;
-  timePicker?: ComponentStyleConfig;
+  timePicker?: TimePickerConfig;
   tour?: TourConfig;
   upload?: ComponentStyleConfig;
   notification?: NotificationConfig;
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
-  datePicker?: ComponentStyleConfig;
-  rangePicker?: ComponentStyleConfig;
+  datePicker?: DatePickerConfig;
+  rangePicker?: RangePickerConfig;
   dropdown?: ComponentStyleConfig;
   flex?: FlexConfig;
   wave?: WaveConfig;

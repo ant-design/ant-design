@@ -10809,6 +10809,9 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                                 width="64"
                                 xmlns="http://www.w3.org/2000/svg"
                               >
+                                <title>
+                                  Simple Empty
+                                </title>
                                 <g
                                   fill="none"
                                   fill-rule="evenodd"
@@ -11985,6 +11988,9 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                             width="64"
                             xmlns="http://www.w3.org/2000/svg"
                           >
+                            <title>
+                              Simple Empty
+                            </title>
                             <g
                               fill="none"
                               fill-rule="evenodd"

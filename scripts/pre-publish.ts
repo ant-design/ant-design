@@ -64,7 +64,7 @@ process.on('SIGINT', () => {
   process.exit(1);
 });
 
-const emojify = (status: string = '') => {
+const emojify = (status = '') => {
   if (!status) {
     return '';
   }

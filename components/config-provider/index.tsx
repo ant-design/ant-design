@@ -48,8 +48,16 @@ import type {
   TourConfig,
   TransferConfig,
   WaveConfig,
+  Variant,
+  InputNumberConfig,
+  RangePickerConfig,
+  DatePickerConfig,
+  TimePickerConfig,
+  CascaderConfig,
+  TreeSelectConfig,
+  MentionsConfig,
 } from './context';
-import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
+import { ConfigConsumer, ConfigContext, defaultIconPrefixCls, Variants } from './context';
 import { registerTheme } from './cssVariables';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import { DisabledContextProvider } from './DisabledContext';
@@ -60,6 +68,10 @@ import PropWarning from './PropWarning';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
 import useStyle from './style';
+
+export type { Variant };
+
+export { Variants };
 
 /**
  * Since too many feedback using static method like `Modal.confirm` not getting theme, we record the
@@ -126,8 +138,10 @@ export interface ConfigProviderProps {
   csp?: CSPConfig;
   /** @deprecated Please use `{ button: { autoInsertSpace: boolean }}` instead */
   autoInsertSpaceInButton?: boolean;
+  variant?: Variant;
   form?: FormConfig;
   input?: InputConfig;
+  inputNumber?: InputNumberConfig;
   textArea?: TextAreaConfig;
   select?: SelectConfig;
   pagination?: PaginationConfig;
@@ -162,8 +176,9 @@ export interface ConfigProviderProps {
   button?: ButtonConfig;
   calendar?: ComponentStyleConfig;
   carousel?: ComponentStyleConfig;
-  cascader?: ComponentStyleConfig;
   chatbox?: ChatboxConfig;
+  cascader?: CascaderConfig;
+  treeSelect?: TreeSelectConfig;
   collapse?: CollapseConfig;
   divider?: ComponentStyleConfig;
   drawer?: DrawerConfig;
@@ -176,7 +191,7 @@ export interface ConfigProviderProps {
   image?: ImageConfig;
   layout?: ComponentStyleConfig;
   list?: ListConfig;
-  mentions?: ComponentStyleConfig;
+  mentions?: MentionsConfig;
   modal?: ModalConfig;
   progress?: ComponentStyleConfig;
   result?: ComponentStyleConfig;
@@ -199,13 +214,13 @@ export interface ConfigProviderProps {
   card?: CardConfig;
   tabs?: TabsConfig;
   timeline?: ComponentStyleConfig;
-  timePicker?: ComponentStyleConfig;
+  timePicker?: TimePickerConfig;
   upload?: ComponentStyleConfig;
   notification?: NotificationConfig;
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
-  datePicker?: ComponentStyleConfig;
-  rangePicker?: ComponentStyleConfig;
+  datePicker?: DatePickerConfig;
+  rangePicker?: RangePickerConfig;
   dropdown?: ComponentStyleConfig;
   flex?: FlexConfig;
   /**
@@ -370,6 +385,9 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     warning: warningConfig,
     tour,
     floatButtonGroup,
+    variant,
+    inputNumber,
+    treeSelect,
   } = props;
 
   // =================================== Context ===================================
@@ -467,6 +485,9 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     warning: warningConfig,
     tour,
     floatButtonGroup,
+    variant,
+    inputNumber,
+    treeSelect,
   };
 
   if (process.env.NODE_ENV !== 'production') {

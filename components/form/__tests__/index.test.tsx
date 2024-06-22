@@ -1550,8 +1550,8 @@ describe('Form', () => {
   });
 
   it('useFormInstance', () => {
-    let formInstance;
-    let subFormInstance;
+    let formInstance: any;
+    let subFormInstance: any;
 
     const Sub = () => {
       const formSub = Form.useFormInstance();

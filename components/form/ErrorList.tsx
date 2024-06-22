@@ -23,7 +23,7 @@ function toErrorEntity(
   error: React.ReactNode,
   prefix: string,
   errorStatus?: ValidateStatus,
-  index: number = 0,
+  index = 0,
 ): ErrorEntity {
   return {
     key: typeof error === 'string' ? error : `${prefix}-${index}`,
