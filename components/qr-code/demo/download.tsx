@@ -21,12 +21,8 @@ const downloadCanvasQRCode = () => {
 
 const downloadSvgQRCode = () => {
   const svg = document.getElementById('myqrcode')?.querySelector<SVGElement>('svg');
-  // 获取SVG的XML字符串
   const svgData = new XMLSerializer().serializeToString(svg!);
-  // 创建Blob对象
   const blob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
-
-  // 创建可下载链接
   const url = URL.createObjectURL(blob);
 
   doDownload(url, 'QRCode.svg');
