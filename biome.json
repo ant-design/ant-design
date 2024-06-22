@@ -1,12 +1,13 @@
 {
   "files": {
     "ignore": [
-      ".dumi/tmp",
+      ".dumi/tmp*",
       "./dist/*",
       "./es/**/*",
       "./lib/**/*",
       "_site/**/*",
       "node_modules",
+      "server",
       ".dumi/scripts/clarity.js"
     ]
   },

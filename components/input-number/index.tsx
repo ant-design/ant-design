@@ -111,8 +111,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
 
   const [variant, enableVariantCls] = useVariant(customVariant, bordered);
 
-  // eslint-disable-next-line react/jsx-no-useless-fragment
-  // biome-ignore lint/complexity/noUselessFragments: avoid falsy value
+  /* biome-ignore lint/complexity/noUselessFragments: avoid falsy value */ /* eslint-disable-next-line react/jsx-no-useless-fragment */
   const suffixNode = hasFeedback && <>{feedbackIcon}</>;
 
   const inputNumberClass = classNames(

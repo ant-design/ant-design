@@ -54,8 +54,8 @@
     "install-react-16": "npm i --no-save --legacy-peer-deps react@16 react-dom@16 @testing-library/react@12",
     "install-react-17": "npm i --no-save --legacy-peer-deps react@17 react-dom@17 @testing-library/react@12",
     "install-react-18": "npm i --no-save --legacy-peer-deps react@18 react-dom@18",
-    "prelint": "dumi setup",
-    "lint": "npm run version && npm run tsc && npm run lint:script && npm run lint:biome && npm run lint:demo && npm run lint:md && npm run lint:style && npm run lint:changelog",
+    "prelint": "dumi setup && npm run version",
+    "lint": "npm run tsc && npm run lint:script && npm run lint:biome && npm run lint:demo && npm run lint:md && npm run lint:style && npm run lint:changelog",
     "lint-fix": "npm run lint-fix:script && npm run lint-fix:demo",
     "lint-fix:demo": "npm run lint:demo -- --fix",
     "lint-fix:script": "npm run lint:script -- --fix",
@@ -96,10 +96,6 @@
     "tsc": "tsc --noEmit",
     "tsc:old": "tsc --noEmit -p tsconfig-old-react.json",
     "version": "tsx scripts/generate-version.ts"
-  },
-  "lint-staged": {
-    "*.{ts,tsx,js,jsx,json,css}": ["biome check --write"],
-    "*.{md,yml}": ["prettier --ignore-unknown --write"]
   },
   "browserslist": ["> 0.5%", "last 2 versions", "Firefox ESR", "not dead"],
   "dependencies": {
