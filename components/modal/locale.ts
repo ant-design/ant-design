@@ -13,9 +13,9 @@ let runtimeLocale: ModalLocale = {
 let localeList: ModalLocale[] = [];
 
 const generateLocale = () =>
-  localeList.reduce(
+  localeList.reduce<ModalLocale>(
     (merged, locale) => ({ ...merged, ...locale }),
-    defaultLocale.Modal as ModalLocale,
+    defaultLocale.Modal!,
   );
 
 export function changeConfirmLocale(newLocale?: ModalLocale) {
