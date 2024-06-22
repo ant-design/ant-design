@@ -75,6 +75,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
       </button>
     );
     const jumpPrevIcon = (
+      // biome-ignore lint/a11y/useValidAnchor: it is hard to refactor
       <a className={`${prefixCls}-item-link`}>
         <div className={`${prefixCls}-item-container`}>
           {direction === 'rtl' ? (
@@ -87,6 +88,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
       </a>
     );
     const jumpNextIcon = (
+      // biome-ignore lint/a11y/useValidAnchor: it is hard to refactor
       <a className={`${prefixCls}-item-link`}>
         <div className={`${prefixCls}-item-container`}>
           {direction === 'rtl' ? (

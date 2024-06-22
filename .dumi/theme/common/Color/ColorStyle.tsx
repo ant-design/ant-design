@@ -21,7 +21,7 @@ const gray: { [key: number]: string } = {
 const ColorStyle: React.FC = () => {
   const token = useTheme();
 
-  const makePalette = (color: string, index: number = 1): string => {
+  const makePalette = (color: string, index = 1): string => {
     if (index <= 10) {
       return `
 .palette-${color}-${index} {
@@ -33,7 +33,7 @@ ${makePalette(color, index + 1)}
     return '';
   };
 
-  const makeGrayPalette = (index: number = 1): string => {
+  const makeGrayPalette = (index = 1): string => {
     if (index <= 13) {
       return `
 .palette-gray-${index} {

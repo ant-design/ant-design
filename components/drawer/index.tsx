@@ -5,13 +5,12 @@ import RcDrawer from 'rc-drawer';
 import type { Placement } from 'rc-drawer/lib/Drawer';
 import type { CSSMotionProps } from 'rc-motion';
 
+import ContextIsolator from '../_util/ContextIsolator';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
-import { NoFormStyle } from '../form/context';
-import { NoCompactStyle } from '../space/Compact';
 import { usePanelRef } from '../watermark/context';
 import type { DrawerClassNames, DrawerPanelProps, DrawerStyles } from './DrawerPanel';
 import DrawerPanel from './DrawerPanel';
@@ -161,55 +160,53 @@ const Drawer: React.FC<DrawerProps> & {
   const { classNames: contextClassNames = {}, styles: contextStyles = {} } = drawer || {};
 
   return wrapCSSVar(
-    <NoCompactStyle>
-      <NoFormStyle status override>
-        <zIndexContext.Provider value={contextZIndex}>
-          <RcDrawer
-            prefixCls={prefixCls}
-            onClose={onClose}
-            maskMotion={maskMotion}
-            motion={panelMotion}
-            {...rest}
-            classNames={{
-              mask: classNames(propClassNames.mask, contextClassNames.mask),
-              content: classNames(propClassNames.content, contextClassNames.content),
-              wrapper: classNames(propClassNames.wrapper, contextClassNames.wrapper),
-            }}
-            styles={{
-              mask: {
-                ...propStyles.mask,
-                ...maskStyle,
-                ...contextStyles.mask,
-              },
-              content: {
-                ...propStyles.content,
-                ...drawerStyle,
-                ...contextStyles.content,
-              },
-              wrapper: {
-                ...propStyles.wrapper,
-                ...contentWrapperStyle,
-                ...contextStyles.wrapper,
-              },
-            }}
-            open={open ?? visible}
-            mask={mask}
-            push={push}
-            width={mergedWidth}
-            height={mergedHeight}
-            style={{ ...drawer?.style, ...style }}
-            className={classNames(drawer?.className, className)}
-            rootClassName={drawerClassName}
-            getContainer={getContainer}
-            afterOpenChange={afterOpenChange ?? afterVisibleChange}
-            panelRef={panelRef}
-            zIndex={zIndex}
-          >
-            <DrawerPanel prefixCls={prefixCls} {...rest} onClose={onClose} />
-          </RcDrawer>
-        </zIndexContext.Provider>
-      </NoFormStyle>
-    </NoCompactStyle>,
+    <ContextIsolator form space>
+      <zIndexContext.Provider value={contextZIndex}>
+        <RcDrawer
+          prefixCls={prefixCls}
+          onClose={onClose}
+          maskMotion={maskMotion}
+          motion={panelMotion}
+          {...rest}
+          classNames={{
+            mask: classNames(propClassNames.mask, contextClassNames.mask),
+            content: classNames(propClassNames.content, contextClassNames.content),
+            wrapper: classNames(propClassNames.wrapper, contextClassNames.wrapper),
+          }}
+          styles={{
+            mask: {
+              ...propStyles.mask,
+              ...maskStyle,
+              ...contextStyles.mask,
+            },
+            content: {
+              ...propStyles.content,
+              ...drawerStyle,
+              ...contextStyles.content,
+            },
+            wrapper: {
+              ...propStyles.wrapper,
+              ...contentWrapperStyle,
+              ...contextStyles.wrapper,
+            },
+          }}
+          open={open ?? visible}
+          mask={mask}
+          push={push}
+          width={mergedWidth}
+          height={mergedHeight}
+          style={{ ...drawer?.style, ...style }}
+          className={classNames(drawer?.className, className)}
+          rootClassName={drawerClassName}
+          getContainer={getContainer}
+          afterOpenChange={afterOpenChange ?? afterVisibleChange}
+          panelRef={panelRef}
+          zIndex={zIndex}
+        >
+          <DrawerPanel prefixCls={prefixCls} {...rest} onClose={onClose} />
+        </RcDrawer>
+      </zIndexContext.Provider>
+    </ContextIsolator>,
   );
 };
 

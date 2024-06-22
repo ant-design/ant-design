@@ -53,7 +53,7 @@ function splitCNCharsBySpace(child: React.ReactElement | string | number, needIn
 }
 
 export function spaceChildren(children: React.ReactNode, needInserted: boolean) {
-  let isPrevChildPure: boolean = false;
+  let isPrevChildPure = false;
   const childList: React.ReactNode[] = [];
 
   React.Children.forEach(children, (child) => {

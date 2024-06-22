@@ -182,7 +182,7 @@ function generateCalendar<DateType extends AnyObject>(generateConfig: GenerateCo
       };
       result.lang = {
         ...result.lang,
-        ...(locale || {}).lang,
+        ...locale?.lang,
       };
       return result;
     };
@@ -207,7 +207,7 @@ function generateCalendar<DateType extends AnyObject>(generateConfig: GenerateCo
               {String(generateConfig.getDate(date)).padStart(2, '0')}
             </div>
             <div className={`${calendarPrefixCls}-date-content`}>
-              {cellRender ? cellRender(date, info) : dateCellRender && dateCellRender(date)}
+              {cellRender ? cellRender(date, info) : dateCellRender?.(date)}
             </div>
           </div>
         );
@@ -237,7 +237,7 @@ function generateCalendar<DateType extends AnyObject>(generateConfig: GenerateCo
               {months[generateConfig.getMonth(date)]}
             </div>
             <div className={`${calendarPrefixCls}-date-content`}>
-              {cellRender ? cellRender(date, info) : monthCellRender && monthCellRender(date)}
+              {cellRender ? cellRender(date, info) : monthCellRender?.(date)}
             </div>
           </div>
         );

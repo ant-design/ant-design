@@ -95,7 +95,6 @@ For more chart usage content, go to [AntV Chart usage](https://antv-2018.alipay.
 
 AntV provides a default set of chart colours, including colour usage.For more colour swatches, go to [AntV - Design language - Vision](https://antv.vision/specification/language/palette)
 
-
 ### Component Usage Recommendations
 
 #### Title and Notes
@@ -142,7 +141,7 @@ Content annotation for the current set of data.
 
 This means that when the mouse hovers over the chart or the finger clicks on a data point of the mobile device, the data of the point is displayed in the form of interactive prompts, such as the value of the point, the unit of the data, etc.
 
-#### Graphics 
+#### Graphics
 
 <ImagePreview>
 <img class="preview-img no-padding" description="Classification of graphics" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*itDLQb2fXpkAAAAAAAAAAABkARQnAQ" />
