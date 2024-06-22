@@ -2980,6 +2980,23 @@ describe('Table.filter', () => {
         <Table columns={columns} />;
       </ConfigProvider>,
     );
-    fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
+
+    // Ensure element exists and handle scenario where element is not found
+    const dropdownTrigger = container.querySelector('.ant-dropdown-trigger');
+    expect(dropdownTrigger).toBeTruthy(); // Assert that dropdownTrigger exists
+
+    if (!dropdownTrigger) {
+      throw new Error('Dropdown trigger element not found');
+    }
+
+    // If element exists, proceed to click it
+    fireEvent.click(dropdownTrigger);
+
+    // Select elements with class name `ant-table-filter-dropdown`
+    const emptyElement = document.querySelector('.ant-table-filter-dropdown');
+
+    // Assert that the element exists and contains the correct text
+    expect(emptyElement).toBeInTheDocument();
+    expect(emptyElement).toHaveTextContent('Data Not Found');
   });
 });
