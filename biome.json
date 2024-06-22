@@ -23,6 +23,9 @@
       "quoteStyle": "single"
     }
   },
+  "organizeImports": {
+    "enabled": false
+  },
   "linter": {
     "rules": {
       "style": {
