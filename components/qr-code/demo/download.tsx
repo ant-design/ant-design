@@ -2,16 +2,20 @@ import React from 'react';
 import { Button, QRCode, Segmented, Space } from 'antd';
 import type { QRCodeProps } from 'antd';
 
+function doDownload(url: string, fileName: string) {
+  const a = document.createElement('a');
+  a.download = fileName;
+  a.href = url;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
 const downloadCanvasQRCode = () => {
   const canvas = document.getElementById('myqrcode')?.querySelector<HTMLCanvasElement>('canvas');
   if (canvas) {
     const url = canvas.toDataURL();
-    const a = document.createElement('a');
-    a.download = 'QRCode.png';
-    a.href = url;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+    doDownload(url, 'QRCode.png');
   }
 };
 
@@ -25,12 +29,7 @@ const downloadSvgQRCode = () => {
   // 创建可下载链接
   const url = URL.createObjectURL(blob);
 
-  const a = document.createElement('a');
-  a.download = 'QRCode.svg';
-  a.href = url;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
+  doDownload(url, 'QRCode.svg');
 };
 
 const App: React.FC = () => {
