@@ -2992,7 +2992,7 @@ describe('Table.filter', () => {
 
     // Wait for DOM updates after clicking
     await waitFor(() => {
-      const emptyElement = document.querySelector('.ant-table-filter-dropdown .renderEmpty');
+      const emptyElement = document.querySelector('.ant-table-filter-dropdown .renderEmpty p');
       expect(emptyElement).toBeInTheDocument();
 
       // Verify the contents of the emptyElement
