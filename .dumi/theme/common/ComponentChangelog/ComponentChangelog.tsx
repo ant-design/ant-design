@@ -203,7 +203,7 @@ const ComponentChangelog: React.FC<ComponentChangelogProps> = (props) => {
             </Typography.Title>
             <ul>
               {changelogList.map<React.ReactNode>((info, index) => (
-                <li key={index} className={styles.li}>
+                <li key={index}>
                   <ParseChangelog {...info} styles={styles} />
                 </li>
               ))}
