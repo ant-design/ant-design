@@ -20,8 +20,13 @@ const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
     children,
     vertical = false,
     component: Component = 'div',
+    columns,
+    spacing,
+    sequential = false,
     ...othersProps
   } = props;
+
+  console.log(columns, spacing, sequential);
 
   const {
     flex: ctxFlex,
