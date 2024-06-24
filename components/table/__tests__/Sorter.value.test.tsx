@@ -115,9 +115,14 @@ describe('Sorter.value.test.tsx', () => {
     };
     const { container } = render(<TableSorter />);
     fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
-    const sorter1 = onChange.mock.calls[0][2];
-    expect(sorter1.order).toBe('ascend');
-    expect(sorter1.field).toBe('age');
+    expect(onChange).toHaveBeenLastCalledWith(
+      expect.anything(),
+      expect.anything(),
+      expect.objectContaining({
+        order: 'ascend',
+        field: 'age',
+      }),
+    );
     const columnSorters = container.querySelectorAll('.ant-table-column-sorters');
     const fooSorterIcon = columnSorters[1];
     fireEvent.click(fooSorterIcon);
