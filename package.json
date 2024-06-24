@@ -330,6 +330,11 @@
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"
   },
+  "overrides": {
+    "react": "18.3.0-canary-c3048aab4-20240326",
+    "react-dom": "18.3.0-canary-c3048aab4-20240326"
+    
+  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
