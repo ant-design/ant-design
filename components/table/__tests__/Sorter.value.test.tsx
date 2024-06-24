@@ -121,6 +121,14 @@ describe('Sorter.value.test.tsx', () => {
         order: 'ascend',
         field: 'age',
       }),
+    );
+    expect(onChange).toHaveBeenLastCalledWith(
+      expect.anything(),
+      expect.anything(),
+      expect.objectContaining({
+        order: 'ascend',
+        field: 'age',
+      }),
       expect.anything(),
     );
     const columnSorters = container.querySelectorAll('.ant-table-column-sorters');
