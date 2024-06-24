@@ -10,7 +10,7 @@ import EditButton from '../../common/EditButton';
 import Footer from '../../slots/Footer';
 import AffixTabs from './AffixTabs';
 
-export type ResourceLayoutProps = PropsWithChildren<{}>;
+export type ResourceLayoutProps = PropsWithChildren<NonNullable<any>>;
 
 const resourcePadding = 40;
 const articleMaxWidth = 1208;

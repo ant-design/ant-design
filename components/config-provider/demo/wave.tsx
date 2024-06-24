@@ -23,13 +23,7 @@ const createHolder = (node: HTMLElement) => {
   return div;
 };
 
-const createDot = (
-  holder: HTMLElement,
-  color: string,
-  left: number,
-  top: number,
-  size: number = 0,
-) => {
+const createDot = (holder: HTMLElement, color: string, left: number, top: number, size = 0) => {
   const dot = document.createElement('div');
   dot.style.position = 'absolute';
   dot.style.left = `${left}px`;

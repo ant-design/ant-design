@@ -697,6 +697,9 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
                               width="64"
                               xmlns="http://www.w3.org/2000/svg"
                             >
+                              <title>
+                                Simple Empty
+                              </title>
                               <g
                                 fill="none"
                                 fill-rule="evenodd"

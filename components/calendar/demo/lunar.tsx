@@ -85,7 +85,7 @@ const useStyle = createStyles(({ token, css, cx }) => {
     weekend: css`
       color: ${token.colorError};
       &.gray {
-        opacity: .4
+        opacity: 0.4;
       }
     `,
   };

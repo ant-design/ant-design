@@ -145,4 +145,3 @@ Inform users of critical errors that require immediate attention.
 **Notification Center**
 
 Notify users of related activity information (e.g., items that need user approval or the progress of user-submitted approvals).
-

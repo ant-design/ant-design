@@ -77,7 +77,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     [slickRef.current],
   );
 
-  const prevCount = React.useRef(React.Children.count(props.children));
+  const prevCount = React.useRef<number>(React.Children.count(props.children));
 
   React.useEffect(() => {
     if (prevCount.current !== React.Children.count(props.children)) {

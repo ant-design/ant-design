@@ -1,4 +1,4 @@
-import { useStyleRegister, genCalc as calc } from '@ant-design/cssinjs';
+import { genCalc as calc, useStyleRegister } from '@ant-design/cssinjs';
 
 import type {
   AliasToken,

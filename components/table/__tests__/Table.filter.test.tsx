@@ -586,7 +586,7 @@ describe('Table.filter', () => {
             ...column,
             defaultFilteredValue: ['Jim', 'Tom'],
             onFilter: (value, record) => {
-              if (record.children && record.children.length) {
+              if (record.children?.length) {
                 return true;
               }
               return record.name.includes(value);
@@ -2508,8 +2508,9 @@ describe('Table.filter', () => {
       return (
         <div className={`${prefixCls}-view`} id="customFilter">
           {filterConfig.map(([text, id, param]) => (
-            <>
-              <span
+            <React.Fragment key={`set${id}`}>
+              <button
+                type="button"
                 onClick={() => {
                   setSelectedKeys([text as React.Key]);
                   confirm();
@@ -2517,11 +2518,15 @@ describe('Table.filter', () => {
                 id={`set${id}`}
               >
                 setSelectedKeys
-              </span>
-              <span onClick={() => (clearFilters as any)?.(param)} id={`reset${id}`}>
+              </button>
+              <button
+                type="button"
+                onClick={() => (clearFilters as any)?.(param)}
+                id={`reset${id}`}
+              >
                 Reset
-              </span>
-            </>
+              </button>
+            </React.Fragment>
           ))}
         </div>
       );
