@@ -350,6 +350,8 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
   let dropdownContent: React.ReactNode;
 
+  const { direction, renderEmpty } = React.useContext(ConfigContext);
+
   if (typeof column.filterDropdown === 'function') {
     dropdownContent = column.filterDropdown({
       prefixCls: `${dropdownPrefixCls}-custom`,
@@ -368,7 +370,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   } else {
     const selectedKeys = getFilteredKeysSync() || [];
     const getFilterComponent = () => {
-      const empty = (
+      const empty = renderEmpty?.('Table') || (
         <Empty
           image={Empty.PRESENTED_IMAGE_SIMPLE}
           description={locale.filterEmptyText}
@@ -523,8 +525,6 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   } else {
     filterIcon = <FilterFilled />;
   }
-
-  const { direction } = React.useContext(ConfigContext);
 
   return (
     <div className={`${prefixCls}-column`}>
