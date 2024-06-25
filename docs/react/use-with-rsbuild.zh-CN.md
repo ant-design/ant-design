@@ -25,7 +25,7 @@ $ cd demo
 $ npm run dev
 ```
 
-此时访问浏览器 http://localhost:3000，看到 `Rsbuild with React` 的界面就算成功了。
+此时访问浏览器 http://localhost:3000 ，看到 `Rsbuild with React` 的界面就算成功了。
 
 ## 引入 antd
 
