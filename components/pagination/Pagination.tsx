@@ -28,11 +28,8 @@ export interface PaginationProps extends RcPaginationProps {
 
 export type PaginationPosition = 'top' | 'bottom' | 'both';
 
-export type PaginationAlign = 'start' | 'center' | 'end';
-
 export interface PaginationConfig extends Omit<PaginationProps, 'rootClassName'> {
   position?: PaginationPosition;
-  align?: PaginationAlign;
 }
 
 export type { PaginationLocale };
@@ -116,7 +113,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
 
   const extendedClassName = classNames(
     {
-      [`${prefixCls}-${align}`]: true,
+      [`${prefixCls}-${align}`]: !!align,
       [`${prefixCls}-mini`]: isSmall,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-bordered`]: token.wireframe,
