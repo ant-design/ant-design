@@ -298,7 +298,6 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
       input: {
         boxSizing: 'border-box',
         height: '100%',
-        marginInlineEnd: token.marginXS,
         padding: `0 ${unit(token.paginationItemPaddingInline)}`,
         textAlign: 'center',
         backgroundColor: token.itemInputBg,
@@ -570,6 +569,19 @@ const genPaginationStyle: GenerateStyle<PaginationToken, CSSObject> = (token) =>
   return {
     [componentCls]: {
       ...resetComponent(token),
+      display: 'flex',
+
+      '&-start': {
+        justifyContent: 'start',
+      },
+
+      '&-center': {
+        justifyContent: 'center',
+      },
+
+      '&-end': {
+        justifyContent: 'end',
+      },
 
       'ul, ol': {
         margin: 0,
@@ -684,7 +696,7 @@ export const prepareToken = (token: Parameters<GenStyleFn<'Pagination'>>[0]) =>
       paginationMiniQuickJumperInputWidth: token.calc(token.controlHeightLG).mul(1.1).equal(),
       paginationItemPaddingInline: token.calc(token.marginXXS).mul(1.5).equal(),
       paginationEllipsisLetterSpacing: token.calc(token.marginXXS).div(2).equal(),
-      paginationSlashMarginInlineStart: token.marginXXS,
+      paginationSlashMarginInlineStart: token.marginSM,
       paginationSlashMarginInlineEnd: token.marginSM,
       paginationEllipsisTextIndent: '0.13em', // magic for ui experience
     },

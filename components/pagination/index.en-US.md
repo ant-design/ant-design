@@ -16,6 +16,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/align.tsx">Align</code>
 <code src="./demo/more.tsx">More</code>
 <code src="./demo/changer.tsx">Changer</code>
 <code src="./demo/jump.tsx">Jumper</code>
@@ -38,6 +39,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| align | Align | start \| center \| end | - |  |
 | current | Current page number | number | - |  |
 | defaultCurrent | Default initial page number | number | 1 |  |
 | defaultPageSize | Default number of data items per page | number | 10 |  |
@@ -52,7 +54,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | showSizeChanger | Determine whether to show `pageSize` select, it will be true when `total > 50` | boolean | - |  |
 | showTitle | Show page item's title | boolean | true |  |
 | showTotal | To display the total number and range | function(total, range) | - |  |
-| simple | Whether to use simple mode | boolean | - |  |
+| simple | Whether to use simple mode | boolean \| { readOnly?: boolean } | - |  |
 | size | Specify the size of `Pagination`, can be set to `small` | `default` \| `small` | `default` |  |
 | total | Total number of data items | number | 0 |  |
 | onChange | Called when the page number or `pageSize` is changed, and it takes the resulting page number and pageSize as its arguments | function(page, pageSize) | - |  |
