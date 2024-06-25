@@ -39,6 +39,7 @@ export type { PaginationLocale };
 
 const Pagination: React.FC<PaginationProps> = (props) => {
   const {
+    align,
     prefixCls: customizePrefixCls,
     selectPrefixCls: customizeSelectPrefixCls,
     className,
@@ -115,6 +116,9 @@ const Pagination: React.FC<PaginationProps> = (props) => {
 
   const extendedClassName = classNames(
     {
+      [`${prefixCls}-start`]: align === 'start',
+      [`${prefixCls}-center`]: align === 'center',
+      [`${prefixCls}-end`]: align === 'end',
       [`${prefixCls}-mini`]: isSmall,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-bordered`]: token.wireframe,

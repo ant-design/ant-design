@@ -16,6 +16,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/align.tsx">Align</code>
 <code src="./demo/more.tsx">More</code>
 <code src="./demo/changer.tsx">Changer</code>
 <code src="./demo/jump.tsx">Jumper</code>
@@ -38,6 +39,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| align | Align | start \| center \| end | - |  |
 | current | Current page number | number | - |  |
 | defaultCurrent | Default initial page number | number | 1 |  |
 | defaultPageSize | Default number of data items per page | number | 10 |  |
