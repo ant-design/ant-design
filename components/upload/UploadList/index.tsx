@@ -68,6 +68,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
       ) {
         return;
       }
+      file.thumbUrl = '';
       if (previewFile) {
         previewFile(file.originFileObj as File).then((previewDataUrl: string) => {
           // Need append '' to avoid dead loop
