@@ -116,9 +116,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
 
   const extendedClassName = classNames(
     {
-      [`${prefixCls}-start`]: align === 'start',
-      [`${prefixCls}-center`]: align === 'center',
-      [`${prefixCls}-end`]: align === 'end',
+      [`${prefixCls}-${align}`]: true,
       [`${prefixCls}-mini`]: isSmall,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-bordered`]: token.wireframe,
