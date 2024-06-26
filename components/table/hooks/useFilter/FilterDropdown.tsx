@@ -370,7 +370,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   } else {
     const selectedKeys = getFilteredKeysSync() || [];
     const getFilterComponent = () => {
-      const empty = renderEmpty?.('Table') || (
+      const empty = renderEmpty?.('Table.filter') || (
         <Empty
           image={Empty.PRESENTED_IMAGE_SIMPLE}
           description={locale.filterEmptyText}
