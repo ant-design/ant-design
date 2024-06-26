@@ -55,6 +55,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ```typescript
 type StatusRenderInfo = {
+  status: QRStatus;
   locale: Locale['QRCode'];
   onRefresh?: () => void;
 };

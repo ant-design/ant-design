@@ -56,6 +56,7 @@ tag: 5.1.0
 
 ```typescript
 type StatusRenderInfo = {
+  status: QRStatus;
   locale: Locale['QRCode'];
   onRefresh?: () => void;
 };
