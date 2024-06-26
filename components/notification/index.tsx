@@ -29,9 +29,15 @@ type Task =
       key?: React.Key;
     };
 
-let taskQueue: Task[] = [];
+type DelayTask = () => Promise<void> | void;
+
+const taskQueue: Task[] = [];
+
+const delayTaskQueue: DelayTask[] = [];
 
 let defaultGlobalConfig: GlobalConfigProps = {};
+
+let isLock = false;
 
 function getGlobalContext() {
   const { getContainer, rtl, maxCount, top, bottom, showProgress, pauseOnHover } =
@@ -152,30 +158,59 @@ function flushNotice() {
     return;
   }
 
-  // >>> Execute task
-  taskQueue.forEach((task) => {
+  processTaskQueue(taskQueue);
+  runPromiseInSequence();
+}
+
+const addDelayTask = (task: () => Promise<void> | void) => {
+  delayTaskQueue.push(task);
+};
+
+const delayFunction = (task: () => void, delay: number) => new Promise<void>((resolve) => {
+    setTimeout(() => {
+      task();
+      resolve();
+    }, delay);
+  });
+
+function runPromiseInSequence() {
+  if (delayTaskQueue.length === 0) {
+    isLock = false;
+    return Promise.resolve();
+  }
+
+  const task = delayTaskQueue.shift();
+  delayFunction(task!, 300).then(() => {
+    runPromiseInSequence();
+  });
+}
+
+function processTaskQueue(taskQueue: Task[]) {
+  while (taskQueue.length > 0) {
+    const task = taskQueue.shift()!;
     // eslint-disable-next-line default-case
     switch (task.type) {
       case 'open': {
-        act(() => {
-          notification!.instance!.open({
-            ...defaultGlobalConfig,
-            ...task.config,
-          });
-        });
+        addDelayTask(() =>
+          act(() => {
+            notification!.instance!.open({
+              ...defaultGlobalConfig,
+              ...task.config,
+            });
+          }),
+        );
         break;
       }
 
       case 'destroy':
-        act(() => {
-          notification?.instance!.destroy(task.key);
-        });
+        addDelayTask(() =>
+          act(() => {
+            notification?.instance!.destroy(task.key);
+          }),
+        );
         break;
     }
-  });
-
-  // Clean up
-  taskQueue = [];
+  }
 }
 
 // ==============================================================================
@@ -200,12 +235,16 @@ function open(config: ArgsProps) {
   if (process.env.NODE_ENV !== 'production' && !global.holderRender) {
     warnContext('notification');
   }
-
   taskQueue.push({
     type: 'open',
     config,
   });
-  flushNotice();
+  if (!isLock) {
+    Promise.resolve().then(() => {
+      flushNotice();
+    });
+  }
+  isLock = true;
 }
 
 const destroy: BaseMethods['destroy'] = (key) => {
