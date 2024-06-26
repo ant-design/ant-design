@@ -6,6 +6,7 @@ import Empty from '../empty';
 
 type ComponentName =
   | 'Table'
+  | 'Table.filter' /* 👈 5.19.0+ */
   | 'List'
   | 'Select'
   | 'TreeSelect'
@@ -31,7 +32,12 @@ const DefaultRenderEmpty: React.FC<EmptyProps> = (props) => {
     case 'Transfer':
     case 'Mentions':
       return <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} className={`${prefix}-small`} />;
-    /* istanbul ignore next */
+    /**
+     * Just go through the logic, don't implement it here.
+     * leave it to specific components themselves, such as `Table.filter`.
+     */
+    case 'Table.filter':
+      return;
     default:
       // Should never hit if we take all the component into consider.
       return <Empty />;
