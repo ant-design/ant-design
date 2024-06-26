@@ -28,8 +28,8 @@ export interface QRCodeProps extends QRProps, React.HTMLAttributes<HTMLDivElemen
   status?: 'active' | 'expired' | 'loading' | 'scanned';
   onRefresh?: () => void;
   statusRender?: {
-    expired?: (defaultNode: ReactNode, info: StatusRenderInfo) => ReactNode;
-    loading?: (defaultNode: ReactNode, info: StatusRenderInfo) => ReactNode;
-    scanned?: (defaultNode: ReactNode, info: StatusRenderInfo) => ReactNode;
+    expired?: (oriNode: ReactNode, info: StatusRenderInfo) => ReactNode;
+    loading?: (oriNode: ReactNode, info: StatusRenderInfo) => ReactNode;
+    scanned?: (oriNode: ReactNode, info: StatusRenderInfo) => ReactNode;
   };
 }
