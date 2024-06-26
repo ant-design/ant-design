@@ -63,11 +63,12 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
         typeof window === 'undefined' ||
         !(window as any).FileReader ||
         !(window as any).File ||
-        !(file.originFileObj instanceof File || file.originFileObj) ||
+        !(file.originFileObj instanceof File || (file.originFileObj as any) instanceof Blob) ||
         file.thumbUrl !== undefined
       ) {
         return;
       }
+      file.thumbUrl = '';
       if (previewFile) {
         previewFile(file.originFileObj as File).then((previewDataUrl: string) => {
           // Need append '' to avoid dead loop
