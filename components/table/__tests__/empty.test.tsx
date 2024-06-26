@@ -89,6 +89,13 @@ describe('Table', () => {
     });
   });
 
+  it('renders empty table when emptyText is null', () => {
+    const { asFragment } = render(
+      <Table dataSource={[]} columns={columns} pagination={false} locale={{ emptyText: null }} />,
+    );
+    expect(asFragment().firstChild).toMatchSnapshot();
+  });
+
   it('renders empty table with custom emptyText', () => {
     const { asFragment } = render(
       <Table
