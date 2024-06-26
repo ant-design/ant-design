@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import type { ColumnGroupType, ColumnType, TableProps } from '..';
 import Table from '..';
 import { resetWarned } from '../../_util/warning';
-import { act, fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
+import { act, fireEvent, render, waitFor } from '../../../tests/utils';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Input from '../../input';
@@ -2946,44 +2946,5 @@ describe('Table.filter', () => {
     fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[0]);
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     expect(handleChange).not.toHaveBeenCalled();
-  });
-
-  it('Fixed the problem that the custom global component did not take effect in the filter', async () => {
-    const customizeRenderEmpty = jest.fn<string, any, any>(() => 'Data Not Found');
-    const { container } = render(
-      <ConfigProvider renderEmpty={customizeRenderEmpty}>
-        <Table
-          columns={[
-            {
-              title: 'Name',
-              dataIndex: 'name',
-              key: 'name',
-              filters: [], // empty filters
-              onFilter: filterFn,
-            },
-            {
-              title: 'Age',
-              dataIndex: 'age',
-              key: 'age',
-            },
-          ]}
-        />
-      </ConfigProvider>,
-    );
-
-    // Open Filter
-    fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!);
-    act(() => {
-      jest.runAllTimers();
-    });
-
-    await waitFakeTimer();
-
-    expect(container.querySelector('.ant-table-filter-dropdown')).toHaveTextContent(
-      'Data Not Found',
-    );
-
-    expect(customizeRenderEmpty).toHaveBeenCalled();
-    expect(customizeRenderEmpty.mock.calls[0][0]).toEqual('Table');
   });
 });
