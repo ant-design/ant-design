@@ -547,9 +547,10 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   const mergedStyle: React.CSSProperties = { ...table?.style, ...style };
 
-  const emptyText = locale?.emptyText || renderEmpty?.('Table') || (
-    <DefaultRenderEmpty componentName="Table" />
-  );
+  const emptyText =
+    typeof locale?.emptyText !== 'undefined'
+      ? locale.emptyText
+      : renderEmpty?.('Table') || <DefaultRenderEmpty componentName="Table" />;
 
   // ========================== Render ==========================
   const TableComponent = virtual ? RcVirtualTable : RcTable;
