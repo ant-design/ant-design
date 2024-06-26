@@ -22,7 +22,7 @@ import type {
 } from '../interface';
 
 // https://github.com/Semantic-Org/Semantic-UI-React/blob/72c45080e4f20b531fda2e3e430e384083d6766b/test/specs/modules/Dropdown/Dropdown-test.js#L73
-const nativeEvent = { nativeEvent: { stopImmediatePropagation: () => { } } };
+const nativeEvent = { nativeEvent: { stopImmediatePropagation: () => {} } };
 
 describe('Table.filter', () => {
   window.requestAnimationFrame = (callback) => window.setTimeout(callback, 16);
@@ -136,7 +136,7 @@ describe('Table.filter', () => {
   it('renders empty menu correctly', () => {
     resetWarned();
 
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(
       createTable({
         columns: [
@@ -356,7 +356,7 @@ describe('Table.filter', () => {
 
   it('fires change event when visible change', () => {
     resetWarned();
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const onFilterDropdownOpenChange = jest.fn();
     const onFilterDropdownVisibleChange = jest.fn();
@@ -2651,7 +2651,7 @@ describe('Table.filter', () => {
 
     beforeEach(() => {
       resetWarned();
-      errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
+      errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
       errorSpy.mockReset();
     });
 
