@@ -22,7 +22,7 @@ import type {
 } from '../interface';
 
 // https://github.com/Semantic-Org/Semantic-UI-React/blob/72c45080e4f20b531fda2e3e430e384083d6766b/test/specs/modules/Dropdown/Dropdown-test.js#L73
-const nativeEvent = { nativeEvent: { stopImmediatePropagation: () => {} } };
+const nativeEvent = { nativeEvent: { stopImmediatePropagation: () => { } } };
 
 describe('Table.filter', () => {
   window.requestAnimationFrame = (callback) => window.setTimeout(callback, 16);
@@ -136,7 +136,7 @@ describe('Table.filter', () => {
   it('renders empty menu correctly', () => {
     resetWarned();
 
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
     const { container } = render(
       createTable({
         columns: [
@@ -356,7 +356,7 @@ describe('Table.filter', () => {
 
   it('fires change event when visible change', () => {
     resetWarned();
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
     const onFilterDropdownOpenChange = jest.fn();
     const onFilterDropdownVisibleChange = jest.fn();
@@ -2651,7 +2651,7 @@ describe('Table.filter', () => {
 
     beforeEach(() => {
       resetWarned();
-      errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
       errorSpy.mockReset();
     });
 
@@ -2948,23 +2948,31 @@ describe('Table.filter', () => {
     expect(handleChange).not.toHaveBeenCalled();
   });
 
-  it('Fixed the problem that the custom global component did not take effect in the filter', async () => {
-    const customizeRenderEmpty = jest.fn<string, any, any>(() => 'Data Not Found');
+  /**
+   * https://github.com/ant-design/ant-design/issues/49542
+   * https://github.com/ant-design/ant-design/discussions/49603
+   */
+  it('The filter empty state should be customizable', async () => {
+    const mockTableFilterRenderEmpty = jest.fn();
+
+    function renderEmpty(name: any) {
+      if (name === 'Table.filter') {
+        // eslint-disable-next-line prefer-rest-params
+        mockTableFilterRenderEmpty(...arguments)
+        return 'foo'
+      }
+      return 'bar'
+    }
+
     const { container } = render(
-      <ConfigProvider renderEmpty={customizeRenderEmpty}>
+      <ConfigProvider renderEmpty={renderEmpty}>
         <Table
+          dataSource={[{ name: 'John Brown' }]}
           columns={[
             {
               title: 'Name',
-              dataIndex: 'name',
               key: 'name',
               filters: [], // empty filters
-              onFilter: filterFn,
-            },
-            {
-              title: 'Age',
-              dataIndex: 'age',
-              key: 'age',
             },
           ]}
         />
@@ -2979,11 +2987,9 @@ describe('Table.filter', () => {
 
     await waitFakeTimer();
 
-    expect(container.querySelector('.ant-table-filter-dropdown')).toHaveTextContent(
-      'Data Not Found',
-    );
+    expect(container.querySelector('.ant-table-filter-dropdown')).toHaveTextContent('foo');
 
-    expect(customizeRenderEmpty).toHaveBeenCalled();
-    expect(customizeRenderEmpty.mock.calls[0][0]).toEqual('Table');
+    expect(mockTableFilterRenderEmpty).toHaveBeenCalled();
+    expect(mockTableFilterRenderEmpty.mock.calls[0][0]).toEqual('Table.filter');
   });
 });
