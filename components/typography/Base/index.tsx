@@ -384,15 +384,14 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     }
 
     return (
-      <button
-        type="button"
+      <TransButton
         key="expand"
         className={`${prefixCls}-${expanded ? 'collapse' : 'expand'}`}
-        onClick={(e) => onExpandClick(e, { expanded: !expanded })}
+        onClick={(e) => onExpandClick(e!, { expanded: !expanded })}
         aria-label={expanded ? textLocale.collapse : textLocale?.expand}
       >
         {typeof symbol === 'function' ? symbol(expanded) : symbol}
-      </button>
+      </TransButton>
     );
   };
 
