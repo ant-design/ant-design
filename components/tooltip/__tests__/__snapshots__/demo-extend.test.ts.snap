@@ -1582,6 +1582,9 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
                   width="64"
                   xmlns="http://www.w3.org/2000/svg"
                 >
+                  <title>
+                    Simple Empty
+                  </title>
                   <g
                     fill="none"
                     fill-rule="evenodd"

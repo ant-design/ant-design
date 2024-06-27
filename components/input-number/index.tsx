@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import type { InputNumberProps as RcInputNumberProps, ValueType } from 'rc-input-number';
 import RcInputNumber from 'rc-input-number';
 
+import ContextIsolator from '../_util/ContextIsolator';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -13,10 +14,10 @@ import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
-import { FormItemInputContext, NoFormStyle } from '../form/context';
+import { FormItemInputContext } from '../form/context';
 import type { Variant } from '../form/hooks/useVariants';
 import useVariant from '../form/hooks/useVariants';
-import { NoCompactStyle, useCompactItemContext } from '../space/Compact';
+import { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
 
 export interface InputNumberProps<T extends ValueType = ValueType>
@@ -110,7 +111,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
 
   const [variant, enableVariantCls] = useVariant(customVariant, bordered);
 
-  // eslint-disable-next-line react/jsx-no-useless-fragment
+  /* biome-ignore lint/complexity/noUselessFragments: avoid falsy value */ /* eslint-disable-next-line react/jsx-no-useless-fragment */
   const suffixNode = hasFeedback && <>{feedbackIcon}</>;
 
   const inputNumberClass = classNames(
@@ -136,22 +137,18 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       controls={controlsTemp}
       prefix={prefix}
       suffix={suffixNode}
-      addonAfter={
-        addonAfter && (
-          <NoCompactStyle>
-            <NoFormStyle override status>
-              {addonAfter}
-            </NoFormStyle>
-          </NoCompactStyle>
-        )
-      }
       addonBefore={
         addonBefore && (
-          <NoCompactStyle>
-            <NoFormStyle override status>
-              {addonBefore}
-            </NoFormStyle>
-          </NoCompactStyle>
+          <ContextIsolator form space>
+            {addonBefore}
+          </ContextIsolator>
+        )
+      }
+      addonAfter={
+        addonAfter && (
+          <ContextIsolator form space>
+            {addonAfter}
+          </ContextIsolator>
         )
       }
       classNames={{
@@ -160,7 +157,6 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
           {
             [`${prefixCls}-${variant}`]: enableVariantCls,
           },
-
           getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
         ),
         affixWrapper: classNames(

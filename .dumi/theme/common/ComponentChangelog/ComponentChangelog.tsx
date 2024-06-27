@@ -1,4 +1,4 @@
-/* eslint-disable global-require */
+/* eslint-disable global-require, import/no-unresolved */
 import React from 'react';
 import { BugOutlined, HistoryOutlined } from '@ant-design/icons';
 import { Button, Drawer, Grid, Popover, Timeline, Typography } from 'antd';
@@ -28,16 +28,6 @@ function matchDeprecated(v: string): MatchDeprecatedResult {
 }
 
 const useStyle = createStyles(({ token, css }) => ({
-  history: css`
-    position: absolute;
-    top: 0;
-    inset-inline-end: ${token.marginXS}px;
-  `,
-
-  li: css`
-    // white-space: pre;
-  `,
-
   ref: css`
     margin-inline-start: ${token.marginXS}px;
   `,
@@ -75,7 +65,7 @@ export interface ComponentChangelogProps {
 
 const locales = {
   cn: {
-    full: '完整更新日志',
+    full: '查看完整日志',
     changelog: '更新日志',
     loading: '加载中...',
     empty: '暂无更新',
@@ -142,9 +132,11 @@ interface ChangelogInfo {
 }
 
 const useChangelog = (componentPath: string, lang: 'cn' | 'en'): ChangelogInfo[] => {
+  const logFileName = `components-changelog-${lang}.json`;
+
   const data = useFetch({
     key: `component-changelog-${lang}`,
-    request: () => import(`../../../preset/components-changelog-${lang}.json`),
+    request: () => import(`../../../preset/${logFileName}`),
   });
   return React.useMemo(() => {
     const component = componentPath.replace(/-/g, '');
@@ -211,7 +203,7 @@ const ComponentChangelog: React.FC<ComponentChangelogProps> = (props) => {
             </Typography.Title>
             <ul>
               {changelogList.map<React.ReactNode>((info, index) => (
-                <li key={index} className={styles.li}>
+                <li key={index}>
                   <ParseChangelog {...info} styles={styles} />
                 </li>
               ))}
@@ -232,7 +224,6 @@ const ComponentChangelog: React.FC<ComponentChangelogProps> = (props) => {
   return (
     <>
       <Button
-        className={styles.history}
         icon={<HistoryOutlined />}
         onClick={() => {
           setShow(true);

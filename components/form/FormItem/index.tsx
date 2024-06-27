@@ -312,19 +312,16 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
         const isRequired =
           required !== undefined
             ? required
-            : !!(
-                rules &&
-                rules.some((rule) => {
-                  if (rule && typeof rule === 'object' && rule.required && !rule.warningOnly) {
-                    return true;
-                  }
-                  if (typeof rule === 'function') {
-                    const ruleEntity = rule(context);
-                    return ruleEntity && ruleEntity.required && !ruleEntity.warningOnly;
-                  }
-                  return false;
-                })
-              );
+            : !!rules?.some((rule) => {
+                if (rule && typeof rule === 'object' && rule.required && !rule.warningOnly) {
+                  return true;
+                }
+                if (typeof rule === 'function') {
+                  const ruleEntity = rule(context);
+                  return ruleEntity?.required && !ruleEntity?.warningOnly;
+                }
+                return false;
+              });
 
         // ======================= Children =======================
         const mergedControl: typeof control = {

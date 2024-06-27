@@ -135,10 +135,10 @@ describe('Typography copy', () => {
       copyTest({
         name: 'icon custom icon3',
         icon: [
-          <>
+          <React.Fragment key="a">
             <SmileOutlined />
             <SmileOutlined />
-          </>,
+          </React.Fragment>,
           <LikeOutlined key="b" />,
         ],
         iconClassNames: ['.anticon-smile', '.anticon-like'],

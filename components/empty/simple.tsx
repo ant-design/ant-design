@@ -24,6 +24,7 @@ const Simple: React.FC = () => {
 
   return (
     <svg width="64" height="41" viewBox="0 0 64 41" xmlns="http://www.w3.org/2000/svg">
+      <title>Simple Empty</title>
       <g transform="translate(0 1)" fill="none" fillRule="evenodd">
         <ellipse fill={shadowColor} cx="32" cy="33" rx="32" ry="7" />
         <g fillRule="nonzero" stroke={borderColor}>
