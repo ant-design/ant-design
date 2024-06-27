@@ -19,6 +19,12 @@ type StatusRenderInfo = {
   onRefresh?: () => void;
 };
 
+type StatusRender = {
+  expired?: (oriNode: ReactNode, info: StatusRenderInfo) => ReactNode;
+  loading?: (oriNode: ReactNode, info: StatusRenderInfo) => ReactNode;
+  scanned?: (oriNode: ReactNode, info: StatusRenderInfo) => ReactNode;
+};
+
 export interface QRCodeProps extends QRProps, React.HTMLAttributes<HTMLDivElement> {
   type?: 'canvas' | 'svg';
   className?: string;
@@ -30,9 +36,5 @@ export interface QRCodeProps extends QRProps, React.HTMLAttributes<HTMLDivElemen
   errorLevel?: 'L' | 'M' | 'Q' | 'H';
   status?: QRStatus;
   onRefresh?: () => void;
-  statusRender?: {
-    expired?: (oriNode: ReactNode, info: StatusRenderInfo) => ReactNode;
-    loading?: (oriNode: ReactNode, info: StatusRenderInfo) => ReactNode;
-    scanned?: (oriNode: ReactNode, info: StatusRenderInfo) => ReactNode;
-  };
+  statusRender?: StatusRender;
 }

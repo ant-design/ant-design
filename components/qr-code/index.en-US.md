@@ -48,7 +48,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | bordered | Whether has border style | boolean | `true` |
 | errorLevel | Error Code Level | `'L' \| 'M' \| 'Q' \| 'H' ` | `M` |
 | status | QRCode status | `active \| expired \| loading \| scanned` | `active` | scanned: 5.13.0 |
-| statusRender | custom status render | `(oriNode: React.ReactNode, info: \[StatusRenderInfo](/components/qr-code-cn#statusrenderinfo)) => React.ReactNode` | 5.19.0 |
+| statusRender | custom status render | [StatusRender](/components/qr-code-cn#statusrender) | 5.19.0 |
 | onRefresh | callback | `() => void` | - |
 
 ### StatusRenderInfo
@@ -58,6 +58,12 @@ type StatusRenderInfo = {
   status: QRStatus;
   locale: Locale['QRCode'];
   onRefresh?: () => void;
+};
+
+type StatusRender = {
+  expired?: (oriNode: ReactNode, info: StatusRenderInfo) => ReactNode;
+  loading?: (oriNode: ReactNode, info: StatusRenderInfo) => ReactNode;
+  scanned?: (oriNode: ReactNode, info: StatusRenderInfo) => ReactNode;
 };
 ```
 
