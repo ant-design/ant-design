@@ -4,6 +4,6 @@
     "concatenateModules": false
   },
   "codeSplitting": {
-    "strategy": "granular"
+    "strategy": "auto"
   }
 }
