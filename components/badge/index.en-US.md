@@ -61,6 +61,13 @@ Common props ref：[Common props](/docs/react/common-props)
 | color | Customize Ribbon color | string | - |  |
 | placement | The placement of the Ribbon, `start` and `end` follow text direction (RTL or LTR) | `start` \| `end` | `end` |  |
 | text | Content inside the Ribbon | ReactNode | - |  |
+| styles | Configure Ribbon build-in module's style | body?: CSSProperties; | - | 5.16.0 |
+
+### `styles` attribute
+
+| Property | Description                           | Version |
+| -------- | ------------------------------------- | ------- |
+| body     | The style of Ribbon Wrapper Container | 5.16.0  |
 
 ## Semantic DOM
 
