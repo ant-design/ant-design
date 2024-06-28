@@ -9,6 +9,7 @@ import { getFieldId, toArray } from '../util';
 
 export interface FormInstance<Values = any> extends RcFormInstance<Values> {
   scrollToField: (name: NamePath, options?: ScrollOptions) => void;
+  focusField: (name: NamePath) => void;
   /** @internal: This is an internal usage. Do not use in your prod */
   __INTERNAL__: {
     /** No! Do not use this in your code! */
@@ -65,6 +66,15 @@ export default function useForm<Values = any>(form?: FormInstance<Values>): [For
               block: 'nearest',
               ...options,
             } as any);
+          }
+        },
+        focusField: (name: NamePath) => {
+          const namePath = toArray(name);
+          const fieldId = getFieldId(namePath, wrapForm.__INTERNAL__.name);
+          const node: HTMLElement | null = fieldId ? document.getElementById(fieldId) : null;
+
+          if (node) {
+            node.focus();
           }
         },
         getFieldInstance: (name: NamePath) => {
