@@ -42,8 +42,13 @@ export interface InputNumberProps<T extends ValueType = ValueType>
 
 const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props, ref) => {
   if (process.env.NODE_ENV !== 'production') {
-    const { deprecated } = devUseWarning('InputNumber');
-    deprecated(!('bordered' in props), 'bordered', 'variant');
+    const typeWarning = devUseWarning('InputNumber');
+    typeWarning.deprecated(!('bordered' in props), 'bordered', 'variant');
+    typeWarning(
+      !(props.type === 'number' && props.changeOnWheel),
+      'usage',
+      'When `type=number` is used together with `changeOnWheel`, changeOnWheel may not work properly. Please delete `type=number` if it is not necessary.',
+    );
   }
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
