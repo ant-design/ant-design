@@ -475,7 +475,7 @@ export const prepareComponentToken: GetDefaultToken<'Slider'> = (token) => {
     trackBg: token.colorPrimaryBorder,
     trackHoverBg: token.colorPrimaryBorderHover,
     handleColor: token.colorPrimaryBorder,
-    handleActiveColor: token.colorPrimary,
+    handleActiveColor,
     handleActiveOutlineColor,
     handleColorDisabled: new TinyColor(token.colorTextDisabled)
       .onBackground(token.colorBgContainer)
