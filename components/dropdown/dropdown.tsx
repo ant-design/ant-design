@@ -176,7 +176,6 @@ const Dropdown: CompoundedComponent = (props) => {
   const [, token] = useToken();
 
   const child = React.Children.only(children) as React.ReactElement<any>;
-
   const dropdownTrigger = cloneElement(child, {
     className: classNames(
       `${prefixCls}-trigger`,
@@ -187,7 +186,6 @@ const Dropdown: CompoundedComponent = (props) => {
     ),
     disabled: child.props.disabled ?? disabled,
   });
-
   const triggerActions = disabled ? [] : trigger;
   const alignPoint = !!triggerActions?.includes('contextMenu');
 
