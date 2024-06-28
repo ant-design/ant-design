@@ -71,7 +71,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     );
   }
 
-  const { mergedstatusRender, defaultNodes } = useStatusRender({
+  const { mergedStatusRender, defaultNodes } = useStatusRender({
     prefixCls,
     locale,
     onRefresh,
@@ -97,7 +97,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     <div {...rest} className={mergedCls} style={mergedStyle}>
       {status !== 'active' && (
         <div className={`${prefixCls}-mask`}>
-          {mergedstatusRender[status]?.(defaultNodes[status], { locale, onRefresh, status })}
+          {mergedStatusRender?.(defaultNodes[status], { locale, onRefresh, status })}
         </div>
       )}
       {type === 'canvas' ? <QRCodeCanvas {...qrCodeProps} /> : <QRCodeSVG {...qrCodeProps} />}

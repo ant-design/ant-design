@@ -99,10 +99,17 @@ describe('QRCode test', () => {
     );
   });
   it('custom status render', () => {
-    const customStatusRender: QRCodeProps['statusRender'] = {
-      expired: (_ori, info) => <div className="custom-expired">{info.locale?.expired}</div>,
-      loading: () => <div className="custom-loading">Loading</div>,
-      scanned: (_ori, info) => <div className="custom-scanned">{info.locale?.scanned}</div>,
+    const customStatusRender: QRCodeProps['statusRender'] = (_oriNode, info) => {
+      switch (info.status) {
+        case 'expired':
+          return <div className="custom-expired">{info.locale?.expired}</div>;
+        case 'loading':
+          return <div className="custom-loading">Loading</div>;
+        case 'scanned':
+          return <div className="custom-scanned">{info.locale?.scanned}</div>;
+        default:
+          return null;
+      }
     };
     const { container } = render(
       <>

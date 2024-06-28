@@ -39,28 +39,13 @@ export default function useStatusRender({
     scanned: defaultScannedNode,
   };
 
-  const defaultExpiredRender = () => defaultExpiredNode;
+  const defaultStatusRender: QRCodeProps['statusRender'] = (_oriNode, info) =>
+    defaultNodes[info.status];
 
-  const defaultLoadingRender = () => defaultSpin;
-
-  const defaultScannedRender = () => defaultScannedNode;
-
-  const defaultstatusRender = {
-    expired: defaultExpiredRender,
-    loading: defaultLoadingRender,
-    scanned: defaultScannedRender,
-  };
-
-  const mergedstatusRender = React.useMemo(() => {
-    if (!statusRender) return defaultstatusRender;
-    return {
-      ...defaultstatusRender,
-      ...statusRender,
-    };
-  }, [statusRender]);
+  const mergedStatusRender = statusRender ?? defaultStatusRender;
 
   return {
-    mergedstatusRender,
+    mergedStatusRender,
     defaultNodes,
   };
 }

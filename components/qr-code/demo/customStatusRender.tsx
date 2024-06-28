@@ -5,28 +5,35 @@ import { Button, Flex, QRCode, Space, Spin } from 'antd';
 
 const value = 'https://ant.design';
 
-const customStatusRender: QRCodeProps['statusRender'] = {
-  expired: (_ori, info) => (
-    <div>
-      <CloseCircleFilled style={{ color: 'red' }} /> {info.locale?.expired}
-      <p>
-        <Button type="link" onClick={info.onRefresh}>
-          <ReloadOutlined /> {info.locale?.refresh}
-        </Button>
-      </p>
-    </div>
-  ),
-  loading: () => (
-    <Space direction="vertical">
-      <Spin />
-      <p>Loading...</p>
-    </Space>
-  ),
-  scanned: (_ori, info) => (
-    <div>
-      <CheckCircleFilled style={{ color: 'green' }} /> {info.locale?.scanned}
-    </div>
-  ),
+const customStatusRender: QRCodeProps['statusRender'] = (_oriNode, info) => {
+  switch (info.status) {
+    case 'expired':
+      return (
+        <div>
+          <CloseCircleFilled style={{ color: 'red' }} /> {info.locale?.expired}
+          <p>
+            <Button type="link" onClick={info.onRefresh}>
+              <ReloadOutlined /> {info.locale?.refresh}
+            </Button>
+          </p>
+        </div>
+      );
+    case 'loading':
+      return (
+        <Space direction="vertical">
+          <Spin />
+          <p>Loading...</p>
+        </Space>
+      );
+    case 'scanned':
+      return (
+        <div>
+          <CheckCircleFilled style={{ color: 'green' }} /> {info.locale?.scanned}
+        </div>
+      );
+    default:
+      return null;
+  }
 };
 
 const App: React.FC = () => (
