@@ -18,6 +18,6 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npm run dist
+        run: npm run build
 
       - run: npx pkg-pr-new publish
