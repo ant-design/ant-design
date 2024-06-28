@@ -243,11 +243,11 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = (token
     [`&${componentCls}-mini ${componentCls}-options`]: {
       marginInlineStart: token.paginationMiniOptionsMarginInlineStart,
 
-      [`&-size-changer`]: {
+      '&-size-changer': {
         top: token.miniOptionsSizeChangerTop,
       },
 
-      [`&-quick-jumper`]: {
+      '&-quick-jumper': {
         height: token.itemSizeSM,
         lineHeight: unit(token.itemSizeSM),
 
@@ -331,7 +331,7 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
 };
 
 const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
-  const { componentCls } = token;
+  const { componentCls, antCls } = token;
 
   return {
     [`${componentCls}-jump-prev, ${componentCls}-jump-next`]: {
@@ -460,9 +460,14 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
       marginInlineStart: token.margin,
       verticalAlign: 'middle',
 
-      '&-size-changer.-select': {
+      '&-size-changer': {
         display: 'inline-block',
         width: 'auto',
+
+        // https://github.com/ant-design/ant-design/issues/49258
+        [`${antCls}-select-arrow:not(:last-child)`]: {
+          opacity: 1,
+        },
       },
 
       '&-quick-jumper': {

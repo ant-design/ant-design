@@ -143,6 +143,9 @@ exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -399,6 +402,9 @@ exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -1919,6 +1925,9 @@ Array [
                 width="64"
                 xmlns="http://www.w3.org/2000/svg"
               >
+                <title>
+                  Simple Empty
+                </title>
                 <g
                   fill="none"
                   fill-rule="evenodd"
@@ -2088,6 +2097,9 @@ Array [
                 width="64"
                 xmlns="http://www.w3.org/2000/svg"
               >
+                <title>
+                  Simple Empty
+                </title>
                 <g
                   fill="none"
                   fill-rule="evenodd"
@@ -2266,6 +2278,9 @@ Array [
                 width="64"
                 xmlns="http://www.w3.org/2000/svg"
               >
+                <title>
+                  Simple Empty
+                </title>
                 <g
                   fill="none"
                   fill-rule="evenodd"
@@ -2502,6 +2517,9 @@ Array [
                 width="64"
                 xmlns="http://www.w3.org/2000/svg"
               >
+                <title>
+                  Simple Empty
+                </title>
                 <g
                   fill="none"
                   fill-rule="evenodd"
@@ -3892,6 +3910,9 @@ exports[`renders components/transfer/demo/custom-item.tsx correctly 1`] = `
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -4062,6 +4083,9 @@ exports[`renders components/transfer/demo/custom-item.tsx correctly 1`] = `
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -4596,6 +4620,9 @@ Array [
                 width="64"
                 xmlns="http://www.w3.org/2000/svg"
               >
+                <title>
+                  Simple Empty
+                </title>
                 <g
                   fill="none"
                   fill-rule="evenodd"
@@ -4749,6 +4776,9 @@ Array [
                 width="64"
                 xmlns="http://www.w3.org/2000/svg"
               >
+                <title>
+                  Simple Empty
+                </title>
                 <g
                   fill="none"
                   fill-rule="evenodd"
@@ -5331,7 +5361,7 @@ Array [
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
               role="button"
-              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
               tabindex="0"
             >
               <span
@@ -5368,7 +5398,7 @@ Array [
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
               role="button"
-              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
               tabindex="0"
             >
               <span
@@ -5405,7 +5435,7 @@ Array [
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
               role="button"
-              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
               tabindex="0"
             >
               <span
@@ -5442,7 +5472,7 @@ Array [
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
               role="button"
-              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
               tabindex="0"
             >
               <span
@@ -5479,7 +5509,7 @@ Array [
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
               role="button"
-              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
               tabindex="0"
             >
               <span
@@ -5516,7 +5546,7 @@ Array [
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
               role="button"
-              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
               tabindex="0"
             >
               <span
@@ -5713,6 +5743,9 @@ exports[`renders components/transfer/demo/search.tsx correctly 1`] = `
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -5949,6 +5982,9 @@ exports[`renders components/transfer/demo/search.tsx correctly 1`] = `
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -6069,6 +6105,9 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
                   width="64"
                   xmlns="http://www.w3.org/2000/svg"
                 >
+                  <title>
+                    Simple Empty
+                  </title>
                   <g
                     fill="none"
                     fill-rule="evenodd"
@@ -6238,6 +6277,9 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
                   width="64"
                   xmlns="http://www.w3.org/2000/svg"
                 >
+                  <title>
+                    Simple Empty
+                  </title>
                   <g
                     fill="none"
                     fill-rule="evenodd"
@@ -6420,6 +6462,9 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
                   width="64"
                   xmlns="http://www.w3.org/2000/svg"
                 >
+                  <title>
+                    Simple Empty
+                  </title>
                   <g
                     fill="none"
                     fill-rule="evenodd"
@@ -6656,6 +6701,9 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
                   width="64"
                   xmlns="http://www.w3.org/2000/svg"
                 >
+                  <title>
+                    Simple Empty
+                  </title>
                   <g
                     fill="none"
                     fill-rule="evenodd"
@@ -7717,6 +7765,9 @@ Array [
                                     width="64"
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
+                                    <title>
+                                      Simple Empty
+                                    </title>
                                     <g
                                       fill="none"
                                       fill-rule="evenodd"
@@ -8213,6 +8264,9 @@ exports[`renders components/transfer/demo/tree-transfer.tsx correctly 1`] = `
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"

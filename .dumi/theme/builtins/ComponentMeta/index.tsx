@@ -116,12 +116,21 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
     return [source, source];
   }, [component, source]);
 
+  const transformComponentName = (componentName: string) => {
+    if (componentName === 'Notifiction' || componentName === 'Message') {
+      return componentName.toLowerCase();
+    }
+    return componentName;
+  };
+
   // ======================== Render ========================
   const importList = [
     <span key="import" className={styles.import}>
       import
     </span>,
-    <span key="component" className={styles.component}>{`{ ${component} }`}</span>,
+    <span key="component" className={styles.component}>{`{ ${transformComponentName(
+      component,
+    )} }`}</span>,
     <span key="from" className={styles.from}>
       from
     </span>,
@@ -139,7 +148,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
       colon={false}
       column={1}
       style={{ marginTop: token.margin }}
-      labelStyle={{ paddingInlineEnd: token.padding, width: 54 }}
+      labelStyle={{ paddingInlineEnd: token.padding, width: 56 }}
       items={
         [
           {

@@ -2,6 +2,7 @@ import React, { useContext, useMemo, useRef } from 'react';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
+import ContextIsolator from '../_util/ContextIsolator';
 import genPurePanel from '../_util/PurePanel';
 import { getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -10,7 +11,7 @@ import { ConfigContext } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
-import { FormItemInputContext, NoFormStyle } from '../form/context';
+import { FormItemInputContext } from '../form/context';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';
 import type { Color } from './color';
@@ -198,14 +199,14 @@ const ColorPicker: CompoundedComponent = (props) => {
         }
       }}
       content={
-        <NoFormStyle override status>
+        <ContextIsolator form>
           <ColorPickerPanel
             {...colorBaseProps}
             onChange={handleChange}
             onChangeComplete={handleChangeComplete}
             onClear={handleClear}
           />
-        </NoFormStyle>
+        </ContextIsolator>
       }
       overlayClassName={mergedPopupCls}
       {...popoverProps}

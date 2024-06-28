@@ -31,6 +31,7 @@ demo:
 <code src="./demo/custom-style.tsx">自定义样式</code>
 <code src="./demo/update.tsx">更新消息内容</code>
 <code src="./demo/stack.tsx" version="5.10.0">堆叠</code>
+<code src="./demo/show-with-progress.tsx" version="5.18.0">显示进度条</code>
 <code src="./demo/basic.tsx">静态方法（不推荐）</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
@@ -105,6 +106,8 @@ notification.config({
 | bottom | 消息从底部弹出时，距离底部的位置，单位像素 | number | 24 |  |
 | closeIcon | 自定义关闭图标 | ReactNode | true | 5.7.0：设置为 null 或 false 时隐藏关闭按钮 |
 | duration | 默认自动关闭延时，单位秒 | number | 4.5 |  |
+| showProgress | 显示自动关闭通知框的进度条 | boolean |  | 5.18.0 |
+| pauseOnHover | 悬停时是否暂停计时器 | boolean | true | 5.18.0 |
 | getContainer | 配置渲染节点的输出位置，但依旧为全屏展示 | () => HTMLNode | () => document.body |  |
 | placement | 弹出位置，可选 `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | string | `topRight` |  |
 | rtl | 是否开启 RTL 模式 | boolean | false |  |

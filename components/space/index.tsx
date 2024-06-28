@@ -34,7 +34,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
   const { getPrefixCls, space, direction: directionConfig } = React.useContext(ConfigContext);
 
   const {
-    size = space?.size || 'small',
+    size = space?.size ?? 'small',
     align,
     className,
     rootClassName,
@@ -93,7 +93,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
       latestIndex = i;
     }
 
-    const key = (child && child.key) || `${itemClassName}-${i}`;
+    const key = child?.key || `${itemClassName}-${i}`;
 
     return (
       <Item

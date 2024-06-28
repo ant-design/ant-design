@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { createStyles } from 'antd-style';
-import { Link, useLocation } from 'dumi';
+import { useLocation } from 'dumi';
 
+import Link from '../../common/Link';
 import * as utils from '../../utils';
 
 const useStyle = createStyles(({ token, css }) => {

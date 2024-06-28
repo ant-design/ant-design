@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Col, Row } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, fireEvent, render } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 import useBreakpoint from '../hooks/useBreakpoint';
 
 // Mock for `responsiveObserve` to test `unsubscribe` call
@@ -153,7 +153,7 @@ describe('Grid', () => {
         }) as any,
     );
 
-    let screensVar;
+    let screensVar: any = null;
     function Demo() {
       const screens = useBreakpoint();
       screensVar = screens;
@@ -227,9 +227,7 @@ describe('Grid', () => {
     };
     const { container } = render(<ReactiveTest />);
     expect(container.innerHTML).toContain('ant-row-start');
-    act(() => {
-      fireEvent.click(container.querySelector('span')!);
-    });
+    fireEvent.click(container.querySelector('span')!);
     expect(container.innerHTML).toContain('ant-row-end');
   });
 

@@ -9500,59 +9500,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       <div
         aria-hidden="true"
         style="display: none;"
-      >
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
-      </div>
+      />
     </div>
   </div>
   <br />
@@ -9947,69 +9895,13 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       <div
         aria-hidden="true"
         style="display: none;"
-      >
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
-      </div>
+      />
     </div>
   </div>
 </div>
 `;
 
-exports[`renders components/space/demo/compact-buttons.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Dropdown] \`overlay\` is deprecated. Please use \`menu\` instead.",
-]
-`;
+exports[`renders components/space/demo/compact-buttons.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/space/demo/compact-debug.tsx extend context correctly 1`] = `
 <div
@@ -10887,6 +10779,9 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                                 width="64"
                                 xmlns="http://www.w3.org/2000/svg"
                               >
+                                <title>
+                                  Simple Empty
+                                </title>
                                 <g
                                   fill="none"
                                   fill-rule="evenodd"
@@ -11248,42 +11143,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           <div
             aria-hidden="true"
             style="display: none;"
-          >
-            <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position: absolute; top: 0px; left: 0px;"
-              />
-              <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
-            </div>
-          </div>
+          />
         </div>
       </div>
     </div>
@@ -12092,6 +11952,9 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                             width="64"
                             xmlns="http://www.w3.org/2000/svg"
                           >
+                            <title>
+                              Simple Empty
+                            </title>
                             <g
                               fill="none"
                               fill-rule="evenodd"

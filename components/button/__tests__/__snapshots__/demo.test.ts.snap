@@ -1357,13 +1357,12 @@ Array [
         class="ant-radio-group ant-radio-group-outline"
       >
         <label
-          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+          class="ant-radio-button-wrapper"
         >
           <span
-            class="ant-radio-button ant-radio-button-checked"
+            class="ant-radio-button"
           >
             <input
-              checked=""
               class="ant-radio-button-input"
               type="radio"
               value="start"
@@ -1377,12 +1376,13 @@ Array [
           </span>
         </label>
         <label
-          class="ant-radio-button-wrapper"
+          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
         >
           <span
-            class="ant-radio-button"
+            class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              checked=""
               class="ant-radio-button-input"
               type="radio"
               value="end"
@@ -1451,7 +1451,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-icon-end"
         type="button"
       >
         <span
@@ -1510,7 +1510,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-icon-end"
         type="button"
       >
         <span
@@ -1573,7 +1573,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-text"
+        class="ant-btn ant-btn-text ant-btn-icon-end"
         type="button"
       >
         <span
@@ -1632,7 +1632,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-dashed"
+        class="ant-btn ant-btn-dashed ant-btn-icon-end"
         type="button"
       >
         <span
@@ -1663,7 +1663,7 @@ Array [
         </span>
       </button>
       <a
-        class="ant-btn ant-btn-default ant-btn-icon-only"
+        class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-icon-end"
         href="https://www.google.com"
         tabindex="0"
       >
@@ -1692,7 +1692,7 @@ Array [
         </span>
       </a>
       <button
-        class="ant-btn ant-btn-primary ant-btn-loading"
+        class="ant-btn ant-btn-primary ant-btn-loading ant-btn-icon-end"
         type="button"
       >
         <span

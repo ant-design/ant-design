@@ -350,17 +350,10 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
         alignSelf: 'center',
         margin: `0 ${unit(marginXS)}`,
         verticalAlign: 'middle',
+        gap: marginXXS,
 
-        [`${antCls}-btn`]: {
-          display: 'block',
-
-          '&:first-child': {
-            marginBottom: marginXXS,
-          },
-
-          [iconCls]: {
-            fontSize: fontSizeIcon,
-          },
+        [`${antCls}-btn ${iconCls}`]: {
+          fontSize: fontSizeIcon,
         },
       },
     },

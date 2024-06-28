@@ -41,6 +41,7 @@ demo:
 | count | star 总数 | number | 5 |  |
 | defaultValue | 默认值 | number | 0 |  |
 | disabled | 只读，无法进行交互 | boolean | false |  |
+| keyboard | 支持使用键盘操作 | boolean | true | 5.18.0 |
 | style | 自定义样式对象 | CSSProperties | - |  |
 | tooltips | 自定义每项的提示信息 | string\[] | - |  |
 | value | 当前数，受控值 | number | - |  |

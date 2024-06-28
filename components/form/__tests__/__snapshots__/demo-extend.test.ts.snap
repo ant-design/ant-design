@@ -807,7 +807,7 @@ Array [
   <form
     autocomplete="off"
     class="ant-form ant-form-horizontal"
-    id="basic"
+    id="col-24-debug"
     style="max-width: 600px;"
   >
     <div
@@ -821,7 +821,7 @@ Array [
         >
           <label
             class="ant-form-item-required"
-            for="basic_username"
+            for="col-24-debug_username"
             title="Username"
           >
             Username
@@ -839,7 +839,7 @@ Array [
               <input
                 aria-required="true"
                 class="ant-input ant-input-outlined"
-                id="basic_username"
+                id="col-24-debug_username"
                 type="text"
                 value=""
               />
@@ -859,7 +859,7 @@ Array [
         >
           <label
             class="ant-form-item-required"
-            for="basic_password"
+            for="col-24-debug_password"
             title="Password"
           >
             Password
@@ -880,7 +880,7 @@ Array [
                 <input
                   aria-required="true"
                   class="ant-input"
-                  id="basic_password"
+                  id="col-24-debug_password"
                   type="password"
                   value=""
                 />
@@ -929,7 +929,7 @@ Array [
         >
           <label
             class=""
-            for="basic_select"
+            for="col-24-debug_select"
             title=""
           >
             <a
@@ -1010,13 +1010,13 @@ Array [
                       >
                         <input
                           aria-autocomplete="list"
-                          aria-controls="basic_select_list"
+                          aria-controls="col-24-debug_select_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="basic_select_list"
+                          aria-owns="col-24-debug_select_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
-                          id="basic_select"
+                          id="col-24-debug_select"
                           readonly=""
                           role="combobox"
                           style="opacity: 0;"
@@ -1039,14 +1039,14 @@ Array [
                 >
                   <div>
                     <div
-                      id="basic_select_list"
+                      id="col-24-debug_select_list"
                       role="listbox"
                       style="height: 0px; width: 0px; overflow: hidden;"
                     >
                       <div
                         aria-label="Bamboo"
                         aria-selected="true"
-                        id="basic_select_list_0"
+                        id="col-24-debug_select_list_0"
                         role="option"
                       >
                         bamboo
@@ -1054,7 +1054,7 @@ Array [
                       <div
                         aria-label="Little"
                         aria-selected="false"
-                        id="basic_select_list_1"
+                        id="col-24-debug_select_list_1"
                         role="option"
                       >
                         little
@@ -7036,25 +7036,6 @@ exports[`renders components/form/demo/form-context.tsx extend context correctly 
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-hidden"
-  >
-    <div
-      class="ant-row ant-form-item-row"
-    >
-      <div
-        class="ant-col ant-col-16 ant-form-item-control"
-      >
-        <div
-          class="ant-form-item-control-input"
-        >
-          <div
-            class="ant-form-item-control-input-content"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
     class="ant-form-item"
   >
     <div
@@ -7149,11 +7130,7 @@ exports[`renders components/form/demo/form-context.tsx extend context correctly 
 </form>
 `;
 
-exports[`renders components/form/demo/form-context.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Form.Item] \`name\` is only used for validate React element. If you are using Form.Item as layout display, please remove \`name\` instead.",
-]
-`;
+exports[`renders components/form/demo/form-context.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/form-dependencies.tsx extend context correctly 1`] = `
 <form
@@ -7436,6 +7413,711 @@ exports[`renders components/form/demo/form-item-path.tsx extend context correctl
 
 exports[`renders components/form/demo/form-item-path.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/form/demo/getValueProps-normalize.tsx extend context correctly 1`] = `
+<form
+  autocomplete="off"
+  class="ant-form ant-form-horizontal"
+  id="getValueProps"
+  style="max-width: 600px;"
+>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-col-8 ant-form-item-label"
+      >
+        <label
+          class="ant-form-item-required"
+          for="getValueProps_date"
+          title="Date"
+        >
+          Date
+        </label>
+      </div>
+      <div
+        class="ant-col ant-col-16 ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-picker ant-picker-outlined"
+            >
+              <div
+                class="ant-picker-input"
+              >
+                <input
+                  aria-invalid="false"
+                  aria-required="true"
+                  autocomplete="off"
+                  id="getValueProps_date"
+                  placeholder="Select date"
+                  size="12"
+                  value="2024-01-01"
+                />
+                <span
+                  class="ant-picker-suffix"
+                >
+                  <span
+                    aria-label="calendar"
+                    class="anticon anticon-calendar"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="calendar"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  class="ant-picker-clear"
+                  role="button"
+                >
+                  <span
+                    aria-label="close-circle"
+                    class="anticon anticon-close-circle"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="close-circle"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div
+              class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <div
+                class="ant-picker-panel-container ant-picker-date-panel-container"
+                style="margin-left: 0px; margin-right: auto;"
+                tabindex="-1"
+              >
+                <div
+                  class="ant-picker-panel-layout"
+                >
+                  <div>
+                    <div
+                      class="ant-picker-panel"
+                      tabindex="0"
+                    >
+                      <div
+                        class="ant-picker-date-panel"
+                      >
+                        <div
+                          class="ant-picker-header"
+                        >
+                          <button
+                            class="ant-picker-header-super-prev-btn"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            <span
+                              class="ant-picker-super-prev-icon"
+                            />
+                          </button>
+                          <button
+                            class="ant-picker-header-prev-btn"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            <span
+                              class="ant-picker-prev-icon"
+                            />
+                          </button>
+                          <div
+                            class="ant-picker-header-view"
+                          >
+                            <button
+                              class="ant-picker-month-btn"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              Jan
+                            </button>
+                            <button
+                              class="ant-picker-year-btn"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              2024
+                            </button>
+                          </div>
+                          <button
+                            class="ant-picker-header-next-btn"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            <span
+                              class="ant-picker-next-icon"
+                            />
+                          </button>
+                          <button
+                            class="ant-picker-header-super-next-btn"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            <span
+                              class="ant-picker-super-next-icon"
+                            />
+                          </button>
+                        </div>
+                        <div
+                          class="ant-picker-body"
+                        >
+                          <table
+                            class="ant-picker-content"
+                          >
+                            <thead>
+                              <tr>
+                                <th>
+                                  Su
+                                </th>
+                                <th>
+                                  Mo
+                                </th>
+                                <th>
+                                  Tu
+                                </th>
+                                <th>
+                                  We
+                                </th>
+                                <th>
+                                  Th
+                                </th>
+                                <th>
+                                  Fr
+                                </th>
+                                <th>
+                                  Sa
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td
+                                  class="ant-picker-cell"
+                                  title="2023-12-31"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    31
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-hover ant-picker-cell-selected ant-picker-cell-in-view"
+                                  title="2024-01-01"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    1
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-02"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    2
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-03"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    3
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-04"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    4
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-05"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    5
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-06"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    6
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-07"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    7
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-08"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    8
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-09"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    9
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-10"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    10
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-11"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    11
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-12"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    12
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-13"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    13
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-14"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    14
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-15"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    15
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-16"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    16
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-17"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    17
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-18"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    18
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-19"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    19
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-20"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    20
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-21"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    21
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-22"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    22
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-23"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    23
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-24"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    24
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-25"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    25
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-26"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    26
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-27"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    27
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-28"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    28
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-29"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    29
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-30"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    30
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  title="2024-01-31"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    31
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell"
+                                  title="2024-02-01"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    1
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell"
+                                  title="2024-02-02"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    2
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell"
+                                  title="2024-02-03"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    3
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td
+                                  class="ant-picker-cell"
+                                  title="2024-02-04"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    4
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell"
+                                  title="2024-02-05"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    5
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell"
+                                  title="2024-02-06"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    6
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell"
+                                  title="2024-02-07"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    7
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell"
+                                  title="2024-02-08"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    8
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell"
+                                  title="2024-02-09"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    9
+                                  </div>
+                                </td>
+                                <td
+                                  class="ant-picker-cell"
+                                  title="2024-02-10"
+                                >
+                                  <div
+                                    class="ant-picker-cell-inner"
+                                  >
+                                    10
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="ant-picker-footer"
+                    >
+                      <ul
+                        class="ant-picker-ranges"
+                      >
+                        <li
+                          class="ant-picker-now"
+                        >
+                          <a
+                            aria-disabled="false"
+                            class="ant-picker-now-btn"
+                          >
+                            Today
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-col-16 ant-col-offset-8 ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <button
+              class="ant-btn ant-btn-primary"
+              type="submit"
+            >
+              <span>
+                Submit
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`renders components/form/demo/getValueProps-normalize.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/form/demo/global-state.tsx extend context correctly 1`] = `
 Array [
   <form
@@ -7671,7 +8353,7 @@ exports[`renders components/form/demo/label-debug.tsx extend context correctly 1
           title=""
         >
           <span
-            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
           >
             longtextlongtextlongtextlongtextlongtextlongtextlongtext
           </span>
@@ -7712,7 +8394,7 @@ exports[`renders components/form/demo/label-debug.tsx extend context correctly 1
           title=""
         >
           <span
-            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
           >
             longtext longtext longtext longtext longtext longtext longtext
           </span>
@@ -8107,6 +8789,176 @@ exports[`renders components/form/demo/layout-can-wrap.tsx extend context correct
 `;
 
 exports[`renders components/form/demo/layout-can-wrap.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/form/demo/layout-multiple.tsx extend context correctly 1`] = `
+Array [
+  <form
+    class="ant-form ant-form-horizontal"
+    id="layout-multiple-horizontal"
+  >
+    <div
+      class="ant-form-item"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-col-4 ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="layout-multiple-horizontal_horizontal"
+            title="horizontal"
+          >
+            horizontal
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-20 ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                aria-required="true"
+                class="ant-input ant-input-outlined"
+                id="layout-multiple-horizontal_horizontal"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item ant-form-item-vertical"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-col-24 ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="layout-multiple-horizontal_vertical"
+            title="vertical"
+          >
+            vertical
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-24 ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                aria-required="true"
+                class="ant-input ant-input-outlined"
+                id="layout-multiple-horizontal_vertical"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>,
+  <br />,
+  <form
+    class="ant-form ant-form-vertical"
+    id="layout-multiple-vertical"
+  >
+    <div
+      class="ant-form-item"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-col-4 ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="layout-multiple-vertical_vertical"
+            title="vertical"
+          >
+            vertical
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-20 ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                aria-required="true"
+                class="ant-input ant-input-outlined"
+                id="layout-multiple-vertical_vertical"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item ant-form-item-horizontal"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-col-4 ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="layout-multiple-vertical_horizontal"
+            title="horizontal"
+          >
+            horizontal
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-20 ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                aria-required="true"
+                class="ant-input ant-input-outlined"
+                id="layout-multiple-vertical_horizontal"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>,
+]
+`;
+
+exports[`renders components/form/demo/layout-multiple.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/nest-messages.tsx extend context correctly 1`] = `
 <form
@@ -29753,6 +30605,9 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                           width="64"
                           xmlns="http://www.w3.org/2000/svg"
                         >
+                          <title>
+                            Simple Empty
+                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -29912,6 +30767,9 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                                 width="64"
                                 xmlns="http://www.w3.org/2000/svg"
                               >
+                                <title>
+                                  Simple Empty
+                                </title>
                                 <g
                                   fill="none"
                                   fill-rule="evenodd"
@@ -30062,6 +30920,9 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                           width="64"
                           xmlns="http://www.w3.org/2000/svg"
                         >
+                          <title>
+                            Simple Empty
+                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"

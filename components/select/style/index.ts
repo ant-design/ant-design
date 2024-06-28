@@ -11,7 +11,7 @@ import type { ComponentToken, SelectToken } from './token';
 import { prepareComponentToken } from './token';
 import genVariantsStyle from './variants';
 
-export { ComponentToken };
+export type { ComponentToken };
 
 // ============================= Selector =============================
 const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {

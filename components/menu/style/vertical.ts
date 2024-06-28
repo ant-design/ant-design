@@ -79,7 +79,7 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
   return [
     {
       [componentCls]: {
-        [`&-inline, &-vertical`]: {
+        '&-inline, &-vertical': {
           [`&${componentCls}-root`]: {
             boxShadow: 'none',
           },
@@ -128,7 +128,9 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
               `border-color ${motionDurationSlow}`,
               `background ${motionDurationSlow}`,
               `padding ${motionDurationMid} ${motionEaseOut}`,
-              `padding-inline calc(50% - ${unit(token.calc(fontSizeLG).div(2).equal())} - ${unit(itemMarginInline)})`,
+              `padding-inline calc(50% - ${unit(token.calc(fontSizeLG).div(2).equal())} - ${unit(
+                itemMarginInline,
+              )})`,
             ].join(','),
 
             [`> ${componentCls}-title-content`]: {

@@ -9,22 +9,31 @@ import omit from 'rc-util/lib/omit';
 
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
+import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { SiderContextProps } from '../layout/Sider';
-import type { ItemType } from './hooks/useItems';
-import useItems from './hooks/useItems';
+import type { ItemType } from './interface';
 import type { MenuContextProps, MenuTheme } from './MenuContext';
 import MenuContext from './MenuContext';
+import Divider from './MenuDivider';
+import MenuItem from './MenuItem';
 import OverrideContext from './OverrideContext';
 import useStyle from './style';
+import SubMenu from './SubMenu';
 
 function isEmptyIcon(icon?: React.ReactNode) {
   return icon === null || icon === false;
 }
 
-export interface MenuProps extends Omit<RcMenuProps, 'items'> {
+const MENU_COMPONENTS: GetProp<RcMenuProps, '_internalComponents'> = {
+  item: MenuItem,
+  submenu: SubMenu,
+  divider: Divider,
+};
+
+export interface MenuProps extends Omit<RcMenuProps, 'items' | '_internalComponents'> {
   theme?: MenuTheme;
   inlineIndent?: number;
 
@@ -60,8 +69,6 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     _internalDisableMenuItemTitleTooltip,
     inlineCollapsed,
     siderCollapsed,
-    items,
-    children,
     rootClassName,
     mode,
     selectable,
@@ -71,9 +78,6 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   } = props;
 
   const passedProps = omit(restProps, ['collapsedWidth']);
-
-  // ========================= Items ===========================
-  const mergedChildren = useItems(items) || children;
 
   // ======================== Warning ==========================
   if (process.env.NODE_ENV !== 'production') {
@@ -91,7 +95,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
       '`inlineCollapsed` not control Menu under Sider. Should set `collapsed` on Sider instead.',
     );
 
-    warning.deprecated('items' in props && !children, 'children', 'items');
+    warning.deprecated('items' in props && !props.children, 'children', 'items');
   }
 
   overrideObj.validator?.({ mode });
@@ -144,7 +148,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     return cloneElement(mergedIcon, {
       className: classNames(
         `${prefixCls}-submenu-expand-icon`,
-        React.isValidElement(mergedIcon) ? mergedIcon.props?.className : undefined,
+        React.isValidElement<any>(mergedIcon) ? mergedIcon.props?.className : undefined,
       ),
     });
   }, [expandIcon, overrideObj?.expandIcon, menu?.expandIcon, prefixCls]);
@@ -194,9 +198,8 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
             cssVarCls,
             rootCls,
           )}
-        >
-          {mergedChildren}
-        </RcMenu>
+          _internalComponents={MENU_COMPONENTS}
+        />
       </MenuContext.Provider>
     </OverrideContext.Provider>,
   );

@@ -89,11 +89,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   },
 
   // RTL
-  '&-rtl': {
-    direction: 'rtl',
-  },
-
-  '&-textarea-rtl': {
+  '&-rtl, &-textarea-rtl': {
     direction: 'rtl',
   },
 });
@@ -109,7 +105,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
     borderSpacing: 0,
 
     // Undo padding and float of grid classes
-    [`&[class*='col-']`]: {
+    "&[class*='col-']": {
       paddingInlineEnd: token.paddingXS,
 
       '&:last-child': {
@@ -144,7 +140,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
     },
 
     [`${componentCls}-group`]: {
-      [`&-addon, &-wrap`]: {
+      '&-addon, &-wrap': {
         display: 'table-cell',
         width: 1,
         whiteSpace: 'nowrap',
@@ -284,18 +280,14 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         '&:not(:first-child):not(:last-child)': {
           borderInlineEndWidth: token.lineWidth,
 
-          '&:hover': {
-            zIndex: 1,
-          },
-
-          '&:focus': {
+          '&:hover, &:focus': {
             zIndex: 1,
           },
         },
       },
 
       '& > *': {
-        display: 'inline-block',
+        display: 'inline-flex',
         float: 'none',
         verticalAlign: 'top', // https://github.com/ant-design/ant-design-pro/issues/139
         borderRadius: 0,
@@ -327,11 +319,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         borderInlineEndWidth: token.lineWidth,
         borderRadius: 0,
 
-        '&:hover': {
-          zIndex: 1,
-        },
-
-        '&:focus': {
+        '&:hover, &:focus': {
           zIndex: 1,
         },
       },
@@ -671,7 +659,7 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       // fix slight height diff in Firefox:
       // https://ant.design/components/auto-complete-cn/#components-auto-complete-demo-certain-category
       [`${componentCls}-lg`]: {
-        lineHeight: token.calc(token.lineHeightLG).sub(0.0002).equal({ unit: false }),
+        lineHeight: token.calc(token.lineHeightLG).sub(0.0002).equal(),
       },
 
       [`> ${componentCls}-group`]: {
@@ -753,7 +741,7 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         [`> ${componentCls}-group-addon ${componentCls}-search-button,
         > ${componentCls},
         ${componentCls}-affix-wrapper`]: {
-          '&:hover,&:focus,&:active': {
+          '&:hover, &:focus, &:active': {
             zIndex: 2,
           },
         },
@@ -790,16 +778,11 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
         },
       },
 
-      '&-allow-clear': {
-        [`> ${componentCls}`]: {
-          paddingInlineEnd: paddingLG,
-        },
-      },
-
-      [`&-affix-wrapper${textareaPrefixCls}-has-feedback`]: {
-        [`${componentCls}`]: {
-          paddingInlineEnd: paddingLG,
-        },
+      [`
+        &-allow-clear > ${componentCls},
+        &-affix-wrapper${textareaPrefixCls}-has-feedback ${componentCls}
+      `]: {
+        paddingInlineEnd: paddingLG,
       },
 
       [`&-affix-wrapper${componentCls}-affix-wrapper`]: {

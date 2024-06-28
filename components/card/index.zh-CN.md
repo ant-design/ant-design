@@ -49,7 +49,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAA
 | loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean | false |  |
 | size | card 的尺寸 | `default` \| `small` | `default` |  |
 | tabBarExtraContent | tab bar 上额外的元素 | ReactNode | - |  |
-| tabList | 页签标题列表 | [TabItemType](/components/tabs#tabitemtype)[] | - |  |
+| tabList | 页签标题列表 | [TabItemType](/components/tabs-cn#tabitemtype)[] | - |  |
 | tabProps | [Tabs](/components/tabs-cn#tabs) | - | - |  |
 | title | 卡片标题 | ReactNode | - |  |
 | type | 卡片类型，可设置为 `inner` 或 不设置 | string | - |  |

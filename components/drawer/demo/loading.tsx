@@ -1,48 +1,37 @@
-import React, { useEffect, useState } from 'react';
-import type { DrawerProps } from 'antd';
+import React from 'react';
 import { Button, Drawer } from 'antd';
 
 const App: React.FC = () => {
-  const [open, setOpen] = useState(false);
-  const [loading, setLoading] = useState<DrawerProps['loading']>(true);
-  let id: NodeJS.Timer;
+  const [open, setOpen] = React.useState<boolean>(false);
+  const [loading, setLoading] = React.useState<boolean>(true);
 
-  const showDrawer = () => {
+  const showLoading = () => {
     setOpen(true);
-  };
-
-  const onClose = () => {
-    setOpen(false);
-    clearTimeout(Number(id));
-  };
-
-  useEffect(() => {
     setLoading(true);
-  }, []);
 
-  useEffect(() => {
-    if (open) {
-      id = setTimeout(() => {
-        setLoading(false);
-      }, 1000);
-    }
-  }, [open]);
+    // Simple loading mock. You should add cleanup logic in real world.
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  };
 
   return (
     <>
-      <Button type="primary" onClick={showDrawer}>
-        Open
+      <Button type="primary" onClick={showLoading}>
+        Open Drawer
       </Button>
       <Drawer
-        title="Basic Drawer"
+        closable
+        destroyOnClose
+        title={<p>Loading Drawer</p>}
         placement="right"
-        closable={false}
-        onClose={onClose}
         open={open}
         loading={loading}
-        afterOpenChange={(visible) => !visible && setLoading(true)}
+        onClose={() => setOpen(false)}
       >
-        <Button onClick={() => setLoading(true)}>set Loading true</Button>
+        <Button type="primary" style={{ marginBottom: 16 }} onClick={showLoading}>
+          Reload
+        </Button>
         <p>Some contents...</p>
         <p>Some contents...</p>
         <p>Some contents...</p>

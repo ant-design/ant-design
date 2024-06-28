@@ -33,7 +33,6 @@ const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
     case 'small':
       sizeCls = 'sm';
       break;
-    case 'middle':
     default:
     // Do nothing
   }

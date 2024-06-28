@@ -7,11 +7,12 @@ import { Button, InputNumber, Select } from '../..';
 import { resetWarned } from '../../_util/warning';
 import { render } from '../../../tests/utils';
 import theme from '../../theme';
+import type { GlobalToken } from '../../theme';
 import { useToken } from '../../theme/internal';
 
 const { defaultAlgorithm, darkAlgorithm, compactAlgorithm } = theme;
 
-// eslint-disable-next-line no-var
+/* biome-ignore lint/style/noVar: has to be a global variable */ /* eslint-disable-next-line no-var */
 var mockCanUseDom = true;
 
 jest.mock('rc-util/lib/Dom/canUseDom', () => () => mockCanUseDom);
@@ -32,13 +33,13 @@ describe('ConfigProvider.Theme', () => {
         },
       });
 
-      const styles: any[] = Array.from(document.querySelectorAll('style'));
+      const styles = Array.from(document.querySelectorAll<HTMLStyleElement>('style'));
       const themeStyle = styles.find((style) =>
-        style.getAttribute('rc-util-key').includes('-dynamic-theme'),
+        style.getAttribute('rc-util-key')?.includes('-dynamic-theme'),
       );
       expect(themeStyle).toBeTruthy();
 
-      expect(themeStyle.innerHTML).toContain(`--bamboo-${kebabCase(colorName)}: rgb(0, 0, 255)`);
+      expect(themeStyle?.innerHTML).toContain(`--bamboo-${kebabCase(colorName)}: rgb(0, 0, 255)`);
     });
   });
 
@@ -62,7 +63,7 @@ describe('ConfigProvider.Theme', () => {
   });
 
   it('algorithm should work', () => {
-    let tokenRef: any;
+    let tokenRef: Partial<GlobalToken> = {};
     const Demo = () => {
       const [, token] = useToken();
       tokenRef = token;
@@ -77,7 +78,7 @@ describe('ConfigProvider.Theme', () => {
   });
 
   it('compactAlgorithm should work', () => {
-    let tokenRef: any;
+    let tokenRef: Partial<GlobalToken> = {};
     const Demo = () => {
       const [, token] = useToken();
       tokenRef = token;
@@ -104,7 +105,7 @@ describe('ConfigProvider.Theme', () => {
   });
 
   it('should support algorithm array', () => {
-    let tokenRef: any;
+    let tokenRef: Partial<GlobalToken> = {};
     const Demo = () => {
       const [, token] = useToken();
       tokenRef = token;
@@ -126,9 +127,9 @@ describe('ConfigProvider.Theme', () => {
         <InputNumber />
       </ConfigProvider>,
     );
-    const dynamicStyles = Array.from(document.querySelectorAll('style[data-css-hash]')).map(
-      (item) => item?.innerHTML ?? '',
-    );
+    const dynamicStyles = Array.from(
+      document.querySelectorAll<HTMLStyleElement>('style[data-css-hash]'),
+    ).map((item) => item?.innerHTML ?? '');
     expect(
       dynamicStyles.some(
         (style) => style.includes('.ant-input-number') && style.includes('width:50.1234px'),
@@ -159,7 +160,7 @@ describe('ConfigProvider.Theme', () => {
   });
 
   it('The order does not affect the result', () => {
-    const tokens = {
+    const tokens: Record<'a' | 'b', Partial<GlobalToken>> = {
       a: {},
       b: {},
     };
@@ -182,7 +183,7 @@ describe('ConfigProvider.Theme', () => {
   });
 
   it('theme separated should work', () => {
-    let tokenRef: any;
+    let tokenRef: Partial<GlobalToken> = {};
     const Demo = () => {
       const [, token] = useToken();
       tokenRef = token;
@@ -200,7 +201,7 @@ describe('ConfigProvider.Theme', () => {
 
   it('theme inherit should not affect hashed and cssVar', () => {
     let hashId = 'hashId';
-    let cssVar;
+    let cssVar: any;
 
     const Demo = () => {
       const [, , hash, , cssVarConfig] = useToken();

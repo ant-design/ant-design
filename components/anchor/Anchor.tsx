@@ -35,8 +35,7 @@ function getOffsetTop(element: HTMLElement, container: AnchorContainer): number 
 
   if (rect.width || rect.height) {
     if (container === window) {
-      container = element.ownerDocument!.documentElement!;
-      return rect.top - container.clientTop;
+      return rect.top - element.ownerDocument!.documentElement!.clientTop;
     }
     return rect.top - (container as HTMLElement).getBoundingClientRect().top;
   }
@@ -256,7 +255,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
       }
 
       const container = getCurrentContainer();
-      const scrollTop = getScroll(container, true);
+      const scrollTop = getScroll(container);
       const eleOffsetTop = getOffsetTop(targetElement, container);
       let y = scrollTop + eleOffsetTop;
       y -= targetOffset !== undefined ? targetOffset : offsetTop || 0;

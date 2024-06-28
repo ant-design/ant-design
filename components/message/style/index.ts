@@ -88,8 +88,12 @@ const genMessageStyle: GenerateStyle<MessageToken> = (token) => {
     padding: paddingXS,
     textAlign: 'center',
 
+    [`${componentCls}-custom-content`]: {
+      display: 'flex',
+      alignItems: 'center',
+    },
+
     [`${componentCls}-custom-content > ${iconCls}`]: {
-      verticalAlign: 'text-bottom',
       marginInlineEnd: marginXS, // affected by ltr or rtl
       fontSize: fontSizeLG,
     },

@@ -4,6 +4,7 @@ import {
   RotateLeftOutlined,
   RotateRightOutlined,
   SwapOutlined,
+  UndoOutlined,
   ZoomInOutlined,
   ZoomOutOutlined,
 } from '@ant-design/icons';
@@ -38,7 +39,15 @@ const App: React.FC = () => {
           _,
           {
             transform: { scale },
-            actions: { onFlipY, onFlipX, onRotateLeft, onRotateRight, onZoomOut, onZoomIn },
+            actions: {
+              onFlipY,
+              onFlipX,
+              onRotateLeft,
+              onRotateRight,
+              onZoomOut,
+              onZoomIn,
+              onReset,
+            },
           },
         ) => (
           <Space size={12} className="toolbar-wrapper">
@@ -49,6 +58,7 @@ const App: React.FC = () => {
             <RotateRightOutlined onClick={onRotateRight} />
             <ZoomOutOutlined disabled={scale === 1} onClick={onZoomOut} />
             <ZoomInOutlined disabled={scale === 50} onClick={onZoomIn} />
+            <UndoOutlined onClick={onReset} />
           </Space>
         ),
       }}

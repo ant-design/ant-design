@@ -132,7 +132,7 @@ When uploading state change, it returns:
 ### How do I implement upload server side?
 
 - You can consult [jQuery-File-Upload](https://github.com/blueimp/jQuery-File-Upload/wiki#server-side) about how to implement server side upload interface.
-- There is a mock example of [express](https://github.com/react-component/upload/blob/master/server.js) in rc-upload.
+- There is a mock example of [express](https://github.com/react-component/upload/blob/211979fdaa2c7896b6496df7061a0cfc0fc5434e/server.js) in rc-upload.
 
 ### I want to display download links.
 

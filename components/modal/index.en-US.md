@@ -21,7 +21,8 @@ Additionally, if you need to show a simple confirmation dialog, you can use [`Ap
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/async.tsx">Asynchronously close</code>
 <code src="./demo/footer.tsx">Customized Footer</code>
-<code src="./demo/footer-render.tsx">Customized Footer render function</code>
+<code src="./demo/loading.tsx" version="5.18.0">Loading</code>
+<code src="./demo/footer-render.tsx" version="5.9.0">Customized Footer render function</code>
 <code src="./demo/hooks.tsx">Use hooks to get context</code>
 <code src="./demo/locale.tsx">Internationalization</code>
 <code src="./demo/manual.tsx">Manual to update destroy</code>
@@ -52,11 +53,12 @@ Common props ref：[Common props](/docs/react/common-props)
 | cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#api) | - |  |
 | cancelText | Text of the Cancel button | ReactNode | `Cancel` |  |
 | centered | Centered Modal | boolean | false |  |
+| closable | Whether a close (x) button is visible on top right or not | boolean \| { closeIcon?: React.ReactNode } | true |  |
 | closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | ReactNode | &lt;CloseOutlined /> |  |
 | confirmLoading | Whether to apply loading visual effect for OK button or not | boolean | false |  |
 | destroyOnClose | Whether to unmount child components on onClose | boolean | false |  |
 | focusTriggerAfterClose | Whether need to focus trigger element after dialog is closed | boolean | true | 4.9.0 |
-| footer | Footer content, set as `footer={null}` when you don't need default buttons | (params:[footerRenderParams](/components/modal-cn#footerrenderparams))=> React.ReactNode \| React.ReactNode | (OK and Cancel buttons) |  |
+| footer | Footer content, set as `footer={null}` when you don't need default buttons | React.ReactNode \| ((params:[footerRenderParams](/components/modal#footerrenderparams))=> React.ReactNode) | (OK and Cancel buttons) | renderFunction: 5.9.0 |
 | forceRender | Force render Modal | boolean | false |  |
 | getContainer | The mounted node for Modal but still display at fullscreen | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | keyboard | Whether support press esc to close | boolean | true |  |
@@ -67,6 +69,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | okText | Text of the OK button | ReactNode | `OK` |  |
 | okType | Button `type` of the OK button | string | `primary` |  |
 | style | Style of floating layer, typically used at least for adjusting the position | CSSProperties | - |  |
+| loading | Show the skeleton | boolean |  | 5.18.0 |
 | title | The modal dialog's title | ReactNode | - |  |
 | open | Whether the modal dialog is visible or not | boolean | false |  |
 | width | Width of the modal dialog | string \| number | 520 |  |
@@ -105,7 +108,7 @@ The items listed above are all functions, expecting a settings object as paramet
 | closable | Whether a close (x) button is visible on top right of the confirm dialog or not | boolean | false | 4.9.0 |
 | closeIcon | Custom close icon | ReactNode | undefined | 4.9.0 |
 | content | Content | ReactNode | - |  |
-| footer | Footer content, set as `footer: null` when you don't need default buttons | (params:[footerRenderParams](/components/modal-cn#footerrenderparams))=> React.ReactNode \| React.ReactNode | - | 5.9.0 |
+| footer | Footer content, set as `footer: null` when you don't need default buttons | React.ReactNode \| ((params:[footerRenderParams](/components/modal#footerrenderparams))=> React.ReactNode) | - | renderFunction: 5.9.0 |
 | getContainer | Return the mount node for Modal | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | icon | Custom icon | ReactNode | &lt;ExclamationCircleFilled /> |  |
 | keyboard | Whether support press esc to close | boolean | true |  |
@@ -181,13 +184,13 @@ return <div>{contextHolder}</div>;
 const confirmed = await modal.confirm({ ... });
 ```
 
-## footerRenderParams
+#### footerRenderParams
 
 <!-- prettier-ignore -->
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| originNode | default node | React.ReactNode                   | -      |
-| extra      | extended options | { OkBtn: FC; CancelBtn: FC } | -      |
+| originNode | default node | React.ReactNode | - |
+| extra | extended options | { OkBtn: FC; CancelBtn: FC } | - |
 
 ### `styles` and `classNames` attribute
 

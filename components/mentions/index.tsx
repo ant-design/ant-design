@@ -52,6 +52,8 @@ export interface MentionProps extends Omit<RcMentionsProps, 'suffix'> {
   variant?: Variant;
 }
 
+export interface MentionsProps extends MentionProps {}
+
 export interface MentionsRef extends RcMentionsRef {}
 
 interface MentionsConfig {
@@ -161,7 +163,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
 
   const [variant, enableVariantCls] = useVariant(customVariant);
 
-  // eslint-disable-next-line react/jsx-no-useless-fragment
+  /* eslint-disable-next-line react/jsx-no-useless-fragment */ /* biome-ignore lint/complexity/noUselessFragments: avoid falsy value */
   const suffixNode = hasFeedback && <>{feedbackIcon}</>;
 
   const mergedClassName = classNames(
@@ -174,6 +176,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
 
   const mentions = (
     <RcMentions
+      silent={loading}
       prefixCls={prefixCls}
       notFoundContent={notFoundContentEle}
       className={mergedClassName}
@@ -233,7 +236,7 @@ Mentions.Option = Option;
 const PurePanel = genPurePanel(Mentions, 'mentions');
 Mentions._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
-Mentions.getMentions = (value: string = '', config: MentionsConfig = {}): MentionsEntity[] => {
+Mentions.getMentions = (value = '', config: MentionsConfig = {}): MentionsEntity[] => {
   const { prefix = '@', split = ' ' } = config;
   const prefixList: string[] = Array.isArray(prefix) ? prefix : [prefix];
 

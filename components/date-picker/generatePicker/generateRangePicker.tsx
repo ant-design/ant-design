@@ -8,6 +8,7 @@ import { RangePicker as RCRangePicker } from 'rc-picker';
 import type { PickerRef } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
 
+import ContextIsolator from '../../_util/ContextIsolator';
 import { useZIndex } from '../../_util/hooks/useZIndex';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
@@ -19,7 +20,7 @@ import useSize from '../../config-provider/hooks/useSize';
 import { FormItemInputContext } from '../../form/context';
 import useVariant from '../../form/hooks/useVariants';
 import { useLocale } from '../../locale';
-import { NoCompactStyle, useCompactItemContext } from '../../space/Compact';
+import { useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
 import { getRangePlaceholder, transPlacement2DropdownAlign, useIcons } from '../util';
@@ -106,7 +107,7 @@ export default function generateRangePicker<DateType extends AnyObject>(
     const [zIndex] = useZIndex('DatePicker', props.popupStyle?.zIndex as number);
 
     return wrapCSSVar(
-      <NoCompactStyle>
+      <ContextIsolator space>
         <RCRangePicker<DateType>
           separator={
             <span aria-label="to" className={`${prefixCls}-separator`}>
@@ -116,6 +117,7 @@ export default function generateRangePicker<DateType extends AnyObject>(
           disabled={mergedDisabled}
           ref={innerRef as any} // Need to modify PickerRef
           popupAlign={transPlacement2DropdownAlign(direction, placement)}
+          placement={placement}
           placeholder={getRangePlaceholder(locale, picker, placeholder)}
           suffixIcon={suffixNode}
           prevIcon={<span className={`${prefixCls}-prev-icon`} />}
@@ -166,7 +168,7 @@ export default function generateRangePicker<DateType extends AnyObject>(
           }}
           allowClear={mergedAllowClear}
         />
-      </NoCompactStyle>,
+      </ContextIsolator>,
     );
   });
 

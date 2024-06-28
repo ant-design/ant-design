@@ -2145,42 +2145,7 @@ Array [
                             <div
                               aria-hidden="true"
                               style="display: none;"
-                            >
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
-                            </div>
+                            />
                             <div
                               class="ant-table-filter-dropdown-btns"
                             >
@@ -6309,42 +6274,7 @@ Array [
                             <div
                               aria-hidden="true"
                               style="display: none;"
-                            >
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
-                            </div>
+                            />
                             <div
                               class="ant-table-filter-dropdown-btns"
                             >
@@ -10535,42 +10465,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                           <div
                             aria-hidden="true"
                             style="display: none;"
-                          >
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                          </div>
+                          />
                           <div
                             class="ant-table-filter-dropdown-btns"
                           >
@@ -11334,42 +11229,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                           <div
                             aria-hidden="true"
                             style="display: none;"
-                          >
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                          </div>
+                          />
                           <div
                             class="ant-table-filter-dropdown-btns"
                           >
@@ -15201,42 +15061,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                           <div
                             aria-hidden="true"
                             style="display: none;"
-                          >
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                          </div>
+                          />
                           <div
                             class="ant-table-filter-dropdown-btns"
                           >
@@ -16724,76 +16549,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                           <div
                             aria-hidden="true"
                             style="display: none;"
-                          >
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                          </div>
+                          />
                           <div
                             class="ant-table-filter-dropdown-btns"
                           >
@@ -17047,42 +16803,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                           <div
                             aria-hidden="true"
                             style="display: none;"
-                          >
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                          </div>
+                          />
                           <div
                             class="ant-table-filter-dropdown-btns"
                           >
@@ -20000,42 +19721,7 @@ Array [
                                                 <div
                                                   aria-hidden="true"
                                                   style="display: none;"
-                                                >
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                </div>
+                                                />
                                               </div>
                                             </div>
                                           </div>
@@ -20195,42 +19881,7 @@ Array [
                                                 <div
                                                   aria-hidden="true"
                                                   style="display: none;"
-                                                >
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                </div>
+                                                />
                                               </div>
                                             </div>
                                           </div>
@@ -20390,42 +20041,7 @@ Array [
                                                 <div
                                                   aria-hidden="true"
                                                   style="display: none;"
-                                                >
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                </div>
+                                                />
                                               </div>
                                             </div>
                                           </div>
@@ -20986,42 +20602,7 @@ Array [
                                                 <div
                                                   aria-hidden="true"
                                                   style="display: none;"
-                                                >
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                </div>
+                                                />
                                               </div>
                                             </div>
                                           </div>
@@ -21181,42 +20762,7 @@ Array [
                                                 <div
                                                   aria-hidden="true"
                                                   style="display: none;"
-                                                >
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                </div>
+                                                />
                                               </div>
                                             </div>
                                           </div>
@@ -21376,42 +20922,7 @@ Array [
                                                 <div
                                                   aria-hidden="true"
                                                   style="display: none;"
-                                                >
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                </div>
+                                                />
                                               </div>
                                             </div>
                                           </div>
@@ -21972,42 +21483,7 @@ Array [
                                                 <div
                                                   aria-hidden="true"
                                                   style="display: none;"
-                                                >
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                </div>
+                                                />
                                               </div>
                                             </div>
                                           </div>
@@ -22167,42 +21643,7 @@ Array [
                                                 <div
                                                   aria-hidden="true"
                                                   style="display: none;"
-                                                >
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                </div>
+                                                />
                                               </div>
                                             </div>
                                           </div>
@@ -22362,42 +21803,7 @@ Array [
                                                 <div
                                                   aria-hidden="true"
                                                   style="display: none;"
-                                                >
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                </div>
+                                                />
                                               </div>
                                             </div>
                                           </div>
@@ -23850,42 +23256,7 @@ Array [
                             <div
                               aria-hidden="true"
                               style="display: none;"
-                            >
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
-                            </div>
+                            />
                             <div
                               class="ant-table-filter-dropdown-btns"
                             >
@@ -24217,42 +23588,7 @@ Array [
                             <div
                               aria-hidden="true"
                               style="display: none;"
-                            >
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
-                            </div>
+                            />
                             <div
                               class="ant-table-filter-dropdown-btns"
                             >
@@ -26207,93 +25543,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                           <div
                             aria-hidden="true"
                             style="display: none;"
-                          >
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                          </div>
+                          />
                         </div>
                       </div>
                     </div>
@@ -29705,59 +28955,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                           <div
                             aria-hidden="true"
                             style="display: none;"
-                          >
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                          </div>
+                          />
                         </div>
                       </div>
                     </div>

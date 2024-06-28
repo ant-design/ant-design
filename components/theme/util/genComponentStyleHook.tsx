@@ -1,10 +1,11 @@
 /* eslint-disable no-redeclare */
 import type { ComponentType, FC, ReactElement } from 'react';
 import React, { useContext } from 'react';
-import type { CSSInterpolation } from '@ant-design/cssinjs';
-import { token2CSSVar, useCSSVarRegister, useStyleRegister } from '@ant-design/cssinjs';
+import type { AbstractCalculator, CSSInterpolation } from '@ant-design/cssinjs';
+import { genCalc, token2CSSVar, useCSSVarRegister, useStyleRegister } from '@ant-design/cssinjs';
 import { warning } from 'rc-util';
 
+import useUniqueMemo from '../../_util/hooks/useUniqueMemo';
 import { ConfigContext } from '../../config-provider/context';
 import { genCommonStyle, genLinkStyle } from '../../style';
 import type {
@@ -15,8 +16,6 @@ import type {
   UseComponentStyleResult,
 } from '../interface';
 import useToken, { ignore, unitless } from '../useToken';
-import genCalc from './calc';
-import type AbstractCalculator from './calc/calculator';
 import genMaxMin from './maxmin';
 import statisticToken, { merge as mergeToken } from './statistic';
 import useResetIconStyle from './useResetIconStyle';
@@ -145,6 +144,9 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
      */
     order?: number;
     injectStyle?: boolean;
+    unitless?: {
+      [key in ComponentTokenKey<C>]: boolean;
+    };
   } = {},
 ) {
   const cells = (Array.isArray(componentName) ? componentName : [componentName, componentName]) as [
@@ -155,13 +157,28 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
   const [component] = cells;
   const concatComponent = cells.join('-');
 
+  // Return new style hook
   return (prefixCls: string, rootCls: string = prefixCls): UseComponentStyleResult => {
     const [theme, realToken, hashId, token, cssVar] = useToken();
     const { getPrefixCls, iconPrefixCls, csp } = useContext(ConfigContext);
     const rootPrefixCls = getPrefixCls();
 
     const type = cssVar ? 'css' : 'js';
-    const calc = genCalc(type);
+
+    // Use unique memo to share the result across all instances
+    const calc = useUniqueMemo(() => {
+      const unitlessCssVar = new Set<string>();
+      if (cssVar) {
+        Object.keys(options.unitless || {}).forEach((key) => {
+          // Some component proxy the AliasToken (e.g. Image) and some not (e.g. Modal)
+          // We should both pass in `unitlessCssVar` to make sure the CSSVar can be unitless.
+          unitlessCssVar.add(token2CSSVar(key, cssVar.prefix));
+          unitlessCssVar.add(token2CSSVar(key, getCompVarPrefix(component, cssVar.prefix)));
+        });
+      }
+
+      return genCalc(type, unitlessCssVar);
+    }, [type, component, cssVar?.prefix]);
     const { max, min } = genMaxMin(type);
 
     // Shared config
@@ -307,26 +324,17 @@ export type CSSVarRegisterProps = {
 
 const genCSSVarRegister = <C extends OverrideComponent>(
   component: C,
-  getDefaultToken?: GetDefaultToken<C>,
-  options?: {
+  getDefaultToken: GetDefaultToken<C> | undefined,
+  options: {
     unitless?: {
       [key in ComponentTokenKey<C>]: boolean;
     };
     deprecatedTokens?: [ComponentTokenKey<C>, ComponentTokenKey<C>][];
     injectStyle?: boolean;
+    prefixToken: (key: string) => string;
   },
 ) => {
-  function prefixToken(key: string) {
-    return `${component}${key.slice(0, 1).toUpperCase()}${key.slice(1)}`;
-  }
-
-  const { unitless: originUnitless = {}, injectStyle = true } = options ?? {};
-  const compUnitless: any = {
-    [prefixToken('zIndexPopup')]: true,
-  };
-  Object.keys(originUnitless).forEach((key) => {
-    compUnitless[prefixToken(key)] = originUnitless[key as keyof ComponentTokenKey<C>];
-  });
+  const { unitless: compUnitless, injectStyle = true, prefixToken } = options;
 
   const CSSVarRegister: FC<CSSVarRegisterProps> = ({ rootCls, cssVar }) => {
     const [, realToken] = useToken();
@@ -335,10 +343,7 @@ const genCSSVarRegister = <C extends OverrideComponent>(
         path: [component],
         prefix: cssVar.prefix,
         key: cssVar?.key!,
-        unitless: {
-          ...unitless,
-          ...compUnitless,
-        },
+        unitless: compUnitless,
         ignore,
         token: realToken,
         scope: rootCls,
@@ -408,13 +413,33 @@ export const genStyleHooks = <C extends OverrideComponent>(
     injectStyle?: boolean;
   },
 ) => {
-  const useStyle = genComponentStyleHook(component, styleFn, getDefaultToken, options);
+  const componentName = Array.isArray(component) ? component[0] : component;
 
-  const useCSSVar = genCSSVarRegister(
-    Array.isArray(component) ? component[0] : component,
-    getDefaultToken,
-    options,
-  );
+  function prefixToken(key: string) {
+    return `${componentName}${key.slice(0, 1).toUpperCase()}${key.slice(1)}`;
+  }
+
+  // Fill unitless
+  const originUnitless = options?.unitless || {};
+  const compUnitless: any = {
+    ...unitless,
+    [prefixToken('zIndexPopup')]: true,
+  };
+  Object.keys(originUnitless).forEach((key) => {
+    compUnitless[prefixToken(key)] = originUnitless[key as keyof ComponentTokenKey<C>];
+  });
+
+  // Options
+  const mergedOptions = {
+    ...options,
+    unitless: compUnitless,
+    prefixToken,
+  };
+
+  // Hooks
+  const useStyle = genComponentStyleHook(component, styleFn, getDefaultToken, mergedOptions);
+
+  const useCSSVar = genCSSVarRegister(componentName, getDefaultToken, mergedOptions);
 
   return (prefixCls: string, rootCls: string = prefixCls) => {
     const [, hashId] = useStyle(prefixCls, rootCls);

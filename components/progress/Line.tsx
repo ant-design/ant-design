@@ -1,17 +1,23 @@
 import * as React from 'react';
 import { presetPrimaryColors } from '@ant-design/colors';
+import classNames from 'classnames';
 
 import { devUseWarning } from '../_util/warning';
 import type { DirectionType } from '../config-provider';
-import type { ProgressGradient, ProgressProps, StringGradients } from './progress';
+import type {
+  PercentPositionType,
+  ProgressGradient,
+  ProgressProps,
+  StringGradients,
+} from './progress';
 import { LineStrokeColorVar, Percent } from './style';
 import { getSize, getSuccessPercent, validProgress } from './utils';
 
 interface LineProps extends ProgressProps {
   prefixCls: string;
   direction?: DirectionType;
-  children: React.ReactNode;
   strokeColor?: string | ProgressGradient;
+  percentPosition: PercentPositionType;
 }
 
 /**
@@ -82,8 +88,11 @@ const Line: React.FC<LineProps> = (props) => {
     strokeLinecap = 'round',
     children,
     trailColor = null,
+    percentPosition,
     success,
   } = props;
+
+  const { align: infoAlign, type: infoPosition } = percentPosition;
 
   const backgroundProps =
     strokeColor && typeof strokeColor !== 'string'
@@ -126,21 +135,36 @@ const Line: React.FC<LineProps> = (props) => {
 
   const outerStyle: React.CSSProperties = {
     width: width < 0 ? '100%' : width,
-    height,
   };
 
-  return (
-    <>
-      <div className={`${prefixCls}-outer`} style={outerStyle}>
-        <div className={`${prefixCls}-inner`} style={trailStyle}>
-          <div className={`${prefixCls}-bg`} style={percentStyle} />
-          {successPercent !== undefined ? (
-            <div className={`${prefixCls}-success-bg`} style={successPercentStyle} />
-          ) : null}
-        </div>
+  const lineInner = (
+    <div className={`${prefixCls}-inner`} style={trailStyle}>
+      <div
+        className={classNames(`${prefixCls}-bg`, `${prefixCls}-bg-${infoPosition}`)}
+        style={percentStyle}
+      >
+        {infoPosition === 'inner' && children}
       </div>
+      {successPercent !== undefined && (
+        <div className={`${prefixCls}-success-bg`} style={successPercentStyle} />
+      )}
+    </div>
+  );
+
+  const isOuterStart = infoPosition === 'outer' && infoAlign === 'start';
+  const isOuterEnd = infoPosition === 'outer' && infoAlign === 'end';
+
+  return infoPosition === 'outer' && infoAlign === 'center' ? (
+    <div className={`${prefixCls}-layout-bottom`}>
+      {lineInner}
       {children}
-    </>
+    </div>
+  ) : (
+    <div className={`${prefixCls}-outer`} style={outerStyle}>
+      {isOuterStart && children}
+      {lineInner}
+      {isOuterEnd && children}
+    </div>
   );
 };
 

@@ -63,11 +63,12 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
         typeof window === 'undefined' ||
         !(window as any).FileReader ||
         !(window as any).File ||
-        !(file.originFileObj instanceof File || file.originFileObj) ||
+        !(file.originFileObj instanceof File || (file.originFileObj as any) instanceof Blob) ||
         file.thumbUrl !== undefined
       ) {
         return;
       }
+      file.thumbUrl = '';
       if (previewFile) {
         previewFile(file.originFileObj as File).then((previewDataUrl: string) => {
           // Need append '' to avoid dead loop
@@ -108,7 +109,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
       return iconRender(file, listType);
     }
     const isLoading = file.status === 'uploading';
-    const fileIcon = isImgUrl && isImgUrl(file) ? <PictureTwoTone /> : <FileTwoTone />;
+    const fileIcon = isImgUrl?.(file) ? <PictureTwoTone /> : <FileTwoTone />;
     let icon: React.ReactNode = isLoading ? <LoadingOutlined /> : <PaperClipOutlined />;
     if (listType === 'picture') {
       icon = isLoading ? <LoadingOutlined /> : fileIcon;

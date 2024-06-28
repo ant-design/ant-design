@@ -49,7 +49,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     lineWidth,
     lineType,
     borderRadius,
-    fontSizeLG,
+    inputFontSizeSM,
+    inputFontSizeLG,
     controlHeightLG,
     controlHeightSM,
     colorError,
@@ -122,7 +123,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 
         '&-lg': {
           padding: 0,
-          fontSize: fontSizeLG,
+          fontSize: inputFontSizeLG,
           lineHeight: lineHeightLG,
           borderRadius: borderRadiusLG,
 
@@ -134,6 +135,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 
         '&-sm': {
           padding: 0,
+          fontSize: inputFontSizeSM,
           borderRadius: borderRadiusSM,
 
           [`input${componentCls}-input`]: {
@@ -229,7 +231,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
             '&[type="number"]::-webkit-inner-spin-button, &[type="number"]::-webkit-outer-spin-button':
               {
                 margin: 0,
-                /* stylelint-disable-next-line property-no-vendor-prefix */
                 webkitAppearance: 'none',
                 appearance: 'none',
               },

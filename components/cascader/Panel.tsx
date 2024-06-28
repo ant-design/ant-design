@@ -21,11 +21,17 @@ export type CascaderPanelProps<
   Multiple extends boolean = false,
 > = Pick<CascaderProps<OptionType, ValueField, Multiple>, PanelPickType>;
 
+export type CascaderPanelAutoProps<
+  OptionType extends DefaultOptionType = DefaultOptionType,
+  ValueField extends keyof OptionType = keyof OptionType,
+> =
+  | CascaderPanelProps<OptionType, ValueField>
+  | (CascaderPanelProps<OptionType, ValueField, true> & { multiple: true });
+
 function CascaderPanel<
   OptionType extends DefaultOptionType = DefaultOptionType,
   ValueField extends keyof OptionType = keyof OptionType,
-  Multiple extends boolean = false,
->(props: CascaderPanelProps<OptionType, ValueField, Multiple>) {
+>(props: CascaderPanelAutoProps<OptionType, ValueField>) {
   const {
     prefixCls: customizePrefixCls,
     className,

@@ -85,10 +85,10 @@ describe('Statistic', () => {
 
   it('data attrs', () => {
     const { container } = render(
-      <Statistic value={1128} data-abc="1" aria-label="2" role="status" />,
+      <Statistic value={1128} data-abc="1" aria-label="label" role="status" />,
     );
     expect(container.querySelector('.ant-statistic')!.getAttribute('data-abc')).toEqual('1');
-    expect(container.querySelector('.ant-statistic')!.getAttribute('aria-label')).toEqual('2');
+    expect(container.querySelector('.ant-statistic')!.getAttribute('aria-label')).toEqual('label');
     expect(container.querySelector('.ant-statistic')!.getAttribute('role')).toEqual('status');
 
     const { container: countdownContainer } = render(

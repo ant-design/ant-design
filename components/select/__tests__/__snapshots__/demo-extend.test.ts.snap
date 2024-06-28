@@ -10420,7 +10420,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                 </span>
                 <div
                   class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; pointer-events: none;"
                 >
                   <div
                     class="ant-tooltip-arrow"
@@ -11173,6 +11173,164 @@ exports[`renders components/select/demo/search-box.tsx extend context correctly 
 `;
 
 exports[`renders components/select/demo/search-box.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/select/demo/search-filter-option.tsx extend context correctly 1`] = `
+<div
+  class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-show-search"
+>
+  <div
+    class="ant-select-selector"
+  >
+    <span
+      class="ant-select-selection-search"
+    >
+      <input
+        aria-autocomplete="list"
+        aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-owns="rc_select_TEST_OR_SSR_list"
+        autocomplete="off"
+        class="ant-select-selection-search-input"
+        id="rc_select_TEST_OR_SSR"
+        role="combobox"
+        type="search"
+        value=""
+      />
+    </span>
+    <span
+      class="ant-select-selection-placeholder"
+    >
+      Select a person
+    </span>
+  </div>
+  <div
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+  >
+    <div>
+      <div
+        id="rc_select_TEST_OR_SSR_list"
+        role="listbox"
+        style="height: 0px; width: 0px; overflow: hidden;"
+      >
+        <div
+          aria-label="Jack"
+          aria-selected="false"
+          id="rc_select_TEST_OR_SSR_list_0"
+          role="option"
+        >
+          1
+        </div>
+        <div
+          aria-label="Lucy"
+          aria-selected="false"
+          id="rc_select_TEST_OR_SSR_list_1"
+          role="option"
+        >
+          2
+        </div>
+      </div>
+      <div
+        class="rc-virtual-list"
+        style="position: relative;"
+      >
+        <div
+          class="rc-virtual-list-holder"
+          style="max-height: 256px; overflow-y: auto;"
+        >
+          <div>
+            <div
+              class="rc-virtual-list-holder-inner"
+              style="display: flex; flex-direction: column;"
+            >
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                title="Jack"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  Jack
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="Lucy"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  Lucy
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="Tom"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  Tom
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span
+    aria-hidden="true"
+    class="ant-select-arrow"
+    style="user-select: none;"
+    unselectable="on"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down ant-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>
+</div>
+`;
+
+exports[`renders components/select/demo/search-filter-option.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/select/demo/search-sort.tsx extend context correctly 1`] = `
 <div
@@ -13247,6 +13405,9 @@ exports[`renders components/select/demo/status.tsx extend context correctly 1`] 
                   width="64"
                   xmlns="http://www.w3.org/2000/svg"
                 >
+                  <title>
+                    Simple Empty
+                  </title>
                   <g
                     fill="none"
                     fill-rule="evenodd"
@@ -13367,6 +13528,9 @@ exports[`renders components/select/demo/status.tsx extend context correctly 1`] 
                   width="64"
                   xmlns="http://www.w3.org/2000/svg"
                 >
+                  <title>
+                    Simple Empty
+                  </title>
                   <g
                     fill="none"
                     fill-rule="evenodd"

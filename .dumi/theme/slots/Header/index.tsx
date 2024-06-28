@@ -91,12 +91,15 @@ const useStyle = createStyles(({ token, css }) => {
         }
 
         .dumi-default-search-popover {
-          inset-inline-start: 11px;
+          inset-inline-start: ${token.paddingSM}px;
           inset-inline-end: unset;
-
           &::before {
             inset-inline-start: 100px;
             inset-inline-end: unset;
+          }
+          & > section {
+            scrollbar-width: thin;
+            scrollbar-color: unset;
           }
         }
       }

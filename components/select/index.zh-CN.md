@@ -41,9 +41,10 @@ return (
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本使用</code>
 <code src="./demo/search.tsx">带搜索框</code>
+<code src="./demo/search-filter-option.tsx">自定义搜索</code>
 <code src="./demo/multiple.tsx">多选</code>
 <code src="./demo/size.tsx">三种大小</code>
-<code src="./demo/option-render.tsx">定制回填内容</code>
+<code src="./demo/option-render.tsx">自定义下拉选项</code>
 <code src="./demo/search-sort.tsx">带排序的搜索</code>
 <code src="./demo/tags.tsx">标签</code>
 <code src="./demo/optgroup.tsx">分组</code>
@@ -127,12 +128,10 @@ return (
 | onChange | 选中 option，或 input 的 value 变化时，调用此函数 | function(value, option:Option \| Array&lt;Option>) | - |  |
 | onClear | 清除内容时回调 | function | - | 4.6.0 |
 | onDeselect | 取消选中时调用，参数为选中项的 value (或 key) 值，仅在 `multiple` 或 `tags` 模式下生效 | function(value: string \| number \| LabeledValue) | - |  |
-| onDropdownVisibleChange | 展开下拉菜单的回调 | function(open) | - |  |
-| onFocus | 获得焦点时回调 | function | - |  |
-| onInputKeyDown | 按键按下时回调 | function | - |  |
-| onMouseEnter | 鼠标移入时回调 | function | - |  |
-| onMouseLeave | 鼠标移出时回调 | function | - |  |
-| onPopupScroll | 下拉列表滚动时的回调 | function | - |  |
+| onDropdownVisibleChange | 展开下拉菜单的回调 | (open: boolean) => void | - |  |
+| onFocus | 获得焦点时回调 | (event: FocusEvent) => void | - |  |
+| onInputKeyDown | 按键按下时回调 | (event: KeyboardEvent) => void | - |  |
+| onPopupScroll | 下拉列表滚动时的回调 | (event: UIEvent) => void | - |  |
 | onSearch | 文本框值变化时回调 | function(value: string) | - |  |
 | onSelect | 被选中时调用，参数为选中项的 value (或 key) 值 | function(value: string \| number \| LabeledValue, option: Option) | - |  |
 

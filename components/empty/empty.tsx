@@ -19,6 +19,7 @@ const Empty: React.FC = () => {
       viewBox="0 0 184 152"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>empty image</title>
       <g fill="none" fillRule="evenodd">
         <g transform="translate(24 31.67)">
           <ellipse

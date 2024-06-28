@@ -61,7 +61,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
 
         // Wrapper for the tooltip content
         [`${componentCls}-inner`]: {
-          minWidth: controlHeight,
+          minWidth: '1em',
           minHeight: controlHeight,
           padding: `${unit(token.calc(paddingSM).div(2).equal())} ${unit(paddingXS)}`,
           color: tooltipColor,
@@ -139,7 +139,7 @@ export const prepareComponentToken: GetDefaultToken<'Tooltip'> = (token) => ({
   ),
 });
 
-export default (prefixCls: string, injectStyle: boolean = true) => {
+export default (prefixCls: string, injectStyle = true) => {
   const useStyle = genStyleHooks(
     'Tooltip',
     (token) => {

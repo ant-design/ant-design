@@ -11,7 +11,7 @@ import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 import { FormContext, NoStyleItemContext } from '../context';
-import type { FormInstance } from '../Form';
+import type { FormInstance, FormItemLayout } from '../Form';
 import type { FormItemInputProps } from '../FormItemInput';
 import type { FormItemLabelProps, LabelTooltipType } from '../FormItemLabel';
 import useChildren from '../hooks/useChildren';
@@ -102,6 +102,7 @@ export interface FormItemProps<Values = any>
   tooltip?: LabelTooltipType;
   /** @deprecated No need anymore */
   fieldKey?: React.Key | React.Key[];
+  layout?: FormItemLayout;
 }
 
 function genEmptyMeta(): Meta {
@@ -132,6 +133,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     validateTrigger,
     hidden,
     help,
+    layout,
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const { name: formName } = React.useContext(FormContext);
@@ -273,6 +275,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
         warnings={mergedWarnings}
         meta={meta}
         onSubItemMetaChange={onSubItemMetaChange}
+        layout={layout}
       >
         {baseChildren}
       </ItemHolder>
@@ -309,19 +312,16 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
         const isRequired =
           required !== undefined
             ? required
-            : !!(
-                rules &&
-                rules.some((rule) => {
-                  if (rule && typeof rule === 'object' && rule.required && !rule.warningOnly) {
-                    return true;
-                  }
-                  if (typeof rule === 'function') {
-                    const ruleEntity = rule(context);
-                    return ruleEntity && ruleEntity.required && !ruleEntity.warningOnly;
-                  }
-                  return false;
-                })
-              );
+            : !!rules?.some((rule) => {
+                if (rule && typeof rule === 'object' && rule.required && !rule.warningOnly) {
+                  return true;
+                }
+                if (typeof rule === 'function') {
+                  const ruleEntity = rule(context);
+                  return ruleEntity?.required && !ruleEntity?.warningOnly;
+                }
+                return false;
+              });
 
         // ======================= Children =======================
         const mergedControl: typeof control = {
