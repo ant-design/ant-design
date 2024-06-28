@@ -46,6 +46,7 @@ const main = async () => {
       // typedoc options here
       entryPoints: ['components/theme/interface/index.ts', 'components/*/style/index.{ts,tsx}'],
       skipErrorChecking: true,
+      logLevel: 'Error',
     },
     [new TSConfigReader(), new TypeDocReader()],
   );
