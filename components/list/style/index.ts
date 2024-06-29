@@ -262,7 +262,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
               color: colorText,
               transition: `all ${motionDurationSlow}`,
 
-              [`&:hover`]: {
+              '&:hover': {
                 color: colorPrimary,
               },
             },
@@ -282,7 +282,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
           fontSize: 0,
           listStyle: 'none',
 
-          [`& > li`]: {
+          '& > li': {
             position: 'relative',
             display: 'inline-block',
             padding: `0 ${unit(paddingXS)}`,
@@ -291,7 +291,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
             lineHeight: token.lineHeight,
             textAlign: 'center',
 
-            [`&:first-child`]: {
+            '&:first-child': {
               paddingInlineStart: 0,
             },
           },
@@ -365,7 +365,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
         '> li': {
           padding: `0 ${unit(padding)}`,
 
-          [`&:first-child`]: {
+          '&:first-child': {
             paddingInlineStart: 0,
           },
         },
@@ -375,7 +375,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
     [`${componentCls}-split ${componentCls}-item`]: {
       borderBlockEnd: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
 
-      [`&:last-child`]: {
+      '&:last-child': {
         borderBlockEnd: 'none',
       },
     },

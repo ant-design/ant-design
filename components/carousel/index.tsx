@@ -31,14 +31,16 @@ export interface CarouselRef {
   innerSlider: any;
 }
 
-interface ArrowType extends React.ButtonHTMLAttributes<HTMLElement> {
+interface ArrowType extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   currentSlide?: number;
   slideCount?: number;
 }
 
-function ArrowButton({ currentSlide, slideCount, ...rest }: ArrowType) {
-  return <button type="button" {...rest} />;
-}
+const ArrowButton: React.FC<ArrowType> = ({ currentSlide, slideCount, ...rest }) => (
+  <button type="button" {...rest} />
+);
+
+const dotsClass = 'slick-dots';
 
 const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
   const {
@@ -75,7 +77,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     [slickRef.current],
   );
 
-  const prevCount = React.useRef(React.Children.count(props.children));
+  const prevCount = React.useRef<number>(React.Children.count(props.children));
 
   React.useEffect(() => {
     if (prevCount.current !== React.Children.count(props.children)) {
@@ -96,7 +98,6 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
   }
 
   const prefixCls = getPrefixCls('carousel', newProps.prefixCls);
-  const dotsClass = 'slick-dots';
 
   const enableDots = !!dots;
   const dsClass = classNames(

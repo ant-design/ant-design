@@ -17,7 +17,7 @@ export const genDisabledStyle = (token: InputToken): CSSObject => ({
   cursor: 'not-allowed',
   opacity: 1,
 
-  [`input[disabled], textarea[disabled]`]: {
+  'input[disabled], textarea[disabled]': {
     cursor: 'not-allowed',
   },
 
@@ -171,22 +171,40 @@ export const genOutlinedGroupStyle = (token: InputToken): CSSObject => ({
 });
 
 /* ============ Borderless ============ */
-export const genBorderlessStyle = (token: InputToken, extraStyles?: CSSObject): CSSObject => ({
-  '&-borderless': {
-    background: 'transparent',
-    border: 'none',
+export const genBorderlessStyle = (token: InputToken, extraStyles?: CSSObject): CSSObject => {
+  const { componentCls } = token;
 
-    '&:focus, &:focus-within': {
-      outline: 'none',
+  return {
+    '&-borderless': {
+      background: 'transparent',
+      border: 'none',
+
+      '&:focus, &:focus-within': {
+        outline: 'none',
+      },
+
+      // >>>>> Disabled
+      [`&${componentCls}-disabled, &[disabled]`]: {
+        color: token.colorTextDisabled,
+      },
+
+      // >>>>> Status
+      [`&${componentCls}-status-error`]: {
+        '&, & input, & textarea': {
+          color: token.colorError,
+        },
+      },
+
+      [`&${componentCls}-status-warning`]: {
+        '&, & input, & textarea': {
+          color: token.colorWarning,
+        },
+      },
+
+      ...extraStyles,
     },
-
-    [`&${token.componentCls}-disabled, &[disabled]`]: {
-      color: token.colorTextDisabled,
-    },
-
-    ...extraStyles,
-  },
-});
+  };
+};
 
 /* ============== Filled ============== */
 const genBaseFilledStyle = (
@@ -203,7 +221,7 @@ const genBaseFilledStyle = (
   borderStyle: token.lineType,
   borderColor: 'transparent',
 
-  [`input&, & input, textarea&, & textarea`]: {
+  'input&, & input, textarea&, & textarea': {
     color: options?.inputColor,
   },
 

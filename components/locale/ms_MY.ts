@@ -1,5 +1,6 @@
 /* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/ms_MY';
+
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/ms_MY';
 import DatePicker from '../date-picker/locale/ms_MY';
@@ -44,7 +45,7 @@ const localeValues: Locale = {
     Next: 'Seterusnya',
     Previous: 'Sebelumnya',
     Finish: 'Tamat',
-  },  
+  },
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Batal',

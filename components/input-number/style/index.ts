@@ -231,7 +231,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
             '&[type="number"]::-webkit-inner-spin-button, &[type="number"]::-webkit-outer-spin-button':
               {
                 margin: 0,
-                /* stylelint-disable-next-line property-no-vendor-prefix */
                 webkitAppearance: 'none',
                 appearance: 'none',
               },

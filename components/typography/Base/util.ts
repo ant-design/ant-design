@@ -1,4 +1,4 @@
-export function toList<T extends any>(val: T | T[]): T[] {
+export function toList<T>(val: T | T[]): T[] {
   if (val === false) {
     return [false, false] as T[];
   }

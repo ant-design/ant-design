@@ -212,8 +212,7 @@ function injectSorter<RecordType>(
           return renderSortTitle;
         },
         onHeaderCell: (col) => {
-          const cell: React.HTMLAttributes<HTMLElement> =
-            (column.onHeaderCell && column.onHeaderCell(col)) || {};
+          const cell: React.HTMLAttributes<HTMLElement> = column.onHeaderCell?.(col) || {};
           const originOnClick = cell.onClick;
           const originOKeyDown = cell.onKeyDown;
           cell.onClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -401,7 +400,7 @@ export default function useFilterSorter<RecordType>({
 
     // Return if not controlled
     if (!collectedStates.length) {
-      return sortStates.filter(item => mergedColumns.includes(item.column));
+      return sortStates;
     }
 
     const validateStates: SortState<RecordType>[] = [];
@@ -450,8 +449,8 @@ export default function useFilterSorter<RecordType>({
     return {
       sortColumns,
       // Legacy
-      sortColumn: sortColumns[0] && sortColumns[0].column,
-      sortOrder: sortColumns[0] && sortColumns[0].order,
+      sortColumn: sortColumns[0]?.column,
+      sortOrder: sortColumns[0]?.order,
     };
   }, [mergedSorterStates]);
 

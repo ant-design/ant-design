@@ -401,9 +401,11 @@ describe('Button', () => {
           promiseCache.resolve = resolve;
         });
         throw promiseCache.promise;
-      } else if (freeze) {
+      }
+      if (freeze) {
         throw promiseCache.promise;
-      } else if (promiseCache.promise) {
+      }
+      if (promiseCache.promise) {
         promiseCache.resolve?.();
         promiseCache.promise = undefined;
       }
