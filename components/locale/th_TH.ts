@@ -59,6 +59,7 @@ const localeValues: Locale = {
     selectCurrent: 'เลือกทั้งหมดในหน้านี้',
     removeCurrent: 'นำออกทั้งหมดในหน้านี้',
     selectAll: 'เลือกข้อมูลทั้งหมด',
+    deselectAll: 'ยกเลิกการเลือกทั้งหมด',
     removeAll: 'นำข้อมูลออกทั้งหมด',
     selectInvert: 'กลับสถานะการเลือกในหน้านี้',
   },
@@ -80,6 +81,7 @@ const localeValues: Locale = {
     copy: 'คัดลอก',
     copied: 'คัดลอกแล้ว',
     expand: 'ขยาย',
+    collapse: 'ย่อ',
   },
   Form: {
     optional: '(ไม่จำเป็น)',
@@ -137,6 +139,10 @@ const localeValues: Locale = {
   QRCode: {
     expired: 'คิวอาร์โค้ดหมดอายุ',
     refresh: 'รีเฟรช',
+    scanned: 'สแกนแล้ว',
+  },
+  ColorPicker: {
+    presetEmpty: 'ไม่มีข้อมูล',
   },
 };
 

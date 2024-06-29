@@ -4,8 +4,17 @@ import type { ConfigConsumerProps } from '.';
 import { ConfigContext } from '.';
 import Empty from '../empty';
 
+type ComponentName =
+  | 'Table'
+  | 'List'
+  | 'Select'
+  | 'TreeSelect'
+  | 'Cascader'
+  | 'Transfer'
+  | 'Mentions';
+
 interface EmptyProps {
-  componentName?: string;
+  componentName?: ComponentName;
 }
 
 const DefaultRenderEmpty: React.FC<EmptyProps> = (props) => {
@@ -29,6 +38,6 @@ const DefaultRenderEmpty: React.FC<EmptyProps> = (props) => {
   }
 };
 
-export type RenderEmptyHandler = (componentName?: string) => React.ReactNode;
+export type RenderEmptyHandler = (componentName?: ComponentName) => React.ReactNode;
 
 export default DefaultRenderEmpty;
