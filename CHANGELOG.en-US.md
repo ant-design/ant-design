@@ -16,6 +16,20 @@ tag: vVERSION
 
 ---
 
+## 5.18.4
+
+`2024-07-01`
+
+- 🐞 Fixed an issue where the `disabled` attribute was ineffective when a Button was used as a Dropdown `trigger`. [#47363](https://github.com/ant-design/ant-design/pull/47363)
+- 🐞 Issued a warning when `type=number` and `changeOnWheel` were used simultaneously. [#49648](https://github.com/ant-design/ant-design/pull/49648) [@wanpan11](https://github.com/wanpan11)
+- 💄 Added initial styles to the SubMenu node in Menu. [#49643](https://github.com/ant-design/ant-design/pull/49643) [@wanpan11](https://github.com/wanpan11)
+- 🐞 Fixed locale issues with Tour nl_NL. [#49612](https://github.com/ant-design/ant-design/pull/49612) [@Hannnnnnnnnnnnnnnn](https://github.com/Hannnnnnnnnnnnnnnn)
+- 💄 Enhanced the `variant=borderless` styles for DatePicker, TimePicker, Select, TreeSelect, Input, InputNumber, and Mentions to make them distinguishable when the `status` attribute is set. [#49608](https://github.com/ant-design/ant-design/pull/49608)
+- 🐞 Fixed an issue where setting `locale.emptyText` in Table to a non-`undefined` value would still display the default value. [cc54bef](https://github.com/ant-design/ant-design/commit/cc54bef) [@照明胧](https://github.com/照明胧)
+- 🐞 Fixed a rendering performance issue in Upload when an excessive number of files were listed in list mode. [#49598](https://github.com/ant-design/ant-design/pull/49598) [@tlkv](https://github.com/tlkv)
+- TypeScript
+  - 🤖 Improved the TypeScript type for CP's renderEmpty. [#49602](https://github.com/ant-design/ant-design/pull/49602) [@Wxh16144](https://github.com/Wxh16144)
+
 ## 5.18.3
 
 `2024-06-19`

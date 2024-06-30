@@ -15,6 +15,20 @@ tag: vVERSION
 
 ---
 
+## 5.18.4
+
+`2024-07-01`
+
+- 🐞 修复了当 Button 用作 Dropdown `trigger` 时 `disabled` 属性不生效的问题。[#47363](https://github.com/ant-design/ant-design/pull/47363)
+- 🐞 在同时使用 `type=number` 和 `changeOnWheel` 时现在会给出警告提示。[#49648](https://github.com/ant-design/ant-design/pull/49648) [@wanpan11](https://github.com/wanpan11)
+- 💄 为 Menu 的 SubMenu 节点添加了初始化样式。[#49643](https://github.com/ant-design/ant-design/pull/49643) [@wanpan11](https://github.com/wanpan11)
+- 🐞 修复了 Tour nl_NL 本地化问题。[#49612](https://github.com/ant-design/ant-design/pull/49612) [@Hannnnnnnnnnnnnnnn](https://github.com/Hannnnnnnnnnnnnnnn)
+- 💄 优化了 DatePicker、TimePicker、Select、TreeSelect、Input、InputNumber、Mentions 的 `variant=borderless` 样式，现在在设置 `status` 属性时也能够被区分。[#49608](https://github.com/ant-design/ant-design/pull/49608)
+- 🐞 修复了当 Table 的 `locale.emptyText` 设置为非 `undefined` 值时仍会显示默认值的问题。[cc54bef](https://github.com/ant-design/ant-design/commit/cc54bef) [@照明胧](https://github.com/照明胧)
+- 🐞 修复了 Upload 在列表模式下文件过多时出现的渲染性能问题。[#49598](https://github.com/ant-design/ant-design/pull/49598) [@tlkv](https://github.com/tlkv)
+- TypeScript
+  - 🤖 改进了 CP 的 `renderEmpty` 方法的 TypeScript 类型定义。[#49602](https://github.com/ant-design/ant-design/pull/49602) [@Wxh16144](https://github.com/Wxh16144)
+
 ## 5.18.3
 
 `2024-06-19`
