@@ -40,8 +40,8 @@ tag: vVERSION
 - 🐞 Upload fixed rendering performance issue when listing many files in list mode. [#49598](https://github.com/ant-design/ant-design/pull/49598) [@tlkv](https://github.com/tlkv)
 - 🌐 Added missing Thai translations including `Transfer.deselectAll`, `Text.collapse`, `QRCode.scanned`, `ColorPicker.presetEmpty`. [#49588](https://github.com/ant-design/ant-design/pull/49588) [@Tantatorn-dev](https://github.com/Tantatorn-dev)
 - TypeScript:
-  - 🤖 Improved TypeScript definition for `ConfigProvider`'s `renderEmpty` method. [#49602](https://github.com/ant-design/ant-design/pull/49602) [@Wxh16144](https://github.com/Wxh16144)
-  - 🤖 Added `okButtonProps` to date and time picker props. [#49657](https://github.com/ant-design/ant-design/pull/49657) [@Tantatorn-dev](https://github.com/Tantatorn-dev)
+  - 🤖 ConfigProvider Improved TypeScript definition for `renderEmpty` method. [#49602](https://github.com/ant-design/ant-design/pull/49602) [@Wxh16144](https://github.com/Wxh16144)
+  - 🤖 DateTimePicker Added `okButtonProps` props. [#49657](https://github.com/ant-design/ant-design/pull/49657) [@Tantatorn-dev](https://github.com/Tantatorn-dev)
 
 ## 5.18.3
 
