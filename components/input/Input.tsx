@@ -15,7 +15,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
-import type { Variant } from '../form/hooks/useVariants';
+import type { Variant } from '../config-provider';
 import useVariant from '../form/hooks/useVariants';
 import { useCompactItemContext } from '../space/Compact';
 import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
@@ -174,7 +174,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
 
   const mergedAllowClear = getAllowClear(allowClear ?? input?.allowClear);
 
-  const [variant, enableVariantCls] = useVariant(customVariant, bordered);
+  const [variant, enableVariantCls] = useVariant('input', customVariant, bordered);
 
   return wrapCSSVar(
     <RcInput
