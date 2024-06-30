@@ -26,4 +26,15 @@ describe('Divider', () => {
       marginRight: 10,
     });
   });
+
+  it('support bool dashed', () => {
+    const { container } = render(
+      <Divider dashed>
+        test test test
+      </Divider>,
+    );
+    expect(container?.querySelector<HTMLSpanElement>('.ant-divider-dashed')).toHaveStyle({
+      borderStyle: 'dashed',
+    });
+  });
 });
