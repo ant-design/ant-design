@@ -13276,7 +13276,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider 1`] = `
     </div>
     <div
       class="config-picker-active-bar"
-      style="position: absolute; width: 0px; left: 0px;"
+      style="position: absolute; width: 0px;"
     />
     <span
       class="config-picker-suffix"
@@ -13366,7 +13366,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
     </div>
     <div
       class="config-picker-active-bar"
-      style="position: absolute; width: 0px; left: 0px;"
+      style="position: absolute; width: 0px;"
     />
     <span
       class="config-picker-suffix"
@@ -13454,7 +13454,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
     </div>
     <div
       class="config-picker-active-bar"
-      style="position: absolute; width: 0px; left: 0px;"
+      style="position: absolute; width: 0px;"
     />
     <span
       class="config-picker-suffix"
@@ -13542,7 +13542,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
     </div>
     <div
       class="config-picker-active-bar"
-      style="position: absolute; width: 0px; left: 0px;"
+      style="position: absolute; width: 0px;"
     />
     <span
       class="config-picker-suffix"
@@ -13630,7 +13630,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
     </div>
     <div
       class="config-picker-active-bar"
-      style="position: absolute; width: 0px; left: 0px;"
+      style="position: absolute; width: 0px;"
     />
     <span
       class="config-picker-suffix"
@@ -13718,7 +13718,7 @@ exports[`ConfigProvider components DatePicker RangePicker normal 1`] = `
     </div>
     <div
       class="ant-picker-active-bar"
-      style="position: absolute; width: 0px; left: 0px;"
+      style="position: absolute; width: 0px;"
     />
     <span
       class="ant-picker-suffix"
@@ -13806,7 +13806,7 @@ exports[`ConfigProvider components DatePicker RangePicker prefixCls 1`] = `
     </div>
     <div
       class="prefix-RangePicker-active-bar"
-      style="position: absolute; width: 0px; left: 0px;"
+      style="position: absolute; width: 0px;"
     />
     <span
       class="prefix-RangePicker-suffix"

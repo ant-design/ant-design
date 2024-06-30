@@ -205,8 +205,6 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         },
 
         '&-rtl': {
-          direction: 'rtl',
-
           [`${componentCls}-prev-icon,
               ${componentCls}-super-prev-icon`]: {
             transform: 'rotate(45deg)',
@@ -527,7 +525,6 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
       '&-time-panel': {
         width: 'auto',
         minWidth: 'auto',
-        direction: 'ltr',
 
         [`${componentCls}-content`]: {
           display: 'flex',
