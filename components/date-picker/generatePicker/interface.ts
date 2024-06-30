@@ -1,6 +1,6 @@
 import type {
-  PickerRef,
   PickerProps as RcPickerProps,
+  PickerRef,
   RangePickerProps as RcRangePickerProps,
 } from 'rc-picker';
 import type { Locale as RcPickerLocale } from 'rc-picker/lib/interface';
@@ -10,6 +10,7 @@ import type { AnyObject } from '../../_util/type';
 import type { SizeType } from '../../config-provider/SizeContext';
 import type { Variant } from '../../config-provider';
 import type { TimePickerLocale } from '../../time-picker';
+import type { ButtonProps } from '../../button/button';
 
 const DataPickerPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight'] as const;
 
@@ -61,6 +62,7 @@ type InjectDefaultProps<Props> = Omit<Props, 'locale' | 'generateConfig' | 'hide
   popupClassName?: string;
   rootClassName?: string;
   popupStyle?: React.CSSProperties;
+  okButtonProps?: ButtonProps;
 };
 
 /** Base Single Picker props */

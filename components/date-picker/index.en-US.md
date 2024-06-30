@@ -154,6 +154,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
 | onOk | Callback when click ok button | function() | - |  |
+| okButtonProps | The ok button props | [ButtonProps](/components/button/#api) | - |  |
 | onPanelChange | Callback function for panel changing | function(value, mode) | - |  |
 
 ### DatePicker\[picker=year]
