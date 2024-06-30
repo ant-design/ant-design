@@ -16,19 +16,32 @@ tag: vVERSION
 
 ---
 
-## 5.18.4
+## 5.19.0
 
 `2024-07-01`
 
-- 🐞 Fixed an issue where the `disabled` attribute was ineffective when a Button was used as a Dropdown `trigger`. [#47363](https://github.com/ant-design/ant-design/pull/47363)
-- 🐞 Issued a warning when `type=number` and `changeOnWheel` were used simultaneously. [#49648](https://github.com/ant-design/ant-design/pull/49648) [@wanpan11](https://github.com/wanpan11)
-- 💄 Added initial styles to the SubMenu node in Menu. [#49643](https://github.com/ant-design/ant-design/pull/49643) [@wanpan11](https://github.com/wanpan11)
-- 🐞 Fixed locale issues with Tour nl_NL. [#49612](https://github.com/ant-design/ant-design/pull/49612) [@Hannnnnnnnnnnnnnnn](https://github.com/Hannnnnnnnnnnnnnnn)
-- 💄 Enhanced the `variant=borderless` styles for DatePicker, TimePicker, Select, TreeSelect, Input, InputNumber, and Mentions to make them distinguishable when the `status` attribute is set. [#49608](https://github.com/ant-design/ant-design/pull/49608)
-- 🐞 Fixed an issue where setting `locale.emptyText` in Table to a non-`undefined` value would still display the default value. [cc54bef](https://github.com/ant-design/ant-design/commit/cc54bef) [@照明胧](https://github.com/照明胧)
-- 🐞 Fixed a rendering performance issue in Upload when an excessive number of files were listed in list mode. [#49598](https://github.com/ant-design/ant-design/pull/49598) [@tlkv](https://github.com/tlkv)
-- TypeScript
-  - 🤖 Improved the TypeScript type for CP's renderEmpty. [#49602](https://github.com/ant-design/ant-design/pull/49602) [@Wxh16144](https://github.com/Wxh16144)
+- 🆕 ConfigProvider now supports global configuration for `variant`. [#49535](https://github.com/ant-design/ant-design/pull/49535) [@MadCcc](https://github.com/MadCcc)
+- 🆕 QRCode component now uses `rc-qrcode` instead of `qrcode.react`, adding support for click events and `iconSize` configuration. [#49454](https://github.com/ant-design/ant-design/pull/49454) [#49240](https://github.com/ant-design/ant-design/pull/49240) [@kiner-tang](https://github.com/kiner-tang) [@thinkasany](https://github.com/thinkasany)
+- 🆕 Select component's `filterSort` property now includes `searchValue` parameter. [#49352](https://github.com/ant-design/ant-design/pull/49352) [@MadCcc](https://github.com/MadCcc)
+- 🆕 Pagination adds `simple` property, supports read-only mode, and introduces `align` property. [#49562](https://github.com/ant-design/ant-design/pull/49562) [@coding-ice](https://github.com/coding-ice)
+- 💄 Improved active style for Slider handle. [#49630](https://github.com/ant-design/ant-design/pull/49630)
+- 🐞 Enhanced Anchor's `affix` property for more configuration options. [#49295](https://github.com/ant-design/ant-design/pull/49295) [@gin-lsl](https://github.com/gin-lsl)
+- DatePicker
+  - 🐞 Fixed missing arrow in DatePicker/TimePicker RangePicker with `placement` set to `topRight` or `bottomRight`.
+  - 🐞 Fixed missing accessible text for DatePicker switch button, style issue in RTL mode for `DatePicker.RangePicker`, and crash when entering wrong end value in year selection of DatePicker.RangePicker.
+  - 🐞 Fixed DatePicker.RangePicker resetting selected dates when entering dates via keyboard. [#49333](https://github.com/ant-design/ant-design/pull/49333)
+- 🐞 Fixed Table filter panel not working after customizing global Empty style. [#49548](https://github.com/ant-design/ant-design/pull/49548) [@duqigit](https://github.com/duqigit)
+- 🐞 Button fixed `disabled` property not working when used as `Dropdown` `trigger`. [#47363](https://github.com/ant-design/ant-design/pull/47363)
+- 🐞 InputNumber now warns when using `type=number` with `changeOnWheel`. [#49648](https://github.com/ant-design/ant-design/pull/49648) [@wanpan11](https://github.com/wanpan11)
+- 💄 Added initial styles for `SubMenu` node in Menu. [#49643](https://github.com/ant-design/ant-design/pull/49643) [@wanpan11](https://github.com/wanpan11)
+- 🐞 Tour fixed nl_NL localization issue. [#49612](https://github.com/ant-design/ant-design/pull/49612) [@Hannnnnnnnnnnnnnnn](https://github.com/Hannnnnnnnnnnnnnnn)
+- 💄 Optimized `variant=borderless` style for DatePicker, TimePicker, Select, TreeSelect, Input, InputNumber, Mentions, now distinguishable when setting `status` property. [#49608](https://github.com/ant-design/ant-design/pull/49608)
+- 🐞 Table fixed issue with `locale.emptyText` showing default value when set to a non-`undefined` value. [cc54bef](https://github.com/ant-design/ant-design/commit/cc54bef) [@照明胧](https://github.com/照明胧)
+- 🐞 Upload fixed rendering performance issue when listing many files in list mode. [#49598](https://github.com/ant-design/ant-design/pull/49598) [@tlkv](https://github.com/tlkv)
+- 🌐 Added missing Thai translations including `Transfer.deselectAll`, `Text.collapse`, `QRCode.scanned`, `ColorPicker.presetEmpty`. [#49588](https://github.com/ant-design/ant-design/pull/49588) [@Tantatorn-dev](https://github.com/Tantatorn-dev)
+- TypeScript:
+  - 🤖 Improved TypeScript definition for `ConfigProvider`'s `renderEmpty` method. [#49602](https://github.com/ant-design/ant-design/pull/49602) [@Wxh16144](https://github.com/Wxh16144)
+  - 🤖 Added `okButtonProps` to date and time picker props. [#49657](https://github.com/ant-design/ant-design/pull/49657) [@Tantatorn-dev](https://github.com/Tantatorn-dev)
 
 ## 5.18.3
 
