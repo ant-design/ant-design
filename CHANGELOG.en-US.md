@@ -21,7 +21,7 @@ tag: vVERSION
 `2024-07-01`
 
 - 🆕 ConfigProvider now supports global configuration for `variant`. [#49535](https://github.com/ant-design/ant-design/pull/49535) [@MadCcc](https://github.com/MadCcc)
-- 🆕 QRCode
+- QRCode
   - QRCode uses `rc-qrcode` instead of `qrcode.react`. [#49454](https://github.com/ant-design/ant-design/pull/49454) [@kiner-tang](https://github.com/kiner-tang)
   - QRCode adding support for click events and `iconSize` configuration. [#49240](https://github.com/ant-design/ant-design/pull/49240) [@thinkasany](https://github.com/thinkasany)
 - 🆕 Select component's `filterSort` property now includes `searchValue` parameter. [#49352](https://github.com/ant-design/ant-design/pull/49352) [@MadCcc](https://github.com/MadCcc)
