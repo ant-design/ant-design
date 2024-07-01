@@ -34,7 +34,7 @@ tag: vVERSION
 - 🐞 Button fixed `disabled` property not working when used as `Dropdown` `trigger`. [#47363](https://github.com/ant-design/ant-design/pull/47363)
 - 🐞 InputNumber now warns when using `type=number` with `changeOnWheel`. [#49648](https://github.com/ant-design/ant-design/pull/49648) [@wanpan11](https://github.com/wanpan11)
 - Table
-  - 🐞 Table fixed issue with `locale.emptyText` showing default value when set to a non-`undefined` value. [cc54bef](https://github.com/ant-design/ant-design/commit/cc54bef) [@照明胧](https://github.com/mmmml-zhao)
+  - 🐞 Table fixed issue with `locale.emptyText` showing default value when set to a non-`undefined` value. [#49599](https://github.com/ant-design/ant-design/pull/49599) [@照明胧](https://github.com/mmmml-zhao)
   - 🐞 Fixed Table filter panel not working after customizing global Empty style. [#49548](https://github.com/ant-design/ant-design/pull/49548) [@duqigit](https://github.com/duqigit)
 - 🐞 Upload fixed rendering performance issue when listing many files in list mode. [#49598](https://github.com/ant-design/ant-design/pull/49598) [@tlkv](https://github.com/tlkv)
 - 💄 Added initial styles for `SubMenu` node in Menu. [#49643](https://github.com/ant-design/ant-design/pull/49643) [@wanpan11](https://github.com/wanpan11)
