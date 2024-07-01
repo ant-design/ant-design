@@ -14,8 +14,8 @@ const RadiusPicker: React.FC<RadiusPickerProps> = ({ id, value, onChange }) => (
       onChange={onChange}
       style={{ width: 120 }}
       min={0}
-      formatter={(val) => `${val}px`}
-      parser={(str) => (str ? parseFloat(str) : (str as any))}
+      formatter={(value) => `${value}px`}
+      parser={(value) => value?.replace('px', '') as unknown as number}
       id={id}
     />
     <Slider
