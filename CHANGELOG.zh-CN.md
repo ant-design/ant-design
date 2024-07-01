@@ -20,7 +20,6 @@ tag: vVERSION
 `2024-07-01`
 
 - 🆕 ConfigProvider 现支持全局配置 `variant`。[#49535](https://github.com/ant-design/ant-design/pull/49535) [@MadCcc](https://github.com/MadCcc)
-- 🆕 DatePicker 支持了 `okButtonProps`。[#49657](https://github.com/ant-design/ant-design/pull/49657) [@Tantatorn-dev](https://github.com/Tantatorn-dev)
 - 🆕 QRCode
   - QRCode 使用 `rc-qrcode` 替代了 `qrcode.react` 。 [#49454](https://github.com/ant-design/ant-design/pull/49454) [@kiner-tang](https://github.com/kiner-tang)
   - QRCode 新增支持点击事件和 `iconSize` 宽高配置。 [#49240](https://github.com/ant-design/ant-design/pull/49240) [@thinkasany](https://github.com/thinkasany)
