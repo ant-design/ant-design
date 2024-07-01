@@ -34,10 +34,12 @@ const DefaultRenderEmpty: React.FC<EmptyProps> = (props) => {
       return <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} className={`${prefix}-small`} />;
     /**
      * Just go through the logic, don't implement it here.
+     * Use `||` operation, the short-circuit characteristic of js logical operators.
      * leave it to specific components themselves, such as `Table.filter`.
      */
     case 'Table.filter':
-      return;
+      // why `null`? legacy react16 node type `undefined` is not allowed.
+      return null; /** React.version > 16 ? void 0 : null; */
     default:
       // Should never hit if we take all the component into consider.
       return <Empty />;
