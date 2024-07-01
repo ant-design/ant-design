@@ -2955,13 +2955,12 @@ describe('Table.filter', () => {
   it('The filter empty state should be customizable', async () => {
     const mockTableFilterRenderEmpty = jest.fn();
 
-    function renderEmpty(name: any) {
-      if (name === 'Table.filter') {
-        // eslint-disable-next-line prefer-rest-params
-        mockTableFilterRenderEmpty(...arguments)
-        return 'foo'
+    function renderEmpty(...args: any[]) {
+      if (args[0] === 'Table.filter') {
+        mockTableFilterRenderEmpty(...args);
+        return 'foo';
       }
-      return 'bar'
+      return 'bar';
     }
 
     const { container } = render(
