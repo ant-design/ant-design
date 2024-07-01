@@ -33,7 +33,7 @@ tag: vVERSION
   - 🐞 修复了 DatePicker.RangePicker 年选择器输入结束值错误导致报错的问题，调整了 `DatePicker` 的土耳其语言文案。[#49333](https://github.com/ant-design/ant-design/pull/49333)
   - 🐞 修复了 DatePicker.RangePicker 键盘输入日期时已选日期重置的问题。[#49333](https://github.com/ant-design/ant-design/pull/49333)
 - 🐞 Table 自定义全局组件的 Empty 样式后，Table的过滤面板没生效的问题。[#49548](https://github.com/ant-design/ant-design/pull/49548) [@duqigit](https://github.com/duqigit)
-- 🐞 Button 修复了用作 `Dropdown` `trigger` 时 `disabled` 属性不生效的问题。[#47363](https://github.com/ant-design/ant-design/pull/47363)
+- 🐞 Button 修复了用作 Dropdown `trigger` 时 `disabled` 属性不生效的问题。[#47363](https://github.com/ant-design/ant-design/pull/47363)
 - 🐞 InputNumber 在同时使用 `type=number` 和 `changeOnWheel` 时现在会给出警告提示。[#49648](https://github.com/ant-design/ant-design/pull/49648) [@wanpan11](https://github.com/wanpan11)
 - 💄 Menu 为 `SubMenu` 节点添加了初始化样式。[#49643](https://github.com/ant-design/ant-design/pull/49643) [@wanpan11](https://github.com/wanpan11)
 - 🐞 Tour 修复了 nl_NL 本地化问题。[#49612](https://github.com/ant-design/ant-design/pull/49612) [@Hannnnnnnnnnnnnnnn](https://github.com/Hannnnnnnnnnnnnnnn)
