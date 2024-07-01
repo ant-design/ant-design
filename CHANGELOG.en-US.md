@@ -21,7 +21,9 @@ tag: vVERSION
 `2024-07-01`
 
 - 🆕 ConfigProvider now supports global configuration for `variant`. [#49535](https://github.com/ant-design/ant-design/pull/49535) [@MadCcc](https://github.com/MadCcc)
-- 🆕 QRCode component now uses `rc-qrcode` instead of `qrcode.react`, adding support for click events and `iconSize` configuration. [#49454](https://github.com/ant-design/ant-design/pull/49454) [#49240](https://github.com/ant-design/ant-design/pull/49240) [@kiner-tang](https://github.com/kiner-tang) [@thinkasany](https://github.com/thinkasany)
+- 🆕 QRCode 
+  - uses `rc-qrcode` instead of `qrcode.react`. [#49454](https://github.com/ant-design/ant-design/pull/49454) [@kiner-tang](https://github.com/kiner-tang)
+  - adding support for click events and `iconSize` configuration.  [#49240](https://github.com/ant-design/ant-design/pull/49240)  [@thinkasany](https://github.com/thinkasany)
 - 🆕 Select component's `filterSort` property now includes `searchValue` parameter. [#49352](https://github.com/ant-design/ant-design/pull/49352) [@MadCcc](https://github.com/MadCcc)
 - 🆕 Pagination adds `simple` property, supports read-only mode, and introduces `align` property. [#49562](https://github.com/ant-design/ant-design/pull/49562) [@coding-ice](https://github.com/coding-ice)
 - 💄 Improved active style for Slider handle. [#49630](https://github.com/ant-design/ant-design/pull/49630)
