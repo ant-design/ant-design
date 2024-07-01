@@ -31,10 +31,11 @@ tag: vVERSION
   - 🐞 Fixed missing arrow in DatePicker/TimePicker RangePicker with `placement` set to `topRight` or `bottomRight`.[#49333](https://github.com/ant-design/ant-design/pull/49333)
   - 🐞 Fixed missing accessible text for DatePicker switch button, style issue in RTL mode for `DatePicker.RangePicker`, and crash when entering wrong end value in year selection of DatePicker.RangePicker.[#49333](https://github.com/ant-design/ant-design/pull/49333)
   - 🐞 Fixed DatePicker.RangePicker resetting selected dates when entering dates via keyboard. [#49333](https://github.com/ant-design/ant-design/pull/49333)
-- 🐞 Fixed Table filter panel not working after customizing global Empty style. [#49548](https://github.com/ant-design/ant-design/pull/49548) [@duqigit](https://github.com/duqigit)
 - 🐞 Button fixed `disabled` property not working when used as `Dropdown` `trigger`. [#47363](https://github.com/ant-design/ant-design/pull/47363)
 - 🐞 InputNumber now warns when using `type=number` with `changeOnWheel`. [#49648](https://github.com/ant-design/ant-design/pull/49648) [@wanpan11](https://github.com/wanpan11)
-- 🐞 Table fixed issue with `locale.emptyText` showing default value when set to a non-`undefined` value. [cc54bef](https://github.com/ant-design/ant-design/commit/cc54bef) [@照明胧](https://github.com/照明胧)
+- Table
+  - 🐞 Table fixed issue with `locale.emptyText` showing default value when set to a non-`undefined` value. [cc54bef](https://github.com/ant-design/ant-design/commit/cc54bef) [@照明胧](https://github.com/mmmml-zhao)
+  - 🐞 Fixed Table filter panel not working after customizing global Empty style. [#49548](https://github.com/ant-design/ant-design/pull/49548) [@duqigit](https://github.com/duqigit)
 - 🐞 Upload fixed rendering performance issue when listing many files in list mode. [#49598](https://github.com/ant-design/ant-design/pull/49598) [@tlkv](https://github.com/tlkv)
 - 💄 Added initial styles for `SubMenu` node in Menu. [#49643](https://github.com/ant-design/ant-design/pull/49643) [@wanpan11](https://github.com/wanpan11)
 - 💄 Improved active style for Slider handle. [#49630](https://github.com/ant-design/ant-design/pull/49630)
