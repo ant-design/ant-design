@@ -3,8 +3,8 @@ import { forwardRef, useContext, useImperativeHandle } from 'react';
 import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import classNames from 'classnames';
-import type { PickerRef } from 'rc-picker';
 import RCPicker from 'rc-picker';
+import type { PickerRef } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
 import type { PickerMode } from 'rc-picker/lib/interface';
 
@@ -56,7 +56,6 @@ export default function generatePicker<DateType extends AnyObject>(
         status: customStatus,
         variant: customVariant,
         onCalendarChange,
-        okButtonProps,
         ...restProps
       } = props;
 
@@ -120,7 +119,7 @@ export default function generatePicker<DateType extends AnyObject>(
       const [mergedAllowClear, removeIcon] = useIcons(props, prefixCls);
 
       // ================== components ==================
-      const mergedComponents = useComponents(components, okButtonProps);
+      const mergedComponents = useComponents(components);
 
       // ===================== Size =====================
       const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);

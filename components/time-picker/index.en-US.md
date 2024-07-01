@@ -82,7 +82,6 @@ dayjs.extend(customParseFormat)
 | onCalendarChange | Callback function, can be executed when the start time or the end time of the range is changing. `info` argument is added in 4.4.0 | function(dates: \[dayjs, dayjs], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  |
 | onChange | A callback function, can be executed when the selected time is changing | function(time: dayjs, timeString: string): void | - |  |
 | onOpenChange | A callback function which will be called while panel opening/closing | (open: boolean) => void | - |  |
-| okButtonProps | The ok button props | [ButtonProps](/components/button/#api) | - |  |
 
 #### DisabledTime
 
