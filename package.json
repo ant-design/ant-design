@@ -316,7 +316,7 @@
     "tar": "^7.2.0",
     "tar-fs": "^3.0.6",
     "terser": "^5.31.1",
-    "tsx": "4.11.2",
+    "tsx": "4.16.0",
     "typedoc": "^0.26.3",
     "typescript": "~5.5.0",
     "vanilla-jsoneditor": "^0.23.7",
