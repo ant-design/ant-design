@@ -25,6 +25,7 @@ tag: vVERSION
   - QRCode uses `rc-qrcode` instead of `qrcode.react`. [#49454](https://github.com/ant-design/ant-design/pull/49454) [@kiner-tang](https://github.com/kiner-tang)
   - QRCode adding support for click events and `iconSize` configuration. [#49240](https://github.com/ant-design/ant-design/pull/49240) [@thinkasany](https://github.com/thinkasany)
 - 🆕 Select component's `filterSort` property now includes `searchValue` parameter. [#49352](https://github.com/ant-design/ant-design/pull/49352) [@MadCcc](https://github.com/MadCcc)
+- 🤖 DatePicker support `okButtonProps` props. [#49657](https://github.com/ant-design/ant-design/pull/49657) [@Tantatorn-dev](https://github.com/Tantatorn-dev)
 - 🆕 Pagination adds `simple` property, supports read-only mode, and introduces `align` property. [#49562](https://github.com/ant-design/ant-design/pull/49562) [@coding-ice](https://github.com/coding-ice)
 - 🐞 Enhanced Anchor's `affix` property for more configuration options. [#49295](https://github.com/ant-design/ant-design/pull/49295) [@gin-lsl](https://github.com/gin-lsl)
 - DatePicker
@@ -43,7 +44,6 @@ tag: vVERSION
 - 🌐 Added missing Thai translations including `Transfer.deselectAll`, `Text.collapse`, `QRCode.scanned`, `ColorPicker.presetEmpty`. [#49588](https://github.com/ant-design/ant-design/pull/49588) [@Tantatorn-dev](https://github.com/Tantatorn-dev)
 - TypeScript:
   - 🤖 ConfigProvider Improved TypeScript definition for `renderEmpty` method. [#49602](https://github.com/ant-design/ant-design/pull/49602) [@Wxh16144](https://github.com/Wxh16144)
-  - 🤖 DatePicker Added `okButtonProps` props. [#49657](https://github.com/ant-design/ant-design/pull/49657) [@Tantatorn-dev](https://github.com/Tantatorn-dev)
 
 ## 5.18.3
 
