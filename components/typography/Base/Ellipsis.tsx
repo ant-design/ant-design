@@ -111,6 +111,11 @@ export interface EllipsisProps {
    * e.g. tooltip content update.
    */
   miscDeps: any[];
+  /**
+   * We need get to know the parent container style of `white-space`.
+   * To make sure whether we need to force wrap the text.
+   */
+  parentRef: React.RefObject<HTMLDivElement>;
 }
 
 // Measure for the `text` is exceed the `rows` or not
@@ -126,7 +131,8 @@ const lineClipStyle: React.CSSProperties = {
 };
 
 export default function EllipsisMeasure(props: EllipsisProps) {
-  const { enableMeasure, width, text, children, rows, expanded, miscDeps, onEllipsis } = props;
+  const { enableMeasure, width, text, children, rows, expanded, miscDeps, onEllipsis, parentRef } =
+    props;
 
   const nodeList = React.useMemo(() => toArray(text), [text]);
   const nodeLen = React.useMemo(() => getNodesLen(nodeList), [text]);
@@ -149,11 +155,18 @@ export default function EllipsisMeasure(props: EllipsisProps) {
   const [canEllipsis, setCanEllipsis] = React.useState(false);
   const [needEllipsis, setNeedEllipsis] = React.useState(STATUS_MEASURE_NONE);
   const [ellipsisHeight, setEllipsisHeight] = React.useState(0);
+  const [parentWhiteSpace, setParentWhiteSpace] = React.useState<
+    React.CSSProperties['whiteSpace'] | null
+  >(null);
 
   // Trigger start measure
   useLayoutEffect(() => {
     if (enableMeasure && width && nodeLen) {
       setNeedEllipsis(STATUS_MEASURE_START);
+
+      // Parent ref `white-space`
+      const nextWhiteSpace = parentRef.current && getComputedStyle(parentRef.current).whiteSpace;
+      setParentWhiteSpace(nextWhiteSpace);
     } else {
       setNeedEllipsis(STATUS_MEASURE_NONE);
     }
@@ -248,6 +261,10 @@ export default function EllipsisMeasure(props: EllipsisProps) {
     margin: 0,
     padding: 0,
   };
+
+  if (parentWhiteSpace === 'nowrap') {
+    measureStyle.whiteSpace = 'normal';
+  }
 
   return (
     <>
