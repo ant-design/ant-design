@@ -4,8 +4,8 @@ import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import SwapRightOutlined from '@ant-design/icons/SwapRightOutlined';
 import classNames from 'classnames';
-import type { PickerRef } from 'rc-picker';
 import { RangePicker as RCRangePicker } from 'rc-picker';
+import type { PickerRef } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
 
 import ContextIsolator from '../../_util/ContextIsolator';
@@ -49,7 +49,6 @@ export default function generateRangePicker<DateType extends AnyObject>(
       status: customStatus,
       rootClassName,
       variant: customVariant,
-      okButtonProps,
       ...restProps
     } = props;
 
@@ -78,7 +77,7 @@ export default function generateRangePicker<DateType extends AnyObject>(
     const [mergedAllowClear] = useIcons(props, prefixCls);
 
     // ================== components ==================
-    const mergedComponents = useComponents(components, okButtonProps);
+    const mergedComponents = useComponents(components);
 
     // ===================== Size =====================
     const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);

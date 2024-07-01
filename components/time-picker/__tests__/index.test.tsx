@@ -99,11 +99,4 @@ describe('TimePicker', () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
-
-  it('should modify the ok button', () => {
-    const { container } = render(
-      <TimePicker open okButtonProps={{ className: 'test-ok-button' }} />,
-    );
-    expect(Array.from(container.children)).toMatchSnapshot();
-  });
 });
