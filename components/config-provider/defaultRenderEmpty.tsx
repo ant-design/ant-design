@@ -33,13 +33,13 @@ const DefaultRenderEmpty: React.FC<EmptyProps> = (props) => {
     case 'Mentions':
       return <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} className={`${prefix}-small`} />;
     /**
-     * Just go through the logic, don't implement it here.
-     * Use `||` operation, the short-circuit characteristic of js logical operators.
-     * leave it to specific components themselves, such as `Table.filter`.
+     * This type of component should satisfy the nullish coalescing operator(??) on the left-hand side.
+     * to let the component itself implement the logic.
+     * For example `Table.filter`.
      */
     case 'Table.filter':
       // why `null`? legacy react16 node type `undefined` is not allowed.
-      return null; /** React.version > 16 ? void 0 : null; */
+      return null;
     default:
       // Should never hit if we take all the component into consider.
       return <Empty />;
