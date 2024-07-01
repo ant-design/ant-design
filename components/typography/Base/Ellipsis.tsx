@@ -115,7 +115,7 @@ export interface EllipsisProps {
    * We need get to know the parent container style of `white-space`.
    * To make sure whether we need to force wrap the text.
    */
-  parentRef: React.RefObject<HTMLDivElement>;
+  parentRef: React.RefObject<HTMLElement>;
 }
 
 // Measure for the `text` is exceed the `rows` or not
