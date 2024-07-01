@@ -260,11 +260,8 @@ export default function EllipsisMeasure(props: EllipsisProps) {
     width,
     margin: 0,
     padding: 0,
+    whiteSpace: parentWhiteSpace === 'nowrap' ? 'normal' : 'inherit',
   };
-
-  if (parentWhiteSpace === 'nowrap') {
-    measureStyle.whiteSpace = 'normal';
-  }
 
   return (
     <>
