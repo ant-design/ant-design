@@ -40,6 +40,7 @@ tag: vVERSION
 - 💄 Added initial styles for `SubMenu` node in Menu. [#49643](https://github.com/ant-design/ant-design/pull/49643) [@wanpan11](https://github.com/wanpan11)
 - 💄 Improved active style for Slider handle. [#49630](https://github.com/ant-design/ant-design/pull/49630)
 - 💄 Optimized `variant=borderless` style for DatePicker, TimePicker, Select, TreeSelect, Input, InputNumber, Mentions, now distinguishable when setting `status` property. [#49608](https://github.com/ant-design/ant-design/pull/49608)
+- 🐞 Fixed Typography `ellipsis` not working when parent has `nowrap` style. [#49667](https://github.com/ant-design/ant-design/pull/49667)
 - TypeScript:
   - 🤖 ConfigProvider Improved TypeScript definition for `renderEmpty` method. [#49602](https://github.com/ant-design/ant-design/pull/49602) [@Wxh16144](https://github.com/Wxh16144)
 - 🌐 Locales

@@ -40,6 +40,7 @@ tag: vVERSION
   - 🐞 Table 修复了 `locale.emptyText` 设置为非 `undefined` 值时仍会显示默认值的问题。[#49599](https://github.com/ant-design/ant-design/pull/49599) [@照明胧](https://github.com/mmmml-zhao)
   - 🐞 Table 自定义全局组件的 Empty 样式后，Table的过滤面板没生效的问题。[#49548](https://github.com/ant-design/ant-design/pull/49548) [@duqigit](https://github.com/duqigit)
 - 🐞 Upload 修复了在列表模式下文件过多时出现的渲染性能问题。[#49598](https://github.com/ant-design/ant-design/pull/49598) [@tlkv](https://github.com/tlkv)
+- 🐞 Typography 修复在父元素存在 `nowrap` 样式时，`ellipsis` 不生效的问题。[#49667](https://github.com/ant-design/ant-design/pull/49667)
 - TypeScript:
   - 🤖 ConfigProvider 改进了 `renderEmpty` 方法的 TypeScript 类型定义。[#49602](https://github.com/ant-design/ant-design/pull/49602) [@Wxh16144](https://github.com/Wxh16144)
 - 🌐 国际化
