@@ -252,6 +252,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const isMergedEllipsis = mergedEnableEllipsis && (cssEllipsis ? isNativeEllipsis : isJsEllipsis);
 
   const cssTextOverflow = mergedEnableEllipsis && rows === 1 && cssEllipsis;
+  const [isCssTextOverflow, setIsCssTextOverflow] = React.useState(cssTextOverflow);
+
   const cssLineClamp = mergedEnableEllipsis && rows > 1 && cssEllipsis;
 
   // >>>>> Expand
@@ -280,6 +282,10 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     const textEle = typographyRef.current;
 
     if (enableEllipsis && cssEllipsis && textEle) {
+      // https://github.com/ant-design/ant-design/issues/49110
+      // Check whether text-overflow attribute is blocked
+      setIsCssTextOverflow(textEle.offsetWidth < textEle.scrollWidth);
+
       const currentEllipsis = cssLineClamp
         ? textEle.offsetHeight < textEle.scrollHeight
         : textEle.offsetWidth < textEle.scrollWidth;
@@ -472,7 +478,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
                 [`${prefixCls}-${type}`]: type,
                 [`${prefixCls}-disabled`]: disabled,
                 [`${prefixCls}-ellipsis`]: enableEllipsis,
-                [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
+                [`${prefixCls}-ellipsis-single-line`]: isCssTextOverflow,
                 [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
               },
               className,
