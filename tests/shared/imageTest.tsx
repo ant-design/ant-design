@@ -7,8 +7,8 @@ import fse from 'fs-extra';
 import { globSync } from 'glob';
 import { JSDOM } from 'jsdom';
 import MockDate from 'mockdate';
-import type { HTTPRequest } from 'puppeteer';
 import ReactDOMServer from 'react-dom/server';
+import type { HTTPRequest } from 'puppeteer';
 
 import { App, ConfigProvider, theme } from '../../components';
 import { fillWindowEnv } from '../setup';
@@ -111,7 +111,7 @@ export default function imageTest(
     it(name, async () => {
       await page.setViewport({ width: 800, height: 600 });
 
-      const onRequestHandle = (request: HTTPRequest) => {
+      const onRequest = (request: HTTPRequest) => {
         if (['image'].includes(request.resourceType())) {
           request.abort();
         } else {
@@ -122,7 +122,7 @@ export default function imageTest(
       const { openTriggerClassName } = options;
 
       MockDate.set(dayjs('2016-11-22').valueOf());
-      page.on('request', onRequestHandle);
+      page.on('request', onRequest as any);
       await page.goto(`file://${process.cwd()}/tests/index.html`);
       await page.addStyleTag({ path: `${process.cwd()}/components/style/reset.css` });
       await page.addStyleTag({ content: '*{animation: none!important;}' });
@@ -194,7 +194,7 @@ export default function imageTest(
         },
         html,
         styleStr,
-        openTriggerClassName,
+        openTriggerClassName || '',
       );
 
       if (!options.onlyViewport) {
@@ -210,7 +210,7 @@ export default function imageTest(
       await fse.writeFile(path.join(snapshotPath, `${identifier}${suffix}.png`), image);
 
       MockDate.reset();
-      page.off('request', onRequestHandle);
+      page.off('request', onRequest);
     });
   }
 

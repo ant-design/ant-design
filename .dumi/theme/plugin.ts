@@ -2,7 +2,6 @@ import { createHash } from 'crypto';
 import fs from 'fs';
 import path from 'path';
 import createEmotionServer from '@emotion/server/create-instance';
-import chalk from 'chalk';
 import type { IApi, IRoute } from 'dumi';
 import ReactTechStack from 'dumi/dist/techStacks/react';
 import sylvanas from 'sylvanas';
@@ -121,9 +120,9 @@ class AntdReactTechStack extends ReactTechStack {
 
 const resolve = (p: string): string => require.resolve(p);
 
-const RoutesPlugin = (api: IApi) => {
+const RoutesPlugin = async (api: IApi) => {
   // const ssrCssFileName = `ssr-${Date.now()}.css`;
-
+  const chalk = await import('chalk').then((m) => m.default);
   const writeCSSFile = (key: string, hashKey: string, cssString: string) => {
     const fileName = `style-${key}.${getHash(hashKey)}.css`;
 
