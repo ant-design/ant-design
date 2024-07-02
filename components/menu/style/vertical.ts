@@ -2,7 +2,7 @@ import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { MenuToken } from '.';
-import { textEllipsis } from '../../style';
+import { clearFix, textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 
 const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
@@ -227,6 +227,17 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
         [`${componentCls}-item-group-title`]: {
           ...textEllipsis,
           paddingInline: paddingXS,
+        },
+      },
+    },
+
+    // Inline & Vertical
+    {
+      [`${componentCls}-inline, ${componentCls}-vertical`]: {
+        // disable margin collapsed
+        // https://github.com/ant-design/ant-design/issues/46886
+        [`${componentCls}-submenu`]: {
+          ...clearFix(),
         },
       },
     },
