@@ -20,7 +20,7 @@ export interface ComponentToken {
    */
   headerBg: string;
   /**
-   * @desc 折叠面板内容内部编辑
+   * @desc 折叠面板内容内边距
    * @descEN Padding of content
    */
   contentPadding: CSSProperties['padding'];

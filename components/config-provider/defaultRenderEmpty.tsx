@@ -6,7 +6,7 @@ import Empty from '../empty';
 
 type ComponentName =
   | 'Table'
-  | 'Table.filter' /* 👈 5.19.0+ */
+  | 'Table.filter' /* 👈 5.20.0+ */
   | 'List'
   | 'Select'
   | 'TreeSelect'

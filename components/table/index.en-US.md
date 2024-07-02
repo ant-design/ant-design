@@ -98,6 +98,7 @@ const columns = [
 <code src="./demo/resizable-column.tsx" debug>Resizable column</code>
 <code src="./demo/ellipsis.tsx">ellipsis column</code>
 <code src="./demo/ellipsis-custom-tooltip.tsx">ellipsis column custom tooltip</code>
+<code src="./demo/custom-empty.tsx">Custom empty</code>
 <code src="./demo/summary.tsx">Summary</code>
 <code src="./demo/virtual-list.tsx" version=">= 5.9.0">Virtual list</code>
 <code src="./demo/responsive.tsx">Responsive</code>
