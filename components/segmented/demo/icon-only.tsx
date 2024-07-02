@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
+import { AppstoreOutlined, BarsOutlined, CiOutlined } from '@ant-design/icons';
 import { Segmented } from 'antd';
 
 const Demo: React.FC = () => (
@@ -7,6 +7,7 @@ const Demo: React.FC = () => (
     options={[
       { value: 'List', icon: <BarsOutlined /> },
       { value: 'Kanban', icon: <AppstoreOutlined /> },
+      { value: 'Ci', icon: <CiOutlined /> },
     ]}
   />
 );
