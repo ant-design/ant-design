@@ -107,7 +107,7 @@ const defaultSearchRender: ShowSearchType['render'] = (inputValue, path, prefixC
 export interface CascaderProps<
   OptionType extends DefaultOptionType = DefaultOptionType,
   ValueField extends keyof OptionType = keyof OptionType,
-  Multiple extends boolean = false,
+  Multiple extends boolean = boolean,
 > extends Omit<RcCascaderProps<OptionType, ValueField, Multiple>, 'checkable'> {
   multiple?: Multiple;
   size?: SizeType;
