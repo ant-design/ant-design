@@ -16,6 +16,7 @@ exports[`antd exports modules correctly 1`] = `
   "Card",
   "Carousel",
   "Cascader",
+  "Chatbox",
   "Checkbox",
   "Col",
   "Collapse",

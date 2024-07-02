@@ -19,6 +19,7 @@ import type {
   BadgeConfig,
   ButtonConfig,
   CardConfig,
+  ChatboxConfig,
   CollapseConfig,
   ComponentStyleConfig,
   ConfigConsumerProps,
@@ -175,6 +176,7 @@ export interface ConfigProviderProps {
   button?: ButtonConfig;
   calendar?: ComponentStyleConfig;
   carousel?: ComponentStyleConfig;
+  chatbox?: ChatboxConfig;
   cascader?: CascaderConfig;
   treeSelect?: TreeSelectConfig;
   collapse?: CollapseConfig;
@@ -335,6 +337,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     calendar,
     carousel,
     cascader,
+    chatbox,
     collapse,
     typography,
     checkbox,
@@ -436,6 +439,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     cascader,
     collapse,
     typography,
+    chatbox,
     checkbox,
     descriptions,
     divider,
