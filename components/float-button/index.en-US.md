@@ -60,6 +60,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | open | Whether the menu is visible or not, use it with trigger | boolean | - |  |
 | closeIcon | Customize close button icon | React.ReactNode | `<CloseOutlined />` |  |
 | onOpenChange | Callback executed when active menu is changed, use it with trigger | (open: boolean) => void | - |  |
+| onClick | Set the handler to handle `click` event (only work in `Menu mode`) | (event) => void | - | 5.3.0 |
 
 ### FloatButton.BackTop
 

@@ -27,6 +27,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
     trigger,
     children,
     onOpenChange,
+    onClick: customizeOnClick,
     open: customOpen,
     ...floatButtonProps
   } = props;
@@ -125,6 +126,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
               type={type}
               icon={open ? mergedCloseIcon : icon}
               description={description}
+              onClick={customizeOnClick}
               aria-label={props['aria-label']}
               {...floatButtonProps}
             />
