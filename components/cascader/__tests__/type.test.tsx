@@ -84,16 +84,14 @@ describe('Cascader.typescript', () => {
     const { container } = render(<Cascader multiple={false} onChange={(values) => values} />);
     expect(container).toBeTruthy();
   });
-
+  
   it('multiple onChange', () => {
-    const { container } = render(
-      <Cascader multiple onChange={(values: (string | number | null)[][]) => values} />,
-    );
+    const { container } = render(<Cascader multiple onChange={(values) => values} />);
     expect(container).toBeTruthy();
   });
   it('props', () => {
     const list: { props?: CascaderAutoProps }[] = [
-      { props: { multiple: true, onChange: (value: (string | number | null)[][]) => value } },
+      { props: { multiple: true, onChange: (value) => value } },
       { props: { multiple: false, onChange: (value) => value } },
     ];
     expect(list).toBeTruthy();
