@@ -1,0 +1,2 @@
+(("undefined"!=typeof globalThis?globalThis:self).makoChunk_antd=("undefined"!=typeof globalThis?globalThis:self).makoChunk_antd||[]).push([["AaIb_8HN"],{AaIb_8HN:function(e,a,l){l.d(a,"__esModule",{value:!0}),l.d(a,"default",{enumerable:!0,get:function(){return s;}});var n=l("8Z0rk4BW");l("hAKdT6QQ");var d=l("qdGieaVz"),s=()=>(0,n.jsx)(d.Badge,{count:5,offset:[10,10],children:(0,n.jsx)(d.Avatar,{shape:"square",size:"large"})});}}]);
+//# sourceMappingURL=AaIb_8HN-async.83479888.js.map

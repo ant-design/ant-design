@@ -1,0 +1,6 @@
+(("undefined"!=typeof globalThis?globalThis:self).makoChunk_antd=("undefined"!=typeof globalThis?globalThis:self).makoChunk_antd||[]).push([["4lmgFnxq"],{"4lmgFnxq":function(e,l,a){a.d(l,"__esModule",{value:!0}),a.d(l,"default",{enumerable:!0,get:function(){return o;}});var i=a("8Z0rk4BW");a("Od5wbGji");var n=a("qdGieaVz");let s=`
+  A dog is a type of domesticated animal.
+  Known for its loyalty and faithfulness,
+  it can be found as a welcome guest in many households across the world.
+`;var o=()=>(0,i.jsxs)(n.Space,{direction:"vertical",children:[(0,i.jsx)(n.Collapse,{collapsible:"header",defaultActiveKey:["1"],items:[{key:"1",label:"This panel can only be collapsed by clicking text",children:(0,i.jsx)("p",{children:s})}]}),(0,i.jsx)(n.Collapse,{collapsible:"icon",defaultActiveKey:["1"],items:[{key:"1",label:"This panel can only be collapsed by clicking icon",children:(0,i.jsx)("p",{children:s})}]}),(0,i.jsx)(n.Collapse,{collapsible:"disabled",items:[{key:"1",label:"This panel can't be collapsed",children:(0,i.jsx)("p",{children:s})}]})]});}}]);
+//# sourceMappingURL=4lmgFnxq-async.55eead44.js.map

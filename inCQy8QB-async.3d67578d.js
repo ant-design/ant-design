@@ -1,0 +1,2 @@
+(("undefined"!=typeof globalThis?globalThis:self).makoChunk_antd=("undefined"!=typeof globalThis?globalThis:self).makoChunk_antd||[]).push([["inCQy8QB"],{inCQy8QB:function(e,t,n){n.d(t,"__esModule",{value:!0}),n.d(t,"default",{enumerable:!0,get:function(){return a;}});var l=n("8Z0rk4BW");n("yDACzBH1");var o=n("qdGieaVz"),a=()=>(0,l.jsx)(o.Popconfirm,{title:"Delete the task",description:"Are you sure to delete this task?",okText:"Yes",cancelText:"No",children:(0,l.jsx)(o.Button,{danger:!0,children:"Delete"})});}}]);
+//# sourceMappingURL=inCQy8QB-async.3d67578d.js.map

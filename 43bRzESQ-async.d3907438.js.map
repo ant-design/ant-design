@@ -1,0 +1,1 @@
+{"version":3,"sources":[".dumi/theme/builtins/Sandpack/Sandpack.ts"],"sourcesContent":["import { Sandpack } from '@codesandbox/sandpack-react';\n\nexport default Sandpack;\n"],"names":[],"mappings":"0NAEA,+CAAA,UAAA,EAAe,EAFU,oBAEF"}
