@@ -135,12 +135,13 @@ export interface CascaderProps<
    */
   variant?: Variant;
 }
+
 export type CascaderAutoProps<
   OptionType extends DefaultOptionType = DefaultOptionType,
   ValueField extends keyof OptionType = keyof OptionType,
 > =
   | CascaderProps<OptionType, ValueField>
-  | (CascaderProps<OptionType, ValueField, true> & { multiple: true });
+  | (CascaderProps<OptionType, ValueField, boolean> & { multiple?: boolean });
 
 export interface CascaderRef {
   focus: () => void;
