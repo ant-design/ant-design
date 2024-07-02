@@ -97,6 +97,19 @@ const App: React.FC = () => (
     <Paragraph>
       按<Text keyboard>Esc</Text>键退出阅读……
     </Paragraph>
+
+    <div style={{ width: 100 }}>
+      <Typography.Text
+        copyable
+        ellipsis={{
+          tooltip: {
+            arrow: false,
+          },
+        }}
+      >
+        {blockContent}
+      </Typography.Text>
+    </div>
   </Typography>
 );
 

@@ -249,8 +249,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     setCssEllipsis(canUseCssEllipsis && mergedEnableEllipsis);
   }, [canUseCssEllipsis, mergedEnableEllipsis]);
 
-  const isMergedEllipsis = mergedEnableEllipsis && (cssEllipsis ? isNativeEllipsis : isJsEllipsis);
-
+  const isMergedEllipsis = mergedEnableEllipsis && (cssEllipsis ? isNativeEllipsis : isJsEllipsis); // 错误就在这里了，stack 1
   const cssTextOverflow = mergedEnableEllipsis && rows === 1 && cssEllipsis;
   const cssLineClamp = mergedEnableEllipsis && rows > 1 && cssEllipsis;
 
@@ -277,14 +276,13 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   // >>>>> Native ellipsis
   React.useEffect(() => {
-    const textEle = typographyRef.current;
-
+    const textEle = typographyRef.current?.children?.[0] || typographyRef.current;
     if (enableEllipsis && cssEllipsis && textEle) {
       const currentEllipsis = cssLineClamp
         ? textEle.offsetHeight < textEle.scrollHeight
         : textEle.offsetWidth < textEle.scrollWidth;
       if (isNativeEllipsis !== currentEllipsis) {
-        setIsNativeEllipsis(currentEllipsis);
+        setIsNativeEllipsis(currentEllipsis); // 错误就在这里了，stack 2
       }
     }
   }, [enableEllipsis, cssEllipsis, children, cssLineClamp, isNativeVisible, ellipsisWidth]);
@@ -441,9 +439,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     );
   };
 
-  const renderOperations = (canEllipsis: boolean) => [
+  const renderOperations = () => [
     // (renderExpanded || ellipsisConfig.collapsible) && renderExpand(),
-    canEllipsis && renderExpand(),
     renderEdit(),
     renderCopy(),
   ];
@@ -455,68 +452,73 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
       </span>
     ),
     ellipsisConfig.suffix,
-    renderOperations(canEllipsis),
   ];
-
   return (
     <ResizeObserver onResize={onResize} disabled={!mergedEnableEllipsis}>
       {(resizeRef: React.RefObject<HTMLElement>) => (
-        <EllipsisTooltip
-          tooltipProps={tooltipProps}
-          enableEllipsis={mergedEnableEllipsis}
-          isEllipsis={isMergedEllipsis}
+        <Typography
+          component={component}
+          aria-label={topAriaLabel?.toString()}
+          prefixCls={customizePrefixCls}
+          ref={composeRef(resizeRef, typographyRef, ref)}
+          className={classNames(
+            {
+              [`${prefixCls}-${type}`]: type,
+              [`${prefixCls}-disabled`]: disabled,
+              [`${prefixCls}-ellipsis`]: enableEllipsis,
+              [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
+              [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
+            },
+            className,
+          )}
+          style={{
+            ...style,
+            WebkitLineClamp: cssLineClamp ? rows : undefined,
+          }}
+          title={title}
         >
-          <Typography
-            className={classNames(
-              {
-                [`${prefixCls}-${type}`]: type,
-                [`${prefixCls}-disabled`]: disabled,
-                [`${prefixCls}-ellipsis`]: enableEllipsis,
-                [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
-                [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
-              },
-              className,
-            )}
-            prefixCls={customizePrefixCls}
-            style={{
-              ...style,
-              WebkitLineClamp: cssLineClamp ? rows : undefined,
-            }}
-            component={component}
-            ref={composeRef(resizeRef, typographyRef, ref)}
-            direction={direction}
-            onClick={triggerType.includes('text') ? onEditClick : undefined}
-            aria-label={topAriaLabel?.toString()}
-            title={title}
-            {...textProps}
+          <EllipsisTooltip
+            tooltipProps={tooltipProps}
+            enableEllipsis={mergedEnableEllipsis}
+            isEllipsis={isMergedEllipsis}
           >
-            <Ellipsis
-              enableMeasure={mergedEnableEllipsis && !cssEllipsis}
-              text={children}
-              rows={rows}
-              width={ellipsisWidth}
-              onEllipsis={onJsEllipsis}
-              expanded={expanded}
-              miscDeps={[copied, expanded, copyLoading, enableEdit, enableCopy]}
+            <Typography
+              component="span"
+              direction={direction}
+              onClick={triggerType.includes('text') ? onEditClick : undefined}
+              {...textProps}
             >
-              {(node, canEllipsis) =>
-                wrapperDecorations(
-                  props,
-                  <>
-                    {node.length > 0 && canEllipsis && !expanded && topAriaLabel ? (
-                      <span key="show-content" aria-hidden>
-                        {node}
-                      </span>
-                    ) : (
-                      node
-                    )}
-                    {renderEllipsis(canEllipsis)}
-                  </>,
-                )
-              }
-            </Ellipsis>
-          </Typography>
-        </EllipsisTooltip>
+              <Ellipsis
+                enableMeasure={mergedEnableEllipsis && !cssEllipsis}
+                text={children}
+                rows={rows}
+                width={ellipsisWidth}
+                onEllipsis={onJsEllipsis}
+                expanded={expanded}
+                miscDeps={[copied, expanded, copyLoading, enableEdit, enableCopy]}
+              >
+                {(node, canEllipsis, isReal) =>
+                  wrapperDecorations(
+                    props,
+                    <>
+                      {node.length > 0 && canEllipsis && !expanded && topAriaLabel ? (
+                        <span key="show-content" aria-hidden>
+                          {node}
+                        </span>
+                      ) : (
+                        node
+                      )}
+                      {renderEllipsis(canEllipsis)}
+                      {canEllipsis && renderExpand()}
+                      {isReal ? null : renderOperations()}
+                    </>,
+                  )
+                }
+              </Ellipsis>
+            </Typography>
+          </EllipsisTooltip>
+          {renderOperations()}
+        </Typography>
       )}
     </ResizeObserver>
   );

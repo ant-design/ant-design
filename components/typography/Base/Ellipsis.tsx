@@ -12,6 +12,27 @@ interface MeasureTextRef {
   getHeight: () => number;
 }
 
+function withSpanHover(
+  content: React.ReactNode,
+  hoverProps: any,
+  otherProps?: any,
+): React.ReactNode {
+  // TODO zhongyuan
+  const { onMouseEnter, onMouseLeave, onPointerEnter, onPointerLeave } = hoverProps || {};
+  return content;
+  // return (
+  //   <span
+  //     onMouseEnter={onMouseEnter}
+  //     onMouseLeave={onMouseLeave}
+  //     onPointerEnter={onPointerEnter}
+  //     onPointerLeave={onPointerLeave}
+  //     {...otherProps!}
+  //   >
+  //     {content}
+  //   </span>
+  // );
+}
+
 const MeasureText = React.forwardRef<MeasureTextRef, MeasureTextProps>(
   ({ style, children }, ref) => {
     const spanRef = React.useRef<HTMLSpanElement>(null);
@@ -103,6 +124,7 @@ export interface EllipsisProps {
     cutChildren: React.ReactNode[],
     /** Tell current `text` is exceed the `rows` which can be ellipsis */
     canEllipsis: boolean,
+    isReal: boolean,
   ) => React.ReactNode;
   onEllipsis: (isEllipsis: boolean) => void;
   expanded: boolean;
@@ -134,7 +156,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
 
   // ========================= Full Content =========================
   // Used for measure only, which means it's always render as no need ellipsis
-  const fullContent = React.useMemo(() => children(nodeList, false), [text]);
+  const fullContent = React.useMemo(() => children(nodeList, false, false), [text]);
 
   // ========================= Cut Content ==========================
   const [ellipsisCutIndex, setEllipsisCutIndex] = React.useState<[number, number] | null>(null);
@@ -229,7 +251,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
       !ellipsisCutIndex ||
       ellipsisCutIndex[0] !== ellipsisCutIndex[1]
     ) {
-      const content = children(nodeList, false);
+      const content = children(nodeList, false, true);
 
       // Limit the max line count to avoid scrollbar blink
       // https://github.com/ant-design/ant-design/issues/42958
@@ -247,12 +269,22 @@ export default function EllipsisMeasure(props: EllipsisProps) {
             {content}
           </span>
         );
+        return withSpanHover(content, props, {
+          style: {
+            maxHeight: ellipsisHeight,
+            overflow: 'hidden',
+          },
+        });
       }
-
-      return content;
+      return withSpanHover(content, props);
     }
 
-    return children(expanded ? nodeList : sliceNodes(nodeList, ellipsisCutIndex[0]), canEllipsis);
+    const content = children(
+      expanded ? nodeList : sliceNodes(nodeList, ellipsisCutIndex[0]),
+      canEllipsis,
+      true,
+    );
+    return withSpanHover(content, props);
   }, [expanded, needEllipsis, ellipsisCutIndex, nodeList, ...miscDeps]);
 
   // ============================ Render ============================
@@ -304,7 +336,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
             }}
             ref={symbolRowEllipsisRef}
           >
-            {children([], true)}
+            {children([], true, false)}
           </MeasureText>
         </>
       )}
@@ -320,7 +352,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
             }}
             ref={cutMidRef}
           >
-            {children(sliceNodes(nodeList, cutMidIndex), true)}
+            {children(sliceNodes(nodeList, cutMidIndex), true, false)}
           </MeasureText>
         )}
 
