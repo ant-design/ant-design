@@ -98,8 +98,8 @@ const columns = [
 <code src="./demo/drag-sorting-handler.tsx">拖拽手柄列</code>
 <code src="./demo/resizable-column.tsx" debug>可伸缩列</code>
 <code src="./demo/ellipsis.tsx">单元格自动省略</code>
+<code src="./demo/ellipsis-custom-tooltip.tsx">自定义单元格省略提示</code>
 <code src="./demo/custom-empty.tsx">自定义空状态</code>
-<code src="./demo/component-token.tsx" debug>组件 Token</code>
 <code src="./demo/summary.tsx">总结栏</code>
 <code src="./demo/virtual-list.tsx" version=">= 5.9.0">虚拟列表</code>
 <code src="./demo/responsive.tsx">响应式</code>
