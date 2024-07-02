@@ -11,6 +11,9 @@ const App: React.FC = () => (
     <br />
     <br />
     <InputNumber prefix="￥" disabled style={{ width: '100%' }} />
+    <br />
+    <br />
+    <InputNumber suffix="RMB" style={{ width: '100%' }} />
   </>
 );
 

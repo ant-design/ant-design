@@ -28,7 +28,7 @@ demo:
 <code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
 <code src="./demo/out-of-range.tsx">超出边界</code>
-<code src="./demo/prefix.tsx">前缀</code>
+<code src="./demo/presuffix.tsx">前缀/后缀</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/controls.tsx" debug>图标按钮</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
@@ -59,6 +59,7 @@ demo:
 | readOnly | 只读 | boolean | false | - |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | prefix | 带有前缀图标的 input | ReactNode | - | 4.17.0 |
+| suffix | 带有后缀图标的 input | ReactNode | - | 5.20.0 |
 | size | 输入框大小 | `large` \| `middle` \| `small` | - | - |
 | step | 每次改变步数，可以为小数 | number \| string | 1 | - |
 | stringMode | 字符值模式，开启后支持高精度小数。同时 `onChange` 将返回 string 类型 | boolean | false | 4.13.0 |
