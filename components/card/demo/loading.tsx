@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
-import { Avatar, Card, Skeleton, Switch } from 'antd';
+import { Avatar, Card, Skeleton, Space, Switch } from 'antd';
 
 const { Meta } = Card;
 
@@ -12,9 +12,9 @@ const App: React.FC = () => {
   };
 
   return (
-    <>
+    <Space>
       <Switch checked={!loading} onChange={onChange} />
-      <Card style={{ width: 300, marginTop: 16 }} loading={loading}>
+      <Card style={{ width: 300 }} loading={loading}>
         <Meta
           avatar={<Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" />}
           title="Card title"
@@ -22,7 +22,7 @@ const App: React.FC = () => {
         />
       </Card>
       <Card
-        style={{ width: 300, marginTop: 16 }}
+        style={{ width: 300 }}
         actions={[
           <SettingOutlined key="setting" />,
           <EditOutlined key="edit" />,
@@ -37,7 +37,7 @@ const App: React.FC = () => {
           />
         </Skeleton>
       </Card>
-    </>
+    </Space>
   );
 };
 
