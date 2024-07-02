@@ -99,7 +99,7 @@
   },
   "browserslist": ["> 0.5%", "last 2 versions", "Firefox ESR", "not dead"],
   "dependencies": {
-    "@ant-design/colors": "^7.0.2",
+    "@ant-design/colors": "^7.1.0",
     "@ant-design/cssinjs": "^1.21.0",
     "@ant-design/icons": "^5.3.7",
     "@ant-design/react-slick": "~1.1.2",
