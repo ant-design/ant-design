@@ -97,6 +97,10 @@ const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       // ============================= Rows =============================
       [`${componentCls}-tbody`]: {
         [`${componentCls}-row`]: {
+          '&:hover': {
+            background: tableRowHoverBg,
+          },
+
           [`&${componentCls}-row-selected`]: {
             [`> ${componentCls}-cell`]: {
               background: tableSelectedRowBg,
@@ -105,10 +109,6 @@ const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
                 background: tableSelectedRowHoverBg,
               },
             },
-          },
-
-          [`> ${componentCls}-cell-row-hover`]: {
-            background: tableRowHoverBg,
           },
         },
       },
