@@ -61,6 +61,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     colorTextDescription,
     motionDurationMid,
     handleHoverColor,
+    handleOpacity,
     paddingInline,
     paddingBlock,
     handleBg,
@@ -237,6 +238,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         },
         [`&:hover ${componentCls}-handler-wrap, &-focused ${componentCls}-handler-wrap`]: {
           width: token.handleWidth,
+          opacity: 1,
         },
       },
     },
@@ -249,6 +251,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           insetBlockStart: 0,
           insetInlineEnd: 0,
           width: 0,
+          opacity: handleOpacity,
           height: '100%',
           borderStartStartRadius: 0,
           borderStartEndRadius: borderRadius,
@@ -257,7 +260,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'stretch',
-          transition: `width ${motionDurationMid}`,
+          transition: `all ${motionDurationMid}`,
           overflow: 'hidden',
 
           // Fix input number inside Menu makes icon too large
@@ -464,6 +467,7 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
 
       [`&:hover ${componentCls}-handler-wrap, &-focused ${componentCls}-handler-wrap`]: {
         width: token.handleWidth,
+        opacity: 1,
       },
       [`&:hover ${componentCls}-suffix`]: {
         marginInlineEnd: `calc(${token.handleWidth} + ${paddingInline})`,
