@@ -62,6 +62,11 @@ export interface ListProps<T> {
   header?: React.ReactNode;
   footer?: React.ReactNode;
   locale?: ListLocale;
+
+  styles?: {
+    headerWrapper?: React.CSSProperties;
+    footerWrapper?: React.CSSProperties;
+  };
 }
 
 export interface ListLocale {
@@ -88,6 +93,7 @@ function List<T>({
   rowKey,
   renderItem,
   locale,
+  styles,
   ...rest
 }: ListProps<T>) {
   const paginationObj = pagination && typeof pagination === 'object' ? pagination : {};
@@ -281,12 +287,20 @@ function List<T>({
     <ListContext.Provider value={contextValue}>
       <div style={{ ...list?.style, ...style }} className={classString} {...rest}>
         {(paginationPosition === 'top' || paginationPosition === 'both') && paginationContent}
-        {header && <div className={`${prefixCls}-header`}>{header}</div>}
+        {header && (
+          <div className={`${prefixCls}-header`} style={styles?.headerWrapper}>
+            {header}
+          </div>
+        )}
         <Spin {...loadingProp}>
           {childrenContent}
           {children}
         </Spin>
-        {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
+        {footer && (
+          <div className={`${prefixCls}-footer`} style={styles?.footerWrapper}>
+            {footer}
+          </div>
+        )}
         {loadMore ||
           ((paginationPosition === 'bottom' || paginationPosition === 'both') && paginationContent)}
       </div>
