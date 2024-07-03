@@ -48,16 +48,12 @@ Thank you!
 Describe changes from the user side, and list all potential break changes or other risks.
 --->
 
+- Use a developer-oriented tone and narrative style without detailing the fix.
+- Describe the issue and its impact on developers.
+- Describe the user’s first-hand experience of the issue, not your resolution approach.
+- Refer to: ant.design/changelog-cn
+
 | Language   | Changelog |
 | ---------- | --------- |
 | 🇺🇸 English |           |
 | 🇨🇳 Chinese |           |
-
-### ☑️ Self-Check before Merge
-
-⚠️ Please check all items below before requesting a reviewing. ⚠️
-
-- [ ] Doc is updated/provided or not needed
-- [ ] Demo is updated/provided or not needed
-- [ ] TypeScript definition is updated/provided or not needed
-- [ ] Changelog is provided or not needed
