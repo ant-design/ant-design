@@ -131,7 +131,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           display: 'flex',
 
           table: {
-            flex: 'auto',
+            flex: '100%',
             width: 'auto',
           },
         },
