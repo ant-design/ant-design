@@ -151,6 +151,7 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
   showIcon?: boolean;
   icon?: TreeIcon;
   switcherIcon?: SwitcherIcon;
+  switcherLoadingIcon?: React.ReactNode;
   prefixCls?: string;
   children?: React.ReactNode;
   blockNode?: boolean;
@@ -164,6 +165,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     showIcon = false,
     showLine,
     switcherIcon,
+    switcherLoadingIcon,
     blockNode = false,
     children,
     checkable = false,
@@ -226,6 +228,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     <SwitcherIconCom
       prefixCls={prefixCls}
       switcherIcon={switcherIcon}
+      switcherLoadingIcon={switcherLoadingIcon}
       treeNodeProps={nodeProps}
       showLine={showLine}
     />
