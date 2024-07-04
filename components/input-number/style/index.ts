@@ -470,7 +470,7 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
         opacity: 1,
       },
       [`&:hover ${componentCls}-suffix`]: {
-        marginInlineEnd: `calc(${token.handleWidth} + ${paddingInline})`,
+        marginInlineEnd: token.calc(token.handleWidth).add(paddingInline).equal(),
       },
     },
   };
