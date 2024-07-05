@@ -107,7 +107,7 @@ const defaultSearchRender: ShowSearchType['render'] = (inputValue, path, prefixC
 export interface CascaderProps<
   OptionType extends DefaultOptionType = DefaultOptionType,
   ValueField extends keyof OptionType = keyof OptionType,
-  Multiple extends boolean = false,
+  Multiple extends boolean = boolean,
 > extends Omit<RcCascaderProps<OptionType, ValueField, Multiple>, 'checkable'> {
   multiple?: Multiple;
   size?: SizeType;
@@ -139,8 +139,8 @@ export type CascaderAutoProps<
   OptionType extends DefaultOptionType = DefaultOptionType,
   ValueField extends keyof OptionType = keyof OptionType,
 > =
-  | CascaderProps<OptionType, ValueField>
-  | (CascaderProps<OptionType, ValueField, true> & { multiple?: boolean });
+  | (CascaderProps<OptionType, ValueField> & { multiple?: false })
+  | (CascaderProps<OptionType, ValueField, true> & { multiple: true });
 
 export interface CascaderRef {
   focus: () => void;
