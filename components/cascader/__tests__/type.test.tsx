@@ -91,6 +91,7 @@ describe('Cascader.typescript', () => {
   });
 
   it('cascader props', () => {
+    // Incorrect usage, onChange value type is `value[]`
     const cascaderProps: { props?: CascaderProps }[] = [{ props: { multiple: true } }];
     expect(cascaderProps).toBeTruthy();
 
@@ -99,6 +100,7 @@ describe('Cascader.typescript', () => {
   });
 
   it('cascader panel props', () => {
+    // Incorrect usage, onChange value type is `value[]`
     const cascaderPanelProps: { props?: CascaderPanelProps }[] = [{ props: { multiple: true } }];
     expect(cascaderPanelProps).toBeTruthy();
 
