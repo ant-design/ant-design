@@ -6,8 +6,10 @@ import AdmZip from 'adm-zip';
 import axios from 'axios';
 import chalk from 'chalk';
 import Spinnies from 'spinnies';
-
+import dotnev from 'dotenv';
 import checkRepo from './check-repo';
+
+dotnev.config({ override: true });
 
 const { Notification: Notifier } = require('node-notifier');
 const simpleGit = require('simple-git');
