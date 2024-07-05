@@ -86,12 +86,15 @@ describe('Cascader.typescript', () => {
   });
 
   it('multiple onChange', () => {
-    const { container } = render(<Cascader multiple onChange={(values) => values} />);
+    const { container } = render(
+      <Cascader multiple onChange={(values: (string | number | null)[][]) => values} />,
+    );
     expect(container).toBeTruthy();
   });
+
   it('props', () => {
     const list: { props?: CascaderAutoProps }[] = [
-      { props: { multiple: true, onChange: (value) => value } },
+      { props: { multiple: true, onChange: (value: (string | number | null)[][]) => value } },
       { props: { multiple: false, onChange: (value) => value } },
     ];
     expect(list).toBeTruthy();

@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.19.0",
+  "version": "5.19.1",
   "description": "An enterprise-class UI design language and React components implementation",
   "keywords": [
     "ant",
@@ -74,7 +74,7 @@
     "pub": "echo 'Please use `npm publish` instead.'",
     "postpublish": "tsx scripts/post-publish.ts",
     "presite": "npm run prestart",
-    "site": "npm i --no-save --legacy-peer-deps react@19.0.0-rc-3563387fe3-20240621 react-dom@19.0.0-rc-3563387fe3-20240621 && dumi build && cp .surgeignore _site",
+    "site": "npm i --no-save --legacy-peer-deps react@18.3.0-canary-c3048aab4-20240326 react-dom@18.3.0-canary-c3048aab4-20240326 && dumi build && cp .surgeignore _site",
     "size-limit": "size-limit",
     "sort:api-table": "antd-tools run sort-api-table",
     "sort:package-json": "npx sort-package-json",
@@ -99,7 +99,7 @@
   },
   "browserslist": ["> 0.5%", "last 2 versions", "Firefox ESR", "not dead"],
   "dependencies": {
-    "@ant-design/colors": "^7.0.2",
+    "@ant-design/colors": "^7.1.0",
     "@ant-design/cssinjs": "^1.21.0",
     "@ant-design/icons": "^5.3.7",
     "@ant-design/react-slick": "~1.1.2",
@@ -128,7 +128,7 @@
     "rc-motion": "^2.9.2",
     "rc-notification": "~5.6.0",
     "rc-pagination": "~4.2.0",
-    "rc-picker": "~4.6.6",
+    "rc-picker": "~4.6.7",
     "rc-progress": "~4.0.0",
     "rc-rate": "~2.13.0",
     "rc-resize-observer": "^1.4.0",
@@ -223,6 +223,7 @@
     "cross-fetch": "^4.0.0",
     "crypto": "^1.0.1",
     "dekko": "^0.2.1",
+    "dotenv": "^16.4.5",
     "dumi": "~2.4.0",
     "dumi-plugin-color-chunk": "^1.1.1",
     "esbuild-loader": "^4.1.0",
