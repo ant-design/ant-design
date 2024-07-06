@@ -10,7 +10,7 @@ describe('suffix', () => {
   });
 
   it('should trigger focus when suffix is clicked', () => {
-    const { container } = render(<InputNumber suffix={<i>world</i>} />);
+    const { container } = render(<InputNumber suffix={<i>antd</i>} />);
 
     const mockFocus = jest.spyOn(container.querySelector('input')!, 'focus');
     fireEvent.click(container.querySelector('i')!);
