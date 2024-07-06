@@ -139,8 +139,8 @@ export type CascaderAutoProps<
   OptionType extends DefaultOptionType = DefaultOptionType,
   ValueField extends keyof OptionType = keyof OptionType,
 > =
-  | CascaderProps<OptionType, ValueField>
-  | (CascaderProps<OptionType, ValueField, true> & { multiple?: boolean });
+  | (CascaderProps<OptionType, ValueField> & { multiple?: false })
+  | (CascaderProps<OptionType, ValueField, true> & { multiple: true });
 
 export interface CascaderRef {
   focus: () => void;
