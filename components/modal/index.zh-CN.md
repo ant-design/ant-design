@@ -123,8 +123,8 @@ demo:
 | width | 宽度 | string \| number | 416 |  |
 | wrapClassName | 对话框外层容器的类名 | string | - | 4.18.0 |
 | zIndex | 设置 Modal 的 `z-index` | number | 1000 |  |
-| onCancel | 取消回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭 | function(close) | - |  |
-| onOk | 点击确定回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭 | function(close) | - |  |
+| onCancel | 点击取消回调，参数为关闭函数，若返回 promise 时 resolve 为正常关闭, reject 为不关闭 | function(close) | - |  |
+| onOk | 点击确定回调，参数为关闭函数，若返回 promise 时 resolve 为正常关闭, reject 为不关闭 | function(close) | - |  |
 
 以上函数调用后，会返回一个引用，可以通过该引用更新和关闭弹窗。
 
