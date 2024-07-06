@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { Suspense, useContext } from 'react';
 import {
   BugFilled,
   BugOutlined,
@@ -108,9 +108,11 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
           )}
         </Tooltip>
       </span>
-      <ConfigProvider theme={{ cssVar: enableCssVar, hashed: !enableCssVar }}>
-        <DumiDemoGrid items={demos} />
-      </ConfigProvider>
+      <Suspense>
+        <ConfigProvider theme={{ cssVar: enableCssVar, hashed: !enableCssVar }}>
+          <DumiDemoGrid items={demos} />
+        </ConfigProvider>
+      </Suspense>
     </div>
   );
 };
