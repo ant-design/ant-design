@@ -122,8 +122,8 @@ The items listed above are all functions, expecting a settings object as paramet
 | width | Width of the modal dialog | string \| number | 416 |  |
 | wrapClassName | The class name of the container of the modal dialog | string | - | 4.18.0 |
 | zIndex | The `z-index` of the Modal | number | 1000 |  |
-| onCancel | Click to cancel the callback, the parameter is the closing function, if it returns a promise, resolve means normal closing, reject means not closing | function(close) | - |  |
-| onOk | Click OK callback, the parameter is the closing function, if it returns promise, resolve means normal closing, reject means not closing | function(close) | - |  |
+| onCancel | Click to onCancel the callback, the parameter is the closing function, if it returns a promise, resolve means normal closing, reject means not closing | function(close) | - |  |
+| onOk | Click to onOk the callback, the parameter is the closing function, if it returns a promise, resolve means normal closing, reject means not closing | function(close) | - |  |
 
 All the `Modal.method`s will return a reference, and then we can update and close the modal dialog by the reference.
 
