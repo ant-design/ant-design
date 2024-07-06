@@ -7,7 +7,7 @@ import {
   ExperimentFilled,
   ExperimentOutlined,
 } from '@ant-design/icons';
-import { ConfigProvider, Tooltip } from 'antd';
+import { ConfigProvider, Tooltip, Spin } from 'antd';
 import classNames from 'classnames';
 import { DumiDemoGrid, FormattedMessage } from 'dumi';
 
@@ -27,7 +27,7 @@ const locales = {
 };
 
 const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
-  const { showDebug, setShowDebug } = useContext(DemoContext);
+  const { showDebug, setShowDebug, isPending } = useContext(DemoContext);
   const [locale] = useLocale(locales);
 
   const [expandAll, setExpandAll] = useLayoutState(false);
@@ -108,11 +108,11 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
           )}
         </Tooltip>
       </span>
-      <Suspense>
+      <Spin spinning={isPending}>
         <ConfigProvider theme={{ cssVar: enableCssVar, hashed: !enableCssVar }}>
           <DumiDemoGrid items={demos} />
         </ConfigProvider>
-      </Suspense>
+      </Spin>
     </div>
   );
 };

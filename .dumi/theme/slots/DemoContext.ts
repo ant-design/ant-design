@@ -9,6 +9,7 @@ const DemoContext = createContext<{
   showDebug?: boolean;
   setShowDebug?: (showDebug: boolean) => void;
   codeType?: string;
+  isPending?: boolean;
   setCodeType?: (codeType: string) => void;
 }>({});
 

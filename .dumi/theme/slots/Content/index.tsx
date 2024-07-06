@@ -42,7 +42,7 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
   const { direction } = useContext(SiteContext);
   const { styles } = useStyle();
 
-  const [showDebug, setShowDebug] = useLayoutState(false);
+  const [showDebug, setShowDebug, isPending] = useLayoutState<boolean>(false);
   const [codeType, setCodeType] = useState('tsx');
   const debugDemos = useMemo(
     () => meta.toc?.filter((item) => item._debug_demo).map((item) => item.id) || [],
@@ -56,8 +56,8 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
   }, []);
 
   const contextValue = useMemo<DemoContextProps>(
-    () => ({ showDebug, setShowDebug, codeType, setCodeType }),
-    [showDebug, codeType, debugDemos],
+    () => ({ showDebug, setShowDebug, codeType, setCodeType, isPending }),
+    [showDebug, codeType, debugDemos, isPending],
   );
 
   const isRTL = direction === 'rtl';
