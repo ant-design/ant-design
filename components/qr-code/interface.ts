@@ -30,5 +30,5 @@ export interface QRCodeProps extends QRProps, React.HTMLAttributes<HTMLDivElemen
   errorLevel?: 'L' | 'M' | 'Q' | 'H';
   status?: QRStatus;
   onRefresh?: () => void;
-  statusRender?: (oriNode: ReactNode, info: StatusRenderInfo) => ReactNode;
+  statusRender?: (originalNode: ReactNode, info: StatusRenderInfo) => ReactNode;
 }
