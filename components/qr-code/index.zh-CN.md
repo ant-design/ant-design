@@ -49,7 +49,7 @@ tag: 5.1.0
 | bordered | 是否有边框 | boolean | `true` |
 | errorLevel | 二维码纠错等级 | `'L' \| 'M' \| 'Q' \| 'H' ` | `M` |
 | status | 二维码状态 | `active \| expired \| loading \| scanned` | `active` | scanned: 5.13.0 |
-| statusRender | 自定义状态渲染器 | (originalNode: React.ReactNode, info: [StatusRenderInfo](/components/qr-code-cn#statusrenderinfo)) => React.ReactNode | - | 5.19.0 |
+| statusRender | 自定义状态渲染器 | (originalNode: React.ReactNode, info: [StatusRenderInfo](/components/qr-code-cn#statusrenderinfo)) => React.ReactNode | - | 5.20.0 |
 | onRefresh | 点击"点击刷新"的回调 | `() => void` | - |
 
 ### StatusRenderInfo
