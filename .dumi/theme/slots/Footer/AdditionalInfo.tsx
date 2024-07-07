@@ -20,7 +20,7 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ css }) => ({
+const useStyle = createStyles(({ css, token }) => ({
   container: css`
     position: fixed;
     left: 0;
@@ -43,7 +43,7 @@ const useStyle = createStyles(({ css }) => ({
     line-height: 22px;
     width: 520px;
     a {
-      color: #1677ff;
+      color: ${token.colorPrimary};
       text-decoration-line: none;
     }
   `,
