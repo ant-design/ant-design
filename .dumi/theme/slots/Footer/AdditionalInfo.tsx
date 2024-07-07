@@ -28,17 +28,17 @@ const useStyle = createStyles(({ css, token }) => ({
     top: 0;
     bottom: 0;
     z-index: 99999999;
-    background-color: rgba(0, 0, 0, 0.65);
+    background-color: ${token.colorTextSecondary};
     display: flex;
     justify-content: center;
     align-items: center;
   `,
   alertBox: css`
-    border: 1px solid #ffe58f;
-    background-color: #fffbe6;
-    color: rgba(0, 0, 0, 0.88);
-    padding: 8px 12px;
-    border-radius: 8px;
+    border: 1px solid ${token.colorWarningBorder};
+    background-color: ${token.colorWarningBg};
+    color: ${token.colorTextHeading};
+    padding: ${token.paddingXS}px ${token.paddingSM}px;
+    border-radius: ${token.borderRadiusLG}px;
     z-index: 9999999999;
     line-height: 22px;
     width: 520px;
