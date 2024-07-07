@@ -24683,9 +24683,11 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
 exports[`renders components/table/demo/row-selection.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/row-selection-and-operation.tsx extend context correctly 1`] = `
-<div>
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
   <div
-    style="margin-bottom: 16px;"
+    class="ant-flex ant-flex-align-center ant-flex-gap-middle"
   >
     <button
       class="ant-btn ant-btn-primary"
@@ -24696,9 +24698,6 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
         Reload
       </span>
     </button>
-    <span
-      style="margin-left: 8px;"
-    />
   </div>
   <div
     class="ant-table-wrapper"

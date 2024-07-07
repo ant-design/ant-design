@@ -16,6 +16,17 @@ tag: vVERSION
 
 ---
 
+## 5.19.1
+
+`2024-07-05`
+
+- 🐞 Global: @ant-design/colors use pre-compiled color presets to improve runtime performance. [#49714](https://github.com/ant-design/ant-design/pull/49714) [@guoyunhe](https://github.com/guoyunhe)
+- 🐞 Global: No more limit max auto `zIndex` increase but use warning instead. [#49720](https://github.com/ant-design/ant-design/pull/49720)
+- 🐞 Adjust position of Input.TextArea to be consistent with other data entry components. [#49718](https://github.com/ant-design/ant-design/pull/49718) [@wanpan11](https://github.com/wanpan11)
+- 🐞 Fix Input variant `filled` `activeBorderColor` token invalid. [#49699](https://github.com/ant-design/ant-design/pull/49699) [@wanpan11](https://github.com/wanpan11)
+- TypeScript
+  - 🤖 Fix Cascader `multiple` type issue. [#49669](https://github.com/ant-design/ant-design/pull/49669) [@YangZhi1](https://github.com/YangZhi1)
+
 ## 5.19.0
 
 `2024-07-01`
