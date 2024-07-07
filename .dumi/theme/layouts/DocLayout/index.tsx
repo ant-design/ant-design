@@ -51,11 +51,9 @@ const DocLayout: React.FC = () => {
 
   useEffect(() => {
     const nprogressHiddenStyle = document.getElementById('nprogress-style');
-    if (nprogressHiddenStyle) {
-      timerRef.current = setTimeout(() => {
-        nprogressHiddenStyle.remove();
-      }, 0);
-    }
+    timerRef.current = setTimeout(() => {
+      nprogressHiddenStyle?.remove();
+    }, 0);
     return () => clearTimeout(timerRef.current);
   }, []);
 
