@@ -24,15 +24,18 @@ const useStyle = createStyles(({ token, css }) => {
       display: inline-flex;
       align-items: center;
       column-gap: ${token.marginSM}px;
+
       &:hover {
         color: ${colorTextHeading};
       }
+
       img {
         width: 32px;
         height: 32px;
         display: inline-block;
         vertical-align: middle;
       }
+
       @media only screen and (max-width: ${mobileMaxWidth}px) {
         padding-inline-start: 0;
         padding-inline-end: 0;
