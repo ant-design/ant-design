@@ -28,17 +28,15 @@ export interface PaginationProps extends RcPaginationProps {
 
 export type PaginationPosition = 'top' | 'bottom' | 'both';
 
-export type PaginationAlign = 'start' | 'center' | 'end';
-
 export interface PaginationConfig extends Omit<PaginationProps, 'rootClassName'> {
   position?: PaginationPosition;
-  align?: PaginationAlign;
 }
 
 export type { PaginationLocale };
 
 const Pagination: React.FC<PaginationProps> = (props) => {
   const {
+    align,
     prefixCls: customizePrefixCls,
     selectPrefixCls: customizeSelectPrefixCls,
     className,
@@ -75,6 +73,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
       </button>
     );
     const jumpPrevIcon = (
+      // biome-ignore lint/a11y/useValidAnchor: it is hard to refactor
       <a className={`${prefixCls}-item-link`}>
         <div className={`${prefixCls}-item-container`}>
           {direction === 'rtl' ? (
@@ -87,6 +86,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
       </a>
     );
     const jumpNextIcon = (
+      // biome-ignore lint/a11y/useValidAnchor: it is hard to refactor
       <a className={`${prefixCls}-item-link`}>
         <div className={`${prefixCls}-item-container`}>
           {direction === 'rtl' ? (
@@ -113,6 +113,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
 
   const extendedClassName = classNames(
     {
+      [`${prefixCls}-${align}`]: !!align,
       [`${prefixCls}-mini`]: isSmall,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-bordered`]: token.wireframe,

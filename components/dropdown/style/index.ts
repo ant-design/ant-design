@@ -61,8 +61,6 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
   return [
     {
       [componentCls]: {
-        ...resetComponent(token),
-
         position: 'absolute',
         top: -9999,
         left: {
@@ -185,6 +183,8 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
       },
 
       [`${componentCls}, ${componentCls}-menu-submenu`]: {
+        ...resetComponent(token),
+
         [menuCls]: {
           padding: dropdownEdgeChildPadding,
           listStyleType: 'none',
@@ -251,7 +251,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
             transition: `all ${motionDurationMid}`,
             borderRadius: token.borderRadiusSM,
 
-            [`&:hover, &-active`]: {
+            '&:hover, &-active': {
               backgroundColor: token.controlItemBgHover,
             },
 

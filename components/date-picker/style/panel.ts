@@ -205,8 +205,6 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         },
 
         '&-rtl': {
-          direction: 'rtl',
-
           [`${componentCls}-prev-icon,
               ${componentCls}-super-prev-icon`]: {
             transform: 'rotate(45deg)',
@@ -254,6 +252,9 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           cursor: 'pointer',
           transition: `color ${motionDurationMid}`,
           fontSize: 'inherit',
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
         },
 
         '> button': {
@@ -275,10 +276,9 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           fontWeight: fontWeightStrong,
           lineHeight: unit(textHeight),
 
-          button: {
+          '> button': {
             color: 'inherit',
             fontWeight: 'inherit',
-            verticalAlign: 'top',
 
             '&:not(:first-child)': {
               marginInlineStart: paddingXS,
@@ -296,7 +296,6 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         &-super-prev-icon,
         &-super-next-icon`]: {
         position: 'relative',
-        display: 'inline-block',
         width: pickerControlIconSize,
         height: pickerControlIconSize,
 
@@ -304,7 +303,6 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           position: 'absolute',
           top: 0,
           insetInlineStart: 0,
-          display: 'inline-block',
           width: pickerControlIconSize,
           height: pickerControlIconSize,
           border: `0 solid currentcolor`,
@@ -330,13 +328,11 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         },
       },
 
-      [`&-prev-icon,
-        &-super-prev-icon`]: {
+      '&-prev-icon, &-super-prev-icon': {
         transform: 'rotate(-45deg)',
       },
 
-      [`&-next-icon,
-        &-super-next-icon`]: {
+      '&-next-icon, &-super-next-icon': {
         transform: 'rotate(135deg)',
       },
 
@@ -459,16 +455,13 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
             },
           },
 
-          [`&:hover td`]: {
+          '&:hover td': {
             '&:before': {
               background: cellHoverBg,
             },
           },
 
-          [`&-range-start td,
-            &-range-end td,
-            &-selected td,
-            &-hover td`]: {
+          '&-range-start td, &-range-end td, &-selected td, &-hover td': {
             // Rise priority to override hover style
             [`&${pickerCellCls}`]: {
               '&:before': {
@@ -485,14 +478,14 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
             },
           },
 
-          [`&-range-hover td:before`]: {
+          '&-range-hover td:before': {
             background: controlItemBgActive,
           },
         },
       },
 
       // >>> ShowWeek
-      [`&-week-panel, &-date-panel-show-week`]: {
+      '&-week-panel, &-date-panel-show-week': {
         [`${componentCls}-body`]: {
           padding: `${unit(paddingXS)} ${unit(paddingSM)}`,
         },
@@ -532,7 +525,6 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
       '&-time-panel': {
         width: 'auto',
         minWidth: 'auto',
-        direction: 'ltr',
 
         [`${componentCls}-content`]: {
           display: 'flex',

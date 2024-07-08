@@ -75,10 +75,15 @@ export interface ComponentToken {
    */
   handleColor: string;
   /**
-   * @desc 滑块激活态颜色
-   * @descEN Color of handle when active
+   * @desc 滑块激活态边框色
+   * @descEN Border color of handle when active
    */
   handleActiveColor: string;
+  /**
+   * @desc 滑块激活态外框色
+   * @descEN Outline color of handle when active
+   */
+  handleActiveOutlineColor: string;
   /**
    * @desc 滑块禁用颜色
    * @descEN Color of handle when disabled
@@ -119,6 +124,13 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
     colorFillContentHover,
     handleColorDisabled,
     calc,
+    handleSize,
+    handleSizeHover,
+    handleActiveColor,
+    handleActiveOutlineColor,
+    handleLineWidth,
+    handleLineWidthHover,
+    motionDurationMid,
   } = token;
 
   return {
@@ -132,7 +144,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
       cursor: 'pointer',
       touchAction: 'none',
 
-      [`&-vertical`]: {
+      '&-vertical': {
         margin: `${unit(marginFull)} ${unit(marginPart)}`,
       },
 
@@ -140,12 +152,12 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
         position: 'absolute',
         backgroundColor: token.railBg,
         borderRadius: token.borderRadiusXS,
-        transition: `background-color ${token.motionDurationMid}`,
+        transition: `background-color ${motionDurationMid}`,
       },
 
       [`${componentCls}-track,${componentCls}-tracks`]: {
         position: 'absolute',
-        transition: `background-color ${token.motionDurationMid}`,
+        transition: `background-color ${motionDurationMid}`,
       },
 
       [`${componentCls}-track`]: {
@@ -173,7 +185,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
         },
 
         [`${componentCls}-handle::after`]: {
-          boxShadow: `0 0 0 ${unit(token.handleLineWidth)} ${token.colorPrimaryBorderHover}`,
+          boxShadow: `0 0 0 ${unit(handleLineWidth)} ${token.colorPrimaryBorderHover}`,
         },
 
         [`${componentCls}-dot-active`]: {
@@ -183,18 +195,18 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
 
       [`${componentCls}-handle`]: {
         position: 'absolute',
-        width: token.handleSize,
-        height: token.handleSize,
+        width: handleSize,
+        height: handleSize,
         outline: 'none',
 
         // 扩大选区
         '&::before': {
           content: '""',
           position: 'absolute',
-          insetInlineStart: calc(token.handleLineWidth).mul(-1).equal(),
-          insetBlockStart: calc(token.handleLineWidth).mul(-1).equal(),
-          width: calc(token.handleSize).add(calc(token.handleLineWidth).mul(2)).equal(),
-          height: calc(token.handleSize).add(calc(token.handleLineWidth).mul(2)).equal(),
+          insetInlineStart: calc(handleLineWidth).mul(-1).equal(),
+          insetBlockStart: calc(handleLineWidth).mul(-1).equal(),
+          width: calc(handleSize).add(calc(handleLineWidth).mul(2)).equal(),
+          height: calc(handleSize).add(calc(handleLineWidth).mul(2)).equal(),
           backgroundColor: 'transparent',
         },
 
@@ -203,61 +215,54 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
           position: 'absolute',
           insetBlockStart: 0,
           insetInlineStart: 0,
-          width: token.handleSize,
-          height: token.handleSize,
+          width: handleSize,
+          height: handleSize,
           backgroundColor: token.colorBgElevated,
-          boxShadow: `0 0 0 ${unit(token.handleLineWidth)} ${token.handleColor}`,
+          boxShadow: `0 0 0 ${unit(handleLineWidth)} ${token.handleColor}`,
+          outline: `0px solid transparent`,
           borderRadius: '50%',
           cursor: 'pointer',
           transition: `
-            inset-inline-start ${token.motionDurationMid},
-            inset-block-start ${token.motionDurationMid},
-            width ${token.motionDurationMid},
-            height ${token.motionDurationMid},
-            box-shadow ${token.motionDurationMid}
+            inset-inline-start ${motionDurationMid},
+            inset-block-start ${motionDurationMid},
+            width ${motionDurationMid},
+            height ${motionDurationMid},
+            box-shadow ${motionDurationMid},
+            outline ${motionDurationMid}
           `,
         },
 
         '&:hover, &:active, &:focus': {
           '&::before': {
-            // -(
-            //   (token.handleSizeHover - token.handleSize) / 2 +
-            //   token.handleLineWidthHover
-            // ),
-            insetInlineStart: calc(token.handleSizeHover)
-              .sub(token.handleSize)
+            insetInlineStart: calc(handleSizeHover)
+              .sub(handleSize)
               .div(2)
-              .add(token.handleLineWidthHover)
+              .add(handleLineWidthHover)
               .mul(-1)
               .equal(),
-            insetBlockStart: calc(token.handleSizeHover)
-              .sub(token.handleSize)
+            insetBlockStart: calc(handleSizeHover)
+              .sub(handleSize)
               .div(2)
-              .add(token.handleLineWidthHover)
+              .add(handleLineWidthHover)
               .mul(-1)
               .equal(),
-            width: calc(token.handleSizeHover).add(calc(token.handleLineWidthHover).mul(2)).equal(),
-            height: calc(token.handleSizeHover)
-              .add(calc(token.handleLineWidthHover).mul(2))
-              .equal(),
+            width: calc(handleSizeHover).add(calc(handleLineWidthHover).mul(2)).equal(),
+            height: calc(handleSizeHover).add(calc(handleLineWidthHover).mul(2)).equal(),
           },
 
           '&::after': {
-            boxShadow: `0 0 0 ${unit(token.handleLineWidthHover)} ${token.handleActiveColor}`,
-            width: token.handleSizeHover,
-            height: token.handleSizeHover,
-            insetInlineStart: token
-              .calc(token.handleSize)
-              .sub(token.handleSizeHover)
-              .div(2)
-              .equal(),
-            insetBlockStart: token.calc(token.handleSize).sub(token.handleSizeHover).div(2).equal(),
+            boxShadow: `0 0 0 ${unit(handleLineWidthHover)} ${handleActiveColor}`,
+            outline: `6px solid ${handleActiveOutlineColor}`,
+            width: handleSizeHover,
+            height: handleSizeHover,
+            insetInlineStart: token.calc(handleSize).sub(handleSizeHover).div(2).equal(),
+            insetBlockStart: token.calc(handleSize).sub(handleSizeHover).div(2).equal(),
           },
         },
       },
 
       [`&-lock ${componentCls}-handle`]: {
-        [`&::before, &::after`]: {
+        '&::before, &::after': {
           transition: 'none',
         },
       },
@@ -292,7 +297,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
         width: dotSize,
         height: dotSize,
         backgroundColor: token.colorBgElevated,
-        border: `${unit(token.handleLineWidth)} solid ${token.dotBorderColor}`,
+        border: `${unit(handleLineWidth)} solid ${token.dotBorderColor}`,
         borderRadius: '50%',
         cursor: 'pointer',
         transition: `border-color ${token.motionDurationSlow}`,
@@ -326,9 +331,9 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
         [`${componentCls}-handle::after`]: {
           backgroundColor: token.colorBgElevated,
           cursor: 'not-allowed',
-          width: token.handleSize,
-          height: token.handleSize,
-          boxShadow: `0 0 0 ${unit(token.handleLineWidth)} ${handleColorDisabled}`,
+          width: handleSize,
+          height: handleSize,
+          boxShadow: `0 0 0 ${unit(handleLineWidth)} ${handleColorDisabled}`,
           insetInlineStart: 0,
           insetBlockStart: 0,
         },
@@ -453,7 +458,10 @@ export const prepareComponentToken: GetDefaultToken<'Slider'> = (token) => {
   const controlSize = token.controlHeightLG / 4;
   const controlSizeHover = token.controlHeightSM / 2;
   const handleLineWidth = token.lineWidth + increaseHandleWidth;
-  const handleLineWidthHover = token.lineWidth + increaseHandleWidth * 3;
+  const handleLineWidthHover = token.lineWidth + increaseHandleWidth * 1.5;
+  const handleActiveColor = token.colorPrimary;
+  const handleActiveOutlineColor = new TinyColor(handleActiveColor).setAlpha(0.2).toRgbString();
+
   return {
     controlSize,
     railSize: 4,
@@ -467,7 +475,8 @@ export const prepareComponentToken: GetDefaultToken<'Slider'> = (token) => {
     trackBg: token.colorPrimaryBorder,
     trackHoverBg: token.colorPrimaryBorderHover,
     handleColor: token.colorPrimaryBorder,
-    handleActiveColor: token.colorPrimary,
+    handleActiveColor,
+    handleActiveOutlineColor,
     handleColorDisabled: new TinyColor(token.colorTextDisabled)
       .onBackground(token.colorBgContainer)
       .toHexShortString(),

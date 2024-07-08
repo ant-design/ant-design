@@ -108,7 +108,7 @@ function List<T>({
     (eventName: 'onChange' | 'onShowSizeChange') => (page: number, pageSize: number) => {
       setPaginationCurrent(page);
       setPaginationSize(pageSize);
-      if (pagination && pagination[eventName]) {
+      if (pagination) {
         pagination?.[eventName]?.(page, pageSize);
       }
     };
@@ -120,7 +120,7 @@ function List<T>({
   const renderInnerItem = (item: T, index: number) => {
     if (!renderItem) return null;
 
-    let key;
+    let key: any;
 
     if (typeof rowKey === 'function') {
       key = rowKey(item);
@@ -150,7 +150,7 @@ function List<T>({
       spinning: loadingProp,
     };
   }
-  const isLoading = loadingProp && loadingProp.spinning;
+  const isLoading = !!loadingProp?.spinning;
 
   const mergedSize = useSize(customizeSize);
 
@@ -201,20 +201,15 @@ function List<T>({
   if (paginationProps.current > largestPage) {
     paginationProps.current = largestPage;
   }
-  const paginationContent = pagination ? (
-    <div
-      className={classNames(
-        `${prefixCls}-pagination`,
-        `${prefixCls}-pagination-align-${paginationProps?.align ?? 'end'}`,
-      )}
-    >
+  const paginationContent = pagination && (
+    <div className={classNames(`${prefixCls}-pagination`)}>
       <Pagination
         {...paginationProps}
         onChange={onPaginationChange}
         onShowSizeChange={onPaginationShowSizeChange}
       />
     </div>
-  ) : null;
+  );
 
   let splitDataSource = [...dataSource];
   if (pagination) {
@@ -271,9 +266,7 @@ function List<T>({
   } else if (!children && !isLoading) {
     childrenContent = (
       <div className={`${prefixCls}-empty-text`}>
-        {(locale && locale.emptyText) || renderEmpty?.('List') || (
-          <DefaultRenderEmpty componentName="List" />
-        )}
+        {locale?.emptyText || renderEmpty?.('List') || <DefaultRenderEmpty componentName="List" />}
       </div>
     );
   }

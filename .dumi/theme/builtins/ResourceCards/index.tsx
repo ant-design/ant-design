@@ -1,7 +1,8 @@
 import React from 'react';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
-import { Col, Row, Tooltip, Card, Typography } from 'antd';
+import { Card, Col, Row, Tooltip, Typography } from 'antd';
 import { createStyles } from 'antd-style';
+
 import useLocale from '../../../hooks/useLocale';
 
 const { Paragraph } = Typography;
@@ -22,19 +23,19 @@ const useStyle = createStyles(({ token, css }) => ({
         transform: scale(1.3);
         `,
   badge: css`
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      padding: ${token.paddingXXS}px ${token.paddingXS}px;
-      color: #fff;
-      font-size: ${token.fontSizeSM}px;
-      line-height: 1;
-      background: rgba(0, 0, 0, 0.65);
-      border-radius: ${token.borderRadiusLG}px;
-      box-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
-      display: inline-flex;
-      column-gap: ${token.paddingXXS}px;
-    `,
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: ${token.paddingXXS}px ${token.paddingXS}px;
+    color: #fff;
+    font-size: ${token.fontSizeSM}px;
+    line-height: 1;
+    background: rgba(0, 0, 0, 0.65);
+    border-radius: ${token.borderRadiusLG}px;
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
+    display: inline-flex;
+    column-gap: ${token.paddingXXS}px;
+  `,
 }));
 
 export type Resource = {

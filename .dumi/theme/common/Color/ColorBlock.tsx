@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
+import { App } from 'antd';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import { message } from 'antd';
 
 interface ColorBlockProps {
   color: string;
@@ -9,6 +9,7 @@ interface ColorBlockProps {
 }
 
 const ColorBlock: React.FC<ColorBlockProps> = (props) => {
+  const { message } = App.useApp();
   const { color, index, dark } = props;
   const textStyle = useMemo<React.CSSProperties>(() => {
     const colorMap = { default: ['#fff', 'unset'], dark: ['#314659', '#fff'] };

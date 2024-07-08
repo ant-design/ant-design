@@ -39,9 +39,9 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
 
   const close = (...args: any[]) => {
     setOpen(false);
-    const triggerCancel = args.some((param) => param && param.triggerCancel);
-    if (innerConfig.onCancel && triggerCancel) {
-      innerConfig.onCancel(() => {}, ...args.slice(1));
+    const triggerCancel = args.some((param) => param?.triggerCancel);
+    if (triggerCancel) {
+      innerConfig.onCancel?.(() => {}, ...args.slice(1));
     }
   };
 
