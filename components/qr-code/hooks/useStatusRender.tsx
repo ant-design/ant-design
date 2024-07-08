@@ -13,6 +13,9 @@ export type UseStatusRenderProps = {
   statusRender?: QRCodeProps['statusRender'];
 };
 
+
+const defaultSpin = <Spin />;
+
 export default function useStatusRender({
   prefixCls,
   locale,
@@ -29,7 +32,6 @@ export default function useStatusRender({
       )}
     </>
   );
-  const defaultSpin = <Spin />;
 
   const defaultScannedNode = <p className={`${prefixCls}-scanned`}>{locale?.scanned}</p>;
 
