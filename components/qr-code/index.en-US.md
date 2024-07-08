@@ -22,7 +22,7 @@ Used when the text needs to be converted into a QR Code.
 <code src="./demo/base.tsx">base</code>
 <code src="./demo/icon.tsx">With Icon</code>
 <code src="./demo/status.tsx">other status</code>
-<code src="./demo/customStatusRender.tsx">custom status render</code>
+<code src="./demo/customStatusRender.tsx" version="5.20.0">custom status render</code>
 <code src="./demo/type.tsx">Custom Render Type</code>
 <code src="./demo/customSize.tsx">Custom Size</code>
 <code src="./demo/customColor.tsx">Custom Color</code>
