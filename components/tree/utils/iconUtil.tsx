@@ -23,11 +23,10 @@ const SwitcherIconCom: React.FC<SwitcherIconProps> = (props) => {
   const { isLeaf, expanded, loading } = treeNodeProps;
 
   if (loading) {
-    return switcherLoadingIcon ? (
-      switcherLoadingIcon
-    ) : (
-      <LoadingOutlined className={`${prefixCls}-switcher-loading-icon`} />
-    );
+    if (React.isValidElement(switcherLoadingIcon)) {
+      return switcherLoadingIcon;
+    }
+    return <LoadingOutlined className={`${prefixCls}-switcher-loading-icon`} />;
   }
   let showLeafIcon: boolean | TreeLeafIcon;
   if (showLine && typeof showLine === 'object') {
