@@ -23,7 +23,7 @@ tag: 5.1.0
 <code src="./demo/base.tsx">基本使用</code>
 <code src="./demo/icon.tsx">带 Icon 的例子</code>
 <code src="./demo/status.tsx">不同的状态</code>
-<code src="./demo/customStatusRender.tsx">自定义状态渲染器</code>
+<code src="./demo/customStatusRender.tsx" version="5.20.0">自定义状态渲染器</code>
 <code src="./demo/type.tsx">自定义渲染类型</code>
 <code src="./demo/customSize.tsx">自定义尺寸</code>
 <code src="./demo/customColor.tsx">自定义颜色</code>
