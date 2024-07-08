@@ -187,7 +187,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         },
 
         [`&:not(${treeNodeCls}-disabled).filter-node ${treeCls}-title`]: {
-          color: 'inherit',
+          color: token.colorPrimary,
           fontWeight: 500,
         },
 
