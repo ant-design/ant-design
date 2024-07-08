@@ -39,12 +39,12 @@ jobs:
           require-include: '🇺🇸 English, 🇨🇳 Chinese, 🇺🇸 英文, 🇨🇳 中文'
           comment-body: |
             - 🚨 @${{ github.event.pull_request.user.login }}, Please fill changelog in the PR
-              - Use a developer-oriented tone and narrative style.
-              - Describe the user's first-hand experience of the issue and its impact on developers, rather than your solution approach.
-              - Refer to: ant.design/changelog#501
+              - Use a developer-oriented tone
+              - Describe the impact on developers, rather than your solution
+              - Refer to: https://ant.design/changelog#501
 
             - 🚨 @${{ github.event.pull_request.user.login }}, 请填写 PR 中的 changelog
-              - 请用面向开发者的角度和叙述方式撰写 changelog
+              - 使用面向开发者的角度撰写 changelog
               - 描述用户第一现场的问题，对开发者有哪些影响，而非你的解决方式
               - 参考：https://ant.design/changelog-cn#501
 
