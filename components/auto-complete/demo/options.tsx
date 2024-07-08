@@ -1,6 +1,6 @@
 import React from 'react';
 import { AutoComplete } from 'antd';
-import { AutoCompleteProps } from 'antd';
+import type { AutoCompleteProps } from 'antd';
 
 const App: React.FC = () => {
   const [options, setOptions] = React.useState<AutoCompleteProps['options']>([]);

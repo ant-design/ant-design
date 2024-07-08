@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { AutoComplete, Input } from 'antd';
-import { AutoCompleteProps } from 'antd';
+import type { AutoCompleteProps } from 'antd';
 
 const { TextArea } = Input;
 
