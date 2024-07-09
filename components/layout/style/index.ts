@@ -28,7 +28,7 @@ export interface ComponentToken {
    * @desc 顶部高度
    * @descEN Height of header
    */
-  headerHeight: number;
+  headerHeight: number | string;
   /**
    * @desc 顶部内边距
    * @descEN Padding of header
