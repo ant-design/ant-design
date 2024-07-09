@@ -15,8 +15,8 @@ const src = 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWP
 const App: React.FC = () => {
   // or you can download flipped and rotated image
   // https://codesandbox.io/s/zi-ding-yi-gong-ju-lan-antd-5-7-0-forked-c9jvmp
-  const onDownload = () => {
-    fetch(src)
+  const onDownload = (url: string) => {
+    fetch(url)
       .then((response) => response.blob())
       .then((blob) => {
         const url = URL.createObjectURL(new Blob([blob]));
@@ -48,10 +48,11 @@ const App: React.FC = () => {
               onZoomIn,
               onReset,
             },
+            image: { url },
           },
         ) => (
           <Space size={12} className="toolbar-wrapper">
-            <DownloadOutlined onClick={onDownload} />
+            <DownloadOutlined onClick={() => onDownload(url)} />
             <SwapOutlined rotate={90} onClick={onFlipY} />
             <SwapOutlined onClick={onFlipX} />
             <RotateLeftOutlined onClick={onRotateLeft} />
