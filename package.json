@@ -91,6 +91,7 @@
     "test:site-update": "npm run site && npm run test:site -- -u",
     "test:update": "jest --config .jest.js --no-cache -u",
     "test:visual-regression": "tsx scripts/visual-regression/build.ts",
+    "visual-diff:capture": "tsx scripts/visual-diff-capture.ts",
     "token:meta": "tsx scripts/generate-token-meta.ts",
     "token:statistic": "tsx scripts/collect-token-statistic.ts",
     "tsc": "tsc --noEmit",
