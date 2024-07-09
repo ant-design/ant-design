@@ -51,6 +51,8 @@ const genBaseStyle: GenerateStyle<PopconfirmToken> = (token) => {
         [`${componentCls}-title`]: {
           fontWeight: fontWeightStrong,
           color: colorTextHeading,
+          wordBreak: 'break-word',
+          whiteSpace: 'pre-line',
 
           '&:only-child': {
             fontWeight: 'normal',
