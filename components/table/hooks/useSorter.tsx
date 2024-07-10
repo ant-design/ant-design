@@ -396,7 +396,7 @@ export default function useFilterSorter<RecordType>({
 
   const mergedSorterStates = React.useMemo<SortState<RecordType>[]>(() => {
     let validate = true;
-    const collectedStates = collectSortStates(mergedColumns, false);
+    const collectedStates = collectSortStates(mergedColumns, true);
 
     // Return if not controlled
     if (!collectedStates.length) {

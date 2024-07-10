@@ -247,7 +247,7 @@ function useFilter<RecordType>({
   );
 
   const mergedFilterStates = React.useMemo(() => {
-    const collectedStates = collectFilterStates(mergedColumns, false);
+    const collectedStates = collectFilterStates(mergedColumns, true);
     if (collectedStates.length === 0) {
       return collectedStates;
     }
