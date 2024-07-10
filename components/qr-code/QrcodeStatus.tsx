@@ -4,7 +4,7 @@ import { ReloadOutlined } from '@ant-design/icons';
 import Button from '../button';
 import { Locale } from '../locale';
 import Spin from '../spin';
-import { QRCodeProps, StatusRenderInfo } from './interface';
+import type { QRCodeProps, StatusRenderInfo } from './interface';
 
 export type QRcodeStatusProps = {
   prefixCls: string;
