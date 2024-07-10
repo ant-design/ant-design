@@ -2,6 +2,7 @@ import React from 'react';
 import { AudioOutlined } from '@ant-design/icons';
 import { Input, Space } from 'antd';
 import type { GetProps } from 'antd';
+
 type SearchProps = GetProps<typeof Input.Search>;
 
 const { Search } = Input;
