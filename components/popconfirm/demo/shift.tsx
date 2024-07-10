@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Tooltip } from 'antd';
+import { Button, Popconfirm } from 'antd';
 
 const style: React.CSSProperties = {
   width: '300vw',
@@ -16,9 +16,9 @@ const App: React.FC = () => {
   }, []);
   return (
     <div style={style}>
-      <Tooltip title="Thanks for using antd. Have a nice day !" open>
+      <Popconfirm title="Thanks for using antd. Have a nice day !" open>
         <Button type="primary">Scroll The Window</Button>
-      </Tooltip>
+      </Popconfirm>
     </div>
   );
 };
