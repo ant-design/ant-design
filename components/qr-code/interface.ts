@@ -13,7 +13,7 @@ export type QRPropsSvg = QRProps & React.SVGAttributes<SVGSVGElement>;
 
 export type QRStatus = 'active' | 'expired' | 'loading' | 'scanned';
 
-type StatusRenderInfo = {
+export type StatusRenderInfo = {
   status: Exclude<QRStatus, 'active'>;
   locale: Locale['QRCode'];
   onRefresh?: () => void;
@@ -30,5 +30,5 @@ export interface QRCodeProps extends QRProps, React.HTMLAttributes<HTMLDivElemen
   errorLevel?: 'L' | 'M' | 'Q' | 'H';
   status?: QRStatus;
   onRefresh?: () => void;
-  statusRender?: (originalNode: ReactNode, info: StatusRenderInfo) => ReactNode;
+  statusRender?: (info: StatusRenderInfo) => ReactNode;
 }

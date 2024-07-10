@@ -10,6 +10,7 @@ import { useToken } from '../theme/internal';
 import useStatusRender from './hooks/useStatusRender';
 import type { QRCodeProps, QRProps } from './interface';
 import useStyle from './style/index';
+import QRcodeStatus from './QrcodeStatus';
 
 const QRCode: React.FC<QRCodeProps> = (props) => {
   const [, token] = useToken();
@@ -71,7 +72,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     );
   }
 
-  const { mergedStatusRender, defaultNodes } = useStatusRender({
+  const { mergedStatusRender } = useStatusRender({
     prefixCls,
     locale,
     onRefresh,
@@ -97,7 +98,12 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     <div {...rest} className={mergedCls} style={mergedStyle}>
       {status !== 'active' && (
         <div className={`${prefixCls}-mask`}>
-          {mergedStatusRender?.(defaultNodes[status], { locale, onRefresh, status })}
+          <QRcodeStatus
+            prefixCls={prefixCls}
+            locale={locale}
+            status={status}
+            onRefresh={onRefresh}
+          />
         </div>
       )}
       {type === 'canvas' ? <QRCodeCanvas {...qrCodeProps} /> : <QRCodeSVG {...qrCodeProps} />}

@@ -1,27 +1,28 @@
 import React from 'react';
 import { ReloadOutlined } from '@ant-design/icons';
-import type { QRCodeProps } from 'antd';
-import Button from '../../button';
-import Spin from '../../spin';
 
-import type { Locale } from '../../locale';
+import Button from '../button';
+import { Locale } from '../locale';
+import Spin from '../spin';
+import { QRCodeProps, StatusRenderInfo } from './interface';
 
-export type UseStatusRenderProps = {
+export type QRcodeStatusProps = {
   prefixCls: string;
   locale?: Locale['QRCode'];
   onRefresh?: QRCodeProps['onRefresh'];
   statusRender?: QRCodeProps['statusRender'];
+  status: StatusRenderInfo['status'];
 };
-
 
 const defaultSpin = <Spin />;
 
-export default function useStatusRender({
+export default function QRcodeStatus({
   prefixCls,
   locale,
   onRefresh,
   statusRender,
-}: UseStatusRenderProps) {
+  status,
+}: QRcodeStatusProps) {
   const defaultExpiredNode = (
     <>
       <p className={`${prefixCls}-expired`}>{locale?.expired}</p>
@@ -41,13 +42,12 @@ export default function useStatusRender({
     scanned: defaultScannedNode,
   };
 
-  const defaultStatusRender: QRCodeProps['statusRender'] = (_oriNode, info) =>
-    defaultNodes[info.status];
+  const defaultStatusRender: QRCodeProps['statusRender'] = (info) => defaultNodes[info.status];
 
   const mergedStatusRender = statusRender ?? defaultStatusRender;
 
-  return {
-    mergedStatusRender,
-    defaultNodes,
-  };
+  return mergedStatusRender({
+    status,
+    locale,
+  });
 }

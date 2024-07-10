@@ -99,7 +99,7 @@ describe('QRCode test', () => {
     );
   });
   it('custom status render', () => {
-    const customStatusRender: QRCodeProps['statusRender'] = (_oriNode, info) => {
+    const customStatusRender: QRCodeProps['statusRender'] = (info) => {
       switch (info.status) {
         case 'expired':
           return <div className="custom-expired">{info.locale?.expired}</div>;
