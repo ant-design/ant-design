@@ -261,7 +261,7 @@ export const genFilledStyle = (token: InputToken, extraStyles?: CSSObject): CSSO
     ...genBaseFilledStyle(token, {
       bg: token.colorFillTertiary,
       hoverBg: token.colorFillSecondary,
-      activeBorderColor: token.colorPrimary,
+      activeBorderColor: token.activeBorderColor,
     }),
 
     [`&${token.componentCls}-disabled, &[disabled]`]: {

@@ -809,7 +809,7 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
           // Clear Icon
           [`${componentCls}-clear-icon`]: {
             position: 'absolute',
-            insetInlineEnd: token.paddingXS,
+            insetInlineEnd: token.paddingInline,
             insetBlockStart: token.paddingXS,
           },
 
@@ -824,6 +824,14 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
             alignItems: 'center',
             margin: 'auto',
             pointerEvents: 'none',
+          },
+        },
+      },
+
+      [`&-affix-wrapper${componentCls}-affix-wrapper-sm`]: {
+        [`${componentCls}-suffix`]: {
+          [`${componentCls}-clear-icon`]: {
+            insetInlineEnd: token.paddingInlineSM,
           },
         },
       },

@@ -52,13 +52,12 @@ title: 社区精选组件
 
 还有一些常用的前端/设计/产品相关的工具推荐给大家使用。
 
-| 类型         | 推荐产品                                                              |
-| ------------ | --------------------------------------------------------------------- |
-| 文档管理     | [🐦 语雀](https://www.yuque.com/?chInfo=ch_antd)                      |
-| 图标         | [阿里巴巴矢量图标库](https://www.iconfont.cn/)                        |
-| Sketch 插件  | [Kitchen](https://kitchen.alipay.com)                                 |
-| 在线代码编辑 | [codesandbox](https://codesandbox.io/) [codepen](https://codepen.io/) |
-| 图片压缩     | [tinypng](https://tinypng.com/)                                       |
+| 类型 | 推荐产品 |
+| --- | --- |
+| 知识管理 | [🐦 语雀](https://www.yuque.com/?chInfo=ch_antd) |
+| 图标 | [阿里巴巴矢量图标库](https://www.iconfont.cn) |
+| Sketch 插件 | [Kitchen](https://kitchen.alipay.com) |
+| 在线代码编辑 | [stackblitz](https://stackblitz.com) [codesandbox](https://codesandbox.io/) [codepen](https://codepen.io/) |
 
 <style>
 .markdown table td:first-child {

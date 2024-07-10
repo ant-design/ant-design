@@ -115,9 +115,10 @@ export interface EllipsisProps {
 
 // Measure for the `text` is exceed the `rows` or not
 const STATUS_MEASURE_NONE = 0;
-const STATUS_MEASURE_START = 1;
-const STATUS_MEASURE_NEED_ELLIPSIS = 2;
-const STATUS_MEASURE_NO_NEED_ELLIPSIS = 3;
+const STATUS_MEASURE_PREPARE = 1;
+const STATUS_MEASURE_START = 2;
+const STATUS_MEASURE_NEED_ELLIPSIS = 3;
+const STATUS_MEASURE_NO_NEED_ELLIPSIS = 4;
 
 const lineClipStyle: React.CSSProperties = {
   display: '-webkit-box',
@@ -140,6 +141,8 @@ export default function EllipsisMeasure(props: EllipsisProps) {
   const cutMidRef = React.useRef<MeasureTextRef>(null);
 
   // ========================= NeedEllipsis =========================
+  const measureWhiteSpaceRef = React.useRef<HTMLElement>(null);
+
   const needEllipsisRef = React.useRef<MeasureTextRef>(null);
 
   // Measure for `rows-1` height, to avoid operation exceed the line height
@@ -149,11 +152,14 @@ export default function EllipsisMeasure(props: EllipsisProps) {
   const [canEllipsis, setCanEllipsis] = React.useState(false);
   const [needEllipsis, setNeedEllipsis] = React.useState(STATUS_MEASURE_NONE);
   const [ellipsisHeight, setEllipsisHeight] = React.useState(0);
+  const [parentWhiteSpace, setParentWhiteSpace] = React.useState<
+    React.CSSProperties['whiteSpace'] | null
+  >(null);
 
   // Trigger start measure
   useLayoutEffect(() => {
     if (enableMeasure && width && nodeLen) {
-      setNeedEllipsis(STATUS_MEASURE_START);
+      setNeedEllipsis(STATUS_MEASURE_PREPARE);
     } else {
       setNeedEllipsis(STATUS_MEASURE_NONE);
     }
@@ -161,7 +167,14 @@ export default function EllipsisMeasure(props: EllipsisProps) {
 
   // Measure process
   useLayoutEffect(() => {
-    if (needEllipsis === STATUS_MEASURE_START) {
+    if (needEllipsis === STATUS_MEASURE_PREPARE) {
+      setNeedEllipsis(STATUS_MEASURE_START);
+
+      // Parent ref `white-space`
+      const nextWhiteSpace =
+        measureWhiteSpaceRef.current && getComputedStyle(measureWhiteSpaceRef.current).whiteSpace;
+      setParentWhiteSpace(nextWhiteSpace);
+    } else if (needEllipsis === STATUS_MEASURE_START) {
       const isOverflow = !!needEllipsisRef.current?.isExceed();
 
       setNeedEllipsis(isOverflow ? STATUS_MEASURE_NEED_ELLIPSIS : STATUS_MEASURE_NO_NEED_ELLIPSIS);
@@ -247,6 +260,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
     width,
     margin: 0,
     padding: 0,
+    whiteSpace: parentWhiteSpace === 'nowrap' ? 'normal' : 'inherit',
   };
 
   return (
@@ -309,6 +323,11 @@ export default function EllipsisMeasure(props: EllipsisProps) {
             {children(sliceNodes(nodeList, cutMidIndex), true)}
           </MeasureText>
         )}
+
+      {/* Measure white-space */}
+      {needEllipsis === STATUS_MEASURE_PREPARE && (
+        <span style={{ whiteSpace: 'inherit' }} ref={measureWhiteSpaceRef} />
+      )}
     </>
   );
 }

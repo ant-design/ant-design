@@ -188,11 +188,6 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
 
       // holder
       // ------------------------------
-      [`${componentCls}-dot-progress`]: {
-        position: 'absolute',
-        top: 0,
-        insetInlineStart: 0,
-      },
       [`${componentCls}-dot-holder`]: {
         width: '1em',
         height: '1em',
@@ -213,7 +208,8 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
       // ------------------------------
       [`${componentCls}-dot-progress`]: {
         position: 'absolute',
-        top: 0,
+        top: '50%',
+        transform: 'translateY(-50%)',
         insetInlineStart: 0,
       },
 
