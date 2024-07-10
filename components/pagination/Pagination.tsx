@@ -16,8 +16,9 @@ import { useToken } from '../theme/internal';
 import { MiddleSelect, MiniSelect } from './Select';
 import useStyle from './style';
 import BorderedStyle from './style/bordered';
+import Input from '../input';
 
-export interface PaginationProps extends RcPaginationProps {
+export interface PaginationProps extends Omit<RcPaginationProps, 'inputComponentClass'> {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
   size?: 'default' | 'small';
   responsive?: boolean;
@@ -127,6 +128,12 @@ const Pagination: React.FC<PaginationProps> = (props) => {
 
   const mergedStyle: React.CSSProperties = { ...pagination?.style, ...style };
 
+  const internalProps: Partial<RcPaginationProps> = {
+    inputComponentClass: (_props: any) => (
+      <Input {..._props} size={isSmall ? 'small' : undefined} />
+    ),
+  };
+
   return wrapCSSVar(
     <>
       {token.wireframe && <BorderedStyle prefixCls={prefixCls} />}
@@ -140,6 +147,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
         selectComponentClass={selectComponentClass || (isSmall ? MiniSelect : MiddleSelect)}
         locale={locale}
         showSizeChanger={mergedShowSizeChanger}
+        {...internalProps}
       />
     </>,
   );

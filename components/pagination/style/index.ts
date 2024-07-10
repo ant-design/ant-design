@@ -251,11 +251,8 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = (token
         height: token.itemSizeSM,
         lineHeight: unit(token.itemSizeSM),
 
-        input: {
-          ...genInputSmallStyle(token),
-
+        [`${token.antCls}-input`]: {
           width: token.paginationMiniQuickJumperInputWidth,
-          height: token.controlHeightSM,
         },
       },
     },
@@ -476,24 +473,10 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
         lineHeight: unit(token.controlHeight),
         verticalAlign: 'top',
 
-        input: {
-          ...genBasicInputStyle(token),
-          ...genBaseOutlinedStyle(token, {
-            borderColor: token.colorBorder,
-            hoverBorderColor: token.colorPrimaryHover,
-            activeBorderColor: token.colorPrimary,
-            activeShadow: token.activeShadow,
-          }),
-          '&[disabled]': {
-            ...genDisabledStyle(token),
-          },
-
+        [`${antCls}-input`]: {
           width: token.calc(token.controlHeightLG).mul(1.25).equal(),
-          height: token.controlHeight,
-          boxSizing: 'border-box',
           margin: 0,
-          marginInlineStart: token.marginXS,
-          marginInlineEnd: token.marginXS,
+          marginInline: token.marginXS,
         },
       },
     },
