@@ -10,16 +10,13 @@ const style: React.CSSProperties = {
 };
 
 const App: React.FC = () => {
-  const [clientReady, setClientReady] = React.useState<boolean>(false);
   React.useEffect(() => {
     document.documentElement.scrollTop = document.documentElement.clientHeight;
     document.documentElement.scrollLeft = document.documentElement.clientWidth;
-    setClientReady(true);
-    return () => setClientReady(false);
   }, []);
   return (
     <div style={style}>
-      <Tooltip title="Thanks for using antd. Have a nice day !" open={clientReady}>
+      <Tooltip title="Thanks for using antd. Have a nice day !" open>
         <Button type="primary">Scroll The Window</Button>
       </Tooltip>
     </div>
