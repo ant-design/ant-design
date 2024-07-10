@@ -11,7 +11,7 @@ export interface ComponentToken {
    * @desc 内容宽度
    * @descEN Width of content
    */
-  contentWidth: number;
+  contentWidth: number | string;
   /**
    * @desc 大号列表项内间距
    * @descEN Padding of large item
@@ -66,7 +66,7 @@ export interface ComponentToken {
 
 interface ListToken extends FullToken<'List'> {
   listBorderedCls: string;
-  minHeight: number;
+  minHeight: number | string;
 }
 
 const genBorderedStyle = (token: ListToken): CSSObject => {
