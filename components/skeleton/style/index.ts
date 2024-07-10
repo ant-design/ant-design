@@ -24,7 +24,7 @@ export type ComponentToken = {
    * @desc 标题骨架屏高度
    * @descEN Height of title skeleton
    */
-  titleHeight: number;
+  titleHeight: number | string;
   /**
    * @desc 骨架屏圆角
    * @descEN Border radius of skeleton
