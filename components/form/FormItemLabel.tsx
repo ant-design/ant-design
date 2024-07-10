@@ -93,7 +93,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
   const haveColon = computedColon && !vertical;
 
   // Remove duplicated user input colon
-  if (haveColon && typeof label === 'string' && label.trim() !== '') {
+  if (haveColon && typeof label === 'string' && label.trim()) {
     labelChildren = label.replace(/[:|：]\s*$/, '');
   }
 
