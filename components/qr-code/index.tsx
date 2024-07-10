@@ -95,6 +95,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
             locale={locale}
             status={status}
             onRefresh={onRefresh}
+            statusRender={statusRender}
           />
         </div>
       )}
