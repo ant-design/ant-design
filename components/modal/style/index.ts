@@ -20,7 +20,7 @@ export interface ComponentToken {
    * @desc 标题行高
    * @descEN Line height of title
    */
-  titleLineHeight: number;
+  titleLineHeight: number | string;
   /**
    * @desc 标题字体大小
    * @descEN Font size of title
@@ -73,7 +73,7 @@ export interface ModalToken extends FullToken<'Modal'> {
   modalHeaderHeight: number | string;
   modalFooterBorderColorSplit: string;
   modalFooterBorderStyle: string;
-  modalFooterBorderWidth: number;
+  modalFooterBorderWidth: number | string;
   modalCloseIconColor: string;
   modalCloseIconHoverColor: string;
   modalCloseBtnSize: number | string;
