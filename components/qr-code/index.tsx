@@ -7,7 +7,6 @@ import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import { useToken } from '../theme/internal';
-import useStatusRender from './hooks/useStatusRender';
 import type { QRCodeProps, QRProps } from './interface';
 import useStyle from './style/index';
 import QRcodeStatus from './QrcodeStatus';
@@ -71,13 +70,6 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
       'ErrorLevel `L` is not recommended to be used with `icon`, for scanning result would be affected by low level.',
     );
   }
-
-  const { mergedStatusRender } = useStatusRender({
-    prefixCls,
-    locale,
-    onRefresh,
-    statusRender,
-  });
 
   if (!value) {
     return null;
