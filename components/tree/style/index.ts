@@ -13,7 +13,7 @@ export interface TreeSharedToken {
    * @desc 节点标题高度
    * @descEN Node title height
    */
-  titleHeight: number | string;
+  titleHeight: number;
   /**
    * @desc 节点悬浮态背景色
    * @descEN Background color of hovered node
