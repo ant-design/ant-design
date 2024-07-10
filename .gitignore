@@ -22,7 +22,7 @@ node_modules/
 .settings
 npm-debug.log
 nohup.out
-_site
+_site*
 _data
 dist
 report.html

@@ -23,8 +23,15 @@ const Loading: React.FC = () => {
     );
   }
 
+  // loading 组件
   return (
-    <Flex justify="center" align="center" gap="small" style={{ width: '100%', margin: '120px 0' }}>
+    <Flex
+      id="loading"
+      justify="center"
+      align="center"
+      gap="small"
+      style={{ width: '100%', margin: '120px 0' }}
+    >
       <Spin size="large" />
     </Flex>
   );
