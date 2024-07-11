@@ -120,7 +120,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
     // const newState: DirectoryTreeState = {};
 
     // We need wrap this event since some value is not same
-    const newEvent = {
+    const newEvent: any = {
       ...event,
       selected: true, // Directory selected always true
     };

@@ -264,10 +264,10 @@ const InternalTreeSelect = <
     hashId,
   );
 
-  const renderSwitcherIcon: React.FC<AntTreeNodeProps> = (nodeProps) => (
+  const renderSwitcherIcon = (nodeProps: AntTreeNodeProps) => (
     <SwitcherIconCom
       prefixCls={treePrefixCls}
-      switcherIcon={switcherIcon as SwitcherIcon}
+      switcherIcon={switcherIcon as any}
       treeNodeProps={nodeProps}
       showLine={treeLine}
     />
@@ -297,8 +297,8 @@ const InternalTreeSelect = <
       placement={memoizedPlacement}
       removeIcon={removeIcon}
       allowClear={mergedAllowClear}
-      switcherIcon={renderSwitcherIcon as RcTreeSelectProps['switcherIcon']}
-      showTreeIcon={treeIcon as boolean}
+      switcherIcon={renderSwitcherIcon as any}
+      showTreeIcon={treeIcon as any}
       notFoundContent={mergedNotFound}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       treeMotion={null}

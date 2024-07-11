@@ -224,10 +224,10 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     return mergedDraggable;
   }, [draggable]);
 
-  const renderSwitcherIcon: React.FC<AntTreeNodeProps> = (nodeProps) => (
+  const renderSwitcherIcon = (nodeProps: AntTreeNodeProps) => (
     <SwitcherIconCom
       prefixCls={prefixCls}
-      switcherIcon={switcherIcon as SwitcherIcon}
+      switcherIcon={switcherIcon as any}
       treeNodeProps={nodeProps}
       showLine={showLine}
     />
@@ -258,7 +258,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
       direction={direction}
       checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}
       selectable={selectable}
-      switcherIcon={renderSwitcherIcon as RcTreeProps['switcherIcon']}
+      switcherIcon={renderSwitcherIcon as any}
       draggable={draggableConfig}
     >
       {children}
