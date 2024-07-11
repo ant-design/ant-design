@@ -207,6 +207,9 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
   const noTitle = !title && !overlay && title !== 0; // overlay for old version compatibility
 
   const onOpenChange = (vis: boolean) => {
+    if (props.open !== undefined || props.visible !== undefined) {
+      return;
+    }
     setOpen(noTitle ? false : vis);
     if (!noTitle) {
       props.onOpenChange?.(vis);
