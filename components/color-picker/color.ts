@@ -8,10 +8,7 @@ export const toHexFormat = (value?: string, alpha?: boolean) =>
 export const getHex = (value?: string, alpha?: boolean) => (value ? toHexFormat(value, alpha) : '');
 
 export interface Color
-  extends Pick<
-    RcColor,
-    'toHsb' | 'toHsbString' | 'toHex' | 'toHexString' | 'toRgb' | 'toRgbString'
-  > {
+  extends Pick<RcColor, 'toHsb' | 'toHsbString' | 'toHexString' | 'toRgb' | 'toRgbString'> {
   cleared: boolean | 'controlled';
 }
 
@@ -42,9 +39,7 @@ export class ColorFactory implements Color {
   }
 
   toHexString() {
-    return this.metaColor.getAlpha() === 1
-      ? this.metaColor.toHexString()
-      : this.metaColor.toHex8String();
+    return this.metaColor.toHexString();
   }
 
   toRgb() {
