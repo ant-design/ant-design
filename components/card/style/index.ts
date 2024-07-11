@@ -15,22 +15,22 @@ export interface ComponentToken {
    * @desc 卡片头部文字大小
    * @descEN Font size of card header
    */
-  headerFontSize: number | string;
+  headerFontSize: number;
   /**
    * @desc 小号卡片头部文字大小
    * @descEN Font size of small card header
    */
-  headerFontSizeSM: number | string;
+  headerFontSizeSM: number;
   /**
    * @desc 卡片头部高度
    * @descEN Height of card header
    */
-  headerHeight: number | string;
+  headerHeight: number;
   /**
    * @desc 小号卡片头部高度
    * @descEN Height of small card header
    */
-  headerHeightSM: number | string;
+  headerHeightSM: number;
   /**
    * @desc 操作区背景色
    * @descEN Background color of card actions

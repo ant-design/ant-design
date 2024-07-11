@@ -29,7 +29,7 @@ export interface ComponentToken {
    * @desc 标签高度
    * @descEN Label height
    */
-  labelHeight: number | string;
+  labelHeight: number;
   /**
    * @desc 标签冒号前间距
    * @descEN Label colon margin-inline-start

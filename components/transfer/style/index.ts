@@ -10,32 +10,32 @@ export interface ComponentToken {
    * @desc 列表宽度
    * @descEN Width of list
    */
-  listWidth: number | string;
+  listWidth: number;
   /**
    * @desc 大号列表宽度
    * @descEN Width of large list
    */
-  listWidthLG: number | string;
+  listWidthLG: number;
   /**
    * @desc 列表高度
    * @descEN Height of list
    */
-  listHeight: number | string;
+  listHeight: number;
   /**
    * @desc 列表项高度
    * @descEN Height of list item
    */
-  itemHeight: number | string;
+  itemHeight: number;
   /**
    * @desc 列表项纵向内边距
    * @descEN Vertical padding of list item
    */
-  itemPaddingBlock: number | string;
+  itemPaddingBlock: number;
   /**
    * @desc 顶部高度
    * @descEN Height of header
    */
-  headerHeight: number | string;
+  headerHeight: number;
 }
 
 interface TransferToken extends FullToken<'Transfer'> {
