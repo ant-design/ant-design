@@ -10,7 +10,7 @@ export interface ComponentToken {
    * @desc 内容区域高度
    * @descEN Height of content area
    */
-  contentHeight: number;
+  contentHeight: number | string;
   /**
    * @desc 加载图标尺寸
    * @descEN Loading icon size
@@ -208,7 +208,8 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
       // ------------------------------
       [`${componentCls}-dot-progress`]: {
         position: 'absolute',
-        top: 0,
+        top: '50%',
+        transform: 'translateY(-50%)',
         insetInlineStart: 0,
       },
 

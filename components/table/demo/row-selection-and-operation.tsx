@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Button, Flex, Table } from 'antd';
-import type { TableColumnsType } from 'antd';
-import type { TableRowSelection } from 'antd/es/table/interface';
+import type { TableColumnsType, TableProps } from 'antd';
+
+type TableRowSelection<T> = TableProps<T>['rowSelection'];
 
 interface DataType {
   key: React.Key;

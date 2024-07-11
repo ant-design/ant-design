@@ -304,14 +304,14 @@ Properties for row selection.
 ```tsx
 import React from 'react';
 import { Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import type { TableColumnsType } from 'antd';
 
 interface User {
   key: number;
   name: string;
 }
 
-const columns: ColumnsType<User> = [
+const columns: TableColumnsType<User> = [
   {
     key: 'name',
     title: 'Name',

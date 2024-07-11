@@ -19,10 +19,12 @@ import type {
   BadgeConfig,
   ButtonConfig,
   CardConfig,
+  CascaderConfig,
   CollapseConfig,
   ComponentStyleConfig,
   ConfigConsumerProps,
   CSPConfig,
+  DatePickerConfig,
   DirectionType,
   DrawerConfig,
   FlexConfig,
@@ -30,12 +32,15 @@ import type {
   FormConfig,
   ImageConfig,
   InputConfig,
+  InputNumberConfig,
   ListConfig,
+  MentionsConfig,
   MenuConfig,
   ModalConfig,
   NotificationConfig,
   PaginationConfig,
   PopupOverflow,
+  RangePickerConfig,
   SelectConfig,
   SpaceConfig,
   TableConfig,
@@ -44,19 +49,20 @@ import type {
   TextAreaConfig,
   Theme,
   ThemeConfig,
+  TimePickerConfig,
   TourConfig,
   TransferConfig,
-  WaveConfig,
-  Variant,
-  InputNumberConfig,
-  RangePickerConfig,
-  DatePickerConfig,
-  TimePickerConfig,
-  CascaderConfig,
   TreeSelectConfig,
-  MentionsConfig,
+  Variant,
+  WaveConfig,
 } from './context';
-import { ConfigConsumer, ConfigContext, defaultIconPrefixCls, Variants } from './context';
+import {
+  ConfigConsumer,
+  ConfigContext,
+  defaultIconPrefixCls,
+  defaultPrefixCls,
+  Variants,
+} from './context';
 import { registerTheme } from './cssVariables';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import { DisabledContextProvider } from './DisabledContext';
@@ -93,6 +99,7 @@ export const warnContext: (componentName: string) => void =
 export {
   ConfigConsumer,
   ConfigContext,
+  defaultPrefixCls,
   defaultIconPrefixCls,
   type ConfigConsumerProps,
   type CSPConfig,
@@ -234,8 +241,6 @@ interface ProviderChildrenProps extends ConfigProviderProps {
 }
 
 type holderRenderType = (children: React.ReactNode) => React.ReactNode;
-
-export const defaultPrefixCls = 'ant';
 
 let globalPrefixCls: string;
 let globalIconPrefixCls: string;

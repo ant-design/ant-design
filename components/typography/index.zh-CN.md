@@ -109,7 +109,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 
     {
       icon: ReactNode,
-      tooltip: boolean | ReactNode,
+      tooltip: ReactNode,
       editing: boolean,
       maxLength: number,
       autoSize: boolean | { minRows: number, maxRows: number },
@@ -149,7 +149,7 @@ interface EllipsisConfig {
   suffix: string;
   /** `5.16.0` 新增渲染函数 */
   symbol: ReactNode | ((expanded: boolean) => ReactNode);
-  tooltip: boolean | ReactNode | TooltipProps;
+  tooltip: ReactNode | TooltipProps;
   /** `5.16.0` 新增 */
   defaultExpanded: boolean;
   /** `5.16.0` 新增 */
