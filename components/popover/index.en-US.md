@@ -22,6 +22,7 @@ Comparing with `Tooltip`, besides information `Popover` card can also provide ac
 <code src="./demo/triggerType.tsx">Three ways to trigger</code>
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/arrow.tsx">Arrow</code>
+<code src="./demo/shift.tsx" iframe="300">Auto Shift</code>
 <code src="./demo/control.tsx">Controlling the close of the dialog</code>
 <code src="./demo/hover-with-click.tsx">Hover with click popover</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
