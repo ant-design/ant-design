@@ -161,6 +161,7 @@
     "@dnd-kit/sortable": "^8.0.0",
     "@dnd-kit/utilities": "^3.2.2",
     "@emotion/react": "^11.11.4",
+    "@emotion/css": "^11.11.2",
     "@emotion/server": "^11.11.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
     "@inquirer/prompts": "^5.1.2",
