@@ -74,4 +74,8 @@ function main() {
   }
 }
 
+/**
+ * 1. git clone --depth=1 git@github.com:ant-design/ant-design-examples.git examples
+ * 2. npx tsx scripts/prepare-examples.ts
+ */
 main();

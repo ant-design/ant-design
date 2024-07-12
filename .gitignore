@@ -76,3 +76,4 @@ __image_snapshots__/
 .node
 
 .env
+examples/
