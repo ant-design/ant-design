@@ -15,12 +15,12 @@ export interface ComponentToken {
    * @desc 轨迹宽度
    * @descEN Line width
    */
-  tailWidth: number | string;
+  tailWidth: number;
   /**
    * @desc 节点边框宽度
    * @descEN Border width of node
    */
-  dotBorderWidth: number | string;
+  dotBorderWidth: number;
   /**
    * @desc 节点背景色
    * @descEN Background color of node

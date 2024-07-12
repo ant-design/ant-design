@@ -19,7 +19,7 @@ export interface ComponentToken {
    * @desc 弹出菜单的宽度
    * @descEN Width of popup menu
    */
-  dropdownWidth: number | string;
+  dropdownWidth: number;
   /**
    * @desc 弹出菜单的 z-index
    * @descEN z-index of popup menu
@@ -205,12 +205,12 @@ export interface ComponentToken {
 
   // Ink Bar
   /** @deprecated Use `activeBarWidth` instead */
-  colorActiveBarWidth: number | string;
+  colorActiveBarWidth: number;
   /**
    * @desc 菜单项指示条宽度
    * @descEN Width of menu item active bar
    */
-  activeBarWidth: number | string;
+  activeBarWidth: number;
 
   /** @deprecated Use `activeBarHeight` instead */
   colorActiveBarHeight: number;
@@ -226,7 +226,7 @@ export interface ComponentToken {
    * @desc 菜单项指示条边框宽度
    * @descEN Border width of menu item active bar
    */
-  activeBarBorderWidth: number | string;
+  activeBarBorderWidth: number;
 
   /**
    * @desc 菜单项横向外间距
@@ -247,12 +247,12 @@ export interface ComponentToken {
    * @desc 菜单项高度
    * @descEN Height of menu item
    */
-  itemHeight: number | string;
+  itemHeight: number;
   /**
    * @desc 收起后的宽度
    * @descEN Width when collapsed
    */
-  collapsedWidth: number | string;
+  collapsedWidth: number;
   /**
    * @desc 弹出框背景色
    * @descEN Background color of popup
@@ -366,7 +366,7 @@ export interface ComponentToken {
    */
   darkDangerItemActiveBg: string;
   /** @internal */
-  itemWidth: number | string;
+  itemWidth: string;
 }
 
 export interface MenuToken extends FullToken<'Menu'> {

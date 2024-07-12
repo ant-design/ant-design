@@ -17,12 +17,12 @@ export interface ComponentToken {
    * @desc 徽标高度
    * @descEN Height of badge
    */
-  indicatorHeight: number | string;
+  indicatorHeight: number;
   /**
    * @desc 小号徽标高度
    * @descEN Height of small badge
    */
-  indicatorHeightSM: number | string;
+  indicatorHeightSM: number;
   /**
    * @desc 点状徽标尺寸
    * @descEN Size of dot badge
