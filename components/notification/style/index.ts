@@ -20,11 +20,11 @@ export interface ComponentToken {
    * @desc 提醒框宽度
    * @descEN Width of Notification
    */
-  width: number | string;
+  width: number;
 }
 
 export interface NotificationToken extends FullToken<'Notification'> {
-  animationMaxHeight: number | string;
+  animationMaxHeight: number;
   notificationBg: string;
   notificationPadding: string;
   notificationPaddingVertical: number;

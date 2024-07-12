@@ -11,22 +11,22 @@ export interface ComponentToken {
    *  @desc 开关高度
    *  @descEN Height of Switch
    */
-  trackHeight: number | string;
+  trackHeight: number;
   /**
    * @desc 小号开关高度
    * @descEN Height of small Switch
    */
-  trackHeightSM: number | string;
+  trackHeightSM: number;
   /**
    * @desc 开关最小宽度
    * @descEN Minimum width of Switch
    */
-  trackMinWidth: number | string;
+  trackMinWidth: number;
   /**
    * @desc 小号开关最小宽度
    * @descEN Minimum width of small Switch
    */
-  trackMinWidthSM: number | string;
+  trackMinWidthSM: number;
   /**
    * @desc 开关内边距
    * @descEN Padding of Switch

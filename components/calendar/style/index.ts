@@ -16,17 +16,17 @@ export interface ComponentToken {
    * @desc 年选择器宽度
    * @descEN Width of year select
    */
-  yearControlWidth: number | string;
+  yearControlWidth: number;
   /**
    * @desc 月选择器宽度
    * @descEN Width of month select
    */
-  monthControlWidth: number | string;
+  monthControlWidth: number;
   /**
    * @desc 迷你日历内容高度
    * @descEN Height of mini calendar content
    */
-  miniContentHeight: number | string;
+  miniContentHeight: number;
   /**
    * @desc 完整日历背景色
    * @descEN Background color of full calendar
@@ -46,9 +46,9 @@ export interface ComponentToken {
 
 interface CalendarToken extends FullToken<'Calendar'>, PickerPanelToken, PanelComponentToken {
   calendarCls: string;
-  dateValueHeight: number | string;
-  weekHeight: number | string;
-  dateContentHeight: number | string;
+  dateValueHeight: number;
+  weekHeight: number;
+  dateContentHeight: number;
 }
 
 export const genCalendarStyles = (token: CalendarToken): CSSObject => {
