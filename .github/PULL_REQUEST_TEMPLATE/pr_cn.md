@@ -50,7 +50,7 @@
 
 - 请用面向开发者的角度和叙述方式撰写 changelog
 - 描述用户第一现场的问题，对开发者有哪些影响，而非你的解决方式
-- 参考：ant.design/changelog-cn
+- 参考：https://ant.design/changelog-cn
 
 | 语言    | 更新描述 |
 | ------- | -------- |
