@@ -2,14 +2,14 @@ import type { FC } from 'react';
 import React, { useEffect, useState } from 'react';
 
 import Input from '../../input';
-import type { Color } from '../color';
+import type { AggregationColor } from '../color';
 import { toHexFormat } from '../color';
 import type { ColorPickerBaseProps } from '../interface';
 import { generateColor } from '../util';
 
 interface ColorHexInputProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
-  value?: Color;
-  onChange?: (value: Color) => void;
+  value?: AggregationColor;
+  onChange?: (value: AggregationColor) => void;
 }
 
 const hexReg = /(^#[\da-f]{6}$)|(^#[\da-f]{8}$)/i;
@@ -32,6 +32,7 @@ const ColorHexInput: FC<ColorHexInputProps> = ({ prefixCls, value, onChange }) =
     const originValue = e.target.value;
     setHexValue(toHexFormat(originValue));
     if (isHexString(toHexFormat(originValue, true))) {
+      console.log('change!!!', originValue, generateColor(originValue));
       onChange?.(generateColor(originValue));
     }
   };

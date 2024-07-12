@@ -59,16 +59,14 @@ exports[`ColorPicker Should panelRender work 1`] = `
                       style="position: relative;"
                     >
                       <div
-                        style="position: absolute; left: -50px; top: 50px; z-index: 1;"
+                        style="position: absolute; left: 0px; top: 0px; z-index: 1;"
                       >
                         <div
                           class="ant-color-picker-handler"
-                          style="background-color: rgba(0, 0, 0, 0);"
                         />
                       </div>
                       <div
                         class="ant-color-picker-saturation"
-                        style="background-color: rgb(255, 0, 0);"
                       />
                     </div>
                   </div>
@@ -86,11 +84,10 @@ exports[`ColorPicker Should panelRender work 1`] = `
                           style="position: relative;"
                         >
                           <div
-                            style="position: absolute; left: -50px; top: -16.666666666666668px; z-index: 1;"
+                            style="position: absolute; left: 0px; top: -16.666666666666668px; z-index: 1;"
                           >
                             <div
                               class="ant-color-picker-handler ant-color-picker-handler-sm"
-                              style="background-color: rgb(255, 0, 0);"
                             />
                           </div>
                           <div
@@ -111,7 +108,6 @@ exports[`ColorPicker Should panelRender work 1`] = `
                           >
                             <div
                               class="ant-color-picker-handler ant-color-picker-handler-sm"
-                              style="background-color: rgba(0, 0, 0, 0);"
                             />
                           </div>
                           <div
@@ -126,7 +122,6 @@ exports[`ColorPicker Should panelRender work 1`] = `
                     >
                       <div
                         class="ant-color-picker-color-block-inner"
-                        style="background: rgba(0, 0, 0, 0);"
                       />
                     </div>
                   </div>
@@ -343,16 +338,14 @@ exports[`ColorPicker Should panelRender work 2`] = `
                     style="position: relative;"
                   >
                     <div
-                      style="position: absolute; left: -50px; top: 50px; z-index: 1;"
+                      style="position: absolute; left: 0px; top: 0px; z-index: 1;"
                     >
                       <div
                         class="ant-color-picker-handler"
-                        style="background-color: rgba(0, 0, 0, 0);"
                       />
                     </div>
                     <div
                       class="ant-color-picker-saturation"
-                      style="background-color: rgb(255, 0, 0);"
                     />
                   </div>
                 </div>
@@ -370,11 +363,10 @@ exports[`ColorPicker Should panelRender work 2`] = `
                         style="position: relative;"
                       >
                         <div
-                          style="position: absolute; left: -50px; top: -16.666666666666668px; z-index: 1;"
+                          style="position: absolute; left: 0px; top: -16.666666666666668px; z-index: 1;"
                         >
                           <div
                             class="ant-color-picker-handler ant-color-picker-handler-sm"
-                            style="background-color: rgb(255, 0, 0);"
                           />
                         </div>
                         <div
@@ -395,7 +387,6 @@ exports[`ColorPicker Should panelRender work 2`] = `
                         >
                           <div
                             class="ant-color-picker-handler ant-color-picker-handler-sm"
-                            style="background-color: rgba(0, 0, 0, 0);"
                           />
                         </div>
                         <div
@@ -410,7 +401,6 @@ exports[`ColorPicker Should panelRender work 2`] = `
                   >
                     <div
                       class="ant-color-picker-color-block-inner"
-                      style="background: rgba(0, 0, 0, 0);"
                     />
                   </div>
                 </div>
