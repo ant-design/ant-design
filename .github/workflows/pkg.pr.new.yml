@@ -1,14 +1,8 @@
-name: Continuous Releases
-
-on:
-  workflow_run:
-    workflows: ["✅ test"]
-    types:
-      - completed
+name: Publish Any Commit
+on: [push, pull_request]
 
 jobs:
   build:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
 
     steps:
@@ -20,20 +14,9 @@ jobs:
         with:
           node-version: 20
 
-      # ========== Prepare package ==========
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v4
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
+      - name: Install dependencies
+        run: npm install
 
-      - name: restore cache from node_modules
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-
-      # ========== build ==========
       - name: Build
         run: npm run build
 
