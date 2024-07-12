@@ -21,7 +21,7 @@ export interface ComponentToken {
    * @desc 卡片标签页高度
    * @descEN Height of card tab
    */
-  cardHeight: number | string;
+  cardHeight: number;
   /**
    * @desc 卡片标签页内间距
    * @descEN Padding of card tab
@@ -134,8 +134,8 @@ export interface TabsToken extends FullToken<'Tabs'> {
   dropdownEdgeChildVerticalPadding: number;
   tabsNavWrapPseudoWidth: number;
   tabsActiveTextShadow: string;
-  tabsDropdownHeight: number | string;
-  tabsDropdownWidth: number | string;
+  tabsDropdownHeight: number;
+  tabsDropdownWidth: number;
   tabsHorizontalItemMargin: string;
   tabsHorizontalItemMarginRTL: string;
 }

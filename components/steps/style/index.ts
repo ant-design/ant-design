@@ -81,7 +81,7 @@ export interface ComponentToken {
    * @desc 标题行高
    * @descEN Line height of title
    */
-  titleLineHeight: number | string;
+  titleLineHeight: number;
   /**
    * @internal
    */

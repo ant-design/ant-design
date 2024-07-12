@@ -11,17 +11,17 @@ export interface ComponentToken {
    * @desc 选择器宽度
    * @descEN Width of Cascader
    */
-  controlWidth: number | string;
+  controlWidth: number;
   /**
    * @desc 选项宽度
    * @descEN Width of item
    */
-  controlItemWidth: number | string;
+  controlItemWidth: number;
   /**
    * @desc 下拉菜单高度
    * @descEN Height of dropdown
    */
-  dropdownHeight: number | string;
+  dropdownHeight: number;
   /**
    * @desc 选项选中时背景色
    * @descEN Background color of selected item

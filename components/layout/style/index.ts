@@ -58,7 +58,7 @@ export interface ComponentToken {
    * @desc 侧边栏开关高度
    * @descEN Height of sider trigger
    */
-  triggerHeight: number | string;
+  triggerHeight: number;
   /**
    * @desc 侧边栏开关背景色
    * @descEN Background Color of sider trigger

@@ -15,13 +15,13 @@ import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import type { Variant } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
-import type { Variant } from '../config-provider';
 import useVariant from '../form/hooks/useVariants';
 import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements';
 import useSelectStyle from '../select/style';
@@ -264,7 +264,7 @@ const InternalTreeSelect = <
     hashId,
   );
 
-  const renderSwitcherIcon: React.FC<AntTreeNodeProps> = (nodeProps) => (
+  const renderSwitcherIcon = (nodeProps: AntTreeNodeProps) => (
     <SwitcherIconCom
       prefixCls={treePrefixCls}
       switcherIcon={switcherIcon as SwitcherIcon}

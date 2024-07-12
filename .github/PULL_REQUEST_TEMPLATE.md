@@ -50,7 +50,7 @@ Describe changes from the user side, and list all potential break changes or oth
 
 - Use a developer-oriented tone and narrative style.
 - Describe the user's first-hand experience of the issue and its impact on developers, rather than your solution approach.
-- Refer to: ant.design/changelog
+- Refer to: https://ant.design/changelog
 
 | Language   | Changelog |
 | ---------- | --------- |

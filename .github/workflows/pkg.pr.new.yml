@@ -20,4 +20,17 @@ jobs:
       - name: Build
         run: npm run build
 
-      - run: npx pkg-pr-new publish
+      # ========== Prepare examples ==========
+      - name: Clear examples
+        run: rm -rf examples
+
+      - name: Clone examples
+        uses: actions/checkout@v4
+        with:
+          repository: ant-design/ant-design-examples
+          path: examples
+
+      - name: Modify examples
+        run: npx tsx scripts/prepare-examples.ts
+
+      - run: npx pkg-pr-new publish --template './examples/examples/*'

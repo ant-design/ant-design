@@ -11,7 +11,7 @@ interface EmptyToken extends FullToken<'Empty'> {
   emptyImgCls: string;
   emptyImgHeight: number | string;
   emptyImgHeightSM: number | string;
-  emptyImgHeightMD: number | string;
+  emptyImgHeightMD: number;
 }
 
 // ============================== Shared ==============================

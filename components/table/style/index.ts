@@ -166,7 +166,7 @@ export interface ComponentToken {
    * @desc 选择列宽度
    * @descEN Width of selection column
    */
-  selectionColumnWidth: number | string;
+  selectionColumnWidth: number;
   /**
    * @desc Sticky 模式下滚动条背景色
    * @descEN Background of sticky scrollbar
@@ -214,14 +214,14 @@ export interface TableToken extends FullToken<'Table'> {
   tableFixedHeaderSortActiveBg: string;
   tableHeaderFilterActiveBg: string;
   tableFilterDropdownBg: string;
-  tableFilterDropdownHeight: number | string;
+  tableFilterDropdownHeight: number;
   tableRowHoverBg: string;
   tableSelectedRowBg: string;
   tableSelectedRowHoverBg: string;
 
   tableFontSizeMiddle: number;
   tableFontSizeSmall: number;
-  tableSelectionColumnWidth: number | string;
+  tableSelectionColumnWidth: number;
   tableExpandIconBg: string;
   tableExpandColumnWidth: number | string;
   tableExpandedRowBg: string;

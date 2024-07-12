@@ -37,8 +37,8 @@ export interface ComponentToken extends ArrowOffsetToken, ArrowToken {
 
 interface TourToken extends FullToken<'Tour'> {
   tourZIndexPopup: number;
-  indicatorWidth: number | string;
-  indicatorHeight: number | string;
+  indicatorWidth: number;
+  indicatorHeight: number;
   tourBorderRadius: number;
 }
 

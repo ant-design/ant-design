@@ -38,12 +38,12 @@ export interface ComponentToken {
    * @desc 滑块边框宽度
    * @descEN Border width of handle
    */
-  handleLineWidth: number | string;
+  handleLineWidth: number;
   /**
    * @desc 滑块边框宽度（悬浮态）
    * @descEN Border width of handle when hover
    */
-  handleLineWidthHover: number | string;
+  handleLineWidthHover: number;
   /**
    * @desc 滑块圆点尺寸
    * @descEN Size of dot

@@ -18,18 +18,18 @@ export interface ComponentToken extends ArrowToken, ArrowOffsetToken {
    * @desc 气泡卡片宽度
    * @descEN Width of Popover
    */
-  width?: number | string;
+  width?: number;
   /**
    * @deprecated Please use `titleMinWidth` instead
    * @desc 气泡卡片最小宽度
    * @descEN Min width of Popover
    */
-  minWidth?: number | string;
+  minWidth?: number;
   /**
    * @desc 气泡卡片标题最小宽度
    * @descEN Min width of Popover title
    */
-  titleMinWidth: number | string;
+  titleMinWidth: number;
   /**
    * @desc 气泡卡片 z-index
    * @descEN z-index of Popover
