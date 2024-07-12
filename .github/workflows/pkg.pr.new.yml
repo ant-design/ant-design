@@ -29,7 +29,6 @@ jobs:
         with:
           repository: ant-design/ant-design-examples
           sparse-checkout: examples
-          path: examples
 
       - name: Modify examples
         run: npx tsx scripts/prepare-examples.ts
