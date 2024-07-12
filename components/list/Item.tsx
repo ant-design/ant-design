@@ -107,7 +107,7 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
   };
 
   const prefixCls = getPrefixCls('list', customizePrefixCls);
-  const actionsContent = actions?.length && (
+  const actionsContent = (actions && actions.length > 0) && (
     <ul
       className={classNames(`${prefixCls}-item-action`, moduleClass('actions'))}
       key="actions"
