@@ -7,19 +7,42 @@ export const toHexFormat = (value?: string, alpha?: boolean) =>
 
 export const getHex = (value?: string, alpha?: boolean) => (value ? toHexFormat(value, alpha) : '');
 
-export class AggregationColor extends RcColor {
+export class AggregationColor {
+  /** Original Color object */
+  private metaColor: RcColor;
+
   public cleared: boolean | 'controlled' = false;
 
   constructor(color: ColorGenInput<AggregationColor>) {
-    super(color);
+    this.metaColor = new RcColor(color instanceof AggregationColor ? color.metaColor : color);
 
     if (!color) {
-      this.setAlpha(0);
+      this.metaColor.setAlpha(0);
       this.cleared = true;
     }
   }
 
+  toHsb() {
+    return this.metaColor.toHsb();
+  }
+
+  toHsbString() {
+    return this.metaColor.toHsbString();
+  }
+
   toHex() {
-    return getHex(this.toHexString(), this.getAlpha() < 1);
+    return getHex(this.toHexString(), this.metaColor.getAlpha() < 1);
+  }
+
+  toHexString() {
+    return this.metaColor.toHexString();
+  }
+
+  toRgb() {
+    return this.metaColor.toRgb();
+  }
+
+  toRgbString() {
+    return this.metaColor.toRgbString();
   }
 }
