@@ -10,7 +10,6 @@ import { TinyColor } from '@ctrl/tinycolor';
 import type { MenuProps, ThemeConfig } from 'antd';
 import {
   Breadcrumb,
-  Button,
   Card,
   ConfigProvider,
   Flex,
@@ -29,7 +28,7 @@ import { useLocation } from 'dumi';
 
 import useDark from '../../../../hooks/useDark';
 import useLocale from '../../../../hooks/useLocale';
-import Link from '../../../../theme/common/Link';
+import LinkButton from '../../../../theme/common/LinkButton';
 import SiteContext from '../../../../theme/slots/SiteContext';
 import { getLocalizedPathname } from '../../../../theme/utils';
 import Group from '../Group';
@@ -518,14 +517,15 @@ const Theme: React.FC = () => {
                   title={locale.myTheme}
                   extra={
                     <Flex gap="small">
-                      <Link to={getLocalizedPathname('/theme-editor', isZhCN, search)}>
-                        <Button type="default">{locale.toDef}</Button>
-                      </Link>
-                      <Link
+                      <LinkButton to={getLocalizedPathname('/theme-editor', isZhCN, search)}>
+                        {locale.toDef}
+                      </LinkButton>
+                      <LinkButton
+                        type="primary"
                         to={getLocalizedPathname('/docs/react/customize-theme', isZhCN, search)}
                       >
-                        <Button type="primary">{locale.toUse}</Button>
-                      </Link>
+                        {locale.toUse}
+                      </LinkButton>
                     </Flex>
                   }
                 >
