@@ -404,7 +404,7 @@ describe('ColorPicker', () => {
     await waitFakeTimer();
     fireEvent.click(container.querySelector('.ant-select-item[title="RGB"]')!);
     await waitFakeTimer();
-    expect(targetEle?.innerHTML).toEqual('rgb(22, 119, 255)');
+    expect(targetEle?.innerHTML).toEqual('rgb(22,119,255)');
 
     fireEvent.mouseDown(
       container.querySelector('.ant-color-picker-format-select .ant-select-selector')!,
