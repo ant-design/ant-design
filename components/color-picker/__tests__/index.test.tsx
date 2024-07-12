@@ -616,7 +616,7 @@ describe('ColorPicker', () => {
       const Demo = () => {
         const [color, setColor] = useState<ColorValueType>(value);
         useEffect(() => {
-          setColor(generateColor('red'));
+          setColor(generateColor('#FF0000'));
         }, []);
         return <ColorPicker value={color} />;
       };
