@@ -32,7 +32,6 @@ const ColorHexInput: FC<ColorHexInputProps> = ({ prefixCls, value, onChange }) =
     const originValue = e.target.value;
     setHexValue(toHexFormat(originValue));
     if (isHexString(toHexFormat(originValue, true))) {
-      console.log('change!!!', originValue, generateColor(originValue));
       onChange?.(generateColor(originValue));
     }
   };

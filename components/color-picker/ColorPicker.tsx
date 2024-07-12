@@ -121,7 +121,6 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   const handleChange: ColorPickerPanelProps['onChange'] = (data, type, pickColor) => {
     let color: AggregationColor = generateColor(data as AggregationColor);
-    console.log('WHY?', data, color);
 
     // If color is cleared, reset alpha to 100
     const isNull = value === null || (!value && defaultValue === null);
