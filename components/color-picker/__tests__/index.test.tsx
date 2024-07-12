@@ -10,7 +10,7 @@ import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Form from '../../form';
 import theme from '../../theme';
-import type { Color } from '../color';
+import type { AggregationColor } from '../color';
 import ColorPicker from '../ColorPicker';
 import type { ColorPickerProps, ColorValueType } from '../interface';
 import { generateColor } from '../util';
@@ -65,7 +65,7 @@ describe('ColorPicker', () => {
 
   it('Should component custom trigger work', async () => {
     const App: React.FC = () => {
-      const [color, setColor] = useState<Color | string>('hsb(215, 91%, 100%)');
+      const [color, setColor] = useState<AggregationColor | string>('hsb(215, 91%, 100%)');
       const colorString = useMemo(
         () => (typeof color === 'string' ? color : color.toHsbString()),
         [color],
