@@ -16,6 +16,9 @@ tag: vVERSION
 
 ---
 
+Internationalization*
+💄 Added missing translation for the Arabic language.
+
 ## 5.19.1
 
 `2024-07-05`
