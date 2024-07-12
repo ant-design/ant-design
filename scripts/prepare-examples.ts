@@ -1,11 +1,12 @@
 import fg from 'fast-glob';
 import fs from 'fs-extra';
+import path from 'path';
 import cloneDeep from 'lodash/cloneDeep';
 import isPlainObject from 'lodash/isPlainObject';
 
 import rootPkg from '../package.json';
 
-const examples = fg.sync(['examples/**/package.json'], {
+const examples = fg.sync(['examples/examples/**/package.json'], {
   cwd: process.cwd(),
   onlyFiles: true,
   ignore: ['**/node_modules/**', '.git'],
@@ -49,6 +50,7 @@ function modifyPackageJson(pkgJson: any) {
         pkgJson,
         ['@ant-design/cssinjs'], // need to sync version
       ),
+      private: true,
       author: 'antd GitHub CI',
     };
   }
@@ -60,6 +62,9 @@ function main() {
 
     const pkgJson = fs.readJsonSync(example);
     const newPkgJson = modifyPackageJson(pkgJson) ?? pkgJson;
+
+    // unique named package.json
+    newPkgJson.name = path.basename(path.dirname(example));
 
     const rewritePath = process.env.CI ? example : `${example}.tmp`; // ignored
 
