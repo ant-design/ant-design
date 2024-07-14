@@ -27,11 +27,11 @@ import { getPlaceholder, transPlacement2DropdownAlign, useIcons } from '../util'
 import type { GenericTimePickerProps, PickerProps, PickerPropsWithMultiple } from './interface';
 import useComponents from './useComponents';
 
-const [WEEK, WEEKPICKER]: [PickerMode, string] = ['week', 'WeekPicker'];
-const [MONTH, MONTHPICKER]: [PickerMode, string] = ['month', 'MonthPicker'];
-const [YEAR, YEARPICKER]: [PickerMode, string] = ['year', 'YearPicker'];
-const [QUARTER, QUARTERPICKER]: [PickerMode, string] = ['quarter', 'QuarterPicker'];
-const [TIME, TIMEPICKER]: [PickerMode, string] = ['time', 'TimePicker'];
+const [WEEK, WEEKPICKER] = ['week', 'WeekPicker'] as const;
+const [MONTH, MONTHPICKER] = ['month', 'MonthPicker'] as const;
+const [YEAR, YEARPICKER] = ['year', 'YearPicker'] as const;
+const [QUARTER, QUARTERPICKER] = ['quarter', 'QuarterPicker'] as const;
+const [TIME, TIMEPICKER] = ['time', 'TimePicker'] as const;
 
 const generatePicker = <DateType extends AnyObject>(generateConfig: GenerateConfig<DateType>) => {
   type DatePickerProps = PickerProps<DateType>;
