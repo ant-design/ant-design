@@ -5,7 +5,7 @@ import Link from './Link';
 import type { LinkProps } from './Link';
 
 type LinkButtonProps = LinkProps &
-  Pick<ButtonProps, 'type' | 'size'> & { children: React.ReactNode };
+  Readonly<React.PropsWithChildren<Pick<ButtonProps, 'type' | 'size'>>>;
 
 const LinkButton: React.FC<LinkButtonProps> = (props) => <Link component={Button} {...props} />;
 
