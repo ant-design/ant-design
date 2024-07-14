@@ -1,9 +1,9 @@
-import type { ValidateMessages } from 'rc-field-form/es/interface';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
+import type { ValidateMessages } from 'rc-field-form/es/interface';
 import scrollIntoView from 'scroll-into-view-if-needed';
+
 import ConfigProvider from '..';
-import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import type { FormInstance } from '../../form';
 import Form from '../../form';

@@ -2,12 +2,14 @@
 
 exports[`renders components/qr-code/demo/Popover.tsx extend context correctly 1`] = `
 Array [
-  <img
-    alt="icon"
-    height="100"
-    src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-    width="100"
-  />,
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Hover me
+    </span>
+  </button>,
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -22,17 +24,17 @@ Array [
       <div
         class="ant-popover-inner"
         role="tooltip"
-        style="padding: 0px;"
       >
         <div
           class="ant-popover-inner-content"
         >
           <div
             class="ant-qrcode ant-qrcode-borderless"
-            style="width: 160px; height: 160px; background-color: transparent;"
+            style="background-color: transparent; width: 160px; height: 160px;"
           >
             <canvas
               height="160"
+              role="img"
               width="160"
             />
           </div>
@@ -54,10 +56,11 @@ exports[`renders components/qr-code/demo/base.tsx extend context correctly 1`] =
   >
     <div
       class="ant-qrcode"
-      style="width: 160px; height: 160px; background-color: transparent;"
+      style="background-color: transparent; width: 160px; height: 160px;"
     >
       <canvas
         height="160"
+        role="img"
         width="160"
       />
     </div>
@@ -87,10 +90,11 @@ exports[`renders components/qr-code/demo/customColor.tsx extend context correctl
   >
     <div
       class="ant-qrcode"
-      style="width: 160px; height: 160px; background-color: transparent;"
+      style="background-color: transparent; width: 160px; height: 160px;"
     >
       <canvas
         height="160"
+        role="img"
         width="160"
       />
     </div>
@@ -100,10 +104,11 @@ exports[`renders components/qr-code/demo/customColor.tsx extend context correctl
   >
     <div
       class="ant-qrcode"
-      style="width: 160px; height: 160px; background-color: rgb(245, 245, 245);"
+      style="background-color: rgb(245, 245, 245); width: 160px; height: 160px;"
     >
       <canvas
         height="160"
+        role="img"
         width="160"
       />
     </div>
@@ -187,13 +192,15 @@ Array [
   </div>,
   <div
     class="ant-qrcode"
-    style="width: 160px; height: 160px; background-color: transparent;"
+    style="background-color: transparent; width: 160px; height: 160px;"
   >
     <canvas
       height="160"
+      role="img"
       width="160"
     />
     <img
+      crossorigin="anonymous"
       src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
       style="display: none;"
     />
@@ -205,25 +212,79 @@ exports[`renders components/qr-code/demo/customSize.tsx extend context correctly
 
 exports[`renders components/qr-code/demo/download.tsx extend context correctly 1`] = `
 <div
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
   id="myqrcode"
 >
   <div
-    class="ant-qrcode"
-    style="margin-bottom: 16px; width: 160px; height: 160px; background-color: rgb(255, 255, 255);"
+    class="ant-space-item"
   >
-    <canvas
-      height="160"
-      width="160"
-    />
+    <div
+      class="ant-segmented"
+    >
+      <div
+        class="ant-segmented-group"
+      >
+        <label
+          class="ant-segmented-item ant-segmented-item-selected"
+        >
+          <input
+            checked=""
+            class="ant-segmented-item-input"
+            type="radio"
+          />
+          <div
+            class="ant-segmented-item-label"
+            title="canvas"
+          >
+            canvas
+          </div>
+        </label>
+        <label
+          class="ant-segmented-item"
+        >
+          <input
+            class="ant-segmented-item-input"
+            type="radio"
+          />
+          <div
+            class="ant-segmented-item-label"
+            title="svg"
+          >
+            svg
+          </div>
+        </label>
+      </div>
+    </div>
   </div>
-  <button
-    class="ant-btn ant-btn-primary"
-    type="button"
+  <div
+    class="ant-space-item"
   >
-    <span>
-      Download
-    </span>
-  </button>
+    <div>
+      <div
+        class="ant-qrcode"
+        style="background-color: rgb(255, 255, 255); margin-bottom: 16px; width: 160px; height: 160px;"
+      >
+        <canvas
+          height="160"
+          role="img"
+          width="160"
+        />
+        <img
+          crossorigin="anonymous"
+          src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+          style="display: none;"
+        />
+      </div>
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          Download
+        </span>
+      </button>
+    </div>
+  </div>
 </div>
 `;
 
@@ -233,10 +294,11 @@ exports[`renders components/qr-code/demo/errorlevel.tsx extend context correctly
 Array [
   <div
     class="ant-qrcode"
-    style="margin-bottom: 16px; width: 160px; height: 160px; background-color: transparent;"
+    style="background-color: transparent; margin-bottom: 16px; width: 160px; height: 160px;"
   >
     <canvas
       height="160"
+      role="img"
       width="160"
     />
   </div>,
@@ -313,13 +375,15 @@ exports[`renders components/qr-code/demo/errorlevel.tsx extend context correctly
 exports[`renders components/qr-code/demo/icon.tsx extend context correctly 1`] = `
 <div
   class="ant-qrcode"
-  style="width: 160px; height: 160px; background-color: transparent;"
+  style="background-color: transparent; width: 160px; height: 160px;"
 >
   <canvas
     height="160"
+    role="img"
     width="160"
   />
   <img
+    crossorigin="anonymous"
     src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
     style="display: none;"
   />
@@ -334,7 +398,7 @@ exports[`renders components/qr-code/demo/status.tsx extend context correctly 1`]
 >
   <div
     class="ant-qrcode"
-    style="width: 160px; height: 160px; background-color: transparent;"
+    style="background-color: transparent; width: 160px; height: 160px;"
   >
     <div
       class="ant-qrcode-mask"
@@ -345,31 +409,36 @@ exports[`renders components/qr-code/demo/status.tsx extend context correctly 1`]
         class="ant-spin ant-spin-spinning"
       >
         <span
-          class="ant-spin-dot ant-spin-dot-spin"
+          class="ant-spin-dot-holder"
         >
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
+          <span
+            class="ant-spin-dot ant-spin-dot-spin"
+          >
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+          </span>
         </span>
       </div>
     </div>
     <canvas
       height="160"
+      role="img"
       width="160"
     />
   </div>
   <div
     class="ant-qrcode"
-    style="width: 160px; height: 160px; background-color: transparent;"
+    style="background-color: transparent; width: 160px; height: 160px;"
   >
     <div
       class="ant-qrcode-mask"
@@ -413,12 +482,13 @@ exports[`renders components/qr-code/demo/status.tsx extend context correctly 1`]
     </div>
     <canvas
       height="160"
+      role="img"
       width="160"
     />
   </div>
   <div
     class="ant-qrcode"
-    style="width: 160px; height: 160px; background-color: transparent;"
+    style="background-color: transparent; width: 160px; height: 160px;"
   >
     <div
       class="ant-qrcode-mask"
@@ -431,6 +501,7 @@ exports[`renders components/qr-code/demo/status.tsx extend context correctly 1`]
     </div>
     <canvas
       height="160"
+      role="img"
       width="160"
     />
   </div>
@@ -448,10 +519,11 @@ exports[`renders components/qr-code/demo/type.tsx extend context correctly 1`] =
   >
     <div
       class="ant-qrcode"
-      style="width: 160px; height: 160px; background-color: transparent;"
+      style="background-color: transparent; width: 160px; height: 160px;"
     >
       <canvas
         height="160"
+        role="img"
         width="160"
       />
     </div>
@@ -461,10 +533,11 @@ exports[`renders components/qr-code/demo/type.tsx extend context correctly 1`] =
   >
     <div
       class="ant-qrcode"
-      style="width: 160px; height: 160px; background-color: transparent;"
+      style="background-color: transparent; width: 160px; height: 160px;"
     >
       <svg
         height="160"
+        role="img"
         viewBox="0 0 25 25"
         width="160"
       >

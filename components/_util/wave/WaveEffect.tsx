@@ -1,10 +1,13 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
-import { render, unmount } from 'rc-util/lib/React/render';
 import raf from 'rc-util/lib/raf';
-import * as React from 'react';
+import { render, unmount } from 'rc-util/lib/React/render';
+import { composeRef } from 'rc-util/lib/ref';
+
+import { TARGET_CLS } from './interface';
+import type { ShowWaveEffect } from './interface';
 import { getTargetWaveColor } from './util';
-import { type ShowWaveEffect, TARGET_CLS } from './interface';
 
 function validateNum(value: number) {
   return Number.isNaN(value) ? 0 : value;
@@ -123,16 +126,10 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
         return false;
       }}
     >
-      {({ className: motionClassName }) => (
+      {({ className: motionClassName }, ref) => (
         <div
-          ref={divRef}
-          className={classNames(
-            className,
-            {
-              'wave-quick': isSmallComponent,
-            },
-            motionClassName,
-          )}
+          ref={composeRef(divRef, ref)}
+          className={classNames(className, motionClassName, { 'wave-quick': isSmallComponent })}
           style={waveStyle}
         />
       )}
@@ -144,7 +141,7 @@ const showWaveEffect: ShowWaveEffect = (target, info) => {
   const { component } = info;
 
   // Skip for unchecked checkbox
-  if (component === 'Checkbox' && !target.querySelector('input')?.checked) {
+  if (component === 'Checkbox' && !target.querySelector<HTMLInputElement>('input')?.checked) {
     return;
   }
 

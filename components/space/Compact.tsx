@@ -1,12 +1,11 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
-import * as React from 'react';
 
 import type { DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import type { SizeType } from '../config-provider/SizeContext';
-
 import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import useStyle from './style';
 
 export interface SpaceCompactItemContextType {
@@ -44,7 +43,7 @@ export const useCompactItemContext = (prefixCls: string, direction: DirectionTyp
   };
 };
 
-export const NoCompactStyle: React.FC<React.PropsWithChildren<{}>> = ({ children }) => (
+export const NoCompactStyle: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => (
   <SpaceCompactItemContext.Provider value={null}>{children}</SpaceCompactItemContext.Provider>
 );
 
@@ -99,7 +98,7 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
   const nodes = React.useMemo(
     () =>
       childNodes.map((child, i) => {
-        const key = (child && child.key) || `${prefixCls}-item-${i}`;
+        const key = child?.key || `${prefixCls}-item-${i}`;
         return (
           <CompactItem
             key={key}

@@ -12232,7 +12232,7 @@ exports[`ConfigProvider components Collapse configProvider 1`] = `
         class="config-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="collapsed"
           class="anticon anticon-right config-collapse-arrow"
           role="img"
         >
@@ -12279,7 +12279,7 @@ exports[`ConfigProvider components Collapse configProvider componentDisabled 1`]
         class="config-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="collapsed"
           class="anticon anticon-right config-collapse-arrow"
           role="img"
         >
@@ -12326,7 +12326,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize large 1
         class="config-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="collapsed"
           class="anticon anticon-right config-collapse-arrow"
           role="img"
         >
@@ -12373,7 +12373,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize middle 
         class="config-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="collapsed"
           class="anticon anticon-right config-collapse-arrow"
           role="img"
         >
@@ -12420,7 +12420,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize small 1
         class="config-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="collapsed"
           class="anticon anticon-right config-collapse-arrow"
           role="img"
         >
@@ -12467,7 +12467,7 @@ exports[`ConfigProvider components Collapse normal 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="collapsed"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -12514,7 +12514,7 @@ exports[`ConfigProvider components Collapse prefixCls 1`] = `
         class="prefix-Collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="collapsed"
           class="anticon anticon-right prefix-Collapse-arrow"
           role="img"
         >
@@ -13276,7 +13276,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider 1`] = `
     </div>
     <div
       class="config-picker-active-bar"
-      style="position: absolute; width: 0px; left: 0px;"
+      style="position: absolute; width: 0px;"
     />
     <span
       class="config-picker-suffix"
@@ -13366,7 +13366,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
     </div>
     <div
       class="config-picker-active-bar"
-      style="position: absolute; width: 0px; left: 0px;"
+      style="position: absolute; width: 0px;"
     />
     <span
       class="config-picker-suffix"
@@ -13454,7 +13454,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
     </div>
     <div
       class="config-picker-active-bar"
-      style="position: absolute; width: 0px; left: 0px;"
+      style="position: absolute; width: 0px;"
     />
     <span
       class="config-picker-suffix"
@@ -13542,7 +13542,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
     </div>
     <div
       class="config-picker-active-bar"
-      style="position: absolute; width: 0px; left: 0px;"
+      style="position: absolute; width: 0px;"
     />
     <span
       class="config-picker-suffix"
@@ -13630,7 +13630,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
     </div>
     <div
       class="config-picker-active-bar"
-      style="position: absolute; width: 0px; left: 0px;"
+      style="position: absolute; width: 0px;"
     />
     <span
       class="config-picker-suffix"
@@ -13718,7 +13718,7 @@ exports[`ConfigProvider components DatePicker RangePicker normal 1`] = `
     </div>
     <div
       class="ant-picker-active-bar"
-      style="position: absolute; width: 0px; left: 0px;"
+      style="position: absolute; width: 0px;"
     />
     <span
       class="ant-picker-suffix"
@@ -13806,7 +13806,7 @@ exports[`ConfigProvider components DatePicker RangePicker prefixCls 1`] = `
     </div>
     <div
       class="prefix-RangePicker-active-bar"
-      style="position: absolute; width: 0px; left: 0px;"
+      style="position: absolute; width: 0px;"
     />
     <span
       class="prefix-RangePicker-suffix"
@@ -14999,6 +14999,9 @@ exports[`ConfigProvider components Empty configProvider 1`] = `
       width="184"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        empty image
+      </title>
       <g
         fill="none"
         fill-rule="evenodd"
@@ -15074,6 +15077,9 @@ exports[`ConfigProvider components Empty configProvider componentDisabled 1`] = 
       width="184"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        empty image
+      </title>
       <g
         fill="none"
         fill-rule="evenodd"
@@ -15149,6 +15155,9 @@ exports[`ConfigProvider components Empty configProvider componentSize large 1`] 
       width="184"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        empty image
+      </title>
       <g
         fill="none"
         fill-rule="evenodd"
@@ -15224,6 +15233,9 @@ exports[`ConfigProvider components Empty configProvider componentSize middle 1`]
       width="184"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        empty image
+      </title>
       <g
         fill="none"
         fill-rule="evenodd"
@@ -15299,6 +15311,9 @@ exports[`ConfigProvider components Empty configProvider componentSize small 1`] 
       width="184"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        empty image
+      </title>
       <g
         fill="none"
         fill-rule="evenodd"
@@ -15374,6 +15389,9 @@ exports[`ConfigProvider components Empty normal 1`] = `
       width="184"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        empty image
+      </title>
       <g
         fill="none"
         fill-rule="evenodd"
@@ -15449,6 +15467,9 @@ exports[`ConfigProvider components Empty prefixCls 1`] = `
       width="184"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        empty image
+      </title>
       <g
         fill="none"
         fill-rule="evenodd"
@@ -21791,197 +21812,211 @@ exports[`ConfigProvider components Popover prefixCls 1`] = `
 
 exports[`ConfigProvider components Progress configProvider 1`] = `
 <div
+  aria-valuemax="100"
+  aria-valuemin="0"
   aria-valuenow="0"
-  class="config-progress config-progress-status-normal config-progress-line config-progress-show-info config-progress-default"
+  class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info config-progress-default"
   role="progressbar"
 >
   <div
     class="config-progress-outer"
-    style="width: 100%; height: 8px;"
+    style="width: 100%;"
   >
     <div
       class="config-progress-inner"
     >
       <div
-        class="config-progress-bg"
+        class="config-progress-bg config-progress-bg-outer"
         style="width: 0%; height: 8px; --progress-percent: 0;"
       />
     </div>
+    <span
+      class="config-progress-text config-progress-text-end config-progress-text-outer"
+      title="0%"
+    >
+      0%
+    </span>
   </div>
-  <span
-    class="config-progress-text"
-    title="0%"
-  >
-    0%
-  </span>
 </div>
 `;
 
 exports[`ConfigProvider components Progress configProvider componentDisabled 1`] = `
 <div
+  aria-valuemax="100"
+  aria-valuemin="0"
   aria-valuenow="0"
-  class="config-progress config-progress-status-normal config-progress-line config-progress-show-info config-progress-default"
+  class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info config-progress-default"
   role="progressbar"
 >
   <div
     class="config-progress-outer"
-    style="width: 100%; height: 8px;"
+    style="width: 100%;"
   >
     <div
       class="config-progress-inner"
     >
       <div
-        class="config-progress-bg"
+        class="config-progress-bg config-progress-bg-outer"
         style="width: 0%; height: 8px; --progress-percent: 0;"
       />
     </div>
+    <span
+      class="config-progress-text config-progress-text-end config-progress-text-outer"
+      title="0%"
+    >
+      0%
+    </span>
   </div>
-  <span
-    class="config-progress-text"
-    title="0%"
-  >
-    0%
-  </span>
 </div>
 `;
 
 exports[`ConfigProvider components Progress configProvider componentSize large 1`] = `
 <div
+  aria-valuemax="100"
+  aria-valuemin="0"
   aria-valuenow="0"
-  class="config-progress config-progress-status-normal config-progress-line config-progress-show-info config-progress-default"
+  class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info config-progress-default"
   role="progressbar"
 >
   <div
     class="config-progress-outer"
-    style="width: 100%; height: 8px;"
+    style="width: 100%;"
   >
     <div
       class="config-progress-inner"
     >
       <div
-        class="config-progress-bg"
+        class="config-progress-bg config-progress-bg-outer"
         style="width: 0%; height: 8px; --progress-percent: 0;"
       />
     </div>
+    <span
+      class="config-progress-text config-progress-text-end config-progress-text-outer"
+      title="0%"
+    >
+      0%
+    </span>
   </div>
-  <span
-    class="config-progress-text"
-    title="0%"
-  >
-    0%
-  </span>
 </div>
 `;
 
 exports[`ConfigProvider components Progress configProvider componentSize middle 1`] = `
 <div
+  aria-valuemax="100"
+  aria-valuemin="0"
   aria-valuenow="0"
-  class="config-progress config-progress-status-normal config-progress-line config-progress-show-info config-progress-default"
+  class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info config-progress-default"
   role="progressbar"
 >
   <div
     class="config-progress-outer"
-    style="width: 100%; height: 8px;"
+    style="width: 100%;"
   >
     <div
       class="config-progress-inner"
     >
       <div
-        class="config-progress-bg"
+        class="config-progress-bg config-progress-bg-outer"
         style="width: 0%; height: 8px; --progress-percent: 0;"
       />
     </div>
+    <span
+      class="config-progress-text config-progress-text-end config-progress-text-outer"
+      title="0%"
+    >
+      0%
+    </span>
   </div>
-  <span
-    class="config-progress-text"
-    title="0%"
-  >
-    0%
-  </span>
 </div>
 `;
 
 exports[`ConfigProvider components Progress configProvider componentSize small 1`] = `
 <div
+  aria-valuemax="100"
+  aria-valuemin="0"
   aria-valuenow="0"
-  class="config-progress config-progress-status-normal config-progress-line config-progress-show-info config-progress-default"
+  class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info config-progress-default"
   role="progressbar"
 >
   <div
     class="config-progress-outer"
-    style="width: 100%; height: 8px;"
+    style="width: 100%;"
   >
     <div
       class="config-progress-inner"
     >
       <div
-        class="config-progress-bg"
+        class="config-progress-bg config-progress-bg-outer"
         style="width: 0%; height: 8px; --progress-percent: 0;"
       />
     </div>
+    <span
+      class="config-progress-text config-progress-text-end config-progress-text-outer"
+      title="0%"
+    >
+      0%
+    </span>
   </div>
-  <span
-    class="config-progress-text"
-    title="0%"
-  >
-    0%
-  </span>
 </div>
 `;
 
 exports[`ConfigProvider components Progress normal 1`] = `
 <div
+  aria-valuemax="100"
+  aria-valuemin="0"
   aria-valuenow="0"
-  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
   role="progressbar"
 >
   <div
     class="ant-progress-outer"
-    style="width: 100%; height: 8px;"
+    style="width: 100%;"
   >
     <div
       class="ant-progress-inner"
     >
       <div
-        class="ant-progress-bg"
+        class="ant-progress-bg ant-progress-bg-outer"
         style="width: 0%; height: 8px; --progress-percent: 0;"
       />
     </div>
+    <span
+      class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+      title="0%"
+    >
+      0%
+    </span>
   </div>
-  <span
-    class="ant-progress-text"
-    title="0%"
-  >
-    0%
-  </span>
 </div>
 `;
 
 exports[`ConfigProvider components Progress prefixCls 1`] = `
 <div
+  aria-valuemax="100"
+  aria-valuemin="0"
   aria-valuenow="0"
-  class="prefix-Progress prefix-Progress-status-normal prefix-Progress-line prefix-Progress-show-info prefix-Progress-default"
+  class="prefix-Progress prefix-Progress-status-normal prefix-Progress-line prefix-Progress-line-align-end prefix-Progress-line-position-outer prefix-Progress-show-info prefix-Progress-default"
   role="progressbar"
 >
   <div
     class="prefix-Progress-outer"
-    style="width: 100%; height: 8px;"
+    style="width: 100%;"
   >
     <div
       class="prefix-Progress-inner"
     >
       <div
-        class="prefix-Progress-bg"
+        class="prefix-Progress-bg prefix-Progress-bg-outer"
         style="width: 0%; height: 8px; --progress-percent: 0;"
       />
     </div>
+    <span
+      class="prefix-Progress-text prefix-Progress-text-end prefix-Progress-text-outer"
+      title="0%"
+    >
+      0%
+    </span>
   </div>
-  <span
-    class="prefix-Progress-text"
-    title="0%"
-  >
-    0%
-  </span>
 </div>
 `;
 
@@ -25791,20 +25826,24 @@ exports[`ConfigProvider components Spin configProvider 1`] = `
   class="config-spin config-spin-spinning"
 >
   <span
-    class="config-spin-dot config-spin-dot-spin"
+    class="config-spin-dot-holder"
   >
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
+    <span
+      class="config-spin-dot config-spin-dot-spin"
+    >
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+    </span>
   </span>
 </div>
 `;
@@ -25816,20 +25855,24 @@ exports[`ConfigProvider components Spin configProvider componentDisabled 1`] = `
   class="config-spin config-spin-spinning"
 >
   <span
-    class="config-spin-dot config-spin-dot-spin"
+    class="config-spin-dot-holder"
   >
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
+    <span
+      class="config-spin-dot config-spin-dot-spin"
+    >
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+    </span>
   </span>
 </div>
 `;
@@ -25841,20 +25884,24 @@ exports[`ConfigProvider components Spin configProvider componentSize large 1`] =
   class="config-spin config-spin-spinning"
 >
   <span
-    class="config-spin-dot config-spin-dot-spin"
+    class="config-spin-dot-holder"
   >
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
+    <span
+      class="config-spin-dot config-spin-dot-spin"
+    >
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+    </span>
   </span>
 </div>
 `;
@@ -25866,20 +25913,24 @@ exports[`ConfigProvider components Spin configProvider componentSize middle 1`] 
   class="config-spin config-spin-spinning"
 >
   <span
-    class="config-spin-dot config-spin-dot-spin"
+    class="config-spin-dot-holder"
   >
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
+    <span
+      class="config-spin-dot config-spin-dot-spin"
+    >
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+    </span>
   </span>
 </div>
 `;
@@ -25891,20 +25942,24 @@ exports[`ConfigProvider components Spin configProvider componentSize small 1`] =
   class="config-spin config-spin-spinning"
 >
   <span
-    class="config-spin-dot config-spin-dot-spin"
+    class="config-spin-dot-holder"
   >
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
-    <i
-      class="config-spin-dot-item"
-    />
+    <span
+      class="config-spin-dot config-spin-dot-spin"
+    >
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+      <i
+        class="config-spin-dot-item"
+      />
+    </span>
   </span>
 </div>
 `;
@@ -25916,20 +25971,24 @@ exports[`ConfigProvider components Spin normal 1`] = `
   class="ant-spin ant-spin-spinning"
 >
   <span
-    class="ant-spin-dot ant-spin-dot-spin"
+    class="ant-spin-dot-holder"
   >
-    <i
-      class="ant-spin-dot-item"
-    />
-    <i
-      class="ant-spin-dot-item"
-    />
-    <i
-      class="ant-spin-dot-item"
-    />
-    <i
-      class="ant-spin-dot-item"
-    />
+    <span
+      class="ant-spin-dot ant-spin-dot-spin"
+    >
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
+    </span>
   </span>
 </div>
 `;
@@ -25941,20 +26000,24 @@ exports[`ConfigProvider components Spin prefixCls 1`] = `
   class="prefix-Spin prefix-Spin-spinning"
 >
   <span
-    class="prefix-Spin-dot prefix-Spin-dot-spin"
+    class="prefix-Spin-dot-holder"
   >
-    <i
-      class="prefix-Spin-dot-item"
-    />
-    <i
-      class="prefix-Spin-dot-item"
-    />
-    <i
-      class="prefix-Spin-dot-item"
-    />
-    <i
-      class="prefix-Spin-dot-item"
-    />
+    <span
+      class="prefix-Spin-dot prefix-Spin-dot-spin"
+    >
+      <i
+        class="prefix-Spin-dot-item"
+      />
+      <i
+        class="prefix-Spin-dot-item"
+      />
+      <i
+        class="prefix-Spin-dot-item"
+      />
+      <i
+        class="prefix-Spin-dot-item"
+      />
+    </span>
   </span>
 </div>
 `;
@@ -26807,6 +26870,9 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                           width="64"
                           xmlns="http://www.w3.org/2000/svg"
                         >
+                          <title>
+                            Simple Empty
+                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -27113,6 +27179,9 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                           width="64"
                           xmlns="http://www.w3.org/2000/svg"
                         >
+                          <title>
+                            Simple Empty
+                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -27417,6 +27486,9 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                           width="64"
                           xmlns="http://www.w3.org/2000/svg"
                         >
+                          <title>
+                            Simple Empty
+                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -27721,6 +27793,9 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                           width="64"
                           xmlns="http://www.w3.org/2000/svg"
                         >
+                          <title>
+                            Simple Empty
+                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -28025,6 +28100,9 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
                           width="64"
                           xmlns="http://www.w3.org/2000/svg"
                         >
+                          <title>
+                            Simple Empty
+                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -28329,6 +28407,9 @@ exports[`ConfigProvider components Table normal 1`] = `
                           width="64"
                           xmlns="http://www.w3.org/2000/svg"
                         >
+                          <title>
+                            Simple Empty
+                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -28633,6 +28714,9 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                           width="64"
                           xmlns="http://www.w3.org/2000/svg"
                         >
+                          <title>
+                            Simple Empty
+                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -39256,6 +39340,9 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -39423,6 +39510,9 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -39535,6 +39625,9 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -39702,6 +39795,9 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -39814,6 +39910,9 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -39981,6 +40080,9 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -40093,6 +40195,9 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -40260,6 +40365,9 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -40372,6 +40480,9 @@ exports[`ConfigProvider components Transfer configProvider componentSize small 1
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -40539,6 +40650,9 @@ exports[`ConfigProvider components Transfer configProvider componentSize small 1
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -40651,6 +40765,9 @@ exports[`ConfigProvider components Transfer normal 1`] = `
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -40818,6 +40935,9 @@ exports[`ConfigProvider components Transfer normal 1`] = `
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -40930,6 +41050,9 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -41097,6 +41220,9 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                Simple Empty
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"

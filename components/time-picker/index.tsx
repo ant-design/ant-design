@@ -7,14 +7,15 @@ import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import DatePicker from '../date-picker';
 import type {
-  PickerProps,
+  GenericTimePickerProps,
   PickerPropsWithMultiple,
   RangePickerProps,
 } from '../date-picker/generatePicker/interface';
+import useVariant from '../form/hooks/useVariants';
 
 export type PickerTimeProps<DateType extends AnyObject> = PickerPropsWithMultiple<
   DateType,
-  Omit<PickerProps<DateType>, 'picker' | 'showTime'>
+  GenericTimePickerProps<DateType>
 >;
 
 export type RangePickerTimeProps<DateType extends AnyObject> = Omit<
@@ -45,12 +46,14 @@ export interface TimePickerProps extends Omit<PickerTimeProps<Dayjs>, 'picker'> 
 }
 
 const TimePicker = React.forwardRef<any, TimePickerProps>(
-  ({ addon, renderExtraFooter, ...restProps }, ref) => {
+  ({ addon, renderExtraFooter, variant, bordered, ...restProps }, ref) => {
     if (process.env.NODE_ENV !== 'production') {
       const warning = devUseWarning('TimePicker');
 
       warning.deprecated(!addon, 'addon', 'renderExtraFooter');
     }
+
+    const [mergedVariant] = useVariant('timePicker', variant, bordered);
 
     const internalRenderExtraFooter = React.useMemo(() => {
       if (renderExtraFooter) {
@@ -69,6 +72,7 @@ const TimePicker = React.forwardRef<any, TimePickerProps>(
         mode={undefined}
         ref={ref}
         renderExtraFooter={internalRenderExtraFooter}
+        variant={mergedVariant}
       />
     );
   },

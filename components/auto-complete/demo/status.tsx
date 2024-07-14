@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { AutoComplete, Space } from 'antd';
+import type { AutoCompleteProps } from 'antd';
 
 const mockVal = (str: string, repeat = 1) => ({
   value: str.repeat(repeat),
 });
 
 const App: React.FC = () => {
-  const [options, setOptions] = useState<{ value: string }[]>([]);
-  const [anotherOptions, setAnotherOptions] = useState<{ value: string }[]>([]);
+  const [options, setOptions] = useState<AutoCompleteProps['options']>([]);
+  const [anotherOptions, setAnotherOptions] = useState<AutoCompleteProps['options']>([]);
 
   const getPanelValue = (searchText: string) =>
     !searchText ? [] : [mockVal(searchText), mockVal(searchText, 2), mockVal(searchText, 3)];

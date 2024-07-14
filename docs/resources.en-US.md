@@ -2,7 +2,6 @@
 order: 1
 title: Resources
 description: List all the resources that are related with Ant Design here.
-toc: false
 ---
 
 ## Design Resources
@@ -27,6 +26,11 @@ Please find below some of the design resources and tools about Ant Design that w
   - Common Templates and Pages
   - https://gw.alipayobjects.com/os/bmw-prod/22208f9d-f8c5-4d7c-b87a-fec290e96527.sketch
   - Official
+- Ant Design Chart
+  - https://gw.alipayobjects.com/zos/basement_prod/a9dc586a-fe0a-4c7d-ab4f-f5ed779b963d.svg
+  - Sketch Symbols for Chart
+  - https://gw.alipayobjects.com/os/bmw-prod/704968a5-2641-484e-9f65-c2735b2c0287.sketch
+  - Official
 - Kitchen
   - https://gw.alipayobjects.com/zos/basement_prod/d475d063-2754-4442-b9db-5d164e06acc9.svg
   - A Sketch plugin collection
@@ -37,31 +41,26 @@ Please find below some of the design resources and tools about Ant Design that w
   - Landing Templates
   - https://landing.ant.design/docs/download-cn
   - Official
-- Ant Design Prototype (xiaopiu)
-  - https://gw.alipayobjects.com/zos/basement_prod/77e6a9ae-24a9-4be6-be42-f7fa8ee0eecf.svg
-  - Online library and prototype
-  - https://www.xiaopiu.com/topic/ant-design
-- UI Kit for Figma
+- Figma Resources
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
-  - Library of components for Desktop
+  - Always up-to-date Ant Design Figma resources
   - https://www.antforfigma.com
-- UI Kit for Adobe XD
-  - https://uploads-ssl.webflow.com/5ecbd337fe499992c9ed75ba/5f2a7a30f3e817085cec5ac9_ant-xd-svg.svg
-  - Library of components for Desktop
-  - https://www.antforxd.com
 - Figma Open Source Library
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
   - Free open source Figma library with complete accurate to code components
   - https://www.figma.com/community/file/831698976089873405
+- AntBlocks UI for Figma
+  - https://uploads-ssl.webflow.com/64dc925e7cb893427a5c9cdc/64e4610f7818dcc7501057ad_antblocks-ui-card-img.svg
+  - High-quality, responsive, and customizable React components built on Ant Design
+  - https://www.antblocksui.com/#figma
 - Ruyi Design Assistant
   - https://github.com/ant-design/ant-design/assets/507615/45201521-37d0-4360-b81e-a1260dedad7a
   - Figma Plugin,Design using Antd code component library and deliver component code that is friendly to developers
   - https://www.figma.com/community/plugin/1192146318523533547
-- Ant Design Chart
-  - https://gw.alipayobjects.com/zos/basement_prod/a9dc586a-fe0a-4c7d-ab4f-f5ed779b963d.svg
-  - Sketch Symbols for Chart
-  - https://gw.alipayobjects.com/os/bmw-prod/704968a5-2641-484e-9f65-c2735b2c0287.sketch
-  - Official
+- UI Kit for Adobe XD
+  - https://uploads-ssl.webflow.com/5ecbd337fe499992c9ed75ba/5f2a7a30f3e817085cec5ac9_ant-xd-svg.svg
+  - Library of components for Desktop
+  - https://www.antforxd.com
 - MockingBot
   - https://cdn.modao.cc/logo_mockingbot.svg
   - Rich component resources
@@ -70,18 +69,14 @@ Please find below some of the design resources and tools about Ant Design that w
   - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dxzdQYWlmjMAAAAAAAAAAAAAARQnAQ
   - Use fully components and templates on JiShi Design
   - https://js.design/antd
-- Ant for Plasmic
-  - https://user-images.githubusercontent.com/7129/149994038-76214796-cd6a-4e80-b0a4-117e8edac050.png
-  - Drag/drop live Ant components and manipulate props in this React visual builder
-  - https://www.plasmic.app/ant-design
 - MasterGo
   - https://mastergo-local-default.oss-cn-beijing.aliyuncs.com/ant-design-mastergo.svg
   - Use fully components and templates on MasterGo
   - https://mastergo.com/community/?utm_source=antdesign&utm_medium=link&utm_campaign=resource&cata_name=AntDesign
-- AntBlocks UI for Figma
-  - https://uploads-ssl.webflow.com/64dc925e7cb893427a5c9cdc/64e4610f7818dcc7501057ad_antblocks-ui-card-img.svg
-  - High-quality, responsive, and customizable React components built on Ant Design
-  - https://www.antblocksui.com/#figma
+- Ant for Plasmic
+  - https://user-images.githubusercontent.com/7129/149994038-76214796-cd6a-4e80-b0a4-117e8edac050.png
+  - Drag/drop live Ant components and manipulate props in this React visual builder
+  - https://www.plasmic.app/ant-design
 </ResourceCards>
 
 ## Articles
@@ -92,7 +87,7 @@ Do you want to know the story behind the Ant Design design system? How can I bet
 
 ## Reference
 
-Please find below the books that inspired us, saved our time and helped us to overcome difficulties when designing components and patterns. If you want to know more about UI design, we recommend you these awesome design systems: [Fiori Design](https://experience.sap.com/fiori-design-web/), [Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/themes/), [Lightning Design System](https://lightningdesignsystem.com/getting-started/), [Material Design](https://material.io/).
+Please find below the books that inspired us, saved our time and helped us to overcome difficulties when designing components and patterns. If you want to know more about UI design, we recommend you these awesome design systems: [Fiori Design](https://experience.sap.com/fiori-design-web/), [Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/), [Lightning Design System](https://lightningdesignsystem.com/getting-started/), [Material Design](https://material.io/).
 
 <div class="next-block-use-cards"></div>
 

@@ -105,7 +105,10 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
         typeof mergedExpandIcon === 'function' ? (
           mergedExpandIcon(panelProps)
         ) : (
-          <RightOutlined rotate={panelProps.isActive ? 90 : undefined} />
+          <RightOutlined
+            rotate={panelProps.isActive ? 90 : undefined}
+            aria-label={panelProps.isActive ? 'expanded' : 'collapsed'}
+          />
         );
       return cloneElement(icon, () => ({
         className: classNames((icon as React.ReactElement)?.props?.className, `${prefixCls}-arrow`),
@@ -155,6 +158,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
   );
 
   return wrapCSSVar(
+    // @ts-ignore
     <RcCollapse
       ref={ref}
       openMotion={openMotion}

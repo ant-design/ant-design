@@ -1,17 +1,18 @@
 import type { MouseEvent, MouseEventHandler } from 'react';
 import React, { forwardRef, useLayoutEffect, useTransition } from 'react';
-import { useLocation, useNavigate } from 'dumi';
+import { Link as DumiLink, useLocation, useNavigate } from 'dumi';
 import nprogress from 'nprogress';
 
 export interface LinkProps {
   to: string | { pathname?: string; search?: string; hash?: string };
-  children?: React.ReactNode;
   style?: React.CSSProperties;
   className?: string;
   onClick?: MouseEventHandler;
 }
 
-const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
+nprogress.configure({ showSpinner: false });
+
+const Link = forwardRef<HTMLAnchorElement, React.PropsWithChildren<LinkProps>>((props, ref) => {
   const { to, children, ...rest } = props;
   const [isPending, startTransition] = useTransition();
   const navigate = useNavigate();
@@ -48,9 +49,9 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
   }, [isPending]);
 
   return (
-    <a ref={ref} onClick={handleClick} {...rest} href={href}>
+    <DumiLink ref={ref} onClick={handleClick} {...rest} to={href} prefetch>
       {children}
-    </a>
+    </DumiLink>
   );
 });
 

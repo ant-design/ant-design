@@ -1,8 +1,11 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import type { DrawerProps as RCDrawerProps } from 'rc-drawer';
-import useClosable from '../_util/hooks/useClosable';
+
+import useClosable, { pickClosable } from '../_util/hooks/useClosable';
+import type { ClosableType } from '../_util/hooks/useClosable';
 import { ConfigContext } from '../config-provider';
+import Skeleton from '../skeleton';
 
 export interface DrawerClassNames extends NonNullable<RCDrawerProps['classNames']> {
   header?: string;
@@ -29,13 +32,14 @@ export interface DrawerPanelProps {
    *
    * `<Drawer closeIcon={false} />`
    */
-  closable?: boolean | ({ closeIcon?: React.ReactNode } & React.AriaAttributes);
+  closable?: ClosableType;
   closeIcon?: React.ReactNode;
   onClose?: RCDrawerProps['onClose'];
 
   children?: React.ReactNode;
   classNames?: DrawerClassNames;
   styles?: DrawerStyles;
+  loading?: boolean;
 
   /** @deprecated Please use `styles.header` instead */
   headerStyle?: React.CSSProperties;
@@ -57,8 +61,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     title,
     footer,
     extra,
-    closeIcon,
-    closable,
+    loading,
     onClose,
     headerStyle,
     bodyStyle,
@@ -78,19 +81,14 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     [onClose],
   );
 
-  const mergedContextCloseIcon = React.useMemo(() => {
-    if (typeof drawerContext?.closable === 'object' && drawerContext.closable.closeIcon) {
-      return drawerContext.closable.closeIcon;
-    }
-    return drawerContext?.closeIcon;
-  }, [drawerContext?.closable, drawerContext?.closeIcon]);
-
-  const [mergedClosable, mergedCloseIcon] = useClosable({
-    closable: closable ?? drawerContext?.closable,
-    closeIcon: typeof closeIcon !== 'undefined' ? closeIcon : mergedContextCloseIcon,
-    customCloseIconRender,
-    defaultClosable: true,
-  });
+  const [mergedClosable, mergedCloseIcon] = useClosable(
+    pickClosable(props),
+    pickClosable(drawerContext),
+    {
+      closable: true,
+      closeIconRender: customCloseIconRender,
+    },
+  );
 
   const headerNode = React.useMemo<React.ReactNode>(() => {
     if (!title && !mergedClosable) {
@@ -153,13 +151,18 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
           drawerClassNames?.body,
           drawerContext?.classNames?.body,
         )}
-        style={{
-          ...drawerContext?.styles?.body,
-          ...bodyStyle,
-          ...drawerStyles?.body,
-        }}
+        style={{ ...drawerContext?.styles?.body, ...bodyStyle, ...drawerStyles?.body }}
       >
-        {children}
+        {loading ? (
+          <Skeleton
+            active
+            title={false}
+            paragraph={{ rows: 5 }}
+            className={`${prefixCls}-body-skeleton`}
+          />
+        ) : (
+          children
+        )}
       </div>
       {footerNode}
     </>

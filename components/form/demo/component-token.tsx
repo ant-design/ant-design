@@ -13,12 +13,13 @@ const App: React.FC = () => (
           labelColonMarginInlineStart: 4,
           labelColonMarginInlineEnd: 12,
           itemMarginBottom: 18,
+          inlineItemMarginBottom: 18,
         },
       },
     }}
   >
     <Form
-      name="basic"
+      name="component-token"
       labelCol={{ span: 8 }}
       wrapperCol={{ span: 16 }}
       style={{ maxWidth: 600 }}

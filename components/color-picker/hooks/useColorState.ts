@@ -1,7 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+
 import type { Color } from '../color';
 import type { ColorValueType } from '../interface';
 import { generateColor } from '../util';
+
+const INIT_COLOR_REF = {} as ColorValueType;
 
 function hasValue(value?: ColorValueType) {
   return value !== undefined;
@@ -10,27 +13,44 @@ function hasValue(value?: ColorValueType) {
 const useColorState = (
   defaultStateValue: ColorValueType,
   option: { defaultValue?: ColorValueType; value?: ColorValueType },
-): readonly [Color, React.Dispatch<React.SetStateAction<Color>>] => {
+) => {
   const { defaultValue, value } = option;
-  const [colorValue, setColorValue] = useState<Color>(() => {
-    let mergeState: ColorValueType | undefined;
+  const prevColor = useRef<Color>(generateColor(''));
+  const [colorValue, _setColorValue] = useState<Color>(() => {
+    let mergedState: ColorValueType | undefined;
     if (hasValue(value)) {
-      mergeState = value;
+      mergedState = value;
     } else if (hasValue(defaultValue)) {
-      mergeState = defaultValue;
+      mergedState = defaultValue;
     } else {
-      mergeState = defaultStateValue;
+      mergedState = defaultStateValue;
     }
-    return generateColor(mergeState || '');
+    const color = generateColor(mergedState || '');
+    prevColor.current = color;
+    return color;
   });
 
+  const setColorValue = (color: Color) => {
+    _setColorValue(color);
+    prevColor.current = color;
+  };
+
+  const prevValue = useRef<ColorValueType | undefined>(INIT_COLOR_REF);
   useEffect(() => {
-    if (value) {
-      setColorValue(generateColor(value));
+    // `useEffect` will be executed twice in strict mode even if the deps are the same
+    // So we compare the value manually to avoid unnecessary update
+    if (prevValue.current === value) {
+      return;
     }
+    prevValue.current = value;
+    const newColor = generateColor(hasValue(value) ? value || '' : prevColor.current);
+    if (prevColor.current.cleared === true) {
+      newColor.cleared = 'controlled';
+    }
+    setColorValue(newColor);
   }, [value]);
 
-  return [colorValue, setColorValue] as const;
+  return [colorValue, setColorValue, prevColor] as const;
 };
 
 export default useColorState;

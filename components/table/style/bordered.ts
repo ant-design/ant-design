@@ -1,4 +1,5 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { GenerateStyle } from '../../theme/internal';
 import type { TableToken } from './index';
@@ -124,7 +125,7 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
                 > tr${componentCls}-expanded-row,
                 > tr${componentCls}-placeholder
               `]: {
-                [`> th, > td`]: {
+                '> th, > td': {
                   borderInlineEnd: 0,
                 },
               },

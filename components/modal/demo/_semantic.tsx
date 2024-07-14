@@ -1,5 +1,6 @@
 import React from 'react';
-import { Modal, type ModalProps } from 'antd';
+import type { ModalProps } from 'antd';
+import { Modal } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
@@ -31,16 +32,14 @@ const BlockModal = (props: ModalProps) => {
       <Modal
         getContainer={() => divRef.current!}
         {...props}
-        styles={
-          {
-            mask: {
-              position: 'absolute',
-            },
-            wrapper: {
-              position: 'absolute',
-            },
-          } as any
-        }
+        styles={{
+          mask: {
+            position: 'absolute',
+          },
+          wrapper: {
+            position: 'absolute',
+          },
+        }}
         style={{
           top: '50%',
           transform: 'translateY(-50%)',

@@ -35,7 +35,13 @@ const actionMap: Record<PropertyKey, keyof React.DOMAttributes<HTMLSpanElement>>
 type IconPropsType = React.HTMLAttributes<HTMLSpanElement> & React.Attributes;
 
 const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
-  const { visibilityToggle = true } = props;
+  const {
+    disabled,
+    action = 'click',
+    visibilityToggle = true,
+    iconRender = defaultIconRender,
+  } = props;
+
   const visibilityControlled =
     typeof visibilityToggle === 'object' && visibilityToggle.visible !== undefined;
   const [visible, setVisible] = useState(() =>
@@ -53,7 +59,6 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
   const removePasswordTimeout = useRemovePasswordTimeout(inputRef);
 
   const onVisibleChange = () => {
-    const { disabled } = props;
     if (disabled) {
       return;
     }
@@ -70,7 +75,6 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
   };
 
   const getIcon = (prefixCls: string) => {
-    const { action = 'click', iconRender = defaultIconRender } = props;
     const iconTrigger = actionMap[action] || '';
     const icon = iconRender(visible);
     const iconProps: IconPropsType = {

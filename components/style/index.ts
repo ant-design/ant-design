@@ -1,5 +1,6 @@
 /* eslint-disable import/prefer-default-export */
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { AliasToken, DerivativeToken } from '../theme/internal';
 
@@ -83,8 +84,7 @@ export const genLinkStyle = (token: DerivativeToken): CSSObject => ({
       color: token.colorLinkActive,
     },
 
-    [`&:active,
-  &:hover`]: {
+    '&:active, &:hover': {
       textDecoration: token.linkHoverDecoration,
       outline: 0,
     },
@@ -106,29 +106,34 @@ export const genCommonStyle = (
   token: DerivativeToken,
   componentPrefixCls: string,
   rootCls?: string,
+  resetFont?: boolean,
 ): CSSObject => {
-  const { fontFamily, fontSize } = token;
-
   const prefixSelector = `[class^="${componentPrefixCls}"], [class*=" ${componentPrefixCls}"]`;
   const rootPrefixSelector = rootCls ? `.${rootCls}` : prefixSelector;
 
+  const resetStyle: CSSObject = {
+    boxSizing: 'border-box',
+
+    '&::before, &::after': {
+      boxSizing: 'border-box',
+    },
+  };
+
+  let resetFontStyle: CSSObject = {};
+
+  if (resetFont !== false) {
+    resetFontStyle = {
+      fontFamily: token.fontFamily,
+      fontSize: token.fontSize,
+    };
+  }
+
   return {
     [rootPrefixSelector]: {
-      fontFamily,
-      fontSize,
-      boxSizing: 'border-box',
+      ...resetFontStyle,
+      ...resetStyle,
 
-      '&::before, &::after': {
-        boxSizing: 'border-box',
-      },
-
-      [prefixSelector]: {
-        boxSizing: 'border-box',
-
-        '&::before, &::after': {
-          boxSizing: 'border-box',
-        },
-      },
+      [prefixSelector]: resetStyle,
     },
   };
 };

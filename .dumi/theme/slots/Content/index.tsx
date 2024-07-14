@@ -1,11 +1,12 @@
-import React, { useContext, useLayoutEffect, useMemo } from 'react';
-import { Col, Flex, Typography } from 'antd';
+import React, { useContext, useLayoutEffect, useMemo, useState } from 'react';
+import { Col, Flex, Space, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 import { FormattedMessage, useRouteMeta } from 'dumi';
 
 import useLayoutState from '../../../hooks/useLayoutState';
 import useLocation from '../../../hooks/useLocation';
+import ComponentMeta from '../../builtins/ComponentMeta';
 import type { DemoContextProps } from '../DemoContext';
 import DemoContext from '../DemoContext';
 import SiteContext from '../SiteContext';
@@ -29,7 +30,7 @@ const useStyle = createStyles(({ token, css }) => ({
     @media only screen and (max-width: ${token.screenLG}px) {
       &,
       &.rtl {
-        padding: 0 48px;
+        padding: 0 ${token.paddingLG * 2}px;
       }
     }
   `,
@@ -42,6 +43,7 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
   const { styles } = useStyle();
 
   const [showDebug, setShowDebug] = useLayoutState(false);
+  const [codeType, setCodeType] = useState('tsx');
   const debugDemos = useMemo(
     () => meta.toc?.filter((item) => item._debug_demo).map((item) => item.id) || [],
     [meta],
@@ -54,8 +56,8 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
   }, []);
 
   const contextValue = useMemo<DemoContextProps>(
-    () => ({ showDebug, setShowDebug }),
-    [showDebug, debugDemos],
+    () => ({ showDebug, setShowDebug, codeType, setCodeType }),
+    [showDebug, codeType, debugDemos],
   );
 
   const isRTL = direction === 'rtl';
@@ -68,31 +70,46 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
         </InViewSuspense>
         <article className={classNames(styles.articleWrapper, { rtl: isRTL })}>
           {meta.frontmatter?.title ? (
-            <Typography.Title style={{ fontSize: 30, position: 'relative' }}>
-              <Flex gap="small">
-                <div>{meta.frontmatter?.title}</div>
-                <div>{meta.frontmatter?.subtitle}</div>
-                {!pathname.startsWith('/components/overview') && (
-                  <InViewSuspense fallback={null}>
-                    <EditButton
-                      title={<FormattedMessage id="app.content.edit-page" />}
-                      filename={meta.frontmatter.filename}
-                    />
-                  </InViewSuspense>
-                )}
-              </Flex>
+            <Flex justify="space-between">
+              <Typography.Title style={{ fontSize: 32, position: 'relative' }}>
+                <Space>
+                  <span>{meta.frontmatter?.title}</span>
+                  <span>{meta.frontmatter?.subtitle}</span>
+                  {!pathname.startsWith('/components/overview') && (
+                    <InViewSuspense fallback={null}>
+                      <EditButton
+                        title={<FormattedMessage id="app.content.edit-page" />}
+                        filename={meta.frontmatter.filename}
+                      />
+                    </InViewSuspense>
+                  )}
+                </Space>
+              </Typography.Title>
               {pathname.startsWith('/components/') && (
                 <InViewSuspense fallback={null}>
                   <ComponentChangelog pathname={pathname} />
                 </InViewSuspense>
               )}
-            </Typography.Title>
+            </Flex>
           ) : null}
           <InViewSuspense fallback={null}>
             <DocMeta />
           </InViewSuspense>
           {!meta.frontmatter.__autoDescription && meta.frontmatter.description}
-          <div style={{ minHeight: 'calc(100vh - 64px)' }}>{children}</div>
+
+          {/* Import Info */}
+          {meta.frontmatter.category === 'Components' &&
+            String(meta.frontmatter.showImport) !== 'false' && (
+              <ComponentMeta
+                source
+                component={meta.frontmatter.title}
+                filename={meta.frontmatter.filename}
+                version={meta.frontmatter.tag}
+              />
+            )}
+          <div style={{ minHeight: 'calc(100vh - 64px)', width: 'calc(100% - 10px)' }}>
+            {children}
+          </div>
           <InViewSuspense>
             <ColumnCard
               zhihuLink={meta.frontmatter.zhihu_url}

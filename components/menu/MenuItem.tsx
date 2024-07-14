@@ -29,12 +29,11 @@ type GenericProps<T = unknown> = T extends infer U extends MenuItemProps
     : U
   : MenuItemProps;
 
-type GenericComponent = Omit<MenuItemComponent, ''> & {
-  <T extends MenuItemProps>(
+type GenericComponent = Omit<MenuItemComponent, ''> &
+  (<T extends MenuItemProps>(
     props: GenericProps<T>,
     ...args: RestArgs<MenuItemComponent>
-  ): ReturnType<MenuItemComponent>;
-};
+  ) => ReturnType<MenuItemComponent>);
 
 const MenuItem: GenericComponent = (props) => {
   const { className, children, icon, title, danger } = props;

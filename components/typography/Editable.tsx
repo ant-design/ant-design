@@ -1,8 +1,9 @@
+import * as React from 'react';
 import EnterOutlined from '@ant-design/icons/EnterOutlined';
 import classNames from 'classnames';
 import type { AutoSizeType } from 'rc-textarea';
 import KeyCode from 'rc-util/lib/KeyCode';
-import * as React from 'react';
+
 import { cloneElement } from '../_util/reactNode';
 import type { DirectionType } from '../config-provider';
 import type { TextAreaRef } from '../input/TextArea';
@@ -12,7 +13,7 @@ import useStyle from './style';
 interface EditableProps {
   prefixCls: string;
   value: string;
-  ['aria-label']?: string;
+  'aria-label'?: string;
   onSave: (value: string) => void;
   onCancel: () => void;
   onEnd?: () => void;
@@ -53,7 +54,7 @@ const Editable: React.FC<EditableProps> = (props) => {
   }, [value]);
 
   React.useEffect(() => {
-    if (ref.current && ref.current.resizableTextArea) {
+    if (ref.current?.resizableTextArea) {
       const { textArea } = ref.current.resizableTextArea;
       textArea.focus();
       const { length } = textArea.value;

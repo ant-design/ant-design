@@ -2,13 +2,12 @@
 category: Components
 group: Data Entry
 title: Mentions
+description: Used to mention someone or something in an input.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*e4bXT7Uhi9YAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*pxR2S53P_xoAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-Mention component.
 
 ## When To Use
 
@@ -17,7 +16,7 @@ When you need to mention someone or something.
 ### Usage upgrade after 5.1.0
 
 <!-- prettier-ignore -->
-:::info
+:::info{title="Upgrade Tip"}
 After version 5.1.0, we provide a simpler usage `<Mentions options={[...]} />` with better performance and potential of writing simpler code style in your applications.
 Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 6.0.
 :::
@@ -59,7 +58,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| allowClear | Show clear button | boolean \| { clearIcon?: ReactNode } | false | 5.13.0 |
+| allowClear | If allow to remove mentions content with clear icon | boolean \| { clearIcon?: ReactNode } | false | 5.13.0 |
 | autoFocus | Auto get focus when component mounted | boolean | false |  |
 | autoSize | Textarea height autosize feature, can be set to true \| false or an object { minRows: 2, maxRows: 6 } | boolean \| object | false |  |
 | defaultValue | Default value | string | - |  |

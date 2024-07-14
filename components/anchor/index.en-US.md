@@ -1,6 +1,7 @@
 ---
 category: Components
 title: Anchor
+description: Hyperlinks to scroll on one page.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ufP1TLS5VvIAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*_9_eTrgvHNQAAAAAAAAAAAAADrJ8AQ/original
 demo:
@@ -8,8 +9,6 @@ group:
   title: Navigation
   order: 3
 ---
-
-Hyperlinks to scroll on one page.
 
 ## When To Use
 
@@ -41,7 +40,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| affix | Fixed mode of Anchor | boolean | true |  |
+| affix | Fixed mode of Anchor | boolean \| Omit<AffixProps, 'offsetTop' \| 'target' \| 'children'> | true | object: 5.19.0 |
 | bounds | Bounding distance of anchor area | number | 5 |  |
 | getContainer | Scrolling container | () => HTMLElement | () => window |  |
 | getCurrentAnchor | Customize the anchor highlight | (activeLink: string) => string | - |  |

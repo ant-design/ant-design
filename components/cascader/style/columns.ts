@@ -1,4 +1,5 @@
-import { unit, type CSSInterpolation } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSInterpolation } from '@ant-design/cssinjs';
 
 import type { CascaderToken } from '.';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
@@ -90,7 +91,7 @@ const getColumnsStyle: GenerateStyle<CascaderToken> = (token: CascaderToken): CS
             },
 
             [`&-active:not(${cascaderMenuItemCls}-disabled)`]: {
-              [`&, &:hover`]: {
+              '&, &:hover': {
                 fontWeight: token.optionSelectedFontWeight,
                 backgroundColor: token.optionSelectedBg,
               },

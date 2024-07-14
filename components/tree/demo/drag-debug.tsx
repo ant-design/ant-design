@@ -9,7 +9,7 @@ const y = 2;
 const z = 1;
 const data: TreeDataNode[] = [];
 
-const generateData = (_level: number, preKey = '0', tns = data): TreeDataNode[] | void => {
+const generateData = (_level: number, preKey = '0', tns = data): TreeDataNode[] | undefined => {
   const children: string[] = [];
   for (let i = 0; i < x; i++) {
     const key = `${preKey}-${i}`;

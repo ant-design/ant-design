@@ -783,6 +783,9 @@ Array [
                 width="64"
                 xmlns="http://www.w3.org/2000/svg"
               >
+                <title>
+                  Simple Empty
+                </title>
                 <g
                   fill="none"
                   fill-rule="evenodd"
@@ -1717,6 +1720,9 @@ exports[`renders components/list/demo/infinite-load.tsx extend context correctly
                     width="64"
                     xmlns="http://www.w3.org/2000/svg"
                   >
+                    <title>
+                      Simple Empty
+                    </title>
                     <g
                       fill="none"
                       fill-rule="evenodd"
@@ -1799,20 +1805,24 @@ exports[`renders components/list/demo/loadmore.tsx extend context correctly 1`] 
         class="ant-spin ant-spin-spinning"
       >
         <span
-          class="ant-spin-dot ant-spin-dot-spin"
+          class="ant-spin-dot-holder"
         >
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
+          <span
+            class="ant-spin-dot ant-spin-dot-spin"
+          >
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+          </span>
         </span>
       </div>
     </div>
@@ -2162,10 +2172,10 @@ Array [
       </div>
     </div>
     <div
-      class="ant-list-pagination ant-list-pagination-align-center"
+      class="ant-list-pagination"
     >
       <ul
-        class="ant-pagination"
+        class="ant-pagination ant-pagination-center"
       >
         <li
           aria-disabled="true"
@@ -3235,7 +3245,7 @@ exports[`renders components/list/demo/vertical.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-list-pagination ant-list-pagination-align-end"
+    class="ant-list-pagination"
   >
     <ul
       class="ant-pagination"
@@ -3414,34 +3424,3 @@ exports[`renders components/list/demo/vertical.tsx extend context correctly 1`] 
 `;
 
 exports[`renders components/list/demo/vertical.tsx extend context correctly 2`] = `[]`;
-
-exports[`renders components/list/demo/virtual-list.tsx extend context correctly 1`] = `
-<div
-  class="ant-list ant-list-split"
->
-  <div
-    class="ant-spin-nested-loading"
-  >
-    <div
-      class="ant-spin-container"
-    >
-      <div
-        class="rc-virtual-list"
-        style="position: relative;"
-      >
-        <div
-          class="rc-virtual-list-holder"
-          style="height: 400px; overflow-y: auto;"
-        >
-          <div>
-            <div
-              class="rc-virtual-list-holder-inner"
-              style="display: flex; flex-direction: column;"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;

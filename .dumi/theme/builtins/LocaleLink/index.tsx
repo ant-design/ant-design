@@ -1,15 +1,19 @@
-import { Link } from 'dumi';
 import * as React from 'react';
+import { Link } from 'dumi';
+
 import useLocale from '../../../hooks/useLocale';
 
 type LinkProps = Parameters<typeof Link>[0];
 
 export interface LocaleLinkProps extends LinkProps {
   sourceType: 'a' | 'Link';
-  children?: React.ReactNode;
 }
 
-export default function LocaleLink({ sourceType, to, ...props }: LocaleLinkProps) {
+const LocaleLink: React.FC<React.PropsWithChildren<LocaleLinkProps>> = ({
+  sourceType,
+  to,
+  ...props
+}) => {
   const Component = sourceType === 'a' ? 'a' : Link;
 
   const [, localeType] = useLocale();
@@ -46,4 +50,6 @@ export default function LocaleLink({ sourceType, to, ...props }: LocaleLinkProps
   }
 
   return <Component {...linkProps} />;
-}
+};
+
+export default LocaleLink;

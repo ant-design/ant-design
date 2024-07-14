@@ -2,7 +2,6 @@
 order: 1
 title: 资源
 description: 这里汇总了与 Ant Design 相关的所有资源。
-toc: false
 ---
 
 ## 设计资源
@@ -27,6 +26,11 @@ toc: false
   - 典型页面 + 通用业务模板
   - https://gw.alipayobjects.com/os/bmw-prod/22208f9d-f8c5-4d7c-b87a-fec290e96527.sketch
   - 官方
+- 全新 Chart 组件包
+  - https://gw.alipayobjects.com/zos/basement_prod/a9dc586a-fe0a-4c7d-ab4f-f5ed779b963d.svg
+  - 桌面组件 Chart 模板包
+  - https://gw.alipayobjects.com/os/bmw-prod/704968a5-2641-484e-9f65-c2735b2c0287.sketch
+  - 官方
 - Kitchen
   - https://gw.alipayobjects.com/zos/basement_prod/d475d063-2754-4442-b9db-5d164e06acc9.svg
   - Sketch 工具集
@@ -37,10 +41,6 @@ toc: false
   - 首页模板集
   - https://landing.ant.design/docs/download-cn
   - 官方
-- Ant Design 原型 (xiaopiu)
-  - https://gw.alipayobjects.com/zos/basement_prod/77e6a9ae-24a9-4be6-be42-f7fa8ee0eecf.svg
-  - 可在线编辑的组件库和交互原型
-  - https://www.xiaopiu.com/topic/ant-design
 - Figma 组件包
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
   - 在 Figma 使用 Ant Design 进行设计
@@ -53,20 +53,15 @@ toc: false
   - https://github.com/ant-design/ant-design/assets/507615/45201521-37d0-4360-b81e-a1260dedad7a
   - Figma 插件，使用 antd 代码组件库进行设计，交付对开发者友好的组件代码
   - https://www.figma.com/community/plugin/1192146318523533547
-- 全新 Chart 组件包
-  - https://gw.alipayobjects.com/zos/basement_prod/a9dc586a-fe0a-4c7d-ab4f-f5ed779b963d.svg
-  - 桌面组件 Chart 模板包
-  - https://gw.alipayobjects.com/os/bmw-prod/704968a5-2641-484e-9f65-c2735b2c0287.sketch
-  - 官方
-- 墨刀原型设计
+- 墨刀设计资源包
   - https://cdn.modao.cc/logo_mockingbot.svg
   - 内置丰富的 Ant Design 组件资源
   - https://modao.cc/square/ant-design
-- 全套资源包（即时设计）
+- 即时设计资源包
   - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dxzdQYWlmjMAAAAAAAAAAAAAARQnAQ
   - 可在「即时设计」在线免费使用的全套组件和模板
   - https://js.design/antd
-- MasterGo 组件包
+- MasterGo 资源包
   - https://mastergo-local-default.oss-cn-beijing.aliyuncs.com/ant-design-mastergo.svg
   - 可在「MasterGo」在线免费使用的全套组件和模板
   - https://mastergo.com/community/?utm_source=antdesign&utm_medium=link&utm_campaign=resource&cata_name=AntDesign
@@ -84,7 +79,7 @@ toc: false
 
 ## 致敬
 
-在 Ant Design 4.0 的改版中，我们汲取顶级设计体系的精华，同时结合我们自身业务特性做了大量优化。我们希望通过不断努力和打磨，成为世界级设计体系的一份子，为「用户」和「设计者」带来极致体验。如果你也想追求卓越，建议去研究这些体系： [Fiori Design](https://experience.sap.com/fiori-design-web/)、 [Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/themes/)、 [Lightning Design System](https://lightningdesignsystem.com/getting-started/)、 [Material Design](https://material.io/)
+在 Ant Design 4.0 的改版中，我们汲取顶级设计体系的精华，同时结合我们自身业务特性做了大量优化。我们希望通过不断努力和打磨，成为世界级设计体系的一份子，为「用户」和「设计者」带来极致体验。如果你也想追求卓越，建议去研究这些体系： [Fiori Design](https://experience.sap.com/fiori-design-web/)、 [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)、 [Lightning Design System](https://lightningdesignsystem.com/getting-started/)、 [Material Design](https://material.io/)
 
 <div class="next-block-use-cards"></div>
 

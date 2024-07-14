@@ -1,8 +1,10 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 /** Component only token. Which will handle additional calculation of alias token */
+// biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
 export interface ComponentToken {}
 
 interface EmptyToken extends FullToken<'Empty'> {
@@ -41,7 +43,7 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
       },
 
       [`${componentCls}-description`]: {
-        color: token.colorText,
+        color: token.colorTextDescription,
       },
 
       // 原来 &-footer 没有父子结构，现在为了外层承担我们的hashId，改成父子结果
@@ -51,10 +53,10 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
 
       '&-normal': {
         marginBlock: marginXL,
-        color: token.colorTextDisabled,
+        color: token.colorTextDescription,
 
         [`${componentCls}-description`]: {
-          color: token.colorTextDisabled,
+          color: token.colorTextDescription,
         },
 
         [`${componentCls}-image`]: {
@@ -64,7 +66,7 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
 
       '&-small': {
         marginBlock: marginXS,
-        color: token.colorTextDisabled,
+        color: token.colorTextDescription,
 
         [`${componentCls}-image`]: {
           height: token.emptyImgHeightSM,

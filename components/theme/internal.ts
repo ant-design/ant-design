@@ -1,4 +1,4 @@
-import { useStyleRegister } from '@ant-design/cssinjs';
+import { genCalc as calc, useStyleRegister } from '@ant-design/cssinjs';
 
 import type {
   AliasToken,
@@ -9,17 +9,16 @@ import type {
   UseComponentStyleResult,
 } from './interface';
 import { PresetColors } from './interface';
+import { getLineHeight } from './themes/shared/genFontSizes';
 import useToken from './useToken';
 import type { FullToken, GetDefaultToken } from './util/genComponentStyleHook';
 import genComponentStyleHook, {
-  genSubStyleComponent,
   genStyleHooks,
+  genSubStyleComponent,
 } from './util/genComponentStyleHook';
 import genPresetColor from './util/genPresetColor';
 import statisticToken, { merge as mergeToken } from './util/statistic';
 import useResetIconStyle from './util/useResetIconStyle';
-import calc from './util/calc';
-import { getLineHeight } from './themes/shared/genFontSizes';
 
 export { DesignTokenContext, defaultConfig } from './context';
 export {

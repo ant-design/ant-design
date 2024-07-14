@@ -2,13 +2,14 @@
 category: Components
 group: Data Display
 title: Segmented
+description: Display multiple options and allow users to select a single option.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*XJR2TbS1aaQAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-9tSSoO_MkIAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
 
-Segmented Controls. This component is available since `antd@4.20.0`.
+This component is available since `antd@4.20.0`.
 
 ## When To Use
 

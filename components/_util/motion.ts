@@ -11,7 +11,7 @@ const getCurrentHeight: MotionEventHandler = (node) => ({ height: node ? node.of
 const skipOpacityTransition: MotionEndEventHandler = (_, event: MotionEvent) =>
   event?.deadline === true || (event as TransitionEvent).propertyName === 'height';
 
-const initCollapseMotion = (rootCls: string = 'ant'): CSSMotionProps => ({
+const initCollapseMotion = (rootCls = 'ant'): CSSMotionProps => ({
   motionName: `${rootCls}-motion-collapse`,
   onAppearStart: getCollapsedHeight,
   onEnterStart: getCollapsedHeight,
@@ -27,7 +27,7 @@ const initCollapseMotion = (rootCls: string = 'ant'): CSSMotionProps => ({
 
 const SelectPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight'] as const;
 
-export type SelectCommonPlacement = typeof SelectPlacements[number];
+export type SelectCommonPlacement = (typeof SelectPlacements)[number];
 
 const getTransitionName = (rootPrefixCls: string, motion: string, transitionName?: string) => {
   if (transitionName !== undefined) {

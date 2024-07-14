@@ -1,4 +1,5 @@
-import { type CSSObject, unit } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 
 import { resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
@@ -112,7 +113,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
     [componentCls]: {
       ...resetComponent(token),
       ...genBorderedStyle(token),
-      [`&-rtl`]: {
+      '&-rtl': {
         direction: 'rtl',
       },
       [`${componentCls}-header`]: {
@@ -195,6 +196,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
           [`${componentCls}-item-content`]: {
             display: 'inline-flex',
             alignItems: 'baseline',
+            minWidth: 0,
           },
         },
       },

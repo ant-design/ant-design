@@ -1,4 +1,5 @@
-import { type CSSObject, unit } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
@@ -111,7 +112,7 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
       background: avatarBg,
       border: `${unit(lineWidth)} ${lineType} transparent`,
 
-      [`&-image`]: {
+      '&-image': {
         background: 'transparent',
       },
 
@@ -121,11 +122,11 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
 
       ...avatarSizeStyle(containerSize, textFontSize, borderRadius),
 
-      [`&-lg`]: {
+      '&-lg': {
         ...avatarSizeStyle(containerSizeLG, textFontSizeLG, borderRadiusLG),
       },
 
-      [`&-sm`]: {
+      '&-sm': {
         ...avatarSizeStyle(containerSizeSM, textFontSizeSM, borderRadiusSM),
       },
 
@@ -150,7 +151,7 @@ const genGroupStyle: GenerateStyle<AvatarToken> = (token) => {
         borderColor: groupBorderColor,
       },
 
-      [`> *:not(:first-child)`]: {
+      '> *:not(:first-child)': {
         marginInlineStart: groupOverlapping,
       },
     },

@@ -1,6 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { SelectToken } from './token';
 import { unit } from '@ant-design/cssinjs';
+
+import type { SelectToken } from './token';
 
 // =====================================================
 // ==                  Outlined                       ==
@@ -199,6 +200,19 @@ const genBorderlessStyle = (token: SelectToken): CSSObject => ({
     [`&${token.componentCls}-multiple ${token.componentCls}-selection-item`]: {
       background: token.multipleItemBg,
       border: `${unit(token.lineWidth)} ${token.lineType} ${token.multipleItemBorderColor}`,
+    },
+
+    // Status
+    [`&${token.componentCls}-status-error`]: {
+      [`${token.componentCls}-selection-item`]: {
+        color: token.colorError,
+      },
+    },
+
+    [`&${token.componentCls}-status-warning`]: {
+      [`${token.componentCls}-selection-item`]: {
+        color: token.colorWarning,
+      },
     },
   },
 });

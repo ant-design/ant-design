@@ -1,4 +1,5 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
 import { clearFix, resetComponent } from '../../style';
@@ -342,7 +343,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       // ============================ Body ============================
       [`${componentCls}-tbody`]: {
         '> tr': {
-          [`> th, > td`]: {
+          '> th, > td': {
             transition: `background ${motionDurationMid}, border-color ${motionDurationMid}`,
             borderBottom: tableBorder,
 

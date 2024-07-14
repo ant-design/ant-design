@@ -1,7 +1,9 @@
+import * as React from 'react';
 import type { FormInstance as RcFormInstance } from 'rc-field-form';
 import { useForm as useRcForm } from 'rc-field-form';
-import * as React from 'react';
+import { getDOM } from 'rc-util/lib/Dom/findDOMNode';
 import scrollIntoView from 'scroll-into-view-if-needed';
+
 import type { InternalNamePath, NamePath, ScrollOptions } from '../interface';
 import { getFieldId, toArray } from '../util';
 
@@ -20,6 +22,20 @@ export interface FormInstance<Values = any> extends RcFormInstance<Values> {
 function toNamePathStr(name: NamePath) {
   const namePath = toArray(name);
   return namePath.join('_');
+}
+
+function getFieldDOMNode(name: NamePath, wrapForm: FormInstance) {
+  const field = wrapForm.getFieldInstance(name);
+  const fieldDom = getDOM(field);
+
+  if (fieldDom) {
+    return fieldDom;
+  }
+
+  const fieldId = getFieldId(toArray(name), wrapForm.__INTERNAL__.name);
+  if (fieldId) {
+    return document.getElementById(fieldId);
+  }
 }
 
 export default function useForm<Values = any>(form?: FormInstance<Values>): [FormInstance<Values>] {
@@ -41,9 +57,7 @@ export default function useForm<Values = any>(form?: FormInstance<Values>): [For
           },
         },
         scrollToField: (name: NamePath, options: ScrollOptions = {}) => {
-          const namePath = toArray(name);
-          const fieldId = getFieldId(namePath, wrapForm.__INTERNAL__.name);
-          const node: HTMLElement | null = fieldId ? document.getElementById(fieldId) : null;
+          const node = getFieldDOMNode(name, wrapForm);
 
           if (node) {
             scrollIntoView(node, {
