@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Switch, Typography } from 'antd';
+import { Popover, Switch, Typography } from 'antd';
 
 const { Paragraph, Text } = Typography;
 
@@ -42,7 +42,14 @@ const App: React.FC = () => {
 
       <Text
         style={ellipsis ? { width: 200 } : undefined}
-        ellipsis={ellipsis ? { popover: 'I am ellipsis now!' } : false}
+        ellipsis={
+          ellipsis
+            ? {
+                tooltip: (children, isEllipsis) =>
+                  isEllipsis ? children : <Popover content={children}>{children}</Popover>,
+              }
+            : false
+        }
       >
         Ant Design, a design language for background applications, is refined by Ant UED Team.
       </Text>
