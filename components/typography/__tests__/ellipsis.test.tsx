@@ -440,6 +440,85 @@ describe('Typography.Ellipsis', () => {
     });
   });
 
+  describe('should popover support', () => {
+    let domSpy: ReturnType<typeof spyElementPrototypes>;
+
+    beforeAll(() => {
+      domSpy = spyElementPrototypes(HTMLElement, {
+        offsetWidth: {
+          get: () => 100,
+        },
+        scrollWidth: {
+          get: () => 200,
+        },
+      });
+    });
+
+    afterAll(() => {
+      domSpy.mockRestore();
+    });
+
+    async function getWrapper(popover?: EllipsisConfig['popover']) {
+      const ref = React.createRef<HTMLElement>();
+      const wrapper = render(
+        <Base ellipsis={{ popover }} component="p" ref={ref}>
+          {fullStr}
+        </Base>,
+      );
+      triggerResize(ref.current!);
+      await waitFakeTimer();
+      return wrapper;
+    }
+
+    it('boolean', async () => {
+      const { container, baseElement } = await getWrapper(true);
+      fireEvent.mouseEnter(container.firstChild!);
+      await waitFor(() => {
+        expect(baseElement.querySelector('.ant-popover-open')).not.toBeNull();
+      });
+    });
+
+    it('customize', async () => {
+      const { container, baseElement } = await getWrapper('Bamboo is Light');
+      fireEvent.mouseEnter(container.firstChild!);
+      await waitFor(() => {
+        expect(baseElement.querySelector('.ant-popover-open')).not.toBeNull();
+      });
+    });
+    it('popover props', async () => {
+      const { container, baseElement } = await getWrapper({
+        content: 'This is popover',
+        className: 'popover-class-name',
+      });
+      fireEvent.mouseEnter(container.firstChild!);
+      await waitFor(() => {
+        expect(container.querySelector('.popover-class-name')).toBeTruthy();
+        expect(baseElement.querySelector('.ant-popover-open')).not.toBeNull();
+      });
+    });
+    it('popover content true', async () => {
+      const { container, baseElement } = await getWrapper({
+        content: true,
+        className: 'popover-class-name',
+      });
+      fireEvent.mouseEnter(container.firstChild!);
+      await waitFor(() => {
+        expect(container.querySelector('.popover-class-name')).toBeTruthy();
+        expect(baseElement.querySelector('.ant-popover-open')).not.toBeNull();
+      });
+    });
+    it('popover element', async () => {
+      const { container, baseElement } = await getWrapper(
+        <div className="popover-class-name">title</div>,
+      );
+      fireEvent.mouseEnter(container.firstChild!);
+      await waitFor(() => {
+        expect(container.querySelector('.popover-class-name')).toBeTruthy();
+        expect(baseElement.querySelector('.ant-popover-open')).not.toBeNull();
+      });
+    });
+  });
+
   it('js ellipsis should show aria-label', () => {
     const { container: titleWrapper } = render(
       <Base component={undefined} title="bamboo" ellipsis={{ expandable: true }} />,
