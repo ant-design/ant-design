@@ -26,6 +26,7 @@ function generatePicker<DateType extends AnyObject>(generateConfig: GenerateConf
   };
 
   const MergedDatePicker = DatePicker as MergedDatePickerType;
+
   MergedDatePicker.WeekPicker = WeekPicker;
   MergedDatePicker.MonthPicker = MonthPicker;
   MergedDatePicker.YearPicker = YearPicker;
