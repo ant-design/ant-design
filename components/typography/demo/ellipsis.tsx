@@ -46,7 +46,7 @@ const App: React.FC = () => {
           ellipsis
             ? {
                 tooltip: (children, isEllipsis) =>
-                  isEllipsis ? children : <Popover content={children}>{children}</Popover>,
+                  isEllipsis ? <Popover content={children}>{children}</Popover> : children,
               }
             : false
         }
