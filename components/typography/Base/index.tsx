@@ -13,6 +13,7 @@ import { isStyleSupport } from '../../_util/styleChecker';
 import TransButton from '../../_util/transButton';
 import { ConfigContext } from '../../config-provider';
 import useLocale from '../../locale/useLocale';
+import type { PopoverProps } from '../../popover';
 import type { TooltipProps } from '../../tooltip';
 import Tooltip from '../../tooltip';
 import Editable from '../Editable';
@@ -63,6 +64,7 @@ export interface EllipsisConfig {
   onExpand?: (e: React.MouseEvent<HTMLElement, MouseEvent>, info: { expanded: boolean }) => void;
   onEllipsis?: (ellipsis: boolean) => void;
   tooltip?: React.ReactNode | TooltipProps;
+  popover?: React.ReactNode | PopoverProps;
 }
 
 export interface BlockProps<C extends keyof JSX.IntrinsicElements = keyof JSX.IntrinsicElements>
@@ -313,17 +315,37 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     };
   }, [cssEllipsis, mergedEnableEllipsis]);
 
+  let showMode: 'tooltip' | 'popover';
   // ========================== Tooltip ===========================
-  let tooltipProps: TooltipProps = {};
-  if (ellipsisConfig.tooltip === true) {
-    tooltipProps = { title: editConfig.text ?? children };
-  } else if (React.isValidElement(ellipsisConfig.tooltip)) {
-    tooltipProps = { title: ellipsisConfig.tooltip };
-  } else if (typeof ellipsisConfig.tooltip === 'object') {
-    tooltipProps = { title: editConfig.text ?? children, ...ellipsisConfig.tooltip };
-  } else {
-    tooltipProps = { title: ellipsisConfig.tooltip };
+  let tooltipProps: TooltipProps = { title: undefined };
+  if (ellipsisConfig.tooltip) {
+    showMode = 'tooltip';
+    if (ellipsisConfig.tooltip === true) {
+      tooltipProps = { title: editConfig.text ?? children };
+    } else if (React.isValidElement(ellipsisConfig.tooltip)) {
+      tooltipProps = { title: ellipsisConfig.tooltip };
+    } else if (typeof ellipsisConfig.tooltip === 'object') {
+      tooltipProps = { title: editConfig.text ?? children, ...ellipsisConfig.tooltip };
+    } else {
+      tooltipProps = { title: ellipsisConfig.tooltip };
+    }
   }
+
+  // ========================== Popover ===========================
+  let popoverProps: PopoverProps = {};
+  if (ellipsisConfig.popover) {
+    showMode = 'popover';
+    if (ellipsisConfig.popover === true) {
+      popoverProps = { content: editConfig.text ?? children };
+    } else if (React.isValidElement(ellipsisConfig.popover)) {
+      popoverProps = { content: ellipsisConfig.popover };
+    } else if (typeof ellipsisConfig.popover === 'object') {
+      popoverProps = { content: editConfig.text ?? children, ...ellipsisConfig.popover };
+    } else {
+      popoverProps = { content: ellipsisConfig.popover };
+    }
+  }
+
   const topAriaLabel = React.useMemo(() => {
     const isValid = (val: any): val is string | number => ['string', 'number'].includes(typeof val);
 
@@ -347,8 +369,19 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
       return tooltipProps.title;
     }
 
+    if (isValid(popoverProps.content)) {
+      return popoverProps.content;
+    }
+
     return undefined;
-  }, [enableEllipsis, cssEllipsis, title, tooltipProps.title, isMergedEllipsis]);
+  }, [
+    enableEllipsis,
+    cssEllipsis,
+    title,
+    tooltipProps.title,
+    popoverProps.content,
+    isMergedEllipsis,
+  ]);
 
   // =========================== Render ===========================
   // >>>>>>>>>>> Editing input
@@ -462,7 +495,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     <ResizeObserver onResize={onResize} disabled={!mergedEnableEllipsis}>
       {(resizeRef: React.RefObject<HTMLElement>) => (
         <EllipsisTooltip
+          showMode={showMode}
           tooltipProps={tooltipProps}
+          popoverProps={popoverProps}
           enableEllipsis={mergedEnableEllipsis}
           isEllipsis={isMergedEllipsis}
         >
