@@ -1,19 +1,19 @@
 import type { FC } from 'react';
 import React, { useEffect, useState } from 'react';
 
-import type { Color } from '../color';
+import type { AggregationColor } from '../color';
 import type { ColorPickerBaseProps } from '../interface';
 import { generateColor, getAlphaColor } from '../util';
 import ColorSteppers from './ColorSteppers';
 
 interface ColorAlphaInputProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
-  value?: Color;
-  onChange?: (value: Color) => void;
+  value?: AggregationColor;
+  onChange?: (value: AggregationColor) => void;
 }
 
 const ColorAlphaInput: FC<ColorAlphaInputProps> = ({ prefixCls, value, onChange }) => {
   const colorAlphaInputPrefixCls = `${prefixCls}-alpha-input`;
-  const [alphaValue, setAlphaValue] = useState<Color>(generateColor(value || '#000'));
+  const [alphaValue, setAlphaValue] = useState<AggregationColor>(generateColor(value || '#000'));
 
   // Update step value
   useEffect(() => {

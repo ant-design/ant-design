@@ -1,13 +1,13 @@
 import type { FC } from 'react';
 import React from 'react';
 
-import type { Color } from '../color';
+import type { AggregationColor } from '../color';
 import type { ColorPickerBaseProps } from '../interface';
 import { generateColor } from '../util';
 
 interface ColorClearProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
-  value?: Color;
-  onChange?: (value: Color) => void;
+  value?: AggregationColor;
+  onChange?: (value: AggregationColor) => void;
 }
 
 const ColorClear: FC<ColorClearProps> = ({ prefixCls, value, onChange }) => {

@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import type { HsbaColorType } from '@rc-component/color-picker';
 import RcColorPicker from '@rc-component/color-picker';
 
-import type { Color } from '../color';
+import type { AggregationColor } from '../color';
 import { PanelPickerContext } from '../context';
 import type { ColorPickerBaseProps } from '../interface';
 import { generateColor } from '../util';
@@ -15,8 +15,8 @@ export interface PanelPickerProps
     ColorPickerBaseProps,
     'prefixCls' | 'allowClear' | 'disabledAlpha' | 'onChangeComplete'
   > {
-  value?: Color;
-  onChange?: (value?: Color, type?: HsbaColorType, pickColor?: boolean) => void;
+  value?: AggregationColor;
+  onChange?: (value?: AggregationColor, type?: HsbaColorType, pickColor?: boolean) => void;
   onClear?: () => void;
 }
 
