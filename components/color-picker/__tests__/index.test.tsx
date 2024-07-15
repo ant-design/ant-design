@@ -740,4 +740,11 @@ describe('ColorPicker', () => {
       expect(container.querySelector('.ant-color-picker-clear')).toBeFalsy();
     });
   });
+
+  it('toHex', async () => {
+    const { container } = render(
+      <ColorPicker defaultValue="#123456" showText={(color) => color.toHex()} />,
+    );
+    expect(container.querySelector('.ant-color-picker-trigger-text')?.innerHTML).toBe('123456');
+  });
 });
