@@ -29,6 +29,7 @@ const contentRender: ChatboxProps['contentRender'] = (content) => {
   if (!content) {
     return null;
   }
+  // biome-ignore lint/security/noDangerouslySetInnerHtml: it's for markdown
   return <span dangerouslySetInnerHTML={{ __html: md.render(content) }} />;
 };
 

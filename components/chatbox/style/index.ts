@@ -33,9 +33,8 @@ const cursorBlink = new Keyframes('cursorBlink', {
   },
 });
 
-export interface ComponentToken {
-  //
-}
+// biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
+export interface ComponentToken {}
 
 export interface ChatboxToken extends FullToken<'Chatbox'> {
   chatboxContentMaxWidth: number | string;
