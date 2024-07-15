@@ -10,7 +10,7 @@ import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Form from '../../form';
 import theme from '../../theme';
-import type { Color } from '../color';
+import type { AggregationColor } from '../color';
 import ColorPicker from '../ColorPicker';
 import type { ColorPickerProps, ColorValueType } from '../interface';
 import { generateColor } from '../util';
@@ -65,7 +65,7 @@ describe('ColorPicker', () => {
 
   it('Should component custom trigger work', async () => {
     const App: React.FC = () => {
-      const [color, setColor] = useState<Color | string>('hsb(215, 91%, 100%)');
+      const [color, setColor] = useState<AggregationColor | string>('hsb(215, 91%, 100%)');
       const colorString = useMemo(
         () => (typeof color === 'string' ? color : color.toHsbString()),
         [color],
@@ -404,7 +404,7 @@ describe('ColorPicker', () => {
     await waitFakeTimer();
     fireEvent.click(container.querySelector('.ant-select-item[title="RGB"]')!);
     await waitFakeTimer();
-    expect(targetEle?.innerHTML).toEqual('rgb(22, 119, 255)');
+    expect(targetEle?.innerHTML).toEqual('rgb(22,119,255)');
 
     fireEvent.mouseDown(
       container.querySelector('.ant-color-picker-format-select .ant-select-selector')!,
@@ -616,7 +616,7 @@ describe('ColorPicker', () => {
       const Demo = () => {
         const [color, setColor] = useState<ColorValueType>(value);
         useEffect(() => {
-          setColor(generateColor('red'));
+          setColor(generateColor('#FF0000'));
         }, []);
         return <ColorPicker value={color} />;
       };
@@ -739,5 +739,12 @@ describe('ColorPicker', () => {
 
       expect(container.querySelector('.ant-color-picker-clear')).toBeFalsy();
     });
+  });
+
+  it('toHex', async () => {
+    const { container } = render(
+      <ColorPicker defaultValue="#123456" showText={(color) => color.toHex()} />,
+    );
+    expect(container.querySelector('.ant-color-picker-trigger-text')?.innerHTML).toBe('123456');
   });
 });

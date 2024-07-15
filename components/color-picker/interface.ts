@@ -3,7 +3,7 @@ import type { ColorPickerProps as RcColorPickerProps } from '@rc-component/color
 
 import type { SizeType } from '../config-provider/SizeContext';
 import type { PopoverProps } from '../popover';
-import type { Color } from './color';
+import type { AggregationColor } from './color';
 
 export enum ColorFormat {
   hex = 'hex',
@@ -15,7 +15,7 @@ export type ColorFormatType = keyof typeof ColorFormat;
 
 export interface PresetsItem {
   label: ReactNode;
-  colors: (string | Color)[];
+  colors: (string | AggregationColor)[];
   /**
    * Whether the initial state is collapsed
    * @since 5.11.0
@@ -33,7 +33,7 @@ export type TriggerPlacement =
   | 'bottomLeft'
   | 'bottomRight';
 export interface ColorPickerBaseProps {
-  color?: Color;
+  color?: AggregationColor;
   prefixCls: string;
   format?: ColorFormatType;
   allowClear?: boolean;
@@ -45,7 +45,7 @@ export interface ColorPickerBaseProps {
   onChangeComplete?: ColorPickerProps['onChangeComplete'];
 }
 
-export type ColorValueType = Color | string | null;
+export type ColorValueType = AggregationColor | string | null;
 
 export type ColorPickerProps = Omit<
   RcColorPickerProps,
@@ -67,7 +67,7 @@ export type ColorPickerProps = Omit<
     panel: React.ReactNode,
     extra: { components: { Picker: FC; Presets: FC } },
   ) => React.ReactNode;
-  showText?: boolean | ((color: Color) => React.ReactNode);
+  showText?: boolean | ((color: AggregationColor) => React.ReactNode);
   size?: SizeType;
   styles?: { popup?: CSSProperties; popupOverlayInner?: CSSProperties };
   rootClassName?: string;
@@ -75,7 +75,7 @@ export type ColorPickerProps = Omit<
   [key: `data-${string}`]: string;
   onOpenChange?: (open: boolean) => void;
   onFormatChange?: (format?: ColorFormatType) => void;
-  onChange?: (value: Color, hex: string) => void;
+  onChange?: (value: AggregationColor, hex: string) => void;
   onClear?: () => void;
-  onChangeComplete?: (value: Color) => void;
+  onChangeComplete?: (value: AggregationColor) => void;
 } & Pick<PopoverProps, 'getPopupContainer' | 'autoAdjustOverflow' | 'destroyTooltipOnHide'>;
