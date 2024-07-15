@@ -1,7 +1,5 @@
 import * as React from 'react';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
-import PlusOutlined from '@ant-design/icons/PlusOutlined';
+import { CloseOutlined, EllipsisOutlined, PlusOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import type { TabsProps as RcTabsProps } from 'rc-tabs';
 import RcTabs from 'rc-tabs';
@@ -75,7 +73,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
         onEdit?.(editType === 'add' ? event : key!, editType);
       },
       removeIcon: removeIcon ?? tabs?.removeIcon ?? <CloseOutlined />,
-      addIcon: (addIcon ?? tabs?.addIcon) || <PlusOutlined />,
+      addIcon: addIcon ?? tabs?.addIcon ?? <PlusOutlined />,
       showAdd: hideAdd !== true,
     };
   }
