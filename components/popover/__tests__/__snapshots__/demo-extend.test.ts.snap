@@ -1533,6 +1533,46 @@ Array [
 
 exports[`renders components/popover/demo/render-panel.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/popover/demo/shift.tsx extend context correctly 1`] = `
+<div
+  style="width: 300vw; height: 300vh; display: flex; align-items: center; justify-content: center;"
+>
+  <button
+    class="ant-btn ant-btn-primary ant-popover-open"
+    type="button"
+  >
+    <span>
+      Scroll The Window
+    </span>
+  </button>
+  <div
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+  >
+    <div
+      class="ant-popover-arrow"
+      style="position: absolute; bottom: 0px; left: 0px;"
+    />
+    <div
+      class="ant-popover-content"
+    >
+      <div
+        class="ant-popover-inner"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-inner-content"
+        >
+          Thanks for using antd. Have a nice day !
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/popover/demo/shift.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/popover/demo/triggerType.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"

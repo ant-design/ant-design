@@ -24,7 +24,6 @@ Array [
       <div
         class="ant-popover-inner"
         role="tooltip"
-        style="padding: 0px;"
       >
         <div
           class="ant-popover-inner-content"

@@ -108,7 +108,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
     {
       icon: ReactNode,
-      tooltip: boolean | ReactNode,
+      tooltip: ReactNode,
       editing: boolean,
       maxLength: number,
       autoSize: boolean | { minRows: number, maxRows: number },
@@ -148,7 +148,7 @@ interface EllipsisConfig {
   suffix: string;
   /** render function added in `5.16.0` */
   symbol: ReactNode | ((expanded: boolean) => ReactNode);
-  tooltip: boolean | ReactNode | TooltipProps;
+  tooltip: ReactNode | TooltipProps;
   /** added in `5.16.0` */
   defaultExpanded: boolean;
   /** added in `5.16.0` */

@@ -6,14 +6,18 @@ import type { AlertProps } from '../alert';
 import type { BadgeProps } from '../badge';
 import type { ButtonProps } from '../button';
 import type { CardProps } from '../card';
+import type { CascaderProps } from '../cascader';
 import type { CollapseProps } from '../collapse';
+import type { DatePickerProps, RangePickerProps } from '../date-picker';
 import type { DrawerProps } from '../drawer';
 import type { FlexProps } from '../flex/interface';
 import type { FloatButtonGroupProps } from '../float-button/interface';
 import type { FormProps } from '../form/Form';
 import type { InputProps, TextAreaProps } from '../input';
+import type { InputNumberProps } from '../input-number';
 import type { ListItemProps } from '../list';
 import type { Locale } from '../locale';
+import type { MentionsProps } from '../mentions';
 import type { MenuProps } from '../menu';
 import type { ModalProps } from '../modal';
 import type { ArgsProps } from '../notification/interface';
@@ -24,16 +28,13 @@ import type { TableProps } from '../table';
 import type { TabsProps } from '../tabs';
 import type { TagProps } from '../tag';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
+import type { TimePickerProps } from '../time-picker';
 import type { TourProps } from '../tour/interface';
 import type { TransferProps } from '../transfer';
-import type { InputNumberProps } from '../input-number';
 import type { TreeSelectProps } from '../tree-select';
-import type { DatePickerProps, RangePickerProps } from '../date-picker';
-import type { TimePickerProps } from '../time-picker';
-import type { CascaderProps } from '../cascader';
-import type { MentionsProps } from '../mentions';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 
+export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
 
 export interface Theme {
@@ -195,6 +196,7 @@ export interface ListConfig extends ComponentStyleConfig {
 }
 
 export const Variants = ['outlined', 'borderless', 'filled'] as const;
+
 export type Variant = (typeof Variants)[number];
 
 export interface WaveConfig {
@@ -299,7 +301,7 @@ const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) =>
   if (customizePrefixCls) {
     return customizePrefixCls;
   }
-  return suffixCls ? `ant-${suffixCls}` : 'ant';
+  return suffixCls ? `${defaultPrefixCls}-${suffixCls}` : defaultPrefixCls;
 };
 
 // zombieJ: 🚨 Do not pass `defaultRenderEmpty` here since it will cause circular dependency.

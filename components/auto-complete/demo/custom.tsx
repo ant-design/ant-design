@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { AutoComplete, Input } from 'antd';
+import type { AutoCompleteProps } from 'antd';
 
 const { TextArea } = Input;
 
 const App: React.FC = () => {
-  const [options, setOptions] = useState<{ value: string }[]>([]);
+  const [options, setOptions] = useState<AutoCompleteProps['options']>([]);
 
   const handleSearch = (value: string) => {
     setOptions(

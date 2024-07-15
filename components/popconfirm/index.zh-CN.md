@@ -22,6 +22,7 @@ demo:
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/locale.tsx">国际化</code>
 <code src="./demo/placement.tsx">位置</code>
+<code src="./demo/shift.tsx" iframe="300">贴边偏移</code>
 <code src="./demo/dynamic-trigger.tsx">条件触发</code>
 <code src="./demo/icon.tsx">自定义 Icon 图标</code>
 <code src="./demo/async.tsx">异步关闭</code>

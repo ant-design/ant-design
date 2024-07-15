@@ -39,14 +39,14 @@ jobs:
           require-include: '🇺🇸 English, 🇨🇳 Chinese, 🇺🇸 英文, 🇨🇳 中文'
           comment-body: |
             - 🚨 @${{ github.event.pull_request.user.login }}, Please fill changelog in the PR
-              - Write with a **developer-oriented perspective** and **narrative method**, without describing the details of the repair
-              - **Describing the problem and the impact on the developer**
-              - **describing the user-first site problem**, not your solution
-              - Refer: https://ant.design/changelog#501
+              - Use a developer-oriented tone
+              - Describe the impact on developers, rather than your solution
+              - Refer to: https://ant.design/changelog#501
 
             - 🚨 @${{ github.event.pull_request.user.login }}, 请填写 PR 中的 changelog
-              - 请用**面向开发者的角度**和**叙述方式撰写**，不描述修复细节
-              - **描述问题和对开发者的影响**
-              - **描述用户第一现场的问题**，而非你的解决方式
+              - 使用面向开发者的角度撰写 changelog
+              - 描述用户第一现场的问题，对开发者有哪些影响，而非你的解决方式
               - 参考：https://ant.design/changelog-cn#501
+
+            ![](https://github.com/ant-design/ant-design/assets/507615/14c767db-e40f-42a1-9aab-553037eb1ab6)
           skip-title-start: 'docs, chore, test, ci'

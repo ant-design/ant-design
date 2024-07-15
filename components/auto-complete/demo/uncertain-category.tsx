@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { AutoComplete, Input } from 'antd';
-import type { SelectProps } from 'antd';
+import type { AutoCompleteProps } from 'antd';
 
 const getRandomInt = (max: number, min = 0) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -36,7 +36,7 @@ const searchResult = (query: string) =>
     });
 
 const App: React.FC = () => {
-  const [options, setOptions] = useState<SelectProps<object>['options']>([]);
+  const [options, setOptions] = useState<AutoCompleteProps['options']>([]);
 
   const handleSearch = (value: string) => {
     setOptions(value ? searchResult(value) : []);
