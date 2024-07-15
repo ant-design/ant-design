@@ -7,7 +7,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HjY3QKszqFEAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*G8njQogkGwAAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
-tag: 5.19.0
+tag: 5.20.0
 ---
 
 ## When To Use
@@ -27,7 +27,7 @@ Often used when chatting.
 
 Common props ref：[Common props](/docs/react/common-props)
 
-> This component is available since `antd@5.19.0`.
+> This component is available since `antd@5.20.0`.
 
 ### Chatbox
 

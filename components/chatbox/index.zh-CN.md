@@ -8,7 +8,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HjY3QKszqFEAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*G8njQogkGwAAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
-tag: 5.19.0
+tag: 5.20.0
 ---
 
 ## 何时使用
@@ -28,7 +28,7 @@ tag: 5.19.0
 
 通用属性参考：[通用属性](/docs/react/common-props)
 
-> 自 `antd@5.19.0` 版本开始提供该组件。
+> 自 `antd@5.20.0` 版本开始提供该组件。
 
 ### Chatbox
 
