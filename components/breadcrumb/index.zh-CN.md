@@ -53,12 +53,12 @@ return <Breadcrumb routes={[{ breadcrumbName: 'sample' }]} />;
 | --- | --- | --- | --- | --- |
 | itemRender | 自定义链接函数，和 react-router 配置使用 | (route, params, routes, paths) => ReactNode | - |  |
 | params | 路由的参数 | object | - |  |
-| items | 路由栈信息 | [items\[\]](#ItemType) | - | 5.3.0 |
+| items | 路由栈信息 | [items\[\]](#itemtype) | - | 5.3.0 |
 | separator | 分隔符自定义 | ReactNode | `/` |  |
 
 ### ItemType
 
-> type ItemType = Omit<[RouteItemType](#RouteItemType), 'title' | 'path'> | [SeparatorType](#SeparatorType)
+> type ItemType = Omit<[RouteItemType](#routeitemtype), 'title' | 'path'> | [SeparatorType](#separatortype)
 
 ### RouteItemType
 
