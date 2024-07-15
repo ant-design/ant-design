@@ -1,6 +1,6 @@
 import React from 'react';
 import * as AntdIcons from '@ant-design/icons';
-import { Badge, message } from 'antd';
+import { Badge, App } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 import CopyToClipboard from 'react-copy-to-clipboard';
@@ -69,6 +69,7 @@ export interface CopyableIconProps {
 }
 
 const CopyableIcon: React.FC<CopyableIconProps> = (props) => {
+  const { message } = App.useApp();
   const { name, isNew, justCopied, theme, onCopied } = props;
   const { styles } = useStyle();
   const onCopy = (text: string, result: boolean) => {

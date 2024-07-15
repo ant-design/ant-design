@@ -201,20 +201,15 @@ function List<T>({
   if (paginationProps.current > largestPage) {
     paginationProps.current = largestPage;
   }
-  const paginationContent = pagination ? (
-    <div
-      className={classNames(
-        `${prefixCls}-pagination`,
-        `${prefixCls}-pagination-align-${paginationProps?.align ?? 'end'}`,
-      )}
-    >
+  const paginationContent = pagination && (
+    <div className={classNames(`${prefixCls}-pagination`)}>
       <Pagination
         {...paginationProps}
         onChange={onPaginationChange}
         onShowSizeChange={onPaginationShowSizeChange}
       />
     </div>
-  ) : null;
+  );
 
   let splitDataSource = [...dataSource];
   if (pagination) {

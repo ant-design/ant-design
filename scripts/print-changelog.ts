@@ -1,9 +1,10 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-await-in-loop, no-console */
 import { spawn } from 'child_process';
 import path from 'path';
+import { input, select } from '@inquirer/prompts';
 import chalk from 'chalk';
 import fs from 'fs-extra';
-import inquirer from 'inquirer';
 import fetch from 'isomorphic-fetch';
 import jQuery from 'jquery';
 import jsdom from 'jsdom';
@@ -72,40 +73,32 @@ const getDescription = (entity?: Line): string => {
 
 async function printLog() {
   const tags = await git.tags();
-  const { fromVersion } = await inquirer.prompt([
-    {
-      type: 'list',
-      name: 'fromVersion',
-      message: '🏷  Please choose tag to compare with current branch:',
-      choices: tags.all
-        .filter((item) => !item.includes('experimental'))
-        .filter((item) => !item.includes('alpha'))
-        .filter((item) => !item.includes('resource'))
-        .reverse()
-        .slice(0, 50),
-    },
-  ]);
-  let { toVersion } = await inquirer.prompt([
-    {
-      type: 'list',
-      name: 'toVersion',
-      message: `🔀 Please choose branch to compare with ${chalk.magenta(fromVersion)}:`,
-      choices: ['master', '4.x-stable', '3.x-stable', 'feature', 'custom input ⌨️'],
-    },
-  ]);
+  const fromVersion = await select({
+    message: '🏷 Please choose tag to compare with current branch:',
+    choices: tags.all
+      .filter((item) => !item.includes('experimental'))
+      .filter((item) => !item.includes('alpha'))
+      .filter((item) => !item.includes('resource'))
+      .reverse()
+      .slice(0, 50)
+      .map((item) => ({ name: item, value: item })),
+  });
+
+  let toVersion = await select({
+    message: `🔀 Please choose branch to compare with ${chalk.magenta(fromVersion)}:`,
+    choices: ['master', '4.x-stable', '3.x-stable', 'feature', 'custom input ⌨️'].map((i) => ({
+      name: i,
+      value: i,
+    })),
+  });
 
   if (toVersion.startsWith('custom input')) {
-    const result = await inquirer.prompt([
-      {
-        type: 'input',
-        name: 'toVersion',
-        message: `🔀 Please input custom git hash id or branch name to compare with ${chalk.magenta(
-          fromVersion,
-        )}:`,
-        default: 'master',
-      },
-    ]);
-    toVersion = result.toVersion;
+    toVersion = await input({
+      default: 'master',
+      message: `🔀 Please input custom git hash id or branch name to compare with ${chalk.magenta(
+        fromVersion,
+      )}:`,
+    });
   }
 
   if (!/\d+\.\d+\.\d+/.test(fromVersion)) {

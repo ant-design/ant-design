@@ -1355,7 +1355,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
           class="ant-tooltip-inner"
           role="tooltip"
         >
-          Thanks for using antd. Have a nice day!
+          Thanks for using antd. Have a nice day !
         </div>
       </div>
     </div>
@@ -1385,7 +1385,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
           class="ant-tooltip-inner"
           role="tooltip"
         >
-          Thanks for using antd. Have a nice day!
+          Thanks for using antd. Have a nice day !
         </div>
       </div>
     </div>
@@ -1482,7 +1482,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
           class="ant-tooltip-inner"
           role="tooltip"
         >
-          Thanks for using antd. Have a nice day!
+          Thanks for using antd. Have a nice day !
         </div>
       </div>
     </div>
@@ -1521,7 +1521,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
           class="ant-tooltip-inner"
           role="tooltip"
         >
-          Thanks for using antd. Have a nice day!
+          Thanks for using antd. Have a nice day !
         </div>
       </div>
     </div>
@@ -1663,7 +1663,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
           class="ant-tooltip-inner"
           role="tooltip"
         >
-          Thanks for using antd. Have a nice day!
+          Thanks for using antd. Have a nice day !
         </div>
       </div>
     </div>
