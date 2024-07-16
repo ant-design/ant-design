@@ -64,6 +64,7 @@ const items: DescriptionsProps['items'] = [
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/border.tsx">带边框的</code>
 <code src="./demo/text.tsx" debug>复杂文本的情况</code>
+<code src="./demo/padding.tsx" debug>间距</code>
 <code src="./demo/size.tsx">自定义尺寸</code>
 <code src="./demo/responsive.tsx">响应式</code>
 <code src="./demo/vertical.tsx">垂直</code>
