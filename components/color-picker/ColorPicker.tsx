@@ -29,6 +29,7 @@ type CompoundedComponent = React.FC<ColorPickerProps> & {
 
 const ColorPicker: CompoundedComponent = (props) => {
   const {
+    mode,
     value,
     defaultValue,
     format,
@@ -173,6 +174,7 @@ const ColorPicker: CompoundedComponent = (props) => {
   };
 
   const colorBaseProps: ColorPickerBaseProps = {
+    mode,
     prefixCls,
     color: colorValue,
     allowClear,

@@ -211,8 +211,14 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
           ...genPresetsStyle(token),
           ...genClearStyle(token, colorPickerPresetColorSize, {
             marginInlineStart: 'auto',
-            marginBottom: marginXS,
           }),
+
+          // Operation bar
+          [`${componentCls}-operation`]: {
+            display: 'flex',
+            justifyContent: 'space-between',
+            marginBottom: marginXS,
+          },
         },
 
         '&-trigger': {

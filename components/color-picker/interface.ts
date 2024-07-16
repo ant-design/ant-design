@@ -43,6 +43,7 @@ export type TriggerPlacement =
   | 'bottomLeft'
   | 'bottomRight';
 export interface ColorPickerBaseProps {
+  mode?: ModeType | ModeType[];
   color?: AggregationColor;
   prefixCls: string;
   format?: ColorFormatType;
@@ -57,10 +58,13 @@ export interface ColorPickerBaseProps {
 
 export type ColorValueType = AggregationColor | string | null;
 
+export type ModeType = 'single' | 'gradient';
+
 export type ColorPickerProps = Omit<
   RcColorPickerProps,
   'onChange' | 'value' | 'defaultValue' | 'panelRender' | 'disabledAlpha' | 'onChangeComplete'
 > & {
+  mode?: ModeType | ModeType[];
   value?: ColorValueType;
   defaultValue?: ColorValueType;
   children?: React.ReactNode;

@@ -5,6 +5,7 @@ import RcColorPicker from '@rc-component/color-picker';
 
 import type { AggregationColor } from '../color';
 import { PanelPickerContext } from '../context';
+import useMode from '../hooks/useMode';
 import type { ColorPickerBaseProps } from '../interface';
 import { generateColor } from '../util';
 import ColorClear from './ColorClear';
@@ -13,7 +14,7 @@ import ColorInput from './ColorInput';
 export interface PanelPickerProps
   extends Pick<
     ColorPickerBaseProps,
-    'prefixCls' | 'allowClear' | 'disabledAlpha' | 'onChangeComplete'
+    'prefixCls' | 'allowClear' | 'disabledAlpha' | 'onChangeComplete' | 'mode'
   > {
   value?: AggregationColor;
   onChange?: (value?: AggregationColor, type?: HsbaColorType, pickColor?: boolean) => void;
@@ -22,6 +23,7 @@ export interface PanelPickerProps
 
 const PanelPicker: FC = () => {
   const {
+    mode,
     prefixCls,
     allowClear,
     value,
@@ -31,9 +33,15 @@ const PanelPicker: FC = () => {
     onChangeComplete,
     ...injectProps
   } = useContext(PanelPickerContext);
-  return (
-    <>
-      {allowClear && (
+
+  const [isSingle, isGradient] = useMode(mode);
+
+  // ============================ Render ============================
+  // Operation bar
+  let operationNode: React.ReactNode = null;
+  if (allowClear) {
+    operationNode = (
+      <div className={`${prefixCls}-operation`}>
         <ColorClear
           prefixCls={prefixCls}
           value={value}
@@ -43,7 +51,14 @@ const PanelPicker: FC = () => {
           }}
           {...injectProps}
         />
-      )}
+      </div>
+    );
+  }
+
+  // Return
+  return (
+    <>
+      {operationNode}
       <RcColorPicker
         prefixCls={prefixCls}
         value={value?.toHsb()}
