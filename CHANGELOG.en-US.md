@@ -15,8 +15,6 @@ tag: vVERSION
 - Major version release is not included in this schedule for breaking change and new features.
 
 ---
-- Internationalization*
-💄 Added missing translation for the Arabic language.
 
 ## 5.19.2
 
