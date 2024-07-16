@@ -1,9 +1,19 @@
 import type { CSSProperties, FC, ReactNode } from 'react';
-import type { ColorPickerProps as RcColorPickerProps } from '@rc-component/color-picker';
+import type {
+  ColorGenInput,
+  ColorPickerProps as RcColorPickerProps,
+} from '@rc-component/color-picker';
 
 import type { SizeType } from '../config-provider/SizeContext';
 import type { PopoverProps } from '../popover';
 import type { AggregationColor } from './color';
+
+export type { ColorGenInput };
+
+export type Colors<T> = {
+  color: ColorGenInput<T>;
+  percent: number;
+}[];
 
 export enum ColorFormat {
   hex = 'hex',

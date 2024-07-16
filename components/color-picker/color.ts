@@ -1,20 +1,39 @@
 /* eslint-disable class-methods-use-this */
-import type { ColorGenInput } from '@rc-component/color-picker';
 import { Color as RcColor } from '@rc-component/color-picker';
+
+import type { ColorGenInput, Colors } from './interface';
 
 export const toHexFormat = (value?: string, alpha?: boolean) =>
   value?.replace(/[^\w/]/gi, '').slice(0, alpha ? 8 : 6) || '';
 
 export const getHex = (value?: string, alpha?: boolean) => (value ? toHexFormat(value, alpha) : '');
 
+export type GradientColor = {
+  color: AggregationColor;
+  percent: number;
+}[];
+
 export class AggregationColor {
   /** Original Color object */
   private metaColor: RcColor;
 
+  private colors: GradientColor | undefined;
+
   public cleared: boolean | 'controlled' = false;
 
-  constructor(color: ColorGenInput<AggregationColor>) {
-    this.metaColor = new RcColor(color instanceof AggregationColor ? color.metaColor : color);
+  constructor(color: ColorGenInput<AggregationColor> | Colors<AggregationColor>) {
+    const getRcConstructorColor = (c: ColorGenInput<AggregationColor>) =>
+      c instanceof AggregationColor ? c.metaColor : c;
+
+    if (Array.isArray(color)) {
+      this.colors = color.map(({ color: c, percent }) => ({
+        color: new AggregationColor(c),
+        percent,
+      }));
+      this.metaColor = new RcColor(getRcConstructorColor(color[0].color));
+    } else {
+      this.metaColor = new RcColor(getRcConstructorColor(color));
+    }
 
     if (!color) {
       this.metaColor.setAlpha(0);
@@ -44,5 +63,13 @@ export class AggregationColor {
 
   toRgbString() {
     return this.metaColor.toRgbString();
+  }
+
+  isGradient(): boolean {
+    return !!this.colors;
+  }
+
+  getColors(): GradientColor {
+    return this.colors || [{ color: this, percent: 0 }];
   }
 }
