@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { act, useState } from 'react';
 import { CloseCircleFilled } from '@ant-design/icons';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
@@ -192,5 +192,32 @@ describe('RangePicker', () => {
 
     rerender(<RangePicker locale={enUS} value={[somePoint, somePoint]} allowClear={{}} />);
     expect(getClearButton()).toBeTruthy();
+  });
+
+  it('limit', async () => {
+    const wrapper = render(
+      <RangePicker
+        defaultValue={[dayjs('2021-06-01'), dayjs('2021-06-02')]}
+        defaultPickerValue={[dayjs('2021-06-01'), dayjs('2021-06-02')]}
+        disabledDate={(current, { from }) => {
+          if (from) {
+            return Math.abs(current.diff(from, 'days')) >= 2;
+          }
+          return false;
+        }}
+      />,
+    );
+
+    openPicker(wrapper);
+    await act(async () => {
+      wrapper.getByTitle('2021-06-21').click();
+    });
+    await act(async () => {
+      wrapper.getByTitle('2021-06-26').click();
+    });
+    closePicker(wrapper);
+    expect(wrapper.getByPlaceholderText('Start date').getAttribute('value')).toBe('2021-06-01');
+    // disabled 后不可选中
+    expect(wrapper.getByPlaceholderText('End date').getAttribute('value')).toBe('2021-06-02');
   });
 });
