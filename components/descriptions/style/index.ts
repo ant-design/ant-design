@@ -153,9 +153,14 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
         '> th, > td': {
           paddingBottom: itemPaddingBottom,
           paddingRight: itemPaddingRight,
-          '&:last-child': {
-            borderBottom: 'none',
-            paddingRight: 'none',
+        },
+        '> th, > td:last-child': {
+          paddingRight: 0,
+        },
+        '&:last-child': {
+          borderBottom: 'none',
+          '> th, > td': {
+            paddingBottom: 0,
           },
         },
       },
