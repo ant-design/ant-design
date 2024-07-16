@@ -1,5 +1,5 @@
 import React from 'react';
-import { Descriptions } from 'antd';
+import { Descriptions, Flex } from 'antd';
 import type { DescriptionsProps } from 'antd';
 
 const items: DescriptionsProps['items'] = [
@@ -31,10 +31,14 @@ const items: DescriptionsProps['items'] = [
 ];
 
 const App: React.FC = () => (
-  <div style={{ width: 600, border: '1px solid', padding: 20 }}>
-    <Descriptions title="User Info" column={2} items={items} />
-    <Descriptions layout="vertical" title="User Info" column={2} items={items} />
-  </div>
+  <Flex gap={8} vertical>
+    <div style={{ width: 600, border: '1px solid', padding: 20 }}>
+      <Descriptions title="User Info" column={2} items={items} />
+    </div>
+    <div style={{ width: 600, border: '1px solid', padding: 20 }}>
+      <Descriptions layout="vertical" title="User Info" column={2} items={items} />
+    </div>
+  </Flex>
 );
 
 export default App;

@@ -871,319 +871,328 @@ exports[`renders components/descriptions/demo/jsx.tsx correctly 1`] = `
 
 exports[`renders components/descriptions/demo/padding.tsx correctly 1`] = `
 <div
-  style="width:600px;border:1px solid;padding:20px"
+  class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  style="gap:8px"
 >
   <div
-    class="ant-descriptions"
+    style="width:600px;border:1px solid;padding:20px"
   >
     <div
-      class="ant-descriptions-header"
+      class="ant-descriptions"
     >
       <div
-        class="ant-descriptions-title"
+        class="ant-descriptions-header"
       >
-        User Info
+        <div
+          class="ant-descriptions-title"
+        >
+          User Info
+        </div>
       </div>
-    </div>
-    <div
-      class="ant-descriptions-view"
-    >
-      <table>
-        <tbody>
-          <tr
-            class="ant-descriptions-row"
-          >
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
+      <div
+        class="ant-descriptions-view"
+      >
+        <table>
+          <tbody>
+            <tr
+              class="ant-descriptions-row"
             >
-              <div
-                class="ant-descriptions-item-container"
+              <td
+                class="ant-descriptions-item"
+                colspan="1"
               >
-                <span
-                  class="ant-descriptions-item-label"
+                <div
+                  class="ant-descriptions-item-container"
                 >
-                  long
-                </span>
-                <span
-                  class="ant-descriptions-item-content"
+                  <span
+                    class="ant-descriptions-item-label"
+                  >
+                    long
+                  </span>
+                  <span
+                    class="ant-descriptions-item-content"
+                  >
+                    loooooooooooooooooooooooooooooooooooooooooooooooong
+                  </span>
+                </div>
+              </td>
+              <td
+                class="ant-descriptions-item"
+                colspan="1"
+              >
+                <div
+                  class="ant-descriptions-item-container"
                 >
-                  loooooooooooooooooooooooooooooooooooooooooooooooong
-                </span>
-              </div>
-            </td>
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
+                  <span
+                    class="ant-descriptions-item-label"
+                  >
+                    long
+                  </span>
+                  <span
+                    class="ant-descriptions-item-content"
+                  >
+                    loooooooooooooooooooooooooooooooooooooooooooooooong
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="ant-descriptions-row"
             >
-              <div
-                class="ant-descriptions-item-container"
+              <td
+                class="ant-descriptions-item"
+                colspan="1"
               >
-                <span
-                  class="ant-descriptions-item-label"
+                <div
+                  class="ant-descriptions-item-container"
                 >
-                  long
-                </span>
-                <span
-                  class="ant-descriptions-item-content"
+                  <span
+                    class="ant-descriptions-item-label"
+                  >
+                    long
+                  </span>
+                  <span
+                    class="ant-descriptions-item-content"
+                  >
+                    loooooooooooooooooooooooooooooooooooooooooooooooong
+                  </span>
+                </div>
+              </td>
+              <td
+                class="ant-descriptions-item"
+                colspan="1"
+              >
+                <div
+                  class="ant-descriptions-item-container"
                 >
-                  loooooooooooooooooooooooooooooooooooooooooooooooong
-                </span>
-              </div>
-            </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
+                  <span
+                    class="ant-descriptions-item-label"
+                  >
+                    long
+                  </span>
+                  <span
+                    class="ant-descriptions-item-content"
+                  >
+                    loooooooooooooooooooooooooooooooooooooooooooooooong
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="ant-descriptions-row"
             >
-              <div
-                class="ant-descriptions-item-container"
+              <td
+                class="ant-descriptions-item"
+                colspan="2"
               >
-                <span
-                  class="ant-descriptions-item-label"
+                <div
+                  class="ant-descriptions-item-container"
                 >
-                  long
-                </span>
-                <span
-                  class="ant-descriptions-item-content"
-                >
-                  loooooooooooooooooooooooooooooooooooooooooooooooong
-                </span>
-              </div>
-            </td>
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
-            >
-              <div
-                class="ant-descriptions-item-container"
-              >
-                <span
-                  class="ant-descriptions-item-label"
-                >
-                  long
-                </span>
-                <span
-                  class="ant-descriptions-item-content"
-                >
-                  loooooooooooooooooooooooooooooooooooooooooooooooong
-                </span>
-              </div>
-            </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
-            <td
-              class="ant-descriptions-item"
-              colspan="2"
-            >
-              <div
-                class="ant-descriptions-item-container"
-              >
-                <span
-                  class="ant-descriptions-item-label"
-                >
-                  long
-                </span>
-                <span
-                  class="ant-descriptions-item-content"
-                >
-                  loooooooooooooooooooooooooooooooooooooooooooooooong
-                </span>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+                  <span
+                    class="ant-descriptions-item-label"
+                  >
+                    long
+                  </span>
+                  <span
+                    class="ant-descriptions-item-content"
+                  >
+                    loooooooooooooooooooooooooooooooooooooooooooooooong
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
   <div
-    class="ant-descriptions"
+    style="width:600px;border:1px solid;padding:20px"
   >
     <div
-      class="ant-descriptions-header"
+      class="ant-descriptions"
     >
       <div
-        class="ant-descriptions-title"
+        class="ant-descriptions-header"
       >
-        User Info
+        <div
+          class="ant-descriptions-title"
+        >
+          User Info
+        </div>
       </div>
-    </div>
-    <div
-      class="ant-descriptions-view"
-    >
-      <table>
-        <tbody>
-          <tr
-            class="ant-descriptions-row"
-          >
-            <th
-              class="ant-descriptions-item"
-              colspan="1"
+      <div
+        class="ant-descriptions-view"
+      >
+        <table>
+          <tbody>
+            <tr
+              class="ant-descriptions-row"
             >
-              <div
-                class="ant-descriptions-item-container"
+              <th
+                class="ant-descriptions-item"
+                colspan="1"
               >
-                <span
-                  class="ant-descriptions-item-label"
+                <div
+                  class="ant-descriptions-item-container"
                 >
-                  long
-                </span>
-              </div>
-            </th>
-            <th
-              class="ant-descriptions-item"
-              colspan="1"
+                  <span
+                    class="ant-descriptions-item-label"
+                  >
+                    long
+                  </span>
+                </div>
+              </th>
+              <th
+                class="ant-descriptions-item"
+                colspan="1"
+              >
+                <div
+                  class="ant-descriptions-item-container"
+                >
+                  <span
+                    class="ant-descriptions-item-label"
+                  >
+                    long
+                  </span>
+                </div>
+              </th>
+            </tr>
+            <tr
+              class="ant-descriptions-row"
             >
-              <div
-                class="ant-descriptions-item-container"
+              <td
+                class="ant-descriptions-item"
+                colspan="1"
               >
-                <span
-                  class="ant-descriptions-item-label"
+                <div
+                  class="ant-descriptions-item-container"
                 >
-                  long
-                </span>
-              </div>
-            </th>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
+                  <span
+                    class="ant-descriptions-item-content"
+                  >
+                    loooooooooooooooooooooooooooooooooooooooooooooooong
+                  </span>
+                </div>
+              </td>
+              <td
+                class="ant-descriptions-item"
+                colspan="1"
+              >
+                <div
+                  class="ant-descriptions-item-container"
+                >
+                  <span
+                    class="ant-descriptions-item-content"
+                  >
+                    loooooooooooooooooooooooooooooooooooooooooooooooong
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="ant-descriptions-row"
             >
-              <div
-                class="ant-descriptions-item-container"
+              <th
+                class="ant-descriptions-item"
+                colspan="1"
               >
-                <span
-                  class="ant-descriptions-item-content"
+                <div
+                  class="ant-descriptions-item-container"
                 >
-                  loooooooooooooooooooooooooooooooooooooooooooooooong
-                </span>
-              </div>
-            </td>
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
+                  <span
+                    class="ant-descriptions-item-label"
+                  >
+                    long
+                  </span>
+                </div>
+              </th>
+              <th
+                class="ant-descriptions-item"
+                colspan="1"
+              >
+                <div
+                  class="ant-descriptions-item-container"
+                >
+                  <span
+                    class="ant-descriptions-item-label"
+                  >
+                    long
+                  </span>
+                </div>
+              </th>
+            </tr>
+            <tr
+              class="ant-descriptions-row"
             >
-              <div
-                class="ant-descriptions-item-container"
+              <td
+                class="ant-descriptions-item"
+                colspan="1"
               >
-                <span
-                  class="ant-descriptions-item-content"
+                <div
+                  class="ant-descriptions-item-container"
                 >
-                  loooooooooooooooooooooooooooooooooooooooooooooooong
-                </span>
-              </div>
-            </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
-            <th
-              class="ant-descriptions-item"
-              colspan="1"
+                  <span
+                    class="ant-descriptions-item-content"
+                  >
+                    loooooooooooooooooooooooooooooooooooooooooooooooong
+                  </span>
+                </div>
+              </td>
+              <td
+                class="ant-descriptions-item"
+                colspan="1"
+              >
+                <div
+                  class="ant-descriptions-item-container"
+                >
+                  <span
+                    class="ant-descriptions-item-content"
+                  >
+                    loooooooooooooooooooooooooooooooooooooooooooooooong
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="ant-descriptions-row"
             >
-              <div
-                class="ant-descriptions-item-container"
+              <th
+                class="ant-descriptions-item"
+                colspan="2"
               >
-                <span
-                  class="ant-descriptions-item-label"
+                <div
+                  class="ant-descriptions-item-container"
                 >
-                  long
-                </span>
-              </div>
-            </th>
-            <th
-              class="ant-descriptions-item"
-              colspan="1"
+                  <span
+                    class="ant-descriptions-item-label"
+                  >
+                    long
+                  </span>
+                </div>
+              </th>
+            </tr>
+            <tr
+              class="ant-descriptions-row"
             >
-              <div
-                class="ant-descriptions-item-container"
+              <td
+                class="ant-descriptions-item"
+                colspan="2"
               >
-                <span
-                  class="ant-descriptions-item-label"
+                <div
+                  class="ant-descriptions-item-container"
                 >
-                  long
-                </span>
-              </div>
-            </th>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
-            >
-              <div
-                class="ant-descriptions-item-container"
-              >
-                <span
-                  class="ant-descriptions-item-content"
-                >
-                  loooooooooooooooooooooooooooooooooooooooooooooooong
-                </span>
-              </div>
-            </td>
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
-            >
-              <div
-                class="ant-descriptions-item-container"
-              >
-                <span
-                  class="ant-descriptions-item-content"
-                >
-                  loooooooooooooooooooooooooooooooooooooooooooooooong
-                </span>
-              </div>
-            </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
-            <th
-              class="ant-descriptions-item"
-              colspan="2"
-            >
-              <div
-                class="ant-descriptions-item-container"
-              >
-                <span
-                  class="ant-descriptions-item-label"
-                >
-                  long
-                </span>
-              </div>
-            </th>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
-            <td
-              class="ant-descriptions-item"
-              colspan="2"
-            >
-              <div
-                class="ant-descriptions-item-container"
-              >
-                <span
-                  class="ant-descriptions-item-content"
-                >
-                  loooooooooooooooooooooooooooooooooooooooooooooooong
-                </span>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+                  <span
+                    class="ant-descriptions-item-content"
+                  >
+                    loooooooooooooooooooooooooooooooooooooooooooooooong
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
