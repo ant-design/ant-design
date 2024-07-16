@@ -31,9 +31,6 @@ tag: vVERSION
   - 🐞 Fix Tree `icon` and `switcherIcon` parameter types not being correctly inferred. [#49821](https://github.com/ant-design/ant-design/pull/49821)
   - 🐞 Revert Cascader `multiple` definition case `value` definition missing. [#49741](https://github.com/ant-design/ant-design/pull/49741) [@YangZhi1](https://github.com/YangZhi1)
 
-Internationalization*
-💄 Added missing translation for the Arabic language.
-
 ## 5.19.1
 
 `2024-07-05`
