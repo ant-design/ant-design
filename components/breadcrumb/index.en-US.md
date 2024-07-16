@@ -53,12 +53,12 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | itemRender | Custom item renderer | (route, params, routes, paths) => ReactNode | - |  |
 | params | Routing parameters | object | - |  |
-| items | The routing stack information of router | [ItemType\[\]](#ItemType) | - | 5.3.0 |
+| items | The routing stack information of router | [ItemType\[\]](#itemtype) | - | 5.3.0 |
 | separator | Custom separator | ReactNode | `/` |  |
 
 ### ItemType
 
-> type ItemType = Omit<[RouteItemType](#RouteItemType), 'title' | 'path'> | [SeparatorType](#SeparatorType)
+> type ItemType = Omit<[RouteItemType](#routeitemtype), 'title' | 'path'> | [SeparatorType](#separatortype)
 
 ### RouteItemType
 

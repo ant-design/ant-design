@@ -54,24 +54,23 @@ export interface CalendarProps<DateType> {
   onSelect?: (date: DateType, selectInfo: SelectInfo) => void;
 }
 
-function generateCalendar<DateType extends AnyObject>(generateConfig: GenerateConfig<DateType>) {
-  function isSameYear(date1: DateType, date2: DateType) {
-    return date1 && date2 && generateConfig.getYear(date1) === generateConfig.getYear(date2);
-  }
+const isSameYear = <T extends AnyObject>(date1: T, date2: T, config: GenerateConfig<T>) => {
+  const { getYear } = config;
+  return date1 && date2 && getYear(date1) === getYear(date2);
+};
 
-  function isSameMonth(date1: DateType, date2: DateType) {
-    return (
-      isSameYear(date1, date2) && generateConfig.getMonth(date1) === generateConfig.getMonth(date2)
-    );
-  }
+const isSameMonth = <T extends AnyObject>(date1: T, date2: T, config: GenerateConfig<T>) => {
+  const { getMonth } = config;
+  return isSameYear(date1, date2, config) && getMonth(date1) === getMonth(date2);
+};
 
-  function isSameDate(date1: DateType, date2: DateType) {
-    return (
-      isSameMonth(date1, date2) && generateConfig.getDate(date1) === generateConfig.getDate(date2)
-    );
-  }
+const isSameDate = <T extends AnyObject>(date1: T, date2: T, config: GenerateConfig<T>) => {
+  const { getDate } = config;
+  return isSameMonth(date1, date2, config) && getDate(date1) === getDate(date2);
+};
 
-  const Calendar = (props: CalendarProps<DateType>) => {
+const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateConfig<DateType>) => {
+  const Calendar: React.FC<Readonly<CalendarProps<DateType>>> = (props) => {
     const {
       prefixCls: customizePrefixCls,
       className,
@@ -149,11 +148,11 @@ function generateCalendar<DateType extends AnyObject>(generateConfig: GenerateCo
     const triggerChange = (date: DateType) => {
       setMergedValue(date);
 
-      if (!isSameDate(date, mergedValue)) {
+      if (!isSameDate(date, mergedValue, generateConfig)) {
         // Trigger when month panel switch month
         if (
-          (panelMode === 'date' && !isSameMonth(date, mergedValue)) ||
-          (panelMode === 'month' && !isSameYear(date, mergedValue))
+          (panelMode === 'date' && !isSameMonth(date, mergedValue, generateConfig)) ||
+          (panelMode === 'month' && !isSameYear(date, mergedValue, generateConfig))
         ) {
           triggerPanelChange(date, mergedMode);
         }
@@ -200,7 +199,7 @@ function generateCalendar<DateType extends AnyObject>(generateConfig: GenerateCo
         return (
           <div
             className={classNames(`${prefixCls}-cell-inner`, `${calendarPrefixCls}-date`, {
-              [`${calendarPrefixCls}-date-today`]: isSameDate(today, date),
+              [`${calendarPrefixCls}-date-today`]: isSameDate(today, date, generateConfig),
             })}
           >
             <div className={`${calendarPrefixCls}-date-value`}>
@@ -230,7 +229,7 @@ function generateCalendar<DateType extends AnyObject>(generateConfig: GenerateCo
         return (
           <div
             className={classNames(`${prefixCls}-cell-inner`, `${calendarPrefixCls}-date`, {
-              [`${calendarPrefixCls}-date-today`]: isSameMonth(today, date),
+              [`${calendarPrefixCls}-date-today`]: isSameMonth(today, date, generateConfig),
             })}
           >
             <div className={`${calendarPrefixCls}-date-value`}>
@@ -322,6 +321,6 @@ function generateCalendar<DateType extends AnyObject>(generateConfig: GenerateCo
   }
 
   return Calendar;
-}
+};
 
 export default generateCalendar;
