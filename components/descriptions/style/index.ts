@@ -154,7 +154,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
           paddingBottom: itemPaddingBottom,
           paddingInlineEnd: itemPaddingEnd,
         },
-        '> th, > td:last-child': {
+        '> th:last-child, > td:last-child': {
           paddingInlineEnd: 0,
         },
         '&:last-child': {

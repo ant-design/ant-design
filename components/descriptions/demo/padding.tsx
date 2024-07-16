@@ -33,6 +33,7 @@ const items: DescriptionsProps['items'] = [
 const App: React.FC = () => (
   <div style={{ width: 600, border: '1px solid', padding: 20 }}>
     <Descriptions title="User Info" column={2} items={items} />
+    <Descriptions layout="vertical" title="User Info" column={2} items={items} />
   </div>
 );
 
