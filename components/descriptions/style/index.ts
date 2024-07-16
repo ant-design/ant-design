@@ -30,7 +30,7 @@ export interface ComponentToken {
   itemPaddingBottom: number;
   /**
    * @desc 子项右间距
-   * @descEN Bottom padding of item
+   * @descEN Right padding of item
    */
   itemPaddingRight: number;
   /**
