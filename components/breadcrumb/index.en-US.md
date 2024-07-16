@@ -36,6 +36,7 @@ return <Breadcrumb routes={[{ breadcrumbName: 'sample' }]} />;
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic Usage</code>
 <code src="./demo/withIcon.tsx">With an Icon</code>
+<code src="./demo/withParams.tsx">With Params</code>
 <code src="./demo/separator.tsx">Configuring the Separator</code>
 <code src="./demo/overlay.tsx">Bread crumbs with drop down menu</code>
 <code src="./demo/separator-component.tsx">Configuring the Separator Independently</code>
