@@ -8,12 +8,13 @@ export interface LinkProps {
   style?: React.CSSProperties;
   className?: string;
   onClick?: MouseEventHandler;
+  component?: React.ComponentType<any>;
 }
 
 nprogress.configure({ showSpinner: false });
 
 const Link = forwardRef<HTMLAnchorElement, React.PropsWithChildren<LinkProps>>((props, ref) => {
-  const { to, children, ...rest } = props;
+  const { to, children, component, ...rest } = props;
   const [isPending, startTransition] = useTransition();
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -47,6 +48,19 @@ const Link = forwardRef<HTMLAnchorElement, React.PropsWithChildren<LinkProps>>((
       nprogress.done();
     }
   }, [isPending]);
+
+  if (component) {
+    return React.createElement(
+      component,
+      {
+        ...rest,
+        ref,
+        onClick: handleClick,
+        href,
+      },
+      children,
+    );
+  }
 
   return (
     <DumiLink ref={ref} onClick={handleClick} {...rest} to={href} prefetch>
