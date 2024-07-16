@@ -113,13 +113,6 @@ const items: DescriptionsProps['items'] = [
     label: 'Config Info',
     children: <Table size="small" pagination={false} dataSource={dataSource} columns={columns} />,
   },
-  {
-    key: '14',
-    label: 'long',
-    span: 1,
-    children:
-      'looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooog',
-  },
 ];
 
 const App: React.FC = () => <Descriptions title="User Info" column={2} items={items} />;
