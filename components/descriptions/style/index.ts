@@ -29,10 +29,10 @@ export interface ComponentToken {
    */
   itemPaddingBottom: number;
   /**
-   * @desc 子项右间距
-   * @descEN Right padding of item
+   * @desc 子项结束间距
+   * @descEN End padding of item
    */
-  itemPaddingRight: number;
+  itemPaddingEnd: number;
   /**
    * @desc 冒号右间距
    * @descEN Right margin of colon
@@ -110,7 +110,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
     componentCls,
     extraColor,
     itemPaddingBottom,
-    itemPaddingRight,
+    itemPaddingEnd,
     colonMarginRight,
     colonMarginLeft,
     titleMarginBottom,
@@ -152,10 +152,10 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
       [`${componentCls}-row`]: {
         '> th, > td': {
           paddingBottom: itemPaddingBottom,
-          paddingRight: itemPaddingRight,
+          paddingInlineEnd: itemPaddingEnd,
         },
         '> th, > td:last-child': {
-          paddingRight: 0,
+          paddingInlineEnd: 0,
         },
         '&:last-child': {
           borderBottom: 'none',
@@ -236,7 +236,7 @@ export const prepareComponentToken: GetDefaultToken<'Descriptions'> = (token) =>
   titleColor: token.colorText,
   titleMarginBottom: token.fontSizeSM * token.lineHeightSM,
   itemPaddingBottom: token.padding,
-  itemPaddingRight: token.padding,
+  itemPaddingEnd: token.padding,
   colonMarginRight: token.marginXS,
   colonMarginLeft: token.marginXXS / 2,
   contentColor: token.colorText,
