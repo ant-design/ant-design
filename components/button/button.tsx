@@ -12,7 +12,13 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { useCompactItemContext } from '../space/Compact';
 import Group, { GroupSizeContext } from './button-group';
-import type { ButtonHTMLType, ButtonShape, ButtonType } from './buttonHelpers';
+import type {
+  ButtonColorType,
+  ButtonHTMLType,
+  ButtonShape,
+  ButtonType,
+  ButtonVariantType,
+} from './buttonHelpers';
 import { isTwoCNChar, isUnBorderedButtonType, spaceChildren } from './buttonHelpers';
 import IconWrapper from './IconWrapper';
 import LoadingIcon from './LoadingIcon';
@@ -22,7 +28,10 @@ import CompactCmp from './style/compactCmp';
 export type LegacyButtonType = ButtonType | 'danger';
 
 export interface BaseButtonProps {
+  /** @deprecated `type` will be removed in next major version. */
   type?: ButtonType;
+  variant?: ButtonVariantType;
+  color?: ButtonColorType;
   icon?: React.ReactNode;
   iconPosition?: 'start' | 'end';
   shape?: ButtonShape;
@@ -33,6 +42,7 @@ export interface BaseButtonProps {
   className?: string;
   rootClassName?: string;
   ghost?: boolean;
+  /** @deprecated `danger` will be removed in next major version. */
   danger?: boolean;
   block?: boolean;
   children?: React.ReactNode;
@@ -45,7 +55,7 @@ type MergedHTMLAttributes = Omit<
   React.HTMLAttributes<HTMLElement> &
     React.ButtonHTMLAttributes<HTMLElement> &
     React.AnchorHTMLAttributes<HTMLElement>,
-  'type'
+  'type' | 'color'
 >;
 
 export interface ButtonProps extends BaseButtonProps, MergedHTMLAttributes {

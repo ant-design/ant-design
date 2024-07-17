@@ -83,3 +83,9 @@ export type ButtonShape = (typeof ButtonShapes)[number];
 
 const ButtonHTMLTypes = ['submit', 'button', 'reset'] as const;
 export type ButtonHTMLType = (typeof ButtonHTMLTypes)[number];
+
+const ButtonVariantTypes = ['outlined', 'dashed', 'solid', 'filled', 'text', 'link'] as const;
+export type ButtonVariantType = (typeof ButtonVariantTypes)[number];
+
+const ButtonColorTypes = ['default', 'primary', 'danger'] as const;
+export type ButtonColorType = (typeof ButtonColorTypes)[number];
