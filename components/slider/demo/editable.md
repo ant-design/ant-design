@@ -1,7 +1,7 @@
 ## zh-CN
 
-范围多个点组合。
+点击添加节点，拖出或者按键删除节点。
 
 ## en-US
 
-Multiple handles combination.
+Click to add a node, drag out or press the key to delete the node.

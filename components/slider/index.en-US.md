@@ -58,9 +58,10 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### range
 
-| Property       | Description                     | Type    | Default | Version |
-| -------------- | ------------------------------- | ------- | ------- | ------- |
-| draggableTrack | Whether range track can be drag | boolean | false   | 4.10.0  |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| draggableTrack | Whether range track can be drag | boolean | false | - |
+| editable | Dynamic edit nodes, can't be used with `draggableTrack` | boolean | false | 5.20.0 |
 
 ### tooltip
 
