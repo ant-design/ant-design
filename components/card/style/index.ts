@@ -273,7 +273,6 @@ const genCardLoadingStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 // ============================== Basic ==============================
 const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
   const {
-    antCls,
     componentCls,
     cardShadow,
     cardHeadPadding,
@@ -317,9 +316,6 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
         '> *': {
           display: 'block',
           width: '100%',
-        },
-
-        [`img, img + ${antCls}-image-mask`]: {
           borderRadius: `${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)} 0 0`,
         },
       },

@@ -16,6 +16,21 @@ tag: vVERSION
 
 ---
 
+## 5.19.2
+
+`2024-07-15`
+
+- 🐞 Fix List render `0` when `actions={[]}`. [#49842](https://github.com/ant-design/ant-design/pull/49842) [@int64ago](https://github.com/int64ago)
+- 🐞 Fix Upload with dragging upload, the `fileList` in `beforeUpload` is not fully filled. [#49832](https://github.com/ant-design/ant-design/pull/49832) [@coderz-w](https://github.com/coderz-w)
+- Descriptions
+  - 🐞 Fix Descriptions overlap when content is too long. [#49803](https://github.com/ant-design/ant-design/pull/49803) [@coding-ice](https://github.com/coding-ice)
+  - 🐞 Fix Descriptions render style issue when under Table `expandedRowRender`. [#49727](https://github.com/ant-design/ant-design/pull/49727) [@ljw-codeking](https://github.com/ljw-codeking)
+- 🐞 Fix Spin style issue when use `percent` and `size` at same time. [#49876](https://github.com/ant-design/ant-design/pull/49876)
+- 🇮🇳 Fill DatePicker `kn_IN` missing locales. [#49860](https://github.com/ant-design/ant-design/pull/49860) [@neerajap-01](https://github.com/neerajap-01)
+- Typescript
+  - 🐞 Fix Tree `icon` and `switcherIcon` parameter types not being correctly inferred. [#49821](https://github.com/ant-design/ant-design/pull/49821)
+  - 🐞 Revert Cascader `multiple` definition case `value` definition missing. [#49741](https://github.com/ant-design/ant-design/pull/49741) [@YangZhi1](https://github.com/YangZhi1)
+
 ## 5.19.1
 
 `2024-07-05`
@@ -1724,7 +1739,7 @@ tag: vVERSION
 - 💄 Optimize Design Token `boxShadow` tokens. [#40516](https://github.com/ant-design/ant-design/pull/40516)
 - TypeScript
   - 🤖 Optimize Badge Tag Tooltip `color` type definition. [#39871](https://github.com/ant-design/ant-design/pull/39871)
-  - 🤖 MISC: Add `Breakpoint` `ThmeConfig` `GlobalToken` type export. [#40508](https://github.com/ant-design/ant-design/pull/40508) [@Kamahl19](https://github.com/Kamahl19)
+  - 🤖 MISC: Add `Breakpoint` `ThemeConfig` `GlobalToken` type export. [#40508](https://github.com/ant-design/ant-design/pull/40508) [@Kamahl19](https://github.com/Kamahl19)
   - 🤖 Update Upload `fileList` type. [#40585](https://github.com/ant-design/ant-design/pull/40585)
   - 🤖 Remove Tour ForwardRefRenderFunction. [#39924](https://github.com/ant-design/ant-design/pull/39924)
 - 🌐 Localization

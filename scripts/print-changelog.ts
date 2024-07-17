@@ -23,26 +23,27 @@ const QUERY_TITLE = '.gh-header-title .js-issue-title';
 const QUERY_DESCRIPTION_LINES = '.comment-body table tbody tr';
 const QUERY_AUTHOR = '.pull-discussion-timeline .TimelineItem:first .author:first';
 // https://github.com/orgs/ant-design/teams/ant-design-collaborators/members
+// no need filter: https://github.com/ant-design/ant-design/pull/49878#issuecomment-2227853899
 const MAINTAINERS = [
-  'zombiej',
-  'afc163',
-  'chenshuai2144',
-  'shaodahong',
-  'xrkffgg',
-  'AshoneA',
-  'yesmeck',
-  'bang88',
-  'yoyo837',
-  'hengkx',
-  'Rustin-Liu',
-  'fireairforce',
-  'kerm1it',
-  'madccc',
-  'MadCcc',
-  'li-jia-nan',
-  'kiner-tang',
-  'Wxh16144',
-].map((author) => author.toLowerCase());
+  // 'zombiej',
+  // 'afc163',
+  // 'chenshuai2144',
+  // 'shaodahong',
+  // 'xrkffgg',
+  // 'AshoneA',
+  // 'yesmeck',
+  // 'bang88',
+  // 'yoyo837',
+  // 'hengkx',
+  // 'Rustin-Liu',
+  // 'fireairforce',
+  // 'kerm1it',
+  // 'madccc',
+  // 'MadCcc',
+  // 'li-jia-nan',
+  // 'kiner-tang',
+  // 'Wxh16144',
+].map((author: string) => author.toLowerCase());
 
 const cwd = process.cwd();
 const git = simpleGit(cwd);
