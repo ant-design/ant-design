@@ -204,6 +204,7 @@ function List<T>({
   const paginationContent = pagination && (
     <div className={classNames(`${prefixCls}-pagination`)}>
       <Pagination
+        align="end"
         {...paginationProps}
         onChange={onPaginationChange}
         onShowSizeChange={onPaginationShowSizeChange}
