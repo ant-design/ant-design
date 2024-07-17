@@ -61,7 +61,7 @@ const InfoNewVersion: React.FC = () => {
     p.style.position = 'fixed';
     p.style.pointerEvents = 'none';
     p.style.visibility = 'hidden';
-    p.style.width = '0';
+    p.style.width = '0 ';
     document.body.appendChild(p);
     updateCSS(
       `
