@@ -8,7 +8,7 @@ import type { TooltipProps } from '../tooltip';
 import Tooltip from '../tooltip';
 
 export type SliderTooltipProps = TooltipProps & {
-  draggingDelete: boolean;
+  draggingDelete?: boolean;
 };
 
 const SliderTooltip = React.forwardRef<SliderRef, SliderTooltipProps>((props, ref) => {
