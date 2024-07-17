@@ -13,6 +13,10 @@ const useStyle = createStyles(({ token, css }) => {
       .dumi-default-source-code-editor {
         .dumi-default-source-code {
           background: ${colorBgContainer};
+          &-scroll-container {
+            scrollbar-width: thin;
+            scrollbar-color: unset;
+          }
         }
         .dumi-default-source-code > pre,
         .dumi-default-source-code-scroll-content > pre,
