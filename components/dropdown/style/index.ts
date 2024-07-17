@@ -211,6 +211,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
             position: 'relative',
             display: 'flex',
             alignItems: 'center',
+            whiteSpace: 'nowrap',
           },
 
           [`${menuCls}-item-icon`]: {

@@ -63,6 +63,7 @@ const items: DescriptionsProps['items'] = [
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/border.tsx">border</code>
 <code src="./demo/text.tsx" debug>border</code>
+<code src="./demo/padding.tsx" debug>padding</code>
 <code src="./demo/size.tsx">Custom size</code>
 <code src="./demo/responsive.tsx">responsive</code>
 <code src="./demo/vertical.tsx">Vertical</code>
