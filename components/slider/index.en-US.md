@@ -27,6 +27,7 @@ To input a value in a range.
 <code src="./demo/reverse.tsx">Reverse</code>
 <code src="./demo/draggableTrack.tsx">Draggable track</code>
 <code src="./demo/multiple.tsx">Multiple handles</code>
+<code src="./demo/editable.tsx" version="5.20.0">Dynamic edit nodes</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API

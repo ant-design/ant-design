@@ -28,6 +28,7 @@ demo:
 <code src="./demo/reverse.tsx">反向</code>
 <code src="./demo/draggableTrack.tsx">范围可拖拽</code>
 <code src="./demo/multiple.tsx">多点组合</code>
+<code src="./demo/editable.tsx" version="5.20.0">动态增减节点</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
