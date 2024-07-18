@@ -5,6 +5,7 @@ import RcSlider from 'rc-slider';
 import type { SliderProps, SliderRef } from 'rc-slider/lib/Slider';
 import raf from 'rc-util/lib/raf';
 
+import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
@@ -110,9 +111,7 @@ export interface SliderRangeProps extends SliderBaseProps {
   railStyle?: React.CSSProperties;
 }
 
-interface SliderRange {
-  draggableTrack?: boolean;
-}
+type SliderRange = Exclude<GetProp<RcSliderProps, 'range'>, boolean>;
 
 export type Opens = { [index: number]: boolean };
 
@@ -212,16 +211,6 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     restProps.reverse = !restProps.reverse;
   }
 
-  // ============================= Multiple =============================
-  // Range config
-  const [mergedRange, draggableTrack] = React.useMemo(() => {
-    if (!range) {
-      return [false];
-    }
-
-    return typeof range === 'object' ? [true, range.draggableTrack] : [true, false];
-  }, [range]);
-
   // ============================= Warning ==============================
   // Warning for deprecated usage
   if (process.env.NODE_ENV !== 'production') {
@@ -255,7 +244,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     };
   }, []);
 
-  const useActiveTooltipHandle = mergedRange && !lockOpen;
+  const useActiveTooltipHandle = range && !lockOpen;
 
   const handleRender: RcSliderProps['handleRender'] = (node, info) => {
     const { index } = info;
@@ -338,6 +327,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
             getPopupContainer={
               getTooltipPopupContainer || legacyGetTooltipPopupContainer || getPopupContainer
             }
+            draggingDelete={info.draggingDelete}
           >
             {cloneNode}
           </SliderTooltip>
@@ -353,8 +343,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     <RcSlider
       {...restProps}
       step={restProps.step}
-      range={mergedRange}
-      draggableTrack={draggableTrack}
+      range={range}
       className={cls}
       style={mergedStyle}
       disabled={mergedDisabled}
