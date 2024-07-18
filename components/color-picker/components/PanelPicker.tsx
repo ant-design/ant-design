@@ -34,12 +34,12 @@ const PanelPicker: FC = () => {
     ...injectProps
   } = useContext(PanelPickerContext);
 
-  const [isSingle, isGradient] = useMode(mode);
+  const [isSingle, isGradient, isBoth] = useMode(mode);
 
   // ============================ Render ============================
   // Operation bar
   let operationNode: React.ReactNode = null;
-  if (allowClear) {
+  if (allowClear || isGradient) {
     operationNode = (
       <div className={`${prefixCls}-operation`}>
         <ColorClear
