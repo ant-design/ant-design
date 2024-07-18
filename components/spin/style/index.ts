@@ -286,7 +286,9 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
       },
       // small
       [`&-sm ${componentCls}-dot`]: {
-        fontSize: token.dotSizeSM,
+        '&, &-holder': {
+          fontSize: token.dotSizeSM,
+        },
       },
       [`&-sm ${componentCls}-dot-holder`]: {
         i: {
@@ -300,7 +302,9 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
       },
       // large
       [`&-lg ${componentCls}-dot`]: {
-        fontSize: token.dotSizeLG,
+        '&, &-holder': {
+          fontSize: token.dotSizeLG,
+        },
       },
       [`&-lg ${componentCls}-dot-holder`]: {
         i: {
