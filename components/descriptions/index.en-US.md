@@ -81,7 +81,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | bordered | Whether to display the border | boolean | false |  |
-| colon | Change default props `colon` value of Descriptions.Item | boolean | true |  |
+| colon | Change default props `colon` value of Descriptions.Item. Indicates whether the colon after the label is displayed | boolean | true |  |
 | column | The number of `DescriptionItems` in a row,could be a number or a object like `{ xs: 8, sm: 16, md: 24}`,(Only set `bordered={true}` to take effect) | number \| [Record<Breakpoint, number>](https://github.com/ant-design/ant-design/blob/84ca0d23ae52e4f0940f20b0e22eabe743f90dca/components/descriptions/index.tsx#L111C21-L111C56) | 3 |  |
 | contentStyle | Customize content style | CSSProperties | - | 4.10.0 |
 | extra | The action area of the description list, placed at the top-right | ReactNode | - | 4.5.0 |
