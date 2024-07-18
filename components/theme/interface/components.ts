@@ -109,6 +109,7 @@ export interface ComponentTokenMap {
   Spin?: SpinComponentToken;
   Statistic?: StatisticComponentToken;
   Switch?: SwitchComponentToken;
+  SplitPanel?: SwitchComponentToken;
   Tag?: TagComponentToken;
   Tree?: TreeComponentToken;
   TreeSelect?: TreeSelectComponentToken;

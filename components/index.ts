@@ -170,3 +170,4 @@ export type { UploadFile, UploadProps } from './upload';
 export { default as version } from './version';
 export { default as Watermark } from './watermark';
 export type { WatermarkProps } from './watermark';
+export { default as SplitPanel } from './split-panel';
