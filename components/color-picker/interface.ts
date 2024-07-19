@@ -62,7 +62,13 @@ export type ModeType = 'single' | 'gradient';
 
 export type ColorPickerProps = Omit<
   RcColorPickerProps,
-  'onChange' | 'value' | 'defaultValue' | 'panelRender' | 'disabledAlpha' | 'onChangeComplete'
+  | 'onChange'
+  | 'value'
+  | 'defaultValue'
+  | 'panelRender'
+  | 'disabledAlpha'
+  | 'onChangeComplete'
+  | 'components'
 > & {
   mode?: ModeType | ModeType[];
   value?: ColorValueType;

@@ -10,6 +10,11 @@ import type { ColorPickerBaseProps } from '../interface';
 import { generateColor } from '../util';
 import ColorClear from './ColorClear';
 import ColorInput from './ColorInput';
+import ColorSlider from './ColorSlider';
+
+const components = {
+  slider: ColorSlider,
+};
 
 export interface PanelPickerProps
   extends Pick<
@@ -69,6 +74,7 @@ const PanelPicker: FC = () => {
         onChangeComplete={(colorValue) => {
           onChangeComplete?.(generateColor(colorValue));
         }}
+        components={components}
       />
       <ColorInput
         value={value}
