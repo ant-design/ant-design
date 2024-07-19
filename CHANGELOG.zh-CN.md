@@ -29,7 +29,7 @@ tag: vVERSION
 - ⌨️ 优化 Select 多选模式下长按回车会不断触发变更的问题。[#49963](https://github.com/ant-design/ant-design/pull/49963) [@crazyair](https://github.com/crazyair)
 - 🇪🇬 添加阿拉伯文(埃及) (ar_EG) 的翻译。[#49852](https://github.com/ant-design/ant-design/pull/49852) [@ahmedsamirdev](https://github.com/ahmedsamirdev)
 - TypeScript
-  - 🤖 复用 Tooltips 的定义以简化 ColorPicker 的类型声明. [#49949](https://github.com/ant-design/ant-design/pull/49949) [@Wxh16144](https://github.com/Wxh16144)
+  - 🤖 复用 Tooltips 的定义以简化 ColorPicker 的类型声明。[#49949](https://github.com/ant-design/ant-design/pull/49949) [@Wxh16144](https://github.com/Wxh16144)
 
 ## 5.19.2
 
