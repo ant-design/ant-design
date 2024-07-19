@@ -2,6 +2,7 @@
 title: 色彩模型与颜色选择器
 date: 2023-09-07
 author: Redjue
+juejin_url: https://juejin.cn/post/7322296529783226405
 ---
 
 大家好，我是 [Redjue（红果汁）](https://github.com/Redjue)，很荣幸今年有机会向 **Ant Design** 贡献了颜色选择器组件 [ColorPicker](/components/color-picker-cn)，这是一次很棒的学习机会，也让我对 **Ant Design** 的开发流程有了更深入的了解。在这篇文章中，我将分享一下具体的实现过程。
