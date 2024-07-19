@@ -316,6 +316,7 @@ export const globalConfig = () => ({
 const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   const {
     children,
+    prefixCls,
     csp: customCsp,
     autoInsertSpaceInButton,
     alert,
@@ -395,8 +396,6 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   // =================================== Context ===================================
   const getPrefixCls = React.useCallback(
     (suffixCls: string, customizePrefixCls?: string) => {
-      const { prefixCls } = props;
-
       if (customizePrefixCls) {
         return customizePrefixCls;
       }
@@ -405,7 +404,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
 
       return suffixCls ? `${mergedPrefixCls}-${suffixCls}` : mergedPrefixCls;
     },
-    [parentContext.getPrefixCls, props.prefixCls],
+    [parentContext.getPrefixCls, prefixCls],
   );
 
   const iconPrefixCls = customIconPrefixCls || parentContext.iconPrefixCls || defaultIconPrefixCls;
