@@ -2,6 +2,7 @@
 title: Extends Theme
 date: 2023-09-03
 author: zombieJ
+juejin_url: https://juejin.cn/post/7322313142922100746
 ---
 
 Ant Design v5 provides the Design Token model, which supports custom algorithm to implement theme extension capabilities. For example, the compact theme itself does not carry color style algorithms, so it can be implemented by passing in multiple algorithms to achieve the compact theme under the light theme and the compact theme under the dark theme.

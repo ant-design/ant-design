@@ -197,6 +197,7 @@ const GlobalStyle: React.FC = () => {
             margin: 0 ${token.marginMD}px;
             color: #aaa;
             font-size: 30px;
+            user-select: none;
           }
         }
 
@@ -282,6 +283,10 @@ const GlobalStyle: React.FC = () => {
         }
 
         .markdown .dumi-default-table {
+          &-content {
+            scrollbar-width: thin;
+            scrollbar-color: unset;
+          }
           table {
             margin: 0;
             overflow-x: auto;

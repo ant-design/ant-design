@@ -2,6 +2,7 @@
 title: 主题拓展
 date: 2023-09-03
 author: zombieJ
+juejin_url: https://juejin.cn/post/7322313142922100746
 ---
 
 Ant Design v5 提供了 Design Token 模型，支持自定义算法实现主题拓展能力。例如 紧凑主题 本身并不携带颜色样式算法，所以可以通过传入多个算法的方式实现 亮色主题下的紧凑主题 以及 暗色主题下的紧凑主题。
