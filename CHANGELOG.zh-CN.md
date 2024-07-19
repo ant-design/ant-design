@@ -26,7 +26,7 @@ tag: vVERSION
 - 🐞 修复 Card 圆角对 `cover` 属性中的非 img 元素不生效的问题。[#49862](https://github.com/ant-design/ant-design/pull/49862) [@coding-ice](https://github.com/coding-ice)
 - 💄 修复 Dropdown 菜单内容在视口边缘换行的问题。[#49899](https://github.com/ant-design/ant-design/pull/49899)
 - 💄 修复 Descriptions 子项之间可能没有边距的问题。[#49895](https://github.com/ant-design/ant-design/pull/49895) [@crazyair](https://github.com/crazyair)
-- 🌐 添加阿拉伯语 (ar_EG) 的翻译。[#49852](https://github.com/ant-design/ant-design/pull/49852) [@ahmedsamirdev](https://github.com/ahmedsamirdev)
+- 🇪🇬 添加阿拉伯文(埃及) (ar_EG) 的翻译。[#49852](https://github.com/ant-design/ant-design/pull/49852) [@ahmedsamirdev](https://github.com/ahmedsamirdev)
 
 ## 5.19.2
 
