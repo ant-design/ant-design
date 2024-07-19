@@ -3,6 +3,8 @@ import { createTheme } from '@ant-design/cssinjs';
 import IconContext from '@ant-design/icons/lib/components/Context';
 import useMemo from 'rc-util/lib/hooks/useMemo';
 import { merge } from 'rc-util/lib/utils/set';
+import { composeRef } from 'rc-util/lib/ref';
+import composeProps from 'rc-util/lib/composeProps';
 
 import warning, { devUseWarning, WarningContext } from '../_util/warning';
 import type { WarningContextProps } from '../_util/warning';
@@ -313,7 +315,10 @@ export const globalConfig = () => ({
   holderRender: globalHolderRender,
 });
 
-const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
+const InternalProviderChildren = <Ref extends React.Ref<any>>(
+  props: ProviderChildrenProps,
+  ref: Ref,
+) => {
   const {
     children,
     prefixCls,
@@ -391,6 +396,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     variant,
     inputNumber,
     treeSelect,
+    ...restProps
   } = props;
 
   // =================================== Context ===================================
@@ -490,6 +496,27 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     treeSelect,
   };
 
+  // props drilling
+  // see: https://github.com/ant-design/ant-design/issues/49974
+  const memoizedRestProps = useMemo(
+    () => {
+      const nextRestProps = { ...restProps } as Record<string, any>;
+      [...Object.keys(baseConfig), ...PASSED_PROPS, ...configConsumerProps].forEach((key) => {
+        delete nextRestProps[key];
+      });
+
+      return nextRestProps;
+    },
+    restProps,
+    (prev, current) => {
+      const prevKeys = Object.keys(prev) as Array<keyof typeof restProps>;
+      const currentKeys = Object.keys(current) as Array<keyof typeof restProps>;
+      return (
+        prevKeys.length !== currentKeys.length || prevKeys.some((key) => prev[key] !== current[key])
+      );
+    },
+  );
+
   if (process.env.NODE_ENV !== 'production') {
     const warningFn = devUseWarning('ConfigProvider');
     warningFn(
@@ -548,7 +575,12 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   let childNode = (
     <>
       <PropWarning dropdownMatchSelectWidth={dropdownMatchSelectWidth} />
-      {children}
+      {React.isValidElement(children)
+        ? React.cloneElement<any>(children, {
+            ...composeProps(children.props, memoizedRestProps, true),
+            ref: composeRef((children as any).ref, ref),
+          })
+        : children}
     </>
   );
 
@@ -661,23 +693,44 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   return <ConfigContext.Provider value={memoedConfig}>{childNode}</ConfigContext.Provider>;
 };
 
-const ConfigProvider: React.FC<ConfigProviderProps> & {
-  /** @private internal Usage. do not use in your production */
-  ConfigContext: typeof ConfigContext;
-  /** @deprecated Please use `ConfigProvider.useConfig().componentSize` instead */
-  SizeContext: typeof SizeContext;
-  config: typeof setGlobalConfig;
-  useConfig: typeof useConfig;
-} = (props) => {
+const ForwardProviderChildren = React.forwardRef(InternalProviderChildren) as <
+  Ref extends React.ElementRef<any>,
+>(
+  props: ProviderChildrenProps & { ref?: Ref },
+) => React.ReactElement;
+
+const InternalConfigProvider = (props: ConfigProviderProps, ref: React.Ref<any>) => {
   const context = React.useContext<ConfigConsumerProps>(ConfigContext);
   const antLocale = React.useContext<LocaleContextProps | undefined>(LocaleContext);
-  return <ProviderChildren parentContext={context} legacyLocale={antLocale!} {...props} />;
+  return (
+    <ForwardProviderChildren
+      parentContext={context}
+      legacyLocale={antLocale!}
+      ref={ref}
+      {...props}
+    />
+  );
 };
 
-ConfigProvider.ConfigContext = ConfigContext;
-ConfigProvider.SizeContext = SizeContext;
-ConfigProvider.config = setGlobalConfig;
-ConfigProvider.useConfig = useConfig;
+/**
+ * We do not expect developers to drill down props through the ConfigProvider component.
+ * This is only reserved for our components to work properly.
+ * reason: https://github.com/ant-design/ant-design/issues/49974
+ */
+const ForwardConfigProvider = React.forwardRef(
+  InternalConfigProvider,
+) as unknown as typeof InternalConfigProvider & {
+  displayName: string;
+};
+
+const ConfigProvider = Object.assign(ForwardConfigProvider, {
+  /** @private internal Usage. do not use in your production */
+  ConfigContext,
+  /** @deprecated Please use `ConfigProvider.useConfig().componentSize` instead */
+  SizeContext,
+  config: setGlobalConfig,
+  useConfig,
+});
 
 Object.defineProperty(ConfigProvider, 'SizeContext', {
   get: () => {
