@@ -8,6 +8,8 @@ const genSplitPanelStyle: GenerateStyle<any> = (token: any): CSSObject => {
   return {
     [`${componentCls}`]: {
       display: 'flex',
+      flexShrink: 0,
+      flexGrow: 0,
     },
   };
 };
@@ -17,6 +19,14 @@ const genSplitPanelGroupStyle: GenerateStyle<any> = (token: any): CSSObject => {
   return {
     [`${componentCls}-group`]: {
       display: 'flex',
+      border: '1px solid #e5e7eb',
+      borderRadius: '4px',
+
+      '&-bar': {
+        flexShrink: 0,
+        flexGrow: 0,
+        background: '#f5f5f5',
+      },
 
       '&-horizontal': {
         flexDirection: 'row',

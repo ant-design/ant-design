@@ -16,9 +16,10 @@ const App: React.FC = () => {
         <Radio.Button value="horizontal">horizontal</Radio.Button>
       </Radio.Group>
 
-      <SplitPanel.Group layout={layout}>
+      <SplitPanel.Group layout={layout} height={300}>
         <SplitPanel>111</SplitPanel>
-        <SplitPanel>22</SplitPanel>
+        <SplitPanel>222</SplitPanel>
+        <SplitPanel>333</SplitPanel>
       </SplitPanel.Group>
     </>
   );
