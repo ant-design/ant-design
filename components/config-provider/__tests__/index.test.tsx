@@ -11,6 +11,7 @@ import Input from '../../input';
 import Select from '../../select';
 import Table from '../../table';
 import Form from '../../form';
+import Popconfirm from 'antd/es/popconfirm';
 
 describe('ConfigProvider', () => {
   mountTest(() => (
@@ -139,8 +140,8 @@ describe('ConfigProvider', () => {
 
   it('warning support filter level', () => {
     resetWarned();
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
+    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => { });
 
     render(<ConfigProvider dropdownMatchSelectWidth warning={{ strict: false }} />);
     expect(errSpy).not.toHaveBeenCalled();
@@ -185,4 +186,68 @@ describe('ConfigProvider', () => {
     expect(container.querySelector('#variant-input-5')).toHaveClass('ant-input-filled');
     expect(container.querySelector('#variant-input-6')).toHaveClass('ant-input-outlined');
   });
+
+  describe('props drilling', () => {
+    // https://github.com/ant-design/ant-design/issues/49974
+    it('should not break Popconfirm', () => {
+      const { container } = render(
+        <Popconfirm title="test-popconfirm">
+          <ConfigProvider
+            theme={{
+              components: {
+                Button: {
+                  colorPrimary: `#f5222d`,
+                },
+              },
+            }}
+          >
+            <Button type="primary" >Click me</Button>
+          </ConfigProvider>
+        </Popconfirm>,
+      );
+
+      fireEvent.click(container.querySelector('button')!);
+      expect(container.querySelector('.ant-popover-inner')).toBeTruthy();
+    });
+
+    it('should not break child event', () => {
+      const Child = jest.fn((props: any) => <Button {...props} />);
+
+      const parentClick = jest.fn();
+      const mockClick = jest.fn();
+
+      const { getByRole } = render(
+        // @ts-ignore
+        <ConfigProvider onClick={parentClick} data-btn-test>
+          <Child onClick={mockClick} />
+        </ConfigProvider>,
+      );
+
+      const findBtn = getByRole('button');
+      fireEvent.click(findBtn);
+
+      expect(Child).toHaveBeenCalled();
+      expect(findBtn).toHaveAttribute('data-btn-test');
+
+      // function should be called
+      expect(parentClick).toHaveBeenCalled();
+      expect(mockClick).toHaveBeenCalled();
+    });
+
+    it('should forward ref correctly', () => {
+      const ref = React.createRef<HTMLButtonElement>();
+      const parentRef = React.createRef<HTMLDivElement>();
+
+      render(
+        <ConfigProvider ref={parentRef}>
+          <Button ref={ref} />
+        </ConfigProvider>,
+      );
+
+      expect(ref.current).toBeTruthy();
+      expect(parentRef.current).toBeTruthy();
+      // 两者应该是同一个元素
+      expect(ref.current).toBe(parentRef.current);
+    });
+  })
 });
