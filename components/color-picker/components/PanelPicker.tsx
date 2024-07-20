@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import type { HsbaColorType } from '@rc-component/color-picker';
 import RcColorPicker from '@rc-component/color-picker';
 
+import Segmented from '../../segmented';
 import type { AggregationColor } from '../color';
 import { PanelPickerContext } from '../context';
 import useMode from '../hooks/useMode';
@@ -10,7 +11,7 @@ import type { ColorPickerBaseProps } from '../interface';
 import { generateColor } from '../util';
 import ColorClear from './ColorClear';
 import ColorInput from './ColorInput';
-import ColorSlider from './ColorSlider';
+import ColorSlider, { GradientColorSlider } from './ColorSlider';
 
 const components = {
   slider: ColorSlider,
@@ -47,6 +48,19 @@ const PanelPicker: FC = () => {
   if (allowClear || isGradient) {
     operationNode = (
       <div className={`${prefixCls}-operation`}>
+        <Segmented
+          size="small"
+          options={[
+            {
+              label: '纯色',
+              value: 'single',
+            },
+            {
+              label: '渐变',
+              value: 'gradient',
+            },
+          ]}
+        />
         <ColorClear
           prefixCls={prefixCls}
           value={value}
@@ -64,21 +78,28 @@ const PanelPicker: FC = () => {
   return (
     <>
       {operationNode}
+
+      <GradientColorSlider
+        min={0}
+        max={100}
+        prefixCls={prefixCls}
+        colors={[
+          { percent: 0, color: '#f00' },
+          { percent: 100, color: '#ff0' },
+        ]}
+        color={null!}
+        value={[]}
+        onChange={() => {}}
+        onChangeComplete={() => {}}
+        disabled={false}
+        type="alpha"
+      />
+
       <RcColorPicker
         prefixCls={prefixCls}
         value={value?.toHsb()}
         disabledAlpha={disabledAlpha}
         onChange={(colorValue, type) => {
-          if (colorValue.toHsb().h !== generateColor(colorValue).toHsb().h) {
-            console.log(
-              'Change:',
-              colorValue.toHsbString(),
-              generateColor(colorValue).toHsbString(),
-
-              colorValue.toRgbString(),
-              generateColor(colorValue).toRgbString(),
-            );
-          }
           onChange?.(generateColor(colorValue), type, true);
         }}
         onChangeComplete={(colorValue) => {

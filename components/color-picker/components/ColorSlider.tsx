@@ -1,28 +1,35 @@
 import * as React from 'react';
 import type { BaseSliderProps } from '@rc-component/color-picker';
 
-import Slider from '../../slider';
+import Slider from '../../../slider';
 
-const ColorSlider = (props: BaseSliderProps) => {
-  const { prefixCls, colors, min, max, value, disabled, onChange, onChangeComplete, type, color } =
-    props;
+export interface GradientColorSliderProps
+  extends Omit<BaseSliderProps, 'value' | 'onChange' | 'onChangeComplete'> {
+  value: number[];
+  onChange: (value: number[]) => void;
+  onChangeComplete: (value: number[]) => void;
+  range?: boolean;
+}
+
+export const GradientColorSlider = (props: GradientColorSliderProps) => {
+  const { prefixCls, colors, type, color, range = false, ...restProps } = props;
 
   const sliderProps = {
-    min,
-    max,
-    value,
-    disabled,
-    onChange,
-    onChangeComplete,
+    ...restProps,
     track: false,
   };
 
+  // ========================== Background ==========================
   const linearCss = React.useMemo(() => {
     const colorsStr = colors.map((c) => `${c.color} ${c.percent}%`).join(', ');
     return `linear-gradient(to right, ${colorsStr})`;
   }, [colors]);
 
   const pointColor = React.useMemo(() => {
+    if (!color) {
+      return null;
+    }
+
     if (type === 'alpha') {
       return color.toRgbString();
     }
@@ -30,18 +37,24 @@ const ColorSlider = (props: BaseSliderProps) => {
     return `hsl(${color.toHsb().h}, 100%, 50%)`;
   }, [color, type]);
 
+  // ============================ Render ============================
   return (
     <Slider
       {...sliderProps}
       className={`${prefixCls}-slider`}
       tooltip={{ open: false }}
+      range={{
+        editable: range,
+      }}
       styles={{
         rail: {
           background: linearCss,
         },
-        handle: {
-          background: pointColor,
-        },
+        handle: pointColor
+          ? {
+              background: pointColor,
+            }
+          : {},
       }}
       classNames={{
         rail: `${prefixCls}-slider-rail`,
@@ -51,4 +64,20 @@ const ColorSlider = (props: BaseSliderProps) => {
   );
 };
 
-export default ColorSlider;
+const SingleColorSlider = (props: BaseSliderProps) => {
+  const { value, onChange, onChangeComplete } = props;
+
+  const singleOnChange = (v: number[]) => onChange(v[0]);
+  const singleOnChangeComplete = (v: number[]) => onChangeComplete(v[0]);
+
+  return (
+    <GradientColorSlider
+      {...props}
+      value={[value]}
+      onChange={singleOnChange}
+      onChangeComplete={singleOnChangeComplete}
+    />
+  );
+};
+
+export default SingleColorSlider;
