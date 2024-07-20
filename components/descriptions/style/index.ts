@@ -62,6 +62,7 @@ const genBorderedStyle = (token: DescriptionsToken): CSSObject => {
   return {
     [`&${componentCls}-bordered`]: {
       [`> ${componentCls}-view`]: {
+        overflow: 'hidden',
         border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
         '> table': {
           tableLayout: 'auto',
