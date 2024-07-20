@@ -36,7 +36,7 @@ export class AggregationColor {
     }
 
     if (!color) {
-      this.metaColor.setAlpha(0);
+      this.metaColor = this.metaColor.setA(0);
       this.cleared = true;
     }
   }
@@ -50,7 +50,7 @@ export class AggregationColor {
   }
 
   toHex() {
-    return getHex(this.toHexString(), this.metaColor.getAlpha() < 1);
+    return getHex(this.toHexString(), this.metaColor.a < 1);
   }
 
   toHexString() {

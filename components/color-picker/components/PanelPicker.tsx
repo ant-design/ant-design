@@ -69,6 +69,16 @@ const PanelPicker: FC = () => {
         value={value?.toHsb()}
         disabledAlpha={disabledAlpha}
         onChange={(colorValue, type) => {
+          if (colorValue.toHsb().h !== generateColor(colorValue).toHsb().h) {
+            console.log(
+              'Change:',
+              colorValue.toHsbString(),
+              generateColor(colorValue).toHsbString(),
+
+              colorValue.toRgbString(),
+              generateColor(colorValue).toRgbString(),
+            );
+          }
           onChange?.(generateColor(colorValue), type, true);
         }}
         onChangeComplete={(colorValue) => {
