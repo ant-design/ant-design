@@ -2,6 +2,8 @@
 title: How to Grow as a Collaborator
 date: 2022-12-22
 author: heiyu4585
+zhihu_url: https://zhuanlan.zhihu.com/p/639265896
+yuque_url: https://www.yuque.com/ant-design/ant-design/as5hro5edxcslweh
 ---
 
 Hello everyone, I am [heiyu](https://github.com/heiyu4585). About Ant Design, I believe everyone is very familiar with it. Before I contributed to Ant Design, I have used Ant Design in many background management system projects at work. The biggest feeling for me is that it is easy to use, beautiful, simple and stable. Now that the v5 version has been released, I strongly recommend everyone to try it. I am also fortunate to have developed the v5 version of the `Tour` component and `App` component, as well as some other maintenance work. Let me share with you the PR process of Ant Design, hoping to provide a reference for who are interested in building together for the community.

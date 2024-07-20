@@ -514,7 +514,7 @@ const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = (token
       textAlign: 'center',
       verticalAlign: 'middle',
       listStyle: 'none',
-      backgroundColor: 'transparent',
+      backgroundColor: token.itemBg,
       border: `${unit(token.lineWidth)} ${token.lineType} transparent`,
       borderRadius: token.borderRadius,
       outline: 0,

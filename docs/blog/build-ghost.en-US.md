@@ -2,6 +2,7 @@
 title: A build ghost
 date: 2023-12-20
 author: zombieJ
+juejin_url: https://juejin.cn/post/7322352551088341019
 ---
 
 In the maintenance of antd-mobile, We meet an annoying ghost. It rarely appears when building locally, but it almost always appears in the github workflow. After a lot of tossing, We finally found its trace.
