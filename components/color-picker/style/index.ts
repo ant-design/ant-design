@@ -7,6 +7,7 @@ import genColorBlockStyle from './color-block';
 import genInputStyle from './input';
 import genPickerStyle from './picker';
 import genPresetsStyle from './presets';
+import genSliderStyle from './slider';
 
 // biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
 export interface ComponentToken {}
@@ -206,6 +207,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
           [`${componentCls}-panel`]: {
             ...genPickerStyle(token),
           },
+          ...genSliderStyle(token),
           ...genColorBlockStyle(token, colorPickerPreviewSize),
           ...genInputStyle(token),
           ...genPresetsStyle(token),

@@ -19,7 +19,7 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
   const colorPickerPanelPrefixCls = `${prefixCls}-inner`;
 
   // ==== Inject props ===
-  const panelPickerProps = {
+  const panelContext = {
     prefixCls,
     value: color,
     onChange,
@@ -27,7 +27,7 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
     ...injectProps,
   };
 
-  const panelPresetsProps = React.useMemo(
+  const presetContext = React.useMemo(
     () => ({
       prefixCls,
       value: color,
@@ -47,8 +47,8 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
   );
 
   return (
-    <PanelPickerProvider value={panelPickerProps}>
-      <PanelPresetsProvider value={panelPresetsProps}>
+    <PanelPickerProvider value={panelContext}>
+      <PanelPresetsProvider value={presetContext}>
         <div className={colorPickerPanelPrefixCls}>
           {typeof panelRender === 'function'
             ? panelRender(innerPanel, {

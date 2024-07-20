@@ -8,6 +8,7 @@ import type { SizeType } from '../config-provider/SizeContext';
 import type { PopoverProps } from '../popover';
 import type { TooltipPlacement } from '../tooltip';
 import type { AggregationColor } from './color';
+import type { ModeHookType } from './hooks/useMode';
 
 export type { ColorGenInput };
 
@@ -39,7 +40,7 @@ export type TriggerType = 'click' | 'hover';
 export type TriggerPlacement = TooltipPlacement; // Alias, to prevent breaking changes.
 
 export interface ColorPickerBaseProps {
-  mode?: ModeType | ModeType[];
+  mode: ModeHookType;
   color?: AggregationColor;
   prefixCls: string;
   format?: ColorFormatType;

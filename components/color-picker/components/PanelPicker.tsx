@@ -7,7 +7,7 @@ import Segmented from '../../segmented';
 import type { AggregationColor } from '../color';
 import { PanelPickerContext } from '../context';
 import useMode from '../hooks/useMode';
-import type { ColorPickerBaseProps } from '../interface';
+import type { ColorPickerBaseProps, ModeType } from '../interface';
 import { generateColor } from '../util';
 import ColorClear from './ColorClear';
 import ColorInput from './ColorInput';
@@ -40,27 +40,45 @@ const PanelPicker: FC = () => {
     ...injectProps
   } = useContext(PanelPickerContext);
 
-  const [isSingle, isGradient, isBoth] = useMode(mode);
+  // ============================= Mode =============================
+  const [isSingle, isGradient, bothMode] = mode;
+  const [modeType, setModeType] = React.useState<ModeType>('single');
+
+  const mergedModeType = React.useMemo(() => {
+    if (!isSingle) {
+      return 'gradient';
+    }
+
+    if (!isGradient) {
+      return 'single';
+    }
+
+    return modeType;
+  }, [isSingle, isGradient, bothMode, modeType]);
 
   // ============================ Render ============================
   // Operation bar
   let operationNode: React.ReactNode = null;
-  if (allowClear || isGradient) {
+  if (allowClear || bothMode) {
     operationNode = (
       <div className={`${prefixCls}-operation`}>
-        <Segmented
-          size="small"
-          options={[
-            {
-              label: '纯色',
-              value: 'single',
-            },
-            {
-              label: '渐变',
-              value: 'gradient',
-            },
-          ]}
-        />
+        {bothMode && (
+          <Segmented
+            size="small"
+            value={mergedModeType}
+            onChange={setModeType}
+            options={[
+              {
+                label: '纯色',
+                value: 'single',
+              },
+              {
+                label: '渐变',
+                value: 'gradient',
+              },
+            ]}
+          />
+        )}
         <ColorClear
           prefixCls={prefixCls}
           value={value}
@@ -74,26 +92,32 @@ const PanelPicker: FC = () => {
     );
   }
 
+  // Gradient color slider
+  // const gradientColorSlider = isGradient ? (
+
   // Return
   return (
     <>
       {operationNode}
 
-      <GradientColorSlider
-        min={0}
-        max={100}
-        prefixCls={prefixCls}
-        colors={[
-          { percent: 0, color: '#f00' },
-          { percent: 100, color: '#ff0' },
-        ]}
-        color={null!}
-        value={[]}
-        onChange={() => {}}
-        onChangeComplete={() => {}}
-        disabled={false}
-        type="alpha"
-      />
+      {mergedModeType === 'gradient' && (
+        <GradientColorSlider
+          min={0}
+          max={100}
+          prefixCls={prefixCls}
+          className={`${prefixCls}-gradient-slider`}
+          colors={[
+            { percent: 0, color: '#f00' },
+            { percent: 100, color: '#ff0' },
+          ]}
+          color={null!}
+          value={[]}
+          onChange={() => {}}
+          onChangeComplete={() => {}}
+          disabled={false}
+          type="alpha"
+        />
+      )}
 
       <RcColorPicker
         prefixCls={prefixCls}

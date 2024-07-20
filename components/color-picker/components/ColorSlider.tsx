@@ -1,7 +1,8 @@
 import * as React from 'react';
 import type { BaseSliderProps } from '@rc-component/color-picker';
+import classNames from 'classnames';
 
-import Slider from '../../../slider';
+import Slider from '../../slider';
 
 export interface GradientColorSliderProps
   extends Omit<BaseSliderProps, 'value' | 'onChange' | 'onChangeComplete'> {
@@ -9,10 +10,11 @@ export interface GradientColorSliderProps
   onChange: (value: number[]) => void;
   onChangeComplete: (value: number[]) => void;
   range?: boolean;
+  className?: string;
 }
 
 export const GradientColorSlider = (props: GradientColorSliderProps) => {
-  const { prefixCls, colors, type, color, range = false, ...restProps } = props;
+  const { prefixCls, colors, type, color, range = false, className, ...restProps } = props;
 
   const sliderProps = {
     ...restProps,
@@ -41,7 +43,7 @@ export const GradientColorSlider = (props: GradientColorSliderProps) => {
   return (
     <Slider
       {...sliderProps}
-      className={`${prefixCls}-slider`}
+      className={classNames(className, `${prefixCls}-slider`)}
       tooltip={{ open: false }}
       range={{
         editable: range,
