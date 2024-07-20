@@ -81,11 +81,12 @@ const useButtonStyle = () => {
   }))();
 };
 
-function GeekProvider(props: { children?: React.ReactNode }) {
+const GeekProvider: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
   const { styles } = useButtonStyle();
-
   return <ConfigProvider button={{ className: styles.btn }}>{props.children}</ConfigProvider>;
-}
+};
+
+export default GeekProvider;
 ```
 
 <img alt="Red Button" height="40" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PvYITqIk2_8AAAAAAAAAAAAADrJ8AQ/original" />
@@ -93,16 +94,20 @@ function GeekProvider(props: { children?: React.ReactNode }) {
 对需要继承 `className` 的场景，拓展也很容易：
 
 ```tsx
-function GeekProvider(props: { children?: React.ReactNode }) {
+import React from 'react';
+import { ConfigProvider } from 'antd';
+
+const GeekProvider: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
   const { button } = React.useContext(ConfigProvider.ConfigContext);
   const { styles } = useButtonStyle();
-
   return (
     <ConfigProvider button={{ className: classNames(button?.className, styles.btn) }}>
       {props.children}
     </ConfigProvider>
   );
-}
+};
+
+export default GeekProvider;
 ```
 
 ## 总结
