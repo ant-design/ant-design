@@ -62,6 +62,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | draggableTrack | Whether range track can be drag | boolean | false | - |
 | editable | Dynamic edit nodes, can't be used with `draggableTrack` | boolean | false | 5.20.0 |
+| minCount | The minimum count of nodes | number | 0 | 5.20.0 |
+| maxCount | The maximum count of nodes | number | - | 5.20.0 |
 
 ### tooltip
 
