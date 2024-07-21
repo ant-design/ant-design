@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Radio, SplitPanel } from 'antd';
-import type { GroupProps } from '../Group';
+
+import type { SplitPanelProps } from '../SplitPanel';
 
 const App: React.FC = () => {
-  const [layout, setLayout] = useState<GroupProps['layout']>('vertical');
+  const [layout, setLayout] = useState<SplitPanelProps['layout']>('horizontal');
 
   return (
     <>
@@ -16,11 +17,21 @@ const App: React.FC = () => {
         <Radio.Button value="horizontal">horizontal</Radio.Button>
       </Radio.Group>
 
-      <SplitPanel.Group layout={layout} height={300}>
-        <SplitPanel>111</SplitPanel>
-        <SplitPanel>222</SplitPanel>
-        <SplitPanel>333</SplitPanel>
-      </SplitPanel.Group>
+      <SplitPanel
+        height={300}
+        layout={layout}
+        items={[
+          {
+            content: <div>111</div>,
+          },
+          {
+            content: <div>222</div>,
+          },
+          {
+            content: <div>333</div>,
+          },
+        ]}
+      />
     </>
   );
 };
