@@ -1,6 +1,8 @@
 import type React from 'react';
 import { useRef, useState } from 'react';
 
+import type { SplitPanelProps } from './SplitPanel';
+
 export interface StartInfo {
   x: number;
   y: number;
@@ -9,6 +11,7 @@ export interface StartInfo {
 
 const useResize = (
   container: React.RefObject<HTMLDivElement>,
+  layout: SplitPanelProps['layout'],
   gutter: number,
   splitBarSizeCount: number,
 ): { resizing: boolean; resizeStart: (e: React.MouseEvent<HTMLDivElement>) => void } => {
@@ -23,20 +26,23 @@ const useResize = (
     if (e.target && container.current) {
       setResizing(true);
 
-      const { width } = container.current.getBoundingClientRect();
+      const { width, height } = container.current.getBoundingClientRect();
       const containerWidth = width - splitBarSizeCount;
+      const containerHeight = height - splitBarSizeCount;
 
       const previousElement = target.previousElementSibling as HTMLDivElement;
       const nextElement = target.nextElementSibling as HTMLDivElement;
 
       resizingRef.current = true;
       changeRef.current = {
-        previousSize: (100 * (previousElement.clientWidth + gutter)) / containerWidth,
-        nextSize: (100 * (nextElement.clientWidth + gutter)) / containerWidth,
+        previousSize:
+          (100 * previousElement[layout === 'horizontal' ? 'clientWidth' : 'clientHeight']) /
+          (layout === 'horizontal' ? containerWidth : containerHeight),
+        nextSize:
+          (100 * nextElement[layout === 'horizontal' ? 'clientWidth' : 'clientHeight']) /
+          (layout === 'horizontal' ? containerWidth : containerHeight),
       };
       startInfo.current = { x: e.clientX, y: e.clientY, splitPanelBar: target };
-
-      console.log('[ changeRef ] ===>', JSON.stringify(changeRef.current));
     }
   };
 
@@ -44,17 +50,25 @@ const useResize = (
     setStartInfo(startEvent);
 
     document.body.addEventListener('mousemove', (event) => {
-      const { x: startX, splitPanelBar } = startInfo.current;
+      const { x: startX, y: startY, splitPanelBar } = startInfo.current;
 
       if (resizingRef.current && container.current && splitPanelBar) {
-        const { width } = container.current.getBoundingClientRect();
+        const { width, height } = container.current.getBoundingClientRect();
         const containerWidth = width - splitBarSizeCount;
+        const containerHeight = height - splitBarSizeCount;
 
         const previousElement = splitPanelBar.previousElementSibling as HTMLDivElement;
         const nextElement = splitPanelBar.nextElementSibling as HTMLDivElement;
 
-        const offset = startX - event.clientX;
-        const offsetRate = 100 * (Math.abs(offset) / containerWidth);
+        let offset = 0;
+        let offsetRate = 0;
+        if (layout === 'horizontal') {
+          offset = startX - event.clientX;
+          offsetRate = 100 * (Math.abs(offset) / containerWidth);
+        } else {
+          offset = startY - event.clientY;
+          offsetRate = 100 * (Math.abs(offset) / containerHeight);
+        }
 
         const previousSize =
           offset > 0

@@ -79,6 +79,7 @@ const SplitPanel: React.FC<SplitPanelProps> = (props) => {
 
   const { resizing, resizeStart } = useResize(
     containerRef,
+    layout,
     gutter,
     splitBarSize * (panelCount - 1),
   );

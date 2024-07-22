@@ -58,6 +58,10 @@ const genSplitPanelStyle: GenerateStyle<any> = (token: any): CSSObject => {
 
       '&-resizing': {
         userSelect: 'none',
+
+        [`${componentCls}-item`]: {
+          flexGrow: 0,
+        },
       },
 
       '&-resizing&-horizontal': {
@@ -66,6 +70,10 @@ const genSplitPanelStyle: GenerateStyle<any> = (token: any): CSSObject => {
 
       '&-resizing&-vertical': {
         cursor: 'row-resize',
+      },
+
+      [`${componentCls}-item`]: {
+        flexGrow: 1,
       },
     },
 
