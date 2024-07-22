@@ -39,7 +39,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/global-state.tsx">Store Form Data into Upper Component</code>
 <code src="./demo/form-context.tsx">Control between forms</code>
 <code src="./demo/inline-login.tsx">Inline Login Form</code>
-<code src="./demo/normal-login.tsx">Login Form</code>
+<code src="./demo/login.tsx">Login Form</code>
 <code src="./demo/register.tsx">Registration</code>
 <code src="./demo/advanced-search.tsx">Advanced search</code>
 <code src="./demo/form-in-modal.tsx">Form in Modal to Create</code>

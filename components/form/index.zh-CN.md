@@ -40,7 +40,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/global-state.tsx">表单数据存储于上层组件</code>
 <code src="./demo/form-context.tsx">多表单联动</code>
 <code src="./demo/inline-login.tsx">内联登录栏</code>
-<code src="./demo/normal-login.tsx">登录框</code>
+<code src="./demo/login.tsx">登录框</code>
 <code src="./demo/register.tsx">注册新用户</code>
 <code src="./demo/advanced-search.tsx">高级搜索</code>
 <code src="./demo/form-in-modal.tsx">弹出层中的新建表单</code>
