@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 import type { AggregationColor } from '../color';
 import type { ColorPickerBaseProps } from '../interface';
-import { generateColor, getAlphaColor } from '../util';
+import { generateColor, getColorAlpha } from '../util';
 import ColorSteppers from './ColorSteppers';
 
 interface ColorAlphaInputProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
@@ -34,7 +34,7 @@ const ColorAlphaInput: FC<ColorAlphaInputProps> = ({ prefixCls, value, onChange 
 
   return (
     <ColorSteppers
-      value={getAlphaColor(alphaValue)}
+      value={getColorAlpha(alphaValue)}
       prefixCls={prefixCls}
       formatter={(step) => `${step}%`}
       className={colorAlphaInputPrefixCls}

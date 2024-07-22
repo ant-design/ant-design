@@ -20,6 +20,7 @@ import ColorPickerPanel from './ColorPickerPanel';
 import ColorTrigger from './components/ColorTrigger';
 import useColorState from './hooks/useColorState';
 import useMode from './hooks/useMode';
+import useModeColor from './hooks/useModeColor';
 import type {
   ColorPickerBaseProps,
   ColorPickerProps,
@@ -27,7 +28,7 @@ import type {
   TriggerPlacement,
 } from './interface';
 import useStyle from './style';
-import { genAlphaColor, generateColor, getAlphaColor } from './util';
+import { genAlphaColor, generateColor, getColorAlpha } from './util';
 
 type CompoundedComponent = React.FC<ColorPickerProps> & {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
@@ -85,29 +86,35 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
 
-  // ===================== Value =====================
-  const [colorValue, setColorValue, prevValue] = useColorState(defaultValue, value);
+  // ================== Value & Mode =================
+  const [mergedColor, setColor, modeState, setModeState, modeOptions] = useModeColor(
+    defaultValue,
+    value,
+    mode,
+  );
 
-  const isAlphaColor = useMemo(() => getAlphaColor(colorValue) < 100, [colorValue]);
+  // const [colorValue, setColorValue, prevValue] = useColorState(defaultValue, value);
+
+  const isAlphaColor = useMemo(() => getColorAlpha(mergedColor) < 100, [mergedColor]);
 
   // ================== Form Status ==================
   const { status: contextStatus } = React.useContext(FormItemInputContext);
 
-  // ====================== Mode =====================
-  const [enableSingle, enableGradient, enableBothMode] = useMode(mode);
+  // // ====================== Mode =====================
+  // const [enableSingle, enableGradient, enableBothMode] = useMode(mode);
 
-  const [modeState, setModeState] = useState<ModeType>('single');
-  const mergedModeState = useMemo(() => {
-    if (enableBothMode) {
-      return modeState;
-    }
+  // const [modeState, setModeState] = useState<ModeType>('single');
+  // const mergedModeState = useMemo(() => {
+  //   if (enableBothMode) {
+  //     return modeState;
+  //   }
 
-    if (enableGradient) {
-      return 'gradient';
-    }
+  //   if (enableGradient) {
+  //     return 'gradient';
+  //   }
 
-    return 'single';
-  }, [modeState, enableSingle, enableGradient, enableBothMode]);
+  //   return 'single';
+  // }, [modeState, enableSingle, enableGradient, enableBothMode]);
 
   // ===================== Style =====================
   const mergedSize = useSize(customizeSize);
@@ -128,7 +135,7 @@ const ColorPicker: CompoundedComponent = (props) => {
   );
   const mergedPopupCls = classNames(prefixCls, mergedRootCls);
 
-  const popupAllowCloseRef = useRef(true);
+  // const popupAllowCloseRef = useRef(true);
 
   // ===================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
@@ -144,14 +151,14 @@ const ColorPicker: CompoundedComponent = (props) => {
   const handleChange: ColorPickerPanelProps['onChange'] = (data, type, pickColor) => {
     let color: AggregationColor = generateColor(data as AggregationColor);
 
-    // If color is cleared, reset alpha to 100
-    const isNull = value === null || (!value && defaultValue === null);
-    if (prevValue.current?.cleared || isNull) {
-      // ignore alpha slider
-      if (getAlphaColor(colorValue) === 0 && type !== 'alpha') {
-        color = genAlphaColor(color);
-      }
-    }
+    // // If color is cleared, reset alpha to 100
+    // const isNull = value === null || (!value && defaultValue === null);
+    // if (prevValue.current?.cleared || isNull) {
+    //   // ignore alpha slider
+    //   if (getColorAlpha(colorValue) === 0 && type !== 'alpha') {
+    //     color = genAlphaColor(color);
+    //   }
+    // }
 
     // ignore alpha color
     if (disabledAlpha && isAlphaColor) {
@@ -160,12 +167,12 @@ const ColorPicker: CompoundedComponent = (props) => {
 
     // Only for drag-and-drop color picking
     if (pickColor) {
-      popupAllowCloseRef.current = false;
+      // popupAllowCloseRef.current = false;
     } else {
       onChangeComplete?.(color);
     }
 
-    setColorValue(color);
+    setColor(color);
     onChange?.(color, color.toHexString());
   };
 
@@ -174,7 +181,7 @@ const ColorPicker: CompoundedComponent = (props) => {
   };
 
   const handleChangeComplete: ColorPickerProps['onChangeComplete'] = (color) => {
-    popupAllowCloseRef.current = true;
+    // popupAllowCloseRef.current = true;
     let changeColor = generateColor(color);
     // ignore alpha color
     if (disabledAlpha && isAlphaColor) {
@@ -195,12 +202,12 @@ const ColorPicker: CompoundedComponent = (props) => {
   };
 
   const colorBaseProps: ColorPickerBaseProps = {
-    showMode: enableBothMode,
-    mode: mergedModeState,
+    mode: modeState,
     onModeChange: setModeState,
+    modeOptions,
 
     prefixCls,
-    color: colorValue,
+    color: mergedColor,
     allowClear,
     disabled: mergedDisabled,
     disabledAlpha,
@@ -220,9 +227,9 @@ const ColorPicker: CompoundedComponent = (props) => {
       style={styles?.popup}
       overlayInnerStyle={styles?.popupOverlayInner}
       onOpenChange={(visible) => {
-        if (popupAllowCloseRef.current && !mergedDisabled) {
+        // if (popupAllowCloseRef.current && !mergedDisabled) {
           setPopupOpen(visible);
-        }
+        // }
       }}
       content={
         <ContextIsolator form>
@@ -247,7 +254,7 @@ const ColorPicker: CompoundedComponent = (props) => {
           showText={showText}
           format={formatValue}
           {...rest}
-          color={colorValue}
+          color={mergedColor}
         />
       )}
     </Popover>,

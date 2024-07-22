@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import type { ColorPickerBaseProps, ColorPickerProps } from '../interface';
-import { getAlphaColor } from '../util';
+import { getColorAlpha } from '../util';
 import ColorClear from './ColorClear';
 
 export interface ColorTriggerProps
@@ -36,7 +36,7 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
 
   const genColorString = () => {
     const hexString = color.toHexString().toUpperCase();
-    const alpha = getAlphaColor(color);
+    const alpha = getColorAlpha(color);
     switch (format) {
       case 'rgb':
         return color.toRgbString();

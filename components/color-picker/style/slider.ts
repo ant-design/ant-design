@@ -40,7 +40,7 @@ const genSliderStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
           boxShadow: colorPickerInsetShadow,
         },
 
-        '&-handle': {
+        [`& ${componentCls}-slider-handle`]: {
           width: handleInnerSize,
           height: handleInnerSize,
           top: 0,

@@ -7,7 +7,7 @@ import Segmented from '../../segmented';
 import type { AggregationColor } from '../color';
 import { PanelPickerContext } from '../context';
 import type { ColorPickerBaseProps } from '../interface';
-import { generateColor } from '../util';
+import { genAlphaColor, generateColor } from '../util';
 import ColorClear from './ColorClear';
 import ColorInput from './ColorInput';
 import ColorSlider, { GradientColorSlider } from './ColorSlider';
@@ -17,26 +17,28 @@ const components = {
 };
 
 export interface PanelPickerProps
-  extends Pick<
-    ColorPickerBaseProps,
-    | 'prefixCls'
-    | 'allowClear'
-    | 'disabledAlpha'
-    | 'onChangeComplete'
-    | 'showMode'
-    | 'mode'
-    | 'onModeChange'
+  extends Required<
+    Pick<
+      ColorPickerBaseProps,
+      | 'prefixCls'
+      | 'allowClear'
+      | 'disabledAlpha'
+      | 'onChangeComplete'
+      | 'mode'
+      | 'onModeChange'
+      | 'modeOptions'
+    >
   > {
-  value?: AggregationColor;
-  onChange?: (value?: AggregationColor, type?: HsbaColorType, pickColor?: boolean) => void;
-  onClear?: () => void;
+  value: AggregationColor;
+  onChange: (value?: AggregationColor, type?: HsbaColorType, pickColor?: boolean) => void;
+  onClear: () => void;
 }
 
 const PanelPicker: FC = () => {
   const {
-    showMode,
     mode,
     onModeChange,
+    modeOptions,
     prefixCls,
     allowClear,
     value,
@@ -50,23 +52,13 @@ const PanelPicker: FC = () => {
   // ============================ Render ============================
   // Operation bar
   let operationNode: React.ReactNode = null;
+  const showMode = modeOptions.length > 1;
+
   if (allowClear || showMode) {
     operationNode = (
       <div className={`${prefixCls}-operation`}>
         {showMode && (
-          <Segmented
-            size="small"
-            options={[
-              {
-                label: '纯色',
-                value: 'single',
-              },
-              {
-                label: '渐变',
-                value: 'gradient',
-              },
-            ]}
-          />
+          <Segmented size="small" options={modeOptions} value={mode} onChange={onModeChange} />
         )}
         <ColorClear
           prefixCls={prefixCls}
@@ -80,9 +72,6 @@ const PanelPicker: FC = () => {
       </div>
     );
   }
-
-  // Gradient color slider
-  // const gradientColorSlider = isGradient ? (
 
   // Return
   return (
@@ -110,13 +99,14 @@ const PanelPicker: FC = () => {
 
       <RcColorPicker
         prefixCls={prefixCls}
-        value={value?.toHsb()}
+        value={value.toHsb()}
         disabledAlpha={disabledAlpha}
         onChange={(colorValue, type) => {
-          onChange?.(generateColor(colorValue), type, true);
+          const nextColor = generateColor(colorValue);
+          onChange(value.cleared ? genAlphaColor(nextColor) : nextColor, type, true);
         }}
         onChangeComplete={(colorValue) => {
-          onChangeComplete?.(generateColor(colorValue));
+          onChangeComplete(generateColor(colorValue));
         }}
         components={components}
       />
