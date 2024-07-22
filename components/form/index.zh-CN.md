@@ -40,7 +40,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/global-state.tsx">表单数据存储于上层组件</code>
 <code src="./demo/form-context.tsx">多表单联动</code>
 <code src="./demo/inline-login.tsx">内联登录栏</code>
-<code src="./demo/normal-login.tsx">登录框</code>
+<code src="./demo/login.tsx">登录框</code>
 <code src="./demo/register.tsx">注册新用户</code>
 <code src="./demo/advanced-search.tsx">高级搜索</code>
 <code src="./demo/form-in-modal.tsx">弹出层中的新建表单</code>
@@ -657,12 +657,6 @@ Form.List 下的字段需要包裹 Form.List 本身的 `name`，比如：
 ### 为什么 `normalize` 不能是异步方法？
 
 React 中异步更新会导致受控组件交互行为异常。当用户交互触发 `onChange` 后，通过异步改变值会导致组件 `value` 不会立刻更新，使得组件呈现假死状态。如果你需要异步触发变更，请通过自定义组件实现内部异步状态。
-
-<style>
-.site-form-item-icon {
-  color: rgba(0, 0, 0, 0.25);
-}
-</style>
 
 ### `scrollToFirstError` 和 `scrollToField` 失效？
 
