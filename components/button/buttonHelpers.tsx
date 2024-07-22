@@ -19,7 +19,7 @@ export function isString(str: any): str is string {
   return typeof str === 'string';
 }
 
-export function isUnBorderedButtonType(type?: ButtonType) {
+export function isUnBorderedButtonType(type?: ButtonVariantType) {
   return type === 'text' || type === 'link';
 }
 
@@ -84,8 +84,15 @@ export type ButtonShape = (typeof ButtonShapes)[number];
 const ButtonHTMLTypes = ['submit', 'button', 'reset'] as const;
 export type ButtonHTMLType = (typeof ButtonHTMLTypes)[number];
 
-const ButtonVariantTypes = ['outlined', 'dashed', 'solid', 'filled', 'text', 'link'] as const;
+export const ButtonVariantTypes = [
+  'outlined',
+  'dashed',
+  'solid',
+  'filled',
+  'text',
+  'link',
+] as const;
 export type ButtonVariantType = (typeof ButtonVariantTypes)[number];
 
-const ButtonColorTypes = ['default', 'primary', 'danger'] as const;
+export const ButtonColorTypes = ['default', 'primary', 'danger'] as const;
 export type ButtonColorType = (typeof ButtonColorTypes)[number];

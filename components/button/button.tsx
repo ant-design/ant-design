@@ -85,6 +85,16 @@ function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigTyp
   };
 }
 
+const ButtonTypeMap: Partial<
+  Record<ButtonType | '', [color: ButtonColorType, variant: ButtonVariantType]>
+> = {
+  default: ['default', 'outlined'],
+  primary: ['primary', 'solid'],
+  dashed: ['default', 'dashed'],
+  link: ['default', 'link'],
+  text: ['default', 'text'],
+};
+
 const InternalCompoundedButton = React.forwardRef<
   HTMLButtonElement | HTMLAnchorElement,
   ButtonProps
@@ -92,6 +102,8 @@ const InternalCompoundedButton = React.forwardRef<
   const {
     loading = false,
     prefixCls: customizePrefixCls,
+    color,
+    variant,
     type,
     danger = false,
     shape = 'default',
@@ -117,6 +129,10 @@ const InternalCompoundedButton = React.forwardRef<
   // Compatible with original `type` behavior
   const mergedType = type || 'default';
 
+  const [mergedColor, mergedVariant] = ButtonTypeMap[type || ''] || [color, variant];
+
+  const isDanger = mergedColor === 'danger';
+
   const { getPrefixCls, direction, button } = useContext(ConfigContext);
 
   const mergedInsertSpace = autoInsertSpace ?? button?.autoInsertSpace ?? true;
@@ -141,7 +157,7 @@ const InternalCompoundedButton = React.forwardRef<
   const buttonRef = composeRef(ref, internalRef);
 
   const needInserted =
-    Children.count(children) === 1 && !icon && !isUnBorderedButtonType(mergedType);
+    Children.count(children) === 1 && !icon && !isUnBorderedButtonType(mergedVariant);
 
   useEffect(() => {
     let delayTimer: ReturnType<typeof setTimeout> | null = null;
@@ -199,7 +215,7 @@ const InternalCompoundedButton = React.forwardRef<
     );
 
     warning(
-      !(ghost && isUnBorderedButtonType(mergedType)),
+      !(ghost && isUnBorderedButtonType(mergedVariant)),
       'usage',
       "`link` or `text` button can't be a `ghost` button.",
     );
@@ -223,14 +239,15 @@ const InternalCompoundedButton = React.forwardRef<
     cssVarCls,
     {
       [`${prefixCls}-${shape}`]: shape !== 'default' && shape,
-      [`${prefixCls}-${mergedType}`]: mergedType,
+      [`${prefixCls}-${mergedColor}`]: !isDanger && mergedColor,
+      [`${prefixCls}-dangerous`]: isDanger,
+      [`${prefixCls}-${mergedVariant}`]: mergedVariant,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
-      [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonType(mergedType),
+      [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonType(mergedVariant),
       [`${prefixCls}-loading`]: innerLoading,
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && mergedInsertSpace && !innerLoading,
       [`${prefixCls}-block`]: block,
-      [`${prefixCls}-dangerous`]: danger,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-icon-end`]: iconPosition === 'end',
     },
@@ -296,7 +313,7 @@ const InternalCompoundedButton = React.forwardRef<
     </button>
   );
 
-  if (!isUnBorderedButtonType(mergedType)) {
+  if (!isUnBorderedButtonType(mergedVariant)) {
     buttonNode = (
       <Wave component="Button" disabled={innerLoading}>
         {buttonNode}
