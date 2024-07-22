@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useRef } from 'react';
+import React, { useContext, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
@@ -20,7 +20,12 @@ import ColorPickerPanel from './ColorPickerPanel';
 import ColorTrigger from './components/ColorTrigger';
 import useColorState from './hooks/useColorState';
 import useMode from './hooks/useMode';
-import type { ColorPickerBaseProps, ColorPickerProps, TriggerPlacement } from './interface';
+import type {
+  ColorPickerBaseProps,
+  ColorPickerProps,
+  ModeType,
+  TriggerPlacement,
+} from './interface';
 import useStyle from './style';
 import { genAlphaColor, generateColor, getAlphaColor } from './util';
 
@@ -67,10 +72,6 @@ const ColorPicker: CompoundedComponent = (props) => {
   const contextDisabled = useContext(DisabledContext);
   const mergedDisabled = disabled ?? contextDisabled;
 
-  const [colorValue, setColorValue, prevValue] = useColorState('', {
-    value,
-    defaultValue,
-  });
   const [popupOpen, setPopupOpen] = useMergedState(false, {
     value: open,
     postState: (openData) => !mergedDisabled && openData,
@@ -84,13 +85,29 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
 
+  // ===================== Value =====================
+  const [colorValue, setColorValue, prevValue] = useColorState(defaultValue, value);
+
   const isAlphaColor = useMemo(() => getAlphaColor(colorValue) < 100, [colorValue]);
 
   // ================== Form Status ==================
   const { status: contextStatus } = React.useContext(FormItemInputContext);
 
-  // ===================== Mode ======================
-  const mergedMode = useMode(mode);
+  // ====================== Mode =====================
+  const [enableSingle, enableGradient, enableBothMode] = useMode(mode);
+
+  const [modeState, setModeState] = useState<ModeType>('single');
+  const mergedModeState = useMemo(() => {
+    if (enableBothMode) {
+      return modeState;
+    }
+
+    if (enableGradient) {
+      return 'gradient';
+    }
+
+    return 'single';
+  }, [modeState, enableSingle, enableGradient, enableBothMode]);
 
   // ===================== Style =====================
   const mergedSize = useSize(customizeSize);
@@ -178,7 +195,10 @@ const ColorPicker: CompoundedComponent = (props) => {
   };
 
   const colorBaseProps: ColorPickerBaseProps = {
-    mode: mergedMode,
+    showMode: enableBothMode,
+    mode: mergedModeState,
+    onModeChange: setModeState,
+
     prefixCls,
     color: colorValue,
     allowClear,

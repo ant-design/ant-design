@@ -10,11 +10,7 @@ function hasValue(value?: ColorValueType) {
   return value !== undefined;
 }
 
-const useColorState = (
-  defaultStateValue: ColorValueType,
-  option: { defaultValue?: ColorValueType; value?: ColorValueType },
-) => {
-  const { defaultValue, value } = option;
+const useColorState = (defaultValue?: ColorValueType, value?: ColorValueType) => {
   const prevColor = useRef<AggregationColor>(generateColor(''));
   const [colorValue, _setColorValue] = useState<AggregationColor>(() => {
     let mergedState: ColorValueType | undefined;
@@ -22,8 +18,6 @@ const useColorState = (
       mergedState = value;
     } else if (hasValue(defaultValue)) {
       mergedState = defaultValue;
-    } else {
-      mergedState = defaultStateValue;
     }
     const color = generateColor(mergedState || '');
     prevColor.current = color;

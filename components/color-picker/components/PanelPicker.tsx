@@ -6,8 +6,7 @@ import RcColorPicker from '@rc-component/color-picker';
 import Segmented from '../../segmented';
 import type { AggregationColor } from '../color';
 import { PanelPickerContext } from '../context';
-import useMode from '../hooks/useMode';
-import type { ColorPickerBaseProps, ModeType } from '../interface';
+import type { ColorPickerBaseProps } from '../interface';
 import { generateColor } from '../util';
 import ColorClear from './ColorClear';
 import ColorInput from './ColorInput';
@@ -20,7 +19,13 @@ const components = {
 export interface PanelPickerProps
   extends Pick<
     ColorPickerBaseProps,
-    'prefixCls' | 'allowClear' | 'disabledAlpha' | 'onChangeComplete' | 'mode'
+    | 'prefixCls'
+    | 'allowClear'
+    | 'disabledAlpha'
+    | 'onChangeComplete'
+    | 'showMode'
+    | 'mode'
+    | 'onModeChange'
   > {
   value?: AggregationColor;
   onChange?: (value?: AggregationColor, type?: HsbaColorType, pickColor?: boolean) => void;
@@ -29,7 +34,9 @@ export interface PanelPickerProps
 
 const PanelPicker: FC = () => {
   const {
+    showMode,
     mode,
+    onModeChange,
     prefixCls,
     allowClear,
     value,
@@ -40,33 +47,15 @@ const PanelPicker: FC = () => {
     ...injectProps
   } = useContext(PanelPickerContext);
 
-  // ============================= Mode =============================
-  const [isSingle, isGradient, bothMode] = mode;
-  const [modeType, setModeType] = React.useState<ModeType>('single');
-
-  const mergedModeType = React.useMemo(() => {
-    if (!isSingle) {
-      return 'gradient';
-    }
-
-    if (!isGradient) {
-      return 'single';
-    }
-
-    return modeType;
-  }, [isSingle, isGradient, bothMode, modeType]);
-
   // ============================ Render ============================
   // Operation bar
   let operationNode: React.ReactNode = null;
-  if (allowClear || bothMode) {
+  if (allowClear || showMode) {
     operationNode = (
       <div className={`${prefixCls}-operation`}>
-        {bothMode && (
+        {showMode && (
           <Segmented
             size="small"
-            value={mergedModeType}
-            onChange={setModeType}
             options={[
               {
                 label: '纯色',
@@ -100,7 +89,7 @@ const PanelPicker: FC = () => {
     <>
       {operationNode}
 
-      {mergedModeType === 'gradient' && (
+      {mode === 'gradient' && (
         <GradientColorSlider
           min={0}
           max={100}

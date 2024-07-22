@@ -40,7 +40,9 @@ export type TriggerType = 'click' | 'hover';
 export type TriggerPlacement = TooltipPlacement; // Alias, to prevent breaking changes.
 
 export interface ColorPickerBaseProps {
-  mode: ModeHookType;
+  showMode: boolean;
+  mode: ModeType;
+  onModeChange: (mode: ModeType) => void;
   color?: AggregationColor;
   prefixCls: string;
   format?: ColorFormatType;
