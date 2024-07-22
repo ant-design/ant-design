@@ -28,7 +28,10 @@ const App: React.FC = () => {
             content: <div>222</div>,
           },
           {
-            content: <div>333</div>,
+            content: <div>222</div>,
+          },
+          {
+            content: <div>222</div>,
           },
         ]}
       />

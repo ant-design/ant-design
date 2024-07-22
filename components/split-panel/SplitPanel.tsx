@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import React, { useRef } from 'react';
+import React, { useMemo, useRef } from 'react';
 import classNames from 'classnames';
 
 import { ConfigContext } from '../config-provider';
@@ -19,6 +19,7 @@ export interface SplitPanelProps {
   height?: number;
   splitBarSize?: number;
   items?: {
+    size?: number;
     content: ReactNode;
   }[];
 }
@@ -33,12 +34,54 @@ const SplitPanel: React.FC<SplitPanelProps> = (props) => {
     items = [],
   } = props;
 
-  const boxRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('split-panel', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+
+  const panelCount = items.length;
+  const gutter = ((items.length - 1) * splitBarSize) / items.length;
+  const [childrenNode, defaultSize] = useMemo(() => {
+    const nodes: ReactNode[] = [];
+    let sum = 0;
+    let count = 0;
+    let size = 0;
+
+    // 插入手柄
+    items.forEach((child, idx) => {
+      if (child.size) {
+        sum += child.size;
+        count += 1;
+      }
+
+      nodes.push(
+        <Panel size={child.size} prefixCls={prefixCls} gutter={gutter}>
+          {child.content}
+        </Panel>,
+      );
+
+      if (idx + 1 < panelCount) {
+        nodes.push(<SplitBar prefixCls={prefixCls} size={splitBarSize} index={idx} />);
+      }
+    });
+
+    // 计算默认大小
+    if (sum > 100) {
+      size = 0;
+    } else {
+      size = (100 - sum) / (items.length - count);
+    }
+
+    return [nodes, size];
+  }, [items]);
+
+  const { resizing, resizeStart } = useResize(
+    containerRef,
+    gutter,
+    splitBarSize * (panelCount - 1),
+  );
 
   const groupClassName = classNames(
     prefixCls,
@@ -46,66 +89,16 @@ const SplitPanel: React.FC<SplitPanelProps> = (props) => {
     {
       [`${prefixCls}-horizontal`]: layout === 'horizontal',
       [`${prefixCls}-vertical`]: layout === 'vertical',
+      [`${prefixCls}-resizing`]: resizing,
     },
     cssVarCls,
     rootCls,
     hashId,
   );
 
-  const childrenNode: ReactNode[] = [];
-  const panelCount = items.length;
-  const panelInitSize = 100 / panelCount;
-  const gutter = ((items.length - 1) * splitBarSize) / items.length;
-
-  items.forEach((child, idx) => {
-    childrenNode.push(
-      <Panel prefixCls={prefixCls} size={panelInitSize} gutter={gutter}>
-        {child.content}
-      </Panel>,
-    );
-
-    if (idx + 1 < panelCount) {
-      childrenNode.push(<SplitBar prefixCls={prefixCls} size={splitBarSize} index={idx} />);
-    }
-  });
-
-  const [resizing, startInfo, setResizing] = useResize();
-
   return wrapCSSVar(
-    <SplitPanelContext.Provider value={{ layout, panelInitSize, resizing, startInfo, setResizing }}>
-      <div
-        ref={boxRef}
-        style={{ height }}
-        className={groupClassName}
-        onMouseMove={(e) => {
-          const { x, splitPanelBar } = startInfo.current;
-          if (resizing && boxRef.current && splitPanelBar) {
-            const { width } = boxRef.current.getBoundingClientRect();
-            const boxWidth = width - (items.length - 1) * splitBarSize;
-
-            const previousElement = splitPanelBar.previousElementSibling as HTMLDivElement;
-            const nextElement = splitPanelBar.nextElementSibling as HTMLDivElement;
-
-            const offsetX = e.clientX - x;
-
-            const previousSize = 100 * ((previousElement.clientWidth + offsetX) / boxWidth);
-            const nextSize = 100 * ((nextElement.clientWidth - offsetX) / boxWidth);
-
-            previousElement.style.flexBasis = `calc(${previousSize}% - ${gutter}px)`;
-            nextElement.style.flexBasis = `calc(${nextSize}% - ${gutter}px)`;
-
-            startInfo.current.x = e.clientX;
-            startInfo.current.y = e.clientY;
-          }
-        }}
-        onMouseUp={() => {
-          if (resizing) {
-            console.log('[ onMouseUp ] ===>');
-            setResizing(false);
-            startInfo.current = { x: 0, y: 0, splitPanelBar: null };
-          }
-        }}
-      >
+    <SplitPanelContext.Provider value={{ layout, resizeStart, defaultSize }}>
+      <div ref={containerRef} style={{ height }} className={groupClassName}>
         {childrenNode}
       </div>
     </SplitPanelContext.Provider>,
