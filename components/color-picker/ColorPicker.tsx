@@ -97,24 +97,53 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   const isAlphaColor = useMemo(() => getColorAlpha(mergedColor) < 100, [mergedColor]);
 
+  // ==================== Change =====================
+  const onInternalChangeComplete: ColorPickerProps['onChangeComplete'] = (color) => {
+    if (onChangeComplete) {
+      let changeColor = generateColor(color);
+
+      // ignore alpha color
+      if (disabledAlpha && isAlphaColor) {
+        changeColor = genAlphaColor(color);
+      }
+      onChangeComplete(changeColor);
+    }
+  };
+
+  const onInternalChange: ColorPickerPanelProps['onChange'] = (data, type, pickColor) => {
+    let color: AggregationColor = generateColor(data as AggregationColor);
+
+    // // If color is cleared, reset alpha to 100
+    // const isNull = value === null || (!value && defaultValue === null);
+    // if (prevValue.current?.cleared || isNull) {
+    //   // ignore alpha slider
+    //   if (getColorAlpha(colorValue) === 0 && type !== 'alpha') {
+    //     color = genAlphaColor(color);
+    //   }
+    // }
+
+    // ignore alpha color
+    if (disabledAlpha && isAlphaColor) {
+      color = genAlphaColor(color);
+    }
+
+    setColor(color);
+
+    // Trigger change event
+    if (onChange) {
+      onChange(color, color.toHexString());
+    }
+
+    // Only for drag-and-drop color picking
+    if (pickColor) {
+      // popupAllowCloseRef.current = false;
+    } else {
+      onInternalChangeComplete(color);
+    }
+  };
+
   // ================== Form Status ==================
   const { status: contextStatus } = React.useContext(FormItemInputContext);
-
-  // // ====================== Mode =====================
-  // const [enableSingle, enableGradient, enableBothMode] = useMode(mode);
-
-  // const [modeState, setModeState] = useState<ModeType>('single');
-  // const mergedModeState = useMemo(() => {
-  //   if (enableBothMode) {
-  //     return modeState;
-  //   }
-
-  //   if (enableGradient) {
-  //     return 'gradient';
-  //   }
-
-  //   return 'single';
-  // }, [modeState, enableSingle, enableGradient, enableBothMode]);
 
   // ===================== Style =====================
   const mergedSize = useSize(customizeSize);
@@ -148,48 +177,6 @@ const ColorPicker: CompoundedComponent = (props) => {
     );
   }
 
-  const handleChange: ColorPickerPanelProps['onChange'] = (data, type, pickColor) => {
-    let color: AggregationColor = generateColor(data as AggregationColor);
-
-    // // If color is cleared, reset alpha to 100
-    // const isNull = value === null || (!value && defaultValue === null);
-    // if (prevValue.current?.cleared || isNull) {
-    //   // ignore alpha slider
-    //   if (getColorAlpha(colorValue) === 0 && type !== 'alpha') {
-    //     color = genAlphaColor(color);
-    //   }
-    // }
-
-    // ignore alpha color
-    if (disabledAlpha && isAlphaColor) {
-      color = genAlphaColor(color);
-    }
-
-    // Only for drag-and-drop color picking
-    if (pickColor) {
-      // popupAllowCloseRef.current = false;
-    } else {
-      onChangeComplete?.(color);
-    }
-
-    setColor(color);
-    onChange?.(color, color.toHexString());
-  };
-
-  const handleClear = () => {
-    onClear?.();
-  };
-
-  const handleChangeComplete: ColorPickerProps['onChangeComplete'] = (color) => {
-    // popupAllowCloseRef.current = true;
-    let changeColor = generateColor(color);
-    // ignore alpha color
-    if (disabledAlpha && isAlphaColor) {
-      changeColor = genAlphaColor(color);
-    }
-    onChangeComplete?.(changeColor);
-  };
-
   const popoverProps: PopoverProps = {
     open: popupOpen,
     trigger,
@@ -215,7 +202,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     panelRender,
     format: formatValue,
     onFormatChange: setFormatValue,
-    onChangeComplete: handleChangeComplete,
+    onChangeComplete: onInternalChangeComplete,
   };
 
   const mergedStyle: React.CSSProperties = { ...colorPicker?.style, ...style };
@@ -228,16 +215,16 @@ const ColorPicker: CompoundedComponent = (props) => {
       overlayInnerStyle={styles?.popupOverlayInner}
       onOpenChange={(visible) => {
         // if (popupAllowCloseRef.current && !mergedDisabled) {
-          setPopupOpen(visible);
+        setPopupOpen(visible);
         // }
       }}
       content={
         <ContextIsolator form>
           <ColorPickerPanel
             {...colorBaseProps}
-            onChange={handleChange}
-            onChangeComplete={handleChangeComplete}
-            onClear={handleClear}
+            onChange={onInternalChange}
+            onChangeComplete={onInternalChangeComplete}
+            onClear={onClear}
           />
         </ContextIsolator>
       }
