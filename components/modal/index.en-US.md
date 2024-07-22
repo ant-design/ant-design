@@ -48,8 +48,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | afterClose | Specify a function that will be called when modal is closed completely | function | - |  |
-| classNames | Config Modal build-in module's className | `header?: string; body?: string; footer?: string; mask?: string; wrapper?: string;` | - |  |
-| styles | Config Modal build-in module's style | `header?: CSSProperties; body?: CSSProperties; footer?: CSSProperties; mask?: CSSProperties;` | - | 5.10.0 |
+| classNames | Config Modal build-in module's className | `header?: string; body?: string; footer?: string; mask?: string; content?: string; wrapper?: string;` | - |  |
+| styles | Config Modal build-in module's style | `header?: CSSProperties; body?: CSSProperties; footer?: CSSProperties; mask?: CSSProperties; content?: CSSProperties; wrapper?: CSSProperties;` | - | 5.10.0 |
 | cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#api) | - |  |
 | cancelText | Text of the Cancel button | ReactNode | `Cancel` |  |
 | centered | Centered Modal | boolean | false |  |

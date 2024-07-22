@@ -26,7 +26,7 @@
     "url": "https://opencollective.com/ant-design"
   },
   "license": "MIT",
-  "sideEffects": ["*.css"],
+  "sideEffects": false,
   "main": "lib/index.js",
   "unpkg": "dist/antd.min.js",
   "module": "es/index.js",
@@ -101,7 +101,7 @@
   "dependencies": {
     "@ant-design/colors": "^7.1.0",
     "@ant-design/cssinjs": "^1.21.0",
-    "@ant-design/icons": "^5.3.7",
+    "@ant-design/icons": "^5.4.0",
     "@ant-design/react-slick": "~1.1.2",
     "@babel/runtime": "^7.24.8",
     "@ctrl/tinycolor": "^3.6.1",

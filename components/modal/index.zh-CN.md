@@ -49,8 +49,8 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | afterClose | Modal 完全关闭后的回调 | function | - |  |
-| classNames | 配置弹窗内置模块的 className | `header?: string; body?: string; footer?: string; mask?: string; wrapper?: string;` | - |  |
-| styles | 配置弹窗内置模块的 style | `header?: CSSProperties; body?: CSSProperties; footer?: CSSProperties; mask?: CSSProperties;` | - | 5.10.0 |
+| classNames | 配置弹窗内置模块的 className | `header?: string; body?: string; footer?: string; mask?: string; content?: string; wrapper?: string;` | - |  |
+| styles | 配置弹窗内置模块的 style | `header?: CSSProperties; body?: CSSProperties; footer?: CSSProperties; mask?: CSSProperties; content?: CSSProperties; wrapper?: CSSProperties;` | - | 5.10.0 |
 | cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | cancelText | 取消按钮文字 | ReactNode | `取消` |  |
 | centered | 垂直居中展示 Modal | boolean | false |  |
