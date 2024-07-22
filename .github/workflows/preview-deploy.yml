@@ -70,7 +70,13 @@ jobs:
       # Save PR id to output
       - name: save PR id
         id: pr
-        run: echo "id=$(<pr-id.txt)" >> $GITHUB_OUTPUT
+        run: |
+          pr_id=$(<pr-id.txt)
+          if ! [[ "$pr_id" =~ ^[0-9]+$ ]]; then
+            echo "Error: pr-id.txt does not contain a valid numeric PR id. Please check."
+            exit 1
+          fi
+          echo "id=$pr_id" >> $GITHUB_OUTPUT
 
       # Download site artifact
       - name: download site artifact
@@ -84,8 +90,10 @@ jobs:
       - name: upload surge service
         id: deploy
         continue-on-error: true
+        env:
+          PR_ID: ${{ steps.pr.outputs.id }}
         run: |
-          export DEPLOY_DOMAIN=https://preview-${{ steps.pr.outputs.id }}-ant-design.surge.sh
+          export DEPLOY_DOMAIN=https://preview-${PR_ID}-ant-design.surge.sh
           npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
 
       - name: success comment
