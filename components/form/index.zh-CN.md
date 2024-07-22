@@ -658,12 +658,6 @@ Form.List 下的字段需要包裹 Form.List 本身的 `name`，比如：
 
 React 中异步更新会导致受控组件交互行为异常。当用户交互触发 `onChange` 后，通过异步改变值会导致组件 `value` 不会立刻更新，使得组件呈现假死状态。如果你需要异步触发变更，请通过自定义组件实现内部异步状态。
 
-<style>
-.site-form-item-icon {
-  color: rgba(0, 0, 0, 0.25);
-}
-</style>
-
 ### `scrollToFirstError` 和 `scrollToField` 失效？
 
 1. 使用了自定义表单控件

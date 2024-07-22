@@ -659,12 +659,6 @@ dependencies should be `['users', 0, 'name']`
 
 React can not get correct interaction of controlled component with async value update. When user trigger `onChange`, component will do no response since `value` update is async. If you want to trigger value update async, you should use customize component to handle value state internal and pass sync value control to Form instead.
 
-<style>
-.site-form-item-icon {
-  color: rgba(0, 0, 0, 0.25);
-}
-</style>
-
 ### `scrollToFirstError` and `scrollToField` not working?
 
 1. use custom form control
