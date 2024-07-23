@@ -105,7 +105,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     }
   };
 
-  const onInternalChange: ColorPickerPanelProps['onChange'] = (data, type, pickColor) => {
+  const onInternalChange: ColorPickerPanelProps['onChange'] = (data, pickColor) => {
     let color: AggregationColor = generateColor(data as AggregationColor);
 
     // // If color is cleared, reset alpha to 100

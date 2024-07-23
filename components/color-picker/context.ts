@@ -16,7 +16,7 @@ export interface PanelPickerContextProps {
   modeOptions: ModeOptions;
 
   value: AggregationColor;
-  onChange: (value?: AggregationColor, type?: HsbaColorType, pickColor?: boolean) => void;
+  onChange: (value?: AggregationColor, pickColor?: boolean) => void;
   onChangeComplete: GetProp<ColorPickerProps, 'onChangeComplete'>;
 
   format?: ColorFormatType;

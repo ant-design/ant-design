@@ -26,8 +26,20 @@ const PanelPicker: FC = () => {
     onChange,
     onClear,
     onChangeComplete,
+    activeIndex,
     ...injectProps
   } = useContext(PanelPickerContext);
+
+  // ========================= Single Color =========================
+  const activeColor = React.useMemo(() => {
+    if (!value.isGradient()) {
+      return value;
+    }
+
+    return value.getColors()[activeIndex].color;
+  }, [value, activeIndex]);
+
+  // ============================ Change ============================
 
   // ============================ Render ============================
   // Operation bar
@@ -62,11 +74,11 @@ const PanelPicker: FC = () => {
 
       <RcColorPicker
         prefixCls={prefixCls}
-        value={value.toHsb()}
+        value={activeColor.toHsb()}
         disabledAlpha={disabledAlpha}
-        onChange={(colorValue, type) => {
+        onChange={(colorValue) => {
           const nextColor = generateColor(colorValue);
-          onChange(value.cleared ? genAlphaColor(nextColor) : nextColor, type, true);
+          onChange(value.cleared ? genAlphaColor(nextColor) : nextColor, true);
         }}
         onChangeComplete={(colorValue) => {
           onChangeComplete(generateColor(colorValue));
@@ -74,7 +86,7 @@ const PanelPicker: FC = () => {
         components={components}
       />
       <ColorInput
-        value={value}
+        value={activeColor}
         onChange={onChange}
         prefixCls={prefixCls}
         disabledAlpha={disabledAlpha}
