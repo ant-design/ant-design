@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Radio, SplitPanel } from 'antd';
-
 import type { SplitPanelProps } from 'antd';
 
 const App: React.FC = () => {
@@ -22,6 +21,7 @@ const App: React.FC = () => {
         layout={layout}
         items={[
           {
+            // size: layout === 'horizontal' ? 20 : 10,
             content: <div>111</div>,
           },
           {

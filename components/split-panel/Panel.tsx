@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import classNames from 'classnames';
 
 export interface PanelProps {
@@ -12,13 +12,20 @@ export interface PanelProps {
 
 const Panel: React.FC<PanelProps> = (props) => {
   const { prefixCls, className, children, gutter, size } = props;
-  const splitClassName = classNames(`${prefixCls}-item`, className);
 
-  console.log('[ Panel ] ===>', size);
+  const nodeRef = useRef<HTMLDivElement>(null);
+  const panelClassName = classNames(`${prefixCls}-item`, className);
+
+  useEffect(() => {
+    if (nodeRef.current) {
+      nodeRef.current.style.flexBasis = `calc(${size}% - ${gutter}px)`;
+    }
+  }, [size]);
 
   return (
     <div
-      className={splitClassName}
+      ref={nodeRef}
+      className={panelClassName}
       style={{
         flexBasis: `calc(${size}% - ${gutter}px)`,
       }}

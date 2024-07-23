@@ -43,8 +43,10 @@ const SplitPanel: React.FC<SplitPanelProps> = (props) => {
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const panelCount = items.length;
+  const splitBarSizeCount = splitBarSize * (panelCount - 1);
   const gutter = ((items.length - 1) * splitBarSize) / items.length;
 
+  // 获取初始默认值
   const getInitialOffsets = () => {
     const arr: number[] = [];
     let sum = 0;
@@ -66,48 +68,49 @@ const SplitPanel: React.FC<SplitPanelProps> = (props) => {
     });
     return arr;
   };
+
   const offsets = useRef<number[]>([]);
   const childrenNode = useMemo(() => {
     const daFaultOffsets = getInitialOffsets();
     offsets.current = daFaultOffsets;
-    const nodes: ReactNode[] = [];
 
-    items.forEach((child, idx) => {
-      nodes.push(
+    return items.reduce((node: ReactNode[], item, idx) => {
+      node.push(
         <Panel
-          key={`panel-${`${layout}-${idx}`}`}
+          key={`panel${`-${idx}`}`}
           size={daFaultOffsets[idx]}
           prefixCls={prefixCls}
           gutter={gutter}
         >
-          {child.content}
+          {item.content}
         </Panel>,
       );
 
       if (idx + 1 < panelCount) {
-        nodes.push(
+        node.push(
           <SplitBar
-            key={`split-bar-${`${layout}-${idx}`}`}
+            key={`split-bar${`-${idx}`}`}
             prefixCls={prefixCls}
             size={splitBarSize}
             index={idx}
           />,
         );
       }
-    });
+      return node;
+    }, []);
 
-    return nodes;
-  }, [items, layout]);
+    // item.size 改变时，重新赋值 flexBasis
+  }, [JSON.stringify(items.map((item) => item.size))]);
 
   const { resizing, resizeStart } = useResize(
     containerRef,
     layout,
     gutter,
-    splitBarSize * (panelCount - 1),
+    splitBarSizeCount,
     offsets,
   );
 
-  const groupClassName = classNames(
+  const containerClassName = classNames(
     prefixCls,
     className,
     {
@@ -122,7 +125,7 @@ const SplitPanel: React.FC<SplitPanelProps> = (props) => {
 
   return wrapCSSVar(
     <SplitPanelContext.Provider value={{ layout, resizeStart }}>
-      <div ref={containerRef} style={{ height }} className={groupClassName}>
+      <div ref={containerRef} style={{ height }} className={containerClassName}>
         {childrenNode}
       </div>
     </SplitPanelContext.Provider>,

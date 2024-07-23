@@ -67,6 +67,10 @@ const genSplitPanelStyle: GenerateStyle<any> = (token: any): CSSObject => {
       [`&-resizing${componentCls}-vertical`]: {
         cursor: 'row-resize',
       },
+
+      '&-item': {
+        overflow: 'auto',
+      },
     },
   };
 };

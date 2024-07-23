@@ -34,8 +34,24 @@ const useResize = (
       const previousElement = splitPanelBar.previousElementSibling as HTMLDivElement;
       const nextElement = splitPanelBar.nextElementSibling as HTMLDivElement;
 
-      const previousSize = offsets.current[index] - offset;
-      const nextSize = offsets.current[index + 1] + offset;
+      const percentCount = offsets.current[index] + offsets.current[index + 1];
+
+      let previousSize = offsets.current[index] - offset;
+      let nextSize = offsets.current[index + 1] + offset;
+
+      if (previousSize < 0) {
+        previousSize = 0;
+      }
+      if (previousSize > percentCount) {
+        previousSize = percentCount;
+      }
+
+      if (nextSize < 0) {
+        nextSize = 0;
+      }
+      if (nextSize > percentCount) {
+        nextSize = percentCount;
+      }
 
       previousElement.style.flexBasis = `calc(${previousSize}% - ${gutter}px)`;
       nextElement.style.flexBasis = `calc(${nextSize}% - ${gutter}px)`;
@@ -97,8 +113,7 @@ const useResize = (
       window.removeEventListener('mouseup', cancel);
       window.removeEventListener('contextmenu', cancel);
       window.removeEventListener('blur', cancel);
-
-      cancel()
+      cancel();
     };
   }, [layout]);
 
