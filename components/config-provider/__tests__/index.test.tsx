@@ -142,7 +142,7 @@ describe('ConfigProvider', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
 
-    render(<ConfigProvider dropdownMatchSelectWidth warning={{ strict: false }} />);
+    render(<ConfigProvider popupMatchSelectWidth warning={{ strict: false }} />);
     expect(errSpy).not.toHaveBeenCalled();
     expect(warnSpy).toHaveBeenCalled();
 
