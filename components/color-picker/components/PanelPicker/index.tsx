@@ -3,14 +3,15 @@ import React, { useContext } from 'react';
 import type { HsbaColorType } from '@rc-component/color-picker';
 import RcColorPicker from '@rc-component/color-picker';
 
-import Segmented from '../../segmented';
-import type { AggregationColor } from '../color';
-import { PanelPickerContext } from '../context';
-import type { ColorPickerBaseProps } from '../interface';
-import { genAlphaColor, generateColor } from '../util';
-import ColorClear from './ColorClear';
-import ColorInput from './ColorInput';
-import ColorSlider, { GradientColorSlider } from './ColorSlider';
+import Segmented from '../../../segmented';
+import type { AggregationColor } from '../../color';
+import { PanelPickerContext } from '../../context';
+import type { ColorPickerBaseProps } from '../../interface';
+import { genAlphaColor, generateColor } from '../../util';
+import ColorClear from '../ColorClear';
+import ColorInput from '../ColorInput';
+import ColorSlider, { GradientColorSlider } from '../ColorSlider';
+import GradientColorBar from './GradientColorBar';
 
 const components = {
   slider: ColorSlider,
@@ -78,7 +79,7 @@ const PanelPicker: FC = () => {
     <>
       {operationNode}
 
-      {mode === 'gradient' && (
+      {/* {mode === 'gradient' && (
         <GradientColorSlider
           min={0}
           max={100}
@@ -95,7 +96,8 @@ const PanelPicker: FC = () => {
           disabled={false}
           type="alpha"
         />
-      )}
+      )} */}
+      <GradientColorBar />
 
       <RcColorPicker
         prefixCls={prefixCls}

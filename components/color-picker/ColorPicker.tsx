@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useRef, useState } from 'react';
+import React, { useContext, useMemo } from 'react';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
@@ -14,12 +14,10 @@ import useSize from '../config-provider/hooks/useSize';
 import { FormItemInputContext } from '../form/context';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';
-import type { AggregationColor } from './color';
+import { AggregationColor } from './color';
 import type { ColorPickerPanelProps } from './ColorPickerPanel';
 import ColorPickerPanel from './ColorPickerPanel';
 import ColorTrigger from './components/ColorTrigger';
-import useColorState from './hooks/useColorState';
-import useMode from './hooks/useMode';
 import useModeColor from './hooks/useModeColor';
 import type {
   ColorPickerBaseProps,
@@ -146,7 +144,21 @@ const ColorPicker: CompoundedComponent = (props) => {
   const onInternalModeChange = (newMode: ModeType) => {
     setModeState(newMode);
 
-    if (newMode === 'single' && !mergedColor.isGradient()) {
+    if (newMode === 'single' && mergedColor.isGradient()) {
+      onInternalChange(new AggregationColor(mergedColor.getColors()[0].color));
+    } else if (newMode === 'gradient' && !mergedColor.isGradient()) {
+      onInternalChange(
+        new AggregationColor([
+          {
+            percent: 0,
+            color: mergedColor,
+          },
+          {
+            percent: 100,
+            color: mergedColor,
+          },
+        ]),
+      );
     }
   };
 
