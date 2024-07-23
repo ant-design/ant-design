@@ -9,10 +9,8 @@ import type {
   GlobalToken,
   FullToken,
   GetDefaultToken,
-} from '../../theme/internal';
-import type {
   TokenWithCommonCls,
-} from '../../theme/util/genComponentStyleHook';
+} from '../../theme/internal';
 
 export interface PanelComponentToken extends MultipleSelectorToken {
   /**

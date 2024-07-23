@@ -9,9 +9,9 @@ import type {
   GenerateStyle,
   GlobalToken,
   GenStyleFn,
+  TokenWithCommonCls,
 } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
-import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
