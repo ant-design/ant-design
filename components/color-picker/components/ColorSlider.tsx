@@ -1,8 +1,12 @@
 import * as React from 'react';
 import type { BaseSliderProps } from '@rc-component/color-picker';
 import classNames from 'classnames';
+import { useEvent } from 'rc-util';
 
+import type { GetProp } from '../../_util/type';
 import Slider from '../../slider';
+import SliderInternalContext from '../../slider/style/Context';
+import type { SliderInternalContextProps } from '../../slider/style/Context';
 
 export interface GradientColorSliderProps
   extends Omit<BaseSliderProps, 'value' | 'onChange' | 'onChangeComplete'> {
@@ -11,10 +15,20 @@ export interface GradientColorSliderProps
   onChangeComplete: (value: number[]) => void;
   range?: boolean;
   className?: string;
+  onActive?: (index: number) => void;
 }
 
 export const GradientColorSlider = (props: GradientColorSliderProps) => {
-  const { prefixCls, colors, type, color, range = false, className, ...restProps } = props;
+  const {
+    prefixCls,
+    colors,
+    type,
+    color,
+    range = false,
+    className,
+    onActive,
+    ...restProps
+  } = props;
 
   const sliderProps = {
     ...restProps,
@@ -39,31 +53,57 @@ export const GradientColorSlider = (props: GradientColorSliderProps) => {
     return `hsl(${color.toHsb().h}, 100%, 50%)`;
   }, [color, type]);
 
+  // =========================== Context ============================
+  const handleRender: GetProp<SliderInternalContextProps, 'handleRender'> = useEvent(
+    (ori, info) => {
+      const { onFocus, onBlur } = ori.props;
+      return React.cloneElement(ori, {
+        onFocus: (e: React.FocusEvent<HTMLDivElement>) => {
+          onActive?.(info.index);
+          onFocus?.(e);
+        },
+        onBlur: (e: React.FocusEvent<HTMLDivElement>) => {
+          onActive?.(-1);
+          onBlur?.(e);
+        },
+      });
+    },
+  );
+
+  const sliderContext: SliderInternalContextProps = React.useMemo(
+    () => ({
+      handleRender,
+    }),
+    [],
+  );
+
   // ============================ Render ============================
   return (
-    <Slider
-      {...sliderProps}
-      className={classNames(className, `${prefixCls}-slider`)}
-      tooltip={{ open: false }}
-      range={{
-        editable: range,
-        minCount: 1,
-      }}
-      styles={{
-        rail: {
-          background: linearCss,
-        },
-        handle: pointColor
-          ? {
-              background: pointColor,
-            }
-          : {},
-      }}
-      classNames={{
-        rail: `${prefixCls}-slider-rail`,
-        handle: `${prefixCls}-slider-handle`,
-      }}
-    />
+    <SliderInternalContext.Provider value={sliderContext}>
+      <Slider
+        {...sliderProps}
+        className={classNames(className, `${prefixCls}-slider`)}
+        tooltip={{ open: false }}
+        range={{
+          editable: range,
+          minCount: 1,
+        }}
+        styles={{
+          rail: {
+            background: linearCss,
+          },
+          handle: pointColor
+            ? {
+                background: pointColor,
+              }
+            : {},
+        }}
+        classNames={{
+          rail: `${prefixCls}-slider-rail`,
+          handle: `${prefixCls}-slider-handle`,
+        }}
+      />
+    </SliderInternalContext.Provider>
   );
 };
 

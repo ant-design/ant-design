@@ -10,30 +10,12 @@ import type { ColorPickerBaseProps } from '../../interface';
 import { genAlphaColor, generateColor } from '../../util';
 import ColorClear from '../ColorClear';
 import ColorInput from '../ColorInput';
-import ColorSlider, { GradientColorSlider } from '../ColorSlider';
+import ColorSlider from '../ColorSlider';
 import GradientColorBar from './GradientColorBar';
 
 const components = {
   slider: ColorSlider,
 };
-
-export interface PanelPickerProps
-  extends Required<
-    Pick<
-      ColorPickerBaseProps,
-      | 'prefixCls'
-      | 'allowClear'
-      | 'disabledAlpha'
-      | 'onChangeComplete'
-      | 'mode'
-      | 'onModeChange'
-      | 'modeOptions'
-    >
-  > {
-  value: AggregationColor;
-  onChange: (value?: AggregationColor, type?: HsbaColorType, pickColor?: boolean) => void;
-  onClear: () => void;
-}
 
 const PanelPicker: FC = () => {
   const {

@@ -12,6 +12,7 @@ import DisabledContext from '../config-provider/DisabledContext';
 import type { AbstractTooltipProps, TooltipPlacement } from '../tooltip';
 import SliderTooltip from './SliderTooltip';
 import useStyle from './style';
+import SliderInternalContext from './style/Context';
 import useRafLock from './useRafLock';
 
 export type SliderMarks = RcSliderProps['marks'];
@@ -150,6 +151,9 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
   const contextDisabled = React.useContext(DisabledContext);
   const mergedDisabled = disabled ?? contextDisabled;
 
+  // ============================= Context ==============================
+  const { handleRender: contextHandleRender } = React.useContext(SliderInternalContext);
+
   // =============================== Open ===============================
   const [hoverOpen, setHoverOpen] = useRafLock();
   const [focusOpen, setFocusOpen] = useRafLock();
@@ -246,64 +250,78 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
 
   const useActiveTooltipHandle = range && !lockOpen;
 
-  const handleRender: RcSliderProps['handleRender'] = (node, info) => {
-    const { index } = info;
+  const handleRender: RcSliderProps['handleRender'] =
+    contextHandleRender ||
+    ((node, info) => {
+      const { index } = info;
 
-    const nodeProps = node.props;
+      const nodeProps = node.props;
 
-    const passedProps: typeof nodeProps = {
-      ...nodeProps,
-      onMouseEnter: (e) => {
-        setHoverOpen(true);
-        nodeProps.onMouseEnter?.(e);
-      },
-      onMouseLeave: (e) => {
-        setHoverOpen(false);
-        nodeProps.onMouseLeave?.(e);
-      },
-      onMouseDown: (e) => {
-        setFocusOpen(true);
-        setDragging(true);
-        nodeProps.onMouseDown?.(e);
-      },
-      onFocus: (e) => {
-        setFocusOpen(true);
-        restProps.onFocus?.(e);
-        nodeProps.onFocus?.(e);
-      },
-      onBlur: (e) => {
-        setFocusOpen(false);
-        restProps.onBlur?.(e);
-        nodeProps.onBlur?.(e);
-      },
-    };
+      function proxyEvent(
+        eventName: string,
+        event: React.SyntheticEvent,
+        triggerRestPropsEvent?: boolean,
+      ) {
+        if (triggerRestPropsEvent) {
+          (restProps as any)[eventName]?.(event);
+        }
 
-    const cloneNode = React.cloneElement(node, passedProps);
+        (nodeProps as any)[eventName]?.(event);
+      }
 
-    const open = (!!lockOpen || activeOpen) && mergedTipFormatter !== null;
+      const passedProps: typeof nodeProps = {
+        ...nodeProps,
+        onMouseEnter: (e) => {
+          setHoverOpen(true);
+          proxyEvent('onMouseEnter', e);
+        },
+        onMouseLeave: (e) => {
+          setHoverOpen(false);
+          proxyEvent('onMouseLeave', e);
+        },
+        onMouseDown: (e) => {
+          setFocusOpen(true);
+          setDragging(true);
+          proxyEvent('onMouseDown', e);
+        },
+        onFocus: (e) => {
+          setFocusOpen(true);
+          restProps.onFocus?.(e);
+          proxyEvent('onFocus', e, true);
+        },
+        onBlur: (e) => {
+          setFocusOpen(false);
+          restProps.onBlur?.(e);
+          proxyEvent('onBlur', e, true);
+        },
+      };
 
-    // Wrap on handle with Tooltip when is single mode or multiple with all show tooltip
-    if (!useActiveTooltipHandle) {
-      return (
-        <SliderTooltip
-          {...tooltipProps}
-          prefixCls={getPrefixCls('tooltip', customizeTooltipPrefixCls ?? legacyTooltipPrefixCls)}
-          title={mergedTipFormatter ? mergedTipFormatter(info.value) : ''}
-          open={open}
-          placement={getTooltipPlacement(tooltipPlacement ?? legacyTooltipPlacement, vertical)}
-          key={index}
-          overlayClassName={`${prefixCls}-tooltip`}
-          getPopupContainer={
-            getTooltipPopupContainer || legacyGetTooltipPopupContainer || getPopupContainer
-          }
-        >
-          {cloneNode}
-        </SliderTooltip>
-      );
-    }
+      const cloneNode = React.cloneElement(node, passedProps);
 
-    return cloneNode;
-  };
+      const open = (!!lockOpen || activeOpen) && mergedTipFormatter !== null;
+
+      // Wrap on handle with Tooltip when is single mode or multiple with all show tooltip
+      if (!useActiveTooltipHandle) {
+        return (
+          <SliderTooltip
+            {...tooltipProps}
+            prefixCls={getPrefixCls('tooltip', customizeTooltipPrefixCls ?? legacyTooltipPrefixCls)}
+            title={mergedTipFormatter ? mergedTipFormatter(info.value) : ''}
+            open={open}
+            placement={getTooltipPlacement(tooltipPlacement ?? legacyTooltipPlacement, vertical)}
+            key={index}
+            overlayClassName={`${prefixCls}-tooltip`}
+            getPopupContainer={
+              getTooltipPopupContainer || legacyGetTooltipPopupContainer || getPopupContainer
+            }
+          >
+            {cloneNode}
+          </SliderTooltip>
+        );
+      }
+
+      return cloneNode;
+    });
 
   // ========================== Active Handle ===========================
   const activeHandleRender: SliderProps['activeHandleRender'] = useActiveTooltipHandle

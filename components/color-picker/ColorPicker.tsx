@@ -91,6 +91,8 @@ const ColorPicker: CompoundedComponent = (props) => {
     mode,
   );
 
+  const [focusIndex, setFocusIndex] = React.useState(0);
+
   // const [colorValue, setColorValue, prevValue] = useColorState(defaultValue, value);
 
   const isAlphaColor = useMemo(() => getColorAlpha(mergedColor) < 100, [mergedColor]);
