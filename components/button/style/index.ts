@@ -193,6 +193,21 @@ const genDashedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => (
   },
 });
 
+const genFilledButtonStyle = (
+  token: ButtonToken,
+  background: string,
+  hoverStyle: CSSObject,
+  activeStyle: CSSObject,
+) => ({
+  [`&${token.componentCls}-filled`]: {
+    ...genSolidDisabledButtonStyle(token),
+
+    background,
+
+    ...genHoverActiveButtonStyle(token.componentCls, hoverStyle, activeStyle),
+  },
+});
+
 const genTextLinkButtonStyle = (
   token: ButtonToken,
   variant: 'text' | 'link',
@@ -244,21 +259,16 @@ const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
 
   ...genDashedButtonStyle(token),
 
-  [`&${token.componentCls}-filled`]: {
-    ...genSolidDisabledButtonStyle(token),
-
-    background: token.textHoverBg,
-
-    ...genHoverActiveButtonStyle(
-      token.componentCls,
-      {
-        background: token.textHoverBg,
-      },
-      {
-        background: token.colorBgTextActive,
-      },
-    ),
-  },
+  ...genFilledButtonStyle(
+    token,
+    token.textHoverBg,
+    {
+      background: token.textHoverBg,
+    },
+    {
+      background: token.colorBgTextActive,
+    },
+  ),
 
   ...genTextLinkButtonStyle(
     token,
@@ -329,21 +339,16 @@ const genPrimaryButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
 
   ...genDashedButtonStyle(token),
 
-  [`&${token.componentCls}-filled`]: {
-    ...genSolidDisabledButtonStyle(token),
-
-    background: token.colorPrimaryBg,
-
-    ...genHoverActiveButtonStyle(
-      token.componentCls,
-      {
-        color: token.colorPrimaryTextHover,
-      },
-      {
-        color: token.colorPrimaryTextActive,
-      },
-    ),
-  },
+  ...genFilledButtonStyle(
+    token,
+    token.colorPrimaryBg,
+    {
+      color: token.colorPrimaryTextHover,
+    },
+    {
+      color: token.colorPrimaryTextActive,
+    },
+  ),
 
   ...genTextLinkButtonStyle(
     token,
@@ -420,20 +425,17 @@ const genDangerousStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
 
   ...genDashedButtonStyle(token),
 
-  [`&${token.componentCls}-filled`]: {
-    background: token.colorErrorBg,
-
-    ...genHoverActiveButtonStyle(
-      token.componentCls,
-      {
-        color: token.colorErrorHover,
-      },
-      {
-        color: token.colorErrorHover,
-        background: token.colorErrorBgActive,
-      },
-    ),
-  },
+  ...genFilledButtonStyle(
+    token,
+    token.colorErrorBg,
+    {
+      color: token.colorErrorHover,
+    },
+    {
+      color: token.colorErrorHover,
+      background: token.colorErrorBgActive,
+    },
+  ),
 
   ...genTextLinkButtonStyle(
     token,

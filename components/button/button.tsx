@@ -91,7 +91,7 @@ const ButtonTypeMap: Partial<
   default: ['default', 'outlined'],
   primary: ['primary', 'solid'],
   dashed: ['default', 'dashed'],
-  link: ['default', 'link'],
+  link: ['primary', 'link'],
   text: ['default', 'text'],
 };
 
