@@ -221,7 +221,7 @@ const ColorPicker: CompoundedComponent = (props) => {
           showText={showText}
           format={formatValue}
           {...rest}
-          color={colorValue}
+          color={value ? generateColor(value) : colorValue}
         />
       )}
     </Popover>,
