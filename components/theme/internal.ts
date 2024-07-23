@@ -11,6 +11,7 @@ import type {
   FullToken,
   GetDefaultToken,
   OverrideComponent,
+  GenStyleFn,
 } from './interface';
 import { PresetColors } from './interface';
 import { getLineHeight } from './themes/shared/genFontSizes';
@@ -52,4 +53,5 @@ export type {
   UseComponentStyleResult,
   GetDefaultToken,
   GlobalToken,
+  GenStyleFn,
 };

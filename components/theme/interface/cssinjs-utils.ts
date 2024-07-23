@@ -3,6 +3,7 @@ import type {
   OverrideTokenMap as OverrideTokenTypeUtil,
   FullToken as FullTokenTypeUtil,
   GetDefaultToken as GetDefaultTokenTypeUtil,
+  GenStyleFn as GenStyleFnTypeUtil,
   TokenMapKey,
 } from '@ant-design/cssinjs-utils';
 
@@ -20,3 +21,5 @@ export type OverrideComponent = TokenMapKey<ComponentTokenMap>;
 export type FullToken<C extends TokenMapKey<ComponentTokenMap>> = FullTokenTypeUtil<ComponentTokenMap, AliasToken, C>;
 
 export type GetDefaultToken<C extends TokenMapKey<ComponentTokenMap>> = GetDefaultTokenTypeUtil<ComponentTokenMap, AliasToken, C>;
+
+export type GenStyleFn<C extends TokenMapKey<ComponentTokenMap>> = GenStyleFnTypeUtil<ComponentTokenMap, AliasToken, C>;

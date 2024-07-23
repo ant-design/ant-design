@@ -13,6 +13,7 @@ export type {
   FullToken,
   OverrideComponent,
   GetDefaultToken,
+  GenStyleFn,
 } from './cssinjs-utils';
 
 export type { AliasToken } from './alias';

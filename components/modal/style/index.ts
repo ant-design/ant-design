@@ -3,9 +3,15 @@ import { unit } from '@ant-design/cssinjs';
 
 import { genFocusStyle, resetComponent } from '../../style';
 import { initFadeMotion, initZoomMotion } from '../../style/motion';
-import type { AliasToken, FullToken, GenerateStyle, GlobalToken } from '../../theme/internal';
+import type {
+  AliasToken,
+  FullToken,
+  GenerateStyle,
+  GlobalToken,
+  GenStyleFn,
+} from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
-import type { GenStyleFn, TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
+import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
