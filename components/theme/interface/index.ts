@@ -12,8 +12,7 @@ export type OverrideToken = {
   [key in keyof ComponentTokenMap]: Partial<ComponentTokenMap[key]> & Partial<AliasToken>;
 };
 
-/** Final token which contains the components level override */
-export type GlobalToken = AliasToken & ComponentTokenMap;
+export type { GlobalToken } from './cssinjs-utils';
 
 export type { AliasToken } from './alias';
 export type { ComponentTokenMap } from './components';

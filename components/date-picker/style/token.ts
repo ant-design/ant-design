@@ -5,7 +5,7 @@ import { initComponentToken } from '../../input/style/token';
 import type { MultipleSelectorToken, SelectorToken } from '../../select/style/token';
 import type { ArrowToken } from '../../style/roundedArrow';
 import { getArrowToken } from '../../style/roundedArrow';
-import type { GlobalToken } from '../../theme/interface';
+import type { GlobalToken } from '../../theme/internal';
 import type {
   FullToken,
   GetDefaultToken,

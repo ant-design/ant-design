@@ -6,6 +6,7 @@ import type {
   PresetColorKey,
   PresetColorType,
   SeedToken,
+  GlobalToken,
   UseComponentStyleResult,
 } from './interface';
 import { PresetColors } from './interface';
@@ -47,4 +48,5 @@ export type {
   SeedToken,
   UseComponentStyleResult,
   GetDefaultToken,
+  GlobalToken,
 };
