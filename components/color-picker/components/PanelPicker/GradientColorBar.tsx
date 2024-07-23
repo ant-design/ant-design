@@ -2,7 +2,17 @@ import * as React from 'react';
 
 import { AggregationColor } from '../../color';
 import { PanelPickerContext } from '../../context';
+import { getGradientPercentColor } from '../../util';
 import { GradientColorSlider } from '../ColorSlider';
+
+function getDiffIndex<T>(ori: T[], next: T[]) {
+  for (let i = 0; i < ori.length; i += 1) {
+    if (ori[i] !== next[i]) {
+      return i;
+    }
+  }
+  return ori.length;
+}
 
 /**
  * GradientColorBar will auto show when the mode is `gradient`.
@@ -26,14 +36,45 @@ export default function GradientColorBar() {
   const values = React.useMemo(() => colors.map((info) => info.percent), [colors]);
 
   // ============================= Change =============================
+  const removedColorRef = React.useRef<string | null>(null);
+
   const getColor = (nextValues: number[]) => {
-    const nextColors = nextValues.map((percent, index) => {
-      const { color } = colors[index];
-      return {
-        percent,
-        color,
-      };
-    });
+    let nextColors = [...colors];
+
+    if (nextValues.length < values.length) {
+      // Remove node
+      const diffIndex = getDiffIndex(values, nextValues);
+
+      nextColors.splice(diffIndex, 1);
+
+      removedColorRef.current = colors[diffIndex].color;
+    } else if (nextValues.length > values.length) {
+      // Add node
+      const diffIndex = getDiffIndex(values, nextValues);
+      const newPercent = nextValues[diffIndex];
+
+      if (removedColorRef.current) {
+        nextColors.splice(diffIndex, 0, {
+          percent: newPercent,
+          color: removedColorRef.current,
+        });
+      } else {
+        const newPointColor = getGradientPercentColor(colors, newPercent);
+
+        nextColors.splice(diffIndex, 0, {
+          percent: newPercent,
+          color: newPointColor,
+        });
+      }
+    } else {
+      nextColors = nextValues.map((percent, index) => {
+        const { color } = colors[index];
+        return {
+          percent,
+          color,
+        };
+      });
+    }
 
     return new AggregationColor(nextColors);
   };
@@ -44,6 +85,8 @@ export default function GradientColorBar() {
 
   const onInternalChangeComplete = (nextValues: number[]) => {
     onChangeComplete(getColor(nextValues));
+
+    removedColorRef.current = null;
   };
 
   // ============================= Render =============================
@@ -52,23 +95,22 @@ export default function GradientColorBar() {
   }
 
   return (
-    <div>
-      <GradientColorSlider
-        min={0}
-        max={100}
-        prefixCls={prefixCls}
-        className={`${prefixCls}-gradient-slider`}
-        colors={colors}
-        color={null!}
-        value={values}
-        onChange={onInternalChange}
-        onChangeComplete={onInternalChangeComplete}
-        disabled={false}
-        type="gradient"
-        // Active
-        activeIndex={activeIndex}
-        onActive={onActive}
-      />
-    </div>
+    <GradientColorSlider
+      min={0}
+      max={100}
+      prefixCls={prefixCls}
+      className={`${prefixCls}-gradient-slider`}
+      colors={colors}
+      color={null!}
+      value={values}
+      range
+      onChange={onInternalChange}
+      onChangeComplete={onInternalChangeComplete}
+      disabled={false}
+      type="gradient"
+      // Active
+      activeIndex={activeIndex}
+      onActive={onActive}
+    />
   );
 }

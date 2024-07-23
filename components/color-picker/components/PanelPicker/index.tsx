@@ -39,7 +39,7 @@ const PanelPicker: FC = () => {
       return value;
     }
 
-    return value.getColors()[activeIndex].color;
+    return value.getColors()[activeIndex]?.color;
   }, [value, activeIndex, isSingle]);
 
   // ============================ Change ============================
@@ -98,7 +98,7 @@ const PanelPicker: FC = () => {
 
       <RcColorPicker
         prefixCls={prefixCls}
-        value={activeColor.toHsb()}
+        value={activeColor?.toHsb()}
         disabledAlpha={disabledAlpha}
         onChange={(colorValue) => {
           const nextColor = generateColor(colorValue);

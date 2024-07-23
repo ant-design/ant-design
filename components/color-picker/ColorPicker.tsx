@@ -108,15 +108,6 @@ const ColorPicker: CompoundedComponent = (props) => {
   const onInternalChange: ColorPickerPanelProps['onChange'] = (data, pickColor) => {
     let color: AggregationColor = generateColor(data as AggregationColor);
 
-    // // If color is cleared, reset alpha to 100
-    // const isNull = value === null || (!value && defaultValue === null);
-    // if (prevValue.current?.cleared || isNull) {
-    //   // ignore alpha slider
-    //   if (getColorAlpha(colorValue) === 0 && type !== 'alpha') {
-    //     color = genAlphaColor(color);
-    //   }
-    // }
-
     // ignore alpha color
     if (disabledAlpha && isAlphaColor) {
       color = genAlphaColor(color);
@@ -145,15 +136,17 @@ const ColorPicker: CompoundedComponent = (props) => {
       setActiveIndex(0);
       onInternalChange(new AggregationColor(mergedColor.getColors()[0].color));
     } else if (newMode === 'gradient' && !mergedColor.isGradient()) {
+      const baseColor = isAlphaColor ? genAlphaColor(mergedColor) : mergedColor;
+
       onInternalChange(
         new AggregationColor([
           {
             percent: 0,
-            color: mergedColor,
+            color: baseColor,
           },
           {
             percent: 100,
-            color: mergedColor,
+            color: baseColor,
           },
         ]),
       );
@@ -181,8 +174,6 @@ const ColorPicker: CompoundedComponent = (props) => {
     hashId,
   );
   const mergedPopupCls = classNames(prefixCls, mergedRootCls);
-
-  // const popupAllowCloseRef = useRef(true);
 
   // ===================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
@@ -215,9 +206,7 @@ const ColorPicker: CompoundedComponent = (props) => {
       style={styles?.popup}
       overlayInnerStyle={styles?.popupOverlayInner}
       onOpenChange={(visible) => {
-        // if (popupAllowCloseRef.current && !mergedDisabled) {
         setPopupOpen(visible);
-        // }
       }}
       content={
         <ContextIsolator form>
