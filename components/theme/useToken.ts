@@ -5,7 +5,7 @@ import { useCacheToken } from '@ant-design/cssinjs';
 import version from '../version';
 import type { DesignTokenProviderProps } from './context';
 import { defaultTheme, DesignTokenContext } from './context';
-import type { AliasToken, GlobalToken, MapToken, SeedToken } from './interface';
+import type { AliasToken, GlobalToken, SeedToken } from './interface';
 import defaultSeedToken from './themes/seed';
 import formatToken from './util/alias';
 
@@ -111,7 +111,7 @@ export const getComputedToken = (
 
 // ================================== Hook ==================================
 export default function useToken(): [
-  theme: Theme<SeedToken, MapToken>,
+  theme: Theme<SeedToken, AliasToken>,
   token: GlobalToken,
   hashId: string,
   realToken: GlobalToken,

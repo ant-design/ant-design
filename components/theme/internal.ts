@@ -51,8 +51,6 @@ export {
 };
 export type {
   AliasToken,
-  // FIXME: Remove this type
-  AliasToken as DerivativeToken,
   FullToken,
   OverrideComponent,
   GenerateStyle,
