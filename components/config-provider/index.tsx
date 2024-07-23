@@ -548,7 +548,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
 
   let childNode = (
     <>
-      <PropWarning popupMatchSelectWidth={popupMatchSelectWidth} />
+      <PropWarning dropdownMatchSelectWidth={dropdownMatchSelectWidth} />
       {children}
     </>
   );
