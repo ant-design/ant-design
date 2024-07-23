@@ -1,5 +1,5 @@
 import { useStyleRegister } from '@ant-design/cssinjs';
-import { genCalc as calc } from '@ant-design/cssinjs-utils';
+import { genCalc as calc, mergeToken } from '@ant-design/cssinjs-utils';
 
 import type {
   AliasToken,
@@ -22,7 +22,7 @@ import genComponentStyleHook, {
   genSubStyleComponent,
 } from './util/genComponentStyleHook';
 import genPresetColor from './util/genPresetColor';
-import statisticToken, { merge as mergeToken } from './util/statistic';
+import statisticToken from './util/statistic';
 import useResetIconStyle from './util/useResetIconStyle';
 
 export type { CSSUtil } from '@ant-design/cssinjs-utils';
