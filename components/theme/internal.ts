@@ -1,5 +1,10 @@
 import { useStyleRegister } from '@ant-design/cssinjs';
-import { genCalc as calc, mergeToken } from '@ant-design/cssinjs-utils';
+import {
+  genCalc as calc,
+  mergeToken,
+  statisticToken,
+  statistic,
+} from '@ant-design/cssinjs-utils';
 
 import type {
   AliasToken,
@@ -22,14 +27,12 @@ import genComponentStyleHook, {
   genSubStyleComponent,
 } from './util/genComponentStyleHook';
 import genPresetColor from './util/genPresetColor';
-import statisticToken from './util/statistic';
 import useResetIconStyle from './util/useResetIconStyle';
 
 export type { CSSUtil } from '@ant-design/cssinjs-utils';
 
 export { DesignTokenContext, defaultConfig } from './context';
 export {
-  PresetColors,
   genComponentStyleHook,
   genSubStyleComponent,
   genPresetColor,
@@ -42,6 +45,9 @@ export {
   useResetIconStyle,
   useStyleRegister,
   useToken,
+  // constant
+  PresetColors,
+  statistic,
 };
 export type {
   AliasToken,

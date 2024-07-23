@@ -2,6 +2,7 @@
 import type { ComponentType, FC, ReactElement } from 'react';
 import React, { useContext } from 'react';
 import type { CSSInterpolation } from '@ant-design/cssinjs';
+import { mergeToken, statisticToken } from '@ant-design/cssinjs-utils';
 import type { AbstractCalculator } from '@ant-design/cssinjs-utils';
 import { genCalc, token2CSSVar, useCSSVarRegister, useStyleRegister } from '@ant-design/cssinjs';
 import { warning } from 'rc-util';
@@ -18,7 +19,7 @@ import type {
 } from '../interface';
 import useToken, { ignore, unitless } from '../useToken';
 import genMaxMin from './maxmin';
-import statisticToken, { merge as mergeToken } from './statistic';
+
 import useResetIconStyle from './useResetIconStyle';
 
 export type OverrideTokenWithoutDerivative = ComponentTokenMap;
