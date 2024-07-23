@@ -4,9 +4,14 @@ import { Keyframes, unit } from '@ant-design/cssinjs';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 import { genFocusOutline, resetComponent } from '../../style';
 import { genCollapseMotion } from '../../style/motion';
-import type { AliasToken, DerivativeToken, FullToken, GetDefaultToken } from '../../theme/internal';
+import type {
+  AliasToken,
+  DerivativeToken,
+  FullToken,
+  GetDefaultToken,
+  CSSUtil,
+} from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
-import type { CSSUtil } from '../../theme/util/genComponentStyleHook';
 
 export interface TreeSharedToken {
   /**

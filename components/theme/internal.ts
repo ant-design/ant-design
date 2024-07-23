@@ -24,6 +24,8 @@ import genPresetColor from './util/genPresetColor';
 import statisticToken, { merge as mergeToken } from './util/statistic';
 import useResetIconStyle from './util/useResetIconStyle';
 
+export type { CSSUtil } from '@ant-design/cssinjs-utils';
+
 export { DesignTokenContext, defaultConfig } from './context';
 export {
   PresetColors,
