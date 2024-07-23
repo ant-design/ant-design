@@ -2,10 +2,10 @@ import type { FC } from 'react';
 import React from 'react';
 
 import type { AggregationColor } from '../color';
-import type { ColorPickerBaseProps } from '../interface';
 import { generateColor } from '../util';
 
-interface ColorClearProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
+interface ColorClearProps {
+  prefixCls: string;
   value?: AggregationColor;
   onChange?: (value: AggregationColor) => void;
 }

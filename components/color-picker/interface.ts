@@ -39,20 +39,21 @@ export type TriggerType = 'click' | 'hover';
 
 export type TriggerPlacement = TooltipPlacement; // Alias, to prevent breaking changes.
 
-export interface ColorPickerBaseProps {
+export interface ColorPickerComponentSharedProps {
+  prefixCls: string;
+  allowClear?: boolean;
+  disabledAlpha?: boolean;
+  onChangeComplete?: ColorPickerProps['onChangeComplete'];
   mode: ModeType;
   onModeChange: (mode: ModeType) => void;
   modeOptions: ModeOptions;
-  color?: AggregationColor;
-  prefixCls: string;
+
+  color: AggregationColor;
   format?: ColorFormatType;
-  allowClear?: boolean;
   disabled?: boolean;
-  disabledAlpha?: boolean;
   presets?: PresetsItem[];
   panelRender?: ColorPickerProps['panelRender'];
   onFormatChange?: ColorPickerProps['onFormatChange'];
-  onChangeComplete?: ColorPickerProps['onChangeComplete'];
 }
 
 export type ColorValueType = AggregationColor | string | null;

@@ -2,13 +2,12 @@ import React from 'react';
 import type { HsbaColorType } from '@rc-component/color-picker';
 
 import type { AggregationColor } from './color';
-import type { PanelPresetsProps } from './components/PanelPresets';
-import type { ColorPickerBaseProps } from './interface';
+import type { ColorPickerComponentSharedProps } from './interface';
 
 export interface PanelPickerProps
   extends Required<
     Pick<
-      ColorPickerBaseProps,
+      ColorPickerComponentSharedProps,
       | 'prefixCls'
       | 'allowClear'
       | 'disabledAlpha'
@@ -20,7 +19,13 @@ export interface PanelPickerProps
   > {
   value: AggregationColor;
   onChange: (value?: AggregationColor, type?: HsbaColorType, pickColor?: boolean) => void;
-  onClear: () => void;
+  onClear?: () => void;
+}
+
+export interface PanelPresetsProps
+  extends Pick<ColorPickerComponentSharedProps, 'prefixCls' | 'presets'> {
+  value?: AggregationColor;
+  onChange?: (value: AggregationColor) => void;
 }
 
 export const PanelPickerContext = React.createContext<PanelPickerProps>({} as PanelPickerProps);

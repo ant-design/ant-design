@@ -2,11 +2,11 @@ import type { FC } from 'react';
 import React, { useEffect, useState } from 'react';
 
 import type { AggregationColor } from '../color';
-import type { ColorPickerBaseProps } from '../interface';
 import { generateColor, getColorAlpha } from '../util';
 import ColorSteppers from './ColorSteppers';
 
-interface ColorAlphaInputProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
+interface ColorAlphaInputProps {
+  prefixCls: string;
   value?: AggregationColor;
   onChange?: (value: AggregationColor) => void;
 }

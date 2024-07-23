@@ -20,7 +20,7 @@ import ColorPickerPanel from './ColorPickerPanel';
 import ColorTrigger from './components/ColorTrigger';
 import useModeColor from './hooks/useModeColor';
 import type {
-  ColorPickerBaseProps,
+  ColorPickerComponentSharedProps,
   ColorPickerProps,
   ModeType,
   TriggerPlacement,
@@ -210,7 +210,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     destroyTooltipOnHide,
   };
 
-  const colorBaseProps: ColorPickerBaseProps = {
+  const colorBaseProps: ColorPickerComponentSharedProps = {
     mode: modeState,
     onModeChange: onInternalModeChange,
     modeOptions,

@@ -7,10 +7,10 @@ import type { AggregationColor } from './color';
 import PanelPicker from './components/PanelPicker';
 import PanelPresets from './components/PanelPresets';
 import { PanelPickerProvider, PanelPresetsProvider } from './context';
-import type { ColorPickerBaseProps } from './interface';
+import type { ColorPickerComponentSharedProps } from './interface';
 
-export interface ColorPickerPanelProps extends ColorPickerBaseProps {
-  onChange?: (value?: AggregationColor, type?: HsbaColorType, pickColor?: boolean) => void;
+export interface ColorPickerPanelProps extends ColorPickerComponentSharedProps {
+  onChange: (value?: AggregationColor, type?: HsbaColorType, pickColor?: boolean) => void;
   onClear?: () => void;
 }
 
