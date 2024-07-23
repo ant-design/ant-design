@@ -78,7 +78,13 @@ jobs:
       # Save PR id to output
       - name: save PR id
         id: pr
-        run: echo "id=$(<tmp/visual-regression-pr-id.txt)" >> $GITHUB_OUTPUT
+        run: |
+          pr_id=$(<tmp/visual-regression-pr-id.txt)
+          if ! [[ "$pr_id" =~ ^[0-9]+$ ]]; then
+            echo "Error: pr-id.txt does not contain a valid numeric PR id. Please check."
+            exit 1
+          fi
+          echo "id=$pr_id" >> $GITHUB_OUTPUT
 
       # Download report artifact
       - name: download report artifact
@@ -146,13 +152,15 @@ jobs:
       - name: Reset Commit Status
         uses: actions/github-script@v7
         if: ${{ steps.report.outcome == 'success' }}
+        env:
+          PR_ID: ${{ steps.pr.outputs.id }}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const prResponse = await github.rest.pulls.get({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              pull_number: ${{ steps.pr.outputs.id }},
+              pull_number: process.env.PR_ID,
             });
             const prHeadSha = prResponse.data.head.sha;
 
