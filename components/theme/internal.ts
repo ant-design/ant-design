@@ -22,10 +22,11 @@ import type {
 import { PresetColors } from './interface';
 import { getLineHeight } from './themes/shared/genFontSizes';
 import useToken from './useToken';
-import genComponentStyleHook, {
+import {
+  genComponentStyleHook,
   genStyleHooks,
   genSubStyleComponent,
-} from './util/genComponentStyleHook';
+} from './util/genStyleUtils';
 import genPresetColor from './util/genPresetColor';
 import useResetIconStyle from './util/useResetIconStyle';
 
@@ -33,10 +34,12 @@ export type { CSSUtil, TokenWithCommonCls } from '@ant-design/cssinjs-utils';
 
 export { DesignTokenContext, defaultConfig } from './context';
 export {
+  // generators
   genComponentStyleHook,
   genSubStyleComponent,
   genPresetColor,
   genStyleHooks,
+  // utils
   mergeToken,
   statisticToken,
   calc,
