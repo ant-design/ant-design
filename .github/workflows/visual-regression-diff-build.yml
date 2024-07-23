@@ -52,20 +52,13 @@ jobs:
         run: npm ci
 
   ############################ Generate Snapshot ###########################
-  visual-diff-snapshot:
-    name: visual-diff snapshot
-    strategy:
-      matrix:
-        shard: ['1/2', '2/2']
+  build-site:
+    name: build site
     runs-on: ubuntu-latest
     needs: setup
     steps:
       - name: checkout
         uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v4
@@ -79,19 +72,65 @@ jobs:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
-      - name: generate image snapshots
-        id: test-image
-        run: |
-          node node_modules/puppeteer/install.mjs
-          npm run version
-          npm run test:image -- --shard=${{matrix.shard}}
+      - name: npm run site
+        id: site
+        run: npm run site
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"
 
-      - uses: actions/upload-artifact@v4
-        name: artifact snapshot
+      - name: upload site artifact
+        uses: actions/upload-artifact@v4
         with:
-          name: snapshot-artifacts-${{ strategy.job-index }}
+          name: site
+          path: _site/
+          retention-days: 5
+
+      # Upload PR id for next workflow use
+      - name: Save PR number
+        if: ${{ always() }}
+        run: echo ${{ github.event.number }} > ./pr-id.txt
+
+      - name: Upload PR number
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr
+          path: ./pr-id.txt
+
+  visual-diff-snapshot:
+    name: visual capture
+    runs-on: ubuntu-latest
+    needs: [setup, build-site]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@v4
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: download site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: _site
+
+      - name: run visual-diff capture
+        run: |
+          npm run visual-diff:capture
+
+      - name: artifact snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: snapshot-artifacts
           path: imageSnapshots/
           retention-days: 2
 
@@ -121,8 +160,9 @@ jobs:
 
       - uses: actions/download-artifact@v4
         with:
-          pattern: snapshot-artifacts-*
-          merge-multiple: true
+          # pattern: snapshot-artifacts-*
+          # merge-multiple: true
+          pattern: snapshot-artifacts
           path: imageSnapshots/
 
       # Execute visual regression diff task and zip then

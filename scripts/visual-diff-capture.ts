@@ -20,7 +20,14 @@ interface VisualDiffConfig {
 
 const themes = ['default', 'dark', 'compact'];
 
-function retrieveDemoUrl(mdPath: string) {
+async function retrieveDemoUrl(mdPath: string) {
+  const mdDir = path.dirname(mdPath);
+  // 适配 dumi 的规则
+  if (fs.existsSync(path.join(mdDir, 'index.tsx'))) {
+    // ~demos/button-demo-basic
+    mdPath.replace(/^components\//, '');
+  }
+
   // ~demos/components-button-demo-basic
   return mdPath.replace('.md', '').replace(/\//g, '-');
 }
@@ -111,7 +118,7 @@ class BrowserAuto {
   }
 
   private async visitDemoPage(page: Page, mdPath: string, theme: string) {
-    const demoUrl = retrieveDemoUrl(mdPath);
+    const demoUrl = await retrieveDemoUrl(mdPath);
     const options = await retrieveConfig(mdPath);
 
     const pageUrl = `http://localhost:3000/~demos/${demoUrl}?theme=${theme}&enable-css-var=1`;
@@ -187,11 +194,6 @@ function parseArgs(): {
   const handler = new BrowserAuto();
   await handler.init();
   const mdPaths = await getAllComponentMds(component);
-  await fs.promises.writeFile(
-    path.resolve(__dirname, '../imageSnapshots', 'md-paths.json'),
-    JSON.stringify(mdPaths.map(retrieveDemoUrl), null, 2),
-    'utf-8',
-  );
 
   const task = async (mdPath: string) => {
     try {
