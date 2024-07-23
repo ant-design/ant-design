@@ -173,7 +173,11 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     // Setters
     setSourceSelectedKeys,
     setTargetSelectedKeys,
-  ] = useSelection(leftDataSource as any, rightDataSource as any, selectedKeys);
+  ] = useSelection(
+    leftDataSource as KeyWise<RecordType>[],
+    rightDataSource as KeyWise<RecordType>[],
+    selectedKeys,
+  );
 
   const [leftMultipleSelect, updateLeftPrevSelectedIndex] = useMultipleSelect<
     KeyWise<RecordType>,
@@ -348,7 +352,12 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     const currentSelectedIndex = data.findIndex((item) => item.key === selectedKey);
     // multiple select by hold down the shift key
     if (multiple && holder.length > 0) {
-      handleMultipleSelect(direction, data as any, holderSet, currentSelectedIndex);
+      handleMultipleSelect(
+        direction,
+        data as KeyWise<RecordType>[],
+        holderSet,
+        currentSelectedIndex,
+      );
     } else {
       handleSingleSelect(direction, holderSet, selectedKey, checked, currentSelectedIndex);
     }
@@ -435,18 +444,20 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       <List<KeyWise<RecordType>>
         prefixCls={`${prefixCls}-list`}
         titleText={leftTitle}
-        dataSource={leftDataSource as any}
+        dataSource={leftDataSource as TransferListProps<KeyWise<RecordType>>['dataSource']}
         filterOption={filterOption}
         style={handleListStyle('left')}
         checkedKeys={sourceSelectedKeys}
         handleFilter={leftFilter}
         handleClear={handleLeftClear}
         onItemSelect={onLeftItemSelect}
-        onItemSelectAll={onLeftItemSelectAll as any}
+        onItemSelectAll={
+          onLeftItemSelectAll as TransferListProps<KeyWise<RecordType>>['onItemSelectAll']
+        }
         render={render}
         showSearch={showSearch}
-        renderList={children as any}
-        footer={footer as any}
+        renderList={children as TransferListProps<KeyWise<RecordType>>['renderList']}
+        footer={footer as TransferListProps<KeyWise<RecordType>>['footer']}
         onScroll={handleLeftScroll}
         disabled={disabled}
         direction={dir === 'rtl' ? 'right' : 'left'}
@@ -472,19 +483,21 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       <List<KeyWise<RecordType>>
         prefixCls={`${prefixCls}-list`}
         titleText={rightTitle}
-        dataSource={rightDataSource as any}
+        dataSource={rightDataSource as TransferListProps<KeyWise<RecordType>>['dataSource']}
         filterOption={filterOption}
         style={handleListStyle('right')}
         checkedKeys={targetSelectedKeys}
         handleFilter={rightFilter}
         handleClear={handleRightClear}
         onItemSelect={onRightItemSelect}
-        onItemSelectAll={onRightItemSelectAll as any}
+        onItemSelectAll={
+          onRightItemSelectAll as TransferListProps<KeyWise<RecordType>>['onItemSelectAll']
+        }
         onItemRemove={onRightItemRemove}
         render={render}
         showSearch={showSearch}
-        renderList={children as any}
-        footer={footer as any}
+        renderList={children as TransferListProps<KeyWise<RecordType>>['renderList']}
+        footer={footer as TransferListProps<KeyWise<RecordType>>['footer']}
         onScroll={handleRightScroll}
         disabled={disabled}
         direction={dir === 'rtl' ? 'left' : 'right'}
