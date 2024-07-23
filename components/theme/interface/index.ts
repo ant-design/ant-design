@@ -2,17 +2,12 @@ import type { CSSInterpolation, DerivativeFunc } from '@ant-design/cssinjs';
 
 import type { AnyObject } from '../../_util/type';
 import type { AliasToken } from './alias';
-import type { ComponentTokenMap } from './components';
 import type { MapToken } from './maps';
 import type { SeedToken } from './seeds';
 
 export type MappingAlgorithm = DerivativeFunc<SeedToken, MapToken>;
 
-export type OverrideToken = {
-  [key in keyof ComponentTokenMap]: Partial<ComponentTokenMap[key]> & Partial<AliasToken>;
-};
-
-export type { GlobalToken } from './cssinjs-utils';
+export type { GlobalToken, OverrideToken } from './cssinjs-utils';
 
 export type { AliasToken } from './alias';
 export type { ComponentTokenMap } from './components';
