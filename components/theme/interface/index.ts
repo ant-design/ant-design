@@ -7,7 +7,11 @@ import type { SeedToken } from './seeds';
 
 export type MappingAlgorithm = DerivativeFunc<SeedToken, MapToken>;
 
-export type { GlobalToken, OverrideToken } from './cssinjs-utils';
+export type {
+  GlobalToken,
+  OverrideToken,
+  FullToken,
+} from './cssinjs-utils';
 
 export type { AliasToken } from './alias';
 export type { ComponentTokenMap } from './components';
