@@ -54,9 +54,9 @@ export const {
     [
       {
         // Link
-        '&': genLinkStyle(token as any),
+        '&': genLinkStyle(token),
       },
     ]
   ,
-  getCommonStyle: genCommonStyle as any,
+  getCommonStyle: genCommonStyle,
 })
