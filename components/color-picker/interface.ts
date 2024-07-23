@@ -8,7 +8,6 @@ import type { SizeType } from '../config-provider/SizeContext';
 import type { PopoverProps } from '../popover';
 import type { TooltipPlacement } from '../tooltip';
 import type { AggregationColor } from './color';
-import type { ModeOptions } from './hooks/useModeColor';
 
 export type { ColorGenInput };
 
@@ -38,23 +37,6 @@ export interface PresetsItem {
 export type TriggerType = 'click' | 'hover';
 
 export type TriggerPlacement = TooltipPlacement; // Alias, to prevent breaking changes.
-
-export interface ColorPickerComponentSharedProps {
-  prefixCls: string;
-  allowClear?: boolean;
-  disabledAlpha?: boolean;
-  onChangeComplete?: ColorPickerProps['onChangeComplete'];
-  mode: ModeType;
-  onModeChange: (mode: ModeType) => void;
-  modeOptions: ModeOptions;
-
-  color: AggregationColor;
-  format?: ColorFormatType;
-  disabled?: boolean;
-  presets?: PresetsItem[];
-  panelRender?: ColorPickerProps['panelRender'];
-  onFormatChange?: ColorPickerProps['onFormatChange'];
-}
 
 export type ColorValueType = AggregationColor | string | null;
 

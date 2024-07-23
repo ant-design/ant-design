@@ -4,13 +4,16 @@ import { ColorBlock } from '@rc-component/color-picker';
 import classNames from 'classnames';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
-import type { ColorPickerComponentSharedProps, ColorPickerProps } from '../interface';
+import type { AggregationColor } from '../color';
+import type { ColorFormatType, ColorPickerProps } from '../interface';
 import { getColorAlpha } from '../util';
 import ColorClear from './ColorClear';
 
-export interface ColorTriggerProps
-  extends Pick<ColorPickerComponentSharedProps, 'prefixCls' | 'disabled' | 'format'> {
-  color: NonNullable<ColorPickerComponentSharedProps['color']>;
+export interface ColorTriggerProps {
+  prefixCls: string;
+  disabled?: boolean;
+  format: ColorFormatType;
+  color: AggregationColor;
   open?: boolean;
   showText?: ColorPickerProps['showText'];
   className?: string;

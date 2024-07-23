@@ -19,12 +19,7 @@ import type { ColorPickerPanelProps } from './ColorPickerPanel';
 import ColorPickerPanel from './ColorPickerPanel';
 import ColorTrigger from './components/ColorTrigger';
 import useModeColor from './hooks/useModeColor';
-import type {
-  ColorPickerComponentSharedProps,
-  ColorPickerProps,
-  ModeType,
-  TriggerPlacement,
-} from './interface';
+import type { ColorPickerProps, ModeType, TriggerPlacement } from './interface';
 import useStyle from './style';
 import { genAlphaColor, generateColor, getColorAlpha } from './util';
 
@@ -210,23 +205,6 @@ const ColorPicker: CompoundedComponent = (props) => {
     destroyTooltipOnHide,
   };
 
-  const colorBaseProps: ColorPickerComponentSharedProps = {
-    mode: modeState,
-    onModeChange: onInternalModeChange,
-    modeOptions,
-
-    prefixCls,
-    color: mergedColor,
-    allowClear,
-    disabled: mergedDisabled,
-    disabledAlpha,
-    presets,
-    panelRender,
-    format: formatValue,
-    onFormatChange: setFormatValue,
-    onChangeComplete: onInternalChangeComplete,
-  };
-
   const mergedStyle: React.CSSProperties = { ...colorPicker?.style, ...style };
 
   // ============================ zIndex ============================
@@ -243,7 +221,18 @@ const ColorPicker: CompoundedComponent = (props) => {
       content={
         <ContextIsolator form>
           <ColorPickerPanel
-            {...colorBaseProps}
+            mode={modeState}
+            onModeChange={onInternalModeChange}
+            modeOptions={modeOptions}
+            prefixCls={prefixCls}
+            value={mergedColor}
+            allowClear={allowClear}
+            disabled={mergedDisabled}
+            disabledAlpha={disabledAlpha}
+            presets={presets}
+            panelRender={panelRender}
+            format={formatValue}
+            onFormatChange={setFormatValue}
             onChange={onInternalChange}
             onChangeComplete={onInternalChangeComplete}
             onClear={onClear}

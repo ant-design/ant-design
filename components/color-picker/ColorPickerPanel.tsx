@@ -6,35 +6,69 @@ import Divider from '../divider';
 import type { AggregationColor } from './color';
 import PanelPicker from './components/PanelPicker';
 import PanelPresets from './components/PanelPresets';
-import { PanelPickerProvider, PanelPresetsProvider } from './context';
-import type { ColorPickerComponentSharedProps } from './interface';
+import { PanelPickerContext, PanelPresetsContext } from './context';
+import type { PanelPickerContextProps, PanelPresetsContextProps } from './context';
+import type { ColorPickerProps } from './interface';
 
-export interface ColorPickerPanelProps extends ColorPickerComponentSharedProps {
+export interface ColorPickerPanelProps extends PanelPickerContextProps, PanelPresetsContextProps {
   onChange: (value?: AggregationColor, type?: HsbaColorType, pickColor?: boolean) => void;
   onClear?: () => void;
+  panelRender?: ColorPickerProps['panelRender'];
 }
 
 const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
-  const { prefixCls, presets, panelRender, color, onChange, onClear, ...injectProps } = props;
-  const colorPickerPanelPrefixCls = `${prefixCls}-inner`;
-
-  // ==== Inject props ===
-  const panelContext = {
+  const {
     prefixCls,
-    value: color,
+    presets,
+    panelRender,
+    value,
     onChange,
     onClear,
-    ...injectProps,
-  };
+    allowClear,
+    disabledAlpha,
+    mode,
+    onModeChange,
+    modeOptions,
+    onChangeComplete,
+  } = props;
+  const colorPickerPanelPrefixCls = `${prefixCls}-inner`;
 
-  const presetContext = React.useMemo(
+  // ===================== Context ======================
+  const panelContext: PanelPickerContextProps = React.useMemo(
     () => ({
       prefixCls,
-      value: color,
+      value,
+      onChange,
+      onClear,
+      allowClear,
+      disabledAlpha,
+      mode,
+      onModeChange,
+      modeOptions,
+      onChangeComplete,
+    }),
+    [
+      prefixCls,
+      value,
+      onChange,
+      onClear,
+      allowClear,
+      disabledAlpha,
+      mode,
+      onModeChange,
+      modeOptions,
+      onChangeComplete,
+    ],
+  );
+
+  const presetContext: PanelPresetsContextProps = React.useMemo(
+    () => ({
+      prefixCls,
+      value,
       presets,
       onChange,
     }),
-    [prefixCls, color, presets, onChange],
+    [prefixCls, value, presets, onChange],
   );
 
   // ====================== Render ======================
@@ -47,8 +81,8 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
   );
 
   return (
-    <PanelPickerProvider value={panelContext}>
-      <PanelPresetsProvider value={presetContext}>
+    <PanelPickerContext.Provider value={panelContext}>
+      <PanelPresetsContext.Provider value={presetContext}>
         <div className={colorPickerPanelPrefixCls}>
           {typeof panelRender === 'function'
             ? panelRender(innerPanel, {
@@ -59,8 +93,8 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
               })
             : innerPanel}
         </div>
-      </PanelPresetsProvider>
-    </PanelPickerProvider>
+      </PanelPresetsContext.Provider>
+    </PanelPickerContext.Provider>
   );
 };
 

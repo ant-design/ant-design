@@ -2,35 +2,40 @@ import React from 'react';
 import type { HsbaColorType } from '@rc-component/color-picker';
 
 import type { AggregationColor } from './color';
-import type { ColorPickerComponentSharedProps } from './interface';
+import type { ModeOptions } from './hooks/useModeColor';
+import type { ColorFormatType, ColorPickerProps, ModeType, PresetsItem } from './interface';
 
-export interface PanelPickerProps
-  extends Required<
-    Pick<
-      ColorPickerComponentSharedProps,
-      | 'prefixCls'
-      | 'allowClear'
-      | 'disabledAlpha'
-      | 'onChangeComplete'
-      | 'mode'
-      | 'onModeChange'
-      | 'modeOptions'
-    >
-  > {
+export interface PanelPickerContextProps {
+  prefixCls: string;
+  allowClear?: boolean;
+  disabled?: boolean;
+  disabledAlpha?: boolean;
+  mode: ModeType;
+  onModeChange: (mode: ModeType) => void;
+  modeOptions: ModeOptions;
+
   value: AggregationColor;
   onChange: (value?: AggregationColor, type?: HsbaColorType, pickColor?: boolean) => void;
+  onChangeComplete: ColorPickerProps['onChangeComplete'];
+
+  format?: ColorFormatType;
+  onFormatChange?: ColorPickerProps['onFormatChange'];
+
   onClear?: () => void;
 }
 
-export interface PanelPresetsProps
-  extends Pick<ColorPickerComponentSharedProps, 'prefixCls' | 'presets'> {
-  value?: AggregationColor;
+export interface PanelPresetsContextProps {
+  prefixCls: string;
+  presets?: PresetsItem[];
+  disabled?: boolean;
+  value: AggregationColor;
   onChange?: (value: AggregationColor) => void;
 }
 
-export const PanelPickerContext = React.createContext<PanelPickerProps>({} as PanelPickerProps);
+export const PanelPickerContext = React.createContext<PanelPickerContextProps>(
+  {} as PanelPickerContextProps,
+);
 
-export const PanelPresetsContext = React.createContext<PanelPresetsProps>({} as PanelPresetsProps);
-
-export const { Provider: PanelPickerProvider } = PanelPickerContext;
-export const { Provider: PanelPresetsProvider } = PanelPresetsContext;
+export const PanelPresetsContext = React.createContext<PanelPresetsContextProps>(
+  {} as PanelPresetsContextProps,
+);

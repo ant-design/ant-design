@@ -4,15 +4,18 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import Select from '../../select';
 import type { AggregationColor } from '../color';
-import type { ColorFormatType, ColorPickerComponentSharedProps } from '../interface';
+import type { ColorFormatType } from '../interface';
 import { ColorFormat } from '../interface';
 import ColorAlphaInput from './ColorAlphaInput';
 import ColorHexInput from './ColorHexInput';
 import ColorHsbInput from './ColorHsbInput';
 import ColorRgbInput from './ColorRgbInput';
 
-interface ColorInputProps
-  extends Pick<ColorPickerComponentSharedProps, 'prefixCls' | 'format' | 'onFormatChange' | 'disabledAlpha'> {
+interface ColorInputProps {
+  prefixCls: string;
+  format: ColorFormatType;
+  onFormatChange: (format: ColorFormatType) => void;
+  disabledAlpha?: boolean;
   value?: AggregationColor;
   onChange?: (value: AggregationColor) => void;
 }
