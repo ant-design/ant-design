@@ -11,6 +11,7 @@ export type {
   GlobalToken,
   OverrideToken,
   FullToken,
+  OverrideComponent,
 } from './cssinjs-utils';
 
 export type { AliasToken } from './alias';

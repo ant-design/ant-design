@@ -14,4 +14,6 @@ export type GlobalToken = GlobalTokenTypeUtil<ComponentTokenMap, AliasToken>;
 
 export type OverrideToken = OverrideTokenTypeUtil<ComponentTokenMap, AliasToken>;
 
+export type OverrideComponent = TokenMapKey<ComponentTokenMap>;
+
 export type FullToken<C extends TokenMapKey<ComponentTokenMap>> = FullTokenTypeUtil<ComponentTokenMap, AliasToken, C>;

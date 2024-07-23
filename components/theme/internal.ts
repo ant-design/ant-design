@@ -9,6 +9,7 @@ import type {
   GlobalToken,
   UseComponentStyleResult,
   FullToken,
+  OverrideComponent,
 } from './interface';
 import { PresetColors } from './interface';
 import { getLineHeight } from './themes/shared/genFontSizes';
@@ -43,6 +44,7 @@ export type {
   // FIXME: Remove this type
   AliasToken as DerivativeToken,
   FullToken,
+  OverrideComponent,
   GenerateStyle,
   PresetColorKey,
   PresetColorType,
