@@ -74,7 +74,7 @@ class BrowserAuto {
 
   async init() {
     this.browser = await chromium.launch({
-      headless: false,
+      headless: true,
     });
     this.context = await this.browser.newContext({
       viewport: { width: 800, height: 600 },
