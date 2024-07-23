@@ -47,6 +47,7 @@ export const GradientColorSlider = (props: GradientColorSliderProps) => {
       tooltip={{ open: false }}
       range={{
         editable: range,
+        minCount: 1,
       }}
       styles={{
         rail: {

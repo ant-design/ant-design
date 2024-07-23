@@ -142,6 +142,14 @@ const ColorPicker: CompoundedComponent = (props) => {
     }
   };
 
+  // Mode change should also trigger color change
+  const onInternalModeChange = (newMode: ModeType) => {
+    setModeState(newMode);
+
+    if (newMode === 'single' && !mergedColor.isGradient()) {
+    }
+  };
+
   // ================== Form Status ==================
   const { status: contextStatus } = React.useContext(FormItemInputContext);
 
@@ -190,7 +198,7 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   const colorBaseProps: ColorPickerBaseProps = {
     mode: modeState,
-    onModeChange: setModeState,
+    onModeChange: onInternalModeChange,
     modeOptions,
 
     prefixCls,
