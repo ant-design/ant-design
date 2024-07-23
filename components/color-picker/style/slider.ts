@@ -16,7 +16,6 @@ const genSliderStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
     colorPickerSliderHeight,
     marginSM,
     marginXS,
-    motionDurationSlow,
   } = token;
 
   const handleInnerSize = token

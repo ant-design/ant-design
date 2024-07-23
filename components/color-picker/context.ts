@@ -1,5 +1,4 @@
 import React from 'react';
-import type { HsbaColorType } from '@rc-component/color-picker';
 
 import type { GetProp } from '../_util/type';
 import type { AggregationColor } from './color';

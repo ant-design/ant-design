@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import RcColorPicker from '@rc-component/color-picker';
 
 import Segmented from '../../../segmented';
+import { AggregationColor } from '../../color';
 import { PanelPickerContext } from '../../context';
 import { genAlphaColor, generateColor } from '../../util';
 import ColorClear from '../ColorClear';
@@ -31,15 +32,38 @@ const PanelPicker: FC = () => {
   } = useContext(PanelPickerContext);
 
   // ========================= Single Color =========================
+  const isSingle = !value.isGradient();
+
   const activeColor = React.useMemo(() => {
-    if (!value.isGradient()) {
+    if (isSingle) {
       return value;
     }
 
     return value.getColors()[activeIndex].color;
-  }, [value, activeIndex]);
+  }, [value, activeIndex, isSingle]);
 
   // ============================ Change ============================
+  const fillColor = (nextColor: AggregationColor) => {
+    if (isSingle) {
+      return nextColor;
+    }
+
+    const colors = [...value.getColors()];
+    colors[activeIndex] = {
+      ...colors[activeIndex],
+      color: nextColor,
+    };
+
+    return new AggregationColor(colors);
+  };
+
+  const onInternalChange = (nextColor: AggregationColor, fromPicker?: boolean) => {
+    onChange(fillColor(nextColor), fromPicker);
+  };
+
+  const onInternalChangeComplete = (nextColor: AggregationColor) => {
+    onChangeComplete(fillColor(nextColor));
+  };
 
   // ============================ Render ============================
   // Operation bar
@@ -78,10 +102,10 @@ const PanelPicker: FC = () => {
         disabledAlpha={disabledAlpha}
         onChange={(colorValue) => {
           const nextColor = generateColor(colorValue);
-          onChange(value.cleared ? genAlphaColor(nextColor) : nextColor, true);
+          onInternalChange(value.cleared ? genAlphaColor(nextColor) : nextColor, true);
         }}
         onChangeComplete={(colorValue) => {
-          onChangeComplete(generateColor(colorValue));
+          onInternalChangeComplete(generateColor(colorValue));
         }}
         components={components}
       />
