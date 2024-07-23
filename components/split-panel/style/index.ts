@@ -10,10 +10,10 @@ const genSplitPanelStyle: GenerateStyle<any> = (token: any): CSSObject => {
     [`${componentCls}`]: {
       ...resetComponent(token),
       display: 'flex',
-      border: '1px solid #e5e7eb',
+      userSelect: 'auto',
       borderRadius: '4px',
       boxSizing: 'border-box',
-      userSelect: 'auto',
+      border: '1px solid #e5e7eb',
 
       '&-bar': {
         flexGrow: 0,
@@ -58,27 +58,15 @@ const genSplitPanelStyle: GenerateStyle<any> = (token: any): CSSObject => {
 
       '&-resizing': {
         userSelect: 'none',
-
-        [`${componentCls}-item`]: {
-          flexGrow: 0,
-        },
       },
 
-      '&-resizing&-horizontal': {
+      [`&-resizing${componentCls}-horizontal`]: {
         cursor: 'col-resize',
       },
 
-      '&-resizing&-vertical': {
+      [`&-resizing${componentCls}-vertical`]: {
         cursor: 'row-resize',
       },
-
-      [`${componentCls}-item`]: {
-        flexGrow: 1,
-      },
-    },
-
-    [`${componentCls}-item`]: {
-      // flexGrow: 1,
     },
   };
 };

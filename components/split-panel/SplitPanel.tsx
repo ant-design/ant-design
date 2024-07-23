@@ -14,8 +14,9 @@ export interface SplitPanelProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
-  layout?: 'horizontal' | 'vertical';
   children?: React.ReactNode;
+
+  layout?: 'horizontal' | 'vertical';
   height?: number;
   splitBarSize?: number;
   items?: {
@@ -43,45 +44,67 @@ const SplitPanel: React.FC<SplitPanelProps> = (props) => {
 
   const panelCount = items.length;
   const gutter = ((items.length - 1) * splitBarSize) / items.length;
-  const [childrenNode, defaultSize] = useMemo(() => {
-    const nodes: ReactNode[] = [];
+
+  const getInitialOffsets = () => {
+    const arr: number[] = [];
     let sum = 0;
     let count = 0;
     let size = 0;
 
-    // 插入手柄
-    items.forEach((child, idx) => {
+    items.forEach((child) => {
       if (child.size) {
         sum += child.size;
         count += 1;
+        arr.push(child.size);
       }
+    });
+    size = sum > 100 ? 0 : (100 - sum) / (items.length - count);
+    items.forEach((_, idx) => {
+      if (!arr[idx]) {
+        arr[idx] = size;
+      }
+    });
+    return arr;
+  };
+  const offsets = useRef<number[]>([]);
+  const childrenNode = useMemo(() => {
+    const daFaultOffsets = getInitialOffsets();
+    offsets.current = daFaultOffsets;
+    const nodes: ReactNode[] = [];
 
+    items.forEach((child, idx) => {
       nodes.push(
-        <Panel size={child.size} prefixCls={prefixCls} gutter={gutter}>
+        <Panel
+          key={`panel-${`${layout}-${idx}`}`}
+          size={daFaultOffsets[idx]}
+          prefixCls={prefixCls}
+          gutter={gutter}
+        >
           {child.content}
         </Panel>,
       );
 
       if (idx + 1 < panelCount) {
-        nodes.push(<SplitBar prefixCls={prefixCls} size={splitBarSize} index={idx} />);
+        nodes.push(
+          <SplitBar
+            key={`split-bar-${`${layout}-${idx}`}`}
+            prefixCls={prefixCls}
+            size={splitBarSize}
+            index={idx}
+          />,
+        );
       }
     });
 
-    // 计算默认大小
-    if (sum > 100) {
-      size = 0;
-    } else {
-      size = (100 - sum) / (items.length - count);
-    }
-
-    return [nodes, size];
-  }, [items]);
+    return nodes;
+  }, [items, layout]);
 
   const { resizing, resizeStart } = useResize(
     containerRef,
     layout,
     gutter,
     splitBarSize * (panelCount - 1),
+    offsets,
   );
 
   const groupClassName = classNames(
@@ -98,7 +121,7 @@ const SplitPanel: React.FC<SplitPanelProps> = (props) => {
   );
 
   return wrapCSSVar(
-    <SplitPanelContext.Provider value={{ layout, resizeStart, defaultSize }}>
+    <SplitPanelContext.Provider value={{ layout, resizeStart }}>
       <div ref={containerRef} style={{ height }} className={groupClassName}>
         {childrenNode}
       </div>

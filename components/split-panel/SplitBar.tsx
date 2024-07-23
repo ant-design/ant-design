@@ -9,12 +9,18 @@ export interface SplitBarProps {
 }
 
 const SplitBar: React.FC<SplitBarProps> = (props) => {
-  const { prefixCls, size } = props;
+  const { prefixCls, size, index } = props;
 
   const { resizeStart } = React.useContext(SplitPanelContext);
 
   return (
-    <div style={{ flexBasis: size }} className={`${prefixCls}-bar`} onMouseDown={resizeStart}>
+    <div
+      style={{ flexBasis: size }}
+      className={`${prefixCls}-bar`}
+      onMouseDown={(e) => {
+        resizeStart?.(e, index);
+      }}
+    >
       <div className={`${prefixCls}-bar-icon`} />
     </div>
   );

@@ -4,21 +4,35 @@ SplitPanel is used to split and resize panels.
 
 ## API
 
-| Props         | Descriptions | Type | Default |
-| ------------- | ------------ | ---- | ------- |
-| width         |              |      |         |
-| height        |              |      |         |
-| onResizeEnd   |              |      |         |
-| onResizeStart |              |      |         |
+| Props         | Descriptions | Type                                      | Default           |
+| ------------- | ------------ | --------------                            | -------           |
+| layout        |              |  `horizontal` \| `vertical`               |                   |
+| height        |              |   number                                  |                   |
+| items         |              |   `{size?: number;content: ReactNode;}`   |                   |
+| splitBarSize  |              |   number                                |                   |
 
 ## Example
 
 ```
 const App = () => (
-  <SplitterPanel.Group>
-    <SplitterPanel>left</SplitterPanel>
-    <SplitterPanel>right</SplitterPanel>
-  </SplitterPanel.Group>
+  <SplitPanel
+    height={300}
+    layout={layout}
+    items={[
+      {
+        content: <div>111</div>,
+      },
+      {
+        content: <div>222</div>,
+      },
+      {
+        content: <div>333</div>,
+      },
+      {
+        content: <div>444</div>,
+      },
+    ]}
+  />
 );
 ```
 

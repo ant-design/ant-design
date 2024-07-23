@@ -1,14 +1,13 @@
 import React from 'react';
 
 import type { SplitPanelProps } from './SplitPanel';
+import type { UseResize } from './useResize';
 
 export interface SplitPanelContextType {
   layout: SplitPanelProps['layout'];
-  defaultSize?: number;
-  resizeStart?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  resizeStart?: UseResize['resizeStart'];
 }
 export const SplitPanelContext = React.createContext<SplitPanelContextType>({
   layout: 'horizontal',
-  defaultSize: 0,
   resizeStart: undefined,
 });
