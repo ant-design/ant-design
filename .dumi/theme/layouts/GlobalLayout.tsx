@@ -36,10 +36,12 @@ export const ANT_DESIGN_NOT_SHOW_BANNER = 'ANT_DESIGN_NOT_SHOW_BANNER';
 // }
 
 // Compatible with old anchors
-const hashId = location.hash.slice(1);
-if (hashId.startsWith('components-')) {
-  if (!document.querySelector(`#${hashId}`)) {
-    location.hash = `#${hashId.replace(/^components-/, '')}`;
+if (typeof window !== 'undefined') {
+  const hashId = location.hash.slice(1);
+  if (hashId.startsWith('components-')) {
+    if (!document.querySelector(`#${hashId}`)) {
+      location.hash = `#${hashId.replace(/^components-/, '')}`;
+    }
   }
 }
 
