@@ -1,17 +1,16 @@
 import type { FC } from 'react';
 import React from 'react';
-import type { HsbaColorType } from '@rc-component/color-picker';
 
 import Divider from '../divider';
-import type { AggregationColor } from './color';
 import PanelPicker from './components/PanelPicker';
 import PanelPresets from './components/PanelPresets';
 import { PanelPickerContext, PanelPresetsContext } from './context';
 import type { PanelPickerContextProps, PanelPresetsContextProps } from './context';
 import type { ColorPickerProps } from './interface';
 
-export interface ColorPickerPanelProps extends PanelPickerContextProps, PanelPresetsContextProps {
-  onChange: (value?: AggregationColor, type?: HsbaColorType, pickColor?: boolean) => void;
+export interface ColorPickerPanelProps
+  extends PanelPickerContextProps,
+    Omit<PanelPresetsContextProps, 'onChange'> {
   onClear?: () => void;
   panelRender?: ColorPickerProps['panelRender'];
 }
@@ -30,6 +29,8 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
     onModeChange,
     modeOptions,
     onChangeComplete,
+    activeIndex,
+    onActive,
   } = props;
   const colorPickerPanelPrefixCls = `${prefixCls}-inner`;
 
@@ -46,6 +47,8 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
       onModeChange,
       modeOptions,
       onChangeComplete,
+      activeIndex,
+      onActive,
     }),
     [
       prefixCls,
@@ -58,6 +61,8 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
       onModeChange,
       modeOptions,
       onChangeComplete,
+      activeIndex,
+      onActive,
     ],
   );
 

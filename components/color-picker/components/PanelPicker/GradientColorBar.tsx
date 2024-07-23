@@ -8,7 +8,7 @@ import { GradientColorSlider } from '../ColorSlider';
  * GradientColorBar will auto show when the mode is `gradient`.
  */
 export default function GradientColorBar() {
-  const { prefixCls, mode, value, onChange, onChangeComplete } =
+  const { prefixCls, mode, value, onChange, onChangeComplete, onActive, activeIndex } =
     React.useContext(PanelPickerContext);
 
   const isGradient = mode === 'gradient';
@@ -64,9 +64,10 @@ export default function GradientColorBar() {
         onChange={onInternalChange}
         onChangeComplete={onInternalChangeComplete}
         disabled={false}
-        type="alpha"
+        type="gradient"
         // Active
-        onActive={null}
+        activeIndex={activeIndex}
+        onActive={onActive}
       />
     </div>
   );

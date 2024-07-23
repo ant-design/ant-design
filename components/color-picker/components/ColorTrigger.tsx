@@ -12,7 +12,7 @@ import ColorClear from './ColorClear';
 export interface ColorTriggerProps {
   prefixCls: string;
   disabled?: boolean;
-  format: ColorFormatType;
+  format?: ColorFormatType;
   color: AggregationColor;
   open?: boolean;
   showText?: ColorPickerProps['showText'];

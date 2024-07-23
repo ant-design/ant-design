@@ -9,13 +9,15 @@ import SliderInternalContext from '../../slider/style/Context';
 import type { SliderInternalContextProps } from '../../slider/style/Context';
 
 export interface GradientColorSliderProps
-  extends Omit<BaseSliderProps, 'value' | 'onChange' | 'onChangeComplete'> {
+  extends Omit<BaseSliderProps, 'value' | 'onChange' | 'onChangeComplete' | 'type'> {
   value: number[];
   onChange: (value: number[]) => void;
   onChangeComplete: (value: number[]) => void;
   range?: boolean;
   className?: string;
+  activeIndex?: number;
   onActive?: (index: number) => void;
+  type: BaseSliderProps['type'] | 'gradient';
 }
 
 export const GradientColorSlider = (props: GradientColorSliderProps) => {
@@ -42,7 +44,7 @@ export const GradientColorSlider = (props: GradientColorSliderProps) => {
   }, [colors]);
 
   const pointColor = React.useMemo(() => {
-    if (!color) {
+    if (!color || !type) {
       return null;
     }
 
@@ -56,7 +58,14 @@ export const GradientColorSlider = (props: GradientColorSliderProps) => {
   // =========================== Context ============================
   const handleRender: GetProp<SliderInternalContextProps, 'handleRender'> = useEvent(
     (ori, info) => {
-      const { onFocus, onBlur } = ori.props;
+      const { onFocus, onBlur, style } = ori.props;
+
+      // Point Color
+      const mergedStyle = { ...style };
+      if (type === 'gradient') {
+        mergedStyle.background = colors[info.index].color;
+      }
+
       return React.cloneElement(ori, {
         onFocus: (e: React.FocusEvent<HTMLDivElement>) => {
           onActive?.(info.index);
@@ -66,6 +75,7 @@ export const GradientColorSlider = (props: GradientColorSliderProps) => {
           onActive?.(-1);
           onBlur?.(e);
         },
+        style: mergedStyle,
       });
     },
   );

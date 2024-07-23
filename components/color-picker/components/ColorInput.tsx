@@ -13,8 +13,8 @@ import ColorRgbInput from './ColorRgbInput';
 
 interface ColorInputProps {
   prefixCls: string;
-  format: ColorFormatType;
-  onFormatChange: (format: ColorFormatType) => void;
+  format?: ColorFormatType;
+  onFormatChange?: (format: ColorFormatType) => void;
   disabledAlpha?: boolean;
   value?: AggregationColor;
   onChange?: (value: AggregationColor) => void;

@@ -86,7 +86,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     mode,
   );
 
-  const [focusIndex, setFocusIndex] = React.useState(0);
+  const [activeIndex, setActiveIndex] = React.useState(0);
 
   // const [colorValue, setColorValue, prevValue] = useColorState(defaultValue, value);
 
@@ -236,6 +236,8 @@ const ColorPicker: CompoundedComponent = (props) => {
             onChange={onInternalChange}
             onChangeComplete={onInternalChangeComplete}
             onClear={onClear}
+            activeIndex={activeIndex}
+            onActive={setActiveIndex}
           />
         </ContextIsolator>
       }

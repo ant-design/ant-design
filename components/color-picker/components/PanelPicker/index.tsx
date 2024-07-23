@@ -58,24 +58,6 @@ const PanelPicker: FC = () => {
     <>
       {operationNode}
 
-      {/* {mode === 'gradient' && (
-        <GradientColorSlider
-          min={0}
-          max={100}
-          prefixCls={prefixCls}
-          className={`${prefixCls}-gradient-slider`}
-          colors={[
-            { percent: 0, color: '#f00' },
-            { percent: 100, color: '#ff0' },
-          ]}
-          color={null!}
-          value={[]}
-          onChange={() => {}}
-          onChangeComplete={() => {}}
-          disabled={false}
-          type="alpha"
-        />
-      )} */}
       <GradientColorBar />
 
       <RcColorPicker
