@@ -9,12 +9,12 @@ import type {
   GlobalToken,
   UseComponentStyleResult,
   FullToken,
+  GetDefaultToken,
   OverrideComponent,
 } from './interface';
 import { PresetColors } from './interface';
 import { getLineHeight } from './themes/shared/genFontSizes';
 import useToken from './useToken';
-import type { GetDefaultToken } from './util/genComponentStyleHook';
 import genComponentStyleHook, {
   genStyleHooks,
   genSubStyleComponent,

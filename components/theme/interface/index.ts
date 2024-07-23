@@ -12,6 +12,7 @@ export type {
   OverrideToken,
   FullToken,
   OverrideComponent,
+  GetDefaultToken,
 } from './cssinjs-utils';
 
 export type { AliasToken } from './alias';

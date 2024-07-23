@@ -8,9 +8,9 @@ import { getArrowToken } from '../../style/roundedArrow';
 import type {
   GlobalToken,
   FullToken,
+  GetDefaultToken,
 } from '../../theme/internal';
 import type {
-  GetDefaultToken,
   TokenWithCommonCls,
 } from '../../theme/util/genComponentStyleHook';
 
