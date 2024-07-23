@@ -314,7 +314,6 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
           '&-content': {
             flex: 'auto',
             maxWidth: '100%',
-            lineHeight: '100%',
           },
         },
       },
