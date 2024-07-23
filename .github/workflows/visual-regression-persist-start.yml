@@ -119,8 +119,11 @@ jobs:
 
       - name: run visual-diff capture
         run: |
+          npx playwright install chromium
           npm run visual-diff:capture
           tar -czvf imageSnapshots.tar.gz imageSnapshots/*
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
 
       # Upload `imageSnapshots` on master
       - name: upload report artifact
