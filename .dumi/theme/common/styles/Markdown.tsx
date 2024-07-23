@@ -389,7 +389,7 @@ const GlobalStyle: React.FC = () => {
         }
 
         .grid-demo,
-        [id^='components-grid-demo-'] {
+        [id^='grid-demo-'] {
           ${antCls}-row > div,
             .code-box-demo ${antCls}-row > div {
             min-height: 30px;
@@ -467,8 +467,8 @@ const GlobalStyle: React.FC = () => {
           }
         }
 
-        [id='components-grid-demo-playground'],
-        [id='components-grid-demo-gutter'] {
+        [id='grid-demo-playground'],
+        [id='grid-demo-gutter'] {
           > .code-box-demo ${antCls}-row > div {
             margin-top: 0;
             margin-bottom: 0;

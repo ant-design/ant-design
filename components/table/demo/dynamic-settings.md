@@ -7,7 +7,7 @@
 Select different settings to see the result.
 
 <style>
-.components-table-demo-control-bar .ant-form-item {
+.table-demo-control-bar .ant-form-item {
   margin-right: 16px !important;
   margin-bottom: 8px !important;
 }
