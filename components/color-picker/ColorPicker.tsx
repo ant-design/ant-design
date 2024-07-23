@@ -142,6 +142,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     setModeState(newMode);
 
     if (newMode === 'single' && mergedColor.isGradient()) {
+      setActiveIndex(0);
       onInternalChange(new AggregationColor(mergedColor.getColors()[0].color));
     } else if (newMode === 'gradient' && !mergedColor.isGradient()) {
       onInternalChange(

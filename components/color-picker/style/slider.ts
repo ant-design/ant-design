@@ -16,6 +16,7 @@ const genSliderStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
     colorPickerSliderHeight,
     marginSM,
     marginXS,
+    motionDurationSlow,
   } = token;
 
   const handleInnerSize = token
@@ -54,9 +55,16 @@ const genSliderStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
             height: colorPickerHandlerSizeSM,
             border: `${unit(lineWidthBold)} solid ${colorBgElevated}`,
             boxShadow: `${colorPickerInsetShadow}, 0 0 0 1px ${colorFillSecondary}`,
+            outline: 'none',
             left: token.calc(lineWidthBold).mul(-1).equal(),
             top: token.calc(lineWidthBold).mul(-1).equal(),
             background: 'transparent',
+          },
+
+          '&-active, &:focus': {
+            '&:after': {
+              boxShadow: `0 0 0 ${unit(lineWidthBold)} ${token.colorFill}`,
+            },
           },
         },
       },

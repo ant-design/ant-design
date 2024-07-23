@@ -28,6 +28,7 @@ export const GradientColorSlider = (props: GradientColorSliderProps) => {
     color,
     range = false,
     className,
+    activeIndex,
     onActive,
     ...restProps
   } = props;
@@ -58,7 +59,7 @@ export const GradientColorSlider = (props: GradientColorSliderProps) => {
   // =========================== Context ============================
   const handleRender: GetProp<SliderInternalContextProps, 'handleRender'> = useEvent(
     (ori, info) => {
-      const { onFocus, onBlur, style } = ori.props;
+      const { onFocus, onBlur, style, className } = ori.props;
 
       // Point Color
       const mergedStyle = { ...style };
@@ -71,11 +72,14 @@ export const GradientColorSlider = (props: GradientColorSliderProps) => {
           onActive?.(info.index);
           onFocus?.(e);
         },
-        onBlur: (e: React.FocusEvent<HTMLDivElement>) => {
-          onActive?.(-1);
-          onBlur?.(e);
-        },
+        // onBlur: (e: React.FocusEvent<HTMLDivElement>) => {
+        //   onActive?.(-1);
+        //   onBlur?.(e);
+        // },
         style: mergedStyle,
+        className: classNames(className, {
+          [`${prefixCls}-slider-handle-active`]: activeIndex === info.index,
+        }),
       });
     },
   );
