@@ -7,7 +7,7 @@
 Specify the trigger area of collapsible by `collapsible`.
 
 <style>
-#components-collapse-demo-collapsible .ant-space {
+#collapse-demo-collapsible .ant-space {
   width: 100%;
 }
 </style>
