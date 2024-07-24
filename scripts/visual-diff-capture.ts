@@ -159,9 +159,10 @@ function parseArgs(): {
   component?: string;
   logLevel?: LogLevelNames;
   shard: { current: number; total: number };
+  maxWorkers: number;
 } {
   // parse args from
-  // `-- --server-only=1 --component=button --loglevel=info --shard=1/2`
+  // `-- --server-only=1 --component=button --loglevel=info --shard=1/2 --max-workers=2`
   const argv = minimist(process.argv.slice(2));
 
   let shard = { current: 1, total: 1 };
@@ -175,6 +176,7 @@ function parseArgs(): {
     serverOnly: !!argv['server-only'],
     component: argv.component || '',
     shard,
+    maxWorkers: argv['max-workers'] || 1,
   };
 }
 
