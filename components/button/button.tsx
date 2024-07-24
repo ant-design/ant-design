@@ -19,7 +19,7 @@ import type {
   ButtonType,
   ButtonVariantType,
 } from './buttonHelpers';
-import { isTwoCNChar, isUnBorderedButtonType, spaceChildren } from './buttonHelpers';
+import { isTwoCNChar, isUnBorderedButtonVariant, spaceChildren } from './buttonHelpers';
 import IconWrapper from './IconWrapper';
 import LoadingIcon from './LoadingIcon';
 import useStyle from './style';
@@ -85,9 +85,9 @@ function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigTyp
   };
 }
 
-const ButtonTypeMap: Partial<
-  Record<ButtonType | '', [color: ButtonColorType, variant: ButtonVariantType]>
-> = {
+type ColorVairantPairType = [color: ButtonColorType, variant: ButtonVariantType];
+
+const ButtonTypeMap: Partial<Record<ButtonType, ColorVairantPairType>> = {
   default: ['default', 'outlined'],
   primary: ['primary', 'solid'],
   dashed: ['default', 'dashed'],
@@ -129,7 +129,19 @@ const InternalCompoundedButton = React.forwardRef<
   // Compatible with original `type` behavior
   const mergedType = type || 'default';
 
-  const [mergedColor, mergedVariant] = ButtonTypeMap[type || ''] || [color, variant];
+  const [mergedColor, mergedVariant] = useMemo<ColorVairantPairType>(() => {
+    if (color && variant) {
+      return [color, variant];
+    }
+
+    const colorVairantPair = ButtonTypeMap[mergedType] as ColorVairantPairType;
+
+    if (danger) {
+      return ['danger', colorVairantPair[1]];
+    }
+
+    return colorVairantPair;
+  }, [type, color, variant, danger]);
 
   const isDanger = mergedColor === 'danger';
 
@@ -157,7 +169,7 @@ const InternalCompoundedButton = React.forwardRef<
   const buttonRef = composeRef(ref, internalRef);
 
   const needInserted =
-    Children.count(children) === 1 && !icon && !isUnBorderedButtonType(mergedVariant);
+    Children.count(children) === 1 && !icon && !isUnBorderedButtonVariant(mergedVariant);
 
   useEffect(() => {
     let delayTimer: ReturnType<typeof setTimeout> | null = null;
@@ -215,7 +227,7 @@ const InternalCompoundedButton = React.forwardRef<
     );
 
     warning(
-      !(ghost && isUnBorderedButtonType(mergedVariant)),
+      !(ghost && isUnBorderedButtonVariant(mergedVariant)),
       'usage',
       "`link` or `text` button can't be a `ghost` button.",
     );
@@ -244,7 +256,7 @@ const InternalCompoundedButton = React.forwardRef<
       [`${prefixCls}-${mergedVariant}`]: mergedVariant,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
-      [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonType(mergedVariant),
+      [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonVariant(mergedVariant),
       [`${prefixCls}-loading`]: innerLoading,
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && mergedInsertSpace && !innerLoading,
       [`${prefixCls}-block`]: block,
@@ -313,7 +325,7 @@ const InternalCompoundedButton = React.forwardRef<
     </button>
   );
 
-  if (!isUnBorderedButtonType(mergedVariant)) {
+  if (!isUnBorderedButtonVariant(mergedVariant)) {
     buttonNode = (
       <Wave component="Button" disabled={innerLoading}>
         {buttonNode}
