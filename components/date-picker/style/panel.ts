@@ -341,6 +341,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         width: '100%',
         tableLayout: 'fixed',
         borderCollapse: 'collapse',
+        direction: 'ltr',
 
         'th, td': {
           position: 'relative',
