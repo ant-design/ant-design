@@ -5,19 +5,15 @@ import { ButtonColorTypes, ButtonVariantTypes } from '../buttonHelpers';
 
 const App: React.FC = () => (
   <Flex gap="small" wrap>
-    {ButtonColorTypes.map((color) => {
-      return (
-        <Flex key={color} gap={5}>
-          {ButtonVariantTypes.map((variant) => {
-            return (
-              <Button key={variant} color={color} variant={variant}>
-                {variant}
-              </Button>
-            );
-          })}
-        </Flex>
-      );
-    })}
+    {ButtonColorTypes.map((color) => (
+      <Flex key={color} gap={5}>
+        {ButtonVariantTypes.map((variant) => (
+          <Button key={variant} color={color} variant={variant}>
+            {variant}
+          </Button>
+        ))}
+      </Flex>
+    ))}
   </Flex>
 );
 
