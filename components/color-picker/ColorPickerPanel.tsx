@@ -31,6 +31,8 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
     onChangeComplete,
     activeIndex,
     onActive,
+    format,
+    onFormatChange,
   } = props;
   const colorPickerPanelPrefixCls = `${prefixCls}-inner`;
 
@@ -49,6 +51,8 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
       onChangeComplete,
       activeIndex,
       onActive,
+      format,
+      onFormatChange,
     }),
     [
       prefixCls,
@@ -63,6 +67,8 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
       onChangeComplete,
       activeIndex,
       onActive,
+      format,
+      onFormatChange,
     ],
   );
 

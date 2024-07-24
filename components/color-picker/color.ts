@@ -72,4 +72,16 @@ export class AggregationColor {
   getColors(): GradientColor {
     return this.colors || [{ color: this, percent: 0 }];
   }
+
+  toCssString(): string {
+    const { colors } = this;
+
+    // CSS line-gradient
+    if (colors) {
+      const colorsStr = colors.map((c) => `${c.color.toRgbString()} ${c.percent}%`).join(', ');
+      return `linear-gradient(90deg, ${colorsStr})`;
+    }
+
+    return this.metaColor.toRgbString();
+  }
 }

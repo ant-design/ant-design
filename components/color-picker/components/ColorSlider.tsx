@@ -44,7 +44,7 @@ export const GradientColorSlider = (props: GradientColorSliderProps) => {
     const firstColor = colors[0]?.color;
 
     const colorsStr = colors.map((c) => `${c.color} ${c.percent}%`).join(', ');
-    return `linear-gradient(to right, ${firstColor} 0%, ${colorsStr})`;
+    return `linear-gradient(90deg, ${firstColor} 0%, ${colorsStr})`;
   }, [colors]);
 
   const pointColor = React.useMemo(() => {

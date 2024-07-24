@@ -86,6 +86,11 @@ export default function GradientColorBar() {
   const onInternalChangeComplete = (nextValues: number[]) => {
     onChangeComplete(getColor(nextValues));
 
+    // Reset `activeIndex` if out of range
+    if (activeIndex >= nextValues.length) {
+      onActive(nextValues.length - 1);
+    }
+
     removedColorRef.current = null;
   };
 

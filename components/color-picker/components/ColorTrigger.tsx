@@ -27,17 +27,23 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
   const { color, prefixCls, open, disabled, format, className, showText, ...rest } = props;
   const colorTriggerPrefixCls = `${prefixCls}-trigger`;
 
-  const containerNode = useMemo<React.ReactNode>(
-    () =>
-      color.cleared ? (
-        <ColorClear prefixCls={prefixCls} />
-      ) : (
-        <ColorBlock prefixCls={prefixCls} color={color.toRgbString()} />
-      ),
-    [color, prefixCls],
-  );
+  // ============================== Text ==============================
+  const text = React.useMemo(() => {
+    if (!showText) {
+      return '';
+    }
 
-  const genColorString = () => {
+    if (typeof showText === 'function') {
+      return showText(color);
+    }
+
+    if (color.isGradient()) {
+      return color
+        .getColors()
+        .map((c) => `${c.color.toRgbString()} ${c.percent}%`)
+        .join(', ');
+    }
+
     const hexString = color.toHexString().toUpperCase();
     const alpha = getColorAlpha(color);
     switch (format) {
@@ -49,16 +55,18 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
       default:
         return alpha < 100 ? `${hexString.slice(0, 7)},${alpha}%` : hexString;
     }
-  };
+  }, [color, format, showText]);
 
-  const renderText = () => {
-    if (typeof showText === 'function') {
-      return showText(color);
-    }
-    if (showText) {
-      return genColorString();
-    }
-  };
+  // ============================= Render =============================
+  const containerNode = useMemo<React.ReactNode>(
+    () =>
+      color.cleared ? (
+        <ColorClear prefixCls={prefixCls} />
+      ) : (
+        <ColorBlock prefixCls={prefixCls} color={color.toCssString()} />
+      ),
+    [color, prefixCls],
+  );
 
   return (
     <div
@@ -70,7 +78,7 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
       {...pickAttrs(rest)}
     >
       {containerNode}
-      {showText && <div className={`${colorTriggerPrefixCls}-text`}>{renderText()}</div>}
+      {showText && <div className={`${colorTriggerPrefixCls}-text`}>{text}</div>}
     </div>
   );
 });
