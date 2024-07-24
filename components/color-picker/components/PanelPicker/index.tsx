@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 import React, { useContext } from 'react';
 import RcColorPicker from '@rc-component/color-picker';
+import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
 import Segmented from '../../../segmented';
 import { AggregationColor } from '../../color';
@@ -37,7 +38,9 @@ const PanelPicker: FC = () => {
 
   // We cache the point color in case user drag the gradient point across another one
   const [lockedColor, setLockedColor] = React.useState<AggregationColor>(value);
-  React.useEffect(() => {
+
+  // Use layout effect here since `useEffect` will cause a blink when mouseDown
+  useLayoutEffect(() => {
     if (!isSingle) {
       setLockedColor(value.getColors()[activeIndex]?.color);
     }
