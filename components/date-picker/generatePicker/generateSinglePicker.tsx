@@ -24,21 +24,27 @@ import { useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
 import { getPlaceholder, transPlacement2DropdownAlign, useIcons } from '../util';
+import {
+  MONTH,
+  MONTHPICKER,
+  QUARTER,
+  QUARTERPICKER,
+  TIME,
+  TIMEPICKER,
+  WEEK,
+  WEEKPICKER,
+  YEAR,
+  YEARPICKER,
+} from './constant';
 import type { GenericTimePickerProps, PickerProps, PickerPropsWithMultiple } from './interface';
 import useComponents from './useComponents';
-
-const [WEEK, WEEKPICKER] = ['week', 'WeekPicker'] as const;
-const [MONTH, MONTHPICKER] = ['month', 'MonthPicker'] as const;
-const [YEAR, YEARPICKER] = ['year', 'YearPicker'] as const;
-const [QUARTER, QUARTERPICKER] = ['quarter', 'QuarterPicker'] as const;
-const [TIME, TIMEPICKER] = ['time', 'TimePicker'] as const;
 
 const generatePicker = <DateType extends AnyObject>(generateConfig: GenerateConfig<DateType>) => {
   type DatePickerProps = PickerProps<DateType>;
   type TimePickerProps = GenericTimePickerProps<DateType>;
 
   const getPicker = <P extends DatePickerProps>(picker?: PickerMode, displayName?: string) => {
-    const consumerName = displayName === 'TimePicker' ? 'timePicker' : 'datePicker';
+    const consumerName = displayName === TIMEPICKER ? 'timePicker' : 'datePicker';
     const Picker = forwardRef<PickerRef, P>((props, ref) => {
       const {
         prefixCls: customizePrefixCls,

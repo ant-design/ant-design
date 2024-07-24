@@ -53,7 +53,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | format | Format of color | `rgb` \| `hex` \| `hsb` | `hex` | |
 | open | Whether to show popup | boolean | - | |
 | presets | Preset colors | `{ label: ReactNode, colors: Array<string \| Color>, defaultOpen?: boolean }[]` | - | `defaultOpen: 5.11.0` |
-| placement | Placement of popup | `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | `bottomLeft` | |
+| placement | Placement of popup | The design of the [placement](/components/tooltip/#api) parameter is the same as the `Tooltips` component. | `bottomLeft` | |
 | panelRender | Custom Render Panel | `(panel: React.ReactNode, extra: { components: { Picker: FC; Presets: FC } }) => React.ReactNode` | - | 5.7.0 |
 | showText | Show color text | boolean \| `(color: Color) => React.ReactNode` | - | 5.7.0 |
 | size | Setting the trigger size | `large` \| `middle` \| `small` | `middle` | 5.7.0 |

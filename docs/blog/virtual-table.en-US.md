@@ -2,6 +2,7 @@
 title: Virtual Table is here!
 date: 2023-08-29
 author: zombieJ
+juejin_url: https://juejin.cn/post/7322305961196126217
 ---
 
 ## Preface

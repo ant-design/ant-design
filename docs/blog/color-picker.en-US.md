@@ -2,6 +2,7 @@
 title: Color Models and Color Picker
 date: 2023-09-07
 author: Redjue
+juejin_url: https://juejin.cn/post/7322296529783226405
 ---
 
 Hello everyone, I'm [Redjue](https://github.com/Redjue), and I'm honored to have the opportunity to contribute the [ColorPicker](/components/color-picker) component to **Ant Design** this year. It's been a great learning experience and has given me a deeper understanding of the development process of **Ant Design**. In this article, I will share the specific implementation process.

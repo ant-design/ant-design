@@ -3228,7 +3228,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
     class="ant-list-pagination"
   >
     <ul
-      class="ant-pagination"
+      class="ant-pagination ant-pagination-end"
     >
       <li
         aria-disabled="true"
