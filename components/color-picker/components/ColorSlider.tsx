@@ -1,9 +1,10 @@
 import * as React from 'react';
 import type { BaseSliderProps } from '@rc-component/color-picker';
 import classNames from 'classnames';
+import { UnstableContext } from 'rc-slider';
 import { useEvent } from 'rc-util';
 
-import type { GetProp } from '../../_util/type';
+import type { GetContextProp, GetProp } from '../../_util/type';
 import Slider from '../../slider';
 import SliderInternalContext from '../../slider/style/Context';
 import type { SliderInternalContextProps } from '../../slider/style/Context';
@@ -12,13 +13,17 @@ import { getGradientPercentColor } from '../util';
 export interface GradientColorSliderProps
   extends Omit<BaseSliderProps, 'value' | 'onChange' | 'onChangeComplete' | 'type'> {
   value: number[];
-  onChange: (value: number[]) => void;
+  onChange?: (value: number[]) => void;
   onChangeComplete: (value: number[]) => void;
   range?: boolean;
   className?: string;
   activeIndex?: number;
   onActive?: (index: number) => void;
   type: BaseSliderProps['type'] | 'gradient';
+
+  // Drag events
+  onDragStart?: GetContextProp<typeof UnstableContext, 'onDragStart'>;
+  onDragChange?: GetContextProp<typeof UnstableContext, 'onDragChange'>;
 }
 
 export const GradientColorSlider = (props: GradientColorSliderProps) => {
@@ -31,6 +36,10 @@ export const GradientColorSlider = (props: GradientColorSliderProps) => {
     className,
     activeIndex,
     onActive,
+
+    onDragStart,
+    onDragChange,
+
     ...restProps
   } = props;
 
@@ -57,7 +66,24 @@ export const GradientColorSlider = (props: GradientColorSliderProps) => {
     return `hsl(${color.toHsb().h}, 100%, 50%)`;
   }, [color, type]);
 
-  // =========================== Context ============================
+  // ======================= Context: Slider ========================
+  const onInternalDragStart: GetContextProp<typeof UnstableContext, 'onDragStart'> = useEvent(
+    onDragStart!,
+  );
+
+  const onInternalDragChange: GetContextProp<typeof UnstableContext, 'onDragChange'> = useEvent(
+    onDragChange!,
+  );
+
+  const unstableContext = React.useMemo(
+    () => ({
+      onDragStart: onInternalDragStart,
+      onDragChange: onInternalDragChange,
+    }),
+    [],
+  );
+
+  // ======================= Context: Render ========================
   const handleRender: GetProp<SliderInternalContextProps, 'handleRender'> = useEvent(
     (ori, info) => {
       const { onFocus, style, className: handleCls } = ori.props;
@@ -91,29 +117,31 @@ export const GradientColorSlider = (props: GradientColorSliderProps) => {
   // ============================ Render ============================
   return (
     <SliderInternalContext.Provider value={sliderContext}>
-      <Slider
-        {...sliderProps}
-        className={classNames(className, `${prefixCls}-slider`)}
-        tooltip={{ open: false }}
-        range={{
-          editable: range,
-          minCount: 2,
-        }}
-        styles={{
-          rail: {
-            background: linearCss,
-          },
-          handle: pointColor
-            ? {
-                background: pointColor,
-              }
-            : {},
-        }}
-        classNames={{
-          rail: `${prefixCls}-slider-rail`,
-          handle: `${prefixCls}-slider-handle`,
-        }}
-      />
+      <UnstableContext.Provider value={unstableContext}>
+        <Slider
+          {...sliderProps}
+          className={classNames(className, `${prefixCls}-slider`)}
+          tooltip={{ open: false }}
+          range={{
+            editable: range,
+            minCount: 2,
+          }}
+          styles={{
+            rail: {
+              background: linearCss,
+            },
+            handle: pointColor
+              ? {
+                  background: pointColor,
+                }
+              : {},
+          }}
+          classNames={{
+            rail: `${prefixCls}-slider-rail`,
+            handle: `${prefixCls}-slider-handle`,
+          }}
+        />
+      </UnstableContext.Provider>
     </SliderInternalContext.Provider>
   );
 };

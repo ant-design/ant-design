@@ -38,7 +38,15 @@ export type TriggerType = 'click' | 'hover';
 
 export type TriggerPlacement = TooltipPlacement; // Alias, to prevent breaking changes.
 
-export type ColorValueType = AggregationColor | string | null;
+export type SingleValueType = AggregationColor | string;
+
+export type ColorValueType =
+  | SingleValueType
+  | null
+  | {
+      color: SingleValueType;
+      percent: number;
+    }[];
 
 export type ModeType = 'single' | 'gradient';
 

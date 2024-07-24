@@ -1,18 +1,10 @@
 import * as React from 'react';
+import type { UnstableContext } from 'rc-slider';
 
+import type { GetContextProp } from '../../../_util/type';
 import { AggregationColor } from '../../color';
 import { PanelPickerContext } from '../../context';
-import { getGradientPercentColor } from '../../util';
 import { GradientColorSlider } from '../ColorSlider';
-
-function getDiffIndex<T>(ori: T[], next: T[]) {
-  for (let i = 0; i < ori.length; i += 1) {
-    if (ori[i] !== next[i]) {
-      return i;
-    }
-  }
-  return ori.length;
-}
 
 /**
  * GradientColorBar will auto show when the mode is `gradient`.
@@ -35,63 +27,44 @@ export default function GradientColorBar() {
 
   const values = React.useMemo(() => colors.map((info) => info.percent), [colors]);
 
-  // ============================= Change =============================
-  const removedColorRef = React.useRef<string | null>(null);
+  // ============================== Drag ==============================
+  const colorsRef = React.useRef(colors);
 
-  const getColor = (nextValues: number[]) => {
-    let nextColors = [...colors];
+  // Record current colors
+  const onDragStart: GetContextProp<typeof UnstableContext, 'onDragStart'> = () => {
+    colorsRef.current = colors;
+  };
 
-    if (nextValues.length < values.length) {
-      // Remove node
-      const diffIndex = getDiffIndex(values, nextValues);
+  // Adjust color when dragging
+  const onDragChange: GetContextProp<typeof UnstableContext, 'onDragChange'> = ({
+    deleteIndex,
+    draggingIndex,
+    draggingValue,
+  }) => {
+    const nextColors = [...colorsRef.current];
 
-      nextColors.splice(diffIndex, 1);
-
-      removedColorRef.current = colors[diffIndex].color;
-    } else if (nextValues.length > values.length) {
-      // Add node
-      const diffIndex = getDiffIndex(values, nextValues);
-      const newPercent = nextValues[diffIndex];
-
-      if (removedColorRef.current) {
-        nextColors.splice(diffIndex, 0, {
-          percent: newPercent,
-          color: removedColorRef.current,
-        });
-      } else {
-        const newPointColor = getGradientPercentColor(colors, newPercent);
-
-        nextColors.splice(diffIndex, 0, {
-          percent: newPercent,
-          color: newPointColor,
-        });
-      }
+    if (deleteIndex !== -1) {
+      nextColors.splice(deleteIndex, 1);
     } else {
-      nextColors = nextValues.map((percent, index) => {
-        const { color } = colors[index];
-        return {
-          percent,
-          color,
-        };
-      });
+      nextColors[draggingIndex] = {
+        ...nextColors[draggingIndex],
+        percent: draggingValue,
+      };
+
+      nextColors.sort((a, b) => a.percent - b.percent);
     }
 
-    return new AggregationColor(nextColors);
+    onChange(new AggregationColor(nextColors));
   };
 
-  const onInternalChange = (nextValues: number[]) => {
-    onChange(getColor(nextValues));
-  };
-
+  // ============================= Change =============================
   const onInternalChangeComplete = (nextValues: number[]) => {
-    onChangeComplete(getColor(nextValues));
+    onChangeComplete(new AggregationColor(colors));
 
     // Reset `activeIndex` if out of range
     if (activeIndex >= nextValues.length) {
       onActive(nextValues.length - 1);
     }
-
-    removedColorRef.current = null;
   };
 
   // ============================= Render =============================
@@ -109,13 +82,15 @@ export default function GradientColorBar() {
       color={null!}
       value={values}
       range
-      onChange={onInternalChange}
       onChangeComplete={onInternalChangeComplete}
       disabled={false}
       type="gradient"
       // Active
       activeIndex={activeIndex}
       onActive={onActive}
+      // Drag
+      onDragStart={onDragStart}
+      onDragChange={onDragChange}
     />
   );
 }
