@@ -41,10 +41,8 @@ export const GradientColorSlider = (props: GradientColorSliderProps) => {
 
   // ========================== Background ==========================
   const linearCss = React.useMemo(() => {
-    const firstColor = colors[0]?.color;
-
     const colorsStr = colors.map((c) => `${c.color} ${c.percent}%`).join(', ');
-    return `linear-gradient(90deg, ${firstColor} 0%, ${colorsStr})`;
+    return `linear-gradient(90deg, ${colorsStr})`;
   }, [colors]);
 
   const pointColor = React.useMemo(() => {
@@ -99,7 +97,7 @@ export const GradientColorSlider = (props: GradientColorSliderProps) => {
         tooltip={{ open: false }}
         range={{
           editable: range,
-          minCount: 1,
+          minCount: 2,
         }}
         styles={{
           rail: {
