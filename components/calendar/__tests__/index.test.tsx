@@ -371,7 +371,7 @@ describe('Calendar', () => {
       return (
         <Select
           size="small"
-          dropdownMatchSelectWidth={false}
+          popupMatchSelectWidth={false}
           className="my-year-select"
           onChange={onYearChange}
           value={String(year)}
@@ -415,7 +415,7 @@ describe('Calendar', () => {
       return (
         <Select
           size="small"
-          dropdownMatchSelectWidth={false}
+          popupMatchSelectWidth={false}
           className="my-month-select"
           onChange={onMonthChange}
           value={String(month)}
