@@ -9,7 +9,7 @@ import type {
   SeedToken,
 } from '../interface';
 
-import localUseToken from '../useToken';
+import localUseToken, { unitless } from '../useToken';
 import useResetIconStyle from './useResetIconStyle';
 
 export const {
@@ -59,4 +59,5 @@ export const {
     ]
   ,
   getCommonStyle: genCommonStyle,
+  getCompUnitless: () => unitless as any,
 })
