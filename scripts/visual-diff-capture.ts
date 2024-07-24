@@ -9,7 +9,7 @@ import fse from 'fs-extra';
 import { createServer } from 'http-server';
 import { chromium } from 'playwright-chromium';
 import type { Browser, BrowserContext, Page } from 'playwright-chromium';
-import loglevel from 'loglevel';
+import loglevel, { log } from 'loglevel';
 import type { LogLevelNames } from 'loglevel';
 
 interface VisualDiffConfig {
@@ -158,21 +158,30 @@ function parseArgs(): {
   serverOnly?: boolean;
   component?: string;
   logLevel?: LogLevelNames;
+  shard: { current: number; total: number };
 } {
-  // parse args from -- --server-only=1 --component=button
+  // parse args from
+  // `-- --server-only=1 --component=button --loglevel=info --shard=1/2`
   const argv = minimist(process.argv.slice(2));
+
+  let shard = { current: 1, total: 1 };
+  if (argv.shard) {
+    const [current, total] = argv.shard.split('/').map(Number);
+    shard = { current, total };
+  }
 
   return {
     logLevel: argv.loglevel as LogLevelNames,
     serverOnly: !!argv['server-only'],
     component: argv.component || '',
+    shard,
   };
 }
 
-// npm run visual-diff:capture -- --component=space --loglevel=info --server-only
+// npm run visual-diff:capture -- --component=space --loglevel=info --server-only --shard=1/2 --max-workers=2
 (async () => {
   const args = parseArgs();
-  const { serverOnly, component, logLevel = 'error' } = args;
+  const { serverOnly, component, logLevel = 'error', shard } = args;
   loglevel.setLevel(logLevel);
 
   loglevel.info(`Args: ${JSON.stringify(args)}`);
@@ -186,7 +195,17 @@ function parseArgs(): {
 
   const handler = new BrowserAuto();
   await handler.init();
-  const mdPaths = await getAllComponentMds(component);
+  let mdPaths = await getAllComponentMds(component);
+
+  const { current, total } = shard;
+  if (total > 1) {
+    const mdsPerShard = Math.ceil(mdPaths.length / total);
+    const start = (current - 1) * mdsPerShard;
+    const end = start + mdsPerShard;
+    const originLens = mdPaths.length;
+    mdPaths = mdPaths.slice(start, end);
+    loglevel.info(`Shard ${current}/${total}: ${mdPaths.length}/${originLens} mds`);
+  }
 
   const task = async (mdPath: string) => {
     try {
