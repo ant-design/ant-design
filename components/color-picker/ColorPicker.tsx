@@ -93,6 +93,12 @@ const ColorPicker: CompoundedComponent = (props) => {
   const isAlphaColor = useMemo(() => getColorAlpha(mergedColor) < 100, [mergedColor]);
 
   // ==================== Change =====================
+  // To enhance user experience, we cache the gradient color when switch from gradient to single
+  // If user not modify single color, we will use the cached gradient color.
+  const [cachedGradientColor, setCachedGradientColor] = React.useState<AggregationColor | null>(
+    null,
+  );
+
   const onInternalChangeComplete: ColorPickerProps['onChangeComplete'] = (color) => {
     if (onChangeComplete) {
       let changeColor = generateColor(color);
@@ -114,6 +120,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     }
 
     setColor(color);
+    setCachedGradientColor(null);
 
     // Trigger change event
     if (onChange) {
@@ -135,20 +142,25 @@ const ColorPicker: CompoundedComponent = (props) => {
     if (newMode === 'single' && mergedColor.isGradient()) {
       setActiveIndex(0);
       onInternalChange(new AggregationColor(mergedColor.getColors()[0].color));
+
+      // Should after `onInternalChange` since it will clear the cached color
+      setCachedGradientColor(mergedColor);
     } else if (newMode === 'gradient' && !mergedColor.isGradient()) {
       const baseColor = isAlphaColor ? genAlphaColor(mergedColor) : mergedColor;
 
       onInternalChange(
-        new AggregationColor([
-          {
-            percent: 0,
-            color: baseColor,
-          },
-          {
-            percent: 100,
-            color: baseColor,
-          },
-        ]),
+        new AggregationColor(
+          cachedGradientColor || [
+            {
+              percent: 0,
+              color: baseColor,
+            },
+            {
+              percent: 100,
+              color: baseColor,
+            },
+          ],
+        ),
       );
     }
   };

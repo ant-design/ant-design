@@ -22,17 +22,25 @@ export class AggregationColor {
   public cleared: boolean | 'controlled' = false;
 
   constructor(color: ColorGenInput<AggregationColor> | Colors<AggregationColor>) {
-    const getRcConstructorColor = (c: ColorGenInput<AggregationColor>) =>
-      c instanceof AggregationColor ? c.metaColor : c;
+    // Clone from another AggregationColor
+    if (color instanceof AggregationColor) {
+      this.metaColor = color.metaColor.clone();
+      this.colors = color.colors?.map((info) => ({
+        color: new AggregationColor(info.color),
+        percent: info.percent,
+      }));
+      this.cleared = color.cleared;
+      return;
+    }
 
     if (Array.isArray(color)) {
       this.colors = color.map(({ color: c, percent }) => ({
         color: new AggregationColor(c),
         percent,
       }));
-      this.metaColor = new RcColor(getRcConstructorColor(color[0].color));
+      this.metaColor = new RcColor(this.colors[0].color.metaColor);
     } else {
-      this.metaColor = new RcColor(getRcConstructorColor(color));
+      this.metaColor = new RcColor(color);
     }
 
     if (!color) {

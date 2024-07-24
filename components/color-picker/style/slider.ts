@@ -29,7 +29,6 @@ const genSliderStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
       getTransBg(`${unit(colorPickerSliderHeight)}`, token.colorFillSecondary),
 
       {
-        userSelect: 'none',
         margin: 0,
         padding: 0,
         height: colorPickerSliderHeight,
