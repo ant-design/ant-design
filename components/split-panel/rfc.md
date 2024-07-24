@@ -18,9 +18,7 @@
 | Props        | Descriptions | Type                       | Default      |
 | ------------ | ------------ | -------------------------- | ------------ |
 | layout       | 布局方向     | `horizontal` \| `vertical` | `horizontal` |
-| height       | 高度         | `number`                   | -            |
 | items        | 面板配置     | `SplitPanelItem`           | -            |
-| splitBarSize | 操作元素大小 | `number`                   | `4`          |
 
 #### SplitPanelItem
 

@@ -10,10 +10,6 @@ const genSplitPanelStyle: GenerateStyle<any> = (token: any): CSSObject => {
     [`${componentCls}`]: {
       ...resetComponent(token),
       display: 'flex',
-      userSelect: 'auto',
-      borderRadius: '4px',
-      boxSizing: 'border-box',
-      border: '1px solid #e5e7eb',
 
       '&-bar': {
         flexGrow: 0,

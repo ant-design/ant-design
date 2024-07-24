@@ -25,10 +25,8 @@ export interface SplitPanelProps {
   style?: React.CSSProperties;
   children?: React.ReactNode;
 
-  height?: number;
   items: SplitPanelItem[];
   layout?: 'horizontal' | 'vertical';
-  splitBarSize?: number;
 }
 
 const SplitPanel: React.FC<SplitPanelProps> = (props) => {
@@ -36,18 +34,19 @@ const SplitPanel: React.FC<SplitPanelProps> = (props) => {
     prefixCls: customizePrefixCls,
     className,
     layout = 'horizontal',
-    height,
-    splitBarSize = 4,
     items = [],
+    style,
   } = props;
 
   const containerRef = useRef<HTMLDivElement>(null);
+  
 
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('split-panel', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
+  const splitBarSize = 4;
   const panelCount = items.length;
   const gutter = ((items.length - 1) * splitBarSize) / items.length;
 
@@ -127,7 +126,7 @@ const SplitPanel: React.FC<SplitPanelProps> = (props) => {
 
   return wrapCSSVar(
     <SplitPanelContext.Provider value={{ layout, resizeStart }}>
-      <div ref={containerRef} style={{ height }} className={containerClassName}>
+      <div ref={containerRef} style={style} className={containerClassName}>
         {childrenNode}
       </div>
     </SplitPanelContext.Provider>,

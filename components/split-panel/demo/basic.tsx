@@ -18,8 +18,12 @@ const App: React.FC = () => {
       </Radio.Group>
 
       <SplitPanel
-        height={300}
         layout={layout}
+        style={{
+          height: 300,
+          borderRadius: '4px',
+          border: '1px solid #e5e7eb',
+        }}
         items={[
           {
             // size: layout === 'horizontal' ? 20 : 10,
