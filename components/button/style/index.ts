@@ -460,6 +460,23 @@ const genDangerousStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
       color: token.colorErrorActive,
     },
   ),
+
+  ...genGhostButtonStyle(
+    token.componentCls,
+    token.ghostBg,
+    token.colorError,
+    token.colorError,
+    token.colorTextDisabled,
+    token.colorBorder,
+    {
+      color: token.colorErrorHover,
+      borderColor: token.colorErrorHover,
+    },
+    {
+      color: token.colorErrorActive,
+      borderColor: token.colorErrorActive,
+    },
+  ),
 });
 
 const genColorButtonStyle: GenerateStyle<ButtonToken> = (token) => {
