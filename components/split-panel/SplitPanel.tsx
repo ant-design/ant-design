@@ -10,19 +10,25 @@ import SplitBar from './SplitBar';
 import useStyle from './style';
 import useResize from './useResize';
 
+export interface SplitPanelItem {
+  collapsible?: boolean;
+  min?: number;
+  max?: number;
+  size?: number;
+  content: ReactNode;
+  resizable?: boolean;
+}
+
 export interface SplitPanelProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
 
-  layout?: 'horizontal' | 'vertical';
   height?: number;
+  items: SplitPanelItem[];
+  layout?: 'horizontal' | 'vertical';
   splitBarSize?: number;
-  items?: {
-    size?: number;
-    content: ReactNode;
-  }[];
 }
 
 const SplitPanel: React.FC<SplitPanelProps> = (props) => {
@@ -43,7 +49,6 @@ const SplitPanel: React.FC<SplitPanelProps> = (props) => {
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const panelCount = items.length;
-  const splitBarSizeCount = splitBarSize * (panelCount - 1);
   const gutter = ((items.length - 1) * splitBarSize) / items.length;
 
   // 获取初始默认值
@@ -77,6 +82,7 @@ const SplitPanel: React.FC<SplitPanelProps> = (props) => {
     return items.reduce((node: ReactNode[], item, idx) => {
       node.push(
         <Panel
+          {...item}
           key={`panel${`-${idx}`}`}
           size={daFaultOffsets[idx]}
           prefixCls={prefixCls}
@@ -93,6 +99,8 @@ const SplitPanel: React.FC<SplitPanelProps> = (props) => {
             prefixCls={prefixCls}
             size={splitBarSize}
             index={idx}
+            resizable={item.resizable}
+            collapsible={item.collapsible}
           />,
         );
       }
@@ -102,13 +110,7 @@ const SplitPanel: React.FC<SplitPanelProps> = (props) => {
     // item.size 改变时，重新赋值 flexBasis
   }, [JSON.stringify(items.map((item) => item.size))]);
 
-  const { resizing, resizeStart } = useResize(
-    containerRef,
-    layout,
-    gutter,
-    splitBarSizeCount,
-    offsets,
-  );
+  const { resizing, resizeStart } = useResize(containerRef, layout, gutter, offsets, items);
 
   const containerClassName = classNames(
     prefixCls,

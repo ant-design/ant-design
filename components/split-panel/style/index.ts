@@ -22,11 +22,17 @@ const genSplitPanelStyle: GenerateStyle<any> = (token: any): CSSObject => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        position: 'relative',
 
-        '&-icon': {
+        '&-resize': {
           background: 'gray',
           borderRadius: '4px',
           pointerEvents: 'none',
+        },
+
+        '&-collapse': {
+          position: 'absolute',
+          background: 'red',
         },
       },
 
@@ -36,10 +42,19 @@ const genSplitPanelStyle: GenerateStyle<any> = (token: any): CSSObject => {
         [`${componentCls}-bar`]: {
           cursor: 'col-resize',
 
-          '&-icon': {
+          '&-resize': {
             width: '100%',
             height: 20,
           },
+
+          '&-collapse': {
+            width: 16,
+            height: 10,
+          },
+        },
+
+        [`${componentCls}-bar-disabled`]: {
+          cursor: 'default',
         },
       },
 
@@ -49,10 +64,19 @@ const genSplitPanelStyle: GenerateStyle<any> = (token: any): CSSObject => {
         [`${componentCls}-bar`]: {
           cursor: 'row-resize',
 
-          '&-icon': {
+          '&-resize': {
             width: 20,
             height: '100%',
           },
+
+          '&-collapse': {
+            width: 10,
+            height: 16,
+          },
+        },
+
+        [`${componentCls}-bar-disabled`]: {
+          cursor: 'default',
         },
       },
 

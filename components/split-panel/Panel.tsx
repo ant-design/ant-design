@@ -1,7 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import classNames from 'classnames';
 
-export interface PanelProps {
+import type { SplitPanelItem } from './SplitPanel';
+
+export interface PanelProps extends SplitPanelItem {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
