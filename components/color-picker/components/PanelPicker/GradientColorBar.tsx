@@ -10,8 +10,16 @@ import { GradientColorSlider } from '../ColorSlider';
  * GradientColorBar will auto show when the mode is `gradient`.
  */
 export default function GradientColorBar() {
-  const { prefixCls, mode, value, onChange, onChangeComplete, onActive, activeIndex } =
-    React.useContext(PanelPickerContext);
+  const {
+    prefixCls,
+    mode,
+    value,
+    onChange,
+    onChangeComplete,
+    onActive,
+    activeIndex,
+    onGradientDragging,
+  } = React.useContext(PanelPickerContext);
 
   const isGradient = mode === 'gradient';
 
@@ -33,6 +41,7 @@ export default function GradientColorBar() {
   // Record current colors
   const onDragStart: GetContextProp<typeof UnstableContext, 'onDragStart'> = () => {
     colorsRef.current = colors;
+    onGradientDragging(true);
   };
 
   // Adjust color when dragging
@@ -65,6 +74,8 @@ export default function GradientColorBar() {
     if (activeIndex >= nextValues.length) {
       onActive(nextValues.length - 1);
     }
+
+    onGradientDragging(false);
   };
 
   // ============================= Render =============================

@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import React, { useContext } from 'react';
+import React, { act, useContext } from 'react';
 import RcColorPicker from '@rc-component/color-picker';
 
 import Segmented from '../../../segmented';
@@ -28,19 +28,33 @@ const PanelPicker: FC = () => {
     onClear,
     onChangeComplete,
     activeIndex,
+    gradientDragging,
     ...injectProps
   } = useContext(PanelPickerContext);
 
   // ========================= Single Color =========================
   const isSingle = !value.isGradient();
 
+  // We cache the point color in case user drag the gradient point across another one
+  const [lockedColor, setLockedColor] = React.useState<AggregationColor | null>(null);
+  React.useEffect(() => {
+    if (!isSingle) {
+      setLockedColor(value.getColors()[activeIndex]?.color);
+    }
+  }, [gradientDragging, activeIndex]);
+
   const activeColor = React.useMemo(() => {
     if (isSingle) {
       return value;
     }
 
+    // Use cache when dragging. User can not operation panel when dragging.
+    if (gradientDragging) {
+      return lockedColor;
+    }
+
     return value.getColors()[activeIndex]?.color;
-  }, [value, activeIndex, isSingle]);
+  }, [value, activeIndex, isSingle, lockedColor, gradientDragging]);
 
   // ============================ Change ============================
   const fillColor = (nextColor: AggregationColor) => {

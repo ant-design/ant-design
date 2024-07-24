@@ -86,10 +86,6 @@ const ColorPicker: CompoundedComponent = (props) => {
     mode,
   );
 
-  const [activeIndex, setActiveIndex] = React.useState(0);
-
-  // const [colorValue, setColorValue, prevValue] = useColorState(defaultValue, value);
-
   const isAlphaColor = useMemo(() => getColorAlpha(mergedColor) < 100, [mergedColor]);
 
   // ==================== Change =====================
@@ -134,6 +130,10 @@ const ColorPicker: CompoundedComponent = (props) => {
       onInternalChangeComplete(color);
     }
   };
+
+  // =================== Gradient ====================
+  const [activeIndex, setActiveIndex] = React.useState(0);
+  const [gradientDragging, setGradientDragging] = React.useState(false);
 
   // Mode change should also trigger color change
   const onInternalModeChange = (newMode: ModeType) => {
@@ -240,6 +240,8 @@ const ColorPicker: CompoundedComponent = (props) => {
             onClear={onClear}
             activeIndex={activeIndex}
             onActive={setActiveIndex}
+            gradientDragging={gradientDragging}
+            onGradientDragging={setGradientDragging}
           />
         </ContextIsolator>
       }

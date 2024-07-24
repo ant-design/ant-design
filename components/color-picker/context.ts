@@ -21,10 +21,14 @@ export interface PanelPickerContextProps {
   format?: ColorFormatType;
   onFormatChange?: ColorPickerProps['onFormatChange'];
 
-  /** The Slider active handle */
+  /** The gradient Slider active handle */
   activeIndex: number;
-  /** The Slider handle active changed */
+  /** The gradient Slider handle active changed */
   onActive: (index: number) => void;
+  /** Is gradient Slider dragging */
+  gradientDragging: boolean;
+  /** The gradient Slider dragging changed */
+  onGradientDragging: (dragging: boolean) => void;
 
   onClear?: () => void;
 }
