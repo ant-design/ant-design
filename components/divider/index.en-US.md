@@ -25,6 +25,7 @@ group:
 <code src="./demo/vertical.tsx">Vertical</code>
 <code src="./demo/customize-style.tsx" debug>Style Customization</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
+<code src="./demo/variant.tsx">Variant</code>
 <code src="./demo/custom-gutter.tsx">Custom gutter margin</code>
 
 ## API
@@ -36,6 +37,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | children | The wrapped title | ReactNode | - |  |
 | className | The className of container | string | - |  |
 | dashed | Whether line is dashed | boolean | false |  |
+| variant | Whether line is dashed, dotted or solid | `dashed` \| `dotted` \| `solid` | solid |  |
 | orientation | The position of title inside divider | `left` \| `right` \| `center` | `center` |  |
 | orientationMargin | The margin-left/right between the title and its closest border, while the `orientation` must be `left` or `right`, If a numeric value of type `string` is provided without a unit, it is assumed to be in pixels (px) by default. | string \| number | - |  |
 | gutterMargin | The margin-inline if the `type` is `vertical` and the margin-top/bottom if the `type` is `horizontal`. If a numeric value of type `string` is provided without a unit, it is assumed to be in pixels (px) by default. | string \| number | - |
