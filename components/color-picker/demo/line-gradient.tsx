@@ -20,7 +20,6 @@ const Demo = () => (
     allowClear
     showText
     mode={['single', 'gradient']}
-    open
   />
 );
 
