@@ -28,7 +28,6 @@ import CompactCmp from './style/compactCmp';
 export type LegacyButtonType = ButtonType | 'danger';
 
 export interface BaseButtonProps {
-  /** @deprecated `type` will be removed in next major version. */
   type?: ButtonType;
   variant?: ButtonVariantType;
   color?: ButtonColorType;
@@ -42,7 +41,6 @@ export interface BaseButtonProps {
   className?: string;
   rootClassName?: string;
   ghost?: boolean;
-  /** @deprecated `danger` will be removed in next major version. */
   danger?: boolean;
   block?: boolean;
   children?: React.ReactNode;
