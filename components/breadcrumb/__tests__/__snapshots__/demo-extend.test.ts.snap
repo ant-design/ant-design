@@ -895,3 +895,35 @@ exports[`renders components/breadcrumb/demo/withIcon.tsx extend context correctl
 `;
 
 exports[`renders components/breadcrumb/demo/withIcon.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/breadcrumb/demo/withParams.tsx extend context correctly 1`] = `
+<nav
+  class="ant-breadcrumb"
+>
+  <ol>
+    <li>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        Users
+      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </li>
+    <li>
+      <a
+        class="ant-breadcrumb-link"
+        href=""
+      >
+        1
+      </a>
+    </li>
+  </ol>
+</nav>
+`;
+
+exports[`renders components/breadcrumb/demo/withParams.tsx extend context correctly 2`] = `[]`;

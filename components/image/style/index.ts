@@ -101,13 +101,13 @@ export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
       bottom: marginXL,
       left: {
         _skip_check_: true,
-        value: 0,
+        value: '50%',
       },
-      width: '100%',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       color: token.previewOperationColor,
+      transform: 'translateX(-50%)',
     },
     [`${previewCls}-progress`]: {
       marginBottom: margin,

@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.19.2",
+  "version": "5.19.3",
   "description": "An enterprise-class UI design language and React components implementation",
   "keywords": [
     "ant",
@@ -26,20 +26,12 @@
     "url": "https://opencollective.com/ant-design"
   },
   "license": "MIT",
-  "sideEffects": [
-    "*.css"
-  ],
+  "sideEffects": false,
   "main": "lib/index.js",
   "unpkg": "dist/antd.min.js",
   "module": "es/index.js",
   "typings": "es/index.d.ts",
-  "files": [
-    "dist",
-    "es",
-    "lib",
-    "locale",
-    "BUG_VERSIONS.json"
-  ],
+  "files": ["dist", "es", "lib", "locale", "BUG_VERSIONS.json"],
   "scripts": {
     "api-collection": "antd-tools run api-collection",
     "authors": "tsx scripts/generate-authors.ts",
@@ -105,16 +97,11 @@
     "tsc:old": "tsc --noEmit -p tsconfig-old-react.json",
     "version": "tsx scripts/generate-version.ts"
   },
-  "browserslist": [
-    "> 0.5%",
-    "last 2 versions",
-    "Firefox ESR",
-    "not dead"
-  ],
+  "browserslist": ["> 0.5%", "last 2 versions", "Firefox ESR", "not dead"],
   "dependencies": {
     "@ant-design/colors": "^7.1.0",
     "@ant-design/cssinjs": "^1.21.0",
-    "@ant-design/icons": "^5.3.7",
+    "@ant-design/icons": "^5.4.0",
     "@ant-design/react-slick": "~1.1.2",
     "@babel/runtime": "^7.24.8",
     "@ctrl/tinycolor": "^3.6.1",
@@ -134,9 +121,9 @@
     "rc-dropdown": "~4.2.0",
     "rc-field-form": "~2.2.1",
     "rc-image": "~7.9.0",
-    "rc-input": "~1.5.1",
-    "rc-input-number": "~9.1.0",
-    "rc-mentions": "~2.14.0",
+    "rc-input": "~1.6.2",
+    "rc-input-number": "~9.2.0",
+    "rc-mentions": "~2.15.0",
     "rc-menu": "~9.14.1",
     "rc-motion": "^2.9.2",
     "rc-notification": "~5.6.0",
@@ -146,13 +133,13 @@
     "rc-rate": "~2.13.0",
     "rc-resize-observer": "^1.4.0",
     "rc-segmented": "~2.3.0",
-    "rc-select": "~14.15.0",
-    "rc-slider": "~10.6.2",
+    "rc-select": "~14.15.1",
+    "rc-slider": "~11.1.0",
     "rc-steps": "~6.0.1",
     "rc-switch": "~4.1.0",
     "rc-table": "~7.45.7",
     "rc-tabs": "~15.1.1",
-    "rc-textarea": "~1.7.0",
+    "rc-textarea": "~1.8.1",
     "rc-tooltip": "~6.2.0",
     "rc-tree": "~5.8.8",
     "rc-tree-select": "~5.22.1",

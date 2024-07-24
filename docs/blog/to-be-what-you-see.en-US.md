@@ -2,6 +2,9 @@
 title: To be what you see
 date: 2023-05-10
 author: zombieJ
+zhihu_url: https://zhuanlan.zhihu.com/p/639266810
+yuque_url: https://www.yuque.com/ant-design/ant-design/vhife82m442inpws
+juejin_url: https://juejin.cn/post/7322296529783078949
 ---
 
 With daily development, have you thought about a problem. When the range limit is different from the actual value, how should we deal with it? Suppose we have a display component that simply displays your value:

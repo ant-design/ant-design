@@ -24,6 +24,7 @@ import { useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
 import { getRangePlaceholder, transPlacement2DropdownAlign, useIcons } from '../util';
+import { TIME } from './constant';
 import type { RangePickerProps } from './interface';
 import useComponents from './useComponents';
 
@@ -49,6 +50,7 @@ export default function generateRangePicker<DateType extends AnyObject>(
       status: customStatus,
       rootClassName,
       variant: customVariant,
+      picker,
       ...restProps
     } = props;
 
@@ -56,7 +58,6 @@ export default function generateRangePicker<DateType extends AnyObject>(
     const { getPrefixCls, direction, getPopupContainer, rangePicker } = useContext(ConfigContext);
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
     const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
-    const { picker } = props;
     const rootPrefixCls = getPrefixCls();
 
     const [variant, enableVariantCls] = useVariant('rangePicker', customVariant, bordered);
@@ -92,7 +93,7 @@ export default function generateRangePicker<DateType extends AnyObject>(
 
     const suffixNode = (
       <>
-        {picker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
+        {picker === TIME ? <ClockCircleOutlined /> : <CalendarOutlined />}
         {hasFeedback && feedbackIcon}
       </>
     );
@@ -125,6 +126,7 @@ export default function generateRangePicker<DateType extends AnyObject>(
           superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
           superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
           transitionName={`${rootPrefixCls}-slide-up`}
+          picker={picker}
           {...restProps}
           className={classNames(
             {
