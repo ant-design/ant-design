@@ -21,15 +21,8 @@ interface VisualDiffConfig {
 const themes = ['default', 'dark', 'compact'];
 
 async function retrieveDemoUrl(mdPath: string) {
-  const mdDir = path.dirname(mdPath);
-  // 适配 dumi 的规则
-  if (fs.existsSync(path.join(mdDir, 'index.tsx'))) {
-    // ~demos/button-demo-basic
-    mdPath.replace(/^components\//, '');
-  }
-
-  // ~demos/components-button-demo-basic
-  return mdPath.replace('.md', '').replace(/\//g, '-');
+  // ~demos/button-demo-basic
+  return mdPath.replace(/^components\//, '').replace('.md', '').replace(/\//g, '-');
 }
 
 async function retrieveConfig(mdPath: string): Promise<VisualDiffConfig> {
@@ -58,8 +51,8 @@ async function getAllComponentMds(componentName?: string) {
   return mds;
 }
 
+const port = 3001;
 async function createSiteServer() {
-  const port = 3000;
   const server = createServer({ root: path.join(process.cwd(), '_site') });
   server.listen(port);
   return server;
@@ -121,7 +114,7 @@ class BrowserAuto {
     const demoUrl = await retrieveDemoUrl(mdPath);
     const options = await retrieveConfig(mdPath);
 
-    const pageUrl = `http://localhost:3000/~demos/${demoUrl}?theme=${theme}&enable-css-var=1`;
+    const pageUrl = `http://localhost:${port}/~demos/${demoUrl}?theme=${theme}&enable-css-var=1`;
 
     await page.goto(pageUrl);
     // TODO: 需要禁用掉页面中的各种采集和埋点请求，避免干扰
@@ -216,7 +209,7 @@ function parseArgs(): {
       console.log(`处理 ${i + 1}/${mdPaths.length}: ${mdPath}`);
       return task(mdPath);
     }),
-    { concurrency: 3 },
+    { concurrency: 10 },
   );
   await handler.close();
 
