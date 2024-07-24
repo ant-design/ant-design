@@ -4,6 +4,7 @@ import type { UnstableContext } from 'rc-slider';
 import type { GetContextProp } from '../../../_util/type';
 import { AggregationColor } from '../../color';
 import { PanelPickerContext } from '../../context';
+import { getGradientPercentColor } from '../../util';
 import { GradientColorSlider } from '../ColorSlider';
 
 /**
@@ -39,8 +40,25 @@ export default function GradientColorBar() {
   const colorsRef = React.useRef(colors);
 
   // Record current colors
-  const onDragStart: GetContextProp<typeof UnstableContext, 'onDragStart'> = () => {
-    colorsRef.current = colors;
+  const onDragStart: GetContextProp<typeof UnstableContext, 'onDragStart'> = ({
+    rawValues,
+    draggingIndex,
+    draggingValue,
+  }) => {
+    if (rawValues.length > colors.length) {
+      // Add new node
+      const newPointColor = getGradientPercentColor(colors, draggingValue);
+      const nextColors = [...colors];
+      nextColors.splice(draggingIndex, 0, {
+        percent: draggingValue,
+        color: newPointColor,
+      });
+
+      colorsRef.current = nextColors;
+    } else {
+      colorsRef.current = colors;
+    }
+
     onGradientDragging(true);
   };
 
