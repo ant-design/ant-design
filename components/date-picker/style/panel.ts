@@ -214,6 +214,15 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
               ${componentCls}-super-next-icon`]: {
             transform: 'rotate(-135deg)',
           },
+
+          [`${componentCls}-time-panel`]: {
+            [`${componentCls}-content`]: {
+              direction: 'ltr',
+              '> *': {
+                direction: 'rtl',
+              },
+            },
+          },
         },
       },
 
@@ -341,7 +350,6 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         width: '100%',
         tableLayout: 'fixed',
         borderCollapse: 'collapse',
-        direction: 'ltr',
 
         'th, td': {
           position: 'relative',
