@@ -25,14 +25,14 @@ export interface PopoverProps extends AbstractTooltipProps {
 
 interface OverlayProps {
   prefixCls?: string;
-  title?: PopoverProps['title'];
-  content?: PopoverProps['content'];
+  title?: React.ReactNode;
+  content?: React.ReactNode;
 }
 
 const Overlay: React.FC<OverlayProps> = ({ title, content, prefixCls }) => (
   <>
-    {title && <div className={`${prefixCls}-title`}>{getRenderPropValue(title)}</div>}
-    <div className={`${prefixCls}-inner-content`}>{getRenderPropValue(content)}</div>
+    {title && <div className={`${prefixCls}-title`}>{title}</div>}
+    {content && <div className={`${prefixCls}-inner-content`}>{content}</div>}
   </>
 );
 
@@ -81,6 +81,9 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     settingOpen(value);
   };
 
+  const titleNode = getRenderPropValue(title);
+  const contentNode = getRenderPropValue(content);
+
   return wrapCSSVar(
     <Tooltip
       placement={placement}
@@ -95,8 +98,8 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
       open={open}
       onOpenChange={onInternalOpenChange}
       overlay={
-        getRenderPropValue(title) || getRenderPropValue(content) ? (
-          <Overlay prefixCls={prefixCls} title={title} content={content} />
+        titleNode || contentNode ? (
+          <Overlay prefixCls={prefixCls} title={titleNode} content={contentNode} />
         ) : null
       }
       transitionName={getTransitionName(rootPrefixCls, 'zoom-big', otherProps.transitionName)}
