@@ -9,10 +9,6 @@ const Demo = () => (
         percent: 0,
       },
       {
-        color: 'rgb(255, 0, 0)',
-        percent: 50,
-      },
-      {
         color: 'rgb(135, 208, 104)',
         percent: 100,
       },

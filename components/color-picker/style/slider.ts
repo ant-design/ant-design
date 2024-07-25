@@ -44,6 +44,7 @@ const genSliderStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
           width: handleInnerSize,
           height: handleInnerSize,
           top: 0,
+          borderRadius: '100%',
 
           '&:before': {
             display: 'none',
@@ -58,11 +59,13 @@ const genSliderStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
             left: token.calc(lineWidthBold).mul(-1).equal(),
             top: token.calc(lineWidthBold).mul(-1).equal(),
             background: 'transparent',
+            transform: 'scale(0.8)',
+            transition: `transform ${token.motionDurationSlow}`,
           },
 
           '&-active, &:focus': {
             '&:after': {
-              boxShadow: `0 0 0 ${unit(lineWidthBold)} ${token.colorFill}`,
+              transform: 'scale(1)',
             },
           },
         },

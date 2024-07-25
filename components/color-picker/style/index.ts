@@ -75,12 +75,12 @@ const genClearStyle = (
       '&::after': {
         content: '""',
         position: 'absolute',
-        insetInlineEnd: lineWidth,
-        top: 0,
+        insetInlineEnd: token.calc(lineWidth).mul(-1).equal(),
+        top: token.calc(lineWidth).mul(-1).equal(),
         display: 'block',
         width: 40, // maximum
         height: 2, // fixed
-        transformOrigin: 'right',
+        transformOrigin: `calc(100% - 1px) 1px`,
         transform: 'rotate(-45deg)',
         backgroundColor: red6,
       },
@@ -284,7 +284,7 @@ export default genStyleHooks('ColorPicker', (token) => {
     colorPickerHandlerSizeSM: 12,
     colorPickerAlphaInputWidth: 44,
     colorPickerInputNumberHandleWidth: 16,
-    colorPickerPresetColorSize: 18,
+    colorPickerPresetColorSize: 24,
     colorPickerInsetShadow: `inset 0 0 1px 0 ${colorTextQuaternary}`,
     colorPickerSliderHeight,
     colorPickerPreviewSize: token
