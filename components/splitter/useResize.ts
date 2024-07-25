@@ -3,25 +3,34 @@ import { useEffect, useRef, useState } from 'react';
 
 import type { SplitterProps } from './Splitter';
 
-export interface StartInfo {
+interface StartInfo {
   x: number;
   y: number;
   index: number;
   splitBar: HTMLDivElement | null;
 }
 
-export interface UseResize {
+interface UseResizeProps
+  extends Pick<SplitterProps, 'layout' | 'items' | 'onResizeStart' | 'onResize' | 'onResizeEnd'> {
+  container: React.RefObject<HTMLDivElement>;
+  gutter: number;
+  offsets: React.RefObject<number[]>;
+}
+interface UseResize {
   resizing: boolean;
   resizeStart: (e: React.MouseEvent<HTMLDivElement>, index: number) => void;
 }
 
-const useResize = (
-  container: React.RefObject<HTMLDivElement>,
-  layout: SplitterProps['layout'],
-  gutter: number,
-  offsets: React.RefObject<number[]>,
-  items: SplitterProps['items'] = [],
-): UseResize => {
+const useResize = ({
+  container,
+  layout,
+  gutter,
+  items,
+  offsets,
+  onResize,
+  onResizeEnd,
+  onResizeStart,
+}: UseResizeProps): UseResize => {
   const resizingRef = useRef(false);
   const startInfo = useRef<StartInfo>({ x: 0, y: 0, index: 0, splitBar: null });
 
@@ -79,6 +88,8 @@ const useResize = (
       startInfo.current.y = y;
       offsets.current[index] = previousSize;
       offsets.current[index + 1] = nextSize;
+
+      onResize?.(offsets.current);
     }
   };
 
@@ -103,17 +114,19 @@ const useResize = (
   };
 
   const end = () => {
-    if (!resizingRef.current) return;
-
-    resizingRef.current = false;
-    startInfo.current = { x: 0, y: 0, index: 0, splitBar: null };
-    setResizing(false);
+    if (resizingRef.current && offsets.current) {
+      resizingRef.current = false;
+      startInfo.current = { x: 0, y: 0, index: 0, splitBar: null };
+      setResizing(false);
+      onResizeEnd?.(offsets.current);
+    }
   };
 
   const resizeStart = (e: React.MouseEvent<HTMLDivElement>, index: number) => {
     const target = e.target as HTMLDivElement;
-    if (e.target) {
+    if (e.target && offsets.current) {
       setResizing(true);
+      onResizeStart?.(offsets.current);
       resizingRef.current = true;
       startInfo.current = { x: e.clientX, y: e.clientY, index, splitBar: target };
     }

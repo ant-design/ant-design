@@ -1,4 +1,5 @@
 import React from 'react';
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 
 import { SplitterContext } from './context';
@@ -15,12 +16,9 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
 
   const { resizeStart } = React.useContext(SplitterContext);
 
-  const splitBarClassName = classNames(
-    `${prefixCls}-bar`,
-    {
-      [`${prefixCls}-bar-disabled`]: !resizable,
-    },
-  );
+  const splitBarClassName = classNames(`${prefixCls}-bar`, {
+    [`${prefixCls}-bar-disabled`]: !resizable,
+  });
 
   return (
     <div
@@ -33,7 +31,14 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
       }}
     >
       {resizable ? <div className={`${prefixCls}-bar-resize`} /> : null}
-      {collapsible ? <div className={`${prefixCls}-bar-collapse`} /> : null}
+
+      {collapsible ? (
+        <div className={`${prefixCls}-bar-collapse`}>
+          <LeftOutlined size={12} />
+          <div style={{ width: 8 }} />
+          <RightOutlined size={12} />
+        </div>
+      ) : null}
     </div>
   );
 };

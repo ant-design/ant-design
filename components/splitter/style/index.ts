@@ -10,6 +10,8 @@ const genSplitterStyle: GenerateStyle<any> = (token: any): CSSObject => {
     [`${componentCls}`]: {
       ...resetComponent(token),
       display: 'flex',
+      width: '100%',
+      height: '100%',
 
       '&-bar': {
         flexGrow: 0,
@@ -21,34 +23,33 @@ const genSplitterStyle: GenerateStyle<any> = (token: any): CSSObject => {
         position: 'relative',
 
         [`> ${componentCls}-bar-resize`]: {
-          background: 'gray',
+          background: 'rgba(0, 0, 0, 0.10)',
           borderRadius: '4px',
           pointerEvents: 'none',
         },
 
         [`> ${componentCls}-bar-collapse`]: {
           position: 'absolute',
-          background: 'red',
+          background: 'white',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
         },
       },
 
       '&-horizontal': {
         flexDirection: 'row',
-        width: '100%',
-        height: '100%',
-
 
         [`> ${componentCls}-bar`]: {
           cursor: 'col-resize',
 
           [`> ${componentCls}-bar-resize`]: {
             width: '100%',
-            height: 20,
+            height: 10,
           },
 
           [`> ${componentCls}-bar-collapse`]: {
-            width: 16,
-            height: 10,
+            padding: 4,
           },
         },
 
@@ -59,21 +60,17 @@ const genSplitterStyle: GenerateStyle<any> = (token: any): CSSObject => {
 
       '&-vertical': {
         flexDirection: 'column',
-        width: '100%',
-        height: '100%',
-
 
         [`> ${componentCls}-bar`]: {
           cursor: 'row-resize',
 
           [`> ${componentCls}-bar-resize`]: {
-            width: 20,
+            width: 10,
             height: '100%',
           },
 
           [`> ${componentCls}-bar-collapse`]: {
-            width: 10,
-            height: 16,
+            padding: 4,
           },
         },
 

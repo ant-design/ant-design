@@ -15,6 +15,7 @@ export interface SplitterItem {
   min?: number;
   max?: number;
   size?: number;
+  defaultSize?: number;
   content: ReactNode;
   resizable?: boolean;
 }
@@ -27,19 +28,26 @@ export interface SplitterProps {
 
   items: SplitterItem[];
   layout?: 'horizontal' | 'vertical';
+
+  onResizeStart?: (sizes: number[]) => void;
+  onResize?: (sizes: number[]) => void;
+  onResizeEnd?: (sizes: number[]) => void;
 }
 
 const Splitter: React.FC<SplitterProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
+    style,
     layout = 'horizontal',
     items = [],
-    style,
+
+    onResizeStart,
+    onResize,
+    onResizeEnd,
   } = props;
 
   const containerRef = useRef<HTMLDivElement>(null);
-  
 
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('split-panel', customizePrefixCls);
@@ -52,25 +60,26 @@ const Splitter: React.FC<SplitterProps> = (props) => {
 
   // 获取初始默认值
   const getInitialOffsets = () => {
-    const arr: number[] = [];
+    const sizes: number[] = [];
     let sum = 0;
     let count = 0;
-    let size = 0;
 
     items.forEach((child) => {
-      if (child.size) {
-        sum += child.size;
+      const currentSize = child.size || child.defaultSize;
+      if (currentSize) {
+        sum += currentSize;
         count += 1;
-        arr.push(child.size);
+        sizes.push(currentSize);
       }
     });
-    size = sum > 100 ? 0 : (100 - sum) / (items.length - count);
+
+    const averageSize = sum > 100 ? 0 : (100 - sum) / (items.length - count);
     items.forEach((_, idx) => {
-      if (!arr[idx]) {
-        arr[idx] = size;
+      if (!sizes[idx]) {
+        sizes[idx] = averageSize;
       }
     });
-    return arr;
+    return sizes;
   };
 
   const offsets = useRef<number[]>([]);
@@ -109,7 +118,16 @@ const Splitter: React.FC<SplitterProps> = (props) => {
     // item.size 改变时，重新赋值 flexBasis
   }, [JSON.stringify(items.map((item) => item.size))]);
 
-  const { resizing, resizeStart } = useResize(containerRef, layout, gutter, offsets, items);
+  const { resizing, resizeStart } = useResize({
+    container: containerRef,
+    layout,
+    gutter,
+    offsets,
+    items,
+    onResizeStart,
+    onResize,
+    onResizeEnd,
+  });
 
   const containerClassName = classNames(
     prefixCls,

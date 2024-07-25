@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 
 import type { SplitterItem } from './Splitter';
@@ -15,18 +15,10 @@ export interface PanelProps extends SplitterItem {
 const Panel: React.FC<PanelProps> = (props) => {
   const { prefixCls, className, children, gutter, size } = props;
 
-  const nodeRef = useRef<HTMLDivElement>(null);
   const panelClassName = classNames(`${prefixCls}-item`, className);
-
-  useEffect(() => {
-    if (nodeRef.current) {
-      nodeRef.current.style.flexBasis = `calc(${size}% - ${gutter}px)`;
-    }
-  }, [size]);
 
   return (
     <div
-      ref={nodeRef}
       className={panelClassName}
       style={{
         flexBasis: `calc(${size}% - ${gutter}px)`,
