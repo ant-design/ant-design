@@ -9,7 +9,7 @@ import fse from 'fs-extra';
 import { createServer } from 'http-server';
 import { chromium } from 'playwright-chromium';
 import type { Browser, BrowserContext, Page } from 'playwright-chromium';
-import loglevel, { log } from 'loglevel';
+import loglevel from 'loglevel';
 import type { LogLevelNames } from 'loglevel';
 
 interface VisualDiffConfig {
@@ -48,7 +48,7 @@ async function getAllComponentMds(componentName?: string) {
     dot: false,
   });
 
-  return mds;
+  return mds.sort();
 }
 
 const port = 3001;
@@ -138,9 +138,12 @@ class BrowserAuto {
       await page.click(`.${options.openTriggerClassName}`);
     }
 
+    // ~demos/button-demo-basic -> button-basic
+    const imgName = `${demoUrl.replace('-demo', '')}.${theme}.png`;
+
     // 保存截图到 ./result 目录
     await page.screenshot({
-      path: path.join(this.outputDir, `${demoUrl}.${theme}.png`),
+      path: path.join(this.outputDir, imgName),
       scale: 'device',
       type: 'png',
       fullPage: !options.onlyViewport,
