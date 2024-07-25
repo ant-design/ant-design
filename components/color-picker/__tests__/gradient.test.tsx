@@ -4,6 +4,7 @@ import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 
 import { resetWarned } from '../../_util/warning';
 import { createEvent, fireEvent } from '../../../tests/utils';
+import { AggregationColor } from '../color';
 import ColorPicker from '../ColorPicker';
 
 describe('ColorPicker.gradient', () => {
@@ -199,5 +200,44 @@ describe('ColorPicker.gradient', () => {
 
   it('invalid not crash', async () => {
     render(<ColorPicker mode={['single', 'gradient']} defaultValue={[]} open />);
+  });
+
+  it('change to single', async () => {
+    const onChange = jest.fn();
+
+    const { container } = render(
+      <ColorPicker
+        mode={['single', 'gradient']}
+        defaultValue={[
+          {
+            color: '#FF0000',
+            percent: 0,
+          },
+          {
+            color: '#0000FF',
+            percent: 100,
+          },
+        ]}
+        open
+        onChange={onChange}
+      />,
+    );
+
+    // Switch to gradient
+    fireEvent.click(container.querySelector(`.ant-segmented-item-input`)!);
+
+    expect(onChange).toHaveBeenCalledWith(expect.anything(), 'rgb(255,0,0)');
+  });
+
+  it('not crash when pass gradient color', async () => {
+    const color = new AggregationColor([
+      {
+        color: '#FF0000',
+        percent: 0,
+      },
+    ]);
+
+    const newColor = new AggregationColor(color);
+    expect(newColor.toCssString()).toEqual('linear-gradient(90deg, rgb(255,0,0) 0%)');
   });
 });
