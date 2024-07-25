@@ -1750,11 +1750,7 @@ Array [
 ]
 `;
 
-exports[`renders components/tree-select/demo/placement.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: TreeSelect] \`dropdownMatchSelectWidth\` is deprecated. Please use \`popupMatchSelectWidth\` instead.",
-]
-`;
+exports[`renders components/tree-select/demo/placement.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tree-select/demo/render-panel.tsx extend context correctly 1`] = `
 <div

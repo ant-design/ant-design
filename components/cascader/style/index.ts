@@ -1,8 +1,7 @@
 import type { CSSProperties } from 'react';
 
 import { genCompactItemStyle } from '../../style/compact-item';
-import type { GlobalToken } from '../../theme';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GlobalToken } from '../../theme/internal';
 import { genStyleHooks } from '../../theme/internal';
 import getColumnsStyle from './columns';
 
