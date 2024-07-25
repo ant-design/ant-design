@@ -1040,7 +1040,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         </div>
         <div
           class="ant-picker-active-bar"
-          style="position:absolute;width:0;left:0"
+          style="position:absolute;width:0"
         />
         <span
           class="ant-picker-suffix"
@@ -1152,7 +1152,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         </div>
         <div
           class="ant-picker-active-bar"
-          style="position:absolute;width:0;left:0"
+          style="position:absolute;width:0"
         />
         <span
           class="ant-picker-suffix"
@@ -1665,7 +1665,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         </div>
         <div
           class="ant-picker-active-bar"
-          style="position:absolute;width:0;left:0"
+          style="position:absolute;width:0"
         />
         <span
           class="ant-picker-suffix"
@@ -3654,7 +3654,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         </div>
         <div
           class="ant-picker-active-bar"
-          style="position:absolute;width:0;left:0"
+          style="position:absolute;width:0"
         />
         <span
           class="ant-picker-suffix"

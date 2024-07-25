@@ -42,9 +42,7 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
   }));
 
   const getDefaultTarget = (): HTMLElement | Document | Window =>
-    internalRef.current && internalRef.current.ownerDocument
-      ? internalRef.current.ownerDocument
-      : window;
+    internalRef.current?.ownerDocument || window;
 
   const handleScroll = throttleByAnimationFrame(
     (e: React.UIEvent<HTMLElement, UIEvent> | { target: any }) => {

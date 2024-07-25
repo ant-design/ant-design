@@ -15,6 +15,102 @@ tag: vVERSION
 
 ---
 
+## 5.19.3
+
+`2024-07-19`
+
+- 🐞 修复 Table 的 `onChange` 事件中排序器参数错误的问题。[#49533](https://github.com/ant-design/ant-design/pull/49533) [@Zyf665](https://github.com/Zyf665)
+- 🐞 修复 Pagination `token.itemBg` 设置不生效的问题。[#49933](https://github.com/ant-design/ant-design/pull/49933)
+- 🐞 修复 List 默认分页位置错误的问题。[#49925](https://github.com/ant-design/ant-design/pull/49925) [@coding-ice](https://github.com/coding-ice)
+- 🐞 修复 Image 预览操作栏两侧空白区域被点击时，无法关闭预览的问题。[#49915](https://github.com/ant-design/ant-design/pull/49915) [@wanpan11](https://github.com/wanpan11)
+- 🐞 修复 Card 圆角对 `cover` 属性中的非 img 元素不生效的问题。[#49862](https://github.com/ant-design/ant-design/pull/49862) [@coding-ice](https://github.com/coding-ice)
+- 💄 修复 Dropdown 菜单内容在视口边缘换行的问题。[#49899](https://github.com/ant-design/ant-design/pull/49899)
+- 💄 修复 Descriptions 子项之间可能没有边距的问题。[#49895](https://github.com/ant-design/ant-design/pull/49895) [@crazyair](https://github.com/crazyair)
+- ⌨️ 优化 Select 多选模式下长按回车会不断触发变更的问题。[#49963](https://github.com/ant-design/ant-design/pull/49963) [@crazyair](https://github.com/crazyair)
+- 🇪🇬 添加阿拉伯文(埃及) (ar_EG) 的翻译。[#49852](https://github.com/ant-design/ant-design/pull/49852) [@ahmedsamirdev](https://github.com/ahmedsamirdev)
+- TypeScript
+  - 🤖 复用 Tooltips 的定义以简化 ColorPicker 的类型声明。[#49949](https://github.com/ant-design/ant-design/pull/49949) [@Wxh16144](https://github.com/Wxh16144)
+
+## 5.19.2
+
+`2024-07-15`
+
+- 🐞 修复 List `actions` 为空数组时会渲染 `0` 的问题。[#49842](https://github.com/ant-design/ant-design/pull/49842) [@int64ago](https://github.com/int64ago)
+- 🐞 修复 Upload 拖拽上传文件夹时，`beforeUpload ` 中 `fileList` 不完整的问题。[#49832](https://github.com/ant-design/ant-design/pull/49832) [@coderz-w](https://github.com/coderz-w)
+- Descriptions
+  - 🐞 修复 Descriptions 在内容过长时会遮盖后面内容的问题。[#49803](https://github.com/ant-design/ant-design/pull/49803) [@coding-ice](https://github.com/coding-ice)
+  - 🐞 修复 Descriptions 在 Table `expandedRowRender` 中渲染样式异常的问题。[#49727](https://github.com/ant-design/ant-design/pull/49727) [@ljw-codeking](https://github.com/ljw-codeking)
+- 🐞 修复 Spin `percent` 和 `size` 一同使用时，样式不正确的问题。[#49876](https://github.com/ant-design/ant-design/pull/49876)
+- 🇮🇳 补充 DatePicker 的 `kn_IN` 本地化文案。[#49860](https://github.com/ant-design/ant-design/pull/49860) [@neerajap-01](https://github.com/neerajap-01)
+- Typescript
+  - 🐞 修复 Tree `icon` 和 `switcherIcon` 参数类型未能正确推导的问题。[#49821](https://github.com/ant-design/ant-design/pull/49821)
+  - 🐞 回滚 Cascader `multiple` 定义更新导致 `value` 定义丢失的问题。[#49741](https://github.com/ant-design/ant-design/pull/49741) [@YangZhi1](https://github.com/YangZhi1)
+
+## 5.19.1
+
+`2024-07-05`
+
+- 🐞 Global: @ant-design/colors 使用预编译颜色预设来提升运行时性能。[#49714](https://github.com/ant-design/ant-design/pull/49714) [@guoyunhe](https://github.com/guoyunhe)
+- 🐞 Global: 对于弹层类自动增长 `zIndex` 不再限制最大值，而是改成控制台警告。[#49720](https://github.com/ant-design/ant-design/pull/49720)
+- 🐞 优化 Input.TextArea 清除图标的位置，与其他输入组件统一。[#49718](https://github.com/ant-design/ant-design/pull/49718) [@wanpan11](https://github.com/wanpan11)
+- 🐞 修复 Input 组件 `filled` 变体下 `activeBorderColor` 不生效问题。[#49699](https://github.com/ant-design/ant-design/pull/49699) [@wanpan11](https://github.com/wanpan11)
+- TypeScript
+  - 🤖 修复 Cascader 组件 `multiple` 的类型问题。[#49669](https://github.com/ant-design/ant-design/pull/49669) [@YangZhi1](https://github.com/YangZhi1)
+
+## 5.19.0
+
+`2024-07-01`
+
+- 🆕 ConfigProvider 现支持全局配置 `variant`。[#49535](https://github.com/ant-design/ant-design/pull/49535) [@MadCcc](https://github.com/MadCcc)
+- 🆕 QRCode
+  - QRCode 使用 `rc-qrcode` 替代了 `qrcode.react`。[#49454](https://github.com/ant-design/ant-design/pull/49454) [@kiner-tang](https://github.com/kiner-tang)
+  - QRCode 新增支持点击事件和 `iconSize` 宽高配置。[#49240](https://github.com/ant-design/ant-design/pull/49240) [@thinkasany](https://github.com/thinkasany)
+- 🆕 Select 组件的 `filterSort` 属性现新增获取 `searchValue` 的参数。[#49352](https://github.com/ant-design/ant-design/pull/49352) [@MadCcc](https://github.com/MadCcc)
+- 🆕 Pagination 支持 `simple={{ readOnly }}` 属性和 `align` 属性。[#49562](https://github.com/ant-design/ant-design/pull/49562) [@coding-ice](https://github.com/coding-ice)
+- 💄 优化了 Slider 滑块的激活样式。[#49630](https://github.com/ant-design/ant-design/pull/49630)
+- 🐞 增强了 Anchor 的 `affix` 属性，支持更多配置项。[#49295](https://github.com/ant-design/ant-design/pull/49295) [@gin-lsl](https://github.com/gin-lsl)
+- DatePicker
+  - 🐞 修复了 DatePicker/TimePicker 的 RangePicker 在 `placement` 设置为 `topRight` 或 `bottomRight` 时箭头丢失的问题。[#49333](https://github.com/ant-design/ant-design/pull/49333)
+  - 🐞 修复了 DatePicker 切换按钮缺失可访问性文本的问题，修复了 `DatePicker.RangePicker` 在 RTL 模式下的样式问题。[#49333](https://github.com/ant-design/ant-design/pull/49333)
+  - 🐞 修复了 DatePicker.RangePicker 年选择器输入结束值错误导致报错的问题。[#49333](https://github.com/ant-design/ant-design/pull/49333)
+  - 🐞 修复了 DatePicker.RangePicker 键盘输入日期时已选日期重置的问题。[#49333](https://github.com/ant-design/ant-design/pull/49333)
+- 🐞 Button 修复了用作 Dropdown `trigger` 时 `disabled` 属性不生效的问题。[#47363](https://github.com/ant-design/ant-design/pull/47363)
+- 🐞 InputNumber 在同时使用 `type=number` 和 `changeOnWheel` 时现在会给出警告提示。[#49648](https://github.com/ant-design/ant-design/pull/49648) [@wanpan11](https://github.com/wanpan11)
+- 🐞 修复 Dropdown 次级菜单 reset 样式丢失的问题。[#49643](https://github.com/ant-design/ant-design/pull/49643) [@wanpan11](https://github.com/wanpan11)
+- 💄 优化了 DatePicker、TimePicker、Select、TreeSelect、Input、InputNumber、Mentions 的 `variant="borderless"` 样式，现在在设置 `status` 属性时也能够被区分。[#49608](https://github.com/ant-design/ant-design/pull/49608)
+- Table
+  - 🐞 Table 修复了 `locale.emptyText` 设置为非 `undefined` 值时仍会显示默认值的问题。[#49599](https://github.com/ant-design/ant-design/pull/49599) [@照明胧](https://github.com/mmmml-zhao)
+  - 🐞 Table 自定义全局组件的 Empty 样式后，Table的过滤面板没生效的问题。[#49548](https://github.com/ant-design/ant-design/pull/49548) [@duqigit](https://github.com/duqigit)
+- 🐞 Upload 修复了在列表模式下文件过多时出现的渲染性能问题。[#49598](https://github.com/ant-design/ant-design/pull/49598) [@tlkv](https://github.com/tlkv)
+- 🐞 Typography 修复在父元素存在 `nowrap` 样式时，`ellipsis` 不生效的问题。[#49667](https://github.com/ant-design/ant-design/pull/49667)
+- TypeScript:
+  - 🤖 ConfigProvider 改进了 `renderEmpty` 方法的 TypeScript 类型定义。[#49602](https://github.com/ant-design/ant-design/pull/49602) [@Wxh16144](https://github.com/Wxh16144)
+- 🌐 国际化
+  - 🇹🇭 添加了缺失的泰语翻译，包括 `Transfer.deselectAll`、`Text.collapse`、`QRCode.scanned`、`ColorPicker.presetEmpty`。[#49588](https://github.com/ant-design/ant-design/pull/49588) [@Tantatorn-dev](https://github.com/Tantatorn-dev)
+  - 🇳🇱 Tour 修复了 nl_NL 本地化问题。[#49612](https://github.com/ant-design/ant-design/pull/49612) [@Hannnnnnnnnnnnnnnn](https://github.com/Hannnnnnnnnnnnnnnn)
+  - 🇹🇷 调整了 DatePicker 的土耳其语言文案。[#49333](https://github.com/ant-design/ant-design/pull/49333)
+
+## 5.18.3
+
+`2024-06-19`
+
+- 🐞 回滚 [#49289](https://github.com/ant-design/ant-design/pull/49289) 以修复 5.18.2 引入的 Table 排序状态失效的问题。[#49487](https://github.com/ant-design/ant-design/pull/49487)
+- 🛠 将样式处理的部分功能迁移到 `@ant-design/cssinjs` 中。[#49463](https://github.com/ant-design/ant-design/pull/49463) [@YumoImer](https://github.com/YumoImer)
+- 🇳🇵 补充 ne_NP 本地化文案。[#49492](https://github.com/ant-design/ant-design/pull/49492) [@FuliangZhang](https://github.com/FuliangZhang)
+
+## 5.18.2
+
+`2024-06-17`
+
+- 🐞 修复了 message 图标与文本内容没有严格居中对齐的问题。[#49429](https://github.com/ant-design/ant-design/pull/49429) [@nova1751](https://github.com/nova1751)
+- 🐞 修复 #49134 [#49289](https://github.com/ant-design/ant-design/pull/49289) 中提到的 Table 组件的 `onChange` 事件中排序器参数的问题。[@Zyf665](https://github.com/Zyf665)
+- 🐞 为 Collapse 组件中展开/折叠图标 添加具有语义的 `aria-label` 属性值。[#49395](https://github.com/ant-design/ant-design/pull/49395) [@wanpan11](https://github.com/wanpan11)
+- 🐞 修复 InputNumber 组件中 token `inputFontSizeSM` 和 `inputFontSizeLG` 不生效的问题。[#49369](https://github.com/ant-design/ant-design/pull/49369)
+- 💄 修复 Empty 部分样式下，描述的 `colorTextDescription` 不生效的问题。[#49408](https://github.com/ant-design/ant-design/pull/49408)
+- 💄 解决 Badge `processing` 与 Tailwind CSS 样式冲突的问题。[#49379](https://github.com/ant-design/ant-design/pull/49379)
+- 🌐 国际化
+  - 🇲🇳 添加蒙古语言 (mn_MN) 翻译。[#49373](https://github.com/ant-design/ant-design/pull/49373) [@JiyinShao](https://github.com/JiyinShao)
+
 ## 5.18.1
 
 `2024-06-12`

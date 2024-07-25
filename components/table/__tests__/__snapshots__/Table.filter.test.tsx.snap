@@ -5,46 +5,54 @@ exports[`Table.filter clearFilters should support params 1`] = `
   class="ant-dropdown-custom-view"
   id="customFilter"
 >
-  <span
+  <button
     id="setNoParams"
+    type="button"
   >
     setSelectedKeys
-  </span>
-  <span
+  </button>
+  <button
     id="resetNoParams"
+    type="button"
   >
     Reset
-  </span>
-  <span
+  </button>
+  <button
     id="setConfirm"
+    type="button"
   >
     setSelectedKeys
-  </span>
-  <span
+  </button>
+  <button
     id="resetConfirm"
+    type="button"
   >
     Reset
-  </span>
-  <span
+  </button>
+  <button
     id="setClose"
+    type="button"
   >
     setSelectedKeys
-  </span>
-  <span
+  </button>
+  <button
     id="resetClose"
+    type="button"
   >
     Reset
-  </span>
-  <span
+  </button>
+  <button
     id="setParams"
+    type="button"
   >
     setSelectedKeys
-  </span>
-  <span
+  </button>
+  <button
     id="resetParams"
+    type="button"
   >
     Reset
-  </span>
+  </button>
 </div>
 `;
 

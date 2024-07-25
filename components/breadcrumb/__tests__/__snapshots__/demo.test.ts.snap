@@ -553,3 +553,33 @@ exports[`renders components/breadcrumb/demo/withIcon.tsx correctly 1`] = `
   </ol>
 </nav>
 `;
+
+exports[`renders components/breadcrumb/demo/withParams.tsx correctly 1`] = `
+<nav
+  class="ant-breadcrumb"
+>
+  <ol>
+    <li>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        Users
+      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </li>
+    <li>
+      <a
+        class="ant-breadcrumb-link"
+        href=""
+      >
+        1
+      </a>
+    </li>
+  </ol>
+</nav>
+`;

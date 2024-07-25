@@ -1,5 +1,5 @@
 import React, { useContext, useLayoutEffect, useMemo, useState } from 'react';
-import { Col, Flex, Typography } from 'antd';
+import { Col, Flex, Space, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 import { FormattedMessage, useRouteMeta } from 'dumi';
@@ -70,25 +70,27 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
         </InViewSuspense>
         <article className={classNames(styles.articleWrapper, { rtl: isRTL })}>
           {meta.frontmatter?.title ? (
-            <Typography.Title style={{ fontSize: 30, position: 'relative' }}>
-              <Flex gap="small">
-                <div>{meta.frontmatter?.title}</div>
-                <div>{meta.frontmatter?.subtitle}</div>
-                {!pathname.startsWith('/components/overview') && (
-                  <InViewSuspense fallback={null}>
-                    <EditButton
-                      title={<FormattedMessage id="app.content.edit-page" />}
-                      filename={meta.frontmatter.filename}
-                    />
-                  </InViewSuspense>
-                )}
-              </Flex>
+            <Flex justify="space-between">
+              <Typography.Title style={{ fontSize: 32, position: 'relative' }}>
+                <Space>
+                  <span>{meta.frontmatter?.title}</span>
+                  <span>{meta.frontmatter?.subtitle}</span>
+                  {!pathname.startsWith('/components/overview') && (
+                    <InViewSuspense fallback={null}>
+                      <EditButton
+                        title={<FormattedMessage id="app.content.edit-page" />}
+                        filename={meta.frontmatter.filename}
+                      />
+                    </InViewSuspense>
+                  )}
+                </Space>
+              </Typography.Title>
               {pathname.startsWith('/components/') && (
                 <InViewSuspense fallback={null}>
                   <ComponentChangelog pathname={pathname} />
                 </InViewSuspense>
               )}
-            </Typography.Title>
+            </Flex>
           ) : null}
           <InViewSuspense fallback={null}>
             <DocMeta />

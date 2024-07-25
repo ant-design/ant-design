@@ -69,7 +69,7 @@ export const InternalBreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => 
             return {
               ...itemProps,
               key: key ?? index,
-              label: mergedLabel as string,
+              label: mergedLabel,
             };
           }),
         };

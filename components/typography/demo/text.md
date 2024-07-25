@@ -4,4 +4,4 @@
 
 ## en-US
 
-Provides multiple types of text and link.
+Provides multiple types of text and a link.

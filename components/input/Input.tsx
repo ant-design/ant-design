@@ -4,8 +4,8 @@ import type { InputRef, InputProps as RcInputProps } from 'rc-input';
 import RcInput from 'rc-input';
 import { composeRef } from 'rc-util/lib/ref';
 
+import ContextIsolator from '../_util/ContextIsolator';
 import getAllowClear from '../_util/getAllowClear';
-import getInputAddon from '../_util/InputAddon';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -15,7 +15,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
-import type { Variant } from '../form/hooks/useVariants';
+import type { Variant } from '../config-provider';
 import useVariant from '../form/hooks/useVariants';
 import { useCompactItemContext } from '../space/Compact';
 import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
@@ -174,7 +174,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
 
   const mergedAllowClear = getAllowClear(allowClear ?? input?.allowClear);
 
-  const [variant, enableVariantCls] = useVariant(customVariant, bordered);
+  const [variant, enableVariantCls] = useVariant('input', customVariant, bordered);
 
   return wrapCSSVar(
     <RcInput
@@ -198,8 +198,20 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
         input?.className,
       )}
       onChange={handleChange}
-      addonBefore={getInputAddon(addonBefore)}
-      addonAfter={getInputAddon(addonAfter)}
+      addonBefore={
+        addonBefore && (
+          <ContextIsolator form space>
+            {addonBefore}
+          </ContextIsolator>
+        )
+      }
+      addonAfter={
+        addonAfter && (
+          <ContextIsolator form space>
+            {addonAfter}
+          </ContextIsolator>
+        )
+      }
       classNames={{
         ...classes,
         ...input?.classNames,

@@ -107,14 +107,14 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 有的，你可以访问 https://ant-design.antgroup.com/index-cn 。
 
-| 产品/版本 | 地址 |
-| --- | --- |
-| Ant Design 5.x | https://ant-design.antgroup.com |
-| Ant Design 4.x | https://4x-ant-design.antgroup.com |
+| 产品/版本         | 地址                                      |
+| ----------------- | ----------------------------------------- |
+| Ant Design 5.x    | https://ant-design.antgroup.com           |
+| Ant Design 4.x    | https://4x-ant-design.antgroup.com        |
 | Ant Design Mobile | https://ant-design-mobile.antgroup.com/zh |
-| Ant Design Mini | https://ant-design-mini.antgroup.com |
-| Ant Design Charts | https://ant-design-charts.antgroup.com |
-| AntV | https://antv.antgroup.com |
+| Ant Design Mini   | https://ant-design-mini.antgroup.com      |
+| Ant Design Charts | https://ant-design-charts.antgroup.com    |
+| AntV              | https://antv.antgroup.com                 |
 
 ## `antd` 可以像 `React` 那样使用单文件引入吗？
 
@@ -151,7 +151,7 @@ type InputRef = GetRef<typeof Input>;
 
 ## 我的组件默认语言是英文的？如何切回中文的。
 
-请尝试使用 [ConfigProvider](/components/config-provider-cn#components-config-provider-demo-locale) 组件来包裹你的应用。
+请尝试使用 [ConfigProvider](/components/config-provider-cn#config-provider-demo-locale) 组件来包裹你的应用。
 
 如果日期组件的国际化仍未生效，请配置 `dayjs.locale('zh-cn')` 并**检查你本地的 `dayjs` 版本和 `antd` 依赖的 `dayjs` 版本是否一致**。
 
@@ -200,7 +200,7 @@ npm ls dayjs
 
 message/notification/Modal.confirm 等静态方法不同于 `<Button />` 的渲染方式，是单独渲染在 `ReactDOM.render` 生成的 DOM 树节点上，无法共享 ConfigProvider 提供的 context 信息。你有两种解决方式：
 
-1. 使用官方提供的 [message.useMessage](/components/message-cn/#components-message-demo-hooks)、[notification.useNotification](/components/notification-cn#%E4%B8%BA%E4%BB%80%E4%B9%88-notification-%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux-%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C-ConfigProvider-%E7%9A%84-locale/prefixCls-%E9%85%8D%E7%BD%AE%EF%BC%9F) 和 [Modal.useModal](/components/modal-cn/#%E4%B8%BA%E4%BB%80%E4%B9%88-Modal-%E6%96%B9%E6%B3%95%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux%E3%80%81%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C-ConfigProvider-locale/prefixCls-%E9%85%8D%E7%BD%AE%EF%BC%9F) 来调用这些方法。
+1. 使用官方提供的 [message.useMessage](/components/message-cn/#message-demo-hooks)、[notification.useNotification](/components/notification-cn#%E4%B8%BA%E4%BB%80%E4%B9%88-notification-%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux-%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C-ConfigProvider-%E7%9A%84-locale/prefixCls-%E9%85%8D%E7%BD%AE%EF%BC%9F) 和 [Modal.useModal](/components/modal-cn/#%E4%B8%BA%E4%BB%80%E4%B9%88-Modal-%E6%96%B9%E6%B3%95%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux%E3%80%81%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C-ConfigProvider-locale/prefixCls-%E9%85%8D%E7%BD%AE%EF%BC%9F) 来调用这些方法。
 
 2. 使用 [App.useApp](/components/app-cn#%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95) 直接调用 message、notification、modal 实例方法。
 

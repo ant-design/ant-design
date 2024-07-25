@@ -4,4 +4,4 @@
 
 ## en-US
 
-Set the position of the button icon by setting `iconPosition` to `start` or `end` respectively.
+You can set the position of a button's icon by setting the `iconPosition` to `start` or `end` respectively.

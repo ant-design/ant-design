@@ -101,13 +101,13 @@ export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
       bottom: marginXL,
       left: {
         _skip_check_: true,
-        value: 0,
+        value: '50%',
       },
-      width: '100%',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       color: token.previewOperationColor,
+      transform: 'translateX(-50%)',
     },
     [`${previewCls}-progress`]: {
       marginBottom: margin,
@@ -208,7 +208,7 @@ export const genPreviewSwitchStyle = (token: ImageToken): CSSObject => {
         background: operationBgHover.toRgbString(),
       },
 
-      [`&-disabled`]: {
+      '&-disabled': {
         '&, &:hover': {
           color: previewOperationColorDisabled,
           background: 'transparent',
@@ -353,7 +353,7 @@ const genPreviewMotion: GenerateStyle<ImageToken> = (token) => {
 
   return {
     [`${previewCls}-root`]: initZoomMotion(token, 'zoom'),
-    [`&`]: initFadeMotion(token, true),
+    '&': initFadeMotion(token, true),
   };
 };
 

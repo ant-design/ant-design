@@ -116,7 +116,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
           textAlign: 'center',
           border: 0,
           borderRadius: 0,
-          transform: `translate(-50%, -50%)`,
+          transform: 'translate(-50%, -50%)',
         },
 
         '&-content': {
