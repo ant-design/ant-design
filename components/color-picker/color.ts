@@ -19,7 +19,7 @@ export class AggregationColor {
 
   private colors: GradientColor | undefined;
 
-  public cleared: boolean = false;
+  public cleared = false;
 
   constructor(color: ColorGenInput<AggregationColor> | Colors<AggregationColor>) {
     // Clone from another AggregationColor
