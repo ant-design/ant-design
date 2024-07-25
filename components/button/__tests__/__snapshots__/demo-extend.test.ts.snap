@@ -313,404 +313,132 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
 exports[`renders components/button/demo/chinese-chars-loading.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/button/demo/color-variant.tsx extend context correctly 1`] = `
-<div
-  class="ant-flex ant-flex-align-center ant-flex-vertical"
-  style="gap: 20px;"
->
+Array [
   <div
-    class="ant-flex ant-flex-gap-middle"
+    class="ant-radio-group ant-radio-group-outline"
   >
-    <div
-      class="ant-flex ant-flex-align-center ant-flex-gap-small ant-flex-vertical"
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
     >
-      <span>
-        Color
-      </span>
-      <div
-        class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
-        style="width: 120px;"
+      <span
+        class="ant-radio-button ant-radio-button-checked"
       >
-        <div
-          class="ant-select-selector"
-        >
-          <span
-            class="ant-select-selection-search"
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
-              readonly=""
-              role="combobox"
-              style="opacity: 0;"
-              type="search"
-              unselectable="on"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="default"
-          >
-            default
-          </span>
-        </div>
-        <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-        >
-          <div>
-            <div
-              id="rc_select_TEST_OR_SSR_list"
-              role="listbox"
-              style="height: 0px; width: 0px; overflow: hidden;"
-            >
-              <div
-                aria-label="default"
-                aria-selected="true"
-                id="rc_select_TEST_OR_SSR_list_0"
-                role="option"
-              >
-                default
-              </div>
-              <div
-                aria-label="primary"
-                aria-selected="false"
-                id="rc_select_TEST_OR_SSR_list_1"
-                role="option"
-              >
-                primary
-              </div>
-            </div>
-            <div
-              class="rc-virtual-list"
-              style="position: relative;"
-            >
-              <div
-                class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
-              >
-                <div>
-                  <div
-                    class="rc-virtual-list-holder-inner"
-                    style="display: flex; flex-direction: column;"
-                  >
-                    <div
-                      aria-selected="true"
-                      class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      title="default"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        default
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      title="primary"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        primary
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      title="danger"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        danger
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <input
+          checked=""
+          class="ant-radio-button-input"
+          type="radio"
+          value="default"
+        />
         <span
-          aria-hidden="true"
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
-        >
-          <span
-            aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="down"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-              />
-            </svg>
-          </span>
-        </span>
-      </div>
-    </div>
-    <div
-      class="ant-flex ant-flex-align-center ant-flex-gap-small ant-flex-vertical"
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Default
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper"
     >
-      <span>
-        Variant
-      </span>
-      <div
-        class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
-        style="width: 120px;"
+      <span
+        class="ant-radio-button"
       >
-        <div
-          class="ant-select-selector"
-        >
-          <span
-            class="ant-select-selection-search"
-          >
-            <input
-              aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
-              readonly=""
-              role="combobox"
-              style="opacity: 0;"
-              type="search"
-              unselectable="on"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="outlined"
-          >
-            outlined
-          </span>
-        </div>
-        <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-        >
-          <div>
-            <div
-              id="rc_select_TEST_OR_SSR_list"
-              role="listbox"
-              style="height: 0px; width: 0px; overflow: hidden;"
-            >
-              <div
-                aria-label="outlined"
-                aria-selected="true"
-                id="rc_select_TEST_OR_SSR_list_0"
-                role="option"
-              >
-                outlined
-              </div>
-              <div
-                aria-label="dashed"
-                aria-selected="false"
-                id="rc_select_TEST_OR_SSR_list_1"
-                role="option"
-              >
-                dashed
-              </div>
-            </div>
-            <div
-              class="rc-virtual-list"
-              style="position: relative;"
-            >
-              <div
-                class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
-              >
-                <div>
-                  <div
-                    class="rc-virtual-list-holder-inner"
-                    style="display: flex; flex-direction: column;"
-                  >
-                    <div
-                      aria-selected="true"
-                      class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      title="outlined"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        outlined
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      title="dashed"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        dashed
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      title="solid"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        solid
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      title="filled"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        filled
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      title="text"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        text
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                    <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      title="link"
-                    >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        link
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="primary"
+        />
         <span
-          aria-hidden="true"
-          class="ant-select-arrow"
-          style="user-select: none;"
-          unselectable="on"
-        >
-          <span
-            aria-label="down"
-            class="anticon anticon-down ant-select-suffix"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="down"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-              />
-            </svg>
-          </span>
-        </span>
-      </div>
-    </div>
-  </div>
-  <button
-    class="ant-btn ant-btn-default ant-btn-outlined"
-    type="button"
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Primary
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
+      >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="danger"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Danger
+      </span>
+    </label>
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left ant-divider-plain"
+    role="separator"
   >
-    <span>
-      Color & Variant
+    <span
+      class="ant-divider-inner-text"
+    >
+      Preview
     </span>
-  </button>
-</div>
+  </div>,
+  <div
+    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+  >
+    <button
+      class="ant-btn ant-btn-default ant-btn-outlined"
+      type="button"
+    >
+      <span>
+        Outlined
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-dashed"
+      type="button"
+    >
+      <span>
+        Dashed
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-solid"
+      type="button"
+    >
+      <span>
+        Solid
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-filled"
+      type="button"
+    >
+      <span>
+        Filled
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-text"
+      type="button"
+    >
+      <span>
+        Text
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-link"
+      type="button"
+    >
+      <span>
+        Link
+      </span>
+    </button>
+  </div>,
+]
 `;
 
 exports[`renders components/button/demo/color-variant.tsx extend context correctly 2`] = `[]`;

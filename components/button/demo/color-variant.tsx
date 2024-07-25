@@ -1,52 +1,41 @@
 import React from 'react';
-import { Button, Flex, Select } from 'antd';
-import type { ButtonProps, SelectProps } from 'antd';
-
-const colorOptions: SelectProps['options'] = [
-  { label: 'default', value: 'default' },
-  { label: 'primary', value: 'primary' },
-  { label: 'danger', value: 'danger' },
-];
-
-const variantOptions: SelectProps['options'] = [
-  { label: 'outlined', value: 'outlined' },
-  { label: 'dashed', value: 'dashed' },
-  { label: 'solid', value: 'solid' },
-  { label: 'filled', value: 'filled' },
-  { label: 'text', value: 'text' },
-  { label: 'link', value: 'link' },
-];
+import { Button, Divider, Flex, Radio } from 'antd';
+import type { ButtonProps } from 'antd';
 
 const App: React.FC = () => {
   const [color, setColor] = React.useState<ButtonProps['color']>('default');
-  const [variant, setVariant] = React.useState<ButtonProps['variant']>('outlined');
 
   return (
-    <Flex vertical gap={20} align="center">
-      <Flex gap="middle">
-        <Flex gap="small" vertical align="center">
-          <span>Color</span>
-          <Select
-            defaultValue={color}
-            style={{ width: 120 }}
-            options={colorOptions}
-            onChange={(val) => setColor(val)}
-          />
-        </Flex>
-        <Flex gap="small" vertical align="center">
-          <span>Variant</span>
-          <Select
-            defaultValue={variant}
-            style={{ width: 120 }}
-            options={variantOptions}
-            onChange={(val) => setVariant(val)}
-          />
-        </Flex>
+    <>
+      <Radio.Group value={color} onChange={(e) => setColor(e.target.value)}>
+        <Radio.Button value="default">Default</Radio.Button>
+        <Radio.Button value="primary">Primary</Radio.Button>
+        <Radio.Button value="danger">Danger</Radio.Button>
+      </Radio.Group>
+      <Divider orientation="left" plain>
+        Preview
+      </Divider>
+      <Flex gap="small" wrap>
+        <Button color={color} variant="outlined">
+          Outlined
+        </Button>
+        <Button color={color} variant="dashed">
+          Dashed
+        </Button>
+        <Button color={color} variant="solid">
+          Solid
+        </Button>
+        <Button color={color} variant="filled">
+          Filled
+        </Button>
+        <Button color={color} variant="text">
+          Text
+        </Button>
+        <Button color={color} variant="link">
+          Link
+        </Button>
       </Flex>
-      <Button color={color} variant={variant}>
-        Color & Variant
-      </Button>
-    </Flex>
+    </>
   );
 };
 
