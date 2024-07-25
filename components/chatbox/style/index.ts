@@ -72,6 +72,7 @@ const genChatboxStyle: GenerateStyle<ChatboxToken> = (token) => {
       },
       [`& ${componentCls}-content`]: {
         position: 'relative',
+        boxSizing: 'border-box',
         padding: `${unit(paddingSM)} ${unit(padding)}`,
         color: colorText,
         fontSize: token.fontSize,
@@ -122,7 +123,7 @@ export default genStyleHooks<'Chatbox'>(
   (token) => {
     const { paddingXS, calc } = token;
     const chatBoxToken = mergeToken<ChatboxToken>(token, {
-      chatboxContentMaxWidth: `calc(100% - ${calc(paddingXS).add(32).equal()})`,
+      chatboxContentMaxWidth: `calc(100% - ${unit(calc(paddingXS).add(32).equal())})`,
     });
     return genChatboxStyle(chatBoxToken);
   },
