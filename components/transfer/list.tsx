@@ -14,7 +14,6 @@ import type {
   SelectAllLabel,
   TransferDirection,
   TransferLocale,
-  TransferSearchProps,
 } from './index';
 import type { PaginationType, TransferKey } from './interface';
 import type { ListBodyRef, TransferListBodyProps } from './ListBody';
@@ -204,7 +203,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
       <div className={`${prefixCls}-body-search-wrapper`}>
         <Search
           prefixCls={`${prefixCls}-search`}
-          onChange={internalHandleFilter as TransferSearchProps['onChange']}
+          onChange={internalHandleFilter}
           handleClear={internalHandleClear}
           placeholder={searchPlaceholder}
           value={filterValue}
