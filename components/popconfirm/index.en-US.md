@@ -21,6 +21,7 @@ The difference with the `confirm` modal dialog is that it's more lightweight tha
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/locale.tsx">Locale text</code>
 <code src="./demo/placement.tsx">Placement</code>
+<code src="./demo/shift.tsx" iframe="300">Auto Shift</code>
 <code src="./demo/dynamic-trigger.tsx">Conditional trigger</code>
 <code src="./demo/icon.tsx">Customize icon</code>
 <code src="./demo/async.tsx">Asynchronously close</code>

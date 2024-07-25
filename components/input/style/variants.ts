@@ -171,22 +171,40 @@ export const genOutlinedGroupStyle = (token: InputToken): CSSObject => ({
 });
 
 /* ============ Borderless ============ */
-export const genBorderlessStyle = (token: InputToken, extraStyles?: CSSObject): CSSObject => ({
-  '&-borderless': {
-    background: 'transparent',
-    border: 'none',
+export const genBorderlessStyle = (token: InputToken, extraStyles?: CSSObject): CSSObject => {
+  const { componentCls } = token;
 
-    '&:focus, &:focus-within': {
-      outline: 'none',
+  return {
+    '&-borderless': {
+      background: 'transparent',
+      border: 'none',
+
+      '&:focus, &:focus-within': {
+        outline: 'none',
+      },
+
+      // >>>>> Disabled
+      [`&${componentCls}-disabled, &[disabled]`]: {
+        color: token.colorTextDisabled,
+      },
+
+      // >>>>> Status
+      [`&${componentCls}-status-error`]: {
+        '&, & input, & textarea': {
+          color: token.colorError,
+        },
+      },
+
+      [`&${componentCls}-status-warning`]: {
+        '&, & input, & textarea': {
+          color: token.colorWarning,
+        },
+      },
+
+      ...extraStyles,
     },
-
-    [`&${token.componentCls}-disabled, &[disabled]`]: {
-      color: token.colorTextDisabled,
-    },
-
-    ...extraStyles,
-  },
-});
+  };
+};
 
 /* ============== Filled ============== */
 const genBaseFilledStyle = (
@@ -243,7 +261,7 @@ export const genFilledStyle = (token: InputToken, extraStyles?: CSSObject): CSSO
     ...genBaseFilledStyle(token, {
       bg: token.colorFillTertiary,
       hoverBg: token.colorFillSecondary,
-      activeBorderColor: token.colorPrimary,
+      activeBorderColor: token.activeBorderColor,
     }),
 
     [`&${token.componentCls}-disabled, &[disabled]`]: {

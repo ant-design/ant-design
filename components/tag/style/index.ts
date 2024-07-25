@@ -4,9 +4,12 @@ import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
 import { resetComponent } from '../../style';
-import type { FullToken } from '../../theme/internal';
+import type {
+  FullToken,
+  GetDefaultToken,
+  GenStyleFn,
+} from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
-import type { GenStyleFn, GetDefaultToken } from '../../theme/util/genComponentStyleHook';
 
 export interface ComponentToken {
   /**

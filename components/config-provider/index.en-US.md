@@ -55,7 +55,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | componentDisabled | Config antd component `disabled` | boolean | - | 4.21.0 |
 | componentSize | Config antd component size | `small` \| `middle` \| `large` | - |  |
 | csp | Set [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) config | { nonce: string } | - |  |
-| direction | Set direction of layout. See [demo](#components-config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
+| direction | Set direction of layout. See [demo](#config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
 | getPopupContainer | To set the container of the popup element. The default is to create a `div` element in `body` | function(triggerNode) | () => document.body |  |
 | getTargetContainer | Config Affix, Anchor scroll target container | () => HTMLElement | () => window | 4.2.0 |
 | iconPrefixCls | Set icon prefix className | string | `anticon` | 4.11.0 |
@@ -65,6 +65,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | prefixCls | Set prefix className | string | `ant` |  |
 | renderEmpty | Set empty content of components. Ref [Empty](/components/empty/) | function(componentName: string): ReactNode | - |  |
 | theme | Set theme, ref [Customize Theme](/docs/react/customize-theme) | [Theme](/docs/react/customize-theme#theme) | - | 5.0.0 |
+| variant | Set variant of data entry components | `outlined` \| `filled` \| `borderless` | - | 5.19.0 |
 | virtual | Disable virtual scroll when set to `false` | boolean | - | 4.3.0 |
 | warning | Config warning level, when `strict` is `false`, it will aggregate deprecated information into a single message | { strict: boolean } | - | 5.10.0 |
 
@@ -72,10 +73,18 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 
 Setting `Modal`、`Message`、`Notification` static config. Not work on hooks.
 
-```ts
+```tsx
 ConfigProvider.config({
-// 5.13.0+
-  holderRender: (children) => <ConfigProvider prefixCls="ant" iconPrefixCls='anticon' theme={{token: { colorPrimary: 'red' }}}>{children}</ConfigProvider>
+  // 5.13.0+
+  holderRender: (children) => (
+    <ConfigProvider
+      prefixCls="ant"
+      iconPrefixCls="anticon"
+      theme={{ token: { colorPrimary: 'red' } }}
+    >
+      {children}
+    </ConfigProvider>
+  ),
 });
 ```
 

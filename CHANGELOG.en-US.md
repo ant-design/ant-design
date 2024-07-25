@@ -16,6 +16,80 @@ tag: vVERSION
 
 ---
 
+## 5.19.3
+
+`2024-07-19`
+
+- 🐞 Fix Table sorter argument of `onChange` with unexpected value. [#49533](https://github.com/ant-design/ant-design/pull/49533) [@Zyf665](https://github.com/Zyf665)
+- 🐞 Fix Pagination `token.itemBg` not working. [#49933](https://github.com/ant-design/ant-design/pull/49933)
+- 🐞 Fix List wrong align style of pagination. [#49925](https://github.com/ant-design/ant-design/pull/49925) [@coding-ice](https://github.com/coding-ice)
+- 🐞 Fix Image cannot exit preview, when click blank area on both sides of aciton bar. [#49915](https://github.com/ant-design/ant-design/pull/49915) [@wanpan11](https://github.com/wanpan11)
+- 🐞 Fix Card border radius cannot works for non-img elements from `cover` property. [#49862](https://github.com/ant-design/ant-design/pull/49862) [@coding-ice](https://github.com/coding-ice)
+- 💄 Fix Dropdown menu item wrong wrap style at edge of viewport. [#49899](https://github.com/ant-design/ant-design/pull/49899)
+- 💄 Fix Descriptions items may too close with each other. [#49895](https://github.com/ant-design/ant-design/pull/49895) [@crazyair](https://github.com/crazyair)
+- ⌨️ Optimize Select be changed repeatedly when hold the enter key in multi-mode. [#49963](https://github.com/ant-design/ant-design/pull/49963) [@crazyair](https://github.com/crazyair)
+- 🇪🇬 Add missing translation for the Arabic language(Egypt) (ar_EG). [#49852](https://github.com/ant-design/ant-design/pull/49852) [@ahmedsamirdev](https://github.com/ahmedsamirdev)
+- TypeScript
+  - 🤖 Reuse Tooltips type definitions for ColorPicker. [#49949](https://github.com/ant-design/ant-design/pull/49949) [@Wxh16144](https://github.com/Wxh16144)
+
+## 5.19.2
+
+`2024-07-15`
+
+- 🐞 Fix List render `0` when `actions={[]}`. [#49842](https://github.com/ant-design/ant-design/pull/49842) [@int64ago](https://github.com/int64ago)
+- 🐞 Fix Upload with dragging upload, the `fileList` in `beforeUpload` is not fully filled. [#49832](https://github.com/ant-design/ant-design/pull/49832) [@coderz-w](https://github.com/coderz-w)
+- Descriptions
+  - 🐞 Fix Descriptions overlap when content is too long. [#49803](https://github.com/ant-design/ant-design/pull/49803) [@coding-ice](https://github.com/coding-ice)
+  - 🐞 Fix Descriptions render style issue when under Table `expandedRowRender`. [#49727](https://github.com/ant-design/ant-design/pull/49727) [@ljw-codeking](https://github.com/ljw-codeking)
+- 🐞 Fix Spin style issue when use `percent` and `size` at same time. [#49876](https://github.com/ant-design/ant-design/pull/49876)
+- 🇮🇳 Fill DatePicker `kn_IN` missing locales. [#49860](https://github.com/ant-design/ant-design/pull/49860) [@neerajap-01](https://github.com/neerajap-01)
+- Typescript
+  - 🐞 Fix Tree `icon` and `switcherIcon` parameter types not being correctly inferred. [#49821](https://github.com/ant-design/ant-design/pull/49821)
+  - 🐞 Revert Cascader `multiple` definition case `value` definition missing. [#49741](https://github.com/ant-design/ant-design/pull/49741) [@YangZhi1](https://github.com/YangZhi1)
+
+## 5.19.1
+
+`2024-07-05`
+
+- 🐞 Global: @ant-design/colors use pre-compiled color presets to improve runtime performance. [#49714](https://github.com/ant-design/ant-design/pull/49714) [@guoyunhe](https://github.com/guoyunhe)
+- 🐞 Global: No more limit max auto `zIndex` increase but use warning instead. [#49720](https://github.com/ant-design/ant-design/pull/49720)
+- 🐞 Adjust position of Input.TextArea to be consistent with other data entry components. [#49718](https://github.com/ant-design/ant-design/pull/49718) [@wanpan11](https://github.com/wanpan11)
+- 🐞 Fix Input variant `filled` `activeBorderColor` token invalid. [#49699](https://github.com/ant-design/ant-design/pull/49699) [@wanpan11](https://github.com/wanpan11)
+- TypeScript
+  - 🤖 Fix Cascader `multiple` type issue. [#49669](https://github.com/ant-design/ant-design/pull/49669) [@YangZhi1](https://github.com/YangZhi1)
+
+## 5.19.0
+
+`2024-07-01`
+
+- 🆕 ConfigProvider now supports global configuration for `variant`. [#49535](https://github.com/ant-design/ant-design/pull/49535) [@MadCcc](https://github.com/MadCcc)
+- QRCode
+  - QRCode uses `rc-qrcode` instead of `qrcode.react`. [#49454](https://github.com/ant-design/ant-design/pull/49454) [@kiner-tang](https://github.com/kiner-tang)
+  - QRCode adding support for click events and `iconSize` configuration. [#49240](https://github.com/ant-design/ant-design/pull/49240) [@thinkasany](https://github.com/thinkasany)
+- 🆕 Select component's `filterSort` property now includes `searchValue` parameter. [#49352](https://github.com/ant-design/ant-design/pull/49352) [@MadCcc](https://github.com/MadCcc)
+- 🆕 Pagination adds `simple` property, supports read-only mode, and introduces `align` property. [#49562](https://github.com/ant-design/ant-design/pull/49562) [@coding-ice](https://github.com/coding-ice)
+- 🐞 Enhanced Anchor's `affix` property for more configuration options. [#49295](https://github.com/ant-design/ant-design/pull/49295) [@gin-lsl](https://github.com/gin-lsl)
+- DatePicker
+  - 🐞 Fixed missing arrow in DatePicker/TimePicker RangePicker with `placement` set to `topRight` or `bottomRight`.[#49333](https://github.com/ant-design/ant-design/pull/49333)
+  - 🐞 Fixed missing accessible text for DatePicker switch button, style issue in RTL mode for `DatePicker.RangePicker`, and crash when entering wrong end value in year selection of DatePicker.RangePicker.[#49333](https://github.com/ant-design/ant-design/pull/49333)
+  - 🐞 Fixed DatePicker.RangePicker resetting selected dates when entering dates via keyboard. [#49333](https://github.com/ant-design/ant-design/pull/49333)
+- 🐞 Button fixed `disabled` property not working when used as `Dropdown` `trigger`. [#47363](https://github.com/ant-design/ant-design/pull/47363)
+- 🐞 InputNumber now warns when using `type=number` with `changeOnWheel`. [#49648](https://github.com/ant-design/ant-design/pull/49648) [@wanpan11](https://github.com/wanpan11)
+- Table
+  - 🐞 Table fixed issue with `locale.emptyText` showing default value when set to a non-`undefined` value. [#49599](https://github.com/ant-design/ant-design/pull/49599) [@照明胧](https://github.com/mmmml-zhao)
+  - 🐞 Fixed Table filter panel not working after customizing global Empty style. [#49548](https://github.com/ant-design/ant-design/pull/49548) [@duqigit](https://github.com/duqigit)
+- 🐞 Upload fixed rendering performance issue when listing many files in list mode. [#49598](https://github.com/ant-design/ant-design/pull/49598) [@tlkv](https://github.com/tlkv)
+- 💄 Added initial styles for `SubMenu` node in Menu. [#49643](https://github.com/ant-design/ant-design/pull/49643) [@wanpan11](https://github.com/wanpan11)
+- 💄 Improved active style for Slider handle. [#49630](https://github.com/ant-design/ant-design/pull/49630)
+- 💄 Optimized `variant=borderless` style for DatePicker, TimePicker, Select, TreeSelect, Input, InputNumber, Mentions, now distinguishable when setting `status` property. [#49608](https://github.com/ant-design/ant-design/pull/49608)
+- 🐞 Fixed Typography `ellipsis` not working when parent has `nowrap` style. [#49667](https://github.com/ant-design/ant-design/pull/49667)
+- TypeScript:
+  - 🤖 ConfigProvider Improved TypeScript definition for `renderEmpty` method. [#49602](https://github.com/ant-design/ant-design/pull/49602) [@Wxh16144](https://github.com/Wxh16144)
+- 🌐 Locales
+  - 🇹🇭 Added missing Thai translations for `Transfer.deselectAll`, `Text.collapse`, `QRCode.scanned`, `ColorPicker.presetEmpty`. [#49588](https://github.com/ant-design/ant-design/pull/49588) by [@Tantatorn-dev](https://github.com/Tantatorn-dev)
+  - 🇳🇱 Fixed nl_NL localization issues for Tour. [#49612](https://github.com/ant-design/ant-design/pull/49612) by [@Hannnnnnnnnnnnnnnn](https://github.com/Hannnnnnnnnnnnnnnn)
+  - 🇹🇷 Adjusted Turkish language text for `DatePicker`. [#49333](https://github.com/ant-design/ant-design/pull/49333)
+
 ## 5.18.3
 
 `2024-06-19`
@@ -1681,7 +1755,7 @@ tag: vVERSION
 - 💄 Optimize Design Token `boxShadow` tokens. [#40516](https://github.com/ant-design/ant-design/pull/40516)
 - TypeScript
   - 🤖 Optimize Badge Tag Tooltip `color` type definition. [#39871](https://github.com/ant-design/ant-design/pull/39871)
-  - 🤖 MISC: Add `Breakpoint` `ThmeConfig` `GlobalToken` type export. [#40508](https://github.com/ant-design/ant-design/pull/40508) [@Kamahl19](https://github.com/Kamahl19)
+  - 🤖 MISC: Add `Breakpoint` `ThemeConfig` `GlobalToken` type export. [#40508](https://github.com/ant-design/ant-design/pull/40508) [@Kamahl19](https://github.com/Kamahl19)
   - 🤖 Update Upload `fileList` type. [#40585](https://github.com/ant-design/ant-design/pull/40585)
   - 🤖 Remove Tour ForwardRefRenderFunction. [#39924](https://github.com/ant-design/ant-design/pull/39924)
 - 🌐 Localization

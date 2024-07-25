@@ -657,7 +657,7 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       },
 
       // fix slight height diff in Firefox:
-      // https://ant.design/components/auto-complete-cn/#components-auto-complete-demo-certain-category
+      // https://ant.design/components/auto-complete-cn/#auto-complete-demo-certain-category
       [`${componentCls}-lg`]: {
         lineHeight: token.calc(token.lineHeightLG).sub(0.0002).equal(),
       },
@@ -809,7 +809,7 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
           // Clear Icon
           [`${componentCls}-clear-icon`]: {
             position: 'absolute',
-            insetInlineEnd: token.paddingXS,
+            insetInlineEnd: token.paddingInline,
             insetBlockStart: token.paddingXS,
           },
 
@@ -824,6 +824,14 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
             alignItems: 'center',
             margin: 'auto',
             pointerEvents: 'none',
+          },
+        },
+      },
+
+      [`&-affix-wrapper${componentCls}-affix-wrapper-sm`]: {
+        [`${componentCls}-suffix`]: {
+          [`${componentCls}-clear-icon`]: {
+            insetInlineEnd: token.paddingInlineSM,
           },
         },
       },

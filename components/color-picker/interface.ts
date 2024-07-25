@@ -3,6 +3,7 @@ import type { ColorPickerProps as RcColorPickerProps } from '@rc-component/color
 
 import type { SizeType } from '../config-provider/SizeContext';
 import type { PopoverProps } from '../popover';
+import type { TooltipPlacement } from '../tooltip';
 import type { Color } from './color';
 
 export enum ColorFormat {
@@ -25,13 +26,8 @@ export interface PresetsItem {
 }
 export type TriggerType = 'click' | 'hover';
 
-export type TriggerPlacement =
-  | 'top'
-  | 'topLeft'
-  | 'topRight'
-  | 'bottom'
-  | 'bottomLeft'
-  | 'bottomRight';
+export type TriggerPlacement = TooltipPlacement; // Alias, to prevent breaking changes.
+
 export interface ColorPickerBaseProps {
   color?: Color;
   prefixCls: string;
