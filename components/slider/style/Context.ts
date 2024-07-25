@@ -3,6 +3,7 @@ import type { SliderProps as RcSliderProps } from 'rc-slider';
 
 export interface SliderInternalContextProps {
   handleRender?: RcSliderProps['handleRender'];
+  direction?: 'ltr' | 'rtl';
 }
 
 /** @private Internal context. Do not use in your production. */

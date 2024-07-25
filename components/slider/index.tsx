@@ -147,12 +147,21 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
 
   const { vertical } = props;
 
-  const { direction, slider, getPrefixCls, getPopupContainer } = React.useContext(ConfigContext);
+  const {
+    direction: contextDirection,
+    slider,
+    getPrefixCls,
+    getPopupContainer,
+  } = React.useContext(ConfigContext);
   const contextDisabled = React.useContext(DisabledContext);
   const mergedDisabled = disabled ?? contextDisabled;
 
   // ============================= Context ==============================
-  const { handleRender: contextHandleRender } = React.useContext(SliderInternalContext);
+  const { handleRender: contextHandleRender, direction: internalContextDirection } =
+    React.useContext(SliderInternalContext);
+
+  const mergedDirection = internalContextDirection || contextDirection;
+  const isRTL = mergedDirection === 'rtl';
 
   // =============================== Open ===============================
   const [hoverOpen, setHoverOpen] = useRafLock();
@@ -190,7 +199,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     if (!vert) {
       return 'top';
     }
-    return direction === 'rtl' ? 'left' : 'right';
+    return isRTL ? 'left' : 'right';
   };
 
   // ============================== Style ===============================
@@ -203,7 +212,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     slider?.className,
     rootClassName,
     {
-      [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-rtl`]: isRTL,
       [`${prefixCls}-lock`]: dragging,
     },
     hashId,
@@ -211,7 +220,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
   );
 
   // make reverse default on rtl direction
-  if (direction === 'rtl' && !restProps.vertical) {
+  if (isRTL && !restProps.vertical) {
     restProps.reverse = !restProps.reverse;
   }
 

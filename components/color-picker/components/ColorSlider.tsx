@@ -109,6 +109,7 @@ export const GradientColorSlider = (props: GradientColorSliderProps) => {
 
   const sliderContext: SliderInternalContextProps = React.useMemo(
     () => ({
+      direction: 'ltr',
       handleRender,
     }),
     [],

@@ -56,7 +56,7 @@ const genSliderStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
             border: `${unit(lineWidthBold)} solid ${colorBgElevated}`,
             boxShadow: `${colorPickerInsetShadow}, 0 0 0 1px ${colorFillSecondary}`,
             outline: 'none',
-            left: token.calc(lineWidthBold).mul(-1).equal(),
+            insetInlineStart: token.calc(lineWidthBold).mul(-1).equal(),
             top: token.calc(lineWidthBold).mul(-1).equal(),
             background: 'transparent',
             transform: 'scale(0.8)',
