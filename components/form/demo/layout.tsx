@@ -20,7 +20,7 @@ const App: React.FC = () => {
       style={{ width: '100%', maxWidth: formLayout === 'inline' ? 'none' : 600 }}
     >
       <Form.Item label="Form Layout" name="layout">
-        <Flex justify={'start'}>
+        <Flex justify="start">
           <Radio.Group value={formLayout}>
             <Radio.Button value="horizontal">Horizontal</Radio.Button>
             <Radio.Button value="vertical">Vertical</Radio.Button>
