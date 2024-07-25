@@ -18,6 +18,7 @@ demo:
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本用法</code>
+<code src="./demo/group.tsx">复杂布局</code>
 
 ## API
 

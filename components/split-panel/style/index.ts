@@ -20,13 +20,13 @@ const genSplitPanelStyle: GenerateStyle<any> = (token: any): CSSObject => {
         justifyContent: 'center',
         position: 'relative',
 
-        '&-resize': {
+        [`> ${componentCls}-bar-resize`]: {
           background: 'gray',
           borderRadius: '4px',
           pointerEvents: 'none',
         },
 
-        '&-collapse': {
+        [`> ${componentCls}-bar-collapse`]: {
           position: 'absolute',
           background: 'red',
         },
@@ -34,44 +34,50 @@ const genSplitPanelStyle: GenerateStyle<any> = (token: any): CSSObject => {
 
       '&-horizontal': {
         flexDirection: 'row',
+        width: '100%',
+        height: '100%',
 
-        [`${componentCls}-bar`]: {
+
+        [`> ${componentCls}-bar`]: {
           cursor: 'col-resize',
 
-          '&-resize': {
+          [`> ${componentCls}-bar-resize`]: {
             width: '100%',
             height: 20,
           },
 
-          '&-collapse': {
+          [`> ${componentCls}-bar-collapse`]: {
             width: 16,
             height: 10,
           },
         },
 
-        [`${componentCls}-bar-disabled`]: {
+        [`> ${componentCls}-bar-disabled`]: {
           cursor: 'default',
         },
       },
 
       '&-vertical': {
         flexDirection: 'column',
+        width: '100%',
+        height: '100%',
 
-        [`${componentCls}-bar`]: {
+
+        [`> ${componentCls}-bar`]: {
           cursor: 'row-resize',
 
-          '&-resize': {
+          [`> ${componentCls}-bar-resize`]: {
             width: 20,
             height: '100%',
           },
 
-          '&-collapse': {
+          [`> ${componentCls}-bar-collapse`]: {
             width: 10,
             height: 16,
           },
         },
 
-        [`${componentCls}-bar-disabled`]: {
+        [`> ${componentCls}-bar-disabled`]: {
           cursor: 'default',
         },
       },
