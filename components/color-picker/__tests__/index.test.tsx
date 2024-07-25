@@ -699,6 +699,17 @@ describe('ColorPicker', () => {
     ).toBeFalsy();
   });
 
+  it('Should correctly display color in controlled mode without providing onChange', () => {
+    const Demo = () => <ColorPicker value="#1677ff" open />;
+    const { container } = render(<Demo />);
+    const trigger = container.querySelector('.ant-color-picker-color-block-inner');
+    expect(trigger).toHaveStyle('background-color: #1677ff');
+    fireEvent.change(container.querySelector('.ant-color-picker-hex-input input')!, {
+      target: { value: '#273B57' },
+    });
+    expect(trigger).toHaveStyle('background-color: #1677ff');
+  });
+
   describe('default clearValue should be changed', () => {
     const Demo = ({ defaultValue }: { defaultValue?: string }) => {
       const [color, setColor] = useState<string | undefined>(defaultValue);
