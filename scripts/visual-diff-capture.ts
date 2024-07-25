@@ -75,7 +75,8 @@ class BrowserAuto {
       deviceScaleFactor: 2,
     });
 
-    this.context.setDefaultTimeout(5000);
+    // 要截屏 6 张，需要测试一下要不要拆分为独立任务，还是按照 demoPath 一次性截屏 6 张
+    this.context.setDefaultTimeout(5000 * 6);
 
     await fse.ensureDir(this.outputDir);
     await fse.emptyDir(this.outputDir);
