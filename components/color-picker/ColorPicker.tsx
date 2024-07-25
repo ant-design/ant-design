@@ -120,7 +120,7 @@ const ColorPicker: CompoundedComponent = (props) => {
 
     // Trigger change event
     if (onChange) {
-      onChange(color, color.toHexString());
+      onChange(color, color.toCssString());
     }
 
     // Only for drag-and-drop color picking
