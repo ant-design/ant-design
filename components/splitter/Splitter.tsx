@@ -4,13 +4,13 @@ import classNames from 'classnames';
 
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import { SplitPanelContext } from './context';
+import { SplitterContext } from './context';
 import Panel from './Panel';
 import SplitBar from './SplitBar';
 import useStyle from './style';
 import useResize from './useResize';
 
-export interface SplitPanelItem {
+export interface SplitterItem {
   collapsible?: boolean;
   min?: number;
   max?: number;
@@ -19,17 +19,17 @@ export interface SplitPanelItem {
   resizable?: boolean;
 }
 
-export interface SplitPanelProps {
+export interface SplitterProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
 
-  items: SplitPanelItem[];
+  items: SplitterItem[];
   layout?: 'horizontal' | 'vertical';
 }
 
-const SplitPanel: React.FC<SplitPanelProps> = (props) => {
+const Splitter: React.FC<SplitterProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -125,12 +125,12 @@ const SplitPanel: React.FC<SplitPanelProps> = (props) => {
   );
 
   return wrapCSSVar(
-    <SplitPanelContext.Provider value={{ layout, resizeStart }}>
+    <SplitterContext.Provider value={{ layout, resizeStart }}>
       <div ref={containerRef} style={style} className={containerClassName}>
         {childrenNode}
       </div>
-    </SplitPanelContext.Provider>,
+    </SplitterContext.Provider>,
   );
 };
 
-export default SplitPanel;
+export default Splitter;

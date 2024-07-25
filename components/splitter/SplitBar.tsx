@@ -1,10 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { SplitPanelContext } from './context';
-import type { SplitPanelItem } from './SplitPanel';
+import { SplitterContext } from './context';
+import type { SplitterItem } from './Splitter';
 
-export interface SplitBarProps extends Pick<SplitPanelItem, 'resizable' | 'collapsible'> {
+export interface SplitBarProps extends Pick<SplitterItem, 'resizable' | 'collapsible'> {
   prefixCls: string;
   index: number;
   size?: number;
@@ -13,7 +13,7 @@ export interface SplitBarProps extends Pick<SplitPanelItem, 'resizable' | 'colla
 const SplitBar: React.FC<SplitBarProps> = (props) => {
   const { prefixCls, size, index, resizable = true, collapsible = false } = props;
 
-  const { resizeStart } = React.useContext(SplitPanelContext);
+  const { resizeStart } = React.useContext(SplitterContext);
 
   const splitBarClassName = classNames(
     `${prefixCls}-bar`,

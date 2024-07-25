@@ -1,7 +1,7 @@
 ---
 category: Components
 group: 布局
-title: SplitPanel
+title: Splitter
 subtitle: 分隔面板
 description: 用于页面和区块的加载中状态。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5mC5TomY4B0AAAAAAAAAAAAADrJ8AQ/original

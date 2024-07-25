@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Radio, SplitPanel } from 'antd';
+import { Radio, Splitter } from 'antd';
 
-import type { SplitPanelProps } from '../SplitPanel';
+import type { SplitterProps } from '../Splitter';
 
 const App: React.FC = () => {
-  const [layout, setLayout] = useState<SplitPanelProps['layout']>('horizontal');
+  const [layout, setLayout] = useState<SplitterProps['layout']>('horizontal');
 
   return (
     <>
@@ -17,7 +17,7 @@ const App: React.FC = () => {
         <Radio.Button value="horizontal">horizontal</Radio.Button>
       </Radio.Group>
 
-      <SplitPanel
+      <Splitter
         layout={layout}
         style={{
           height: 300,

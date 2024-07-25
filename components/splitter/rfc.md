@@ -4,7 +4,7 @@
 
 ## Components
 
-- SplitPanel
+- Splitter
   - 对外暴露组件
 - Panel
   - 面板组件
@@ -13,14 +13,14 @@
 
 ## API
 
-#### SplitPanel
+#### Splitter
 
 | Props        | Descriptions | Type                       | Default      |
 | ------------ | ------------ | -------------------------- | ------------ |
 | layout       | 布局方向     | `horizontal` \| `vertical` | `horizontal` |
-| items        | 面板配置     | `SplitPanelItem`           | -            |
+| items        | 面板配置     | `SplitterItem`           | -            |
 
-#### SplitPanelItem
+#### SplitterItem
 
 | Props       | Descriptions     | Type        | Default |
 | ----------- | ---------------- | ----------- | ------- |
@@ -35,7 +35,7 @@
 
 ```ts
 const App: React.FC = () => (
-  <SplitPanel
+  <Splitter
     height={300}
     items={[
       {

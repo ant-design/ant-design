@@ -4,7 +4,7 @@ import { resetComponent } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 import { genStyleHooks } from '../../theme/internal';
 
-const genSplitPanelStyle: GenerateStyle<any> = (token: any): CSSObject => {
+const genSplitterStyle: GenerateStyle<any> = (token: any): CSSObject => {
   const { componentCls } = token;
   return {
     [`${componentCls}`]: {
@@ -102,4 +102,4 @@ const genSplitPanelStyle: GenerateStyle<any> = (token: any): CSSObject => {
 };
 
 // ============================== Export ==============================
-export default genStyleHooks('SplitPanel', (token) => [genSplitPanelStyle(token)]);
+export default genStyleHooks('Splitter', (token) => [genSplitterStyle(token)]);

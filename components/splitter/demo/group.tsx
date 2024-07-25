@@ -1,8 +1,8 @@
 import React from 'react';
-import { SplitPanel } from 'antd';
+import { Splitter } from 'antd';
 
 const App: React.FC = () => (
-  <SplitPanel
+  <Splitter
     layout="vertical"
     style={{
       height: 300,
@@ -15,14 +15,14 @@ const App: React.FC = () => (
       },
       {
         content: (
-          <SplitPanel
+          <Splitter
             items={[
               {
                 content: <div>222</div>,
               },
               {
                 content: (
-                  <SplitPanel
+                  <Splitter
                     layout="vertical"
                     items={[
                       {

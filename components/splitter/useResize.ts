@@ -1,13 +1,13 @@
 import type React from 'react';
 import { useEffect, useRef, useState } from 'react';
 
-import type { SplitPanelProps } from './SplitPanel';
+import type { SplitterProps } from './Splitter';
 
 export interface StartInfo {
   x: number;
   y: number;
   index: number;
-  splitPanelBar: HTMLDivElement | null;
+  splitBar: HTMLDivElement | null;
 }
 
 export interface UseResize {
@@ -17,24 +17,24 @@ export interface UseResize {
 
 const useResize = (
   container: React.RefObject<HTMLDivElement>,
-  layout: SplitPanelProps['layout'],
+  layout: SplitterProps['layout'],
   gutter: number,
   offsets: React.RefObject<number[]>,
-  items: SplitPanelProps['items'] = [],
+  items: SplitterProps['items'] = [],
 ): UseResize => {
   const resizingRef = useRef(false);
-  const startInfo = useRef<StartInfo>({ x: 0, y: 0, index: 0, splitPanelBar: null });
+  const startInfo = useRef<StartInfo>({ x: 0, y: 0, index: 0, splitBar: null });
 
   const [resizing, setResizing] = useState(false);
 
   const splitBarSizeCount = items.length * gutter;
 
   const setOffset = (offset: number, x: number, y: number) => {
-    const { index, splitPanelBar } = startInfo.current;
+    const { index, splitBar } = startInfo.current;
 
-    if (splitPanelBar && offsets.current) {
-      const previousElement = splitPanelBar.previousElementSibling as HTMLDivElement;
-      const nextElement = splitPanelBar.nextElementSibling as HTMLDivElement;
+    if (splitBar && offsets.current) {
+      const previousElement = splitBar.previousElementSibling as HTMLDivElement;
+      const nextElement = splitBar.nextElementSibling as HTMLDivElement;
 
       const percentCount = offsets.current[index] + offsets.current[index + 1];
 
@@ -106,7 +106,7 @@ const useResize = (
     if (!resizingRef.current) return;
 
     resizingRef.current = false;
-    startInfo.current = { x: 0, y: 0, index: 0, splitPanelBar: null };
+    startInfo.current = { x: 0, y: 0, index: 0, splitBar: null };
     setResizing(false);
   };
 
@@ -115,7 +115,7 @@ const useResize = (
     if (e.target) {
       setResizing(true);
       resizingRef.current = true;
-      startInfo.current = { x: e.clientX, y: e.clientY, index, splitPanelBar: target };
+      startInfo.current = { x: e.clientX, y: e.clientY, index, splitBar: target };
     }
   };
 
