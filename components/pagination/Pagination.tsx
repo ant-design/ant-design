@@ -1,3 +1,4 @@
+import * as React from 'react';
 import DoubleLeftOutlined from '@ant-design/icons/DoubleLeftOutlined';
 import DoubleRightOutlined from '@ant-design/icons/DoubleRightOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
@@ -6,15 +7,21 @@ import classNames from 'classnames';
 import type { PaginationLocale, PaginationProps as RcPaginationProps } from 'rc-pagination';
 import RcPagination from 'rc-pagination';
 import enUS from 'rc-pagination/lib/locale/en_US';
-import * as React from 'react';
+
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import { useLocale } from '../locale';
+import { useToken } from '../theme/internal';
 import { MiddleSelect, MiniSelect } from './Select';
 import useStyle from './style';
-import { useToken } from '../theme/internal';
 import BorderedStyle from './style/bordered';
+
+export interface pageSizeChangerProps {
+  options?: string[] | number[];
+  showSearch?: boolean;
+  onChange?: (size: number) => void;
+}
 
 export interface PaginationProps extends RcPaginationProps {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
@@ -23,7 +30,7 @@ export interface PaginationProps extends RcPaginationProps {
   role?: string;
   totalBoundaryShowSizeChanger?: number;
   rootClassName?: string;
-  showSizeOptionsSearch?: boolean;
+  pageSizeChanger?: pageSizeChangerProps;
 }
 
 export type PaginationPosition = 'top' | 'bottom' | 'both';
@@ -49,7 +56,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     selectComponentClass,
     responsive,
     showSizeChanger,
-    showSizeOptionsSearch = true,
+    pageSizeChanger = { showSearch: true },
     ...restProps
   } = props;
   const { xs } = useBreakpoint(responsive);
@@ -140,7 +147,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
         selectComponentClass={selectComponentClass || (isSmall ? MiniSelect : MiddleSelect)}
         locale={locale}
         showSizeChanger={mergedShowSizeChanger}
-        showSizeOptionsSearch={showSizeOptionsSearch}
+        pageSizeChanger={pageSizeChanger}
       />
     </>,
   );
