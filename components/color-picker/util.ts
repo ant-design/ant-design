@@ -63,5 +63,7 @@ export const getGradientPercentColor = (
     }
   }
 
+  // This will never reach
+  /* istanbul ignore next */
   return '';
 };

@@ -196,4 +196,8 @@ describe('ColorPicker.gradient', () => {
       'linear-gradient(90deg, rgb(0,255,0) 50%, rgb(0,0,255) 100%)',
     );
   });
+
+  it('invalid not crash', async () => {
+    render(<ColorPicker mode={['single', 'gradient']} defaultValue={[]} open />);
+  });
 });

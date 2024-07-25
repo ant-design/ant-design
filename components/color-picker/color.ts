@@ -33,17 +33,19 @@ export class AggregationColor {
       return;
     }
 
-    if (Array.isArray(color)) {
+    const isArray = Array.isArray(color);
+
+    if (isArray && color.length) {
       this.colors = color.map(({ color: c, percent }) => ({
         color: new AggregationColor(c),
         percent,
       }));
       this.metaColor = new RcColor(this.colors[0].color.metaColor);
     } else {
-      this.metaColor = new RcColor(color);
+      this.metaColor = new RcColor(isArray ? '' : color);
     }
 
-    if (!color) {
+    if (!color || (isArray && !this.colors)) {
       this.metaColor = this.metaColor.setA(0);
       this.cleared = true;
     }
