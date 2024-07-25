@@ -95,7 +95,9 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
       open={open}
       onOpenChange={onInternalOpenChange}
       overlay={
-        title || content ? <Overlay prefixCls={prefixCls} title={title} content={content} /> : null
+        getRenderPropValue(title) || getRenderPropValue(content) ? (
+          <Overlay prefixCls={prefixCls} title={title} content={content} />
+        ) : null
       }
       transitionName={getTransitionName(rootPrefixCls, 'zoom-big', otherProps.transitionName)}
       data-popover-inject
