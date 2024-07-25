@@ -10,7 +10,7 @@ import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Form from '../../form';
 import theme from '../../theme';
-import type { AggregationColor } from '../color';
+import { AggregationColor } from '../color';
 import ColorPicker from '../ColorPicker';
 import type { ColorPickerProps, ColorValueType } from '../interface';
 import { generateColor } from '../util';
@@ -542,10 +542,12 @@ describe('ColorPicker', () => {
           onChangeComplete={setChangedValue}
         >
           <div className="color-value">
-            {typeof value === 'string' ? value : value?.toHexString()}
+            {value instanceof AggregationColor ? value.toHexString() : String(value)}
           </div>
           <div className="color-value-changed">
-            {typeof changedValue === 'string' ? changedValue : changedValue?.toHexString()}
+            {changedValue instanceof AggregationColor
+              ? changedValue.toHexString()
+              : String(changedValue)}
           </div>
         </ColorPicker>
       );
