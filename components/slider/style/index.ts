@@ -199,6 +199,11 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
         height: handleSize,
         outline: 'none',
 
+        // Dragging status
+        '&-dragging-delete': {
+          opacity: 0,
+        },
+
         // 扩大选区
         '&::before': {
           content: '""',

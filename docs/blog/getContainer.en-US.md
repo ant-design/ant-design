@@ -2,6 +2,8 @@
 title: Some change on getContainer
 date: 2022-12-08
 author: zombieJ
+zhihu_url: https://zhuanlan.zhihu.com/p/606878571
+yuque_url: https://www.yuque.com/ant-design/ant-design/eegn0tn5fy94uwk8
 ---
 
 We often encounter the need for pop-up elements when developing, such as the Select drop-down box, or the Modal component. When it is directly rendered under the current node, it may be clipped by the `overflow: hidden` of the parent node:
