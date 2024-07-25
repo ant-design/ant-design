@@ -394,6 +394,22 @@ async function boot() {
         } as IBadCase;
       }
 
+      // edge case: target branch don't contain this image
+      const baseImgExists = await fse.exists(baseImgPath);
+      if (!baseImgExists) {
+        console.log(chalk.green(`🆕 Added image: ${compareImgName}\n`));
+        badCases.push({
+          type: 'added',
+          filename: currentImgPath,
+          weight: 0,
+        });
+        await fse.copy(
+          path.join(currentImgSourceDir, currentImgPath),
+          path.resolve(currentImgReportDir, currentImgPath),
+        );
+        continue;
+      }
+
       const mismatchedPxPercent = await compareScreenshots(
         baseImgPath,
         currentImgPath,
