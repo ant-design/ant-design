@@ -73,7 +73,7 @@ export default function useModeColor(
     const colorObj = generateColor(mergedColor || '');
 
     // Use `cacheColor` in case the color is `cleared`
-    return colorObj.equals(cacheColor) ? cacheColor : colorObj;
+    return colorObj.equals(cacheColor) ? cacheColor! : colorObj;
   }, [mergedColor, cacheColor]);
 
   // >>>>> Mode
