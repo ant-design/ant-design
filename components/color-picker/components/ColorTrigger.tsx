@@ -22,12 +22,10 @@ export interface ColorTriggerProps {
   onClick?: MouseEventHandler<HTMLDivElement>;
   onMouseEnter?: MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: MouseEventHandler<HTMLDivElement>;
-  onMouseDown?: MouseEventHandler<HTMLDivElement>;
 }
 
 const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) => {
-  const { color, prefixCls, open, disabled, format, className, showText, onMouseDown, ...rest } =
-    props;
+  const { color, prefixCls, open, disabled, format, className, showText, ...rest } = props;
   const colorTriggerPrefixCls = `${prefixCls}-trigger`;
 
   const [locale] = useLocale('ColorPicker');
