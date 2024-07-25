@@ -1,6 +1,7 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable compat/compat */
 import fs from 'fs';
 import path from 'path';
 
@@ -104,17 +105,24 @@ class BrowserAuto {
 
     // 每个不同主题需要单独截图，可否截屏到一起呢
     for (const theme of themes) {
-      await this.visitDemoPage(page, mdPath, theme);
+      await this.visitDemoPage(page, mdPath, theme, true);
+      await this.visitDemoPage(page, mdPath, theme, false);
     }
 
     return page?.close();
   }
 
-  private async visitDemoPage(page: Page, mdPath: string, theme: string) {
+  private async visitDemoPage(page: Page, mdPath: string, theme: string, enableCssVar: boolean) {
     const demoUrl = await retrieveDemoUrl(mdPath);
     const options = await retrieveConfig(mdPath);
 
-    const pageUrl = `http://localhost:${port}/~demos/${demoUrl}?theme=${theme}&enable-css-var=1`;
+    const query = new URLSearchParams();
+    query.set('theme', theme);
+    if (enableCssVar) {
+      query.set('enable-css-var', '1');
+    }
+
+    const pageUrl = `http://localhost:${port}/~demos/${demoUrl}?${query.toString()}`;
 
     await page.goto(pageUrl);
     // TODO: 需要禁用掉页面中的各种采集和埋点请求，避免干扰
@@ -139,7 +147,7 @@ class BrowserAuto {
     }
 
     // ~demos/button-demo-basic -> button-basic
-    const imgName = `${demoUrl.replace('-demo', '')}.${theme}.png`;
+    const imgName = `${demoUrl.replace('-demo', '')}.${theme}${enableCssVar ? '.css-var' : ''}.png`;
 
     // 保存截图到 ./result 目录
     await page.screenshot({
