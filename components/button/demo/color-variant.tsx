@@ -16,14 +16,14 @@ const App: React.FC = () => {
         Preview
       </Divider>
       <Flex gap="small" wrap>
+        <Button color={color} variant="solid">
+          Solid
+        </Button>
         <Button color={color} variant="outlined">
           Outlined
         </Button>
         <Button color={color} variant="dashed">
           Dashed
-        </Button>
-        <Button color={color} variant="solid">
-          Solid
         </Button>
         <Button color={color} variant="filled">
           Filled

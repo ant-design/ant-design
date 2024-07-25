@@ -390,6 +390,14 @@ Array [
     class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <button
+      class="ant-btn ant-btn-default ant-btn-solid"
+      type="button"
+    >
+      <span>
+        Solid
+      </span>
+    </button>
+    <button
       class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
@@ -403,14 +411,6 @@ Array [
     >
       <span>
         Dashed
-      </span>
-    </button>
-    <button
-      class="ant-btn ant-btn-default ant-btn-solid"
-      type="button"
-    >
-      <span>
-        Solid
       </span>
     </button>
     <button
@@ -557,6 +557,172 @@ exports[`renders components/button/demo/debug-block.tsx extend context correctly
 `;
 
 exports[`renders components/button/demo/debug-block.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/button/demo/debug-color-variant.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  style="gap: 15px;"
+>
+  <div
+    class="ant-flex ant-flex-justify-space-between"
+  >
+    <button
+      class="ant-btn ant-btn-default ant-btn-solid ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Solid
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Outlined
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-dashed ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Dashed
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-filled ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Filled
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-text ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Text
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-link ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Link
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-flex ant-flex-justify-space-between"
+  >
+    <button
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Solid
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-outlined ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Outlined
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-dashed ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Dashed
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-filled ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Filled
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-text ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Text
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-link ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Link
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-flex ant-flex-justify-space-between"
+  >
+    <button
+      class="ant-btn ant-btn-dangerous ant-btn-solid ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Solid
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-dangerous ant-btn-outlined ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Outlined
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-dangerous ant-btn-dashed ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Dashed
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-dangerous ant-btn-filled ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Filled
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-dangerous ant-btn-text ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Text
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-dangerous ant-btn-link ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Link
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/button/demo/debug-color-variant.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/button/demo/debug-icon.tsx extend context correctly 1`] = `
 Array [
