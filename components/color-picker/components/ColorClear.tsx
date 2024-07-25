@@ -12,12 +12,12 @@ interface ColorClearProps {
 
 const ColorClear: FC<ColorClearProps> = ({ prefixCls, value, onChange }) => {
   const handleClick = () => {
-    if (value && !value.cleared) {
+    if (onChange && value && !value.cleared) {
       const hsba = value.toHsb();
       hsba.a = 0;
       const genColor = generateColor(hsba);
       genColor.cleared = true;
-      onChange?.(genColor);
+      onChange(genColor);
     }
   };
   return <div className={`${prefixCls}-clear`} onClick={handleClick} />;

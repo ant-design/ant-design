@@ -514,17 +514,37 @@ describe('ColorPicker', () => {
   });
 
   it('Should onChangeComplete work', async () => {
+    const spyRect = spyElementPrototypes(HTMLElement, {
+      getBoundingClientRect: () => ({
+        x: 0,
+        y: 100,
+        width: 100,
+        height: 100,
+      }),
+    });
+
     const handleChangeComplete = jest.fn();
     const { container } = render(
       <ColorPicker open onChangeComplete={handleChangeComplete} allowClear />,
     );
 
+    // Move
     doMouseMove(container, 0, 999);
-    fireEvent.click(container.querySelector('.ant-color-picker-clear')!);
+    expect(handleChangeComplete).toHaveBeenCalledTimes(1);
+
+    // Clear
+    fireEvent.click(
+      container.querySelector('.ant-color-picker-operation .ant-color-picker-clear')!,
+    );
+    expect(handleChangeComplete).toHaveBeenCalledTimes(2);
+
+    // Change
     fireEvent.change(container.querySelector('.ant-color-picker-hex-input input')!, {
       target: { value: '#273B57' },
     });
     expect(handleChangeComplete).toHaveBeenCalledTimes(3);
+
+    spyRect.mockRestore();
   });
 
   it('Should disabledAlpha work', async () => {

@@ -77,7 +77,7 @@ const PanelPicker: FC = () => {
 
   const onInternalChange = (colorValue: AggregationColor | Color, fromPicker?: boolean) => {
     const nextColor = generateColor(colorValue);
-    onChange(value.cleared ? genAlphaColor(nextColor) : nextColor, fromPicker);
+    onChange(fillColor(value.cleared ? genAlphaColor(nextColor) : nextColor), fromPicker);
   };
 
   const onInternalChangeComplete = (nextColor: AggregationColor) => {
@@ -99,7 +99,7 @@ const PanelPicker: FC = () => {
           prefixCls={prefixCls}
           value={value}
           onChange={(clearColor) => {
-            onChange?.(clearColor);
+            onChange(clearColor);
             onClear?.();
           }}
           {...injectProps}
