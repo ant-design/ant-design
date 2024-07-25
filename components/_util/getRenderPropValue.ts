@@ -11,7 +11,7 @@ export const getRenderPropValue = (
 
   if (typeof propValue === 'function') {
     const result = propValue();
-    return result === null ? null : result;
+    return result || null;
   }
 
   return propValue;
