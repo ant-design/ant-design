@@ -2,7 +2,7 @@
 
 exports[`Select Deprecated should ignore mode="combobox" 1`] = `
 <div
-  class="ant-select ant-select-single ant-select-show-arrow"
+  class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -62,7 +62,7 @@ exports[`Select Deprecated should ignore mode="combobox" 1`] = `
 
 exports[`Select Select Custom Icons should support customized icons 1`] = `
 <div
-  class="ant-select ant-select-single ant-select-show-arrow"
+  class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -122,7 +122,7 @@ exports[`Select Select Custom Icons should support customized icons 1`] = `
 
 exports[`Select rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-select ant-select-rtl ant-select-single ant-select-show-arrow"
+  class="ant-select ant-select-rtl ant-select-outlined ant-select-single ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"

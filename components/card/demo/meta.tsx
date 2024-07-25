@@ -20,7 +20,7 @@ const App: React.FC = () => (
     ]}
   >
     <Meta
-      avatar={<Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel" />}
+      avatar={<Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=8" />}
       title="Card title"
       description="This is the description"
     />

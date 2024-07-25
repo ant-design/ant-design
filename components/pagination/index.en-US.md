@@ -2,11 +2,10 @@
 category: Components
 group: Navigation
 title: Pagination
+description: A long list can be divided into several pages, and only one page will be loaded at a time.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8y_iTJGY_aUAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-A long list can be divided into several pages using `Pagination`, and only one page will be loaded at a time.
 
 ## When To Use
 
@@ -17,6 +16,7 @@ A long list can be divided into several pages using `Pagination`, and only one p
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/align.tsx">Align</code>
 <code src="./demo/more.tsx">More</code>
 <code src="./demo/changer.tsx">Changer</code>
 <code src="./demo/jump.tsx">Jumper</code>
@@ -39,6 +39,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| align | Align | start \| center \| end | - |  |
 | current | Current page number | number | - |  |
 | defaultCurrent | Default initial page number | number | 1 |  |
 | defaultPageSize | Default number of data items per page | number | 10 |  |
@@ -54,7 +55,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | pageSizeChanger              | Specify `options` as sizeChanger selections. `showSearch` in the sizeChanger Select component allows searching the size, with the default value being false. `onChange` returns the size change value only through the callback function. | Object -> { options: ['10', '20', '50', '100'], showSearch: false, onChange: Function(size) }                                                        | { showSearch: false }                                                                  |  |
 | showTitle | Show page item's title | boolean | true |  |
 | showTotal | To display the total number and range | function(total, range) | - |  |
-| simple | Whether to use simple mode | boolean | - |  |
+| simple | Whether to use simple mode | boolean \| { readOnly?: boolean } | - |  |
 | size | Specify the size of `Pagination`, can be set to `small` | `default` \| `small` | `default` |  |
 | total | Total number of data items | number | 0 |  |
 | onChange | Called when the page number or `pageSize` is changed, and it takes the resulting page number and pageSize as its arguments | function(page, pageSize) | - |  |

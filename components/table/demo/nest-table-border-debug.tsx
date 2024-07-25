@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { DownOutlined } from '@ant-design/icons';
-import type { TableColumnsType } from 'antd';
+import type { TableColumnsType, TableProps } from 'antd';
 import { Badge, Dropdown, Form, Space, Switch, Table } from 'antd';
 
 interface DataType {
@@ -27,7 +27,7 @@ const items = [
 
 const App: React.FC = () => {
   const createExpandedRowRender = (bordered: boolean) => () => {
-    const columns = [
+    const columns: TableProps['columns'] = [
       { title: 'Date', dataIndex: 'date', key: 'date' },
       { title: 'Name', dataIndex: 'name', key: 'name' },
       {
@@ -101,7 +101,7 @@ const App: React.FC = () => {
     <>
       <Form
         layout="inline"
-        className="components-table-demo-control-bar"
+        className="table-demo-control-bar"
         style={{ marginBottom: 16 }}
       >
         <Form.Item label="Root Table Bordered">

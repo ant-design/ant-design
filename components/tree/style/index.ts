@@ -1,11 +1,16 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { Keyframes, unit } from '@ant-design/cssinjs';
+
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 import { genFocusOutline, resetComponent } from '../../style';
 import { genCollapseMotion } from '../../style/motion';
-import type { AliasToken, DerivativeToken, FullToken, GetDefaultToken } from '../../theme/internal';
+import type {
+  AliasToken,
+  FullToken,
+  GetDefaultToken,
+  CSSUtil,
+} from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
-import type { CSSUtil } from '../../theme/util/genComponentStyleHook';
 
 export interface TreeSharedToken {
   /**
@@ -49,7 +54,7 @@ const treeNodeFX = new Keyframes('ant-tree-node-fx-do-not-use', {
 });
 
 // ============================== Switch ==============================
-const getSwitchStyle = (prefixCls: string, token: DerivativeToken): CSSObject => ({
+const getSwitchStyle = (prefixCls: string, token: AliasToken): CSSObject => ({
   [`.${prefixCls}-switcher-icon`]: {
     display: 'inline-block',
     fontSize: 10,
@@ -62,7 +67,7 @@ const getSwitchStyle = (prefixCls: string, token: DerivativeToken): CSSObject =>
 });
 
 // =============================== Drop ===============================
-const getDropIndicatorStyle = (prefixCls: string, token: DerivativeToken) => ({
+const getDropIndicatorStyle = (prefixCls: string, token: AliasToken) => ({
   [`.${prefixCls}-drop-indicator`]: {
     position: 'absolute',
     // it should displayed over the following node
@@ -191,6 +196,8 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         },
 
         '&-draggable': {
+          cursor: 'grab',
+
           [`${treeCls}-draggable-icon`]: {
             // https://github.com/ant-design/ant-design/issues/41915
             flexShrink: 0,
@@ -242,9 +249,15 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         textAlign: 'center',
         cursor: 'pointer',
         userSelect: 'none',
+        transition: `all ${token.motionDurationSlow}`,
+        borderRadius: token.borderRadius,
 
         '&-noop': {
-          cursor: 'default',
+          cursor: 'unset',
+        },
+
+        [`&:not(${treeCls}-switcher-noop):hover`]: {
+          backgroundColor: token.colorBgTextHover,
         },
 
         '&_close': {

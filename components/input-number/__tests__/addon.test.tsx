@@ -1,4 +1,5 @@
 import React from 'react';
+
 import InputNumber from '..';
 import { render } from '../../../tests/utils';
 
@@ -19,7 +20,7 @@ describe('addon', () => {
         controls
       />,
     );
-    expect(container.querySelector('.ant-input-number-wrapper-disabled')).toBeInTheDocument();
+    expect(container.querySelector('.ant-input-number-group-wrapper-disabled')).toBeInTheDocument();
   });
 
   it('disabled status when prefix and addon is active', () => {
@@ -33,7 +34,7 @@ describe('addon', () => {
         controls
       />,
     );
-    expect(container.querySelector('.ant-input-number-wrapper-disabled')).toBeInTheDocument();
+    expect(container.querySelector('.ant-input-number-group-wrapper-disabled')).toBeInTheDocument();
     expect(container.querySelector('.ant-input-number-affix-wrapper-disabled')).toBeInTheDocument();
   });
 });

@@ -18,14 +18,14 @@ const MyPage = () => {
 
   const showNotification = () => {
     notification.info({
-      message: `Notification topLeft`,
+      message: 'Notification topLeft',
       description: 'Hello, Ant Design!!',
       placement: 'topLeft',
     });
   };
 
   return (
-    <Space>
+    <Space wrap>
       <Button type="primary" onClick={showMessage}>
         Open message
       </Button>

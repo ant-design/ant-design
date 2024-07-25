@@ -2,18 +2,17 @@
 category: Components
 group: Data Entry
 title: Cascader
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tokLTp73TsQAAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5-ArSLl5UBsAAAAAAAAAAAAADrJ8AQ/original
+description: Cascade selection box.
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ngTnQZNOcK0AAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Nt8xR7afyr0AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
 
-Cascade selection box.
-
 ## When To Use
 
 - When you need to select from a set of associated data set. Such as province/city/district, company level, things classification.
-- When selecting from a large data set, with multi-stage classification separated for easy selection.
+- When selecting from a large data set, with multi-stage classifications separated for easy selection.
 - Chooses cascade items in one float layer for better user experience.
 
 ## Examples
@@ -52,7 +51,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | allowClear | Show clear button | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: Support object type |
 | autoClearSearchValue | Whether the current search will be cleared on selecting an item. Only applies when `multiple` is `true` | boolean | true | 5.9.0 |
 | autoFocus | If get focus when component mounted | boolean | false |  |
-| bordered | Whether has border style | boolean | true |  |
 | changeOnSelect | (Work on single select) Change value on each selection if set to true, see above demo for details | boolean | false |  |
 | className | The additional css class | string | - |  |
 | defaultValue | Initial selected value | string\[] \| number\[] | \[] |  |
@@ -72,7 +70,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | notFoundContent | Specify content to show when no result matches | string | `Not Found` |  |
 | open | Set visible of cascader popup | boolean | - | 4.17.0 |
 | options | The data options of cascade | [Option](#option)\[] | - |  |
-| placeholder | The input placeholder | string | `Please select` |  |
+| placeholder | The input placeholder | string | - |  |
 | placement | Use preset popup align config from builtinPlacements | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | 4.17.0 |
 | showSearch | Whether show search input in single mode | boolean \| [Object](#showsearch) | false |  |
 | size | The input size | `large` \| `middle` \| `small` | - |  |
@@ -80,6 +78,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | style | The additional style | CSSProperties | - |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | value | The selected value | string\[] \| number\[] | - |  |
+| variant | Variants of selector | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | onChange | Callback when finishing cascader select | (value, selectedOptions) => void | - |  |
 | onDropdownVisibleChange | Callback when popup shown or hidden | (value) => void | - | 4.17.0 |
 | multiple | Support multiple or not | boolean | - | 4.17.0 |
@@ -89,6 +88,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onSearch | The callback function triggered when input changed | (search: string) => void | - | 4.17.0 |
 | dropdownMenuColumnStyle | The style of the drop-down menu column | CSSProperties | - |  |
 | loadingIcon | The appearance of lazy loading (now is useless) | ReactNode | - |  |
+| optionRender | Customize the rendering dropdown options | (option: Option) => React.ReactNode | - | 5.16.0 |
 
 ### showSearch
 

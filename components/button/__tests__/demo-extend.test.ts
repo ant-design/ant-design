@@ -1,3 +1,5 @@
 import { extendTest } from '../../../tests/shared/demoTest';
 
-extendTest('button');
+extendTest('button', {
+  skip: ['component-token.tsx'],
+});

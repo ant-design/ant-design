@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Transfer } from 'antd';
-import type { TransferDirection } from 'antd/es/transfer';
+import type { TransferProps } from 'antd';
 
 interface RecordType {
   key: string;
@@ -11,7 +11,7 @@ interface RecordType {
 
 const App: React.FC = () => {
   const [mockData, setMockData] = useState<RecordType[]>([]);
-  const [targetKeys, setTargetKeys] = useState<string[]>([]);
+  const [targetKeys, setTargetKeys] = useState<TransferProps['targetKeys']>([]);
 
   const getMock = () => {
     const tempTargetKeys = [];
@@ -39,11 +39,11 @@ const App: React.FC = () => {
   const filterOption = (inputValue: string, option: RecordType) =>
     option.description.indexOf(inputValue) > -1;
 
-  const handleChange = (newTargetKeys: string[]) => {
+  const handleChange: TransferProps['onChange'] = (newTargetKeys) => {
     setTargetKeys(newTargetKeys);
   };
 
-  const handleSearch = (dir: TransferDirection, value: string) => {
+  const handleSearch: TransferProps['onSearch'] = (dir, value) => {
     console.log('search:', dir, value);
   };
 

@@ -1,17 +1,16 @@
 ---
 category: Components
-subtitle: 颜色选择器
 title: ColorPicker
+subtitle: 颜色选择器
+description: 用于选择颜色。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PpY4RYNM8UcAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EHL-QYJofZsAAAAAAAAAAAAADrJ8AQ/original
-tag: New
+tag: 5.5.0
 demo:
   cols: 2
 group:
   title: 数据录入
 ---
-
-提供颜色选取的组件，自 `5.5.0` 版本开始提供该组件。
 
 ## 何时使用
 
@@ -55,7 +54,7 @@ group:
 | format | 颜色格式 | `rgb` \| `hex` \| `hsb` | `hex` | |
 | open | 是否显示弹出窗口 | boolean | - | |
 | presets | 预设的颜色 | `{ label: ReactNode, colors: Array<string \| Color>, defaultOpen?: boolean }[]` | - | `defaultOpen: 5.11.0` |
-| placement | 弹出窗口的位置 | `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | `bottomLeft` | |
+| placement | 弹出窗口的位置 | 同 `Tooltips` 组件的 [placement](/components/tooltip-cn/#api) 参数设计 | `bottomLeft` | |
 | panelRender | 自定义渲染面板 | `(panel: React.ReactNode, extra: { components: { Picker: FC; Presets: FC } }) => React.ReactNode` | - | 5.7.0 |
 | showText | 显示颜色文本 | boolean \| `(color: Color) => React.ReactNode` | - | 5.7.0 |
 | size | 设置触发器大小 | `large` \| `middle` \| `small` | `middle` | 5.7.0 |

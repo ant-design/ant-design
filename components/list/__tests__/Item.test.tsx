@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
+
 import List from '..';
+import type { GetRef } from '../../_util/type';
 import { pureRender, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
@@ -9,7 +11,7 @@ describe('List Item Layout', () => {
       key: 1,
       href: 'https://ant.design',
       title: 'ant design',
-      avatar: 'https://xsgames.co/randomusers/avatar.php?g=pixel',
+      avatar: 'https://api.dicebear.com/7.x/miniavs/svg?seed=10',
       description:
         'Ant Design, a design language for background applications, is refined by Ant UED Team.',
       content:
@@ -188,15 +190,13 @@ describe('List Item Layout', () => {
   });
 
   it('should ref', () => {
-    const ref = React.createRef<HTMLElement>();
-
+    const ref = React.createRef<GetRef<typeof List.Item>>();
     render(<List.Item ref={ref}>Item</List.Item>);
     expect(ref.current).toHaveClass('ant-list-item');
   });
 
   it('should grid ref', () => {
-    const ref = React.createRef<HTMLElement>();
-
+    const ref = React.createRef<GetRef<typeof List.Item>>();
     render(
       <List grid={{}}>
         <List.Item ref={ref}>Item</List.Item>,
@@ -245,5 +245,63 @@ describe('List Item Layout', () => {
 
     const title = container.querySelector('.ant-list-item-meta-title');
     expect(title && getComputedStyle(title).margin).toEqual('0px 0px 4px 0px');
+  });
+
+  it('List.Item support styles and classNames', () => {
+    const dataSource = [{ id: 1, title: `ant design` }];
+    const getItem = (item: any, provider?: boolean) => {
+      const styles = provider ? { extra: { color: 'red' }, actions: { color: 'blue' } } : undefined;
+      return (
+        <List.Item
+          extra="test-extra"
+          actions={['test-actions']}
+          styles={styles}
+          classNames={{ extra: 'test-extra', actions: 'test-actions' }}
+        >
+          {item.title}
+        </List.Item>
+      );
+    };
+
+    // ConfigProvider
+    const { container, rerender } = render(
+      <ConfigProvider
+        list={{
+          item: {
+            styles: { extra: { color: 'pink' }, actions: { color: 'green' } },
+            classNames: { extra: 'test-provider-extra', actions: 'test-provider-actions' },
+          },
+        }}
+      >
+        <List itemLayout="vertical" dataSource={dataSource} renderItem={(item) => getItem(item)} />,
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-list-item-extra')!).toHaveStyle('color: pink');
+    expect(container.querySelector('.ant-list-item-action')!).toHaveStyle('color: green');
+
+    expect(container.querySelector('.ant-list-item-extra')!).toHaveClass(
+      'test-provider-extra test-extra',
+    );
+    expect(container.querySelector('.ant-list-item-action')!).toHaveClass(
+      'test-provider-actions test-actions',
+    );
+
+    // item styles is high priority
+    rerender(
+      <ConfigProvider
+        list={{
+          item: { styles: { extra: { color: 'pink' }, actions: { color: 'green' } } },
+        }}
+      >
+        <List
+          itemLayout="vertical"
+          dataSource={dataSource}
+          renderItem={(item) => getItem(item, true)}
+        />
+        ,
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-list-item-extra')!).toHaveStyle('color: red');
+    expect(container.querySelector('.ant-list-item-action')!).toHaveStyle('color: blue');
   });
 });

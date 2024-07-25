@@ -1,13 +1,12 @@
 ---
 category: Components
-subtitle: 栅格
 group: 布局
 title: Grid
+subtitle: 栅格
+description: 24 栅格系统。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*mfJeS6cqZrEAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*DLUwQ4B2_zQAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-24 栅格系统。
 
 ## 设计理念
 
@@ -44,6 +43,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*DLUwQ4B2_zQAAA
 <code src="./demo/flex-order.tsx">排序</code>
 <code src="./demo/flex-stretch.tsx">Flex 填充</code>
 <code src="./demo/responsive.tsx">响应式布局</code>
+<code src="./demo/responsive-flex.tsx" version="5.14.0">Flex 响应式布局</code>
 <code src="./demo/responsive-more.tsx">其他属性的响应式</code>
 <code src="./demo/playground.tsx">栅格配置器</code>
 <code src="./demo/useBreakpoint.tsx">useBreakpoint Hook</code>

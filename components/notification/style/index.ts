@@ -2,12 +2,16 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes, unit } from '@ant-design/cssinjs';
 
 import { CONTAINER_MAX_OFFSET } from '../../_util/hooks/useZIndex';
-import { resetComponent } from '../../style';
-import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
+import { genFocusStyle, resetComponent } from '../../style';
+import type {
+  AliasToken,
+  FullToken,
+  GenerateStyle,
+  GenStyleFn,
+} from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genNotificationPlacementStyle from './placement';
 import genStackStyle from './stack';
-import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -21,8 +25,6 @@ export interface ComponentToken {
    * @descEN Width of Notification
    */
   width: number;
-  /** @internal */
-  closeBtnHoverBg: string;
 }
 
 export interface NotificationToken extends FullToken<'Notification'> {
@@ -36,6 +38,8 @@ export interface NotificationToken extends FullToken<'Notification'> {
   notificationMarginBottom: number;
   notificationMarginEdge: number;
   notificationStackLayer: number;
+  notificationProgressBg: string;
+  notificationProgressHeight: number;
 }
 
 export const genNoticeStyle = (token: NotificationToken): CSSObject => {
@@ -54,6 +58,8 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
     notificationBg,
     notificationPadding,
     notificationMarginEdge,
+    notificationProgressBg,
+    notificationProgressHeight,
     fontSize,
     lineHeight,
     width,
@@ -78,11 +84,6 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       overflow: 'hidden',
       lineHeight,
       wordWrap: 'break-word',
-    },
-
-    [`${componentCls}-close-icon`]: {
-      fontSize,
-      cursor: 'pointer',
     },
 
     [`${noticeCls}-message`]: {
@@ -151,7 +152,46 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
 
       '&:hover': {
         color: token.colorIconHover,
-        backgroundColor: token.closeBtnHoverBg,
+        backgroundColor: token.colorBgTextHover,
+      },
+
+      '&:active': {
+        backgroundColor: token.colorBgTextActive,
+      },
+
+      ...genFocusStyle(token),
+    },
+
+    [`${noticeCls}-progress`]: {
+      position: 'absolute',
+      display: 'block',
+      appearance: 'none',
+      WebkitAppearance: 'none',
+      inlineSize: `calc(100% - ${unit(borderRadiusLG)} * 2)`,
+      left: {
+        _skip_check_: true,
+        value: borderRadiusLG,
+      },
+      right: {
+        _skip_check_: true,
+        value: borderRadiusLG,
+      },
+      bottom: 0,
+      blockSize: notificationProgressHeight,
+      border: 0,
+
+      '&, &::-webkit-progress-bar': {
+        borderRadius: borderRadiusLG,
+        backgroundColor: `rgba(0, 0, 0, 0.04)`,
+      },
+
+      '&::-moz-progress-bar': {
+        background: notificationProgressBg,
+      },
+
+      '&::-webkit-progress-value': {
+        borderRadius: borderRadiusLG,
+        background: notificationProgressBg,
       },
     },
 
@@ -262,7 +302,6 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
 export const prepareComponentToken = (token: AliasToken) => ({
   zIndexPopup: token.zIndexPopupBase + CONTAINER_MAX_OFFSET + 50,
   width: 384,
-  closeBtnHoverBg: token.wireframe ? 'transparent' : token.colorFillContent,
 });
 
 export const prepareNotificationToken: (
@@ -281,6 +320,8 @@ export const prepareNotificationToken: (
     notificationMarginEdge: token.marginLG,
     animationMaxHeight: 150,
     notificationStackLayer: 3,
+    notificationProgressHeight: 2,
+    notificationProgressBg: `linear-gradient(90deg, ${token.colorPrimaryBorderHover}, ${token.colorPrimary})`,
   });
 
   return notificationToken;

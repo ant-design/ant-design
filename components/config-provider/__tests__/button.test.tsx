@@ -1,6 +1,7 @@
-import { SearchOutlined } from '@ant-design/icons';
 import React from 'react';
+import { SearchOutlined } from '@ant-design/icons';
 import Button from 'antd/es/button';
+
 import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
 
@@ -32,7 +33,7 @@ describe('ConfigProvider.button', () => {
 
   it('ConfigProvider button styles', () => {
     const { container } = render(
-      <ConfigProvider button={{ styles: { icon: { color: '#333' } } }}>
+      <ConfigProvider button={{ styles: { icon: { fontSize: 14 } } }}>
         <Button icon={<SearchOutlined />} />
       </ConfigProvider>,
     );

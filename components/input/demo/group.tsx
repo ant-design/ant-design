@@ -1,5 +1,5 @@
-import { CopyOutlined } from '@ant-design/icons';
 import React from 'react';
+import { CopyOutlined } from '@ant-design/icons';
 import {
   AutoComplete,
   Button,

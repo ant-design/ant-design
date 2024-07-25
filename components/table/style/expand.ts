@@ -1,4 +1,5 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 
 import { operationUnit } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
@@ -67,11 +68,11 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         transition: `all ${motionDurationSlow}`,
         userSelect: 'none',
 
-        [`&:focus, &:hover, &:active`]: {
+        '&:focus, &:hover, &:active': {
           borderColor: 'currentcolor',
         },
 
-        [`&::before, &::after`]: {
+        '&::before, &::after': {
           position: 'absolute',
           background: 'currentcolor',
           transition: `transform ${motionDurationSlow} ease-out`,
@@ -120,7 +121,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
       [`tr${componentCls}-expanded-row`]: {
         '&, &:hover': {
-          [`> th, > td`]: {
+          '> th, > td': {
             background: tableExpandedRowBg,
           },
         },
@@ -131,7 +132,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
           table: {
             flex: 'auto',
-            width: 'auto',
+            width: '100%',
           },
         },
       },

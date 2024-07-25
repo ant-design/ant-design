@@ -1,3 +1,6 @@
+import type { CSSProperties } from 'react';
+import { unit } from '@ant-design/cssinjs';
+
 import { genFocusStyle, resetComponent } from '../../style';
 import {
   initMoveMotion,
@@ -10,13 +13,11 @@ import {
 } from '../../style/motion';
 import type { ArrowOffsetToken } from '../../style/placementArrow';
 import getArrowStyle, { getArrowOffsetToken } from '../../style/placementArrow';
+import type { ArrowToken } from '../../style/roundedArrow';
+import { getArrowToken } from '../../style/roundedArrow';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genStatusStyle from './status';
-import type { ArrowToken } from '../../style/roundedArrow';
-import { getArrowToken } from '../../style/roundedArrow';
-import type { CSSProperties } from 'react';
-import { unit } from '@ant-design/cssinjs';
 
 export interface ComponentToken extends ArrowToken, ArrowOffsetToken {
   /**
@@ -60,8 +61,6 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
   return [
     {
       [componentCls]: {
-        ...resetComponent(token),
-
         position: 'absolute',
         top: -9999,
         left: {
@@ -184,6 +183,8 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
       },
 
       [`${componentCls}, ${componentCls}-menu-submenu`]: {
+        ...resetComponent(token),
+
         [menuCls]: {
           padding: dropdownEdgeChildPadding,
           listStyleType: 'none',
@@ -193,6 +194,11 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
           outline: 'none',
           boxShadow: token.boxShadowSecondary,
           ...genFocusStyle(token),
+
+          '&:empty': {
+            padding: 0,
+            boxShadow: 'none',
+          },
 
           [`${menuCls}-item-group-title`]: {
             padding: `${unit(paddingBlock!)} ${unit(controlPaddingHorizontal)}`,
@@ -205,6 +211,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
             position: 'relative',
             display: 'flex',
             alignItems: 'center',
+            whiteSpace: 'nowrap',
           },
 
           [`${menuCls}-item-icon`]: {
@@ -245,7 +252,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
             transition: `all ${motionDurationMid}`,
             borderRadius: token.borderRadiusSM,
 
-            [`&:hover, &-active`]: {
+            '&:hover, &-active': {
               backgroundColor: token.controlItemBgHover,
             },
 
@@ -360,4 +367,5 @@ export default genStyleHooks(
     return [genBaseStyle(dropdownToken), genStatusStyle(dropdownToken)];
   },
   prepareComponentToken,
+  { resetStyle: false },
 );

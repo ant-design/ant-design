@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { ConfigContext } from '../../config-provider';
 import defaultLocale from '../../locale/en_US';
 import useLocale from '../../locale/useLocale';
@@ -38,9 +39,9 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
 
   const close = (...args: any[]) => {
     setOpen(false);
-    const triggerCancel = args.some((param) => param && param.triggerCancel);
-    if (innerConfig.onCancel && triggerCancel) {
-      innerConfig.onCancel(() => {}, ...args.slice(1));
+    const triggerCancel = args.some((param) => param?.triggerCancel);
+    if (triggerCancel) {
+      innerConfig.onCancel?.(() => {}, ...args.slice(1));
     }
   };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Popconfirm, ConfigProvider } from 'antd';
+import { Button, ConfigProvider, Popconfirm } from 'antd';
 
 const text = 'Are you sure to delete this task?';
 const description = 'Delete the task';

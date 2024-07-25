@@ -1,6 +1,7 @@
 ---
 category: Components
 title: Divider
+description: A divider line separates different content.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*7sMiTbzvaDoAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*KPSEQ74PLg4AAAAAAAAAAAAADrJ8AQ/original
 demo:
@@ -10,11 +11,9 @@ group:
   order: 2
 ---
 
-A divider line separates different content.
-
 ## When To Use
 
-- Divide sections of article.
+- Divide sections of an article.
 - Divide inline text and links such as the operation column of table.
 
 ## Examples

@@ -1,4 +1,5 @@
 import CalendarLocale from 'rc-picker/lib/locale/ar_EG';
+
 import TimePickerLocale from '../../time-picker/locale/ar_EG';
 import type { PickerLocale } from '../generatePicker';
 
@@ -7,6 +8,27 @@ const locale: PickerLocale = {
   lang: {
     placeholder: 'اختيار التاريخ',
     rangePlaceholder: ['البداية', 'النهاية'],
+    yearFormat: 'YYYY',
+    dateFormat: 'D/M/YYYY',
+    dayFormat: 'D',
+    dateTimeFormat: 'DD/MM/YYYY HH:mm:ss',
+    monthFormat: 'MMMM',
+    monthBeforeYear: true,
+    shortWeekDays: ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
+    shortMonths: [
+      'يناير',
+      'فبراير',
+      'مارس',
+      'إبريل',
+      'مايو',
+      'يونيو',
+      'يوليو',
+      'أغسطس',
+      'سبتمبر',
+      'أكتوبر',
+      'نوفمبر',
+      'ديسمبر',
+    ],
     ...CalendarLocale,
   },
   timePickerLocale: {

@@ -1,7 +1,9 @@
 import '@testing-library/jest-dom';
+
 import { toHaveNoViolations } from 'jest-axe';
 import jsdom from 'jsdom';
 import format, { plugins } from 'pretty-format';
+
 import { defaultConfig } from '../components/theme/internal';
 
 // Not use dynamic hashed for test env since version will change hash dynamically.
@@ -49,9 +51,8 @@ function formatHTML(nodes: any) {
   });
 
   const filtered = htmlContent
-    .split(/[\n\r]+/)
+    .split('\n')
     .filter((line) => line.trim())
-    .map((line) => line.replace(/\s+$/, ''))
     .join('\n');
 
   return filtered;
@@ -87,6 +88,7 @@ expect.addSnapshotSerializer({
 /** Demo Test only accept render as SSR to make sure align with both `server` & `client` side */
 expect.addSnapshotSerializer({
   test: (node) => node && typeof node === 'object' && node.type === 'demo' && node.html,
+  // @ts-ignore
   print: ({ html }) => {
     const { JSDOM } = jsdom;
     const { document } = new JSDOM().window;
@@ -95,6 +97,7 @@ expect.addSnapshotSerializer({
     const children = Array.from(document.body.childNodes);
 
     // Clean up `data-reactroot` since React 18 do not have this
+    // @ts-ignore
     children.forEach((ele: HTMLElement) => {
       if (typeof ele.removeAttribute === 'function') {
         ele.removeAttribute('data-reactroot');

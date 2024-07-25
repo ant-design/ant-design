@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { act } from 'react-dom/test-utils';
 
 import { Col, Row } from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -154,7 +153,7 @@ describe('Grid', () => {
         }) as any,
     );
 
-    let screensVar;
+    let screensVar: any = null;
     function Demo() {
       const screens = useBreakpoint();
       screensVar = screens;
@@ -228,9 +227,7 @@ describe('Grid', () => {
     };
     const { container } = render(<ReactiveTest />);
     expect(container.innerHTML).toContain('ant-row-start');
-    act(() => {
-      fireEvent.click(container.querySelector('span')!);
-    });
+    fireEvent.click(container.querySelector('span')!);
     expect(container.innerHTML).toContain('ant-row-end');
   });
 

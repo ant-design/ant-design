@@ -1,6 +1,7 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import pickAttrs from 'rc-util/lib/pickAttrs';
-import * as React from 'react';
+
 import type { BreadcrumbProps, InternalRouteType, ItemType } from './Breadcrumb';
 
 type AddParameters<TFunction extends (...args: any) => any, TParameters extends [...args: any]> = (

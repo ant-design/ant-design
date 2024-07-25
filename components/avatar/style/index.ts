@@ -1,4 +1,5 @@
-import { type CSSObject, unit } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
@@ -76,27 +77,16 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
     borderRadiusSM,
     lineWidth,
     lineType,
-    calc,
   } = token;
 
   // Avatar size style
   const avatarSizeStyle = (size: number, fontSize: number, radius: number): CSSObject => ({
     width: size,
     height: size,
-    lineHeight: unit(calc(size).sub(calc(lineWidth).mul(2)).equal()),
     borderRadius: '50%',
 
     [`&${componentCls}-square`]: {
       borderRadius: radius,
-    },
-
-    [`${componentCls}-string`]: {
-      position: 'absolute',
-      left: {
-        _skip_check_: true,
-        value: '50%',
-      },
-      transformOrigin: '0 center',
     },
 
     [`&${componentCls}-icon`]: {
@@ -111,7 +101,9 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
     [componentCls]: {
       ...resetComponent(token),
       position: 'relative',
-      display: 'inline-block',
+      display: 'inline-flex',
+      justifyContent: 'center',
+      alignItems: 'center',
       overflow: 'hidden',
       color: avatarColor,
       whiteSpace: 'nowrap',
@@ -120,7 +112,7 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
       background: avatarBg,
       border: `${unit(lineWidth)} ${lineType} transparent`,
 
-      [`&-image`]: {
+      '&-image': {
         background: 'transparent',
       },
 
@@ -130,11 +122,11 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
 
       ...avatarSizeStyle(containerSize, textFontSize, borderRadius),
 
-      [`&-lg`]: {
+      '&-lg': {
         ...avatarSizeStyle(containerSizeLG, textFontSizeLG, borderRadiusLG),
       },
 
-      [`&-sm`]: {
+      '&-sm': {
         ...avatarSizeStyle(containerSizeSM, textFontSizeSM, borderRadiusSM),
       },
 
@@ -159,7 +151,7 @@ const genGroupStyle: GenerateStyle<AvatarToken> = (token) => {
         borderColor: groupBorderColor,
       },
 
-      [`> *:not(:first-child)`]: {
+      '> *:not(:first-child)': {
         marginInlineStart: groupOverlapping,
       },
     },

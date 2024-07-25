@@ -2,6 +2,8 @@
 title: getContainer 的一些变化
 date: 2022-12-08
 author: zombieJ
+zhihu_url: https://zhuanlan.zhihu.com/p/606878571
+yuque_url: https://www.yuque.com/ant-design/ant-design/eegn0tn5fy94uwk8
 ---
 
 在网页开发中，我们时常会遇到弹出元素的需求，比如 Select 的下拉框、或者是 Modal 组件。直接将其渲染到当前节点下时，可能会被父节点的 `overflow: hidden` 裁剪掉：
@@ -110,4 +112,4 @@ const SomeComponent = ({ getContainer }) => {
 
 ## 最后
 
-由于修复了 `getContainer` 不支持动态改变的问题，它也引入了一个潜在的 breaking change。开发者如果自定义 `getContainer` 每次都是创建新的 dom 节点时，它就会因为 effect 不断执行，导致节点不断创建而死循环。如果你使用了这种方式并且遇到了问题，需要注意检查。
+由于修复了 `getContainer` 不支持动态改变的问题，它也引入了一个潜在的 breaking change。开发者如果自定义 `getContainer` 每次都是创建新的 DOM 节点时，它就会因为 effect 不断执行，导致节点不断创建而死循环。如果你使用了这种方式并且遇到了问题，需要注意检查。

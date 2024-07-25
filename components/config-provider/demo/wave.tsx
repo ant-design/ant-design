@@ -1,8 +1,9 @@
-import { HappyProvider } from '@ant-design/happy-work-theme';
 import React from 'react';
+import { HappyProvider } from '@ant-design/happy-work-theme';
 import { Button, ConfigProvider, Space } from 'antd';
+import type { ConfigProviderProps, GetProp } from 'antd';
 
-type WaveConfig = NonNullable<Parameters<typeof ConfigProvider>[0]['wave']>;
+type WaveConfig = GetProp<ConfigProviderProps, 'wave'>;
 
 // Prepare effect holder
 const createHolder = (node: HTMLElement) => {
@@ -22,13 +23,7 @@ const createHolder = (node: HTMLElement) => {
   return div;
 };
 
-const createDot = (
-  holder: HTMLElement,
-  color: string,
-  left: number,
-  top: number,
-  size: number = 0,
-) => {
+const createDot = (holder: HTMLElement, color: string, left: number, top: number, size = 0) => {
   const dot = document.createElement('div');
   dot.style.position = 'absolute';
   dot.style.left = `${left}px`;
@@ -38,7 +33,7 @@ const createDot = (
   dot.style.borderRadius = '50%';
   dot.style.background = color;
   dot.style.transform = 'translate(-50%, -50%)';
-  dot.style.transition = `all 1s ease-out`;
+  dot.style.transition = 'all 1s ease-out';
   holder.appendChild(dot);
 
   return dot;

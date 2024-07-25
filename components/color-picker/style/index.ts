@@ -1,4 +1,5 @@
-import { type CSSObject, unit } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
@@ -7,6 +8,7 @@ import genInputStyle from './input';
 import genPickerStyle from './picker';
 import genPresetsStyle from './presets';
 
+// biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
 export interface ComponentToken {}
 
 export interface ColorPickerToken extends FullToken<'ColorPicker'> {
@@ -55,7 +57,7 @@ const genClearStyle = (
   size: number,
   extraStyle?: CSSObject,
 ): CSSObject => {
-  const { componentCls, borderRadiusSM, lineWidth, colorSplit, red6 } = token;
+  const { componentCls, borderRadiusSM, lineWidth, colorSplit, colorBorder, red6 } = token;
 
   return {
     [`${componentCls}-clear`]: {
@@ -64,8 +66,10 @@ const genClearStyle = (
       borderRadius: borderRadiusSM,
       border: `${unit(lineWidth)} solid ${colorSplit}`,
       position: 'relative',
-      cursor: 'pointer',
       overflow: 'hidden',
+      cursor: 'pointer',
+      transition: `all ${token.motionDurationFast}`,
+
       ...extraStyle,
       '&::after': {
         content: '""',
@@ -78,6 +82,10 @@ const genClearStyle = (
         transformOrigin: 'right',
         transform: 'rotate(-45deg)',
         backgroundColor: red6,
+      },
+
+      '&:hover': {
+        borderColor: colorBorder,
       },
     },
   };
@@ -156,6 +164,7 @@ const genSizeStyle = (token: ColorPickerToken): CSSObject => {
 
 const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
   const {
+    antCls,
     componentCls,
     colorPickerWidth,
     colorPrimary,
@@ -183,14 +192,17 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
   return [
     {
       [componentCls]: {
-        [`${componentCls}-inner-content`]: {
-          display: 'flex',
-          flexDirection: 'column',
-          width: colorPickerWidth,
+        [`${componentCls}-inner`]: {
+          '&-content': {
+            display: 'flex',
+            flexDirection: 'column',
+            width: colorPickerWidth,
 
-          '&-divider': {
-            margin: `${unit(marginSM)} 0 ${unit(marginXS)}`,
+            [`& > ${antCls}-divider`]: {
+              margin: `${unit(marginSM)} 0 ${unit(marginXS)}`,
+            },
           },
+
           [`${componentCls}-panel`]: {
             ...genPickerStyle(token),
           },

@@ -1,5 +1,5 @@
-import type { ButtonToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
+import type { ButtonToken } from './token';
 
 const genButtonBorderStyle = (buttonTypeCls: string, borderColor: string) => ({
   // Border
@@ -54,9 +54,7 @@ const genGroupStyle: GenerateStyle<ButtonToken> = (token) => {
           position: 'relative',
           zIndex: 1,
 
-          [`&:hover,
-          &:focus,
-          &:active`]: {
+          '&:hover, &:focus, &:active': {
             zIndex: 2,
           },
 

@@ -81,9 +81,7 @@ describe('ConfigProvider', () => {
         // configProvider
         it('configProvider', () => {
           const { container } = render(
-            <ConfigProvider pageHeader={{ ghost: false }} prefixCls="config">
-              {renderComponent({})}
-            </ConfigProvider>,
+            <ConfigProvider prefixCls="config">{renderComponent({})}</ConfigProvider>,
           );
           expect(isArray ? container.children : container.firstChild).toMatchSnapshot();
         });
@@ -355,7 +353,7 @@ describe('ConfigProvider', () => {
           <List.Item {...props}>
             <List.Item.Meta
               {...props}
-              avatar={<Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel" />}
+              avatar={<Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=9" />}
               title="Ant Design"
               description="Ant Design, a design language for background applications, is refined by Ant UED Team"
             />

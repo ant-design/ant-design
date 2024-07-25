@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useEffect } from 'react';
-import { act } from 'react-dom/test-utils';
-import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+
 import message from '..';
-import { fireEvent, render } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import { triggerMotionEnd } from './util';
 

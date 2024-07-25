@@ -1,5 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
+
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
@@ -115,7 +116,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
           textAlign: 'center',
           border: 0,
           borderRadius: 0,
-          transform: `translate(-50%, -50%)`,
+          transform: 'translate(-50%, -50%)',
         },
 
         '&-content': {

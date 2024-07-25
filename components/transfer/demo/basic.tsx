@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Transfer } from 'antd';
-import type { TransferDirection } from 'antd/es/transfer';
+import type { TransferProps } from 'antd';
 
 interface RecordType {
   key: string;
@@ -8,7 +8,7 @@ interface RecordType {
   description: string;
 }
 
-const mockData: RecordType[] = Array.from({ length: 20 }).map((_, i) => ({
+const mockData = Array.from({ length: 20 }).map<RecordType>((_, i) => ({
   key: i.toString(),
   title: `content${i + 1}`,
   description: `description of content${i + 1}`,
@@ -17,23 +17,26 @@ const mockData: RecordType[] = Array.from({ length: 20 }).map((_, i) => ({
 const initialTargetKeys = mockData.filter((item) => Number(item.key) > 10).map((item) => item.key);
 
 const App: React.FC = () => {
-  const [targetKeys, setTargetKeys] = useState(initialTargetKeys);
-  const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
+  const [targetKeys, setTargetKeys] = useState<TransferProps['targetKeys']>(initialTargetKeys);
+  const [selectedKeys, setSelectedKeys] = useState<TransferProps['targetKeys']>([]);
 
-  const onChange = (nextTargetKeys: string[], direction: TransferDirection, moveKeys: string[]) => {
+  const onChange: TransferProps['onChange'] = (nextTargetKeys, direction, moveKeys) => {
     console.log('targetKeys:', nextTargetKeys);
     console.log('direction:', direction);
     console.log('moveKeys:', moveKeys);
     setTargetKeys(nextTargetKeys);
   };
 
-  const onSelectChange = (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => {
+  const onSelectChange: TransferProps['onSelectChange'] = (
+    sourceSelectedKeys,
+    targetSelectedKeys,
+  ) => {
     console.log('sourceSelectedKeys:', sourceSelectedKeys);
     console.log('targetSelectedKeys:', targetSelectedKeys);
     setSelectedKeys([...sourceSelectedKeys, ...targetSelectedKeys]);
   };
 
-  const onScroll = (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => {
+  const onScroll: TransferProps['onScroll'] = (direction, e) => {
     console.log('direction:', direction);
     console.log('target:', e.target);
   };

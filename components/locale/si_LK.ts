@@ -1,9 +1,10 @@
 /* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/si_LK';
+
+import type { Locale } from '.';
+import Calendar from '../calendar/locale/si_LK';
 import DatePicker from '../date-picker/locale/si_LK';
 import TimePicker from '../time-picker/locale/si_LK';
-import Calendar from '../calendar/locale/si_LK';
-import type { Locale } from '.';
 
 const typeTemplate = '${label} වලංගු ${type} ක් නොවේ';
 
@@ -74,9 +75,6 @@ const localeValues: Locale = {
     copy: 'පිටපත්',
     copied: 'පිටපත් විය',
     expand: 'විහිදුවන්න',
-  },
-  PageHeader: {
-    back: 'ආපසු',
   },
   Form: {
     optional: '(විකල්පයකි)',

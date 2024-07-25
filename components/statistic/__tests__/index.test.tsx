@@ -1,6 +1,8 @@
+import React from 'react';
 import dayjs from 'dayjs';
 import MockDate from 'mockdate';
-import React from 'react';
+
+import type { CountdownProps } from '..';
 import Statistic from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -58,8 +60,8 @@ describe('Statistic', () => {
       [-3, -1112893.1212, '-1,112,893'],
       [-1, -1112893, '-1,112,893'],
       [-1, 1112893, '1,112,893'],
-    ].forEach(([precision, value, expectValue]: [number, number, string]) => {
-      const { container } = render(<Statistic precision={precision} value={value} />);
+    ].forEach(([precision, value, expectValue]) => {
+      const { container } = render(<Statistic precision={precision as any} value={value} />);
       expect(container.querySelector('.ant-statistic-content-value-int')!.textContent).toEqual(
         expectValue,
       );
@@ -79,6 +81,28 @@ describe('Statistic', () => {
     rerender(<Statistic title="Active Users" value={112112} loading={loading} />);
     expect(container.querySelectorAll('.ant-skeleton')).toHaveLength(1);
     expect(container.querySelectorAll('.ant-statistic-content')).toHaveLength(0);
+  });
+
+  it('data attrs', () => {
+    const { container } = render(
+      <Statistic value={1128} data-abc="1" aria-label="label" role="status" />,
+    );
+    expect(container.querySelector('.ant-statistic')!.getAttribute('data-abc')).toEqual('1');
+    expect(container.querySelector('.ant-statistic')!.getAttribute('aria-label')).toEqual('label');
+    expect(container.querySelector('.ant-statistic')!.getAttribute('role')).toEqual('status');
+
+    const { container: countdownContainer } = render(
+      <Statistic.Countdown data-xyz="x" aria-label="y" role="contentinfo" />,
+    );
+    expect(countdownContainer.querySelector('.ant-statistic')!.getAttribute('data-xyz')).toEqual(
+      'x',
+    );
+    expect(countdownContainer.querySelector('.ant-statistic')!.getAttribute('aria-label')).toEqual(
+      'y',
+    );
+    expect(countdownContainer.querySelector('.ant-statistic')!.getAttribute('role')).toEqual(
+      'contentinfo',
+    );
   });
 
   describe('Countdown', () => {
@@ -146,7 +170,7 @@ describe('Statistic', () => {
         const deadline = Date.now() + 10 * 1000;
         let remainingTime;
 
-        const onChange = (value: number) => {
+        const onChange: CountdownProps['onChange'] = (value) => {
           remainingTime = value;
         };
         render(<Statistic.Countdown value={deadline} onChange={onChange} />);

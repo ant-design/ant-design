@@ -9,7 +9,7 @@ import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 import { getFixedBottom, getFixedTop, getTargetRect } from './utils';
 
-const TRIGGER_EVENTS = [
+const TRIGGER_EVENTS: (keyof WindowEventMap)[] = [
   'resize',
   'scroll',
   'touchstart',
@@ -17,7 +17,7 @@ const TRIGGER_EVENTS = [
   'touchend',
   'pageshow',
   'load',
-] as const;
+];
 
 function getDefaultTarget() {
   return typeof window !== 'undefined' ? window : null;
@@ -39,11 +39,10 @@ export interface AffixProps {
   rootClassName?: string;
   children: React.ReactNode;
 }
+const AFFIX_STATUS_NONE = 0;
+const AFFIX_STATUS_PREPARE = 1;
 
-enum AffixStatus {
-  None,
-  Prepare,
-}
+type AffixStatus = typeof AFFIX_STATUS_NONE | typeof AFFIX_STATUS_PREPARE;
 
 interface AffixState {
   affixStyle?: React.CSSProperties;
@@ -53,7 +52,7 @@ interface AffixState {
   prevTarget: Window | HTMLElement | null;
 }
 
-interface AffixRef {
+export interface AffixRef {
   updatePosition: ReturnType<typeof throttleByAnimationFrame>;
 }
 
@@ -78,7 +77,7 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
   const [affixStyle, setAffixStyle] = React.useState<React.CSSProperties>();
   const [placeholderStyle, setPlaceholderStyle] = React.useState<React.CSSProperties>();
 
-  const status = React.useRef<AffixStatus>(AffixStatus.None);
+  const status = React.useRef<AffixStatus>(AFFIX_STATUS_NONE);
 
   const prevTarget = React.useRef<Window | HTMLElement | null>(null);
   const prevListener = React.useRef<EventListener>();
@@ -94,7 +93,7 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
   // =================== Measure ===================
   const measure = () => {
     if (
-      status.current !== AffixStatus.Prepare ||
+      status.current !== AFFIX_STATUS_PREPARE ||
       !fixedNodeRef.current ||
       !placeholderNodeRef.current ||
       !targetFunc
@@ -105,7 +104,7 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
     const targetNode = targetFunc();
     if (targetNode) {
       const newState: Partial<AffixState> = {
-        status: AffixStatus.None,
+        status: AFFIX_STATUS_NONE,
       };
       const placeholderRect = getTargetRect(placeholderNodeRef.current);
 
@@ -160,7 +159,7 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
   };
 
   const prepareMeasure = () => {
-    status.current = AffixStatus.Prepare;
+    status.current = AFFIX_STATUS_PREPARE;
     measure();
     if (process.env.NODE_ENV === 'test') {
       (props as any)?.onTestUpdatePosition?.();

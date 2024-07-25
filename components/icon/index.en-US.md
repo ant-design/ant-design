@@ -3,7 +3,7 @@ category: Components
 group: General
 title: Icon
 description: Semantic vector graphics.
-toc: false
+showImport: false
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PdAYS7anRpoAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xEDOTJx2DEkAAAAAAAAAAAAADrJ8AQ/original
 demo:
@@ -12,9 +12,9 @@ demo:
 
 ## How to use
 
-Before use icons, you need to install [@ant-design/icons](https://github.com/ant-design/ant-design-icons) package:
+Before using icons, you need to install the [@ant-design/icons](https://github.com/ant-design/ant-design-icons) package:
 
-<InstallDependencies npm='npm install @ant-design/icons --save' yarn='yarn add @ant-design/icons' pnpm='pnpm install @ant-design/icons --save'></InstallDependencies>
+<InstallDependencies npm='npm install @ant-design/icons --save' yarn='yarn add @ant-design/icons' pnpm='pnpm install @ant-design/icons --save' bun='bun add @ant-design/icons'></InstallDependencies>
 
 ## List of icons
 
@@ -108,8 +108,8 @@ We added a `createFromIconfontCN` function to help developer use their own icons
 
 ```jsx
 import React from 'react';
-import ReactDOM from 'react-dom/client';
 import { createFromIconfontCN } from '@ant-design/icons';
+import ReactDOM from 'react-dom/client';
 
 const MyIcon = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js', // generate in iconfont.cn
@@ -155,11 +155,24 @@ module.exports = {
 };
 ```
 
+You can import SVG icon as a react component by using `vite` and [`vite-plugin-svgr`](https://www.npmjs.com/package/vite-plugin-svgr). `@svgr/webpack`'s `options` [reference](https://github.com/smooth-code/svgr#options).
+
+```js
+// vite.config.js
+export default defineConfig(() => ({
+  // ... other config
+  plugins: [svgr({ svgrOptions: { icon: true } })],
+}));
+```
+
 ```jsx
 import React from 'react';
-import ReactDOM from 'react-dom/client';
 import Icon from '@ant-design/icons';
 import MessageSvg from 'path/to/message.svg'; // path to your '*.svg' file.
+
+// import MessageSvg from 'path/to/message.svg?react'; // use vite path to your '*.svg?react' file.
+import ReactDOM from 'react-dom/client';
+
 // in create-react-app:
 // import { ReactComponent as MessageSvg } from 'path/to/message.svg';
 

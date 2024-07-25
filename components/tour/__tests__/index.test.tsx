@@ -298,7 +298,7 @@ describe('Tour', () => {
   });
 
   it('panelRender should correct render when total is undefined or null', () => {
-    [undefined, null].forEach((total: undefined) => {
+    [undefined, null].forEach((total: any) => {
       const { container } = render(<Tour open steps={[{ title: <div>test</div>, total }]} />);
       expect(
         container.querySelector<HTMLDivElement>('.ant-tour-content .ant-tour-indicators'),
@@ -563,5 +563,50 @@ describe('Tour', () => {
     fireEvent.click(screen.getByRole('button', { name: 'target' }));
     expect(document.querySelector('.should-be-primary')).toBeTruthy();
     expect(document.querySelector('.should-be-primary')).toHaveClass('ant-tour-primary');
+  });
+
+  // https://github.com/ant-design/ant-design/issues/49117
+  it('onClose current is correct', () => {
+    const onClose = jest.fn();
+    const { container } = render(
+      <Tour
+        onClose={onClose}
+        open
+        steps={[
+          {
+            title: '',
+            description: '',
+            type: 'primary',
+            className: 'should-be-primary',
+          },
+          {
+            title: '',
+          },
+        ]}
+      />,
+    );
+    fireEvent.click(container.querySelector('.ant-tour-next-btn')!);
+    fireEvent.click(container.querySelector('.ant-tour-close-icon')!);
+    expect(onClose).toHaveBeenLastCalledWith(1);
+  });
+
+  // This test is for PurePanel which means safe to remove.
+  describe('PurePanel', () => {
+    const PurePanel = Tour._InternalPanelDoNotUseOrYouWillBeFired;
+
+    it('closeIcon', () => {
+      const { container } = render(
+        <PurePanel
+          closeIcon={[
+            <span className="bamboo" key="bamboo" />,
+            <span className="little" key="little" />,
+          ]}
+          title="a"
+        />,
+      );
+
+      expect(container.querySelector('.bamboo')).toBeTruthy();
+      expect(container.querySelector('.little')).toBeTruthy();
+    });
   });
 });

@@ -1,42 +1,50 @@
-import { EllipsisOutlined } from '@ant-design/icons';
-import dayjs from 'dayjs';
 import React, { useState } from 'react';
-import type { RadioChangeEvent, TourProps, UploadFile } from 'antd';
+import { EllipsisOutlined } from '@ant-design/icons';
+import type {
+  ConfigProviderProps,
+  RadioChangeEvent,
+  TableProps,
+  TourProps,
+  UploadFile,
+} from 'antd';
 import {
-  Upload,
-  Tour,
-  Input,
-  Form,
-  QRCode,
   Button,
   Calendar,
   ConfigProvider,
   DatePicker,
+  Divider,
+  Form,
+  Image,
+  Input,
+  InputNumber,
   Modal,
   Pagination,
   Popconfirm,
+  QRCode,
   Radio,
   Select,
   Space,
   Table,
   theme,
   TimePicker,
+  Tour,
   Transfer,
-  Image,
-  InputNumber,
-  Divider,
+  Upload,
 } from 'antd';
-import type { Locale } from 'antd/es/locale';
 import enUS from 'antd/locale/en_US';
 import zhCN from 'antd/locale/zh_CN';
+import dayjs from 'dayjs';
+
 import 'dayjs/locale/zh-cn';
+
+type Locale = ConfigProviderProps['locale'];
 
 dayjs.locale('en');
 
 const { Option } = Select;
 const { RangePicker } = DatePicker;
 
-const columns = [
+const columns: TableProps['columns'] = [
   {
     title: 'Name',
     dataIndex: 'name',

@@ -2,13 +2,12 @@
 category: Components
 group: Data Display
 title: Tag
+description: Used for marking and categorization.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*_SBsSrKLg00AAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JPNAQYrVkYkAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-Tag for categorizing or markup.
 
 ## When To Use
 
@@ -45,7 +44,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | color | Color of the Tag | string | - |  |
 | icon | Set the icon of tag | ReactNode | - |  |
 | bordered | Whether has border style | boolean | true | 5.4.0 |
-| onClose | Callback executed when tag is closed | (e) => void | - |  |
+| onClose | Callback executed when tag is closed | (e: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
 
 ### Tag.CheckableTag
 

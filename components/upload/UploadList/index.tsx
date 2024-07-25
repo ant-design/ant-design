@@ -9,11 +9,11 @@ import CSSMotion, { CSSMotionList } from 'rc-motion';
 
 import useForceUpdate from '../../_util/hooks/useForceUpdate';
 import initCollapseMotion from '../../_util/motion';
-import { cloneElement, isValidElement } from '../../_util/reactNode';
+import { cloneElement } from '../../_util/reactNode';
 import type { ButtonProps } from '../../button';
 import Button from '../../button';
 import { ConfigContext } from '../../config-provider';
-import type { InternalUploadFile, UploadFile, UploadListProps } from '../interface';
+import type { UploadFile, UploadListProps } from '../interface';
 import { isImageUrl, previewImage } from '../utils';
 import ListItem from './ListItem';
 
@@ -57,13 +57,13 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
     if (listType !== 'picture' && listType !== 'picture-card' && listType !== 'picture-circle') {
       return;
     }
-    (items || []).forEach((file: InternalUploadFile) => {
+    (items || []).forEach((file) => {
       if (
         typeof document === 'undefined' ||
         typeof window === 'undefined' ||
         !(window as any).FileReader ||
         !(window as any).File ||
-        !(file.originFileObj instanceof File || (file.originFileObj as Blob) instanceof Blob) ||
+        !(file.originFileObj instanceof File || (file.originFileObj as any) instanceof Blob) ||
         file.thumbUrl !== undefined
       ) {
         return;
@@ -109,7 +109,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
       return iconRender(file, listType);
     }
     const isLoading = file.status === 'uploading';
-    const fileIcon = isImgUrl && isImgUrl(file) ? <PictureTwoTone /> : <FileTwoTone />;
+    const fileIcon = isImgUrl?.(file) ? <PictureTwoTone /> : <FileTwoTone />;
     let icon: React.ReactNode = isLoading ? <LoadingOutlined /> : <PaperClipOutlined />;
     if (listType === 'picture') {
       icon = isLoading ? <LoadingOutlined /> : fileIcon;
@@ -132,8 +132,8 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
       title,
       onClick: (e: React.MouseEvent<HTMLElement>) => {
         callback();
-        if (isValidElement(customIcon) && customIcon.props.onClick) {
-          customIcon.props.onClick(e);
+        if (React.isValidElement(customIcon)) {
+          customIcon.props.onClick?.(e);
         }
       },
       className: `${prefixCls}-list-item-action`,
@@ -141,7 +141,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
     if (acceptUploadDisabled) {
       btnProps.disabled = disabled;
     }
-    if (isValidElement(customIcon)) {
+    if (React.isValidElement(customIcon)) {
       const btnIcon = cloneElement(customIcon, {
         ...customIcon.props,
         onClick: () => {},

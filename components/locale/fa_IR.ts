@@ -1,8 +1,9 @@
 /* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/fa_IR';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/fa_IR';
 import DatePicker from '../date-picker/locale/fa_IR';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/fa_IR';
 
 const typeTemplate = '${label} از نوع ${type} معتبر نیست';
@@ -79,9 +80,6 @@ const localeValues: Locale = {
     copy: 'کپی',
     copied: 'کپی شد',
     expand: 'توسعه',
-  },
-  PageHeader: {
-    back: 'برگشت',
   },
   Form: {
     optional: '(اختیاری)',

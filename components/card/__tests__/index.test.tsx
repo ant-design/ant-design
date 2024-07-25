@@ -1,6 +1,8 @@
 import '@testing-library/jest-dom';
-import userEvent from '@testing-library/user-event';
+
 import React from 'react';
+import userEvent from '@testing-library/user-event';
+
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, screen } from '../../../tests/utils';
@@ -173,5 +175,23 @@ describe('Card', () => {
     );
 
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('should support custom className', () => {
+    const { container } = render(
+      <Card title="Card title" classNames={{ header: 'custom-head' }}>
+        <p>Card content</p>
+      </Card>,
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should support custom styles', () => {
+    const { container } = render(
+      <Card title="Card title" styles={{ header: { color: 'red' } }}>
+        <p>Card content</p>
+      </Card>,
+    );
+    expect(container).toMatchSnapshot();
   });
 });

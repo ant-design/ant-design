@@ -1,9 +1,13 @@
 import { Keyframes, unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
+import type {
+  FullToken,
+  GenerateStyle,
+  GenStyleFn,
+  GetDefaultToken,
+} from '../../theme/internal';
 import { genPresetColor, genStyleHooks, mergeToken } from '../../theme/internal';
-import type { GenStyleFn, GetDefaultToken } from '../../theme/util/genComponentStyleHook';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -121,6 +125,9 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token) => {
       [`&:not(${componentCls}-count)`]: {
         color: darkColor,
       },
+      'a:hover &': {
+        background: darkColor,
+      },
     },
   }));
 
@@ -133,6 +140,8 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token) => {
       lineHeight: 1,
 
       [`${componentCls}-count`]: {
+        display: 'inline-flex',
+        justifyContent: 'center',
         zIndex: token.indicatorZIndex,
         minWidth: indicatorHeight,
         height: indicatorHeight,
@@ -218,8 +227,9 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token) => {
         },
         [`${componentCls}-status-processing`]: {
           overflow: 'visible',
-          color: token.colorPrimary,
-          backgroundColor: token.colorPrimary,
+          color: token.colorInfo,
+          backgroundColor: token.colorInfo,
+          borderColor: 'currentcolor',
 
           '&::after': {
             position: 'absolute',

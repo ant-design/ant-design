@@ -1,5 +1,6 @@
-import type { OptionFC } from 'rc-select/lib/Option';
 import React from 'react';
+import type { OptionFC } from 'rc-select/lib/Option';
+
 import type { PaginationProps } from '..';
 import Pagination from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -86,6 +87,21 @@ describe('Pagination', () => {
       );
       expect(asFragment().firstChild).toMatchSnapshot();
       expect(container.querySelectorAll('.ant-select-lg').length).toBe(0);
+    });
+  });
+
+  describe('should support align props', () => {
+    it('should support align to start', () => {
+      const { container } = render(<Pagination align="start" />);
+      expect(container.querySelector('.ant-pagination-start')).toBeTruthy();
+    });
+    it('should support align to center', () => {
+      const { container } = render(<Pagination align="center" />);
+      expect(container.querySelector('.ant-pagination-center')).toBeTruthy();
+    });
+    it('should support align to end', () => {
+      const { container } = render(<Pagination align="end" />);
+      expect(container.querySelector('.ant-pagination-end')).toBeTruthy();
     });
   });
 });

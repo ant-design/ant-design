@@ -1,7 +1,7 @@
 import React from 'react';
 import { EditOutlined } from '@ant-design/icons';
-import { createStyles } from 'antd-style';
 import { Tooltip } from 'antd';
+import { createStyles } from 'antd-style';
 
 const branchUrl = 'https://github.com/ant-design/ant-design/edit/master/';
 
@@ -21,14 +21,12 @@ const useStyle = createStyles(({ token, css }) => {
         display: inline-block;
         text-decoration: none;
         vertical-align: middle;
-        margin-inline-start: 6px;
-
+        margin-inline-start: ${token.marginXS}px;
         ${iconCls} {
           display: block;
           color: ${colorIcon};
-          font-size: 16px;
-          transition: all 0.3s;
-
+          font-size: ${token.fontSizeLG}px;
+          transition: all ${token.motionDurationSlow};
           &:hover {
             color: ${colorText};
           }
@@ -38,9 +36,8 @@ const useStyle = createStyles(({ token, css }) => {
   };
 });
 
-export default function EditButton({ title, filename }: EditButtonProps) {
+const EditButton: React.FC<EditButtonProps> = ({ title, filename }) => {
   const { styles } = useStyle();
-
   return (
     <Tooltip title={title}>
       <a
@@ -53,4 +50,6 @@ export default function EditButton({ title, filename }: EditButtonProps) {
       </a>
     </Tooltip>
   );
-}
+};
+
+export default EditButton;

@@ -2,11 +2,10 @@
 category: Components
 group: Navigation
 title: Menu
+description: A versatile menu for navigation.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*KeyQQL5iKkkAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-A versatile menu for navigation.
 
 ## When To Use
 
@@ -70,7 +69,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### ItemType
 
-> type ItemType = [MenuItemType](#MenuItemType) | [SubMenuType](#SubMenuType) | [MenuItemGroupType](#MenuItemGroupType) | [MenuDividerType](#MenuDividerType);
+> type ItemType = [MenuItemType](#menuitemtype) | [SubMenuType](#submenutype) | [MenuItemGroupType](#menuitemgrouptype) | [MenuDividerType](#menudividertype);
 
 #### MenuItemType
 

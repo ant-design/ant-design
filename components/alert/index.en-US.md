@@ -1,16 +1,15 @@
 ---
 category: Components
 title: Alert
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Ct7bT7rrTTAAAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-U3XQqYN7VsAAAAAAAAAAAAADrJ8AQ/original
+description: Display warning messages that require attention.
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*QsvtS41m45UAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*gOTISoMFZV0AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 group:
   title: Feedback
   order: 6
 ---
-
-Alert component for feedback.
 
 ## When To Use
 
@@ -42,7 +41,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | action | The action of Alert | ReactNode | - | 4.9.0 |
 | afterClose | Called when close animation is finished | () => void | - |  |
 | banner | Whether to show as banner | boolean | false |  |
-| closeIcon | Custom close icon, >=5.7.0: close button will be hidden when setting to `null` or `false` | boolean \| ReactNode | `<CloseOutlined />` |  |
+| closable | The config of closable, >=5.15.0: support `aria-*` | boolean \| ({ closeIcon?: React.ReactNode } & React.AriaAttributes) | `false` |  |
 | description | Additional content of Alert | ReactNode | - |  |
 | icon | Custom icon, effective when `showIcon` is true | ReactNode | - |  |
 | message | Content of Alert | ReactNode | - |  |

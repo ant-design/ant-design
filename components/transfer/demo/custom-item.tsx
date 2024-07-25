@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Transfer } from 'antd';
-import type { TransferDirection } from 'antd/es/transfer';
+import type { TransferProps } from 'antd';
 
 interface RecordType {
   key: string;
@@ -11,7 +11,7 @@ interface RecordType {
 
 const App: React.FC = () => {
   const [mockData, setMockData] = useState<RecordType[]>([]);
-  const [targetKeys, setTargetKeys] = useState<string[]>([]);
+  const [targetKeys, setTargetKeys] = useState<React.Key[]>([]);
 
   const getMock = () => {
     const tempTargetKeys = [];
@@ -36,11 +36,7 @@ const App: React.FC = () => {
     getMock();
   }, []);
 
-  const handleChange = (
-    newTargetKeys: string[],
-    direction: TransferDirection,
-    moveKeys: string[],
-  ) => {
+  const handleChange: TransferProps['onChange'] = (newTargetKeys, direction, moveKeys) => {
     console.log(newTargetKeys, direction, moveKeys);
     setTargetKeys(newTargetKeys);
   };

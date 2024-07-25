@@ -1,18 +1,19 @@
 import type { FC } from 'react';
 import React, { useRef } from 'react';
-import { createStyles } from 'antd-style';
 import { CheckOutlined, SketchOutlined } from '@ant-design/icons';
-import { nodeToGroup } from 'html2sketch';
-import copy from 'copy-to-clipboard';
 import { App } from 'antd';
+import { createStyles } from 'antd-style';
+import copy from 'copy-to-clipboard';
+import { nodeToGroup } from 'html2sketch';
+
 import type { AntdPreviewerProps } from './Previewer';
 
 const useStyle = createStyles(({ token, css }) => ({
   wrapper: css`
+    position: relative;
     border: 1px solid ${token.colorBorderSecondary};
     border-radius: ${token.borderRadius}px;
-    padding: 20px 24px 40px;
-    position: relative;
+    padding: ${token.paddingMD}px ${token.paddingLG}px ${token.paddingMD * 2}px;
     margin-bottom: ${token.marginLG}px;
   `,
   title: css`
@@ -34,8 +35,8 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
   copy: css`
     position: absolute;
-    inset-inline-end: 20px;
-    inset-block-start: 20px;
+    inset-inline-end: ${token.paddingMD}px;
+    inset-block-start: ${token.paddingMD}px;
     cursor: pointer;
   `,
   copyTip: css`
@@ -48,7 +49,7 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
   tip: css`
     color: ${token.colorTextTertiary};
-    margin-top: 40px;
+    margin-top: ${token.marginMD * 2}px;
   `,
 }));
 
@@ -60,14 +61,15 @@ const DesignPreviewer: FC<AntdPreviewerProps> = ({ children, title, description,
 
   const handleCopy = async () => {
     try {
-      const group = await nodeToGroup(demoRef.current);
-      copy(JSON.stringify(group.toSketchJSON()));
-      setCopied(true);
-      setTimeout(() => {
-        setCopied(false);
-      }, 5000);
-    } catch (e) {
-      console.error(e);
+      if (demoRef.current) {
+        const group = await nodeToGroup(demoRef.current);
+        copy(JSON.stringify(group.toSketchJSON()));
+        setCopied(true);
+        setTimeout(() => {
+          setCopied(false);
+        }, 5000);
+      }
+    } catch {
       message.error('复制失败');
     }
   };
@@ -77,18 +79,21 @@ const DesignPreviewer: FC<AntdPreviewerProps> = ({ children, title, description,
       <a className={styles.title} href={`#${asset.id}`}>
         {title}
       </a>
-      <div className={styles.description} dangerouslySetInnerHTML={{ __html: description }} />
+      {description && (
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: description is from markdown
+        <div className={styles.description} dangerouslySetInnerHTML={{ __html: description }} />
+      )}
       <div className={styles.copy}>
         {copied ? (
           <div className={styles.copiedTip}>
             <CheckOutlined />
-            <span style={{ marginLeft: 8 }}>已复制，使用 Kitchen 插件即可粘贴</span>
+            <span style={{ marginInlineStart: 8 }}>已复制，使用 Kitchen 插件即可粘贴</span>
           </div>
         ) : (
-          <div onClick={handleCopy} className={styles.copyTip}>
+          <button type="button" onClick={handleCopy} className={styles.copyTip}>
             <SketchOutlined />
-            <span style={{ marginLeft: 8 }}>复制 Sketch JSON</span>
-          </div>
+            <span style={{ marginInlineStart: 8 }}>复制 Sketch JSON</span>
+          </button>
         )}
       </div>
       <div className={styles.demo} ref={demoRef}>

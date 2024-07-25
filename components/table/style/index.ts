@@ -1,4 +1,5 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
 import { clearFix, resetComponent } from '../../style';
@@ -271,6 +272,8 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         fontSize: tableFontSize,
         background: tableBg,
         borderRadius: `${unit(tableRadius)} ${unit(tableRadius)} 0 0`,
+        // https://github.com/ant-design/ant-design/issues/47486
+        scrollbarColor: `${token.tableScrollThumbBg} ${token.tableScrollBg}`,
       },
       // https://github.com/ant-design/ant-design/issues/17611
       table: {
@@ -340,7 +343,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       // ============================ Body ============================
       [`${componentCls}-tbody`]: {
         '> tr': {
-          [`> th, > td`]: {
+          '> th, > td': {
             transition: `background ${motionDurationMid}, border-color ${motionDurationMid}`,
             borderBottom: tableBorder,
 

@@ -1,5 +1,6 @@
-import classNames from 'classnames';
 import * as React from 'react';
+import classNames from 'classnames';
+
 import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
 import SingleNumber from './SingleNumber';
@@ -69,7 +70,7 @@ const ScrollNumber = React.forwardRef<HTMLElement, ScrollNumberProps>((props, re
   // allow specify the border
   // mock border-color by box-shadow for compatible with old usage:
   // <Badge count={4} style={{ backgroundColor: '#fff', color: '#999', borderColor: '#d9d9d9' }} />
-  if (style && style.borderColor) {
+  if (style?.borderColor) {
     newProps.style = {
       ...style,
       boxShadow: `0 0 0 1px ${style.borderColor} inset`,

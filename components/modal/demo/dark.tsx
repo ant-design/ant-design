@@ -1,28 +1,28 @@
 // @ts-nocheck
 import React, { useState } from 'react';
-import difference from 'lodash/difference';
-import { DownOutlined, ClockCircleOutlined } from '@ant-design/icons';
-import dayjs from 'dayjs';
-import customParseFormat from 'dayjs/plugin/customParseFormat';
+import { ClockCircleOutlined, DownOutlined } from '@ant-design/icons';
 import {
-  Modal,
-  DatePicker,
-  Slider,
-  Tree,
-  Badge,
-  Collapse,
-  Timeline,
-  Tabs,
   Anchor,
-  Table,
-  Card,
+  Badge,
   Button,
   Calendar,
-  Transfer,
-  Switch,
-  Typography,
+  Card,
+  Collapse,
+  DatePicker,
   Dropdown,
+  Modal,
+  Slider,
+  Switch,
+  Table,
+  Tabs,
+  Timeline,
+  Transfer,
+  Tree,
+  Typography,
 } from 'antd';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+import difference from 'lodash/difference';
 
 dayjs.extend(customParseFormat);
 
@@ -455,10 +455,10 @@ export default () => {
           style={{ marginTop: 16 }}
         />
         <Anchor>
-          <Link href="#components-anchor-demo-basic" title="Basic demo" />
-          <Link href="#components-anchor-demo-static" title="Static demo" />
+          <Link href="#anchor-demo-basic" title="Basic demo" />
+          <Link href="#anchor-demo-static" title="Static demo" />
           <Link
-            href="#components-anchor-demo-basic"
+            href="#anchor-demo-basic"
             title="Basic demo with Target"
             target="_blank"
           />

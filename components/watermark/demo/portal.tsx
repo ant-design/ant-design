@@ -1,19 +1,15 @@
 import React from 'react';
-import { Button, Drawer, Modal, Space, Watermark } from 'antd';
+import { Button, Drawer, Flex, Modal, Watermark } from 'antd';
 
-const placeholder = (
-  <div
-    style={{
-      height: 300,
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      background: 'rgba(150, 150, 150, 0.2)',
-    }}
-  >
-    A mock height
-  </div>
-);
+const style: React.CSSProperties = {
+  height: 300,
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  backgroundColor: 'rgba(150, 150, 150, 0.2)',
+};
+
+const placeholder = <div style={style}>A mock height</div>;
 
 const App: React.FC = () => {
   const [showModal, setShowModal] = React.useState(false);
@@ -26,12 +22,17 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Space>
-        <Button onClick={() => setShowModal(true)}>Show in Modal</Button>
-        <Button onClick={() => setShowDrawer(true)}>Show in Drawer</Button>
-        <Button onClick={() => setShowDrawer2(true)}>Not Show in Drawer</Button>
-      </Space>
-
+      <Flex gap="middle">
+        <Button type="primary" onClick={() => setShowModal(true)}>
+          Show in Modal
+        </Button>
+        <Button type="primary" onClick={() => setShowDrawer(true)}>
+          Show in Drawer
+        </Button>
+        <Button type="primary" onClick={() => setShowDrawer2(true)}>
+          Not Show in Drawer
+        </Button>
+      </Flex>
       <Watermark content="Ant Design">
         <Modal
           destroyOnClose

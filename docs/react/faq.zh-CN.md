@@ -105,21 +105,16 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 ## `antd` 是否有国内镜像？
 
-有的，你可以访问 https://ant-design.antgroup.com/index-cn 或 https://ant-design.gitee.io/index-cn 。
+有的，你可以访问 https://ant-design.antgroup.com/index-cn 。
 
-| 产品/版本 | 地址 |
-| --- | --- |
-| Ant Design 5.x | https://ant-design.antgroup.com <br /> https://ant-design.gitee.io |
-| Ant Design 4.x | https://4x-ant-design.antgroup.com |
-| Ant Design 3.x | https://ant-design-3x.gitee.io |
-| Ant Design 2.x | https://ant-design-2x.gitee.io |
-| Ant Design 1.x | https://ant-design-1x.gitee.io |
-| Ant Design Pro | https://ant-design-pro.gitee.io/ |
-| Ant Design Mobile | https://ant-design-mobile.antgroup.com/zh <br /> https://antd-mobile.gitee.io/ |
-| Ant Design Mini | https://ant-design-mini.antgroup.com <br /> https://antd-mobile.gitee.io/ |
-| Ant Design Charts | https://ant-design-charts.antgroup.com<br /> https://antd-mobile.gitee.io/ |
-| AntV | https://antv.antgroup.com |
-| Ant Motion | https://ant-motion.gitee.io |
+| 产品/版本         | 地址                                      |
+| ----------------- | ----------------------------------------- |
+| Ant Design 5.x    | https://ant-design.antgroup.com           |
+| Ant Design 4.x    | https://4x-ant-design.antgroup.com        |
+| Ant Design Mobile | https://ant-design-mobile.antgroup.com/zh |
+| Ant Design Mini   | https://ant-design-mini.antgroup.com      |
+| Ant Design Charts | https://ant-design-charts.antgroup.com    |
+| AntV              | https://antv.antgroup.com                 |
 
 ## `antd` 可以像 `React` 那样使用单文件引入吗？
 
@@ -135,22 +130,28 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 如果你需要一些 antd 没有包含的功能，你可以尝试通过 [HOC](https://gist.github.com/sebmarkbage/ef0bf1f338a7182b6775) 拓展 antd 的组件。 [更多](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.eeu8q01s1)
 
+antd 对新增组件需求会进行严格的讨论，以防止 API 腐败而变为[历史债务](/docs/blog/historical-debt)。antd 侧对于 API 也更倾向于提供原子化的能力使开发者可以更灵活的定制自己所需要的功能。
+
 ## 如何获取未导出的属性定义？
 
-antd 会透出组件定义，但是随着重构可能导致内部一些定义命名或者属性变化。因而更推荐直接使用 Typescript 原生能力获取：
+antd 会透出基本组件定义。对于未透出属性，你可以通过 antd 提供的工具类型来获取。例如：
 
 ```tsx
-import type { Table } from 'antd';
+import type { Checkbox, CheckboxProps, GetProp, GetProps, GetRef, Input } from 'antd';
 
-type Props<T extends (...args: any) => any> = Parameters<T>[0];
+// Get Props
+type CheckboxGroupProps = GetProps<typeof Checkbox.Group>;
 
-type TableProps = Props<typeof Table<{ key: string; name: string; age: number }>>;
-type DataSource = TableProps['dataSource'];
+// Get Prop
+type CheckboxValue = GetProp<CheckboxProps, 'value'>;
+
+// Get Ref
+type InputRef = GetRef<typeof Input>;
 ```
 
 ## 我的组件默认语言是英文的？如何切回中文的。
 
-请尝试使用 [ConfigProvider](/components/config-provider-cn#components-config-provider-demo-locale) 组件来包裹你的应用。
+请尝试使用 [ConfigProvider](/components/config-provider-cn#config-provider-demo-locale) 组件来包裹你的应用。
 
 如果日期组件的国际化仍未生效，请配置 `dayjs.locale('zh-cn')` 并**检查你本地的 `dayjs` 版本和 `antd` 依赖的 `dayjs` 版本是否一致**。
 
@@ -159,6 +160,8 @@ type DataSource = TableProps['dataSource'];
 请检查是否正确设置了 dayjs 语言包。
 
 ```js
+import dayjs from 'dayjs';
+
 import 'dayjs/locale/zh-cn';
 
 dayjs.locale('zh-cn');
@@ -197,7 +200,7 @@ npm ls dayjs
 
 message/notification/Modal.confirm 等静态方法不同于 `<Button />` 的渲染方式，是单独渲染在 `ReactDOM.render` 生成的 DOM 树节点上，无法共享 ConfigProvider 提供的 context 信息。你有两种解决方式：
 
-1. 使用官方提供的 [message.useMessage](/components/message-cn/#components-message-demo-hooks)、[notification.useNotification](/components/notification-cn#%E4%B8%BA%E4%BB%80%E4%B9%88-notification-%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux-%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C-ConfigProvider-%E7%9A%84-locale/prefixCls-%E9%85%8D%E7%BD%AE%EF%BC%9F) 和 [Modal.useModal](/components/modal-cn/#%E4%B8%BA%E4%BB%80%E4%B9%88-Modal-%E6%96%B9%E6%B3%95%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux%E3%80%81%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C-ConfigProvider-locale/prefixCls-%E9%85%8D%E7%BD%AE%EF%BC%9F) 来调用这些方法。
+1. 使用官方提供的 [message.useMessage](/components/message-cn/#message-demo-hooks)、[notification.useNotification](/components/notification-cn#%E4%B8%BA%E4%BB%80%E4%B9%88-notification-%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux-%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C-ConfigProvider-%E7%9A%84-locale/prefixCls-%E9%85%8D%E7%BD%AE%EF%BC%9F) 和 [Modal.useModal](/components/modal-cn/#%E4%B8%BA%E4%BB%80%E4%B9%88-Modal-%E6%96%B9%E6%B3%95%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux%E3%80%81%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C-ConfigProvider-locale/prefixCls-%E9%85%8D%E7%BD%AE%EF%BC%9F) 来调用这些方法。
 
 2. 使用 [App.useApp](/components/app-cn#%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95) 直接调用 message、notification、modal 实例方法。
 
@@ -221,7 +224,7 @@ message/notification/Modal.confirm 等静态方法不同于 `<Button />` 的渲�
 
 ## CSS-in-JS 如何与 Shadow DOM 一同使用？
 
-请参考文档 [Shadow Dom 场景](/docs/react/compatible-style-cn#shadow-dom-场景) 内容。
+请参考文档 [Shadow DOM 场景](/docs/react/compatible-style-cn#shadow-dom-场景) 内容。
 
 ## 如何关闭组件动画
 

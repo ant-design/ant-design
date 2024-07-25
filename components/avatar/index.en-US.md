@@ -1,6 +1,7 @@
 ---
 category: Components
 title: Avatar
+description: Used to represent users or things, supporting the display of images, icons, or characters.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JJBSS5lBG4IAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*YbgyQaRGz-UAAAAAAAAAAAAADrJ8AQ/original
 demo:
@@ -9,8 +10,6 @@ group:
   title: Data Display
   order: 5
 ---
-
-Avatars can be used to represent people or objects. It supports images, `Icon`s, or letters.
 
 ## Examples
 
@@ -50,10 +49,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| maxCount | Max avatars to show | number | - |  |
-| maxPopoverPlacement | The placement of excess avatar Popover | `top` \| `bottom` | `top` |  |
-| maxPopoverTrigger | Set the trigger of excess avatar Popover | `hover` \| `focus` \| `click` | `hover` | 4.17.0 |
-| maxStyle | The style of excess avatar style | CSSProperties | - |  |
+| max | Set maximum display related configurations, Before `5.18.0` you can use [parameters](https://github.com/ant-design/ant-design/blob/9d134859becbdae5b9ce276f6d9af4264691d81f/components/avatar/group.tsx#L35-L38) | `{ count?: number; style?: CSSProperties; popover?: PopoverProps }` | - | 5.18.0 |
 | size | The size of the avatar | number \| `large` \| `small` \| `default` \| { xs: number, sm: number, ...} | `default` | 4.8.0 |
 | shape | The shape of the avatar | `circle` \| `square` | `circle` | 5.8.0 |
 

@@ -23,12 +23,9 @@ const useStyle = createStyles(({ token }) => ({
   `,
 }));
 
-const onShow = () => ({
-  opacity: 1,
-});
-const onHide = () => ({
-  opacity: 0,
-});
+const onShow = () => ({ opacity: 1 });
+
+const onHide = () => ({ opacity: 0 });
 
 const BackgroundImage: React.FC<BackgroundImageProps> = ({ colorPrimary, isLight }) => {
   const activeColor = useMemo(() => getClosetColor(colorPrimary), [colorPrimary]);
@@ -68,10 +65,7 @@ const BackgroundImage: React.FC<BackgroundImageProps> = ({ colorPrimary, isLight
             <source srcSet={entity.url} type="image/jpeg" />
             <img
               className={cls}
-              style={{
-                ...style,
-                opacity: isLight ? opacity : 0,
-              }}
+              style={{ ...style, opacity: isLight ? opacity : 0 }}
               src={entity.url}
               alt=""
             />

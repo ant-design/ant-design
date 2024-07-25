@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import type { RadioChangeEvent } from 'antd';
+import type { RadioChangeEvent, SelectProps } from 'antd';
 import { Radio, Select } from 'antd';
-import type { SelectCommonPlacement } from 'antd/es/_util/motion';
+
+type SelectCommonPlacement = SelectProps['placement'];
 
 const App: React.FC = () => {
   const [placement, SetPlacement] = useState<SelectCommonPlacement>('topLeft');
@@ -23,7 +24,7 @@ const App: React.FC = () => {
       <Select
         defaultValue="HangZhou"
         style={{ width: 120 }}
-        dropdownMatchSelectWidth={false}
+        popupMatchSelectWidth={false}
         placement={placement}
         options={[
           {

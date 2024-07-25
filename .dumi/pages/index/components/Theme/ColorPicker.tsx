@@ -36,12 +36,11 @@ const useStyle = createStyles(({ token, css }) => ({
 
 export interface ColorPickerProps {
   id?: string;
-  children?: React.ReactNode;
   value?: string | Color;
   onChange?: (value?: Color | string) => void;
 }
 
-const DebouncedColorPicker: React.FC<ColorPickerProps> = (props) => {
+const DebouncedColorPicker: React.FC<React.PropsWithChildren<ColorPickerProps>> = (props) => {
   const { value: color, children, onChange } = props;
   const [value, setValue] = useState(color);
 
@@ -91,7 +90,7 @@ const ThemeColorPicker: React.FC<ColorPickerProps> = ({ value, onChange, id }) =
   }, [value]);
 
   return (
-    <Flex gap="large" align="center" wrap="wrap">
+    <Flex gap="large" align="center" wrap>
       <Input
         value={typeof value === 'string' ? value : value?.toHexString()}
         onChange={(event) => onChange?.(event.target.value)}
@@ -115,6 +114,7 @@ const ThemeColorPicker: React.FC<ColorPickerProps> = ({ value, onChange, id }) =
               <input
                 type="radio"
                 name={picker ? 'picker' : 'color'}
+                aria-label={color}
                 tabIndex={picker ? -1 : 0}
                 onClick={(e) => e.stopPropagation()}
               />

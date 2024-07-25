@@ -1,8 +1,9 @@
 /* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/de_DE';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/de_DE';
 import DatePicker from '../date-picker/locale/de_DE';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/de_DE';
 
 const typeTemplate = '${label} ist nicht gültig. ${type} erwartet';
@@ -30,7 +31,7 @@ const localeValues: Locale = {
     emptyText: 'Keine Daten',
     expand: 'Zeile erweitern',
     collapse: 'Zeile reduzieren',
-    triggerDesc: 'Klicken zur absteigenden  Sortierung',
+    triggerDesc: 'Klicken zur absteigenden Sortierung',
     triggerAsc: 'Klicken zur aufsteigenden Sortierung',
     cancelSort: 'Klicken zum Abbrechen der Sortierung',
   },
@@ -75,9 +76,6 @@ const localeValues: Locale = {
     copy: 'Kopieren',
     copied: 'Kopiert',
     expand: 'Erweitern',
-  },
-  PageHeader: {
-    back: 'Zurück',
   },
   Form: {
     defaultValidateMessages: {

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import type { RadioChangeEvent } from 'antd';
+import type { GetProp, RadioChangeEvent, TreeSelectProps } from 'antd';
 import { Radio, TreeSelect } from 'antd';
-import type { SelectCommonPlacement } from 'antd/es/_util/motion';
+
+type SelectCommonPlacement = GetProp<TreeSelectProps, 'placement'>;
 
 const treeData = [
   {
@@ -57,7 +58,7 @@ const App: React.FC = () => {
         showSearch
         dropdownStyle={{ maxHeight: 400, overflow: 'auto', minWidth: 300 }}
         placeholder="Please select"
-        dropdownMatchSelectWidth={false}
+        popupMatchSelectWidth={false}
         placement={placement}
         allowClear
         treeDefaultExpandAll
