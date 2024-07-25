@@ -19,7 +19,7 @@ export class AggregationColor {
 
   private colors: GradientColor | undefined;
 
-  public cleared: boolean | 'controlled' = false;
+  public cleared: boolean = false;
 
   constructor(color: ColorGenInput<AggregationColor> | Colors<AggregationColor>) {
     // Clone from another AggregationColor
@@ -91,5 +91,23 @@ export class AggregationColor {
     }
 
     return this.metaColor.toRgbString();
+  }
+
+  equals(color: AggregationColor | null): boolean {
+    if (!color || this.isGradient() !== color.isGradient()) {
+      return false;
+    }
+
+    if (!this.isGradient()) {
+      return this.toHexString() === color.toHexString();
+    }
+
+    return (
+      this.colors!.length === color.colors!.length &&
+      this.colors!.every((c, i) => {
+        const target = color.colors![i];
+        return c.percent === target.percent && c.color.equals(target.color);
+      })
+    );
   }
 }

@@ -647,7 +647,7 @@ describe('ColorPicker', () => {
 
   it('Controlled string value should work with allowClear correctly', async () => {
     const Demo = (props: any) => {
-      const [color, setColor] = useState<ColorValueType>(generateColor('red'));
+      const [color, setColor] = useState<ColorValueType>(generateColor('#FF0000'));
 
       useEffect(() => {
         if (typeof props.value !== 'undefined') {
@@ -656,7 +656,14 @@ describe('ColorPicker', () => {
       }, [props.value]);
 
       return (
-        <ColorPicker value={color} onChange={(e) => setColor(e.toHexString())} open allowClear />
+        <ColorPicker
+          value={color}
+          onChange={(e) => {
+            setColor(e.toHexString());
+          }}
+          open
+          allowClear
+        />
       );
     };
     const { container, rerender } = render(<Demo />);
@@ -664,10 +671,13 @@ describe('ColorPicker', () => {
     expect(
       container.querySelector('.ant-color-picker-trigger .ant-color-picker-clear'),
     ).toBeFalsy();
+
+    // Clear
     fireEvent.click(container.querySelector('.ant-color-picker-clear')!);
     expect(
       container.querySelector('.ant-color-picker-trigger .ant-color-picker-clear'),
     ).toBeTruthy();
+
     rerender(<Demo value="#1677ff" />);
     expect(
       container.querySelector('.ant-color-picker-trigger .ant-color-picker-clear'),

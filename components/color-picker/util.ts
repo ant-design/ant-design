@@ -24,13 +24,6 @@ export const genAlphaColor = (color: AggregationColor, alpha?: number) => {
   return generateColor(hsba);
 };
 
-export const equalColor = (color1: AggregationColor, color2: AggregationColor) => {
-  if (color1.cleared && color2.cleared) {
-    return true;
-  }
-  return color1.toHexString() === color2.toHexString();
-};
-
 /**
  * Get percent position color. e.g. [10%-#fff, 20%-#000], 15% => #888
  */

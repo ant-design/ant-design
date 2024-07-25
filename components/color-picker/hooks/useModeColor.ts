@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useMergedState } from 'rc-util';
+import { useEvent, useMergedState } from 'rc-util';
 
 import { useLocale } from '../../locale';
 import type { AggregationColor } from '../color';
@@ -61,10 +61,22 @@ export default function useModeColor(
   // ======================== Post ========================
   // We need align `mode` with `color` state
 
-  // Color
-  const postColor = React.useMemo(() => generateColor(mergedColor || ''), [mergedColor]);
+  // >>>>> Color
+  const [cacheColor, setCacheColor] = React.useState<AggregationColor | null>(null);
 
-  // Mode
+  const setColor = useEvent((nextColor: AggregationColor) => {
+    setCacheColor(nextColor);
+    setMergedColor(nextColor);
+  });
+
+  const postColor = React.useMemo(() => {
+    const colorObj = generateColor(mergedColor || '');
+
+    // Use `cacheColor` in case the color is `cleared`
+    return colorObj.equals(cacheColor) ? cacheColor : colorObj;
+  }, [mergedColor, cacheColor]);
+
+  // >>>>> Mode
   const postMode = React.useMemo(() => {
     if (modeSet.has(modeState)) {
       return modeState;
@@ -80,5 +92,5 @@ export default function useModeColor(
   }, [postColor]);
 
   // ======================= Return =======================
-  return [postColor, setMergedColor, postMode, setModeState, modeOptionList];
+  return [postColor, setColor, postMode, setModeState, modeOptionList];
 }
