@@ -225,12 +225,12 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
 
         '&-trigger': {
           minWidth: controlHeight,
-          height: controlHeight,
+          minHeight: controlHeight,
           borderRadius,
           border: `${unit(lineWidth)} solid ${colorBorder}`,
           cursor: 'pointer',
           display: 'inline-flex',
-          alignItems: 'center',
+          alignItems: 'flex-start',
           justifyContent: 'center',
           transition: `all ${motionDurationMid}`,
           background: colorBgElevated,
@@ -243,6 +243,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
               .equal(),
             fontSize,
             color: colorText,
+            alignSelf: 'center',
           },
           '&:hover': {
             borderColor: colorPrimaryHover,

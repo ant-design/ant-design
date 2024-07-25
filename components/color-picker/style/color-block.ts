@@ -21,6 +21,8 @@ const genColorBlockStyle = (token: ColorPickerToken, size: number): CSSObject =>
       width: size,
       height: size,
       boxShadow: colorPickerInsetShadow,
+      flex: 'none',
+
       ...getTransBg('50%', token.colorFillSecondary),
       [`${componentCls}-color-block-inner`]: {
         width: '100%',

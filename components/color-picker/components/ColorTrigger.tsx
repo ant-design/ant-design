@@ -4,6 +4,7 @@ import { ColorBlock } from '@rc-component/color-picker';
 import classNames from 'classnames';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
+import { useLocale } from '../../locale';
 import type { AggregationColor } from '../color';
 import type { ColorFormatType, ColorPickerProps } from '../interface';
 import { getColorAlpha } from '../util';
@@ -27,6 +28,8 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
   const { color, prefixCls, open, disabled, format, className, showText, ...rest } = props;
   const colorTriggerPrefixCls = `${prefixCls}-trigger`;
 
+  const [locale] = useLocale('ColorPicker');
+
   // ============================== Text ==============================
   const text = React.useMemo(() => {
     if (!showText) {
@@ -35,6 +38,10 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
 
     if (typeof showText === 'function') {
       return showText(color);
+    }
+
+    if (color.cleared) {
+      return locale.transparent;
     }
 
     if (color.isGradient()) {

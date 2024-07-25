@@ -36,8 +36,6 @@ export default function GradientColorBar() {
 
   const values = React.useMemo(() => colors.map((info) => info.percent), [colors]);
 
-  console.log('Render Colors:', colors);
-
   // ============================== Drag ==============================
   const colorsRef = React.useRef(colors);
 

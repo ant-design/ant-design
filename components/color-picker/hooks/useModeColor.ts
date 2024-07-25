@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useMergedState } from 'rc-util';
 
+import { useLocale } from '../../locale';
 import type { AggregationColor } from '../color';
 import type { ColorPickerProps, ColorValueType, ModeType } from '../interface';
 import { generateColor } from '../util';
@@ -24,6 +25,8 @@ export default function useModeColor(
   setMode: (mode: ModeType) => void,
   modeOptionList: ModeOptions,
 ] {
+  const [locale] = useLocale('ColorPicker');
+
   // ======================== Base ========================
   // Color
   const [mergedColor, setMergedColor] = useMergedState(defaultValue, { value });
@@ -40,17 +43,17 @@ export default function useModeColor(
     const modes = new Set(list);
     const optionList: ModeOptions = [];
 
-    const pushOption = (modeType: ModeType) => {
+    const pushOption = (modeType: ModeType, localeTxt: string) => {
       if (modes.has(modeType)) {
         optionList.push({
-          label: modeType,
+          label: localeTxt,
           value: modeType,
         });
       }
     };
 
-    pushOption('single');
-    pushOption('gradient');
+    pushOption('single', locale.singleColor);
+    pushOption('gradient', locale.gradientColor);
 
     return [optionList, modes];
   }, [mode]);
