@@ -143,7 +143,11 @@ const ColorPicker: CompoundedComponent = (props) => {
       onChangeComplete?.(color);
     }
 
-    setColorValue(color);
+    // The condition that updates the internal state changes to uncontrolled mode or controlled mode and provides the onChange method.
+    if (!value || onChange) {
+      setColorValue(color);
+    }
+
     onChange?.(color, color.toHexString());
   };
 
@@ -221,7 +225,7 @@ const ColorPicker: CompoundedComponent = (props) => {
           showText={showText}
           format={formatValue}
           {...rest}
-          color={value ? generateColor(value) : colorValue}
+          color={colorValue}
         />
       )}
     </Popover>,
