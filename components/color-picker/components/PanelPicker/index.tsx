@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 import React, { useContext } from 'react';
 import RcColorPicker from '@rc-component/color-picker';
+import type { Color } from '@rc-component/color-picker';
 import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
 import Segmented from '../../../segmented';
@@ -74,8 +75,9 @@ const PanelPicker: FC = () => {
     return new AggregationColor(colors);
   };
 
-  const onInternalChange = (nextColor: AggregationColor, fromPicker?: boolean) => {
-    onChange(fillColor(nextColor), fromPicker);
+  const onInternalChange = (colorValue: AggregationColor | Color, fromPicker?: boolean) => {
+    const nextColor = generateColor(colorValue);
+    onChange(value.cleared ? genAlphaColor(nextColor) : nextColor, fromPicker);
   };
 
   const onInternalChangeComplete = (nextColor: AggregationColor) => {
@@ -118,8 +120,7 @@ const PanelPicker: FC = () => {
         value={activeColor?.toHsb()}
         disabledAlpha={disabledAlpha}
         onChange={(colorValue) => {
-          const nextColor = generateColor(colorValue);
-          onInternalChange(value.cleared ? genAlphaColor(nextColor) : nextColor, true);
+          onInternalChange(colorValue, true);
         }}
         onChangeComplete={(colorValue) => {
           onInternalChangeComplete(generateColor(colorValue));
@@ -128,7 +129,7 @@ const PanelPicker: FC = () => {
       />
       <ColorInput
         value={activeColor}
-        onChange={onChange}
+        onChange={onInternalChange}
         prefixCls={prefixCls}
         disabledAlpha={disabledAlpha}
         {...injectProps}

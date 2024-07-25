@@ -25,14 +25,22 @@ function doMouseMove(
     pageX: start,
     pageY: start,
   });
+  Object.defineProperties(mouseDown, {
+    pageX: { get: () => start },
+    pageY: { get: () => start },
+  });
+
+  console.log('down');
   fireEvent(container.getElementsByClassName(element)[0], mouseDown);
   // Drag
   const mouseMove: any = new Event('mousemove');
   mouseMove.pageX = end;
   mouseMove.pageY = end;
 
+  console.log('move');
   fireEvent(document, mouseMove);
 
+  console.log('up');
   const mouseUp = createEvent.mouseUp(document);
   fireEvent(document, mouseUp);
 }
@@ -340,7 +348,7 @@ describe('ColorPicker', () => {
   });
 
   it('Should fix hover boundary issues', async () => {
-    spyElementPrototypes(HTMLElement, {
+    const spyRect = spyElementPrototypes(HTMLElement, {
       getBoundingClientRect: () => ({
         x: 0,
         y: 100,
@@ -356,6 +364,8 @@ describe('ColorPicker', () => {
     fireEvent.mouseLeave(container.querySelector('.ant-color-picker-trigger')!);
     await waitFakeTimer();
     expect(container.querySelector('.ant-popover-hidden')).toBeTruthy();
+
+    spyRect.mockRestore();
   });
 
   it('Should work at dark mode', async () => {
@@ -448,7 +458,7 @@ describe('ColorPicker', () => {
   });
 
   it('Should null work as expect', async () => {
-    spyElementPrototypes(HTMLElement, {
+    const spyRect = spyElementPrototypes(HTMLElement, {
       getBoundingClientRect: () => ({
         x: 0,
         y: 100,
@@ -456,7 +466,8 @@ describe('ColorPicker', () => {
         height: 100,
       }),
     });
-    const { container } = render(<ColorPicker value={null} open />);
+
+    const { container } = render(<ColorPicker defaultValue={null} open />);
     expect(
       container.querySelector('.ant-color-picker-alpha-input input')?.getAttribute('value'),
     ).toEqual('0%');
@@ -467,6 +478,8 @@ describe('ColorPicker', () => {
     expect(
       container.querySelector('.ant-color-picker-alpha-input input')?.getAttribute('value'),
     ).toEqual('100%');
+
+    spyRect.mockRestore();
   });
 
   it('should support valid in form', async () => {
@@ -522,7 +535,7 @@ describe('ColorPicker', () => {
   });
 
   it('Should disabledAlpha work with value', async () => {
-    spyElementPrototypes(HTMLElement, {
+    const spyRect = spyElementPrototypes(HTMLElement, {
       getBoundingClientRect: () => ({
         x: 0,
         y: 100,
@@ -557,6 +570,8 @@ describe('ColorPicker', () => {
     doMouseMove(container, 0, 999);
     expect(container.querySelector('.color-value')?.innerHTML).toEqual('#000000');
     expect(container.querySelector('.color-value-changed')?.innerHTML).toEqual('#000000');
+
+    spyRect.mockRestore();
   });
 
   it('Should warning work when set disabledAlpha true and color is alpha color', () => {

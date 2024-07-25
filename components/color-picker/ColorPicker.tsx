@@ -124,9 +124,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     }
 
     // Only for drag-and-drop color picking
-    if (pickColor) {
-      // popupAllowCloseRef.current = false;
-    } else {
+    if (!pickColor) {
       onInternalChangeComplete(color);
     }
   };
