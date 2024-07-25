@@ -30,17 +30,14 @@ function doMouseMove(
     pageY: { get: () => start },
   });
 
-  console.log('down');
   fireEvent(container.getElementsByClassName(element)[0], mouseDown);
   // Drag
   const mouseMove: any = new Event('mousemove');
   mouseMove.pageX = end;
   mouseMove.pageY = end;
 
-  console.log('move');
   fireEvent(document, mouseMove);
 
-  console.log('up');
   const mouseUp = createEvent.mouseUp(document);
   fireEvent(document, mouseUp);
 }
@@ -629,13 +626,9 @@ describe('ColorPicker', () => {
       );
     };
     const { container } = render(<Demo />);
-    console.log('disable');
     fireEvent.click(container.querySelector('.disabled-btn')!);
-    console.log('enable');
     fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
-    console.log('timer');
     await waitFakeTimer();
-    console.log('click');
     fireEvent.click(container.querySelector('.active-btn')!);
     expect(document.body.querySelector('.ant-popover')).toBeFalsy();
   });
