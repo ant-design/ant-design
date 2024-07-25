@@ -144,6 +144,9 @@ const localeValues: Locale = {
   },
   ColorPicker: {
     presetEmpty: 'Boşdur',
+    transparent: 'Şəffaf',
+    singleColor: 'Tək rəng',
+    gradientColor: 'Gradient rəng',
   },
 };
 
