@@ -101,6 +101,9 @@ jobs:
     name: visual capture
     runs-on: ubuntu-latest
     needs: [setup, build-site]
+    strategy:
+      matrix:
+        shard: ['1/2', '2/2']
     steps:
       - name: checkout
         uses: actions/checkout@v4
@@ -133,7 +136,7 @@ jobs:
       - name: artifact snapshot
         uses: actions/upload-artifact@v4
         with:
-          name: snapshot-artifacts
+          name: snapshot-artifacts-${{ strategy.job-index }}
           path: imageSnapshots/
           retention-days: 2
 
@@ -163,9 +166,8 @@ jobs:
 
       - uses: actions/download-artifact@v4
         with:
-          # pattern: snapshot-artifacts-*
-          # merge-multiple: true
-          pattern: snapshot-artifacts
+          pattern: snapshot-artifacts-*
+          merge-multiple: true
           path: imageSnapshots/
 
       # Execute visual regression diff task and zip then
