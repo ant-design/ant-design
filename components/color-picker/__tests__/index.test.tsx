@@ -594,9 +594,13 @@ describe('ColorPicker', () => {
       );
     };
     const { container } = render(<Demo />);
+    console.log('disable');
     fireEvent.click(container.querySelector('.disabled-btn')!);
+    console.log('enable');
     fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
+    console.log('timer');
     await waitFakeTimer();
+    console.log('click');
     fireEvent.click(container.querySelector('.active-btn')!);
     expect(document.body.querySelector('.ant-popover')).toBeFalsy();
   });

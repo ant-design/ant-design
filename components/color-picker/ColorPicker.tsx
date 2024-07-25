@@ -218,7 +218,9 @@ const ColorPicker: CompoundedComponent = (props) => {
       style={styles?.popup}
       overlayInnerStyle={styles?.popupOverlayInner}
       onOpenChange={(visible) => {
-        setPopupOpen(visible);
+        if (!visible || !mergedDisabled) {
+          setPopupOpen(visible);
+        }
       }}
       content={
         <ContextIsolator form>
