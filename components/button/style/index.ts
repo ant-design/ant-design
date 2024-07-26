@@ -231,13 +231,13 @@ const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
 
   ...genSolidButtonStyle(
     token,
-    token.colorTextLightSolid, // token:? val: #fff
-    token.defaultColor, // token:colorDefault
+    token.colorTextLightSolid,
+    token.defaultColor, // token: colorDefault
     {
-      background: 'black', // token:colorDefaultHover val: ?
+      background: 'black', // token: colorDefaultHover val: ?
     },
     {
-      background: 'black', // token:colorDefaultActive val: ?
+      background: 'black', // token: colorDefaultActive val: ?
     },
   ),
 
@@ -324,16 +324,16 @@ const genPrimaryButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
   ...genOutlinedDashedButtonStyle(
     token,
     token.colorPrimary,
-    token.defaultBg, // token: primaryBg
+    token.colorBgContainer,
     {
-      color: token.colorPrimaryTextHover, // token: primaryHoverColor
-      borderColor: token.colorPrimaryHover, // token: primaryHoverBorderColor
-      background: token.defaultHoverBg, // token: primaryHoverBg
+      color: token.colorPrimaryTextHover,
+      borderColor: token.colorPrimaryHover,
+      background: token.colorBgContainer,
     },
     {
-      color: token.colorPrimaryTextActive, // token: primaryActiveColor
-      borderColor: token.colorPrimaryActive, // token: primaryActiveBorderColor
-      background: token.defaultActiveBg, // token: primaryActiveBg
+      color: token.colorPrimaryTextActive,
+      borderColor: token.colorPrimaryActive,
+      background: token.colorBgContainer,
     },
   ),
 
