@@ -7,7 +7,7 @@ import {
   QuestionCircleOutlined,
 } from '@ant-design/icons';
 import { TinyColor } from '@ctrl/tinycolor';
-import type { MenuProps, ThemeConfig } from 'antd';
+import type { MenuProps, ThemeConfig, GetProp, ColorPickerProps } from 'antd';
 import {
   Breadcrumb,
   Card,
@@ -21,7 +21,6 @@ import {
   Typography,
 } from 'antd';
 import { createStyles } from 'antd-style';
-import type { ColorPickerProps, GetProp } from 'antd';
 import { generateColor } from 'antd/es/color-picker/util';
 import classNames from 'classnames';
 import { useLocation } from 'dumi';
