@@ -59,6 +59,8 @@ describe('ColorPicker.gradient', () => {
     if (!skipEventCheck) {
       expect(preventDefault).not.toHaveBeenCalled();
     }
+
+    fireEvent.focus(ele);
   }
 
   function doMouseMove(end: number) {
@@ -240,7 +242,8 @@ describe('ColorPicker.gradient', () => {
       'linear-gradient(90deg, rgb(0,255,0) 50%, rgb(0,15,240) 80%, rgb(0,0,255) 100%)',
     );
 
-    // Drag remove first
+    console.log('~~~~~~~~~~~~');
+    // Drag remove last
     onChange.mockReset();
     doDrag(
       container,
