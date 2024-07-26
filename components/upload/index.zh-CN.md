@@ -37,7 +37,7 @@ demo:
 <code src="./demo/transform-file.tsx">上传前转换文件</code>
 <code src="./demo/upload-with-aliyun-oss.tsx">阿里云 OSS</code>
 <code src="./demo/file-type.tsx" debug>自定义显示 icon</code>
-<code src="./demo/upload-custom-action-icon.tsx">自定义交互图标</code>
+<code src="./demo/upload-custom-action-icon.tsx">自定义交互图标和文件信息</code>
 <code src="./demo/drag-sorting.tsx">上传列表拖拽排序</code>
 <code src="./demo/crop-image.tsx">上传前裁切图片</code>
 <code src="./demo/customize-progress-bar.tsx">自定义进度条样式</code>
@@ -71,7 +71,7 @@ demo:
 | openFileDialogOnClick | 点击打开文件对话框 | boolean | true |  |
 | previewFile | 自定义文件预览逻辑 | (file: File \| Blob) => Promise&lt;dataURL: string> | - |  |
 | progress | 自定义进度条样式 | [ProgressProps](/components/progress-cn#api)（仅支持 `type="line"`） | { strokeWidth: 2, showInfo: false } | 4.3.0 |
-| showUploadList | 是否展示文件列表, 可设为一个对象，用于单独设定 `showPreviewIcon`, `showRemoveIcon`, `showDownloadIcon`, `removeIcon` 和 `downloadIcon` | boolean \| { showPreviewIcon?: boolean, showRemoveIcon?: boolean, showDownloadIcon?: boolean, previewIcon?: ReactNode \| (file: UploadFile) => ReactNode, removeIcon?: ReactNode \| (file: UploadFile) => ReactNode, downloadIcon?: ReactNode \| (file: UploadFile) => ReactNode } | true | function: 4.7.0 |
+| showUploadList | 是否展示文件列表, 可设为一个对象，用于单独设定 `extra`(5.20.0+), `showPreviewIcon`, `showRemoveIcon`, `showDownloadIcon`, `removeIcon` 和 `downloadIcon` | boolean \| { extra?: ReactNode \| (file: UploadFile) => ReactNode, showPreviewIcon?: boolean, showRemoveIcon?: boolean, showDownloadIcon?: boolean, previewIcon?: ReactNode \| (file: UploadFile) => ReactNode, removeIcon?: ReactNode \| (file: UploadFile) => ReactNode, downloadIcon?: ReactNode \| (file: UploadFile) => ReactNode } | true | `extra`: 5.20.0 |
 | withCredentials | 上传请求时是否携带 cookie | boolean | false |  |
 | onChange | 上传文件改变时的回调，上传每个阶段都会触发该事件。详见 [onChange](#onchange) | function | - |  |
 | onDrop | 当文件被拖入上传区域时执行的回调功能 | (event: React.DragEvent) => void | - | 4.16.0 |
