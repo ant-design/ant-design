@@ -3897,7 +3897,16 @@ Array [
     <div
       class="ant-color-picker-trigger-text"
     >
-      rgb(16,142,233) 0%, rgb(135,208,104) 100%
+      <span
+        class="ant-color-picker-trigger-text-cell"
+      >
+        rgb(16,142,233) 0%
+      </span>
+      <span
+        class="ant-color-picker-trigger-text-cell"
+      >
+        rgb(135,208,104) 100%
+      </span>
     </div>
   </div>,
   <div

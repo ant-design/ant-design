@@ -248,6 +248,16 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
             fontSize,
             color: colorText,
             alignSelf: 'center',
+
+            '&-cell': {
+              '&:not(:last-child):after': {
+                content: '", "',
+              },
+
+              '&-inactive': {
+                color: colorTextDisabled,
+              },
+            },
           },
           '&:hover': {
             borderColor: colorPrimaryHover,

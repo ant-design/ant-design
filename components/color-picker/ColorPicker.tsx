@@ -250,6 +250,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     >
       {children || (
         <ColorTrigger
+          activeIndex={popupOpen ? activeIndex : -1}
           open={popupOpen}
           className={mergedCls}
           style={mergedStyle}

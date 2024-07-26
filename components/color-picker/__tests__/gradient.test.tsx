@@ -231,7 +231,7 @@ describe('ColorPicker.gradient', () => {
       />,
     );
 
-    // Remove first
+    // Drag remove first
     doDrag(container, 0, 9999999, '.ant-slider', true);
 
     expect(onChange).toHaveBeenCalledWith(
@@ -239,15 +239,11 @@ describe('ColorPicker.gradient', () => {
       'linear-gradient(90deg, rgb(0,255,0) 50%, rgb(0,15,240) 80%, rgb(0,0,255) 100%)',
     );
 
-    // Remove last
+    // Delete remove last
     onChange.mockReset();
-    doDrag(
-      container,
-      100,
-      9999999,
-      container.querySelector<HTMLElement>('.ant-slider-handle-3')!,
-      true,
-    );
+    fireEvent.keyDown(container.querySelector<HTMLElement>('.ant-slider-handle-3')!, {
+      key: 'Delete',
+    });
 
     expect(onChange).toHaveBeenCalledWith(
       expect.anything(),

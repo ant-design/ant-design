@@ -55,7 +55,10 @@ const genSliderStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
             display: 'block',
             position: 'absolute',
             background: 'transparent',
-            left: '50%',
+            left: {
+              _skip_check_: true,
+              value: '50%',
+            },
             top: '50%',
             transform: 'translate(-50%, -50%)',
             width: handleHoverSize,

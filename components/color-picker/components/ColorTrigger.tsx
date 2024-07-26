@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import type { CSSProperties, MouseEventHandler } from 'react';
 import React, { forwardRef, useMemo } from 'react';
 import { ColorBlock } from '@rc-component/color-picker';
@@ -22,16 +23,21 @@ export interface ColorTriggerProps {
   onClick?: MouseEventHandler<HTMLDivElement>;
   onMouseEnter?: MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: MouseEventHandler<HTMLDivElement>;
+  activeIndex: number;
 }
 
 const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) => {
-  const { color, prefixCls, open, disabled, format, className, showText, ...rest } = props;
+  const { color, prefixCls, open, disabled, format, className, showText, activeIndex, ...rest } =
+    props;
+
   const colorTriggerPrefixCls = `${prefixCls}-trigger`;
+  const colorTextPrefixCls = `${colorTriggerPrefixCls}-text`;
+  const colorTextCellPrefixCls = `${colorTextPrefixCls}-cell`;
 
   const [locale] = useLocale('ColorPicker');
 
   // ============================== Text ==============================
-  const text = React.useMemo(() => {
+  const desc: React.ReactNode = React.useMemo(() => {
     if (!showText) {
       return '';
     }
@@ -45,10 +51,25 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
     }
 
     if (color.isGradient()) {
-      return color
-        .getColors()
-        .map((c) => `${c.color.toRgbString()} ${c.percent}%`)
-        .join(', ');
+      // return color
+      //   .getColors()
+      //   .map((c) => `${c.color.toRgbString()} ${c.percent}%`)
+      //   .join(', ');
+      return color.getColors().map((c, index) => {
+        const inactive = activeIndex !== -1 && activeIndex !== index;
+
+        return (
+          <span
+            key={index}
+            className={classNames(
+              colorTextCellPrefixCls,
+              inactive && `${colorTextCellPrefixCls}-inactive`,
+            )}
+          >
+            {c.color.toRgbString()} {c.percent}%
+          </span>
+        );
+      });
     }
 
     const hexString = color.toHexString().toUpperCase();
@@ -62,7 +83,7 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
       default:
         return alpha < 100 ? `${hexString.slice(0, 7)},${alpha}%` : hexString;
     }
-  }, [color, format, showText]);
+  }, [color, format, showText, activeIndex]);
 
   // ============================= Render =============================
   const containerNode = useMemo<React.ReactNode>(
@@ -85,7 +106,7 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
       {...pickAttrs(rest)}
     >
       {containerNode}
-      {showText && <div className={`${colorTriggerPrefixCls}-text`}>{text}</div>}
+      {showText && <div className={colorTextPrefixCls}>{desc}</div>}
     </div>
   );
 });
