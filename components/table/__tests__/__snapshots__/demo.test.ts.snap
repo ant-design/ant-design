@@ -867,7 +867,7 @@ exports[`renders components/table/demo/colspan-rowspan.tsx correctly 1`] = `
 exports[`renders components/table/demo/component-token.tsx correctly 1`] = `
 Array [
   <form
-    class="ant-form ant-form-inline components-table-demo-control-bar"
+    class="ant-form ant-form-inline table-demo-control-bar"
     style="margin-bottom:16px"
   >
     <div
@@ -4737,7 +4737,7 @@ exports[`renders components/table/demo/drag-sorting-handler.tsx correctly 1`] = 
 exports[`renders components/table/demo/dynamic-settings.tsx correctly 1`] = `
 Array [
   <form
-    class="ant-form ant-form-inline components-table-demo-control-bar"
+    class="ant-form ant-form-inline table-demo-control-bar"
     style="margin-bottom:16px"
   >
     <div
@@ -15875,7 +15875,7 @@ exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
 exports[`renders components/table/demo/nest-table-border-debug.tsx correctly 1`] = `
 Array [
   <form
-    class="ant-form ant-form-inline components-table-demo-control-bar"
+    class="ant-form ant-form-inline table-demo-control-bar"
     style="margin-bottom:16px"
   >
     <div
@@ -20617,9 +20617,11 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
 `;
 
 exports[`renders components/table/demo/row-selection-and-operation.tsx correctly 1`] = `
-<div>
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
   <div
-    style="margin-bottom:16px"
+    class="ant-flex ant-flex-align-center ant-flex-gap-middle"
   >
     <button
       class="ant-btn ant-btn-primary"
@@ -20630,9 +20632,6 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
         Reload
       </span>
     </button>
-    <span
-      style="margin-left:8px"
-    />
   </div>
   <div
     class="ant-table-wrapper"

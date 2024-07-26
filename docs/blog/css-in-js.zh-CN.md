@@ -2,6 +2,9 @@
 title: 组件级别的 CSS-in-JS
 date: 2022-11-25
 author: MadCcc
+zhihu_url: https://zhuanlan.zhihu.com/p/606291980
+yuque_url: https://www.yuque.com/ant-design/ant-design/iv21twb9368r0goc
+juejin_url: https://juejin.cn/post/7322352551088635931
 ---
 
 在 2022 年 11 月 18 日，我们发布了 Ant Design 5.0 的正式版本，同时带入大家视野中的还有 Ant Design 独特的 CSS-in-JS 方案。通过这个方案，Ant Design 获得了相较于其他 CSS-in-JS 库更高的性能，但代价则是牺牲了其在应用中自由使用的灵活性。所以我们把它称为“组件级”的 CSS-in-JS 方案。

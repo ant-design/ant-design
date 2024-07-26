@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-import type { Color } from '../color';
+import type { AggregationColor } from '../color';
 import type { ColorValueType } from '../interface';
 import { generateColor } from '../util';
 
@@ -15,8 +15,8 @@ const useColorState = (
   option: { defaultValue?: ColorValueType; value?: ColorValueType },
 ) => {
   const { defaultValue, value } = option;
-  const prevColor = useRef<Color>(generateColor(''));
-  const [colorValue, _setColorValue] = useState<Color>(() => {
+  const prevColor = useRef<AggregationColor>(generateColor(''));
+  const [colorValue, _setColorValue] = useState<AggregationColor>(() => {
     let mergedState: ColorValueType | undefined;
     if (hasValue(value)) {
       mergedState = value;
@@ -30,7 +30,7 @@ const useColorState = (
     return color;
   });
 
-  const setColorValue = (color: Color) => {
+  const setColorValue = (color: AggregationColor) => {
     _setColorValue(color);
     prevColor.current = color;
   };

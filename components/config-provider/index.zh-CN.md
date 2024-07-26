@@ -56,7 +56,7 @@ export default Demo;
 | componentDisabled | 设置 antd 组件禁用状态 | boolean | - | 4.21.0 |
 | componentSize | 设置 antd 组件大小 | `small` \| `middle` \| `large` | - |  |
 | csp | 设置 [Content Security Policy](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CSP) 配置 | { nonce: string } | - |  |
-| direction | 设置文本展示方向。 [示例](#components-config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
+| direction | 设置文本展示方向。 [示例](#config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
 | getPopupContainer | 弹出框（Select, Tooltip, Menu 等等）渲染父节点，默认渲染到 body 上。 | function(triggerNode) | () => document.body |  |
 | getTargetContainer | 配置 Affix、Anchor 滚动监听容器。 | () => HTMLElement | () => window | 4.2.0 |
 | iconPrefixCls | 设置图标统一样式前缀 | string | `anticon` | 4.11.0 |
@@ -74,10 +74,18 @@ export default Demo;
 
 设置 `Modal`、`Message`、`Notification` 静态方法配置，只会对非 hooks 的静态方法调用生效。
 
-```ts
+```tsx
 ConfigProvider.config({
   // 5.13.0+
-  holderRender: (children) => <ConfigProvider prefixCls="ant" iconPrefixCls='anticon' theme={{token: { colorPrimary: 'red' }}}>{children}</ConfigProvider>
+  holderRender: (children) => (
+    <ConfigProvider
+      prefixCls="ant"
+      iconPrefixCls="anticon"
+      theme={{ token: { colorPrimary: 'red' } }}
+    >
+      {children}
+    </ConfigProvider>
+  ),
 });
 ```
 

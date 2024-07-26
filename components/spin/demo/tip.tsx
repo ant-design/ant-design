@@ -10,8 +10,8 @@ const contentStyle: React.CSSProperties = {
 const content = <div style={contentStyle} />;
 
 const App: React.FC = () => (
-  <Flex gap="small" vertical>
-    <Flex gap="small">
+  <Flex gap="middle" vertical>
+    <Flex gap="middle">
       <Spin tip="Loading" size="small">
         {content}
       </Spin>

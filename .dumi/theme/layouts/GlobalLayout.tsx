@@ -35,6 +35,16 @@ export const ANT_DESIGN_NOT_SHOW_BANNER = 'ANT_DESIGN_NOT_SHOW_BANNER';
 //   (global as any).styleCache = styleCache;
 // }
 
+// Compatible with old anchors
+if (typeof window !== 'undefined') {
+  const hashId = location.hash.slice(1);
+  if (hashId.startsWith('components-')) {
+    if (!document.querySelector(`#${hashId}`)) {
+      location.hash = `#${hashId.replace(/^components-/, '')}`;
+    }
+  }
+}
+
 const getAlgorithm = (themes: ThemeName[] = []) =>
   themes
     .map((theme) => {

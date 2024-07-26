@@ -1,6 +1,5 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { GenStyleFn } from 'antd/es/theme/util/genComponentStyleHook';
 
 import {
   genBasicInputStyle,
@@ -11,7 +10,12 @@ import {
 import type { SharedComponentToken, SharedInputToken } from '../../input/style/token';
 import { genBaseOutlinedStyle, genDisabledStyle } from '../../input/style/variants';
 import { genFocusOutline, genFocusStyle, resetComponent } from '../../style';
-import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import type {
+  FullToken,
+  GenerateStyle,
+  GetDefaultToken,
+  GenStyleFn,
+} from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
@@ -514,7 +518,7 @@ const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = (token
       textAlign: 'center',
       verticalAlign: 'middle',
       listStyle: 'none',
-      backgroundColor: 'transparent',
+      backgroundColor: token.itemBg,
       border: `${unit(token.lineWidth)} ${token.lineType} transparent`,
       borderRadius: token.borderRadius,
       outline: 0,

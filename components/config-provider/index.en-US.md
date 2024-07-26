@@ -55,7 +55,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | componentDisabled | Config antd component `disabled` | boolean | - | 4.21.0 |
 | componentSize | Config antd component size | `small` \| `middle` \| `large` | - |  |
 | csp | Set [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) config | { nonce: string } | - |  |
-| direction | Set direction of layout. See [demo](#components-config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
+| direction | Set direction of layout. See [demo](#config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
 | getPopupContainer | To set the container of the popup element. The default is to create a `div` element in `body` | function(triggerNode) | () => document.body |  |
 | getTargetContainer | Config Affix, Anchor scroll target container | () => HTMLElement | () => window | 4.2.0 |
 | iconPrefixCls | Set icon prefix className | string | `anticon` | 4.11.0 |
@@ -73,10 +73,18 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 
 Setting `Modal`、`Message`、`Notification` static config. Not work on hooks.
 
-```ts
+```tsx
 ConfigProvider.config({
-// 5.13.0+
-  holderRender: (children) => <ConfigProvider prefixCls="ant" iconPrefixCls='anticon' theme={{token: { colorPrimary: 'red' }}}>{children}</ConfigProvider>
+  // 5.13.0+
+  holderRender: (children) => (
+    <ConfigProvider
+      prefixCls="ant"
+      iconPrefixCls="anticon"
+      theme={{ token: { colorPrimary: 'red' } }}
+    >
+      {children}
+    </ConfigProvider>
+  ),
 });
 ```
 

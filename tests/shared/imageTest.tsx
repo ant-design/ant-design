@@ -42,7 +42,7 @@ export default function imageTest(
   let container: HTMLDivElement;
 
   beforeAll(async () => {
-    const dom = new JSDOM('<!DOCTYPE html><body></body></p>', {
+    const dom = new JSDOM('<!DOCTYPE html><body></body></html>', {
       url: 'http://localhost/',
     });
     const win = dom.window;
@@ -121,8 +121,10 @@ export default function imageTest(
 
       const { openTriggerClassName } = options;
 
+      const requestListener = (request: any) => onRequestHandle(request as HTTPRequest);
+
       MockDate.set(dayjs('2016-11-22').valueOf());
-      page.on('request', onRequestHandle);
+      page.on('request', requestListener);
       await page.goto(`file://${process.cwd()}/tests/index.html`);
       await page.addStyleTag({ path: `${process.cwd()}/components/style/reset.css` });
       await page.addStyleTag({ content: '*{animation: none!important;}' });
@@ -194,7 +196,7 @@ export default function imageTest(
         },
         html,
         styleStr,
-        openTriggerClassName,
+        openTriggerClassName || '',
       );
 
       if (!options.onlyViewport) {
@@ -210,7 +212,7 @@ export default function imageTest(
       await fse.writeFile(path.join(snapshotPath, `${identifier}${suffix}.png`), image);
 
       MockDate.reset();
-      page.off('request', onRequestHandle);
+      page.off('request', requestListener);
     });
   }
 

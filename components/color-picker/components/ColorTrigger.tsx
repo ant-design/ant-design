@@ -2,6 +2,7 @@ import type { CSSProperties, MouseEventHandler } from 'react';
 import React, { forwardRef, useMemo } from 'react';
 import { ColorBlock } from '@rc-component/color-picker';
 import classNames from 'classnames';
+import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import type { ColorPickerBaseProps, ColorPickerProps } from '../interface';
 import { getAlphaColor } from '../util';
@@ -63,7 +64,7 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
         [`${colorTriggerPrefixCls}-active`]: open,
         [`${colorTriggerPrefixCls}-disabled`]: disabled,
       })}
-      {...rest}
+      {...pickAttrs(rest)}
     >
       {containerNode}
       {showText && <div className={`${colorTriggerPrefixCls}-text`}>{renderText()}</div>}

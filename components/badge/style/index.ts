@@ -1,9 +1,13 @@
 import { Keyframes, unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
+import type {
+  FullToken,
+  GenerateStyle,
+  GenStyleFn,
+  GetDefaultToken,
+} from '../../theme/internal';
 import { genPresetColor, genStyleHooks, mergeToken } from '../../theme/internal';
-import type { GenStyleFn, GetDefaultToken } from '../../theme/util/genComponentStyleHook';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -17,12 +21,12 @@ export interface ComponentToken {
    * @desc 徽标高度
    * @descEN Height of badge
    */
-  indicatorHeight: number;
+  indicatorHeight: number | string;
   /**
    * @desc 小号徽标高度
    * @descEN Height of small badge
    */
-  indicatorHeightSM: number;
+  indicatorHeightSM: number | string;
   /**
    * @desc 点状徽标尺寸
    * @descEN Size of dot badge

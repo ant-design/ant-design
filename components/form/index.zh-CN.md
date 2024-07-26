@@ -40,7 +40,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/global-state.tsx">表单数据存储于上层组件</code>
 <code src="./demo/form-context.tsx">多表单联动</code>
 <code src="./demo/inline-login.tsx">内联登录栏</code>
-<code src="./demo/normal-login.tsx">登录框</code>
+<code src="./demo/login.tsx">登录框</code>
 <code src="./demo/register.tsx">注册新用户</code>
 <code src="./demo/advanced-search.tsx">高级搜索</code>
 <code src="./demo/form-in-modal.tsx">弹出层中的新建表单</code>
@@ -70,7 +70,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 | colon | 配置 Form.Item 的 `colon` 的默认值。表示是否显示 label 后面的冒号 (只有在属性 layout 为 horizontal 时有效) | boolean | true |  |
 | disabled | 设置表单组件禁用，仅对 antd 组件有效 | boolean | false | 4.21.0 |
 | component | 设置 Form 渲染元素，为 `false` 则不创建 DOM 节点 | ComponentType \| false | form |  |
-| fields | 通过状态管理（如 redux）控制表单字段，如非强需求不推荐使用。查看[示例](#components-form-demo-global-state) | [FieldData](#fielddata)\[] | - |  |
+| fields | 通过状态管理（如 redux）控制表单字段，如非强需求不推荐使用。查看[示例](#form-demo-global-state) | [FieldData](#fielddata)\[] | - |  |
 | form | 经 `Form.useForm()` 创建的 form 控制实例，不提供时会自动创建 | [FormInstance](#forminstance) | - |  |
 | feedbackIcons | 当 `Form.Item` 有 `hasFeedback` 属性时可以自定义图标 | [FeedbackIcons](#feedbackicons) | - | 5.9.0 |
 | initialValues | 表单默认值，只有初始化以及重置时生效 | object | - |  |
@@ -144,10 +144,10 @@ const validateMessages = {
 | noStyle | 为 `true` 时不带样式，作为纯字段控件使用。当自身没有 `validateStatus` 而父元素存在有 `validateStatus` 的 Form.Item 会继承父元素的 `validateStatus` | boolean | false |  |
 | preserve | 当字段被删除时保留字段值 | boolean | true | 4.4.0 |
 | required | 必填样式设置。如不设置，则会根据校验规则自动生成 | boolean | false |  |
-| rules | 校验规则，设置字段的校验逻辑。点击[此处](#components-form-demo-basic)查看示例 | [Rule](#rule)\[] | - |  |
+| rules | 校验规则，设置字段的校验逻辑。点击[此处](#form-demo-basic)查看示例 | [Rule](#rule)\[] | - |  |
 | shouldUpdate | 自定义字段更新逻辑，说明[见下](#shouldupdate) | boolean \| (prevValue, curValue) => boolean | false |  |
 | tooltip | 配置提示信息 | ReactNode \| [TooltipProps & { icon: ReactNode }](/components/tooltip-cn#api) | - | 4.7.0 |
-| trigger | 设置收集字段值变更的时机。点击[此处](#components-form-demo-customized-form-controls)查看示例 | string | `onChange` |  |
+| trigger | 设置收集字段值变更的时机。点击[此处](#form-demo-customized-form-controls)查看示例 | string | `onChange` |  |
 | validateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验。设置 `parallel` 时会并行校验 | boolean \| `parallel` | false | `parallel`: 4.5.0 |
 | validateDebounce | 设置防抖，延迟毫秒数后进行校验 | number | - | 5.9.0 |
 | validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating' | string | - |  |
@@ -164,7 +164,7 @@ const validateMessages = {
 
 ### dependencies
 
-当字段间存在依赖关系时使用。如果一个字段设置了 `dependencies` 属性。那么它所依赖的字段更新时，该字段将自动触发更新与校验。一种常见的场景，就是注册用户表单的“密码”与“确认密码”字段。“确认密码”校验依赖于“密码”字段，设置 `dependencies` 后，“密码”字段更新会重新触发“校验密码”的校验逻辑。你可以参考[具体例子](#components-form-demo-dependencies)。
+当字段间存在依赖关系时使用。如果一个字段设置了 `dependencies` 属性。那么它所依赖的字段更新时，该字段将自动触发更新与校验。一种常见的场景，就是注册用户表单的“密码”与“确认密码”字段。“确认密码”校验依赖于“密码”字段，设置 `dependencies` 后，“密码”字段更新会重新触发“校验密码”的校验逻辑。你可以参考[具体例子](#form-demo-dependencies)。
 
 `dependencies` 不应和 `shouldUpdate` 一起使用，因为这可能带来更新逻辑的混乱。
 
@@ -188,7 +188,7 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 </Form.Item>
 ```
 
-你可以参考[示例](#components-form-demo-horizontal-login)查看具体使用场景。
+你可以参考[示例](#form-demo-horizontal-login)查看具体使用场景。
 
 当 `shouldUpdate` 为方法时，表单的每次数值更新都会调用该方法，提供原先的值与当前的值以供你比较是否需要更新。这对于是否根据值来渲染额外字段十分有帮助：
 
@@ -204,7 +204,7 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 </Form.Item>
 ```
 
-你可以参考[示例](#components-form-demo-control-hooks)查看具体使用场景。
+你可以参考[示例](#form-demo-control-hooks)查看具体使用场景。
 
 ### messageVariables
 
@@ -266,7 +266,7 @@ Form.List 渲染表单相关操作函数。
 
 ## Form.ErrorList
 
-4.7.0 新增。错误展示组件，仅限配合 Form.List 的 rules 一同使用。参考[示例](#components-form-demo-dynamic-form-item)。
+4.7.0 新增。错误展示组件，仅限配合 Form.List 的 rules 一同使用。参考[示例](#form-demo-dynamic-form-item)。
 
 | 参数   | 说明     | 类型         | 默认值 |
 | ------ | -------- | ------------ | ------ |
@@ -274,7 +274,7 @@ Form.List 渲染表单相关操作函数。
 
 ## Form.Provider
 
-提供表单间联动功能，其下设置 `name` 的 Form 更新时，会自动触发对应事件。查看[示例](#components-form-demo-form-context)。
+提供表单间联动功能，其下设置 `name` 的 Form 更新时，会自动触发对应事件。查看[示例](#form-demo-form-context)。
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -312,7 +312,7 @@ Form.List 渲染表单相关操作函数。
 | setFieldValue | 设置表单的值（该值将直接传入 form store 中并且**重置错误信息**。如果你不希望传入对象被修改，请克隆后传入） | (name: [NamePath](#namepath), value: any) => void | 4.22.0 |
 | setFieldsValue | 设置表单的值（该值将直接传入 form store 中并且**重置错误信息**。如果你不希望传入对象被修改，请克隆后传入）。如果你只想修改 Form.List 中单项值，请通过 `setFieldValue` 进行指定 | (values) => void |  |
 | submit | 提交表单，与点击 `submit` 按钮效果相同 | () => void |  |
-| validateFields | 触发表单验证，设置 `recursive` 时会递归校验所有包含的路径 | (nameList?: [NamePath](#namepath)\[], config?: [ValidateConfig](#validateFields)) => Promise |  |
+| validateFields | 触发表单验证，设置 `recursive` 时会递归校验所有包含的路径 | (nameList?: [NamePath](#namepath)\[], config?: [ValidateConfig](#validatefields)) => Promise |  |
 
 #### validateFields
 
@@ -545,7 +545,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | transform | 将字段值转换成目标值后进行校验 | (value) => any |  |
 | type | 类型，常见有 `string` \|`number` \|`boolean` \|`url` \| `email`。更多请参考[此处](https://github.com/react-component/async-validator#type) | string |  |
 | validateTrigger | 设置触发验证时机，必须是 Form.Item 的 `validateTrigger` 的子集 | string \| string\[] |  |
-| validator | 自定义校验，接收 Promise 作为返回值。[示例](#components-form-demo-register)参考 | ([rule](#rule), value) => Promise |  |
+| validator | 自定义校验，接收 Promise 作为返回值。[示例](#form-demo-register)参考 | ([rule](#rule), value) => Promise |  |
 | warningOnly | 仅警告，不阻塞表单提交 | boolean | 4.17.0 |
 | whitespace | 如果字段仅包含空格则校验不通过，只在 `type: 'string'` 时生效 | boolean |  |
 
@@ -657,12 +657,6 @@ Form.List 下的字段需要包裹 Form.List 本身的 `name`，比如：
 ### 为什么 `normalize` 不能是异步方法？
 
 React 中异步更新会导致受控组件交互行为异常。当用户交互触发 `onChange` 后，通过异步改变值会导致组件 `value` 不会立刻更新，使得组件呈现假死状态。如果你需要异步触发变更，请通过自定义组件实现内部异步状态。
-
-<style>
-.site-form-item-icon {
-  color: rgba(0, 0, 0, 0.25);
-}
-</style>
 
 ### `scrollToFirstError` 和 `scrollToField` 失效？
 
