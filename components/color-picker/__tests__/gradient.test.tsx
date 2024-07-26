@@ -242,7 +242,6 @@ describe('ColorPicker.gradient', () => {
       'linear-gradient(90deg, rgb(0,255,0) 50%, rgb(0,15,240) 80%, rgb(0,0,255) 100%)',
     );
 
-    console.log('~~~~~~~~~~~~');
     // Drag remove last
     onChange.mockReset();
     doDrag(
