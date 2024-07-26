@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { ColorPicker, Flex, Input } from 'antd';
 import { createStyles } from 'antd-style';
-import type { Color } from 'antd/es/color-picker';
+import type { ColorPickerProps, GetProp } from 'antd';
 import { generateColor } from 'antd/es/color-picker/util';
 import classNames from 'classnames';
 
 import { PRESET_COLORS } from './colorUtil';
+
+type Color = GetProp<ColorPickerProps, 'value'>;
 
 const useStyle = createStyles(({ token, css }) => ({
   color: css`
@@ -34,13 +36,13 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
 }));
 
-export interface ColorPickerProps {
+export interface ThemeColorPickerProps {
   id?: string;
   value?: string | Color;
   onChange?: (value?: Color | string) => void;
 }
 
-const DebouncedColorPicker: React.FC<React.PropsWithChildren<ColorPickerProps>> = (props) => {
+const DebouncedColorPicker: React.FC<React.PropsWithChildren<ThemeColorPickerProps>> = (props) => {
   const { value: color, children, onChange } = props;
   const [value, setValue] = useState(color);
 
@@ -66,7 +68,7 @@ const DebouncedColorPicker: React.FC<React.PropsWithChildren<ColorPickerProps>> 
   );
 };
 
-const ThemeColorPicker: React.FC<ColorPickerProps> = ({ value, onChange, id }) => {
+const ThemeColorPicker: React.FC<ThemeColorPickerProps> = ({ value, onChange, id }) => {
   const { styles } = useStyle();
 
   const matchColors = React.useMemo(() => {
