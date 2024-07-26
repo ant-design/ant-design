@@ -48,7 +48,7 @@ const extname = (url: string = '') => {
   return (/\.[^./\\]*$/.exec(filenameWithoutSuffix) || [''])[0];
 };
 
-const isImageFileType = (type: string): boolean => type.indexOf('image/') === 0;
+const isImageFileType = (type: string): boolean => type.indexOf('image') === 0;
 
 export const isImageUrl = (file: UploadFile): boolean => {
   if (file.type && !file.thumbUrl) {
