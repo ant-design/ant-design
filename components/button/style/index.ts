@@ -232,12 +232,12 @@ const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
   ...genSolidButtonStyle(
     token,
     token.colorTextLightSolid,
-    token.defaultColor, // token: colorDefault
+    token.defaultColor,
     {
-      background: 'black', // token: colorDefaultHover val: ?
+      background: 'black',
     },
     {
-      background: 'black', // token: colorDefaultActive val: ?
+      background: 'black',
     },
   ),
 
