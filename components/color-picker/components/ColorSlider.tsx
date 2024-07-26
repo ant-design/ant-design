@@ -24,6 +24,9 @@ export interface GradientColorSliderProps
   // Drag events
   onDragStart?: GetContextProp<typeof UnstableContext, 'onDragStart'>;
   onDragChange?: GetContextProp<typeof UnstableContext, 'onDragChange'>;
+
+  // Key event
+  onKeyDelete?: (index: number) => void;
 }
 
 export const GradientColorSlider = (props: GradientColorSliderProps) => {
@@ -39,6 +42,7 @@ export const GradientColorSlider = (props: GradientColorSliderProps) => {
 
     onDragStart,
     onDragChange,
+    onKeyDelete,
 
     ...restProps
   } = props;
@@ -86,7 +90,7 @@ export const GradientColorSlider = (props: GradientColorSliderProps) => {
   // ======================= Context: Render ========================
   const handleRender: GetProp<SliderInternalContextProps, 'handleRender'> = useEvent(
     (ori, info) => {
-      const { onFocus, style, className: handleCls } = ori.props;
+      const { onFocus, style, className: handleCls, onKeyDown } = ori.props;
 
       // Point Color
       const mergedStyle = { ...style };
@@ -103,6 +107,13 @@ export const GradientColorSlider = (props: GradientColorSliderProps) => {
         className: classNames(handleCls, {
           [`${prefixCls}-slider-handle-active`]: activeIndex === info.index,
         }),
+        onKeyDown: (e: React.KeyboardEvent<HTMLDivElement>) => {
+          if ((e.key === 'Delete' || e.key === 'Backspace') && onKeyDelete) {
+            onKeyDelete(info.index);
+          }
+
+          onKeyDown?.(e);
+        },
       });
     },
   );

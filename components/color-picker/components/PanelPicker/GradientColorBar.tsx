@@ -89,6 +89,17 @@ export default function GradientColorBar() {
     onChange(new AggregationColor(nextColors), true);
   };
 
+  // ============================== Key ===============================
+  const onKeyDelete = (index: number) => {
+    const nextColors = [...colors];
+    nextColors.splice(index, 1);
+
+    const nextColor = new AggregationColor(nextColors);
+
+    onChange(nextColor);
+    onChangeComplete(nextColor);
+  };
+
   // ============================= Change =============================
   const onInternalChangeComplete = (nextValues: number[]) => {
     onChangeComplete(new AggregationColor(colors));
@@ -125,6 +136,7 @@ export default function GradientColorBar() {
       // Drag
       onDragStart={onDragStart}
       onDragChange={onDragChange}
+      onKeyDelete={onKeyDelete}
     />
   );
 }
