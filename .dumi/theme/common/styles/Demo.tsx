@@ -357,9 +357,9 @@ const GlobalDemoStyles: React.FC = () => {
         }
 
         ${antCls}-row-rtl {
-          #components-tooltip-demo-placement,
-          #components-popover-demo-placement,
-          #components-popconfirm-demo-placement {
+          #tooltip-demo-placement,
+          #popover-demo-placement,
+          #popconfirm-demo-placement {
             .code-box-demo {
               direction: ltr;
             }

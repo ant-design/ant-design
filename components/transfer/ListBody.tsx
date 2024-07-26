@@ -73,11 +73,11 @@ const TransferListBody: React.ForwardRefRenderFunction<
     }
   }, [filteredRenderItems, mergedPagination, pageSize]);
 
-  const onInternalClick = (item: RecordType, e: React.MouseEvent<Element, MouseEvent>) => {
+  const onInternalClick = (item: KeyWiseTransferItem, e: React.MouseEvent<Element, MouseEvent>) => {
     onItemSelect(item.key, !selectedKeys.includes(item.key), e);
   };
 
-  const onRemove = (item: RecordType) => {
+  const onRemove = (item: KeyWiseTransferItem) => {
     onItemRemove?.([item.key]);
   };
 
@@ -130,8 +130,8 @@ const TransferListBody: React.ForwardRefRenderFunction<
             renderedEl={renderedEl}
             prefixCls={prefixCls}
             showRemove={showRemove}
-            onClick={onInternalClick as any}
-            onRemove={onRemove as any}
+            onClick={onInternalClick}
+            onRemove={onRemove}
             checked={selectedKeys.includes(item.key)}
             disabled={globalDisabled || item.disabled}
           />

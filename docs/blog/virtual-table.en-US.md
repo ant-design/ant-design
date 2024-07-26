@@ -31,7 +31,7 @@ Table supports virtual scrolling by setting the `virtual` prop. At the same time
 
 ![Rowspan & Colspan](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*DYkYQo8tU6sAAAAAAAAAAAAADrJ8AQ/original)
 
-You can visit the [virtual list](/components/table#components-table-demo-virtual-list) example to experience it.
+You can visit the [virtual list](/components/table#table-demo-virtual-list) example to experience it.
 
 ## Some details
 

@@ -2,8 +2,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import { PresetColors } from '../interface';
-import type { AliasToken, PresetColorKey } from '../internal';
-import type { TokenWithCommonCls } from './genComponentStyleHook';
+import type { AliasToken, PresetColorKey, TokenWithCommonCls } from '../internal';
 
 interface CalcColor {
   /** token[`${colorKey}-1`] */

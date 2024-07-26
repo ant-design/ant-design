@@ -4,9 +4,14 @@ import { unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
 import { genCollapseMotion, zoomIn } from '../../style/motion';
-import type { AliasToken, FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import type {
+  AliasToken,
+  FullToken,
+  GenerateStyle,
+  GetDefaultToken,
+  GenStyleFn,
+} from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
-import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
 import genFormValidateMotionStyle from './explain';
 
 export interface ComponentToken {
@@ -314,7 +319,6 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
           '&-content': {
             flex: 'auto',
             maxWidth: '100%',
-            lineHeight: '100%',
           },
         },
       },

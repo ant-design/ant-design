@@ -4,9 +4,13 @@ import { Keyframes, unit } from '@ant-design/cssinjs';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 import { genFocusOutline, resetComponent } from '../../style';
 import { genCollapseMotion } from '../../style/motion';
-import type { AliasToken, DerivativeToken, FullToken, GetDefaultToken } from '../../theme/internal';
+import type {
+  AliasToken,
+  FullToken,
+  GetDefaultToken,
+  CSSUtil,
+} from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
-import type { CSSUtil } from '../../theme/util/genComponentStyleHook';
 
 export interface TreeSharedToken {
   /**
@@ -50,7 +54,7 @@ const treeNodeFX = new Keyframes('ant-tree-node-fx-do-not-use', {
 });
 
 // ============================== Switch ==============================
-const getSwitchStyle = (prefixCls: string, token: DerivativeToken): CSSObject => ({
+const getSwitchStyle = (prefixCls: string, token: AliasToken): CSSObject => ({
   [`.${prefixCls}-switcher-icon`]: {
     display: 'inline-block',
     fontSize: 10,
@@ -63,7 +67,7 @@ const getSwitchStyle = (prefixCls: string, token: DerivativeToken): CSSObject =>
 });
 
 // =============================== Drop ===============================
-const getDropIndicatorStyle = (prefixCls: string, token: DerivativeToken) => ({
+const getDropIndicatorStyle = (prefixCls: string, token: AliasToken) => ({
   [`.${prefixCls}-drop-indicator`]: {
     position: 'absolute',
     // it should displayed over the following node

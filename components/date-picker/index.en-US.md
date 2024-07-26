@@ -99,7 +99,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | components | Custom panels | Record<Panel \| 'input', React.ComponentType> | - | 5.14.0 |
 | disabled | Determine whether the DatePicker is disabled | boolean | false |  |
 | disabledDate | Specify the date that cannot be selected | (currentDate: dayjs, info: { from?: dayjs }) => boolean | - | `info`: 5.14.0 |
-| format | To set the date format, support multi-format matching when it is an array, display the first one shall prevail. refer to [dayjs#format](https://day.js.org/docs/en/display/format). for example: [Custom Format](#components-date-picker-demo-format) | [formatType](#formattype) | [rc-picker](https://github.com/react-component/picker/blob/f512f18ed59d6791280d1c3d7d37abbb9867eb0b/src/utils/uiUtil.ts#L155-L177) |  |
+| format | To set the date format, support multi-format matching when it is an array, display the first one shall prevail. refer to [dayjs#format](https://day.js.org/docs/en/display/format). for example: [Custom Format](#date-picker-demo-format) | [formatType](#formattype) | [rc-picker](https://github.com/react-component/picker/blob/f512f18ed59d6791280d1c3d7d37abbb9867eb0b/src/utils/uiUtil.ts#L155-L177) |  |
 | order | Auto order date when multiple or range selection | boolean | true | 5.14.0 |
 | popupClassName | To customize the className of the popup calendar | string | - | 4.23.0 |
 | preserveInvalidOnBlur | Not clean input on blur even when the typing is invalidate | boolean | false | 5.14.0 |
@@ -149,7 +149,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | renderExtraFooter | Render extra footer in panel | (mode) => React.ReactNode | - |  |
 | showNow | Show the fast access of current datetime | boolean | - | 4.4.0 |
 | showTime | To provide an additional time selection | object \| boolean | [TimePicker Options](/components/time-picker/#api) |  |
-| showTime.defaultValue | To set default time of selected date, [demo](#components-date-picker-demo-disabled-date) | [dayjs](https://day.js.org/) | dayjs() |  |
+| showTime.defaultValue | To set default time of selected date, [demo](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/) | dayjs() |  |
 | showWeek | Show week info when in DatePicker | boolean | false | 5.14.0 |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
@@ -220,7 +220,7 @@ Added in `4.1.0`.
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
 | separator | Set separator between inputs | React.ReactNode | `<SwapRightOutlined />` |  |
 | showTime | To provide an additional time selection | object \| boolean | [TimePicker Options](/components/time-picker/#api) |  |
-| showTime.defaultValue | To set default time of selected date, [demo](#components-date-picker-demo-disabled-date) | [dayjs](https://day.js.org/)\[] | \[dayjs(), dayjs()] |  |
+| showTime.defaultValue | To set default time of selected date, [demo](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/)\[] | \[dayjs(), dayjs()] |  |
 | value | To set date | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - |  |
 | onCalendarChange | Callback function, can be executed when the start time or the end time of the range is changing. `info` argument is added in 4.4.0 | function(dates: \[dayjs, dayjs], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(dates: \[dayjs, dayjs], dateStrings: \[string, string]) | - |  |
