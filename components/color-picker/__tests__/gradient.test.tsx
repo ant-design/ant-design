@@ -36,10 +36,10 @@ describe('ColorPicker.gradient', () => {
   function doMouseDown(
     container: HTMLElement,
     start: number,
-    query = '.ant-slider-handle',
+    query: string | HTMLElement = '.ant-slider-handle',
     skipEventCheck = false,
   ) {
-    const ele = container.querySelector(query)!;
+    const ele = typeof query === 'object' ? query : container.querySelector(query)!;
     const mouseDown = createEvent.mouseDown(ele);
     (mouseDown as any).pageX = start;
     (mouseDown as any).pageY = start;
@@ -72,7 +72,7 @@ describe('ColorPicker.gradient', () => {
     container: HTMLElement,
     start: number,
     end: number,
-    query = '.ant-slider-handle',
+    query: string | HTMLElement = '.ant-slider-handle',
     skipEventCheck = false,
   ) {
     doMouseDown(container, start, query, skipEventCheck);
@@ -81,7 +81,7 @@ describe('ColorPicker.gradient', () => {
     doMouseMove(end);
 
     // Up
-    fireEvent.mouseUp(container.querySelector(query)!);
+    fireEvent.mouseUp(typeof query === 'object' ? query : container.querySelector(query)!);
   }
 
   it('switch', async () => {
@@ -100,7 +100,7 @@ describe('ColorPicker.gradient', () => {
     );
   });
 
-  it('change color', async () => {
+  it('change color position', async () => {
     const onChange = jest.fn();
 
     const { container } = render(
@@ -127,6 +127,44 @@ describe('ColorPicker.gradient', () => {
     expect(onChange).toHaveBeenCalledWith(
       expect.anything(),
       'linear-gradient(90deg, rgb(255,0,0) 80%, rgb(0,0,255) 100%)',
+    );
+  });
+
+  it('change color hex', async () => {
+    const onChange = jest.fn();
+
+    const { container } = render(
+      <ColorPicker
+        mode={['single', 'gradient']}
+        defaultValue={[
+          {
+            color: '#FF0000',
+            percent: 0,
+          },
+          {
+            color: '#0000FF',
+            percent: 100,
+          },
+        ]}
+        open
+        onChange={onChange}
+      />,
+    );
+
+    // Move
+    doDrag(
+      container,
+      0,
+      80,
+      container.querySelector<HTMLElement>(
+        '.ant-color-picker-slider-container .ant-slider-handle',
+      )!,
+      true,
+    );
+
+    expect(onChange).toHaveBeenCalledWith(
+      expect.anything(),
+      'linear-gradient(90deg, rgb(200,0,255) 0%, rgb(0,0,255) 100%)',
     );
   });
 
@@ -180,6 +218,10 @@ describe('ColorPicker.gradient', () => {
             percent: 50,
           },
           {
+            color: '#000FF0',
+            percent: 80,
+          },
+          {
             color: '#0000FF',
             percent: 100,
           },
@@ -189,12 +231,27 @@ describe('ColorPicker.gradient', () => {
       />,
     );
 
-    // Move
+    // Remove first
     doDrag(container, 0, 9999999, '.ant-slider', true);
 
     expect(onChange).toHaveBeenCalledWith(
       expect.anything(),
-      'linear-gradient(90deg, rgb(0,255,0) 50%, rgb(0,0,255) 100%)',
+      'linear-gradient(90deg, rgb(0,255,0) 50%, rgb(0,15,240) 80%, rgb(0,0,255) 100%)',
+    );
+
+    // Remove last
+    onChange.mockReset();
+    doDrag(
+      container,
+      100,
+      9999999,
+      container.querySelector<HTMLElement>('.ant-slider-handle-3')!,
+      true,
+    );
+
+    expect(onChange).toHaveBeenCalledWith(
+      expect.anything(),
+      'linear-gradient(90deg, rgb(0,255,0) 50%, rgb(0,15,240) 80%)',
     );
   });
 
@@ -239,5 +296,11 @@ describe('ColorPicker.gradient', () => {
 
     const newColor = new AggregationColor(color);
     expect(newColor.toCssString()).toEqual('linear-gradient(90deg, rgb(255,0,0) 0%)');
+  });
+
+  it('mode fallback', () => {
+    const { container } = render(<ColorPicker mode={['gradient']} defaultValue="#F00" open />);
+
+    expect(container.querySelector('.ant-color-picker-gradient-slider')).toBeTruthy();
   });
 });

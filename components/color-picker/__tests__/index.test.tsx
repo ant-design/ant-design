@@ -392,6 +392,12 @@ describe('ColorPicker', () => {
     expect(targetEle?.innerHTML).toBe('#1677ff');
   });
 
+  it('showText with transparent', async () => {
+    const { container } = render(<ColorPicker defaultValue={null} showText />);
+    const targetEle = container.querySelector('.ant-color-picker-trigger-text');
+    expect(targetEle?.textContent).toBe('Transparent');
+  });
+
   it('Should showText work', async () => {
     const { container } = render(<ColorPicker defaultValue="#1677ff" open showText />);
     const targetEle = container.querySelector('.ant-color-picker-trigger-text');
