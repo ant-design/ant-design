@@ -178,7 +178,7 @@ const App: React.FC = () => {
     <>
       <Form
         layout="inline"
-        className="components-table-demo-control-bar"
+        className="table-demo-control-bar"
         style={{ marginBottom: 16 }}
       >
         <Form.Item label="Bordered">
