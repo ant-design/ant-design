@@ -10,7 +10,7 @@ import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
 import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
 import Tooltip from '../tooltip';
-import PurePanel from './PurePanel';
+import PurePanel, { Overlay } from './PurePanel';
 // CSSINJS
 import useStyle from './style';
 
@@ -22,19 +22,6 @@ export interface PopoverProps extends AbstractTooltipProps {
     e?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLDivElement>,
   ) => void;
 }
-
-interface OverlayProps {
-  prefixCls?: string;
-  title?: React.ReactNode;
-  content?: React.ReactNode;
-}
-
-const Overlay: React.FC<OverlayProps> = ({ title, content, prefixCls }) => (
-  <>
-    {title && <div className={`${prefixCls}-title`}>{title}</div>}
-    {content && <div className={`${prefixCls}-inner-content`}>{content}</div>}
-  </>
-);
 
 const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
   const {
