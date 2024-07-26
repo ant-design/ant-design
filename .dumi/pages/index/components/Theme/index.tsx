@@ -21,7 +21,7 @@ import {
   Typography,
 } from 'antd';
 import { createStyles } from 'antd-style';
-import type { Color } from 'antd/es/color-picker';
+import type { ColorPickerProps, GetProp } from 'antd';
 import { generateColor } from 'antd/es/color-picker/util';
 import classNames from 'classnames';
 import { useLocation } from 'dumi';
@@ -40,6 +40,8 @@ import MobileCarousel from './MobileCarousel';
 import RadiusPicker from './RadiusPicker';
 import type { THEME } from './ThemePicker';
 import ThemePicker from './ThemePicker';
+
+type Color = GetProp<ColorPickerProps, 'value'>;
 
 const { Header, Content, Sider } = Layout;
 
@@ -264,7 +266,7 @@ const sideMenuItems: MenuProps['items'] = [
 
 // ============================= Theme =============================
 
-function getTitleColor(colorPrimary: string | Color, isLight?: boolean) {
+function getTitleColor(colorPrimary: Color, isLight?: boolean) {
   if (!isLight) {
     return '#FFF';
   }
@@ -289,7 +291,7 @@ function getTitleColor(colorPrimary: string | Color, isLight?: boolean) {
 
 interface ThemeData {
   themeType: THEME;
-  colorPrimary: string | Color;
+  colorPrimary: Color;
   borderRadius: number;
   compact: 'default' | 'compact';
 }
