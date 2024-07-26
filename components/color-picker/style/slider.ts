@@ -23,6 +23,11 @@ const genSliderStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
     .sub(token.calc(lineWidthBold).mul(2).equal())
     .equal();
 
+  const handleHoverSize = token
+    .calc(colorPickerHandlerSizeSM)
+    .add(token.calc(lineWidthBold).mul(2).equal())
+    .equal();
+
   return {
     // ======================== Slider ========================
     [`${componentCls}-slider`]: [
@@ -47,7 +52,15 @@ const genSliderStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
           borderRadius: '100%',
 
           '&:before': {
-            display: 'none',
+            display: 'block',
+            position: 'absolute',
+            background: 'transparent',
+            left: '50%',
+            top: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: handleHoverSize,
+            height: handleHoverSize,
+            borderRadius: '100%',
           },
 
           '&:after': {
