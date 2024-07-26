@@ -16,6 +16,9 @@ const Demo = () => (
     allowClear
     showText
     mode={['single', 'gradient']}
+    onChangeComplete={(color) => {
+      console.log(color.toCssString());
+    }}
   />
 );
 

@@ -52,6 +52,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | disabledAlpha | Disable Alpha | boolean | - | 5.8.0 |
 | destroyTooltipOnHide | Whether destroy popover when hidden | `boolean` | false | 5.7.0 |
 | format | Format of color | `rgb` \| `hex` \| `hsb` | `hex` | |
+| mode | Configure single or gradient color | `('single' \| 'gradient')[]` | `single` | 5.20.0 |
 | open | Whether to show popup | boolean | - | |
 | presets | Preset colors | `{ label: ReactNode, colors: Array<string \| Color>, defaultOpen?: boolean }[]` | - | `defaultOpen: 5.11.0` |
 | placement | Placement of popup | The design of the [placement](/components/tooltip/#api) parameter is the same as the `Tooltips` component. | `bottomLeft` | |
@@ -69,8 +70,9 @@ Common props ref：[Common props](/docs/react/common-props)
 ### Color
 
 <!-- prettier-ignore -->
-| Property | Description | Type | Default |
+| Property | Description | Type | Version |
 | :-- | :-- | :-- | :-- |
+| toCssString | Convert to CSS support format | `() => string` | 5.20.0 |
 | toHex | Convert to `hex` format characters, the return type like: `1677ff` | `() => string` | - |
 | toHexString | Convert to `hex` format color string, the return type like: `#1677ff` | `() => string` | - |
 | toHsb | Convert to `hsb` object  | `() => ({ h: number, s: number, b: number, a number })` | - |

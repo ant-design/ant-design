@@ -7,6 +7,10 @@ import { PanelPickerContext } from '../../context';
 import { getGradientPercentColor } from '../../util';
 import { GradientColorSlider } from '../ColorSlider';
 
+function sortColors(colors: { percent: number; color: string }[]) {
+  return [...colors].sort((a, b) => a.percent - b.percent);
+}
+
 /**
  * GradientColorBar will auto show when the mode is `gradient`.
  */
@@ -60,7 +64,7 @@ export default function GradientColorBar() {
     }
 
     onGradientDragging(true);
-    onChange(new AggregationColor(colorsRef.current));
+    onChange(new AggregationColor(sortColors(colorsRef.current)), true);
   };
 
   // Adjust color when dragging
@@ -69,7 +73,7 @@ export default function GradientColorBar() {
     draggingIndex,
     draggingValue,
   }) => {
-    const nextColors = [...colorsRef.current];
+    let nextColors = [...colorsRef.current];
 
     if (deleteIndex !== -1) {
       nextColors.splice(deleteIndex, 1);
@@ -79,10 +83,10 @@ export default function GradientColorBar() {
         percent: draggingValue,
       };
 
-      nextColors.sort((a, b) => a.percent - b.percent);
+      nextColors = sortColors(nextColors);
     }
 
-    onChange(new AggregationColor(nextColors));
+    onChange(new AggregationColor(nextColors), true);
   };
 
   // ============================= Change =============================
