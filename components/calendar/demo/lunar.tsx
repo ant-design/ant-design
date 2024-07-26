@@ -209,7 +209,7 @@ const App: React.FC = () => {
               <Col>
                 <Select
                   size="small"
-                  dropdownMatchSelectWidth={false}
+                  popupMatchSelectWidth={false}
                   className="my-year-select"
                   value={year}
                   options={options}
@@ -222,7 +222,7 @@ const App: React.FC = () => {
               <Col>
                 <Select
                   size="small"
-                  dropdownMatchSelectWidth={false}
+                  popupMatchSelectWidth={false}
                   value={month}
                   options={monthOptions}
                   onChange={(newMonth) => {
