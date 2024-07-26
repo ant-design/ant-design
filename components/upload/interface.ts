@@ -50,6 +50,7 @@ export interface UploadChangeParam<T = UploadFile> {
 }
 
 export interface ShowUploadListInterface<T = any> {
+  extra?: React.ReactNode | ((file: UploadFile<T>) => React.ReactNode);
   showRemoveIcon?: boolean;
   showPreviewIcon?: boolean;
   showDownloadIcon?: boolean;
@@ -155,6 +156,7 @@ export interface UploadListProps<T = any> {
   removeIcon?: React.ReactNode | ((file: UploadFile<T>) => React.ReactNode);
   downloadIcon?: React.ReactNode | ((file: UploadFile<T>) => React.ReactNode);
   previewIcon?: React.ReactNode | ((file: UploadFile<T>) => React.ReactNode);
+  extra?: React.ReactNode | ((file: UploadFile<T>) => React.ReactNode);
   locale: UploadLocale;
   previewFile?: PreviewFileHandler;
   iconRender?: (file: UploadFile<T>, listType?: UploadListType) => React.ReactNode;

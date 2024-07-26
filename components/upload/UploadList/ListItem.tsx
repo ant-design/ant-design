@@ -31,6 +31,7 @@ export interface ListItemProps {
   removeIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
   downloadIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
   previewIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
+  extra?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
   iconRender: (file: UploadFile) => React.ReactNode;
   actionIconRender: (
     customIcon: React.ReactNode,
@@ -67,6 +68,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
       previewIcon: customPreviewIcon,
       removeIcon: customRemoveIcon,
       downloadIcon: customDownloadIcon,
+      extra: customExtra,
       onPreview,
       onDownload,
       onClose,
@@ -172,9 +174,13 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
         {removeIcon}
       </span>
     );
+
+    const extraContent = typeof customExtra === 'function' ? customExtra(file) : customExtra;
+    const extra = extraContent && <span className={`${prefixCls}-list-item-extra`}>{extraContent}</span>
+
     const listItemNameClass = classNames(`${prefixCls}-list-item-name`);
     const fileName = file.url
-      ? [
+      ?
           <a
             key="view"
             target="_blank"
@@ -186,10 +192,9 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
             onClick={(e) => onPreview(file, e)}
           >
             {file.name}
-          </a>,
-          downloadOrDelete,
-        ]
-      : [
+            {extra}
+          </a>
+      :
           <span
             key="view"
             className={listItemNameClass}
@@ -197,9 +202,9 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
             title={file.name}
           >
             {file.name}
-          </span>,
-          downloadOrDelete,
-        ];
+            {extra}
+          </span>
+        ;
 
     const previewIcon =
       showPreviewIcon && (file.url || file.thumbUrl) ? (
@@ -232,6 +237,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
       <div className={listItemClassName}>
         {icon}
         {fileName}
+        {downloadOrDelete}
         {pictureCardActions}
         {showProgress && (
           <CSSMotion
