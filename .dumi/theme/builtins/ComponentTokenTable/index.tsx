@@ -156,7 +156,7 @@ const SubTokenTable: React.FC<SubTokenTableProps> = (props) => {
           {title}
           <Popover
             title={null}
-            popupStyle={{ width: 400 }}
+            overlayStyle={{ width: 400 }}
             content={
               <Typography>
                 {/* <SourceCode lang="jsx">{code}</SourceCode> */}
