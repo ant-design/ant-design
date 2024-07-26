@@ -36,15 +36,13 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
 }));
 
-export interface DebouncedColorPickerProps {
+export interface ThemeColorPickerProps {
   id?: string;
   value?: string | Color;
   onChange?: (value?: Color | string) => void;
 }
 
-const DebouncedColorPicker: React.FC<React.PropsWithChildren<DebouncedColorPickerProps>> = (
-  props,
-) => {
+const DebouncedColorPicker: React.FC<React.PropsWithChildren<ThemeColorPickerProps>> = (props) => {
   const { value: color, children, onChange } = props;
   const [value, setValue] = useState(color);
 
@@ -70,7 +68,7 @@ const DebouncedColorPicker: React.FC<React.PropsWithChildren<DebouncedColorPicke
   );
 };
 
-const ThemeColorPicker: React.FC<DebouncedColorPickerProps> = ({ value, onChange, id }) => {
+const ThemeColorPicker: React.FC<ThemeColorPickerProps> = ({ value, onChange, id }) => {
   const { styles } = useStyle();
 
   const matchColors = React.useMemo(() => {
