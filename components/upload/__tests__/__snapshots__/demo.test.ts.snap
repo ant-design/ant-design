@@ -4341,6 +4341,19 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx correctly 
           title="xxx.png"
         >
           xxx.png
+          <span
+            class="ant-upload-list-item-extra"
+          >
+            <span
+              style="color:#cccccc"
+            >
+              (
+              <!-- -->
+              1.18
+              <!-- -->
+              MB)
+            </span>
+          </span>
         </a>
         <span
           class="ant-upload-list-item-actions"
@@ -4424,6 +4437,19 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx correctly 
           title="yyy.png"
         >
           yyy.png
+          <span
+            class="ant-upload-list-item-extra"
+          >
+            <span
+              style="color:#cccccc"
+            >
+              (
+              <!-- -->
+              1.18
+              <!-- -->
+              MB)
+            </span>
+          </span>
         </a>
         <span
           class="ant-upload-list-item-actions"
@@ -4507,6 +4533,19 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx correctly 
           title="zzz.png"
         >
           zzz.png
+          <span
+            class="ant-upload-list-item-extra"
+          >
+            <span
+              style="color:#cccccc"
+            >
+              (
+              <!-- -->
+              1.18
+              <!-- -->
+              MB)
+            </span>
+          </span>
         </a>
         <span
           class="ant-upload-list-item-actions"
