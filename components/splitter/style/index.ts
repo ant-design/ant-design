@@ -16,11 +16,15 @@ const genSplitterStyle: GenerateStyle<any> = (token: any): CSSObject => {
       '&-bar': {
         flexGrow: 0,
         flexShrink: 0,
-        background: '#f5f5f5',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         position: 'relative',
+        background: 'rgba(0, 0, 0, 0.05)',
+
+        '&:hover': {
+          background: 'black',
+        },
 
         [`> ${componentCls}-bar-resize`]: {
           background: 'rgba(0, 0, 0, 0.10)',
@@ -34,6 +38,16 @@ const genSplitterStyle: GenerateStyle<any> = (token: any): CSSObject => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
+        },
+      },
+
+      '&-bar-active': {
+        background: 'black',
+      },
+
+      '&-bar-disabled': {
+        '&:hover': {
+          background: 'rgba(0, 0, 0, 0.05)',
         },
       },
 
@@ -81,6 +95,10 @@ const genSplitterStyle: GenerateStyle<any> = (token: any): CSSObject => {
 
       '&-resizing': {
         userSelect: 'none',
+
+        [`>${componentCls}-item`]: {
+          transition: 'none',
+        },
       },
 
       [`&-resizing${componentCls}-horizontal`]: {
@@ -93,6 +111,7 @@ const genSplitterStyle: GenerateStyle<any> = (token: any): CSSObject => {
 
       '&-item': {
         overflow: 'auto',
+        transition: '200ms',
       },
     },
   };

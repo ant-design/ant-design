@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import React, { useMemo, useRef } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 
 import { ConfigContext } from '../config-provider';
@@ -34,6 +34,8 @@ export interface SplitterProps {
   onResizeEnd?: (sizes: number[]) => void;
 }
 
+const SPLIT_BAR_SIZE = 2;
+
 const Splitter: React.FC<SplitterProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
@@ -47,16 +49,16 @@ const Splitter: React.FC<SplitterProps> = (props) => {
     onResizeEnd,
   } = props;
 
-  const containerRef = useRef<HTMLDivElement>(null);
-
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('split-panel', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const splitBarSize = 4;
+  const containerRef = useRef<HTMLDivElement>(null);
+  const panelRefs = useRef<(HTMLDivElement | null)[]>([]);
+
   const panelCount = items.length;
-  const gutter = ((items.length - 1) * splitBarSize) / items.length;
+  const gutter = ((items.length - 1) * SPLIT_BAR_SIZE) / items.length;
 
   // 获取初始默认值
   const getInitialOffsets = () => {
@@ -82,15 +84,20 @@ const Splitter: React.FC<SplitterProps> = (props) => {
     return sizes;
   };
 
-  const offsets = useRef<number[]>([]);
+  const basicsRef = useRef<number[]>([]);
+  const [basicsState, setBasicsState] = useState<number[]>([]);
   const childrenNode = useMemo(() => {
     const daFaultOffsets = getInitialOffsets();
-    offsets.current = daFaultOffsets;
+    basicsRef.current = daFaultOffsets;
+    setBasicsState(daFaultOffsets);
 
     return items.reduce((node: ReactNode[], item, idx) => {
       node.push(
         <Panel
           {...item}
+          ref={(ref) => {
+            panelRefs.current[idx] = ref;
+          }}
           key={`panel${`-${idx}`}`}
           size={daFaultOffsets[idx]}
           prefixCls={prefixCls}
@@ -105,7 +112,7 @@ const Splitter: React.FC<SplitterProps> = (props) => {
           <SplitBar
             key={`split-bar${`-${idx}`}`}
             prefixCls={prefixCls}
-            size={splitBarSize}
+            size={SPLIT_BAR_SIZE}
             index={idx}
             resizable={item.resizable}
             collapsible={item.collapsible}
@@ -118,15 +125,17 @@ const Splitter: React.FC<SplitterProps> = (props) => {
     // item.size 改变时，重新赋值 flexBasis
   }, [JSON.stringify(items.map((item) => item.size))]);
 
-  const { resizing, resizeStart } = useResize({
+  const { resizing, resizeStart, setSize } = useResize({
     container: containerRef,
+    panels: panelRefs,
     layout,
     gutter,
-    offsets,
+    basics: basicsRef,
     items,
     onResizeStart,
     onResize,
     onResizeEnd,
+    setBasicsState,
   });
 
   const containerClassName = classNames(
@@ -143,7 +152,7 @@ const Splitter: React.FC<SplitterProps> = (props) => {
   );
 
   return wrapCSSVar(
-    <SplitterContext.Provider value={{ layout, resizeStart }}>
+    <SplitterContext.Provider value={{ layout, resizing, basicsState, resizeStart, setSize }}>
       <div ref={containerRef} style={style} className={containerClassName}>
         {childrenNode}
       </div>

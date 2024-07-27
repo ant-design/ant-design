@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import type { SplitterItem } from './Splitter';
@@ -12,13 +12,14 @@ export interface PanelProps extends SplitterItem {
   gutter?: number;
 }
 
-const Panel: React.FC<PanelProps> = (props) => {
+const Panel = forwardRef<HTMLDivElement, PanelProps>((props, ref) => {
   const { prefixCls, className, children, gutter, size } = props;
 
   const panelClassName = classNames(`${prefixCls}-item`, className);
 
   return (
     <div
+      ref={ref}
       className={panelClassName}
       style={{
         flexBasis: `calc(${size}% - ${gutter}px)`,
@@ -27,6 +28,6 @@ const Panel: React.FC<PanelProps> = (props) => {
       {children}
     </div>
   );
-};
+});
 
 export default Panel;

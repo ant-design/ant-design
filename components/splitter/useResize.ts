@@ -13,27 +13,31 @@ interface StartInfo {
 interface UseResizeProps
   extends Pick<SplitterProps, 'layout' | 'items' | 'onResizeStart' | 'onResize' | 'onResizeEnd'> {
   container: React.RefObject<HTMLDivElement>;
+  panels: React.RefObject<(HTMLDivElement | null)[]>;
   gutter: number;
-  offsets: React.RefObject<number[]>;
+  basics: React.RefObject<number[]>;
+  setBasicsState: React.Dispatch<React.SetStateAction<number[]>>;
 }
-interface UseResize {
+export interface UseResize {
   resizing: boolean;
   resizeStart: (e: React.MouseEvent<HTMLDivElement>, index: number) => void;
+  setSize: (size: number, index: number) => void;
 }
 
 const useResize = ({
   container,
+  panels,
   layout,
   gutter,
   items,
-  offsets,
+  basics,
   onResize,
   onResizeEnd,
   onResizeStart,
+  setBasicsState,
 }: UseResizeProps): UseResize => {
-  const resizingRef = useRef(false);
   const startInfo = useRef<StartInfo>({ x: 0, y: 0, index: 0, splitBar: null });
-
+  const resizingRef = useRef(false);
   const [resizing, setResizing] = useState(false);
 
   const splitBarSizeCount = items.length * gutter;
@@ -41,14 +45,14 @@ const useResize = ({
   const setOffset = (offset: number, x: number, y: number) => {
     const { index, splitBar } = startInfo.current;
 
-    if (splitBar && offsets.current) {
+    if (splitBar && basics.current) {
       const previousElement = splitBar.previousElementSibling as HTMLDivElement;
       const nextElement = splitBar.nextElementSibling as HTMLDivElement;
 
-      const percentCount = offsets.current[index] + offsets.current[index + 1];
+      const percentCount = basics.current[index] + basics.current[index + 1];
 
-      let previousSize = offsets.current[index] - offset;
-      let nextSize = offsets.current[index + 1] + offset;
+      let previousSize = basics.current[index] - offset;
+      let nextSize = basics.current[index + 1] + offset;
 
       const { max: previousMax = percentCount, min: previousMin = 0 } = items[index];
       const { max: nextMax = percentCount, min: nextMin = 0 } = items[index + 1];
@@ -86,10 +90,11 @@ const useResize = ({
 
       startInfo.current.x = x;
       startInfo.current.y = y;
-      offsets.current[index] = previousSize;
-      offsets.current[index + 1] = nextSize;
+      basics.current[index] = previousSize;
+      basics.current[index + 1] = nextSize;
 
-      onResize?.(offsets.current);
+      setBasicsState([...basics.current]);
+      onResize?.(basics.current);
     }
   };
 
@@ -114,21 +119,33 @@ const useResize = ({
   };
 
   const end = () => {
-    if (resizingRef.current && offsets.current) {
-      resizingRef.current = false;
+    if (resizingRef.current && basics.current) {
       startInfo.current = { x: 0, y: 0, index: 0, splitBar: null };
+
+      resizingRef.current = false;
       setResizing(false);
-      onResizeEnd?.(offsets.current);
+
+      onResizeEnd?.(basics.current);
     }
   };
 
   const resizeStart = (e: React.MouseEvent<HTMLDivElement>, index: number) => {
     const target = e.target as HTMLDivElement;
-    if (e.target && offsets.current) {
-      setResizing(true);
-      onResizeStart?.(offsets.current);
-      resizingRef.current = true;
+    if (e.target && basics.current) {
       startInfo.current = { x: e.clientX, y: e.clientY, index, splitBar: target };
+
+      resizingRef.current = true;
+      setResizing(true);
+
+      onResizeStart?.(basics.current);
+    }
+  };
+
+  const setSize = (size: number, index: number) => {
+    if (basics.current && panels.current?.[index]) {
+      basics.current[index] = size;
+      setBasicsState([...basics.current]);
+      panels.current[index].style.flexBasis = `calc(${size}% - ${gutter}px)`;
     }
   };
 
@@ -146,7 +163,7 @@ const useResize = ({
     };
   }, [layout]);
 
-  return { resizing, resizeStart };
+  return { resizing, resizeStart, setSize };
 };
 
 export default useResize;
