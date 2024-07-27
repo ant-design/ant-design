@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import { ConfigProvider, Flex, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import { useLocation } from 'dumi';
+
 import useLocale from '../../../../hooks/useLocale';
 import LinkButton from '../../../../theme/common/LinkButton';
 import SiteContext from '../../../../theme/slots/SiteContext';
@@ -117,12 +118,14 @@ const PreviewBanner: React.FC<React.PropsWithChildren> = (props) => {
     <GroupMaskLayer>
       {/* Image Left Top */}
       <img
+        draggable={false}
         style={{ position: 'absolute', left: isMobile ? -120 : 0, top: 0, width: 240 }}
         src="https://gw.alipayobjects.com/zos/bmw-prod/49f963db-b2a8-4f15-857a-270d771a1204.svg"
         alt="bg"
       />
       {/* Image Right Top */}
       <img
+        draggable={false}
         style={{ position: 'absolute', right: isMobile ? 0 : '40%', bottom: 120, width: 240 }}
         src="https://gw.alipayobjects.com/zos/bmw-prod/e152223c-bcae-4913-8938-54fda9efe330.svg"
         alt="bg"
