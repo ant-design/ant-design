@@ -492,11 +492,7 @@ const App: React.FC = () => {
   const changeDirection = (e: RadioChangeEvent) => {
     const directionValue = e.target.value;
     setDirection(directionValue);
-    if (directionValue === 'rtl') {
-      setPlacement('bottomRight');
-    } else {
-      setPlacement('bottomLeft');
-    }
+    setPlacement(directionValue === 'rtl' ? 'bottomRight' : 'bottomLeft');
   };
 
   return (
