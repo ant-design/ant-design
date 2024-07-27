@@ -502,7 +502,7 @@ const App: React.FC = () => {
   return (
     <>
       <div style={{ marginBottom: 16 }}>
-        <span style={{ marginRight: 16 }}>Change direction of components:</span>
+        <span style={{ marginInlineEnd: 16 }}>Change direction of components:</span>
         <Radio.Group defaultValue="ltr" onChange={changeDirection}>
           <Radio.Button key="ltr" value="ltr">
             LTR
