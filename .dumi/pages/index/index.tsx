@@ -84,7 +84,7 @@ const Homepage: React.FC = () => {
               draggable={false}
               className={styles.image}
               src="https://gw.alipayobjects.com/zos/bmw-prod/ba37a413-28e6-4be4-b1c5-01be1a0ebb1c.svg"
-              alt="bg-image"
+              alt="bg"
             />
           }
         >

@@ -68,7 +68,7 @@ const BackgroundImage: React.FC<BackgroundImageProps> = ({ colorPrimary, isLight
               className={cls}
               style={{ ...style, opacity: isLight ? opacity : 0 }}
               src={entity.url}
-              alt=""
+              alt="bg"
             />
           </picture>
         );
