@@ -64,6 +64,7 @@ const BackgroundImage: React.FC<BackgroundImageProps> = ({ colorPrimary, isLight
             <source srcSet={entity.webp} type="image/webp" />
             <source srcSet={entity.url} type="image/jpeg" />
             <img
+              draggable={false}
               className={cls}
               style={{ ...style, opacity: isLight ? opacity : 0 }}
               src={entity.url}

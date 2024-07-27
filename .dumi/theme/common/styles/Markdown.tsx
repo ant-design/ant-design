@@ -24,6 +24,7 @@ const GlobalStyle: React.FC = () => {
         }
 
         .markdown img {
+          display: block;
           max-width: calc(100% - 32px);
           max-height: 100%;
         }
@@ -183,6 +184,8 @@ const GlobalStyle: React.FC = () => {
           background-color: ${token.siteMarkdownCodeBg};
           border-radius: ${token.borderRadius}px;
           > pre.prism-code {
+            scrollbar-width: thin;
+            scrollbar-color: unset;
             padding: ${token.paddingSM}px ${token.paddingMD}px;
             font-size: ${token.fontSize}px;
             line-height: 2;
