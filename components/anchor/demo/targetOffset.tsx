@@ -6,7 +6,7 @@ const style: React.CSSProperties = {
   backgroundColor: 'rgba(0, 0, 0, 0.85)',
   position: 'fixed',
   top: 0,
-  inlineStart: 0,
+  insetInlineStart: 0,
   width: '75%',
   color: '#fff',
 };
