@@ -152,7 +152,7 @@ async function boot() {
         // eslint-disable-next-line no-await-in-loop
         await retry(doUpload, 3, 1000);
       } catch (err) {
-        console.warn('Skip uploading file `%s` failed after retry %s, error: %s in folder: %s', path.relative(workspacePath, file), 3, err, fileOrFolderName);
+        console.warn('Skip uploading file `%s` in folder `%s` failed after retry %s, error: %s', path.relative(workspacePath, file), fileOrFolderName, 3, err);
       }
     }
   }
