@@ -202,6 +202,7 @@ const genFilledButtonStyle = (
   [`&${token.componentCls}-filled`]: {
     ...genSolidDisabledButtonStyle(token),
 
+    boxShadow: 'none',
     background,
 
     ...genHoverActiveButtonStyle(token.componentCls, hoverStyle, activeStyle),

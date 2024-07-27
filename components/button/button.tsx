@@ -29,8 +29,8 @@ export type LegacyButtonType = ButtonType | 'danger';
 
 export interface BaseButtonProps {
   type?: ButtonType;
-  variant?: ButtonVariantType;
   color?: ButtonColorType;
+  variant?: ButtonVariantType;
   icon?: React.ReactNode;
   iconPosition?: 'start' | 'end';
   shape?: ButtonShape;
