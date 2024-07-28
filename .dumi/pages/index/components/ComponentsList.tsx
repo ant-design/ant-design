@@ -126,7 +126,7 @@ const ComponentItem: React.FC<ComponentItemProps> = ({ title, node, type, index 
       {/* Decorator */}
       <div
         className={styles.cardCircle}
-        style={{ right: (index % 2) * -20 - 20, bottom: (index % 3) * -40 - 20 }}
+        style={{ insetInlineEnd: (index % 2) * -20 - 20, bottom: (index % 3) * -40 - 20 }}
       />
 
       {/* Title */}
