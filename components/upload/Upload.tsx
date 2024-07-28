@@ -386,6 +386,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     removeIcon,
     previewIcon,
     downloadIcon,
+    extra,
   } = typeof showUploadList === 'boolean' ? ({} as ShowUploadListInterface) : showUploadList;
 
   // use showRemoveIcon if it is specified explicitly
@@ -412,6 +413,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
         previewIcon={previewIcon}
         downloadIcon={downloadIcon}
         iconRender={iconRender}
+        extra={extra}
         locale={{ ...contextLocale, ...propLocale }}
         isImageUrl={isImageUrl}
         progress={progress}

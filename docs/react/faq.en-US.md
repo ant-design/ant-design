@@ -177,7 +177,7 @@ Or you can simply upgrade to [antd@4.0](https://github.com/ant-design/ant-design
 
 Static methods like message/notification/Modal.confirm are not using the same render tree as `<Button />`, but rendered to independent DOM node created by `ReactDOM.render`, which cannot access React context from ConfigProvider. Consider two solutions here:
 
-1. Replace original usages with [message.useMessage](/components/message/#components-message-demo-hooks), [notification.useNotification](/components/notification/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-notification) and [Modal.useModal](/components/modal/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-modalxxx).
+1. Replace original usages with [message.useMessage](/components/message/#message-demo-hooks), [notification.useNotification](/components/notification/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-notification) and [Modal.useModal](/components/modal/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-modalxxx).
 
 2. Use [App.useApp](/components/app-cn#%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95) to get message/notification/modal instance.
 
