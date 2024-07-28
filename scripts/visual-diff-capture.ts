@@ -158,7 +158,8 @@ class BrowserAuto {
     // 保存截图到 ./result 目录
     await page.screenshot({
       path: path.join(this.outputDir, imgName),
-      scale: 'device',
+      animations: 'disabled',
+      scale: 'css',
       type: 'png',
       fullPage: !options.onlyViewport,
       timeout: 3000,
