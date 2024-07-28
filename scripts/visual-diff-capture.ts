@@ -23,7 +23,12 @@ const themes = ['default', 'dark', 'compact'];
 
 async function retrieveDemoUrl(mdPath: string) {
   // ~demos/button-demo-basic
-  return mdPath.replace(/^components\//, '').replace('.md', '').replace(/\//g, '-');
+  // breadcrumb-withIcon -> ~demos/breadcrumb-demo-withicon
+  return mdPath
+    .replace(/^components\//, '')
+    .replace('.md', '')
+    .replace(/\//g, '-')
+    .toLowerCase();
 }
 
 async function retrieveConfig(mdPath: string): Promise<VisualDiffConfig> {
