@@ -1,6 +1,6 @@
 ## zh-CN
 
-同时设置`color`和`variant`属性，可以衍生出更多的变体按钮。
+同时设置 `color` 和 `variant` 属性，可以衍生出更多的变体按钮。
 
 ## en-US
 
