@@ -66,7 +66,7 @@ title: 社区精选组件
   font-weight: 500;
 }
 .markdown table td > a:not(:last-child) {
-  margin-right: 18px;
+  margin-inline-end: 18px;
 }
 .markdown table td > a:not(:last-child)::after {
   position: absolute;
