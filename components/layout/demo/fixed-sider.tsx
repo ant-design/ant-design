@@ -18,7 +18,7 @@ const siderStyle: React.CSSProperties = {
   overflow: 'auto',
   height: '100vh',
   position: 'fixed',
-  left: 0,
+  insetInlineStart: 0,
   top: 0,
   bottom: 0,
   scrollbarWidth: 'thin',
@@ -51,7 +51,7 @@ const App: React.FC = () => {
         <div className="demo-logo-vertical" />
         <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} items={items} />
       </Sider>
-      <Layout style={{ marginLeft: 200 }}>
+      <Layout style={{ marginInlineStart: 200 }}>
         <Header style={{ padding: 0, background: colorBgContainer }} />
         <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
           <div

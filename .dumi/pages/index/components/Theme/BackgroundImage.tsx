@@ -14,7 +14,7 @@ const useStyle = createStyles(({ token }) => ({
   image: css`
     transition: all ${token.motionDurationSlow};
     position: absolute;
-    left: 0;
+    inset-inline-start: 0;
     top: 0;
     height: 100%;
     width: 100%;

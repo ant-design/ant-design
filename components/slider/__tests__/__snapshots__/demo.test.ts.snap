@@ -160,7 +160,7 @@ Array [
     />
   </div>,
   <div
-    style="display:inline-block;height:300px;margin-left:70px"
+    style="display:inline-block;height:300px;margin-inline-start:70px"
   >
     <div
       class="ant-slider ant-slider-vertical"
@@ -189,7 +189,7 @@ Array [
     </div>
   </div>,
   <div
-    style="display:inline-block;height:300px;margin-left:70px"
+    style="display:inline-block;height:300px;margin-inline-start:70px"
   >
     <div
       class="ant-slider ant-slider-vertical"
@@ -234,7 +234,7 @@ Array [
     </div>
   </div>,
   <div
-    style="display:inline-block;height:300px;margin-left:70px"
+    style="display:inline-block;height:300px;margin-inline-start:70px"
   >
     <div
       class="ant-slider ant-slider-vertical ant-slider-with-marks"
@@ -1359,7 +1359,7 @@ Array [
 exports[`renders components/slider/demo/vertical.tsx correctly 1`] = `
 Array [
   <div
-    style="display:inline-block;height:300px;margin-left:70px"
+    style="display:inline-block;height:300px;margin-inline-start:70px"
   >
     <div
       class="ant-slider ant-slider-vertical"
@@ -1388,7 +1388,7 @@ Array [
     </div>
   </div>,
   <div
-    style="display:inline-block;height:300px;margin-left:70px"
+    style="display:inline-block;height:300px;margin-inline-start:70px"
   >
     <div
       class="ant-slider ant-slider-vertical"
@@ -1433,7 +1433,7 @@ Array [
     </div>
   </div>,
   <div
-    style="display:inline-block;height:300px;margin-left:70px"
+    style="display:inline-block;height:300px;margin-inline-start:70px"
   >
     <div
       class="ant-slider ant-slider-vertical ant-slider-with-marks"

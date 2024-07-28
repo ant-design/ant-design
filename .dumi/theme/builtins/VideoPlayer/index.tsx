@@ -6,7 +6,7 @@ import classNames from 'classnames';
 const useStyles = createStyles(({ cx, token }) => {
   const play = css`
     position: absolute;
-    right: ${token.paddingLG}px;
+    inset-inline-end: ${token.paddingLG}px;
     bottom: ${token.paddingLG}px;
     font-size: 64px;
     display: flex;

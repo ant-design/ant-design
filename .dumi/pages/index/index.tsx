@@ -15,7 +15,7 @@ const Theme = React.lazy(() => import('./components/Theme'));
 const useStyle = createStyles(() => ({
   image: css`
     position: absolute;
-    left: 0;
+    inset-inline-start: 0;
     top: -50px;
     height: 160px;
   `,

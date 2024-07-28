@@ -8,28 +8,18 @@ export interface UnitNumberProps {
   current?: boolean;
 }
 
-function UnitNumber({ prefixCls, value, current, offset = 0 }: UnitNumberProps) {
+const UnitNumber: React.FC<Readonly<UnitNumberProps>> = (props) => {
+  const { prefixCls, value, current, offset = 0 } = props;
   let style: React.CSSProperties | undefined;
-
   if (offset) {
-    style = {
-      position: 'absolute',
-      top: `${offset}00%`,
-      left: 0,
-    };
+    style = { position: 'absolute', top: `${offset}00%`, left: 0 };
   }
-
   return (
-    <span
-      style={style}
-      className={classNames(`${prefixCls}-only-unit`, {
-        current,
-      })}
-    >
+    <span style={style} className={classNames(`${prefixCls}-only-unit`, { current })}>
       {value}
     </span>
   );
-}
+};
 
 export interface SingleNumberProps {
   prefixCls: string;
@@ -49,7 +39,7 @@ function getOffset(start: number, end: number, unit: -1 | 1) {
   return offset;
 }
 
-export default function SingleNumber(props: SingleNumberProps) {
+const SingleNumber: React.FC<Readonly<SingleNumberProps>> = (props) => {
   const { prefixCls, count: originCount, value: originValue } = props;
   const value = Number(originValue);
   const count = Math.abs(originCount);
@@ -57,20 +47,15 @@ export default function SingleNumber(props: SingleNumberProps) {
   const [prevCount, setPrevCount] = React.useState(count);
 
   // ============================= Events =============================
-  const onTransitionEnd = () => {
+  const onTransitionEnd: React.TransitionEventHandler<HTMLSpanElement> = () => {
     setPrevValue(value);
     setPrevCount(count);
   };
 
   // Fallback if transition events are not supported
   React.useEffect(() => {
-    const timeout = setTimeout(() => {
-      onTransitionEnd();
-    }, 1000);
-
-    return () => {
-      clearTimeout(timeout);
-    };
+    const timer = setTimeout(onTransitionEnd, 1000);
+    return () => clearTimeout(timer);
   }, [value]);
 
   // ============================= Render =============================
@@ -121,4 +106,6 @@ export default function SingleNumber(props: SingleNumberProps) {
       {unitNodes}
     </span>
   );
-}
+};
+
+export default SingleNumber;
