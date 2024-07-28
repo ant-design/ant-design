@@ -34,7 +34,7 @@ exports[`renders components/float-button/demo/badge.tsx extend context correctly
 Array [
   <button
     class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
-    style="right: 164px;"
+    style="inset-inline-end: 164px;"
     type="button"
   >
     <span
@@ -79,7 +79,7 @@ Array [
   </button>,
   <div
     class="ant-float-btn-group ant-float-btn-group-circle ant-float-btn-group-circle-shadow"
-    style="right: 94px;"
+    style="inset-inline-end: 94px;"
   >
     <a
       class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
@@ -554,7 +554,7 @@ exports[`renders components/float-button/demo/controlled.tsx extend context corr
 Array [
   <div
     class="ant-float-btn-group ant-float-btn-group-circle"
-    style="right: 24px;"
+    style="inset-inline-end: 24px;"
   >
     <div
       class="ant-float-btn-group-wrap-appear ant-float-btn-group-wrap-appear-start ant-float-btn-group-wrap ant-float-btn-group-wrap"
@@ -709,7 +709,7 @@ exports[`renders components/float-button/demo/description.tsx extend context cor
 Array [
   <button
     class="ant-float-btn ant-float-btn-default ant-float-btn-square"
-    style="right: 24px;"
+    style="inset-inline-end: 24px;"
     type="button"
   >
     <div
@@ -751,7 +751,7 @@ Array [
   </button>,
   <button
     class="ant-float-btn ant-float-btn-default ant-float-btn-square"
-    style="right: 94px;"
+    style="inset-inline-end: 94px;"
     type="button"
   >
     <div
@@ -770,7 +770,7 @@ Array [
   </button>,
   <button
     class="ant-float-btn ant-float-btn-default ant-float-btn-square"
-    style="right: 164px;"
+    style="inset-inline-end: 164px;"
     type="button"
   >
     <div
@@ -819,7 +819,7 @@ exports[`renders components/float-button/demo/group.tsx extend context correctly
 Array [
   <div
     class="ant-float-btn-group ant-float-btn-group-circle ant-float-btn-group-circle-shadow"
-    style="right: 24px;"
+    style="inset-inline-end: 24px;"
   >
     <button
       class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
@@ -935,7 +935,7 @@ Array [
   </div>,
   <div
     class="ant-float-btn-group ant-float-btn-group-square ant-float-btn-group-square-shadow"
-    style="right: 94px;"
+    style="inset-inline-end: 94px;"
   >
     <button
       class="ant-float-btn ant-float-btn-default ant-float-btn-square"
@@ -1094,7 +1094,7 @@ exports[`renders components/float-button/demo/group-menu.tsx extend context corr
 Array [
   <div
     class="ant-float-btn-group ant-float-btn-group-circle"
-    style="right: 24px;"
+    style="inset-inline-end: 24px;"
   >
     <button
       class="ant-float-btn ant-float-btn-primary ant-float-btn-circle"
@@ -1135,7 +1135,7 @@ Array [
   </div>,
   <div
     class="ant-float-btn-group ant-float-btn-group-circle"
-    style="right: 94px;"
+    style="inset-inline-end: 94px;"
   >
     <button
       class="ant-float-btn ant-float-btn-primary ant-float-btn-circle"
@@ -1579,7 +1579,7 @@ exports[`renders components/float-button/demo/shape.tsx extend context correctly
 Array [
   <button
     class="ant-float-btn ant-float-btn-primary ant-float-btn-circle"
-    style="right: 94px;"
+    style="inset-inline-end: 94px;"
     type="button"
   >
     <div
@@ -1616,7 +1616,7 @@ Array [
   </button>,
   <button
     class="ant-float-btn ant-float-btn-primary ant-float-btn-square"
-    style="right: 24px;"
+    style="inset-inline-end: 24px;"
     type="button"
   >
     <div
@@ -1722,7 +1722,7 @@ exports[`renders components/float-button/demo/type.tsx extend context correctly 
 Array [
   <button
     class="ant-float-btn ant-float-btn-primary ant-float-btn-circle"
-    style="right: 24px;"
+    style="inset-inline-end: 24px;"
     type="button"
   >
     <div
@@ -1762,7 +1762,7 @@ Array [
   </button>,
   <button
     class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
-    style="right: 94px;"
+    style="inset-inline-end: 94px;"
     type="button"
   >
     <div
