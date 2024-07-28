@@ -129,7 +129,7 @@ jobs:
       - name: run visual-diff capture
         run: |
           npx playwright install chromium
-          npm run visual-diff:capture
+          npm run visual-diff:capture -- --maxWorkers=2 --shard=${{matrix.shard}}
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"
 
