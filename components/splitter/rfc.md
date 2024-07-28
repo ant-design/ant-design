@@ -15,26 +15,33 @@
 
 #### Splitter
 
-| Props         | Descriptions | Type                        | Default      |
-| ------------- | ------------ | --------------------------- | ------------ |
-| layout        | 布局方向     | `horizontal` \| `vertical`  | `horizontal` |
-| items         | 面板配置     | `SplitterItem`              | -            |
-| style         | 容器样式     | `css-properties`            | -            |
-| onResizeStart | 面板配置     | `(sizes: number[]) => void` | -            |
-| onResize      | 面板配置     | `(sizes: number[]) => void` | -            |
-| onResizeEnd   | 面板配置     | `(sizes: number[]) => void` | -            |
+| Props         | Descriptions     | Type                        | Default      |
+| ------------- | ---------------- | --------------------------- | ------------ |
+| layout        | 布局方向         | `horizontal` \| `vertical`  | `horizontal` |
+| items         | 面板配置         | `SplitterItem`              | -            |
+| style         | 容器样式         | `css-properties`            | -            |
+| onResizeStart | 开始拖拽之前回调 | `(sizes: number[]) => void` | -            |
+| onResize      | 面板大小变化回调 | `(sizes: number[]) => void` | -            |
+| onResizeEnd   | 拖拽结束回调     | `(sizes: number[]) => void` | -            |
 
 #### SplitterItem
 
-| Props       | Descriptions     | Type        | Default |
-| ----------- | ---------------- | ----------- | ------- |
-| collapsible | 快速折叠         | `boolean`   | `false` |
-| min         | 最小阈值         | `number`    | -       |
-| max         | 最大阈值         | `number`    | -       |
-| size        | 受控面板大小     | `number`    | -       |
-| defaultSize | 初始面板大小     | `number`    | -       |
-| content     | 当前面板的内容   | `ReactNode` | -       |
-| resizable   | 是否支持拖拽伸缩 | `boolean`   | `true`  |
+| Props       | Descriptions                                  | Type        | Default |
+| ----------- | --------------------------------------------- | ----------- | ------- |
+| collapsible | 快速折叠 `collapsible=true`时将忽略`min``max` | `boolean`   | `false` |
+| min         | 最小阈值                                      | `number`    | -       |
+| max         | 最大阈值                                      | `number`    | -       |
+| size        | 受控面板大小                                  | `number`    | -       |
+| defaultSize | 初始面板大小                                  | `number`    | -       |
+| content     | 当前面板的内容                                | `ReactNode` | -       |
+| resizable   | 是否支持拖拽伸缩                              | `boolean`   | `true`  |
+
+## Token
+
+| Props               | Descriptions           | Type     | Default |
+| ------------------- | ---------------------- | -------- | ------- |
+| resizableSize       | 可改变大小标识元素大小 | `number` | `10`    |
+| collapsibleIconSize | 快速折叠图标大小       | `number` | `12`    |
 
 ## Example
 
@@ -67,4 +74,4 @@ const App: React.FC = () => (
 );
 ```
 
-<img width="1196" alt="image" src="https://github.com/user-attachments/assets/0e9e3dab-5538-4b34-bef8-462ba8e6402e">
+<img width="1192" alt="image" src="https://github.com/user-attachments/assets/17da525c-77f9-4856-a190-a207f3670ec6">

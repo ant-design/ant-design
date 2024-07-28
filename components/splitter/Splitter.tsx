@@ -50,7 +50,7 @@ const Splitter: React.FC<SplitterProps> = (props) => {
   } = props;
 
   const { getPrefixCls } = React.useContext(ConfigContext);
-  const prefixCls = getPrefixCls('split-panel', customizePrefixCls);
+  const prefixCls = getPrefixCls('splitter', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
@@ -61,7 +61,7 @@ const Splitter: React.FC<SplitterProps> = (props) => {
   const gutter = ((items.length - 1) * SPLIT_BAR_SIZE) / items.length;
 
   // 获取初始默认值
-  const getInitialOffsets = () => {
+  const getInitialBasics = () => {
     const sizes: number[] = [];
     let sum = 0;
     let count = 0;
@@ -87,9 +87,9 @@ const Splitter: React.FC<SplitterProps> = (props) => {
   const basicsRef = useRef<number[]>([]);
   const [basicsState, setBasicsState] = useState<number[]>([]);
   const childrenNode = useMemo(() => {
-    const daFaultOffsets = getInitialOffsets();
-    basicsRef.current = daFaultOffsets;
-    setBasicsState(daFaultOffsets);
+    const initBasics = getInitialBasics();
+    basicsRef.current = initBasics;
+    setBasicsState(initBasics);
 
     return items.reduce((node: ReactNode[], item, idx) => {
       node.push(
@@ -99,7 +99,7 @@ const Splitter: React.FC<SplitterProps> = (props) => {
             panelRefs.current[idx] = ref;
           }}
           key={`panel${`-${idx}`}`}
-          size={daFaultOffsets[idx]}
+          size={initBasics[idx]}
           prefixCls={prefixCls}
           gutter={gutter}
         >

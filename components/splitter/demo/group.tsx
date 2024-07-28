@@ -12,6 +12,7 @@ const App: React.FC = () => (
     items={[
       {
         content: <div>111</div>,
+        resizable: false,
       },
       {
         content: (
@@ -27,6 +28,7 @@ const App: React.FC = () => (
                     items={[
                       {
                         content: <div>333</div>,
+                        collapsible: true,
                       },
                       {
                         content: <div>444</div>,

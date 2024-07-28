@@ -54,12 +54,23 @@ const useResize = ({
       let previousSize = basics.current[index] - offset;
       let nextSize = basics.current[index + 1] + offset;
 
-      const { max: previousMax = percentCount, min: previousMin = 0 } = items[index];
-      const { max: nextMax = percentCount, min: nextMin = 0 } = items[index + 1];
+      const {
+        max: previousMax = percentCount,
+        min: previousMin = 0,
+        collapsible: previousCollapsible,
+      } = items[index];
+      const {
+        max: nextMax = percentCount,
+        min: nextMin = 0,
+        collapsible: nextCollapsible,
+      } = items[index + 1];
+
+      // collapsible = true 忽略大小限制
+      const collapsible = previousCollapsible || nextCollapsible;
 
       // size limit
       let skipNext = false;
-      if (previousSize < previousMin) {
+      if (previousSize < previousMin && !collapsible) {
         previousSize = previousMin;
         nextSize = percentCount - previousSize;
         skipNext = true;
@@ -67,21 +78,23 @@ const useResize = ({
         previousSize = 0;
       } else if (previousSize > percentCount) {
         previousSize = percentCount;
-      } else if (previousSize > previousMax) {
+      } else if (previousSize > previousMax && !collapsible) {
         previousSize = previousMax;
         nextSize = percentCount - previousSize;
         skipNext = true;
       }
 
-      if (skipNext) {
-        if (nextSize < nextMin) {
+      if (!skipNext) {
+        if (nextSize < nextMin && !collapsible) {
           nextSize = nextMin;
+          previousSize = percentCount - nextSize;
         } else if (nextSize < 0) {
           nextSize = 0;
         } else if (nextSize > percentCount) {
           nextSize = percentCount;
-        } else if (nextSize > nextMax) {
+        } else if (nextSize > nextMax && !collapsible) {
           nextSize = nextMax;
+          previousSize = percentCount - nextSize;
         }
       }
 
@@ -145,7 +158,7 @@ const useResize = ({
     if (basics.current && panels.current?.[index]) {
       basics.current[index] = size;
       setBasicsState([...basics.current]);
-      panels.current[index].style.flexBasis = `calc(${size}% - ${gutter}px)`;
+      panels.current[index].style.flexBasis = size > 0 ? `calc(${size}% - ${gutter}px)` : '0';
     }
   };
 

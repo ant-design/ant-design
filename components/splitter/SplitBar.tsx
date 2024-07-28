@@ -19,7 +19,8 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   const oldBasicsRef = useRef({ previous: 0, next: 0 });
   const [active, setActive] = useState(false);
 
-  const splitBarClassName = classNames(`${prefixCls}-bar`, {
+  const splitBarPrefixCls = `${prefixCls}-bar`;
+  const splitBarClassName = classNames(splitBarPrefixCls, {
     [`${prefixCls}-bar-disabled`]: !resizable,
     [`${prefixCls}-bar-active`]: active,
   });
@@ -44,13 +45,13 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         }
       }}
     >
-      {resizable ? <div className={`${prefixCls}-bar-resize`} /> : null}
+      {resizable ? <div className={`${splitBarPrefixCls}-resizable`} /> : null}
 
       {collapsible ? (
-        <div className={`${prefixCls}-bar-collapse`}>
+        <div className={`${splitBarPrefixCls}-collapse`}>
           {previous ? (
             <LeftOutlined
-              size={12}
+              className={`${splitBarPrefixCls}-collapse-previous`}
               onClick={() => {
                 oldBasicsRef.current.previous = previous;
 
@@ -65,11 +66,9 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
             />
           ) : null}
 
-          <div style={{ width: 8 }} />
-
           {next ? (
             <RightOutlined
-              size={12}
+              className={`${splitBarPrefixCls}-collapse-next`}
               onClick={() => {
                 oldBasicsRef.current.next = next;
 

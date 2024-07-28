@@ -28,18 +28,20 @@ const App: React.FC = () => {
           {
             size: layout === 'horizontal' ? 20 : 10,
             content: <div>111</div>,
-            resizable: false,
             collapsible: true,
           },
           {
-            content: <div>222</div>,
             min: 10,
             max: 40,
+            resizable: false,
+            content: <div>222</div>,
           },
           {
             content: <div>333</div>,
           },
           {
+            min: 10,
+            max: 40,
             content: <div>444</div>,
           },
         ]}
