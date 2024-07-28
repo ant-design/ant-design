@@ -65,7 +65,7 @@ There are some products to recommend for developer/designer/product manager.
   font-weight: 500;
 }
 .markdown table td > a:not(:last-child) {
-  margin-right: 18px;
+  margin-inline-end: 18px;
 }
 .markdown table td > a:not(:last-child)::after {
   position: absolute;

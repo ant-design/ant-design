@@ -145,7 +145,7 @@ jobs:
               - `current workflow` summary:
                 - `download report artifact` status: ${{ steps.download_report.outcome }}
                 - `report upload` status: ${{ steps.report.outcome }}
-                - job url: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs/${{ github.job }}
+                - workflow url: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             <!-- VISUAL_DIFF_REGRESSION_HOOK -->
           body-include: '<!-- VISUAL_DIFF_REGRESSION_HOOK -->'
           number: ${{ steps.pr.outputs.id }}

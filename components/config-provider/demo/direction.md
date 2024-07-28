@@ -9,13 +9,13 @@ Components which support rtl direction are listed here, you can toggle the direc
 ```css
 .button-demo .ant-btn,
 .button-demo .ant-btn-group {
-  margin-right: 8px;
+  margin-inline-end: 8px;
   margin-bottom: 12px;
 }
 .button-demo .ant-btn-group > .ant-btn,
 .button-demo .ant-btn-group > span > .ant-btn {
-  margin-right: 0;
-  margin-left: 0;
+  margin-inline-end: 0;
+  margin-inline-start: 0;
 }
 
 .head-example {
@@ -28,10 +28,11 @@ Components which support rtl direction are listed here, you can toggle the direc
 }
 
 .ant-badge:not(.ant-badge-not-a-wrapper) {
-  margin-right: 20px;
+  margin-inline-end: 20px;
 }
+
 .ant-badge-rtl:not(.ant-badge-not-a-wrapper) {
-  margin-right: 0;
-  margin-left: 20px;
+  margin-inline-end: 0;
+  margin-inline-start: 20px;
 }
 ```

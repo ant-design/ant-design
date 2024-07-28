@@ -292,7 +292,7 @@ exports[`renders components/color-picker/demo/presets.tsx correctly 1`] = `
 
 exports[`renders components/color-picker/demo/pure-panel.tsx correctly 1`] = `
 <div
-  style="padding-left:100px"
+  style="padding-inline-start:100px"
 >
   <div
     style="padding-bottom:0;position:relative;min-width:0"
