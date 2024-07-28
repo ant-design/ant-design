@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { Col, ColorPicker, Row } from 'antd';
 import { FormattedMessage } from 'dumi';
+import type { Color } from 'antd/es/color-picker';
 
 import useLocale from '../../../hooks/useLocale';
 import ColorPatterns from './ColorPatterns';
@@ -24,7 +25,7 @@ const locales = {
 const ColorPaletteTool: React.FC = () => {
   const [primaryColor, setPrimaryColor] = useState<string>('#1890ff');
   const [backgroundColor, setBackgroundColor] = useState<string>('#141414');
-  const [primaryColorInstance, setPrimaryColorInstance] = useState<Color>(null);
+  const [primaryColorInstance, setPrimaryColorInstance] = useState<Color | null>(null);
 
   const [locale] = useLocale(locales);
 
