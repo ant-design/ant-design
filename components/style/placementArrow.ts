@@ -1,7 +1,6 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 
-import type { AliasToken } from '../theme/internal';
-import type { TokenWithCommonCls } from '../theme/util/genComponentStyleHook';
+import type { AliasToken, TokenWithCommonCls } from '../theme/internal';
 import type { ArrowToken } from './roundedArrow';
 import { genRoundedArrow } from './roundedArrow';
 
