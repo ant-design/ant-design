@@ -16,6 +16,22 @@ tag: vVERSION
 
 ---
 
+## 5.19.4
+
+`2024-07-29`
+
+- 🐞 Fix the internal elements of Form.Item did not inherit the row height. [#50020](https://github.com/ant-design/ant-design/pull/50020) [@Wanpan](https://github.com/Wanpan)
+- 🐞 Fix Overlay is still displayed when both Popover `title` and `content` do not exist. [#50064](https://github.com/ant-design/ant-design/pull/50064) [@LLmoskk](https://github.com/LLmoskk)
+- 🐞 Fix the Token of Empty setting `opacityImage` does not take effect. [#50066](https://github.com/ant-design/ant-design/pull/50066) [@thinkasany](https://github.com/thinkasany)
+- 💄 Fix Tour overflowed the screen on mobile devices. [#50082](https://github.com/ant-design/ant-design/pull/50082)
+- 💄 Fix hover style of Checkbox `indeterminate` state. [#50083](https://github.com/ant-design/ant-design/pull/50083)
+- 💄 Fix DatePicker selection style is not intuitive under rtl. [#50045](https://github.com/ant-design/ant-design/pull/50045) [@Layouwen](https://github.com/Layouwen)
+- 💄 Fix Descriptions overflowing the container in `bordered` mode. [#49946](https://github.com/ant-design/ant-design/pull/49946) [@leefinder](https://github.com/leefinder)
+- 🛠 MISC: Migrate common style tools to `@ant-design/cssinjs-utils`. [#50030](https://github.com/ant-design/ant-design/pull/50030) [@YumoImer](https://github.com/YumoImer)
+- 🌐 Locales
+  - 🇵🇱 Add DatePicker locales for pl_PL. [#50023](https://github.com/ant-design/ant-design/pull/50023) [@ang33l](https://github.com/ang33l)
+  - 🇧🇪🇫🇷 Add Modal Tour locales for fr_BE fr_FR. [#50058](https://github.com/ant-design/ant-design/pull/50058) [@JaccoGoris](https://github.com/JaccoGoris)
+
 ## 5.19.3
 
 `2024-07-19`
