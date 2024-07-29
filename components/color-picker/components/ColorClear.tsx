@@ -17,6 +17,7 @@ const ColorClear: FC<ColorClearProps> = ({ prefixCls, value, onChange }) => {
       hsba.a = 0;
       const genColor = generateColor(hsba);
       genColor.cleared = true;
+
       onChange(genColor);
     }
   };

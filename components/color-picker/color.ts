@@ -76,7 +76,7 @@ export class AggregationColor {
   }
 
   isGradient(): boolean {
-    return !!this.colors;
+    return !!this.colors && !this.cleared;
   }
 
   getColors(): GradientColor {

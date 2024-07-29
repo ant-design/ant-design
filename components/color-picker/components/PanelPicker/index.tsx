@@ -18,6 +18,8 @@ const components = {
 };
 
 const PanelPicker: FC = () => {
+  const panelPickerContext = useContext(PanelPickerContext);
+
   const {
     mode,
     onModeChange,
@@ -32,7 +34,25 @@ const PanelPicker: FC = () => {
     activeIndex,
     gradientDragging,
     ...injectProps
-  } = useContext(PanelPickerContext);
+  } = panelPickerContext;
+
+  // ============================ Colors ============================
+  const colors = React.useMemo(() => {
+    if (!value.cleared) {
+      return value.getColors();
+    }
+
+    return [
+      {
+        percent: 0,
+        color: new AggregationColor(''),
+      },
+      {
+        percent: 100,
+        color: new AggregationColor(''),
+      },
+    ];
+  }, [value]);
 
   // ========================= Single Color =========================
   const isSingle = !value.isGradient();
@@ -43,7 +63,7 @@ const PanelPicker: FC = () => {
   // Use layout effect here since `useEffect` will cause a blink when mouseDown
   useLayoutEffect(() => {
     if (!isSingle) {
-      setLockedColor(value.getColors()[activeIndex]?.color);
+      setLockedColor(colors[activeIndex]?.color);
     }
   }, [gradientDragging, activeIndex]);
 
@@ -57,7 +77,7 @@ const PanelPicker: FC = () => {
       return lockedColor;
     }
 
-    return value.getColors()[activeIndex]?.color;
+    return colors[activeIndex]?.color;
   }, [value, activeIndex, isSingle, lockedColor, gradientDragging]);
 
   // ============================ Change ============================
@@ -66,13 +86,13 @@ const PanelPicker: FC = () => {
       return nextColor;
     }
 
-    const colors = [...value.getColors()];
-    colors[activeIndex] = {
-      ...colors[activeIndex],
+    const nextColors = [...colors];
+    nextColors[activeIndex] = {
+      ...nextColors[activeIndex],
       color: nextColor,
     };
 
-    return new AggregationColor(colors);
+    return new AggregationColor(nextColors);
   };
 
   const onInternalChange = (colorValue: AggregationColor | Color, fromPicker?: boolean) => {
@@ -113,7 +133,7 @@ const PanelPicker: FC = () => {
     <>
       {operationNode}
 
-      <GradientColorBar />
+      <GradientColorBar {...panelPickerContext} colors={colors} />
 
       <RcColorPicker
         prefixCls={prefixCls}

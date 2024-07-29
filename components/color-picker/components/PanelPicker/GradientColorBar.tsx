@@ -3,7 +3,8 @@ import type { UnstableContext } from 'rc-slider';
 
 import type { GetContextProp } from '../../../_util/type';
 import { AggregationColor } from '../../color';
-import { PanelPickerContext } from '../../context';
+import type { GradientColor } from '../../color';
+import type { PanelPickerContextProps } from '../../context';
 import { getGradientPercentColor } from '../../util';
 import { GradientColorSlider } from '../ColorSlider';
 
@@ -11,37 +12,41 @@ function sortColors(colors: { percent: number; color: string }[]) {
   return [...colors].sort((a, b) => a.percent - b.percent);
 }
 
+export interface GradientColorBarProps extends PanelPickerContextProps {
+  colors: GradientColor;
+}
+
 /**
  * GradientColorBar will auto show when the mode is `gradient`.
  */
-const GradientColorBar = () => {
+const GradientColorBar = (props: GradientColorBarProps) => {
   const {
     prefixCls,
     mode,
-    value,
     onChange,
     onChangeComplete,
     onActive,
     activeIndex,
     onGradientDragging,
-  } = React.useContext(PanelPickerContext);
+    colors,
+  } = props;
 
   const isGradient = mode === 'gradient';
 
   // ============================= Colors =============================
-  const colors = React.useMemo(
+  const colorList = React.useMemo(
     () =>
-      value.getColors().map((info) => ({
+      colors.map((info) => ({
         percent: info.percent,
         color: info.color.toRgbString(),
       })),
-    [value],
+    [colors],
   );
 
-  const values = React.useMemo(() => colors.map((info) => info.percent), [colors]);
+  const values = React.useMemo(() => colorList.map((info) => info.percent), [colorList]);
 
   // ============================== Drag ==============================
-  const colorsRef = React.useRef(colors);
+  const colorsRef = React.useRef(colorList);
 
   // Record current colors
   const onDragStart: GetContextProp<typeof UnstableContext, 'onDragStart'> = ({
@@ -49,10 +54,10 @@ const GradientColorBar = () => {
     draggingIndex,
     draggingValue,
   }) => {
-    if (rawValues.length > colors.length) {
+    if (rawValues.length > colorList.length) {
       // Add new node
-      const newPointColor = getGradientPercentColor(colors, draggingValue);
-      const nextColors = [...colors];
+      const newPointColor = getGradientPercentColor(colorList, draggingValue);
+      const nextColors = [...colorList];
       nextColors.splice(draggingIndex, 0, {
         percent: draggingValue,
         color: newPointColor,
@@ -60,7 +65,7 @@ const GradientColorBar = () => {
 
       colorsRef.current = nextColors;
     } else {
-      colorsRef.current = colors;
+      colorsRef.current = colorList;
     }
 
     onGradientDragging(true);
@@ -91,7 +96,7 @@ const GradientColorBar = () => {
 
   // ============================== Key ===============================
   const onKeyDelete = (index: number) => {
-    const nextColors = [...colors];
+    const nextColors = [...colorList];
     nextColors.splice(index, 1);
 
     const nextColor = new AggregationColor(nextColors);
@@ -102,7 +107,7 @@ const GradientColorBar = () => {
 
   // ============================= Change =============================
   const onInternalChangeComplete = (nextValues: number[]) => {
-    onChangeComplete(new AggregationColor(colors));
+    onChangeComplete(new AggregationColor(colorList));
 
     // Reset `activeIndex` if out of range
     if (activeIndex >= nextValues.length) {
@@ -123,7 +128,7 @@ const GradientColorBar = () => {
       max={100}
       prefixCls={prefixCls}
       className={`${prefixCls}-gradient-slider`}
-      colors={colors}
+      colors={colorList}
       color={null!}
       value={values}
       range
