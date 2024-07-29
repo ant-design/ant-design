@@ -99,11 +99,7 @@ const App: React.FC = () => {
   const [childTableBordered, setChildTableBordered] = useState(true);
   return (
     <>
-      <Form
-        layout="inline"
-        className="table-demo-control-bar"
-        style={{ marginBottom: 16 }}
-      >
+      <Form layout="inline" className="table-demo-control-bar" style={{ marginBottom: 16 }}>
         <Form.Item label="Root Table Bordered">
           <Switch checked={rootTableBordered} onChange={(v) => setRootTableBordered(v)} />
         </Form.Item>
