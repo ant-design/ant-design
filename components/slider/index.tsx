@@ -12,7 +12,7 @@ import DisabledContext from '../config-provider/DisabledContext';
 import type { AbstractTooltipProps, TooltipPlacement } from '../tooltip';
 import SliderTooltip from './SliderTooltip';
 import useStyle from './style';
-import SliderInternalContext from './style/Context';
+import SliderInternalContext from './Context';
 import useRafLock from './useRafLock';
 
 export type SliderMarks = RcSliderProps['marks'];

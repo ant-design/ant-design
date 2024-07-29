@@ -6,8 +6,8 @@ import { useEvent } from 'rc-util';
 
 import type { GetContextProp, GetProp } from '../../_util/type';
 import Slider from '../../slider';
-import SliderInternalContext from '../../slider/style/Context';
-import type { SliderInternalContextProps } from '../../slider/style/Context';
+import SliderInternalContext from '../../slider/Context';
+import type { SliderInternalContextProps } from '../../slider/Context';
 import { getGradientPercentColor } from '../util';
 
 export interface GradientColorSliderProps
