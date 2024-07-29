@@ -14,7 +14,7 @@ const App: React.FC = () => {
       <FloatButton.Group
         open={open}
         trigger="click"
-        style={{ right: 24 }}
+        style={{ insetInlineEnd: 24 }}
         icon={<CustomerServiceOutlined />}
       >
         <FloatButton />

@@ -18,7 +18,7 @@ const App: React.FC = () => {
         <Radio value={3}>Option C</Radio>
         <Radio value={4}>
           More...
-          {value === 4 ? <Input style={{ width: 100, marginLeft: 10 }} /> : null}
+          {value === 4 ? <Input style={{ width: 100, marginInlineStart: 10 }} /> : null}
         </Radio>
       </Space>
     </Radio.Group>
