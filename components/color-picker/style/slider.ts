@@ -82,7 +82,6 @@ const genSliderStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
           '&-active, &:focus': {
             '&:after': {
               transform: 'scale(1)',
-              boxShadow: `${colorPickerInsetShadow}, 0 0 0 1px ${token.colorPrimaryActive}`,
             },
           },
         },
@@ -110,6 +109,14 @@ const genSliderStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
 
     [`${componentCls}-gradient-slider`]: {
       marginBottom: marginXS,
+
+      [`& ${componentCls}-slider-handle`]: {
+        '&-active, &:focus': {
+          '&:after': {
+            boxShadow: `${colorPickerInsetShadow}, 0 0 0 1px ${token.colorPrimaryActive}`,
+          },
+        },
+      },
     },
   };
 };
