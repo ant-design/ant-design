@@ -52,7 +52,13 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         width: 'max-content',
         maxWidth: tooltipMaxWidth,
         visibility: 'visible',
-        transformOrigin: `var(--arrow-x, 50%) var(--arrow-y, 50%)`,
+
+        // When use `autoArrow`, origin will follow the arrow position
+        transformOrigin: [
+          `var(var(--arrow-offset-horizontal, --arrow-x), 50%)`,
+          `var(--arrow-y, 50%)`,
+        ].join(' '),
+
         '&-hidden': {
           display: 'none',
         },
