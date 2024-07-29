@@ -262,12 +262,12 @@ const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
 
   ...genFilledButtonStyle(
     token,
-    token.textHoverBg,
+    token.colorFillTertiary,
     {
-      background: token.textHoverBg,
+      background: token.colorFillSecondary,
     },
     {
-      background: token.colorBgTextActive,
+      background: token.colorFill,
     },
   ),
 
@@ -344,10 +344,10 @@ const genPrimaryButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
     token,
     token.colorPrimaryBg,
     {
-      color: token.colorPrimaryTextHover,
+      background: token.colorPrimaryBgHover,
     },
     {
-      color: token.colorPrimaryTextActive,
+      // background: token.colorPrimaryBgActive, 新增 ？
     },
   ),
 
@@ -430,10 +430,9 @@ const genDangerousStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
     token,
     token.colorErrorBg,
     {
-      color: token.colorErrorHover,
+      background: token.colorErrorBgHover,
     },
     {
-      color: token.colorErrorHover,
       background: token.colorErrorBgActive,
     },
   ),
