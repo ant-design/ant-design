@@ -28,6 +28,13 @@ const genSliderStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
     .add(token.calc(lineWidthBold).mul(2).equal())
     .equal();
 
+  const activeHandleStyle = {
+    '&:after': {
+      transform: 'scale(1)',
+      boxShadow: `${colorPickerInsetShadow}, 0 0 0 1px ${token.colorPrimaryActive}`,
+    },
+  };
+
   return {
     // ======================== Slider ========================
     [`${componentCls}-slider`]: [
@@ -75,15 +82,10 @@ const genSliderStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
             insetInlineStart: token.calc(lineWidthBold).mul(-1).equal(),
             top: token.calc(lineWidthBold).mul(-1).equal(),
             background: 'transparent',
-            transform: 'scale(0.8)',
             transition: 'none',
           },
 
-          '&-active, &:focus': {
-            '&:after': {
-              transform: 'scale(1)',
-            },
-          },
+          '&:focus': activeHandleStyle,
         },
       },
     ],
@@ -111,11 +113,11 @@ const genSliderStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
       marginBottom: marginXS,
 
       [`& ${componentCls}-slider-handle`]: {
-        '&-active, &:focus': {
-          '&:after': {
-            boxShadow: `${colorPickerInsetShadow}, 0 0 0 1px ${token.colorPrimaryActive}`,
-          },
+        '&:after': {
+          transform: 'scale(0.8)',
         },
+
+        '&-active, &:focus': activeHandleStyle,
       },
     },
   };
