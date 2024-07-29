@@ -54,10 +54,8 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         visibility: 'visible',
 
         // When use `autoArrow`, origin will follow the arrow position
-        transformOrigin: [
-          `var(var(--arrow-offset-horizontal, --arrow-x), 50%)`,
-          `var(--arrow-y, 50%)`,
-        ].join(' '),
+        '--valid-offset-x': 'var(--arrow-offset-horizontal, --arrow-x)',
+        transformOrigin: [`var(--valid-offset-x, 50%)`, `var(--arrow-y, 50%)`].join(' '),
 
         '&-hidden': {
           display: 'none',
