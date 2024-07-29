@@ -40,7 +40,7 @@ import RadiusPicker from './RadiusPicker';
 import type { THEME } from './ThemePicker';
 import ThemePicker from './ThemePicker';
 
-type Color = GetProp<ColorPickerProps, 'value'>;
+type Color = Extract<GetProp<ColorPickerProps, 'value'>, string | { cleared: any }>;
 
 const { Header, Content, Sider } = Layout;
 
