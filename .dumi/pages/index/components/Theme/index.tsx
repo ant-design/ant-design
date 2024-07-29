@@ -7,7 +7,7 @@ import {
   QuestionCircleOutlined,
 } from '@ant-design/icons';
 import { TinyColor } from '@ctrl/tinycolor';
-import type { MenuProps, ThemeConfig } from 'antd';
+import type { ColorPickerProps, GetProp, MenuProps, ThemeConfig } from 'antd';
 import {
   Breadcrumb,
   Card,
@@ -21,7 +21,6 @@ import {
   Typography,
 } from 'antd';
 import { createStyles } from 'antd-style';
-import type { Color } from 'antd/es/color-picker';
 import { generateColor } from 'antd/es/color-picker/util';
 import classNames from 'classnames';
 import { useLocation } from 'dumi';
@@ -40,6 +39,8 @@ import MobileCarousel from './MobileCarousel';
 import RadiusPicker from './RadiusPicker';
 import type { THEME } from './ThemePicker';
 import ThemePicker from './ThemePicker';
+
+type Color = GetProp<ColorPickerProps, 'value'>;
 
 const { Header, Content, Sider } = Layout;
 
@@ -194,23 +195,23 @@ const useStyle = createStyles(({ token, css, cx }) => {
       position: absolute;
     `,
     leftTopImagePos: css`
-      left: 0;
+      inset-inline-start: 0;
       top: -100px;
       height: 500px;
     `,
     rightBottomPos: css`
-      right: 0;
+      inset-inline-end: 0;
       bottom: -100px;
       height: 287px;
     `,
     leftTopImage: css`
-      left: 50%;
+      inset-inline-start: 50%;
       transform: translate3d(-900px, 0, 0);
       top: -100px;
       height: 500px;
     `,
     rightBottomImage: css`
-      right: 50%;
+      inset-inline-end: 50%;
       transform: translate3d(750px, 0, 0);
       bottom: -100px;
       height: 287px;
@@ -264,7 +265,7 @@ const sideMenuItems: MenuProps['items'] = [
 
 // ============================= Theme =============================
 
-function getTitleColor(colorPrimary: string | Color, isLight?: boolean) {
+function getTitleColor(colorPrimary: Color, isLight?: boolean) {
   if (!isLight) {
     return '#FFF';
   }
@@ -289,7 +290,7 @@ function getTitleColor(colorPrimary: string | Color, isLight?: boolean) {
 
 interface ThemeData {
   themeType: THEME;
-  colorPrimary: string | Color;
+  colorPrimary: Color;
   borderRadius: number;
   compact: 'default' | 'compact';
 }

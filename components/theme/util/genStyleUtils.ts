@@ -1,11 +1,11 @@
 import { useContext } from 'react';
 import { genStyleUtils } from '@ant-design/cssinjs-utils';
+import type { GetCompUnitless } from '@ant-design/cssinjs-utils/es/util/genStyleUtils';
 
 import { ConfigContext } from '../../config-provider/context';
 import { genCommonStyle, genLinkStyle } from '../../style';
 import type { AliasToken, ComponentTokenMap, SeedToken } from '../interface';
-
-import localUseToken, { unitless } from '../useToken';
+import useLocalToken, { unitless } from '../useToken';
 import useResetIconStyle from './useResetIconStyle';
 
 export const { genStyleHooks, genComponentStyleHook, genSubStyleComponent } = genStyleUtils<
@@ -24,15 +24,8 @@ export const { genStyleHooks, genComponentStyleHook, genSubStyleComponent } = ge
     };
   },
   useToken: () => {
-    const [theme, realToken, hashId, token, cssVar] = localUseToken();
-
-    return {
-      theme,
-      realToken,
-      hashId,
-      token,
-      cssVar,
-    };
+    const [theme, realToken, hashId, token, cssVar] = useLocalToken();
+    return { theme, realToken, hashId, token, cssVar };
   },
   useCSP: () => {
     const { csp, iconPrefixCls } = useContext(ConfigContext);
@@ -42,12 +35,7 @@ export const { genStyleHooks, genComponentStyleHook, genSubStyleComponent } = ge
 
     return csp ?? {};
   },
-  getResetStyles: (token) => [
-    {
-      // Link
-      '&': genLinkStyle(token),
-    },
-  ],
+  getResetStyles: (token) => [{ '&': genLinkStyle(token) }],
   getCommonStyle: genCommonStyle,
-  getCompUnitless: () => unitless as any,
+  getCompUnitless: (() => unitless) as GetCompUnitless<ComponentTokenMap, AliasToken>,
 });

@@ -46,19 +46,16 @@ interface TourToken extends FullToken<'Tour'> {
 const genBaseStyle: GenerateStyle<TourToken> = (token) => {
   const {
     componentCls,
-    lineHeight,
     padding,
     paddingXS,
     borderRadius,
     borderRadiusXS,
     colorPrimary,
-    colorText,
     colorFill,
     indicatorHeight,
     indicatorWidth,
     boxShadowTertiary,
     tourZIndexPopup,
-    fontSize,
     colorBgElevated,
     fontWeightStrong,
     marginXS,
@@ -77,13 +74,10 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
       [componentCls]: {
         ...resetComponent(token),
 
-        color: colorText,
         position: 'absolute',
         zIndex: tourZIndexPopup,
-        display: 'block',
+        maxWidth: 'fit-content',
         visibility: 'visible',
-        fontSize,
-        lineHeight,
         width: 520,
         '--antd-arrow-background-color': colorBgElevated,
 
@@ -100,6 +94,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
         [`${componentCls}-content`]: {
           position: 'relative',
         },
+
         [`${componentCls}-inner`]: {
           textAlign: 'start',
           textDecoration: 'none',
@@ -151,15 +146,12 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
             padding: `${unit(padding)} ${unit(padding)} ${unit(paddingXS)}`,
 
             [`${componentCls}-title`]: {
-              lineHeight,
-              fontSize,
               fontWeight: fontWeightStrong,
             },
           },
 
           [`${componentCls}-description`]: {
             padding: `0 ${unit(padding)}`,
-            lineHeight,
             wordWrap: 'break-word',
           },
 

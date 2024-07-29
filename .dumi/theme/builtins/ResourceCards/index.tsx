@@ -9,23 +9,23 @@ const { Paragraph } = Typography;
 
 const useStyle = createStyles(({ token, css }) => ({
   card: css`
-      position: relative;
+    position: relative;
+    overflow: hidden;
+    .${token.antCls}-card-cover {
       overflow: hidden;
-
-      .ant-card-cover {
-        overflow: hidden;
-      }
-      img {
-        transition: all ${token.motionDurationSlow} ease-out;
-      }
-
-      &:hover img {
-        transform: scale(1.3);
-        `,
+    }
+    img {
+      display: block;
+      transition: all ${token.motionDurationSlow} ease-out;
+    }
+    &:hover img {
+      transform: scale(1.3);
+    }
+  `,
   badge: css`
     position: absolute;
     top: 8px;
-    right: 8px;
+    inset-inline-end: 8px;
     padding: ${token.paddingXXS}px ${token.paddingXS}px;
     color: #fff;
     font-size: ${token.fontSizeSM}px;

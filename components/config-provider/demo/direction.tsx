@@ -492,17 +492,13 @@ const App: React.FC = () => {
   const changeDirection = (e: RadioChangeEvent) => {
     const directionValue = e.target.value;
     setDirection(directionValue);
-    if (directionValue === 'rtl') {
-      setPlacement('bottomRight');
-    } else {
-      setPlacement('bottomLeft');
-    }
+    setPlacement(directionValue === 'rtl' ? 'bottomRight' : 'bottomLeft');
   };
 
   return (
     <>
       <div style={{ marginBottom: 16 }}>
-        <span style={{ marginRight: 16 }}>Change direction of components:</span>
+        <span style={{ marginInlineEnd: 16 }}>Change direction of components:</span>
         <Radio.Group defaultValue="ltr" onChange={changeDirection}>
           <Radio.Button key="ltr" value="ltr">
             LTR
