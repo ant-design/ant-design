@@ -29,7 +29,7 @@ tag: vVERSION
 - 🛠 MISC：将通用样式工具迁移到 `@ant-design/cssinjs-utils`。[#50030](https://github.com/ant-design/ant-design/pull/50030) [@YumoImer](https://github.com/YumoImer)
 - 🌐 国际化
   - 🇵🇱 为 pl_PL 补充 DatePicker 国际化。[#50023](https://github.com/ant-design/ant-design/pull/50023) [@ang33l](https://github.com/ang33l)
-  - 🇧🇪 为 fr_BE fr_FR 补充 Modal Tour 国际化。[#50058](https://github.com/ant-design/ant-design/pull/50058) [@JaccoGoris](https://github.com/JaccoGoris)
+  - 🇧🇪🇫🇷 为 fr_BE fr_FR 补充 Modal Tour 国际化。[#50058](https://github.com/ant-design/ant-design/pull/50058) [@JaccoGoris](https://github.com/JaccoGoris)
 
 ## 5.19.3
 
