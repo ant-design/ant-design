@@ -143,7 +143,7 @@ Array [
   </p>,
   <p>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
       type="button"
     >
       <span>
@@ -151,7 +151,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
       style="margin: 0px 10px;"
       type="button"
     >

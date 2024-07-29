@@ -5,7 +5,7 @@ exports[`Modal Both ways should be rendered normally on the page 1`] = `
   class="first-origin"
 >
   <button
-    class="ant-btn ant-btn-default"
+    class="ant-btn ant-btn-default ant-btn-outlined"
     type="button"
   >
     <span>
@@ -13,7 +13,7 @@ exports[`Modal Both ways should be rendered normally on the page 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-solid"
     type="button"
   >
     <span>
@@ -28,7 +28,7 @@ exports[`Modal Both ways should be rendered normally on the page 2`] = `
   class="second-props-origin"
 >
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-solid"
     type="button"
   >
     <span>
@@ -36,7 +36,7 @@ exports[`Modal Both ways should be rendered normally on the page 2`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default"
+    class="ant-btn ant-btn-default ant-btn-outlined"
     type="button"
   >
     <span>
@@ -116,7 +116,7 @@ exports[`Modal render correctly 1`] = `
                 class="ant-modal-footer"
               >
                 <button
-                  class="ant-btn ant-btn-default"
+                  class="ant-btn ant-btn-default ant-btn-outlined"
                   type="button"
                 >
                   <span>
@@ -124,7 +124,7 @@ exports[`Modal render correctly 1`] = `
                   </span>
                 </button>
                 <button
-                  class="ant-btn ant-btn-primary"
+                  class="ant-btn ant-btn-primary ant-btn-solid"
                   type="button"
                 >
                   <span>
@@ -277,7 +277,7 @@ exports[`Modal support closeIcon 1`] = `
             class="ant-modal-footer"
           >
             <button
-              class="ant-btn ant-btn-default"
+              class="ant-btn ant-btn-default ant-btn-outlined"
               type="button"
             >
               <span>
@@ -285,7 +285,7 @@ exports[`Modal support closeIcon 1`] = `
               </span>
             </button>
             <button
-              class="ant-btn ant-btn-primary"
+              class="ant-btn ant-btn-primary ant-btn-solid"
               type="button"
             >
               <span>

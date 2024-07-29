@@ -306,7 +306,7 @@ exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-primary"
+                  class="ant-btn ant-btn-primary ant-btn-solid"
                   type="submit"
                 >
                   <span>
@@ -318,7 +318,7 @@ exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-default"
+                  class="ant-btn ant-btn-default ant-btn-outlined"
                   type="button"
                 >
                   <span>

@@ -2,7 +2,7 @@
 
 exports[`renders components/modal/demo/async.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-solid"
   type="button"
 >
   <span>
@@ -15,7 +15,7 @@ exports[`renders components/modal/demo/async.tsx extend context correctly 2`] = 
 
 exports[`renders components/modal/demo/basic.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-solid"
   type="button"
 >
   <span>
@@ -28,7 +28,7 @@ exports[`renders components/modal/demo/basic.tsx extend context correctly 2`] = 
 
 exports[`renders components/modal/demo/button-props.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-solid"
   type="button"
 >
   <span>
@@ -47,7 +47,7 @@ exports[`renders components/modal/demo/classNames.tsx extend context correctly 1
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-solid"
       type="button"
     >
       <span>
@@ -59,7 +59,7 @@ exports[`renders components/modal/demo/classNames.tsx extend context correctly 1
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-solid"
       type="button"
     >
       <span>
@@ -142,7 +142,7 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
           class="ant-modal-footer"
         >
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-outlined"
             type="button"
           >
             <span>
@@ -150,7 +150,7 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-primary"
+            class="ant-btn ant-btn-primary ant-btn-solid"
             type="button"
           >
             <span>
@@ -232,7 +232,7 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
           class="ant-modal-footer"
         >
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-outlined"
             type="button"
           >
             <span>
@@ -240,7 +240,7 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-primary"
+            class="ant-btn ant-btn-primary ant-btn-solid"
             type="button"
           >
             <span>
@@ -316,7 +316,7 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
               class="ant-modal-confirm-btns"
             >
               <button
-                class="ant-btn ant-btn-primary"
+                class="ant-btn ant-btn-primary ant-btn-solid"
                 type="button"
               >
                 <span>
@@ -399,7 +399,7 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
               class="ant-modal-confirm-btns"
             >
               <button
-                class="ant-btn ant-btn-default"
+                class="ant-btn ant-btn-default ant-btn-outlined"
                 type="button"
               >
                 <span>
@@ -407,7 +407,7 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary"
+                class="ant-btn ant-btn-primary ant-btn-solid"
                 type="button"
               >
                 <span>
@@ -439,7 +439,7 @@ exports[`renders components/modal/demo/confirm.tsx extend context correctly 1`] 
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -451,7 +451,7 @@ exports[`renders components/modal/demo/confirm.tsx extend context correctly 1`] 
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -463,7 +463,7 @@ exports[`renders components/modal/demo/confirm.tsx extend context correctly 1`] 
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-dashed"
+      class="ant-btn ant-btn-default ant-btn-dashed"
       type="button"
     >
       <span>
@@ -475,7 +475,7 @@ exports[`renders components/modal/demo/confirm.tsx extend context correctly 1`] 
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-dashed"
+      class="ant-btn ant-btn-default ant-btn-dashed"
       type="button"
     >
       <span>
@@ -490,7 +490,7 @@ exports[`renders components/modal/demo/confirm.tsx extend context correctly 2`] 
 
 exports[`renders components/modal/demo/confirm-router.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-default"
+  class="ant-btn ant-btn-default ant-btn-outlined"
   type="button"
 >
   <span>
@@ -503,7 +503,7 @@ exports[`renders components/modal/demo/confirm-router.tsx extend context correct
 
 exports[`renders components/modal/demo/custom-mouse-position.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-solid"
   type="button"
 >
   <span>
@@ -516,7 +516,7 @@ exports[`renders components/modal/demo/custom-mouse-position.tsx extend context 
 
 exports[`renders components/modal/demo/dark.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-solid"
   type="button"
 >
   <span>
@@ -529,7 +529,7 @@ exports[`renders components/modal/demo/dark.tsx extend context correctly 2`] = `
 
 exports[`renders components/modal/demo/footer.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-solid"
   type="button"
 >
   <span>
@@ -548,7 +548,7 @@ exports[`renders components/modal/demo/footer-render.tsx extend context correctl
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-solid"
       type="button"
     >
       <span>
@@ -560,7 +560,7 @@ exports[`renders components/modal/demo/footer-render.tsx extend context correctl
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-solid"
       type="button"
     >
       <span>
@@ -581,7 +581,7 @@ exports[`renders components/modal/demo/hooks.tsx extend context correctly 1`] = 
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -593,7 +593,7 @@ exports[`renders components/modal/demo/hooks.tsx extend context correctly 1`] = 
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -605,7 +605,7 @@ exports[`renders components/modal/demo/hooks.tsx extend context correctly 1`] = 
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -617,7 +617,7 @@ exports[`renders components/modal/demo/hooks.tsx extend context correctly 1`] = 
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -632,7 +632,7 @@ exports[`renders components/modal/demo/hooks.tsx extend context correctly 2`] = 
 
 exports[`renders components/modal/demo/loading.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-solid"
   type="button"
 >
   <span>
@@ -651,7 +651,7 @@ exports[`renders components/modal/demo/locale.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-solid"
       type="button"
     >
       <span>
@@ -663,7 +663,7 @@ exports[`renders components/modal/demo/locale.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -678,7 +678,7 @@ exports[`renders components/modal/demo/locale.tsx extend context correctly 2`] =
 
 exports[`renders components/modal/demo/manual.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-default"
+  class="ant-btn ant-btn-default ant-btn-outlined"
   type="button"
 >
   <span>
@@ -691,7 +691,7 @@ exports[`renders components/modal/demo/manual.tsx extend context correctly 2`] =
 
 exports[`renders components/modal/demo/modal-render.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-default"
+  class="ant-btn ant-btn-default ant-btn-outlined"
   type="button"
 >
   <span>
@@ -739,7 +739,7 @@ exports[`renders components/modal/demo/nested.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -764,7 +764,7 @@ exports[`renders components/modal/demo/nested.tsx extend context correctly 2`] =
 exports[`renders components/modal/demo/position.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-solid"
     type="button"
   >
     <span>
@@ -774,7 +774,7 @@ Array [
   <br />,
   <br />,
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-solid"
     type="button"
   >
     <span>
@@ -856,7 +856,7 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
           class="ant-modal-footer"
         >
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-outlined"
             type="button"
           >
             <span>
@@ -864,7 +864,7 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-primary"
+            class="ant-btn ant-btn-primary ant-btn-solid"
             type="button"
           >
             <span>
@@ -940,7 +940,7 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
               class="ant-modal-confirm-btns"
             >
               <button
-                class="ant-btn ant-btn-primary"
+                class="ant-btn ant-btn-primary ant-btn-solid"
                 type="button"
               >
                 <span>
@@ -1023,7 +1023,7 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
               class="ant-modal-confirm-btns"
             >
               <button
-                class="ant-btn ant-btn-default"
+                class="ant-btn ant-btn-default ant-btn-outlined"
                 type="button"
               >
                 <span>
@@ -1031,7 +1031,7 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary"
+                class="ant-btn ant-btn-primary ant-btn-solid"
                 type="button"
               >
                 <span>
@@ -1136,7 +1136,7 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
                   class="ant-space-item"
                 >
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-outlined"
                     type="button"
                   >
                     <span>
@@ -1148,7 +1148,7 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
                   class="ant-space-item"
                 >
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-solid"
                     type="button"
                   >
                     <span>
@@ -1168,7 +1168,7 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
                   class="ant-space-item"
                 >
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-outlined"
                     type="button"
                   >
                     <span>
@@ -1180,7 +1180,7 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
                   class="ant-space-item"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-dangerous"
+                    class="ant-btn ant-btn-dangerous ant-btn-solid"
                     type="button"
                   >
                     <span>
@@ -1192,7 +1192,7 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
                   class="ant-space-item"
                 >
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-solid"
                     type="button"
                   >
                     <span>
@@ -1226,7 +1226,7 @@ exports[`renders components/modal/demo/static-info.tsx extend context correctly 
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -1238,7 +1238,7 @@ exports[`renders components/modal/demo/static-info.tsx extend context correctly 
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -1250,7 +1250,7 @@ exports[`renders components/modal/demo/static-info.tsx extend context correctly 
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -1262,7 +1262,7 @@ exports[`renders components/modal/demo/static-info.tsx extend context correctly 
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -1277,7 +1277,7 @@ exports[`renders components/modal/demo/static-info.tsx extend context correctly 
 
 exports[`renders components/modal/demo/width.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-solid"
   type="button"
 >
   <span>
@@ -1358,7 +1358,7 @@ exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`
           class="ant-modal-footer"
         >
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-outlined"
             type="button"
           >
             <span>
@@ -1366,7 +1366,7 @@ exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-primary"
+            class="ant-btn ant-btn-primary ant-btn-solid"
             type="button"
           >
             <span>
@@ -1442,7 +1442,7 @@ exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`
               class="ant-modal-confirm-btns"
             >
               <button
-                class="ant-btn ant-btn-primary"
+                class="ant-btn ant-btn-primary ant-btn-solid"
                 type="button"
               >
                 <span>
@@ -1525,7 +1525,7 @@ exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`
               class="ant-modal-confirm-btns"
             >
               <button
-                class="ant-btn ant-btn-default"
+                class="ant-btn ant-btn-default ant-btn-outlined"
                 type="button"
               >
                 <span>
@@ -1533,7 +1533,7 @@ exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary"
+                class="ant-btn ant-btn-primary ant-btn-solid"
                 type="button"
               >
                 <span>

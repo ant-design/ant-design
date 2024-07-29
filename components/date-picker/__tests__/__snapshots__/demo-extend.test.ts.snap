@@ -5907,7 +5907,7 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx extend context cor
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                     type="button"
                   >
                     <span>
@@ -8694,7 +8694,7 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx extend context cor
                       class="ant-picker-ok"
                     >
                       <button
-                        class="ant-btn ant-btn-primary ant-btn-sm"
+                        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                         type="button"
                       >
                         <span>
@@ -10667,7 +10667,7 @@ exports[`renders components/date-picker/demo/components.tsx extend context corre
                   </div>
                 </div>
                 <button
-                  class="ant-btn ant-btn-primary"
+                  class="ant-btn ant-btn-primary ant-btn-solid"
                   type="button"
                 >
                   <span>
@@ -17369,7 +17369,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                     disabled=""
                     type="button"
                   >
@@ -20438,7 +20438,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
                     class="ant-picker-ok"
                   >
                     <button
-                      class="ant-btn ant-btn-primary ant-btn-sm"
+                      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                       disabled=""
                       type="button"
                     >
@@ -23181,7 +23181,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                     disabled=""
                     type="button"
                   >
@@ -26542,7 +26542,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
                     class="ant-picker-ok"
                   >
                     <button
-                      class="ant-btn ant-btn-primary ant-btn-sm"
+                      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                       disabled=""
                       type="button"
                     >
@@ -40698,7 +40698,7 @@ exports[`renders components/date-picker/demo/mode.tsx extend context correctly 1
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                     disabled=""
                     type="button"
                   >
@@ -47196,7 +47196,7 @@ Array [
                 class="ant-picker-ok"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                   disabled=""
                   type="button"
                 >
@@ -53128,7 +53128,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
                     class="ant-picker-ok"
                   >
                     <button
-                      class="ant-btn ant-btn-primary ant-btn-sm"
+                      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                       disabled=""
                       type="button"
                     >
@@ -56486,7 +56486,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
                     class="ant-picker-ok"
                   >
                     <button
-                      class="ant-btn ant-btn-primary ant-btn-sm"
+                      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                       disabled=""
                       type="button"
                     >
@@ -66358,7 +66358,7 @@ exports[`renders components/date-picker/demo/start-end.tsx extend context correc
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                     disabled=""
                     type="button"
                   >
@@ -68463,7 +68463,7 @@ exports[`renders components/date-picker/demo/start-end.tsx extend context correc
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                     disabled=""
                     type="button"
                   >
@@ -79285,7 +79285,7 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                     disabled=""
                     type="button"
                   >
@@ -81400,7 +81400,7 @@ exports[`renders components/date-picker/demo/time.tsx extend context correctly 1
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                     disabled=""
                     type="button"
                   >
@@ -82942,7 +82942,7 @@ exports[`renders components/date-picker/demo/time.tsx extend context correctly 1
                     class="ant-picker-ok"
                   >
                     <button
-                      class="ant-btn ant-btn-primary ant-btn-sm"
+                      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                       disabled=""
                       type="button"
                     >

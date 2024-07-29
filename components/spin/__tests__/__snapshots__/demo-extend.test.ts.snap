@@ -204,7 +204,7 @@ exports[`renders components/spin/demo/delayAndDebounce.tsx extend context correc
 exports[`renders components/spin/demo/fullscreen.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-default"
+    class="ant-btn ant-btn-default ant-btn-outlined"
     type="button"
   >
     <span>

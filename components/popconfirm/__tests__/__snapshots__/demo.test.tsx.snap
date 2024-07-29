@@ -2,7 +2,7 @@
 
 exports[`renders components/popconfirm/demo/async.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-solid"
   type="button"
 >
   <span>
@@ -13,7 +13,7 @@ exports[`renders components/popconfirm/demo/async.tsx correctly 1`] = `
 
 exports[`renders components/popconfirm/demo/basic.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-default ant-btn-dangerous"
+  class="ant-btn ant-btn-dangerous ant-btn-outlined"
   type="button"
 >
   <span>
@@ -25,7 +25,7 @@ exports[`renders components/popconfirm/demo/basic.tsx correctly 1`] = `
 exports[`renders components/popconfirm/demo/dynamic-trigger.tsx correctly 1`] = `
 <div>
   <button
-    class="ant-btn ant-btn-default ant-btn-dangerous"
+    class="ant-btn ant-btn-dangerous ant-btn-outlined"
     type="button"
   >
     <span>
@@ -60,7 +60,7 @@ exports[`renders components/popconfirm/demo/dynamic-trigger.tsx correctly 1`] = 
 
 exports[`renders components/popconfirm/demo/icon.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-default ant-btn-dangerous"
+  class="ant-btn ant-btn-dangerous ant-btn-outlined"
   type="button"
 >
   <span>
@@ -71,7 +71,7 @@ exports[`renders components/popconfirm/demo/icon.tsx correctly 1`] = `
 
 exports[`renders components/popconfirm/demo/locale.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-default ant-btn-dangerous"
+  class="ant-btn ant-btn-dangerous ant-btn-outlined"
   type="button"
 >
   <span>
@@ -88,7 +88,7 @@ exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
     style="margin-inline-start:80px;white-space:nowrap"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       style="width:80px;margin:4px"
       type="button"
     >
@@ -97,7 +97,7 @@ exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       style="width:80px;margin:4px"
       type="button"
     >
@@ -106,7 +106,7 @@ exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       style="width:80px;margin:4px"
       type="button"
     >
@@ -119,7 +119,7 @@ exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
     style="width:80px;float:inline-start"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       style="width:80px;margin:4px"
       type="button"
     >
@@ -128,7 +128,7 @@ exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       style="width:80px;margin:4px"
       type="button"
     >
@@ -137,7 +137,7 @@ exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       style="width:80px;margin:4px"
       type="button"
     >
@@ -150,7 +150,7 @@ exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
     style="width:80px;margin-inline-start:344px"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       style="width:80px;margin:4px"
       type="button"
     >
@@ -159,7 +159,7 @@ exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       style="width:80px;margin:4px"
       type="button"
     >
@@ -168,7 +168,7 @@ exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       style="width:80px;margin:4px"
       type="button"
     >
@@ -181,7 +181,7 @@ exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
     style="margin-inline-start:80px;clear:both;white-space:nowrap"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       style="width:80px;margin:4px"
       type="button"
     >
@@ -190,7 +190,7 @@ exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       style="width:80px;margin:4px"
       type="button"
     >
@@ -199,7 +199,7 @@ exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       style="width:80px;margin:4px"
       type="button"
     >
@@ -213,7 +213,7 @@ exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
 
 exports[`renders components/popconfirm/demo/promise.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-solid"
   type="button"
 >
   <span>
@@ -288,7 +288,7 @@ Array [
               class="ant-popconfirm-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -296,7 +296,7 @@ Array [
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary ant-btn-sm"
+                class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -375,7 +375,7 @@ Array [
               class="ant-popconfirm-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -383,7 +383,7 @@ Array [
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary ant-btn-sm"
+                class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -432,7 +432,7 @@ Array [
               class="ant-popconfirm-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -440,7 +440,7 @@ Array [
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary ant-btn-sm"
+                class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -494,7 +494,7 @@ Array [
               class="ant-popconfirm-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -502,7 +502,7 @@ Array [
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary ant-btn-sm"
+                class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -676,7 +676,7 @@ Array [
               class="ant-popconfirm-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -684,7 +684,7 @@ Array [
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary ant-btn-sm"
+                class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -758,7 +758,7 @@ Array [
               class="ant-popconfirm-buttons"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -766,7 +766,7 @@ Array [
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary ant-btn-sm"
+                class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                 type="button"
               >
                 <span>

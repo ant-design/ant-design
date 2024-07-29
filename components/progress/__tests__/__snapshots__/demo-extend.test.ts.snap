@@ -1646,7 +1646,7 @@ exports[`renders components/progress/demo/dynamic.tsx extend context correctly 1
     class="ant-btn-group"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-icon-only"
+      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only"
       type="button"
     >
       <span
@@ -1674,7 +1674,7 @@ exports[`renders components/progress/demo/dynamic.tsx extend context correctly 1
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-icon-only"
+      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only"
       type="button"
     >
       <span

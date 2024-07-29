@@ -655,7 +655,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
         class="ant-descriptions-extra"
       >
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-solid"
           type="button"
         >
           <span>
@@ -1565,7 +1565,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
         class="ant-descriptions-extra"
       >
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-solid"
           type="button"
         >
           <span>
@@ -1751,7 +1751,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
         class="ant-descriptions-extra"
       >
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-solid"
           type="button"
         >
           <span>

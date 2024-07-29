@@ -804,7 +804,7 @@ exports[`renders components/segmented/demo/dynamic.tsx extend context correctly 
     </div>
   </div>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-solid"
     type="button"
   >
     <span>
@@ -1204,7 +1204,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-primary ant-btn-lg"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-lg"
       type="button"
     >
       <span>
