@@ -82,7 +82,7 @@ const PanelPicker: FC = () => {
 
   // ============================ Change ============================
   const fillColor = (nextColor: AggregationColor) => {
-    if (isSingle) {
+    if (mode === 'single') {
       return nextColor;
     }
 
@@ -97,6 +97,7 @@ const PanelPicker: FC = () => {
 
   const onInternalChange = (colorValue: AggregationColor | Color, fromPicker?: boolean) => {
     const nextColor = generateColor(colorValue);
+
     onChange(fillColor(value.cleared ? genAlphaColor(nextColor) : nextColor), fromPicker);
   };
 
