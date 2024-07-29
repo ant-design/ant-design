@@ -14,7 +14,7 @@ function sortColors(colors: { percent: number; color: string }[]) {
 /**
  * GradientColorBar will auto show when the mode is `gradient`.
  */
-export default function GradientColorBar() {
+const GradientColorBar = () => {
   const {
     prefixCls,
     mode,
@@ -139,4 +139,6 @@ export default function GradientColorBar() {
       onKeyDelete={onKeyDelete}
     />
   );
-}
+};
+
+export default React.memo(GradientColorBar);
