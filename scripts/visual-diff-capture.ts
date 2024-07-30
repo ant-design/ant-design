@@ -23,12 +23,10 @@ const themes = ['default', 'dark', 'compact'];
 
 async function retrieveDemoUrl(mdPath: string) {
   // ~demos/button-demo-basic
-  // breadcrumb-withIcon -> ~demos/breadcrumb-demo-withicon
   return mdPath
     .replace(/^components\//, '')
     .replace('.md', '')
-    .replace(/\//g, '-')
-    .toLowerCase();
+    .replace(/\//g, '-');
 }
 
 async function retrieveConfig(mdPath: string): Promise<VisualDiffConfig> {
@@ -128,7 +126,8 @@ class BrowserAuto {
       query.set('enable-css-var', '1');
     }
 
-    const pageUrl = `http://localhost:${port}/~demos/${demoUrl}?${query.toString()}`;
+    // breadcrumb-withIcon -> ~demos/breadcrumb-demo-withicon
+    const pageUrl = `http://localhost:${port}/~demos/${demoUrl.toLowerCase()}?${query.toString()}`;
 
     await page.goto(pageUrl);
     // TODO: 需要禁用掉页面中的各种采集和埋点请求，避免干扰
