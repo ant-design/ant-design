@@ -83,7 +83,7 @@ function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigTyp
   };
 }
 
-type ColorVairantPairType = [color: ButtonColorType, variant: ButtonVariantType];
+type ColorVairantPairType = [color?: ButtonColorType, variant?: ButtonVariantType];
 
 const ButtonTypeMap: Partial<Record<ButtonType, ColorVairantPairType>> = {
   default: ['default', 'outlined'],
@@ -132,7 +132,7 @@ const InternalCompoundedButton = React.forwardRef<
       return [color, variant];
     }
 
-    const colorVairantPair = ButtonTypeMap[mergedType] as ColorVairantPairType;
+    const colorVairantPair = ButtonTypeMap[mergedType] || [];
 
     if (danger) {
       return ['danger', colorVairantPair[1]];
