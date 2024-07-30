@@ -3,11 +3,11 @@ import React, { useEffect, useState } from 'react';
 import type { RGB } from '@rc-component/color-picker';
 
 import type { AggregationColor } from '../color';
-import type { ColorPickerBaseProps } from '../interface';
 import { generateColor } from '../util';
 import ColorSteppers from './ColorSteppers';
 
-interface ColorRgbInputProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
+interface ColorRgbInputProps {
+  prefixCls: string;
   value?: AggregationColor;
   onChange?: (value: AggregationColor) => void;
 }

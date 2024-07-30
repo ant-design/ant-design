@@ -4,10 +4,10 @@ import React, { useEffect, useState } from 'react';
 import Input from '../../input';
 import type { AggregationColor } from '../color';
 import { toHexFormat } from '../color';
-import type { ColorPickerBaseProps } from '../interface';
 import { generateColor } from '../util';
 
-interface ColorHexInputProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
+interface ColorHexInputProps {
+  prefixCls: string;
   value?: AggregationColor;
   onChange?: (value: AggregationColor) => void;
 }

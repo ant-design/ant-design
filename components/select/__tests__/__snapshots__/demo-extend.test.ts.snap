@@ -9126,11 +9126,7 @@ Array [
 ]
 `;
 
-exports[`renders components/select/demo/placement.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Select] \`dropdownMatchSelectWidth\` is deprecated. Please use \`popupMatchSelectWidth\` instead.",
-]
-`;
+exports[`renders components/select/demo/placement.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/select/demo/placement-debug.tsx extend context correctly 1`] = `
 <div
@@ -9138,7 +9134,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
 >
   <div
     class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
-    style="position: absolute; top: 0px; left: 50%; transform: translateX(-50%);"
+    style="position: absolute; top: 0px; inset-inline-start: 50%; transform: translateX(-50%);"
   >
     <div
       class="ant-space-item"

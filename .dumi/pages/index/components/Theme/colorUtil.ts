@@ -1,5 +1,7 @@
-import type { Color } from 'antd/es/color-picker';
+import type { ColorPickerProps, GetProp } from 'antd';
 import { generateColor } from 'antd/es/color-picker/util';
+
+type Color = GetProp<ColorPickerProps, 'value'>;
 
 export const DEFAULT_COLOR = '#1677FF';
 export const PINK_COLOR = '#ED4192';
