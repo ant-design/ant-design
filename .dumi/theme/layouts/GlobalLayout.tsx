@@ -228,4 +228,10 @@ const GlobalLayout: React.FC = () => {
   );
 };
 
-export default GlobalLayout;
+// for e2e visual-diff usage
+const SimpleGlobalLayout: React.FC = () => {
+  const outlet = useOutlet();
+  return outlet;
+};
+
+export default process.env.E2E === 'true' ? SimpleGlobalLayout : GlobalLayout;

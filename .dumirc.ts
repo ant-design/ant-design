@@ -36,6 +36,7 @@ export default defineConfig({
   ],
   define: {
     antdReproduceVersion: version,
+    'process.env.E2E': process.env.E2E,
   },
   alias: {
     'antd/lib': path.join(__dirname, 'components'),
