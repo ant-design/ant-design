@@ -5,7 +5,15 @@ import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
+  /**
+   * @desc 可改变大小标识 元素大小
+   * @descEN Height of content area
+   */
   resizableSize: number;
+  /**
+   * @desc 快速折叠 图标大小
+   * @descEN Height of content area
+   */
   collapsibleIconSize: number;
 }
 

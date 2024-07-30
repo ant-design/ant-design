@@ -26,13 +26,23 @@ const App: React.FC = () => {
         }}
         items={[
           {
-            size: layout === 'horizontal' ? 20 : 60,
+            size: layout === 'horizontal' ? 20 : 10,
             content: <div>111</div>,
             collapsible: true,
           },
           {
-            min: 50,
+            min: 10,
+            max: 40,
+            resizable: false,
             content: <div>222</div>,
+          },
+          {
+            content: <div>333</div>,
+          },
+          {
+            min: 10,
+            max: 40,
+            content: <div>444</div>,
           },
         ]}
         onResizeStart={() => {
