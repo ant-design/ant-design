@@ -157,6 +157,7 @@ const genSolidButtonStyle = (
   token: ButtonToken,
   textColor: string,
   background: string,
+  borderColor: string | false,
   hoverStyle: CSSObject,
   activeStyle: CSSObject,
 ): CSSObject => ({
@@ -164,6 +165,7 @@ const genSolidButtonStyle = (
     ...genSolidDisabledButtonStyle(token),
 
     color: textColor,
+    borderColor: borderColor || undefined,
     background,
 
     ...genHoverActiveButtonStyle(token.componentCls, hoverStyle, activeStyle),
@@ -234,6 +236,7 @@ const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
     token,
     token.colorTextLightSolid,
     token.defaultColor,
+    token.colorTextTertiary,
     {
       background: 'black',
     },
@@ -314,6 +317,7 @@ const genPrimaryButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
     token,
     token.primaryColor,
     token.colorPrimary,
+    false,
     {
       background: token.colorPrimaryHover,
     },
@@ -402,6 +406,7 @@ const genDangerousStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
     token,
     token.dangerColor,
     token.colorError,
+    false,
     {
       background: token.colorErrorHover,
     },
