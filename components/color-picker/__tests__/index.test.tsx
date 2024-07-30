@@ -19,9 +19,12 @@ function doMouseMove(
   container: HTMLElement,
   start: number,
   end: number,
-  element = 'ant-color-picker-handler',
+  element: string | HTMLElement = 'ant-color-picker-handler',
 ) {
-  const mouseDown = createEvent.mouseDown(container.getElementsByClassName(element)[0], {
+  const ele =
+    element instanceof HTMLElement ? element : container.getElementsByClassName(element)[0];
+
+  const mouseDown = createEvent.mouseDown(ele, {
     pageX: start,
     pageY: start,
   });
@@ -30,7 +33,7 @@ function doMouseMove(
     pageY: { get: () => start },
   });
 
-  fireEvent(container.getElementsByClassName(element)[0], mouseDown);
+  fireEvent(ele, mouseDown);
   // Drag
   const mouseMove: any = new Event('mousemove');
   mouseMove.pageX = end;
@@ -796,5 +799,53 @@ describe('ColorPicker', () => {
       <ColorPicker defaultValue="#123456" showText={(color) => color.toHex()} />,
     );
     expect(container.querySelector('.ant-color-picker-trigger-text')?.innerHTML).toBe('123456');
+  });
+
+  describe('transparent to valuable', () => {
+    let spyRect: ReturnType<typeof spyElementPrototypes>;
+
+    beforeEach(() => {
+      spyRect = spyElementPrototypes(HTMLElement, {
+        getBoundingClientRect: () => ({
+          x: 0,
+          y: 100,
+          width: 100,
+          height: 100,
+        }),
+      });
+    });
+
+    afterEach(() => {
+      spyRect.mockRestore();
+    });
+
+    it('init with hue', async () => {
+      const onChange = jest.fn();
+      const { container } = render(<ColorPicker defaultValue={null} open onChange={onChange} />);
+      doMouseMove(container, 0, 50, 'ant-color-picker-slider-handle');
+
+      expect(onChange).toHaveBeenCalledWith(
+        expect.anything(),
+        // Safe to change with any value but (0/0/0/0)
+        'rgb(0,255,255)',
+      );
+    });
+
+    it('init with alpha', async () => {
+      const onChange = jest.fn();
+      const { container } = render(<ColorPicker defaultValue={null} open onChange={onChange} />);
+      doMouseMove(
+        container,
+        0,
+        50,
+        container.querySelectorAll<HTMLElement>('.ant-color-picker-slider-handle')[1]!,
+      );
+
+      expect(onChange).toHaveBeenCalledWith(
+        expect.anything(),
+        // Safe to change with any value but (0/0/0/0)
+        'rgba(255,0,0,0.5)',
+      );
+    });
   });
 });
