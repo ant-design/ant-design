@@ -25,7 +25,7 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
       lineHeight,
       textAlign: 'center',
 
-      // 原来 &-image 没有父子结构，现在为了外层承担我们的hashId，改成父子结果
+      // 原来 &-image 没有父子结构，现在为了外层承担我们的 hashId，改成父子结构
       [`${componentCls}-image`]: {
         height: token.emptyImgHeight,
         marginBottom: marginXS,
@@ -46,7 +46,7 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
         color: token.colorTextDescription,
       },
 
-      // 原来 &-footer 没有父子结构，现在为了外层承担我们的hashId，改成父子结果
+      // 原来 &-footer 没有父子结构，现在为了外层承担我们的 hashId，改成父子结构
       [`${componentCls}-footer`]: {
         marginTop: margin,
       },

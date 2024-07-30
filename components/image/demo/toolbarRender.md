@@ -10,7 +10,7 @@ You can customize the toolbar and add a button for downloading the original imag
 .toolbar-wrapper {
   position: fixed;
   bottom: 32px;
-  left: 50%;
+  inset-inline-start: 50%;
   padding: 0px 24px;
   color: #fff;
   font-size: 20px;

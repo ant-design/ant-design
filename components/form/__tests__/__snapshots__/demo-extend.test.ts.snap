@@ -21589,7 +21589,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             </div>
             <span
               class="ant-form-text"
-              style="margin-left: 8px;"
+              style="margin-inline-start: 8px;"
             >
               machines
             </span>

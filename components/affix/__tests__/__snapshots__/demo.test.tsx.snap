@@ -84,7 +84,7 @@ exports[`renders components/affix/demo/on-change.tsx correctly 1`] = `
 
 exports[`renders components/affix/demo/target.tsx correctly 1`] = `
 <div
-  style="width:100%;height:100px;overflow:auto;box-shadow:0 0 0 1px #40a9ff"
+  style="width:100%;height:100px;overflow:auto;box-shadow:0 0 0 1px #1677ff;scrollbar-width:thin;scrollbar-color:unset"
 >
   <div
     style="width:100%;height:1000px"
