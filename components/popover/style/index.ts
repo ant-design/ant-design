@@ -90,7 +90,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         userSelect: 'text',
 
         // When use `autoArrow`, origin will follow the arrow position
-        '--valid-offset-x': 'var(--arrow-offset-horizontal, --arrow-x)',
+        '--valid-offset-x': 'var(--arrow-offset-horizontal, var(--arrow-x))',
         transformOrigin: [`var(--valid-offset-x, 50%)`, `var(--arrow-y, 50%)`].join(' '),
 
         '--antd-arrow-background-color': colorBgElevated,
