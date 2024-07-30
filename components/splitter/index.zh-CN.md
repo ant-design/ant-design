@@ -23,7 +23,7 @@ demo:
 
 通用属性参考：[通用属性](/docs/react/common-props)
 
-#### Splitter
+### Splitter
 
 | Props         | Descriptions     | Type                        | Default      |
 | ------------- | ---------------- | --------------------------- | ------------ |
@@ -34,24 +34,17 @@ demo:
 | onResize      | 面板大小变化回调 | `(sizes: number[]) => void` | -            |
 | onResizeEnd   | 拖拽结束回调     | `(sizes: number[]) => void` | -            |
 
-#### SplitterItem
+### SplitterItem
 
-| Props       | Descriptions                                  | Type        | Default |
-| ----------- | --------------------------------------------- | ----------- | ------- |
-| collapsible | 快速折叠 `collapsible=true`时将忽略`min``max` | `boolean`   | `false` |
-| min         | 最小阈值                                      | `number`    | -       |
-| max         | 最大阈值                                      | `number`    | -       |
-| size        | 受控面板大小                                  | `number`    | -       |
-| defaultSize | 初始面板大小                                  | `number`    | -       |
-| content     | 当前面板的内容                                | `ReactNode` | -       |
-| resizable   | 是否支持拖拽伸缩                              | `boolean`   | `true`  |
-
-## Token
-
-| Props               | Descriptions           | Type     | Default |
-| ------------------- | ---------------------- | -------- | ------- |
-| resizableSize       | 可改变大小标识元素大小 | `number` | `10`    |
-| collapsibleIconSize | 快速折叠图标大小       | `number` | `12`    |
+| Props       | Descriptions                                  | Type               | Default |
+| ----------- | --------------------------------------------- | ------------------ | ------- |
+| collapsible | 快速折叠 `collapsible=true`时将忽略`min``max` | `boolean`          | `false` |
+| min         | 最小阈值                                      | `number \| string` | -       |
+| max         | 最大阈值                                      | `number \| string` | -       |
+| size        | 受控面板大小 `1-100 \| '10%' \| '200px'`      | `number`           | -       |
+| defaultSize | 初始面板大小 `1-100 \| '10%' \| '200px'`      | `number`           | -       |
+| content     | 当前面板的内容                                | `ReactNode`        | -       |
+| resizable   | 是否支持拖拽伸缩                              | `boolean`          | `true`  |
 
 ## 主题变量（Design Token）
 

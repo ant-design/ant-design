@@ -1,8 +1,8 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genStyleHooks, mergeToken } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks } from '../../theme/internal';
 
 export interface ComponentToken {
   /**
@@ -28,6 +28,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
     resizableSize,
     borderRadius,
     collapsibleIconSize,
+    zIndexPopupBase,
   } = token;
 
   return {
@@ -64,6 +65,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
             padding: 2,
             position: 'absolute',
             fontSize: collapsibleIconSize,
+            zIndex: zIndexPopupBase,
 
             '&:hover': {
               color: colorPrimary,
@@ -175,11 +177,14 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
   };
 };
 
-// ============================== Export ==============================
-export default genStyleHooks('Splitter', (token) => {
-  const spinToken = mergeToken<SplitterToken>(token, {
-    resizableSize: 10,
-    collapsibleIconSize: token.fontSizeIcon,
-  });
-  return [genSplitterStyle(spinToken)];
+export const prepareComponentToken: GetDefaultToken<'Splitter'> = (token) => ({
+  resizableSize: 10,
+  collapsibleIconSize: token.fontSizeIcon,
 });
+
+// ============================== Export ==============================
+export default genStyleHooks(
+  'Splitter',
+  (token) => [genSplitterStyle(token)],
+  prepareComponentToken,
+);

@@ -11,7 +11,7 @@ const App: React.FC = () => (
     }}
     items={[
       {
-        content: <div>111</div>,
+        content: <div>one</div>,
         resizable: false,
       },
       {
@@ -19,7 +19,7 @@ const App: React.FC = () => (
           <Splitter
             items={[
               {
-                content: <div>222</div>,
+                content: <div>two</div>,
               },
               {
                 content: (
@@ -27,18 +27,18 @@ const App: React.FC = () => (
                     layout="vertical"
                     items={[
                       {
-                        content: <div>333</div>,
+                        content: <div>three</div>,
                         collapsible: true,
                       },
                       {
-                        content: <div>444</div>,
+                        content: <div>four</div>,
                       },
                     ]}
                   />
                 ),
               },
               {
-                content: <div>555</div>,
+                content: <div>five</div>,
               },
             ]}
           />

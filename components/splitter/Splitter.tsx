@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 
 import { ConfigContext } from '../config-provider';
@@ -14,8 +14,8 @@ export interface SplitterItem {
   collapsible?: boolean;
   min?: number;
   max?: number;
-  size?: number;
-  defaultSize?: number;
+  size?: number | string;
+  defaultSize?: number | string;
   content: ReactNode;
   resizable?: boolean;
 }
@@ -25,6 +25,7 @@ export interface SplitterProps {
   className?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
+  rootClassName?: string;
 
   items: SplitterItem[];
   layout?: 'horizontal' | 'vertical';
@@ -44,6 +45,8 @@ const Splitter: React.FC<SplitterProps> = (props) => {
     layout = 'horizontal',
     items = [],
 
+    rootClassName,
+
     onResizeStart,
     onResize,
     onResizeEnd,
@@ -54,40 +57,54 @@ const Splitter: React.FC<SplitterProps> = (props) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
+  const [containerSize, setContainerSize] = useState<number>(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const panelRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const panelCount = items.length;
   const gutter = ((items.length - 1) * SPLIT_BAR_SIZE) / items.length;
 
-  // 获取初始默认值
-  const getInitialBasics = () => {
-    const sizes: number[] = [];
-    let sum = 0;
-    let count = 0;
-
-    items.forEach((child) => {
-      const currentSize = child.size || child.defaultSize;
-      if (currentSize) {
-        sum += currentSize;
-        count += 1;
-        sizes.push(currentSize);
-      }
-    });
-
-    const averageSize = sum > 100 ? 0 : (100 - sum) / (items.length - count);
-    items.forEach((_, idx) => {
-      if (!sizes[idx]) {
-        sizes[idx] = averageSize;
-      }
-    });
-    return sizes;
-  };
-
   const basicsRef = useRef<number[]>([]);
   const [basicsState, setBasicsState] = useState<number[]>([]);
   const childrenNode = useMemo(() => {
-    const initBasics = getInitialBasics();
+    // 获取初始默认值
+    const getInitialBasics = (sizeCount: number) => {
+      const sizes: number[] = [];
+      let sum = 0;
+      let count = 0;
+
+      items.forEach((child) => {
+        let currentSize = child.size || child.defaultSize;
+        if (!currentSize) {
+          return;
+        }
+
+        if (typeof currentSize === 'string') {
+          if (currentSize.includes('%')) {
+            currentSize = Number(currentSize.replace('%', ''));
+          } else if (currentSize.includes('px') && sizeCount > 0) {
+            const pixel = Number(currentSize.replace('px', ''));
+            currentSize = (pixel / sizeCount) * 100;
+          } else {
+            currentSize = 0;
+          }
+        }
+
+        sum += currentSize;
+        count += 1;
+        sizes.push(currentSize);
+      });
+
+      const averageSize = sum > 100 ? 0 : (100 - sum) / (items.length - count);
+      items.forEach((_, idx) => {
+        if (!sizes[idx]) {
+          sizes[idx] = averageSize;
+        }
+      });
+      return sizes;
+    };
+
+    const initBasics = getInitialBasics(containerSize);
     basicsRef.current = initBasics;
     setBasicsState(initBasics);
 
@@ -123,7 +140,7 @@ const Splitter: React.FC<SplitterProps> = (props) => {
     }, []);
 
     // item.size 改变时，重新赋值 flexBasis
-  }, [JSON.stringify(items.map((item) => item.size))]);
+  }, [JSON.stringify(items.map((item) => item.size)), containerSize]);
 
   const { resizing, resizeStart, setSize } = useResize({
     container: containerRef,
@@ -146,10 +163,18 @@ const Splitter: React.FC<SplitterProps> = (props) => {
       [`${prefixCls}-vertical`]: layout === 'vertical',
       [`${prefixCls}-resizing`]: resizing,
     },
+    rootClassName,
     cssVarCls,
     rootCls,
     hashId,
   );
+
+  useEffect(() => {
+    if (containerRef.current) {
+      const { clientWidth, clientHeight } = containerRef.current;
+      setContainerSize(layout === 'horizontal' ? clientWidth : clientHeight);
+    }
+  }, [layout]);
 
   return wrapCSSVar(
     <SplitterContext.Provider value={{ layout, resizing, basicsState, resizeStart, setSize }}>

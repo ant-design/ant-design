@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Radio, Splitter } from 'antd';
+import { Card, Radio, Splitter } from 'antd';
 
 import type { SplitterProps } from '../Splitter';
 
@@ -22,17 +22,27 @@ const App: React.FC = () => {
         style={{
           height: 300,
           borderRadius: '4px',
-          border: '1px solid #e5e7eb',
+          boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
         }}
         items={[
           {
-            size: layout === 'horizontal' ? 20 : 60,
-            content: <div>111</div>,
+            // size: layout === 'horizontal' ? 20 : 50,
+            // size: '30%',
+            size: '400px',
             collapsible: true,
+            content: (
+              <Card title="first" bordered={false}>
+                <div>something</div>
+              </Card>
+            ),
           },
           {
             min: 50,
-            content: <div>222</div>,
+            content: (
+              <Card title="second" bordered={false}>
+                <div>something</div>
+              </Card>
+            ),
           },
         ]}
         onResizeStart={() => {
