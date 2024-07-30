@@ -95,10 +95,37 @@ const PanelPicker: FC = () => {
     return new AggregationColor(nextColors);
   };
 
-  const onInternalChange = (colorValue: AggregationColor | Color, fromPicker?: boolean) => {
+  const onInternalChange = (
+    colorValue: AggregationColor | Color,
+    fromPicker?: boolean,
+    info?: {
+      type?: 'hue' | 'alpha';
+      value?: number;
+    },
+  ) => {
     const nextColor = generateColor(colorValue);
 
-    onChange(fillColor(value.cleared ? genAlphaColor(nextColor) : nextColor), fromPicker);
+    let submitColor = nextColor;
+
+    if (value.cleared) {
+      const rgb = submitColor.toRgb();
+
+      // Auto fill color if origin is `0/0/0` to enhance user experience
+      if (!rgb.r && !rgb.g && !rgb.b && info) {
+        const { type: infoType, value: infoValue = 0 } = info;
+
+        submitColor = new AggregationColor({
+          h: infoType === 'hue' ? infoValue : 0,
+          s: 1,
+          b: 1,
+          a: infoType === 'alpha' ? infoValue / 100 : 1,
+        });
+      } else {
+        submitColor = genAlphaColor(submitColor);
+      }
+    }
+
+    onChange(fillColor(submitColor), fromPicker);
   };
 
   const onInternalChangeComplete = (nextColor: AggregationColor) => {
@@ -140,8 +167,8 @@ const PanelPicker: FC = () => {
         prefixCls={prefixCls}
         value={activeColor?.toHsb()}
         disabledAlpha={disabledAlpha}
-        onChange={(colorValue) => {
-          onInternalChange(colorValue, true);
+        onChange={(colorValue, info) => {
+          onInternalChange(colorValue, true, info);
         }}
         onChangeComplete={(colorValue) => {
           onInternalChangeComplete(generateColor(colorValue));
