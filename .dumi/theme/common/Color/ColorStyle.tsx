@@ -176,7 +176,7 @@ ${makeGrayPalette(index + 1)}
 
           &-item &-value {
             position: relative;
-            left: 3px;
+            inset-inline-start: 3px;
             float: right;
             transform: scale(0.85);
             transform-origin: 100% 50%;
@@ -203,7 +203,7 @@ ${makeGrayPalette(index + 1)}
 
         .main-color:hover {
           .main-color-value {
-            left: 0;
+            inset-inline-start: 0;
             opacity: 0.7;
           }
         }
@@ -264,7 +264,7 @@ ${makeGrayPalette(index + 1)}
             &-value {
               position: absolute;
               bottom: 0;
-              left: 0;
+              inset-inline-start: 0;
               width: 100%;
               text-align: center;
               transform-origin: unset;

@@ -142,8 +142,10 @@ jobs:
             ## Visual Regression Build for PR #${{ steps.pr.outputs.id }} Failed ❌
             Potential causes:
               - `upstream workflow` status: ${{ needs.upstream-workflow-summary.outputs.build-status }} [upstream job link](${{ needs.upstream-workflow-summary.outputs.upstream-job-link }})
-              - `download report artifact` status: ${{ steps.download_report.outcome }}
-              - `report upload` status: ${{ steps.report.outcome }}
+              - `current workflow` summary:
+                - `download report artifact` status: ${{ steps.download_report.outcome }}
+                - `report upload` status: ${{ steps.report.outcome }}
+                - workflow url: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             <!-- VISUAL_DIFF_REGRESSION_HOOK -->
           body-include: '<!-- VISUAL_DIFF_REGRESSION_HOOK -->'
           number: ${{ steps.pr.outputs.id }}

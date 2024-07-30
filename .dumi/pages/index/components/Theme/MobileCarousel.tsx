@@ -113,7 +113,7 @@ const MobileCarousel: React.FC<MobileCarouselProps> = (props) => {
       <Carousel className={styles.carousel} afterChange={setCurrentSlider}>
         {mobileImageConfigList.map((item, index) => (
           <div key={index}>
-            <img src={item.imageSrc} className={styles.img} alt="" />
+            <img draggable={false} src={item.imageSrc} className={styles.img} alt="carousel" />
           </div>
         ))}
       </Carousel>

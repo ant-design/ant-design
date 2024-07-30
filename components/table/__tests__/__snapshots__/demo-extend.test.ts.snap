@@ -7583,7 +7583,7 @@ exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`
                     >
                       <div
                         class="editable-cell-value-wrap"
-                        style="padding-right: 24px;"
+                        style="padding-inline-end: 24px;"
                       >
                         Edward King 0
                       </div>
@@ -7697,7 +7697,7 @@ exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`
                     >
                       <div
                         class="editable-cell-value-wrap"
-                        style="padding-right: 24px;"
+                        style="padding-inline-end: 24px;"
                       >
                         Edward King 1
                       </div>

@@ -24,15 +24,15 @@ const useStyle = createStyles(({ token, css, cx }) => {
       &:before {
         content: '';
         position: absolute;
-        left: 0;
-        right: 0;
+        inset-inline-start: 0;
+        inset-inline-end: 0;
         top: 0;
         bottom: 0;
         margin: auto;
         max-width: 40px;
         max-height: 40px;
         background: transparent;
-        transition: background 300ms;
+        transition: background-color 300ms;
         border-radius: ${token.borderRadiusOuter}px;
         border: 1px solid transparent;
         box-sizing: border-box;
