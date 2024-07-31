@@ -60,7 +60,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 > type ItemType = Omit<[RouteItemType](#routeitemtype), 'title' | 'path'> | [SeparatorType](#separatortype)
 
-### RouteItemType
+#### RouteItemType
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
@@ -72,7 +72,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onClick | Set the handler to handle click event | (e:MouseEvent) => void | - |  |
 | title | item name | ReactNode | - |  |
 
-### SeparatorType
+#### SeparatorType
 
 ```ts
 const item = {
