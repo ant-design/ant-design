@@ -1,10 +1,20 @@
 import type { CSSProperties, FC, ReactNode } from 'react';
-import type { ColorPickerProps as RcColorPickerProps } from '@rc-component/color-picker';
+import type {
+  ColorGenInput,
+  ColorPickerProps as RcColorPickerProps,
+} from '@rc-component/color-picker';
 
 import type { SizeType } from '../config-provider/SizeContext';
 import type { PopoverProps } from '../popover';
 import type { TooltipPlacement } from '../tooltip';
 import type { AggregationColor } from './color';
+
+export type { ColorGenInput };
+
+export type Colors<T> = {
+  color: ColorGenInput<T>;
+  percent: number;
+}[];
 
 export enum ColorFormat {
   hex = 'hex',
@@ -28,25 +38,29 @@ export type TriggerType = 'click' | 'hover';
 
 export type TriggerPlacement = TooltipPlacement; // Alias, to prevent breaking changes.
 
-export interface ColorPickerBaseProps {
-  color?: AggregationColor;
-  prefixCls: string;
-  format?: ColorFormatType;
-  allowClear?: boolean;
-  disabled?: boolean;
-  disabledAlpha?: boolean;
-  presets?: PresetsItem[];
-  panelRender?: ColorPickerProps['panelRender'];
-  onFormatChange?: ColorPickerProps['onFormatChange'];
-  onChangeComplete?: ColorPickerProps['onChangeComplete'];
-}
+export type SingleValueType = AggregationColor | string;
 
-export type ColorValueType = AggregationColor | string | null;
+export type ColorValueType =
+  | SingleValueType
+  | null
+  | {
+      color: SingleValueType;
+      percent: number;
+    }[];
+
+export type ModeType = 'single' | 'gradient';
 
 export type ColorPickerProps = Omit<
   RcColorPickerProps,
-  'onChange' | 'value' | 'defaultValue' | 'panelRender' | 'disabledAlpha' | 'onChangeComplete'
+  | 'onChange'
+  | 'value'
+  | 'defaultValue'
+  | 'panelRender'
+  | 'disabledAlpha'
+  | 'onChangeComplete'
+  | 'components'
 > & {
+  mode?: ModeType | ModeType[];
   value?: ColorValueType;
   defaultValue?: ColorValueType;
   children?: React.ReactNode;

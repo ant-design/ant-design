@@ -198,6 +198,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
         width: handleSize,
         height: handleSize,
         outline: 'none',
+        userSelect: 'none',
 
         // Dragging status
         '&-dragging-delete': {

@@ -7,7 +7,7 @@ import classNames from 'classnames';
 
 import { PRESET_COLORS } from './colorUtil';
 
-type Color = GetProp<ColorPickerProps, 'value'>;
+type Color = Extract<GetProp<ColorPickerProps, 'value'>, string | { cleared: any }>;
 
 const useStyle = createStyles(({ token, css }) => ({
   color: css`

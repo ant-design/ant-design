@@ -142,6 +142,9 @@ const localeValues: Locale = {
   },
   ColorPicker: {
     presetEmpty: 'अहिलेसम्म कुनै पनि छैन',
+    transparent: 'पारदर्शी',
+    singleColor: 'एक रंग',
+    gradientColor: 'ग्रेडिएण्ट',
   },
 };
 

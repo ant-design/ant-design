@@ -1,12 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes, unit } from '@ant-design/cssinjs';
 
-import type {
-  FullToken,
-  GenerateStyle,
-  GetDefaultToken,
-  CSSUtil,
-} from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken, CSSUtil } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export type ComponentToken = {

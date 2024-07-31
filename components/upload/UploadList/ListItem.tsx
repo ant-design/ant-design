@@ -176,35 +176,36 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
     );
 
     const extraContent = typeof customExtra === 'function' ? customExtra(file) : customExtra;
-    const extra = extraContent && <span className={`${prefixCls}-list-item-extra`}>{extraContent}</span>
+    const extra = extraContent && (
+      <span className={`${prefixCls}-list-item-extra`}>{extraContent}</span>
+    );
 
     const listItemNameClass = classNames(`${prefixCls}-list-item-name`);
-    const fileName = file.url
-      ?
-          <a
-            key="view"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={listItemNameClass}
-            title={file.name}
-            {...linkProps}
-            href={file.url}
-            onClick={(e) => onPreview(file, e)}
-          >
-            {file.name}
-            {extra}
-          </a>
-      :
-          <span
-            key="view"
-            className={listItemNameClass}
-            onClick={(e) => onPreview(file, e)}
-            title={file.name}
-          >
-            {file.name}
-            {extra}
-          </span>
-        ;
+    const fileName = file.url ? (
+      <a
+        key="view"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={listItemNameClass}
+        title={file.name}
+        {...linkProps}
+        href={file.url}
+        onClick={(e) => onPreview(file, e)}
+      >
+        {file.name}
+        {extra}
+      </a>
+    ) : (
+      <span
+        key="view"
+        className={listItemNameClass}
+        onClick={(e) => onPreview(file, e)}
+        title={file.name}
+      >
+        {file.name}
+        {extra}
+      </span>
+    );
 
     const previewIcon =
       showPreviewIcon && (file.url || file.thumbUrl) ? (
