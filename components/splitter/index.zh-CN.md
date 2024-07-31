@@ -39,8 +39,8 @@ demo:
 | Props       | Descriptions                                  | Type               | Default |
 | ----------- | --------------------------------------------- | ------------------ | ------- |
 | collapsible | 快速折叠 `collapsible=true`时将忽略`min``max` | `boolean`          | `false` |
-| min         | 最小阈值                                      | `number \| string` | -       |
-| max         | 最大阈值                                      | `number \| string` | -       |
+| min         | 最小阈值 `1-100 \| '10%' \| '200px'`          | `number \| string` | -       |
+| max         | 最大阈值 `1-100 \| '10%' \| '200px'`          | `number \| string` | -       |
 | size        | 受控面板大小 `1-100 \| '10%' \| '200px'`      | `number`           | -       |
 | defaultSize | 初始面板大小 `1-100 \| '10%' \| '200px'`      | `number`           | -       |
 | content     | 当前面板的内容                                | `ReactNode`        | -       |

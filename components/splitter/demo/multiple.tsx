@@ -29,15 +29,6 @@ const App: React.FC = () => (
         content: <Divider>4</Divider>,
       },
     ]}
-    onResizeStart={() => {
-      console.log('[ onResizeStart ] ===>');
-    }}
-    onResize={(sizes) => {
-      console.log('[ sizes ] ===>', sizes);
-    }}
-    onResizeEnd={() => {
-      console.log('[ onResizeStart ] ===>');
-    }}
   />
 );
 

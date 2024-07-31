@@ -8,12 +8,12 @@ import { SplitterContext } from './context';
 import Panel from './Panel';
 import SplitBar from './SplitBar';
 import useStyle from './style';
-import useResize from './useResize';
+import useResize, { sizeTransform } from './useResize';
 
 export interface SplitterItem {
   collapsible?: boolean;
-  min?: number;
-  max?: number;
+  min?: number | string;
+  max?: number | string;
   size?: number | string;
   defaultSize?: number | string;
   content: ReactNode;
@@ -79,17 +79,7 @@ const Splitter: React.FC<SplitterProps> = (props) => {
           return;
         }
 
-        if (typeof currentSize === 'string') {
-          if (currentSize.includes('%')) {
-            currentSize = Number(currentSize.replace('%', ''));
-          } else if (currentSize.includes('px') && sizeCount > 0) {
-            const pixel = Number(currentSize.replace('px', ''));
-            currentSize = (pixel / sizeCount) * 100;
-          } else {
-            currentSize = 0;
-          }
-        }
-
+        currentSize = sizeTransform(currentSize, sizeCount);
         sum += currentSize;
         count += 1;
         sizes.push(currentSize);
@@ -143,7 +133,7 @@ const Splitter: React.FC<SplitterProps> = (props) => {
   }, [JSON.stringify(items.map((item) => item.size)), containerSize]);
 
   const { resizing, resizeStart, setSize } = useResize({
-    container: containerRef,
+    containerSize,
     panels: panelRefs,
     layout,
     gutter,

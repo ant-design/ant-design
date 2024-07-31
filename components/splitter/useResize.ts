@@ -12,7 +12,7 @@ interface StartInfo {
 
 interface UseResizeProps
   extends Pick<SplitterProps, 'layout' | 'items' | 'onResizeStart' | 'onResize' | 'onResizeEnd'> {
-  container: React.RefObject<HTMLDivElement>;
+  containerSize: number;
   panels: React.RefObject<(HTMLDivElement | null)[]>;
   gutter: number;
   basics: React.RefObject<number[]>;
@@ -24,8 +24,23 @@ export interface UseResize {
   setSize: (size: number, index: number) => void;
 }
 
+export const sizeTransform = (size: number | string, sizeCount: number) => {
+  let currentSize = 0;
+  if (typeof size === 'number') {
+    return size;
+  }
+
+  if (size.includes('%')) {
+    currentSize = Number(size.replace('%', ''));
+  } else if (size.includes('px')) {
+    currentSize = (Number(size.replace('px', '')) / sizeCount) * 100;
+  }
+
+  return currentSize;
+};
+
 const useResize = ({
-  container,
+  containerSize,
   panels,
   layout,
   gutter,
@@ -65,35 +80,40 @@ const useResize = ({
         collapsible: nextCollapsible,
       } = items[index + 1];
 
+      const previousMaxNumber = sizeTransform(previousMax, containerSize);
+      const previousMinNumber = sizeTransform(previousMin, containerSize);
+      const nextMaxNumber = sizeTransform(nextMax, containerSize);
+      const nextMinNumber = sizeTransform(nextMin, containerSize);
+
       // collapsible = true 忽略大小限制
       const collapsible = previousCollapsible || nextCollapsible;
 
       // size limit
       let skipNext = false;
-      if (previousSize < previousMin && !collapsible) {
-        previousSize = previousMin;
+      if (previousSize < previousMinNumber && !collapsible) {
+        previousSize = previousMinNumber;
         nextSize = percentCount - previousSize;
         skipNext = true;
       } else if (previousSize < 0) {
         previousSize = 0;
       } else if (previousSize > percentCount) {
         previousSize = percentCount;
-      } else if (previousSize > previousMax && !collapsible) {
-        previousSize = previousMax;
+      } else if (previousSize > previousMaxNumber && !collapsible) {
+        previousSize = previousMaxNumber;
         nextSize = percentCount - previousSize;
         skipNext = true;
       }
 
       if (!skipNext) {
-        if (nextSize < nextMin && !collapsible) {
-          nextSize = nextMin;
+        if (nextSize < nextMinNumber && !collapsible) {
+          nextSize = nextMinNumber;
           previousSize = percentCount - nextSize;
         } else if (nextSize < 0) {
           nextSize = 0;
         } else if (nextSize > percentCount) {
           nextSize = percentCount;
-        } else if (nextSize > nextMax && !collapsible) {
-          nextSize = nextMax;
+        } else if (nextSize > nextMaxNumber && !collapsible) {
+          nextSize = nextMaxNumber;
           previousSize = percentCount - nextSize;
         }
       }
@@ -115,16 +135,12 @@ const useResize = ({
     const { x: startX, y: startY } = startInfo.current;
     const { clientX, clientY } = event;
 
-    if (resizingRef.current && container.current) {
-      const { width, height } = container.current.getBoundingClientRect();
-      const containerWidth = width - splitBarSizeCount;
-      const containerHeight = height - splitBarSizeCount;
-
+    if (resizingRef.current && containerSize > 0) {
       let offset = 0;
       if (layout === 'horizontal') {
-        offset = 100 * ((startX - event.clientX) / containerWidth);
+        offset = 100 * ((startX - event.clientX) / (containerSize - splitBarSizeCount));
       } else {
-        offset = 100 * ((startY - event.clientY) / containerHeight);
+        offset = 100 * ((startY - event.clientY) / (containerSize - splitBarSizeCount));
       }
 
       setOffset(offset, clientX, clientY);
@@ -174,7 +190,7 @@ const useResize = ({
       window.removeEventListener('contextmenu', end);
       window.removeEventListener('blur', end);
     };
-  }, [layout]);
+  }, [layout, containerSize]);
 
   return { resizing, resizeStart, setSize };
 };

@@ -13,7 +13,7 @@
 
 ## API
 
-#### Splitter
+### Splitter
 
 | Props         | Descriptions     | Type                        | Default      |
 | ------------- | ---------------- | --------------------------- | ------------ |
@@ -24,17 +24,17 @@
 | onResize      | 面板大小变化回调 | `(sizes: number[]) => void` | -            |
 | onResizeEnd   | 拖拽结束回调     | `(sizes: number[]) => void` | -            |
 
-#### SplitterItem
+### SplitterItem
 
-| Props       | Descriptions                                  | Type        | Default |
-| ----------- | --------------------------------------------- | ----------- | ------- |
-| collapsible | 快速折叠 `collapsible=true`时将忽略`min``max` | `boolean`   | `false` |
-| min         | 最小阈值                                      | `number`    | -       |
-| max         | 最大阈值                                      | `number`    | -       |
-| size        | 受控面板大小                                  | `number`    | -       |
-| defaultSize | 初始面板大小                                  | `number`    | -       |
-| content     | 当前面板的内容                                | `ReactNode` | -       |
-| resizable   | 是否支持拖拽伸缩                              | `boolean`   | `true`  |
+| Props       | Descriptions                                  | Type               | Default |
+| ----------- | --------------------------------------------- | ------------------ | ------- |
+| collapsible | 快速折叠 `collapsible=true`时将忽略`min``max` | `boolean`          | `false` |
+| min         | 最小阈值 `1-100 \| '10%' \| '200px'`          | `number \| string` | -       |
+| max         | 最大阈值 `1-100 \| '10%' \| '200px'`          | `number \| string` | -       |
+| size        | 受控面板大小 `1-100 \| '10%' \| '200px'`      | `number`           | -       |
+| defaultSize | 初始面板大小 `1-100 \| '10%' \| '200px'`      | `number`           | -       |
+| content     | 当前面板的内容                                | `ReactNode`        | -       |
+| resizable   | 是否支持拖拽伸缩                              | `boolean`          | `true`  |
 
 ## Token
 

@@ -28,7 +28,7 @@ const App: React.FC = () => {
           {
             // size: layout === 'horizontal' ? 20 : 50,
             // size: '30%',
-            size: '400px',
+            defaultSize: '200px',
             collapsible: true,
             content: (
               <Card title="first" bordered={false}>
