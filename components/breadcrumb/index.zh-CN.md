@@ -61,7 +61,7 @@ return <Breadcrumb routes={[{ breadcrumbName: 'sample' }]} />;
 
 > type ItemType = Omit<[RouteItemType](#routeitemtype), 'title' | 'path'> | [SeparatorType](#separatortype)
 
-### RouteItemType
+#### RouteItemType
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -73,7 +73,7 @@ return <Breadcrumb routes={[{ breadcrumbName: 'sample' }]} />;
 | onClick | 单击事件 | (e:MouseEvent) => void | - |  |
 | title | 名称 | ReactNode | - | 5.3.0 |
 
-### SeparatorType
+#### SeparatorType
 
 ```ts
 const item = {
