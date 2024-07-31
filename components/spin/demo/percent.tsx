@@ -2,7 +2,7 @@ import React from 'react';
 import { Flex, Spin, Switch } from 'antd';
 
 const App: React.FC = () => {
-  const [auto, setAuto] = React.useState(false);
+  const [auto, setAuto] = React.useState(true);
   const [percent, setPercent] = React.useState(-50);
   const timerRef = React.useRef<ReturnType<typeof setTimeout>>();
 
