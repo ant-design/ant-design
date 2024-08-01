@@ -14,9 +14,8 @@ const SVGIcon: React.FC<{ color?: string }> = ({ color = 'currentColor' }) => (
   </svg>
 );
 
-const ExternalLinkIcon: React.FC<ExternalIconProps> = React.forwardRef<
-  HTMLSpanElement,
-  ExternalIconProps
->((props, ref) => <Icon component={() => <SVGIcon color={props.color} />} ref={ref} {...props} />);
+const ExternalLinkIcon = React.forwardRef<HTMLSpanElement, ExternalIconProps>((props, ref) => (
+  <Icon component={() => <SVGIcon color={props.color} />} ref={ref} {...props} />
+));
 
 export default ExternalLinkIcon;
