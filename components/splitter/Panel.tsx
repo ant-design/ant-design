@@ -11,7 +11,7 @@ export interface PanelProps {
   collapsible?: boolean;
   resizable?: boolean;
 
-  children: React.ReactElement;
+  children?: React.ReactElement;
 }
 
 export interface InternalPanelProps extends PanelProps {
@@ -37,6 +37,7 @@ export const InternalPanel = forwardRef<HTMLDivElement, InternalPanelProps>((pro
     </div>
   );
 });
+
 if (process.env.NODE_ENV !== 'production') {
   InternalPanel.displayName = 'Panel';
 }

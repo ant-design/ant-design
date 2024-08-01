@@ -1,5 +1,5 @@
 import React from 'react';
-import { Divider, Splitter } from 'antd';
+import { Divider, Flex, Splitter } from 'antd';
 
 const App: React.FC = () => (
   <Splitter
@@ -8,28 +8,35 @@ const App: React.FC = () => (
       borderRadius: '4px',
       border: '1px solid #e5e7eb',
     }}
-    items={[
-      {
-        size: 40,
-        content: <Divider>1</Divider>,
-        collapsible: true,
-      },
-      {
-        min: 10,
-        max: 40,
-        resizable: false,
-        content: <Divider>2</Divider>,
-      },
-      {
-        content: <Divider>3</Divider>,
-      },
-      {
-        min: 10,
-        max: 40,
-        content: <Divider>4</Divider>,
-      },
-    ]}
-  />
+  >
+    <Splitter.Panel defaultSize={20}>
+      <Flex align="center" vertical>
+        <Divider>1</Divider>
+        <div>defaultSize: 20</div>
+      </Flex>
+    </Splitter.Panel>
+
+    <Splitter.Panel defaultSize="25%" max={40} min={10} resizable={false}>
+      <Flex align="center" vertical>
+        <Divider>2</Divider>
+        <div>min: 10</div>
+        <div>max: 40</div>
+        <div>defaultSize: 25%</div>
+        <div>resizable: false</div>
+      </Flex>
+    </Splitter.Panel>
+
+    <Splitter.Panel collapsible>
+      <Flex align="center" vertical>
+        <Divider>3</Divider>
+        <div>collapsible: true</div>
+      </Flex>
+    </Splitter.Panel>
+
+    <Splitter.Panel>
+      <Divider>4</Divider>
+    </Splitter.Panel>
+  </Splitter>
 );
 
 export default App;

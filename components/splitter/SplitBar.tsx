@@ -3,9 +3,9 @@ import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 
 import { SplitterContext } from './context';
-import type { SplitterItem } from './Splitter';
+import type { PanelProps } from './Panel';
 
-export interface SplitBarProps extends Pick<SplitterItem, 'resizable' | 'collapsible'> {
+export interface SplitBarProps extends Pick<PanelProps, 'resizable' | 'collapsible'> {
   prefixCls: string;
   index: number;
   size?: number;

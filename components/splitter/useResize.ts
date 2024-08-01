@@ -1,23 +1,16 @@
 import type React from 'react';
 import { useEffect, useRef, useState } from 'react';
 
-import type { SplitterProps } from './Splitter';
 import type { PanelProps } from './Panel';
-
-interface StartInfo {
-  x: number;
-  y: number;
-  index: number;
-  splitBar: HTMLDivElement | null;
-}
+import type { SplitterProps } from './Splitter';
 
 interface UseResizeProps
   extends Pick<SplitterProps, 'layout' | 'onResizeStart' | 'onResize' | 'onResizeEnd'> {
   containerSize: number;
-  items: PanelProps[];
-  panels: React.RefObject<(HTMLDivElement | null)[]>;
+  panelsRef: React.RefObject<(HTMLDivElement | null)[]>;
   gutter: number;
-  basics: React.RefObject<number[]>;
+  items: PanelProps[];
+  basicsData: number[];
   setBasicsState: React.Dispatch<React.SetStateAction<number[]>>;
 }
 export interface UseResize {
@@ -43,33 +36,35 @@ export const sizeTransform = (size: number | string, sizeCount: number) => {
 
 const useResize = ({
   containerSize,
-  panels,
+  panelsRef,
   layout,
   gutter,
   items,
-  basics,
+  basicsData,
   onResize,
   onResizeEnd,
   onResizeStart,
   setBasicsState,
 }: UseResizeProps): UseResize => {
-  const startInfo = useRef<StartInfo>({ x: 0, y: 0, index: 0, splitBar: null });
+  const startInfo = useRef({ x: 0, y: 0, index: 0 });
+  const basicsRef = useRef<number[]>(basicsData);
+
   const resizingRef = useRef(false);
   const [resizing, setResizing] = useState(false);
 
   const splitBarSizeCount = items.length * gutter;
 
   const setOffset = (offset: number, x: number, y: number) => {
-    const { index, splitBar } = startInfo.current;
+    const { index } = startInfo.current;
 
-    if (splitBar && basics.current) {
-      const previousElement = splitBar.previousElementSibling as HTMLDivElement;
-      const nextElement = splitBar.nextElementSibling as HTMLDivElement;
+    if (panelsRef.current?.[index] && basicsRef.current) {
+      const previousElement = panelsRef.current[index];
+      const nextElement = panelsRef.current[index + 1]!;
 
-      const percentCount = basics.current[index] + basics.current[index + 1];
+      const percentCount = basicsRef.current[index] + basicsRef.current[index + 1];
 
-      let previousSize = basics.current[index] - offset;
-      let nextSize = basics.current[index + 1] + offset;
+      let previousSize = basicsRef.current[index] - offset;
+      let nextSize = basicsRef.current[index + 1] + offset;
 
       const {
         max: previousMax = percentCount,
@@ -125,11 +120,11 @@ const useResize = ({
 
       startInfo.current.x = x;
       startInfo.current.y = y;
-      basics.current[index] = previousSize;
-      basics.current[index + 1] = nextSize;
+      basicsRef.current[index] = previousSize;
+      basicsRef.current[index + 1] = nextSize;
 
-      setBasicsState([...basics.current]);
-      onResize?.(basics.current);
+      setBasicsState([...basicsRef.current]);
+      onResize?.(basicsRef.current);
     }
   };
 
@@ -150,35 +145,38 @@ const useResize = ({
   };
 
   const end = () => {
-    if (resizingRef.current && basics.current) {
-      startInfo.current = { x: 0, y: 0, index: 0, splitBar: null };
+    if (resizingRef.current && basicsRef.current) {
+      startInfo.current = { x: 0, y: 0, index: 0 };
 
       resizingRef.current = false;
       setResizing(false);
 
-      onResizeEnd?.(basics.current);
+      onResizeEnd?.(basicsRef.current);
     }
   };
 
   const resizeStart = (e: React.MouseEvent<HTMLDivElement>, index: number) => {
-    const target = e.target as HTMLDivElement;
-    if (e.target && basics.current) {
-      startInfo.current = { x: e.clientX, y: e.clientY, index, splitBar: target };
+    if (e.currentTarget && basicsRef.current) {
+      startInfo.current = { x: e.clientX, y: e.clientY, index };
 
       resizingRef.current = true;
       setResizing(true);
 
-      onResizeStart?.(basics.current);
+      onResizeStart?.(basicsRef.current);
     }
   };
 
   const setSize = (size: number, index: number) => {
-    if (basics.current && panels.current?.[index]) {
-      basics.current[index] = size;
-      setBasicsState([...basics.current]);
-      panels.current[index].style.flexBasis = size > 0 ? `calc(${size}% - ${gutter}px)` : '0';
+    if (basicsRef.current && panelsRef.current?.[index]) {
+      basicsRef.current[index] = size;
+      setBasicsState([...basicsRef.current]);
+      panelsRef.current[index].style.flexBasis = size > 0 ? `calc(${size}% - ${gutter}px)` : '0';
     }
   };
+
+  useEffect(() => {
+    basicsRef.current = basicsData;
+  }, [basicsData]);
 
   useEffect(() => {
     window.addEventListener('mousemove', move);

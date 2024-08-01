@@ -6,7 +6,7 @@ import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { SplitterContext } from './context';
 import type { InternalPanelProps } from './Panel';
-import Panel, { InternalPanel } from './Panel';
+import { InternalPanel } from './Panel';
 import SplitBar from './SplitBar';
 import useStyle from './style';
 import useResize, { sizeTransform } from './useResize';
@@ -50,11 +50,10 @@ const SplitterComp: React.FC<SplitterProps> = (props) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   // panel size
-  const basicsRef = useRef<number[]>([]);
   const [basicsState, setBasicsState] = useState<number[]>([]);
 
   // panel info
-  const panelRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const panelsRef = useRef<(HTMLDivElement | null)[]>([]);
   const panelCount = Children.count(children);
   const gutter = ((panelCount - 1) * SPLIT_BAR_SIZE) / panelCount;
   const items = useMemo(() => {
@@ -74,7 +73,7 @@ const SplitterComp: React.FC<SplitterProps> = (props) => {
           <InternalPanel
             {...item}
             ref={(ref) => {
-              panelRefs.current[idx] = ref;
+              panelsRef.current[idx] = ref;
             }}
             key={`panel${`-${idx}`}`}
             size={basicsState[idx]}
@@ -103,11 +102,11 @@ const SplitterComp: React.FC<SplitterProps> = (props) => {
 
   const { resizing, resizeStart, setSize } = useResize({
     containerSize,
-    panels: panelRefs,
+    panelsRef,
     layout,
     gutter,
-    basics: basicsRef,
     items,
+    basicsData: basicsState,
     onResizeStart,
     onResize,
     onResizeEnd,
@@ -128,17 +127,17 @@ const SplitterComp: React.FC<SplitterProps> = (props) => {
     hashId,
   );
 
-  // item.size 改变时，重新赋值 flexBasis
   useEffect(() => {
-    // 获取初始默认值
+    // 计算初始值
     const getInitialBasics = (sizeCount: number) => {
-      const sizes: number[] = [];
+      const sizes: (number | undefined)[] = [];
       let sum = 0;
       let count = 0;
 
       items.forEach((child) => {
         let currentSize = child.size || child.defaultSize;
-        if (!currentSize) {
+        if (currentSize === undefined) {
+          sizes.push(undefined);
           return;
         }
 
@@ -148,19 +147,18 @@ const SplitterComp: React.FC<SplitterProps> = (props) => {
         sizes.push(currentSize);
       });
 
-      const averageSize = sum > 100 ? 0 : (100 - sum) / (items.length - count);
+      const averageSize = sum > 100 ? 0 : (100 - sum) / (panelCount - count);
       items.forEach((_, idx) => {
-        if (!sizes[idx]) {
+        if (sizes[idx] === undefined) {
           sizes[idx] = averageSize;
         }
       });
-      return sizes;
+      return sizes as number[];
     };
 
-    const initBasics = getInitialBasics(containerSize);
-    basicsRef.current = getInitialBasics(containerSize);
-    setBasicsState(initBasics);
-  }, [JSON.stringify(items.map((item) => item.size)), containerSize]);
+    setBasicsState(getInitialBasics(containerSize));
+    // item.size 改变时，重新计算 flexBasis
+  }, [JSON.stringify(items.map((item) => item.size)), containerSize, panelCount]);
 
   useEffect(() => {
     if (containerRef.current) {
@@ -177,14 +175,9 @@ const SplitterComp: React.FC<SplitterProps> = (props) => {
     </SplitterContext.Provider>,
   );
 };
+
 if (process.env.NODE_ENV !== 'production') {
   SplitterComp.displayName = 'Splitter';
 }
 
-type CompoundedComponent = typeof SplitterComp & {
-  Panel: typeof Panel;
-};
-
-const Splitter = SplitterComp as CompoundedComponent;
-Splitter.Panel = Panel;
-export default Splitter;
+export default SplitterComp;

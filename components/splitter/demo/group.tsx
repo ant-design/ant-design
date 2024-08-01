@@ -9,43 +9,35 @@ const App: React.FC = () => (
       borderRadius: '4px',
       border: '1px solid #e5e7eb',
     }}
-    items={[
-      {
-        content: <div>one</div>,
-        resizable: false,
-      },
-      {
-        content: (
-          <Splitter
-            items={[
-              {
-                content: <div>two</div>,
-              },
-              {
-                content: (
-                  <Splitter
-                    layout="vertical"
-                    items={[
-                      {
-                        content: <div>three</div>,
-                        collapsible: true,
-                      },
-                      {
-                        content: <div>four</div>,
-                      },
-                    ]}
-                  />
-                ),
-              },
-              {
-                content: <div>five</div>,
-              },
-            ]}
-          />
-        ),
-      },
-    ]}
-  />
+  >
+    <Splitter.Panel defaultSize={50}>
+      <div>1</div>
+    </Splitter.Panel>
+
+    <Splitter.Panel>
+      <Splitter>
+        <Splitter.Panel>
+          <div>2</div>
+        </Splitter.Panel>
+
+        <Splitter.Panel>
+          <Splitter layout="vertical">
+            <Splitter.Panel collapsible>
+              <div>3</div>
+            </Splitter.Panel>
+
+            <Splitter.Panel>
+              <div>4</div>
+            </Splitter.Panel>
+          </Splitter>
+        </Splitter.Panel>
+
+        <Splitter.Panel>
+          <div>5</div>
+        </Splitter.Panel>
+      </Splitter>
+    </Splitter.Panel>
+  </Splitter>
 );
 
 export default App;
