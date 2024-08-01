@@ -1,18 +1,26 @@
 import React, { forwardRef } from 'react';
 import classNames from 'classnames';
 
-import type { SplitterItem } from './Splitter';
+export interface PanelProps {
+  min?: number | string;
+  max?: number | string;
 
-export interface PanelProps extends SplitterItem {
+  size?: number | string;
+  defaultSize?: number | string;
+
+  collapsible?: boolean;
+  resizable?: boolean;
+
+  children: React.ReactElement;
+}
+
+export interface InternalPanelProps extends PanelProps {
   prefixCls?: string;
   className?: string;
-  style?: React.CSSProperties;
-  children?: React.ReactNode;
-  size?: number;
   gutter?: number;
 }
 
-const Panel = forwardRef<HTMLDivElement, PanelProps>((props, ref) => {
+export const InternalPanel = forwardRef<HTMLDivElement, InternalPanelProps>((props, ref) => {
   const { prefixCls, className, children, gutter, size } = props;
 
   const panelClassName = classNames(`${prefixCls}-item`, className);
@@ -29,5 +37,10 @@ const Panel = forwardRef<HTMLDivElement, PanelProps>((props, ref) => {
     </div>
   );
 });
+if (process.env.NODE_ENV !== 'production') {
+  InternalPanel.displayName = 'Panel';
+}
+
+const Panel: React.FC<PanelProps> = (props) => <InternalPanel {...props} />;
 
 export default Panel;

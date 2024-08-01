@@ -2,6 +2,7 @@ import type React from 'react';
 import { useEffect, useRef, useState } from 'react';
 
 import type { SplitterProps } from './Splitter';
+import type { PanelProps } from './Panel';
 
 interface StartInfo {
   x: number;
@@ -11,8 +12,9 @@ interface StartInfo {
 }
 
 interface UseResizeProps
-  extends Pick<SplitterProps, 'layout' | 'items' | 'onResizeStart' | 'onResize' | 'onResizeEnd'> {
+  extends Pick<SplitterProps, 'layout' | 'onResizeStart' | 'onResize' | 'onResizeEnd'> {
   containerSize: number;
+  items: PanelProps[];
   panels: React.RefObject<(HTMLDivElement | null)[]>;
   gutter: number;
   basics: React.RefObject<number[]>;
