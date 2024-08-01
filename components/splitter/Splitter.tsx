@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { SplitterContext } from './context';
-import type { InternalPanelProps } from './Panel';
+import type { PanelProps } from './Panel';
 import { InternalPanel } from './Panel';
 import SplitBar from './SplitBar';
 import useStyle from './style';
@@ -46,7 +46,6 @@ const SplitterComp: React.FC<SplitterProps> = (props) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const [containerSize, setContainerSize] = useState<number>(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
   // panel size
@@ -55,9 +54,11 @@ const SplitterComp: React.FC<SplitterProps> = (props) => {
   // panel info
   const panelsRef = useRef<(HTMLDivElement | null)[]>([]);
   const panelCount = Children.count(children);
-  const gutter = ((panelCount - 1) * SPLIT_BAR_SIZE) / panelCount;
+  const gutterCount = (panelCount - 1) * SPLIT_BAR_SIZE;
+  const gutter = gutterCount / panelCount;
+
   const items = useMemo(() => {
-    const infos: InternalPanelProps[] = [];
+    const infos: PanelProps[] = [];
     React.Children.forEach(children, (child) => {
       if (React.isValidElement(child)) {
         infos.push({ ...child.props });
@@ -101,10 +102,11 @@ const SplitterComp: React.FC<SplitterProps> = (props) => {
   );
 
   const { resizing, resizeStart, setSize } = useResize({
-    containerSize,
+    containerRef,
     panelsRef,
     layout,
     gutter,
+    gutterCount,
     items,
     basicsData: basicsState,
     onResizeStart,
@@ -129,43 +131,46 @@ const SplitterComp: React.FC<SplitterProps> = (props) => {
 
   useEffect(() => {
     // 计算初始值
-    const getInitialBasics = (sizeCount: number) => {
-      const sizes: (number | undefined)[] = [];
-      let sum = 0;
-      let count = 0;
+    const getInitialBasics = () => {
+      if (containerRef.current) {
+        const { width, height } = containerRef.current.getBoundingClientRect();
+        const containerWidth = width - gutterCount;
+        const containerHeight = height - gutterCount;
 
-      items.forEach((child) => {
-        let currentSize = child.size || child.defaultSize;
-        if (currentSize === undefined) {
-          sizes.push(undefined);
-          return;
-        }
+        const sizes: (number | undefined)[] = [];
+        let sum = 0;
+        let count = 0;
 
-        currentSize = sizeTransform(currentSize, sizeCount);
-        sum += currentSize;
-        count += 1;
-        sizes.push(currentSize);
-      });
+        items.forEach((child) => {
+          let currentSize = child.size || child.defaultSize;
+          if (currentSize === undefined) {
+            sizes.push(undefined);
+            return;
+          }
 
-      const averageSize = sum > 100 ? 0 : (100 - sum) / (panelCount - count);
-      items.forEach((_, idx) => {
-        if (sizes[idx] === undefined) {
-          sizes[idx] = averageSize;
-        }
-      });
-      return sizes as number[];
+          currentSize = sizeTransform(
+            currentSize,
+            layout === 'horizontal' ? containerWidth : containerHeight,
+          );
+          sum += currentSize;
+          count += 1;
+          sizes.push(currentSize);
+        });
+
+        const averageSize = sum > 100 ? 0 : (100 - sum) / (panelCount - count);
+        items.forEach((_, idx) => {
+          if (sizes[idx] === undefined) {
+            sizes[idx] = averageSize;
+          }
+        });
+        return sizes as number[];
+      }
+      return [];
     };
 
-    setBasicsState(getInitialBasics(containerSize));
+    setBasicsState(getInitialBasics());
     // item.size 改变时，重新计算 flexBasis
-  }, [JSON.stringify(items.map((item) => item.size)), containerSize, panelCount]);
-
-  useEffect(() => {
-    if (containerRef.current) {
-      const { clientWidth, clientHeight } = containerRef.current;
-      setContainerSize(layout === 'horizontal' ? clientWidth : clientHeight);
-    }
-  }, [layout]);
+  }, [JSON.stringify(items.map((item) => item.size)), panelCount, layout, gutterCount]);
 
   return wrapCSSVar(
     <SplitterContext.Provider value={{ layout, resizing, basicsState, resizeStart, setSize }}>

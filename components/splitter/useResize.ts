@@ -6,9 +6,10 @@ import type { SplitterProps } from './Splitter';
 
 interface UseResizeProps
   extends Pick<SplitterProps, 'layout' | 'onResizeStart' | 'onResize' | 'onResizeEnd'> {
-  containerSize: number;
+  containerRef: React.RefObject<HTMLDivElement | null>;
   panelsRef: React.RefObject<(HTMLDivElement | null)[]>;
   gutter: number;
+  gutterCount: number;
   items: PanelProps[];
   basicsData: number[];
   setBasicsState: React.Dispatch<React.SetStateAction<number[]>>;
@@ -35,10 +36,11 @@ export const sizeTransform = (size: number | string, sizeCount: number) => {
 };
 
 const useResize = ({
-  containerSize,
+  containerRef,
   panelsRef,
   layout,
   gutter,
+  gutterCount,
   items,
   basicsData,
   onResize,
@@ -52,9 +54,7 @@ const useResize = ({
   const resizingRef = useRef(false);
   const [resizing, setResizing] = useState(false);
 
-  const splitBarSizeCount = items.length * gutter;
-
-  const setOffset = (offset: number, x: number, y: number) => {
+  const setOffset = (offset: number, x: number, y: number, containerSize: number) => {
     const { index } = startInfo.current;
 
     if (panelsRef.current?.[index] && basicsRef.current) {
@@ -132,15 +132,24 @@ const useResize = ({
     const { x: startX, y: startY } = startInfo.current;
     const { clientX, clientY } = event;
 
-    if (resizingRef.current && containerSize > 0) {
+    if (containerRef.current && resizingRef.current) {
+      const { width, height } = containerRef.current.getBoundingClientRect();
+      const containerWidth = width - gutterCount;
+      const containerHeight = height - gutterCount;
+
       let offset = 0;
       if (layout === 'horizontal') {
-        offset = 100 * ((startX - event.clientX) / (containerSize - splitBarSizeCount));
+        offset = 100 * ((startX - event.clientX) / containerWidth);
       } else {
-        offset = 100 * ((startY - event.clientY) / (containerSize - splitBarSizeCount));
+        offset = 100 * ((startY - event.clientY) / containerHeight);
       }
 
-      setOffset(offset, clientX, clientY);
+      setOffset(
+        offset,
+        clientX,
+        clientY,
+        layout === 'horizontal' ? containerWidth : containerHeight,
+      );
     }
   };
 
@@ -175,10 +184,6 @@ const useResize = ({
   };
 
   useEffect(() => {
-    basicsRef.current = basicsData;
-  }, [basicsData]);
-
-  useEffect(() => {
     window.addEventListener('mousemove', move);
     window.addEventListener('mouseup', end);
     window.addEventListener('contextmenu', end);
@@ -190,7 +195,9 @@ const useResize = ({
       window.removeEventListener('contextmenu', end);
       window.removeEventListener('blur', end);
     };
-  }, [layout, containerSize]);
+  }, [layout]);
+
+  basicsRef.current = basicsData;
 
   return { resizing, resizeStart, setSize };
 };
