@@ -24,11 +24,13 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
     componentCls,
     colorPrimary,
     colorFill,
+    colorTextTertiary,
     colorFillTertiary,
     resizableSize,
     borderRadius,
     collapsibleIconSize,
     zIndexPopupBase,
+    motionDurationFast,
   } = token;
 
   return {
@@ -50,6 +52,15 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
         '&:hover': {
           background: colorFill,
+
+          [`> ${componentCls}-bar-collapse`]: {
+            display: 'block',
+          },
+        },
+
+        // 扩大触发区域
+        [`> ${componentCls}-bar-area`]: {
+          position: 'absolute',
         },
 
         [`> ${componentCls}-bar-resizable`]: {
@@ -60,12 +71,14 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
         [`> ${componentCls}-bar-collapse`]: {
           position: 'absolute',
+          display: 'none',
 
           [`> ${componentCls}-bar-collapse-previous,> ${componentCls}-bar-collapse-next`]: {
             padding: 2,
             position: 'absolute',
             fontSize: collapsibleIconSize,
             zIndex: zIndexPopupBase,
+            color: colorTextTertiary,
 
             '&:hover': {
               color: colorPrimary,
@@ -90,6 +103,14 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
         [`> ${componentCls}-bar`]: {
           cursor: 'col-resize',
+
+          [`> ${componentCls}-bar-area`]: {
+            width: '250%',
+            height: '100%',
+            top: 0,
+            left: '50%',
+            transform: 'translateX(-50%)',
+          },
 
           [`> ${componentCls}-bar-resizable`]: {
             width: '100%',
@@ -124,6 +145,14 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         [`> ${componentCls}-bar`]: {
           cursor: 'row-resize',
 
+          [`> ${componentCls}-bar-area`]: {
+            width: '100%',
+            height: '250%',
+            top: '50%',
+            left: 0,
+            transform: 'translateY(-50%)',
+          },
+
           [`> ${componentCls}-bar-resizable`]: {
             width: resizableSize,
             height: '100%',
@@ -155,7 +184,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
       '&-resizing': {
         userSelect: 'none',
 
-        [`>${componentCls}-item`]: {
+        [`>${componentCls}-panel`]: {
           transition: 'none',
         },
       },
@@ -169,9 +198,9 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
       },
 
       // panel
-      '&-item': {
+      '&-panel': {
         overflow: 'auto',
-        transition: '200ms',
+        transition: motionDurationFast,
       },
     },
   };
@@ -179,7 +208,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
 export const prepareComponentToken: GetDefaultToken<'Splitter'> = (token) => ({
   resizableSize: 10,
-  collapsibleIconSize: token.fontSizeIcon,
+  collapsibleIconSize: token.fontSize,
 });
 
 // ============================== Export ==============================

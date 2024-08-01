@@ -23,7 +23,7 @@ export interface InternalPanelProps extends PanelProps {
 export const InternalPanel = forwardRef<HTMLDivElement, InternalPanelProps>((props, ref) => {
   const { prefixCls, className, children, gutter, size } = props;
 
-  const panelClassName = classNames(`${prefixCls}-item`, className);
+  const panelClassName = classNames(`${prefixCls}-panel`, className);
 
   return (
     <div

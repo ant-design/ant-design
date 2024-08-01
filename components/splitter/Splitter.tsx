@@ -24,7 +24,7 @@ export interface SplitterProps {
   onResizeEnd?: (sizes: number[]) => void;
 }
 
-const SPLIT_BAR_SIZE = 2;
+const SPLIT_BAR_SIZE = 4;
 
 const SplitterComp: React.FC<SplitterProps> = (props) => {
   const {

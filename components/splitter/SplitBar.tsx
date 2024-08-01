@@ -45,6 +45,8 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         }
       }}
     >
+      <div className={`${splitBarPrefixCls}-area`} />
+
       {resizable ? <div className={`${splitBarPrefixCls}-resizable`} /> : null}
 
       {collapsible ? (
