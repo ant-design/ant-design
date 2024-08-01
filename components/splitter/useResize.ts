@@ -57,8 +57,9 @@ const useResize = ({
 }: UseResizeProps): UseResize => {
   const startInfo = useRef({ x: 0, y: 0, index: 0 });
   const basicsRef = useRef<number[]>(basicsData);
-
   const resizingRef = useRef(false);
+  const onResizeStartRef = useRef<UseResizeProps['onResizeStart']>(onResizeStart);
+
   const [resizing, setResizing] = useState(false);
 
   const setOffset = (offset: number, x: number, y: number, containerSize: number) => {
@@ -178,7 +179,7 @@ const useResize = ({
       resizingRef.current = true;
       setResizing(true);
 
-      onResizeStart?.(basicsRef.current);
+      onResizeStartRef.current?.(basicsRef.current);
     }
   };
 

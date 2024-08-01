@@ -105,10 +105,10 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
           cursor: 'col-resize',
 
           [`> ${componentCls}-bar-area`]: {
-            width: '250%',
+            width: '300%',
             height: '100%',
             top: 0,
-            left: '50%',
+            insetInlineStart: '50%',
             transform: 'translateX(-50%)',
           },
 
@@ -121,14 +121,14 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
             width: '100%',
 
             [`> ${componentCls}-bar-collapse-previous`]: {
-              left: 0,
               top: '50%',
+              insetInlineStart: 0,
               transform: 'translate(-100%, -50%)',
             },
 
             [`> ${componentCls}-bar-collapse-next`]: {
-              right: 0,
               top: '50%',
+              insetInlineEnd: 0,
               transform: 'translate(100%, -50%)',
             },
           },
@@ -147,9 +147,9 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
           [`> ${componentCls}-bar-area`]: {
             width: '100%',
-            height: '250%',
+            height: '300%',
             top: '50%',
-            left: 0,
+            insetInlineStart: 0,
             transform: 'translateY(-50%)',
           },
 
@@ -163,13 +163,13 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
             [`> ${componentCls}-bar-collapse-previous`]: {
               top: 0,
-              left: '50%',
+              insetInlineStart: '50%',
               transform: 'translate(-50%, -100%) rotate(90deg)',
             },
 
             [`> ${componentCls}-bar-collapse-next`]: {
               bottom: 0,
-              left: '50%',
+              insetInlineStart: '50%',
               transform: 'translate(-50%, 100%) rotate(90deg)',
             },
           },
@@ -186,6 +186,12 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
         [`>${componentCls}-panel`]: {
           transition: 'none',
+        },
+
+        [`> ${componentCls}-bar`]: {
+          [`> ${componentCls}-bar-collapse`]: {
+            display: 'block',
+          },
         },
       },
 

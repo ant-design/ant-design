@@ -178,8 +178,19 @@ const Splitter: React.FC<SplitterProps> = (props) => {
     defaultSize,
   ]);
 
+  const SplitterContextValue = useMemo(
+    () => ({
+      layout,
+      resizing,
+      basicsState,
+      resizeStart,
+      setSize,
+    }),
+    [layout, resizing, basicsState],
+  );
+
   return wrapCSSVar(
-    <SplitterContext.Provider value={{ layout, resizing, basicsState, resizeStart, setSize }}>
+    <SplitterContext.Provider value={SplitterContextValue}>
       <div ref={containerRef} style={style} className={containerClassName}>
         {childrenNode}
       </div>
