@@ -1,7 +1,7 @@
 ## zh-CN
 
-简单案列
+简单案例
 
 ## en-US
 
-A simple loading status.
+A simple case.

@@ -17,7 +17,8 @@ tag: 5.21.0
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本用法</code>
-<code src="./demo/multiple.tsx">组合布局</code>
+<code src="./demo/layout.tsx">布局切换</code>
+<code src="./demo/multiple.tsx">多面板</code>
 <code src="./demo/group.tsx">复杂布局</code>
 
 ## API

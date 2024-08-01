@@ -35,6 +35,13 @@ export const sizeTransform = (size: number | string, sizeCount: number) => {
   return currentSize;
 };
 
+const eventList: ['mousemove', 'mouseup', 'contextmenu', 'blur'] = [
+  'mousemove',
+  'mouseup',
+  'contextmenu',
+  'blur',
+];
+
 const useResize = ({
   containerRef,
   panelsRef,
@@ -184,16 +191,22 @@ const useResize = ({
   };
 
   useEffect(() => {
-    window.addEventListener('mousemove', move);
-    window.addEventListener('mouseup', end);
-    window.addEventListener('contextmenu', end);
-    window.addEventListener('blur', end);
+    eventList.forEach((event) => {
+      if (event === 'mousemove') {
+        document.documentElement.addEventListener(event, move);
+      } else {
+        document.documentElement.addEventListener(event, end);
+      }
+    });
 
     return () => {
-      window.removeEventListener('mousemove', move);
-      window.removeEventListener('mouseup', end);
-      window.removeEventListener('contextmenu', end);
-      window.removeEventListener('blur', end);
+      eventList.forEach((event) => {
+        if (event === 'mousemove') {
+          document.documentElement.removeEventListener(event, move);
+        } else {
+          document.documentElement.removeEventListener(event, end);
+        }
+      });
     };
   }, [layout]);
 

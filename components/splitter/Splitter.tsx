@@ -17,7 +17,6 @@ export interface SplitterProps {
   style?: React.CSSProperties;
   children?: React.ReactNode;
   rootClassName?: string;
-
   layout?: 'horizontal' | 'vertical';
   onResizeStart?: (sizes: number[]) => void;
   onResize?: (sizes: number[]) => void;
@@ -26,7 +25,7 @@ export interface SplitterProps {
 
 const SPLIT_BAR_SIZE = 4;
 
-const SplitterComp: React.FC<SplitterProps> = (props) => {
+const Splitter: React.FC<SplitterProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -143,9 +142,9 @@ const SplitterComp: React.FC<SplitterProps> = (props) => {
         let count = 0;
 
         items.forEach((child) => {
-          let currentSize = child.size || child.defaultSize;
-          if (currentSize === undefined) {
-            sizes.push(undefined);
+          let currentSize = child.size ?? child.defaultSize;
+          if (currentSize === undefined || currentSize === '') {
+            sizes.push(defaultSize);
             return;
           }
 
@@ -171,7 +170,13 @@ const SplitterComp: React.FC<SplitterProps> = (props) => {
 
     setBasicsState(getInitialBasics());
     // item.size 改变时，重新计算 flexBasis
-  }, [JSON.stringify(items.map((item) => item.size)), panelCount, layout, gutterCount]);
+  }, [
+    JSON.stringify(items.map((item) => item.size)),
+    panelCount,
+    layout,
+    gutterCount,
+    defaultSize,
+  ]);
 
   return wrapCSSVar(
     <SplitterContext.Provider value={{ layout, resizing, basicsState, resizeStart, setSize }}>
@@ -182,8 +187,4 @@ const SplitterComp: React.FC<SplitterProps> = (props) => {
   );
 };
 
-if (process.env.NODE_ENV !== 'production') {
-  SplitterComp.displayName = 'Splitter';
-}
-
-export default SplitterComp;
+export default Splitter;

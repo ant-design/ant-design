@@ -4,13 +4,10 @@ import classNames from 'classnames';
 export interface PanelProps {
   min?: number | string;
   max?: number | string;
-
   size?: number | string;
   defaultSize?: number | string;
-
   collapsible?: boolean;
   resizable?: boolean;
-
   children?: React.ReactElement;
 }
 

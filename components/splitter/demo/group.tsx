@@ -22,7 +22,7 @@ const App: React.FC = () => (
 
         <Splitter.Panel>
           <Splitter layout="vertical">
-            <Splitter.Panel collapsible>
+            <Splitter.Panel collapsible size="100px">
               <div>3</div>
             </Splitter.Panel>
 
