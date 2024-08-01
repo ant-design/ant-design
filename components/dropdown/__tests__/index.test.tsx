@@ -351,4 +351,9 @@ describe('Dropdown', () => {
     );
     expect(container3.querySelector('button')).not.toHaveAttribute('disabled');
   });
+
+  it('should support ReactNode type value', () => {
+    const { container } = render(<Dropdown>hello</Dropdown>);
+    expect(container).toMatchSnapshot();
+  });
 });
