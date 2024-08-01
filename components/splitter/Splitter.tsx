@@ -48,14 +48,15 @@ const SplitterComp: React.FC<SplitterProps> = (props) => {
 
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // panel size
-  const [basicsState, setBasicsState] = useState<number[]>([]);
-
   // panel info
   const panelsRef = useRef<(HTMLDivElement | null)[]>([]);
   const panelCount = Children.count(children);
   const gutterCount = (panelCount - 1) * SPLIT_BAR_SIZE;
   const gutter = gutterCount / panelCount;
+
+  // panel size
+  const defaultSize = 100 / panelCount;
+  const [basicsState, setBasicsState] = useState<number[]>(new Array(panelCount).fill(defaultSize));
 
   const items = useMemo(() => {
     const infos: PanelProps[] = [];
