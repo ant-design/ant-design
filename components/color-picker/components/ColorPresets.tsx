@@ -9,10 +9,11 @@ import Collapse from '../../collapse';
 import { useLocale } from '../../locale';
 import { useToken } from '../../theme/internal';
 import type { AggregationColor } from '../color';
-import type { ColorPickerBaseProps, PresetsItem } from '../interface';
+import type { PresetsItem } from '../interface';
 import { generateColor } from '../util';
 
-interface ColorPresetsProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
+interface ColorPresetsProps {
+  prefixCls: string;
   presets: PresetsItem[];
   value?: AggregationColor;
   onChange?: (value: AggregationColor) => void;

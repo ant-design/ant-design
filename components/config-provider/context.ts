@@ -25,6 +25,7 @@ import type { ArgsProps } from '../notification/interface';
 import type { PaginationProps } from '../pagination';
 import type { SelectProps } from '../select';
 import type { SpaceProps } from '../space';
+import type { SpinProps } from '../spin';
 import type { TableProps } from '../table';
 import type { TabsProps } from '../tabs';
 import type { TagProps } from '../tag';
@@ -178,6 +179,8 @@ export type SelectConfig = ComponentStyleConfig & Pick<SelectProps, 'showSearch'
 
 export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'classNames' | 'styles'>;
 
+export type SpinConfig = ComponentStyleConfig & Pick<SpinProps, 'indicator'>;
+
 export type InputNumberConfig = ComponentStyleConfig & Pick<InputNumberProps, 'variant'>;
 
 export type CascaderConfig = ComponentStyleConfig & Pick<CascaderProps, 'variant'>;
@@ -258,7 +261,7 @@ export interface ConfigConsumerProps {
   floatButtonGroup?: FloatButtonGroupConfig;
   typography?: ComponentStyleConfig;
   skeleton?: ComponentStyleConfig;
-  spin?: ComponentStyleConfig;
+  spin?: SpinConfig;
   segmented?: ComponentStyleConfig;
   steps?: ComponentStyleConfig;
   statistic?: ComponentStyleConfig;
