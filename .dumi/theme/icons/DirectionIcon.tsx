@@ -20,8 +20,8 @@ const DirectionSvg: React.FC<DirectionIconProps> = ({ direction }) => (
   </svg>
 );
 
-const DirectionIcon: React.FC<DirectionIconProps> = (props) => (
-  <Icon {...props} component={() => <DirectionSvg direction={props.direction} />} />
-);
+const DirectionIcon = React.forwardRef<HTMLSpanElement, DirectionIconProps>((props, ref) => (
+  <Icon ref={ref} component={() => <DirectionSvg direction={props.direction} />} {...props} />
+));
 
 export default DirectionIcon;

@@ -63,7 +63,58 @@ describe('Table.sorter', () => {
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
     expect(container.querySelector('th')?.getAttribute('aria-sort')).toEqual('descending');
   });
-
+  it('sort will work when column with children', () => {
+    const onChange = jest.fn();
+    const tableData = [
+      {
+        key: '1',
+        estimatedTicketsLeft: 100,
+        estimatedTicketsLeftPercentage: 50.25,
+      },
+      {
+        key: '2',
+        estimatedTicketsLeft: 200,
+        estimatedTicketsLeftPercentage: 75.5,
+      },
+      {
+        key: '3',
+        estimatedTicketsLeft: 50,
+        estimatedTicketsLeftPercentage: 25.75,
+      },
+    ];
+    const columns = [
+      {
+        title: 'Tickets',
+        children: [
+          {
+            title: 'Amount',
+            dataIndex: 'estimatedTicketsLeft',
+            sorter: (a:any, b:any) => a.estimatedTicketsLeft - b.estimatedTicketsLeft,
+            sortDirections: ['descend', 'ascend'],
+            render: (text:any) => `${text} left`,
+          },
+          {
+            title: '[%]',
+            dataIndex: 'estimatedTicketsLeftPercentage',
+            sorter: (a:any, b:any) => a.estimatedTicketsLeftPercentage - b.estimatedTicketsLeftPercentage,
+            sortDirections: ['descend', 'ascend'],
+            render: (text:any) => `${text.toFixed(2)}%`,
+          },
+        ],
+      },
+    ];
+    const TableSorter: React.FC = () => (
+      <Table
+        columns={columns}
+        dataSource={tableData}
+        onChange={onChange}
+        showSorterTooltip={{ target: 'sorter-icon' }}
+      />
+    );
+    const { container } = render(<TableSorter />);
+    fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
+    expect(renderedNames(container)).toEqual(['200 left', '100 left', '50 left']);
+  });
   it('should change aria-sort when default sort order is set to descend', () => {
     const { container } = render(
       createTable({ sortDirections: ['descend', 'ascend'] }, { defaultSortOrder: 'descend' }),
