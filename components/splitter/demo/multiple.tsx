@@ -5,7 +5,7 @@ const App: React.FC = () => (
   <Splitter
     style={{
       height: 300,
-      borderRadius: '4px',
+      borderRadius: 4,
       border: '1px solid #e5e7eb',
     }}
   >
