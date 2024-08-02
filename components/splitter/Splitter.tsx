@@ -18,12 +18,12 @@ export interface SplitterProps {
   children?: React.ReactNode;
   rootClassName?: string;
   layout?: 'horizontal' | 'vertical';
-  onResizeStart?: (sizes: number[]) => void;
-  onResize?: (sizes: number[]) => void;
-  onResizeEnd?: (sizes: number[]) => void;
+  onResizeStart?: (sizes: number[], index: number) => void;
+  onResize?: (sizes: number[], index: number) => void;
+  onResizeEnd?: (sizes: number[], index: number) => void;
 }
 
-const SPLIT_BAR_SIZE = 4;
+const SPLIT_BAR_SIZE = 2;
 
 const Splitter: React.FC<SplitterProps> = (props) => {
   const {
@@ -76,7 +76,8 @@ const Splitter: React.FC<SplitterProps> = (props) => {
             ref={(ref) => {
               panelsRef.current[idx] = ref;
             }}
-            key={`panel${`-${idx}`}`}
+            // eslint-disable-next-line react/no-array-index-key
+            key={`panel-${idx}`}
             size={basicsState[idx]}
             prefixCls={prefixCls}
             gutter={gutter}

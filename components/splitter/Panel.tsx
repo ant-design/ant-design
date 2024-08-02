@@ -39,6 +39,6 @@ if (process.env.NODE_ENV !== 'production') {
   InternalPanel.displayName = 'Panel';
 }
 
-const Panel: React.FC<PanelProps> = (props) => <InternalPanel {...props} />;
+const Panel: React.FC<PanelProps> = (props) => props.children;
 
 export default Panel;

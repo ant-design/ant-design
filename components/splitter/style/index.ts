@@ -49,6 +49,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         justifyContent: 'center',
         position: 'relative',
         background: colorFillTertiary,
+        transition: `background-color ${motionDurationFast}`,
 
         '&:hover': {
           background: colorFill,
@@ -87,8 +88,8 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         },
       },
 
-      '&-bar-active': {
-        background: colorFill,
+      [`&-bar${componentCls}-bar-active`]: {
+        background: colorTextTertiary,
       },
 
       '&-bar-disabled': {
@@ -206,7 +207,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
       // panel
       '&-panel': {
         overflow: 'auto',
-        transition: motionDurationFast,
+        transition: `flex-basis ${motionDurationFast}`,
         scrollbarWidth: 'thin',
       },
     },

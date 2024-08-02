@@ -127,7 +127,7 @@ const useResize = ({
       basicsRef.current[index + 1] = nextSize;
 
       setBasicsState([...basicsRef.current]);
-      onResize?.(basicsRef.current);
+      onResize?.(basicsRef.current, index);
     }
   };
 
@@ -163,7 +163,7 @@ const useResize = ({
       resizingRef.current = false;
       setResizing(false);
 
-      onResizeEnd?.(basicsRef.current);
+      onResizeEnd?.(basicsRef.current, startInfo.current.index);
     }
   };
 
@@ -174,7 +174,7 @@ const useResize = ({
       resizingRef.current = true;
       setResizing(true);
 
-      onResizeStartRef.current?.(basicsRef.current);
+      onResizeStartRef.current?.(basicsRef.current, startInfo.current.index);
     }
   };
 
