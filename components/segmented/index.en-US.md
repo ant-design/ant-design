@@ -50,8 +50,8 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### SegmentedItemType
 
-| Property  | Description                      | Type             | Default | Version |
-| --------- | -------------------------------- | ---------------- | ------- | ------- | --- |
+| Property  | Description  | Type  | Default | Version |
+| --- | --- | --- | --- | --- |
 | label     | Display text for Segmented item  | ReactNode        | -       |         |
 | value     | Value for Segmented item         | string \| number | -       |         |
 | icon      | Display icon for Segmented item  | ReactNode        | -       |         |     |
