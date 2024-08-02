@@ -41,8 +41,8 @@ tag: 5.21.0
 | ----------- | --------------------------------------------- | ------------------ | ------- |
 | min         | 最小阈值 `1-100 \| '10%' \| '200px'`          | `number \| string` | -       |
 | max         | 最大阈值 `1-100 \| '10%' \| '200px'`          | `number \| string` | -       |
-| size        | 受控面板大小 `1-100 \| '10%' \| '200px'`      | `number`           | -       |
-| defaultSize | 初始面板大小 `1-100 \| '10%' \| '200px'`      | `number`           | -       |
+| size        | 受控面板大小 `1-100 \| '10%' \| '200px'`      | `number \| string` | -       |
+| defaultSize | 初始面板大小 `1-100 \| '10%' \| '200px'`      | `number \| string` | -       |
 | collapsible | 快速折叠 `collapsible=true`时将忽略`min``max` | `boolean`          | `false` |
 | resizable   | 是否支持拖拽伸缩                              | `boolean`          | `true`  |
 

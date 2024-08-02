@@ -35,12 +35,7 @@ export const sizeTransform = (size: number | string, sizeCount: number) => {
   return currentSize;
 };
 
-const eventList: ['mousemove', 'mouseup', 'contextmenu', 'blur'] = [
-  'mousemove',
-  'mouseup',
-  'contextmenu',
-  'blur',
-];
+const eventList: (keyof WindowEventMap)[] = ['mousemove', 'mouseup', 'contextmenu', 'blur'];
 
 const useResize = ({
   containerRef,
@@ -212,6 +207,7 @@ const useResize = ({
   }, [layout]);
 
   basicsRef.current = basicsData;
+  onResizeStartRef.current = onResizeStart;
 
   return { resizing, resizeStart, setSize };
 };

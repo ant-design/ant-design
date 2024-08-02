@@ -137,7 +137,7 @@ const Splitter: React.FC<SplitterProps> = (props) => {
         const containerWidth = width - gutterCount;
         const containerHeight = height - gutterCount;
 
-        const sizes: (number | undefined)[] = [];
+        const sizes: number[] = [];
         let sum = 0;
         let count = 0;
 
@@ -159,7 +159,7 @@ const Splitter: React.FC<SplitterProps> = (props) => {
 
         const averageSize = sum > 100 ? 0 : (100 - sum) / (panelCount - count);
         items.forEach((_, idx) => {
-          if (sizes[idx] === undefined) {
+          if (sizes[idx] === defaultSize) {
             sizes[idx] = averageSize;
           }
         });
@@ -178,7 +178,7 @@ const Splitter: React.FC<SplitterProps> = (props) => {
     defaultSize,
   ]);
 
-  const SplitterContextValue = useMemo(
+  const splitterContextValue = useMemo(
     () => ({
       layout,
       resizing,
@@ -190,7 +190,7 @@ const Splitter: React.FC<SplitterProps> = (props) => {
   );
 
   return wrapCSSVar(
-    <SplitterContext.Provider value={SplitterContextValue}>
+    <SplitterContext.Provider value={splitterContextValue}>
       <div ref={containerRef} style={style} className={containerClassName}>
         {childrenNode}
       </div>

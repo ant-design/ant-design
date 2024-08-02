@@ -34,7 +34,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
   } = token;
 
   return {
-    [`${componentCls}`]: {
+    [componentCls]: {
       ...resetComponent(token),
       display: 'flex',
       width: '100%',
@@ -207,6 +207,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
       '&-panel': {
         overflow: 'auto',
         transition: motionDurationFast,
+        scrollbarWidth: 'thin',
       },
     },
   };
