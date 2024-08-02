@@ -3,11 +3,11 @@ import React, { useEffect, useState } from 'react';
 import type { HSB } from '@rc-component/color-picker';
 
 import type { AggregationColor } from '../color';
-import type { ColorPickerBaseProps } from '../interface';
 import { generateColor, getRoundNumber } from '../util';
 import ColorSteppers from './ColorSteppers';
 
-interface ColorHsbInputProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
+interface ColorHsbInputProps {
+  prefixCls: string;
   value?: AggregationColor;
   onChange?: (value: AggregationColor) => void;
 }

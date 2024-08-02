@@ -7,7 +7,7 @@ import {
   QuestionCircleOutlined,
 } from '@ant-design/icons';
 import { TinyColor } from '@ctrl/tinycolor';
-import type { MenuProps, ThemeConfig, GetProp, ColorPickerProps } from 'antd';
+import type { ColorPickerProps, GetProp, MenuProps, ThemeConfig } from 'antd';
 import {
   Breadcrumb,
   Card,
@@ -40,7 +40,7 @@ import RadiusPicker from './RadiusPicker';
 import type { THEME } from './ThemePicker';
 import ThemePicker from './ThemePicker';
 
-type Color = GetProp<ColorPickerProps, 'value'>;
+type Color = Extract<GetProp<ColorPickerProps, 'value'>, string | { cleared: any }>;
 
 const { Header, Content, Sider } = Layout;
 
@@ -195,23 +195,23 @@ const useStyle = createStyles(({ token, css, cx }) => {
       position: absolute;
     `,
     leftTopImagePos: css`
-      left: 0;
+      inset-inline-start: 0;
       top: -100px;
       height: 500px;
     `,
     rightBottomPos: css`
-      right: 0;
+      inset-inline-end: 0;
       bottom: -100px;
       height: 287px;
     `,
     leftTopImage: css`
-      left: 50%;
+      inset-inline-start: 50%;
       transform: translate3d(-900px, 0, 0);
       top: -100px;
       height: 500px;
     `,
     rightBottomImage: css`
-      right: 50%;
+      inset-inline-end: 50%;
       transform: translate3d(750px, 0, 0);
       bottom: -100px;
       height: 287px;

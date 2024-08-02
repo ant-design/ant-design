@@ -5,7 +5,9 @@ const containerStyle: React.CSSProperties = {
   width: '100%',
   height: 100,
   overflow: 'auto',
-  boxShadow: '0 0 0 1px #40a9ff',
+  boxShadow: '0 0 0 1px #1677ff',
+  scrollbarWidth: 'thin',
+  scrollbarColor: 'unset',
 };
 
 const style: React.CSSProperties = {

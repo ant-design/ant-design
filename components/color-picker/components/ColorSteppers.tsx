@@ -4,9 +4,9 @@ import classNames from 'classnames';
 
 import type { InputNumberProps } from '../../input-number';
 import InputNumber from '../../input-number';
-import type { ColorPickerBaseProps } from '../interface';
 
-interface ColorSteppersProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
+interface ColorSteppersProps {
+  prefixCls: string;
   value?: number;
   min?: number;
   max?: number;
