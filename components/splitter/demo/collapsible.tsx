@@ -9,7 +9,7 @@ const App: React.FC = () => (
       boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
     }}
   >
-    <Splitter.Panel>
+    <Splitter.Panel collapsible>
       <div style={{ padding: 12 }}>first</div>
     </Splitter.Panel>
 

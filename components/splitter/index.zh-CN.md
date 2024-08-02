@@ -17,9 +17,12 @@ tag: 5.21.0
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本用法</code>
+<code src="./demo/size.tsx">面板大小控制</code>
+<code src="./demo/collapsible.tsx">快捷折叠</code>
 <code src="./demo/layout.tsx">布局切换</code>
 <code src="./demo/multiple.tsx">多面板</code>
 <code src="./demo/group.tsx">复杂布局</code>
+<code src="./demo/debug.tsx" debug>测试</code>
 
 ## API
 
@@ -27,24 +30,24 @@ tag: 5.21.0
 
 ### Splitter
 
-| Props         | Descriptions     | Type                        | Default      |
-| ------------- | ---------------- | --------------------------- | ------------ |
-| layout        | 布局方向         | `horizontal` \| `vertical`  | `horizontal` |
-| style         | 容器样式         | `css-properties`            | -            |
-| onResizeStart | 开始拖拽之前回调 | `(sizes: number[]) => void` | -            |
-| onResize      | 面板大小变化回调 | `(sizes: number[]) => void` | -            |
-| onResizeEnd   | 拖拽结束回调     | `(sizes: number[]) => void` | -            |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| layout | 布局方向 | `horizontal` \| `vertical` | `horizontal` | - |
+| style | 容器样式 | `css-properties` | - | - |
+| onResizeStart | 开始拖拽之前回调 | `(sizes: number[], index:number) => void` | - | - |
+| onResize | 面板大小变化回调 | `(sizes: number[], index:number) => void` | - | - |
+| onResizeEnd | 拖拽结束回调 | `(sizes: number[], index:number) => void` | - | - |
 
 ### Panel
 
-| Props       | Descriptions                                  | Type               | Default |
-| ----------- | --------------------------------------------- | ------------------ | ------- |
-| min         | 最小阈值 `1-100 \| '10%' \| '200px'`          | `number \| string` | -       |
-| max         | 最大阈值 `1-100 \| '10%' \| '200px'`          | `number \| string` | -       |
-| size        | 受控面板大小 `1-100 \| '10%' \| '200px'`      | `number \| string` | -       |
-| defaultSize | 初始面板大小 `1-100 \| '10%' \| '200px'`      | `number \| string` | -       |
-| collapsible | 快速折叠 `collapsible=true`时将忽略`min``max` | `boolean`          | `false` |
-| resizable   | 是否支持拖拽伸缩                              | `boolean`          | `true`  |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| min | 最小阈值 `1-100 \| '10%' \| '200px'` | `number \| string` | - | - |
+| max | 最大阈值 `1-100 \| '10%' \| '200px'` | `number \| string` | - | - |
+| size | 受控面板大小 `1-100 \| '10%' \| '200px'` | `number \| string` | - | - |
+| defaultSize | 初始面板大小 `1-100 \| '10%' \| '200px'` | `number \| string` | 50 | - |
+| collapsible | 快速折叠 `collapsible=true`时将忽略`min``max` | `boolean` | `false` | - |
+| resizable | 是否支持拖拽伸缩 | `boolean` | `true` | - |
 
 ## 主题变量（Design Token）
 

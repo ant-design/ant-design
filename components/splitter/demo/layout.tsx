@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Radio, Splitter } from 'antd';
+import { Radio, Splitter } from 'antd';
 
 import type { SplitterProps } from '../Splitter';
 
@@ -25,17 +25,12 @@ const App: React.FC = () => {
           boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
         }}
       >
-        <Splitter.Panel defaultSize="220px" collapsible>
-          <Card title="first" bordered={false}>
-            <div>defaultSize: 220px</div>
-            <div>collapsible: true</div>
-          </Card>
+        <Splitter.Panel>
+          <div style={{ padding: 12 }}>first</div>
         </Splitter.Panel>
 
         <Splitter.Panel>
-          <Card title="second" bordered={false}>
-            <div>something</div>
-          </Card>
+          <div style={{ padding: 12 }}>second</div>
         </Splitter.Panel>
       </Splitter>
     </>

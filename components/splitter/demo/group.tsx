@@ -10,20 +10,30 @@ const App: React.FC = () => (
       border: '1px solid #e5e7eb',
     }}
   >
-    <Splitter.Panel defaultSize={50}>
-      <div>1</div>
+    <Splitter.Panel defaultSize={30}>
+      <div style={{ padding: 12 }}>
+        <div>1</div>
+        <div>defaultSize=30</div>
+      </div>
     </Splitter.Panel>
 
     <Splitter.Panel>
       <Splitter>
-        <Splitter.Panel>
-          <div>2</div>
+        <Splitter.Panel resizable={false}>
+          <div style={{ padding: 12 }}>
+            <div>2</div>
+            <div>resizable=false</div>
+          </div>
         </Splitter.Panel>
 
         <Splitter.Panel>
           <Splitter layout="vertical">
-            <Splitter.Panel collapsible size="100px">
-              <div>3</div>
+            <Splitter.Panel collapsible defaultSize="100px">
+              <div style={{ padding: 12 }}>
+                <div>3</div>
+                <div>collapsible=true</div>
+                <div>defaultSize=120px</div>
+              </div>
             </Splitter.Panel>
 
             <Splitter.Panel>
