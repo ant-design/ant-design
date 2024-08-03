@@ -93,7 +93,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 | onValuesChange | 字段值更新时触发回调事件 | function(changedValues, allValues) | - |  |
 | clearOnDestroy | 当表单被卸载时清空表单值 | boolean | false | 5.18.0 |
 
-支持原生form除`onSubmit`外的所有属性。
+> 支持原生 form 除 `onSubmit` 外的所有属性。
 
 ### validateMessages
 

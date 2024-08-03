@@ -92,7 +92,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onValuesChange | Trigger when value updated | function(changedValues, allValues) | - |  |
 | clearOnDestroy | Clear form values when the form is uninstalled | boolean | false | 5.18.0 |
 
-It accepts all props which native forms support but `onSubmit`.
+> It accepts all props which native forms support but `onSubmit`.
 
 ### validateMessages
 
