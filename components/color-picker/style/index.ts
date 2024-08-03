@@ -161,7 +161,7 @@ const genSizeStyle = (token: ColorPickerToken): CSSObject => {
       },
 
       [`${componentCls}-trigger-text`]: {
-        lineHeight: controlHeightXS,
+        lineHeight: unit(controlHeightXS),
       },
     },
   };
