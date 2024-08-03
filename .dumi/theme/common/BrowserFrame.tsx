@@ -10,7 +10,7 @@ const useStyle = createStyles(({ token, css }) => ({
     &::before {
       position: absolute;
       top: -1.25em;
-      left: 1em;
+      inset-inline-start: 1em;
       display: block;
       width: 0.5em;
       height: 0.5em;
@@ -27,7 +27,7 @@ const useStyle = createStyles(({ token, css }) => ({
       display: block;
       position: absolute;
       top: -1.6em;
-      left: 5.5em;
+      inset-inline-start: 5.5em;
       width: calc(100% - 6em);
       height: 1.2em;
       background-color: #fff;

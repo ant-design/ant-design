@@ -1,12 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes, unit } from '@ant-design/cssinjs';
 
-import type {
-  FullToken,
-  GenerateStyle,
-  GetDefaultToken,
-  CSSUtil,
-} from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken, CSSUtil } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export type ComponentToken = {
@@ -28,7 +23,7 @@ export type ComponentToken = {
    * @desc 标题骨架屏高度
    * @descEN Height of title skeleton
    */
-  titleHeight: number;
+  titleHeight: number | string;
   /**
    * @desc 骨架屏圆角
    * @descEN Border radius of skeleton

@@ -14,6 +14,7 @@ export interface DividerProps {
   rootClassName?: string;
   children?: React.ReactNode;
   dashed?: boolean;
+  variant?: 'dashed' | 'dotted' | 'solid'
   style?: React.CSSProperties;
   plain?: boolean;
 }
@@ -30,6 +31,7 @@ const Divider: React.FC<DividerProps> = (props) => {
     rootClassName,
     children,
     dashed,
+    variant = 'solid',
     plain,
     style,
     ...restProps
@@ -51,6 +53,7 @@ const Divider: React.FC<DividerProps> = (props) => {
       [`${prefixCls}-with-text`]: hasChildren,
       [`${prefixCls}-with-text-${orientation}`]: hasChildren,
       [`${prefixCls}-dashed`]: !!dashed,
+      [`${prefixCls}-${variant}`]: variant !== 'solid',
       [`${prefixCls}-plain`]: !!plain,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-no-default-orientation-margin-left`]: hasCustomMarginLeft,

@@ -11,7 +11,7 @@ export default () => {
         .nav-phone-icon {
           position: absolute;
           bottom: 17px;
-          right: 30px;
+          inset-inline-end: 30px;
           z-index: 1;
           display: none;
           width: 16px;
@@ -98,8 +98,8 @@ export default () => {
           .drawer {
             .ant-menu-inline .ant-menu-item::after,
             .ant-menu-vertical .ant-menu-item::after {
-              right: auto;
-              left: 0;
+              inset-inline-end: auto;
+              inset-inline-start: 0;
             }
           }
 

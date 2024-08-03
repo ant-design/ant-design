@@ -143,6 +143,9 @@ const localeValues: Locale = {
   },
   ColorPicker: {
     presetEmpty: 'Kosong',
+    transparent: 'Transparan',
+    singleColor: 'Warna tunggal',
+    gradientColor: 'Warna gradien',
   },
 };
 

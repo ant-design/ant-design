@@ -124,4 +124,17 @@ describe('Popover', () => {
     fireEvent.keyDown(triggerNode, { key: 'Escape', keyCode: 27 });
     expect(onOpenChange).toHaveBeenLastCalledWith(false, eventObject);
   });
+
+  it('should not display overlay when the content is null/undefined', () => {
+    [null, undefined].forEach((item) => {
+      const { container } = render(
+        <Popover title={() => item} content={() => item} trigger="click">
+          <span>show me your code</span>
+        </Popover>,
+      );
+      fireEvent.click(container.querySelector<HTMLSpanElement>('span')!);
+      const popup = document.querySelector('.ant-popover');
+      expect(popup).toBe(null);
+    });
+  });
 });

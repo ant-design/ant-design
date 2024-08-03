@@ -10,7 +10,7 @@ export interface ComponentToken {
    * @desc 内容区域高度
    * @descEN Height of content area
    */
-  contentHeight: number;
+  contentHeight: number | string;
   /**
    * @desc 加载图标尺寸
    * @descEN Loading icon size
