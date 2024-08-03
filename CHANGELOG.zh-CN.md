@@ -29,7 +29,7 @@ tag: vVERSION
 - 🆕 Table 组件支持自定义过滤器下拉框空状态。 [#49613](https://github.com/ant-design/ant-design/pull/49613) [@Wxh16144](https://github.com/Wxh16144)
 - 🆕 Divider 支持添加 `dashed`（虚线）、`dotted`（点线）或 `solid`（实线）的样式。[#49654](https://github.com/ant-design/ant-design/pull/49654) [@pinaki-08](https://github.com/pinaki-08)
 - 🆕 InputNumber 支持 `suffix` 属性。[#49674](https://github.com/ant-design/ant-design/pull/49674) [@coding-ice](https://github.com/coding-ice)
-- 🆕 ColorPicker 支持渐变色选择。修复受控模式不生效的问题。[#50050](https://github.com/ant-design/ant-design/pull/50050)
+- 🆕 ColorPicker 支持渐变色选择，并修复受控模式不生效的问题。[#50050](https://github.com/ant-design/ant-design/pull/50050)
 - 🆕 Input/TextArea/Mentions 组件支持 `onClear` 回调，便于区分点击 x 清除和手动清除这两个行为。[#49905](https://github.com/ant-design/ant-design/pull/49905) [@li-jia-nan](https://github.com/li-jia-nan)
 - ⌨️ 优化 Input 下长按回车会不断触发变更的问题。[rc-input#72](https://github.com/react-component/input/pull/72/files) [@crazyair](https://github.com/crazyair)
 - 🐞 修复 Table 中列存在分组时，排序不生效的问题。[#50086](https://github.com/ant-design/ant-design/pull/50086) [@Zyf665](https://github.com/Zyf665)
