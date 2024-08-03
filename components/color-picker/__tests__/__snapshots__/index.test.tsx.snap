@@ -59,7 +59,7 @@ exports[`ColorPicker Should panelRender work 1`] = `
                       style="position: relative;"
                     >
                       <div
-                        style="position: absolute; left: -50px; top: 50px; z-index: 1;"
+                        style="position: absolute; left: 0%; top: 100%; z-index: 1; transform: translate(-50%, -50%);"
                       >
                         <div
                           class="ant-color-picker-handler"
@@ -79,46 +79,46 @@ exports[`ColorPicker Should panelRender work 1`] = `
                       class="ant-color-picker-slider-group"
                     >
                       <div
-                        class="ant-color-picker-slider ant-color-picker-slider-hue"
+                        class="ant-slider ant-color-picker-slider ant-slider-horizontal"
                       >
                         <div
-                          class="ant-color-picker-palette"
-                          style="position: relative;"
-                        >
-                          <div
-                            style="position: absolute; left: -50px; top: -16.666666666666668px; z-index: 1;"
-                          >
-                            <div
-                              class="ant-color-picker-handler ant-color-picker-handler-sm"
-                              style="background-color: rgb(255, 0, 0);"
-                            />
-                          </div>
-                          <div
-                            class="ant-color-picker-gradient"
-                            style="position: absolute; inset: 0;"
-                          />
-                        </div>
+                          class="ant-slider-rail ant-color-picker-slider-rail"
+                        />
+                        <div
+                          class="ant-slider-step"
+                        />
+                        <div
+                          aria-disabled="false"
+                          aria-orientation="horizontal"
+                          aria-valuemax="359"
+                          aria-valuemin="0"
+                          aria-valuenow="0"
+                          class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                          role="slider"
+                          style="left: 0%; transform: translateX(-50%); background: rgb(255, 0, 0);"
+                          tabindex="0"
+                        />
                       </div>
                       <div
-                        class="ant-color-picker-slider ant-color-picker-slider-alpha"
+                        class="ant-slider ant-color-picker-slider ant-slider-horizontal"
                       >
                         <div
-                          class="ant-color-picker-palette"
-                          style="position: relative;"
-                        >
-                          <div
-                            style="position: absolute; left: -50px; top: -16.666666666666668px; z-index: 1;"
-                          >
-                            <div
-                              class="ant-color-picker-handler ant-color-picker-handler-sm"
-                              style="background-color: rgba(0, 0, 0, 0);"
-                            />
-                          </div>
-                          <div
-                            class="ant-color-picker-gradient"
-                            style="position: absolute; inset: 0;"
-                          />
-                        </div>
+                          class="ant-slider-rail ant-color-picker-slider-rail"
+                        />
+                        <div
+                          class="ant-slider-step"
+                        />
+                        <div
+                          aria-disabled="false"
+                          aria-orientation="horizontal"
+                          aria-valuemax="100"
+                          aria-valuemin="0"
+                          aria-valuenow="0"
+                          class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                          role="slider"
+                          style="left: 0%; transform: translateX(-50%); background: rgba(0, 0, 0, 0);"
+                          tabindex="0"
+                        />
                       </div>
                     </div>
                     <div
@@ -343,7 +343,7 @@ exports[`ColorPicker Should panelRender work 2`] = `
                     style="position: relative;"
                   >
                     <div
-                      style="position: absolute; left: -50px; top: 50px; z-index: 1;"
+                      style="position: absolute; left: 0%; top: 100%; z-index: 1; transform: translate(-50%, -50%);"
                     >
                       <div
                         class="ant-color-picker-handler"
@@ -363,46 +363,46 @@ exports[`ColorPicker Should panelRender work 2`] = `
                     class="ant-color-picker-slider-group"
                   >
                     <div
-                      class="ant-color-picker-slider ant-color-picker-slider-hue"
+                      class="ant-slider ant-color-picker-slider ant-slider-horizontal"
                     >
                       <div
-                        class="ant-color-picker-palette"
-                        style="position: relative;"
-                      >
-                        <div
-                          style="position: absolute; left: -50px; top: -16.666666666666668px; z-index: 1;"
-                        >
-                          <div
-                            class="ant-color-picker-handler ant-color-picker-handler-sm"
-                            style="background-color: rgb(255, 0, 0);"
-                          />
-                        </div>
-                        <div
-                          class="ant-color-picker-gradient"
-                          style="position: absolute; inset: 0;"
-                        />
-                      </div>
+                        class="ant-slider-rail ant-color-picker-slider-rail"
+                      />
+                      <div
+                        class="ant-slider-step"
+                      />
+                      <div
+                        aria-disabled="false"
+                        aria-orientation="horizontal"
+                        aria-valuemax="359"
+                        aria-valuemin="0"
+                        aria-valuenow="0"
+                        class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                        role="slider"
+                        style="left: 0%; transform: translateX(-50%); background: rgb(255, 0, 0);"
+                        tabindex="0"
+                      />
                     </div>
                     <div
-                      class="ant-color-picker-slider ant-color-picker-slider-alpha"
+                      class="ant-slider ant-color-picker-slider ant-slider-horizontal"
                     >
                       <div
-                        class="ant-color-picker-palette"
-                        style="position: relative;"
-                      >
-                        <div
-                          style="position: absolute; left: -50px; top: -16.666666666666668px; z-index: 1;"
-                        >
-                          <div
-                            class="ant-color-picker-handler ant-color-picker-handler-sm"
-                            style="background-color: rgba(0, 0, 0, 0);"
-                          />
-                        </div>
-                        <div
-                          class="ant-color-picker-gradient"
-                          style="position: absolute; inset: 0;"
-                        />
-                      </div>
+                        class="ant-slider-rail ant-color-picker-slider-rail"
+                      />
+                      <div
+                        class="ant-slider-step"
+                      />
+                      <div
+                        aria-disabled="false"
+                        aria-orientation="horizontal"
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="0"
+                        class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                        role="slider"
+                        style="left: 0%; transform: translateX(-50%); background: rgba(0, 0, 0, 0);"
+                        tabindex="0"
+                      />
                     </div>
                   </div>
                   <div

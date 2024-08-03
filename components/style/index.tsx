@@ -12,10 +12,7 @@ export const textEllipsis: CSSObject = {
   textOverflow: 'ellipsis',
 };
 
-export const resetComponent = (
-  token: AliasToken,
-  needInheritFontFamily = false,
-): CSSObject => ({
+export const resetComponent = (token: AliasToken, needInheritFontFamily = false): CSSObject => ({
   boxSizing: 'border-box',
   margin: 0,
   padding: 0,
