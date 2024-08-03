@@ -314,7 +314,10 @@ If you think the visual diff is acceptable, please check:
 }
 
 async function boot() {
-  const { prId, baseRef: targetBranch = 'master', currentRef, maxWorkers } = await parseArgs();
+  const args = await parseArgs();
+  console.log(`Args: ${JSON.stringify(args)}`);
+
+  const { prId, baseRef: targetBranch = 'master', currentRef, maxWorkers } = args;
 
   const baseImgSourceDir = path.resolve(ROOT_DIR, `./imageSnapshots-${targetBranch}`);
 
