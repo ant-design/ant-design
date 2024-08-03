@@ -32,6 +32,8 @@ tag: vVERSION
 - 🆕 ColorPicker 支持渐变色选择，并修复受控模式不生效的问题。[#50050](https://github.com/ant-design/ant-design/pull/50050)
 - 🆕 Input/TextArea/Mentions 组件支持 `onClear` 回调，便于区分点击 x 清除和手动清除这两个行为。[#49905](https://github.com/ant-design/ant-design/pull/49905) [@li-jia-nan](https://github.com/li-jia-nan)
 - ⌨️ 优化 Input 下长按回车会不断触发变更的问题。[rc-input#72](https://github.com/react-component/input/pull/72/files) [@crazyair](https://github.com/crazyair)
+- 🐞 修复 ColorPicker 在 cssinjs 模式下 line-height 失效的问题。[#50220](https://github.com/ant-design/ant-design/pull/50220) [@vagusX](https://github.com/vagusX)
+- 🐞 修复 ColorPicker 在 disabled 状态下的光标问题. [#50217](https://github.com/ant-design/ant-design/pull/50217) [@coding-ice](https://github.com/coding-ice)
 - 🐞 修复 Table 中列存在分组时，排序不生效的问题。[#50086](https://github.com/ant-design/ant-design/pull/50086) [@Zyf665](https://github.com/Zyf665)
 - 🐞 修复 Popover/PopConfirm/Tooltip 在目标元素宽度过大时，使用 `topLeft`, `topRight`, `bottomLeft`, `bottomRight` 的弹出动画起始缩放中心有所偏移的问题。[#50134](https://github.com/ant-design/ant-design/pull/50134)
 - 💄 修复 Tree 组件 filter-node 节点高亮样式丢失。[#49773](https://github.com/ant-design/ant-design/pull/49773) [@wanpan11](https://github.com/wanpan11)

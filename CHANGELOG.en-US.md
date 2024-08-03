@@ -33,6 +33,8 @@ tag: vVERSION
 - 🆕 ColorPicker support gradient color type and fix controlled mode not working. [#50050](https://github.com/ant-design/ant-design/pull/50050)
 - 🆕 Input/TextArea/Mentions support `onClear` prop. [#49905](https://github.com/ant-design/ant-design/pull/49905) [@li-jia-nan](https://github.com/li-jia-nan)
 - ⌨️ Optimize Input be changed repeatedly when hold the enter key in multi-mode. [rc-input#72](https://github.com/react-component/input/pull/72/files) [@crazyair](https://github.com/crazyair)
+- 🐞 Fix the issue where line-height is not effective in cssinjs mode for ColorPicker. [#50220](https://github.com/ant-design/ant-design/pull/50220) [@vagusX](https://github.com/vagusX)
+- 🐞 Fix cursor disabled state for ColorPicker. [#50217](https://github.com/ant-design/ant-design/pull/50217) [@coding-ice](https://github.com/coding-ice)
 - 🐞 Fix grouping columns does not apply sorting for Table. [#50086](https://github.com/ant-design/ant-design/pull/50086) [@Zyf665](https://github.com/Zyf665)
 - 🐞 Fix Popover/PopConfirm/Tooltip with `topLeft`, `topRight`, `bottomLeft`, `bottomRight` zoom in transform origin not correct when target element width is too large. [#50134](https://github.com/ant-design/ant-design/pull/50134)
 - 💄 Fix Tree filter node style lost. [#49773](https://github.com/ant-design/ant-design/pull/49773) [@wanpan11](https://github.com/wanpan11)
