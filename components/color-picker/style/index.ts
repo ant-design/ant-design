@@ -67,7 +67,7 @@ const genClearStyle = (
       border: `${unit(lineWidth)} solid ${colorSplit}`,
       position: 'relative',
       overflow: 'hidden',
-      cursor: 'pointer',
+      cursor: 'inherit',
       transition: `all ${token.motionDurationFast}`,
 
       ...extraStyle,
