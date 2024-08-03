@@ -8,7 +8,6 @@ export interface PanelProps {
   defaultSize?: number | string;
   collapsible?: boolean;
   resizable?: boolean;
-  children?: React.ReactElement;
 }
 
 export interface InternalPanelProps extends PanelProps {
@@ -17,7 +16,10 @@ export interface InternalPanelProps extends PanelProps {
   gutter?: number;
 }
 
-export const InternalPanel = forwardRef<HTMLDivElement, InternalPanelProps>((props, ref) => {
+export const InternalPanel = forwardRef<
+  HTMLDivElement,
+  React.PropsWithChildren<InternalPanelProps>
+>((props, ref) => {
   const { prefixCls, className, children, gutter, size } = props;
 
   const panelClassName = classNames(`${prefixCls}-panel`, className);
@@ -39,6 +41,6 @@ if (process.env.NODE_ENV !== 'production') {
   InternalPanel.displayName = 'Panel';
 }
 
-const Panel: React.FC<PanelProps> = (props) => props.children;
+const Panel: React.FC<React.PropsWithChildren<PanelProps>> = (props) => props.children;
 
 export default Panel;

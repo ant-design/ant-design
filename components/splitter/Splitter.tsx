@@ -15,7 +15,6 @@ export interface SplitterProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
-  children?: React.ReactNode;
   rootClassName?: string;
   layout?: 'horizontal' | 'vertical';
   onResizeStart?: (sizes: number[], index: number) => void;
@@ -25,7 +24,7 @@ export interface SplitterProps {
 
 const SPLIT_BAR_SIZE = 2;
 
-const Splitter: React.FC<SplitterProps> = (props) => {
+const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
