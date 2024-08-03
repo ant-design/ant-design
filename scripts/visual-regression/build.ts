@@ -385,7 +385,7 @@ async function boot() {
       const currentImgExists = await fse.exists(currentImgPath);
       if (!currentImgExists) {
         console.log(chalk.red(`⛔️ Missing image: ${compareImgName}\n`));
-        await fse.copy(baseImgPath, path.join(baseImgReportDir, compareImgName));
+        await fse.move(baseImgPath, path.join(baseImgReportDir, compareImgName));
         return {
           type: 'removed',
           filename: compareImgName,
@@ -405,9 +405,9 @@ async function boot() {
           chalk.yellow(compareImgName),
           `${(mismatchedPxPercent * 100).toFixed(2)}%\n`,
         );
-        // copy compare imgs(x2) to report dir
-        await fse.copy(baseImgPath, path.join(baseImgReportDir, compareImgName));
-        await fse.copy(currentImgPath, path.join(currentImgReportDir, compareImgName));
+        // move compare imgs(x2) to report dir
+        await fse.move(baseImgPath, path.join(baseImgReportDir, compareImgName));
+        await fse.move(currentImgPath, path.join(currentImgReportDir, compareImgName));
 
         return {
           type: 'changed',
@@ -445,7 +445,7 @@ async function boot() {
   }
 
   const newImgTask = newImgs.map((newImg) => async () => {
-    await fse.copy(
+    await fse.move(
       path.join(currentImgSourceDir, newImg),
       path.resolve(currentImgReportDir, newImg),
     );
