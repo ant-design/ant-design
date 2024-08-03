@@ -40,7 +40,7 @@ tag: vVERSION
   - 🤖 Component Token 支持 string 或 number。[#49837](https://github.com/ant-design/ant-design/pull/49837) [@thinkasany](https://github.com/thinkasany)
   - 🤖 改进 Radio 类型导出。[#50203](https://github.com/ant-design/ant-design/pull/50203) [@baicie](https://github.com/baicie)
 - 🌐 Locales
-  - 🇪🇸 改进 Spanish 翻译[#50179](https://github.com/ant-design/ant-design/pull/50179) [@sergioalmela](https://github.com/sergioalmela)
+  - 🇪🇸 改进西班牙语本地化文案。[#50179](https://github.com/ant-design/ant-design/pull/50179) [@sergioalmela](https://github.com/sergioalmela)
   - 🇺🇦 补全 `uk_UA` 文案。 [#50178](https://github.com/ant-design/ant-design/pull/50178) [@Andrik264](https://github.com/Andrik264)
 
 ## 5.19.4
