@@ -28,7 +28,7 @@ export interface ComponentToken {
    * @desc 顶部高度
    * @descEN Height of header
    */
-  headerHeight: number;
+  headerHeight: number | string;
   /**
    * @desc 顶部内边距
    * @descEN Padding of header
@@ -58,7 +58,7 @@ export interface ComponentToken {
    * @desc 侧边栏开关高度
    * @descEN Height of sider trigger
    */
-  triggerHeight: number;
+  triggerHeight: number | string;
   /**
    * @desc 侧边栏开关背景色
    * @descEN Background Color of sider trigger

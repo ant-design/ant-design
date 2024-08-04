@@ -19,7 +19,7 @@ export interface ComponentToken {
    * @desc 弹出菜单的宽度
    * @descEN Width of popup menu
    */
-  dropdownWidth: number;
+  dropdownWidth: number | string;
   /**
    * @desc 弹出菜单的 z-index
    * @descEN z-index of popup menu
@@ -205,12 +205,12 @@ export interface ComponentToken {
 
   // Ink Bar
   /** @deprecated Use `activeBarWidth` instead */
-  colorActiveBarWidth: number;
+  colorActiveBarWidth: number | string;
   /**
    * @desc 菜单项指示条宽度
    * @descEN Width of menu item active bar
    */
-  activeBarWidth: number;
+  activeBarWidth: number | string;
 
   /** @deprecated Use `activeBarHeight` instead */
   colorActiveBarHeight: number;
@@ -226,7 +226,7 @@ export interface ComponentToken {
    * @desc 菜单项指示条边框宽度
    * @descEN Border width of menu item active bar
    */
-  activeBarBorderWidth: number;
+  activeBarBorderWidth: number | string;
 
   /**
    * @desc 菜单项横向外间距
@@ -247,12 +247,12 @@ export interface ComponentToken {
    * @desc 菜单项高度
    * @descEN Height of menu item
    */
-  itemHeight: number;
+  itemHeight: number | string;
   /**
    * @desc 收起后的宽度
    * @descEN Width when collapsed
    */
-  collapsedWidth: number;
+  collapsedWidth: number | string;
   /**
    * @desc 弹出框背景色
    * @descEN Background color of popup
@@ -366,7 +366,7 @@ export interface ComponentToken {
    */
   darkDangerItemActiveBg: string;
   /** @internal */
-  itemWidth: string;
+  itemWidth: number | string;
 }
 
 export interface MenuToken extends FullToken<'Menu'> {
@@ -467,7 +467,7 @@ const genSubMenuArrowStyle = (token: MenuToken): CSSObject => {
 
   return {
     [`${componentCls}-submenu`]: {
-      [`&-expand-icon, &-arrow`]: {
+      '&-expand-icon, &-arrow': {
         position: 'absolute',
         top: '50%',
         insetInlineEnd: token.margin,
@@ -539,7 +539,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
           ...clearFix(),
 
           // Hidden
-          [`&-hidden`]: {
+          '&-hidden': {
             display: 'none',
           },
         },
@@ -562,14 +562,14 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
         // Magic cubic here but smooth transition
         transition: `width ${motionDurationSlow} cubic-bezier(0.2, 0, 0, 1) 0s`,
 
-        [`ul, ol`]: {
+        'ul, ol': {
           margin: 0,
           padding: 0,
           listStyle: 'none',
         },
 
         // Overflow ellipsis
-        [`&-overflow`]: {
+        '&-overflow': {
           display: 'flex',
 
           [`${componentCls}-item`]: {
@@ -934,7 +934,7 @@ export const prepareComponentToken: GetDefaultToken<'Menu'> = (token) => {
 };
 
 // ============================== Export ==============================
-export default (prefixCls: string, rootCls: string = prefixCls, injectStyle: boolean = true) => {
+export default (prefixCls: string, rootCls: string = prefixCls, injectStyle = true) => {
   const useStyle = genStyleHooks(
     'Menu',
     (token) => {

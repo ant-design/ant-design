@@ -4620,6 +4620,15 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
           title="xxx.png"
         >
           xxx.png
+          <span
+            class="ant-upload-list-item-extra"
+          >
+            <span
+              style="color: rgb(204, 204, 204);"
+            >
+              (1.18MB)
+            </span>
+          </span>
         </a>
         <span
           class="ant-upload-list-item-actions"
@@ -4703,6 +4712,15 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
           title="yyy.png"
         >
           yyy.png
+          <span
+            class="ant-upload-list-item-extra"
+          >
+            <span
+              style="color: rgb(204, 204, 204);"
+            >
+              (1.18MB)
+            </span>
+          </span>
         </a>
         <span
           class="ant-upload-list-item-actions"
@@ -4786,6 +4804,15 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
           title="zzz.png"
         >
           zzz.png
+          <span
+            class="ant-upload-list-item-extra"
+          >
+            <span
+              style="color: rgb(204, 204, 204);"
+            >
+              (1.18MB)
+            </span>
+          </span>
         </a>
         <span
           class="ant-upload-list-item-actions"

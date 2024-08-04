@@ -140,6 +140,9 @@ const localeValues: Locale = {
   },
   ColorPicker: {
     presetEmpty: '미정',
+    transparent: '투명',
+    singleColor: '단색',
+    gradientColor: '그라데이션',
   },
 };
 

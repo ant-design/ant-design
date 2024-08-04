@@ -155,7 +155,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
       class="demo-logo"
     />
     <div
-      style="margin-left: 24px; font-size: 24px;"
+      style="margin-inline-start: 24px; font-size: 24px;"
     >
       Ant Design
     </div>
@@ -1353,7 +1353,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
 >
   <aside
     class="ant-layout-sider ant-layout-sider-dark"
-    style="overflow: auto; height: 100vh; position: fixed; left: 0px; top: 0px; bottom: 0px; flex: 0 0 200px; max-width: 200px; min-width: 200px; width: 200px;"
+    style="overflow: auto; height: 100vh; position: fixed; inset-inline-start: 0; top: 0px; bottom: 0px; flex: 0 0 200px; max-width: 200px; min-width: 200px; width: 200px;"
   >
     <div
       class="ant-layout-sider-children"
@@ -1768,7 +1768,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
   </aside>
   <div
     class="ant-layout"
-    style="margin-left: 200px;"
+    style="margin-inline-start: 200px;"
   >
     <header
       class="ant-layout-header"

@@ -4,4 +4,4 @@
 
 ## en-US
 
-The way show selected item in box using `showCheckedStrategy`.
+Shows a selected item in a box using `showCheckedStrategy`.

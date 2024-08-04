@@ -5,9 +5,9 @@ import { useLocation } from 'dumi';
 
 import useDark from '../../../hooks/useDark';
 import useLocale from '../../../hooks/useLocale';
+import Link from '../../../theme/common/Link';
 import SiteContext from '../../../theme/slots/SiteContext';
 import * as utils from '../../../theme/utils';
-import Link from '../../../theme/common/Link';
 
 const SECONDARY_LIST = [
   {
@@ -134,7 +134,7 @@ const DesignFramework: React.FC = () => {
           <Col key={index} span={colSpan}>
             <Link to={path}>
               <div className={styles.card}>
-                <img alt={title} src={img} />
+                <img draggable={false} alt={title} src={img} />
 
                 <Typography.Title
                   level={4}
@@ -158,7 +158,12 @@ const DesignFramework: React.FC = () => {
         return (
           <Col key={index} span={colSpan}>
             <a className={styles.cardMini} target="_blank" href={url} rel="noreferrer">
-              <img alt={title} src={img} style={{ transform: `scale(${imgScale})` }} />
+              <img
+                draggable={false}
+                alt={title}
+                src={img}
+                style={{ transform: `scale(${imgScale})` }}
+              />
 
               <Typography.Title
                 level={4}

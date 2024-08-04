@@ -6,7 +6,7 @@ interface MapCache<RecordType> {
   data?: readonly RecordType[];
   childrenColumnName?: string;
   kvMap?: Map<Key, RecordType>;
-  getRowKey?: Function;
+  getRowKey?: (record: RecordType, index: number) => Key;
 }
 
 export default function useLazyKVMap<RecordType>(

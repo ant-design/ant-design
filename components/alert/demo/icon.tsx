@@ -1,24 +1,30 @@
 import React from 'react';
-import { Alert, Space } from 'antd';
+import { Alert } from 'antd';
 
 const App: React.FC = () => (
-  <Space direction="vertical" style={{ width: '100%' }}>
+  <>
     <Alert message="Success Tips" type="success" showIcon />
+    <br />
     <Alert message="Informational Notes" type="info" showIcon />
+    <br />
     <Alert message="Warning" type="warning" showIcon closable />
+    <br />
     <Alert message="Error" type="error" showIcon />
+    <br />
     <Alert
       message="Success Tips"
       description="Detailed description and advice about successful copywriting."
       type="success"
       showIcon
     />
+    <br />
     <Alert
       message="Informational Notes"
       description="Additional description and information about copywriting."
       type="info"
       showIcon
     />
+    <br />
     <Alert
       message="Warning"
       description="This is a warning notice about copywriting."
@@ -26,13 +32,14 @@ const App: React.FC = () => (
       showIcon
       closable
     />
+    <br />
     <Alert
       message="Error"
       description="This is an error message about copywriting."
       type="error"
       showIcon
     />
-  </Space>
+  </>
 );
 
 export default App;

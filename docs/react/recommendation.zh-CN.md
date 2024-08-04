@@ -47,18 +47,18 @@ title: 社区精选组件
 | Flow 流 | [pro-flow](https://github.com/ant-design/pro-flow) [react-flow](https://github.com/wbkd/react-flow) [x6](https://github.com/antvis/x6) |
 | 电话输入 | [react-phone-number-input](https://gitlab.com/catamphetamine/react-phone-number-input) [antd-phone-input](https://github.com/ArtyomVancyan/antd-phone-input/) |
 | AI 对话界面 | [pro-chat](https://github.com/ant-design/pro-chat) |
+| PDF | [react-pdf](https://github.com/diegomura/react-pdf) [@react-pdf/renderer](https://github.com/diegomura/react-pdf) |
 
 ## 推荐产品 ✨
 
 还有一些常用的前端/设计/产品相关的工具推荐给大家使用。
 
-| 类型         | 推荐产品                                                              |
-| ------------ | --------------------------------------------------------------------- |
-| 文档管理     | [🐦 语雀](https://www.yuque.com/?chInfo=ch_antd)                      |
-| 图标         | [阿里巴巴矢量图标库](https://www.iconfont.cn/)                        |
-| Sketch 插件  | [Kitchen](https://kitchen.alipay.com)                                 |
-| 在线代码编辑 | [codesandbox](https://codesandbox.io/) [codepen](https://codepen.io/) |
-| 图片压缩     | [tinypng](https://tinypng.com/)                                       |
+| 类型 | 推荐产品 |
+| --- | --- |
+| 知识管理 | [🐦 语雀](https://www.yuque.com/?chInfo=ch_antd) |
+| 图标 | [阿里巴巴矢量图标库](https://www.iconfont.cn) |
+| Sketch 插件 | [Kitchen](https://kitchen.alipay.com) |
+| 在线代码编辑 | [stackblitz](https://stackblitz.com) [codesandbox](https://codesandbox.io/) [codepen](https://codepen.io/) |
 
 <style>
 .markdown table td:first-child {
@@ -66,7 +66,7 @@ title: 社区精选组件
   font-weight: 500;
 }
 .markdown table td > a:not(:last-child) {
-  margin-right: 18px;
+  margin-inline-end: 18px;
 }
 .markdown table td > a:not(:last-child)::after {
   position: absolute;

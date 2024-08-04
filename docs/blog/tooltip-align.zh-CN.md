@@ -2,6 +2,9 @@
 title: 新的 Tooltip 对齐方式
 date: 2023-02-15
 author: zombieJ
+zhihu_url: https://zhuanlan.zhihu.com/p/633332552
+yuque_url: https://www.yuque.com/ant-design/ant-design/lqtquocyv0k3xbg0
+juejin_url: https://juejin.cn/post/7322352551088390171
 ---
 
 在 `5.3.0` 版本中，我们将会更新 Tooltip 组件的底层依赖 `@rc-component/trigger` 使其更好的实现自适应对齐逻辑。在此之前，我们先聊聊此前版本遇到的一些问题。

@@ -28,17 +28,7 @@ function matchDeprecated(v: string): MatchDeprecatedResult {
 }
 
 const useStyle = createStyles(({ token, css }) => ({
-  history: css`
-    position: absolute;
-    top: 0;
-    inset-inline-end: ${token.marginXS}px;
-  `,
-
-  li: css`
-    // white-space: pre;
-  `,
-
-  ref: css`
+  linkRef: css`
     margin-inline-start: ${token.marginXS}px;
   `,
   bug: css`
@@ -67,6 +57,16 @@ const useStyle = createStyles(({ token, css }) => ({
       }
     }
   `,
+  extraLink: css`
+    font-size: ${token.fontSize}px;
+  `,
+  drawerContent: {
+    position: 'relative',
+    [`> ${token.antCls}-drawer-body`]: {
+      scrollbarWidth: 'thin',
+      scrollbarColor: 'unset',
+    },
+  },
 }));
 
 export interface ComponentChangelogProps {
@@ -75,7 +75,7 @@ export interface ComponentChangelogProps {
 
 const locales = {
   cn: {
-    full: '完整更新日志',
+    full: '查看完整日志',
     changelog: '更新日志',
     loading: '加载中...',
     empty: '暂无更新',
@@ -127,7 +127,7 @@ const ParseChangelog: React.FC<{ changelog: string; refs: string[]; styles: any 
       <span>{parsedChangelog}</span>
       {/* Refs */}
       {refs?.map((ref) => (
-        <a className={styles.ref} key={ref} href={ref} target="_blank" rel="noreferrer">
+        <a className={styles.linkRef} key={ref} href={ref} target="_blank" rel="noreferrer">
           #{ref.match(/^.*\/(\d+)$/)?.[1]}
         </a>
       ))}
@@ -213,7 +213,7 @@ const ComponentChangelog: React.FC<ComponentChangelogProps> = (props) => {
             </Typography.Title>
             <ul>
               {changelogList.map<React.ReactNode>((info, index) => (
-                <li key={index} className={styles.li}>
+                <li key={index}>
                   <ParseChangelog {...info} styles={styles} />
                 </li>
               ))}
@@ -233,28 +233,21 @@ const ComponentChangelog: React.FC<ComponentChangelogProps> = (props) => {
 
   return (
     <>
-      <Button
-        className={styles.history}
-        icon={<HistoryOutlined />}
-        onClick={() => {
-          setShow(true);
-        }}
-      >
+      <Button icon={<HistoryOutlined />} onClick={() => setShow(true)}>
         {locale.changelog}
       </Button>
       <Drawer
+        destroyOnClose
+        className={styles.drawerContent}
         title={locale.changelog}
         extra={
-          <Link style={{ fontSize: 14 }} to={`/changelog${lang === 'cn' ? '-cn' : ''}`}>
+          <Link className={styles.extraLink} to={`/changelog${lang === 'cn' ? '-cn' : ''}`}>
             {locale.full}
           </Link>
         }
         open={show}
         width={width}
-        onClose={() => {
-          setShow(false);
-        }}
-        destroyOnClose
+        onClose={() => setShow(false)}
       >
         <Timeline items={timelineItems} />
       </Drawer>

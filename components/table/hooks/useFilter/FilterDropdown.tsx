@@ -36,8 +36,8 @@ import FilterDropdownMenuWrapper from './FilterWrapper';
 type FilterTreeDataNode = FieldDataNode<{ title: React.ReactNode; key: string }>;
 
 interface FilterRestProps {
-  confirm?: Boolean;
-  closeDropdown?: Boolean;
+  confirm?: boolean;
+  closeDropdown?: boolean;
 }
 
 export function flattenKeys(filters?: ColumnFilterItem[]) {
@@ -253,7 +253,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
   // ======================= Submit ========================
   const internalTriggerFilter = (keys?: string[]) => {
-    const mergedKeys = keys && keys.length ? keys : null;
+    const mergedKeys = keys?.length ? keys : null;
     if (mergedKeys === null && (!filterState || !filterState.filteredKeys)) {
       return null;
     }
@@ -350,6 +350,8 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
   let dropdownContent: React.ReactNode;
 
+  const { direction, renderEmpty } = React.useContext(ConfigContext);
+
   if (typeof column.filterDropdown === 'function') {
     dropdownContent = column.filterDropdown({
       prefixCls: `${dropdownPrefixCls}-custom`,
@@ -368,7 +370,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   } else {
     const selectedKeys = getFilteredKeysSync() || [];
     const getFilterComponent = () => {
-      const empty = (
+      const empty = renderEmpty?.('Table.filter') ?? (
         <Empty
           image={Empty.PRESENTED_IMAGE_SIMPLE}
           description={locale.filterEmptyText}
@@ -523,8 +525,6 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   } else {
     filterIcon = <FilterFilled />;
   }
-
-  const { direction } = React.useContext(ConfigContext);
 
   return (
     <div className={`${prefixCls}-column`}>

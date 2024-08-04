@@ -81,7 +81,7 @@ export interface ComponentToken {
    * @desc 标题行高
    * @descEN Line height of title
    */
-  titleLineHeight: number;
+  titleLineHeight: number | string;
   /**
    * @internal
    */
@@ -213,7 +213,7 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
     [`${stepsItemCls}-container`]: {
       outline: 'none',
 
-      [`&:focus-visible`]: {
+      '&:focus-visible': {
         [stepItemIconCls]: {
           ...genFocusOutline(token),
         },
@@ -323,7 +323,7 @@ const genStepsClickableStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
 
           '&:hover': {
             [`${componentCls}-item`]: {
-              [`&-title, &-subtitle, &-description`]: {
+              '&-title, &-subtitle, &-description': {
                 color: token.colorPrimary,
               },
             },

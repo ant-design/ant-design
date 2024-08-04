@@ -7,7 +7,9 @@ import genColorBlockStyle from './color-block';
 import genInputStyle from './input';
 import genPickerStyle from './picker';
 import genPresetsStyle from './presets';
+import genSliderStyle from './slider';
 
+// biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
 export interface ComponentToken {}
 
 export interface ColorPickerToken extends FullToken<'ColorPicker'> {
@@ -66,19 +68,19 @@ const genClearStyle = (
       border: `${unit(lineWidth)} solid ${colorSplit}`,
       position: 'relative',
       overflow: 'hidden',
-      cursor: 'pointer',
+      cursor: 'inherit',
       transition: `all ${token.motionDurationFast}`,
 
       ...extraStyle,
       '&::after': {
         content: '""',
         position: 'absolute',
-        insetInlineEnd: lineWidth,
-        top: 0,
+        insetInlineEnd: token.calc(lineWidth).mul(-1).equal(),
+        top: token.calc(lineWidth).mul(-1).equal(),
         display: 'block',
         width: 40, // maximum
         height: 2, // fixed
-        transformOrigin: 'right',
+        transformOrigin: `calc(100% - 1px) 1px`,
         transform: 'rotate(-45deg)',
         backgroundColor: red6,
       },
@@ -137,7 +139,7 @@ const genSizeStyle = (token: ColorPickerToken): CSSObject => {
   return {
     [`&${componentCls}-lg`]: {
       minWidth: controlHeightLG,
-      height: controlHeightLG,
+      minHeight: controlHeightLG,
       borderRadius: borderRadiusLG,
       [`${componentCls}-color-block, ${componentCls}-clear`]: {
         width: controlHeight,
@@ -150,12 +152,16 @@ const genSizeStyle = (token: ColorPickerToken): CSSObject => {
     },
     [`&${componentCls}-sm`]: {
       minWidth: controlHeightSM,
-      height: controlHeightSM,
+      minHeight: controlHeightSM,
       borderRadius: borderRadiusSM,
       [`${componentCls}-color-block, ${componentCls}-clear`]: {
         width: controlHeightXS,
         height: controlHeightXS,
         borderRadius: borderRadiusXS,
+      },
+
+      [`${componentCls}-trigger-text`]: {
+        lineHeight: unit(controlHeightXS),
       },
     },
   };
@@ -205,23 +211,30 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
           [`${componentCls}-panel`]: {
             ...genPickerStyle(token),
           },
+          ...genSliderStyle(token),
           ...genColorBlockStyle(token, colorPickerPreviewSize),
           ...genInputStyle(token),
           ...genPresetsStyle(token),
           ...genClearStyle(token, colorPickerPresetColorSize, {
             marginInlineStart: 'auto',
-            marginBottom: marginXS,
           }),
+
+          // Operation bar
+          [`${componentCls}-operation`]: {
+            display: 'flex',
+            justifyContent: 'space-between',
+            marginBottom: marginXS,
+          },
         },
 
         '&-trigger': {
           minWidth: controlHeight,
-          height: controlHeight,
+          minHeight: controlHeight,
           borderRadius,
           border: `${unit(lineWidth)} solid ${colorBorder}`,
           cursor: 'pointer',
           display: 'inline-flex',
-          alignItems: 'center',
+          alignItems: 'flex-start',
           justifyContent: 'center',
           transition: `all ${motionDurationMid}`,
           background: colorBgElevated,
@@ -234,6 +247,17 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
               .equal(),
             fontSize,
             color: colorText,
+            alignSelf: 'center',
+
+            '&-cell': {
+              '&:not(:last-child):after': {
+                content: '", "',
+              },
+
+              '&-inactive': {
+                color: colorTextDisabled,
+              },
+            },
           },
           '&:hover': {
             borderColor: colorPrimaryHover,
@@ -274,7 +298,7 @@ export default genStyleHooks('ColorPicker', (token) => {
     colorPickerHandlerSizeSM: 12,
     colorPickerAlphaInputWidth: 44,
     colorPickerInputNumberHandleWidth: 16,
-    colorPickerPresetColorSize: 18,
+    colorPickerPresetColorSize: 24,
     colorPickerInsetShadow: `inset 0 0 1px 0 ${colorTextQuaternary}`,
     colorPickerSliderHeight,
     colorPickerPreviewSize: token

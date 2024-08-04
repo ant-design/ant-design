@@ -43,7 +43,7 @@ const useStyle = createStyles(({ token }, markPos: [number, number, number, numb
     z-index: 999999;
     box-shadow: 0 0 0 1px #fff;
     pointer-events: none;
-    left: ${markPos[0] - MARK_BORDER_SIZE}px;
+    inset-inline-start: ${markPos[0] - MARK_BORDER_SIZE}px;
     top: ${markPos[1] - MARK_BORDER_SIZE}px;
     width: ${markPos[2] + MARK_BORDER_SIZE * 2}px;
     height: ${markPos[3] + MARK_BORDER_SIZE * 2}px;

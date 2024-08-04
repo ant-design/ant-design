@@ -3,9 +3,8 @@ import { Keyframes, unit } from '@ant-design/cssinjs';
 
 import { CONTAINER_MAX_OFFSET } from '../../_util/hooks/useZIndex';
 import { genFocusStyle, resetComponent } from '../../style';
-import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
+import type { AliasToken, FullToken, GenerateStyle, GenStyleFn } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
-import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
 import genNotificationPlacementStyle from './placement';
 import genStackStyle from './stack';
 
@@ -20,11 +19,11 @@ export interface ComponentToken {
    * @desc 提醒框宽度
    * @descEN Width of Notification
    */
-  width: number;
+  width: number | string;
 }
 
 export interface NotificationToken extends FullToken<'Notification'> {
-  animationMaxHeight: number;
+  animationMaxHeight: number | string;
   notificationBg: string;
   notificationPadding: string;
   notificationPaddingVertical: number;

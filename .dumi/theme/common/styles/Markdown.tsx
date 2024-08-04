@@ -24,6 +24,7 @@ const GlobalStyle: React.FC = () => {
         }
 
         .markdown img {
+          display: block;
           max-width: calc(100% - 32px);
           max-height: 100%;
         }
@@ -183,6 +184,8 @@ const GlobalStyle: React.FC = () => {
           background-color: ${token.siteMarkdownCodeBg};
           border-radius: ${token.borderRadius}px;
           > pre.prism-code {
+            scrollbar-width: thin;
+            scrollbar-color: unset;
             padding: ${token.paddingSM}px ${token.paddingMD}px;
             font-size: ${token.fontSize}px;
             line-height: 2;
@@ -197,6 +200,7 @@ const GlobalStyle: React.FC = () => {
             margin: 0 ${token.marginMD}px;
             color: #aaa;
             font-size: 30px;
+            user-select: none;
           }
         }
 
@@ -282,6 +286,10 @@ const GlobalStyle: React.FC = () => {
         }
 
         .markdown .dumi-default-table {
+          &-content {
+            scrollbar-width: thin;
+            scrollbar-color: unset;
+          }
           table {
             margin: 0;
             overflow-x: auto;
@@ -384,7 +392,7 @@ const GlobalStyle: React.FC = () => {
         }
 
         .grid-demo,
-        [id^='components-grid-demo-'] {
+        [id^='grid-demo-'] {
           ${antCls}-row > div,
             .code-box-demo ${antCls}-row > div {
             min-height: 30px;
@@ -462,8 +470,8 @@ const GlobalStyle: React.FC = () => {
           }
         }
 
-        [id='components-grid-demo-playground'],
-        [id='components-grid-demo-gutter'] {
+        [id='grid-demo-playground'],
+        [id='grid-demo-gutter'] {
           > .code-box-demo ${antCls}-row > div {
             margin-top: 0;
             margin-bottom: 0;

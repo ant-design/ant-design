@@ -10,6 +10,7 @@ import type {
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import type { PresetColorType } from '../_util/colors';
+import ContextIsolator from '../_util/ContextIsolator';
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
@@ -20,7 +21,6 @@ import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
-import { NoCompactStyle } from '../space/Compact';
 import { useToken } from '../theme/internal';
 import PurePanel from './PurePanel';
 import useStyle from './style';
@@ -241,9 +241,9 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
   }, [overlay, title]);
 
   const memoOverlayWrapper = (
-    <NoCompactStyle>
+    <ContextIsolator space>
       {typeof memoOverlay === 'function' ? memoOverlay() : memoOverlay}
-    </NoCompactStyle>
+    </ContextIsolator>
   );
 
   const {

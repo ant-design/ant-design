@@ -46,6 +46,7 @@ const main = async () => {
       // typedoc options here
       entryPoints: ['components/theme/interface/index.ts', 'components/*/style/index.{ts,tsx}'],
       skipErrorChecking: true,
+      logLevel: 'Error',
     },
     [new TSConfigReader(), new TypeDocReader()],
   );
@@ -107,7 +108,7 @@ const main = async () => {
       }
     });
 
-    const finalMeta = Object.entries(tokenMeta).reduce((acc, [key, value]) => {
+    const finalMeta = Object.entries(tokenMeta).reduce<any>((acc, [key, value]) => {
       if (key !== 'components') {
         (value as any[]).forEach((item) => {
           acc.global = acc.global || {};
@@ -124,7 +125,7 @@ const main = async () => {
         acc.components = value;
       }
       return acc;
-    }, {} as any);
+    }, {});
 
     fs.writeJsonSync(output, finalMeta, 'utf8');
     // eslint-disable-next-line no-console

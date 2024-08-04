@@ -216,7 +216,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
       return 'nest';
     }
 
-    if (expandedRowRender || (expandable && expandable.expandedRowRender)) {
+    if (expandedRowRender || expandable?.expandedRowRender) {
       return 'row';
     }
 
@@ -256,7 +256,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const triggerOnChange = (
     info: Partial<ChangeEventInfo<RecordType>>,
     action: TableAction,
-    reset: boolean = false,
+    reset = false,
   ) => {
     const changeInfo = {
       ...changeEventInfo,
@@ -272,8 +272,8 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
       }
 
       // Trigger pagination events
-      if (pagination && pagination.onChange) {
-        pagination.onChange(1, changeInfo.pagination?.pageSize!);
+      if (pagination) {
+        pagination.onChange?.(1, changeInfo.pagination?.pageSize!);
       }
     }
 
@@ -412,9 +412,9 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   }, [
     !!pagination,
     mergedData,
-    mergedPagination && mergedPagination.current,
-    mergedPagination && mergedPagination.pageSize,
-    mergedPagination && mergedPagination.total,
+    mergedPagination?.current,
+    mergedPagination?.pageSize,
+    mergedPagination?.total,
   ]);
 
   // ========================== Selections ==========================
@@ -547,9 +547,10 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   const mergedStyle: React.CSSProperties = { ...table?.style, ...style };
 
-  const emptyText = (locale && locale.emptyText) || renderEmpty?.('Table') || (
-    <DefaultRenderEmpty componentName="Table" />
-  );
+  const emptyText =
+    typeof locale?.emptyText !== 'undefined'
+      ? locale.emptyText
+      : renderEmpty?.('Table') || <DefaultRenderEmpty componentName="Table" />;
 
   // ========================== Render ==========================
   const TableComponent = virtual ? RcVirtualTable : RcTable;

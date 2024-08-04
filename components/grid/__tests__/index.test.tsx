@@ -153,7 +153,7 @@ describe('Grid', () => {
         }) as any,
     );
 
-    let screensVar;
+    let screensVar: any = null;
     function Demo() {
       const screens = useBreakpoint();
       screensVar = screens;

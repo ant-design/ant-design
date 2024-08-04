@@ -43,10 +43,7 @@ const App: React.FC = () => {
       <Modal
         title={
           <div
-            style={{
-              width: '100%',
-              cursor: 'move',
-            }}
+            style={{ width: '100%', cursor: 'move' }}
             onMouseOver={() => {
               if (disabled) {
                 setDisabled(false);

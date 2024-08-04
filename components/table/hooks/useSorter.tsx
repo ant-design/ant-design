@@ -212,8 +212,7 @@ function injectSorter<RecordType>(
           return renderSortTitle;
         },
         onHeaderCell: (col) => {
-          const cell: React.HTMLAttributes<HTMLElement> =
-            (column.onHeaderCell && column.onHeaderCell(col)) || {};
+          const cell: React.HTMLAttributes<HTMLElement> = column.onHeaderCell?.(col) || {};
           const originOnClick = cell.onClick;
           const originOKeyDown = cell.onKeyDown;
           cell.onClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -395,13 +394,26 @@ export default function useFilterSorter<RecordType>({
     collectSortStates(mergedColumns, true),
   );
 
+  const getColumnKeys = (columns: ColumnsType<RecordType>, pos?: string): Key[] => {
+    const newKeys: Key[] = [];
+    columns.forEach((item, index) => {
+      const columnPos = getColumnPos(index, pos);
+      newKeys.push(getColumnKey(item, columnPos));
+      if (Array.isArray((item as ColumnGroupType<RecordType>).children)) {
+        const childKeys = getColumnKeys((item as ColumnGroupType<RecordType>).children, columnPos);
+        newKeys.push(...childKeys);
+      }
+    });
+    return newKeys;
+  };
   const mergedSorterStates = React.useMemo<SortState<RecordType>[]>(() => {
     let validate = true;
     const collectedStates = collectSortStates(mergedColumns, false);
 
     // Return if not controlled
     if (!collectedStates.length) {
-      return sortStates.filter(item => mergedColumns.includes(item.column));
+      const mergedColumnsKeys = getColumnKeys(mergedColumns);
+      return sortStates.filter(({ key }) => mergedColumnsKeys.includes(key));
     }
 
     const validateStates: SortState<RecordType>[] = [];
@@ -450,8 +462,8 @@ export default function useFilterSorter<RecordType>({
     return {
       sortColumns,
       // Legacy
-      sortColumn: sortColumns[0] && sortColumns[0].column,
-      sortOrder: sortColumns[0] && sortColumns[0].order,
+      sortColumn: sortColumns[0]?.column,
+      sortOrder: sortColumns[0]?.order,
     };
   }, [mergedSorterStates]);
 

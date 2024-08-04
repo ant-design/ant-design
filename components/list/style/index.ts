@@ -11,7 +11,7 @@ export interface ComponentToken {
    * @desc 内容宽度
    * @descEN Width of content
    */
-  contentWidth: number;
+  contentWidth: number | string;
   /**
    * @desc 大号列表项内间距
    * @descEN Padding of large item
@@ -66,7 +66,7 @@ export interface ComponentToken {
 
 interface ListToken extends FullToken<'List'> {
   listBorderedCls: string;
-  minHeight: number;
+  minHeight: number | string;
 }
 
 const genBorderedStyle = (token: ListToken): CSSObject => {
@@ -183,13 +183,6 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
     descriptionFontSize,
   } = token;
 
-  const alignCls: any = {};
-  ['start', 'center', 'end'].forEach((item) => {
-    alignCls[`&-align-${item}`] = {
-      textAlign: item,
-    };
-  });
-
   return {
     [`${componentCls}`]: {
       ...resetComponent(token),
@@ -209,8 +202,6 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
 
       [`${componentCls}-pagination`]: {
         marginBlockStart: marginLG,
-
-        ...alignCls,
 
         // https://github.com/ant-design/ant-design/issues/20037
         [`${antCls}-pagination-options`]: {
@@ -262,7 +253,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
               color: colorText,
               transition: `all ${motionDurationSlow}`,
 
-              [`&:hover`]: {
+              '&:hover': {
                 color: colorPrimary,
               },
             },
@@ -282,7 +273,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
           fontSize: 0,
           listStyle: 'none',
 
-          [`& > li`]: {
+          '& > li': {
             position: 'relative',
             display: 'inline-block',
             padding: `0 ${unit(paddingXS)}`,
@@ -291,7 +282,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
             lineHeight: token.lineHeight,
             textAlign: 'center',
 
-            [`&:first-child`]: {
+            '&:first-child': {
               paddingInlineStart: 0,
             },
           },
@@ -365,7 +356,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
         '> li': {
           padding: `0 ${unit(padding)}`,
 
-          [`&:first-child`]: {
+          '&:first-child': {
             paddingInlineStart: 0,
           },
         },
@@ -375,7 +366,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
     [`${componentCls}-split ${componentCls}-item`]: {
       borderBlockEnd: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
 
-      [`&:last-child`]: {
+      '&:last-child': {
         borderBlockEnd: 'none',
       },
     },

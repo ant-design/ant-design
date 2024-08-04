@@ -4,13 +4,14 @@ import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 /** Component only token. Which will handle additional calculation of alias token */
+// biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
 export interface ComponentToken {}
 
 interface EmptyToken extends FullToken<'Empty'> {
   emptyImgCls: string;
   emptyImgHeight: number | string;
   emptyImgHeightSM: number | string;
-  emptyImgHeightMD: number;
+  emptyImgHeightMD: number | string;
 }
 
 // ============================== Shared ==============================
@@ -24,7 +25,7 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
       lineHeight,
       textAlign: 'center',
 
-      // 原来 &-image 没有父子结构，现在为了外层承担我们的hashId，改成父子结果
+      // 原来 &-image 没有父子结构，现在为了外层承担我们的 hashId，改成父子结构
       [`${componentCls}-image`]: {
         height: token.emptyImgHeight,
         marginBottom: marginXS,
@@ -45,7 +46,7 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
         color: token.colorTextDescription,
       },
 
-      // 原来 &-footer 没有父子结构，现在为了外层承担我们的hashId，改成父子结果
+      // 原来 &-footer 没有父子结构，现在为了外层承担我们的 hashId，改成父子结构
       [`${componentCls}-footer`]: {
         marginTop: margin,
       },

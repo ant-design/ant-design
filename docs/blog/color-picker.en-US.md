@@ -2,6 +2,7 @@
 title: Color Models and Color Picker
 date: 2023-09-07
 author: Redjue
+juejin_url: https://juejin.cn/post/7322296529783226405
 ---
 
 Hello everyone, I'm [Redjue](https://github.com/Redjue), and I'm honored to have the opportunity to contribute the [ColorPicker](/components/color-picker) component to **Ant Design** this year. It's been a great learning experience and has given me a deeper understanding of the development process of **Ant Design**. In this article, I will share the specific implementation process.
@@ -67,7 +68,8 @@ After adding the brightness overlay, we get a blue color with brightness variati
 
 ```css
 background-color: rgb(0, 106, 255);
-background-image: linear-gradient(0deg, rgb(0, 0, 0), transparent), linear-gradient(90deg, rgb(255, 255, 255), rgba(255, 255, 255, 0));
+background-image: linear-gradient(0deg, rgb(0, 0, 0), transparent),
+  linear-gradient(90deg, rgb(255, 255, 255), rgba(255, 255, 255, 0));
 ```
 
 After adding the saturation overlay, we get a blue color with brightness variation <img style="width:auto" src="https://user-images.githubusercontent.com/21119589/266243231-6d682bf5-fb74-4a8e-9930-19a604d1203f.png"/>

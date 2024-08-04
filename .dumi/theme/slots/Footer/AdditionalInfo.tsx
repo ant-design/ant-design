@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { createStyles } from 'antd-style';
 import { removeCSS, updateCSS } from 'rc-util/lib/Dom/dynamicCSS';
 
 import useLocale from '../../../hooks/useLocale';
@@ -19,9 +20,38 @@ const locales = {
   },
 };
 
+const useStyle = createStyles(({ css, token }) => ({
+  container: css`
+    position: fixed;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 99999999;
+    background-color: ${token.colorTextSecondary};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  `,
+  alertBox: css`
+    border: 1px solid ${token.colorWarningBorder};
+    background-color: ${token.colorWarningBg};
+    color: ${token.colorTextHeading};
+    padding: ${token.paddingXS}px ${token.paddingSM}px;
+    border-radius: ${token.borderRadiusLG}px;
+    z-index: 9999999999;
+    line-height: 22px;
+    width: 520px;
+    a {
+      color: ${token.colorPrimary};
+      text-decoration-line: none;
+    }
+  `,
+}));
+
 // Check for browser support `:where` or not
 // Warning user if not support to modern browser
-function InfoNewVersion() {
+const InfoNewVersion: React.FC = () => {
   const [location] = useLocale(locales);
   const [supportWhere, setSupportWhere] = React.useState(true);
 
@@ -50,40 +80,19 @@ function InfoNewVersion() {
     removeCSS(whereCls);
   }, []);
 
-  return supportWhere ? null : (
-    <div
-      style={{
-        position: 'fixed',
-        left: 0,
-        right: 0,
-        top: 0,
-        bottom: 0,
-        zIndex: 99999999,
-        background: 'rgba(0,0,0,0.65)',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <div
-        style={{
-          border: `1px solid #ffe58f`,
-          background: '#fffbe6',
-          color: 'rgba(0,0,0,0.88)',
-          padding: '8px 12px',
-          borderRadius: '8px',
-          zIndex: 9999999999,
-          lineHeight: '22px',
-          width: 520,
-        }}
-      >
-        {location.whereNotSupport}{' '}
-        <a style={{ color: '#1677ff', textDecoration: 'none' }} href={location.whereDocUrl}>
-          {location.whereDocTitle}
-        </a>
+  const { styles } = useStyle();
+
+  if (supportWhere) {
+    return null;
+  }
+
+  return (
+    <div className={styles.container}>
+      <div className={styles.alertBox}>
+        {location.whereNotSupport} <a href={location.whereDocUrl}>{location.whereDocTitle}</a>
       </div>
     </div>
   );
-}
+};
 
 export default InfoNewVersion;

@@ -4,6 +4,7 @@ import { genFocusOutline, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
+// biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
 export interface ComponentToken {}
 
 interface CheckboxToken extends FullToken<'Checkbox'> {
@@ -188,8 +189,8 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         '&-indeterminate': {
           // Wrapper > Checkbox > inner
           [`${checkboxCls}-inner`]: {
-            backgroundColor: token.colorBgContainer,
-            borderColor: token.colorBorder,
+            backgroundColor: `${token.colorBgContainer} !important`,
+            borderColor: `${token.colorBorder} !important`,
 
             '&:after': {
               top: '50%',
@@ -202,6 +203,12 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
               opacity: 1,
               content: '""',
             },
+          },
+
+          // https://github.com/ant-design/ant-design/issues/50074
+          [`&:hover ${checkboxCls}-inner`]: {
+            backgroundColor: `${token.colorBgContainer} !important`,
+            borderColor: `${token.colorPrimary} !important`,
           },
         },
       },

@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import type { ColumnGroupType, ColumnType, TableProps } from '..';
 import Table from '..';
 import { resetWarned } from '../../_util/warning';
-import { act, fireEvent, render, waitFor } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Input from '../../input';
@@ -586,7 +586,7 @@ describe('Table.filter', () => {
             ...column,
             defaultFilteredValue: ['Jim', 'Tom'],
             onFilter: (value, record) => {
-              if (record.children && record.children.length) {
+              if (record.children?.length) {
                 return true;
               }
               return record.name.includes(value);
@@ -2508,8 +2508,9 @@ describe('Table.filter', () => {
       return (
         <div className={`${prefixCls}-view`} id="customFilter">
           {filterConfig.map(([text, id, param]) => (
-            <>
-              <span
+            <React.Fragment key={`set${id}`}>
+              <button
+                type="button"
                 onClick={() => {
                   setSelectedKeys([text as React.Key]);
                   confirm();
@@ -2517,11 +2518,15 @@ describe('Table.filter', () => {
                 id={`set${id}`}
               >
                 setSelectedKeys
-              </span>
-              <span onClick={() => (clearFilters as any)?.(param)} id={`reset${id}`}>
+              </button>
+              <button
+                type="button"
+                onClick={() => (clearFilters as any)?.(param)}
+                id={`reset${id}`}
+              >
                 Reset
-              </span>
-            </>
+              </button>
+            </React.Fragment>
           ))}
         </div>
       );
@@ -2941,5 +2946,67 @@ describe('Table.filter', () => {
     fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[0]);
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     expect(handleChange).not.toHaveBeenCalled();
+  });
+
+  /**
+   * https://github.com/ant-design/ant-design/issues/49542
+   * https://github.com/ant-design/ant-design/discussions/49603
+   */
+  describe('empty state', () => {
+    const TestDemo = ({ renderEmpty }: any) => (
+      <ConfigProvider renderEmpty={renderEmpty}>
+        <Table
+          dataSource={[{ name: 'John Brown' }]}
+          columns={[
+            {
+              title: 'Name',
+              key: 'name',
+              filters: [], // empty filters
+            },
+          ]}
+        />
+      </ConfigProvider>
+    );
+
+    it('should return custom content', async () => {
+      const mockTableFilterRenderEmpty = jest.fn();
+
+      function renderEmpty(...args: any[]) {
+        if (args[0] === 'Table.filter') {
+          mockTableFilterRenderEmpty(...args);
+          return 'foo';
+        }
+        return 'bar';
+      }
+
+      const { container } = render(<TestDemo renderEmpty={renderEmpty} />);
+
+      // Open Filter
+      fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!);
+      act(() => {
+        jest.runAllTimers();
+      });
+
+      await waitFakeTimer();
+
+      expect(container.querySelector('.ant-table-filter-dropdown')).toHaveTextContent('foo');
+
+      expect(mockTableFilterRenderEmpty).toHaveBeenCalled();
+      expect(mockTableFilterRenderEmpty.mock.calls[0][0]).toEqual('Table.filter');
+    });
+
+    it('allow `false` to not render empty states', async () => {
+      const { container } = render(
+        <TestDemo renderEmpty={(name: any) => (name === 'Table.filter' ? false : 'bar')} />,
+      );
+
+      // Open Filter
+      fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!);
+
+      await waitFakeTimer();
+
+      expect(container.querySelector('.ant-table-filter-dropdown .ant-empty')).toBeNull();
+      expect(container.querySelector('.ant-table-filter-dropdown')!.childNodes).toHaveLength(1);
+    });
   });
 });
