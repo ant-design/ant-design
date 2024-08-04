@@ -209,7 +209,7 @@
     "@types/tar": "^6.1.13",
     "@types/throttle-debounce": "^5.0.2",
     "@types/warning": "^3.0.3",
-    "@typescript-eslint/eslint-plugin": "^7.16.1",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^7.16.1",
     "adm-zip": "^0.5.14",
     "ali-oss": "^6.20.0",
