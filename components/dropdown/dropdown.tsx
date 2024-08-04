@@ -22,6 +22,7 @@ import { OverrideProvider } from '../menu/OverrideContext';
 import { useToken } from '../theme/internal';
 import useStyle from './style';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Placements = [
   'topLeft',
   'topCenter',

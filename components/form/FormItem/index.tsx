@@ -31,6 +31,7 @@ interface FieldError {
   warnings: string[];
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const ValidateStatuses = ['success', 'warning', 'error', 'validating', ''] as const;
 export type ValidateStatus = (typeof ValidateStatuses)[number];
 
