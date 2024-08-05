@@ -28,7 +28,7 @@ const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           overflow: 'hidden',
         },
         [`${componentCls}-item-title`]: {
-          lineHeight: `${unit(iconSize)}`,
+          lineHeight: unit(iconSize),
         },
         [`${componentCls}-item-description`]: {
           paddingBottom: token.paddingSM,
@@ -69,7 +69,7 @@ const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           )}`,
         },
         [`${componentCls}-item-title`]: {
-          lineHeight: `${unit(iconSizeSM)}`,
+          lineHeight: unit(iconSizeSM),
         },
       },
     },
