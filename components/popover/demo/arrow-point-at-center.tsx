@@ -1,5 +1,5 @@
 import type { PopoverProps } from 'antd';
-import { Button, Popover, Typography } from 'antd';
+import { Button, Popover } from 'antd';
 import { createStyles } from 'antd-style';
 import * as React from 'react';
 
