@@ -191,7 +191,7 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
       },
     },
     [`@media only screen and (max-width: ${unit(token.screenXS)}) `]: {
-      [`${calendarCls}`]: {
+      [calendarCls]: {
         [`${calendarCls}-header`]: {
           display: 'block',
           [`${calendarCls}-year-select`]: {

@@ -298,7 +298,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token) => {
           transformOrigin: '50% 50%',
         },
       },
-      [`${numberPrefixCls}`]: {
+      [numberPrefixCls]: {
         overflow: 'hidden',
         [`${numberPrefixCls}-only`]: {
           position: 'relative',
