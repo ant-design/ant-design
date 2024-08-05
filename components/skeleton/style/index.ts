@@ -254,7 +254,7 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
   } = token;
 
   return {
-    [skeletonButtonCls]: {
+    [componentCls]: {
       display: 'table',
       width: '100%',
 
