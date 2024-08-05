@@ -92,7 +92,7 @@ function Wrapper(props: WrapperProps) {
         <Button
           key={item.key}
           style={{ gridArea: item.area }}
-          onClick={() => setPlacement(item.key)}
+          onMouseEnter={() => setPlacement(item.key)}
         >
           {item.key}
         </Button>
