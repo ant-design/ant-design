@@ -185,15 +185,298 @@ Array [
 ]
 `;
 
-exports[`renders components/popover/demo/basic.tsx correctly 1`] = `
-<button
-  class="ant-btn ant-btn-primary"
-  type="button"
+exports[`renders components/popover/demo/arrow-point-at-center.tsx correctly 1`] = `
+<div
+  class="acss-14w6qh9"
 >
-  <span>
-    Hover me
-  </span>
-</button>
+  <button
+    class="ant-btn ant-btn-default"
+    style="grid-area:1 / 2"
+    type="button"
+  >
+    <span>
+      topLeft
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-default"
+    style="grid-area:1 / 3"
+    type="button"
+  >
+    <span>
+      top
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-default"
+    style="grid-area:1 / 4"
+    type="button"
+  >
+    <span>
+      topRight
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-default"
+    style="grid-area:2 / 1"
+    type="button"
+  >
+    <span>
+      leftTop
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-default"
+    style="grid-area:3 / 1"
+    type="button"
+  >
+    <span>
+      left
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-default"
+    style="grid-area:4 / 1"
+    type="button"
+  >
+    <span>
+      leftBottom
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-default"
+    style="grid-area:2 / 5"
+    type="button"
+  >
+    <span>
+      rightTop
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-default"
+    style="grid-area:3 / 5"
+    type="button"
+  >
+    <span>
+      right
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-default"
+    style="grid-area:4 / 5"
+    type="button"
+  >
+    <span>
+      rightBottom
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-default"
+    style="grid-area:5 / 2"
+    type="button"
+  >
+    <span>
+      bottomLeft
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-default"
+    style="grid-area:5 / 3"
+    type="button"
+  >
+    <span>
+      bottom
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-default"
+    style="grid-area:5 / 4"
+    type="button"
+  >
+    <span>
+      bottomRight
+    </span>
+  </button>
+  <div
+    class="acss-1hm00s8"
+  >
+    <div
+      class="acss-of4v6q ant-popover-open"
+    />
+    <div
+      class="ant-popover ant-popover-placement-top"
+      style="--arrow-x:0px;--arrow-y:0px;left:-1000vw;top:-1000vh;right:auto;bottom:auto;box-sizing:border-box"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-inner-content"
+          >
+            <div
+              class="acss-of4v6q"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/popover/demo/basic.tsx correctly 1`] = `
+<div
+  class="acss-14w6qh9"
+>
+  <button
+    class="ant-btn ant-btn-default"
+    style="grid-area:1 / 2"
+    type="button"
+  >
+    <span>
+      topLeft
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-default"
+    style="grid-area:1 / 3"
+    type="button"
+  >
+    <span>
+      top
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-default"
+    style="grid-area:1 / 4"
+    type="button"
+  >
+    <span>
+      topRight
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-default"
+    style="grid-area:2 / 1"
+    type="button"
+  >
+    <span>
+      leftTop
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-default"
+    style="grid-area:3 / 1"
+    type="button"
+  >
+    <span>
+      left
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-default"
+    style="grid-area:4 / 1"
+    type="button"
+  >
+    <span>
+      leftBottom
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-default"
+    style="grid-area:2 / 5"
+    type="button"
+  >
+    <span>
+      rightTop
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-default"
+    style="grid-area:3 / 5"
+    type="button"
+  >
+    <span>
+      right
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-default"
+    style="grid-area:4 / 5"
+    type="button"
+  >
+    <span>
+      rightBottom
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-default"
+    style="grid-area:5 / 2"
+    type="button"
+  >
+    <span>
+      bottomLeft
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-default"
+    style="grid-area:5 / 3"
+    type="button"
+  >
+    <span>
+      bottom
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-default"
+    style="grid-area:5 / 4"
+    type="button"
+  >
+    <span>
+      bottomRight
+    </span>
+  </button>
+  <div
+    class="acss-1hm00s8"
+  >
+    <div
+      class="acss-of4v6q ant-popover-open"
+    />
+    <div
+      class="ant-popover ant-popover-placement-top"
+      style="--arrow-x:0px;--arrow-y:0px;left:-1000vw;top:-1000vh;right:auto;bottom:auto;box-sizing:border-box"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-inner-content"
+          >
+            <div
+              class="acss-of4v6q"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 `;
 
 exports[`renders components/popover/demo/component-token.tsx correctly 1`] = `
