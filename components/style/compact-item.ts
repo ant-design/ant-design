@@ -1,12 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 
-import type {
-  AliasToken,
-  FullToken,
-  OverrideComponent,
-  CSSUtil,
-} from '../theme/internal';
+import type { AliasToken, FullToken, OverrideComponent, CSSUtil } from '../theme/internal';
 
 interface CompactItemOptions {
   focus?: boolean;

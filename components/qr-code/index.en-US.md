@@ -22,6 +22,7 @@ Used when the text needs to be converted into a QR Code.
 <code src="./demo/base.tsx">base</code>
 <code src="./demo/icon.tsx">With Icon</code>
 <code src="./demo/status.tsx">other status</code>
+<code src="./demo/customStatusRender.tsx" version="5.20.0">custom status render</code>
 <code src="./demo/type.tsx">Custom Render Type</code>
 <code src="./demo/customSize.tsx">Custom Size</code>
 <code src="./demo/customColor.tsx">Custom Color</code>
@@ -47,7 +48,18 @@ Common props ref：[Common props](/docs/react/common-props)
 | bordered | Whether has border style | boolean | `true` |
 | errorLevel | Error Code Level | `'L' \| 'M' \| 'Q' \| 'H' ` | `M` |
 | status | QRCode status | `active \| expired \| loading \| scanned` | `active` | scanned: 5.13.0 |
+| statusRender | custom status render | `(info: \[StatusRenderInfo](/components/qr-code-cn#statusrenderinfo)) => React.ReactNode` | 5.20.0 |
 | onRefresh | callback | `() => void` | - |
+
+### StatusRenderInfo
+
+```typescript
+type StatusRenderInfo = {
+  status: QRStatus;
+  locale: Locale['QRCode'];
+  onRefresh?: () => void;
+};
+```
 
 ## Design Token
 

@@ -2,7 +2,7 @@ import Group from './group';
 import InternalRadio from './radio';
 import Button from './radioButton';
 
-export {
+export type {
   RadioChangeEvent,
   RadioChangeEventTarget,
   RadioGroupButtonStyle,

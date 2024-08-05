@@ -136,6 +136,26 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
         borderBlockEnd: 0,
       },
 
+      '&-dotted': {
+        background: 'none',
+        borderColor: colorSplit,
+        borderStyle: 'dotted',
+        borderWidth: `${unit(lineWidth)} 0 0`,
+      },
+
+      [`&-horizontal${componentCls}-with-text${componentCls}-dotted`]: {
+        '&::before, &::after': {
+          borderStyle: 'dotted none none',
+        },
+      },
+
+      [`&-vertical${componentCls}-dotted`]: {
+        borderInlineStartWidth: lineWidth,
+        borderInlineEnd: 0,
+        borderBlockStart: 0,
+        borderBlockEnd: 0,
+      },
+
       [`&-plain${componentCls}-with-text`]: {
         color: token.colorText,
         fontWeight: 'normal',

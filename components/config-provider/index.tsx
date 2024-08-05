@@ -43,6 +43,7 @@ import type {
   RangePickerConfig,
   SelectConfig,
   SpaceConfig,
+  SpinConfig,
   TableConfig,
   TabsConfig,
   TagConfig,
@@ -189,7 +190,7 @@ export interface ConfigProviderProps {
   drawer?: DrawerConfig;
   typography?: ComponentStyleConfig;
   skeleton?: ComponentStyleConfig;
-  spin?: ComponentStyleConfig;
+  spin?: SpinConfig;
   segmented?: ComponentStyleConfig;
   statistic?: ComponentStyleConfig;
   steps?: ComponentStyleConfig;

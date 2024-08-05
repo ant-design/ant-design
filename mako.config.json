@@ -5,5 +5,8 @@
   },
   "codeSplitting": {
     "strategy": "auto"
+  },
+  "watch": {
+    "_nodeModulesRegexes": ["rc-.*"]
   }
 }

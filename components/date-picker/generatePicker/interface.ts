@@ -11,6 +11,7 @@ import type { SizeType } from '../../config-provider/SizeContext';
 import type { Variant } from '../../config-provider';
 import type { TimePickerLocale } from '../../time-picker';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const DataPickerPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight'] as const;
 
 type DataPickerPlacement = (typeof DataPickerPlacements)[number];

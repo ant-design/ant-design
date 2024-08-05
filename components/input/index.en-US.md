@@ -71,6 +71,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | variant | Variants of Input | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | onChange | Callback when user input | function(e) | - |  |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - |  |
+| onClear | Callback when click the clear button | () => void | - | 5.20.0 |
 
 > When `Input` is used in a `Form.Item` context, if the `Form.Item` has the `id` props defined then `value`, `defaultValue`, and `id` props of `Input` are automatically set.
 
