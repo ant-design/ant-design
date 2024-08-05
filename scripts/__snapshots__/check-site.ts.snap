@@ -184,9 +184,9 @@ exports[`site test Component components/result en Page 1`] = `1`;
 
 exports[`site test Component components/result zh Page 1`] = `1`;
 
-exports[`site test Component components/segmented en Page 1`] = `1`;
+exports[`site test Component components/segmented en Page 1`] = `2`;
 
-exports[`site test Component components/segmented zh Page 1`] = `1`;
+exports[`site test Component components/segmented zh Page 1`] = `2`;
 
 exports[`site test Component components/select en Page 1`] = `4`;
 
