@@ -43,7 +43,7 @@ const antRotate = new Keyframes('antRotate', {
 const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => {
   const { componentCls, calc } = token;
   return {
-    [`${componentCls}`]: {
+    [componentCls]: {
       ...resetComponent(token),
       position: 'absolute',
       display: 'none',
