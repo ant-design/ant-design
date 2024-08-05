@@ -197,7 +197,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
             // https://github.com/ant-design/ant-design/issues/41915
             flexShrink: 0,
             width: titleHeight,
-            lineHeight: `${unit(titleHeight)}`,
+            lineHeight: unit(titleHeight),
             textAlign: 'center',
             visibility: 'visible',
             opacity: 0.2,
@@ -240,7 +240,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         alignSelf: 'stretch',
         width: titleHeight,
         margin: 0,
-        lineHeight: `${unit(titleHeight)}`,
+        lineHeight: unit(titleHeight),
         textAlign: 'center',
         cursor: 'pointer',
         userSelect: 'none',
@@ -312,7 +312,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         margin: 0,
         padding: `0 ${unit(token.calc(token.paddingXS).div(2).equal())}`,
         color: 'inherit',
-        lineHeight: `${unit(titleHeight)}`,
+        lineHeight: unit(titleHeight),
         background: 'transparent',
         borderRadius: token.borderRadius,
         cursor: 'pointer',
@@ -331,7 +331,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
           display: 'inline-block',
           width: titleHeight,
           height: titleHeight,
-          lineHeight: `${unit(titleHeight)}`,
+          lineHeight: unit(titleHeight),
           textAlign: 'center',
           verticalAlign: 'top',
 
@@ -348,7 +348,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
 
       // ==================== Draggable =====================
       [`${treeCls}-node-content-wrapper`]: {
-        lineHeight: `${unit(titleHeight)}`,
+        lineHeight: unit(titleHeight),
         userSelect: 'none',
 
         ...getDropIndicatorStyle(prefixCls, token),
