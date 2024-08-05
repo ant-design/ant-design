@@ -5,6 +5,7 @@ import Modal from '..';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { createEvent, fireEvent, render } from '../../../tests/utils';
 
 jest.mock('rc-util/lib/Portal');
@@ -28,6 +29,7 @@ const ModalTester: React.FC<ModalProps> = (props) => {
 describe('Modal', () => {
   mountTest(Modal);
   rtlTest(Modal);
+  accessibilityTest(Modal);
 
   it('support closeIcon', () => {
     render(<Modal closeIcon={<a>closeIcon</a>} open />);

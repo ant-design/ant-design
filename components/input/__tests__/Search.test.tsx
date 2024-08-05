@@ -4,6 +4,7 @@ import { fireEvent, render } from '@testing-library/react';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import Button from '../../button';
 import type { InputRef } from '../Input';
 import Search from '../Search';
@@ -12,6 +13,7 @@ describe('Input.Search', () => {
   focusTest(Search, { refFocus: true });
   mountTest(Search);
   rtlTest(Search);
+  accessibilityTest(Search);
 
   it('should support custom button', () => {
     const { asFragment } = render(<Search enterButton={<button type="button">ok</button>} />);

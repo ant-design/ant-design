@@ -4,6 +4,7 @@ import type { TimelineProps } from '..';
 import TimeLine from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { render } from '../../../tests/utils';
 
 const renderFactory = (timeLineProps: TimelineProps) =>
@@ -28,6 +29,7 @@ describe('TimeLine', () => {
   mountTest(TimeLine);
   mountTest(TimeLine.Item);
   rtlTest(TimeLine);
+  accessibilityTest(TimeLine);
   rtlTest(TimeLine.Item);
 
   describe('render TimeLine.Item', () => {

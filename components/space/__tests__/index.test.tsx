@@ -4,12 +4,14 @@ import React, { useState } from 'react';
 import Space from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 describe('Space', () => {
   mountTest(Space);
   rtlTest(Space);
+  accessibilityTest(Space);
 
   it('should render width empty children', () => {
     const { container } = render(<Space />);

@@ -4,6 +4,7 @@ import Mentions, { Option } from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { act, fireEvent, render } from '../../../tests/utils';
 
 const { getMentions } = Mentions;
@@ -71,6 +72,7 @@ describe('Mentions', () => {
   focusTest(Mentions, { refFocus: true });
   mountTest(Mentions);
   rtlTest(Mentions);
+  accessibilityTest(Mentions);
 
   it('loading', () => {
     const wrapper = render(<Mentions loading />);

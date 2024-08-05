@@ -4,11 +4,13 @@ import type { CarouselRef } from '..';
 import Carousel from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { render, waitFakeTimer } from '../../../tests/utils';
 
 describe('Carousel', () => {
   mountTest(Carousel);
   rtlTest(Carousel);
+  accessibilityTest(Carousel);
 
   beforeEach(() => {
     jest.useFakeTimers();

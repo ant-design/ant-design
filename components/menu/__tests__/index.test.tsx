@@ -14,6 +14,7 @@ import { noop } from '../../_util/warning';
 import { TriggerMockContext } from '../../../tests/shared/demoTestContext';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { act, fireEvent, render } from '../../../tests/utils';
 import Layout from '../../layout';
 import OverrideContext from '../OverrideContext';
@@ -138,6 +139,7 @@ describe('Menu', () => {
   );
 
   rtlTest(RtlDemo);
+  accessibilityTest(RtlDemo);
 
   it('If has select nested submenu item ,the menu items on the grandfather level should be highlight', () => {
     const { container } = render(

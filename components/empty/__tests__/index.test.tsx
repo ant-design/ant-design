@@ -3,6 +3,7 @@ import React from 'react';
 import Empty from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import theme from '../../theme';
@@ -10,6 +11,7 @@ import theme from '../../theme';
 describe('Empty', () => {
   mountTest(Empty);
   rtlTest(Empty);
+  accessibilityTest(Empty);
 
   it('image size should change', () => {
     const { container } = render(<Empty imageStyle={{ height: 20 }} />);

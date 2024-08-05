@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { fireEvent, render } from '../../../tests/utils';
 import Collapse from '../../collapse';
 import Input from '../../input';

@@ -6,6 +6,7 @@ import type { CountdownProps } from '..';
 import Statistic from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import { formatTimeStr } from '../utils';
 
@@ -13,6 +14,7 @@ describe('Statistic', () => {
   mountTest(Statistic);
   mountTest(Statistic.Countdown);
   rtlTest(Statistic);
+  accessibilityTest(Statistic);
 
   beforeAll(() => {
     MockDate.set(dayjs('2018-11-28 00:00:00').valueOf());

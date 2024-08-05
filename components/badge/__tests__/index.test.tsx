@@ -3,6 +3,7 @@ import React from 'react';
 import type { GetRef } from '../../_util/type';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Tooltip from '../../tooltip';
 import Badge from '../index';
@@ -10,6 +11,7 @@ import Badge from '../index';
 describe('Badge', () => {
   mountTest(Badge);
   rtlTest(Badge);
+  accessibilityTest(Badge);
   rtlTest(() => (
     <Badge count={5} offset={[10, 10]}>
       <a href="#" className="head-example">

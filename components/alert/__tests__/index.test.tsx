@@ -3,8 +3,8 @@ import userEvent from '@testing-library/user-event';
 import { resetWarned } from 'rc-util/lib/warning';
 
 import Alert from '..';
-import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { act, render, screen, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import Popconfirm from '../../popconfirm';

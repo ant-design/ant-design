@@ -8,6 +8,7 @@ import excludeAllWarning from '../../../tests/shared/excludeWarning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
@@ -86,6 +87,7 @@ describe('Cascader', () => {
   focusTest(Cascader, { refFocus: true });
   mountTest(Cascader);
   rtlTest(Cascader);
+  accessibilityTest(Cascader);
 
   it('popup correctly when panel is hidden', () => {
     const { container } = render(<Cascader options={options} />);

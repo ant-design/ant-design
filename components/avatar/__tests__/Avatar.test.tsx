@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Avatar from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import useBreakpoint from '../../grid/hooks/useBreakpoint';
@@ -12,6 +13,7 @@ jest.mock('../../grid/hooks/useBreakpoint');
 describe('Avatar Render', () => {
   mountTest(Avatar);
   rtlTest(Avatar);
+  accessibilityTest(Avatar);
 
   const sizes = { xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 100 };
   let originOffsetWidth: PropertyDescriptor['get'];

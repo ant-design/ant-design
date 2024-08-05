@@ -10,6 +10,7 @@ import Form from '..';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { fireEvent, pureRender, render, screen, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import Cascader from '../../cascader';
@@ -41,6 +42,7 @@ describe('Form', () => {
   mountTest(Form.Item);
 
   rtlTest(Form);
+  accessibilityTest(Form);
   rtlTest(Form.Item);
 
   (scrollIntoView as any).mockImplementation(() => {});

@@ -4,12 +4,14 @@ import Steps from '..';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { fireEvent, render, screen } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 describe('Steps', () => {
   mountTest(Steps);
   rtlTest(Steps);
+  accessibilityTest(Steps);
 
   const description = 'This is a description.';
   it('should render correct', () => {

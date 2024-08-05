@@ -6,6 +6,7 @@ import Dropdown from '..';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 
 let triggerProps: TriggerProps;

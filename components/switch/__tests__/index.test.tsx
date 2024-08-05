@@ -4,6 +4,7 @@ import Switch from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { act, fireEvent, render } from '../../../tests/utils';
 
 jest.mock('rc-util/lib/Dom/isVisible', () => {
@@ -15,6 +16,7 @@ describe('Switch', () => {
   focusTest(Switch, { refFocus: true });
   mountTest(Switch);
   rtlTest(Switch);
+  accessibilityTest(Switch);
 
   it('should has click wave effect', () => {
     jest.useFakeTimers();

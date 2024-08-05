@@ -3,12 +3,14 @@ import React from 'react';
 import Result from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { render } from '../../../tests/utils';
 import Button from '../../button';
 
 describe('Result', () => {
   mountTest(Result);
   rtlTest(Result);
+  accessibilityTest(Result);
 
   it('🙂  successPercent should decide the progress status when it exists', () => {
     const { container } = render(

@@ -7,6 +7,7 @@ import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { act, fireEvent, render } from '../../../tests/utils';
 
 const { Option } = Select;
@@ -15,6 +16,7 @@ describe('Select', () => {
   focusTest(Select, { refFocus: true });
   mountTest(Select);
   rtlTest(Select);
+  accessibilityTest(Select);
 
   function toggleOpen(container: ReturnType<typeof render>['container']): void {
     fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);

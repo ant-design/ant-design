@@ -5,7 +5,7 @@ import MockDate from 'mockdate';
 import ConfigProvider from '../../components/config-provider';
 import { render } from '../utils';
 
-const rtlTest = (Component: React.ComponentType, mockDate = false) => {
+const rtlTest = (Component: React.ComponentType<any>, mockDate = false) => {
   describe('rtl render', () => {
     it('component should be rendered correctly in RTL direction', () => {
       if (mockDate) {

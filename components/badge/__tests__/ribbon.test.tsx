@@ -3,6 +3,7 @@ import { render } from '@testing-library/react';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import Badge from '../index';
 
 describe('Ribbon', () => {

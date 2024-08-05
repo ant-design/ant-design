@@ -4,6 +4,7 @@ import { Modal } from 'antd';
 import Image from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
@@ -12,6 +13,7 @@ const src = 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWP
 describe('Image', () => {
   mountTest(Image);
   rtlTest(Image);
+  accessibilityTest(Image);
   it('Image preview props set false', () => {
     const { container } = render(<Image src={src} preview={false} />);
 

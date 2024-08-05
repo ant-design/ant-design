@@ -3,6 +3,7 @@ import React from 'react';
 import Spin from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { act, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
@@ -18,6 +19,7 @@ describe('Spin', () => {
 
   mountTest(Spin);
   rtlTest(Spin);
+  accessibilityTest(Spin);
 
   it('should only affect the spin element when set style to a nested <Spin>xx</Spin>', () => {
     const { container } = render(

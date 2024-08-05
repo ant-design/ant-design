@@ -3,12 +3,14 @@ import React from 'react';
 import FloatButton from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import getOffset from '../util';
 
 describe('FloatButton', () => {
   mountTest(FloatButton);
   rtlTest(FloatButton);
+  accessibilityTest(FloatButton);
   it('should correct render', () => {
     const { container } = render(<FloatButton />);
     expect(container.firstChild).toMatchSnapshot();

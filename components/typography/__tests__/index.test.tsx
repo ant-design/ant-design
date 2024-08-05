@@ -6,6 +6,7 @@ import { resetWarned } from 'rc-util/lib/warning';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { act, fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
 import Base from '../Base';
 import Link from '../Link';
@@ -24,9 +25,13 @@ describe('Typography', () => {
   mountTest(Link);
 
   rtlTest(Paragraph);
+  accessibilityTest(Paragraph);
   rtlTest(Base);
+  accessibilityTest(Base);
   rtlTest(Title);
+  accessibilityTest(Title);
   rtlTest(Link);
+  accessibilityTest(Link);
 
   const LINE_STR_COUNT = 20;
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});

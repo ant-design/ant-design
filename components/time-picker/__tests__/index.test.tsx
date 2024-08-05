@@ -7,6 +7,7 @@ import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { render } from '../../../tests/utils';
 
 dayjs.extend(customParseFormat);
@@ -25,6 +26,7 @@ describe('TimePicker', () => {
   focusTest(TimePicker, { refFocus: true });
   mountTest(TimePicker);
   rtlTest(TimePicker);
+  accessibilityTest(TimePicker);
 
   it('warning for addon', () => {
     resetWarned();

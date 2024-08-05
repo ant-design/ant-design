@@ -3,6 +3,7 @@ import React from 'react';
 import FloatButton from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 
 const { BackTop } = FloatButton;
@@ -18,6 +19,7 @@ describe('BackTop', () => {
   });
   mountTest(BackTop);
   rtlTest(BackTop);
+  accessibilityTest(BackTop);
 
   it('should scroll to top after click it', async () => {
     const { container } = render(<BackTop />);

@@ -12,6 +12,7 @@ import { resetWarned } from 'rc-util/lib/warning';
 import Calendar from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { fireEvent, render } from '../../../tests/utils';
 import Group from '../../radio/group';
 import Button from '../../radio/radioButton';

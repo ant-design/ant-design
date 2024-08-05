@@ -3,6 +3,7 @@ import React from 'react';
 import Flex from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { render } from '../../../tests/utils';
 
 const FunCom = React.forwardRef<HTMLDivElement, { className?: string }>((props, ref) => (

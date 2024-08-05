@@ -5,6 +5,7 @@ import Radio, { Button } from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { fireEvent, render } from '../../../tests/utils';
 
 describe('Radio Button', () => {
@@ -12,6 +13,7 @@ describe('Radio Button', () => {
   mountTest(Button);
 
   rtlTest(Button);
+  accessibilityTest(Button);
 
   it('should render correctly', () => {
     const { container } = render(<Button className="customized">Test</Button>);

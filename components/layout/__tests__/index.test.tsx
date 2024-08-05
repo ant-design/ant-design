@@ -5,6 +5,7 @@ import { renderToString } from 'react-dom/server';
 import Layout from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { act, fireEvent, render } from '../../../tests/utils';
 import Menu from '../../menu';
 
@@ -22,8 +23,11 @@ describe('Layout', () => {
   ));
 
   rtlTest(Layout);
+  accessibilityTest(Layout);
   rtlTest(Content);
+  accessibilityTest(Content);
   rtlTest(Sider);
+  accessibilityTest(Sider);
 
   it('detect the sider as children', () => {
     const { container, unmount } = render(

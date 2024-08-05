@@ -4,6 +4,7 @@ import Radio, { Button, Group } from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { fireEvent, render } from '../../../tests/utils';
 import Form from '../../form';
 
@@ -14,8 +15,11 @@ describe('Radio', () => {
   mountTest(Button);
 
   rtlTest(Radio);
+  accessibilityTest(Radio);
   rtlTest(Group);
+  accessibilityTest(Group);
   rtlTest(Button);
+  accessibilityTest(Button);
 
   it('should render correctly', () => {
     const { container } = render(<Radio className="customized">Test</Radio>);

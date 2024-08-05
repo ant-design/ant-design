@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Col, Row } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { fireEvent, render } from '../../../tests/utils';
 import useBreakpoint from '../hooks/useBreakpoint';
 
@@ -39,7 +40,9 @@ describe('Grid', () => {
   mountTest(Col);
 
   rtlTest(Row);
+  accessibilityTest(Row);
   rtlTest(Col);
+  accessibilityTest(Col);
 
   beforeEach(() => {
     (global as any).unsubscribeCnt = 0;

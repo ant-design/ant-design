@@ -5,6 +5,7 @@ import InputNumber from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
 
@@ -12,6 +13,7 @@ describe('InputNumber', () => {
   focusTest(InputNumber, { refFocus: true });
   mountTest(InputNumber);
   rtlTest(InputNumber);
+  accessibilityTest(InputNumber);
 
   // https://github.com/ant-design/ant-design/issues/13896
   it('should return null when blur a empty input number', () => {

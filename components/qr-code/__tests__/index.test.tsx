@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import QRCode from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { fireEvent, render } from '../../../tests/utils';
 import type { QRCodeProps } from '../interface';
 

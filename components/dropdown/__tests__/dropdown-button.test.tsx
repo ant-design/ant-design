@@ -2,6 +2,7 @@ import React from 'react';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { render, waitFakeTimer } from '../../../tests/utils';
 import type { DropdownProps } from '../dropdown';
 import DropdownButton from '../dropdown-button';
@@ -37,6 +38,7 @@ jest.mock('../dropdown', () => {
 describe('DropdownButton', () => {
   mountTest(DropdownButton);
   rtlTest(DropdownButton);
+  accessibilityTest(DropdownButton);
 
   it('pass appropriate props to Dropdown', () => {
     const items = [

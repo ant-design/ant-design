@@ -5,6 +5,7 @@ import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
@@ -48,6 +49,7 @@ function doMouseMove(
 describe('ColorPicker', () => {
   mountTest(ColorPicker);
   rtlTest(ColorPicker);
+  accessibilityTest(ColorPicker);
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
   beforeEach(() => {
     resetWarned();

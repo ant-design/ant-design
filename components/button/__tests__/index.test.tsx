@@ -6,6 +6,7 @@ import Button from '..';
 import type { GetRef } from '../../_util/type';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import type { BaseButtonProps } from '../button';
@@ -20,6 +21,7 @@ describe('Button', () => {
   mountTest(() => <Button.Group size="middle" />);
 
   rtlTest(Button);
+  accessibilityTest(Button);
   rtlTest(() => <Button size="large" />);
   rtlTest(() => <Button size="small" />);
   rtlTest(Button.Group);

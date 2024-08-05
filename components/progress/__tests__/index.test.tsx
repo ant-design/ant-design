@@ -5,6 +5,7 @@ import type { ProgressProps } from '..';
 import Progress from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { fireEvent, render } from '../../../tests/utils';
 import { handleGradient, sortGradient } from '../Line';
 import { ProgressTypes } from '../progress';
@@ -13,6 +14,7 @@ import ProgressSteps from '../Steps';
 describe('Progress', () => {
   mountTest(Progress);
   rtlTest(Progress);
+  accessibilityTest(Progress);
   it('successPercent should decide the progress status when it exists', () => {
     const { container: wrapper, rerender } = render(
       <Progress percent={100} success={{ percent: 50 }} />,

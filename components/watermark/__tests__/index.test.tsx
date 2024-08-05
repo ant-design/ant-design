@@ -3,6 +3,7 @@ import React from 'react';
 import Watermark from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { render, waitFakeTimer } from '../../../tests/utils';
 import Drawer from '../../drawer';
 import Modal from '../../modal';
@@ -10,6 +11,7 @@ import Modal from '../../modal';
 describe('Watermark', () => {
   mountTest(Watermark);
   rtlTest(Watermark);
+  accessibilityTest(Watermark);
 
   const mockSrcSet = jest.spyOn(Image.prototype, 'src', 'set');
 

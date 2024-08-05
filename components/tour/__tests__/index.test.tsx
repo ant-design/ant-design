@@ -4,12 +4,14 @@ import React, { useEffect, useRef } from 'react';
 import Tour from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { fireEvent, render, screen } from '../../../tests/utils';
 import type { TourProps } from '../interface';
 
 describe('Tour', () => {
   mountTest(Tour);
   rtlTest(Tour);
+  accessibilityTest(Tour);
 
   it('single', () => {
     const App: React.FC = () => {

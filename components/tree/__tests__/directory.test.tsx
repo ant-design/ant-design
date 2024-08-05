@@ -5,6 +5,7 @@ import type { Key } from 'rc-tree/lib/interface';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import type { TreeProps } from '../index';
 import Tree from '../index';
@@ -18,7 +19,9 @@ describe('Directory Tree', () => {
   mountTest(DirectoryTree);
 
   rtlTest(Tree);
+  accessibilityTest(Tree);
   rtlTest(DirectoryTree);
+  accessibilityTest(DirectoryTree);
 
   (debounce as any).mockImplementation((fn: () => void) => fn);
 

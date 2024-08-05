@@ -3,6 +3,7 @@ import React from 'react';
 import Skeleton from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { render } from '../../../tests/utils';
 import type { AvatarProps } from '../Avatar';
 import type { SkeletonButtonProps } from '../Button';
@@ -26,6 +27,7 @@ describe('Skeleton', () => {
 
   mountTest(Skeleton);
   rtlTest(Skeleton);
+  accessibilityTest(Skeleton);
 
   it('should without avatar and paragraph', () => {
     const { asFragment } = genSkeleton({ avatar: false, paragraph: false });

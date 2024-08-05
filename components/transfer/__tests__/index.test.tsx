@@ -6,6 +6,7 @@ import type { SelectAllLabel, TransferProps } from '..';
 import Transfer from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import Button from '../../button';
 
 const listCommonProps: {
@@ -90,6 +91,7 @@ const generateData = (n = 20) => {
 describe('Transfer', () => {
   mountTest(Transfer);
   rtlTest(Transfer);
+  accessibilityTest(Transfer);
 
   it('should render correctly', () => {
     const wrapper = render(<Transfer {...listCommonProps} />);

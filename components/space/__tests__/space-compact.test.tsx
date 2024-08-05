@@ -4,6 +4,7 @@ import React from 'react';
 import Space from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { render } from '../../../tests/utils';
 import AutoComplete from '../../auto-complete';
 import Button from '../../button';

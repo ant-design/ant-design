@@ -7,6 +7,7 @@ import getPlacements from '../../_util/placements';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import DatePicker from '../../date-picker';
@@ -19,6 +20,7 @@ import { isTooltipOpen } from './util';
 describe('Tooltip', () => {
   mountTest(Tooltip);
   rtlTest(Tooltip);
+  accessibilityTest(Tooltip);
   beforeEach(() => {
     jest.useFakeTimers();
   });

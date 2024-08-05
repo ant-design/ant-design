@@ -6,6 +6,7 @@ import type { NotificationConfig } from 'antd/es/notification/interface';
 import App from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { render, waitFakeTimer } from '../../../tests/utils';
 import type { AppConfig } from '../context';
 import { AppConfigContext } from '../context';
@@ -13,6 +14,7 @@ import { AppConfigContext } from '../context';
 describe('App', () => {
   mountTest(App);
   rtlTest(App);
+  accessibilityTest(App);
 
   beforeEach(() => {
     jest.useFakeTimers();

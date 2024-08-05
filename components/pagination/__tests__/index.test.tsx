@@ -5,6 +5,7 @@ import type { PaginationProps } from '..';
 import Pagination from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import Select from '../../select';
@@ -12,6 +13,7 @@ import Select from '../../select';
 describe('Pagination', () => {
   mountTest(Pagination);
   rtlTest(Pagination);
+  accessibilityTest(Pagination);
 
   it('should pass disabled to prev and next buttons', () => {
     const itemRender: PaginationProps['itemRender'] = (_, type, originalElement) => {

@@ -5,12 +5,14 @@ import AutoComplete from '..';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { render, screen } from '../../../tests/utils';
 import Input from '../../input';
 
 describe('AutoComplete', () => {
   mountTest(AutoComplete);
   rtlTest(AutoComplete);
+  accessibilityTest(AutoComplete);
 
   it('AutoComplete with custom Input render perfectly', async () => {
     render(

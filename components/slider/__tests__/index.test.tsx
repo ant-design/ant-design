@@ -5,6 +5,7 @@ import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import type { TooltipProps, TooltipRef } from '../../tooltip';
@@ -27,6 +28,7 @@ jest.mock('../../tooltip', () => {
 describe('Slider', () => {
   mountTest(Slider);
   rtlTest(Slider);
+  accessibilityTest(Slider);
   focusTest(Slider);
 
   beforeEach(() => {

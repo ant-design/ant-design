@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 
 import Affix from '..';
-import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { render, triggerResize, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 
@@ -37,8 +37,8 @@ const AffixMounter: React.FC<AffixProps> = (props) => {
 };
 
 describe('Affix Render', () => {
-  rtlTest(Affix as any);
-  accessibilityTest(Affix as any);
+  rtlTest(Affix);
+  accessibilityTest(Affix);
 
   const domMock = jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
 

@@ -5,6 +5,7 @@ import type { TableProps, TableRef } from '..';
 import Table from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 
 const { Column, ColumnGroup } = Table;
@@ -12,6 +13,7 @@ const { Column, ColumnGroup } = Table;
 describe('Table', () => {
   mountTest(Table);
   rtlTest(Table);
+  accessibilityTest(Table);
 
   const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 

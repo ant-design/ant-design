@@ -5,6 +5,7 @@ import userEvent from '@testing-library/user-event';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import { render, screen } from '../../../tests/utils';
 import Button from '../../button/index';
 import Card from '../index';
@@ -12,6 +13,7 @@ import Card from '../index';
 describe('Card', () => {
   mountTest(Card);
   rtlTest(Card);
+  accessibilityTest(Card);
 
   beforeAll(() => {
     jest.useFakeTimers();
