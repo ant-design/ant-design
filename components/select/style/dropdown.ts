@@ -92,7 +92,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
           display: 'none',
         },
 
-        [`${selectItemCls}`]: {
+        [selectItemCls]: {
           ...genItemStyle(token),
           cursor: 'pointer',
           transition: `background ${token.motionDurationSlow} ease`,

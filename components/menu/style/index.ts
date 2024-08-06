@@ -535,7 +535,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
     // Misc
     {
       '': {
-        [`${componentCls}`]: {
+        [componentCls]: {
           ...clearFix(),
 
           // Hidden
