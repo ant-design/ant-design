@@ -1,4 +1,3 @@
-import type { RefAttributes } from 'react';
 import React from 'react';
 import type { RadioGroupProps } from '..';
 import Radio, { Button } from '..';
@@ -36,7 +35,11 @@ describe('Radio Button', () => {
 });
 
 describe('Radio Group', () => {
-  function createRadioGroup(props?: RadioGroupProps & RefAttributes<HTMLDivElement>) {
+  function createRadioGroup(
+    props?: RadioGroupProps & {
+      ref?: React.Ref<HTMLDivElement> | undefined;
+    },
+  ) {
     return (
       <Radio.Group {...props}>
         <Button value="A">A</Button>
@@ -154,7 +157,7 @@ describe('Radio Group', () => {
     const GROUP_NAME = 'GROUP_NAME';
     const { container } = render(createRadioGroup({ name: GROUP_NAME }));
 
-    container.querySelectorAll<HTMLInputElement>('input[type="radio"]').forEach(el => {
+    container.querySelectorAll<HTMLInputElement>('input[type="radio"]').forEach((el) => {
       expect(el.name).toEqual(GROUP_NAME);
     });
   });
@@ -230,7 +233,7 @@ describe('Radio Group', () => {
       expect(container.querySelectorAll('.ant-radio-button-wrapper-checked').length).toBe(1);
     });
 
-    [undefined, null].forEach(newValue => {
+    [undefined, null].forEach((newValue) => {
       it(`should set value back when value change back to ${newValue}`, () => {
         const { container, rerender } = render(
           <Radio.Group value="bamboo">

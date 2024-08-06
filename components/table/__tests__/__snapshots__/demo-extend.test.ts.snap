@@ -613,7 +613,7 @@ exports[`renders ./components/table/demo/basic.md extend context correctly 1`] =
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                   <td
                     class="ant-table-cell"
@@ -863,7 +863,7 @@ exports[`renders ./components/table/demo/bordered.md extend context correctly 1`
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                 </tr>
               </tbody>
@@ -1107,7 +1107,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md extend context corre
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                 </tr>
                 <tr
@@ -1823,7 +1823,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                 </tr>
                 <tr
@@ -2042,7 +2042,7 @@ exports[`renders ./components/table/demo/drag-sorting.md extend context correctl
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                 </tr>
               </tbody>
@@ -2316,7 +2316,7 @@ exports[`renders ./components/table/demo/drag-sorting-handler.md extend context 
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                 </tr>
               </tbody>
@@ -6111,27 +6111,27 @@ exports[`renders ./components/table/demo/ellipsis.md extend context correctly 1`
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
-                    title="Sidney No. 1 Lake Park, Sidney No. 1 Lake Park"
+                    title="Sydney No. 1 Lake Park, Sydney No. 1 Lake Park"
                   >
-                    Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
-                    title="Sidney No. 1 Lake Park, Sidney No. 1 Lake Park"
+                    title="Sydney No. 1 Lake Park, Sydney No. 1 Lake Park"
                   >
-                    Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
-                    title="Sidney No. 1 Lake Park, Sidney No. 1 Lake Park"
+                    title="Sydney No. 1 Lake Park, Sydney No. 1 Lake Park"
                   >
-                    Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
-                    title="Sidney No. 1 Lake Park, Sidney No. 1 Lake Park"
+                    title="Sydney No. 1 Lake Park, Sydney No. 1 Lake Park"
                   >
-                    Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                   </td>
                 </tr>
               </tbody>
@@ -6598,7 +6598,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
                     <span>
-                      Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                     <div>
                       <div
@@ -6619,7 +6619,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                             class="ant-tooltip-inner"
                             role="tooltip"
                           >
-                            Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                            Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                           </div>
                         </div>
                       </div>
@@ -6629,7 +6629,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
                     <span>
-                      Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                     <div>
                       <div
@@ -6650,7 +6650,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                             class="ant-tooltip-inner"
                             role="tooltip"
                           >
-                            Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                            Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                           </div>
                         </div>
                       </div>
@@ -6660,7 +6660,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
                     <span>
-                      Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                     <div>
                       <div
@@ -6681,7 +6681,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                             class="ant-tooltip-inner"
                             role="tooltip"
                           >
-                            Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                            Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                           </div>
                         </div>
                       </div>
@@ -6691,7 +6691,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
                     <span>
-                      Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                     <div>
                       <div
@@ -6712,7 +6712,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                             class="ant-tooltip-inner"
                             role="tooltip"
                           >
-                            Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                            Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                           </div>
                         </div>
                       </div>
@@ -7005,7 +7005,7 @@ exports[`renders ./components/table/demo/expand.md extend context correctly 1`] 
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                   <td
                     class="ant-table-cell"
@@ -7988,7 +7988,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md extend context correc
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                 </tr>
                 <tr
@@ -8808,7 +8808,7 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                 </tr>
                 <tr
@@ -14194,7 +14194,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                 </tr>
                 <tr
@@ -14525,7 +14525,7 @@ exports[`renders ./components/table/demo/jsx.md extend context correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                   <td
                     class="ant-table-cell"
@@ -19606,7 +19606,7 @@ exports[`renders ./components/table/demo/order-column.md extend context correctl
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                 </tr>
               </tbody>
@@ -20141,7 +20141,7 @@ exports[`renders ./components/table/demo/pagination.md extend context correctly 
                     <td
                       class="ant-table-cell"
                     >
-                      Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park
                     </td>
                     <td
                       class="ant-table-cell"
@@ -21115,9 +21115,9 @@ Array [
                     </td>
                     <td
                       class="ant-table-cell ant-table-cell-ellipsis"
-                      title="Sidney No. 1 Lake Park"
+                      title="Sydney No. 1 Lake Park"
                     >
-                      Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park
                     </td>
                   </tr>
                   <tr
@@ -21964,7 +21964,7 @@ exports[`renders ./components/table/demo/row-selection.md extend context correct
                     <td
                       class="ant-table-cell"
                     >
-                      Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park
                     </td>
                   </tr>
                   <tr
@@ -22007,7 +22007,7 @@ exports[`renders ./components/table/demo/row-selection.md extend context correct
                     <td
                       class="ant-table-cell"
                     >
-                      Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park
                     </td>
                   </tr>
                 </tbody>
@@ -24156,7 +24156,7 @@ exports[`renders ./components/table/demo/size.md extend context correctly 1`] = 
                     <td
                       class="ant-table-cell"
                     >
-                      Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park
                     </td>
                   </tr>
                 </tbody>
@@ -24352,7 +24352,7 @@ exports[`renders ./components/table/demo/size.md extend context correctly 1`] = 
                     <td
                       class="ant-table-cell"
                     >
-                      Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park
                     </td>
                   </tr>
                 </tbody>
@@ -26561,7 +26561,7 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park
                     </td>
                   </tr>
                 </tbody>
@@ -27273,7 +27273,7 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park
                     </td>
                   </tr>
                 </tbody>

@@ -17,7 +17,7 @@ Set `icon` for Segmented Item.
 import { Segmented } from 'antd';
 import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
 
-export default () => (
+const Demo = () => (
   <Segmented
     options={[
       {
@@ -33,4 +33,6 @@ export default () => (
     ]}
   />
 );
+
+export default Demo;
 ```

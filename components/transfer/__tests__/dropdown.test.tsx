@@ -87,30 +87,43 @@ describe('Transfer.Dropdown', () => {
   });
 
   describe('select invert', () => {
-    [
-      { name: 'with pagination', props: listProps, index: 2, keys: ['c', 'd'] },
-      {
-        name: 'without pagination',
-        props: { ...listProps, pagination: null as any },
-        index: 1,
-        keys: ['c', 'd', 'e'],
-      },
-    ].forEach(({ name, props, index, keys }) => {
-      it(name, () => {
-        jest.useFakeTimers();
+    it('with pagination', () => {
+      jest.useFakeTimers();
 
-        const onSelectChange = jest.fn();
-        const { container } = render(<Transfer {...props} onSelectChange={onSelectChange} />);
-        fireEvent.mouseEnter(container.querySelector('.ant-transfer-list-header-dropdown')!);
-        act(() => {
-          jest.runAllTimers();
-        });
-
-        clickItem(container, index);
-        expect(onSelectChange).toHaveBeenCalledWith(keys, []);
-
-        jest.useRealTimers();
+      const onSelectChange = jest.fn();
+      const { container } = render(
+        <Transfer {...listProps} selectedKeys={undefined} onSelectChange={onSelectChange} />,
+      );
+      fireEvent.mouseEnter(container.querySelector('.ant-transfer-list-header-dropdown')!);
+      act(() => {
+        jest.runAllTimers();
       });
+
+      clickItem(container, 0);
+      expect(onSelectChange).toHaveBeenCalledWith(['b', 'c', 'd', 'e'], []);
+
+      clickItem(container, 2);
+      expect(onSelectChange).toHaveBeenCalledWith(['e'], []);
+
+      jest.useRealTimers();
+    });
+
+    it('without pagination', () => {
+      jest.useFakeTimers();
+
+      const onSelectChange = jest.fn();
+      const { container } = render(
+        <Transfer {...listProps} pagination={null as any} onSelectChange={onSelectChange} />,
+      );
+      fireEvent.mouseEnter(container.querySelector('.ant-transfer-list-header-dropdown')!);
+      act(() => {
+        jest.runAllTimers();
+      });
+
+      clickItem(container, 1);
+      expect(onSelectChange).toHaveBeenCalledWith(['c', 'd', 'e'], []);
+
+      jest.useRealTimers();
     });
   });
 

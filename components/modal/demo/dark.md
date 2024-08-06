@@ -81,7 +81,7 @@ const data = [
     key: '3',
     name: 'Joe Black',
     age: 32,
-    address: 'Sidney No. 1 Lake Park',
+    address: 'Sydney No. 1 Lake Park',
   },
   {
     key: '4',
@@ -297,7 +297,7 @@ const TableTransfer = ({ leftColumns, rightColumns, ...restProps }) => (
   </Transfer>
 );
 
-export default () => {
+const Demo = () => {
   const [open, setOpen] = useState(false);
   const [targetKeys, setTargetKeys] = useState(oriTargetKeys);
   const [selectedKeys, setSelectedKeys] = useState([]);
@@ -574,6 +574,8 @@ export default () => {
     </>
   );
 };
+
+export default Demo;
 ```
 
 <style>

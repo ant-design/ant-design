@@ -75,7 +75,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     popupClassName,
     listHeight = 256,
     placement,
-    listItemHeight = 24,
+    listItemHeight = 32,
     size: customizeSize,
     disabled: customDisabled,
     notFoundContent,

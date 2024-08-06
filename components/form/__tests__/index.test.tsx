@@ -1252,6 +1252,21 @@ describe('Form', () => {
 
       expect(container.querySelector('.ant-tooltip-inner')).toHaveTextContent('Bamboo');
     });
+
+    // https://github.com/ant-design/ant-design/issues/46154
+    it('should not trigger form change when click icon', async () => {
+      const onChange = jest.fn();
+
+      const { container } = render(
+        <Form>
+          <Form.Item label="light" name="foo" tooltip={{ title: 'Bar' }}>
+            <Switch onChange={onChange} />
+          </Form.Item>
+        </Form>,
+      );
+      fireEvent.click(container.querySelector('.anticon-question-circle')!);
+      expect(onChange).not.toHaveBeenCalled();
+    });
   });
 
   it('warningOnly validate', async () => {

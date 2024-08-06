@@ -16,7 +16,9 @@ The most basic usage.
 ```jsx
 import { Segmented } from 'antd';
 
-export default () => <Segmented options={['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Yearly']} />;
+const Demo = () => <Segmented options={['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Yearly']} />;
+
+export default Demo;
 ```
 
 ```css

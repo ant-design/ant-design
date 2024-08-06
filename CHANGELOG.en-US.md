@@ -15,6 +15,22 @@ timeline: true
 
 ---
 
+## 4.24.16
+
+`2024-03-19`
+
+- 🐞 Fix Select that scrollbar is not displayed when there are few options. [#47050](https://github.com/ant-design/ant-design/pull/47050)
+- 🐞 Fix Transfer cannot invert current page correctly. [#47134](https://github.com/ant-design/ant-design/pull/47134) [@linxianxi](https://github.com/linxianxi)
+- 🐞 Fix that clicking Form tooltip icon should not trigger Switch. [#46159](https://github.com/ant-design/ant-design/pull/46159) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Fix Segmented `options` className being overrided by `className`. [rc-segmented#175](https://github.com/react-component/segmented/pull/175/) [@stoil-terziev](https://github.com/stoil-terziev)
+
+## 4.24.15
+
+`2023-11-21`
+
+- 🐞 Fix Radio has wrong `disabled` state problem that affected by Form. [#44837](https://github.com/ant-design/ant-design/pull/44837) [@Yuiai01](https://github.com/Yuiai01)
+- 💄 Fix DatePicker disabled styles when hovered in Form. [#44779](https://github.com/ant-design/ant-design/pull/44779) [@crazyair](https://github.com/crazyair)
+
 ## 4.24.14
 
 `2023-09-06`
