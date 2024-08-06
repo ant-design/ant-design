@@ -50,3 +50,20 @@ describe('getScroll', () => {
     scrollToSpy.mockRestore();
   });
 });
+
+describe('When window is undef', () => {
+  let originalWindow: Window & typeof globalThis;
+
+  beforeAll(() => {
+    originalWindow = global.window;
+    delete (global as any).window;
+  });
+
+  it('getScroll value is zero', () => {
+    expect(getScroll(document)).toBe(0);
+  });
+
+  afterAll(() => {
+    global.window = originalWindow;
+  });
+});
