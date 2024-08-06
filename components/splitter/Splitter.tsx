@@ -4,6 +4,7 @@ import classNames from 'classnames';
 
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import type { SplitterContextType } from './context';
 import { SplitterContext } from './context';
 import type { PanelProps } from './Panel';
 import { InternalPanel } from './Panel';
@@ -39,10 +40,11 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     onResizeEnd,
   } = props;
 
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('splitter', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const isRTL = direction === 'rtl';
 
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -108,6 +110,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     gutter,
     gutterCount,
     items,
+    isRTL,
     basicsData: basicsState,
     onResizeStart,
     onResize,
@@ -122,6 +125,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
       [`${prefixCls}-horizontal`]: layout === 'horizontal',
       [`${prefixCls}-vertical`]: layout === 'vertical',
       [`${prefixCls}-resizing`]: resizing,
+      [`${prefixCls}-rtl`]: isRTL,
     },
     rootClassName,
     cssVarCls,
@@ -178,15 +182,16 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     defaultSize,
   ]);
 
-  const splitterContextValue = useMemo(
+  const splitterContextValue = useMemo<SplitterContextType>(
     () => ({
+      isRTL,
       layout,
       resizing,
       basicsState,
       resizeStart,
       setSize,
     }),
-    [layout, resizing, basicsState],
+    [isRTL, layout, resizing, basicsState],
   );
 
   return wrapCSSVar(

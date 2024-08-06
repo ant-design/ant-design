@@ -11,6 +11,7 @@ interface UseResizeProps
   gutter: number;
   gutterCount: number;
   items: PanelProps[];
+  isRTL: boolean;
   basicsData: number[];
   setBasicsState: React.Dispatch<React.SetStateAction<number[]>>;
 }
@@ -44,6 +45,7 @@ const useResize = ({
   gutter,
   gutterCount,
   items,
+  isRTL,
   basicsData,
   onResize,
   onResizeEnd,
@@ -59,6 +61,7 @@ const useResize = ({
 
   const setOffset = (offset: number, x: number, y: number, containerSize: number) => {
     const { index } = startInfo.current;
+    const reverse = layout === 'horizontal' && isRTL;
 
     if (panelsRef.current?.[index] && basicsRef.current) {
       const previousElement = panelsRef.current[index];
@@ -66,8 +69,12 @@ const useResize = ({
 
       const percentCount = basicsRef.current[index] + basicsRef.current[index + 1];
 
-      let previousSize = basicsRef.current[index] - offset;
-      let nextSize = basicsRef.current[index + 1] + offset;
+      let previousSize = reverse
+        ? basicsRef.current[index] + offset
+        : basicsRef.current[index] - offset;
+      let nextSize = reverse
+        ? basicsRef.current[index + 1] - offset
+        : basicsRef.current[index + 1] + offset;
 
       const {
         max: previousMax = percentCount,
@@ -204,7 +211,7 @@ const useResize = ({
         }
       });
     };
-  }, [layout]);
+  }, [layout, isRTL]);
 
   basicsRef.current = basicsData;
   onResizeStartRef.current = onResizeStart;

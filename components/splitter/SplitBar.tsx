@@ -14,7 +14,8 @@ export interface SplitBarProps extends Pick<PanelProps, 'resizable' | 'collapsib
 const SplitBar: React.FC<SplitBarProps> = (props) => {
   const { prefixCls, size, index, resizable = true, collapsible = false } = props;
 
-  const { resizing, basicsState, resizeStart, setSize } = React.useContext(SplitterContext);
+  const { isRTL, layout, resizing, basicsState, resizeStart, setSize } =
+    React.useContext(SplitterContext);
 
   const oldBasicsRef = useRef({ previous: 0, next: 0 });
   const [active, setActive] = useState(false);
@@ -25,8 +26,11 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     [`${prefixCls}-bar-active`]: active,
   });
 
-  const previous = basicsState?.[index];
-  const next = basicsState?.[index + 1];
+  const reverse = layout === 'horizontal' && isRTL;
+  const previousIdx = reverse ? index + 1 : index;
+  const nextIdx = reverse ? index : index + 1;
+  const previousSize = basicsState?.[previousIdx] || 0;
+  const nextSize = basicsState?.[nextIdx] || 0;
 
   useEffect(() => {
     if (!resizing && active) {
@@ -50,41 +54,49 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
       {resizable ? <div className={`${splitBarPrefixCls}-resizable`} /> : null}
 
       {collapsible ? (
-        <div className={`${splitBarPrefixCls}-collapse`}>
-          {previous ? (
+        <>
+          {previousSize ? (
             <LeftOutlined
-              className={`${splitBarPrefixCls}-collapse-previous`}
+              className={classNames(
+                `${splitBarPrefixCls}-collapse-icon`,
+                `${splitBarPrefixCls}-collapse-previous`,
+              )}
+              onMouseDown={(e) => e.stopPropagation()}
               onClick={() => {
-                oldBasicsRef.current.previous = previous;
+                oldBasicsRef.current.previous = previousSize;
 
-                if (next) {
-                  setSize?.(basicsState[index] + basicsState[index + 1], index + 1);
-                  setSize?.(0, index);
+                if (nextSize) {
+                  setSize?.(0, previousIdx);
+                  setSize?.(100, nextIdx);
                 } else {
-                  setSize?.(oldBasicsRef.current.previous - oldBasicsRef.current.next, index);
-                  setSize?.(oldBasicsRef.current.next, index + 1);
+                  setSize?.(100 - oldBasicsRef.current.next, previousIdx);
+                  setSize?.(oldBasicsRef.current.next, nextIdx);
                 }
               }}
             />
           ) : null}
 
-          {next ? (
+          {nextSize ? (
             <RightOutlined
-              className={`${splitBarPrefixCls}-collapse-next`}
+              className={classNames(
+                `${splitBarPrefixCls}-collapse-icon`,
+                `${splitBarPrefixCls}-collapse-next`,
+              )}
+              onMouseDown={(e) => e.stopPropagation()}
               onClick={() => {
-                oldBasicsRef.current.next = next;
+                oldBasicsRef.current.next = nextSize;
 
-                if (previous) {
-                  setSize?.(basicsState[index] + basicsState[index + 1], index);
-                  setSize?.(0, index + 1);
+                if (previousSize) {
+                  setSize?.(100, previousIdx);
+                  setSize?.(0, nextIdx);
                 } else {
-                  setSize?.(oldBasicsRef.current.previous, index);
-                  setSize?.(oldBasicsRef.current.next - oldBasicsRef.current.previous, index + 1);
+                  setSize?.(oldBasicsRef.current.previous, previousIdx);
+                  setSize?.(100 - oldBasicsRef.current.previous, nextIdx);
                 }
               }}
             />
           ) : null}
-        </div>
+        </>
       ) : null}
     </div>
   );

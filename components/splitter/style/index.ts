@@ -19,6 +19,39 @@ export interface ComponentToken {
 
 interface SplitterToken extends FullToken<'Splitter'> {}
 
+const genRtlStyle = (token: SplitterToken): CSSObject => {
+  const { componentCls } = token;
+  return {
+    [`&-rtl${componentCls}-horizontal`]: {
+      [`> ${componentCls}-bar`]: {
+        [`${componentCls}-bar-collapse-previous`]: {
+          insetInlineEnd: 0,
+          insetInlineStart: 'unset',
+        },
+
+        [`${componentCls}-bar-collapse-next`]: {
+          insetInlineEnd: 'unset',
+          insetInlineStart: 0,
+        },
+      },
+    },
+
+    [`&-rtl${componentCls}-vertical`]: {
+      [`> ${componentCls}-bar`]: {
+        [`${componentCls}-bar-collapse-previous`]: {
+          insetInlineEnd: '50%',
+          insetInlineStart: 'unset',
+        },
+
+        [`${componentCls}-bar-collapse-next`]: {
+          insetInlineEnd: '50%',
+          insetInlineStart: 'unset',
+        },
+      },
+    },
+  };
+};
+
 const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): CSSObject => {
   const {
     componentCls,
@@ -31,6 +64,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
     collapsibleIconSize,
     zIndexPopupBase,
     motionDurationFast,
+    paddingXXS,
   } = token;
 
   return {
@@ -54,7 +88,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         '&:hover': {
           background: colorFill,
 
-          [`> ${componentCls}-bar-collapse`]: {
+          [`> ${componentCls}-bar-collapse-icon`]: {
             display: 'block',
           },
         },
@@ -70,20 +104,17 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
           background: colorFill,
         },
 
-        [`> ${componentCls}-bar-collapse`]: {
-          position: 'absolute',
+        // 快捷折叠
+        [`${componentCls}-bar-collapse-icon`]: {
           display: 'none',
+          position: 'absolute',
+          fontSize: collapsibleIconSize,
+          zIndex: zIndexPopupBase,
+          color: colorTextTertiary,
+          padding: paddingXXS,
 
-          [`> ${componentCls}-bar-collapse-previous,> ${componentCls}-bar-collapse-next`]: {
-            padding: 2,
-            position: 'absolute',
-            fontSize: collapsibleIconSize,
-            zIndex: zIndexPopupBase,
-            color: colorTextTertiary,
-
-            '&:hover': {
-              color: colorPrimary,
-            },
+          '&:hover': {
+            color: colorPrimary,
           },
         },
       },
@@ -105,33 +136,28 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         [`> ${componentCls}-bar`]: {
           cursor: 'col-resize',
 
-          [`> ${componentCls}-bar-area`]: {
-            width: '300%',
+          [`${componentCls}-bar-area`]: {
+            width: '600%',
             height: '100%',
-            top: 0,
-            insetInlineStart: '50%',
-            transform: 'translateX(-50%)',
           },
 
-          [`> ${componentCls}-bar-resizable`]: {
+          [`${componentCls}-bar-resizable`]: {
             width: '100%',
             height: resizableSize,
           },
 
-          [`> ${componentCls}-bar-collapse`]: {
-            width: '100%',
+          [`${componentCls}-bar-collapse-previous`]: {
+            top: '50%',
+            insetInlineEnd: 'unset',
+            insetInlineStart: 0,
+            transform: 'translate(-100%, -50%)',
+          },
 
-            [`> ${componentCls}-bar-collapse-previous`]: {
-              top: '50%',
-              insetInlineStart: 0,
-              transform: 'translate(-100%, -50%)',
-            },
-
-            [`> ${componentCls}-bar-collapse-next`]: {
-              top: '50%',
-              insetInlineEnd: 0,
-              transform: 'translate(100%, -50%)',
-            },
+          [`${componentCls}-bar-collapse-next`]: {
+            top: '50%',
+            insetInlineEnd: 0,
+            insetInlineStart: 'unset',
+            transform: 'translate(100%, -50%)',
           },
         },
 
@@ -146,33 +172,26 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         [`> ${componentCls}-bar`]: {
           cursor: 'row-resize',
 
-          [`> ${componentCls}-bar-area`]: {
+          [`${componentCls}-bar-area`]: {
             width: '100%',
-            height: '300%',
-            top: '50%',
-            insetInlineStart: 0,
-            transform: 'translateY(-50%)',
+            height: '600%',
           },
 
-          [`> ${componentCls}-bar-resizable`]: {
+          [`${componentCls}-bar-resizable`]: {
             width: resizableSize,
             height: '100%',
           },
 
-          [`> ${componentCls}-bar-collapse`]: {
-            height: '100%',
+          [`${componentCls}-bar-collapse-previous`]: {
+            top: 0,
+            insetInlineStart: '50%',
+            transform: 'translate(-50%, -100%) rotate(90deg)',
+          },
 
-            [`> ${componentCls}-bar-collapse-previous`]: {
-              top: 0,
-              insetInlineStart: '50%',
-              transform: 'translate(-50%, -100%) rotate(90deg)',
-            },
-
-            [`> ${componentCls}-bar-collapse-next`]: {
-              bottom: 0,
-              insetInlineStart: '50%',
-              transform: 'translate(-50%, 100%) rotate(90deg)',
-            },
+          [`${componentCls}-bar-collapse-next`]: {
+            bottom: 0,
+            insetInlineStart: '50%',
+            transform: 'translate(-50%, 100%) rotate(90deg)',
           },
         },
 
@@ -190,7 +209,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         },
 
         [`> ${componentCls}-bar`]: {
-          [`> ${componentCls}-bar-collapse`]: {
+          [`${componentCls}-bar-collapse-icon`]: {
             display: 'block',
           },
         },
@@ -210,6 +229,8 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         transition: `flex-basis ${motionDurationFast}`,
         scrollbarWidth: 'thin',
       },
+
+      ...genRtlStyle(token),
     },
   };
 };
