@@ -68,7 +68,7 @@ const genClearStyle = (
       border: `${unit(lineWidth)} solid ${colorSplit}`,
       position: 'relative',
       overflow: 'hidden',
-      cursor: 'pointer',
+      cursor: 'inherit',
       transition: `all ${token.motionDurationFast}`,
 
       ...extraStyle,
@@ -161,7 +161,7 @@ const genSizeStyle = (token: ColorPickerToken): CSSObject => {
       },
 
       [`${componentCls}-trigger-text`]: {
-        lineHeight: controlHeightXS,
+        lineHeight: unit(controlHeightXS),
       },
     },
   };

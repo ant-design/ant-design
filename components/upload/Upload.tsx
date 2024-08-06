@@ -220,7 +220,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
           clone = new File([originFileObj], originFileObj.name, {
             type: originFileObj.type,
           }) as any as UploadFile;
-        } catch (e) {
+        } catch {
           clone = new Blob([originFileObj], {
             type: originFileObj.type,
           }) as any as UploadFile;
@@ -246,7 +246,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
         // biome-ignore lint/style/noParameterAssign: we need to modify response
         response = JSON.parse(response);
       }
-    } catch (e) {
+    } catch {
       /* do nothing */
     }
 

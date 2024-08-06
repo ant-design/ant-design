@@ -64,6 +64,7 @@ export type SorterTooltipProps = TooltipProps & {
   target?: SorterTooltipTarget;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const TableActions = ['paginate', 'sort', 'filter'] as const;
 export type TableAction = (typeof TableActions)[number];
 
