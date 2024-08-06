@@ -352,8 +352,14 @@ describe('Dropdown', () => {
     expect(container3.querySelector('button')).not.toHaveAttribute('disabled');
   });
 
-  it('should support ReactNode type value', () => {
-    const { container } = render(<Dropdown>hello</Dropdown>);
-    expect(container).toMatchSnapshot();
+  it('should support Primitive', () => {
+    expect(() => {
+      render(<Dropdown>antd</Dropdown>);
+      render(<Dropdown>{123}</Dropdown>);
+      render(<Dropdown>{undefined}</Dropdown>);
+      render(<Dropdown>{true}</Dropdown>);
+      render(<Dropdown>{false}</Dropdown>);
+      render(<Dropdown>{null}</Dropdown>);
+    }).not.toThrow();
   });
 });

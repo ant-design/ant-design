@@ -89,13 +89,3 @@ Array [
   </div>,
 ]
 `;
-
-exports[`Dropdown should support ReactNode type value 1`] = `
-<div>
-  <span
-    class="ant-dropdown-trigger"
-  >
-    hello
-  </span>
-</div>
-`;
