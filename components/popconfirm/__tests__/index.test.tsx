@@ -9,8 +9,9 @@ import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 
 describe('Popconfirm', () => {
-  mountTest(Popconfirm as any);
-  rtlTest(Popconfirm as any);
+  mountTest(Popconfirm);
+  rtlTest(Popconfirm);
+  accessibilityTest(Popconfirm);
 
   const eventObject = expect.objectContaining({
     target: expect.anything(),

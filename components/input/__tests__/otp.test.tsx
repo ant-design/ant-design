@@ -13,6 +13,7 @@ describe('Input.OTP', () => {
   focusTest(Input.OTP, { refFocus: true });
   mountTest(Input.OTP);
   rtlTest(Input.OTP);
+  accessibilityTest(Input.OTP);
 
   const getText = (container: HTMLElement) => {
     const inputList = container.querySelectorAll<HTMLInputElement>('input');

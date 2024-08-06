@@ -9,6 +9,7 @@ import Badge from '../index';
 describe('Ribbon', () => {
   mountTest(Badge.Ribbon);
   rtlTest(Badge.Ribbon);
+  accessibilityTest(Badge.Ribbon);
 
   describe('placement', () => {
     it('works with `start` & `end` placement', () => {

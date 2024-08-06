@@ -28,6 +28,11 @@ describe('Space.Compact', () => {
       <Button type="primary">Submit</Button>
     </Space.Compact>
   ));
+  accessibilityTest(() => (
+    <Space.Compact>
+      <Button type="primary">Submit</Button>
+    </Space.Compact>
+  ));
 
   rtlTest(Space.Compact);
   rtlTest(() => (

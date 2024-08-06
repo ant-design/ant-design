@@ -13,6 +13,7 @@ import Checkbox from '../index';
 describe('CheckboxGroup', () => {
   mountTest(Checkbox.Group);
   rtlTest(Checkbox.Group);
+  accessibilityTest(Checkbox.Group);
 
   it('should work basically', () => {
     const onChange = jest.fn();

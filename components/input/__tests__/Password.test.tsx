@@ -13,6 +13,7 @@ describe('Input.Password', () => {
   focusTest(Input.Password, { refFocus: true });
   mountTest(Input.Password);
   rtlTest(Input.Password);
+  accessibilityTest(Input.Password);
 
   it('should get input element from ref', () => {
     const ref = React.createRef<InputRef>();

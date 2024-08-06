@@ -45,6 +45,12 @@ describe('Dropdown', () => {
     </Dropdown>
   ));
 
+  accessibilityTest(() => (
+    <Dropdown menu={{ items }}>
+      <span />
+    </Dropdown>
+  ));
+
   it('overlay is function and has custom transitionName', () => {
     const { asFragment } = render(
       <Dropdown overlay={() => <div>menu</div>} transitionName="move-up" open>

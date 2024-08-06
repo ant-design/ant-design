@@ -10,6 +10,7 @@ import type { QRCodeProps } from '../interface';
 describe('QRCode test', () => {
   mountTest(() => <QRCode value="" />);
   rtlTest(() => <QRCode value="" />);
+  accessibilityTest(() => <QRCode value="" />);
 
   it('should correct render', () => {
     const { container } = render(<QRCode value="test" />);

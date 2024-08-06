@@ -21,6 +21,11 @@ describe('Tabs', () => {
       <TabPane tab="xx" key="xx" />
     </Tabs>
   ));
+  accessibilityTest(() => (
+    <Tabs>
+      <TabPane tab="xx" key="xx" />
+    </Tabs>
+  ));
 
   describe('editable-card', () => {
     let handleEdit: jest.Mock;

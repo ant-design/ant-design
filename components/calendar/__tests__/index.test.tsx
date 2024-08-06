@@ -49,6 +49,7 @@ jest.mock('rc-picker', () => {
 describe('Calendar', () => {
   mountTest(Calendar);
   rtlTest(Calendar, true);
+  accessibilityTest(Calendar);
 
   function openSelect(wrapper: HTMLElement, className: string) {
     fireEvent.mouseDown(wrapper.querySelector(className)!.querySelector('.ant-select-selector')!);
