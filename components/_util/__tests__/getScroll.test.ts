@@ -60,7 +60,7 @@ describe('When window is undef', () => {
   });
 
   it('getScroll value is zero', () => {
-    expect(getScroll(document)).toBe(0);
+    expect(getScroll(null)).toBe(0);
   });
 
   afterAll(() => {
