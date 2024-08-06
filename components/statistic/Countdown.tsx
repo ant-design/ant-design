@@ -4,7 +4,7 @@ import useForceUpdate from '../_util/hooks/useForceUpdate';
 import { cloneElement } from '../_util/reactNode';
 import type { StatisticProps } from './Statistic';
 import Statistic from './Statistic';
-import type {  valueType } from './utils';
+import type { valueType } from './utils';
 import { formatCountdown } from './utils';
 
 const REFRESH_INTERVAL = 1000 / 30;
@@ -21,7 +21,7 @@ function getTime(value?: valueType) {
 }
 
 const Countdown: React.FC<CountdownProps> = (props) => {
-  const { value, format = 'HH:mm:ss', onChange, onFinish, isPaused,...rest } = props;
+  const { value, format = 'HH:mm:ss', onChange, onFinish, isPaused, ...rest } = props;
 
   const forceUpdate = useForceUpdate();
 
