@@ -3,6 +3,7 @@ import { defineConfig, loadEnv } from 'vite';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import react from '@vitejs/plugin-react';
 import pages from 'vite-plugin-pages';
+import isCI from 'is-ci';
 import { URL, fileURLToPath } from 'node:url';
 
 const resolve = (path) => fileURLToPath(new URL(path, import.meta.url));
@@ -14,6 +15,7 @@ export default defineConfig(({ mode }) => {
   return {
     server: {
       port: process.env.PORT || 8002,
+      open: isCI ? false : mode === 'development',
     },
     root: resolve('./playground'),
     resolve: {
