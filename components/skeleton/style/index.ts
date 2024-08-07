@@ -146,11 +146,11 @@ const genSkeletonElementImageSize = (size: number | string): CSSObject => ({
 const genSkeletonElementImage = (token: SkeletonToken): CSSObject => {
   const { skeletonImageCls, imageSizeBase, gradientFromColor, borderRadiusSM, calc } = token;
   return {
-    [`${skeletonImageCls}`]: {
-      display: 'flex',
+    [skeletonImageCls]: {
+      display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
-      verticalAlign: 'top',
+      verticalAlign: 'middle',
       background: gradientFromColor,
       borderRadius: borderRadiusSM,
       ...genSkeletonElementImageSize(calc(imageSizeBase).mul(2).equal()),
