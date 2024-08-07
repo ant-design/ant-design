@@ -7,7 +7,18 @@ import { Skeleton } from 'antd';
 import { BrowserRouter as Router, useRoutes } from 'react-router-dom';
 import routes from './routes';
 
-const App = () => <Suspense fallback={<Skeleton active />}>{useRoutes(routes as any)}</Suspense>;
+/**
+ * CI environment sync load all pages
+ */
+const App = (function _App() {
+  const C = () => <>{useRoutes(routes as any)}</>;
+  if (__CI__) return C;
+  return () => (
+    <Suspense fallback={<Skeleton active />}>
+      <C />
+    </Suspense>
+  );
+})();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

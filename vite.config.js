@@ -19,19 +19,28 @@ export default defineConfig(({ mode }) => {
     },
     root: resolve('./playground'),
     resolve: {
-      alias: {
-        antd: resolve('./components'),
-        'antd/es': resolve('./components'),
-        'antd/lib': resolve('./components'),
-        'antd/locale': resolve('./components/locale'),
-      },
+      // alias: {
+      //   'antd': resolve('./components'),
+      //   'antd/es': resolve('./components'),
+      // },
+      alias: [
+        { find: /^antd$/, replacement: resolve('./components') },
+
+        { find: /^antd\/es(.*)$/, replacement: resolve('./components$1') },
+        { find: /^antd\/lib(.*)$/, replacement: resolve('./components$1') },
+
+        { find: /^antd\/style(.*)$/, replacement: resolve('./components/style$1') },
+        { find: /^antd\/locale(.*)$/, replacement: resolve('./components/locale$1') },
+      ],
+    },
+    define: {
+      __CI__: isCI,
     },
     plugins: [
       react(),
       pages({
-        extensions: ['tsx'],
         resolver: 'react',
-        importMode: 'async',
+        importMode: isCI ? 'sync' : 'async',
         dirs: [
           {
             dir: resolve('./components'),

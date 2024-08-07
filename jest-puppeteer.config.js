@@ -1,3 +1,5 @@
+const isCI = require('is-ci');
+
 // jest-puppeteer.config.js
 module.exports = {
   launch: {
@@ -10,5 +12,13 @@ module.exports = {
       // because Docker’s default for /dev/shm is 64MB
       '--disable-dev-shm-usage',
     ],
+  },
+  server: {
+    command: 'npm run play -- --mode=production',
+    host: 'localhost',
+    port: 8002,
+    launchTimeout: isCI ? 30_000 : 15_000,
+    debug: true,
+    usedPortAction: 'kill',
   },
 };

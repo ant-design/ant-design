@@ -1,10 +1,10 @@
-import path from 'path';
+import path, { resolve } from 'path';
 import React from 'react';
 // Reference: https://github.com/ant-design/ant-design/pull/24003#discussion_r427267386
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import dayjs from 'dayjs';
 import fse from 'fs-extra';
-import { globSync } from 'glob';
+import fg from 'fast-glob';
 import { JSDOM } from 'jsdom';
 import MockDate from 'mockdate';
 import type { HTTPRequest } from 'puppeteer';
@@ -15,10 +15,22 @@ import { fillWindowEnv } from '../setup';
 import { render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
 
-jest.mock('../../components/grid/hooks/useBreakpoint', () => () => ({}));
+import reduce from 'lodash/reduce';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import flatMap from 'lodash/flatMap';
+
+function combineMatrix<T>(_matrix: T[][]): [...T[]] {
+  return reduce<any[][], any[]>(
+    _matrix,
+    (acc, curr: any) => flatMap(acc, (x) => curr.map((y: any) => x.concat(y))),
+    [[]],
+  );
+}
+
+// jest.mock('../../components/grid/hooks/useBreakpoint', () => () => ({}));
 
 const snapshotPath = path.join(process.cwd(), 'imageSnapshots');
-fse.ensureDirSync(snapshotPath);
+fse.emptyDirSync(snapshotPath);
 
 const themes = {
   default: theme.defaultAlgorithm,
@@ -30,6 +42,7 @@ interface ImageTestOptions {
   onlyViewport?: boolean;
   ssr?: boolean;
   openTriggerClassName?: string;
+  name: string;
 }
 
 // eslint-disable-next-line jest/no-export
@@ -41,73 +54,73 @@ export default function imageTest(
   let doc: Document;
   let container: HTMLDivElement;
 
-  beforeAll(async () => {
-    const dom = new JSDOM('<!DOCTYPE html><body></body></html>', {
-      url: 'http://localhost/',
-    });
-    const win = dom.window;
-    doc = win.document;
+  // beforeAll(async () => {
+  //   const dom = new JSDOM('<!DOCTYPE html><body></body></html>', {
+  //     url: 'http://localhost/',
+  //   });
+  //   const win = dom.window;
+  //   doc = win.document;
 
-    (global as any).window = win;
+  //   (global as any).window = win;
 
-    // Fill env
-    const keys = [
-      ...Object.keys(win),
-      'HTMLElement',
-      'SVGElement',
-      'ShadowRoot',
-      'Element',
-      'File',
-      'Blob',
-    ].filter((key) => !(global as any)[key]);
+  //   // Fill env
+  //   const keys = [
+  //     ...Object.keys(win),
+  //     'HTMLElement',
+  //     'SVGElement',
+  //     'ShadowRoot',
+  //     'Element',
+  //     'File',
+  //     'Blob',
+  //   ].filter((key) => !(global as any)[key]);
 
-    keys.forEach((key) => {
-      (global as any)[key] = win[key];
-    });
+  //   keys.forEach((key) => {
+  //     (global as any)[key] = win[key];
+  //   });
 
-    // Fake Resize Observer
-    global.ResizeObserver = function FakeResizeObserver() {
-      return {
-        observe() {},
-        unobserve() {},
-        disconnect() {},
-      };
-    } as unknown as typeof ResizeObserver;
+  //   // Fake Resize Observer
+  //   global.ResizeObserver = function FakeResizeObserver() {
+  //     return {
+  //       observe() { },
+  //       unobserve() { },
+  //       disconnect() { },
+  //     };
+  //   } as unknown as typeof ResizeObserver;
 
-    // Fake promise not called
-    global.fetch = function mockFetch() {
-      return {
-        then() {
-          return this;
-        },
-        catch() {
-          return this;
-        },
-        finally() {
-          return this;
-        },
-      };
-    } as unknown as typeof fetch;
+  //   // Fake promise not called
+  //   global.fetch = function mockFetch() {
+  //     return {
+  //       then() {
+  //         return this;
+  //       },
+  //       catch() {
+  //         return this;
+  //       },
+  //       finally() {
+  //         return this;
+  //       },
+  //     };
+  //   } as unknown as typeof fetch;
 
-    // Fake matchMedia
-    win.matchMedia = (() => ({
-      matches: false,
-      addListener: jest.fn(),
-      removeListener: jest.fn(),
-    })) as unknown as typeof matchMedia;
+  //   // Fake matchMedia
+  //   win.matchMedia = (() => ({
+  //     matches: false,
+  //     addListener: jest.fn(),
+  //     removeListener: jest.fn(),
+  //   })) as unknown as typeof matchMedia;
 
-    // Fill window
-    fillWindowEnv(win);
+  //   // Fill window
+  //   fillWindowEnv(win);
 
-    await page.setRequestInterception(true);
-  });
+  //   await page.setRequestInterception(true);
+  // });
 
-  beforeEach(() => {
-    doc.body.innerHTML = `<div id="root"></div>`;
-    container = doc.querySelector<HTMLDivElement>('#root')!;
-  });
+  // beforeEach(() => {
+  //   doc.body.innerHTML = `<div id="root"></div>`;
+  //   container = doc.querySelector<HTMLDivElement>('#root')!;
+  // });
 
-  function test(name: string, suffix: string, themedComponent: React.ReactElement) {
+  function test(name: string, suffix: string, themedComponent: React.ReactElement, wxh: any) {
     it(name, async () => {
       await page.setViewport({ width: 800, height: 600 });
 
@@ -125,9 +138,16 @@ export default function imageTest(
 
       MockDate.set(dayjs('2016-11-22').valueOf());
       page.on('request', requestListener);
-      await page.goto(`file://${process.cwd()}/tests/index.html`);
-      await page.addStyleTag({ path: `${process.cwd()}/components/style/reset.css` });
-      await page.addStyleTag({ content: '*{animation: none!important;}' });
+      // await page.goto(`file://${process.cwd()}/tests/index.html`);
+      // await page.addStyleTag({ path: `${process.cwd()}/components/style/reset.css` });
+      // await page.addStyleTag({ content: '*{animation: none!important;}' });
+      console.log({
+        name: options.name,
+      });
+
+      await page.goto(`http://localhost:8002/${wxh}/popover/demo/${options.name}`);
+      // sleep(5000);
+      await new Promise((resolve) => setTimeout(resolve, 2000));
 
       const cache = createCache();
 
@@ -178,32 +198,32 @@ export default function imageTest(
         </style>`;
       }
 
-      await page.evaluate(
-        (innerHTML: string, ssrStyle: string, triggerClassName?: string) => {
-          const root = document.querySelector<HTMLDivElement>('#root')!;
-          root.innerHTML = innerHTML;
-          const head = document.querySelector<HTMLElement>('head')!;
-          head.innerHTML += ssrStyle;
-          // Inject open trigger with block style
-          if (triggerClassName) {
-            document.querySelectorAll<HTMLElement>(`.${triggerClassName}`).forEach((node) => {
-              const blockStart = document.createElement('div');
-              const blockEnd = document.createElement('div');
-              node.parentNode?.insertBefore(blockStart, node);
-              node.parentNode?.insertBefore(blockEnd, node.nextSibling);
-            });
-          }
-        },
-        html,
-        styleStr,
-        openTriggerClassName || '',
-      );
+      // await page.evaluate(
+      //   (innerHTML: string, ssrStyle: string, triggerClassName?: string) => {
+      //     const root = document.querySelector<HTMLDivElement>('#root')!;
+      //     root.innerHTML = innerHTML;
+      //     const head = document.querySelector<HTMLElement>('head')!;
+      //     head.innerHTML += ssrStyle;
+      //     // Inject open trigger with block style
+      //     if (triggerClassName) {
+      //       document.querySelectorAll<HTMLElement>(`.${triggerClassName}`).forEach((node) => {
+      //         const blockStart = document.createElement('div');
+      //         const blockEnd = document.createElement('div');
+      //         node.parentNode?.insertBefore(blockStart, node);
+      //         node.parentNode?.insertBefore(blockEnd, node.nextSibling);
+      //       });
+      //     }
+      //   },
+      //   html,
+      //   styleStr,
+      //   openTriggerClassName || '',
+      // );
 
-      if (!options.onlyViewport) {
-        // Get scroll height of the rendered page and set viewport
-        const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
-        await page.setViewport({ width: 800, height: bodyHeight });
-      }
+      // if (!options.onlyViewport) {
+      //   // Get scroll height of the rendered page and set viewport
+      //   const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
+      //   await page.setViewport({ width: 800, height: bodyHeight });
+      // }
 
       const image = await page.screenshot({
         fullPage: !options.onlyViewport,
@@ -230,6 +250,7 @@ export default function imageTest(
       <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
         <ConfigProvider theme={configTheme}>{component}</ConfigProvider>
       </div>,
+      `_${key}`,
     );
     test(
       `[CSS Var] component image screenshot should correct ${key}`,
@@ -237,6 +258,7 @@ export default function imageTest(
       <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
         <ConfigProvider theme={{ ...configTheme, cssVar: true }}>{component}</ConfigProvider>
       </div>,
+      `_${key}/_cssvar`,
     );
   });
 }
@@ -252,30 +274,52 @@ type Options = {
 
 // eslint-disable-next-line jest/no-export
 export function imageDemoTest(component: string, options: Options = {}) {
-  let describeMethod = options.skip === true ? describe.skip : describe;
-  const files = globSync(`./components/${component}/demo/*.tsx`).filter(
-    (file) => !file.includes('_semantic'),
-  );
+  (options.skip === true ? describe.skip : describe)(`Test ${component} demo`, () => {
+    const files = fg.sync(`./components/${component}/demo/[a-z]*.tsx`, {
+      onlyFiles: true,
+      cwd: process.cwd(),
+    });
 
-  files.forEach((file) => {
-    if (Array.isArray(options.skip) && options.skip.some((c) => file.endsWith(c))) {
-      describeMethod = describe.skip;
-    } else {
-      describeMethod = describe;
-    }
-    describeMethod(`Test ${file} image`, () => {
-      // eslint-disable-next-line global-require,import/no-dynamic-require
-      let Demo = require(`../../${file}`).default;
-      if (typeof Demo === 'function') {
-        Demo = <Demo />;
-      }
-      imageTest(Demo, `${component}-${path.basename(file, '.tsx')}`, {
-        onlyViewport:
-          options.onlyViewport === true ||
-          (Array.isArray(options.onlyViewport) &&
-            options.onlyViewport.some((c) => file.endsWith(c))),
-        ssr: options.ssr,
-        openTriggerClassName: options.openTriggerClassName,
+    const mainMatrix = ['default', 'dark', 'compact'];
+
+    const allMatrix = [...mainMatrix, ...combineMatrix([mainMatrix, ['cssvar']])];
+
+    files.forEach((file) => {
+      const demoName = path.basename(file, '.tsx');
+
+      const describeMethod = (function _() {
+        if (Array.isArray(options.skip) && options.skip.some((c) => file.endsWith(c))) {
+          return describe.skip;
+        }
+        return describe;
+      })();
+
+      // 每一个 demo 都放在一个 describe 里面
+      describeMethod(file, () => {
+        const matrix = allMatrix.map((m) => {
+          const category = Array.isArray(m) ? m : [m];
+          return [category.join('_'), category];
+        });
+
+        // 每一张截图都放在一个 test 里面
+        test.each(matrix)(`${demoName}(%s)`, async (suffix, category: any) => {
+          const urlPrefix = category.map((i: string) => `_${i}`).join('/');
+          const realUrl = `http://localhost:8002/${urlPrefix}/${component}/demo/${demoName}`;
+
+          await page.goto(realUrl);
+
+          const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
+          await page.setViewport({ width: 800, height: bodyHeight ?? 600 });
+
+          const image = await page.screenshot({
+            fullPage: !options.onlyViewport,
+          });
+
+          await fse.writeFile(
+            path.join(snapshotPath, `${component}-${demoName}.${suffix}.png`),
+            image,
+          );
+        });
       });
     });
   });
