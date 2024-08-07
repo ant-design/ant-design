@@ -1982,15 +1982,8 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
     <div
       class="ant-space-compact"
     >
-      <div
-        class="ant-color-picker-trigger ant-color-picker-compact-item ant-color-picker-compact-first-item"
-      >
-        <div
-          class="ant-color-picker-clear"
-        />
-      </div>
       <input
-        class="ant-input ant-input-outlined ant-input-compact-item"
+        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
         placeholder="input here"
         type="text"
         value=""

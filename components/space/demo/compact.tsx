@@ -199,7 +199,6 @@ const App: React.FC = () => (
       <InputNumber placeholder="another input" addonAfter="$" />
     </Space.Compact>
     <Space.Compact>
-      <ColorPicker />
       <Input placeholder="input here" />
       <ColorPicker />
     </Space.Compact>
