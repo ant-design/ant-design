@@ -685,6 +685,53 @@ describe('Upload List', () => {
     unmount();
   });
 
+  it('should support showXxxIcon functions', () => {
+    const list = [
+      {
+        name: 'image',
+        status: 'uploading',
+        uid: '-4',
+        url: 'https://cdn.xxx.com/aaa',
+        response: {
+          protected: true,
+        },
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: '-5',
+        url: 'https://cdn.xxx.com/aaa',
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: '-5',
+        url: 'https://cdn.xxx.com/aaa',
+        response: {
+          protected: true,
+        },
+      },
+    ];
+
+    const { container: wrapper, unmount } = render(
+      <Upload
+        defaultFileList={list as UploadProps['defaultFileList']}
+        showUploadList={{
+          showRemoveIcon: (file) => file.response?.protected,
+          showDownloadIcon: (file) => file.response?.protected,
+          showPreviewIcon: (file) => file.response?.protected,
+          removeIcon: <i>RM</i>,
+          downloadIcon: <i>DL</i>,
+          previewIcon: <i>PV</i>,
+        }}
+      >
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    expect(wrapper.firstChild).toMatchSnapshot();
+    unmount();
+  });
+
   it('should support removeIcon and downloadIcon', () => {
     const list = [
       {
