@@ -6,7 +6,12 @@ export interface PanelProps {
   max?: number | string;
   size?: number | string;
   defaultSize?: number | string;
-  collapsible?: boolean;
+  collapsible?:
+    | boolean
+    | {
+        prev?: boolean;
+        next?: boolean;
+      };
   resizable?: boolean;
 }
 

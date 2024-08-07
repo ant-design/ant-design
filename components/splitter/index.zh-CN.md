@@ -46,7 +46,7 @@ tag: 5.21.0
 | max | 最大阈值 `1-100 \| '10%' \| '200px'` | `number \| string` | - | - |
 | size | 受控面板大小 `1-100 \| '10%' \| '200px'` | `number \| string` | - | - |
 | defaultSize | 初始面板大小 `1-100 \| '10%' \| '200px'` | `number \| string` | 50 | - |
-| collapsible | 快速折叠 `collapsible=true`时将忽略`min``max` | `boolean` | `false` | - |
+| collapsible | 快速折叠,使用此属性时对应面板将忽略`min｜max`限制 | `boolean \| { prev?: boolean; next?: boolean }` | `false` | - |
 | resizable | 是否支持拖拽伸缩 | `boolean` | `true` | - |
 
 ## 主题变量（Design Token）
