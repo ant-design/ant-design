@@ -49,21 +49,10 @@ describe('getScroll', () => {
     expect(getScroll(div)).toBe(400);
     scrollToSpy.mockRestore();
   });
-});
 
-describe('When window is undef', () => {
-  let originalWindow: Window & typeof globalThis;
-
-  beforeAll(() => {
-    originalWindow = global.window;
-    delete (global as any).window;
-  });
-
-  it('getScroll value is zero', () => {
+  it('When window is undef, getScroll value is zero', () => {
+    const spy = jest.spyOn(global, 'window', 'get').mockImplementation(() => undefined as any);
     expect(getScroll(null)).toBe(0);
-  });
-
-  afterAll(() => {
-    global.window = originalWindow;
+    spy.mockRestore();
   });
 });
