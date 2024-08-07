@@ -4,6 +4,7 @@ import {
   AutoComplete,
   Button,
   Cascader,
+  ColorPicker,
   DatePicker,
   Input,
   InputNumber,
@@ -196,6 +197,10 @@ const App: React.FC = () => (
       <Input placeholder="input here" />
       <InputNumber placeholder="another input" addonBefore="$" />
       <InputNumber placeholder="another input" addonAfter="$" />
+    </Space.Compact>
+    <Space.Compact>
+      <Input placeholder="input here" />
+      <ColorPicker />
     </Space.Compact>
   </Space>
 );
