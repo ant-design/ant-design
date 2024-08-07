@@ -80,6 +80,7 @@
     "sort:package-json": "npx sort-package-json",
     "prestart": "npm run version && npm run token:statistic && npm run token:meta && npm run lint:changelog",
     "start": "tsx ./scripts/set-node-options.ts cross-env PORT=8001 dumi dev",
+    "play": "vite dev",
     "pretest": "npm run version",
     "test": "jest --config .jest.js --no-cache",
     "test:all": "sh -e ./scripts/test-all.sh",
@@ -324,6 +325,8 @@
     "typescript": "~5.5.3",
     "vanilla-jsoneditor": "^0.23.7",
     "vanilla-tilt": "^1.8.1",
+    "vite": "^5.3.5",
+    "vite-plugin-pages": "^0.32.3",
     "webpack": "^5.93.0",
     "webpack-bundle-analyzer": "^4.10.2",
     "xhr-mock": "^2.5.1"
