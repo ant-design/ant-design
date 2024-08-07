@@ -14,10 +14,10 @@ module.exports = {
     ],
   },
   server: {
-    command: 'npm run play -- --mode=production',
+    command: 'npm run test:image:server',
     host: 'localhost',
     port: 8002,
-    launchTimeout: isCI ? 30_000 : 15_000,
+    launchTimeout: isCI ? 60_000 : 30_000,
     debug: true,
     usedPortAction: 'kill',
   },

@@ -12,6 +12,9 @@ const resolve = (path) => fileURLToPath(new URL(path, import.meta.url));
 export default defineConfig(({ mode }) => {
   Object.assign(process.env, loadEnv(mode, process.cwd()));
 
+  const isTEST = mode.toUpperCase() === 'TEST';
+  const importMode = isCI || isTEST ? 'sync' : process.env.IMPORT_MODE;
+
   return {
     server: {
       port: process.env.PORT || 8002,
@@ -19,10 +22,6 @@ export default defineConfig(({ mode }) => {
     },
     root: resolve('./playground'),
     resolve: {
-      // alias: {
-      //   'antd': resolve('./components'),
-      //   'antd/es': resolve('./components'),
-      // },
       alias: [
         { find: /^antd$/, replacement: resolve('./components') },
 
@@ -34,13 +33,13 @@ export default defineConfig(({ mode }) => {
       ],
     },
     define: {
-      __CI__: isCI,
+      __IMPORT_MODE__: JSON.stringify(importMode),
     },
     plugins: [
       react(),
       pages({
         resolver: 'react',
-        importMode: isCI ? 'sync' : 'async',
+        importMode,
         dirs: [
           {
             dir: resolve('./components'),

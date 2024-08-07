@@ -1,1 +1,1 @@
-declare const __CI__: boolean;
+declare const __IMPORT_MODE__: 'sync' | 'async';

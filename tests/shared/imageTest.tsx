@@ -30,7 +30,7 @@ function combineMatrix<T>(_matrix: T[][]): [...T[]] {
 // jest.mock('../../components/grid/hooks/useBreakpoint', () => () => ({}));
 
 const snapshotPath = path.join(process.cwd(), 'imageSnapshots');
-fse.emptyDirSync(snapshotPath);
+fse.ensureDirSync(snapshotPath);
 
 const themes = {
   default: theme.defaultAlgorithm,
@@ -294,6 +294,14 @@ export function imageDemoTest(component: string, options: Options = {}) {
         return describe;
       })();
 
+      const onlyViewport = (function _() {
+        return (
+          options.onlyViewport === true ||
+          (Array.isArray(options.onlyViewport) &&
+            options.onlyViewport.some((c) => file.endsWith(c)))
+        );
+      })();
+
       // 每一个 demo 都放在一个 describe 里面
       describeMethod(file, () => {
         const matrix = allMatrix.map((m) => {
@@ -306,13 +314,16 @@ export function imageDemoTest(component: string, options: Options = {}) {
           const urlPrefix = category.map((i: string) => `_${i}`).join('/');
           const realUrl = `http://localhost:8002/${urlPrefix}/${component}/demo/${demoName}`;
 
-          await page.goto(realUrl);
+          await page.setViewport({ width: 800, height: 600 });
+          await page.goto(realUrl, { waitUntil: 'networkidle0' });
 
-          const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
-          await page.setViewport({ width: 800, height: bodyHeight ?? 600 });
+          if (!onlyViewport) {
+            const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
+            await page.setViewport({ width: 800, height: bodyHeight });
+          }
 
           const image = await page.screenshot({
-            fullPage: !options.onlyViewport,
+            fullPage: !onlyViewport,
           });
 
           await fse.writeFile(

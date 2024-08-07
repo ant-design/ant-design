@@ -7,12 +7,9 @@ import { Skeleton } from 'antd';
 import { BrowserRouter as Router, useRoutes } from 'react-router-dom';
 import routes from './routes';
 
-/**
- * CI environment sync load all pages
- */
 const App = (function _App() {
   const C = () => <>{useRoutes(routes as any)}</>;
-  if (__CI__) return C;
+  if (__IMPORT_MODE__ === 'sync') return C;
   return () => (
     <Suspense fallback={<Skeleton active />}>
       <C />
