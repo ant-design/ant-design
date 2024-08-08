@@ -280,7 +280,9 @@ function parseArgs(): {
       loglevel.info(
         `处理 ${i + 1}/${visitConfigs.length}: ${visitConfig.mdPath} / ${visitConfig.theme} / ${visitConfig.enableCssVar}`,
       );
-      return task(visitConfig);
+      const now = performance.now();
+      await task(visitConfig);
+      loglevel.info(`处理 ${i + 1}/${visitConfigs.length} 完成，耗时 ${performance.now() - now}ms`);
     }),
     { concurrency: 10 },
   );
