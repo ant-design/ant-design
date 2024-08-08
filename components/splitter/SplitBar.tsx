@@ -52,8 +52,8 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
       nextIcon = false;
     }
   } else if (collapsible) {
-    previousIcon = false;
-    nextIcon = false;
+    previousIcon = true;
+    nextIcon = true;
   }
 
   useEffect(() => {
