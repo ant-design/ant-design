@@ -25,9 +25,9 @@ export interface ListItemProps {
   items: UploadFile[];
   listType?: UploadListType;
   isImgUrl?: (file: UploadFile) => boolean;
-  showRemoveIcon?: boolean;
-  showDownloadIcon?: boolean;
-  showPreviewIcon?: boolean;
+  showRemoveIcon?: boolean | ((file: UploadFile) => boolean);
+  showDownloadIcon?: boolean | ((file: UploadFile) => boolean);
+  showPreviewIcon?: boolean | ((file: UploadFile) => boolean);
   removeIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
   downloadIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
   previewIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
@@ -138,7 +138,11 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
     const linkProps =
       typeof file.linkProps === 'string' ? JSON.parse(file.linkProps) : file.linkProps;
 
-    const removeIcon = showRemoveIcon
+    const removeIcon = (
+      typeof showRemoveIcon === 'function'
+        ? showRemoveIcon(file)
+        : showRemoveIcon
+    )
       ? actionIconRender(
           (typeof customRemoveIcon === 'function' ? customRemoveIcon(file) : customRemoveIcon) || (
             <DeleteOutlined />
@@ -153,7 +157,8 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
       : null;
 
     const downloadIcon =
-      showDownloadIcon && mergedStatus === 'done'
+      (typeof showDownloadIcon === 'function' ? showDownloadIcon(file) : showDownloadIcon) &&
+      mergedStatus === 'done'
         ? actionIconRender(
             (typeof customDownloadIcon === 'function'
               ? customDownloadIcon(file)
@@ -208,7 +213,8 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
     );
 
     const previewIcon =
-      showPreviewIcon && (file.url || file.thumbUrl) ? (
+      (typeof showPreviewIcon === 'function' ? showPreviewIcon(file) : showPreviewIcon) &&
+      (file.url || file.thumbUrl) ? (
         <a
           href={file.url || file.thumbUrl}
           target="_blank"
