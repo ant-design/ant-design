@@ -159,7 +159,7 @@ class BrowserAuto {
       'visit: %s, onlyViewport: %s, openTriggerClassName: %s',
       pageUrl,
       onlyViewport,
-      options.openTriggerClassName,
+      options.openTriggerClassName || false,
     );
     if (!onlyViewport) {
       // Get scroll height of the rendered page and set viewport
