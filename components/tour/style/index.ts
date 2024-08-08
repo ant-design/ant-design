@@ -36,7 +36,6 @@ export interface ComponentToken extends ArrowOffsetToken, ArrowToken {
 }
 
 interface TourToken extends FullToken<'Tour'> {
-  tourZIndexPopup: number;
   indicatorWidth: number | string;
   indicatorHeight: number | string;
   tourBorderRadius: number;
@@ -55,7 +54,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
     indicatorHeight,
     indicatorWidth,
     boxShadowTertiary,
-    tourZIndexPopup,
+    zIndexPopup,
     colorBgElevated,
     fontWeightStrong,
     marginXS,
@@ -75,7 +74,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
         ...resetComponent(token),
 
         position: 'absolute',
-        zIndex: tourZIndexPopup,
+        zIndex: zIndexPopup,
         maxWidth: 'fit-content',
         visibility: 'visible',
         width: 520,
