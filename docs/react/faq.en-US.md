@@ -167,11 +167,9 @@ Like [the explanation](https://github.com/ant-design/ant-design/issues/11586#iss
 
 Likewise, `disabledDate` [cannot work on year/month panels](https://github.com/ant-design/ant-design/issues/9008#issuecomment-358554118) of `<DatePicker mode="year/month" />`, but only on cells of date panel.
 
-### Workaround
+:::success{title=Workaround} You can refer to [this article](https://juejin.im/post/5cf65c366fb9a07eca6968f9) or [this article](https://www.cnblogs.com/zyl-Tara/p/10197177.html), using `mode` and `onPanelChange` to encapsulate a `YearPicker` or `MonthRangePicker` for your needs.
 
-You can refer to [this article](https://juejin.im/post/5cf65c366fb9a07eca6968f9) or [this article](https://www.cnblogs.com/zyl-Tara/p/10197177.html), using `mode` and `onPanelChange` to encapsulate a `YearPicker` or `MonthRangePicker` for your needs.
-
-Or you can simply upgrade to [antd@4.0](https://github.com/ant-design/ant-design/issues/16911), in which we [added more XxxPickers](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884) to meet those requirements, and `disabledDate` could be effect on those pickers too.
+Or you can simply upgrade to [antd@4.0](https://github.com/ant-design/ant-design/issues/16911), in which we [added more XxxPickers](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884) to meet those requirements, and `disabledDate` could be effect on those pickers too. :::
 
 ## message/notification/Modal.confirm lost styles when set `prefixCls` on ConfigProvider?
 
@@ -225,9 +223,11 @@ In the Ant Design Token system, `colorPrimary` and `colorInfo` are both [Seed To
 
 ## How to spell Ant Design correctly?
 
-- ✅ **Ant Design**: Capitalized with space, for the design language.
-- ✅ **antd**: all lowercase, for the React UI library.
-- ✅ **ant.design**：For ant.design website url.
+| Spelt | Usage | Pronunciation |
+| --- | --- | --- |
+| ✅ **Ant Design** | Capitalized with space, for the design language | - |
+| ✅ **antd** | All lowercase, for the React UI library | <audio controls src="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*ChCdRJ0w8SUAAAAAAAAAAAAADgCCAQ"></audio> |
+| ✅ **ant.design** | For ant.design website url | - |
 
 Here are some typical wrong examples:
 

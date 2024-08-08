@@ -334,7 +334,7 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
       boxSizing: 'border-box',
       minWidth: trackMinWidth,
       height: trackHeight,
-      lineHeight: `${unit(trackHeight)}`,
+      lineHeight: unit(trackHeight),
       verticalAlign: 'middle',
       background: token.colorTextQuaternary,
       border: '0',
