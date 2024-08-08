@@ -11,3 +11,22 @@ export function getNode(dom: React.ReactNode, defaultNode: React.ReactNode, need
   }
   return dom || (needDom && defaultNode);
 }
+
+/**
+ * Get React of element with precision.
+ * ref: https://github.com/ant-design/ant-design/issues/50143
+ */
+export function getEleSize(ele: HTMLElement): [width: number, height: number] {
+  const rect = ele.getBoundingClientRect();
+  const { offsetWidth, offsetHeight } = ele;
+
+  let returnWidth = offsetWidth;
+  let returnHeight = offsetHeight;
+
+  if (Math.abs(offsetWidth - rect.width) < 1 && Math.abs(offsetHeight - rect.height) < 1) {
+    returnWidth = rect.width;
+    returnHeight = rect.height;
+  }
+
+  return [returnWidth, returnHeight];
+}
