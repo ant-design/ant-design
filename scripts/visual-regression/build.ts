@@ -95,6 +95,23 @@ async function downloadFile(url: string, destPath: string) {
   await finished(body.pipe(fs.createWriteStream(destPath)));
 }
 
+async function readErrorJsonl(filePath: string) {
+  if (!fs.existsSync(filePath)) {
+    return {};
+  }
+  const content = await fs.promises.readFile(filePath, 'utf-8');
+  const result: Record<string, string> = {};
+  for (const lineStr of content.split('\n').filter(Boolean)) {
+    try {
+      const line = JSON.parse(lineStr);
+      result[line.filename] = line.error;
+    } catch (err) {
+      // ignore
+    }
+  }
+  return result;
+}
+
 async function getBranchLatestRef(branchName: string) {
   const baseImageRefUrl = `${ossDomain}/${branchName}/visual-regression-ref.txt`;
   // get content from baseImageRefText
@@ -145,6 +162,7 @@ interface IBadCase {
    * 0 - 1
    */
   weight: number;
+  reason?: string;
 }
 
 const git = simpleGit();
@@ -175,7 +193,7 @@ function generateLineReport(
   currentRef: string,
   extraCaption?: boolean,
 ) {
-  const { filename, type, targetFilename } = badCase;
+  const { filename, type, targetFilename, reason } = badCase;
 
   let lineHTMLReport = '';
   if (type === 'changed') {
@@ -216,7 +234,7 @@ function generateLineReport(
         extraCaption,
       ),
       `⛔️⛔️⛔️ Missing ⛔️⛔️⛔️`,
-      `🚨🚨🚨 Removed 🚨🚨🚨`,
+      reason || `🚨🚨🚨 Removed 🚨🚨🚨`,
     ].join(' | ');
     lineHTMLReport += ' |\n';
   } else if (type === 'added') {
@@ -347,6 +365,8 @@ async function boot() {
 
   const currentImgSourceDir = path.resolve(ROOT_DIR, './imageSnapshots');
 
+  const errorHashMap = await readErrorJsonl(path.resolve(currentImgSourceDir, 'error.jsonl'));
+
   // save diff images(x3) to reportDir
   const diffImgReportDir = path.resolve(REPORT_DIR, './images/diff');
   const baseImgReportDir = path.resolve(REPORT_DIR, './images/base');
@@ -391,6 +411,7 @@ async function boot() {
           type: 'removed',
           filename: compareImgName,
           weight: 1,
+          reason: errorHashMap[compareImgName],
         } as IBadCase;
       }
 

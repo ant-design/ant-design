@@ -21,14 +21,27 @@ interface VisualDiffConfig {
   openTriggerClassName?: string;
 }
 
+interface PageVisitConfig {
+  mdPath: string;
+  theme: string;
+  enableCssVar: boolean;
+}
+
 const themes = ['default', 'dark', 'compact'];
 
-async function retrieveDemoUrl(mdPath: string) {
+function retrieveDemoUrl(mdPath: string) {
   // ~demos/button-demo-basic
   return mdPath
     .replace(/^components\//, '')
     .replace('.md', '')
     .replace(/\//g, '-');
+}
+
+function retrieveCaptureImgName(config: PageVisitConfig) {
+  // components/affix/demo/basic.md -> affix-basic
+  const { mdPath, theme, enableCssVar } = config;
+  const demoUrl = retrieveDemoUrl(mdPath);
+  return `${demoUrl.replace('-demo', '')}.${theme}${enableCssVar ? '.css-var' : ''}.png`;
 }
 
 async function retrieveConfig(mdPath: string): Promise<VisualDiffConfig | void> {
@@ -64,12 +77,6 @@ async function createSiteServer() {
   return server;
 }
 
-interface PageVisitConfig {
-  mdPath: string;
-  theme: string;
-  enableCssVar: boolean;
-}
-
 class BrowserAuto {
   private browser: Browser | null = null;
 
@@ -86,8 +93,7 @@ class BrowserAuto {
       deviceScaleFactor: 2,
     });
 
-    // 要截屏 6 张，需要测试一下要不要拆分为独立任务，还是按照 demoPath 一次性截屏 6 张
-    this.context.setDefaultTimeout(5000 * 6);
+    this.context.setDefaultTimeout(5000);
 
     await fse.ensureDir(this.outputDir);
     await fse.emptyDir(this.outputDir);
@@ -97,29 +103,32 @@ class BrowserAuto {
     await fse.writeFile(errorFilePath, '');
   }
 
-  async appendErrorLog(errorData: any) {
+  async appendErrorLog(errorData: {
+    filename: string;
+    error: string;
+  }) {
     const errorFilePath = path.join(this.outputDir, 'error.jsonl');
     const errorLine = JSON.stringify({
       ...errorData,
       timestamp: new Date().toISOString(),
     });
-    await fs.promises.writeFile(errorFilePath, `${errorLine}\n`);
+    console.log('Error filename:', errorData.filename);
+    await fs.promises.appendFile(errorFilePath, `${errorLine}\n`);
   }
 
   // 执行截屏
-  async captureScreenshots(config: PageVisitConfig) {
+  async captureScreenshots(config: PageVisitConfig, imgName: string) {
     if (!this.context) return;
-    const { mdPath, theme, enableCssVar } = config;
-
     const page = await this.context.newPage();
 
-    await this.visitDemoPage(page, mdPath, theme, enableCssVar);
+    await this.visitDemoPage(page, config, imgName);
 
     return page?.close();
   }
 
-  private async visitDemoPage(page: Page, mdPath: string, theme: string, enableCssVar: boolean) {
-    const demoUrl = await retrieveDemoUrl(mdPath);
+  private async visitDemoPage(page: Page, config: PageVisitConfig, imgName: string) {
+    const { mdPath, theme, enableCssVar } = config;
+    const demoUrl = retrieveDemoUrl(mdPath);
     const options = await retrieveConfig(mdPath);
     if (!options) {
       loglevel.info('Skip for: %s', mdPath);
@@ -144,10 +153,10 @@ class BrowserAuto {
     const pageUrl = `http://localhost:${port}/~demos/${demoUrl.toLowerCase()}?${query.toString()}`;
 
     await page.goto(pageUrl);
-    // TODO: 需要禁用掉页面中的各种采集和埋点请求，避免干扰
+    // TODO: Need to disable various data collection and tracking requests in the page to avoid interference
     await page.waitForLoadState('networkidle');
 
-    // 禁用掉所有的动画
+    // disabled animation
     await page.addStyleTag({
       content: '*{animation: none!important;}',
     });
@@ -176,10 +185,6 @@ class BrowserAuto {
     //   await page.click(`.${options.openTriggerClassName}`);
     // }
 
-    // ~demos/button-demo-basic -> button-basic
-    const imgName = `${demoUrl.replace('-demo', '')}.${theme}${enableCssVar ? '.css-var' : ''}.png`;
-
-    // 保存截图到 ./result 目录
     await page.screenshot({
       path: path.join(this.outputDir, imgName),
       animations: 'disabled',
@@ -190,7 +195,6 @@ class BrowserAuto {
     });
   }
 
-  // 关闭浏览器
   async close() {
     await this.browser?.close();
   }
@@ -225,7 +229,7 @@ function parseArgs(): {
 // npm run visual-diff:capture -- --component=space --loglevel=info --server-only --shard=1/2 --max-workers=2
 (async () => {
   const args = parseArgs();
-  const { serverOnly, component, logLevel = 'error', shard } = args;
+  const { serverOnly, component, logLevel = 'info', shard } = args;
   loglevel.setLevel(logLevel);
 
   loglevel.info(`Args: ${JSON.stringify(args)}`);
@@ -251,13 +255,15 @@ function parseArgs(): {
     loglevel.info(`Shard ${current}/${total}: ${mdPaths.length}/${originLens} mds`);
   }
 
-  const task = async (visitConfig: PageVisitConfig) => {
+  const visitTask = async (visitConfig: PageVisitConfig) => {
+    const imgName = retrieveCaptureImgName(visitConfig);
     try {
-      await handler.captureScreenshots(visitConfig);
+      // ~demos/button-demo-basic -> button-basic
+      await handler.captureScreenshots(visitConfig, imgName);
     } catch (err) {
       const errorData = {
-        filename: visitConfig.mdPath,
-        error: (err as Error).message,
+        filename: imgName,
+        error: `Capture failed: ${(err as Error).message}`,
       };
       await handler.appendErrorLog(errorData);
       loglevel.error(`Error: ${errorData.error}`);
@@ -278,11 +284,13 @@ function parseArgs(): {
   await pAll(
     visitConfigs.map((visitConfig, i) => async () => {
       loglevel.info(
-        `处理 ${i + 1}/${visitConfigs.length}: ${visitConfig.mdPath} / ${visitConfig.theme} / ${visitConfig.enableCssVar}`,
+        `Task ${i + 1}/${visitConfigs.length}: ${visitConfig.mdPath} / ${visitConfig.theme} / ${visitConfig.enableCssVar}`,
       );
       const now = performance.now();
-      await task(visitConfig);
-      loglevel.info(`处理 ${i + 1}/${visitConfigs.length} 完成，耗时 ${performance.now() - now}ms`);
+      await visitTask(visitConfig);
+      loglevel.info(
+        `Task ${i + 1}/${visitConfigs.length} finished, time: ${performance.now() - now}ms`,
+      );
     }),
     { concurrency: 10 },
   );
