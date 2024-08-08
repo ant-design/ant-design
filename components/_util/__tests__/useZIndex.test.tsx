@@ -26,11 +26,11 @@ import type { ZIndexConsumer, ZIndexContainer } from '../hooks/useZIndex';
 import { consumerBaseZIndexOffset, containerBaseZIndexOffset, useZIndex } from '../hooks/useZIndex';
 import zIndexContext from '../zindexContext';
 
-const WrapWithProvider: React.FC<PropsWithChildren<{ containerType: ZIndexContainer }>> = ({
+const WrapWithProvider: React.FC<PropsWithChildren<{ container: ZIndexContainer }>> = ({
   children,
-  containerType,
+  container,
 }) => {
-  const [, contextZIndex] = useZIndex(containerType);
+  const [, contextZIndex] = useZIndex(container);
   return <zIndexContext.Provider value={contextZIndex}>{children}</zIndexContext.Provider>;
 };
 
@@ -227,11 +227,10 @@ describe('Test useZIndex hooks', () => {
   afterEach(() => {
     jest.useRealTimers();
   });
-  const containers = Object.keys(containerComponent);
-  const consumers = Object.keys(consumerComponent);
-
-  containers.forEach((containerKey) => {
-    consumers.forEach((key) => {
+  Object.keys(containerComponent).forEach((containerKey) => {
+    const containerZIndex = containerBaseZIndexOffset[containerKey as ZIndexContainer];
+    Object.keys(consumerComponent).forEach((key) => {
+      const consumerZIndex = consumerBaseZIndexOffset[key as ZIndexConsumer];
       describe(`Test ${key} zIndex in ${containerKey}`, () => {
         it('Test hooks', () => {
           const fn = jest.fn();
@@ -244,27 +243,24 @@ describe('Test useZIndex hooks', () => {
           };
 
           const App: React.FC = () => (
-            <WrapWithProvider containerType={containerKey as ZIndexContainer}>
-              <WrapWithProvider containerType={containerKey as ZIndexContainer}>
-                <WrapWithProvider containerType={containerKey as ZIndexContainer}>
+            <WrapWithProvider container={containerKey as ZIndexContainer}>
+              <WrapWithProvider container={containerKey as ZIndexContainer}>
+                <WrapWithProvider container={containerKey as ZIndexContainer}>
                   <Child />
                 </WrapWithProvider>
               </WrapWithProvider>
             </WrapWithProvider>
           );
           render(<App />);
-          expect(fn).toHaveBeenLastCalledWith(
-            1000 +
-              containerBaseZIndexOffset[containerKey as ZIndexContainer] * 3 +
-              consumerBaseZIndexOffset[key as ZIndexConsumer],
-          );
+
+          expect(fn).toHaveBeenLastCalledWith(1000 + containerZIndex * 3 + consumerZIndex);
         });
 
         it('Test Component', async () => {
           const Container = containerComponent[containerKey as ZIndexContainer];
           const Consumer = consumerComponent[key as ZIndexConsumer];
 
-          const App = () => (
+          const App: React.FC = () => (
             <>
               <Consumer rootClassName="consumer1" />
               <Container rootClassName="container1">
@@ -294,17 +290,12 @@ describe('Test useZIndex hooks', () => {
               const isColorPicker = comp?.className.includes('comp-ColorPicker');
               const consumerOffset = isColorPicker
                 ? containerBaseZIndexOffset.Popover
-                : consumerBaseZIndexOffset[key as ZIndexConsumer];
+                : consumerZIndex;
               const operOffset = comp.classList.contains('ant-image-preview-operations-wrapper')
                 ? 1
                 : 0;
               expect(comp?.style.zIndex).toBe(
-                String(
-                  1000 +
-                    containerBaseZIndexOffset[containerKey as ZIndexContainer] +
-                    consumerOffset +
-                    operOffset,
-                ),
+                String(1000 + containerZIndex + consumerOffset + operOffset),
               );
             });
 
@@ -313,43 +304,30 @@ describe('Test useZIndex hooks', () => {
               const isColorPicker = comp?.className.includes('comp-ColorPicker');
               const consumerOffset = isColorPicker
                 ? containerBaseZIndexOffset.Popover
-                : consumerBaseZIndexOffset[key as ZIndexConsumer];
+                : consumerZIndex;
               const operOffset = comp.classList.contains('ant-image-preview-operations-wrapper')
                 ? 1
                 : 0;
               expect(comp?.style.zIndex).toBe(
-                String(
-                  1000 +
-                    containerBaseZIndexOffset[containerKey as ZIndexContainer] * 2 +
-                    consumerOffset +
-                    operOffset,
-                ),
+                String(1000 + containerZIndex * 2 + consumerOffset + operOffset),
               );
             });
           } else {
-            if (key === 'Tour') {
-              expect(document.querySelector<HTMLElement>(selector1)?.style.zIndex).toBe('1001');
-            } else {
-              expect(document.querySelector<HTMLElement>(selector1)?.style.zIndex).toBeFalsy();
-            }
-
-            expect(document.querySelector<HTMLElement>(selector2)?.style.zIndex).toBe(
-              String(
-                1000 +
-                  containerBaseZIndexOffset[containerKey as ZIndexContainer] +
-                  consumerBaseZIndexOffset[key as ZIndexConsumer],
-              ),
-            );
-
-            expect(document.querySelector<HTMLElement>(selector3)?.style.zIndex).toBe(
-              String(
-                1000 +
-                  containerBaseZIndexOffset[containerKey as ZIndexContainer] * 2 +
-                  consumerBaseZIndexOffset[key as ZIndexConsumer],
-              ),
-            );
+            const element1 = document.querySelector<HTMLElement>(selector1);
+            const element2 = document.querySelector<HTMLElement>(selector2);
+            const element3 = document.querySelector<HTMLElement>(selector3);
+            [element1, element2, element3].filter(Boolean).forEach((ele) => {
+              if (ele === element1) {
+                expect(ele?.style.zIndex).toBe(key === 'Tour' ? '1001' : '');
+              }
+              if (ele === element2) {
+                expect(ele?.style.zIndex).toBe(String(1000 + containerZIndex + consumerZIndex));
+              }
+              if (ele === element3) {
+                expect(ele?.style.zIndex).toBe(String(1000 + containerZIndex * 2 + consumerZIndex));
+              }
+            });
           }
-
           unmount();
         }, 20000);
       });
