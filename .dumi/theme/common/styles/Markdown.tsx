@@ -113,17 +113,7 @@ const GlobalStyle: React.FC = () => {
         }
 
         .markdown ul > li {
-          margin-inline-start: ${token.marginMD}px;
-          padding-inline-start: ${token.paddingXXS}px;
           list-style-type: circle;
-
-          .rtl & {
-            margin-inline-end: ${token.marginMD}px;
-            margin-inline-start: 0;
-            padding-inline-end: ${token.paddingXXS}px;
-            padding-inline-start: 0;
-          }
-
           &:empty {
             display: none;
           }
