@@ -19,7 +19,7 @@ tag: vVERSION
 
 `2024-08-03`
 
-- 🛠 替换 ColorPicker 内部使用的 `@ctrl/tiny-color` 为 `@ant-design/fast-color`。[#49846](https://github.com/ant-design/ant-design/pull/49846)
+- 🛠 替换 ColorPicker 内部使用的 `@ctrl/tinycolor` 为 `@ant-design/fast-color`。[#49846](https://github.com/ant-design/ant-design/pull/49846)
 - 🆕 ConfigProvider 支持配置 Spin 的 indicator 属性。[#50183](https://github.com/ant-design/ant-design/pull/50183) [@coding-ice](https://github.com/coding-ice)
 - 🆕 Upload `showUploadList` 添加 `extra` 以支持渲染额外信息。[#50098](https://github.com/ant-design/ant-design/pull/50098) [@guoyunhe](https://github.com/guoyunhe)
 - 🆕 Tree 新增 `switcherLoadingIcon` 属性以支持自定义树节点的加载图标[#49716](https://github.com/ant-design/ant-design/pull/49716) [@coding-ice](https://github.com/coding-ice)
