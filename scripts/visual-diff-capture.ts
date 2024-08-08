@@ -62,6 +62,12 @@ async function createSiteServer() {
   return server;
 }
 
+interface PageVisitConfig {
+  mdPath: string;
+  theme: string;
+  enableCssVar: boolean;
+}
+
 class BrowserAuto {
   private browser: Browser | null = null;
 
@@ -99,19 +105,13 @@ class BrowserAuto {
   }
 
   // 执行截屏
-  async captureScreenshots(mdPath: string) {
+  async captureScreenshots(config: PageVisitConfig) {
     if (!this.context) return;
+    const { mdPath, theme, enableCssVar } = config;
 
     const page = await this.context.newPage();
 
-    // themes
-    // 三种主题复用同一张截屏页面
-
-    // 每个不同主题需要单独截图，可否截屏到一起呢
-    for (const theme of themes) {
-      await this.visitDemoPage(page, mdPath, theme, true);
-      await this.visitDemoPage(page, mdPath, theme, false);
-    }
+    await this.visitDemoPage(page, mdPath, theme, enableCssVar);
 
     return page?.close();
   }
@@ -147,9 +147,9 @@ class BrowserAuto {
     }
 
     // Click trigger element
-    if (options.openTriggerClassName) {
-      await page.click(`.${options.openTriggerClassName}`);
-    }
+    // if (options.openTriggerClassName) {
+    //   await page.click(`.${options.openTriggerClassName}`);
+    // }
 
     // ~demos/button-demo-basic -> button-basic
     const imgName = `${demoUrl.replace('-demo', '')}.${theme}${enableCssVar ? '.css-var' : ''}.png`;
@@ -226,12 +226,12 @@ function parseArgs(): {
     loglevel.info(`Shard ${current}/${total}: ${mdPaths.length}/${originLens} mds`);
   }
 
-  const task = async (mdPath: string) => {
+  const task = async (visitConfig: PageVisitConfig) => {
     try {
-      await handler.captureScreenshots(mdPath);
+      await handler.captureScreenshots(visitConfig);
     } catch (err) {
       const errorData = {
-        filename: mdPath,
+        filename: visitConfig.mdPath,
         error: (err as Error).message,
       };
       await handler.appendErrorLog(errorData);
@@ -241,11 +241,21 @@ function parseArgs(): {
 
   const { default: pAll } = await import('p-all');
 
+  const visitConfigs: Array<PageVisitConfig> = [];
+  for (const mdPath of mdPaths) {
+    for (const theme of themes) {
+      visitConfigs.push({ mdPath, theme, enableCssVar: false });
+      visitConfigs.push({ mdPath, theme, enableCssVar: true });
+    }
+  }
+
   // 增加并发
   await pAll(
-    mdPaths.map((mdPath, i) => async () => {
-      console.log(`处理 ${i + 1}/${mdPaths.length}: ${mdPath}`);
-      return task(mdPath);
+    visitConfigs.map((visitConfig, i) => async () => {
+      console.log(
+        `处理 ${i + 1}/${mdPaths.length}: ${visitConfig.mdPath}-${visitConfig.theme}-${visitConfig.enableCssVar}`,
+      );
+      return task(visitConfig);
     }),
     { concurrency: 10 },
   );
