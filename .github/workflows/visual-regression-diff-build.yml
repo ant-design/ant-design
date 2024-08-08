@@ -103,7 +103,7 @@ jobs:
     needs: [setup, build-site]
     strategy:
       matrix:
-        shard: ['1/2', '2/2']
+        shard: ['1/3', '2/3', '3/3']
     steps:
       - name: checkout
         uses: actions/checkout@v4
@@ -129,7 +129,7 @@ jobs:
       - name: run visual-diff capture
         run: |
           npx playwright install chromium
-          npm run visual-diff:capture -- --maxWorkers=2 --shard=${{matrix.shard}}
+          npm run visual-diff:capture -- --maxWorkers=2 --shard=${{matrix.shard}} --loglevel=info
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"
 
