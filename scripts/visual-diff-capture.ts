@@ -31,13 +31,13 @@ async function retrieveDemoUrl(mdPath: string) {
     .replace(/\//g, '-');
 }
 
-async function retrieveConfig(mdPath: string): Promise<VisualDiffConfig> {
+async function retrieveConfig(mdPath: string): Promise<VisualDiffConfig | void> {
   const mdDir = path.dirname(mdPath);
   const configDir = path.join(mdDir, '..', '__tests__');
   const configPath = path.join(configDir, 'visual-diff.config.ts');
   // handle the case that the config file does not exist
   if (!fs.existsSync(configPath)) {
-    return { id: path.basename(mdDir) };
+    return;
   }
 
   const { default: configModule } = await import(configPath);
@@ -121,6 +121,10 @@ class BrowserAuto {
   private async visitDemoPage(page: Page, mdPath: string, theme: string, enableCssVar: boolean) {
     const demoUrl = await retrieveDemoUrl(mdPath);
     const options = await retrieveConfig(mdPath);
+    if (!options) {
+      loglevel.info('Skip for: %s', mdPath);
+      return;
+    }
 
     const skip =
       Array.isArray(options.skip) &&
