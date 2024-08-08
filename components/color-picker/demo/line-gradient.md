@@ -1,7 +1,7 @@
 ## zh-CN
 
-点击添加，拖拽或者删除。
+通过 `mode` 设置颜色为单一颜色还是渐变色。
 
 ## en-US
 
-Click to add, drag out or keyboard delete.
+Set the color to a single or a gradient color via `mode`.

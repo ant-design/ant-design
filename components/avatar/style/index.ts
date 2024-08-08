@@ -147,7 +147,7 @@ const genGroupStyle: GenerateStyle<AvatarToken> = (token) => {
     [`${componentCls}-group`]: {
       display: 'inline-flex',
 
-      [`${componentCls}`]: {
+      [componentCls]: {
         borderColor: groupBorderColor,
       },
 
