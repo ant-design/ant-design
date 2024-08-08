@@ -7,8 +7,8 @@ import type {
   AliasToken,
   FullToken,
   GenerateStyle,
-  GlobalToken,
   GenStyleFn,
+  GlobalToken,
   TokenWithCommonCls,
 } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
@@ -242,7 +242,7 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
             display: 'flex',
             fontSize: token.fontSizeLG,
             fontStyle: 'normal',
-            lineHeight: `${unit(token.modalCloseBtnSize)}`,
+            lineHeight: unit(token.modalCloseBtnSize),
             justifyContent: 'center',
             textTransform: 'none',
             textRendering: 'auto',
