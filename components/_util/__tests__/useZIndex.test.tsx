@@ -66,11 +66,7 @@ const containerComponent: Record<
   Tour: ({ children, ...restProps }) => (
     <Tour {...restProps} open steps={[{ title: 'cover title', description: children }]} />
   ),
-  FloatButton: ({ children, ...restProps }) => (
-    <FloatButton onClick={jest.fn()} {...restProps}>
-      {children}
-    </FloatButton>
-  ),
+  FloatButton: ({ children, ...restProps }) => <FloatButton {...restProps}>{children}</FloatButton>,
 };
 
 const options = [
