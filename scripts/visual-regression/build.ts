@@ -407,7 +407,6 @@ async function boot() {
           path.join(currentImgSourceDir, currentImgPath),
           path.resolve(currentImgReportDir, currentImgPath),
         );
-        continue;
       }
 
       const mismatchedPxPercent = await compareScreenshots(
