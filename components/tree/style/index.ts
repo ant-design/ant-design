@@ -237,7 +237,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         ...getSwitchStyle(prefixCls, token),
         position: 'relative',
         flex: 'none',
-        alignSelf: 'stretch',
+        alignSelf: 'flex-start',
         width: titleHeight,
         margin: 0,
         lineHeight: unit(titleHeight),
