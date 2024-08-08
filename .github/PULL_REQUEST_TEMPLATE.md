@@ -12,13 +12,13 @@ Thank you!
 
 - [ ] 🆕 New feature
 - [ ] 🐞 Bug fix
-- [ ] 📝 Site / documentation update
-- [ ] 📽️ Demo update
-- [ ] 💄 Component style update
-- [ ] 🤖 TypeScript definition update
+- [ ] 📝 Site / documentation improvement
+- [ ] 📽️ Demo improvement
+- [ ] 💄 Component style improvement
+- [ ] 🤖 TypeScript definition improvement
 - [ ] 📦 Bundle size optimization
 - [ ] ⚡️ Performance optimization
-- [ ] ⭐️ Enhancement feature
+- [ ] ⭐️ Feature enhancement
 - [ ] 🌐 Internationalization
 - [ ] 🛠 Refactoring
 - [ ] 🎨 Code style optimization
