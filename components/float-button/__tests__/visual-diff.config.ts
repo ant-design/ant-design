@@ -1,1 +1,1 @@
-export default { id: 'float-button', onlyViewport: ['back-top.tsx'] };
+export default { id: 'float-button', onlyViewport: ['back-top'] };

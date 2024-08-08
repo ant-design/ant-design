@@ -1,1 +1,1 @@
-export default { id: 'config-provider', skip: ['direction.tsx', 'theme.tsx'] };
+export default { id: 'config-provider', skip: ['direction', 'theme'] };

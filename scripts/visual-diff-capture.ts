@@ -15,7 +15,9 @@ import type { LogLevelNames } from 'loglevel';
 
 interface VisualDiffConfig {
   id: string;
-  onlyViewport?: boolean;
+  skip?: boolean | string[];
+  onlyViewport?: boolean | string[];
+  /** Open Trigger to check the popup render */
   openTriggerClassName?: string;
 }
 
@@ -120,6 +122,14 @@ class BrowserAuto {
     const demoUrl = await retrieveDemoUrl(mdPath);
     const options = await retrieveConfig(mdPath);
 
+    const skip =
+      Array.isArray(options.skip) &&
+      options.skip.some((c) => path.basename(mdPath, '.md').endsWith(c));
+    if (skip) {
+      loglevel.info('Skip for: %s', mdPath);
+      return;
+    }
+
     const query = new URLSearchParams();
     query.set('theme', theme);
     if (enableCssVar) {
@@ -140,7 +150,18 @@ class BrowserAuto {
 
     await page.waitForSelector('.dumi-antd-demo-layout');
 
-    if (!options.onlyViewport) {
+    const onlyViewport =
+      options.onlyViewport === true ||
+      (Array.isArray(options.onlyViewport) &&
+        options.onlyViewport.some((c) => path.basename(mdPath, '.md').endsWith(c)));
+
+    loglevel.info(
+      'visit: %s, onlyViewport: %s, openTriggerClassName: %s',
+      pageUrl,
+      onlyViewport,
+      options.openTriggerClassName,
+    );
+    if (!onlyViewport) {
       // Get scroll height of the rendered page and set viewport
       const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
       await page.setViewportSize({ width: 800, height: bodyHeight });
@@ -252,8 +273,8 @@ function parseArgs(): {
   // 增加并发
   await pAll(
     visitConfigs.map((visitConfig, i) => async () => {
-      console.log(
-        `处理 ${i + 1}/${mdPaths.length}: ${visitConfig.mdPath}-${visitConfig.theme}-${visitConfig.enableCssVar}`,
+      loglevel.info(
+        `处理 ${i + 1}/${visitConfigs.length}: ${visitConfig.mdPath} / ${visitConfig.theme} / ${visitConfig.enableCssVar}`,
       );
       return task(visitConfig);
     }),

@@ -1,1 +1,1 @@
-export default { id: 'tag', skip: ['status.tsx'] };
+export default { id: 'tag', skip: ['status'] };

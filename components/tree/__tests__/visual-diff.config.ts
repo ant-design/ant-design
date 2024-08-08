@@ -1,1 +1,1 @@
-export default { id: 'tree', skip: ['virtual-scroll.tsx', 'big-data.tsx'] };
+export default { id: 'tree', skip: ['virtual-scroll', 'big-data'] };

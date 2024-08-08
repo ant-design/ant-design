@@ -1,1 +1,1 @@
-export default { id: 'form', skip: ['complex-form-control.tsx'] };
+export default { id: 'form', skip: ['complex-form-control'] };

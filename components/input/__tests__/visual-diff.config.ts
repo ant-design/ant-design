@@ -1,1 +1,1 @@
-export default { id: 'input', skip: ['search-input-loading.tsx'] };
+export default { id: 'input', skip: ['search-input-loading'] };

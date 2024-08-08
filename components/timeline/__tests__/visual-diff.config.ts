@@ -1,1 +1,1 @@
-export default { id: 'timeline', skip: ['pending.tsx'] };
+export default { id: 'timeline', skip: ['pending'] };

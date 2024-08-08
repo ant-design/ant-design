@@ -1,1 +1,1 @@
-export default { id: 'popover' };
+export default { id: 'popover', onlyViewport: ['shift'] };

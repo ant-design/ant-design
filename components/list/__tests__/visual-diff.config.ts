@@ -1,1 +1,1 @@
-export default { id: 'list', skip: ['loadmore.tsx'] };
+export default { id: 'list', skip: ['loadmore'] };

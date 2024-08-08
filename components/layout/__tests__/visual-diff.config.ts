@@ -1,1 +1,1 @@
-export default { id: 'layout', skip: ['fixed-sider.tsx'] };
+export default { id: 'layout', skip: ['fixed-sider'] };

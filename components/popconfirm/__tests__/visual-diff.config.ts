@@ -1,1 +1,1 @@
-export default { id: 'popconfirm' };
+export default { id: 'popconfirm', onlyViewport: ['shift'] };

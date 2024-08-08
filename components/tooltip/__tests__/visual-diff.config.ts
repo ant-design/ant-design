@@ -1,1 +1,1 @@
-export default { id: 'tooltip', onlyViewport: ['shift.tsx'] };
+export default { id: 'tooltip', onlyViewport: ['shift'] };

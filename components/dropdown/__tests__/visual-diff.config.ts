@@ -1,1 +1,1 @@
-export default { id: 'dropdown', skip: ['dropdown-button.tsx'] };
+export default { id: 'dropdown', skip: ['dropdown-button'] };

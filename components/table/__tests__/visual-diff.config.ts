@@ -1,1 +1,1 @@
-export default { id: 'table', skip: ['virtual-list.tsx'] };
+export default { id: 'table', skip: ['virtual-list'] };
