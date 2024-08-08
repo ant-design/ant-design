@@ -9,6 +9,7 @@ import {
   DatePicker,
   Drawer,
   Dropdown,
+  FloatButton,
   Image,
   Menu,
   Modal,
@@ -63,16 +64,12 @@ const containerComponent: Record<
     </Tooltip>
   ),
   Tour: ({ children, ...restProps }) => (
-    <Tour
-      {...restProps}
-      open
-      steps={[
-        {
-          title: 'cover title',
-          description: children,
-        },
-      ]}
-    />
+    <Tour {...restProps} open steps={[{ title: 'cover title', description: children }]} />
+  ),
+  FloatButton: ({ children, ...restProps }) => (
+    <FloatButton onClick={jest.fn()} {...restProps}>
+      {children}
+    </FloatButton>
   ),
 };
 
@@ -242,7 +239,7 @@ describe('Test useZIndex hooks', () => {
       describe(`Test ${key} zIndex in ${containerKey}`, () => {
         it('Test hooks', () => {
           const fn = jest.fn();
-          const Child = () => {
+          const Child: React.FC = () => {
             const [zIndex] = useZIndex(key as ZIndexConsumer);
             useEffect(() => {
               fn(zIndex);
@@ -250,7 +247,7 @@ describe('Test useZIndex hooks', () => {
             return <div>Child</div>;
           };
 
-          const App = () => (
+          const App: React.FC = () => (
             <WrapWithProvider containerType={containerKey as ZIndexContainer}>
               <WrapWithProvider containerType={containerKey as ZIndexContainer}>
                 <WrapWithProvider containerType={containerKey as ZIndexContainer}>
@@ -292,20 +289,20 @@ describe('Test useZIndex hooks', () => {
           const selector3 = getConsumerSelector('.consumer3', key as ZIndexConsumer);
 
           if (['SelectLike', 'DatePicker', 'ImagePreview'].includes(key)) {
-            let comps = document.querySelectorAll(selector1);
+            let comps = document.querySelectorAll<HTMLElement>(selector1);
             comps.forEach((comp) => {
-              expect((comp as HTMLDivElement).style.zIndex).toBeFalsy();
+              expect(comp?.style.zIndex).toBeFalsy();
             });
-            comps = document.querySelectorAll(selector2);
+            comps = document.querySelectorAll<HTMLElement>(selector2);
             comps.forEach((comp) => {
-              const isColorPicker = (comp as HTMLDivElement).className.includes('comp-ColorPicker');
+              const isColorPicker = comp?.className.includes('comp-ColorPicker');
               const consumerOffset = isColorPicker
                 ? containerBaseZIndexOffset.Popover
                 : consumerBaseZIndexOffset[key as ZIndexConsumer];
               const operOffset = comp.classList.contains('ant-image-preview-operations-wrapper')
                 ? 1
                 : 0;
-              expect((comp as HTMLDivElement).style.zIndex).toBe(
+              expect(comp?.style.zIndex).toBe(
                 String(
                   1000 +
                     containerBaseZIndexOffset[containerKey as ZIndexContainer] +
@@ -315,16 +312,16 @@ describe('Test useZIndex hooks', () => {
               );
             });
 
-            comps = document.querySelectorAll(selector3);
+            comps = document.querySelectorAll<HTMLElement>(selector3);
             comps.forEach((comp) => {
-              const isColorPicker = (comp as HTMLDivElement).className.includes('comp-ColorPicker');
+              const isColorPicker = comp?.className.includes('comp-ColorPicker');
               const consumerOffset = isColorPicker
                 ? containerBaseZIndexOffset.Popover
                 : consumerBaseZIndexOffset[key as ZIndexConsumer];
               const operOffset = comp.classList.contains('ant-image-preview-operations-wrapper')
                 ? 1
                 : 0;
-              expect((comp as HTMLDivElement).style.zIndex).toBe(
+              expect(comp?.style.zIndex).toBe(
                 String(
                   1000 +
                     containerBaseZIndexOffset[containerKey as ZIndexContainer] * 2 +
@@ -335,16 +332,12 @@ describe('Test useZIndex hooks', () => {
             });
           } else {
             if (key === 'Tour') {
-              expect((document.querySelector(selector1) as HTMLDivElement).style.zIndex).toBe(
-                '1001',
-              );
+              expect(document.querySelector<HTMLElement>(selector1)?.style.zIndex).toBe('1001');
             } else {
-              expect(
-                (document.querySelector(selector1) as HTMLDivElement).style.zIndex,
-              ).toBeFalsy();
+              expect(document.querySelector<HTMLElement>(selector1)?.style.zIndex).toBeFalsy();
             }
 
-            expect((document.querySelector(selector2) as HTMLDivElement).style.zIndex).toBe(
+            expect(document.querySelector<HTMLElement>(selector2)?.style.zIndex).toBe(
               String(
                 1000 +
                   containerBaseZIndexOffset[containerKey as ZIndexContainer] +
@@ -352,7 +345,7 @@ describe('Test useZIndex hooks', () => {
               ),
             );
 
-            expect((document.querySelector(selector3) as HTMLDivElement).style.zIndex).toBe(
+            expect(document.querySelector<HTMLElement>(selector3)?.style.zIndex).toBe(
               String(
                 1000 +
                   containerBaseZIndexOffset[containerKey as ZIndexContainer] * 2 +
@@ -409,5 +402,7 @@ describe('Test useZIndex hooks', () => {
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Tooltip] `zIndex` is over design token `zIndexPopupBase` too much. It may cause unexpected override.',
     );
+
+    errorSpy.mockRestore();
   });
 });

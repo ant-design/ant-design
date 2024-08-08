@@ -101,13 +101,14 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
     borderRadiusSM,
     badgeOffset,
     floatButtonBodyPadding,
+    zIndexPopupBase,
     calc,
   } = token;
   const groupPrefixCls = `${componentCls}-group`;
   return {
     [groupPrefixCls]: {
       ...resetComponent(token),
-      zIndex: 99,
+      zIndex: zIndexPopupBase,
       display: 'block',
       border: 'none',
       position: 'fixed',
@@ -221,6 +222,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
     badgeOffset,
     dotOffsetInSquare,
     dotOffsetInCircle,
+    zIndexPopupBase,
     calc,
   } = token;
   return {
@@ -229,7 +231,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       border: 'none',
       position: 'fixed',
       cursor: 'pointer',
-      zIndex: 99,
+      zIndex: zIndexPopupBase,
       // Do not remove the 'display: block' here.
       // Deleting it will cause marginBottom to become ineffective.
       // Ref: https://github.com/ant-design/ant-design/issues/44700
