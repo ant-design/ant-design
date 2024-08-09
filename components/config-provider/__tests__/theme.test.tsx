@@ -222,6 +222,85 @@ describe('ConfigProvider.Theme', () => {
     expect(cssVar).toBeTruthy();
   });
 
+  it('should merge algorithm when nested', () => {
+    let tokenRef: Partial<GlobalToken> = {};
+    const Demo = () => {
+      const [, token] = useToken();
+      tokenRef = token;
+      return null;
+    };
+
+    render(
+      <ConfigProvider theme={{ algorithm: darkAlgorithm }}>
+        <ConfigProvider theme={{ algorithm: compactAlgorithm }}>
+          <Demo />
+        </ConfigProvider>
+      </ConfigProvider>,
+    );
+    // darkAlgorithm Effect
+    expect(tokenRef).toEqual(
+      expect.objectContaining({
+        colorPrimary: '#1668dc',
+        colorSuccess: '#49aa19',
+        colorError: '#dc4446',
+      }),
+    );
+    // compactAlgorithm Effect
+    expect(tokenRef).toEqual(
+      expect.objectContaining({
+        sizeXXL: 48,
+        sizeXL: 32,
+        sizeLG: 16,
+        sizeMD: 16,
+        sizeMS: 12,
+        size: 8,
+        sizeSM: 8,
+        sizeXS: 4,
+        sizeXXS: 4,
+      }),
+    );
+  });
+
+  it('should not merge algorithm when nested use inherit: false', () => {
+    let tokenRef: Partial<GlobalToken> = {};
+    const Demo = () => {
+      const [, token] = useToken();
+      tokenRef = token;
+      return null;
+    };
+
+    render(
+      <ConfigProvider theme={{ algorithm: darkAlgorithm }}>
+        <ConfigProvider theme={{ inherit: false, algorithm: compactAlgorithm }}>
+          <Demo />
+        </ConfigProvider>
+      </ConfigProvider>,
+    );
+
+    expect(tokenRef).toEqual(
+      expect.objectContaining({
+        colorPrimary: '#1677ff',
+        colorSuccess: '#52c41a',
+        colorError: '#ff4d4f',
+      }),
+    );
+
+    // only compactAlgorithm Effect
+    expect(tokenRef).toEqual(
+      expect.objectContaining({
+        sizeXXL: 48,
+        sizeXL: 32,
+        sizeLG: 16,
+        sizeMD: 16,
+        sizeMS: 12,
+        size: 8,
+        sizeSM: 8,
+        sizeXS: 4,
+        sizeXXS: 4,
+      }),
+    );
+  });
+
   describe('cssVar', () => {
     it('should work', () => {
       const { container } = render(
