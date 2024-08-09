@@ -193,7 +193,7 @@ const consumerComponent: Record<ZIndexConsumer, React.FC<{ rootClassName: string
   ),
 };
 
-function getConsumerSelector(baseSelector: string, consumer: ZIndexConsumer): string {
+const getConsumerSelector = (baseSelector: string, consumer: ZIndexConsumer): string => {
   let selector = baseSelector;
   if (consumer === 'SelectLike') {
     selector = ['Select', 'Cascader', 'TreeSelect', 'AutoComplete', 'ColorPicker']
@@ -218,7 +218,7 @@ function getConsumerSelector(baseSelector: string, consumer: ZIndexConsumer): st
       .join(',');
   }
   return selector;
-}
+};
 
 describe('Test useZIndex hooks', () => {
   beforeEach(() => {
@@ -228,8 +228,8 @@ describe('Test useZIndex hooks', () => {
     jest.useRealTimers();
   });
   Object.keys(containerComponent).forEach((containerKey) => {
-    const containerZIndex = containerBaseZIndexOffset[containerKey as ZIndexContainer];
     Object.keys(consumerComponent).forEach((key) => {
+      const containerZIndex = containerBaseZIndexOffset[containerKey as ZIndexContainer];
       const consumerZIndex = consumerBaseZIndexOffset[key as ZIndexConsumer];
       describe(`Test ${key} zIndex in ${containerKey}`, () => {
         it('Test hooks', () => {
@@ -316,17 +316,11 @@ describe('Test useZIndex hooks', () => {
             const element1 = document.querySelector<HTMLElement>(selector1);
             const element2 = document.querySelector<HTMLElement>(selector2);
             const element3 = document.querySelector<HTMLElement>(selector3);
-            [element1, element2, element3].filter(Boolean).forEach((ele) => {
-              if (ele === element1) {
-                expect(ele?.style.zIndex).toBe(key === 'Tour' ? '1001' : '');
-              }
-              if (ele === element2) {
-                expect(ele?.style.zIndex).toBe(String(1000 + containerZIndex + consumerZIndex));
-              }
-              if (ele === element3) {
-                expect(ele?.style.zIndex).toBe(String(1000 + containerZIndex * 2 + consumerZIndex));
-              }
-            });
+            expect(element1?.style.zIndex).toBe(key === 'Tour' ? '1001' : '');
+            expect(element2?.style.zIndex).toBe(String(1000 + containerZIndex + consumerZIndex));
+            expect(element3?.style.zIndex).toBe(
+              String(1000 + containerZIndex * 2 + consumerZIndex),
+            );
           }
           unmount();
         }, 20000);
