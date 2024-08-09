@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { fireEvent, render } from '../../../tests/utils';
 import Sider from '../Sider';
-import type { Breakpoint } from 'antd';
+import type { Breakpoint } from '../..';
 
 const Content = () => {
   const [breakpoint, setBreakpoint] = useState<Breakpoint>('sm');
