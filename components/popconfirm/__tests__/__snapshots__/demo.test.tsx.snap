@@ -82,10 +82,11 @@ exports[`renders components/popconfirm/demo/locale.tsx correctly 1`] = `
 
 exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
 <div
-  class="demo"
+  class="demo ant-flex ant-flex-align-center ant-flex-justify-center ant-flex-vertical"
 >
   <div
-    style="margin-inline-start:80px;white-space:nowrap"
+    class="ant-flex ant-flex-align-center ant-flex-justify-center"
+    style="white-space:nowrap"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -116,69 +117,75 @@ exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
     </button>
   </div>
   <div
-    style="width:80px;float:inline-start"
+    class="ant-flex ant-flex-align-center ant-flex-justify-space-between"
+    style="width:432px"
   >
-    <button
-      class="ant-btn ant-btn-default"
-      style="width:80px;margin:4px"
-      type="button"
+    <div
+      class="ant-flex ant-flex-align-center ant-flex-vertical"
     >
-      <span>
-        LT
-      </span>
-    </button>
-    <button
-      class="ant-btn ant-btn-default"
-      style="width:80px;margin:4px"
-      type="button"
+      <button
+        class="ant-btn ant-btn-default"
+        style="width:80px;margin:4px"
+        type="button"
+      >
+        <span>
+          LT
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        style="width:80px;margin:4px"
+        type="button"
+      >
+        <span>
+          Left
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        style="width:80px;margin:4px"
+        type="button"
+      >
+        <span>
+          LB
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-flex ant-flex-align-center ant-flex-vertical"
     >
-      <span>
-        Left
-      </span>
-    </button>
-    <button
-      class="ant-btn ant-btn-default"
-      style="width:80px;margin:4px"
-      type="button"
-    >
-      <span>
-        LB
-      </span>
-    </button>
+      <button
+        class="ant-btn ant-btn-default"
+        style="width:80px;margin:4px"
+        type="button"
+      >
+        <span>
+          RT
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        style="width:80px;margin:4px"
+        type="button"
+      >
+        <span>
+          Right
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        style="width:80px;margin:4px"
+        type="button"
+      >
+        <span>
+          RB
+        </span>
+      </button>
+    </div>
   </div>
   <div
-    style="width:80px;margin-inline-start:344px"
-  >
-    <button
-      class="ant-btn ant-btn-default"
-      style="width:80px;margin:4px"
-      type="button"
-    >
-      <span>
-        RT
-      </span>
-    </button>
-    <button
-      class="ant-btn ant-btn-default"
-      style="width:80px;margin:4px"
-      type="button"
-    >
-      <span>
-        Right
-      </span>
-    </button>
-    <button
-      class="ant-btn ant-btn-default"
-      style="width:80px;margin:4px"
-      type="button"
-    >
-      <span>
-        RB
-      </span>
-    </button>
-  </div>
-  <div
-    style="margin-inline-start:80px;clear:both;white-space:nowrap"
+    class="ant-flex ant-flex-align-center ant-flex-justify-center"
+    style="white-space:nowrap"
   >
     <button
       class="ant-btn ant-btn-default"
