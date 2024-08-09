@@ -1,18 +1,14 @@
 import React from 'react';
-import { Button, ConfigProvider, Popconfirm } from 'antd';
+import { Button, ConfigProvider, Flex, Popconfirm } from 'antd';
 
 const text = 'Are you sure to delete this task?';
 const description = 'Delete the task';
 const buttonWidth = 80;
 
 const App: React.FC = () => (
-  <ConfigProvider
-    button={{
-      style: { width: buttonWidth, margin: 4 },
-    }}
-  >
-    <div className="demo">
-      <div style={{ marginInlineStart: buttonWidth, whiteSpace: 'nowrap' }}>
+  <ConfigProvider button={{ style: { width: buttonWidth, margin: 4 } }}>
+    <Flex vertical justify="center" align="center" className="demo">
+      <Flex justify="center" align="center" style={{ whiteSpace: 'nowrap' }}>
         <Popconfirm
           placement="topLeft"
           title={text}
@@ -40,66 +36,68 @@ const App: React.FC = () => (
         >
           <Button>TR</Button>
         </Popconfirm>
-      </div>
-      <div style={{ width: buttonWidth, float: 'inline-start' }}>
-        <Popconfirm
-          placement="leftTop"
-          title={text}
-          description={description}
-          okText="Yes"
-          cancelText="No"
-        >
-          <Button>LT</Button>
-        </Popconfirm>
-        <Popconfirm
-          placement="left"
-          title={text}
-          description={description}
-          okText="Yes"
-          cancelText="No"
-        >
-          <Button>Left</Button>
-        </Popconfirm>
-        <Popconfirm
-          placement="leftBottom"
-          title={text}
-          description={description}
-          okText="Yes"
-          cancelText="No"
-        >
-          <Button>LB</Button>
-        </Popconfirm>
-      </div>
-      <div style={{ width: buttonWidth, marginInlineStart: buttonWidth * 4 + 24 }}>
-        <Popconfirm
-          placement="rightTop"
-          title={text}
-          description={description}
-          okText="Yes"
-          cancelText="No"
-        >
-          <Button>RT</Button>
-        </Popconfirm>
-        <Popconfirm
-          placement="right"
-          title={text}
-          description={description}
-          okText="Yes"
-          cancelText="No"
-        >
-          <Button>Right</Button>
-        </Popconfirm>
-        <Popconfirm
-          placement="rightBottom"
-          title={text}
-          description={description}
-          okText="Yes"
-          cancelText="No"
-        >
-          <Button>RB</Button>
-        </Popconfirm>
-      </div>
-      <div style={{ marginInlineStart: buttonWidth, clear: 'both', whiteSpace: 'nowrap' }}>
+      </Flex>
+      <Flex style={{ width: buttonWidth * 5 + 32 }} justify="space-between" align="center">
+        <Flex align="center" vertical>
+          <Popconfirm
+            placement="leftTop"
+            title={text}
+            description={description}
+            okText="Yes"
+            cancelText="No"
+          >
+            <Button>LT</Button>
+          </Popconfirm>
+          <Popconfirm
+            placement="left"
+            title={text}
+            description={description}
+            okText="Yes"
+            cancelText="No"
+          >
+            <Button>Left</Button>
+          </Popconfirm>
+          <Popconfirm
+            placement="leftBottom"
+            title={text}
+            description={description}
+            okText="Yes"
+            cancelText="No"
+          >
+            <Button>LB</Button>
+          </Popconfirm>
+        </Flex>
+        <Flex align="center" vertical>
+          <Popconfirm
+            placement="rightTop"
+            title={text}
+            description={description}
+            okText="Yes"
+            cancelText="No"
+          >
+            <Button>RT</Button>
+          </Popconfirm>
+          <Popconfirm
+            placement="right"
+            title={text}
+            description={description}
+            okText="Yes"
+            cancelText="No"
+          >
+            <Button>Right</Button>
+          </Popconfirm>
+          <Popconfirm
+            placement="rightBottom"
+            title={text}
+            description={description}
+            okText="Yes"
+            cancelText="No"
+          >
+            <Button>RB</Button>
+          </Popconfirm>
+        </Flex>
+      </Flex>
+      <Flex justify="center" align="center" style={{ whiteSpace: 'nowrap' }}>
         <Popconfirm
           placement="bottomLeft"
           title={text}
@@ -127,8 +125,8 @@ const App: React.FC = () => (
         >
           <Button>BR</Button>
         </Popconfirm>
-      </div>
-    </div>
+      </Flex>
+    </Flex>
   </ConfigProvider>
 );
 

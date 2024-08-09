@@ -36,10 +36,10 @@ const useStyle = createStyles(({ token, css }) => {
         inset-inline-start: 0;
         width: 100%;
         height: 100%;
-        color: #fff;
-        line-height: 110px;
+        line-height: 100px;
+        color: ${token.colorTextLightSolid};
         text-align: center;
-        background-color: #1677ff;
+        background-color: ${token.colorPrimary};
         opacity: 0;
         transition: all ${token.motionDurationSlow} cubic-bezier(0.18, 0.89, 0.32, 1.28);
       }
