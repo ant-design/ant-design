@@ -51,7 +51,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
   // ============================ zIndex ============================
   const [zIndex] = useZIndex('FloatButton', style?.zIndex as number);
 
-  const mergedStyle: React.CSSProperties = { zIndex, ...style };
+  const mergedStyle: React.CSSProperties = { ...style, zIndex };
 
   const wrapperCls = classNames(hashId, `${groupPrefixCls}-wrap`);
 
