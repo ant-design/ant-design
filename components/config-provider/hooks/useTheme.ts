@@ -2,7 +2,7 @@ import useMemo from 'rc-util/lib/hooks/useMemo';
 import isEqual from 'rc-util/lib/isEqual';
 
 import { devUseWarning } from '../../_util/warning';
-import type { OverrideToken } from '../../theme/interface';
+import type { MappingAlgorithm, OverrideToken } from '../../theme/interface';
 import { defaultConfig } from '../../theme/internal';
 import type { ThemeConfig } from '../context';
 import useThemeKey from './useThemeKey';
@@ -67,6 +67,13 @@ export default function useTheme(
         key: (typeof themeConfig.cssVar === 'object' && themeConfig.cssVar?.key) || cssVarKey,
       };
 
+      // Merge nested algorithms
+      const toArray = (value: any) => (Array.isArray(value) ? value : [value]);
+      const mergedAlgorithms = [
+        ...toArray(parentThemeConfig.algorithm),
+        ...toArray(themeConfig.algorithm),
+      ].filter(Boolean) as MappingAlgorithm[];
+
       // Base token
       return {
         ...parentThemeConfig,
@@ -76,6 +83,7 @@ export default function useTheme(
           ...parentThemeConfig.token,
           ...themeConfig.token,
         },
+        algorithm: Array.from(new Set(mergedAlgorithms)),
         components: mergedComponents,
         cssVar: mergedCssVar,
       };
