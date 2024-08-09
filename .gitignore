@@ -76,3 +76,5 @@ __image_snapshots__/
 
 # From v5
 locale/
+.eslintcache
+server/
