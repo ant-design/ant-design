@@ -34,9 +34,8 @@ const WrapWithProvider: React.FC<PropsWithChildren<{ container: ZIndexContainer 
   return <zIndexContext.Provider value={contextZIndex}>{children}</zIndexContext.Provider>;
 };
 
-const containerComponent: Record<
-  ZIndexContainer,
-  React.FC<PropsWithChildren<{ rootClassName?: string }>>
+const containerComponent: Partial<
+  Record<ZIndexContainer, React.FC<Readonly<PropsWithChildren<{ rootClassName?: string }>>>>
 > = {
   Modal: ({ children, ...restProps }) => (
     <Modal {...restProps} open>
@@ -66,7 +65,6 @@ const containerComponent: Record<
   Tour: ({ children, ...restProps }) => (
     <Tour {...restProps} open steps={[{ title: 'cover title', description: children }]} />
   ),
-  FloatButton: ({ children, ...restProps }) => <FloatButton {...restProps}>{children}</FloatButton>,
 };
 
 const options = [
@@ -117,7 +115,9 @@ const items: MenuProps['items'] = [
   },
 ];
 
-const consumerComponent: Record<ZIndexConsumer, React.FC<{ rootClassName: string }>> = {
+const consumerComponent: Partial<
+  Record<ZIndexConsumer, React.FC<Readonly<{ rootClassName: string }>>>
+> = {
   SelectLike: ({ rootClassName, ...props }) => (
     <>
       <Select
@@ -229,8 +229,8 @@ describe('Test useZIndex hooks', () => {
   });
   Object.keys(containerComponent).forEach((containerKey) => {
     Object.keys(consumerComponent).forEach((key) => {
-      const containerZIndex = containerBaseZIndexOffset[containerKey as ZIndexContainer];
-      const consumerZIndex = consumerBaseZIndexOffset[key as ZIndexConsumer];
+      const containerZIndexValue = containerBaseZIndexOffset[containerKey as ZIndexContainer];
+      const consumerZIndexValue = consumerBaseZIndexOffset[key as ZIndexConsumer];
       describe(`Test ${key} zIndex in ${containerKey}`, () => {
         it('Test hooks', () => {
           const fn = jest.fn();
@@ -253,12 +253,14 @@ describe('Test useZIndex hooks', () => {
           );
           render(<App />);
 
-          expect(fn).toHaveBeenLastCalledWith(1000 + containerZIndex * 3 + consumerZIndex);
+          expect(fn).toHaveBeenLastCalledWith(
+            1000 + containerZIndexValue * 3 + consumerZIndexValue,
+          );
         });
 
         it('Test Component', async () => {
-          const Container = containerComponent[containerKey as ZIndexContainer];
-          const Consumer = consumerComponent[key as ZIndexConsumer];
+          const Container = containerComponent[containerKey as ZIndexContainer]!;
+          const Consumer = consumerComponent[key as ZIndexConsumer]!;
 
           const App: React.FC = () => (
             <>
@@ -290,12 +292,12 @@ describe('Test useZIndex hooks', () => {
               const isColorPicker = comp?.className.includes('comp-ColorPicker');
               const consumerOffset = isColorPicker
                 ? containerBaseZIndexOffset.Popover
-                : consumerZIndex;
+                : consumerZIndexValue;
               const operOffset = comp.classList.contains('ant-image-preview-operations-wrapper')
                 ? 1
                 : 0;
               expect(comp?.style.zIndex).toBe(
-                String(1000 + containerZIndex + consumerOffset + operOffset),
+                String(1000 + containerZIndexValue + consumerOffset + operOffset),
               );
             });
 
@@ -304,12 +306,12 @@ describe('Test useZIndex hooks', () => {
               const isColorPicker = comp?.className.includes('comp-ColorPicker');
               const consumerOffset = isColorPicker
                 ? containerBaseZIndexOffset.Popover
-                : consumerZIndex;
+                : consumerZIndexValue;
               const operOffset = comp.classList.contains('ant-image-preview-operations-wrapper')
                 ? 1
                 : 0;
               expect(comp?.style.zIndex).toBe(
-                String(1000 + containerZIndex * 2 + consumerOffset + operOffset),
+                String(1000 + containerZIndexValue * 2 + consumerOffset + operOffset),
               );
             });
           } else {
@@ -317,9 +319,11 @@ describe('Test useZIndex hooks', () => {
             const element2 = document.querySelector<HTMLElement>(selector2);
             const element3 = document.querySelector<HTMLElement>(selector3);
             expect(element1?.style.zIndex).toBe(key === 'Tour' ? '1001' : '');
-            expect(element2?.style.zIndex).toBe(String(1000 + containerZIndex + consumerZIndex));
+            expect(element2?.style.zIndex).toBe(
+              String(1000 + containerZIndexValue + consumerZIndexValue),
+            );
             expect(element3?.style.zIndex).toBe(
-              String(1000 + containerZIndex * 2 + consumerZIndex),
+              String(1000 + containerZIndexValue * 2 + consumerZIndexValue),
             );
           }
           unmount();
@@ -372,5 +376,23 @@ describe('Test useZIndex hooks', () => {
     );
 
     errorSpy.mockRestore();
+  });
+
+  it('FloatButton support zIndex', () => {
+    const { container, rerender } = render(
+      <WrapWithProvider container="FloatButton">
+        <FloatButton />
+      </WrapWithProvider>,
+    );
+    expect(container.querySelector<HTMLElement>('.ant-float-btn')?.style.zIndex).toBe(
+      // parentZIndex + containerBaseZIndexOffset["FloatButton"]
+      String(1100 + containerBaseZIndexOffset.FloatButton),
+    );
+    rerender(
+      <WrapWithProvider container="FloatButton">
+        <FloatButton style={{ zIndex: 666 }} />
+      </WrapWithProvider>,
+    );
+    expect(container.querySelector<HTMLElement>('.ant-float-btn')?.style.zIndex).toBe(String(666));
   });
 });
