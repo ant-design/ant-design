@@ -9,7 +9,7 @@ const locales = {
   cn: {
     mask: '遮罩层元素',
     wrapper: '包裹层元素，一般用于动画容器',
-    content: 'Drawer 容器元素',
+    content: 'Modal 容器元素',
     header: '头部元素',
     body: '内容元素',
     footer: '底部元素',
@@ -17,7 +17,7 @@ const locales = {
   en: {
     mask: 'Mask element',
     wrapper: 'Wrapper element. Used for motion container',
-    content: 'Drawer container element',
+    content: 'Modal container element',
     header: 'Header element',
     body: 'Body element',
     footer: 'Footer element',
@@ -57,6 +57,8 @@ const App: React.FC = () => {
     <SemanticPreview
       semantics={[
         { name: 'mask', desc: locale.mask, version: '5.13.0' },
+        { name: 'content', desc: locale.content, version: '5.13.0' },
+        { name: 'wrapper', desc: locale.wrapper, version: '5.13.0' },
         { name: 'header', desc: locale.header, version: '5.13.0' },
         { name: 'body', desc: locale.body, version: '5.13.0' },
         { name: 'footer', desc: locale.footer, version: '5.13.0' },
