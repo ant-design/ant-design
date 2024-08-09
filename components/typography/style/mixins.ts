@@ -255,7 +255,6 @@ export const getEllipsisStyles = (): CSSObject => ({
     'a&, span&': {
       verticalAlign: 'bottom',
     },
-
     '> code': {
       paddingBlock: 0,
       maxWidth: 'calc(100% - 1.2em)',
@@ -265,6 +264,31 @@ export const getEllipsisStyles = (): CSSObject => ({
       verticalAlign: 'bottom',
       // https://github.com/ant-design/ant-design/issues/45953
       boxSizing: 'content-box',
+    },
+    '> span': {
+      display: 'inline-block',
+      maxWidth: '100%',
+      // verticalAlign: 'bottom',
+
+      // wordBreak: 'break-word',
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+
+      // paddingBlock: 0,
+      // // https://github.com/ant-design/ant-design/issues/45953
+      // boxSizing: 'content-box',
+
+      '> code': {
+        paddingBlock: 0,
+        maxWidth: 'calc(100% - 1.2em)',
+        display: 'inline-block',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        verticalAlign: 'bottom',
+        // https://github.com/ant-design/ant-design/issues/45953
+        boxSizing: 'content-box',
+      },
     },
   },
 
