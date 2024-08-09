@@ -49,10 +49,10 @@ function isContainerType(type: ZIndexContainer | ZIndexConsumer): type is ZIndex
 
 type ReturnResult = [zIndex: number | undefined, contextZIndex: number];
 
-export function useZIndex(
+export const useZIndex = (
   componentType: ZIndexContainer | ZIndexConsumer,
   customZIndex?: number,
-): ReturnResult {
+): ReturnResult => {
   const [, token] = useToken();
   const parentZIndex = React.useContext(zIndexContext);
   const isContainer = isContainerType(componentType);
@@ -90,4 +90,4 @@ export function useZIndex(
   }
 
   return result;
-}
+};
