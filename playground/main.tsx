@@ -1,14 +1,30 @@
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
+import { Skeleton } from 'antd';
 // eslint-disable-next-line import/no-unresolved
 import 'antd/style/reset.css';
-import { Skeleton } from 'antd';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { BrowserRouter as Router, useRoutes } from 'react-router-dom';
+import { BrowserRouter as Router, useRoutes, Outlet } from 'react-router-dom';
 import routes from './routes';
 
+import Provider from './Provider';
+import GlobalStyle from './GlobalStyle';
+
+const rootRoutes = [
+  {
+    path: '/',
+    children: routes,
+    element: (
+      <Provider>
+        <GlobalStyle />
+        <Outlet />
+      </Provider>
+    ),
+  },
+];
+
 const App = (function _App() {
-  const C = () => <>{useRoutes(routes as any)}</>;
+  const C = () => <>{useRoutes(rootRoutes as any)}</>;
   if (__IMPORT_MODE__ === 'sync') return C;
   return () => (
     <Suspense fallback={<Skeleton active />}>

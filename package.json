@@ -152,6 +152,7 @@
     "throttle-debounce": "^5.0.2"
   },
   "devDependencies": {
+    "@ahooksjs/use-url-state": "^3.5.1",
     "@ant-design/compatible": "^5.1.3",
     "@ant-design/happy-work-theme": "^1.0.0",
     "@ant-design/tools": "^18.0.2",
@@ -299,6 +300,7 @@
     "react-infinite-scroll-component": "^6.1.0",
     "react-intersection-observer": "^9.13.0",
     "react-resizable": "^3.0.5",
+    "react-router": "^6.26.0",
     "react-router-dom": "^6.24.1",
     "react-sticky-box": "^2.0.5",
     "regenerator-runtime": "^0.14.1",

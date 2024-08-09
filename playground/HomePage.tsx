@@ -1,37 +1,139 @@
 import React from 'react';
-import { Flex, Typography, version } from 'antd';
+import { Tooltip, Form, Tree, Checkbox, Card, FloatButton, Popover, Switch, theme } from 'antd';
+// eslint-disable-next-line import/no-unresolved
+import autoRoutes from '~react-pages';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { Link } from 'react-router-dom';
-import { combinedRoute } from './routes';
+import { useNavigate } from 'react-router-dom';
+import { SettingOutlined } from '@ant-design/icons';
+import { useUrl } from './Provider';
 
-/**
- * 如果你在本地想调试不同的组件，直接修改这个常量即可
- * If you want to debug different components locally, just modify this constant
- * e.g:
- * 1. const DEMO_PATH = '/table/demo/basic';
- * 2. > VITE_DEMO_ID=/table/demo/basic npm run play
- */
-const DEMO_PATH = import.meta.env.VITE_DEMO_ID || '/button/demo/basic';
+const { DirectoryTree } = Tree;
+
+const dataTransform = (data: any) => {
+  const changeData = (d: any, level = 0, prefix = '') => {
+    const key = `${prefix}/${d.path}`;
+    const clonedData: any = {
+      ...d,
+      key,
+    };
+
+    if (Array.isArray(clonedData.children)) {
+      clonedData.children = clonedData.children.map((child: any) =>
+        changeData(child, level + 1, key),
+      );
+    } else {
+      clonedData.isLeaf = true;
+    }
+
+    return clonedData;
+  };
+  return data.map((d: any) => changeData(d));
+};
+
+function useConfig() {
+  const [config, setConfig] = useUrl({
+    theme: [], // theme algorithm
+    cssVar: false,
+    hashed: true,
+  });
+
+  const configHolder = (
+    <Card title="Config">
+      <Form
+        initialValues={config}
+        onValuesChange={(_, allValues) => {
+          setConfig(allValues);
+        }}
+        layout="vertical"
+      >
+        <Form.Item name="theme" label="Theme">
+          <Checkbox.Group options={['light', 'dark', 'compact']} />
+        </Form.Item>
+        <Form.Item name="cssVar" label="cssVar" layout="horizontal">
+          <Switch size="small" />
+        </Form.Item>
+        <Form.Item name="hashed" label="hashed" layout="horizontal">
+          <Switch size="small" />
+        </Form.Item>
+      </Form>
+    </Card>
+  );
+
+  return [config, configHolder] as const;
+}
 
 function HomePage() {
+  const { token } = theme.useToken();
+  const [, configHolder] = useConfig();
+  const navigate = useNavigate();
+
+  const { search, origin } = new URL(window.location.href);
+
+  const treeData = React.useMemo(() => dataTransform(autoRoutes), []);
+
+  const titleRender = (nodeData: any) => {
+    const title = nodeData.path;
+    if (nodeData.isLeaf) {
+      return (
+        <Tooltip title="Double click to preview directly" placement="right">
+          <span
+            onDoubleClick={() => {
+              navigate(nodeData.key + search);
+            }}
+          >
+            {title}
+          </span>
+        </Tooltip>
+      );
+    }
+    return title;
+  };
+
+  const [selectedKey, setSelectedKeys] = React.useState<string>('/button/demo/basic');
+  const previewUrl = `${origin}${selectedKey}${search || ''}`;
+
   return (
-    <Flex
-      style={{ height: 'calc(100dvh - 48px)' }}
-      justify="center"
-      align="center"
-      vertical
-      gap="large"
-    >
-      <Typography.Title level={5}>v{version}</Typography.Title>
-      <Flex vertical wrap="nowrap" gap="middle">
-        {Object.entries(combinedRoute).map(([key, item]) => (
-          <Link key={key} to={item.path + DEMO_PATH}>
-            {item.path?.slice(1)}
-            <sub>{DEMO_PATH}</sub>
-          </Link>
-        ))}
-      </Flex>
-    </Flex>
+    <>
+      <div
+        style={{
+          height: 'calc(100dvh - 48px)',
+          width: 'calc(100vw - 24px)',
+        }}
+      >
+        <div style={{ width: 320, height: '100%', overflowY: 'auto' }}>
+          <DirectoryTree
+            treeData={treeData}
+            fieldNames={{ title: 'path' }}
+            titleRender={titleRender}
+            defaultExpandedKeys={treeData.map((d: any) => d.key)}
+            onSelect={(selectedKeys, info) => {
+              if (info.node.isLeaf && selectedKeys?.[0]) {
+                setSelectedKeys((selectedKeys as any)[0]);
+              }
+            }}
+          />
+        </div>
+        {selectedKey && (
+          <iframe
+            title="preview"
+            style={{
+              all: 'unset',
+              height: 'calc(100% - 48px)',
+              width: 'calc(100% - (24px + 320px))',
+              position: 'absolute',
+              borderRadius: token.borderRadius,
+              border: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
+              right: 12,
+              top: 24,
+            }}
+            src={previewUrl}
+          />
+        )}
+      </div>
+      <Popover content={configHolder} defaultOpen>
+        <FloatButton icon={<SettingOutlined />} />
+      </Popover>
+    </>
   );
 }
 
