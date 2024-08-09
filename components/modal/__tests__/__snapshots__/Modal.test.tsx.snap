@@ -20,7 +20,6 @@ exports[`Modal render correctly 1`] = `
           style="width: 520px;"
         >
           <div
-            aria-hidden="true"
             style="width: 0px; height: 0px; overflow: hidden; outline: none;"
             tabindex="0"
           />
@@ -84,7 +83,6 @@ exports[`Modal render correctly 1`] = `
             </div>
           </div>
           <div
-            aria-hidden="true"
             style="width: 0px; height: 0px; overflow: hidden; outline: none;"
             tabindex="0"
           />
@@ -115,7 +113,6 @@ exports[`Modal render without footer 1`] = `
           style="width: 520px;"
         >
           <div
-            aria-hidden="true"
             style="width: 0px; height: 0px; overflow: hidden; outline: none;"
             tabindex="0"
           />
@@ -159,7 +156,6 @@ exports[`Modal render without footer 1`] = `
             </div>
           </div>
           <div
-            aria-hidden="true"
             style="width: 0px; height: 0px; overflow: hidden; outline: none;"
             tabindex="0"
           />
@@ -190,7 +186,6 @@ exports[`Modal support closeIcon 1`] = `
       style="width: 520px;"
     >
       <div
-        aria-hidden="true"
         style="width: 0px; height: 0px; overflow: hidden; outline: none;"
         tabindex="0"
       />
@@ -235,7 +230,6 @@ exports[`Modal support closeIcon 1`] = `
         </div>
       </div>
       <div
-        aria-hidden="true"
         style="width: 0px; height: 0px; overflow: hidden; outline: none;"
         tabindex="0"
       />
