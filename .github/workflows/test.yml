@@ -318,7 +318,7 @@ jobs:
   upload-test-coverage:
     name: test-coverage
     runs-on: ubuntu-latest
-    needs: normal-test-latest
+    needs: test-react-18
     steps:
       - uses: actions/checkout@v4
 
