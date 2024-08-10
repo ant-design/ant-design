@@ -74,7 +74,7 @@ interface ChangeEventInfo<RecordType extends AnyObject = AnyObject> {
   resetPagination: (current?: number, pageSize?: number) => void;
 }
 
-export interface TableProps<RecordType extends AnyObject = AnyObject>
+export interface TableProps<RecordType>
   extends Omit<
     RcTableProps<RecordType>,
     | 'transformColumns'
