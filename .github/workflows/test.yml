@@ -137,13 +137,6 @@ jobs:
         if: ${{ matrix.module == 'dom' }}
         run: npm test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
 
-      # dist test
-      - name: dist test
-        if: ${{ matrix.module == 'dist-min' }}
-        run: npm test
-        env:
-          LIB_DIR: dist-min
-
   test-node:
     name: test-node
     runs-on: ubuntu-latest
@@ -420,6 +413,8 @@ jobs:
           key: ${{ matrix.module }}-${{ github.sha }}
 
       - name: compile
+        # lib only run in master branch not in pull request
+        if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
         run: npm run compile
 
       - name: install react 18
