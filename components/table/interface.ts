@@ -68,7 +68,7 @@ export type SorterTooltipProps = TooltipProps & {
 const TableActions = ['paginate', 'sort', 'filter'] as const;
 export type TableAction = (typeof TableActions)[number];
 
-export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
+export type CompareFn<T extends AnyObject> = (a: T, b: T, sortOrder?: SortOrder) => number;
 
 export interface ColumnFilterItem {
   text: React.ReactNode;
@@ -76,7 +76,7 @@ export interface ColumnFilterItem {
   children?: ColumnFilterItem[];
 }
 
-export interface ColumnTitleProps<RecordType> {
+export interface ColumnTitleProps<RecordType extends AnyObject = AnyObject> {
   /** @deprecated Please use `sorterColumns` instead. */
   sortOrder?: SortOrder;
   /** @deprecated Please use `sorterColumns` instead. */
@@ -86,7 +86,7 @@ export interface ColumnTitleProps<RecordType> {
   filters?: Record<string, FilterValue>;
 }
 
-export type ColumnTitle<RecordType> =
+export type ColumnTitle<RecordType extends AnyObject = AnyObject> =
   | React.ReactNode
   | ((props: ColumnTitleProps<RecordType>) => React.ReactNode);
 
@@ -115,7 +115,8 @@ export interface FilterDropdownProps {
   visible: boolean;
 }
 
-export interface ColumnType<RecordType> extends Omit<RcColumnType<RecordType>, 'title'> {
+export interface ColumnType<RecordType extends AnyObject = AnyObject>
+  extends Omit<RcColumnType<RecordType>, 'title'> {
   title?: ColumnTitle<RecordType>;
   // Sorter
   sorter?:
@@ -158,11 +159,12 @@ export interface ColumnType<RecordType> extends Omit<RcColumnType<RecordType>, '
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
 }
 
-export interface ColumnGroupType<RecordType> extends Omit<ColumnType<RecordType>, 'dataIndex'> {
+export interface ColumnGroupType<RecordType extends AnyObject = AnyObject>
+  extends Omit<ColumnType<RecordType>, 'dataIndex'> {
   children: ColumnsType<RecordType>;
 }
 
-export type ColumnsType<RecordType = any> = (
+export type ColumnsType<RecordType extends AnyObject = AnyObject> = (
   | ColumnGroupType<RecordType>
   | ColumnType<RecordType>
 )[];
@@ -214,16 +216,16 @@ export interface TableRowSelection<T> {
   onCell?: GetComponentProps<T>;
 }
 
-export type TransformColumns<RecordType> = (
+export type TransformColumns<RecordType extends AnyObject = AnyObject> = (
   columns: ColumnsType<RecordType>,
 ) => ColumnsType<RecordType>;
 
-export interface TableCurrentDataSource<RecordType> {
+export interface TableCurrentDataSource<RecordType extends AnyObject = AnyObject> {
   currentDataSource: RecordType[];
   action: TableAction;
 }
 
-export interface SorterResult<RecordType> {
+export interface SorterResult<RecordType extends AnyObject = AnyObject> {
   column?: ColumnType<RecordType>;
   order?: SortOrder;
   field?: Key | readonly Key[];

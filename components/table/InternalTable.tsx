@@ -74,7 +74,7 @@ interface ChangeEventInfo<RecordType extends AnyObject = AnyObject> {
   resetPagination: (current?: number, pageSize?: number) => void;
 }
 
-export interface TableProps<RecordType = any>
+export interface TableProps<RecordType extends AnyObject = AnyObject>
   extends Omit<
     RcTableProps<RecordType>,
     | 'transformColumns'
@@ -113,7 +113,8 @@ export interface TableProps<RecordType = any>
 }
 
 /** Same as `TableProps` but we need record parent render times */
-export interface InternalTableProps<RecordType extends AnyObject> extends TableProps<RecordType> {
+export interface InternalTableProps<RecordType extends AnyObject = AnyObject>
+  extends TableProps<RecordType> {
   _renderTimes: number;
 }
 
