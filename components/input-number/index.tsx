@@ -27,6 +27,7 @@ export interface InputNumberProps<T extends ValueType = ValueType>
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
   prefix?: React.ReactNode;
+  suffix?: React.ReactNode;
   size?: SizeType;
   disabled?: boolean;
   /** @deprecated Use `variant` instead. */
@@ -66,6 +67,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     addonBefore,
     addonAfter,
     prefix,
+    suffix,
     bordered,
     readOnly,
     status: customStatus,
@@ -141,7 +143,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       readOnly={readOnly}
       controls={controlsTemp}
       prefix={prefix}
-      suffix={suffixNode}
+      suffix={suffixNode || suffix}
       addonBefore={
         addonBefore && (
           <ContextIsolator form space>

@@ -1,6 +1,6 @@
 import React from 'react';
 import * as AntdIcons from '@ant-design/icons';
-import { Badge, App } from 'antd';
+import { App, Badge } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 import CopyToClipboard from 'react-copy-to-clipboard';
@@ -33,13 +33,13 @@ const useStyle = createStyles(({ token, css }) => {
         content: 'Copied!';
         position: absolute;
         top: 0;
-        left: 0;
+        inset-inline-start: 0;
         width: 100%;
         height: 100%;
-        color: #fff;
-        line-height: 110px;
+        line-height: 100px;
+        color: ${token.colorTextLightSolid};
         text-align: center;
-        background-color: #1677ff;
+        background-color: ${token.colorPrimary};
         opacity: 0;
         transition: all ${token.motionDurationSlow} cubic-bezier(0.18, 0.89, 0.32, 1.28);
       }

@@ -15,22 +15,22 @@ export interface ComponentToken {
    * @desc 卡片头部文字大小
    * @descEN Font size of card header
    */
-  headerFontSize: number;
+  headerFontSize: number | string;
   /**
    * @desc 小号卡片头部文字大小
    * @descEN Font size of small card header
    */
-  headerFontSizeSM: number;
+  headerFontSizeSM: number | string;
   /**
    * @desc 卡片头部高度
    * @descEN Height of card header
    */
-  headerHeight: number;
+  headerHeight: number | string;
   /**
    * @desc 小号卡片头部高度
    * @descEN Height of small card header
    */
-  headerHeightSM: number;
+  headerHeightSM: number | string;
   /**
    * @desc 操作区背景色
    * @descEN Background color of card actions
@@ -273,7 +273,6 @@ const genCardLoadingStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 // ============================== Basic ==============================
 const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
   const {
-    antCls,
     componentCls,
     cardShadow,
     cardHeadPadding,
@@ -317,9 +316,6 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
         '> *': {
           display: 'block',
           width: '100%',
-        },
-
-        [`img, img + ${antCls}-image-mask`]: {
           borderRadius: `${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)} 0 0`,
         },
       },

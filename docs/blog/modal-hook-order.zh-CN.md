@@ -2,6 +2,9 @@
 title: Modal hook 的有趣 BUG
 date: 2022-12-21
 author: zombieJ
+zhihu_url: https://zhuanlan.zhihu.com/p/639265725
+yuque_url: https://www.yuque.com/ant-design/ant-design/yq0w59gikugthyqz
+juejin_url: https://juejin.cn/post/7322306608103686194
 ---
 
 最近我们遇到了一个 [issue](https://github.com/ant-design/ant-design/issues/39427)，说是 `Modal.useModal` 的 `contextHolder` 在放置不同的位置时，`modal.confirm` 弹出位置会不一样：

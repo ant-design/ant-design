@@ -1,5 +1,6 @@
 import * as React from 'react';
 import type { Dayjs } from 'dayjs';
+import type { PickerRef } from 'rc-picker';
 
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
@@ -34,7 +35,7 @@ export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<Dayjs>, 
   popupClassName?: string;
 }
 
-const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => (
+const RangePicker = React.forwardRef<PickerRef, TimeRangePickerProps>((props, ref) => (
   <InternalRangePicker {...props} picker="time" mode={undefined} ref={ref} />
 ));
 
@@ -45,7 +46,7 @@ export interface TimePickerProps extends Omit<PickerTimeProps<Dayjs>, 'picker'> 
   rootClassName?: string;
 }
 
-const TimePicker = React.forwardRef<any, TimePickerProps>(
+const TimePicker = React.forwardRef<PickerRef, TimePickerProps>(
   ({ addon, renderExtraFooter, variant, bordered, ...restProps }, ref) => {
     if (process.env.NODE_ENV !== 'production') {
       const warning = devUseWarning('TimePicker');
@@ -55,7 +56,7 @@ const TimePicker = React.forwardRef<any, TimePickerProps>(
 
     const [mergedVariant] = useVariant('timePicker', variant, bordered);
 
-    const internalRenderExtraFooter = React.useMemo(() => {
+    const internalRenderExtraFooter = React.useMemo<TimePickerProps['renderExtraFooter']>(() => {
       if (renderExtraFooter) {
         return renderExtraFooter;
       }

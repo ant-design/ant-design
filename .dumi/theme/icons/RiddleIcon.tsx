@@ -8,8 +8,8 @@ const SVGIcon: React.FC = () => (
   </svg>
 );
 
-const RiddleIcon: React.FC<{ className?: string }> = (props) => (
-  <Icon component={SVGIcon} {...props} />
-);
+const RiddleIcon = React.forwardRef<HTMLSpanElement, { className?: string }>((props, ref) => (
+  <Icon component={SVGIcon} ref={ref} {...props} />
+));
 
 export default RiddleIcon;

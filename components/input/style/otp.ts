@@ -8,7 +8,7 @@ const genOTPStyle: GenerateStyle<InputToken> = (token) => {
   const { componentCls, paddingXS } = token;
 
   return {
-    [`${componentCls}`]: {
+    [componentCls]: {
       display: 'inline-flex',
       alignItems: 'center',
       flexWrap: 'nowrap',

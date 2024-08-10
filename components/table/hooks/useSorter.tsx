@@ -394,13 +394,26 @@ export default function useFilterSorter<RecordType>({
     collectSortStates(mergedColumns, true),
   );
 
+  const getColumnKeys = (columns: ColumnsType<RecordType>, pos?: string): Key[] => {
+    const newKeys: Key[] = [];
+    columns.forEach((item, index) => {
+      const columnPos = getColumnPos(index, pos);
+      newKeys.push(getColumnKey(item, columnPos));
+      if (Array.isArray((item as ColumnGroupType<RecordType>).children)) {
+        const childKeys = getColumnKeys((item as ColumnGroupType<RecordType>).children, columnPos);
+        newKeys.push(...childKeys);
+      }
+    });
+    return newKeys;
+  };
   const mergedSorterStates = React.useMemo<SortState<RecordType>[]>(() => {
     let validate = true;
     const collectedStates = collectSortStates(mergedColumns, false);
 
     // Return if not controlled
     if (!collectedStates.length) {
-      return sortStates;
+      const mergedColumnsKeys = getColumnKeys(mergedColumns);
+      return sortStates.filter(({ key }) => mergedColumnsKeys.includes(key));
     }
 
     const validateStates: SortState<RecordType>[] = [];

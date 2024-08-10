@@ -121,7 +121,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-color-picker-color-block-inner"
-                    style="background:rgba(0, 0, 0, 0.15)"
+                    style="background:rgba(0,0,0,0.15)"
                   />
                 </div>
               </div>

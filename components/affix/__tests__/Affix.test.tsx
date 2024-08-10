@@ -37,8 +37,8 @@ const AffixMounter: React.FC<AffixProps> = (props) => {
 };
 
 describe('Affix Render', () => {
-  rtlTest(Affix as any);
-  accessibilityTest(Affix as any);
+  rtlTest(() => <Affix>test</Affix>);
+  accessibilityTest(() => <Affix>test</Affix>);
 
   const domMock = jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
 
