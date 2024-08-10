@@ -423,8 +423,8 @@ jobs:
           echo "🤖 Uploading"
           node scripts/visual-regression/upload.js ./oss-artifacts.zip --ref=$HEAD_SHA
 
-  compiled-module-test:
-    name: module test
+  test-lib-es:
+    name: test lib/es module
     runs-on: ubuntu-latest
     needs: build
     strategy:
