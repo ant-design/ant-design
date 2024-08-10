@@ -176,6 +176,7 @@ jobs:
   test-node:
     name: test-node
     runs-on: ubuntu-latest
+    needs: setup
     steps:
       - name: checkout
         uses: actions/checkout@v4
