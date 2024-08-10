@@ -105,7 +105,7 @@ jobs:
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
   ################################ Test ################################
-  normal-test-legacy:
+  test-legacy:
     name: test-legacy
     strategy:
       matrix:
@@ -173,12 +173,87 @@ jobs:
         env:
           LIB_DIR: dist
 
-  normal-test-latest:
-    name: test-latest
+  test-node:
+    name: test-node
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@v4
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: install react 18
+        run: npm run install-react-18
+
+      - name: node test
+        run: npm run test:node
+
+  test-react-18:
+    name: test-react-18
     strategy:
       matrix:
         react: ['18']
-        module: ['dom', 'node', 'dist', 'dist-min']
+        module: ['dom']
+        shard: ['1/2', '2/2']
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@v4
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: install react 18
+        run: npm run install-react-18
+
+      # dom test
+      - name: dom test
+        run: npm test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
+
+      - name: persist coverages
+        run: |
+          mkdir persist-coverage
+          mv coverage/coverage-final.json persist-coverage/react-${{matrix.react}}-test-${{matrix.module}}-${{strategy.job-index}}.json
+
+      - uses: actions/upload-artifact@v4
+        name: upload coverages
+        with:
+          name: coverage-artifacts-${{ matrix.module }}-${{ matrix.react }}-${{ strategy.job-index }}
+          path: persist-coverage/
+
+  test-react-18-dist:
+    name: test-react-18-dist
+    strategy:
+      matrix:
+        react: ['18']
+        module: ['dist', 'dist-min']
         shard: ['1/2', '2/2']
     env:
       REACT: ${{ matrix.react }}
@@ -224,29 +299,6 @@ jobs:
         run: node ./tests/dekko/use-client.test.js
         env:
           LIB_DIR: dist
-
-      # dom test
-      - name: dom test
-        if: ${{ matrix.module == 'dom' }}
-        run: npm test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
-
-      - name: persist coverages
-        if: ${{ matrix.module == 'dom' && matrix.react == '18' }}
-        run: |
-          mkdir persist-coverage
-          mv coverage/coverage-final.json persist-coverage/react-${{matrix.react}}-test-${{matrix.module}}-${{strategy.job-index}}.json
-
-      - uses: actions/upload-artifact@v4
-        if: ${{ matrix.module == 'dom' && matrix.react == '18' }}
-        name: upload coverages
-        with:
-          name: coverage-artifacts-${{ matrix.module }}-${{ matrix.react }}-${{ strategy.job-index }}
-          path: persist-coverage/
-
-      # node test
-      - name: node test
-        if: ${{ matrix.module == 'node' }}
-        run: npm run test:node
 
       # dist test
       - name: dist test
