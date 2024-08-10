@@ -164,6 +164,7 @@
     "@emotion/css": "^11.11.2",
     "@emotion/react": "^11.11.4",
     "@emotion/server": "^11.11.0",
+    "@happy-dom/jest-environment": "^14.12.3",
     "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
     "@inquirer/prompts": "^5.1.2",
     "@madccc/duplicate-package-checker-webpack-plugin": "^1.0.0",
