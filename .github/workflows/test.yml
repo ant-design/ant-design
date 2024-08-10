@@ -406,6 +406,7 @@ jobs:
   test-lib-es:
     name: test lib/es module
     runs-on: ubuntu-latest
+    needs: setup
     strategy:
       matrix:
         module: [lib, es]
