@@ -122,16 +122,6 @@ jobs:
           path: dist
           key: dist-${{ github.sha }}
 
-      - name: check
-        if: ${{ matrix.module == 'dist-min' }}
-        run: node ./tests/dekko/dist.test.js
-
-      - name: check use client
-        if: ${{ matrix.module == 'dist-min' }}
-        run: node ./tests/dekko/use-client.test.js
-        env:
-          LIB_DIR: dist-min
-
       # dom test
       - name: dom test
         if: ${{ matrix.module == 'dom' }}
@@ -249,14 +239,6 @@ jobs:
           path: dist
           key: dist-${{ github.sha }}
 
-      - name: check
-        run: node ./tests/dekko/dist.test.js
-
-      - name: check use client
-        run: node ./tests/dekko/use-client.test.js
-        env:
-          LIB_DIR: dist-min
-
       # dist min test
       - name: dist-min test
         run: npm test
@@ -330,12 +312,6 @@ jobs:
       - name: compile
         run: npm run compile
 
-      - name: check
-        run: node ./tests/dekko/lib.test.js
-
-      - name: check use client
-        run: node ./tests/dekko/use-client.test.js
-
       - name: cache dist
         uses: actions/cache@v4
         with:
@@ -347,6 +323,9 @@ jobs:
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"
           CI: 1
+
+      - name: check build files
+        run: node ./tests/dekko/index.js
 
       # Artifact build files
       - uses: actions/upload-artifact@v4
