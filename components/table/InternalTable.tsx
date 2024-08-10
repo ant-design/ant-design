@@ -59,7 +59,7 @@ export type { ColumnsType, TablePaginationConfig };
 
 const EMPTY_LIST: AnyObject[] = [];
 
-interface ChangeEventInfo<RecordType> {
+interface ChangeEventInfo<RecordType extends AnyObject = AnyObject> {
   pagination: {
     current?: number;
     pageSize?: number;

@@ -41,7 +41,7 @@ export const safeColumnTitle = <RecordType extends AnyObject = AnyObject>(
   title: ColumnTitle<RecordType>,
   props: ColumnTitleProps<RecordType>,
 ) => {
-  const res = renderColumnTitle(title, props);
+  const res = renderColumnTitle<RecordType>(title, props);
   if (Object.prototype.toString.call(res) === '[object Object]') {
     return '';
   }

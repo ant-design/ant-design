@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import type { AnyObject } from '../../../_util/type';
 import { devUseWarning } from '../../../_util/warning';
 import type {
   ColumnsType,
@@ -16,14 +17,14 @@ import type {
 import { getColumnKey, getColumnPos, renderColumnTitle } from '../../util';
 import FilterDropdown, { flattenKeys } from './FilterDropdown';
 
-export interface FilterState<RecordType> {
+export interface FilterState<RecordType extends AnyObject = AnyObject> {
   column: ColumnType<RecordType>;
   key: Key;
   filteredKeys?: FilterKey;
   forceFiltered?: boolean;
 }
 
-function collectFilterStates<RecordType>(
+function collectFilterStates<RecordType extends AnyObject = AnyObject>(
   columns: ColumnsType<RecordType>,
   init: boolean,
   pos?: string,
@@ -67,7 +68,7 @@ function collectFilterStates<RecordType>(
   return filterStates;
 }
 
-function injectFilter<RecordType>(
+function injectFilter<RecordType extends AnyObject = AnyObject>(
   prefixCls: string,
   dropdownPrefixCls: string,
   columns: ColumnsType<RecordType>,
@@ -139,7 +140,7 @@ function injectFilter<RecordType>(
   });
 }
 
-function generateFilterInfo<RecordType>(filterStates: FilterState<RecordType>[]) {
+function generateFilterInfo<RecordType extends AnyObject>(filterStates: FilterState<RecordType>[]) {
   const currentFilters: Record<string, FilterValue | null> = {};
 
   filterStates.forEach(({ key, filteredKeys, column }) => {
@@ -160,7 +161,7 @@ function generateFilterInfo<RecordType>(filterStates: FilterState<RecordType>[])
   return currentFilters;
 }
 
-export function getFilterData<RecordType>(
+export function getFilterData<RecordType extends AnyObject>(
   data: RecordType[],
   filterStates: FilterState<RecordType>[],
   childrenColumnName: string,
@@ -199,7 +200,7 @@ export function getFilterData<RecordType>(
   }, data);
 }
 
-export interface FilterConfig<RecordType> {
+export interface FilterConfig<RecordType extends AnyObject> {
   prefixCls: string;
   dropdownPrefixCls: string;
   mergedColumns: ColumnsType<RecordType>;
@@ -222,7 +223,7 @@ const getMergedColumns = <RecordType extends unknown>(
     return [column];
   });
 
-function useFilter<RecordType>({
+function useFilter<RecordType extends AnyObject = AnyObject>({
   prefixCls,
   dropdownPrefixCls,
   mergedColumns: rawMergedColumns,
