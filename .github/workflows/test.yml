@@ -105,8 +105,8 @@ jobs:
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
   ################################ Test ################################
-  test-legacy:
-    name: test-legacy
+  test-react-legacy:
+    name: test-react-legacy
     strategy:
       matrix:
         react: ['16', '17']
@@ -203,8 +203,8 @@ jobs:
       - name: node test
         run: npm run test:node
 
-  test-react-18:
-    name: test-react-18
+  test-react-latest:
+    name: test-react-latest
     strategy:
       matrix:
         react: ['18']
@@ -250,8 +250,8 @@ jobs:
           name: coverage-artifacts-${{ matrix.module }}-${{ matrix.react }}-${{ strategy.job-index }}
           path: persist-coverage/
 
-  test-react-18-dist:
-    name: test-react-18-dist
+  test-react-latest-dist:
+    name: test-react-latest-dist
     strategy:
       matrix:
         react: ['18']
@@ -320,7 +320,7 @@ jobs:
   upload-test-coverage:
     name: test-coverage
     runs-on: ubuntu-latest
-    needs: test-react-18
+    needs: test-react-latest
     steps:
       - uses: actions/checkout@v4
 
