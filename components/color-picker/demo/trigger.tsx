@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { Button, ColorPicker } from 'antd';
 import type { ColorPickerProps, GetProp } from 'antd';
 
-type Color = GetProp<ColorPickerProps, 'value'>;
+type Color = Extract<GetProp<ColorPickerProps, 'value'>, string | { cleared: any }>;
 
 const Demo: React.FC = () => {
   const [color, setColor] = useState<Color>('#1677ff');

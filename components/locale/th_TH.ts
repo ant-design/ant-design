@@ -143,6 +143,9 @@ const localeValues: Locale = {
   },
   ColorPicker: {
     presetEmpty: 'ไม่มีข้อมูล',
+    transparent: 'โปร่งใส',
+    singleColor: 'สีเดียว',
+    gradientColor: 'สีไล่ระดับ',
   },
 };
 

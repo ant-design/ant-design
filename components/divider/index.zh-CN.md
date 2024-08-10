@@ -26,6 +26,7 @@ group:
 <code src="./demo/vertical.tsx">垂直分割线</code>
 <code src="./demo/customize-style.tsx" debug>样式自定义</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
+<code src="./demo/variant.tsx">变体</code>
 
 ## API
 
@@ -36,6 +37,7 @@ group:
 | children | 嵌套的标题 | ReactNode | - |  |
 | className | 分割线样式类 | string | - |  |
 | dashed | 是否虚线 | boolean | false |  |
+| variant | 分割线是虚线、点线还是实线 | `dashed` \| `dotted` \| `solid` | solid | 5.20.0 |
 | orientation | 分割线标题的位置 | `left` \| `right` \| `center` | `center` |  |
 | orientationMargin | 标题和最近 left/right 边框之间的距离，去除了分割线，同时 `orientation` 必须为 `left` 或 `right`。如果传入 `string` 类型的数字且不带单位，默认单位是 px | string \| number | - |  |
 | plain | 文字是否显示为普通正文样式 | boolean | false | 4.2.0 |

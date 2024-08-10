@@ -7,14 +7,14 @@
 Implement resizable column by integrate with [react-resizable](https://github.com/STRML/react-resizable). When sort needed, you can use [additional mark](https://codesandbox.io/s/zrj8xvyzxx) to prevent resize trigger sort.
 
 ```css
-#components-table-demo-resizable-column .react-resizable {
+#table-demo-resizable-column .react-resizable {
   position: relative;
   background-clip: padding-box;
 }
 
-#components-table-demo-resizable-column .react-resizable-handle {
+#table-demo-resizable-column .react-resizable-handle {
   position: absolute;
-  right: -5px;
+  inset-inline-end: -5px;
   bottom: 0;
   z-index: 1;
   width: 10px;

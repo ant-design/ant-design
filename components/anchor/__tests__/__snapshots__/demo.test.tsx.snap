@@ -172,7 +172,7 @@ exports[`renders components/anchor/demo/customizeHighlight.tsx correctly 1`] = `
     >
       <a
         class="ant-anchor-link-title"
-        href="#components-anchor-demo-basic"
+        href="#anchor-demo-basic"
         title="Basic demo"
       >
         Basic demo
@@ -183,7 +183,7 @@ exports[`renders components/anchor/demo/customizeHighlight.tsx correctly 1`] = `
     >
       <a
         class="ant-anchor-link-title"
-        href="#components-anchor-demo-static"
+        href="#anchor-demo-static"
         title="Static demo"
       >
         Static demo
@@ -316,7 +316,7 @@ exports[`renders components/anchor/demo/legacy-anchor.tsx correctly 1`] = `
     >
       <a
         class="ant-anchor-link-title"
-        href="#components-anchor-demo-basic"
+        href="#anchor-demo-basic"
         title="Basic demo"
       >
         Basic demo
@@ -327,7 +327,7 @@ exports[`renders components/anchor/demo/legacy-anchor.tsx correctly 1`] = `
     >
       <a
         class="ant-anchor-link-title"
-        href="#components-anchor-demo-static"
+        href="#anchor-demo-static"
         title="Static demo"
       >
         Static demo
@@ -386,7 +386,7 @@ exports[`renders components/anchor/demo/onChange.tsx correctly 1`] = `
     >
       <a
         class="ant-anchor-link-title"
-        href="#components-anchor-demo-basic"
+        href="#anchor-demo-basic"
         title="Basic demo"
       >
         Basic demo
@@ -397,7 +397,7 @@ exports[`renders components/anchor/demo/onChange.tsx correctly 1`] = `
     >
       <a
         class="ant-anchor-link-title"
-        href="#components-anchor-demo-static"
+        href="#anchor-demo-static"
         title="Static demo"
       >
         Static demo
@@ -456,7 +456,7 @@ exports[`renders components/anchor/demo/onClick.tsx correctly 1`] = `
     >
       <a
         class="ant-anchor-link-title"
-        href="#components-anchor-demo-basic"
+        href="#anchor-demo-basic"
         title="Basic demo"
       >
         Basic demo
@@ -467,7 +467,7 @@ exports[`renders components/anchor/demo/onClick.tsx correctly 1`] = `
     >
       <a
         class="ant-anchor-link-title"
-        href="#components-anchor-demo-static"
+        href="#anchor-demo-static"
         title="Static demo"
       >
         Static demo
@@ -604,7 +604,7 @@ exports[`renders components/anchor/demo/static.tsx correctly 1`] = `
     >
       <a
         class="ant-anchor-link-title"
-        href="#components-anchor-demo-basic"
+        href="#anchor-demo-basic"
         title="Basic demo"
       >
         Basic demo
@@ -615,7 +615,7 @@ exports[`renders components/anchor/demo/static.tsx correctly 1`] = `
     >
       <a
         class="ant-anchor-link-title"
-        href="#components-anchor-demo-static"
+        href="#anchor-demo-static"
         title="Static demo"
       >
         Static demo
@@ -742,7 +742,7 @@ exports[`renders components/anchor/demo/targetOffset.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    style="height:30vh;background:rgba(0,0,0,0.85);position:fixed;top:0;left:0;width:75%;color:#FFF"
+    style="height:30vh;background-color:rgba(0, 0, 0, 0.85);position:fixed;top:0;inset-inline-start:0;width:75%;color:#fff"
   >
     <div>
       Fixed Top Block

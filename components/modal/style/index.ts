@@ -3,10 +3,15 @@ import { unit } from '@ant-design/cssinjs';
 
 import { genFocusStyle, resetComponent } from '../../style';
 import { initFadeMotion, initZoomMotion } from '../../style/motion';
-import type { GlobalToken } from '../../theme';
-import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
+import type {
+  AliasToken,
+  FullToken,
+  GenerateStyle,
+  GenStyleFn,
+  GlobalToken,
+  TokenWithCommonCls,
+} from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
-import type { GenStyleFn, TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -20,7 +25,7 @@ export interface ComponentToken {
    * @desc 标题行高
    * @descEN Line height of title
    */
-  titleLineHeight: number;
+  titleLineHeight: number | string;
   /**
    * @desc 标题字体大小
    * @descEN Font size of title
@@ -73,7 +78,7 @@ export interface ModalToken extends FullToken<'Modal'> {
   modalHeaderHeight: number | string;
   modalFooterBorderColorSplit: string;
   modalFooterBorderStyle: string;
-  modalFooterBorderWidth: number;
+  modalFooterBorderWidth: number | string;
   modalCloseIconColor: string;
   modalCloseIconHoverColor: string;
   modalCloseBtnSize: number | string;
@@ -237,7 +242,7 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
             display: 'flex',
             fontSize: token.fontSizeLG,
             fontStyle: 'normal',
-            lineHeight: `${unit(token.modalCloseBtnSize)}`,
+            lineHeight: unit(token.modalCloseBtnSize),
             justifyContent: 'center',
             textTransform: 'none',
             textRendering: 'auto',

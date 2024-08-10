@@ -203,7 +203,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
       <div className={`${prefixCls}-body-search-wrapper`}>
         <Search
           prefixCls={`${prefixCls}-search`}
-          onChange={internalHandleFilter as any}
+          onChange={internalHandleFilter}
           handleClear={internalHandleClear}
           placeholder={searchPlaceholder}
           value={filterValue}

@@ -2,6 +2,7 @@
 title: Extends Theme
 date: 2023-09-03
 author: zombieJ
+juejin_url: https://juejin.cn/post/7322313142922100746
 ---
 
 Ant Design v5 provides the Design Token model, which supports custom algorithm to implement theme extension capabilities. For example, the compact theme itself does not carry color style algorithms, so it can be implemented by passing in multiple algorithms to achieve the compact theme under the light theme and the compact theme under the dark theme.
@@ -80,11 +81,12 @@ const useButtonStyle = () => {
   }))();
 };
 
-function GeekProvider(props: React.PropsWithChildren) {
+const GeekProvider: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
   const { styles } = useButtonStyle();
-
   return <ConfigProvider button={{ className: styles.btn }}>{props.children}</ConfigProvider>;
-}
+};
+
+export default GeekProvider;
 ```
 
 <img alt="Red Button" height="40" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PvYITqIk2_8AAAAAAAAAAAAADrJ8AQ/original" />
@@ -92,16 +94,20 @@ function GeekProvider(props: React.PropsWithChildren) {
 It's also easy to extend for scenarios that need to inherit `className`:
 
 ```tsx
-function GeekProvider(props: React.PropsWithChildren) {
+import React from 'react';
+import { ConfigProvider } from 'antd';
+
+const GeekProvider: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
   const { button } = React.useContext(ConfigProvider.ConfigContext);
   const { styles } = useButtonStyle();
-
   return (
     <ConfigProvider button={{ className: classNames(button?.className, styles.btn) }}>
       {props.children}
     </ConfigProvider>
   );
-}
+};
+
+export default GeekProvider;
 ```
 
 ## Summary

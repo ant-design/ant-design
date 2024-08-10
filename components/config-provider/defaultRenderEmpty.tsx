@@ -6,6 +6,7 @@ import Empty from '../empty';
 
 type ComponentName =
   | 'Table'
+  | 'Table.filter' /* 👈 5.20.0+ */
   | 'List'
   | 'Select'
   | 'TreeSelect'
@@ -31,7 +32,14 @@ const DefaultRenderEmpty: React.FC<EmptyProps> = (props) => {
     case 'Transfer':
     case 'Mentions':
       return <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} className={`${prefix}-small`} />;
-    /* istanbul ignore next */
+    /**
+     * This type of component should satisfy the nullish coalescing operator(??) on the left-hand side.
+     * to let the component itself implement the logic.
+     * For example `Table.filter`.
+     */
+    case 'Table.filter':
+      // why `null`? legacy react16 node type `undefined` is not allowed.
+      return null;
     default:
       // Should never hit if we take all the component into consider.
       return <Empty />;

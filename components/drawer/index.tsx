@@ -16,6 +16,7 @@ import type { DrawerClassNames, DrawerPanelProps, DrawerStyles } from './DrawerP
 import DrawerPanel from './DrawerPanel';
 import useStyle from './style';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const SizeTypes = ['default', 'large'] as const;
 type sizeType = (typeof SizeTypes)[number];
 

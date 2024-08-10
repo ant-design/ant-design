@@ -9,7 +9,7 @@ exports[`renders components/color-picker/demo/allowClear.tsx correctly 1`] = `
   >
     <div
       class="ant-color-picker-color-block-inner"
-      style="background:rgb(22, 119, 255)"
+      style="background:rgb(22,119,255)"
     />
   </div>
 </div>
@@ -24,7 +24,7 @@ exports[`renders components/color-picker/demo/base.tsx correctly 1`] = `
   >
     <div
       class="ant-color-picker-color-block-inner"
-      style="background:rgb(22, 119, 255)"
+      style="background:rgb(22,119,255)"
     />
   </div>
 </div>
@@ -42,7 +42,7 @@ exports[`renders components/color-picker/demo/change-completed.tsx correctly 1`]
     >
       <div
         class="ant-color-picker-color-block-inner"
-        style="background:rgb(22, 119, 255)"
+        style="background:rgb(22,119,255)"
       />
     </div>
   </div>
@@ -58,7 +58,7 @@ exports[`renders components/color-picker/demo/controlled.tsx correctly 1`] = `
   >
     <div
       class="ant-color-picker-color-block-inner"
-      style="background:rgb(22, 119, 255)"
+      style="background:rgb(22,119,255)"
     />
   </div>
 </div>
@@ -73,7 +73,7 @@ exports[`renders components/color-picker/demo/disabled.tsx correctly 1`] = `
   >
     <div
       class="ant-color-picker-color-block-inner"
-      style="background:rgb(22, 119, 255)"
+      style="background:rgb(22,119,255)"
     />
   </div>
   <div
@@ -93,7 +93,7 @@ exports[`renders components/color-picker/demo/disabled-alpha.tsx correctly 1`] =
   >
     <div
       class="ant-color-picker-color-block-inner"
-      style="background:rgb(22, 119, 255)"
+      style="background:rgb(22,119,255)"
     />
   </div>
 </div>
@@ -121,7 +121,7 @@ exports[`renders components/color-picker/demo/format.tsx correctly 1`] = `
           >
             <div
               class="ant-color-picker-color-block-inner"
-              style="background:rgb(22, 119, 255)"
+              style="background:rgb(22,119,255)"
             />
           </div>
         </div>
@@ -154,7 +154,7 @@ exports[`renders components/color-picker/demo/format.tsx correctly 1`] = `
           >
             <div
               class="ant-color-picker-color-block-inner"
-              style="background:rgb(23, 120, 255)"
+              style="background:rgb(23,120,255)"
             />
           </div>
         </div>
@@ -187,7 +187,7 @@ exports[`renders components/color-picker/demo/format.tsx correctly 1`] = `
           >
             <div
               class="ant-color-picker-color-block-inner"
-              style="background:rgb(22, 119, 255)"
+              style="background:rgb(22,119,255)"
             />
           </div>
         </div>
@@ -199,6 +199,93 @@ exports[`renders components/color-picker/demo/format.tsx correctly 1`] = `
           RGB: 
           <!-- -->
           rgb(22, 119, 255)
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/color-picker/demo/line-gradient.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-color-picker-trigger"
+    >
+      <div
+        class="ant-color-picker-color-block"
+      >
+        <div
+          class="ant-color-picker-color-block-inner"
+          style="background:linear-gradient(90deg, rgb(16,142,233) 0%, rgb(135,208,104) 100%)"
+        />
+      </div>
+      <div
+        class="ant-color-picker-trigger-text"
+      >
+        <span
+          class="ant-color-picker-trigger-text-cell"
+        >
+          rgb(16,142,233)
+          <!-- -->
+          <!-- -->
+          0
+          <!-- -->
+          %
+        </span>
+        <span
+          class="ant-color-picker-trigger-text-cell"
+        >
+          rgb(135,208,104)
+          <!-- -->
+          <!-- -->
+          100
+          <!-- -->
+          %
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-color-picker-trigger"
+    >
+      <div
+        class="ant-color-picker-color-block"
+      >
+        <div
+          class="ant-color-picker-color-block-inner"
+          style="background:linear-gradient(90deg, rgb(16,142,233) 0%, rgb(135,208,104) 100%)"
+        />
+      </div>
+      <div
+        class="ant-color-picker-trigger-text"
+      >
+        <span
+          class="ant-color-picker-trigger-text-cell"
+        >
+          rgb(16,142,233)
+          <!-- -->
+          <!-- -->
+          0
+          <!-- -->
+          %
+        </span>
+        <span
+          class="ant-color-picker-trigger-text-cell"
+        >
+          rgb(135,208,104)
+          <!-- -->
+          <!-- -->
+          100
+          <!-- -->
+          %
         </span>
       </div>
     </div>
@@ -234,7 +321,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx correctly 1`] = `
           >
             <div
               class="ant-color-picker-color-block-inner"
-              style="background:rgb(22, 119, 255)"
+              style="background:rgb(22,119,255)"
             />
           </div>
         </div>
@@ -265,7 +352,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx correctly 1`] = `
           >
             <div
               class="ant-color-picker-color-block-inner"
-              style="background:rgb(22, 119, 255)"
+              style="background:rgb(22,119,255)"
             />
           </div>
         </div>
@@ -284,7 +371,7 @@ exports[`renders components/color-picker/demo/presets.tsx correctly 1`] = `
   >
     <div
       class="ant-color-picker-color-block-inner"
-      style="background:rgb(22, 119, 255)"
+      style="background:rgb(22,119,255)"
     />
   </div>
 </div>
@@ -292,7 +379,7 @@ exports[`renders components/color-picker/demo/presets.tsx correctly 1`] = `
 
 exports[`renders components/color-picker/demo/pure-panel.tsx correctly 1`] = `
 <div
-  style="padding-left:100px"
+  style="padding-inline-start:100px"
 >
   <div
     style="padding-bottom:0;position:relative;min-width:0"
@@ -306,7 +393,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx correctly 1`] = `
       >
         <div
           class="ant-color-picker-color-block-inner"
-          style="background:rgb(22, 119, 255)"
+          style="background:rgb(22,119,255)"
         />
       </div>
     </div>
@@ -335,7 +422,7 @@ exports[`renders components/color-picker/demo/size.tsx correctly 1`] = `
           >
             <div
               class="ant-color-picker-color-block-inner"
-              style="background:rgb(22, 119, 255)"
+              style="background:rgb(22,119,255)"
             />
           </div>
         </div>
@@ -351,7 +438,7 @@ exports[`renders components/color-picker/demo/size.tsx correctly 1`] = `
           >
             <div
               class="ant-color-picker-color-block-inner"
-              style="background:rgb(22, 119, 255)"
+              style="background:rgb(22,119,255)"
             />
           </div>
         </div>
@@ -367,7 +454,7 @@ exports[`renders components/color-picker/demo/size.tsx correctly 1`] = `
           >
             <div
               class="ant-color-picker-color-block-inner"
-              style="background:rgb(22, 119, 255)"
+              style="background:rgb(22,119,255)"
             />
           </div>
         </div>
@@ -391,7 +478,7 @@ exports[`renders components/color-picker/demo/size.tsx correctly 1`] = `
           >
             <div
               class="ant-color-picker-color-block-inner"
-              style="background:rgb(22, 119, 255)"
+              style="background:rgb(22,119,255)"
             />
           </div>
           <div
@@ -412,7 +499,7 @@ exports[`renders components/color-picker/demo/size.tsx correctly 1`] = `
           >
             <div
               class="ant-color-picker-color-block-inner"
-              style="background:rgb(22, 119, 255)"
+              style="background:rgb(22,119,255)"
             />
           </div>
           <div
@@ -433,7 +520,7 @@ exports[`renders components/color-picker/demo/size.tsx correctly 1`] = `
           >
             <div
               class="ant-color-picker-color-block-inner"
-              style="background:rgb(22, 119, 255)"
+              style="background:rgb(22,119,255)"
             />
           </div>
           <div
@@ -463,7 +550,7 @@ exports[`renders components/color-picker/demo/text-render.tsx correctly 1`] = `
       >
         <div
           class="ant-color-picker-color-block-inner"
-          style="background:rgb(22, 119, 255)"
+          style="background:rgb(22,119,255)"
         />
       </div>
       <div
@@ -484,7 +571,7 @@ exports[`renders components/color-picker/demo/text-render.tsx correctly 1`] = `
       >
         <div
           class="ant-color-picker-color-block-inner"
-          style="background:rgb(22, 119, 255)"
+          style="background:rgb(22,119,255)"
         />
       </div>
       <div
@@ -511,7 +598,7 @@ exports[`renders components/color-picker/demo/text-render.tsx correctly 1`] = `
       >
         <div
           class="ant-color-picker-color-block-inner"
-          style="background:rgb(22, 119, 255)"
+          style="background:rgb(22,119,255)"
         />
       </div>
       <div
@@ -564,7 +651,7 @@ exports[`renders components/color-picker/demo/trigger-event.tsx correctly 1`] = 
   >
     <div
       class="ant-color-picker-color-block-inner"
-      style="background:rgb(22, 119, 255)"
+      style="background:rgb(22,119,255)"
     />
   </div>
 </div>

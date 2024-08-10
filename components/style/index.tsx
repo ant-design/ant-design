@@ -2,7 +2,7 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import type { AliasToken, DerivativeToken } from '../theme/internal';
+import type { AliasToken } from '../theme/internal';
 
 export { operationUnit } from './operationUnit';
 
@@ -12,10 +12,7 @@ export const textEllipsis: CSSObject = {
   textOverflow: 'ellipsis',
 };
 
-export const resetComponent = (
-  token: DerivativeToken,
-  needInheritFontFamily = false,
-): CSSObject => ({
+export const resetComponent = (token: AliasToken, needInheritFontFamily = false): CSSObject => ({
   boxSizing: 'border-box',
   margin: 0,
   padding: 0,
@@ -66,7 +63,7 @@ export const clearFix = (): CSSObject => ({
   },
 });
 
-export const genLinkStyle = (token: DerivativeToken): CSSObject => ({
+export const genLinkStyle = (token: AliasToken): CSSObject => ({
   a: {
     color: token.colorLink,
     textDecoration: token.linkDecoration,
@@ -103,7 +100,7 @@ export const genLinkStyle = (token: DerivativeToken): CSSObject => ({
 });
 
 export const genCommonStyle = (
-  token: DerivativeToken,
+  token: AliasToken,
   componentPrefixCls: string,
   rootCls?: string,
   resetFont?: boolean,
@@ -144,7 +141,7 @@ export const genFocusOutline = (token: AliasToken): CSSObject => ({
   transition: 'outline-offset 0s, outline 0s',
 });
 
-export const genFocusStyle = (token: DerivativeToken): CSSObject => ({
+export const genFocusStyle = (token: AliasToken): CSSObject => ({
   '&:focus-visible': {
     ...genFocusOutline(token),
   },

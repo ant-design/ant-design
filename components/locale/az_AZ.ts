@@ -6,7 +6,7 @@ import Calendar from '../calendar/locale/az_AZ';
 import DatePicker from '../date-picker/locale/az_AZ';
 import TimePicker from '../time-picker/locale/az_AZ';
 
-const typeTemplate = '${label}Hökmlü deyil${type}';
+const typeTemplate = '${label} Hökmlü deyil ${type}';
 
 const localeValues: Locale = {
   locale: 'az',
@@ -87,14 +87,14 @@ const localeValues: Locale = {
   Form: {
     optional: '（Seçimli）',
     defaultValidateMessages: {
-      default: 'Sahə təsdiq xətası${label}',
-      required: 'Xahiş edirik daxil olun${label}',
-      enum: '${label}Onlardan biri olmalıdır[${enum}]',
-      whitespace: '${label}Null xarakter ola bilməz',
+      default: 'Sahə təsdiq xətası ${label}',
+      required: 'Xahiş edirik daxil olun ${label}',
+      enum: '${label} Onlardan biri olmalıdır[${enum}]',
+      whitespace: '${label} Null xarakter ola bilməz',
       date: {
-        format: '${label}Tarix formatı hökmlü deyil',
-        parse: '${label}Tarixi döndərmək mümkün deyil',
-        invalid: '${label}səhv tarixdir',
+        format: '${label} Tarix formatı hökmlü deyil',
+        parse: '${label} Tarixi döndərmək mümkün deyil',
+        invalid: '${label} səhv tarixdir',
       },
       types: {
         string: typeTemplate,
@@ -112,25 +112,25 @@ const localeValues: Locale = {
         hex: typeTemplate,
       },
       string: {
-        len: '${label}Olmalıdır${len}işarələr',
-        min: '${label}ən az${min}işarələr',
-        max: '${label}ən çox${max}işarələr',
-        range: '${label}Olmalıdır${min}-${max}hərflər arasında',
+        len: '${label} Olmalıdır ${len} işarələr',
+        min: '${label} ən az ${min} işarələr',
+        max: '${label} ən çox ${max} işarələr',
+        range: '${label} Olmalıdır ${min}-${max} hərflər arasında',
       },
       number: {
-        len: '${label}Bərabər olmalıdır${len}',
-        min: '${label}Minimal dəyəri${min}',
-        max: '${label}Maksimal qiymət:${max}',
-        range: '${label}Olmalıdır${min}-${max}aralarında',
+        len: '${label} Bərabər olmalıdır ${len}',
+        min: '${label} Minimal dəyəri ${min}',
+        max: '${label} Maksimal qiymət: ${max}',
+        range: '${label} Olmalıdır ${min}-${max} aralarında',
       },
       array: {
-        len: 'Olmalıdır${len}parça${label}',
-        min: 'ən az${min}parça${label}',
-        max: 'ən çox${max}parça${label}',
-        range: '${label}miqdarıOlmalıdır${min}-${max}aralarında',
+        len: 'Olmalıdır ${len} parça ${label}',
+        min: 'ən az ${min} parça ${label}',
+        max: 'ən çox ${max} parça ${label}',
+        range: '${label} miqdarıOlmalıdır ${min}-${max} aralarında',
       },
       pattern: {
-        mismatch: '${label}Şablona uyğun gəlmir${pattern}',
+        mismatch: '${label} Şablona uyğun gəlmir ${pattern}',
       },
     },
   },
@@ -144,6 +144,9 @@ const localeValues: Locale = {
   },
   ColorPicker: {
     presetEmpty: 'Boşdur',
+    transparent: 'Şəffaf',
+    singleColor: 'Tək rəng',
+    gradientColor: 'Gradient rəng',
   },
 };
 
