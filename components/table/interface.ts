@@ -163,7 +163,10 @@ export interface ColumnGroupType<RecordType = AnyObject>
   children: ColumnsType<RecordType>;
 }
 
-export type ColumnsType<RecordType> = (ColumnGroupType<RecordType> | ColumnType<RecordType>)[];
+export type ColumnsType<RecordType = AnyObject> = (
+  | ColumnGroupType<RecordType>
+  | ColumnType<RecordType>
+)[];
 
 export interface SelectionItem {
   key: string;
