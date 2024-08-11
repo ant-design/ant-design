@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { InputNumber, Table } from 'antd';
 import type { TableColumnsType, TableProps } from 'antd';
 
-type TableRowSelection<T> = TableProps<T>['rowSelection'];
+type TableRowSelection<T extends object = object> = TableProps<T>['rowSelection'];
 
 const RenderTimes = () => {
   const timesRef = React.useRef(0);

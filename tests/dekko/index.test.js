@@ -1,3 +1,3 @@
 require('./dist.test');
-require('./lib.test');
+require('./lib-es.test');
 require('./use-client.test');

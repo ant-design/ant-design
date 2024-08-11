@@ -370,7 +370,7 @@ exports[`renders components/spin/demo/percent.tsx extend context correctly 1`] =
         viewBox="0 0 100 100"
       >
         <circle
-          class="ant-spin-dot-circle-bg ant-spin-dot-circle"
+          class="ant-spin-dot-circle ant-spin-dot-circle-bg"
           cx="50"
           cy="50"
           r="40"
@@ -382,7 +382,7 @@ exports[`renders components/spin/demo/percent.tsx extend context correctly 1`] =
           cy="50"
           r="40"
           stroke-width="20"
-          style="stroke-dasharray: 0 251.32741228718342; stroke-dashoffset: 62.83185307179586;"
+          style="stroke-dashoffset: 62.83185307179586; stroke-dasharray: 0 251.32741228718342;"
         />
       </svg>
     </span>
@@ -423,7 +423,7 @@ exports[`renders components/spin/demo/percent.tsx extend context correctly 1`] =
         viewBox="0 0 100 100"
       >
         <circle
-          class="ant-spin-dot-circle-bg ant-spin-dot-circle"
+          class="ant-spin-dot-circle ant-spin-dot-circle-bg"
           cx="50"
           cy="50"
           r="40"
@@ -435,7 +435,7 @@ exports[`renders components/spin/demo/percent.tsx extend context correctly 1`] =
           cy="50"
           r="40"
           stroke-width="20"
-          style="stroke-dasharray: 0 251.32741228718342; stroke-dashoffset: 62.83185307179586;"
+          style="stroke-dashoffset: 62.83185307179586; stroke-dasharray: 0 251.32741228718342;"
         />
       </svg>
     </span>
@@ -476,7 +476,7 @@ exports[`renders components/spin/demo/percent.tsx extend context correctly 1`] =
         viewBox="0 0 100 100"
       >
         <circle
-          class="ant-spin-dot-circle-bg ant-spin-dot-circle"
+          class="ant-spin-dot-circle ant-spin-dot-circle-bg"
           cx="50"
           cy="50"
           r="40"
@@ -488,7 +488,7 @@ exports[`renders components/spin/demo/percent.tsx extend context correctly 1`] =
           cy="50"
           r="40"
           stroke-width="20"
-          style="stroke-dasharray: 0 251.32741228718342; stroke-dashoffset: 62.83185307179586;"
+          style="stroke-dashoffset: 62.83185307179586; stroke-dasharray: 0 251.32741228718342;"
         />
       </svg>
     </span>
