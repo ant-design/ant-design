@@ -1,32 +1,38 @@
 import * as React from 'react';
+import type { AnyObject } from 'antd/es/_util/type';
 
-import type { ColumnsType, ColumnTitleProps, TransformColumns } from '../interface';
+import type {
+  ColumnGroupType,
+  ColumnsType,
+  ColumnTitleProps,
+  ColumnType,
+  TransformColumns,
+} from '../interface';
 import { renderColumnTitle } from '../util';
 
-function fillTitle<RecordType>(
+const fillTitle = <RecordType extends AnyObject = AnyObject>(
   columns: ColumnsType<RecordType>,
   columnTitleProps: ColumnTitleProps<RecordType>,
-) {
-  return columns.map((column) => {
-    const cloneColumn = { ...column };
-
+) => {
+  const finalColumns = columns.map((column) => {
+    const cloneColumn: ColumnGroupType<RecordType> | ColumnType<RecordType> = { ...column };
     cloneColumn.title = renderColumnTitle(column.title, columnTitleProps);
-
     if ('children' in cloneColumn) {
-      cloneColumn.children = fillTitle(cloneColumn.children, columnTitleProps);
+      cloneColumn.children = fillTitle<RecordType>(cloneColumn.children, columnTitleProps);
     }
-
     return cloneColumn;
   });
-}
+  return finalColumns;
+};
 
-export default function useTitleColumns<RecordType>(
+const useTitleColumns = <RecordType extends AnyObject = AnyObject>(
   columnTitleProps: ColumnTitleProps<RecordType>,
-): [TransformColumns<RecordType>] {
-  const filledColumns = React.useCallback(
-    (columns: ColumnsType<RecordType>) => fillTitle(columns, columnTitleProps),
+) => {
+  const filledColumns = React.useCallback<TransformColumns<RecordType>>(
+    (columns) => fillTitle<RecordType>(columns, columnTitleProps),
     [columnTitleProps],
   );
+  return [filledColumns] as const;
+};
 
-  return [filledColumns];
-}
+export default useTitleColumns;
