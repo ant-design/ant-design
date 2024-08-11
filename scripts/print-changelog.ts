@@ -127,7 +127,7 @@ async function printLog() {
         hash.slice(0, 6),
         '-',
         prs.length
-          ? prs.map((pr) => `https://github.com/ant-design/ant-design/pulls/${pr}`).join(',')
+          ? prs.map((pr) => `https://github.com/ant-design/ant-design/pull/${pr}`).join(',')
           : '?',
       ),
     );
