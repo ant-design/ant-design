@@ -20,7 +20,7 @@ tag: vVERSION
 `2024-08-11`
 
 - ColorPicker
-  - 🐞 修复 ColorPicker 出现 `@ant-design/fast-color` 编译报错问题。[#50293](https://github.com/ant-design/ant-design/pull/50293) [@afc163](https://githhub.com/afc163)
+  - 🐞 修复 ColorPicker 出现 `@ant-design/fast-color` 编译报错问题。[#50293](https://github.com/ant-design/ant-design/pull/50293) [@afc163](https://github.com/afc163)
   - 💄 修复 ColorPicker 在 Space.Compact 下圆角样式不会调整的问题。[#50291](https://github.com/ant-design/ant-design/pull/50291) [@zombieJ](https://github.com/zombieJ)
 - 💄 修复 Table `zIndexTableFixed` token 不支持传入 CSS 变量的问题。[#50355](https://github.com/ant-design/ant-design/pull/50355) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 修复 FloatButton 不支持 `zIndexPopupBase` token 的问题。[#50349](https://github.com/ant-design/ant-design/pull/50349) [@Yuzu-io](https://github.com/Yuzu-io)
