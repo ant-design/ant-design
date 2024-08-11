@@ -551,7 +551,7 @@ export default genStyleHooks(
       tableSelectedRowBg: rowSelectedBg,
       tableSelectedRowHoverBg: rowSelectedHoverBg,
       zIndexTableFixed,
-      zIndexTableSticky: calc(zIndexTableFixed).add(1).equal(),
+      zIndexTableSticky: calc(zIndexTableFixed).add(1).equal({ unit: false }),
       tableFontSizeMiddle: cellFontSizeMD,
       tableFontSizeSmall: cellFontSizeSM,
       tableSelectionColumnWidth: selectionColumnWidth,
