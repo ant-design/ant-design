@@ -31,7 +31,8 @@ tag: vVERSION
 - 🐞 Fix Calendar `locale` should override `locale` from ConfigProvider. [#50236](https://github.com/ant-design/ant-design/pull/50236) [@Asanio06](https://github.com/Asanio06)
 - 🐞 Fix Spin align issue when setting `percent`. [#50277](https://github.com/ant-design/ant-design/pull/50277) [@Wxh16144](https://github.com/Wxh16144)
 - 🐞 Fix Tree switcher position not ping at top when title break the line. [#50313](https://github.com/ant-design/ant-design/pull/50313)
-- 🇦🇿 Fix missing spaces of `az_AZ` locale. [#50238](https://github.com/ant-design/ant-design/pull/50238) [@thinkasany](https://github.com/thinkasany)
+- 🌐 Locales
+  - 🇦🇿 Fix missing spaces of `az_AZ` locale. [#50238](https://github.com/ant-design/ant-design/pull/50238) [@thinkasany](https://github.com/thinkasany)
 - TypeScript
   - 🤖 Refine Table all Record types from any to Object. [#50351](https://github.com/ant-design/ant-design/pull/50351) [@li-jia-nan](https://github.com/li-jia-nan)
 

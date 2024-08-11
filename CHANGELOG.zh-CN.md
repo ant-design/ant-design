@@ -30,7 +30,8 @@ tag: vVERSION
 - 🐞 修复 Calendar `locale` 没有正确覆盖 ConfigProvider `locale` 的问题。[#50236](https://github.com/ant-design/ant-design/pull/50236) [@Asanio06](https://github.com/Asanio06)
 - 🐞 修复 Spin 组件设置 `percent` 时未水平居中的问题。[#50277](https://github.com/ant-design/ant-design/pull/50277) [@Wxh16144](https://github.com/Wxh16144)
 - 🐞 修复 Tree 展开按钮在标题折行时没有顶上对齐的问题。[#50313](https://github.com/ant-design/ant-design/pull/50313)
-- 🇦🇿 修复 `az_AZ` 本地化文案缺少空格的问题。[#50238](https://github.com/ant-design/ant-design/pull/50238) [@thinkasany](https://github.com/thinkasany)
+- 🌐 本地化
+  - 🇦🇿 修复 `az_AZ` 本地化文案缺少空格的问题。[#50238](https://github.com/ant-design/ant-design/pull/50238) [@thinkasany](https://github.com/thinkasany)
 - TypeScript
   - 🤖 优化 Table 中所有的 Record 类型从 any 约束为 Object 类型。[#50351](https://github.com/ant-design/ant-design/pull/50351) [@li-jia-nan](https://github.com/li-jia-nan)
 
