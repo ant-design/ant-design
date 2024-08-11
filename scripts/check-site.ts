@@ -21,7 +21,9 @@ describe('site test', () => {
   const render = async (path: string) => {
     const resp = await fetch(`http://127.0.0.1:${port}${path}`).then(async (res) => {
       const html: string = await res.text();
-      const $ = load(html, { decodeEntities: false, recognizeSelfClosing: true });
+      const $ = load(html, {
+        xml: true,
+      });
       return { status: res.status, $ };
     });
     return resp;
