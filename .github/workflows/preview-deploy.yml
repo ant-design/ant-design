@@ -94,7 +94,7 @@ jobs:
           PR_ID: ${{ steps.pr.outputs.id }}
         run: |
           export DEPLOY_DOMAIN=https://preview-${PR_ID}-ant-design.surge.sh
-          npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
+          npx surge0.23.1 --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
 
       - name: success comment
         uses: actions-cool/maintain-one-comment@v3
@@ -121,6 +121,6 @@ jobs:
       - name: Check surge deploy result and exit if failed
         run: |
             if [ "${{ steps.deploy.outcome }}" != "success" ]; then
-              echo "Surge Deploy failed: ${{ steps.deploy.conclusion }}"
+              echo "Surge Deploy failed."
               exit 1
             fi
