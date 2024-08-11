@@ -21,7 +21,7 @@ tag: vVERSION
 `2024-08-11`
 
 - ColorPicker
-  - 🐞 Fix ColorPicker compile error of `@ant-design/fast-color`. [#50293](https://github.com/ant-design/ant-design/pull/50293) [@afc163](https://githhub.com/afc163)
+  - 🐞 Fix ColorPicker compile error of `@ant-design/fast-color`. [#50293](https://github.com/ant-design/ant-design/pull/50293) [@afc163](https://github.com/afc163)
   - 💄 Fix ColorPicker not adjust border style when under Space.Compact. [#50291](https://github.com/ant-design/ant-design/pull/50291) [@zombieJ](https://github.com/zombieJ)
 - 💄 Fix Table `zIndexTableFixed` token not support CSS var. [#50355](https://github.com/ant-design/ant-design/pull/50355) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 Fix FloatButton don't support `zIndexPopupBase` token. [#50349](https://github.com/ant-design/ant-design/pull/50349) [@Yuzu-io](https://github.com/Yuzu-io)
