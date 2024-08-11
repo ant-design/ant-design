@@ -7,7 +7,35 @@ export interface ProgressProps {
   percent: number;
 }
 
-export default function Progress({ percent, prefixCls }: ProgressProps) {
+const viewSize = 100;
+const borderWidth = viewSize / 5;
+const radius = viewSize / 2 - borderWidth / 2;
+const circumference = radius * 2 * Math.PI;
+const position = 50;
+
+interface CircleProps {
+  dotClassName?: string;
+  style?: React.CSSProperties;
+  hasCircleCls?: boolean;
+}
+
+const CustomCircle: React.FC<Readonly<CircleProps>> = (props) => {
+  const { dotClassName, style, hasCircleCls } = props;
+  return (
+    <circle
+      className={classNames(`${dotClassName}-circle`, {
+        [`${dotClassName}-circle-bg`]: hasCircleCls,
+      })}
+      r={radius}
+      cx={position}
+      cy={position}
+      strokeWidth={borderWidth}
+      style={style}
+    />
+  );
+};
+
+const Progress: React.FC<Readonly<ProgressProps>> = ({ percent, prefixCls }) => {
   const dotClassName = `${prefixCls}-dot`;
   const holderClassName = `${dotClassName}-holder`;
   const hideClassName = `${holderClassName}-hidden`;
@@ -24,26 +52,17 @@ export default function Progress({ percent, prefixCls }: ProgressProps) {
   // ==================== Progress ====================
   const safePtg = Math.max(Math.min(percent, 100), 0);
 
-  const viewSize = 100;
-  const borderWidth = viewSize / 5;
-  const radius = viewSize / 2 - borderWidth / 2;
-  const circumference = radius * 2 * Math.PI;
-
-  const renderCircle = (circleClassName?: string, style?: React.CSSProperties) => (
-    <circle
-      className={classNames(circleClassName, `${dotClassName}-circle`)}
-      r={radius}
-      cx="50"
-      cy="50"
-      strokeWidth={borderWidth}
-      style={style}
-    />
-  );
-
   // ===================== Render =====================
   if (!render) {
     return null;
   }
+
+  const circleStyle: React.CSSProperties = {
+    strokeDashoffset: `${circumference / 4}`,
+    strokeDasharray: `${(circumference * safePtg) / 100} ${
+      (circumference * (100 - safePtg)) / 100
+    }`,
+  };
 
   return (
     <span
@@ -61,14 +80,11 @@ export default function Progress({ percent, prefixCls }: ProgressProps) {
         aria-valuemax={100}
         aria-valuenow={safePtg}
       >
-        {renderCircle(`${dotClassName}-circle-bg`)}
-        {renderCircle('', {
-          strokeDasharray: `${(circumference * safePtg) / 100} ${
-            (circumference * (100 - safePtg)) / 100
-          }`,
-          strokeDashoffset: `${circumference / 4}`,
-        })}
+        <CustomCircle dotClassName={dotClassName} hasCircleCls />
+        <CustomCircle dotClassName={dotClassName} style={circleStyle} />
       </svg>
     </span>
   );
-}
+};
+
+export default Progress;
