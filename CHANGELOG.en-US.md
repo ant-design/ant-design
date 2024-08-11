@@ -21,16 +21,16 @@ tag: vVERSION
 `2024-08-11`
 
 - ColorPicker
-  - 🐞 Fix ColorPicker compile error of `@ant-design/fast-color`. [#50293](https://github.com/ant-design/ant-design/pull/50293)
-  - 💄 Fix ColorPicker not adjust border style when under Space.Compact. [#50291](https://github.com/ant-design/ant-design/pull/50291)
+  - 🐞 Fix ColorPicker compile error of `@ant-design/fast-color`. [#50293](https://github.com/ant-design/ant-design/pull/50293) [@afc163](https://githhub.com/afc163)
+  - 💄 Fix ColorPicker not adjust border style when under Space.Compact. [#50291](https://github.com/ant-design/ant-design/pull/50291) [@zombieJ](https://github.com/zombieJ)
 - 💄 Fix Table `zIndexTableFixed` token not support CSS var. [#50355](https://github.com/ant-design/ant-design/pull/50355) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 Fix FloatButton don't support `zIndexPopupBase` token. [#50349](https://github.com/ant-design/ant-design/pull/50349) [@Yuzu-io](https://github.com/Yuzu-io)
-- 🐞 Fix Typography `tooltip` not show with precision issue of `ellipsis`. [#50315](https://github.com/ant-design/ant-design/pull/50315)
-- 🐞 Fix Form `preserve={false}` should not trigger `shouldUpdate` rerender. [#50283](https://github.com/ant-design/ant-design/pull/50283)
-- 🐞 Fix Tour default `z-index` not follow `zIndexPopup` token issue. [#50300](https://github.com/ant-design/ant-design/pull/50300)
+- 🐞 Fix Typography `tooltip` not show with precision issue of `ellipsis`. [#50315](https://github.com/ant-design/ant-design/pull/50315) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Form `preserve={false}` should not trigger `shouldUpdate` rerender. [#50283](https://github.com/ant-design/ant-design/pull/50283) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Tour default `z-index` not follow `zIndexPopup` token issue. [#50300](https://github.com/ant-design/ant-design/pull/50300) [@zombieJ](https://github.com/zombieJ)
 - 🐞 Fix Calendar `locale` should override `locale` from ConfigProvider. [#50236](https://github.com/ant-design/ant-design/pull/50236) [@Asanio06](https://github.com/Asanio06)
 - 🐞 Fix Spin align issue when setting `percent`. [#50277](https://github.com/ant-design/ant-design/pull/50277) [@Wxh16144](https://github.com/Wxh16144)
-- 🐞 Fix Tree switcher position not ping at top when title break the line. [#50313](https://github.com/ant-design/ant-design/pull/50313)
+- 🐞 Fix Tree switcher position not ping at top when title break the line. [#50313](https://github.com/ant-design/ant-design/pull/50313) [@zombieJ](https://github.com/zombieJ)
 - 🌐 Locales
   - 🇦🇿 Fix missing spaces of `az_AZ` locale. [#50238](https://github.com/ant-design/ant-design/pull/50238) [@thinkasany](https://github.com/thinkasany)
 - TypeScript
