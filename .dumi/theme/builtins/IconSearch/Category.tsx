@@ -17,29 +17,6 @@ const useStyle = createStyles(({ token, css }) => ({
     grid-gap: ${token.margin}px;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     padding: 0;
-    li {
-      display: inline-flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      width: 200px;
-      height: 100px;
-      overflow: hidden;
-      color: #555;
-      text-align: center;
-      list-style: none;
-      background-color: inherit;
-      border-radius: ${token.borderRadiusSM}px;
-      cursor: pointer;
-      transition: all ${token.motionDurationSlow} ease-in-out;
-      ${token.iconCls} {
-        margin: ${token.marginSM}px 0 ${token.marginXS}px;
-        font-size: 36px;
-        transition: transform ${token.motionDurationSlow} ease-in-out;
-        will-change: transform;
-      }
-    }
   `,
   copiedCode: css`
     padding: 0 ${token.paddingXXS}px;

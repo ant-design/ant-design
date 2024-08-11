@@ -12,7 +12,30 @@ const allIcons: { [key: PropertyKey]: any } = AntdIcons;
 const useStyle = createStyles(({ token, css }) => {
   const { antCls, iconCls } = token;
   return {
-    item: css`
+    iconItem: css`
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-inline-start: 0 !important;
+      margin-inline-end: 0 !important;
+      position: relative;
+      width: 200px;
+      height: 100px;
+      overflow: hidden;
+      color: #555;
+      text-align: center;
+      list-style: none;
+      background-color: inherit;
+      border-radius: ${token.borderRadiusSM}px;
+      cursor: pointer;
+      transition: all ${token.motionDurationSlow} ease-in-out;
+      ${token.iconCls} {
+        margin: ${token.marginSM}px 0 ${token.marginXS}px;
+        font-size: 36px;
+        transition: transform ${token.motionDurationSlow} ease-in-out;
+        will-change: transform;
+      }
       &:hover {
         color: #fff;
         background-color: ${token.colorPrimary};
@@ -81,7 +104,7 @@ const CopyableIcon: React.FC<CopyableIconProps> = (props) => {
   };
   return (
     <CopyToClipboard text={`<${name} />`} onCopy={onCopy}>
-      <li className={classNames(theme, styles.item, { copied: justCopied === name })}>
+      <li className={classNames(theme, styles.iconItem, { copied: justCopied === name })}>
         {React.createElement(allIcons[name])}
         <span className={styles.anticonCls}>
           <Badge dot={isNew}>{name}</Badge>
