@@ -22,7 +22,7 @@ describe('site test', () => {
     const resp = await fetch(`http://127.0.0.1:${port}${path}`).then(async (res) => {
       const html: string = await res.text();
       const $ = load(html, {
-        xml: { decodeEntities: false, recognizeSelfClosing: true },
+        xml: true,
       });
       return { status: res.status, $ };
     });
