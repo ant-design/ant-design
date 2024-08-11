@@ -115,13 +115,20 @@ const GlobalStyle: React.FC = () => {
         .markdown ul > li,
         .markdown ol > li {
           margin-inline-start: ${token.marginLG}px;
-          list-style-type: circle;
           > p {
             margin: 0.2em 0;
           }
           &:empty {
             display: none;
           }
+        }
+
+        .markdown ul > li {
+          list-style-type: circle;
+        }
+
+        .markdown ol > li {
+          list-style-type: decimal;
         }
 
         .markdown code {
