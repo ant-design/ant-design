@@ -59,7 +59,7 @@ export type { ColumnsType, TablePaginationConfig };
 
 const EMPTY_LIST: AnyObject[] = [];
 
-interface ChangeEventInfo<RecordType = any> {
+interface ChangeEventInfo<RecordType = AnyObject> {
   pagination: {
     current?: number;
     pageSize?: number;
@@ -74,7 +74,7 @@ interface ChangeEventInfo<RecordType = any> {
   resetPagination: (current?: number, pageSize?: number) => void;
 }
 
-export interface TableProps<RecordType = any>
+export interface TableProps<RecordType = AnyObject>
   extends Omit<
     RcTableProps<RecordType>,
     | 'transformColumns'
@@ -113,7 +113,7 @@ export interface TableProps<RecordType = any>
 }
 
 /** Same as `TableProps` but we need record parent render times */
-export interface InternalTableProps<RecordType = any> extends TableProps<RecordType> {
+export interface InternalTableProps<RecordType = AnyObject> extends TableProps<RecordType> {
   _renderTimes: number;
 }
 

@@ -9,17 +9,18 @@ import type {
 import { ExpandableConfig, GetRowKey } from 'rc-table/lib/interface';
 
 import type { Breakpoint } from '../_util/responsiveObserver';
+import type { AnyObject } from '../_util/type';
 import type { CheckboxProps } from '../checkbox';
 import type { PaginationProps } from '../pagination';
 import type { TooltipProps } from '../tooltip';
 import type { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
 import type { InternalTableProps, TableProps } from './InternalTable';
 
-export type RefTable = <RecordType = any>(
+export type RefTable = <RecordType = AnyObject>(
   props: React.PropsWithChildren<TableProps<RecordType>> & React.RefAttributes<Reference>,
 ) => React.ReactElement;
 
-export type RefInternalTable = <RecordType = any>(
+export type RefInternalTable = <RecordType = AnyObject>(
   props: React.PropsWithChildren<InternalTableProps<RecordType>> & React.RefAttributes<Reference>,
 ) => React.ReactElement;
 
@@ -68,7 +69,7 @@ const TableActions = ['paginate', 'sort', 'filter'] as const;
 
 export type TableAction = (typeof TableActions)[number];
 
-export type CompareFn<T = any> = (a: T, b: T, sortOrder?: SortOrder) => number;
+export type CompareFn<T = AnyObject> = (a: T, b: T, sortOrder?: SortOrder) => number;
 
 export interface ColumnFilterItem {
   text: React.ReactNode;
@@ -76,7 +77,7 @@ export interface ColumnFilterItem {
   children?: ColumnFilterItem[];
 }
 
-export interface ColumnTitleProps<RecordType = any> {
+export interface ColumnTitleProps<RecordType = AnyObject> {
   /** @deprecated Please use `sorterColumns` instead. */
   sortOrder?: SortOrder;
   /** @deprecated Please use `sorterColumns` instead. */
@@ -86,13 +87,13 @@ export interface ColumnTitleProps<RecordType = any> {
   filters?: Record<string, FilterValue>;
 }
 
-export type ColumnTitle<RecordType = any> =
+export type ColumnTitle<RecordType = AnyObject> =
   | React.ReactNode
   | ((props: ColumnTitleProps<RecordType>) => React.ReactNode);
 
 export type FilterValue = (Key | boolean)[];
 export type FilterKey = (string | number)[] | null;
-export type FilterSearchType<RecordType = any> =
+export type FilterSearchType<RecordType = AnyObject> =
   | boolean
   | ((input: string, record: RecordType) => boolean);
 export interface FilterConfirmProps {
@@ -115,7 +116,8 @@ export interface FilterDropdownProps {
   visible: boolean;
 }
 
-export interface ColumnType<RecordType = any> extends Omit<RcColumnType<RecordType>, 'title'> {
+export interface ColumnType<RecordType = AnyObject>
+  extends Omit<RcColumnType<RecordType>, 'title'> {
   title?: ColumnTitle<RecordType>;
   // Sorter
   sorter?:
@@ -158,12 +160,12 @@ export interface ColumnType<RecordType = any> extends Omit<RcColumnType<RecordTy
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
 }
 
-export interface ColumnGroupType<RecordType = any>
+export interface ColumnGroupType<RecordType = AnyObject>
   extends Omit<ColumnType<RecordType>, 'dataIndex'> {
   children: ColumnsType<RecordType>;
 }
 
-export type ColumnsType<RecordType = any> = (
+export type ColumnsType<RecordType = AnyObject> = (
   | ColumnGroupType<RecordType>
   | ColumnType<RecordType>
 )[];
@@ -174,7 +176,7 @@ export interface SelectionItem {
   onSelect?: SelectionItemSelectFn;
 }
 
-export type SelectionSelectFn<T = any> = (
+export type SelectionSelectFn<T = AnyObject> = (
   record: T,
   selected: boolean,
   selectedRows: T[],
@@ -183,7 +185,7 @@ export type SelectionSelectFn<T = any> = (
 
 export type RowSelectMethod = 'all' | 'none' | 'invert' | 'single' | 'multiple';
 
-export interface TableRowSelection<T = any> {
+export interface TableRowSelection<T = AnyObject> {
   /** Keep the selection keys in list even the key not exist in `dataSource` anymore */
   preserveSelectedRowKeys?: boolean;
   type?: RowSelectionType;
@@ -215,16 +217,16 @@ export interface TableRowSelection<T = any> {
   onCell?: GetComponentProps<T>;
 }
 
-export type TransformColumns<RecordType = any> = (
+export type TransformColumns<RecordType = AnyObject> = (
   columns: ColumnsType<RecordType>,
 ) => ColumnsType<RecordType>;
 
-export interface TableCurrentDataSource<RecordType = any> {
+export interface TableCurrentDataSource<RecordType = AnyObject> {
   currentDataSource: RecordType[];
   action: TableAction;
 }
 
-export interface SorterResult<RecordType = any> {
+export interface SorterResult<RecordType = AnyObject> {
   column?: ColumnType<RecordType>;
   order?: SortOrder;
   field?: Key | readonly Key[];
