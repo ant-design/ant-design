@@ -40,6 +40,15 @@ if (process.env.PRODUCTION_ONLY) {
   // eslint-disable-next-line no-console
   console.log('🍐 Build production only');
   webpackConfig = webpackConfig.filter((config) => config.mode === 'production');
+  webpackConfig.forEach((config) => {
+    config.plugins.push(
+      codecovWebpackPlugin({
+        enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,
+        bundleName: 'antd',
+        uploadToken: process.env.CODECOV_TOKEN,
+      }),
+    );
+  });
 }
 
 if (process.env.RUN_ENV === 'PRODUCTION') {
@@ -81,14 +90,6 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
       new CircularDependencyPlugin({
         // add errors to webpack instead of warnings
         failOnError: true,
-      }),
-    );
-
-    config.plugins.push(
-      codecovWebpackPlugin({
-        enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,
-        bundleName: 'antd',
-        uploadToken: process.env.CODECOV_TOKEN,
       }),
     );
   });
