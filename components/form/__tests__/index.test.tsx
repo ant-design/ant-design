@@ -28,6 +28,8 @@ import Slider from '../../slider';
 import Switch from '../../switch';
 import TreeSelect from '../../tree-select';
 import Upload from '../../upload';
+import Col from '../../col';
+import Row from '../../row';
 import type { NamePath } from '../interface';
 import * as Util from '../util';
 
@@ -2331,5 +2333,53 @@ describe('Form', () => {
 
     fireEvent.click(container.querySelector('input')!);
     expect(container.querySelector('input')?.checked).toBeTruthy();
+  });
+});
+
+describe('test using "itemMarginBottom" and "extra" together', () => {
+  it('test where "extra" appears', async () => {
+    const Demo: React.FC = () => (
+      <ConfigProvider
+        theme={{
+          components: {
+            Form: {
+              itemMarginBottom: 80,
+            },
+          },
+        }}
+      >
+        <Form>
+          <Form.Item label="Captcha" extra="We must make sure that your are a human.">
+            <Row gutter={8}>
+              <Col span={12}>
+                <Form.Item
+                  name="captcha"
+                  noStyle
+                  rules={[{ required: true, message: 'Please input the captcha you got!' }]}
+                >
+                  <Input />
+                </Form.Item>
+              </Col>
+              <Col span={12}>
+                <Button>Get captcha</Button>
+              </Col>
+            </Row>
+          </Form.Item>
+
+          <Form.Item>
+            <Button type="primary" htmlType="submit" className="submit-button">
+              Register
+            </Button>
+          </Form.Item>
+        </Form>
+      </ConfigProvider>
+    );
+
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelector('.submit-button')!);
+    await waitFakeTimer(2000, 2000);
+    expect(container.querySelector('.ant-form-item-extra')).toHaveStyle({
+      transform: 'translateY(-80px)',
+    });
   });
 });
