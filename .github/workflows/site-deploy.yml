@@ -82,12 +82,22 @@ jobs:
         id: publish-version
         run: echo "VERSION=$(echo ${{ github.ref_name }} | sed 's/\./-/g')" >> $GITHUB_OUTPUT
 
+      # Temporary, please delete at any time when not necessary. @PeachScript
+      # see: https://github.com/ant-design/ant-design/commit/5533b037a78be8144c7518e4d2527f48b9b35118
+      - name: Write _config.yml (temporary)
+        run: |
+          echo "include: [/_*.*]" >> _site/_config.yml
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
           force_orphan: true
+
+      - name: Remove _config.yml (temporary)
+        run: |
+          rm _site/_config.yml
 
       # Since force_orphan will not trigger Sync to Gitee, we need to force run it here
       - name: Sync to Gitee
