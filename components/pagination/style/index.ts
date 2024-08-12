@@ -329,7 +329,7 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
 };
 
 const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
-  const { componentCls, antCls } = token;
+  const { componentCls } = token;
 
   return {
     [`${componentCls}-jump-prev, ${componentCls}-jump-next`]: {
