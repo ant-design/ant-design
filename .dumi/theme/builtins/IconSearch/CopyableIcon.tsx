@@ -19,6 +19,8 @@ const useStyle = createStyles(({ token, css }) => {
       align-items: center;
       margin-inline-start: 0 !important;
       margin-inline-end: 0 !important;
+      padding-inline-start: 0 !important;
+      padding-inline-end: 0 !important;
       position: relative;
       width: 200px;
       height: 100px;
@@ -31,19 +33,19 @@ const useStyle = createStyles(({ token, css }) => {
       cursor: pointer;
       transition: all ${token.motionDurationSlow} ease-in-out;
       ${token.iconCls} {
-        margin: ${token.marginSM}px 0 ${token.marginXS}px;
+        margin: ${token.marginXS}px 0;
         font-size: 36px;
         transition: transform ${token.motionDurationSlow} ease-in-out;
         will-change: transform;
       }
       &:hover {
-        color: #fff;
+        color: ${token.colorWhite};
         background-color: ${token.colorPrimary};
         ${iconCls} {
           transform: scale(1.3);
         }
         ${antCls}-badge {
-          color: #fff;
+          color: ${token.colorWhite};
         }
       }
       &.TwoTone:hover {
