@@ -56,6 +56,8 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
 
   const formContext = React.useContext(FormContext);
 
+  const [curErrorClientHeight, setCurErrorClientHeight] = React.useState(0);
+
   const mergedWrapperCol: ColProps = wrapperCol || formContext.wrapperCol || {};
 
   const className = classNames(`${baseClassName}-control`, mergedWrapperCol.className);
@@ -71,6 +73,14 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
     </div>
   );
   const formItemContext = React.useMemo(() => ({ prefixCls, status }), [prefixCls, status]);
+
+  const onErrorClientHeightChanged = React.useCallback(
+    (errorClientHeight: number) => {
+      setCurErrorClientHeight(errorClientHeight);
+    },
+    [setCurErrorClientHeight],
+  );
+
   const errorListDom: React.ReactNode =
     marginBottom !== null || errors.length || warnings.length ? (
       <div style={{ display: 'flex', flexWrap: 'nowrap' }}>
@@ -83,6 +93,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
             helpStatus={status}
             className={`${baseClassName}-explain-connected`}
             onVisibleChanged={onErrorVisibleChanged}
+            onErrorClientHeightChanged={onErrorClientHeightChanged}
           />
         </FormItemPrefixContext.Provider>
         {!!marginBottom && <div style={{ width: 0, height: marginBottom }} />}
@@ -98,7 +109,15 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
   // If extra = 0, && will goes wrong
   // 0&&error -> 0
   const extraDom: React.ReactNode = extra ? (
-    <div {...extraProps} className={`${baseClassName}-extra`}>
+    <div
+      {...extraProps}
+      className={`${baseClassName}-extra`}
+      style={
+        curErrorClientHeight < (marginBottom || 0)
+          ? { transform: `translateY(${curErrorClientHeight - (marginBottom || 0)}px)` }
+          : {}
+      }
+    >
       {extra}
     </div>
   ) : null;

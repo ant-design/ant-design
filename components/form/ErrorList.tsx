@@ -40,6 +40,7 @@ export interface ErrorListProps {
   warnings?: React.ReactNode[];
   className?: string;
   onVisibleChanged?: (visible: boolean) => void;
+  onErrorClientHeightChanged?: (errorClientHeight: number) => void;
 }
 
 const ErrorList: React.FC<ErrorListProps> = ({
@@ -50,6 +51,7 @@ const ErrorList: React.FC<ErrorListProps> = ({
   className: rootClassName,
   fieldId,
   onVisibleChanged,
+  onErrorClientHeightChanged,
 }) => {
   const { prefixCls } = React.useContext(FormItemPrefixContext);
 
@@ -84,12 +86,25 @@ const ErrorList: React.FC<ErrorListProps> = ({
     helpProps.id = `${fieldId}_help`;
   }
 
+  const getClientHeight = React.useCallback(
+    (ele: HTMLElement) => {
+      let errorClientHeight = 0;
+      for (let i = 0; i < ele.children.length; i++) {
+        errorClientHeight += ele.children[i].clientHeight;
+      }
+      onErrorClientHeightChanged?.(errorClientHeight);
+    },
+    [onErrorClientHeightChanged],
+  );
+
   return wrapCSSVar(
     <CSSMotion
       motionDeadline={collapseMotion.motionDeadline}
       motionName={`${prefixCls}-show-help`}
       visible={!!fullKeyList.length}
       onVisibleChanged={onVisibleChanged}
+      onAppearStart={getClientHeight}
+      onEnterStart={getClientHeight}
     >
       {(holderProps) => {
         const { className: holderClassName, style: holderStyle } = holderProps;
