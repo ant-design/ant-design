@@ -3,7 +3,7 @@ import { ConfigProvider, Space, Switch, Table, Tag, Transfer } from 'antd';
 import type { GetProp, TableColumnsType, TableProps, TransferProps } from 'antd';
 import difference from 'lodash/difference';
 
-type TableRowSelection<T> = TableProps<T>['rowSelection'];
+type TableRowSelection<T extends object = object> = TableProps<T>['rowSelection'];
 
 type TransferItem = GetProp<TransferProps, 'dataSource'>[number];
 

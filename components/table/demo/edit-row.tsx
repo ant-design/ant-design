@@ -143,7 +143,7 @@ const App: React.FC = () => {
     },
   ];
 
-  const mergedColumns: TableProps['columns'] = columns.map((col) => {
+  const mergedColumns: TableProps<Item>['columns'] = columns.map((col) => {
     if (!col.editable) {
       return col;
     }

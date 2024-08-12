@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.20.0",
+  "version": "5.20.1",
   "description": "An enterprise-class UI design language and React components implementation",
   "keywords": [
     "ant",
@@ -218,7 +218,7 @@
     "antd-token-previewer": "^2.0.8",
     "axios": "^1.7.2",
     "chalk": "^4.1.2",
-    "cheerio": "1.0.0-rc.12",
+    "cheerio": "^1.0.0",
     "circular-dependency-plugin": "^5.2.2",
     "cli-progress": "^3.12.0",
     "cross-env": "^7.0.3",

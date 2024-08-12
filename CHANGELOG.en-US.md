@@ -16,29 +16,51 @@ tag: vVERSION
 
 ---
 
+## 5.20.1
+
+`2024-08-11`
+
+- ColorPicker
+  - 🐞 Fix ColorPicker compile error of `@ant-design/fast-color`. [#50293](https://github.com/ant-design/ant-design/pull/50293) [@afc163](https://github.com/afc163)
+  - 💄 Fix ColorPicker not adjust border style when under Space.Compact. [#50291](https://github.com/ant-design/ant-design/pull/50291) [@zombieJ](https://github.com/zombieJ)
+- 💄 Fix Table `zIndexTableFixed` token not support CSS var. [#50355](https://github.com/ant-design/ant-design/pull/50355) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Fix FloatButton don't support `zIndexPopupBase` token. [#50349](https://github.com/ant-design/ant-design/pull/50349) [@Yuzu-io](https://github.com/Yuzu-io)
+- 🐞 Fix Typography `tooltip` not show with precision issue of `ellipsis`. [#50315](https://github.com/ant-design/ant-design/pull/50315) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Form `preserve={false}` should not trigger `shouldUpdate` rerender. [#50283](https://github.com/ant-design/ant-design/pull/50283) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Tour default `z-index` not follow `zIndexPopup` token issue. [#50300](https://github.com/ant-design/ant-design/pull/50300) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Calendar `locale` should override `locale` from ConfigProvider. [#50236](https://github.com/ant-design/ant-design/pull/50236) [@Asanio06](https://github.com/Asanio06)
+- 🐞 Fix Spin align issue when setting `percent`. [#50277](https://github.com/ant-design/ant-design/pull/50277) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Fix Tree switcher position not ping at top when title break the line. [#50313](https://github.com/ant-design/ant-design/pull/50313) [@zombieJ](https://github.com/zombieJ)
+- 🌐 Locales
+  - 🇦🇿 Fix missing spaces of `az_AZ` locale. [#50238](https://github.com/ant-design/ant-design/pull/50238) [@thinkasany](https://github.com/thinkasany)
+- TypeScript
+  - 🤖 Refine Table all Record types from any to Object. [#50351](https://github.com/ant-design/ant-design/pull/50351) [@li-jia-nan](https://github.com/li-jia-nan)
+
 ## 5.20.0
 
 `2024-08-03`
 
-- 🛠 Replace ColorPicker internal `@ctrl/tinycolor` with `@ant-design/fast-color`. [#49846](https://github.com/ant-design/ant-design/pull/49846)
+- ColorPicker
+  - 🛠 Replace ColorPicker internal `@ctrl/tinycolor` with `@ant-design/fast-color`. [#49846](https://github.com/ant-design/ant-design/pull/49846)
+  - 🆕 ColorPicker support gradient color type and fix controlled mode not working. [#50050](https://github.com/ant-design/ant-design/pull/50050)
+  - 🐞 Fix the issue where line-height is not effective in cssinjs mode for ColorPicker. [#50220](https://github.com/ant-design/ant-design/pull/50220) [@vagusX](https://github.com/vagusX)
+  - 🐞 Fix cursor disabled state for ColorPicker. [#50217](https://github.com/ant-design/ant-design/pull/50217) [@coding-ice](https://github.com/coding-ice)
+  - 💄 Optimize ColorPicker when selecting a color from the `transparent` state, it defaults to using a bright color instead of black color to enhance the user interaction experience. [#50148](https://github.com/ant-design/ant-design/pull/50148)
 - 🆕 ConfigProvider support indicator property for Spin. [#50183](https://github.com/ant-design/ant-design/pull/50183) [@coding-ice](https://github.com/coding-ice)
 - 🆕 Upload `showUploadList` support `extra` for additional content. [#50098](https://github.com/ant-design/ant-design/pull/50098) [@guoyunhe](https://github.com/guoyunhe)
 - 🆕 Tree support custom loading icon for tree nodes with new prop `switcherLoadingIcon`. [#49716](https://github.com/ant-design/ant-design/pull/49716) [@coding-ice](https://github.com/coding-ice)
-- 🆕 Slider support `range.editable` to dynamic add/remove handles. [#49923](https://github.com/ant-design/ant-design/pull/49923)
-- 🆕 Slider `range.editable` support `minCount` and `maxCount`. [#49987](https://github.com/ant-design/ant-design/pull/49987)
+- Slider
+  - 🆕 Slider support `range.editable` to dynamic add/remove handles. [#49923](https://github.com/ant-design/ant-design/pull/49923)
+  - 🆕 Slider `range.editable` support `minCount` and `maxCount`. [#49987](https://github.com/ant-design/ant-design/pull/49987)
 - 🆕 Support custom status render in QRCode. [#49563](https://github.com/ant-design/ant-design/pull/49563) [@kiner-tang](https://github.com/kiner-tang)
 - 🆕 Table component supports custom Filter dropdown box empty status. [#49613](https://github.com/ant-design/ant-design/pull/49613) [@Wxh16144](https://github.com/Wxh16144)
 - 🆕 Allow user to add the Divider style of `dashed`, `dotted` or `solid`. [#49654](https://github.com/ant-design/ant-design/pull/49654) [@pinaki-08](https://github.com/pinaki-08)
 - 🆕 InputNumber supports `suffix` prop. [#49674](https://github.com/ant-design/ant-design/pull/49674) [@coding-ice](https://github.com/coding-ice)
-- 🆕 ColorPicker support gradient color type and fix controlled mode not working. [#50050](https://github.com/ant-design/ant-design/pull/50050)
 - 🆕 Input/TextArea/Mentions support `onClear` prop. [#49905](https://github.com/ant-design/ant-design/pull/49905) [@li-jia-nan](https://github.com/li-jia-nan)
 - ⌨️ Optimize Input be changed repeatedly when hold the enter key in multi-mode. [rc-input#72](https://github.com/react-component/input/pull/72/files) [@crazyair](https://github.com/crazyair)
-- 🐞 Fix the issue where line-height is not effective in cssinjs mode for ColorPicker. [#50220](https://github.com/ant-design/ant-design/pull/50220) [@vagusX](https://github.com/vagusX)
-- 🐞 Fix cursor disabled state for ColorPicker. [#50217](https://github.com/ant-design/ant-design/pull/50217) [@coding-ice](https://github.com/coding-ice)
 - 🐞 Fix grouping columns does not apply sorting for Table. [#50086](https://github.com/ant-design/ant-design/pull/50086) [@Zyf665](https://github.com/Zyf665)
 - 🐞 Fix Popover/PopConfirm/Tooltip with `topLeft`, `topRight`, `bottomLeft`, `bottomRight` zoom in transform origin not correct when target element width is too large. [#50134](https://github.com/ant-design/ant-design/pull/50134)
 - 💄 Fix Tree filter node style lost. [#49773](https://github.com/ant-design/ant-design/pull/49773) [@wanpan11](https://github.com/wanpan11)
-- 💄 Optimize ColorPicker when selecting a color from the `transparent` state, it defaults to using a bright color instead of black color to enhance the user interaction experience. [#50148](https://github.com/ant-design/ant-design/pull/50148)
 - TypeScript
   - 🤖 Component Token support string and number. [#49837](https://github.com/ant-design/ant-design/pull/49837) [@thinkasany](https://github.com/thinkasany)
   - 🤖 Improve Radio export types. [#50203](https://github.com/ant-design/ant-design/pull/50203) [@baicie](https://github.com/baicie)
@@ -116,8 +138,8 @@ tag: vVERSION
 - 🆕 Pagination adds `simple` property, supports read-only mode, and introduces `align` property. [#49562](https://github.com/ant-design/ant-design/pull/49562) [@coding-ice](https://github.com/coding-ice)
 - 🐞 Enhanced Anchor's `affix` property for more configuration options. [#49295](https://github.com/ant-design/ant-design/pull/49295) [@gin-lsl](https://github.com/gin-lsl)
 - DatePicker
-  - 🐞 Fixed missing arrow in DatePicker/TimePicker RangePicker with `placement` set to `topRight` or `bottomRight`.[#49333](https://github.com/ant-design/ant-design/pull/49333)
-  - 🐞 Fixed missing accessible text for DatePicker switch button, style issue in RTL mode for `DatePicker.RangePicker`, and crash when entering wrong end value in year selection of DatePicker.RangePicker.[#49333](https://github.com/ant-design/ant-design/pull/49333)
+  - 🐞 Fixed missing arrow in DatePicker/TimePicker RangePicker with `placement` set to `topRight` or `bottomRight`. [#49333](https://github.com/ant-design/ant-design/pull/49333)
+  - 🐞 Fixed missing accessible text for DatePicker switch button, style issue in RTL mode for `DatePicker.RangePicker`, and crash when entering wrong end value in year selection of DatePicker.RangePicker. [#49333](https://github.com/ant-design/ant-design/pull/49333)
   - 🐞 Fixed DatePicker.RangePicker resetting selected dates when entering dates via keyboard. [#49333](https://github.com/ant-design/ant-design/pull/49333)
 - 🐞 Button fixed `disabled` property not working when used as `Dropdown` `trigger`. [#47363](https://github.com/ant-design/ant-design/pull/47363)
 - 🐞 InputNumber now warns when using `type=number` with `changeOnWheel`. [#49648](https://github.com/ant-design/ant-design/pull/49648) [@wanpan11](https://github.com/wanpan11)
@@ -464,7 +486,7 @@ tag: vVERSION
   - 🆕 Prefixes for CSS variables follow the `prefixCls` property of ConfigProvider by default. [#47481](https://github.com/ant-design/ant-design/pull/47481)
   - 🤖 CardProps `styles` in ConfigProvider is set to optional. [#47601](https://github.com/ant-design/ant-design/pull/47601) [@Yawenina](https://github.com/Yawenina)
 - 🆕 Select、Checkbox、Radio、DatePicker、TreeSelect、Cascader the `focus` supports passing `options`. [#47664](https://github.com/ant-design/ant-design/pull/47664)
-- 🆕 Select add `labelRender` property to customize current selected label render。[#47664](https://github.com/ant-design/ant-design/pull/47664)
+- 🆕 Select add `labelRender` property to customize current selected label render. [#47664](https://github.com/ant-design/ant-design/pull/47664)
 - 🆕 Modal support configuring `aria-*` in `closable`. [#47650](https://github.com/ant-design/ant-design/pull/47650)
 - 🆕 Alert support configuring `aria-*` in `closable`. [#47474](https://github.com/ant-design/ant-design/pull/47474)
 - 🆕 Tabs support `removeIcon` props, when set `type="editable-card"`. [#47334](https://github.com/ant-design/ant-design/pull/47334)
