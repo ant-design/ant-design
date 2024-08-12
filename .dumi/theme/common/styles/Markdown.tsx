@@ -24,7 +24,6 @@ const GlobalStyle: React.FC = () => {
         }
 
         .markdown img {
-          display: block;
           max-width: calc(100% - 32px);
           max-height: 100%;
         }
@@ -114,7 +113,8 @@ const GlobalStyle: React.FC = () => {
 
         .markdown ul > li,
         .markdown ol > li {
-          margin-inline-start: ${token.marginLG}px;
+          padding-inline-start: ${token.paddingXXS}px;
+          margin-inline-start: ${token.marginMD}px;
           > p {
             margin: 0.2em 0;
           }
