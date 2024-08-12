@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import type { GetRef, InputRef } from 'antd';
+import type { GetRef, InputRef, TableProps } from 'antd';
 import { Button, Form, Input, Popconfirm, Table } from 'antd';
 
 type FormInstance<T> = GetRef<typeof Form<T>>;
@@ -96,8 +96,6 @@ const EditableCell: React.FC<React.PropsWithChildren<EditableCellProps>> = ({
   return <td {...restProps}>{childNode}</td>;
 };
 
-type EditableTableProps = Parameters<typeof Table>[0];
-
 interface DataType {
   key: React.Key;
   name: string;
@@ -105,7 +103,7 @@ interface DataType {
   address: string;
 }
 
-type ColumnTypes = Exclude<EditableTableProps['columns'], undefined>;
+type ColumnTypes = Exclude<TableProps['columns'], undefined>;
 
 const App: React.FC = () => {
   const [dataSource, setDataSource] = useState<DataType[]>([

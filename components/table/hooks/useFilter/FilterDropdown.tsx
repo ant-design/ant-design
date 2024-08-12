@@ -120,7 +120,7 @@ function renderFilterItems({
 
 export type TreeColumnFilterItem = ColumnFilterItem & FilterTreeDataNode;
 
-export interface FilterDropdownProps<RecordType extends AnyObject = AnyObject> {
+export interface FilterDropdownProps<RecordType = any> {
   tablePrefixCls: string;
   prefixCls: string;
   dropdownPrefixCls: string;
