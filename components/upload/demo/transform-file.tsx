@@ -23,7 +23,7 @@ const props: UploadProps = {
           ctx.textBaseline = 'middle';
           ctx.font = '33px Arial';
           ctx.fillText('Ant Design', 20, 20);
-          canvas.toBlob((result) => resolve(result as any));
+          canvas.toBlob((result) => resolve(result as Blob));
         };
       };
     });

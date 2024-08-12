@@ -1,6 +1,7 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
+import { genCompactItemStyle } from '../../style/compact-item';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genColorBlockStyle from './color-block';
@@ -284,6 +285,10 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
         ...genRtlStyle(token),
       },
     },
+
+    genCompactItemStyle(token, {
+      focusElCls: `${componentCls}-trigger-active`,
+    }),
   ];
 };
 

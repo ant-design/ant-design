@@ -9,39 +9,17 @@ import type { ThemeType } from './IconSearch';
 
 const useStyle = createStyles(({ token, css }) => ({
   anticonsList: css`
-    margin: ${token.marginSM}px 0;
+    margin: ${token.margin}px 0;
     overflow: hidden;
     direction: ltr;
     list-style: none;
-    li {
-      position: relative;
-      float: left;
-      width: 16.66%;
-      height: 100px;
-      margin: ${token.marginXXS}px 0;
-      padding: ${token.paddingSM}px 0 0;
-      overflow: hidden;
-      color: #555;
-      text-align: center;
-      list-style: none;
-      background-color: inherit;
-      border-radius: ${token.borderRadiusSM}px;
-      cursor: pointer;
-      transition: all ${token.motionDurationSlow} ease-in-out;
-      .rtl & {
-        margin: ${token.marginXXS}px 0;
-        padding: ${token.paddingSM}px 0 0;
-      }
-      ${token.iconCls} {
-        margin: ${token.marginSM}px 0 ${token.marginXS}px;
-        font-size: 36px;
-        transition: transform ${token.motionDurationSlow} ease-in-out;
-        will-change: transform;
-      }
-    }
+    display: grid;
+    grid-gap: ${token.margin}px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    padding: 0;
   `,
   copiedCode: css`
-    padding: 2px 4px;
+    padding: 0 ${token.paddingXXS}px;
     font-size: ${token.fontSizeSM}px;
     background-color: ${token.colorBgLayout};
     border-radius: ${token.borderRadiusXS}px;
