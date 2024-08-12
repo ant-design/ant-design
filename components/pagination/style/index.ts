@@ -329,7 +329,7 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
 };
 
 const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
-  const { componentCls, antCls } = token;
+  const { componentCls } = token;
 
   return {
     [`${componentCls}-jump-prev, ${componentCls}-jump-next`]: {
@@ -461,11 +461,6 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
       '&-size-changer': {
         display: 'inline-block',
         width: 'auto',
-
-        // https://github.com/ant-design/ant-design/issues/49258
-        [`${antCls}-select-arrow:not(:last-child)`]: {
-          opacity: 1,
-        },
       },
 
       '&-quick-jumper': {
