@@ -87,7 +87,7 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
     config.plugins.push(
       codecovWebpackPlugin({
         enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,
-        bundleName: 'ant-design-webpack-bundle',
+        bundleName: 'antd',
         uploadToken: process.env.CODECOV_TOKEN,
       }),
     );
