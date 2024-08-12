@@ -8,5 +8,6 @@
   },
   "watch": {
     "_nodeModulesRegexes": ["rc-.*"]
-  }
+  },
+  "hmr": false
 }

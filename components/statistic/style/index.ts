@@ -32,7 +32,7 @@ const genStatisticStyle: GenerateStyle<StatisticToken> = (token: StatisticToken)
   } = token;
 
   return {
-    [`${componentCls}`]: {
+    [componentCls]: {
       ...resetComponent(token),
       [`${componentCls}-title`]: {
         marginBottom: marginXXS,
