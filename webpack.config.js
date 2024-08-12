@@ -2,6 +2,7 @@
 // This config is for building dist files
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const { codecovWebpackPlugin } = require('@codecov/webpack-plugin');
 const { EsbuildPlugin } = require('esbuild-loader');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const DuplicatePackageCheckerPlugin = require('@madccc/duplicate-package-checker-webpack-plugin');
@@ -80,6 +81,14 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
       new CircularDependencyPlugin({
         // add errors to webpack instead of warnings
         failOnError: true,
+      }),
+    );
+
+    config.plugins.push(
+      codecovWebpackPlugin({
+        enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,
+        bundleName: 'ant-design-webpack-bundle',
+        uploadToken: process.env.CODECOV_TOKEN,
       }),
     );
   });
