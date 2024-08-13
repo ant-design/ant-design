@@ -22,7 +22,6 @@ export interface ComponentToken {
   dotOffsetInSquare: number;
 }
 
-
 /**
  * @desc FloatButton 组件的 Token
  * @descEN Token for FloatButton component
@@ -88,38 +87,78 @@ type FloatButtonToken = FullToken<'FloatButton'> & {
 };
 
 const initFloatButtonGroupMotion = (token: FloatButtonToken) => {
-  const { componentCls, floatButtonSize, motionDurationSlow, motionEaseInOutCirc } = token;
+  const { componentCls, floatButtonSize, motionDurationSlow, motionEaseInOutCirc, calc } = token;
   const groupPrefixCls = `${componentCls}-group`;
-  const moveDownIn = new Keyframes('antFloatButtonMoveDownIn', {
-    '0%': {
-      transform: `translate3d(0, ${unit(floatButtonSize)}, 0)`,
-      transformOrigin: '0 0',
-      opacity: 0,
-    },
-    '100%': {
-      transform: 'translate3d(0, 0, 0)',
-      transformOrigin: '0 0',
-      opacity: 1,
-    },
-  });
-
-  const moveDownOut = new Keyframes('antFloatButtonMoveDownOut', {
-    '0%': {
-      transform: 'translate3d(0, 0, 0)',
-      transformOrigin: '0 0',
-      opacity: 1,
-    },
-    '100%': {
-      transform: `translate3d(0, ${unit(floatButtonSize)}, 0)`,
-      transformOrigin: '0 0',
-      opacity: 0,
-    },
-  });
+  const top = {
+    moveOutKeyframes: new Keyframes('antFloatButtonMoveTopOut', {
+      '0%': {
+        transform: 'translate3d(0, 0, 0)',
+        transformOrigin: '0 0',
+        opacity: 1,
+      },
+      '100%': {
+        transform: `translate3d(0, ${unit(floatButtonSize)}, 0)`,
+        transformOrigin: '0 0',
+        opacity: 0,
+      },
+    }),
+    moveInKeyframes: new Keyframes('antFloatButtonMoveTopIn', {
+      '0%': {
+        transform: `translate3d(0, ${unit(floatButtonSize)}, 0)`,
+        transformOrigin: '0 0',
+        opacity: 0,
+      },
+      '100%': {
+        transform: 'translate3d(0, 0, 0)',
+        transformOrigin: '0 0',
+        opacity: 1,
+      },
+    }),
+  };
+  const bottom = {
+    moveOutKeyframes: new Keyframes('antFloatButtonMoveBottomOut', {
+      '0%': {
+        transform: 'translate3d(0, 0, 0)',
+        transformOrigin: '0 0',
+        opacity: 1,
+      },
+      '100%': {
+        transform: `translate3d(0, ${calc(floatButtonSize).mul(-1).equal()}, 0)`,
+        transformOrigin: '0 0',
+        opacity: 0,
+      },
+    }),
+    moveInKeyframes: new Keyframes('antFloatButtonMoveBottomIn', {
+      '0%': {
+        transform: `translate3d(0, ${calc(floatButtonSize).mul(-1).equal()}, 0)`,
+        transformOrigin: '0 0',
+        opacity: 0,
+      },
+      '100%': {
+        transform: 'translate3d(0, 0, 0)',
+        transformOrigin: '0 0',
+        opacity: 1,
+      },
+    }),
+  };
 
   return [
     {
       [`${groupPrefixCls}-wrap`]: {
-        ...initMotion(`${groupPrefixCls}-wrap`, moveDownIn, moveDownOut, motionDurationSlow, true),
+        '&-top': initMotion(
+          `${groupPrefixCls}-wrap`,
+          top.moveInKeyframes,
+          top.moveOutKeyframes,
+          motionDurationSlow,
+          true,
+        ),
+        '&-bottom': initMotion(
+          `${groupPrefixCls}-wrap`,
+          bottom.moveInKeyframes,
+          bottom.moveOutKeyframes,
+          motionDurationSlow,
+          true,
+        ),
       },
     },
     {
@@ -158,7 +197,10 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
     [groupPrefixCls]: {
       ...resetComponent(token),
       zIndex: zIndexPopupBase,
-      display: 'block',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
       border: 'none',
       position: 'fixed',
       width: floatButtonSize,
@@ -168,12 +210,22 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
       insetInlineEnd: token.floatButtonInsetInlineEnd,
       insetBlockEnd: token.floatButtonInsetBlockEnd,
       borderRadius: borderRadiusLG,
-
-      [`${groupPrefixCls}-wrap`]: {
+      '&-wrap': {
         zIndex: -1,
-        display: 'block',
-        position: 'relative',
-        marginBottom: margin,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'absolute',
+        insetInlineStart: 0,
+        insetInlineEnd: 0,
+        '&-top': {
+          flexDirection: 'column',
+          bottom: calc(floatButtonSize).add(margin).equal(),
+        },
+        '&-bottom': {
+          flexDirection: 'column',
+          top: calc(floatButtonSize).add(margin).equal(),
+        },
       },
       [`&${groupPrefixCls}-rtl`]: {
         direction: 'rtl',
@@ -181,48 +233,19 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
       [componentCls]: {
         position: 'static',
       },
-    },
-    [`${groupPrefixCls}-circle`]: {
-      [`${componentCls}-circle:not(:last-child)`]: {
-        marginBottom: token.margin,
-        [`${componentCls}-body`]: {
-          width: floatButtonSize,
-          height: floatButtonSize,
-          borderRadius: '50%',
+      '&-circle': {
+        gap: margin,
+        [`${groupPrefixCls}-wrap`]: {
+          gap: margin,
         },
       },
-    },
-    [`${groupPrefixCls}-square`]: {
-      [`${componentCls}-square`]: {
-        borderRadius: 0,
-        padding: 0,
-        '&:first-child': {
-          borderStartStartRadius: borderRadiusLG,
-          borderStartEndRadius: borderRadiusLG,
-        },
-        '&:last-child': {
-          borderEndStartRadius: borderRadiusLG,
-          borderEndEndRadius: borderRadiusLG,
-        },
-        '&:not(:last-child)': {
-          borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
-        },
-        [`${antCls}-badge`]: {
-          [`${antCls}-badge-count`]: {
-            top: calc(calc(floatButtonBodyPadding).add(badgeOffset)).mul(-1).equal(),
-            insetInlineEnd: calc(calc(floatButtonBodyPadding).add(badgeOffset)).mul(-1).equal(),
-          },
-        },
-      },
-      [`${groupPrefixCls}-wrap`]: {
-        display: 'block',
-        borderRadius: borderRadiusLG,
-        boxShadow: token.boxShadowSecondary,
+      '&-square': {
         [`${componentCls}-square`]: {
-          boxShadow: 'none',
-          marginTop: 0,
+          padding: 0,
           borderRadius: 0,
-          padding: floatButtonBodyPadding,
+          [`&${groupPrefixCls}-trigger`]: {
+            borderRadius: borderRadiusLG,
+          },
           '&:first-child': {
             borderStartStartRadius: borderRadiusLG,
             borderStartEndRadius: borderRadiusLG,
@@ -234,25 +257,51 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
           '&:not(:last-child)': {
             borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
           },
-          [`${componentCls}-body`]: {
-            width: token.floatButtonBodySize,
-            height: token.floatButtonBodySize,
+          [`${antCls}-badge`]: {
+            '&-count': {
+              top: calc(calc(floatButtonBodyPadding).add(badgeOffset)).mul(-1).equal(),
+              insetInlineEnd: calc(calc(floatButtonBodyPadding).add(badgeOffset)).mul(-1).equal(),
+            },
+          },
+        },
+        [`${groupPrefixCls}-wrap`]: {
+          borderRadius: borderRadiusLG,
+          boxShadow: token.boxShadowSecondary,
+          [`${componentCls}-square`]: {
+            boxShadow: 'none',
+            borderRadius: 0,
+            padding: floatButtonBodyPadding,
+            '&:first-child': {
+              borderStartStartRadius: borderRadiusLG,
+              borderStartEndRadius: borderRadiusLG,
+            },
+            '&:last-child': {
+              borderEndStartRadius: borderRadiusLG,
+              borderEndEndRadius: borderRadiusLG,
+            },
+            '&:not(:last-child)': {
+              borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
+            },
+            [`${componentCls}-body`]: {
+              width: token.floatButtonBodySize,
+              height: token.floatButtonBodySize,
+            },
           },
         },
       },
-    },
-    [`${groupPrefixCls}-circle-shadow`]: {
-      boxShadow: 'none',
-    },
-    [`${groupPrefixCls}-square-shadow`]: {
-      boxShadow: token.boxShadowSecondary,
-      [`${componentCls}-square`]: {
+      '&-circle-shadow': {
         boxShadow: 'none',
-        padding: floatButtonBodyPadding,
-        [`${componentCls}-body`]: {
-          width: token.floatButtonBodySize,
-          height: token.floatButtonBodySize,
-          borderRadius: borderRadiusSM,
+      },
+      '&-square-shadow': {
+        boxShadow: token.boxShadowSecondary,
+        [`${componentCls}-square`]: {
+          boxShadow: 'none',
+          padding: floatButtonBodyPadding,
+          [`${componentCls}-body`]: {
+            width: token.floatButtonBodySize,
+            height: token.floatButtonBodySize,
+            borderRadius: borderRadiusSM,
+          },
         },
       },
     },
@@ -301,7 +350,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       [`${antCls}-badge`]: {
         width: '100%',
         height: '100%',
-        [`${antCls}-badge-count`]: {
+        '&-count': {
           transform: 'translate(0, 0)',
           transformOrigin: 'center',
           top: calc(badgeOffset).mul(-1).equal(),

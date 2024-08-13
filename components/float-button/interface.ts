@@ -49,6 +49,8 @@ export interface FloatButtonGroupProps extends FloatButtonProps {
   open?: boolean;
   // 关闭按钮自定义图标
   closeIcon?: React.ReactNode;
+  // 菜单弹出方向
+  placement?: 'top' | 'left' | 'right' | 'bottom';
   // 展开收起的回调
   onOpenChange?: (open: boolean) => void;
 }

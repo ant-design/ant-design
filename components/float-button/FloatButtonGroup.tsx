@@ -22,6 +22,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
     style,
     shape = 'circle',
     type = 'default',
+    placement = 'top',
     icon = <FileTextOutlined />,
     closeIcon,
     description,
@@ -53,7 +54,11 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
 
   const mergedStyle: React.CSSProperties = { ...style, zIndex };
 
-  const wrapperCls = classNames(hashId, `${groupPrefixCls}-wrap`);
+  const wrapperCls = classNames(
+    hashId,
+    `${groupPrefixCls}-wrap`,
+    `${groupPrefixCls}-wrap-${placement}`,
+  );
 
   const [open, setOpen] = useMergedState(false, { value: customOpen });
 
@@ -132,6 +137,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
               icon={open ? mergedCloseIcon : icon}
               description={description}
               aria-label={props['aria-label']}
+              className={`${groupPrefixCls}-trigger`}
               {...floatButtonProps}
             />
           </>
