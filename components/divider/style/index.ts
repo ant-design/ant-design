@@ -25,9 +25,25 @@ export interface ComponentToken {
   verticalMarginInline: CSSProperties['marginInline'];
 }
 
+/**
+ * @desc Divider 组件的 Token
+ * @descEN Token for Divider component
+ */
 interface DividerToken extends FullToken<'Divider'> {
+  /**
+   * @desc 尺寸边距
+   * @descEN Size padding edge horizontal
+   */
   sizePaddingEdgeHorizontal: number | string;
+  /**
+   * @desc 带文本的水平分割线的外边距
+   * @descEN Horizontal margin of divider with text
+   */
   dividerHorizontalWithTextGutterMargin: number | string;
+  /**
+   * @desc 水平分割线的外边距
+   * @descEN Horizontal margin of divider
+   */
   dividerHorizontalGutterMargin: number | string;
 }
 

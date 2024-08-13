@@ -4,6 +4,10 @@ import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/inte
 import { genStyleHooks } from '../../theme/internal';
 
 export interface ComponentToken {
+  /**
+   * @desc 弹出层的 z-index
+   * @descEN z-index of popup
+   */
   zIndexPopup: number;
 }
 
