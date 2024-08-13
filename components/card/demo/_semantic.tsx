@@ -1,5 +1,4 @@
 import React from 'react';
-import type { ModalProps } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
@@ -28,7 +27,7 @@ const locales = {
   },
 };
 
-const BlockCard = (props: ModalProps) => {
+const BlockCard: React.FC<React.PropsWithChildren> = (props) => {
   const divRef = React.useRef<HTMLDivElement>(null);
 
   return (
@@ -49,7 +48,7 @@ const BlockCard = (props: ModalProps) => {
           <EditOutlined key="edit" />,
           <EllipsisOutlined key="ellipsis" />,
         ]}
-      ></Card>
+      />
     </div>
   );
 };
