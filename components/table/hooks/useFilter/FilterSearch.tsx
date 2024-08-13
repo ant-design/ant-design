@@ -5,7 +5,7 @@ import type { AnyObject } from '../../../_util/type';
 import Input from '../../../input';
 import type { FilterSearchType, TableLocale } from '../../interface';
 
-interface FilterSearchProps<RecordType extends AnyObject = AnyObject> {
+interface FilterSearchProps<RecordType = AnyObject> {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   filterSearch: FilterSearchType<RecordType>;

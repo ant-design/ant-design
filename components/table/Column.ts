@@ -1,8 +1,7 @@
 import type { AnyObject } from '../_util/type';
 import type { ColumnType } from './interface';
 
-export interface ColumnProps<RecordType extends AnyObject = AnyObject>
-  extends ColumnType<RecordType> {
+export interface ColumnProps<RecordType = AnyObject> extends ColumnType<RecordType> {
   children?: null;
 }
 

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import type { AnyObject } from '../_util/type';
 import type { TableLocale } from './interface';
 
-interface DefaultExpandIconProps<RecordType extends AnyObject = AnyObject> {
+interface DefaultExpandIconProps<RecordType = AnyObject> {
   prefixCls: string;
   record: RecordType;
   expanded: boolean;

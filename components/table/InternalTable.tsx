@@ -59,7 +59,7 @@ export type { ColumnsType, TablePaginationConfig };
 
 const EMPTY_LIST: AnyObject[] = [];
 
-interface ChangeEventInfo<RecordType extends AnyObject = AnyObject> {
+interface ChangeEventInfo<RecordType = AnyObject> {
   pagination: {
     current?: number;
     pageSize?: number;
@@ -113,8 +113,7 @@ export interface TableProps<RecordType = AnyObject>
 }
 
 /** Same as `TableProps` but we need record parent render times */
-export interface InternalTableProps<RecordType extends AnyObject = AnyObject>
-  extends TableProps<RecordType> {
+export interface InternalTableProps<RecordType = AnyObject> extends TableProps<RecordType> {
   _renderTimes: number;
 }
 

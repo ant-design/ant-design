@@ -3,7 +3,7 @@ import * as React from 'react';
 import type { AnyObject } from '../../_util/type';
 import type { GetRowKey, Key } from '../interface';
 
-interface MapCache<RecordType extends AnyObject = AnyObject> {
+interface MapCache<RecordType = AnyObject> {
   data?: readonly RecordType[];
   childrenColumnName?: string;
   kvMap?: Map<Key, RecordType>;
