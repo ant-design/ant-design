@@ -34,8 +34,6 @@ Common props ref：[Common props](/docs/react/common-props)
 <Card title="Card title">Card content</Card>
 ```
 
-### Card
-
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | actions | The action list, shows at the bottom of the Card | Array&lt;ReactNode> | - |  |
@@ -52,8 +50,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | tabProps | [Tabs](/components/tabs/#tabs) | - | - |  |
 | title | Card title | ReactNode | - |  |
 | type | Card style type, can be set to `inner` or not set | string | - |  |
-| classNames | Config Card build-in module's className | Record<SemanticDOM, string> | - | 5.14.0 |
-| styles | Config Card build-in module's style | Record<SemanticDOM, string> | - | 5.14.0 |
+| classNames | Config Card build-in module's className | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.14.0 |
+| styles | Config Card build-in module's style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.14.0 |
 | onTabChange | Callback when tab is switched | (key) => void | - |  |
 
 ### Card.Grid
@@ -74,16 +72,9 @@ Common props ref：[Common props](/docs/react/common-props)
 | style       | The style object of container | CSSProperties | -       |         |
 | title       | Title content                 | ReactNode     | -       |         |
 
-### `styles` 和 `classNames` attribute
+## Semantic DOM
 
-| Property | Description           | Version |
-| -------- | --------------------- | ------- |
-| header   | set `header` of card  | 5.14.0  |
-| body     | set `body` of card    | 5.14.0  |
-| extra    | set `extra` of card   | 5.14.0  |
-| title    | set `title` of card   | 5.14.0  |
-| actions  | set `actions` of card | 5.14.0  |
-| cover    | set `cover` of card   | 5.14.0  |
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 
