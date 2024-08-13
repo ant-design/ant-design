@@ -18,12 +18,12 @@ const locales = {
     cover: '设置标题封面',
   },
   en: {
-    header: 'set `header` of card ',
+    header: 'set `header` of card',
     body: 'set `body` of card',
-    extra: 'set `extra` of card ',
-    title: 'set `title` of card ',
+    extra: 'set `extra` of card',
+    title: 'set `title` of card',
     actions: 'set `actions` of card',
-    cover: 'set `cover` of card ',
+    cover: 'set `cover` of card',
   },
 };
 
