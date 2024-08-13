@@ -17,7 +17,7 @@ import type {
 import { getColumnKey, getColumnPos, renderColumnTitle } from '../../util';
 import FilterDropdown, { flattenKeys } from './FilterDropdown';
 
-export interface FilterState<RecordType extends AnyObject = AnyObject> {
+export interface FilterState<RecordType = AnyObject> {
   column: ColumnType<RecordType>;
   key: Key;
   filteredKeys?: FilterKey;
@@ -203,7 +203,7 @@ export const getFilterData = <RecordType extends AnyObject = AnyObject>(
   return filterDatas;
 };
 
-export interface FilterConfig<RecordType extends AnyObject = AnyObject> {
+export interface FilterConfig<RecordType = AnyObject> {
   prefixCls: string;
   dropdownPrefixCls: string;
   mergedColumns: ColumnsType<RecordType>;
