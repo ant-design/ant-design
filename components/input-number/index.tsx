@@ -134,6 +134,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
 
   const element = (
     <RcInputNumber
+      type="number"
       ref={inputRef}
       disabled={mergedDisabled}
       className={classNames(cssVarCls, rootCls, className, rootClassName, compactItemClassnames)}
