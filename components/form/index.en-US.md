@@ -189,7 +189,7 @@ related issue: [#34500](https://github.com/ant-design/ant-design/issues/34500)
 </Form.Item>
 ```
 
-You can ref [example](#form-demo-horizontal-login) to see detail.
+You can ref [example](#form-demo-inline-login) to see detail.
 
 When `shouldUpdate` is a function, it will be called by form values update. Providing original values and current value to compare. This is very helpful for rendering additional fields based on values:
 

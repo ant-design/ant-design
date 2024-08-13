@@ -307,8 +307,8 @@ https://codesandbox.io/xxx
 #### 😈 “正确示范”
 
 ```
-问题一：发请求时报错：`405 Method not allowd`。
-问题二：您好，我这里出现了 `405 Method not allowd` 的问题。
+问题一：发请求时报错：`405 Method not allowed`。
+问题二：您好，我这里出现了 `405 Method not allowed` 的问题。
 问题三：请求 405 错误，请问我该怎么办？
 问题 n：...
 ```
@@ -316,7 +316,7 @@ https://codesandbox.io/xxx
 #### 👼 “错误示范”
 
 ```
-问题一：发请求时报错：`405 Method not allowd`
+问题一：发请求时报错：`405 Method not allowed`
 你：+1 我也出现了这个问题。
 ```
 

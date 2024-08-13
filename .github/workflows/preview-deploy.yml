@@ -94,7 +94,7 @@ jobs:
           PR_ID: ${{ steps.pr.outputs.id }}
         run: |
           export DEPLOY_DOMAIN=https://preview-${PR_ID}-ant-design.surge.sh
-          npx surge0.23.1 --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
+          npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
 
       - name: success comment
         uses: actions-cool/maintain-one-comment@v3

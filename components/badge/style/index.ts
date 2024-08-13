@@ -49,16 +49,60 @@ export interface ComponentToken {
   statusSize: number;
 }
 
+/**
+ * @desc Badge 组件的 Token
+ * @descEN Token for Badge component
+ */
 export interface BadgeToken extends FullToken<'Badge'> {
+  /**
+   * @desc 徽标字体高度
+   * @descEN Font height of badge
+   */
   badgeFontHeight: number;
+  /**
+   * @desc 徽标文本颜色
+   * @descEN Text color of badge
+   */
   badgeTextColor: string;
+  /**
+   * @desc 徽标颜色
+   * @descEN Color of badge
+   */
   badgeColor: string;
+  /**
+   * @desc 徽标悬停颜色
+   * @descEN Hover color of badge
+   */
   badgeColorHover: string;
+  /**
+   * @desc 徽标阴影尺寸
+   * @descEN Shadow size of badge
+   */
   badgeShadowSize: number;
+  /**
+   * @desc 徽标阴影颜色
+   * @descEN Shadow color of badge
+   */
   badgeShadowColor: string;
+  /**
+   * @desc 徽标处理持续时间
+   * @descEN Processing duration of badge
+   */
   badgeProcessingDuration: string;
+  /**
+   * @desc 徽标丝带偏移量
+   * @descEN Ribbon offset of badge
+   */
   badgeRibbonOffset: number;
+  /**
+   * @desc 徽标丝带角变换
+   * @descEN Ribbon corner transform of badge
+   */
   badgeRibbonCornerTransform: string;
+  /**
+   * @desc 徽标丝带角滤镜
+   * @descEN Ribbon corner filter of badge
+   */
   badgeRibbonCornerFilter: string;
 }
 

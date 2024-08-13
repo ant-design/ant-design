@@ -7,8 +7,20 @@ import { genStyleHooks, mergeToken } from '../../theme/internal';
 // biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
 export interface ComponentToken {}
 
+/**
+ * @desc Checkbox 组件的 Token
+ * @descEN Token for Checkbox component
+ */
 interface CheckboxToken extends FullToken<'Checkbox'> {
+  /**
+   * @desc Checkbox 类名
+   * @descEN Checkbox class name
+   */
   checkboxCls: string;
+  /**
+   * @desc Checkbox 尺寸
+   * @descEN Size of Checkbox
+   */
   checkboxSize: number;
 }
 

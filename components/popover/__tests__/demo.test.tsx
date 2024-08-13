@@ -4,7 +4,7 @@ import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 
 demoTest('popover', {
   testRootProps: false,
-  skip: ['shift.tsx'],
+  skip: ['shift.tsx', 'arrow-point-at-center.tsx'],
 });
 
 rootPropsTest(

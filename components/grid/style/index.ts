@@ -12,6 +12,10 @@ interface GridRowToken extends FullToken<'Grid'> {
 }
 
 interface GridColToken extends FullToken<'Grid'> {
+  /**
+   * @desc 网格列数
+   * @descEN Number of grid columns
+   */
   gridColumns: number;
 }
 
