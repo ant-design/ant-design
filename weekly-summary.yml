@@ -1,0 +1,48 @@
+name: Weekly Summary
+
+on:
+  schedule:
+    - cron: "0 9 * * 1"
+
+permissions:
+  issues: write
+  pull-requests: read
+
+jobs:
+  weekly-summary:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch issues and PRs
+        id: fetch_data
+        run: |
+          issues=$(gh issue list --state all --json number,title,createdAt,closedAt,labels,assignees)
+          prs=$(gh pr list --state all --json number,title,createdAt,closedAt,labels,assignees)
+          echo "::set-output name=issues::$issues"
+          echo "::set-output name=prs::$prs"
+
+      - name: Categorize and analyze issues and PRs
+        id: categorize_analyze
+        run: |
+          issues=${{ steps.fetch_data.outputs.issues }}
+          prs=${{ steps.fetch_data.outputs.prs }}
+          # Categorize and analyze logic here
+          # For simplicity, we will just echo the data
+          echo "Issues: $issues"
+          echo "PRs: $prs"
+
+      - name: Create or update weekly summary issue
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          issues=${{ steps.fetch_data.outputs.issues }}
+          prs=${{ steps.fetch_data.outputs.prs }}
+          summary="## Weekly Summary\n\n### Issues\n$issues\n\n### PRs\n$prs"
+          issue_number=$(gh issue list --search "Weekly Summary" --json number --jq '.[0].number')
+          if [ -z "$issue_number" ]; then
+            gh issue create --title "Weekly Summary" --body "$summary"
+          else
+            gh issue comment $issue_number --body "$summary"
+          fi
