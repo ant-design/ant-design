@@ -46,7 +46,7 @@ Omit useless words and do not repeat facts known to users. In most situations, t
 <img class="preview-img bad no-padding" alt="Wrong Example" src="https://gw.alipayobjects.com/zos/antfincdn/qnPRlCpzZz/388f7772-d962-49ee-a103-582e3ff6c0ca.png" description="Stand from the user's point of view and say what the user is familiar with.">
 </ImagePreview>
 
-Use simple, direct and easy-to-understand words. Indirect, ambiguous, obscure, and overly "refined" copywrite will increase user's cognitive load.
+Use simple, direct and easy-to-understand words. Indirect, ambiguous, obscure, and overly "refined" copywriting will increase user's cognitive load.
 
 ### Express consistently
 
@@ -110,7 +110,7 @@ Use general basic words normatively. Spell correctly, express completely. Profes
 
 ## Tone
 
-Language defines content, while emotions and atmosphere are expressed more in tone. The same content can be expressed in different tones to different users. Take an example, to professional operators and new users, we should use different copywrite.
+Language defines content, while emotions and atmosphere are expressed more in tone. The same content can be expressed in different tones to different users. Take an example, to professional operators and new users, we should use different copywriting.
 
 ### Bring each other closer
 
