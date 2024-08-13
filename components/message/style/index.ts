@@ -1,4 +1,3 @@
-// deps-lint-skip-all
 import type { CSSProperties } from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
@@ -28,8 +27,16 @@ export interface ComponentToken {
   contentPadding: CSSProperties['padding'];
 }
 
+/**
+ * @desc Message 组件的 Token
+ * @descEN Token for Message component
+ */
 interface MessageToken extends FullToken<'Message'> {
   // Custom token here
+  /**
+   * @desc 提示框高度
+   * @descEN Height of Message
+   */
   height: number;
 }
 

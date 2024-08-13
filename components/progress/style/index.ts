@@ -41,9 +41,25 @@ export interface ComponentToken {
 export const LineStrokeColorVar = '--progress-line-stroke-color';
 export const Percent = '--progress-percent';
 
+/**
+ * @desc Progress 组件的 Token
+ * @descEN Token for Progress component
+ */
 interface ProgressToken extends FullToken<'Progress'> {
+  /**
+   * @desc 进度步骤最小宽度
+   * @descEN Minimum width of progress step
+   */
   progressStepMinWidth: number | string;
+  /**
+   * @desc 进度步骤右间距
+   * @descEN Right margin of progress step
+   */
   progressStepMarginInlineEnd: number | string;
+  /**
+   * @desc 进度条动画持续时间
+   * @descEN Duration of progress bar animation
+   */
   progressActiveMotionDuration: string;
 }
 
