@@ -49,7 +49,7 @@ const BlockCard = (props: ModalProps) => {
           <EditOutlined key="edit" />,
           <EllipsisOutlined key="ellipsis" />,
         ]}
-      ></Card>
+       />
     </div>
   );
 };
