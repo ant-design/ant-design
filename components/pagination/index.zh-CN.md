@@ -17,7 +17,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
-<code src="./demo/align.tsx">方向</code>
+<code src="./demo/align.tsx" version="5.19.0">方向</code>
 <code src="./demo/more.tsx">更多</code>
 <code src="./demo/changer.tsx">改变</code>
 <code src="./demo/jump.tsx">跳转</code>
@@ -40,7 +40,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| align | 对齐方式 | start \| center \| end | - |  |
+| align | 对齐方式 | start \| center \| end | - | 5.19.0 |
 | current | 当前页数 | number | - |  |
 | defaultCurrent | 默认的当前页数 | number | 1 |  |
 | defaultPageSize | 默认的每页条数 | number | 10 |  |
