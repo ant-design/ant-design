@@ -693,7 +693,7 @@ Array [
     style="inset-inline-end:88px"
   >
     <div
-      class="ant-float-btn-group-wrap"
+      class="ant-float-btn-group-wrap ant-float-btn-group-wrap-top"
     >
       <button
         class="ant-float-btn ant-float-btn-default ant-float-btn-square"

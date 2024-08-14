@@ -311,6 +311,20 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
         },
       },
       '&-square': {
+        [`${componentCls}-square`]: {
+          borderRadius: 0,
+          '&:first-child': {
+            borderStartStartRadius: borderRadiusLG,
+            borderStartEndRadius: borderRadiusLG,
+          },
+          '&:last-child': {
+            borderEndStartRadius: borderRadiusLG,
+            borderEndEndRadius: borderRadiusLG,
+          },
+          '&:not(:last-child)': {
+            borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
+          },
+        },
         [`${groupPrefixCls}-trigger`]: {
           borderRadius: borderRadiusLG,
         },
