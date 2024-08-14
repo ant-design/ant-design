@@ -1325,17 +1325,17 @@ Array [
 exports[`renders components/float-button/demo/placement.tsx correctly 1`] = `
 <div
   class="ant-flex ant-flex-align-center ant-flex-justify-space-evenly"
-  style="width:100%;height:100vh"
+  style="width:100%;height:100vh;overflow:hidden;position:relative"
 >
   <div
     style="width:100px;height:100px;position:relative"
   >
     <div
-      class="ant-float-btn-group ant-float-btn-group-square"
-      style="position:absolute;inset-inline-start:30px;inset-inline-end:auto;inset-block-start:-20px;inset-block-end:auto"
+      class="ant-float-btn-group ant-float-btn-group-circle"
+      style="position:absolute;inset-inline-end:30px;bottom:80px"
     >
       <button
-        class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-square"
+        class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-circle"
         type="button"
       >
         <div
@@ -1348,13 +1348,13 @@ exports[`renders components/float-button/demo/placement.tsx correctly 1`] = `
               class="ant-float-btn-icon"
             >
               <span
-                aria-label="customer-service"
-                class="anticon anticon-customer-service"
+                aria-label="up"
+                class="anticon anticon-up"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="customer-service"
+                  data-icon="up"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
@@ -1362,7 +1362,7 @@ exports[`renders components/float-button/demo/placement.tsx correctly 1`] = `
                   width="1em"
                 >
                   <path
-                    d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
+                    d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
                   />
                 </svg>
               </span>
@@ -1372,11 +1372,11 @@ exports[`renders components/float-button/demo/placement.tsx correctly 1`] = `
       </button>
     </div>
     <div
-      class="ant-float-btn-group ant-float-btn-group-square"
-      style="position:absolute;inset-inline-start:80px;inset-inline-end:auto;inset-block-start:30px;inset-block-end:auto"
+      class="ant-float-btn-group ant-float-btn-group-circle"
+      style="position:absolute;inset-inline-end:-20px;bottom:30px"
     >
       <button
-        class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-square"
+        class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-circle"
         type="button"
       >
         <div
@@ -1389,13 +1389,13 @@ exports[`renders components/float-button/demo/placement.tsx correctly 1`] = `
               class="ant-float-btn-icon"
             >
               <span
-                aria-label="customer-service"
-                class="anticon anticon-customer-service"
+                aria-label="right"
+                class="anticon anticon-right"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="customer-service"
+                  data-icon="right"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
@@ -1403,7 +1403,7 @@ exports[`renders components/float-button/demo/placement.tsx correctly 1`] = `
                   width="1em"
                 >
                   <path
-                    d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
                   />
                 </svg>
               </span>
@@ -1413,11 +1413,11 @@ exports[`renders components/float-button/demo/placement.tsx correctly 1`] = `
       </button>
     </div>
     <div
-      class="ant-float-btn-group ant-float-btn-group-square"
-      style="position:absolute;inset-inline-start:30px;inset-inline-end:auto;inset-block-start:auto;inset-block-end:-20px"
+      class="ant-float-btn-group ant-float-btn-group-circle"
+      style="position:absolute;inset-inline-end:30px;bottom:-20px"
     >
       <button
-        class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-square"
+        class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-circle"
         type="button"
       >
         <div
@@ -1430,13 +1430,13 @@ exports[`renders components/float-button/demo/placement.tsx correctly 1`] = `
               class="ant-float-btn-icon"
             >
               <span
-                aria-label="customer-service"
-                class="anticon anticon-customer-service"
+                aria-label="down"
+                class="anticon anticon-down"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="customer-service"
+                  data-icon="down"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
@@ -1444,7 +1444,7 @@ exports[`renders components/float-button/demo/placement.tsx correctly 1`] = `
                   width="1em"
                 >
                   <path
-                    d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
+                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
                   />
                 </svg>
               </span>
@@ -1454,11 +1454,11 @@ exports[`renders components/float-button/demo/placement.tsx correctly 1`] = `
       </button>
     </div>
     <div
-      class="ant-float-btn-group ant-float-btn-group-square"
-      style="position:absolute;inset-inline-start:-20px;inset-inline-end:auto;inset-block-start:30px;inset-block-end:auto"
+      class="ant-float-btn-group ant-float-btn-group-circle"
+      style="position:absolute;inset-inline-end:80px;bottom:30px"
     >
       <button
-        class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-square"
+        class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-circle"
         type="button"
       >
         <div
@@ -1471,13 +1471,13 @@ exports[`renders components/float-button/demo/placement.tsx correctly 1`] = `
               class="ant-float-btn-icon"
             >
               <span
-                aria-label="customer-service"
-                class="anticon anticon-customer-service"
+                aria-label="left"
+                class="anticon anticon-left"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="customer-service"
+                  data-icon="left"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
@@ -1485,7 +1485,7 @@ exports[`renders components/float-button/demo/placement.tsx correctly 1`] = `
                   width="1em"
                 >
                   <path
-                    d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </span>
@@ -1499,11 +1499,11 @@ exports[`renders components/float-button/demo/placement.tsx correctly 1`] = `
     style="width:100px;height:100px;position:relative"
   >
     <div
-      class="ant-float-btn-group ant-float-btn-group-circle"
-      style="position:absolute;inset-inline-start:30px;inset-inline-end:auto;inset-block-start:-20px;inset-block-end:auto"
+      class="ant-float-btn-group ant-float-btn-group-square"
+      style="position:absolute;inset-inline-end:30px;bottom:80px"
     >
       <button
-        class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-circle"
+        class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-square"
         type="button"
       >
         <div
@@ -1516,13 +1516,13 @@ exports[`renders components/float-button/demo/placement.tsx correctly 1`] = `
               class="ant-float-btn-icon"
             >
               <span
-                aria-label="customer-service"
-                class="anticon anticon-customer-service"
+                aria-label="up"
+                class="anticon anticon-up"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="customer-service"
+                  data-icon="up"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
@@ -1530,7 +1530,7 @@ exports[`renders components/float-button/demo/placement.tsx correctly 1`] = `
                   width="1em"
                 >
                   <path
-                    d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
+                    d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
                   />
                 </svg>
               </span>
@@ -1540,11 +1540,11 @@ exports[`renders components/float-button/demo/placement.tsx correctly 1`] = `
       </button>
     </div>
     <div
-      class="ant-float-btn-group ant-float-btn-group-circle"
-      style="position:absolute;inset-inline-start:80px;inset-inline-end:auto;inset-block-start:30px;inset-block-end:auto"
+      class="ant-float-btn-group ant-float-btn-group-square"
+      style="position:absolute;inset-inline-end:-20px;bottom:30px"
     >
       <button
-        class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-circle"
+        class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-square"
         type="button"
       >
         <div
@@ -1557,13 +1557,13 @@ exports[`renders components/float-button/demo/placement.tsx correctly 1`] = `
               class="ant-float-btn-icon"
             >
               <span
-                aria-label="customer-service"
-                class="anticon anticon-customer-service"
+                aria-label="right"
+                class="anticon anticon-right"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="customer-service"
+                  data-icon="right"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
@@ -1571,7 +1571,7 @@ exports[`renders components/float-button/demo/placement.tsx correctly 1`] = `
                   width="1em"
                 >
                   <path
-                    d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
                   />
                 </svg>
               </span>
@@ -1581,11 +1581,11 @@ exports[`renders components/float-button/demo/placement.tsx correctly 1`] = `
       </button>
     </div>
     <div
-      class="ant-float-btn-group ant-float-btn-group-circle"
-      style="position:absolute;inset-inline-start:30px;inset-inline-end:auto;inset-block-start:auto;inset-block-end:-20px"
+      class="ant-float-btn-group ant-float-btn-group-square"
+      style="position:absolute;inset-inline-end:30px;bottom:-20px"
     >
       <button
-        class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-circle"
+        class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-square"
         type="button"
       >
         <div
@@ -1598,13 +1598,13 @@ exports[`renders components/float-button/demo/placement.tsx correctly 1`] = `
               class="ant-float-btn-icon"
             >
               <span
-                aria-label="customer-service"
-                class="anticon anticon-customer-service"
+                aria-label="down"
+                class="anticon anticon-down"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="customer-service"
+                  data-icon="down"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
@@ -1612,7 +1612,7 @@ exports[`renders components/float-button/demo/placement.tsx correctly 1`] = `
                   width="1em"
                 >
                   <path
-                    d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
+                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
                   />
                 </svg>
               </span>
@@ -1622,11 +1622,11 @@ exports[`renders components/float-button/demo/placement.tsx correctly 1`] = `
       </button>
     </div>
     <div
-      class="ant-float-btn-group ant-float-btn-group-circle"
-      style="position:absolute;inset-inline-start:-20px;inset-inline-end:auto;inset-block-start:30px;inset-block-end:auto"
+      class="ant-float-btn-group ant-float-btn-group-square"
+      style="position:absolute;inset-inline-end:80px;bottom:30px"
     >
       <button
-        class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-circle"
+        class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-square"
         type="button"
       >
         <div
@@ -1639,13 +1639,13 @@ exports[`renders components/float-button/demo/placement.tsx correctly 1`] = `
               class="ant-float-btn-icon"
             >
               <span
-                aria-label="customer-service"
-                class="anticon anticon-customer-service"
+                aria-label="left"
+                class="anticon anticon-left"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="customer-service"
+                  data-icon="left"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
@@ -1653,7 +1653,7 @@ exports[`renders components/float-button/demo/placement.tsx correctly 1`] = `
                   width="1em"
                 >
                   <path
-                    d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </span>

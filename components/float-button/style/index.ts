@@ -273,7 +273,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
       minWidth: floatButtonSize,
       minHeight: floatButtonSize,
       insetInlineEnd: token.floatButtonInsetInlineEnd,
-      insetBlockEnd: token.floatButtonInsetBlockEnd,
+      bottom: token.floatButtonInsetBlockEnd,
       borderRadius: borderRadiusLG,
       '&-wrap': {
         zIndex: -1,
@@ -366,7 +366,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
             borderRadius: 0,
             padding: floatButtonBodyPadding,
             [`${antCls}-badge`]: {
-              '&-count': {
+              [`${antCls}-badge-count`]: {
                 top: calc(calc(floatButtonBodyPadding).add(badgeOffset)).mul(-1).equal(),
                 insetInlineEnd: calc(calc(floatButtonBodyPadding).add(badgeOffset)).mul(-1).equal(),
               },
@@ -426,7 +426,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       width: floatButtonSize,
       height: floatButtonSize,
       insetInlineEnd: token.floatButtonInsetInlineEnd,
-      insetBlockEnd: token.floatButtonInsetBlockEnd,
+      bottom: token.floatButtonInsetBlockEnd,
       boxShadow: token.boxShadowSecondary,
       // Pure Panel
       '&-pure': {
@@ -439,7 +439,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       [`${antCls}-badge`]: {
         width: '100%',
         height: '100%',
-        '&-count': {
+        [`${antCls}-badge-count`]: {
           transform: 'translate(0, 0)',
           transformOrigin: 'center',
           top: calc(badgeOffset).mul(-1).equal(),
