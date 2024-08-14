@@ -118,7 +118,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
       insetInlineEnd: token.floatButtonInsetInlineEnd,
       bottom: token.floatButtonInsetBlockEnd,
       borderRadius: borderRadiusLG,
-      '&-wrap': {
+      [`${groupPrefixCls}-wrap`]: {
         zIndex: -1,
         display: 'flex',
         justifyContent: 'center',
@@ -126,18 +126,22 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
         position: 'absolute',
         '&-top': {
           flexDirection: 'column',
+          top: 'auto',
           bottom: calc(floatButtonSize).add(margin).equal(),
         },
         '&-bottom': {
           flexDirection: 'column',
           top: calc(floatButtonSize).add(margin).equal(),
+          bottom: 'auto',
         },
         '&-right': {
           flexDirection: 'row',
           insetInlineStart: calc(floatButtonSize).add(margin).equal(),
+          insetInlineEnd: 'auto',
         },
         '&-left': {
           flexDirection: 'row',
+          insetInlineStart: 'auto',
           insetInlineEnd: calc(floatButtonSize).add(margin).equal(),
         },
       },
@@ -156,7 +160,11 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
     },
     [`${groupPrefixCls}-square`]: {
       [`${componentCls}-square`]: {
+        padding: 0,
         borderRadius: 0,
+        [`&${groupPrefixCls}-trigger`]: {
+          borderRadius: borderRadiusLG,
+        },
         '&:first-child': {
           borderStartStartRadius: borderRadiusLG,
           borderStartEndRadius: borderRadiusLG,
@@ -168,9 +176,12 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
         '&:not(:last-child)': {
           borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
         },
-      },
-      [`${groupPrefixCls}-trigger`]: {
-        borderRadius: borderRadiusLG,
+        [`${antCls}-badge`]: {
+          [`${antCls}-badge-count`]: {
+            top: calc(calc(floatButtonBodyPadding).add(badgeOffset)).mul(-1).equal(),
+            insetInlineEnd: calc(calc(floatButtonBodyPadding).add(badgeOffset)).mul(-1).equal(),
+          },
+        },
       },
       [`${groupPrefixCls}-wrap`]: {
         borderRadius: borderRadiusLG,
@@ -209,12 +220,6 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
           boxShadow: 'none',
           borderRadius: 0,
           padding: floatButtonBodyPadding,
-          [`${antCls}-badge`]: {
-            [`${antCls}-badge-count`]: {
-              top: calc(calc(floatButtonBodyPadding).add(badgeOffset)).mul(-1).equal(),
-              insetInlineEnd: calc(calc(floatButtonBodyPadding).add(badgeOffset)).mul(-1).equal(),
-            },
-          },
           [`${componentCls}-body`]: {
             width: token.floatButtonBodySize,
             height: token.floatButtonBodySize,
