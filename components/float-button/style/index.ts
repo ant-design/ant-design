@@ -147,93 +147,93 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
       [componentCls]: {
         position: 'static',
       },
-      '&-circle': {
+    },
+    [`${groupPrefixCls}-circle`]: {
+      gap: margin,
+      [`${groupPrefixCls}-wrap`]: {
         gap: margin,
-        [`${groupPrefixCls}-wrap`]: {
-          gap: margin,
+      },
+    },
+    [`${groupPrefixCls}-square`]: {
+      [`${componentCls}-square`]: {
+        borderRadius: 0,
+        '&:first-child': {
+          borderStartStartRadius: borderRadiusLG,
+          borderStartEndRadius: borderRadiusLG,
+        },
+        '&:last-child': {
+          borderEndStartRadius: borderRadiusLG,
+          borderEndEndRadius: borderRadiusLG,
+        },
+        '&:not(:last-child)': {
+          borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
         },
       },
-      '&-square': {
-        [`${componentCls}-square`]: {
-          borderRadius: 0,
-          '&:first-child': {
-            borderStartStartRadius: borderRadiusLG,
-            borderStartEndRadius: borderRadiusLG,
-          },
-          '&:last-child': {
-            borderEndStartRadius: borderRadiusLG,
-            borderEndEndRadius: borderRadiusLG,
-          },
-          '&:not(:last-child)': {
-            borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
-          },
-        },
-        [`${groupPrefixCls}-trigger`]: {
-          borderRadius: borderRadiusLG,
-        },
-        [`${groupPrefixCls}-wrap`]: {
-          borderRadius: borderRadiusLG,
-          boxShadow: token.boxShadowSecondary,
-          '&-top, &-bottom': {
-            [`${componentCls}-square`]: {
-              '&:first-child': {
-                borderStartStartRadius: borderRadiusLG,
-                borderStartEndRadius: borderRadiusLG,
-              },
-              '&:last-child': {
-                borderEndStartRadius: borderRadiusLG,
-                borderEndEndRadius: borderRadiusLG,
-              },
-              '&:not(:last-child)': {
-                borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
-              },
-            },
-          },
-          '&-left, &-right': {
-            [`${componentCls}-square`]: {
-              '&:first-child': {
-                borderStartStartRadius: borderRadiusLG,
-                borderEndStartRadius: borderRadiusLG,
-              },
-              '&:last-child': {
-                borderStartEndRadius: borderRadiusLG,
-                borderEndEndRadius: borderRadiusLG,
-              },
-              '&:not(:last-child)': {
-                borderInlineEnd: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
-              },
-            },
-          },
-          [`${componentCls}-square`]: {
-            boxShadow: 'none',
-            borderRadius: 0,
-            padding: floatButtonBodyPadding,
-            [`${antCls}-badge`]: {
-              [`${antCls}-badge-count`]: {
-                top: calc(calc(floatButtonBodyPadding).add(badgeOffset)).mul(-1).equal(),
-                insetInlineEnd: calc(calc(floatButtonBodyPadding).add(badgeOffset)).mul(-1).equal(),
-              },
-            },
-            [`${componentCls}-body`]: {
-              width: token.floatButtonBodySize,
-              height: token.floatButtonBodySize,
-            },
-          },
-        },
+      [`${groupPrefixCls}-trigger`]: {
+        borderRadius: borderRadiusLG,
       },
-      '&-circle-shadow': {
-        boxShadow: 'none',
-      },
-      '&-square-shadow': {
+      [`${groupPrefixCls}-wrap`]: {
+        borderRadius: borderRadiusLG,
         boxShadow: token.boxShadowSecondary,
+        '&-top, &-bottom': {
+          [`${componentCls}-square`]: {
+            '&:first-child': {
+              borderStartStartRadius: borderRadiusLG,
+              borderStartEndRadius: borderRadiusLG,
+            },
+            '&:last-child': {
+              borderEndStartRadius: borderRadiusLG,
+              borderEndEndRadius: borderRadiusLG,
+            },
+            '&:not(:last-child)': {
+              borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
+            },
+          },
+        },
+        '&-left, &-right': {
+          [`${componentCls}-square`]: {
+            '&:first-child': {
+              borderStartStartRadius: borderRadiusLG,
+              borderEndStartRadius: borderRadiusLG,
+            },
+            '&:last-child': {
+              borderStartEndRadius: borderRadiusLG,
+              borderEndEndRadius: borderRadiusLG,
+            },
+            '&:not(:last-child)': {
+              borderInlineEnd: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
+            },
+          },
+        },
         [`${componentCls}-square`]: {
           boxShadow: 'none',
+          borderRadius: 0,
           padding: floatButtonBodyPadding,
+          [`${antCls}-badge`]: {
+            [`${antCls}-badge-count`]: {
+              top: calc(calc(floatButtonBodyPadding).add(badgeOffset)).mul(-1).equal(),
+              insetInlineEnd: calc(calc(floatButtonBodyPadding).add(badgeOffset)).mul(-1).equal(),
+            },
+          },
           [`${componentCls}-body`]: {
             width: token.floatButtonBodySize,
             height: token.floatButtonBodySize,
-            borderRadius: borderRadiusSM,
           },
+        },
+      },
+    },
+    [`${groupPrefixCls}-circle-shadow`]: {
+      boxShadow: 'none',
+    },
+    [`${groupPrefixCls}-square-shadow`]: {
+      boxShadow: token.boxShadowSecondary,
+      [`${componentCls}-square`]: {
+        boxShadow: 'none',
+        padding: floatButtonBodyPadding,
+        [`${componentCls}-body`]: {
+          width: token.floatButtonBodySize,
+          height: token.floatButtonBodySize,
+          borderRadius: borderRadiusSM,
         },
       },
     },
