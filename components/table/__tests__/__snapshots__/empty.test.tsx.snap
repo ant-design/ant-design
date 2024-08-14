@@ -30,48 +30,56 @@ exports[`Table renders empty table 1`] = `
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 1"
                   >
                     Column 1
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 2"
                   >
                     Column 2
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 3"
                   >
                     Column 3
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 4"
                   >
                     Column 4
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 5"
                   >
                     Column 5
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 6"
                   >
                     Column 6
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 7"
                   >
                     Column 7
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 8"
                   >
                     Column 8
                   </th>
@@ -177,48 +185,56 @@ exports[`Table renders empty table when emptyText is null 1`] = `
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 1"
                   >
                     Column 1
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 2"
                   >
                     Column 2
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 3"
                   >
                     Column 3
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 4"
                   >
                     Column 4
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 5"
                   >
                     Column 5
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 6"
                   >
                     Column 6
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 7"
                   >
                     Column 7
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 8"
                   >
                     Column 8
                   </th>
@@ -275,48 +291,56 @@ exports[`Table renders empty table with custom emptyText 1`] = `
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 1"
                   >
                     Column 1
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 2"
                   >
                     Column 2
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 3"
                   >
                     Column 3
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 4"
                   >
                     Column 4
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 5"
                   >
                     Column 5
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 6"
                   >
                     Column 6
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 7"
                   >
                     Column 7
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 8"
                   >
                     Column 8
                   </th>
@@ -331,6 +355,7 @@ exports[`Table renders empty table with custom emptyText 1`] = `
                   <td
                     class="ant-table-cell"
                     colspan="8"
+                    title="custom empty text"
                   >
                     custom empty text
                   </td>
@@ -395,6 +420,7 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
                     class="ant-table-cell ant-table-cell-fix-left"
                     scope="col"
                     style="position: sticky; left: 0px;"
+                    title="Full Name"
                   >
                     Full Name
                   </th>
@@ -402,54 +428,63 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
                     scope="col"
                     style="position: sticky; left: 0px;"
+                    title="Age"
                   >
                     Age
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 1"
                   >
                     Column 1
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 2"
                   >
                     Column 2
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 3"
                   >
                     Column 3
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 4"
                   >
                     Column 4
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 5"
                   >
                     Column 5
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 6"
                   >
                     Column 6
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 7"
                   >
                     Column 7
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 8"
                   >
                     Column 8
                   </th>
@@ -457,6 +492,7 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
                     scope="col"
                     style="position: sticky; right: 0px;"
+                    title="Action"
                   >
                     Action
                   </th>
@@ -689,48 +725,56 @@ exports[`Table renders empty table without emptyText when loading 1`] = `
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 1"
                   >
                     Column 1
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 2"
                   >
                     Column 2
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 3"
                   >
                     Column 3
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 4"
                   >
                     Column 4
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 5"
                   >
                     Column 5
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 6"
                   >
                     Column 6
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 7"
                   >
                     Column 7
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Column 8"
                   >
                     Column 8
                   </th>

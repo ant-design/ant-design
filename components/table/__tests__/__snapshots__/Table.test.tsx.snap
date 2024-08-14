@@ -31,6 +31,7 @@ exports[`Table renders JSX correctly 1`] = `
                     class="ant-table-cell"
                     colspan="2"
                     scope="colgroup"
+                    title="Name"
                   >
                     Name
                   </th>
@@ -38,6 +39,7 @@ exports[`Table renders JSX correctly 1`] = `
                     class="ant-table-cell"
                     rowspan="2"
                     scope="col"
+                    title="Age"
                   >
                     Age
                   </th>
@@ -46,12 +48,14 @@ exports[`Table renders JSX correctly 1`] = `
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="First Name"
                   >
                     First Name
                   </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Last Name"
                   >
                     Last Name
                   </th>
@@ -66,16 +70,19 @@ exports[`Table renders JSX correctly 1`] = `
                 >
                   <td
                     class="ant-table-cell"
+                    title="John"
                   >
                     John
                   </td>
                   <td
                     class="ant-table-cell"
+                    title="Brown"
                   >
                     Brown
                   </td>
                   <td
                     class="ant-table-cell"
+                    title="32"
                   >
                     32
                   </td>
@@ -86,16 +93,19 @@ exports[`Table renders JSX correctly 1`] = `
                 >
                   <td
                     class="ant-table-cell"
+                    title="Jim"
                   >
                     Jim
                   </td>
                   <td
                     class="ant-table-cell"
+                    title="Green"
                   >
                     Green
                   </td>
                   <td
                     class="ant-table-cell"
+                    title="42"
                   >
                     42
                   </td>
@@ -673,6 +683,7 @@ exports[`Table support wireframe 1`] = `
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Name"
                   >
                     Name
                   </th>

@@ -197,6 +197,7 @@ exports[`Table.sorter should support defaultOrder in Column 1`] = `
                 >
                   <td
                     class="ant-table-cell ant-table-column-sort"
+                    title="1"
                   >
                     1
                   </td>

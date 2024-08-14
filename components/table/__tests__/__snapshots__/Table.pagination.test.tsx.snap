@@ -30,6 +30,7 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Name"
                   >
                     Name
                   </th>
@@ -44,6 +45,7 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
                 >
                   <td
                     class="ant-table-cell"
+                    title="Jack"
                   >
                     Jack
                   </td>
@@ -54,6 +56,7 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
                 >
                   <td
                     class="ant-table-cell"
+                    title="Lucy"
                   >
                     Lucy
                   </td>
@@ -64,6 +67,7 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
                 >
                   <td
                     class="ant-table-cell"
+                    title="Tom"
                   >
                     Tom
                   </td>
@@ -74,6 +78,7 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
                 >
                   <td
                     class="ant-table-cell"
+                    title="Jerry"
                   >
                     Jerry
                   </td>
@@ -197,6 +202,7 @@ exports[`Table.pagination renders pagination correctly 1`] = `
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Name"
                   >
                     Name
                   </th>
@@ -211,6 +217,7 @@ exports[`Table.pagination renders pagination correctly 1`] = `
                 >
                   <td
                     class="ant-table-cell"
+                    title="Jack"
                   >
                     Jack
                   </td>
@@ -221,6 +228,7 @@ exports[`Table.pagination renders pagination correctly 1`] = `
                 >
                   <td
                     class="ant-table-cell"
+                    title="Lucy"
                   >
                     Lucy
                   </td>
@@ -355,6 +363,7 @@ exports[`Table.pagination renders pagination topLeft and bottomRight 1`] = `
                   <th
                     class="ant-table-cell"
                     scope="col"
+                    title="Name"
                   >
                     Name
                   </th>
@@ -369,6 +378,7 @@ exports[`Table.pagination renders pagination topLeft and bottomRight 1`] = `
                 >
                   <td
                     class="ant-table-cell"
+                    title="Jack"
                   >
                     Jack
                   </td>
@@ -379,6 +389,7 @@ exports[`Table.pagination renders pagination topLeft and bottomRight 1`] = `
                 >
                   <td
                     class="ant-table-cell"
+                    title="Lucy"
                   >
                     Lucy
                   </td>
@@ -389,6 +400,7 @@ exports[`Table.pagination renders pagination topLeft and bottomRight 1`] = `
                 >
                   <td
                     class="ant-table-cell"
+                    title="Tom"
                   >
                     Tom
                   </td>
@@ -399,6 +411,7 @@ exports[`Table.pagination renders pagination topLeft and bottomRight 1`] = `
                 >
                   <td
                     class="ant-table-cell"
+                    title="Jerry"
                   >
                     Jerry
                   </td>
