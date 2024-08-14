@@ -78,9 +78,9 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | actions | The actions content of list item. If `itemLayout` is `vertical`, shows the content on bottom, otherwise shows content on the far right | Array&lt;ReactNode> | - |  |
-| classNames | Semantic structure className | `Record<actions \| extra , string>` | - | 5.18.0 |
+| classNames | Semantic structure className | [`Record<actions \| extra, string>`](#semantic-dom) | - | 5.18.0 |
 | extra | The extra content of list item. If `itemLayout` is `vertical`, shows the content on right, otherwise shows content on the far right | ReactNode | - |  |
-| styles | Semantic DOM style | `Record<actions \| extra , CSSProperties>` | - | 5.18.0 |
+| styles | Semantic DOM style | [`Record<actions \| extra, CSSProperties>`](#semantic-dom) | - | 5.18.0 |
 
 ### List.Item.Meta
 
@@ -89,6 +89,10 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 | avatar      | The avatar of list item      | ReactNode | -       |         |
 | description | The description of list item | ReactNode | -       |         |
 | title       | The title of list item       | ReactNode | -       |         |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 
