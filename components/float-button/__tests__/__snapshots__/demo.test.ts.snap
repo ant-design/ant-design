@@ -1124,172 +1124,347 @@ Array [
 `;
 
 exports[`renders components/float-button/demo/placement.tsx correctly 1`] = `
-Array [
+<div
+  class="ant-flex ant-flex-align-center ant-flex-justify-space-evenly"
+  style="width:100%;height:100vh"
+>
   <div
-    class="ant-float-btn-group ant-float-btn-group-square"
-    style="inset-inline-end:100px;bottom:150px"
+    style="width:100px;height:100px;position:relative"
   >
-    <button
-      class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-square"
-      type="button"
+    <div
+      class="ant-float-btn-group ant-float-btn-group-square"
+      style="position:absolute;inset-inline-start:30px;inset-inline-end:auto;inset-block-start:-20px;inset-block-end:auto"
     >
-      <div
-        class="ant-float-btn-body"
+      <button
+        class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-square"
+        type="button"
       >
         <div
-          class="ant-float-btn-content"
+          class="ant-float-btn-body"
         >
           <div
-            class="ant-float-btn-icon"
+            class="ant-float-btn-content"
           >
-            <span
-              aria-label="customer-service"
-              class="anticon anticon-customer-service"
-              role="img"
+            <div
+              class="ant-float-btn-icon"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="customer-service"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="customer-service"
+                class="anticon anticon-customer-service"
+                role="img"
               >
-                <path
-                  d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
-                />
-              </svg>
-            </span>
+                <svg
+                  aria-hidden="true"
+                  data-icon="customer-service"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
+                  />
+                </svg>
+              </span>
+            </div>
           </div>
         </div>
-      </div>
-    </button>
-  </div>,
-  <div
-    class="ant-float-btn-group ant-float-btn-group-square"
-    style="inset-inline-end:200px;bottom:150px"
-  >
-    <button
-      class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-square"
-      type="button"
+      </button>
+    </div>
+    <div
+      class="ant-float-btn-group ant-float-btn-group-square"
+      style="position:absolute;inset-inline-start:80px;inset-inline-end:auto;inset-block-start:30px;inset-block-end:auto"
     >
-      <div
-        class="ant-float-btn-body"
+      <button
+        class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-square"
+        type="button"
       >
         <div
-          class="ant-float-btn-content"
+          class="ant-float-btn-body"
         >
           <div
-            class="ant-float-btn-icon"
+            class="ant-float-btn-content"
           >
-            <span
-              aria-label="customer-service"
-              class="anticon anticon-customer-service"
-              role="img"
+            <div
+              class="ant-float-btn-icon"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="customer-service"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="customer-service"
+                class="anticon anticon-customer-service"
+                role="img"
               >
-                <path
-                  d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
-                />
-              </svg>
-            </span>
+                <svg
+                  aria-hidden="true"
+                  data-icon="customer-service"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
+                  />
+                </svg>
+              </span>
+            </div>
           </div>
         </div>
-      </div>
-    </button>
-  </div>,
-  <div
-    class="ant-float-btn-group ant-float-btn-group-circle"
-    style="inset-inline-start:200px;bottom:150px"
-  >
-    <button
-      class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-circle"
-      type="button"
+      </button>
+    </div>
+    <div
+      class="ant-float-btn-group ant-float-btn-group-square"
+      style="position:absolute;inset-inline-start:30px;inset-inline-end:auto;inset-block-start:auto;inset-block-end:-20px"
     >
-      <div
-        class="ant-float-btn-body"
+      <button
+        class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-square"
+        type="button"
       >
         <div
-          class="ant-float-btn-content"
+          class="ant-float-btn-body"
         >
           <div
-            class="ant-float-btn-icon"
+            class="ant-float-btn-content"
           >
-            <span
-              aria-label="customer-service"
-              class="anticon anticon-customer-service"
-              role="img"
+            <div
+              class="ant-float-btn-icon"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="customer-service"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="customer-service"
+                class="anticon anticon-customer-service"
+                role="img"
               >
-                <path
-                  d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
-                />
-              </svg>
-            </span>
+                <svg
+                  aria-hidden="true"
+                  data-icon="customer-service"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
+                  />
+                </svg>
+              </span>
+            </div>
           </div>
         </div>
-      </div>
-    </button>
-  </div>,
-  <div
-    class="ant-float-btn-group ant-float-btn-group-circle"
-    style="inset-inline-start:100px;bottom:150px"
-  >
-    <button
-      class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-circle"
-      type="button"
+      </button>
+    </div>
+    <div
+      class="ant-float-btn-group ant-float-btn-group-square"
+      style="position:absolute;inset-inline-start:-20px;inset-inline-end:auto;inset-block-start:30px;inset-block-end:auto"
     >
-      <div
-        class="ant-float-btn-body"
+      <button
+        class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-square"
+        type="button"
       >
         <div
-          class="ant-float-btn-content"
+          class="ant-float-btn-body"
         >
           <div
-            class="ant-float-btn-icon"
+            class="ant-float-btn-content"
           >
-            <span
-              aria-label="customer-service"
-              class="anticon anticon-customer-service"
-              role="img"
+            <div
+              class="ant-float-btn-icon"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="customer-service"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="customer-service"
+                class="anticon anticon-customer-service"
+                role="img"
               >
-                <path
-                  d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
-                />
-              </svg>
-            </span>
+                <svg
+                  aria-hidden="true"
+                  data-icon="customer-service"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
+                  />
+                </svg>
+              </span>
+            </div>
           </div>
         </div>
-      </div>
-    </button>
-  </div>,
-]
+      </button>
+    </div>
+  </div>
+  <div
+    style="width:100px;height:100px;position:relative"
+  >
+    <div
+      class="ant-float-btn-group ant-float-btn-group-circle"
+      style="position:absolute;inset-inline-start:30px;inset-inline-end:auto;inset-block-start:-20px;inset-block-end:auto"
+    >
+      <button
+        class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-circle"
+        type="button"
+      >
+        <div
+          class="ant-float-btn-body"
+        >
+          <div
+            class="ant-float-btn-content"
+          >
+            <div
+              class="ant-float-btn-icon"
+            >
+              <span
+                aria-label="customer-service"
+                class="anticon anticon-customer-service"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="customer-service"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </button>
+    </div>
+    <div
+      class="ant-float-btn-group ant-float-btn-group-circle"
+      style="position:absolute;inset-inline-start:80px;inset-inline-end:auto;inset-block-start:30px;inset-block-end:auto"
+    >
+      <button
+        class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-circle"
+        type="button"
+      >
+        <div
+          class="ant-float-btn-body"
+        >
+          <div
+            class="ant-float-btn-content"
+          >
+            <div
+              class="ant-float-btn-icon"
+            >
+              <span
+                aria-label="customer-service"
+                class="anticon anticon-customer-service"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="customer-service"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </button>
+    </div>
+    <div
+      class="ant-float-btn-group ant-float-btn-group-circle"
+      style="position:absolute;inset-inline-start:30px;inset-inline-end:auto;inset-block-start:auto;inset-block-end:-20px"
+    >
+      <button
+        class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-circle"
+        type="button"
+      >
+        <div
+          class="ant-float-btn-body"
+        >
+          <div
+            class="ant-float-btn-content"
+          >
+            <div
+              class="ant-float-btn-icon"
+            >
+              <span
+                aria-label="customer-service"
+                class="anticon anticon-customer-service"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="customer-service"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </button>
+    </div>
+    <div
+      class="ant-float-btn-group ant-float-btn-group-circle"
+      style="position:absolute;inset-inline-start:-20px;inset-inline-end:auto;inset-block-start:30px;inset-block-end:auto"
+    >
+      <button
+        class="ant-float-btn ant-float-btn-group-trigger ant-float-btn-default ant-float-btn-circle"
+        type="button"
+      >
+        <div
+          class="ant-float-btn-body"
+        >
+          <div
+            class="ant-float-btn-content"
+          >
+            <div
+              class="ant-float-btn-icon"
+            >
+              <span
+                aria-label="customer-service"
+                class="anticon anticon-customer-service"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="customer-service"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
 `;
 
 exports[`renders components/float-button/demo/render-panel.tsx correctly 1`] = `

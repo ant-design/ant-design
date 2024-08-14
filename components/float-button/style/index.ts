@@ -141,7 +141,58 @@ const initFloatButtonGroupMotion = (token: FloatButtonToken) => {
       },
     }),
   };
-
+  const left = {
+    moveOutKeyframes: new Keyframes('antFloatButtonMoveLeftOut', {
+      '0%': {
+        transform: 'translate3d(0, 0, 0)',
+        transformOrigin: '0 0',
+        opacity: 1,
+      },
+      '100%': {
+        transform: `translate3d(${unit(floatButtonSize)}, 0, 0)`,
+        transformOrigin: '0 0',
+        opacity: 0,
+      },
+    }),
+    moveInKeyframes: new Keyframes('antFloatButtonMoveLeftIn', {
+      '0%': {
+        transform: `translate3d(${unit(floatButtonSize)}, 0, 0)`,
+        transformOrigin: '0 0',
+        opacity: 0,
+      },
+      '100%': {
+        transform: 'translate3d(0, 0, 0)',
+        transformOrigin: '0 0',
+        opacity: 1,
+      },
+    }),
+  };
+  const right = {
+    moveOutKeyframes: new Keyframes('antFloatButtonMoveRightOut', {
+      '0%': {
+        transform: 'translate3d(0, 0, 0)',
+        transformOrigin: '0 0',
+        opacity: 1,
+      },
+      '100%': {
+        transform: `translate3d(${calc(floatButtonSize).mul(-1).equal()}, 0, 0)`,
+        transformOrigin: '0 0',
+        opacity: 0,
+      },
+    }),
+    moveInKeyframes: new Keyframes('antFloatButtonMoveRightIn', {
+      '0%': {
+        transform: `translate3d(${calc(floatButtonSize).mul(-1).equal()}, 0, 0)`,
+        transformOrigin: '0 0',
+        opacity: 0,
+      },
+      '100%': {
+        transform: 'translate3d(0, 0, 0)',
+        transformOrigin: '0 0',
+        opacity: 1,
+      },
+    }),
+  };
   return [
     {
       [`${groupPrefixCls}-wrap`]: {
@@ -156,6 +207,20 @@ const initFloatButtonGroupMotion = (token: FloatButtonToken) => {
           `${groupPrefixCls}-wrap`,
           bottom.moveInKeyframes,
           bottom.moveOutKeyframes,
+          motionDurationSlow,
+          true,
+        ),
+        '&-left': initMotion(
+          `${groupPrefixCls}-wrap`,
+          left.moveInKeyframes,
+          left.moveOutKeyframes,
+          motionDurationSlow,
+          true,
+        ),
+        '&-right': initMotion(
+          `${groupPrefixCls}-wrap`,
+          right.moveInKeyframes,
+          right.moveOutKeyframes,
           motionDurationSlow,
           true,
         ),
@@ -203,9 +268,9 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
       justifyContent: 'center',
       border: 'none',
       position: 'fixed',
-      width: floatButtonSize,
       height: 'auto',
       boxShadow: 'none',
+      minWidth: floatButtonSize,
       minHeight: floatButtonSize,
       insetInlineEnd: token.floatButtonInsetInlineEnd,
       insetBlockEnd: token.floatButtonInsetBlockEnd,
@@ -216,8 +281,6 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
-        insetInlineStart: 0,
-        insetInlineEnd: 0,
         '&-top': {
           flexDirection: 'column',
           bottom: calc(floatButtonSize).add(margin).equal(),
@@ -225,6 +288,14 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
         '&-bottom': {
           flexDirection: 'column',
           top: calc(floatButtonSize).add(margin).equal(),
+        },
+        '&-right': {
+          flexDirection: 'row',
+          insetInlineStart: calc(floatButtonSize).add(margin).equal(),
+        },
+        '&-left': {
+          flexDirection: 'row',
+          insetInlineEnd: calc(floatButtonSize).add(margin).equal(),
         },
       },
       [`&${groupPrefixCls}-rtl`]: {
@@ -240,47 +311,51 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
         },
       },
       '&-square': {
-        [`${componentCls}-square`]: {
-          padding: 0,
-          borderRadius: 0,
-          [`&${groupPrefixCls}-trigger`]: {
-            borderRadius: borderRadiusLG,
-          },
-          '&:first-child': {
-            borderStartStartRadius: borderRadiusLG,
-            borderStartEndRadius: borderRadiusLG,
-          },
-          '&:last-child': {
-            borderEndStartRadius: borderRadiusLG,
-            borderEndEndRadius: borderRadiusLG,
-          },
-          '&:not(:last-child)': {
-            borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
-          },
-          [`${antCls}-badge`]: {
-            '&-count': {
-              top: calc(calc(floatButtonBodyPadding).add(badgeOffset)).mul(-1).equal(),
-              insetInlineEnd: calc(calc(floatButtonBodyPadding).add(badgeOffset)).mul(-1).equal(),
-            },
-          },
+        [`${groupPrefixCls}-trigger`]: {
+          borderRadius: borderRadiusLG,
         },
         [`${groupPrefixCls}-wrap`]: {
           borderRadius: borderRadiusLG,
           boxShadow: token.boxShadowSecondary,
+          '&-top, &-bottom': {
+            [`${componentCls}-square`]: {
+              '&:first-child': {
+                borderStartStartRadius: borderRadiusLG,
+                borderStartEndRadius: borderRadiusLG,
+              },
+              '&:last-child': {
+                borderEndStartRadius: borderRadiusLG,
+                borderEndEndRadius: borderRadiusLG,
+              },
+              '&:not(:last-child)': {
+                borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
+              },
+            },
+          },
+          '&-left, &-right': {
+            [`${componentCls}-square`]: {
+              '&:first-child': {
+                borderStartStartRadius: borderRadiusLG,
+                borderEndStartRadius: borderRadiusLG,
+              },
+              '&:last-child': {
+                borderStartEndRadius: borderRadiusLG,
+                borderEndEndRadius: borderRadiusLG,
+              },
+              '&:not(:last-child)': {
+                borderInlineEnd: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
+              },
+            },
+          },
           [`${componentCls}-square`]: {
             boxShadow: 'none',
             borderRadius: 0,
             padding: floatButtonBodyPadding,
-            '&:first-child': {
-              borderStartStartRadius: borderRadiusLG,
-              borderStartEndRadius: borderRadiusLG,
-            },
-            '&:last-child': {
-              borderEndStartRadius: borderRadiusLG,
-              borderEndEndRadius: borderRadiusLG,
-            },
-            '&:not(:last-child)': {
-              borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
+            [`${antCls}-badge`]: {
+              '&-count': {
+                top: calc(calc(floatButtonBodyPadding).add(badgeOffset)).mul(-1).equal(),
+                insetInlineEnd: calc(calc(floatButtonBodyPadding).add(badgeOffset)).mul(-1).equal(),
+              },
             },
             [`${componentCls}-body`]: {
               width: token.floatButtonBodySize,
