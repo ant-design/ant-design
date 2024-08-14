@@ -101,23 +101,48 @@ const floatButtonGroupMotion = (token: FloatButtonToken) => {
       opacity: 0,
     },
   });
-  const prefixCls = `${componentCls}-group-wrap`;
+  const groupPrefixCls = `${componentCls}-group`;
   return [
     {
-      [prefixCls]: {
-        '&-top': initMotion(prefixCls, moveTopIn, moveTopOut, motionDurationSlow, true),
-        '&-bottom': initMotion(prefixCls, moveBottomIn, moveBottomOut, motionDurationSlow, true),
-        '&-left': initMotion(prefixCls, moveLeftIn, moveLeftOut, motionDurationSlow, true),
-        '&-right': initMotion(prefixCls, moveRightIn, moveRightOut, motionDurationSlow, true),
+      [`${groupPrefixCls}-wrap`]: {
+        [`&${groupPrefixCls}-top`]: initMotion(
+          `${groupPrefixCls}-wrap`,
+          moveTopIn,
+          moveTopOut,
+          motionDurationSlow,
+          true,
+        ),
+        [`&${groupPrefixCls}-bottom`]: initMotion(
+          `${groupPrefixCls}-wrap`,
+          moveBottomIn,
+          moveBottomOut,
+          motionDurationSlow,
+          true,
+        ),
+        [`&${groupPrefixCls}-left`]: initMotion(
+          `${groupPrefixCls}-wrap`,
+          moveLeftIn,
+          moveLeftOut,
+          motionDurationSlow,
+          true,
+        ),
+        [`&${groupPrefixCls}-right`]: initMotion(
+          `${groupPrefixCls}-wrap`,
+          moveRightIn,
+          moveRightOut,
+          motionDurationSlow,
+          true,
+        ),
       },
     },
     {
-      [prefixCls]: {
-        [`&${prefixCls}-enter, &${prefixCls}-appear`]: {
+      [`${groupPrefixCls}-wrap`]: {
+        [`&${groupPrefixCls}-wrap-enter, &${groupPrefixCls}-wrap-appear`]: {
           opacity: 0,
           animationTimingFunction: motionEaseInOutCirc,
         },
-        [`&${prefixCls}-leave`]: {
+        [`&${groupPrefixCls}-wrap-leave`]: {
+          opacity: 1,
           animationTimingFunction: motionEaseInOutCirc,
         },
       },
