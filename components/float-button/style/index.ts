@@ -1,12 +1,12 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { Keyframes, unit } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
 import { initFadeMotion } from '../../style/motion/fade';
-import { initMotion } from '../../style/motion/motion';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import getOffset from '../util';
+import floatButtonGroupMotion from './keyframes';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -26,7 +26,7 @@ export interface ComponentToken {
  * @desc FloatButton 组件的 Token
  * @descEN Token for FloatButton component
  */
-type FloatButtonToken = FullToken<'FloatButton'> & {
+export type FloatButtonToken = FullToken<'FloatButton'> & {
   /**
    * @desc FloatButton 颜色
    * @descEN Color of FloatButton
@@ -84,163 +84,6 @@ type FloatButtonToken = FullToken<'FloatButton'> & {
    * @descEN Right inset of FloatButton
    */
   floatButtonInsetInlineEnd: number;
-};
-
-const initFloatButtonGroupMotion = (token: FloatButtonToken) => {
-  const { componentCls, floatButtonSize, motionDurationSlow, motionEaseInOutCirc, calc } = token;
-  const groupPrefixCls = `${componentCls}-group`;
-  const top = {
-    moveOutKeyframes: new Keyframes('antFloatButtonMoveTopOut', {
-      '0%': {
-        transform: 'translate3d(0, 0, 0)',
-        transformOrigin: '0 0',
-        opacity: 1,
-      },
-      '100%': {
-        transform: `translate3d(0, ${unit(floatButtonSize)}, 0)`,
-        transformOrigin: '0 0',
-        opacity: 0,
-      },
-    }),
-    moveInKeyframes: new Keyframes('antFloatButtonMoveTopIn', {
-      '0%': {
-        transform: `translate3d(0, ${unit(floatButtonSize)}, 0)`,
-        transformOrigin: '0 0',
-        opacity: 0,
-      },
-      '100%': {
-        transform: 'translate3d(0, 0, 0)',
-        transformOrigin: '0 0',
-        opacity: 1,
-      },
-    }),
-  };
-  const bottom = {
-    moveOutKeyframes: new Keyframes('antFloatButtonMoveBottomOut', {
-      '0%': {
-        transform: 'translate3d(0, 0, 0)',
-        transformOrigin: '0 0',
-        opacity: 1,
-      },
-      '100%': {
-        transform: `translate3d(0, ${calc(floatButtonSize).mul(-1).equal()}, 0)`,
-        transformOrigin: '0 0',
-        opacity: 0,
-      },
-    }),
-    moveInKeyframes: new Keyframes('antFloatButtonMoveBottomIn', {
-      '0%': {
-        transform: `translate3d(0, ${calc(floatButtonSize).mul(-1).equal()}, 0)`,
-        transformOrigin: '0 0',
-        opacity: 0,
-      },
-      '100%': {
-        transform: 'translate3d(0, 0, 0)',
-        transformOrigin: '0 0',
-        opacity: 1,
-      },
-    }),
-  };
-  const left = {
-    moveOutKeyframes: new Keyframes('antFloatButtonMoveLeftOut', {
-      '0%': {
-        transform: 'translate3d(0, 0, 0)',
-        transformOrigin: '0 0',
-        opacity: 1,
-      },
-      '100%': {
-        transform: `translate3d(${unit(floatButtonSize)}, 0, 0)`,
-        transformOrigin: '0 0',
-        opacity: 0,
-      },
-    }),
-    moveInKeyframes: new Keyframes('antFloatButtonMoveLeftIn', {
-      '0%': {
-        transform: `translate3d(${unit(floatButtonSize)}, 0, 0)`,
-        transformOrigin: '0 0',
-        opacity: 0,
-      },
-      '100%': {
-        transform: 'translate3d(0, 0, 0)',
-        transformOrigin: '0 0',
-        opacity: 1,
-      },
-    }),
-  };
-  const right = {
-    moveOutKeyframes: new Keyframes('antFloatButtonMoveRightOut', {
-      '0%': {
-        transform: 'translate3d(0, 0, 0)',
-        transformOrigin: '0 0',
-        opacity: 1,
-      },
-      '100%': {
-        transform: `translate3d(${calc(floatButtonSize).mul(-1).equal()}, 0, 0)`,
-        transformOrigin: '0 0',
-        opacity: 0,
-      },
-    }),
-    moveInKeyframes: new Keyframes('antFloatButtonMoveRightIn', {
-      '0%': {
-        transform: `translate3d(${calc(floatButtonSize).mul(-1).equal()}, 0, 0)`,
-        transformOrigin: '0 0',
-        opacity: 0,
-      },
-      '100%': {
-        transform: 'translate3d(0, 0, 0)',
-        transformOrigin: '0 0',
-        opacity: 1,
-      },
-    }),
-  };
-  return [
-    {
-      [`${groupPrefixCls}-wrap`]: {
-        '&-top': initMotion(
-          `${groupPrefixCls}-wrap`,
-          top.moveInKeyframes,
-          top.moveOutKeyframes,
-          motionDurationSlow,
-          true,
-        ),
-        '&-bottom': initMotion(
-          `${groupPrefixCls}-wrap`,
-          bottom.moveInKeyframes,
-          bottom.moveOutKeyframes,
-          motionDurationSlow,
-          true,
-        ),
-        '&-left': initMotion(
-          `${groupPrefixCls}-wrap`,
-          left.moveInKeyframes,
-          left.moveOutKeyframes,
-          motionDurationSlow,
-          true,
-        ),
-        '&-right': initMotion(
-          `${groupPrefixCls}-wrap`,
-          right.moveInKeyframes,
-          right.moveOutKeyframes,
-          motionDurationSlow,
-          true,
-        ),
-      },
-    },
-    {
-      [`${groupPrefixCls}-wrap`]: {
-        [`
-          &${groupPrefixCls}-wrap-enter,
-          &${groupPrefixCls}-wrap-appear
-        `]: {
-          opacity: 0,
-          animationTimingFunction: motionEaseInOutCirc,
-        },
-        [`&${groupPrefixCls}-wrap-leave`]: {
-          animationTimingFunction: motionEaseInOutCirc,
-        },
-      },
-    },
-  ];
 };
 
 // ============================== Group ==============================
@@ -590,12 +433,11 @@ export default genStyleHooks(
       floatButtonBodyPadding: paddingXXS,
       badgeOffset: calc(paddingXXS).mul(1.5).equal(),
     });
-
     return [
       floatButtonGroupStyle(floatButtonToken),
       sharedFloatButtonStyle(floatButtonToken),
       initFadeMotion(token),
-      initFloatButtonGroupMotion(floatButtonToken),
+      floatButtonGroupMotion(floatButtonToken),
     ];
   },
   prepareComponentToken,
