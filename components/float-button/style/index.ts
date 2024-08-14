@@ -22,7 +22,6 @@ export interface ComponentToken {
   dotOffsetInSquare: number;
 }
 
-
 /**
  * @desc FloatButton 组件的 Token
  * @descEN Token for FloatButton component
@@ -194,8 +193,11 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
     },
     [`${groupPrefixCls}-square`]: {
       [`${componentCls}-square`]: {
-        borderRadius: 0,
         padding: 0,
+        borderRadius: 0,
+        [`&${groupPrefixCls}-trigger`]: {
+          borderRadius: borderRadiusLG,
+        },
         '&:first-child': {
           borderStartStartRadius: borderRadiusLG,
           borderStartEndRadius: borderRadiusLG,
