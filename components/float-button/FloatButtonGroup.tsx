@@ -57,7 +57,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
   const wrapperCls = classNames(
     hashId,
     `${groupPrefixCls}-wrap`,
-    `${groupPrefixCls}-wrap-${placement}`,
+    `${groupPrefixCls}-${placement}`,
   );
 
   const [open, setOpen] = useMergedState(false, { value: customOpen });
