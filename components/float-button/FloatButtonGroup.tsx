@@ -132,6 +132,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
               icon={open ? mergedCloseIcon : icon}
               description={description}
               aria-label={props['aria-label']}
+              className={`${groupPrefixCls}-trigger`}
               {...floatButtonProps}
             />
           </>
