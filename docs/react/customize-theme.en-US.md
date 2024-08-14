@@ -165,7 +165,7 @@ export default App;
 
 ### Disable Motion
 
-antd has built-in interaction animations to make enterprise-level pages more detailed. In some extreme scenarios, it may affect the performance of page interaction. If you need to turn off the animation, try seting `motion` of `token` to `false`:
+antd has built-in interaction animations to make enterprise-level pages more detailed. In some extreme scenarios, it may affect the performance of page interaction. If you need to turn off the animation, try setting `motion` of `token` to `false`:
 
 ```sandpack
 import React from 'react';

@@ -140,7 +140,7 @@ const validateMessages = {
 | label | `label` 标签的文本 | ReactNode | - |  |
 | labelAlign | 标签文本对齐方式 | `left` \| `right` | `right` |  |
 | labelCol | `label` 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}`。你可以通过 Form 的 `labelCol` 进行统一设置，不会作用于嵌套 Item。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid-cn#col) | - |  |
-| messageVariables | 默认验证字段的信息 | Record&lt;string, string> | - | 4.7.0 |
+| messageVariables | 默认验证字段的信息，查看[详情](#messagevariables) | Record&lt;string, string> | - | 4.7.0 |
 | name | 字段名，支持数组 | [NamePath](#namepath) | - |  |
 | normalize | 组件获取值后进行转换，再放入 Form 中。不支持异步 | (value, prevValue, prevValues) => any | - |  |
 | noStyle | 为 `true` 时不带样式，作为纯字段控件使用。当自身没有 `validateStatus` 而父元素存在有 `validateStatus` 的 Form.Item 会继承父元素的 `validateStatus` | boolean | false |  |
@@ -190,7 +190,7 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 </Form.Item>
 ```
 
-你可以参考[示例](#form-demo-horizontal-login)查看具体使用场景。
+你可以参考[示例](#form-demo-inline-login)查看具体使用场景。
 
 当 `shouldUpdate` 为方法时，表单的每次数值更新都会调用该方法，提供原先的值与当前的值以供你比较是否需要更新。这对于是否根据值来渲染额外字段十分有帮助：
 
@@ -229,6 +229,14 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
     <Input />
   </Form.Item>
 </Form>
+```
+
+自 `5.20.2` 起，当你希望不要转译 `${}` 时，你可以通过 `\\${}` 来略过：
+
+```jsx
+{ required: true, message: '${label} is convert, \\${label} is not convert' }
+
+// good is convert, ${label} is not convert
 ```
 
 ## Form.List
