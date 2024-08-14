@@ -124,22 +124,22 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
-        '&-top': {
+        [`&${groupPrefixCls}-top`]: {
           flexDirection: 'column',
           top: 'auto',
           bottom: calc(floatButtonSize).add(margin).equal(),
         },
-        '&-bottom': {
+        [`&${groupPrefixCls}-bottom`]: {
           flexDirection: 'column',
           top: calc(floatButtonSize).add(margin).equal(),
           bottom: 'auto',
         },
-        '&-right': {
+        [`&${groupPrefixCls}-right`]: {
           flexDirection: 'row',
           insetInlineStart: calc(floatButtonSize).add(margin).equal(),
           insetInlineEnd: 'auto',
         },
-        '&-left': {
+        [`&${groupPrefixCls}-left`]: {
           flexDirection: 'row',
           insetInlineStart: 'auto',
           insetInlineEnd: calc(floatButtonSize).add(margin).equal(),
@@ -186,7 +186,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
       [`${groupPrefixCls}-wrap`]: {
         borderRadius: borderRadiusLG,
         boxShadow: token.boxShadowSecondary,
-        '&-top, &-bottom': {
+        [`&${groupPrefixCls}-top, &${groupPrefixCls}-bottom`]: {
           [`${componentCls}-square`]: {
             '&:first-child': {
               borderStartStartRadius: borderRadiusLG,
@@ -201,7 +201,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
             },
           },
         },
-        '&-left, &-right': {
+        [`&${groupPrefixCls}-left, &${groupPrefixCls}-right`]: {
           [`${componentCls}-square`]: {
             '&:first-child': {
               borderStartStartRadius: borderRadiusLG,

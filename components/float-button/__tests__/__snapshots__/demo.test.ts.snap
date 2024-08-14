@@ -530,7 +530,7 @@ Array [
     style="inset-inline-end:24px"
   >
     <div
-      class="ant-float-btn-group-wrap ant-float-btn-group-wrap-top"
+      class="ant-float-btn-group-wrap ant-float-btn-group-top"
     >
       <button
         class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
@@ -693,7 +693,7 @@ Array [
     style="inset-inline-end:88px"
   >
     <div
-      class="ant-float-btn-group-wrap ant-float-btn-group-wrap-top"
+      class="ant-float-btn-group-wrap ant-float-btn-group-top"
     >
       <button
         class="ant-float-btn ant-float-btn-default ant-float-btn-square"
@@ -1905,7 +1905,7 @@ exports[`renders components/float-button/demo/render-panel.tsx correctly 1`] = `
     class="ant-float-btn-group ant-float-btn-pure ant-float-btn-group-circle"
   >
     <div
-      class="ant-float-btn-group-wrap ant-float-btn-group-wrap-top"
+      class="ant-float-btn-group-wrap ant-float-btn-group-top"
     >
       <button
         class="ant-float-btn ant-float-btn-default ant-float-btn-circle"

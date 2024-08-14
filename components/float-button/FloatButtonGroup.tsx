@@ -54,11 +54,9 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
 
   const mergedStyle: React.CSSProperties = { ...style, zIndex };
 
-  const wrapperCls = classNames(
-    hashId,
-    `${groupPrefixCls}-wrap`,
-    `${groupPrefixCls}-${placement}`,
-  );
+  const wrapperCls = classNames(hashId, `${groupPrefixCls}-wrap`, {
+    [`${groupPrefixCls}-${placement}`]: placement,
+  });
 
   const [open, setOpen] = useMergedState(false, { value: customOpen });
 
