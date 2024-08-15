@@ -256,7 +256,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
               },
             },
 
-            [`${menuCls}-extra`]: {
+            [`${menuCls}-item-extra`]: {
               paddingInlineStart: token.padding,
               marginInlineStart: 'auto',
               fontSize: token.fontSizeSM,

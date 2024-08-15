@@ -645,7 +645,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
             verticalAlign: 'unset',
           },
 
-          [`${componentCls}-extra`]: {
+          [`${componentCls}-item-extra`]: {
             marginInlineStart: 'auto',
             paddingInlineStart: token.padding,
             fontSize: token.fontSizeSM,
