@@ -89,16 +89,17 @@ describe('Table.sorter', () => {
           {
             title: 'Amount',
             dataIndex: 'estimatedTicketsLeft',
-            sorter: (a:any, b:any) => a.estimatedTicketsLeft - b.estimatedTicketsLeft,
+            sorter: (a: any, b: any) => a.estimatedTicketsLeft - b.estimatedTicketsLeft,
             sortDirections: ['descend', 'ascend'],
-            render: (text:any) => `${text} left`,
+            render: (text: any) => `${text} left`,
           },
           {
             title: '[%]',
             dataIndex: 'estimatedTicketsLeftPercentage',
-            sorter: (a:any, b:any) => a.estimatedTicketsLeftPercentage - b.estimatedTicketsLeftPercentage,
+            sorter: (a: any, b: any) =>
+              a.estimatedTicketsLeftPercentage - b.estimatedTicketsLeftPercentage,
             sortDirections: ['descend', 'ascend'],
-            render: (text:any) => `${text.toFixed(2)}%`,
+            render: (text: any) => `${text.toFixed(2)}%`,
           },
         ],
       },
@@ -512,7 +513,7 @@ describe('Table.sorter', () => {
     expect(container.querySelector('.ant-tooltip-open')).toBeFalsy();
   });
 
-  it('renders custome sort icon correctly', () => {
+  it('renders custom sort icon correctly', () => {
     const sortIcon = ({ sortOrder }: { sortOrder?: SortOrder }): React.ReactNode => {
       let text: string;
       if (sortOrder === undefined) {
