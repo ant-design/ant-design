@@ -13,12 +13,14 @@ export type { ComponentToken };
 // ============================== Shared ==============================
 const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSSObject => {
   const { componentCls, iconCls, fontWeight } = token;
-
   return {
     [componentCls]: {
       outline: 'none',
       position: 'relative',
-      display: 'inline-block',
+      display: 'inline-flex',
+      gap: token.marginXS,
+      alignItems: 'center',
+      justifyContent: 'center',
       fontWeight,
       whiteSpace: 'nowrap',
       textAlign: 'center',
@@ -40,18 +42,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       },
 
       [`${componentCls}-icon`]: {
-        lineHeight: 0,
-      },
-
-      // Leave a space between icon and text.
-      [`> ${iconCls} + span, > span + ${iconCls}`]: {
-        marginInlineStart: token.marginXS,
-      },
-
-      [`&:not(${componentCls}-icon-only) > ${componentCls}-icon`]: {
-        [`&${componentCls}-loading-icon, &:not(:last-child)`]: {
-          marginInlineEnd: token.marginXS,
-        },
+        lineHeight: 1,
       },
 
       '> a': {
@@ -71,9 +62,9 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         letterSpacing: '0.34em',
       },
 
-      // make `btn-icon-only` not too narrow
-      [`&-icon-only${componentCls}-compact-item`]: {
-        flex: 'none',
+      // iconPosition="end"
+      '&-icon-end': {
+        flexDirection: 'row-reverse',
       },
     },
   };
@@ -368,7 +359,7 @@ const genTextButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
       },
       {
         color: token.colorErrorHover,
-        background: token.colorErrorBg,
+        background: token.colorErrorBgActive,
       },
     ),
   },
@@ -395,7 +386,7 @@ const genTypeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
 };
 
 // =============================== Size ===============================
-const genButtonStyle = (token: ButtonToken, prefixCls: string = ''): CSSInterpolation => {
+const genButtonStyle = (token: ButtonToken, prefixCls = ''): CSSInterpolation => {
   const {
     componentCls,
     controlHeight,
@@ -411,7 +402,7 @@ const genButtonStyle = (token: ButtonToken, prefixCls: string = ''): CSSInterpol
 
   return [
     {
-      [`${prefixCls}`]: {
+      [prefixCls]: {
         fontSize,
         lineHeight,
         height: controlHeight,
@@ -420,11 +411,17 @@ const genButtonStyle = (token: ButtonToken, prefixCls: string = ''): CSSInterpol
 
         [`&${iconOnlyCls}`]: {
           width: controlHeight,
-          paddingInlineStart: 0,
-          paddingInlineEnd: 0,
+          paddingInline: 0,
+
+          // make `btn-icon-only` not too narrow
+          [`&${componentCls}-compact-item`]: {
+            flex: 'none',
+          },
+
           [`&${componentCls}-round`]: {
             width: 'auto',
           },
+
           [iconCls]: {
             fontSize: token.buttonIconOnlyFontSize,
           },

@@ -41,24 +41,24 @@ title: 社区精选组件
 | 文字轮播 | [react-text-loop-next](https://github.com/samarmohan/react-text-loop-next) [react-fast-marquee](https://github.com/justin-chu/react-fast-marquee) |
 | 动画 | [framer-motion](https://github.com/framer/motion) [Ant Motion](https://motion.ant.design/components/tween-one) [react-spring](https://github.com/pmndrs/react-spring) |
 | 页脚 | [rc-footer](https://github.com/react-component/footer) |
-| 数字/金额 | [react-number-format](https://github.com/s-yadav/react-number-format) [react-currency-input-fiel](https://github.com/cchanxzy/react-currency-input-field) |
+| 数字/金额 | [react-number-format](https://github.com/s-yadav/react-number-format) [react-currency-input-field](https://github.com/cchanxzy/react-currency-input-field) |
 | 移动端探测 | [react-device-detect](https://github.com/duskload/react-device-detect) |
 | 应用程序框架 | [umi](https://github.com/umijs/umi) [remix](https://github.com/remix-run/remix) [refine](https://github.com/pankod/refine) |
 | Flow 流 | [pro-flow](https://github.com/ant-design/pro-flow) [react-flow](https://github.com/wbkd/react-flow) [x6](https://github.com/antvis/x6) |
 | 电话输入 | [react-phone-number-input](https://gitlab.com/catamphetamine/react-phone-number-input) [antd-phone-input](https://github.com/ArtyomVancyan/antd-phone-input/) |
 | AI 对话界面 | [pro-chat](https://github.com/ant-design/pro-chat) |
+| PDF | [react-pdf](https://github.com/diegomura/react-pdf) [@react-pdf/renderer](https://github.com/diegomura/react-pdf) |
 
 ## 推荐产品 ✨
 
 还有一些常用的前端/设计/产品相关的工具推荐给大家使用。
 
-| 类型         | 推荐产品                                                              |
-| ------------ | --------------------------------------------------------------------- |
-| 文档管理     | [🐦 语雀](https://www.yuque.com/?chInfo=ch_antd)                      |
-| 图标         | [阿里巴巴矢量图标库](https://www.iconfont.cn/)                        |
-| Sketch 插件  | [Kitchen](https://kitchen.alipay.com)                                 |
-| 在线代码编辑 | [codesandbox](https://codesandbox.io/) [codepen](https://codepen.io/) |
-| 图片压缩     | [tinypng](https://tinypng.com/)                                       |
+| 类型 | 推荐产品 |
+| --- | --- |
+| 知识管理 | [🐦 语雀](https://www.yuque.com/?chInfo=ch_antd) |
+| 图标 | [阿里巴巴矢量图标库](https://www.iconfont.cn) |
+| Sketch 插件 | [Kitchen](https://kitchen.alipay.com) |
+| 在线代码编辑 | [stackblitz](https://stackblitz.com) [codesandbox](https://codesandbox.io/) [codepen](https://codepen.io/) |
 
 <style>
 .markdown table td:first-child {
@@ -66,7 +66,7 @@ title: 社区精选组件
   font-weight: 500;
 }
 .markdown table td > a:not(:last-child) {
-  margin-right: 18px;
+  margin-inline-end: 18px;
 }
 .markdown table td > a:not(:last-child)::after {
   position: absolute;

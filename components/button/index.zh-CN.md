@@ -2,6 +2,7 @@
 category: Components
 title: Button
 subtitle: 按钮
+description: 按钮用于开始一个即时操作。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*7va7RKs3YzIAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3T4cRqxH9-8AAAAAAAAAAAAADrJ8AQ/original
 demo:
@@ -10,8 +11,6 @@ group:
   title: 通用
   order: 1
 ---
-
-按钮用于开始一个即时操作。
 
 ## 何时使用
 
@@ -38,7 +37,8 @@ group:
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">按钮类型</code>
-<code src="./demo/icon.tsx">图标按钮</code>
+<code src="./demo/icon.tsx">按钮图标</code>
+<code src="./demo/icon-position.tsx" version="5.17.0">按钮图标位置</code>
 <code src="./demo/debug-icon.tsx" debug>调试图标按钮</code>
 <code src="./demo/debug-block.tsx" debug>调试按钮block属性</code>
 <code src="./demo/size.tsx">按钮尺寸</code>
@@ -51,7 +51,8 @@ group:
 <code src="./demo/legacy-group.tsx" debug>废弃的 Block 组</code>
 <code src="./demo/chinese-chars-loading.tsx" debug>加载中状态 bug 还原</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
-<code src="./demo/linear-gradient.tsx" debug>渐变按钮</code>
+<code src="./demo/linear-gradient.tsx">渐变按钮</code>
+<code src="./demo/noSpace.tsx" version="5.17.0">移除两个汉字之间的空格</code>
 
 ## API
 
@@ -63,6 +64,7 @@ group:
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| autoInsertSpace | 我们默认提供两个汉字之间的空格，可以设置 `autoInsertSpace` 为 `false` 关闭 | boolean | `true` | 5.17.0 |
 | block | 将按钮宽度调整为其父宽度的选项 | boolean | false |  |
 | classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.4.0 |
 | danger | 设置危险按钮 | boolean | false |  |
@@ -71,13 +73,14 @@ group:
 | href | 点击跳转的地址，指定此属性 button 的行为和 a 链接一致 | string | - |  |
 | htmlType | 设置 `button` 原生的 `type` 值，可选值请参考 [HTML 标准](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-type) | string | `button` |  |
 | icon | 设置按钮的图标组件 | ReactNode | - |  |
+| iconPosition | 设置按钮图标组件的位置 | `start` \| `end` | `start` | 5.17.0 |
 | loading | 设置按钮载入状态 | boolean \| { delay: number } | false |  |
 | shape | 设置按钮形状 | `default` \| `circle` \| `round` | `default` |  |
 | size | 设置按钮大小 | `large` \| `middle` \| `small` | `middle` |  |
 | styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.4.0 |
 | target | 相当于 a 链接的 target 属性，href 存在时生效 | string | - |  |
 | type | 设置按钮类型 | `primary` \| `dashed` \| `link` \| `text` \| `default` | `default` |  |
-| onClick | 点击按钮时的回调 | (event: MouseEvent) => void | - |  |
+| onClick | 点击按钮时的回调 | (event: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
 
 支持原生 button 的其他所有属性。
 
@@ -91,17 +94,15 @@ group:
 
 ## FAQ
 
-### 如何移除两个汉字之间的空格？
+### 如何关闭点击波纹效果？
 
-根据 Ant Design 设计规范要求，我们会在按钮内(文本按钮和链接按钮除外)只有两个汉字时自动添加空格，如果你不需要这个特性，可以设置 [ConfigProvider](/components/config-provider-cn#api) 的 `autoInsertSpaceInButton` 为 `false`。
+如果你不需要这个特性，可以设置 [ConfigProvider](/components/config-provider-cn#api) 的 `wave` 的 `disabled` 为 `true`。
 
-```tsx
-<ConfigProvider autoInsertSpaceInButton={false}>
-  <Button>按钮</Button>
+```jsx
+<ConfigProvider wave={{ disabled: true }}>
+  <Button>click</Button>
 </ConfigProvider>
 ```
-
-<img src="https://gw.alipayobjects.com/zos/antfincdn/MY%26THAPZrW/38f06cb9-293a-4b42-b183-9f443e79ffea.png" style="box-shadow: none; margin: 0" width="100px" height="64px" alt="移除两个汉字之间的空格"  />
 
 <style>
 .site-button-ghost-wrapper {

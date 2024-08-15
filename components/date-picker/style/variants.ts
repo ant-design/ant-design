@@ -1,4 +1,5 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 
 import { genBorderlessStyle, genFilledStyle, genOutlinedStyle } from '../../input/style/variants';
 import type { PickerToken } from './token';

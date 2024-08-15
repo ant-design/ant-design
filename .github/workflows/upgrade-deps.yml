@@ -8,7 +8,7 @@ on:
 jobs:
   upgrade-deps:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
+    if: github.repository == 'ant-design/ant-design' && github.ref == 'refs/heads/master'
     permissions:
       pull-requests: write # for peter-evans/create-pull-request to create PRs
       contents: write # for git push
@@ -24,7 +24,7 @@ jobs:
       - name: setup node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
 
       - name: upgrade deps
         id: upgrade

@@ -1,9 +1,8 @@
 import { Keyframes, unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GenStyleFn, GetDefaultToken } from '../../theme/internal';
 import { genPresetColor, genStyleHooks, mergeToken } from '../../theme/internal';
-import type { GenStyleFn, GetDefaultToken } from '../../theme/util/genComponentStyleHook';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -17,12 +16,12 @@ export interface ComponentToken {
    * @desc 徽标高度
    * @descEN Height of badge
    */
-  indicatorHeight: number;
+  indicatorHeight: number | string;
   /**
    * @desc 小号徽标高度
    * @descEN Height of small badge
    */
-  indicatorHeightSM: number;
+  indicatorHeightSM: number | string;
   /**
    * @desc 点状徽标尺寸
    * @descEN Size of dot badge
@@ -50,16 +49,60 @@ export interface ComponentToken {
   statusSize: number;
 }
 
+/**
+ * @desc Badge 组件的 Token
+ * @descEN Token for Badge component
+ */
 export interface BadgeToken extends FullToken<'Badge'> {
+  /**
+   * @desc 徽标字体高度
+   * @descEN Font height of badge
+   */
   badgeFontHeight: number;
+  /**
+   * @desc 徽标文本颜色
+   * @descEN Text color of badge
+   */
   badgeTextColor: string;
+  /**
+   * @desc 徽标颜色
+   * @descEN Color of badge
+   */
   badgeColor: string;
+  /**
+   * @desc 徽标悬停颜色
+   * @descEN Hover color of badge
+   */
   badgeColorHover: string;
+  /**
+   * @desc 徽标阴影尺寸
+   * @descEN Shadow size of badge
+   */
   badgeShadowSize: number;
+  /**
+   * @desc 徽标阴影颜色
+   * @descEN Shadow color of badge
+   */
   badgeShadowColor: string;
+  /**
+   * @desc 徽标处理持续时间
+   * @descEN Processing duration of badge
+   */
   badgeProcessingDuration: string;
+  /**
+   * @desc 徽标丝带偏移量
+   * @descEN Ribbon offset of badge
+   */
   badgeRibbonOffset: number;
+  /**
+   * @desc 徽标丝带角变换
+   * @descEN Ribbon corner transform of badge
+   */
   badgeRibbonCornerTransform: string;
+  /**
+   * @desc 徽标丝带角滤镜
+   * @descEN Ribbon corner filter of badge
+   */
   badgeRibbonCornerFilter: string;
 }
 
@@ -121,6 +164,9 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token) => {
       [`&:not(${componentCls}-count)`]: {
         color: darkColor,
       },
+      'a:hover &': {
+        background: darkColor,
+      },
     },
   }));
 
@@ -133,6 +179,8 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token) => {
       lineHeight: 1,
 
       [`${componentCls}-count`]: {
+        display: 'inline-flex',
+        justifyContent: 'center',
         zIndex: token.indicatorZIndex,
         minWidth: indicatorHeight,
         height: indicatorHeight,
@@ -218,8 +266,9 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token) => {
         },
         [`${componentCls}-status-processing`]: {
           overflow: 'visible',
-          color: token.colorPrimary,
-          backgroundColor: token.colorPrimary,
+          color: token.colorInfo,
+          backgroundColor: token.colorInfo,
+          borderColor: 'currentcolor',
 
           '&::after': {
             position: 'absolute',
@@ -293,7 +342,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token) => {
           transformOrigin: '50% 50%',
         },
       },
-      [`${numberPrefixCls}`]: {
+      [numberPrefixCls]: {
         overflow: 'hidden',
         [`${numberPrefixCls}-only`]: {
           position: 'relative',

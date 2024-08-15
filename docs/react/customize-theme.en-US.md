@@ -17,7 +17,7 @@ In version 5.0, we provide a new way to customize themes. Different from the les
 
 ## Basic Usage
 
-In version 5.0 we call the smallest element that affects the theme **Design Token**. By modifying the Design Token, we can present various themes or components. You can pass `theme` to `ConfigProvider`` to customize theme. After migrate to V5, theme of V5 will be applied by default.
+In version 5.0 we call the smallest element that affects the theme **Design Token**. By modifying the Design Token, we can present various themes or components. You can pass `theme` to `ConfigProvider` to customize theme. After migrate to V5, theme of V5 will be applied by default.
 
 <!-- prettier-ignore -->
 :::warning
@@ -165,7 +165,7 @@ export default App;
 
 ### Disable Motion
 
-antd has built-in interaction animations to make enterprise-level pages more detailed. In some extreme scenarios, it may affect the performance of page interaction. If you need to turn off the animation, try seting `motion` of `token` to `false`:
+antd has built-in interaction animations to make enterprise-level pages more detailed. In some extreme scenarios, it may affect the performance of page interaction. If you need to turn off the animation, try setting `motion` of `token` to `false`:
 
 ```sandpack
 import React from 'react';
@@ -440,6 +440,8 @@ const theme = {
 | inherit | Inherit theme configured in upper ConfigProvider | boolean | true |
 | algorithm | Modify the algorithms of theme | `(token: SeedToken) => MapToken` \| `((token: SeedToken) => MapToken)[]` | `defaultAlgorithm` |
 | components | Modify Component Token and Alias Token applied to components | `ComponentsConfig` | - |
+| cssVar | Toggle CSS Variables, refer [CSS Variables](/docs/react/css-variables#api) | `boolean \| { prefix?: string; key?: string }` | false |
+| hashed | Component class Hash value, refer [CSS Variables](/docs/react/css-variables#disable-hash) | boolean | true |
 
 ### ComponentsConfig
 

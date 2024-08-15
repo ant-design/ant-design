@@ -4,7 +4,7 @@ import 'dayjs/locale/zh-cn';
 
 import React from 'react';
 import MockDate from 'mockdate';
-import { type PickerPanelProps } from 'rc-picker';
+import type { PickerPanelProps } from 'rc-picker';
 import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 import type { Locale } from 'rc-picker/lib/interface';
 import { resetWarned } from 'rc-util/lib/warning';
@@ -16,7 +16,9 @@ import { fireEvent, render } from '../../../tests/utils';
 import Group from '../../radio/group';
 import Button from '../../radio/radioButton';
 import Select from '../../select';
-import Header, { type CalendarHeaderProps } from '../Header';
+import Header from '../Header';
+import type { CalendarHeaderProps } from '../Header';
+import ConfigProvider from '../../config-provider';
 
 const ref: {
   calendarProps?: PickerPanelProps;
@@ -207,6 +209,23 @@ describe('Calendar', () => {
     MockDate.reset();
   });
 
+  it('Calendar locale support should override ConfigProvider locale', () => {
+    MockDate.set(Dayjs('2018-10-19').valueOf());
+    // eslint-disable-next-line global-require
+    const zhCN = require('../locale/zh_CN').default;
+    // eslint-disable-next-line global-require
+    const enUs = require('../../locale/en_US').default;
+    const wrapper = render(
+      <ConfigProvider locale={enUs}>
+        <Calendar locale={zhCN} />
+      </ConfigProvider>,
+    );
+    expect(wrapper.container.querySelector('.ant-picker-content thead')?.textContent).toBe(
+      '一二三四五六日',
+    );
+    MockDate.reset();
+  });
+
   describe('onPanelChange', () => {
     it('trigger when click last month of date', () => {
       const onPanelChange = jest.fn();
@@ -334,7 +353,7 @@ describe('Calendar', () => {
     const onTypeChange = jest.fn();
     const value = Dayjs('2018-12-03');
     const wrapper = render(
-      <Header
+      <Header<Dayjs.Dayjs>
         prefixCls="ant-picker-calendar"
         generateConfig={dayjsGenerateConfig}
         onModeChange={onTypeChange}
@@ -370,7 +389,7 @@ describe('Calendar', () => {
       return (
         <Select
           size="small"
-          dropdownMatchSelectWidth={false}
+          popupMatchSelectWidth={false}
           className="my-year-select"
           onChange={onYearChange}
           value={String(year)}
@@ -414,7 +433,7 @@ describe('Calendar', () => {
       return (
         <Select
           size="small"
-          dropdownMatchSelectWidth={false}
+          popupMatchSelectWidth={false}
           className="my-month-select"
           onChange={onMonthChange}
           value={String(month)}

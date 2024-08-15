@@ -7,12 +7,12 @@ const { ErrorBoundary } = Alert;
 
 const Previewer = React.lazy(() => import('./Previewer'));
 
-const useStyle = createStyles(({ css }) => ({
+const useStyle = createStyles(({ token, css }) => ({
   skeletonWrapper: css`
     width: 100% !important;
     height: 250px;
-    margin-bottom: 16px;
-    border-radius: 8px;
+    margin-bottom: ${token.margin}px;
+    border-radius: ${token.borderRadiusLG}px;
   `,
 }));
 

@@ -1,15 +1,14 @@
 ---
 category: Components
-subtitle: 时间轴
 group: 数据展示
 title: Timeline
+subtitle: 时间轴
+description: 垂直展示的时间流信息。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*FkTySqNt3sYAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*yIl9S4hAIBcAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-垂直展示的时间流信息。
 
 ## 何时使用
 
@@ -17,8 +16,8 @@ demo:
 - 需要有一条时间轴进行视觉上的串联时。
 
 <!-- prettier-ignore -->
-:::info
-5.2.0版本之后，我们提供了更简单的用法 `<Timeline items={[...]} />` 以获得更好的性能，使您能在应用中编写更简单的代码。
+:::info{title="升级提示"}
+5.2.0 版本之后，我们提供了更简单的用法 `<Timeline items={[...]} />` 以获得更好的性能，使您能在应用中编写更简单的代码。
 与此同时，我们弃用了旧的用法，并且将在下一个 major 版本中删除它。
 :::
 

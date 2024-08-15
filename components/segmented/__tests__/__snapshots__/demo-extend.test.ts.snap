@@ -1153,7 +1153,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
   <div>
     <div
       class="ant-segmented ant-segmented-lg"
-      style="margin-right: 6px;"
+      style="margin-inline-end: 6px;"
     >
       <div
         class="ant-segmented-group"
@@ -1215,7 +1215,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
   <div>
     <div
       class="ant-segmented"
-      style="margin-right: 6px;"
+      style="margin-inline-end: 6px;"
     >
       <div
         class="ant-segmented-group"
@@ -1276,7 +1276,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
   <div>
     <div
       class="ant-segmented ant-segmented-sm"
-      style="margin-right: 6px;"
+      style="margin-inline-end: 6px;"
     >
       <div
         class="ant-segmented-group"

@@ -7,7 +7,7 @@ export interface FlexProps<P = AnyObject> extends React.HTMLAttributes<HTMLEleme
   prefixCls?: string;
   rootClassName?: string;
   vertical?: boolean;
-  wrap?: React.CSSProperties['flexWrap'];
+  wrap?: boolean | React.CSSProperties['flexWrap'];
   justify?: React.CSSProperties['justifyContent'];
   align?: React.CSSProperties['alignItems'];
   flex?: React.CSSProperties['flex'];

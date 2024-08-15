@@ -1,7 +1,8 @@
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks } from '../../theme/internal';
 
-export type ComponentToken = {};
+// biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
+export interface ComponentToken {}
 
 interface AppToken extends FullToken<'App'> {}
 
@@ -14,6 +15,9 @@ const genBaseStyle: GenerateStyle<AppToken> = (token) => {
       fontSize,
       lineHeight,
       fontFamily,
+      [`&${componentCls}-rtl`]: {
+        direction: 'rtl',
+      },
     },
   };
 };

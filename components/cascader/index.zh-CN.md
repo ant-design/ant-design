@@ -3,13 +3,12 @@ category: Components
 group: 数据录入
 title: Cascader
 subtitle: 级联选择
+description: 级联选择框。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ngTnQZNOcK0AAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Nt8xR7afyr0AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-级联选择框。
 
 ## 何时使用
 
@@ -72,7 +71,7 @@ demo:
 | notFoundContent | 当下拉列表为空时显示的内容 | string | `Not Found` |  |
 | open | 控制浮层显隐 | boolean | - | 4.17.0 |
 | options | 可选项数据源 | [Option](#option)\[] | - |  |
-| placeholder | 输入框占位文本 | string | `请选择` |  |
+| placeholder | 输入框占位文本 | string | - |  |
 | placement | 浮层预设位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | 4.17.0 |
 | showSearch | 在选择框中显示搜索框 | boolean \| [Object](#showsearch) | false |  |
 | size | 输入框大小 | `large` \| `middle` \| `small` | - |  |
@@ -89,6 +88,7 @@ demo:
 | searchValue | 设置搜索的值，需要与 `showSearch` 配合使用 | string | - | 4.17.0 |
 | onSearch | 监听搜索，返回输入的值 | (search: string) => void | - | 4.17.0 |
 | dropdownMenuColumnStyle | 下拉菜单列的样式 | CSSProperties | - |  |
+| optionRender | 自定义渲染下拉选项 | (option: Option) => React.ReactNode | - | 5.16.0 |
 
 ### showSearch
 

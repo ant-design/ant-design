@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { EllipsisOutlined } from '@ant-design/icons';
-import type { ConfigProviderProps, RadioChangeEvent, TourProps, UploadFile } from 'antd';
+import type {
+  ConfigProviderProps,
+  RadioChangeEvent,
+  TableProps,
+  TourProps,
+  UploadFile,
+} from 'antd';
 import {
   Button,
   Calendar,
@@ -38,7 +44,7 @@ dayjs.locale('en');
 const { Option } = Select;
 const { RangePicker } = DatePicker;
 
-const columns = [
+const columns: TableProps['columns'] = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -217,7 +223,7 @@ const App: React.FC = () => {
   return (
     <>
       <div style={{ marginBottom: 16 }}>
-        <span style={{ marginRight: 16 }}>Change locale of components:</span>
+        <span style={{ marginInlineEnd: 16 }}>Change locale of components:</span>
         <Radio.Group value={locale} onChange={changeLocale}>
           <Radio.Button key="en" value={enUS}>
             English

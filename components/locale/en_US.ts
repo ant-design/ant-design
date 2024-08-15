@@ -59,6 +59,7 @@ const localeValues: Locale = {
     selectCurrent: 'Select current page',
     removeCurrent: 'Remove current page',
     selectAll: 'Select all data',
+    deselectAll: 'Deselect all data',
     removeAll: 'Remove all data',
     selectInvert: 'Invert current page',
   },
@@ -80,6 +81,7 @@ const localeValues: Locale = {
     copy: 'Copy',
     copied: 'Copied',
     expand: 'Expand',
+    collapse: 'Collapse',
   },
   Form: {
     optional: '(optional)',
@@ -141,6 +143,9 @@ const localeValues: Locale = {
   },
   ColorPicker: {
     presetEmpty: 'Empty',
+    transparent: 'Transparent',
+    singleColor: 'Single',
+    gradientColor: 'Gradient',
   },
 };
 

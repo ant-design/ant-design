@@ -1,7 +1,7 @@
 import React from 'react';
-import { act } from 'react-dom/test-utils';
+
 import AutoComplete from '..';
-import { render } from '../../../tests/utils';
+import { act, render } from '../../../tests/utils';
 
 describe('AutoComplete children could be focus', () => {
   beforeAll(() => {

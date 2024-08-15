@@ -40,6 +40,7 @@ export interface Locale {
     copy?: any;
     copied?: any;
     expand?: any;
+    collapse?: any;
   };
   Form?: {
     optional?: string;
@@ -55,6 +56,9 @@ export interface Locale {
   };
   ColorPicker?: {
     presetEmpty: string;
+    transparent: string;
+    singleColor: string;
+    gradientColor: string;
   };
 }
 
@@ -79,7 +83,7 @@ const LocaleProvider: React.FC<LocaleProviderProps> = (props) => {
   }
 
   React.useEffect(() => {
-    const clearLocale = changeConfirmLocale(locale && locale.Modal);
+    const clearLocale = changeConfirmLocale(locale?.Modal);
     return clearLocale;
   }, [locale]);
 

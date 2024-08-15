@@ -4,4 +4,4 @@
 
 ## en-US
 
-There are `outlined` `fille` and `borderless`, totally three variants to choose from.
+There are three variants: `outlined` `filled` and `borderless`.

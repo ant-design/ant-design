@@ -1,8 +1,10 @@
+import * as React from 'react';
 import StarFilled from '@ant-design/icons/StarFilled';
 import classNames from 'classnames';
 import RcRate from 'rc-rate';
 import type { RateRef, RateProps as RcRateProps } from 'rc-rate/lib/Rate';
-import * as React from 'react';
+import type { StarProps as RcStarProps } from 'rc-rate/lib/Star';
+
 import { ConfigContext } from '../config-provider';
 import Tooltip from '../tooltip';
 import useStyle from './style';
@@ -10,10 +12,6 @@ import useStyle from './style';
 export interface RateProps extends RcRateProps {
   rootClassName?: string;
   tooltips?: Array<string>;
-}
-
-interface RateNodeProps {
-  index: number;
 }
 
 const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
@@ -27,11 +25,11 @@ const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
     ...rest
   } = props;
 
-  const characterRender = (node: React.ReactElement, { index }: RateNodeProps) => {
+  const characterRender: RcStarProps['characterRender'] = (node, { index }) => {
     if (!tooltips) {
       return node;
     }
-    return <Tooltip title={tooltips[index]}>{node}</Tooltip>;
+    return <Tooltip title={tooltips[index as number]}>{node}</Tooltip>;
   };
 
   const { getPrefixCls, direction, rate } = React.useContext(ConfigContext);

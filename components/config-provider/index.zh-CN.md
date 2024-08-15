@@ -3,11 +3,10 @@ category: Components
 subtitle: 全局化配置
 group: 其他
 title: ConfigProvider
+description: 为组件提供统一的全局化配置。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*NVKORa7BCVwAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*YC4ERpGAddoAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-为组件提供统一的全局化配置。
 
 ## 使用
 
@@ -54,11 +53,10 @@ export default Demo;
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| autoInsertSpaceInButton | 设置为 `false` 时，移除按钮中 2 个汉字之间的空格 | boolean | true |  |
 | componentDisabled | 设置 antd 组件禁用状态 | boolean | - | 4.21.0 |
 | componentSize | 设置 antd 组件大小 | `small` \| `middle` \| `large` | - |  |
-| csp | 设置 [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) 配置 | { nonce: string } | - |  |
-| direction | 设置文本展示方向。 [示例](#components-config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
+| csp | 设置 [Content Security Policy](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CSP) 配置 | { nonce: string } | - |  |
+| direction | 设置文本展示方向。 [示例](#config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
 | getPopupContainer | 弹出框（Select, Tooltip, Menu 等等）渲染父节点，默认渲染到 body 上。 | function(triggerNode) | () => document.body |  |
 | getTargetContainer | 配置 Affix、Anchor 滚动监听容器。 | () => HTMLElement | () => window | 4.2.0 |
 | iconPrefixCls | 设置图标统一样式前缀 | string | `anticon` | 4.11.0 |
@@ -68,6 +66,7 @@ export default Demo;
 | prefixCls | 设置统一样式前缀 | string | `ant` |  |
 | renderEmpty | 自定义组件空状态。参考 [空状态](/components/empty-cn) | function(componentName: string): ReactNode | - |  |
 | theme | 设置主题，参考 [定制主题](/docs/react/customize-theme-cn) | [Theme](/docs/react/customize-theme-cn#theme) | - | 5.0.0 |
+| variant | 设置全局输入组件形态变体 | `outlined` \| `filled` \| `borderless` | - | 5.19.0 |
 | virtual | 设置 `false` 时关闭虚拟滚动 | boolean | - | 4.3.0 |
 | warning | 设置警告等级，`strict` 为 `false` 时会将废弃相关信息聚合为单条信息 | { strict: boolean } | - | 5.10.0 |
 
@@ -75,10 +74,18 @@ export default Demo;
 
 设置 `Modal`、`Message`、`Notification` 静态方法配置，只会对非 hooks 的静态方法调用生效。
 
-```ts
+```tsx
 ConfigProvider.config({
   // 5.13.0+
-  holderRender: (children) => <ConfigProvider prefixCls="ant" iconPrefixCls='anticon' theme={{token: { colorPrimary: 'red' }}}>{children}</ConfigProvider>
+  holderRender: (children) => (
+    <ConfigProvider
+      prefixCls="ant"
+      iconPrefixCls="anticon"
+      theme={{ token: { colorPrimary: 'red' } }}
+    >
+      {children}
+    </ConfigProvider>
+  ),
 });
 ```
 
@@ -108,7 +115,7 @@ const {
 | avatar | 设置 Avatar 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | badge | 设置 Badge 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: { count?: string, indicator?: string }, styles?: { count?: React.CSSProperties, indicator?: React.CSSProperties } } | - | 5.7.0 |
 | breadcrumb | 设置 Breadcrumb 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| button | 设置 Button 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: { icon: string }, styles?: { icon: React.CSSProperties } } | - | 5.6.0 |
+| button | 设置 Button 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: { icon: string }, styles?: { icon: React.CSSProperties }, autoInsertSpace?: boolean } | - | 5.6.0, autoInsertSpace: 5.17.0 |
 | calendar | 设置 Calendar 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | card | 设置 Card 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [CardProps\["classNames"\]](/components/card-cn#api), styles?: [CardProps\["styles"\]](/components/card-cn#api) } | - | 5.7.0, `classNames` 和 `styles`: 5.14.0 |
 | carousel | 设置 Carousel 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
@@ -124,12 +131,14 @@ const {
 | dropdown | 设置 Dropdown 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.11.0 |
 | empty | 设置 Empty 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | flex | 设置 Flex 组件的通用属性 | { className?: string, style?: React.CSSProperties, vertical?: boolean } | - | 5.10.0 |
+| floatButtonGroup | 设置 FloatButton.Group 组件的通用属性 | { closeIcon?: React.ReactNode } | - | 5.16.0 |
 | form | 设置 Form 组件的通用属性 | { className?: string, style?: React.CSSProperties, validateMessages?: [ValidateMessages](/components/form-cn#validatemessages), requiredMark?: boolean \| `optional`, colon?: boolean, scrollToFirstError?: boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)} | - | requiredMark: 4.8.0; colon: 4.18.0; scrollToFirstError: 5.2.0; className: 5.7.0; style: 5.7.0 |
 | image | 设置 Image 组件的通用属性 | { className?: string, style?: React.CSSProperties, preview?: { closeIcon?: React.ReactNode } } | - | 5.7.0, closeIcon: 5.14.0 |
-| input | 设置 Input 组件的通用属性 | { autoComplete?: string, className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| input | 设置 Input 组件的通用属性 | { autoComplete?: string, className?: string, style?: React.CSSProperties, allowClear?: boolean \| { clearIcon?: ReactNode } } | - | 5.7.0, allowClear: 5.15.0 |
+| textArea | 设置 TextArea 组件的通用属性 | { autoComplete?: string, className?: string, style?: React.CSSProperties, allowClear?: boolean \| { clearIcon?: ReactNode } } | - | 5.15.0 |
 | layout | 设置 Layout 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| list | 设置 List 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| menu | 设置 Menu 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| list | 设置 List 组件的通用属性 | { className?: string, style?: React.CSSProperties, item?:{ classNames: [ListItemProps\["classNames"\]](/components/list-cn#listitem), styles: [ListItemProps\["styles"\]](/components/list-cn#listitem) } } | - | 5.7.0 |
+| menu | 设置 Menu 组件的通用属性 | { className?: string, style?: React.CSSProperties, expandIcon?: ReactNode \| props => ReactNode } | - | 5.7.0, expandIcon: 5.15.0 |
 | mentions | 设置 Mentions 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | message | 设置 Message 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | modal | 设置 Modal 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [ModalProps\["classNames"\]](/components/modal-cn#api), styles?: [ModalProps\["styles"\]](/components/modal-cn#api), closeIcon?: React.ReactNode } | - | 5.7.0, `classNames` 和 `styles`: 5.10.0, `closeIcon`: 5.14.0 |
@@ -145,7 +154,7 @@ const {
 | slider | 设置 Slider 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | switch | 设置 Switch 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | space | 设置 Space 的通用属性，参考 [Space](/components/space-cn) | { size: `small` \| `middle` \| `large` \| `number`, className?: string, style?: React.CSSProperties, classNames?: { item: string }, styles?: { item: React.CSSProperties } } | - | 5.6.0 |
-| spin | 设置 Spin 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| spin | 设置 Spin 组件的通用属性 | { className?: string, style?: React.CSSProperties, indicator?: React.ReactElement } | - | 5.7.0, indicator: 5.20.0 |
 | statistic | 设置 Statistic 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | steps | 设置 Steps 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | table | 设置 Table 组件的通用属性 | { className?: string, style?: React.CSSProperties, expandable?: { expandIcon?: props => React.ReactNode } } | - | 5.7.0, expandable: 5.14.0 |

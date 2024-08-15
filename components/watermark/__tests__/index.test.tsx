@@ -15,6 +15,7 @@ describe('Watermark', () => {
 
   beforeAll(() => {
     mockSrcSet.mockImplementation(function fn() {
+      // @ts-ignore
       this.onload?.();
     });
   });
@@ -77,6 +78,7 @@ describe('Watermark', () => {
 
   it('Invalid image watermark', () => {
     mockSrcSet.mockImplementation(function fn() {
+      // @ts-ignore
       this.onerror?.();
     });
     const { container } = render(
@@ -95,15 +97,32 @@ describe('Watermark', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('Observe the modification of style', async () => {
-    const { container } = render(
-      <Watermark offset={[-200, -200]} className="watermark" content="MutationObserver" />,
-    );
-    const target = container.querySelector<HTMLDivElement>('.watermark div');
-    await waitFakeTimer();
-    target?.setAttribute('style', '');
-    await waitFakeTimer();
-    expect(container).toMatchSnapshot();
+  describe('Observe the modification of style', () => {
+    it('watermark', async () => {
+      const { container } = render(
+        <Watermark offset={[-200, -200]} className="watermark" content="MutationObserver" />,
+      );
+      const target = container.querySelector<HTMLDivElement>('.watermark div');
+      await waitFakeTimer();
+      target?.setAttribute('style', '');
+      await waitFakeTimer();
+      expect(container).toMatchSnapshot();
+    });
+
+    it('container', async () => {
+      const { container } = render(
+        <Watermark offset={[-200, -200]} className="watermark" content="MutationObserver" />,
+      );
+
+      const target = container.querySelector<HTMLDivElement>('.watermark');
+      await waitFakeTimer();
+      target?.setAttribute('style', '');
+      await waitFakeTimer();
+
+      expect(target).toHaveStyle({
+        overflow: 'hidden',
+      });
+    });
   });
 
   describe('nest component', () => {
@@ -114,9 +133,7 @@ describe('Watermark', () => {
 
         const watermark = getWatermarkElement();
 
-        expect(watermark).toHaveStyle({
-          zIndex: '9',
-        });
+        expect(watermark).toHaveStyle({ zIndex: '9' });
 
         // Not crash when children removed
         rerender(<Watermark className="test" />);

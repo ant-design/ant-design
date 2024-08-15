@@ -33,6 +33,7 @@ describe('type', () => {
       type Props = GetProps<typeof FC>;
       const props: Props = { bamboo: 123 };
 
+      expect(FC).toBeTruthy();
       expect(props).toBeTruthy();
     });
 
@@ -65,6 +66,22 @@ describe('type', () => {
 
       expect(<RefFC ref={ref} />).toBeTruthy();
     });
+
+    it('Support ForwardRefExoticComponent type', () => {
+      interface InnerProps {
+        test: number;
+      }
+      interface InnerRef {
+        bamboo: number;
+      }
+      type TestComponent = React.ForwardRefExoticComponent<
+        InnerProps & React.RefAttributes<InnerRef>
+      >;
+      type ExtractedTestRef = GetRef<TestComponent>;
+
+      const a: ExtractedTestRef = { bamboo: 123 };
+      expect(a).toBeTruthy();
+    });
   });
 
   describe('GetProp', () => {
@@ -73,6 +90,7 @@ describe('type', () => {
       type ListItemType = GetProp<typeof Optional, 'list'>[number];
 
       const item: ListItemType = { bamboo: '123' };
+      expect(Optional).toBeTruthy();
       expect(item).toBeTruthy();
     });
 

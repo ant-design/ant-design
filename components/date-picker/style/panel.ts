@@ -1,4 +1,5 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
 import type { GenerateStyle } from '../../theme/internal';
@@ -204,8 +205,6 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         },
 
         '&-rtl': {
-          direction: 'rtl',
-
           [`${componentCls}-prev-icon,
               ${componentCls}-super-prev-icon`]: {
             transform: 'rotate(45deg)',
@@ -214,6 +213,15 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           [`${componentCls}-next-icon,
               ${componentCls}-super-next-icon`]: {
             transform: 'rotate(-135deg)',
+          },
+
+          [`${componentCls}-time-panel`]: {
+            [`${componentCls}-content`]: {
+              direction: 'ltr',
+              '> *': {
+                direction: 'rtl',
+              },
+            },
           },
         },
       },
@@ -253,6 +261,9 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           cursor: 'pointer',
           transition: `color ${motionDurationMid}`,
           fontSize: 'inherit',
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
         },
 
         '> button': {
@@ -274,10 +285,9 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           fontWeight: fontWeightStrong,
           lineHeight: unit(textHeight),
 
-          button: {
+          '> button': {
             color: 'inherit',
             fontWeight: 'inherit',
-            verticalAlign: 'top',
 
             '&:not(:first-child)': {
               marginInlineStart: paddingXS,
@@ -295,7 +305,6 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         &-super-prev-icon,
         &-super-next-icon`]: {
         position: 'relative',
-        display: 'inline-block',
         width: pickerControlIconSize,
         height: pickerControlIconSize,
 
@@ -303,14 +312,11 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           position: 'absolute',
           top: 0,
           insetInlineStart: 0,
-          display: 'inline-block',
           width: pickerControlIconSize,
           height: pickerControlIconSize,
           border: `0 solid currentcolor`,
-          borderBlockStartWidth: pickerControlIconBorderWidth,
-          borderBlockEndWidth: 0,
-          borderInlineStartWidth: pickerControlIconBorderWidth,
-          borderInlineEndWidth: 0,
+          borderBlockWidth: `${unit(pickerControlIconBorderWidth)} 0`,
+          borderInlineWidth: `${unit(pickerControlIconBorderWidth)} 0`,
           content: '""',
         },
       },
@@ -325,21 +331,17 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           width: pickerControlIconSize,
           height: pickerControlIconSize,
           border: '0 solid currentcolor',
-          borderBlockStartWidth: pickerControlIconBorderWidth,
-          borderBlockEndWidth: 0,
-          borderInlineStartWidth: pickerControlIconBorderWidth,
-          borderInlineEndWidth: 0,
+          borderBlockWidth: `${unit(pickerControlIconBorderWidth)} 0`,
+          borderInlineWidth: `${unit(pickerControlIconBorderWidth)} 0`,
           content: '""',
         },
       },
 
-      [`&-prev-icon,
-        &-super-prev-icon`]: {
+      '&-prev-icon, &-super-prev-icon': {
         transform: 'rotate(-45deg)',
       },
 
-      [`&-next-icon,
-        &-super-next-icon`]: {
+      '&-next-icon, &-super-next-icon': {
         transform: 'rotate(135deg)',
       },
 
@@ -462,15 +464,13 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
             },
           },
 
-          [`&:hover td`]: {
+          '&:hover td': {
             '&:before': {
               background: cellHoverBg,
             },
           },
 
-          [`&-range-start td,
-            &-range-end td,
-            &-selected td`]: {
+          '&-range-start td, &-range-end td, &-selected td, &-hover td': {
             // Rise priority to override hover style
             [`&${pickerCellCls}`]: {
               '&:before': {
@@ -487,14 +487,14 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
             },
           },
 
-          [`&-range-hover td:before`]: {
+          '&-range-hover td:before': {
             background: controlItemBgActive,
           },
         },
       },
 
       // >>> ShowWeek
-      [`&-week-panel, &-date-panel-show-week`]: {
+      '&-week-panel, &-date-panel-show-week': {
         [`${componentCls}-body`]: {
           padding: `${unit(paddingXS)} ${unit(paddingSM)}`,
         },
@@ -534,7 +534,6 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
       '&-time-panel': {
         width: 'auto',
         minWidth: 'auto',
-        direction: 'ltr',
 
         [`${componentCls}-content`]: {
           display: 'flex',
@@ -560,7 +559,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 
           '&::-webkit-scrollbar-thumb': {
             backgroundColor: token.colorTextTertiary,
-            borderRadius: 4,
+            borderRadius: token.borderRadiusSM,
           },
 
           // For Firefox
@@ -571,7 +570,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 
           '&::after': {
             display: 'block',
-            height: token.calc(timeColumnHeight).sub(timeCellHeight).equal(),
+            height: token.calc('100%').sub(timeCellHeight).equal(),
             content: '""',
           },
 
@@ -628,14 +627,6 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
             },
           },
         },
-      },
-      // https://github.com/ant-design/ant-design/issues/39227
-      [`&-datetime-panel ${componentCls}-time-panel-column:after`]: {
-        height: token
-          .calc(timeColumnHeight)
-          .sub(timeCellHeight)
-          .add(token.calc(paddingXXS).mul(2))
-          .equal(),
       },
     },
   };

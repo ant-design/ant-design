@@ -2,11 +2,9 @@ import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
 import { resetIcon } from '../../style';
-import { mergeToken, type AliasToken } from '../../theme/internal';
-import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
+import { mergeToken } from '../../theme/internal';
+import type { AliasToken, TokenWithCommonCls } from '../../theme/internal';
 import type { SelectToken } from './token';
-
-const FIXED_ITEM_MARGIN = 2;
 
 type SelectItemToken = Pick<
   SelectToken,
@@ -18,7 +16,54 @@ type SelectItemToken = Pick<
   | 'lineWidth'
   | 'calc'
   | 'inputPaddingHorizontalBase'
+  | 'INTERNAL_FIXED_ITEM_MARGIN'
 >;
+
+/**
+ * Get multiple selector needed style. The calculation:
+ *
+ * ContainerPadding = BasePadding - ItemMargin
+ *
+ * Border:                    ╔═══════════════════════════╗                 ┬
+ * ContainerPadding:          ║                           ║                 │
+ *                            ╟───────────────────────────╢     ┬           │
+ * Item Margin:               ║                           ║     │           │
+ *                            ║             ┌──────────┐  ║     │           │
+ * Item(multipleItemHeight):  ║ BasePadding │   Item   │  ║  Overflow  Container(ControlHeight)
+ *                            ║             └──────────┘  ║     │           │
+ * Item Margin:               ║                           ║     │           │
+ *                            ╟───────────────────────────╢     ┴           │
+ * ContainerPadding:          ║                           ║                 │
+ * Border:                    ╚═══════════════════════════╝                 ┴
+ */
+export const getMultipleSelectorUnit = (
+  token: Pick<
+    SelectToken,
+    | 'max'
+    | 'calc'
+    | 'multipleSelectItemHeight'
+    | 'paddingXXS'
+    | 'lineWidth'
+    | 'INTERNAL_FIXED_ITEM_MARGIN'
+  >,
+) => {
+  const { multipleSelectItemHeight, paddingXXS, lineWidth, INTERNAL_FIXED_ITEM_MARGIN } = token;
+
+  const basePadding = token.max(token.calc(paddingXXS).sub(lineWidth).equal(), 0);
+  const containerPadding = token.max(
+    token.calc(basePadding).sub(INTERNAL_FIXED_ITEM_MARGIN).equal(),
+    0,
+  );
+
+  return {
+    basePadding,
+    containerPadding,
+    itemHeight: unit(multipleSelectItemHeight),
+    itemLineHeight: unit(
+      token.calc(multipleSelectItemHeight).sub(token.calc(token.lineWidth).mul(2)).equal(),
+    ),
+  };
+};
 
 const getSelectItemStyle = (token: SelectItemToken): number | string => {
   const { multipleSelectItemHeight, selectHeight, lineWidth } = token;
@@ -31,97 +76,86 @@ const getSelectItemStyle = (token: SelectItemToken): number | string => {
   return selectItemDist;
 };
 
-export const genSelectionStyle = (
-  token: TokenWithCommonCls<AliasToken> & SelectItemToken,
-  suffix?: string,
+/**
+ * Get the `rc-overflow` needed style.
+ * It's a share style which means not affected by `size`.
+ */
+export const genOverflowStyle = (
+  token: Pick<
+    SelectToken,
+    | 'calc'
+    | 'componentCls'
+    | 'iconCls'
+    | 'borderRadiusSM'
+    | 'motionDurationSlow'
+    | 'paddingXS'
+    | 'multipleItemColorDisabled'
+    | 'multipleItemBorderColorDisabled'
+    | 'colorIcon'
+    | 'colorIconHover'
+    | 'INTERNAL_FIXED_ITEM_MARGIN'
+  >,
 ): CSSObject => {
-  const { componentCls, iconCls } = token;
+  const {
+    componentCls,
+    iconCls,
+    borderRadiusSM,
+    motionDurationSlow,
+    paddingXS,
+    multipleItemColorDisabled,
+    multipleItemBorderColorDisabled,
+    colorIcon,
+    colorIconHover,
+    INTERNAL_FIXED_ITEM_MARGIN,
+  } = token;
 
   const selectOverflowPrefixCls = `${componentCls}-selection-overflow`;
 
-  const selectItemHeight = token.multipleSelectItemHeight;
-  const selectItemDist = getSelectItemStyle(token);
-
-  const suffixCls = suffix ? `${componentCls}-${suffix}` : '';
-
   return {
-    [`${componentCls}-multiple${suffixCls}`]: {
-      /**
-       * Do not merge `height` & `line-height` under style with `selection` & `search`, since chrome
-       * may update to redesign with its align logic.
-       */
-      // =========================== Overflow ===========================
-      [selectOverflowPrefixCls]: {
-        position: 'relative',
-        display: 'flex',
-        flex: 'auto',
-        flexWrap: 'wrap',
+    /**
+     * Do not merge `height` & `line-height` under style with `selection` & `search`, since chrome
+     * may update to redesign with its align logic.
+     */
+    // =========================== Overflow ===========================
+    [selectOverflowPrefixCls]: {
+      position: 'relative',
+      display: 'flex',
+      flex: 'auto',
+      flexWrap: 'wrap',
+      maxWidth: '100%',
+
+      '&-item': {
+        flex: 'none',
+        alignSelf: 'center',
         maxWidth: '100%',
-
-        '&-item': {
-          flex: 'none',
-          alignSelf: 'center',
-          maxWidth: '100%',
-          display: 'inline-flex',
-        },
+        display: 'inline-flex',
       },
 
-      // ========================= Selector =========================
-      [`${componentCls}-selector`]: {
-        display: 'flex',
-        flexWrap: 'wrap',
-        alignItems: 'center',
-        height: '100%',
-        // Multiple is little different that horizontal is follow the vertical
-        paddingInline: token.calc(FIXED_ITEM_MARGIN).mul(2).equal(),
-        paddingBlock: token.calc(selectItemDist).sub(FIXED_ITEM_MARGIN).equal(),
-        borderRadius: token.borderRadius,
-
-        [`${componentCls}-disabled&`]: {
-          background: token.multipleSelectorBgDisabled,
-          cursor: 'not-allowed',
-        },
-
-        '&:after': {
-          display: 'inline-block',
-          width: 0,
-          margin: `${unit(FIXED_ITEM_MARGIN)} 0`,
-          lineHeight: unit(selectItemHeight),
-          visibility: 'hidden',
-          content: '"\\a0"',
-        },
-      },
-
-      // ======================== Selections ========================
+      // ======================== Selections ==========================
       [`${componentCls}-selection-item`]: {
         display: 'flex',
         alignSelf: 'center',
         flex: 'none',
         boxSizing: 'border-box',
         maxWidth: '100%',
-        height: selectItemHeight,
-        marginTop: FIXED_ITEM_MARGIN,
-        marginBottom: FIXED_ITEM_MARGIN,
-        lineHeight: unit(
-          token.calc(selectItemHeight).sub(token.calc(token.lineWidth).mul(2)).equal(),
-        ),
-        borderRadius: token.borderRadiusSM,
+        marginBlock: INTERNAL_FIXED_ITEM_MARGIN,
+        borderRadius: borderRadiusSM,
         cursor: 'default',
-        transition: `font-size ${token.motionDurationSlow}, line-height ${token.motionDurationSlow}, height ${token.motionDurationSlow}`,
-        marginInlineEnd: token.calc(FIXED_ITEM_MARGIN).mul(2).equal(),
-        paddingInlineStart: token.paddingXS,
-        paddingInlineEnd: token.calc(token.paddingXS).div(2).equal(),
+        transition: `font-size ${motionDurationSlow}, line-height ${motionDurationSlow}, height ${motionDurationSlow}`,
+        marginInlineEnd: token.calc(INTERNAL_FIXED_ITEM_MARGIN).mul(2).equal(),
+        paddingInlineStart: paddingXS,
+        paddingInlineEnd: token.calc(paddingXS).div(2).equal(),
 
         [`${componentCls}-disabled&`]: {
-          color: token.multipleItemColorDisabled,
-          borderColor: token.multipleItemBorderColorDisabled,
+          color: multipleItemColorDisabled,
+          borderColor: multipleItemBorderColorDisabled,
           cursor: 'not-allowed',
         },
 
         // It's ok not to do this, but 24px makes bottom narrow in view should adjust
         '&-content': {
           display: 'inline-block',
-          marginInlineEnd: token.calc(token.paddingXS).div(2).equal(),
+          marginInlineEnd: token.calc(paddingXS).div(2).equal(),
           overflow: 'hidden',
           whiteSpace: 'pre', // fix whitespace wrapping. custom tags display all whitespace within.
           textOverflow: 'ellipsis',
@@ -132,7 +166,7 @@ export const genSelectionStyle = (
 
           display: 'inline-flex',
           alignItems: 'center',
-          color: token.colorIcon,
+          color: colorIcon,
           fontWeight: 'bold',
           fontSize: 10,
           lineHeight: 'inherit',
@@ -143,9 +177,64 @@ export const genSelectionStyle = (
           },
 
           '&:hover': {
-            color: token.colorIconHover,
+            color: colorIconHover,
           },
         },
+      },
+    },
+  };
+};
+
+const genSelectionStyle = (
+  token: TokenWithCommonCls<AliasToken> & SelectItemToken,
+  suffix?: string,
+): CSSObject => {
+  const { componentCls, INTERNAL_FIXED_ITEM_MARGIN } = token;
+
+  const selectOverflowPrefixCls = `${componentCls}-selection-overflow`;
+
+  const selectItemHeight = token.multipleSelectItemHeight;
+  const selectItemDist = getSelectItemStyle(token);
+
+  const suffixCls = suffix ? `${componentCls}-${suffix}` : '';
+
+  const multipleSelectorUnit = getMultipleSelectorUnit(token);
+
+  return {
+    [`${componentCls}-multiple${suffixCls}`]: {
+      // ========================= Overflow =========================
+      ...genOverflowStyle(token),
+
+      // ========================= Selector =========================
+      [`${componentCls}-selector`]: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        alignItems: 'center',
+        height: '100%',
+        // Multiple is little different that horizontal is follow the vertical
+        paddingInline: multipleSelectorUnit.basePadding,
+        paddingBlock: multipleSelectorUnit.containerPadding,
+        borderRadius: token.borderRadius,
+
+        [`${componentCls}-disabled&`]: {
+          background: token.multipleSelectorBgDisabled,
+          cursor: 'not-allowed',
+        },
+
+        '&:after': {
+          display: 'inline-block',
+          width: 0,
+          margin: `${unit(INTERNAL_FIXED_ITEM_MARGIN)} 0`,
+          lineHeight: unit(selectItemHeight),
+          visibility: 'hidden',
+          content: '"\\a0"',
+        },
+      },
+
+      // ======================== Selections ========================
+      [`${componentCls}-selection-item`]: {
+        height: multipleSelectorUnit.itemHeight,
+        lineHeight: unit(multipleSelectorUnit.itemLineHeight),
       },
 
       // ========================== Input ==========================
@@ -241,7 +330,7 @@ const genMultipleStyle = (token: SelectToken): CSSInterpolation => {
 
   const smallToken = mergeToken<SelectToken>(token, {
     selectHeight: token.controlHeightSM,
-    multipleSelectItemHeight: token.controlHeightXS,
+    multipleSelectItemHeight: token.multipleItemHeightSM,
     borderRadius: token.borderRadiusSM,
     borderRadiusSM: token.borderRadiusXS,
   });

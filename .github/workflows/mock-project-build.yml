@@ -22,7 +22,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
 
       - uses: actions/cache@v4
         with:
@@ -60,5 +60,9 @@ jobs:
         if: ${{ failure() }}
         with:
           notice-types: 'dingding'
+          # Exit directly with non-zero to trigger the failure logic of ci-notice.
+          ci: |
+            echo "❌ CI Mock Project Build Failed"
+            exit 1
           dingding-token: ${{ secrets.DINGDING_BOT_COLLABORATOR_TOKEN }}
           notice-title: 'CI Mock Project Build Failed'

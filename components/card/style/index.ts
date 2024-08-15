@@ -1,4 +1,5 @@
-import { type CSSObject, unit } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 
 import { clearFix, resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
@@ -14,22 +15,22 @@ export interface ComponentToken {
    * @desc 卡片头部文字大小
    * @descEN Font size of card header
    */
-  headerFontSize: number;
+  headerFontSize: number | string;
   /**
    * @desc 小号卡片头部文字大小
    * @descEN Font size of small card header
    */
-  headerFontSizeSM: number;
+  headerFontSizeSM: number | string;
   /**
    * @desc 卡片头部高度
    * @descEN Height of card header
    */
-  headerHeight: number;
+  headerHeight: number | string;
   /**
    * @desc 小号卡片头部高度
    * @descEN Height of small card header
    */
-  headerHeightSM: number;
+  headerHeightSM: number | string;
   /**
    * @desc 操作区背景色
    * @descEN Background color of card actions
@@ -53,10 +54,30 @@ export interface ComponentToken {
 }
 
 interface CardToken extends FullToken<'Card'> {
+  /**
+   * @desc 卡片阴影
+   * @descEN Shadow of card
+   */
   cardShadow: string;
+  /**
+   * @desc 卡片头部内边距
+   * @descEN Padding of card header
+   */
   cardHeadPadding: number;
+  /**
+   * @desc 小号卡片内边距
+   * @descEN Padding of small card
+   */
   cardPaddingSM: number;
+  /**
+   * @desc 卡片基础内边距
+   * @descEN Padding of base card
+   */
   cardPaddingBase: number;
+  /**
+   * @desc 卡片操作区图标大小
+   * @descEN Size of card actions icon
+   */
   cardActionsIconSize: number;
 }
 
@@ -272,7 +293,6 @@ const genCardLoadingStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 // ============================== Basic ==============================
 const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
   const {
-    antCls,
     componentCls,
     cardShadow,
     cardHeadPadding,
@@ -306,7 +326,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
       [`${componentCls}-body`]: {
         padding: cardPaddingBase,
-        borderRadius: ` 0 0 ${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)}`,
+        borderRadius: `0 0 ${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)}`,
         ...clearFix(),
       },
 
@@ -316,9 +336,6 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
         '> *': {
           display: 'block',
           width: '100%',
-        },
-
-        [`img, img + ${antCls}-image-mask`]: {
           borderRadius: `${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)} 0 0`,
         },
       },
@@ -363,7 +380,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     },
 
     [`${componentCls}-contain-tabs`]: {
-      [`> ${componentCls}-head`]: {
+      [`> div${componentCls}-head`]: {
         minHeight: 0,
         [`${componentCls}-head-title, ${componentCls}-extra`]: {
           paddingTop: cardHeadPadding,

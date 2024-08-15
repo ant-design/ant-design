@@ -15,13 +15,14 @@ import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { MenuProps } from '../menu';
 import Menu from '../menu';
 import { OverrideProvider } from '../menu/OverrideContext';
 import { useToken } from '../theme/internal';
 import useStyle from './style';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Placements = [
   'topLeft',
   'topCenter',
@@ -185,14 +186,10 @@ const Dropdown: CompoundedComponent = (props) => {
       },
       child.props.className,
     ),
-    disabled,
+    disabled: child.props.disabled ?? disabled,
   });
-
   const triggerActions = disabled ? [] : trigger;
-  let alignPoint: boolean;
-  if (triggerActions && triggerActions.includes('contextMenu')) {
-    alignPoint = true;
-  }
+  const alignPoint = !!triggerActions?.includes('contextMenu');
 
   // =========================== Open ============================
   const [mergedOpen, setOpen] = useMergedState(false, {
@@ -283,7 +280,7 @@ const Dropdown: CompoundedComponent = (props) => {
   // ============================ Render ============================
   let renderNode = (
     <RcDropdown
-      alignPoint={alignPoint!}
+      alignPoint={alignPoint}
       {...omit(props, ['rootClassName'])}
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}

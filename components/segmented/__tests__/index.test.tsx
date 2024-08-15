@@ -1,10 +1,9 @@
-import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
+import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
-
 import type { SegmentedValue } from '../index';
 import Segmented from '../index';
 
@@ -30,8 +29,8 @@ function expectMatchChecked(container: HTMLElement, checkedList: boolean[]) {
 }
 
 describe('Segmented', () => {
-  mountTest(Segmented);
-  rtlTest(Segmented);
+  mountTest(Segmented as any);
+  rtlTest(Segmented as any);
 
   beforeAll(() => {
     jest.useFakeTimers();
@@ -62,7 +61,7 @@ describe('Segmented', () => {
         options={[
           { label: 'Daily', value: 'Daily' },
           { label: <div id="weekly">Weekly</div>, value: 'Weekly' },
-          { label: <h2>Monthly</h2>, value: 'Monthly' },
+          { label: <div className="little">Monthly</div>, value: 'Monthly' },
         ]}
       />,
     );
@@ -72,7 +71,7 @@ describe('Segmented', () => {
     expectMatchChecked(container, [true, false, false]);
 
     expect(container.querySelector('#weekly')?.textContent).toContain('Weekly');
-    expect(container.querySelectorAll('h2')[0].textContent).toContain('Monthly');
+    expect(container.querySelector('.little')?.textContent).toContain('Monthly');
   });
 
   it('render segmented with defaultValue', () => {

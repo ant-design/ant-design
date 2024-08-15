@@ -1,4 +1,5 @@
 import React from 'react';
+
 import type { DrawerProps } from '..';
 import Drawer from '..';
 import { act, fireEvent, render } from '../../../tests/utils';

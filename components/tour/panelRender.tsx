@@ -3,7 +3,6 @@ import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 
-import useClosable from '../_util/hooks/useClosable';
 import type { ButtonProps } from '../button';
 import Button from '../button';
 import { useLocale } from '../locale';
@@ -15,17 +14,18 @@ function isValidNode(node: ReactNode): boolean {
 }
 
 interface TourPanelProps {
-  stepProps: TourStepProps;
+  stepProps: Omit<TourStepProps, 'closable'> & {
+    closable?: Exclude<TourStepProps['closable'], boolean>;
+  };
   current: number;
   type: TourStepProps['type'];
   indicatorsRender?: TourStepProps['indicatorsRender'];
-  closeIcon?: ReactNode;
 }
 
 // Due to the independent design of Panel, it will be too coupled to put in rc-tour,
 // so a set of Panel logic is implemented separately in antd.
 const TourPanel: React.FC<TourPanelProps> = (props) => {
-  const { stepProps, current, type, closeIcon, indicatorsRender } = props;
+  const { stepProps, current, type, indicatorsRender } = props;
   const {
     prefixCls,
     total = 1,
@@ -39,25 +39,15 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
     nextButtonProps,
     prevButtonProps,
     type: stepType,
-    closeIcon: stepCloseIcon,
+    closable,
   } = stepProps;
 
   const mergedType = stepType ?? type;
 
-  const mergedCloseIcon = stepCloseIcon ?? closeIcon;
-
-  const mergedClosable = mergedCloseIcon !== false && mergedCloseIcon !== null;
-
-  const [closable, mergedDisplayCloseIcon] = useClosable(
-    mergedClosable,
-    mergedCloseIcon,
-    (icon) => (
-      <span onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
-        {icon}
-      </span>
-    ),
-    <CloseOutlined className={`${prefixCls}-close-icon`} />,
-    true,
+  const mergedCloseIcon = (
+    <button type="button" onClick={onClose} className={`${prefixCls}-close`}>
+      {closable?.closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
+    </button>
   );
 
   const isLastStep = current === total - 1;
@@ -88,12 +78,12 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
 
   const coverNode = isValidNode(cover) ? <div className={`${prefixCls}-cover`}>{cover}</div> : null;
 
-  let mergeIndicatorNode: ReactNode;
+  let mergedIndicatorNode: ReactNode;
 
   if (indicatorsRender) {
-    mergeIndicatorNode = indicatorsRender(current, total);
+    mergedIndicatorNode = indicatorsRender(current, total);
   } else {
-    mergeIndicatorNode = [...Array.from({ length: total }).keys()].map<ReactNode>(
+    mergedIndicatorNode = [...Array.from({ length: total }).keys()].map<ReactNode>(
       (stepItem, index) => (
         <span
           key={stepItem}
@@ -118,12 +108,12 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
   return (
     <div className={`${prefixCls}-content`}>
       <div className={`${prefixCls}-inner`}>
-        {closable && mergedDisplayCloseIcon}
+        {closable && mergedCloseIcon}
         {coverNode}
         {headerNode}
         {descriptionNode}
         <div className={`${prefixCls}-footer`}>
-          {total > 1 && <div className={`${prefixCls}-indicators`}>{mergeIndicatorNode}</div>}
+          {total > 1 && <div className={`${prefixCls}-indicators`}>{mergedIndicatorNode}</div>}
           <div className={`${prefixCls}-buttons`}>
             {current !== 0 ? (
               <Button

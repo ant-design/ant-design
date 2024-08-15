@@ -27,10 +27,12 @@ describe('Table.Virtual', () => {
         '.ant-table-wrapper .ant-table-tbody-virtual .ant-table-row:not(tr)',
       ),
     ).toHaveLength(1);
-    expect(container.querySelectorAll('.rc-virtual-list-holder .ant-table-cell')).toHaveLength(1);
-    expect(container.querySelector('.rc-virtual-list-holder .ant-table-cell')?.textContent).toEqual(
-      'bamboo',
-    );
+    expect(
+      container.querySelectorAll('.ant-table-tbody-virtual-holder .ant-table-cell'),
+    ).toHaveLength(1);
+    expect(
+      container.querySelector('.ant-table-tbody-virtual-holder .ant-table-cell')?.textContent,
+    ).toEqual('bamboo');
   });
 
   // warning from `rc-table`

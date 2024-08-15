@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { UserOutlined } from '@ant-design/icons';
 import { renderToString } from 'react-dom/server';
-import { act } from 'react-dom/test-utils';
 
 import Layout from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 import Menu from '../../menu';
 
 const { Sider, Content, Footer, Header } = Layout;

@@ -65,7 +65,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
         keyEntities,
       );
     } else {
-      initExpandedKeys = (props.expandedKeys || defaultExpandedKeys)!;
+      initExpandedKeys = props.expandedKeys || defaultExpandedKeys || [];
     }
     return initExpandedKeys;
   };
@@ -120,7 +120,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
     // const newState: DirectoryTreeState = {};
 
     // We need wrap this event since some value is not same
-    const newEvent: any = {
+    const newEvent = {
       ...event,
       selected: true, // Directory selected always true
     };

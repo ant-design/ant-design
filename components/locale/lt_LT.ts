@@ -140,6 +140,9 @@ const localeValues: Locale = {
   },
   ColorPicker: {
     presetEmpty: 'Tuščia',
+    transparent: 'Permatomas',
+    singleColor: 'Vieno spalvos',
+    gradientColor: 'Gradientas',
   },
 };
 

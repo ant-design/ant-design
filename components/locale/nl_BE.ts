@@ -34,6 +34,11 @@ const localeValues: Locale = {
     triggerAsc: 'Klik om oplopend te sorteren',
     triggerDesc: 'Klik om aflopend te sorteren',
   },
+  Tour: {
+    Next: 'Volgende',
+    Previous: 'Vorige',
+    Finish: 'Voltooien',
+  },
   Modal: {
     okText: 'OK',
     cancelText: 'Annuleer',
