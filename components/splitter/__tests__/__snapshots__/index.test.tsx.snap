@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Splitter should correct render 1`] = `
+<div>
+  <div
+    class="ant-splitter ant-splitter-horizontal"
+    style="width: 400px; height: 400px;"
+  >
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: calc(50% - 1px);"
+    >
+      0
+    </div>
+    <div
+      class="ant-splitter-bar"
+      style="flex-basis: 2px;"
+    >
+      <div
+        class="ant-splitter-bar-area"
+      />
+      <div
+        class="ant-splitter-bar-resizable"
+      />
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: calc(50% - 1px);"
+    >
+      1
+    </div>
+  </div>
+</div>
+`;

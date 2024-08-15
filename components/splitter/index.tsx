@@ -1,6 +1,7 @@
 import Panel from './Panel';
 import SplitterComp from './Splitter';
 
+export type { PanelProps } from './Panel';
 export type { SplitterProps } from './Splitter';
 
 type CompoundedComponent = typeof SplitterComp & {
