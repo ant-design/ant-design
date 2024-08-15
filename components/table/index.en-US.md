@@ -14,7 +14,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Sv8XQ50NB40AAA
 
 ## How To Use
 
-Specify `dataSource` of Table as an array of data.
+Specify `dataSource` of Table as an array of data. 
+Keys in dataSource and columns are consistent.
+Ensure key values in dataSource are unique.
 
 ```jsx
 const dataSource = [
