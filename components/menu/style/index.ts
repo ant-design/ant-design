@@ -646,7 +646,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
           },
 
           [`${componentCls}-extra`]: {
-            marginLeft: 'auto',
+            marginInlineStart: 'auto',
             paddingInlineStart: token.padding,
             fontSize: token.fontSizeSM,
             color: token.colorTextDescription,
