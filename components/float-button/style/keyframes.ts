@@ -104,29 +104,29 @@ const floatButtonGroupMotion = (token: FloatButtonToken) => {
   const groupPrefixCls = `${componentCls}-group`;
   return [
     {
-      [`${groupPrefixCls}-wrap`]: {
-        [`&${groupPrefixCls}-top`]: initMotion(
+      [groupPrefixCls]: {
+        [`&${groupPrefixCls}-top ${groupPrefixCls}-wrap`]: initMotion(
           `${groupPrefixCls}-wrap`,
           moveTopIn,
           moveTopOut,
           motionDurationSlow,
           true,
         ),
-        [`&${groupPrefixCls}-bottom`]: initMotion(
+        [`&${groupPrefixCls}-bottom ${groupPrefixCls}-wrap`]: initMotion(
           `${groupPrefixCls}-wrap`,
           moveBottomIn,
           moveBottomOut,
           motionDurationSlow,
           true,
         ),
-        [`&${groupPrefixCls}-left`]: initMotion(
+        [`&${groupPrefixCls}-left ${groupPrefixCls}-wrap`]: initMotion(
           `${groupPrefixCls}-wrap`,
           moveLeftIn,
           moveLeftOut,
           motionDurationSlow,
           true,
         ),
-        [`&${groupPrefixCls}-right`]: initMotion(
+        [`&${groupPrefixCls}-right ${groupPrefixCls}-wrap`]: initMotion(
           `${groupPrefixCls}-wrap`,
           moveRightIn,
           moveRightOut,

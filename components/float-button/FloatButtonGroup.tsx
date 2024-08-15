@@ -41,12 +41,16 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+
   const groupPrefixCls = `${prefixCls}-group`;
+
+  const isMenuMode = trigger && ['click', 'hover'].includes(trigger);
 
   const groupCls = classNames(groupPrefixCls, hashId, cssVarCls, rootCls, className, {
     [`${groupPrefixCls}-rtl`]: direction === 'rtl',
     [`${groupPrefixCls}-${shape}`]: shape,
-    [`${groupPrefixCls}-${shape}-shadow`]: !trigger,
+    [`${groupPrefixCls}-${shape}-shadow`]: !isMenuMode,
+    [`${groupPrefixCls}-${placement}`]: isMenuMode, // 只有菜单模式才支持弹出方向
   });
 
   // ============================ zIndex ============================
@@ -54,9 +58,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
 
   const mergedStyle: React.CSSProperties = { ...style, zIndex };
 
-  const wrapperCls = classNames(hashId, `${groupPrefixCls}-wrap`, {
-    [`${groupPrefixCls}-${placement}`]: placement,
-  });
+  const wrapperCls = classNames(hashId, `${groupPrefixCls}-wrap`);
 
   const [open, setOpen] = useMergedState(false, { value: customOpen });
 
@@ -122,7 +124,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
   return wrapCSSVar(
     <FloatButtonGroupProvider value={shape}>
       <div ref={floatButtonGroupRef} className={groupCls} style={mergedStyle} {...hoverAction}>
-        {trigger && ['click', 'hover'].includes(trigger) ? (
+        {isMenuMode ? (
           <>
             <CSSMotion visible={open} motionName={`${groupPrefixCls}-wrap`}>
               {({ className: motionClassName }) => (

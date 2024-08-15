@@ -128,9 +128,7 @@ describe('FloatButtonGroup', () => {
           <FloatButton />
         </FloatButton.Group>,
       );
-      const element = container.querySelector<HTMLDivElement>(
-        '.ant-float-btn-group .ant-float-btn-group-wrap',
-      );
+      const element = container.querySelector<HTMLDivElement>('.ant-float-btn-group');
       expect(element).toHaveClass(`ant-float-btn-group-${placement}`);
     });
   });

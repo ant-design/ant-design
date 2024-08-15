@@ -124,26 +124,6 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
-        [`&${groupPrefixCls}-top`]: {
-          flexDirection: 'column',
-          top: 'auto',
-          bottom: calc(floatButtonSize).add(margin).equal(),
-        },
-        [`&${groupPrefixCls}-bottom`]: {
-          flexDirection: 'column',
-          top: calc(floatButtonSize).add(margin).equal(),
-          bottom: 'auto',
-        },
-        [`&${groupPrefixCls}-right`]: {
-          flexDirection: 'row',
-          insetInlineStart: calc(floatButtonSize).add(margin).equal(),
-          insetInlineEnd: 'auto',
-        },
-        [`&${groupPrefixCls}-left`]: {
-          flexDirection: 'row',
-          insetInlineStart: 'auto',
-          insetInlineEnd: calc(floatButtonSize).add(margin).equal(),
-        },
       },
       [`&${groupPrefixCls}-rtl`]: {
         direction: 'rtl',
@@ -151,6 +131,26 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
       [componentCls]: {
         position: 'static',
       },
+    },
+    [`${groupPrefixCls}-top > ${groupPrefixCls}-wrap`]: {
+      flexDirection: 'column',
+      top: 'auto',
+      bottom: calc(floatButtonSize).add(margin).equal(),
+    },
+    [`${groupPrefixCls}-bottom > ${groupPrefixCls}-wrap`]: {
+      flexDirection: 'column',
+      top: calc(floatButtonSize).add(margin).equal(),
+      bottom: 'auto',
+    },
+    [`${groupPrefixCls}-right > ${groupPrefixCls}-wrap`]: {
+      flexDirection: 'row',
+      left: { _skip_check_: true, value: calc(floatButtonSize).add(margin).equal() },
+      right: { _skip_check_: true, value: 'auto' },
+    },
+    [`${groupPrefixCls}-left > ${groupPrefixCls}-wrap`]: {
+      flexDirection: 'row',
+      left: { _skip_check_: true, value: 'auto' },
+      right: { _skip_check_: true, value: calc(floatButtonSize).add(margin).equal() },
     },
     [`${groupPrefixCls}-circle`]: {
       gap: margin,
@@ -186,36 +186,6 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
       [`${groupPrefixCls}-wrap`]: {
         borderRadius: borderRadiusLG,
         boxShadow: token.boxShadowSecondary,
-        [`&${groupPrefixCls}-top, &${groupPrefixCls}-bottom`]: {
-          [`${componentCls}-square`]: {
-            '&:first-child': {
-              borderStartStartRadius: borderRadiusLG,
-              borderStartEndRadius: borderRadiusLG,
-            },
-            '&:last-child': {
-              borderEndStartRadius: borderRadiusLG,
-              borderEndEndRadius: borderRadiusLG,
-            },
-            '&:not(:last-child)': {
-              borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
-            },
-          },
-        },
-        [`&${groupPrefixCls}-left, &${groupPrefixCls}-right`]: {
-          [`${componentCls}-square`]: {
-            '&:first-child': {
-              borderStartStartRadius: borderRadiusLG,
-              borderEndStartRadius: borderRadiusLG,
-            },
-            '&:last-child': {
-              borderStartEndRadius: borderRadiusLG,
-              borderEndEndRadius: borderRadiusLG,
-            },
-            '&:not(:last-child)': {
-              borderInlineEnd: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
-            },
-          },
-        },
         [`${componentCls}-square`]: {
           boxShadow: 'none',
           borderRadius: 0,
@@ -227,6 +197,39 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
         },
       },
     },
+    [`${groupPrefixCls}-top > ${groupPrefixCls}-wrap, ${groupPrefixCls}-bottom > ${groupPrefixCls}-wrap`]:
+      {
+        [`> ${componentCls}-square`]: {
+          '&:first-child': {
+            borderStartStartRadius: borderRadiusLG,
+            borderStartEndRadius: borderRadiusLG,
+          },
+          '&:last-child': {
+            borderEndStartRadius: borderRadiusLG,
+            borderEndEndRadius: borderRadiusLG,
+          },
+          '&:not(:last-child)': {
+            borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
+          },
+        },
+      },
+    [`${groupPrefixCls}-left > ${groupPrefixCls}-wrap, ${groupPrefixCls}-right > ${groupPrefixCls}-wrap`]:
+      {
+        [`> ${componentCls}-square`]: {
+          '&:first-child': {
+            borderStartStartRadius: borderRadiusLG,
+            borderEndStartRadius: borderRadiusLG,
+          },
+          '&:last-child': {
+            borderStartEndRadius: borderRadiusLG,
+            borderEndEndRadius: borderRadiusLG,
+          },
+          '&:not(:last-child)': {
+            borderInlineEnd: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
+          },
+        },
+      },
+
     [`${groupPrefixCls}-circle-shadow`]: {
       boxShadow: 'none',
     },
