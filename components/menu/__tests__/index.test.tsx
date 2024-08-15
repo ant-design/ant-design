@@ -1165,6 +1165,6 @@ describe('Menu', () => {
     const text = '⌘P';
     const { container } = render(<Menu items={[{ label: 'profile', key: '1', extra: text }]} />);
 
-    expect(container.querySelector('.ant-menu-extra')?.textContent).toBe(text);
+    expect(container.querySelector('.ant-menu-item-extra')?.textContent).toBe(text);
   });
 });

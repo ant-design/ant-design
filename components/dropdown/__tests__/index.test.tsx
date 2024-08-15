@@ -360,6 +360,6 @@ describe('Dropdown', () => {
       </Dropdown>,
     );
 
-    expect(container.querySelector('.ant-dropdown-menu-extra')?.textContent).toBe(text);
+    expect(container.querySelector('.ant-dropdown-menu-item-extra')?.textContent).toBe(text);
   });
 });
