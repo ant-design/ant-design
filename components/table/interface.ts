@@ -16,11 +16,11 @@ import type { TooltipProps } from '../tooltip';
 import type { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
 import type { InternalTableProps, TableProps } from './InternalTable';
 
-export type RefTable = <RecordType extends AnyObject = AnyObject>(
+export type RefTable = <RecordType = AnyObject>(
   props: React.PropsWithChildren<TableProps<RecordType>> & React.RefAttributes<Reference>,
 ) => React.ReactElement;
 
-export type RefInternalTable = <RecordType extends AnyObject = AnyObject>(
+export type RefInternalTable = <RecordType = AnyObject>(
   props: React.PropsWithChildren<InternalTableProps<RecordType>> & React.RefAttributes<Reference>,
 ) => React.ReactElement;
 

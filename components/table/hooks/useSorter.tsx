@@ -53,7 +53,7 @@ const nextSortDirection = (sortDirections: SortOrder[], current: SortOrder | nul
   return sortDirections[sortDirections.indexOf(current) + 1];
 };
 
-export interface SortState<RecordType extends AnyObject = AnyObject> {
+export interface SortState<RecordType = AnyObject> {
   column: ColumnType<RecordType>;
   key: Key;
   sortOrder: SortOrder | null;
@@ -370,7 +370,7 @@ export const getSortData = <RecordType extends AnyObject = AnyObject>(
     });
 };
 
-interface SorterConfig<RecordType extends AnyObject = AnyObject> {
+interface SorterConfig<RecordType = AnyObject> {
   prefixCls: string;
   mergedColumns: ColumnsType<RecordType>;
   onSorterChange: (

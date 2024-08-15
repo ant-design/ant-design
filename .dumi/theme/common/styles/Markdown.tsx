@@ -24,7 +24,6 @@ const GlobalStyle: React.FC = () => {
         }
 
         .markdown img {
-          display: block;
           max-width: calc(100% - 32px);
           max-height: 100%;
         }
@@ -112,29 +111,24 @@ const GlobalStyle: React.FC = () => {
           }
         }
 
-        .markdown ul > li {
-          list-style-type: circle;
+        .markdown ul > li,
+        .markdown ol > li {
+          padding-inline-start: ${token.paddingXXS}px;
+          margin-inline-start: ${token.marginMD}px;
+          > p {
+            margin: 0.2em 0;
+          }
           &:empty {
             display: none;
           }
         }
 
-        .markdown ol > li {
-          margin-inline-start: ${token.marginMD}px;
-          padding-inline-start: ${token.paddingXXS}px;
-          list-style-type: decimal;
-
-          ${antCls}-row-rtl & {
-            margin-inline-end: ${token.marginMD}px;
-            margin-inline-start: 0;
-            padding-inline-end: ${token.paddingXXS}px;
-            padding-inline-start: 0;
-          }
+        .markdown ul > li {
+          list-style-type: circle;
         }
 
-        .markdown ul > li > p,
-        .markdown ol > li > p {
-          margin: 0.2em 0;
+        .markdown ol > li {
+          list-style-type: decimal;
         }
 
         .markdown code {

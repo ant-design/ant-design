@@ -47,8 +47,20 @@ export interface ComponentToken extends ArrowToken, ArrowOffsetToken {
   innerContentPadding: number | string;
 }
 
+/**
+ * @desc Popover 组件的 Token
+ * @descEN Token for Popover component
+ */
 export type PopoverToken = FullToken<'Popover'> & {
+  /**
+   * @desc 气泡卡片背景色
+   * @descEN Background color of Popover
+   */
   popoverBg: string;
+  /**
+   * @desc 气泡卡片文字颜色
+   * @descEN Text color of Popover
+   */
   popoverColor: string;
 };
 

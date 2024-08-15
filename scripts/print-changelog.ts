@@ -122,10 +122,14 @@ async function printLog() {
     const validatePRs: PR[] = [];
 
     console.log(
-      `[${i + 1}/${logs.all.length}]`,
-      hash.slice(0, 6),
-      '-',
-      prs.length ? prs.map((pr) => `#${pr}`).join(',') : '?',
+      chalk.green(
+        `[${i + 1}/${logs.all.length}]`,
+        hash.slice(0, 6),
+        '-',
+        prs.length
+          ? prs.map((pr) => `https://github.com/ant-design/ant-design/pull/${pr}`).join(',')
+          : '?',
+      ),
     );
     for (let j = 0; j < prs.length; j += 1) {
       const pr = prs[j];
@@ -179,8 +183,20 @@ async function printLog() {
         });
       });
 
-      const english = getDescription(lines.find((line) => line.text.includes('🇺🇸 English')));
-      const chinese = getDescription(lines.find((line) => line.text.includes('🇨🇳 Chinese')));
+      let english = getDescription(lines.find((line) => line.text.includes('🇺🇸 English')));
+      let chinese = getDescription(lines.find((line) => line.text.includes('🇨🇳 Chinese')));
+
+      if (/^-*$/.test(english)) {
+        english = prTitle;
+      } else {
+        english = english || chinese || prTitle;
+      }
+
+      if (/^-*$/.test(chinese)) {
+        chinese = prTitle;
+      } else {
+        chinese = chinese || english || prTitle;
+      }
 
       if (english) {
         console.log(`  🇺🇸  ${english}`);
@@ -194,8 +210,8 @@ async function printLog() {
         hash,
         title: prTitle,
         author: prAuthor,
-        english: english || chinese || prTitle,
-        chinese: chinese || english || prTitle,
+        english,
+        chinese,
       });
     }
 

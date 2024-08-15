@@ -67,8 +67,20 @@ export interface ComponentToken {
   verticalLabelMargin: CSSProperties['margin'];
 }
 
+/**
+ * @desc Form 组件的 Token
+ * @descEN Token for Form component
+ */
 export interface FormToken extends FullToken<'Form'> {
+  /**
+   * @desc 表单项类名
+   * @descEN Form item class name
+   */
   formItemCls: string;
+  /**
+   * @desc 根前缀类名
+   * @descEN Root prefix class name
+   */
   rootPrefixCls: string;
 }
 

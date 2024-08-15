@@ -369,11 +369,35 @@ export interface ComponentToken {
   itemWidth: number | string;
 }
 
+/**
+ * @desc Menu 组件的 Token
+ * @descEN Token for Menu component
+ */
 export interface MenuToken extends FullToken<'Menu'> {
+  /**
+   * @desc 水平菜单高度
+   * @descEN Height of horizontal menu
+   */
   menuHorizontalHeight: number | string;
+  /**
+   * @desc 菜单箭头尺寸
+   * @descEN Size of menu arrow
+   */
   menuArrowSize: number | string;
+  /**
+   * @desc 菜单箭头偏移量
+   * @descEN Offset of menu arrow
+   */
   menuArrowOffset: number | string;
+  /**
+   * @desc 子菜单背景色
+   * @descEN Background color of sub-menu
+   */
   menuSubMenuBg: string;
+  /**
+   * @desc 暗色模式下的浮层菜单背景色
+   * @descEN Background color of popup menu in dark mode
+   */
   darkPopupBg: string;
 }
 

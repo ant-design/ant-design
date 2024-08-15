@@ -36,9 +36,25 @@ export interface ComponentToken {
   previewOperationColorDisabled: string;
 }
 
+/**
+ * @desc Image 组件的 Token
+ * @descEN Token for Image component
+ */
 export interface ImageToken extends FullToken<'Image'> {
+  /**
+   * @desc 预览类名
+   * @descEN Preview class name
+   */
   previewCls: string;
+  /**
+   * @desc 模态框遮罩背景色
+   * @descEN Background color of modal mask
+   */
   modalMaskBg: string;
+  /**
+   * @desc 预览切换按钮尺寸
+   * @descEN Size of preview switch button
+   */
   imagePreviewSwitchSize: number;
 }
 

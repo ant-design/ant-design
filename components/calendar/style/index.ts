@@ -45,9 +45,25 @@ export interface ComponentToken {
 }
 
 interface CalendarToken extends FullToken<'Calendar'>, PickerPanelToken, PanelComponentToken {
+  /**
+   * @desc 日历类名
+   * @descEN Calendar class name
+   */
   calendarCls: string;
+  /**
+   * @desc 日期值高度
+   * @descEN Date value height
+   */
   dateValueHeight: number | string;
+  /**
+   * @desc 周高度
+   * @descEN Week height
+   */
   weekHeight: number | string;
+  /**
+   * @desc 日期内容高度
+   * @descEN Date content height
+   */
   dateContentHeight: number | string;
 }
 

@@ -64,8 +64,20 @@ export interface ComponentToken {
   descriptionFontSize: number;
 }
 
+/**
+ * @desc List 组件的 Token
+ * @descEN Token for List component
+ */
 interface ListToken extends FullToken<'List'> {
+  /**
+   * @desc 列表项类名
+   * @descEN Class name of list item
+   */
   listBorderedCls: string;
+  /**
+   * @desc 最小高度
+   * @descEN Minimum height
+   */
   minHeight: number | string;
 }
 
