@@ -394,4 +394,20 @@ describe('Test useZIndex hooks', () => {
 
     jest.useRealTimers();
   });
+
+  it('warning for too large zIndex auto offset', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    render(
+      <Drawer open zIndex={999999999}>
+        <Tooltip open title="test">
+          <div>test</div>
+        </Tooltip>
+      </Drawer>,
+    );
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Tooltip] `zIndex` is over design token `zIndexPopupBase` too much. It may cause unexpected override.',
+    );
+  });
 });

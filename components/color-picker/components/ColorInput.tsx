@@ -1,19 +1,23 @@
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { FC } from 'react';
 import React, { useMemo } from 'react';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+
 import Select from '../../select';
-import type { Color } from '../color';
-import type { ColorPickerBaseProps } from '../interface';
+import type { AggregationColor } from '../color';
+import type { ColorFormatType } from '../interface';
 import { ColorFormat } from '../interface';
 import ColorAlphaInput from './ColorAlphaInput';
 import ColorHexInput from './ColorHexInput';
 import ColorHsbInput from './ColorHsbInput';
 import ColorRgbInput from './ColorRgbInput';
 
-interface ColorInputProps
-  extends Pick<ColorPickerBaseProps, 'prefixCls' | 'format' | 'onFormatChange' | 'disabledAlpha'> {
-  value?: Color;
-  onChange?: (value: Color) => void;
+interface ColorInputProps {
+  prefixCls: string;
+  format?: ColorFormatType;
+  onFormatChange?: (format: ColorFormatType) => void;
+  disabledAlpha?: boolean;
+  value?: AggregationColor;
+  onChange?: (value: AggregationColor) => void;
 }
 
 const selectOptions = [ColorFormat.hex, ColorFormat.hsb, ColorFormat.rgb].map((format) => ({
@@ -30,7 +34,7 @@ const ColorInput: FC<ColorInputProps> = (props) => {
 
   const colorInputPrefixCls = `${prefixCls}-input`;
 
-  const handleFormatChange = (newFormat: ColorFormat) => {
+  const handleFormatChange = (newFormat: ColorFormatType) => {
     setColorFormat(newFormat);
   };
 
@@ -41,7 +45,7 @@ const ColorInput: FC<ColorInputProps> = (props) => {
         return <ColorHsbInput {...inputProps} />;
       case ColorFormat.rgb:
         return <ColorRgbInput {...inputProps} />;
-      case ColorFormat.hex:
+      // case ColorFormat.hex:
       default:
         return <ColorHexInput {...inputProps} />;
     }

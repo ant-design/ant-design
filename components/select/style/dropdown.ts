@@ -1,5 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { SelectToken } from './token';
+
 import { resetComponent, textEllipsis } from '../../style';
 import {
   initMoveMotion,
@@ -10,6 +10,7 @@ import {
   slideUpOut,
 } from '../../style/motion';
 import type { GenerateStyle } from '../../theme/internal';
+import type { SelectToken } from './token';
 
 const genItemStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
   const { optionHeight, optionFontSize, optionLineHeight, optionPadding } = token;
@@ -91,7 +92,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
           display: 'none',
         },
 
-        [`${selectItemCls}`]: {
+        [selectItemCls]: {
           ...genItemStyle(token),
           cursor: 'pointer',
           transition: `background ${token.motionDurationSlow} ease`,

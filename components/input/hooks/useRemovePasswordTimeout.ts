@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+
 import type { InputRef } from '../Input';
 
 export default function useRemovePasswordTimeout(

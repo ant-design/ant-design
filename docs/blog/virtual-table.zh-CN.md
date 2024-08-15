@@ -2,6 +2,7 @@
 title: 虚拟表格来了！
 date: 2023-08-29
 author: zombieJ
+juejin_url: https://juejin.cn/post/7322305961196126217
 ---
 
 ## 前言
@@ -30,7 +31,7 @@ Table 通过 `virtual` 属性即可开启虚拟滚动能力。同时，原 Table
 
 ![Rowspan & Colspan](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*DYkYQo8tU6sAAAAAAAAAAAAADrJ8AQ/original)
 
-你可以直接访问 [虚拟列表](/components/table#components-table-demo-virtual-list) 示例进行体验。
+你可以直接访问 [虚拟列表](/components/table#table-demo-virtual-list) 示例进行体验。
 
 ## 一些细节
 
@@ -55,7 +56,7 @@ antd 的 Table 底层使用了 `rc-table` 组件，我们的虚拟滚动功能�
 但是在测试时，我们发现一个奇怪的现象。表格在首次、再次渲染时，会有非常大的卡顿。在进行断点时，它来自于 `useFlattenRecords` hooks。而测试的代码本身并没有使用可展开树的功能，于是我们对其进行了排查。发现在 `useFlattenRecords` 中，存在大量的 GC 操作。而这些操作是由于一段不起眼的代码引起的：
 
 ```tsx
-// Fake code. Not used in real word
+// Fake code. Not used in real world
 function flatten<T extends { children?: T[] }>(data: T[] = []) {
   let tmpList: T[] = [];
 
@@ -71,7 +72,7 @@ function flatten<T extends { children?: T[] }>(data: T[] = []) {
 在遍历过程中，虽然 `children` 为空只会进入一次递归。但是在循环每个 Record 时都会创建一次临时的空数组。但是当 `dataSource` 数据巨大时，它们会不断触发 GC 清理这些临时数组。因而我们通过改造添加逻辑以避免不必要的消耗：
 
 ```tsx
-// Fake code. Not used in real word
+// Fake code. Not used in real world
 function flatten<T extends { children?: T[] }>(data: T[] = [], list: T[] = []) {
   for (let i = 0; i < data.length; i += 1) {
     const record = data[i];
@@ -132,7 +133,7 @@ const Demo = () => {
 `rc-virtual-list` 提供了 `extraRender` 方法，它会提供当前虚拟滚动中所渲染的行号。我们只需要对这个范围内的 Record 执行一次 `onCell` 获取每个 `cell` 的 `rowSpan` 和 `colSpan` 信息。既可以知道当前行是否存在对外的 `rowSpan` 依赖：
 
 ```tsx
-// Fake code. Not used in real word
+// Fake code. Not used in real world
 const extraRender = ({ start, end }) => {
   // Start record
   const startRecord = flattenData[start];

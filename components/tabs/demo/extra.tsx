@@ -27,8 +27,9 @@ const App: React.FC = () => {
   const [position, setPosition] = useState<PositionType[]>(['left', 'right']);
 
   const slot = useMemo(() => {
-    if (position.length === 0) return null;
-
+    if (position.length === 0) {
+      return null;
+    }
     return position.reduce(
       (acc, direction) => ({ ...acc, [direction]: OperationsSlot[direction] }),
       {},

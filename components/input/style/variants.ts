@@ -1,7 +1,8 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
-import type { InputToken } from './token';
+
 import { mergeToken } from '../../theme/internal';
+import type { InputToken } from './token';
 
 export const genHoverStyle = (token: InputToken): CSSObject => ({
   borderColor: token.hoverBorderColor,
@@ -16,7 +17,7 @@ export const genDisabledStyle = (token: InputToken): CSSObject => ({
   cursor: 'not-allowed',
   opacity: 1,
 
-  'input[disabled]': {
+  'input[disabled], textarea[disabled]': {
     cursor: 'not-allowed',
   },
 
@@ -75,6 +76,9 @@ const genOutlinedStatusStyle = (
     [`${token.componentCls}-prefix, ${token.componentCls}-suffix`]: {
       color: options.affixColor,
     },
+  },
+  [`&${token.componentCls}-status-${options.status}${token.componentCls}-disabled`]: {
+    borderColor: options.borderColor,
   },
 });
 
@@ -167,22 +171,40 @@ export const genOutlinedGroupStyle = (token: InputToken): CSSObject => ({
 });
 
 /* ============ Borderless ============ */
-export const genBorderlessStyle = (token: InputToken, extraStyles?: CSSObject): CSSObject => ({
-  '&-borderless': {
-    background: 'transparent',
-    border: 'none',
+export const genBorderlessStyle = (token: InputToken, extraStyles?: CSSObject): CSSObject => {
+  const { componentCls } = token;
 
-    '&:focus, &:focus-within': {
-      outline: 'none',
+  return {
+    '&-borderless': {
+      background: 'transparent',
+      border: 'none',
+
+      '&:focus, &:focus-within': {
+        outline: 'none',
+      },
+
+      // >>>>> Disabled
+      [`&${componentCls}-disabled, &[disabled]`]: {
+        color: token.colorTextDisabled,
+      },
+
+      // >>>>> Status
+      [`&${componentCls}-status-error`]: {
+        '&, & input, & textarea': {
+          color: token.colorError,
+        },
+      },
+
+      [`&${componentCls}-status-warning`]: {
+        '&, & input, & textarea': {
+          color: token.colorWarning,
+        },
+      },
+
+      ...extraStyles,
     },
-
-    [`&${token.componentCls}-disabled, &[disabled]`]: {
-      color: token.colorTextDisabled,
-    },
-
-    ...extraStyles,
-  },
-});
+  };
+};
 
 /* ============== Filled ============== */
 const genBaseFilledStyle = (
@@ -199,7 +221,7 @@ const genBaseFilledStyle = (
   borderStyle: token.lineType,
   borderColor: 'transparent',
 
-  [`input&, & input, textarea&, & textarea`]: {
+  'input&, & input, textarea&, & textarea': {
     color: options?.inputColor,
   },
 
@@ -239,7 +261,7 @@ export const genFilledStyle = (token: InputToken, extraStyles?: CSSObject): CSSO
     ...genBaseFilledStyle(token, {
       bg: token.colorFillTertiary,
       hoverBg: token.colorFillSecondary,
-      activeBorderColor: token.colorPrimary,
+      activeBorderColor: token.activeBorderColor,
     }),
 
     [`&${token.componentCls}-disabled, &[disabled]`]: {

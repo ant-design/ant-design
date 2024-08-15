@@ -17,7 +17,7 @@ import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
 import useData from './hooks/useData';
 import useSelection from './hooks/useSelection';
-import type { PaginationType } from './interface';
+import type { PaginationType, TransferKey } from './interface';
 import type { TransferCustomListBodyProps, TransferListProps } from './list';
 import List from './list';
 import Operation from './operation';
@@ -38,14 +38,14 @@ export interface RenderResultObject {
 export type RenderResult = React.ReactElement | RenderResultObject | string | null;
 
 export interface TransferItem {
-  key?: string;
+  key?: TransferKey;
   title?: string;
   description?: string;
   disabled?: boolean;
   [name: string]: any;
 }
 
-export type KeyWise<T> = T & { key: string };
+export type KeyWise<T> = T & { key: TransferKey };
 
 export type KeyWiseTransferItem = KeyWise<TransferItem>;
 
@@ -67,6 +67,7 @@ export interface TransferLocale {
   itemsUnit: string;
   remove?: string;
   selectAll?: string;
+  deselectAll?: string;
   selectCurrent?: string;
   selectInvert?: string;
   removeAll?: string;
@@ -79,11 +80,15 @@ export interface TransferProps<RecordType = any> {
   rootClassName?: string;
   disabled?: boolean;
   dataSource?: RecordType[];
-  targetKeys?: string[];
-  selectedKeys?: string[];
+  targetKeys?: TransferKey[];
+  selectedKeys?: TransferKey[];
   render?: TransferRender<RecordType>;
-  onChange?: (targetKeys: string[], direction: TransferDirection, moveKeys: string[]) => void;
-  onSelectChange?: (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => void;
+  onChange?: (
+    targetKeys: TransferKey[],
+    direction: TransferDirection,
+    moveKeys: TransferKey[],
+  ) => void;
+  onSelectChange?: (sourceSelectedKeys: TransferKey[], targetSelectedKeys: TransferKey[]) => void;
   style?: React.CSSProperties;
   listStyle?: ((style: ListStyle) => CSSProperties) | CSSProperties;
   operationStyle?: CSSProperties;
@@ -96,7 +101,7 @@ export interface TransferProps<RecordType = any> {
     props: TransferListProps<RecordType>,
     info?: { direction: TransferDirection },
   ) => React.ReactNode;
-  rowKey?: (record: RecordType) => string;
+  rowKey?: (record: RecordType) => TransferKey;
   onSearch?: (direction: TransferDirection, value: string) => void;
   onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => void;
   children?: (props: TransferCustomListBodyProps<RecordType>) => React.ReactNode;
@@ -168,15 +173,15 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     // Setters
     setSourceSelectedKeys,
     setTargetSelectedKeys,
-  ] = useSelection(leftDataSource, rightDataSource, selectedKeys);
+  ] = useSelection(leftDataSource as any, rightDataSource as any, selectedKeys);
 
   const [leftMultipleSelect, updateLeftPrevSelectedIndex] = useMultipleSelect<
     KeyWise<RecordType>,
-    string
+    TransferKey
   >((item) => item.key);
   const [rightMultipleSelect, updateRightPrevSelectedIndex] = useMultipleSelect<
     KeyWise<RecordType>,
-    string
+    TransferKey
   >((item) => item.key);
 
   if (process.env.NODE_ENV !== 'production') {
@@ -186,7 +191,10 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   }
 
   const setStateKeys = useCallback(
-    (direction: TransferDirection, keys: string[] | ((prevKeys: string[]) => string[])) => {
+    (
+      direction: TransferDirection,
+      keys: TransferKey[] | ((prevKeys: TransferKey[]) => TransferKey[]),
+    ) => {
       if (direction === 'left') {
         const nextKeys = typeof keys === 'function' ? keys(sourceSelectedKeys || []) : keys;
         setSourceSelectedKeys(nextKeys);
@@ -207,7 +215,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   };
 
   const handleSelectChange = useCallback(
-    (direction: TransferDirection, holder: string[]) => {
+    (direction: TransferDirection, holder: TransferKey[]) => {
       if (direction === 'left') {
         onSelectChange?.(holder, targetSelectedKeys);
       } else {
@@ -263,12 +271,12 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     checkAll: boolean | 'replace',
   ) => {
     setStateKeys(direction, (prevKeys) => {
-      let mergedCheckedKeys: string[] = [];
+      let mergedCheckedKeys: TransferKey[] = [];
       if (checkAll === 'replace') {
         mergedCheckedKeys = keys;
       } else if (checkAll) {
         // Merge current keys with origin key
-        mergedCheckedKeys = Array.from(new Set<string>([...prevKeys, ...keys]));
+        mergedCheckedKeys = Array.from(new Set<TransferKey>([...prevKeys, ...keys]));
       } else {
         const selectedKeysMap = groupKeysMap(keys);
         // Remove current keys from origin keys
@@ -298,8 +306,8 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const handleSingleSelect = (
     direction: TransferDirection,
-    holder: Set<string>,
-    selectedKey: string,
+    holder: Set<TransferKey>,
+    selectedKey: TransferKey,
     checked: boolean,
     currentSelectedIndex: number,
   ) => {
@@ -317,7 +325,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const handleMultipleSelect = (
     direction: TransferDirection,
     data: KeyWise<RecordType>[],
-    holder: Set<string>,
+    holder: Set<TransferKey>,
     currentSelectedIndex: number,
   ) => {
     const isLeftDirection = direction === 'left';
@@ -327,7 +335,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const onItemSelect = (
     direction: TransferDirection,
-    selectedKey: string,
+    selectedKey: TransferKey,
     checked: boolean,
     multiple?: boolean,
   ) => {
@@ -335,12 +343,12 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     const holder = [...(isLeftDirection ? sourceSelectedKeys : targetSelectedKeys)];
     const holderSet = new Set(holder);
     const data = [...(isLeftDirection ? leftDataSource : rightDataSource)].filter(
-      (item) => !item.disabled,
+      (item) => !item?.disabled,
     );
     const currentSelectedIndex = data.findIndex((item) => item.key === selectedKey);
     // multiple select by hold down the shift key
     if (multiple && holder.length > 0) {
-      handleMultipleSelect(direction, data, holderSet, currentSelectedIndex);
+      handleMultipleSelect(direction, data as any, holderSet, currentSelectedIndex);
     } else {
       handleSingleSelect(direction, holderSet, selectedKey, checked, currentSelectedIndex);
     }
@@ -351,23 +359,23 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     }
   };
 
-  const onLeftItemSelect = (
-    selectedKey: string,
-    checked: boolean,
-    e?: React.MouseEvent<Element, MouseEvent>,
+  const onLeftItemSelect: TransferListProps<KeyWise<RecordType>>['onItemSelect'] = (
+    selectedKey,
+    checked,
+    e,
   ) => {
     onItemSelect('left', selectedKey, checked, e?.shiftKey);
   };
 
   const onRightItemSelect = (
-    selectedKey: string,
+    selectedKey: TransferKey,
     checked: boolean,
     e?: React.MouseEvent<Element, MouseEvent>,
   ) => {
     onItemSelect('right', selectedKey, checked, e?.shiftKey);
   };
 
-  const onRightItemRemove = (keys: string[]) => {
+  const onRightItemRemove = (keys: TransferKey[]) => {
     setStateKeys('right', []);
     onChange?.(
       targetKeys.filter((key) => !keys.includes(key)),
@@ -427,18 +435,18 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       <List<KeyWise<RecordType>>
         prefixCls={`${prefixCls}-list`}
         titleText={leftTitle}
-        dataSource={leftDataSource}
+        dataSource={leftDataSource as any}
         filterOption={filterOption}
         style={handleListStyle('left')}
         checkedKeys={sourceSelectedKeys}
         handleFilter={leftFilter}
         handleClear={handleLeftClear}
         onItemSelect={onLeftItemSelect}
-        onItemSelectAll={onLeftItemSelectAll}
+        onItemSelectAll={onLeftItemSelectAll as any}
         render={render}
         showSearch={showSearch}
-        renderList={children}
-        footer={footer}
+        renderList={children as any}
+        footer={footer as any}
         onScroll={handleLeftScroll}
         disabled={disabled}
         direction={dir === 'rtl' ? 'right' : 'left'}
@@ -464,19 +472,19 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       <List<KeyWise<RecordType>>
         prefixCls={`${prefixCls}-list`}
         titleText={rightTitle}
-        dataSource={rightDataSource}
+        dataSource={rightDataSource as any}
         filterOption={filterOption}
         style={handleListStyle('right')}
         checkedKeys={targetSelectedKeys}
         handleFilter={rightFilter}
         handleClear={handleRightClear}
         onItemSelect={onRightItemSelect}
-        onItemSelectAll={onRightItemSelectAll}
+        onItemSelectAll={onRightItemSelectAll as any}
         onItemRemove={onRightItemRemove}
         render={render}
         showSearch={showSearch}
-        renderList={children}
-        footer={footer}
+        renderList={children as any}
+        footer={footer as any}
         onScroll={handleRightScroll}
         disabled={disabled}
         direction={dir === 'rtl' ? 'left' : 'right'}

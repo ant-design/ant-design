@@ -1583,7 +1583,7 @@ Array [
                             </div>
                             <div
                               class="ant-picker-active-bar"
-                              style="position: absolute; width: 0px; left: 0px;"
+                              style="position: absolute; width: 0px;"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -1618,7 +1618,7 @@ Array [
                             >
                               <div
                                 class="ant-picker-range-arrow"
-                                style="left: 0px;"
+                                style="inset-inline-start: 0;"
                               />
                               <div
                                 class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -1643,6 +1643,7 @@ Array [
                                             class="ant-picker-header"
                                           >
                                             <button
+                                              aria-label="super-prev-year"
                                               class="ant-picker-header-super-prev-btn"
                                               tabindex="-1"
                                               type="button"
@@ -1652,6 +1653,7 @@ Array [
                                               />
                                             </button>
                                             <button
+                                              aria-label="prev-year"
                                               class="ant-picker-header-prev-btn"
                                               tabindex="-1"
                                               type="button"
@@ -1664,6 +1666,7 @@ Array [
                                               class="ant-picker-header-view"
                                             >
                                               <button
+                                                aria-label="month panel"
                                                 class="ant-picker-month-btn"
                                                 tabindex="-1"
                                                 type="button"
@@ -1671,6 +1674,7 @@ Array [
                                                 Nov
                                               </button>
                                               <button
+                                                aria-label="year panel"
                                                 class="ant-picker-year-btn"
                                                 tabindex="-1"
                                                 type="button"
@@ -1679,6 +1683,7 @@ Array [
                                               </button>
                                             </div>
                                             <button
+                                              aria-label="next-year"
                                               class="ant-picker-header-next-btn"
                                               style="visibility: hidden;"
                                               tabindex="-1"
@@ -1689,6 +1694,7 @@ Array [
                                               />
                                             </button>
                                             <button
+                                              aria-label="super-next-year"
                                               class="ant-picker-header-super-next-btn"
                                               style="visibility: hidden;"
                                               tabindex="-1"
@@ -2179,6 +2185,7 @@ Array [
                                             class="ant-picker-header"
                                           >
                                             <button
+                                              aria-label="super-prev-year"
                                               class="ant-picker-header-super-prev-btn"
                                               style="visibility: hidden;"
                                               tabindex="-1"
@@ -2189,6 +2196,7 @@ Array [
                                               />
                                             </button>
                                             <button
+                                              aria-label="prev-year"
                                               class="ant-picker-header-prev-btn"
                                               style="visibility: hidden;"
                                               tabindex="-1"
@@ -2202,6 +2210,7 @@ Array [
                                               class="ant-picker-header-view"
                                             >
                                               <button
+                                                aria-label="month panel"
                                                 class="ant-picker-month-btn"
                                                 tabindex="-1"
                                                 type="button"
@@ -2209,6 +2218,7 @@ Array [
                                                 Dec
                                               </button>
                                               <button
+                                                aria-label="year panel"
                                                 class="ant-picker-year-btn"
                                                 tabindex="-1"
                                                 type="button"
@@ -2217,6 +2227,7 @@ Array [
                                               </button>
                                             </div>
                                             <button
+                                              aria-label="next-year"
                                               class="ant-picker-header-next-btn"
                                               tabindex="-1"
                                               type="button"
@@ -2226,6 +2237,7 @@ Array [
                                               />
                                             </button>
                                             <button
+                                              aria-label="super-next-year"
                                               class="ant-picker-header-super-next-btn"
                                               tabindex="-1"
                                               type="button"
@@ -2780,6 +2792,116 @@ Array [
 `;
 
 exports[`renders components/drawer/demo/form-in-drawer.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/drawer/demo/loading.tsx extend context correctly 1`] = `
+Array [
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Open Drawer
+    </span>
+  </button>,
+  <div
+    class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+    tabindex="-1"
+  >
+    <div
+      class="ant-drawer-mask"
+    />
+    <div
+      aria-hidden="true"
+      data-sentinel="start"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+      tabindex="0"
+    />
+    <div
+      class="ant-drawer-content-wrapper"
+      style="width: 378px;"
+    >
+      <div
+        aria-modal="true"
+        class="ant-drawer-content"
+        role="dialog"
+      >
+        <div
+          class="ant-drawer-header"
+        >
+          <div
+            class="ant-drawer-header-title"
+          >
+            <button
+              aria-label="Close"
+              class="ant-drawer-close"
+              type="button"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                  />
+                </svg>
+              </span>
+            </button>
+            <div
+              class="ant-drawer-title"
+            >
+              <p>
+                Loading Drawer
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-drawer-body"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active ant-drawer-body-skeleton"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <ul
+                class="ant-skeleton-paragraph"
+              >
+                <li />
+                <li />
+                <li />
+                <li />
+                <li
+                  style="width: 61%;"
+                />
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      data-sentinel="end"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+      tabindex="0"
+    />
+  </div>,
+]
+`;
+
+exports[`renders components/drawer/demo/loading.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/drawer/demo/multi-level-drawer.tsx extend context correctly 1`] = `
 Array [

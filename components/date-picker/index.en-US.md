@@ -19,6 +19,7 @@ By clicking the input box, you can select a date from a popup calendar.
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/range-picker.tsx">Range Picker</code>
 <code src="./demo/multiple.tsx" version="5.14.0">Multiple</code>
+<code src="./demo/multiple-debug.tsx" debug>Multiple Debug</code>
 <code src="./demo/needConfirm.tsx" version="5.14.0">Need Confirm</code>
 <code src="./demo/switchable.tsx">Switchable picker</code>
 <code src="./demo/format.tsx">Date Format</code>
@@ -28,7 +29,7 @@ By clicking the input box, you can select a date from a popup calendar.
 <code src="./demo/disabled.tsx">Disabled</code>
 <code src="./demo/disabled-date.tsx">Disabled Date & Time</code>
 <code src="./demo/allow-empty.tsx">Allow Empty</code>
-<code src="./demo/select-in-range.tsx">Select range dates in 7 days</code>
+<code src="./demo/select-in-range.tsx">Select range dates</code>
 <code src="./demo/preset-ranges.tsx">Preset Ranges</code>
 <code src="./demo/extra-footer.tsx">Extra Footer</code>
 <code src="./demo/size.tsx">Three Sizes</code>
@@ -64,30 +65,25 @@ The default locale is en-US, if you need to use other languages, recommend to us
 
 If there are special needs (only modifying single component language), Please use the property: local. Example: [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json).
 
-<!-- prettier-ignore -->
-:::warning
-When use with Nextjs App Router, make sure to add `'use client'` before import locale file of dayjs. It's because all components of Ant Design only works in client, importing locale in RSC will not work.
-:::
-
-```jsx
-import locale from 'antd/es/date-picker/locale/zh_CN';
-
-import 'dayjs/locale/zh-cn';
-
-<DatePicker locale={locale} />;
-```
-
 ```jsx
 // The default locale is en-US, if you want to use other locale, just set locale in entry file globally.
+// Make sure you import the relevant dayjs file as well, otherwise the locale won't change for all texts (e.g. range picker months)
 import locale from 'antd/locale/zh_CN';
 import dayjs from 'dayjs';
 
 import 'dayjs/locale/zh-cn';
 
+dayjs.locale('zh-cn');
+
 <ConfigProvider locale={locale}>
   <DatePicker defaultValue={dayjs('2015-01-01', 'YYYY-MM-DD')} />
 </ConfigProvider>;
 ```
+
+<!-- prettier-ignore -->
+:::warning
+When use with Next.js App Router, make sure to add `'use client'` before import locale file of dayjs. It's because all components of Ant Design only works in client, importing locale in RSC will not work.
+:::
 
 ### Common API
 
@@ -103,7 +99,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | components | Custom panels | Record<Panel \| 'input', React.ComponentType> | - | 5.14.0 |
 | disabled | Determine whether the DatePicker is disabled | boolean | false |  |
 | disabledDate | Specify the date that cannot be selected | (currentDate: dayjs, info: { from?: dayjs }) => boolean | - | `info`: 5.14.0 |
-| format | To set the date format, support multi-format matching when it is an array, display the first one shall prevail. refer to [dayjs#format](https://day.js.org/docs/en/display/format). for example: [Custom Format](#components-date-picker-demo-format) | [formatType](#formattype) | [rc-picker](https://github.com/react-component/picker/blob/f512f18ed59d6791280d1c3d7d37abbb9867eb0b/src/utils/uiUtil.ts#L155-L177) |  |
+| format | To set the date format, support multi-format matching when it is an array, display the first one shall prevail. refer to [dayjs#format](https://day.js.org/docs/en/display/format). for example: [Custom Format](#date-picker-demo-format) | [formatType](#formattype) | [rc-picker](https://github.com/react-component/picker/blob/f512f18ed59d6791280d1c3d7d37abbb9867eb0b/src/utils/uiUtil.ts#L155-L177) |  |
 | order | Auto order date when multiple or range selection | boolean | true | 5.14.0 |
 | popupClassName | To customize the className of the popup calendar | string | - | 4.23.0 |
 | preserveInvalidOnBlur | Not clean input on blur even when the typing is invalidate | boolean | false | 5.14.0 |
@@ -153,7 +149,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | renderExtraFooter | Render extra footer in panel | (mode) => React.ReactNode | - |  |
 | showNow | Show the fast access of current datetime | boolean | - | 4.4.0 |
 | showTime | To provide an additional time selection | object \| boolean | [TimePicker Options](/components/time-picker/#api) |  |
-| showTime.defaultValue | To set default time of selected date, [demo](#components-date-picker-demo-disabled-date) | [dayjs](https://day.js.org/) | dayjs() |  |
+| showTime.defaultValue | To set default time of selected date, [demo](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/) | dayjs() |  |
 | showWeek | Show week info when in DatePicker | boolean | false | 5.14.0 |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
@@ -216,7 +212,7 @@ Added in `4.1.0`.
 | defaultPickerValue | Default panel date, will be reset when panel open | [dayjs](https://day.js.org/) | - | 5.14.0 |
 | defaultValue | To set default date | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - |  |
 | disabled | If disable start or end | \[boolean, boolean] | - |  |
-| disabledTime | To specify the time that cannot be selected | function(date: dayjs, partial: `start` \| `end`) | - |  |
+| disabledTime | To specify the time that cannot be selected | function(date: dayjs, partial: `start` \| `end`, info: { from?: dayjs }) | - | `info.from`: 5.17.0 |
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-MM-DD HH:mm:ss` |  |
 | id | Config input ids | { start?: string, end?: string } | - | 5.14.0 |
 | pickerValue | Panel date. Used for controlled switching of panel date. Work with `onPanelChange` | [dayjs](https://day.js.org/) | - | 5.14.0 |
@@ -224,7 +220,7 @@ Added in `4.1.0`.
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
 | separator | Set separator between inputs | React.ReactNode | `<SwapRightOutlined />` |  |
 | showTime | To provide an additional time selection | object \| boolean | [TimePicker Options](/components/time-picker/#api) |  |
-| showTime.defaultValue | To set default time of selected date, [demo](#components-date-picker-demo-disabled-date) | [dayjs](https://day.js.org/)\[] | \[dayjs(), dayjs()] |  |
+| showTime.defaultValue | To set default time of selected date, [demo](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/)\[] | \[dayjs(), dayjs()] |  |
 | value | To set date | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - |  |
 | onCalendarChange | Callback function, can be executed when the start time or the end time of the range is changing. `info` argument is added in 4.4.0 | function(dates: \[dayjs, dayjs], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(dates: \[dayjs, dayjs], dateStrings: \[string, string]) | - |  |

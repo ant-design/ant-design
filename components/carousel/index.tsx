@@ -31,10 +31,23 @@ export interface CarouselRef {
   innerSlider: any;
 }
 
+const dotsClass = 'slick-dots';
+
+interface ArrowType extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  currentSlide?: number;
+  slideCount?: number;
+}
+
+const ArrowButton: React.FC<ArrowType> = ({ currentSlide, slideCount, ...rest }) => (
+  <button type="button" {...rest} />
+);
+
 const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
   const {
     dots = true,
     arrows = false,
+    prevArrow = <ArrowButton aria-label="prev" />,
+    nextArrow = <ArrowButton aria-label="next" />,
     draggable = false,
     waitForAnimate = false,
     dotPosition = 'bottom',
@@ -64,7 +77,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     [slickRef.current],
   );
 
-  const prevCount = React.useRef(React.Children.count(props.children));
+  const prevCount = React.useRef<number>(React.Children.count(props.children));
 
   React.useEffect(() => {
     if (prevCount.current !== React.Children.count(props.children)) {
@@ -85,7 +98,6 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
   }
 
   const prefixCls = getPrefixCls('carousel', newProps.prefixCls);
-  const dotsClass = 'slick-dots';
 
   const enableDots = !!dots;
   const dsClass = classNames(
@@ -115,6 +127,8 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
         dots={enableDots}
         dotsClass={dsClass}
         arrows={arrows}
+        prevArrow={prevArrow}
+        nextArrow={nextArrow}
         draggable={draggable}
         verticalSwiping={vertical}
         waitForAnimate={waitForAnimate}

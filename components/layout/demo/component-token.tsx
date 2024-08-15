@@ -48,7 +48,7 @@ const App: React.FC = () => {
       <Layout>
         <Header style={{ display: 'flex', alignItems: 'center' }}>
           <div className="demo-logo" />
-          <div style={{ marginLeft: 24, fontSize: 24 }}>Ant Design</div>
+          <div style={{ marginInlineStart: 24, fontSize: 24 }}>Ant Design</div>
         </Header>
         <Layout>
           <Sider width={200} style={{ background: colorBgContainer }}>

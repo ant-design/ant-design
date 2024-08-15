@@ -2,13 +2,14 @@
 category: Components
 group: Data Display
 title: Segmented
+description: Display multiple options and allow users to select a single option.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*XJR2TbS1aaQAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-9tSSoO_MkIAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
 
-Segmented Controls. This component is available since `antd@4.20.0`.
+This component is available since `antd@4.20.0`.
 
 ## When To Use
 
@@ -43,9 +44,19 @@ Common props ref：[Common props](/docs/react/common-props)
 | defaultValue | Default selected value | string \| number |  |  |
 | disabled | Disable all segments | boolean | false |  |
 | onChange | The callback function that is triggered when the state changes | function(value: string \| number) |  |  |
-| options | Set children optional | string\[] \| number\[] \| Array<{ label: ReactNode value: string icon? ReactNode disabled?: boolean className?: string }> | [] |  |
+| options | Set children optional | string\[] \| number\[] \| SegmentedItemType\[] | [] |  |
 | size | The size of the Segmented. | `large` \| `middle` \| `small` | `middle` |  |
 | value | Currently selected value | string \| number |  |  |
+
+### SegmentedItemType
+
+| Property  | Description  | Type  | Default | Version |
+| --- | --- | --- | --- | --- |
+| label | Display text for Segmented item  | ReactNode | - |  |
+| value | Value for Segmented item  | string \| number | - |  |
+| icon  | Display icon for Segmented item  | ReactNode | - |  |
+| disabled | Disabled state of segmented item | boolean | false |  |
+| className | The additional css class | string | - |  |
 
 ## Design Token
 

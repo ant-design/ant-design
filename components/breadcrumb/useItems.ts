@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+
 import type { BreadcrumbItemType, BreadcrumbSeparatorType, ItemType } from './Breadcrumb';
 
 type MergedType = BreadcrumbItemType & {

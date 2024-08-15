@@ -2,13 +2,12 @@
 category: Components
 group: Navigation
 title: Breadcrumb
+description: Display the current location within a hierarchy. And allow going back to states higher up in the hierarchy.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*I5a2Tpqs3y0AAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Tr90QKrE_LcAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-A breadcrumb displays the current location within a hierarchy. It allows going back to states higher up in the hierarchy.
 
 ## When To Use
 
@@ -37,6 +36,7 @@ return <Breadcrumb routes={[{ breadcrumbName: 'sample' }]} />;
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic Usage</code>
 <code src="./demo/withIcon.tsx">With an Icon</code>
+<code src="./demo/withParams.tsx">With Params</code>
 <code src="./demo/separator.tsx">Configuring the Separator</code>
 <code src="./demo/overlay.tsx">Bread crumbs with drop down menu</code>
 <code src="./demo/separator-component.tsx">Configuring the Separator Independently</code>
@@ -53,12 +53,12 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | itemRender | Custom item renderer | (route, params, routes, paths) => ReactNode | - |  |
 | params | Routing parameters | object | - |  |
-| items | The routing stack information of router | [ItemType\[\]](#ItemType) | - | 5.3.0 |
+| items | The routing stack information of router | [ItemType\[\]](#itemtype) | - | 5.3.0 |
 | separator | Custom separator | ReactNode | `/` |  |
 
 ### ItemType
 
-> type ItemType = Omit<[RouteItemType](#RouteItemType), 'title' | 'path'> | [SeparatorType](#SeparatorType)
+> type ItemType = Omit<[RouteItemType](#routeitemtype), 'title' | 'path'> | [SeparatorType](#separatortype)
 
 ### RouteItemType
 

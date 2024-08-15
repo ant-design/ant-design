@@ -6,7 +6,7 @@ module.exports = {
     'plugin:jest/recommended',
     'plugin:react/recommended',
     'plugin:import/typescript',
-    'plugin:markdown/recommended',
+    'plugin:markdown/recommended-legacy',
   ],
   env: {
     browser: true,
@@ -44,6 +44,7 @@ module.exports = {
         'no-unused-expressions': 'off',
         '@typescript-eslint/no-unused-expressions': 2,
         '@typescript-eslint/consistent-type-imports': [2, { disallowTypeAnnotations: false }],
+        'import/consistent-type-specifier-style': 2,
       },
     },
     {
@@ -173,6 +174,7 @@ module.exports = {
           'site/**',
           'tests/**',
           'scripts/**',
+          'scripts/*.ts',
           '**/*.test.js',
           '**/__tests__/*',
           '*.config.js',

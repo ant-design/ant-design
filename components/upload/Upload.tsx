@@ -32,6 +32,11 @@ export interface UploadRef<T = any> {
   onError: (error: Error, response: any, file: RcFile) => void;
   fileList: UploadFile<T>[];
   upload: RcUpload | null;
+  /**
+   * Get native element for wrapping upload
+   * @since 5.17.0
+   */
+  nativeElement: HTMLSpanElement | null;
 }
 
 const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (props, ref) => {
@@ -79,6 +84,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   const [dragState, setDragState] = React.useState<string>('drop');
 
   const upload = React.useRef<RcUpload>(null);
+  const wrapRef = React.useRef<HTMLSpanElement>(null);
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Upload');
@@ -137,6 +143,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
     if (
       !exceedMaxCount ||
+      file.status === 'removed' ||
       // We should ignore event if current file is exceed `maxCount`
       cloneList.some((f) => f.uid === file.uid)
     ) {
@@ -207,13 +214,13 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
       if (!filteredFileInfoList[index].parsedFile) {
         // `beforeUpload` return false
         const { originFileObj } = fileObj;
-        let clone;
+        let clone: UploadFile;
 
         try {
           clone = new File([originFileObj], originFileObj.name, {
             type: originFileObj.type,
           }) as any as UploadFile;
-        } catch (e) {
+        } catch {
           clone = new Blob([originFileObj], {
             type: originFileObj.type,
           }) as any as UploadFile;
@@ -236,9 +243,10 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   const onSuccess = (response: any, file: RcFile, xhr: any) => {
     try {
       if (typeof response === 'string') {
+        // biome-ignore lint/style/noParameterAssign: we need to modify response
         response = JSON.parse(response);
       }
-    } catch (e) {
+    } catch {
       /* do nothing */
     }
 
@@ -330,6 +338,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     onError,
     fileList: mergedFileList,
     upload: upload.current,
+    nativeElement: wrapRef.current,
   }));
 
   const { getPrefixCls, direction, upload: ctxUpload } = React.useContext(ConfigContext);
@@ -352,7 +361,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     beforeUpload: mergedBeforeUpload,
     onChange: undefined,
     hasControlInside,
-  } as RcUploadProps;
+  } as any;
 
   delete rcUploadProps.className;
   delete rcUploadProps.style;
@@ -377,6 +386,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     removeIcon,
     previewIcon,
     downloadIcon,
+    extra,
   } = typeof showUploadList === 'boolean' ? ({} as ShowUploadListInterface) : showUploadList;
 
   // use showRemoveIcon if it is specified explicitly
@@ -403,6 +413,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
         previewIcon={previewIcon}
         downloadIcon={downloadIcon}
         iconRender={iconRender}
+        extra={extra}
         locale={{ ...contextLocale, ...propLocale }}
         isImageUrl={isImageUrl}
         progress={progress}
@@ -430,6 +441,8 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
   const mergedStyle: React.CSSProperties = { ...ctxUpload?.style, ...style };
 
+  // ======================== Render ========================
+
   if (type === 'drag') {
     const dragCls = classNames(hashId, prefixCls, `${prefixCls}-drag`, {
       [`${prefixCls}-drag-uploading`]: mergedFileList.some((file) => file.status === 'uploading'),
@@ -439,7 +452,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     });
 
     return wrapCSSVar(
-      <span className={mergedCls}>
+      <span className={mergedCls} ref={wrapRef}>
         <div
           className={dragCls}
           style={mergedStyle}
@@ -468,12 +481,14 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
   if (listType === 'picture-card' || listType === 'picture-circle') {
     return wrapCSSVar(
-      <span className={mergedCls}>{renderUploadList(uploadButton, !!children)}</span>,
+      <span className={mergedCls} ref={wrapRef}>
+        {renderUploadList(uploadButton, !!children)}
+      </span>,
     );
   }
 
   return wrapCSSVar(
-    <span className={mergedCls}>
+    <span className={mergedCls} ref={wrapRef}>
       {uploadButton}
       {renderUploadList()}
     </span>,

@@ -2,13 +2,12 @@
 category: Components
 group: Data Entry
 title: Checkbox
+description: Collect user's choices.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*DzgiRbW3khIAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*G3MjTYXL6AIAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-Checkbox component.
 
 ## When To Use
 
@@ -52,7 +51,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | name | The `name` property of all `input[type="checkbox"]` children | string | - |  |
 | options | Specifies options | string\[] \| number\[] \| Option\[] | \[] |  |
 | value | Used for setting the currently selected value | (string \| number \| boolean)\[] | \[] |  |
-| onChange | The callback function that is triggered when the state changes | (checkedValue: CheckboxValueType[]) => void | - |  |
+| onChange | The callback function that is triggered when the state changes | (checkedValue: T[]) => void | - |  |
 
 ##### Option
 
@@ -68,10 +67,11 @@ interface Option {
 
 #### Checkbox
 
-| Name    | Description  | Version |
-| ------- | ------------ | ------- |
-| blur()  | Remove focus |         |
-| focus() | Get focus    |         |
+| Name          | Description                          | Version |
+| ------------- | ------------------------------------ | ------- |
+| blur()        | Remove focus                         |         |
+| focus()       | Get focus                            |         |
+| nativeElement | Returns the DOM node of the Checkbox | 5.17.3  |
 
 ## Design Token
 

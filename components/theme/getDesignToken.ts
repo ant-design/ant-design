@@ -1,4 +1,5 @@
 import { createTheme, getComputedToken } from '@ant-design/cssinjs';
+
 import type { ThemeConfig } from '../config-provider/context';
 import type { AliasToken } from './interface';
 import defaultDerivative from './themes/default';
@@ -11,7 +12,7 @@ const getDesignToken = (config?: ThemeConfig): AliasToken => {
     ...seedToken,
     ...config?.token,
   };
-  return getComputedToken(mergedToken, { override: config?.token }, theme, formatToken);
+  return getComputedToken(mergedToken as any, { override: config?.token }, theme, formatToken);
 };
 
 export default getDesignToken;

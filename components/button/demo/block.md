@@ -4,4 +4,4 @@
 
 ## en-US
 
-`block` property will make the button fit to its parent width.
+The `block` property will make a button fit to its parent width.

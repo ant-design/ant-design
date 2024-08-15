@@ -1,15 +1,14 @@
 ---
 group: 反馈
 category: Components
-subtitle: 抽屉
 title: Drawer
+subtitle: 抽屉
+description: 屏幕边缘滑出的浮层面板。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*BD2JSKm8I-kAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*r29rQ51bNdwAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-屏幕边缘滑出的浮层面板。
 
 ## 何时使用
 
@@ -18,11 +17,16 @@ demo:
 - 当需要一个附加的面板来控制父窗体内容，这个面板在需要时呼出。比如，控制界面展示样式，往界面中添加内容。
 - 当需要在当前任务流中插入临时任务，创建或预览附加内容。比如展示协议条款，创建子对象。
 
+> 开发者注意事项：
+>
+> 自 `5.17.0` 版本，我们提供了 `loading` 属性，内置 Spin 组件作为加载状态，但是自 `5.18.0` 版本开始，我们修复了设计失误，将内置的 Spin 组件替换成了 Skeleton 组件，同时收窄了 `loading` api 的类型范围，只能接收 boolean 类型。
+
 ## 代码演示
 
 <!-- prettier-ignore -->
 <code src="./demo/basic-right.tsx">基础抽屉</code>
 <code src="./demo/placement.tsx">自定义位置</code>
+<code src="./demo/loading.tsx" version="5.17.0">加载中</code>
 <code src="./demo/extra.tsx">额外操作</code>
 <code src="./demo/render-in-current.tsx">渲染在当前 DOM</code>
 <code src="./demo/form-in-drawer.tsx">抽屉表单</code>
@@ -47,7 +51,7 @@ v5 使用 `rootClassName` 与 `rootStyle` 来配置最外层元素样式。原 v
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| autoFocus | 抽屉展开后是否将焦点切换至其 Dom 节点 | boolean | true | 4.17.0 |
+| autoFocus | 抽屉展开后是否将焦点切换至其 DOM 节点 | boolean | true | 4.17.0 |
 | afterOpenChange | 切换抽屉时动画结束后的回调 | function(open) | - |  |
 | className | Drawer 容器外层 className 设置，如果需要设置最外层，请使用 rootClassName | string | - |  |
 | classNames | 语义化结构 className | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.10.0 |
@@ -68,10 +72,12 @@ v5 使用 `rootClassName` 与 `rootStyle` 来配置最外层元素样式。原 v
 | style | 设计 Drawer 容器样式，如果你只需要设置内容部分请使用 `bodyStyle` | CSSProperties | - |  |
 | styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.10.0 |
 | title | 标题 | ReactNode | - |  |
+| loading | 显示骨架屏 | boolean | false | 5.17.0 |
 | open | Drawer 是否可见 | boolean | - |
 | width | 宽度 | string \| number | 378 |  |
 | zIndex | 设置 Drawer 的 `z-index` | number | 1000 |  |
 | onClose | 点击遮罩层或左上角叉或取消按钮的回调 | function(e) | - |  |
+| drawerRender | 自定义渲染抽屉 | (node: ReactNode) => ReactNode | - | 5.18.0 |
 
 ## Semantic DOM
 

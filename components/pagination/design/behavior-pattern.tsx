@@ -17,19 +17,19 @@ const BehaviorPattern: React.FC = () => (
           id: '200000005',
           label: '调整单页展示条数',
           targetType: 'extension',
-          link: 'components-pagination-index-tab-design-demo-page-size',
+          link: 'pagination-index-tab-design-demo-page-size',
         },
         {
           id: '200000006',
           label: '快速跳转',
           targetType: 'extension',
-          link: 'components-pagination-index-tab-design-demo-quick-jump',
+          link: 'pagination-index-tab-design-demo-quick-jump',
         },
         {
           id: '200000007',
           label: '了解数据总量',
           targetType: 'extension',
-          link: 'components-pagination-index-tab-design-demo-total',
+          link: 'pagination-index-tab-design-demo-total',
         },
       ],
     }}

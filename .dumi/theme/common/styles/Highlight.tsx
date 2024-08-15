@@ -16,7 +16,7 @@ export default () => {
 
         pre code {
           display: block;
-          padding: 16px 32px;
+          padding: ${token.padding}px ${token.paddingXL}px;
           color: ${token.colorText};
           font-size: ${token.fontSize}px;
           font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
@@ -31,7 +31,7 @@ export default () => {
         pre[class*='language-'] {
           color: ${token.colorText};
           font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-          line-height: 1.5;
+          line-height: ${token.lineHeightLG};
           direction: ltr;
           white-space: pre;
           text-align: left;
@@ -62,14 +62,14 @@ export default () => {
 
         /* Code blocks */
         pre[class*='language-'] {
-          margin: 16px 0;
-          padding: 12px 20px;
+          margin: ${token.margin}px 0;
+          padding: ${token.paddingSM}px ${token.paddingMD}px;
           overflow: auto;
         }
 
         :not(pre) > code[class*='language-'],
         pre[class*='language-'] {
-          background: #f5f5f5;
+          background: ${token.colorBgLayout};
         }
 
         /* Inline code */

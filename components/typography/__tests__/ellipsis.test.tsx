@@ -1,8 +1,14 @@
 import React from 'react';
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
-import { act } from 'react-dom/test-utils';
 
-import { fireEvent, render, triggerResize, waitFakeTimer, waitFor } from '../../../tests/utils';
+import {
+  act,
+  fireEvent,
+  render,
+  triggerResize,
+  waitFakeTimer,
+  waitFor,
+} from '../../../tests/utils';
 import type { EllipsisConfig } from '../Base';
 import Base from '../Base';
 
@@ -21,10 +27,10 @@ describe('Typography.Ellipsis', () => {
   let offsetWidth: number;
   let scrollWidth: number;
 
-  function getContentHeight(elem?: HTMLElement) {
+  function getContentHeight(this: { get: (elem?: HTMLElement) => number }, elem?: HTMLElement) {
     const regex = /<[^>]*>/g;
 
-    let html = (elem || this).innerHTML;
+    let html = (elem || (this as any)).innerHTML;
     html = html.replace(regex, '');
     const lines = Math.ceil(html.length / LINE_STR_COUNT);
     return lines * LINE_HEIGHT;
@@ -44,8 +50,10 @@ describe('Typography.Ellipsis', () => {
       },
       clientHeight: {
         get() {
-          const { WebkitLineClamp } = this.style;
-          return WebkitLineClamp ? Number(WebkitLineClamp) * LINE_HEIGHT : getContentHeight(this);
+          const { WebkitLineClamp } = (this as any).style;
+          return WebkitLineClamp
+            ? Number(WebkitLineClamp) * LINE_HEIGHT
+            : (getContentHeight as any)(this);
         },
       },
     });
@@ -249,6 +257,34 @@ describe('Typography.Ellipsis', () => {
     expect(container.querySelector('p')?.textContent).toEqual(fullStr);
   });
 
+  it('should collapsible work', async () => {
+    const ref = React.createRef<HTMLElement>();
+
+    const { container: wrapper } = render(
+      <Base
+        ellipsis={{
+          expandable: 'collapsible',
+          symbol: (expanded) => (expanded ? 'CloseIt' : 'OpenIt'),
+        }}
+        component="p"
+        ref={ref}
+      >
+        {fullStr}
+      </Base>,
+    );
+
+    triggerResize(ref.current!);
+    await waitFakeTimer();
+
+    expect(wrapper.querySelector('p')?.textContent).toEqual(`Bamboo is L...OpenIt`);
+
+    fireEvent.click(wrapper.querySelector('.ant-typography-expand')!);
+    expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}CloseIt`);
+
+    fireEvent.click(wrapper.querySelector('.ant-typography-collapse')!);
+    expect(wrapper.querySelector('p')?.textContent).toEqual(`Bamboo is L...OpenIt`);
+  });
+
   it('should have custom expand style', async () => {
     const ref = React.createRef<HTMLElement>();
     const symbol = 'more';
@@ -328,15 +364,29 @@ describe('Typography.Ellipsis', () => {
   describe('should tooltip support', () => {
     let domSpy: ReturnType<typeof spyElementPrototypes>;
 
+    let containerWidth = 100;
+    let contentWidth = 200;
+    let rectContainerWidth = 100;
+
     beforeAll(() => {
       domSpy = spyElementPrototypes(HTMLElement, {
         offsetWidth: {
-          get: () => 100,
+          get: () => containerWidth,
         },
         scrollWidth: {
-          get: () => 200,
+          get: () => contentWidth,
         },
+        getBoundingClientRect: () => ({
+          width: rectContainerWidth,
+          height: 0,
+        }),
       });
+    });
+
+    beforeEach(() => {
+      containerWidth = 100;
+      contentWidth = 200;
+      rectContainerWidth = 100;
     });
 
     afterAll(() => {
@@ -402,6 +452,24 @@ describe('Typography.Ellipsis', () => {
         expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
       });
     });
+
+    // https://github.com/ant-design/ant-design/issues/50143
+    it('precision', async () => {
+      containerWidth = 100;
+      contentWidth = 100;
+      rectContainerWidth = 99.9;
+
+      const { container, baseElement } = await getWrapper({
+        title: true,
+        className: 'tooltip-class-name',
+      });
+      fireEvent.mouseEnter(container.firstChild!);
+
+      await waitFor(() => {
+        expect(container.querySelector('.tooltip-class-name')).toBeTruthy();
+        expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+      });
+    });
   });
 
   it('js ellipsis should show aria-label', () => {
@@ -424,7 +492,7 @@ describe('Typography.Ellipsis', () => {
     mockRectSpy = spyElementPrototypes(HTMLElement, {
       scrollHeight: {
         get() {
-          let html = this.innerHTML;
+          let html = (this as any).innerHTML;
           html = html.replace(/<[^>]*>/g, '');
           const lines = Math.ceil(html.length / LINE_STR_COUNT);
           return lines * 16;
@@ -476,5 +544,25 @@ describe('Typography.Ellipsis', () => {
     fireEvent.mouseEnter(ref.current!);
     await waitFakeTimer();
     expect(document.querySelector('.ant-tooltip')).toBeTruthy();
+  });
+
+  it('not force single line if expanded', async () => {
+    const ref = React.createRef<HTMLElement>();
+
+    const renderDemo = (expanded: boolean) => (
+      <Base ellipsis={{ rows: 1, expanded, expandable: 'collapsible' }} component="p" ref={ref}>
+        {fullStr}
+      </Base>
+    );
+
+    const { container, rerender } = render(renderDemo(false));
+
+    triggerResize(ref.current!);
+    await waitFakeTimer();
+
+    expect(container.querySelector('.ant-typography-expand')).toBeTruthy();
+
+    rerender(renderDemo(true));
+    expect(container.querySelector('.ant-typography-collapse')).toBeTruthy();
   });
 });

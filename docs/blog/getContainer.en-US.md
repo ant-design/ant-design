@@ -2,6 +2,8 @@
 title: Some change on getContainer
 date: 2022-12-08
 author: zombieJ
+zhihu_url: https://zhuanlan.zhihu.com/p/606878571
+yuque_url: https://www.yuque.com/ant-design/ant-design/eegn0tn5fy94uwk8
 ---
 
 We often encounter the need for pop-up elements when developing, such as the Select drop-down box, or the Modal component. When it is directly rendered under the current node, it may be clipped by the `overflow: hidden` of the parent node:
@@ -110,4 +112,4 @@ After putting `getContainer` into effect management, we can manage nodes in a wa
 
 ## Finally
 
-Due to the fix that `getContainer` does not support dynamic changes, it also introduces a potential breaking change at the same time. If the developer customizes `getContainer` to create a new dom node every time, it will cause an infinite loop because of the continuous execution of the effect, resulting in the continuous creation of nodes. If you use this method and encounter problems, you need to pay attention to check.
+Due to the fix that `getContainer` does not support dynamic changes, it also introduces a potential breaking change at the same time. If the developer customizes `getContainer` to create a new DOM node every time, it will cause an infinite loop because of the continuous execution of the effect, resulting in the continuous creation of nodes. If you use this method and encounter problems, you need to pay attention to check.

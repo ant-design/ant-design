@@ -1,14 +1,8 @@
 import type { FC } from 'react';
 import React, { useContext } from 'react';
-import type { Color } from '../color';
-import { PanelPresetsContext } from '../context';
-import type { ColorPickerBaseProps } from '../interface';
-import ColorPresets from './ColorPresets';
 
-export interface PanelPresetsProps extends Pick<ColorPickerBaseProps, 'prefixCls' | 'presets'> {
-  value?: Color;
-  onChange?: (value: Color) => void;
-}
+import { PanelPresetsContext } from '../context';
+import ColorPresets from './ColorPresets';
 
 const PanelPresets: FC = () => {
   const { prefixCls, value, presets, onChange } = useContext(PanelPresetsContext);

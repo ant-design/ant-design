@@ -15,9 +15,9 @@ const useStyle = createStyles(({ token, css }) => ({
     margin: 1em 0 !important;
   `,
   title: css`
-    font-size: 12px;
+    font-size: ${token.fontSizeSM}px;
     opacity: 0.5;
-    margin-bottom: 8px;
+    margin-bottom: ${token.marginXS}px;
   `,
   list: css`
     display: flex;
@@ -26,7 +26,7 @@ const useStyle = createStyles(({ token, css }) => ({
     li {
       height: 24px;
       transition: all ${token.motionDurationSlow};
-      margin-inline-end: -8px;
+      margin-inline-end: -${token.marginXS}px;
     }
     &:hover {
       li {

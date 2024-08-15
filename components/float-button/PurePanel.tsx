@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
-import classNames from 'classnames';
 import * as React from 'react';
+import classNames from 'classnames';
+
 import { ConfigContext } from '../config-provider';
 import BackTop from './BackTop';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';

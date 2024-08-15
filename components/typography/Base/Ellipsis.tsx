@@ -33,12 +33,8 @@ const MeasureText = React.forwardRef<MeasureTextRef, MeasureTextProps>(
           display: 'block',
           left: 0,
           top: 0,
-          // zIndex: -9999,
-          // visibility: 'hidden',
           pointerEvents: 'none',
-
           backgroundColor: 'rgba(255, 0, 0, 0.65)',
-
           ...style,
         }}
       >
@@ -98,19 +94,18 @@ function sliceNodes(nodeList: React.ReactElement[], len: number) {
 }
 
 export interface EllipsisProps {
-  enabledMeasure?: boolean;
+  enableMeasure?: boolean;
   text?: React.ReactNode;
   width: number;
   // fontSize: number;
   rows: number;
   children: (
     cutChildren: React.ReactNode[],
-    /** Tell current `cutChildren` is in ellipsis */
-    inEllipsis: boolean,
     /** Tell current `text` is exceed the `rows` which can be ellipsis */
     canEllipsis: boolean,
   ) => React.ReactNode;
   onEllipsis: (isEllipsis: boolean) => void;
+  expanded: boolean;
   /**
    * Mark for misc update. Which will not affect ellipsis content length.
    * e.g. tooltip content update.
@@ -120,9 +115,10 @@ export interface EllipsisProps {
 
 // Measure for the `text` is exceed the `rows` or not
 const STATUS_MEASURE_NONE = 0;
-const STATUS_MEASURE_START = 1;
-const STATUS_MEASURE_NEED_ELLIPSIS = 2;
-const STATUS_MEASURE_NO_NEED_ELLIPSIS = 3;
+const STATUS_MEASURE_PREPARE = 1;
+const STATUS_MEASURE_START = 2;
+const STATUS_MEASURE_NEED_ELLIPSIS = 3;
+const STATUS_MEASURE_NO_NEED_ELLIPSIS = 4;
 
 const lineClipStyle: React.CSSProperties = {
   display: '-webkit-box',
@@ -131,43 +127,71 @@ const lineClipStyle: React.CSSProperties = {
 };
 
 export default function EllipsisMeasure(props: EllipsisProps) {
-  const { enabledMeasure, width, text, children, rows, miscDeps, onEllipsis } = props;
+  const { enableMeasure, width, text, children, rows, expanded, miscDeps, onEllipsis } = props;
 
   const nodeList = React.useMemo(() => toArray(text), [text]);
   const nodeLen = React.useMemo(() => getNodesLen(nodeList), [text]);
 
   // ========================= Full Content =========================
-  const fullContent = React.useMemo(() => children(nodeList, false, false), [text]);
+  // Used for measure only, which means it's always render as no need ellipsis
+  const fullContent = React.useMemo(() => children(nodeList, false), [text]);
 
   // ========================= Cut Content ==========================
   const [ellipsisCutIndex, setEllipsisCutIndex] = React.useState<[number, number] | null>(null);
   const cutMidRef = React.useRef<MeasureTextRef>(null);
 
   // ========================= NeedEllipsis =========================
+  const measureWhiteSpaceRef = React.useRef<HTMLElement>(null);
+
   const needEllipsisRef = React.useRef<MeasureTextRef>(null);
 
+  // Measure for `rows-1` height, to avoid operation exceed the line height
+  const descRowsEllipsisRef = React.useRef<MeasureTextRef>(null);
+  const symbolRowEllipsisRef = React.useRef<MeasureTextRef>(null);
+
+  const [canEllipsis, setCanEllipsis] = React.useState(false);
   const [needEllipsis, setNeedEllipsis] = React.useState(STATUS_MEASURE_NONE);
   const [ellipsisHeight, setEllipsisHeight] = React.useState(0);
+  const [parentWhiteSpace, setParentWhiteSpace] = React.useState<
+    React.CSSProperties['whiteSpace'] | null
+  >(null);
 
   // Trigger start measure
   useLayoutEffect(() => {
-    if (enabledMeasure && width && nodeLen) {
-      setNeedEllipsis(STATUS_MEASURE_START);
+    if (enableMeasure && width && nodeLen) {
+      setNeedEllipsis(STATUS_MEASURE_PREPARE);
     } else {
       setNeedEllipsis(STATUS_MEASURE_NONE);
     }
-  }, [width, text, rows, enabledMeasure, nodeList]);
+  }, [width, text, rows, enableMeasure, nodeList]);
 
   // Measure process
   useLayoutEffect(() => {
-    if (needEllipsis === STATUS_MEASURE_START) {
+    if (needEllipsis === STATUS_MEASURE_PREPARE) {
+      setNeedEllipsis(STATUS_MEASURE_START);
+
+      // Parent ref `white-space`
+      const nextWhiteSpace =
+        measureWhiteSpaceRef.current && getComputedStyle(measureWhiteSpaceRef.current).whiteSpace;
+      setParentWhiteSpace(nextWhiteSpace);
+    } else if (needEllipsis === STATUS_MEASURE_START) {
       const isOverflow = !!needEllipsisRef.current?.isExceed();
 
       setNeedEllipsis(isOverflow ? STATUS_MEASURE_NEED_ELLIPSIS : STATUS_MEASURE_NO_NEED_ELLIPSIS);
       setEllipsisCutIndex(isOverflow ? [0, nodeLen] : null);
+      setCanEllipsis(isOverflow);
 
-      // For the accuracy issue, we add 1px to the height
-      setEllipsisHeight((needEllipsisRef.current?.getHeight() || 0) + 1);
+      // Get the basic height of ellipsis rows
+      const baseRowsEllipsisHeight = needEllipsisRef.current?.getHeight() || 0;
+
+      // Get the height of `rows - 1` + symbol height
+      const descRowsEllipsisHeight = rows === 1 ? 0 : descRowsEllipsisRef.current?.getHeight() || 0;
+      const symbolRowEllipsisHeight = symbolRowEllipsisRef.current?.getHeight() || 0;
+      const rowsWithEllipsisHeight = descRowsEllipsisHeight + symbolRowEllipsisHeight;
+
+      const maxRowsHeight = Math.max(baseRowsEllipsisHeight, rowsWithEllipsisHeight);
+
+      setEllipsisHeight(maxRowsHeight + 1);
 
       onEllipsis(isOverflow);
     }
@@ -205,7 +229,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
       !ellipsisCutIndex ||
       ellipsisCutIndex[0] !== ellipsisCutIndex[1]
     ) {
-      const content = children(nodeList, false, false);
+      const content = children(nodeList, false);
 
       // Limit the max line count to avoid scrollbar blink
       // https://github.com/ant-design/ant-design/issues/42958
@@ -228,15 +252,15 @@ export default function EllipsisMeasure(props: EllipsisProps) {
       return content;
     }
 
-    return children(sliceNodes(nodeList, ellipsisCutIndex[0]), true, true);
-  }, [needEllipsis, ellipsisCutIndex, nodeList, ...miscDeps]);
+    return children(expanded ? nodeList : sliceNodes(nodeList, ellipsisCutIndex[0]), canEllipsis);
+  }, [expanded, needEllipsis, ellipsisCutIndex, nodeList, ...miscDeps]);
 
   // ============================ Render ============================
   const measureStyle: React.CSSProperties = {
     width,
-    whiteSpace: 'normal',
     margin: 0,
     padding: 0,
+    whiteSpace: parentWhiteSpace === 'nowrap' ? 'normal' : 'inherit',
   };
 
   return (
@@ -246,16 +270,43 @@ export default function EllipsisMeasure(props: EllipsisProps) {
 
       {/* Measure if current content is exceed the rows */}
       {needEllipsis === STATUS_MEASURE_START && (
-        <MeasureText
-          style={{
-            ...measureStyle,
-            ...lineClipStyle,
-            WebkitLineClamp: rows,
-          }}
-          ref={needEllipsisRef}
-        >
-          {fullContent}
-        </MeasureText>
+        <>
+          {/** With `rows` */}
+          <MeasureText
+            style={{
+              ...measureStyle,
+              ...lineClipStyle,
+              WebkitLineClamp: rows,
+            }}
+            ref={needEllipsisRef}
+          >
+            {fullContent}
+          </MeasureText>
+
+          {/** With `rows - 1` */}
+          <MeasureText
+            style={{
+              ...measureStyle,
+              ...lineClipStyle,
+              WebkitLineClamp: rows - 1,
+            }}
+            ref={descRowsEllipsisRef}
+          >
+            {fullContent}
+          </MeasureText>
+
+          {/** With `rows - 1` */}
+          <MeasureText
+            style={{
+              ...measureStyle,
+              ...lineClipStyle,
+              WebkitLineClamp: 1,
+            }}
+            ref={symbolRowEllipsisRef}
+          >
+            {children([], true)}
+          </MeasureText>
+        </>
       )}
 
       {/* Real size overflow measure */}
@@ -269,9 +320,14 @@ export default function EllipsisMeasure(props: EllipsisProps) {
             }}
             ref={cutMidRef}
           >
-            {children(sliceNodes(nodeList, cutMidIndex), true, true)}
+            {children(sliceNodes(nodeList, cutMidIndex), true)}
           </MeasureText>
         )}
+
+      {/* Measure white-space */}
+      {needEllipsis === STATUS_MEASURE_PREPARE && (
+        <span style={{ whiteSpace: 'inherit' }} ref={measureWhiteSpaceRef} />
+      )}
     </>
   );
 }

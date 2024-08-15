@@ -138,9 +138,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     hashId,
   );
   const checkboxClass = classNames(
-    {
-      [`${prefixCls}-indeterminate`]: indeterminate,
-    },
+    { [`${prefixCls}-indeterminate`]: indeterminate },
     TARGET_CLS,
     hashId,
   );
@@ -154,6 +152,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >
+        {/* @ts-ignore */}
         <RcCheckbox
           aria-checked={ariaChecked}
           {...checkboxProps}

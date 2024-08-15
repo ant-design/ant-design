@@ -23,9 +23,9 @@ exports[`Tour Primary 1`] = `
         <div
           class="ant-tour-inner"
         >
-          <span
-            aria-label="Close"
+          <button
             class="ant-tour-close"
+            type="button"
           >
             <span
               aria-label="close"
@@ -47,7 +47,7 @@ exports[`Tour Primary 1`] = `
                 />
               </svg>
             </span>
-          </span>
+          </button>
           <div
             class="ant-tour-header"
           >
@@ -228,9 +228,9 @@ exports[`Tour controlled current 1`] = `
         <div
           class="ant-tour-inner"
         >
-          <span
-            aria-label="Close"
+          <button
             class="ant-tour-close"
+            type="button"
           >
             <span
               aria-label="close"
@@ -252,7 +252,7 @@ exports[`Tour controlled current 1`] = `
                 />
               </svg>
             </span>
-          </span>
+          </button>
           <div
             class="ant-tour-header"
           >
@@ -357,9 +357,9 @@ exports[`Tour custom step pre btn & next btn className & style 1`] = `
     <div
       class="ant-tour-inner"
     >
-      <span
-        aria-label="Close"
+      <button
         class="ant-tour-close"
+        type="button"
       >
         <span
           aria-label="close"
@@ -381,7 +381,7 @@ exports[`Tour custom step pre btn & next btn className & style 1`] = `
             />
           </svg>
         </span>
-      </span>
+      </button>
       <div
         class="ant-tour-header"
       >
@@ -453,9 +453,9 @@ exports[`Tour single 1`] = `
         <div
           class="ant-tour-inner"
         >
-          <span
-            aria-label="Close"
+          <button
             class="ant-tour-close"
+            type="button"
           >
             <span
               aria-label="close"
@@ -477,7 +477,7 @@ exports[`Tour single 1`] = `
                 />
               </svg>
             </span>
-          </span>
+          </button>
           <div
             class="ant-tour-header"
           >
@@ -617,9 +617,9 @@ exports[`Tour step support Primary 1`] = `
         <div
           class="ant-tour-inner"
         >
-          <span
-            aria-label="Close"
+          <button
             class="ant-tour-close"
+            type="button"
           >
             <span
               aria-label="close"
@@ -641,7 +641,7 @@ exports[`Tour step support Primary 1`] = `
                 />
               </svg>
             </span>
-          </span>
+          </button>
           <div
             class="ant-tour-header"
           >

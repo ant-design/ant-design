@@ -1,4 +1,5 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 
 import { genFocusStyle, resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
@@ -20,7 +21,7 @@ export interface ComponentToken {
    * @desc 卡片标签页高度
    * @descEN Height of card tab
    */
-  cardHeight: number;
+  cardHeight: number | string;
   /**
    * @desc 卡片标签页内间距
    * @descEN Padding of card tab
@@ -133,8 +134,8 @@ export interface TabsToken extends FullToken<'Tabs'> {
   dropdownEdgeChildVerticalPadding: number;
   tabsNavWrapPseudoWidth: number;
   tabsActiveTextShadow: string;
-  tabsDropdownHeight: number;
-  tabsDropdownWidth: number;
+  tabsDropdownHeight: number | string;
+  tabsDropdownWidth: number | string;
   tabsHorizontalItemMargin: string;
   tabsHorizontalItemMarginRTL: string;
 }
@@ -690,7 +691,7 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
       },
       '&-btn': {
         outline: 'none',
-        transition: 'all 0.3s',
+        transition: `all ${token.motionDurationSlow}`,
         [`${tabCls}-icon:not(:last-child)`]: {
           marginInlineEnd: token.marginSM,
         },

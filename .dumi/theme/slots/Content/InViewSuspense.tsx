@@ -5,10 +5,9 @@ import type { IntersectionObserverProps } from 'react-intersection-observer';
 
 type InViewSuspenseProps = Pick<IntersectionObserverProps, 'delay'> & {
   fallback?: React.ReactNode;
-  children?: React.ReactNode;
 };
 
-const InViewSuspense: React.FC<InViewSuspenseProps> = ({
+const InViewSuspense: React.FC<React.PropsWithChildren<InViewSuspenseProps>> = ({
   children,
   fallback = <Skeleton.Input active size="small" />,
   delay = 200,

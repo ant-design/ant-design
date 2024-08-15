@@ -2,6 +2,7 @@
 // This config is for building dist files
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const { codecovWebpackPlugin } = require('@codecov/webpack-plugin');
 const { EsbuildPlugin } = require('esbuild-loader');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const DuplicatePackageCheckerPlugin = require('@madccc/duplicate-package-checker-webpack-plugin');
@@ -39,6 +40,15 @@ if (process.env.PRODUCTION_ONLY) {
   // eslint-disable-next-line no-console
   console.log('🍐 Build production only');
   webpackConfig = webpackConfig.filter((config) => config.mode === 'production');
+  webpackConfig.forEach((config) => {
+    config.plugins.push(
+      codecovWebpackPlugin({
+        enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,
+        bundleName: 'antd',
+        uploadToken: process.env.CODECOV_TOKEN,
+      }),
+    );
+  });
 }
 
 if (process.env.RUN_ENV === 'PRODUCTION') {
@@ -75,6 +85,14 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
         }),
       );
     }
+
+    config.plugins.push(
+      codecovWebpackPlugin({
+        enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,
+        bundleName: 'antd',
+        uploadToken: process.env.CODECOV_TOKEN,
+      }),
+    );
 
     config.plugins.push(
       new CircularDependencyPlugin({

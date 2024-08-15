@@ -1,3 +1,4 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import type {
   SegmentedLabeledOption as RcSegmentedLabeledOption,
@@ -6,7 +7,7 @@ import type {
   SegmentedRawOption,
 } from 'rc-segmented';
 import RcSegmented from 'rc-segmented';
-import * as React from 'react';
+
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';

@@ -140,6 +140,9 @@ const localeValues: Locale = {
   },
   ColorPicker: {
     presetEmpty: 'Hustu',
+    transparent: 'Gardena',
+    singleColor: 'Kolore bakarra',
+    gradientColor: 'Gradiente kolorea',
   },
 };
 

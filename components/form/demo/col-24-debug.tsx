@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Select, Form, Input, Divider } from 'antd';
+import { Button, Divider, Form, Input, Select } from 'antd';
 
 const sharedItem = (
   <Form.Item
@@ -32,7 +32,7 @@ const App: React.FC = () => {
   return (
     <>
       <Form
-        name="basic"
+        name="col-24-debug"
         labelCol={{ span: 24 }}
         wrapperCol={{ span: 24 }}
         initialValues={{ remember: true }}
