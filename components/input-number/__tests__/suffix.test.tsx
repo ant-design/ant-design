@@ -1,5 +1,4 @@
 import React from 'react';
-import prettyFormat from 'pretty-format';
 
 import InputNumber from '..';
 import { fireEvent, render } from '../../../tests/utils';
