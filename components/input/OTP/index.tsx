@@ -141,6 +141,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   }, [value]);
 
   const triggerValueCellsChange = useEvent((nextValueCells: string[]) => {
+    // Ensure changes are recorded in the undo stack
     setValueCells(nextValueCells);
 
     // Trigger if all cells are filled
@@ -155,6 +156,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   });
 
   const patchValue = useEvent((index: number, txt: string) => {
+    // Update undo stack with changes
     let nextCells = [...valueCells];
 
     // Fill cells till index
@@ -192,6 +194,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   });
 
   // ======================== Change ========================
+    // Handle input change and update undo stack
   const onInputChange: OTPInputProps['onChange'] = (index, txt) => {
     const nextCells = patchValue(index, txt);
 
@@ -201,9 +204,11 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     }
 
     triggerValueCellsChange(nextCells);
+    // Trigger change and ensure undo stack is updated
   };
 
   const onInputActiveChange: OTPInputProps['onActiveChange'] = (nextIndex) => {
+    // Handle active change and focus input
     refs.current[nextIndex]?.focus();
   };
 
@@ -213,6 +218,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     disabled,
     status: mergedStatus as InputStatus,
     mask,
+    // Ensure mask logic respects native undo behavior
   };
 
   return wrapCSSVar(
