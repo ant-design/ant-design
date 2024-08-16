@@ -1,7 +1,7 @@
 ## zh-CN
 
-测试
+基础双面板
 
 ## en-US
 
-test
+Basic double-sided board

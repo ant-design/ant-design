@@ -23,7 +23,7 @@ tag: 5.21.0
 <code src="./demo/collapsible.tsx">快捷折叠</code>
 <code src="./demo/layout.tsx">布局切换</code>
 <code src="./demo/multiple.tsx">多面板</code>
-<code src="./demo/group.tsx">复杂布局</code>
+<code src="./demo/group.tsx">复杂组合</code>
 <code src="./demo/debug.tsx" debug>测试</code>
 
 ## API
@@ -49,7 +49,7 @@ tag: 5.21.0
 | size | 受控面板大小 `1-100 \| '10%' \| '200px'` | `number \| string` | - | - |
 | defaultSize | 初始面板大小 `1-100 \| '10%' \| '200px'` | `number \| string` | 50 | - |
 | collapsible | 快速折叠,使用此属性时对应面板将忽略`min｜max`限制 | `boolean \| { prev?: boolean; next?: boolean }` | `false` | - |
-| resizable | 是否支持拖拽伸缩 | `boolean` | `true` | - |
+| resizable | 是否开启拖拽伸缩 | `boolean` | `true` | - |
 
 ## 主题变量（Design Token）
 
