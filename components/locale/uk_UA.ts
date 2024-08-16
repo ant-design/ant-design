@@ -59,6 +59,7 @@ const localeValues: Locale = {
     selectCurrent: 'Вибрати поточну сторінку',
     removeCurrent: 'Скасувати вибір на сторінці',
     selectAll: 'Вибрати всі дані',
+    deselectAll: 'Очистити вибір',
     removeAll: 'Скасувати вибір',
     selectInvert: 'Інвертувати поточну сторінку',
   },

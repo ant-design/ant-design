@@ -469,7 +469,7 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
         width: token.handleWidth,
         opacity: 1,
       },
-      [`&:hover ${componentCls}-suffix`]: {
+      [`&:not(${componentCls}-affix-wrapper-without-controls):hover ${componentCls}-suffix`]: {
         marginInlineEnd: token.calc(token.handleWidth).add(paddingInline).equal(),
       },
     },

@@ -87,6 +87,14 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
     }
 
     config.plugins.push(
+      codecovWebpackPlugin({
+        enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,
+        bundleName: 'antd',
+        uploadToken: process.env.CODECOV_TOKEN,
+      }),
+    );
+
+    config.plugins.push(
       new CircularDependencyPlugin({
         // add errors to webpack instead of warnings
         failOnError: true,
