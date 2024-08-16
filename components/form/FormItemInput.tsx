@@ -72,7 +72,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
   );
   const formItemContext = React.useMemo(() => ({ prefixCls, status }), [prefixCls, status]);
   const errorListDom: React.ReactNode =
-    errors.length || warnings.length ? (
+    errors.length || warnings.length || !!help ? (
       <FormItemPrefixContext.Provider value={formItemContext}>
         <ErrorList
           fieldId={fieldId}
@@ -100,18 +100,23 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
     </div>
   ) : null;
 
+  const additionalDom: React.ReactNode = (
+    <div
+      className={`${baseClassName}-additional`}
+      style={marginBottom ? { minHeight: marginBottom } : {}}
+    >
+      {errorListDom}
+      {extraDom}
+    </div>
+  );
+
   const dom: React.ReactNode =
     formItemRender && formItemRender.mark === 'pro_table_render' && formItemRender.render ? (
       formItemRender.render(props, { input: inputDom, errorList: errorListDom, extra: extraDom })
     ) : (
       <>
         {inputDom}
-        <div
-          style={{ display: 'flex', flexDirection: 'column', minHeight: marginBottom || 'unset' }}
-        >
-          {errorListDom}
-          {extraDom}
-        </div>
+        {additionalDom}
       </>
     );
   return (
