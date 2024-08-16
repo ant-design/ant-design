@@ -1,0 +1,123 @@
+name: Bug Report
+description: Create a report to identify and fix a bug
+title: "Bug: "
+labels: ["bug", "gitauto"]
+# assignees: [""]
+
+body:
+  - type: textarea
+    id: bug_behavior
+    attributes:
+      label: Bug Behavior
+      description: What is the bug? What is currently happening?
+      placeholder: "Example: 'When I try to upload a file (over 100MB), the process fails with a timeout error. This disrupts my workflow and causes delays in my project.'"
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Include any logs such as error objects, stack traces, or console logs.
+      placeholder: "Example: 'Error: TimeoutError: The request timed out after 30 seconds'"
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Add any screenshots such as error messages or unexpected behavior.
+      placeholder: "Attach it here"
+    validations:
+      required: false
+
+  - type: input
+    id: when_it_occurred
+    attributes:
+      label: When It Occurred
+      description: When did the issue last occur?
+      placeholder: "Example: 'Jul 10, 2024 12:08:00 AM UTC'"
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps_to_reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce the bug?
+      placeholder: |
+        Example: 
+        1. Go to "Upload"
+        2. Click on "Select File"
+        3. Choose a large file (over 100MB)
+        4. Click "Upload"
+        5. See error
+      value: |
+        1. 
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: Expected Behavior
+      description: What do you expect to happen?
+      placeholder: "Example: 'The file should upload successfully without any errors even if it's over 100MB.'"
+    validations:
+      required: true
+
+  - type: textarea
+    id: possible_cause
+    attributes:
+      label: Possible Cause
+      description: If you have any idea what might be causing the issue, describe it.
+      placeholder: "Example: 'The issue may be related to the new file upload library introduced in version 1.2.3.'"
+    validations:
+      required: false
+
+  - type: input
+    id: device
+    attributes:
+      label: Device
+      description: Describe your device or server.
+      placeholder: "MacBook Pro, 14-inch, 2023 (Check in 'About This Mac')"
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: OS
+      description: |
+        Describe your operating system.
+        - For Mac, check in "About This Mac".
+        - For Windows, check in "Settings" > "System" > "About".
+        - For iOS, check in "Settings" > "General" > "About" > "iOS Version".
+        - For Linux, run `uname -a` in the terminal.
+        - For your server, specify the provider such as AWS EC2, AWS Lambda, or etc.
+      placeholder: "Sonoma 14.5"
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser
+      description: |
+        Describe your browser.
+        - For Chrome, "Chrome, Version 126.0.6478.127 (Official Build) (arm64)". Check in "3 dots" on the top right > "Help" > "About Google Chrome".
+        - For Safari, "Safari, Version 17.5 (19618.2.12.11.6)". Check in "Safari" on the top left > "About Safari".
+        - For non-browser issues, type "Server-side" or "Mobile App".
+      placeholder: "Chrome, Version 126.0.6478.127 (Official Build) (arm64)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_information
+    attributes:
+      label: Additional Information
+      description: Include any other context or information.
+      placeholder: "Describe it here"
+    validations:
+      required: false
