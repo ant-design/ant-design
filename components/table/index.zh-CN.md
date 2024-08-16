@@ -215,6 +215,7 @@ const columns = [
 | sortIcon | 自定义 sort 图标 | (props: { sortOrder }) => ReactNode | - | 5.6.0 |
 | title | 列头显示文字（函数用法 `3.10.0` 后支持） | ReactNode \| ({ sortOrder, sortColumn, filters }) => ReactNode | - |  |
 | width | 列宽度（[指定了也不生效？](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)） | string \| number | - |  |
+| minWidth | 最小列宽度，只在 `tableLayout="auto"` 时有效 | number | - | 5.21.0 |
 | hidden | 隐藏列 | boolean | false | 5.13.0 |
 | onCell | 设置单元格属性 | function(record, rowIndex) | - |  |
 | onFilter | 本地模式下，确定筛选的运行函数 | function | - |  |
