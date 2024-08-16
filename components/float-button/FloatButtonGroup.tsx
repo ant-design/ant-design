@@ -45,12 +45,13 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
   const groupPrefixCls = `${prefixCls}-group`;
 
   const isMenuMode = trigger && ['click', 'hover'].includes(trigger);
+  const isValidPlacement = placement && ['top', 'left', 'right', 'bottom'].includes(placement);
 
   const groupCls = classNames(groupPrefixCls, hashId, cssVarCls, rootCls, className, {
     [`${groupPrefixCls}-rtl`]: direction === 'rtl',
     [`${groupPrefixCls}-${shape}`]: shape,
     [`${groupPrefixCls}-${shape}-shadow`]: !isMenuMode,
-    [`${groupPrefixCls}-${placement}`]: isMenuMode, // 只有菜单模式才支持弹出方向
+    [`${groupPrefixCls}-${placement}`]: isMenuMode && isValidPlacement, // 只有菜单模式才支持弹出方向
   });
 
   // ============================ zIndex ============================
