@@ -8,8 +8,8 @@ import type {
   AliasToken,
   FullToken,
   GenerateStyle,
-  GetDefaultToken,
   GenStyleFn,
+  GetDefaultToken,
 } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genFormValidateMotionStyle from './explain';
@@ -332,6 +332,10 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
             flex: 'auto',
             maxWidth: '100%',
           },
+        },
+        '&-additional': {
+          display: 'flex',
+          flexDirection: 'column',
         },
       },
 
