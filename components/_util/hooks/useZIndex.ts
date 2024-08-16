@@ -4,7 +4,14 @@ import useToken from '../../theme/useToken';
 import { devUseWarning } from '../warning';
 import zIndexContext from '../zindexContext';
 
-export type ZIndexContainer = 'Modal' | 'Drawer' | 'Popover' | 'Popconfirm' | 'Tooltip' | 'Tour';
+export type ZIndexContainer =
+  | 'Modal'
+  | 'Drawer'
+  | 'Popover'
+  | 'Popconfirm'
+  | 'Tooltip'
+  | 'Tour'
+  | 'FloatButton';
 
 export type ZIndexConsumer = 'SelectLike' | 'Dropdown' | 'DatePicker' | 'Menu' | 'ImagePreview';
 
@@ -25,7 +32,9 @@ export const containerBaseZIndexOffset: Record<ZIndexContainer, number> = {
   Popconfirm: CONTAINER_OFFSET,
   Tooltip: CONTAINER_OFFSET,
   Tour: CONTAINER_OFFSET,
+  FloatButton: CONTAINER_OFFSET,
 };
+
 export const consumerBaseZIndexOffset: Record<ZIndexConsumer, number> = {
   SelectLike: 50,
   Dropdown: 50,
@@ -40,10 +49,10 @@ function isContainerType(type: ZIndexContainer | ZIndexConsumer): type is ZIndex
 
 type ReturnResult = [zIndex: number | undefined, contextZIndex: number];
 
-export function useZIndex(
+export const useZIndex = (
   componentType: ZIndexContainer | ZIndexConsumer,
   customZIndex?: number,
-): ReturnResult {
+): ReturnResult => {
   const [, token] = useToken();
   const parentZIndex = React.useContext(zIndexContext);
   const isContainer = isContainerType(componentType);
@@ -81,4 +90,4 @@ export function useZIndex(
   }
 
   return result;
-}
+};
