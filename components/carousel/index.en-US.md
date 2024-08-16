@@ -36,7 +36,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | autoplaySpeed | Delay between each auto scroll (in milliseconds) | number | 3000 |  |
 | adaptiveHeight | Adjust the slide's height automatically | boolean | false |  |
 | dotPosition | The position of the dots, which can be one of `top` `bottom` `left` `right` | string | `bottom` |  |
-| dots | Whether to show the dots at the bottom of the gallery, `object` for `dotsClass` and any others | boolean \| { className?: string } | true |  |
+| dots | Whether to show the dots at the bottom of the gallery, `object` for `dotsClass` | boolean \| { className?: string } | true |  |
 | draggable | Enable scrollable via dragging on desktop | boolean | false |  |
 | fade | Whether to use fade transition | boolean | false |  |
 | infinite | Infinitely wrap around contents | boolean | true |  |
