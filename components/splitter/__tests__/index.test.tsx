@@ -1,9 +1,11 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
-import type { PanelProps } from 'antd';
 import { Splitter } from 'antd';
+import type { GetProps } from 'antd';
 
 import { render, waitFakeTimer } from '../../../tests/utils';
+
+type PanelProps = GetProps<typeof Splitter.Panel>;
 
 // jsdom 不执行任何布局，因此不会计算值 https://github.com/jsdom/jsdom/issues/1590
 global.HTMLElement.prototype.getBoundingClientRect = () =>
