@@ -1,0 +1,51 @@
+name: Feature Request
+description: Share your problem and suggest a new feature
+title: "Feature Request: "
+labels: ["enhancement", "gitauto"]
+# assignees: [""]
+
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What issue are you facing?
+      placeholder: "Example: 'When I try to upload large files (over 100MB), the process succeeds but takes more than 10 minutes. This disrupts my workflow and causes delays in my project.'"
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_solution
+    attributes:
+      label: Current Solution
+      description: How are you currently solving this problem?
+      placeholder: "Example: 'To work around this, I'm splitting the files into smaller parts (less than 50MB each) and uploading them individually. This is time-consuming and mistake-prone.'"
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_solution
+    attributes:
+      label: Proposed Solution
+      description: What do you want to happen?
+      placeholder: "Example: 'I would like a feature that supports seamless uploading of large files, more than 100MB, without any timeouts or delays. This will help me save time and improve my productivity.'"
+    validations:
+      required: true
+
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Screenshots or Diagrams
+      description: Add any screenshots or diagrams that can help us understand the feature request.
+      placeholder: "Attach it here"
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_information
+    attributes:
+      label: Additional Information
+      description: Include any other information or screenshots.
+      placeholder: "Describe it here"
+    validations:
+      required: false
