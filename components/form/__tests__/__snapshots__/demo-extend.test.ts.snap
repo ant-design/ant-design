@@ -51,9 +51,6 @@ Array [
                   />
                 </div>
               </div>
-              <div
-                class="ant-form-item-additional"
-              />
             </div>
           </div>
         </div>
@@ -232,9 +229,6 @@ Array [
                   </div>
                 </div>
               </div>
-              <div
-                class="ant-form-item-additional"
-              />
             </div>
           </div>
         </div>
@@ -279,9 +273,6 @@ Array [
                   />
                 </div>
               </div>
-              <div
-                class="ant-form-item-additional"
-              />
             </div>
           </div>
         </div>
@@ -326,9 +317,6 @@ Array [
                   />
                 </div>
               </div>
-              <div
-                class="ant-form-item-additional"
-              />
             </div>
           </div>
         </div>
@@ -507,9 +495,6 @@ Array [
                   </div>
                 </div>
               </div>
-              <div
-                class="ant-form-item-additional"
-              />
             </div>
           </div>
         </div>
@@ -554,9 +539,6 @@ Array [
                   />
                 </div>
               </div>
-              <div
-                class="ant-form-item-additional"
-              />
             </div>
           </div>
         </div>
@@ -675,9 +657,6 @@ exports[`renders components/form/demo/basic.tsx extend context correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -747,9 +726,6 @@ exports[`renders components/form/demo/basic.tsx extend context correctly 1`] = `
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -790,9 +766,6 @@ exports[`renders components/form/demo/basic.tsx extend context correctly 1`] = `
             </label>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -821,9 +794,6 @@ exports[`renders components/form/demo/basic.tsx extend context correctly 1`] = `
             </button>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -875,9 +845,6 @@ Array [
               />
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -947,9 +914,6 @@ Array [
               </span>
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -1203,9 +1167,6 @@ Array [
               </div>
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -1234,9 +1195,6 @@ Array [
               </button>
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -1281,9 +1239,6 @@ Array [
               />
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -1353,9 +1308,6 @@ Array [
               </span>
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -1384,9 +1336,6 @@ Array [
               </button>
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -1648,9 +1597,6 @@ Array [
               </div>
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -1688,9 +1634,6 @@ Array [
               />
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -1741,9 +1684,6 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -1933,9 +1873,6 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -1996,9 +1933,6 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -2166,9 +2100,6 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx extend context c
             </button>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -2361,9 +2292,6 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -2392,9 +2320,6 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
             </button>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -2476,9 +2401,6 @@ Array [
               </label>
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -2553,9 +2475,6 @@ Array [
               </div>
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -2592,9 +2511,6 @@ Array [
               />
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -2738,9 +2654,6 @@ Array [
               </div>
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -2924,9 +2837,6 @@ Array [
               </div>
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -3067,9 +2977,6 @@ Array [
               </div>
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -3714,9 +3621,6 @@ Array [
               </div>
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -4945,9 +4849,6 @@ Array [
               </div>
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -5052,9 +4953,6 @@ Array [
               </div>
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -5090,9 +4988,6 @@ Array [
               />
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -5144,9 +5039,6 @@ Array [
               </button>
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -5231,9 +5123,6 @@ Array [
               </span>
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -5273,9 +5162,6 @@ Array [
               </button>
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -5349,9 +5235,6 @@ Array [
               </div>
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -5760,9 +5643,6 @@ Array [
               </div>
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -5814,9 +5694,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -5966,9 +5843,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -6131,9 +6005,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -6318,9 +6189,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -6553,9 +6421,6 @@ exports[`renders components/form/demo/dynamic-form-item.tsx extend context corre
             </button>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -6584,9 +6449,6 @@ exports[`renders components/form/demo/dynamic-form-item.tsx extend context corre
             </button>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -6653,9 +6515,6 @@ exports[`renders components/form/demo/dynamic-form-items.tsx extend context corr
             </button>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -6684,9 +6543,6 @@ exports[`renders components/form/demo/dynamic-form-items.tsx extend context corr
             </button>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -6783,9 +6639,6 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx extend cont
                   />
                 </div>
               </div>
-              <div
-                class="ant-form-item-additional"
-              />
             </div>
           </div>
         </div>
@@ -6828,9 +6681,6 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx extend cont
                   </div>
                 </div>
               </div>
-              <div
-                class="ant-form-item-additional"
-              />
             </div>
           </div>
         </div>
@@ -6944,17 +6794,11 @@ exports[`renders components/form/demo/dynamic-form-items-no-style.tsx extend con
                       </button>
                     </div>
                   </div>
-                  <div
-                    class="ant-form-item-additional"
-                  />
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -6983,9 +6827,6 @@ exports[`renders components/form/demo/dynamic-form-items-no-style.tsx extend con
             </button>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -7036,9 +6877,6 @@ exports[`renders components/form/demo/dynamic-rule.tsx extend context correctly 
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -7077,9 +6915,6 @@ exports[`renders components/form/demo/dynamic-rule.tsx extend context correctly 
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -7118,9 +6953,6 @@ exports[`renders components/form/demo/dynamic-rule.tsx extend context correctly 
             </label>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -7149,9 +6981,6 @@ exports[`renders components/form/demo/dynamic-rule.tsx extend context correctly 
             </button>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -7201,9 +7030,6 @@ exports[`renders components/form/demo/form-context.tsx extend context correctly 
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -7259,9 +7085,6 @@ exports[`renders components/form/demo/form-context.tsx extend context correctly 
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -7299,9 +7122,6 @@ exports[`renders components/form/demo/form-context.tsx extend context correctly 
             </button>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -7386,9 +7206,6 @@ exports[`renders components/form/demo/form-dependencies.tsx extend context corre
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -7427,9 +7244,6 @@ exports[`renders components/form/demo/form-dependencies.tsx extend context corre
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -7507,9 +7321,6 @@ exports[`renders components/form/demo/form-item-path.tsx extend context correctl
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -7547,9 +7358,6 @@ exports[`renders components/form/demo/form-item-path.tsx extend context correctl
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -7587,9 +7395,6 @@ exports[`renders components/form/demo/form-item-path.tsx extend context correctl
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -8281,9 +8086,6 @@ exports[`renders components/form/demo/getValueProps-normalize.tsx extend context
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -8312,9 +8114,6 @@ exports[`renders components/form/demo/getValueProps-normalize.tsx extend context
             </button>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -8364,9 +8163,6 @@ Array [
               />
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -8448,9 +8244,6 @@ exports[`renders components/form/demo/inline-login.tsx extend context correctly 
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -8506,9 +8299,6 @@ exports[`renders components/form/demo/inline-login.tsx extend context correctly 
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -8538,9 +8328,6 @@ exports[`renders components/form/demo/inline-login.tsx extend context correctly 
             </button>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -8593,9 +8380,6 @@ exports[`renders components/form/demo/label-debug.tsx extend context correctly 1
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -8668,9 +8452,6 @@ exports[`renders components/form/demo/label-debug.tsx extend context correctly 1
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -8775,9 +8556,6 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -8814,9 +8592,6 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -8853,9 +8628,6 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -8884,9 +8656,6 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
             </button>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -8938,9 +8707,6 @@ exports[`renders components/form/demo/layout-can-wrap.tsx extend context correct
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -8981,9 +8747,6 @@ exports[`renders components/form/demo/layout-can-wrap.tsx extend context correct
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -9023,9 +8786,6 @@ exports[`renders components/form/demo/layout-can-wrap.tsx extend context correct
             </button>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -9075,9 +8835,6 @@ Array [
               />
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -9116,9 +8873,6 @@ Array [
               />
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -9163,9 +8917,6 @@ Array [
               />
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -9204,9 +8955,6 @@ Array [
               />
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -9274,9 +9022,6 @@ exports[`renders components/form/demo/login.tsx extend context correctly 1`] = `
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -9332,9 +9077,6 @@ exports[`renders components/form/demo/login.tsx extend context correctly 1`] = `
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -9384,9 +9126,6 @@ exports[`renders components/form/demo/login.tsx extend context correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -9421,9 +9160,6 @@ exports[`renders components/form/demo/login.tsx extend context correctly 1`] = `
             </a>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -9473,9 +9209,6 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -9513,9 +9246,6 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -9621,9 +9351,6 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -9661,9 +9388,6 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -9699,9 +9423,6 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -9730,9 +9451,6 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
             </button>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -9780,9 +9498,6 @@ exports[`renders components/form/demo/ref-item.tsx extend context correctly 1`] 
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -9809,9 +9524,6 @@ exports[`renders components/form/demo/ref-item.tsx extend context correctly 1`] 
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -9877,9 +9589,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -9949,9 +9658,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -10021,9 +9727,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -10104,9 +9807,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -10315,9 +10015,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -10510,9 +10207,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -10770,9 +10464,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -10848,9 +10539,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -10902,9 +10590,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -11094,9 +10779,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -11210,9 +10892,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             </label>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -11241,9 +10920,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             </button>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -11372,9 +11048,6 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -11453,9 +11126,6 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -11540,9 +11210,6 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -11571,9 +11238,6 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
             </button>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -11678,9 +11342,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -11716,9 +11377,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -11861,9 +11519,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -12046,9 +11701,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -12188,9 +11840,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -12834,9 +12483,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -12940,9 +12586,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -12993,9 +12636,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
             </button>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -13034,9 +12674,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
             </button>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -13694,9 +13331,6 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -15831,9 +15465,6 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -16105,9 +15736,6 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -17338,9 +16966,6 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -19519,9 +19144,6 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -21112,9 +20734,6 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -21143,9 +20762,6 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
             </button>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -21194,9 +20810,6 @@ Array [
               />
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -21302,9 +20915,6 @@ Array [
               </div>
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -21365,9 +20975,6 @@ exports[`renders components/form/demo/validate-only.tsx extend context correctly
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -21406,9 +21013,6 @@ exports[`renders components/form/demo/validate-only.tsx extend context correctly
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -21458,9 +21062,6 @@ exports[`renders components/form/demo/validate-only.tsx extend context correctly
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -21507,9 +21108,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -21682,9 +21280,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -21871,9 +21466,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -21987,9 +21579,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -22042,9 +21631,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             </button>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -22185,9 +21771,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -22281,9 +21864,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -22378,9 +21958,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -22568,9 +22145,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -22899,9 +22473,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             </ul>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -23086,9 +22657,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -23497,9 +23065,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -23548,9 +23113,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -23589,9 +23151,6 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
             </button>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -23630,9 +23189,6 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -23818,9 +23374,6 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -23857,9 +23410,6 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -23897,9 +23447,6 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -23940,9 +23487,6 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -24074,9 +23618,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -24233,9 +23774,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -24304,9 +23842,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -25063,9 +24598,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -26677,9 +26209,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -27931,9 +27460,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -28144,9 +27670,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -29835,17 +29358,11 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       </div>
                     </div>
                   </div>
-                  <div
-                    class="ant-form-item-additional"
-                  />
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -29981,9 +29498,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -30077,9 +29591,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -30170,9 +29681,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -30290,9 +29798,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -30363,9 +29868,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -30436,9 +29938,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -30509,9 +30008,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -30582,9 +30078,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -30778,9 +30271,6 @@ exports[`renders components/form/demo/validate-trigger.tsx extend context correc
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -30826,9 +30316,6 @@ exports[`renders components/form/demo/validate-trigger.tsx extend context correc
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -30874,9 +30361,6 @@ exports[`renders components/form/demo/validate-trigger.tsx extend context correc
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -30925,9 +30409,6 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -31035,9 +30516,6 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -31074,9 +30552,6 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -31118,9 +30593,6 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -31272,9 +30744,6 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -31440,9 +30909,6 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -31593,9 +31059,6 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -32242,9 +31705,6 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -33475,9 +32935,6 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -33506,9 +32963,6 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
             </button>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -33558,9 +33012,6 @@ exports[`renders components/form/demo/warning-only.tsx extend context correctly 
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -33609,9 +33060,6 @@ exports[`renders components/form/demo/warning-only.tsx extend context correctly 
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>

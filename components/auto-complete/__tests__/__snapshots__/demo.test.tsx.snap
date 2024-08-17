@@ -297,9 +297,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -386,9 +383,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -507,9 +501,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -594,9 +585,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -742,9 +730,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -903,9 +888,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -1095,9 +1077,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>

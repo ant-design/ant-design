@@ -495,9 +495,6 @@ exports[`Input should support size in form 1`] = `
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
