@@ -419,6 +419,9 @@ exports[`renders components/button/demo/debug-block.tsx extend context correctly
             </button>
           </div>
         </div>
+        <div
+          class="ant-form-item-additional"
+        />
       </div>
     </div>
   </div>
