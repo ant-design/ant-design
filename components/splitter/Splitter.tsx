@@ -135,44 +135,43 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
   useEffect(() => {
     // 计算初始值
-    const getInitialBasics = () => {
-      if (containerRef.current) {
-        const { width, height } = containerRef.current.getBoundingClientRect();
-        const containerWidth = width - gutterCount;
-        const containerHeight = height - gutterCount;
+    const getInitialBasics = (container: HTMLDivElement) => {
+      const { width, height } = container.getBoundingClientRect();
+      const containerWidth = width - gutterCount;
+      const containerHeight = height - gutterCount;
 
-        const sizes: number[] = [];
-        let sum = 0;
-        let count = 0;
+      const sizes: number[] = [];
+      let sum = 0;
+      let count = 0;
 
-        items.forEach((child) => {
-          let currentSize = child.size ?? child.defaultSize;
-          if (currentSize === undefined || currentSize === '') {
-            sizes.push(defaultSize);
-            return;
-          }
+      items.forEach((child) => {
+        let currentSize = child.size ?? child.defaultSize;
+        if (currentSize === undefined || currentSize === '') {
+          sizes.push(defaultSize);
+          return;
+        }
 
-          currentSize = sizeTransform(
-            currentSize,
-            layout === 'horizontal' ? containerWidth : containerHeight,
-          );
-          sum += currentSize;
-          count += 1;
-          sizes.push(currentSize);
-        });
+        currentSize = sizeTransform(
+          currentSize,
+          layout === 'horizontal' ? containerWidth : containerHeight,
+        );
+        sum += currentSize;
+        count += 1;
+        sizes.push(currentSize);
+      });
 
-        const averageSize = sum > 100 ? 0 : (100 - sum) / (panelCount - count);
-        items.forEach((_, idx) => {
-          if (sizes[idx] === defaultSize) {
-            sizes[idx] = averageSize;
-          }
-        });
-        return sizes as number[];
-      }
-      return [];
+      const averageSize = sum > 100 ? 0 : (100 - sum) / (panelCount - count);
+      items.forEach((_, idx) => {
+        if (sizes[idx] === defaultSize) {
+          sizes[idx] = averageSize;
+        }
+      });
+      return sizes as number[];
     };
 
-    setBasicsState(getInitialBasics());
+    if (containerRef.current) {
+      setBasicsState(getInitialBasics(containerRef.current));
+    }
     // item.size 改变时，重新计算 flexBasis
   }, [
     JSON.stringify(items.map((item) => item.size)),

@@ -132,6 +132,12 @@ describe('Splitter', () => {
     fireEvent.click(container?.querySelector('.ant-splitter-bar-collapse-previous')!);
     expect(container?.querySelector('.ant-splitter-bar-collapse-previous')).toBeFalsy();
     expect(container?.querySelector('.ant-splitter-bar-collapse-next')).toBeTruthy();
+    expect(container?.querySelectorAll('.ant-splitter-panel')[0]).toHaveStyle(
+      'flex-basis: calc(0% - 1px)',
+    );
+    expect(container?.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle(
+      'flex-basis: calc(100% - 1px)',
+    );
 
     // next click
     rerender(
@@ -150,6 +156,12 @@ describe('Splitter', () => {
     fireEvent.click(container?.querySelector('.ant-splitter-bar-collapse-next')!);
     expect(container?.querySelector('.ant-splitter-bar-collapse-previous')).toBeTruthy();
     expect(container?.querySelector('.ant-splitter-bar-collapse-next')).toBeFalsy();
+    expect(container?.querySelectorAll('.ant-splitter-panel')[0]).toHaveStyle(
+      'flex-basis: calc(100% - 1px)',
+    );
+    expect(container?.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle(
+      'flex-basis: calc(0% - 1px)',
+    );
 
     // collapsible is boolean
     rerender(
@@ -166,13 +178,31 @@ describe('Splitter', () => {
     fireEvent.click(container?.querySelector('.ant-splitter-bar-collapse-next')!);
     expect(container?.querySelector('.ant-splitter-bar-collapse-previous')).toBeTruthy();
     expect(container?.querySelector('.ant-splitter-bar-collapse-next')).toBeFalsy();
+    expect(container?.querySelectorAll('.ant-splitter-panel')[0]).toHaveStyle(
+      'flex-basis: calc(100% - 1px)',
+    );
+    expect(container?.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle(
+      'flex-basis: calc(0% - 1px)',
+    );
 
     fireEvent.click(container?.querySelector('.ant-splitter-bar-collapse-previous')!);
     expect(container?.querySelector('.ant-splitter-bar-collapse-previous')).toBeTruthy();
     expect(container?.querySelector('.ant-splitter-bar-collapse-next')).toBeTruthy();
+    expect(container?.querySelectorAll('.ant-splitter-panel')[0]).toHaveStyle(
+      'flex-basis: calc(10% - 1px)',
+    );
+    expect(container?.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle(
+      'flex-basis: calc(90% - 1px)',
+    );
 
     fireEvent.click(container?.querySelector('.ant-splitter-bar-collapse-previous')!);
     expect(container?.querySelector('.ant-splitter-bar-collapse-previous')).toBeFalsy();
     expect(container?.querySelector('.ant-splitter-bar-collapse-next')).toBeTruthy();
+    expect(container?.querySelectorAll('.ant-splitter-panel')[0]).toHaveStyle(
+      'flex-basis: calc(0% - 1px)',
+    );
+    expect(container?.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle(
+      'flex-basis: calc(100% - 1px)',
+    );
   });
 });
