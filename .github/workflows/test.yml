@@ -52,10 +52,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
       - run: bun install
-      - name: install react 18
-        run: bun run bun-install-react-18
-      - name: node test
-        run: bun run test:node
+      - run: bun run test:node
 
   test-react-latest:
     name: test-react-latest
@@ -68,8 +65,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
       - run: bun install
-      - name: install react 18
-        run: bun run bun-install-react-18
 
       # dom test
       - name: dom test
@@ -98,8 +93,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
       - run: bun install
-      - name: install react 18
-        run: bun run bun-install-react-18
 
       - name: restore cache from dist
         uses: actions/cache@v4
@@ -230,10 +223,6 @@ jobs:
         # lib only run in master branch not in pull request
         if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
         run: bun run compile
-
-      - name: install react 18
-        if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
-        run: bun run bun-install-react-18
 
       - name: test
         # lib only run in master branch not in pull request
