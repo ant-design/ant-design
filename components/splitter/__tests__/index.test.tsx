@@ -3,7 +3,7 @@ import React from 'react';
 import { Splitter } from 'antd';
 import type { GetProps } from 'antd';
 
-import { render, waitFakeTimer } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 
 type PanelProps = GetProps<typeof Splitter.Panel>;
 
@@ -112,5 +112,67 @@ describe('Splitter', () => {
 
     expect(barNodes?.[1]?.querySelector('.ant-splitter-bar-collapse-previous')).toBeFalsy();
     expect(barNodes?.[1]?.querySelector('.ant-splitter-bar-collapse-next')).toBeTruthy();
+  });
+
+  it('should collapsible click work', () => {
+    // previous click
+    const { container, rerender } = render(
+      <SplitterDemo
+        items={[
+          {
+            size: 20,
+            collapsible: {
+              prev: true,
+            },
+          },
+          {},
+        ]}
+      />,
+    );
+    fireEvent.click(container?.querySelector('.ant-splitter-bar-collapse-previous')!);
+    expect(container?.querySelector('.ant-splitter-bar-collapse-previous')).toBeFalsy();
+    expect(container?.querySelector('.ant-splitter-bar-collapse-next')).toBeTruthy();
+
+    // next click
+    rerender(
+      <SplitterDemo
+        items={[
+          {
+            size: 60,
+            collapsible: {
+              next: true,
+            },
+          },
+          {},
+        ]}
+      />,
+    );
+    fireEvent.click(container?.querySelector('.ant-splitter-bar-collapse-next')!);
+    expect(container?.querySelector('.ant-splitter-bar-collapse-previous')).toBeTruthy();
+    expect(container?.querySelector('.ant-splitter-bar-collapse-next')).toBeFalsy();
+
+    // collapsible is boolean
+    rerender(
+      <SplitterDemo
+        items={[
+          {
+            size: 10,
+            collapsible: true,
+          },
+          {},
+        ]}
+      />,
+    );
+    fireEvent.click(container?.querySelector('.ant-splitter-bar-collapse-next')!);
+    expect(container?.querySelector('.ant-splitter-bar-collapse-previous')).toBeTruthy();
+    expect(container?.querySelector('.ant-splitter-bar-collapse-next')).toBeFalsy();
+
+    fireEvent.click(container?.querySelector('.ant-splitter-bar-collapse-previous')!);
+    expect(container?.querySelector('.ant-splitter-bar-collapse-previous')).toBeTruthy();
+    expect(container?.querySelector('.ant-splitter-bar-collapse-next')).toBeTruthy();
+
+    fireEvent.click(container?.querySelector('.ant-splitter-bar-collapse-previous')!);
+    expect(container?.querySelector('.ant-splitter-bar-collapse-previous')).toBeFalsy();
+    expect(container?.querySelector('.ant-splitter-bar-collapse-next')).toBeTruthy();
   });
 });
