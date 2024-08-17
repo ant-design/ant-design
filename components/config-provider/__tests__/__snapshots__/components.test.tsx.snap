@@ -15559,7 +15559,8 @@ exports[`ConfigProvider components Form configProvider 1`] = `
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="config-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="config-form-item-explain config-form-show-help-appear config-form-show-help-appear-start config-form-show-help config-form-item-explain-connected"
@@ -15572,9 +15573,6 @@ exports[`ConfigProvider components Form configProvider 1`] = `
               Bamboo is Light
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -15614,7 +15612,8 @@ exports[`ConfigProvider components Form configProvider componentDisabled 1`] = `
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="config-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="config-form-item-explain config-form-show-help-appear config-form-show-help-appear-start config-form-show-help config-form-item-explain-connected"
@@ -15627,9 +15626,6 @@ exports[`ConfigProvider components Form configProvider componentDisabled 1`] = `
               Bamboo is Light
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -15668,7 +15664,8 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="config-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="config-form-item-explain config-form-show-help-appear config-form-show-help-appear-start config-form-show-help config-form-item-explain-connected"
@@ -15681,9 +15678,6 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
               Bamboo is Light
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -15722,7 +15716,8 @@ exports[`ConfigProvider components Form configProvider componentSize middle 1`] 
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="config-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="config-form-item-explain config-form-show-help-appear config-form-show-help-appear-start config-form-show-help config-form-item-explain-connected"
@@ -15735,9 +15730,6 @@ exports[`ConfigProvider components Form configProvider componentSize middle 1`] 
               Bamboo is Light
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -15776,7 +15768,8 @@ exports[`ConfigProvider components Form configProvider componentSize small 1`] =
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="config-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="config-form-item-explain config-form-show-help-appear config-form-show-help-appear-start config-form-show-help config-form-item-explain-connected"
@@ -15789,9 +15782,6 @@ exports[`ConfigProvider components Form configProvider componentSize small 1`] =
               Bamboo is Light
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -15830,7 +15820,8 @@ exports[`ConfigProvider components Form normal 1`] = `
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -15843,9 +15834,6 @@ exports[`ConfigProvider components Form normal 1`] = `
               Bamboo is Light
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -15884,7 +15872,8 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="prefix-Form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="prefix-Form-item-explain prefix-Form-show-help-appear prefix-Form-show-help-appear-start prefix-Form-show-help prefix-Form-item-explain-connected"
@@ -15897,9 +15886,6 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
               Bamboo is Light
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>

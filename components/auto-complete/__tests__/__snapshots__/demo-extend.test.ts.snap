@@ -681,6 +681,9 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
             </div>
           </div>
         </div>
+        <div
+          class="ant-form-item-additional"
+        />
       </div>
     </div>
   </div>
@@ -828,6 +831,9 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
             </div>
           </div>
         </div>
+        <div
+          class="ant-form-item-additional"
+        />
       </div>
     </div>
   </div>
@@ -1020,6 +1026,9 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
             </span>
           </div>
         </div>
+        <div
+          class="ant-form-item-additional"
+        />
       </div>
     </div>
   </div>
@@ -1117,6 +1126,9 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
             </div>
           </div>
         </div>
+        <div
+          class="ant-form-item-additional"
+        />
       </div>
     </div>
   </div>
@@ -1336,6 +1348,9 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
             </span>
           </div>
         </div>
+        <div
+          class="ant-form-item-additional"
+        />
       </div>
     </div>
   </div>
@@ -1568,6 +1583,9 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
             </span>
           </div>
         </div>
+        <div
+          class="ant-form-item-additional"
+        />
       </div>
     </div>
   </div>
@@ -1831,6 +1849,9 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
             </span>
           </div>
         </div>
+        <div
+          class="ant-form-item-additional"
+        />
       </div>
     </div>
   </div>

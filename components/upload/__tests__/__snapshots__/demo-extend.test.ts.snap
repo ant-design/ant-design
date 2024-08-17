@@ -4812,6 +4812,9 @@ exports[`renders components/upload/demo/upload-with-aliyun-oss.tsx extend contex
             </span>
           </div>
         </div>
+        <div
+          class="ant-form-item-additional"
+        />
       </div>
     </div>
   </div>
