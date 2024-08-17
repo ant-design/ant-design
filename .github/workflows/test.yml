@@ -102,13 +102,13 @@ jobs:
 
       - name: dist-min test
         if: ${{ matrix.module == 'dist-min' }}
-        run: npm test
+        run: bun run test
         env:
           LIB_DIR: dist-min
 
       - name: dist test
         if: ${{ matrix.module == 'dist' }}
-        run: npm test
+        run: bun run test
         env:
           LIB_DIR: dist
 
@@ -129,8 +129,8 @@ jobs:
           path: persist-coverage
       - name: Merge Code Coverage
         run: |
-          npx nyc merge persist-coverage/ coverage/coverage-final.json
-          npx nyc report --reporter text -t coverage --report-dir coverage
+          bunx nyc merge persist-coverage/ coverage/coverage-final.json
+          bunx nyc report --reporter text -t coverage --report-dir coverage
           rm -rf persist-coverage
       - name: Upload coverage to codecov
         uses: codecov/codecov-action@v4
