@@ -43,7 +43,7 @@ jobs:
         run: bun run bun-install-react-17
       # dom test
       - name: dom test
-        run: bun test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
+        run: bun run test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
 
   test-node:
     name: test-node
@@ -73,7 +73,7 @@ jobs:
 
       # dom test
       - name: dom test
-        run: bun test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
+        run: bun run test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
 
       - name: persist coverages
         run: |
@@ -238,6 +238,6 @@ jobs:
       - name: test
         # lib only run in master branch not in pull request
         if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
-        run: bun test -- --maxWorkers=2 --shard=${{matrix.shard}}
+        run: bun run test -- --maxWorkers=2 --shard=${{matrix.shard}}
         env:
           LIB_DIR: ${{ matrix.module }}
