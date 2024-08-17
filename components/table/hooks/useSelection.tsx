@@ -685,7 +685,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
         RC_TABLE_INTERNAL_COL_DEFINE: Record<string, any>;
       } = {
         fixed: mergedFixed,
-        width: selectionColWidth,
+        width: selectionColWidth || 'auto',
         className: `${prefixCls}-selection-column`,
         title: renderColumnTitle(),
         render: renderSelectionCell,
