@@ -101,15 +101,16 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
     </div>
   ) : null;
 
-  const additionalDom: React.ReactNode = (
-    <div
-      className={`${baseClassName}-additional`}
-      style={marginBottom ? { minHeight: marginBottom } : {}}
-    >
-      {errorListDom}
-      {extraDom}
-    </div>
-  );
+  const additionalDom: React.ReactNode =
+    errorListDom || extraDom ? (
+      <div
+        className={`${baseClassName}-additional`}
+        style={marginBottom ? { minHeight: marginBottom } : {}}
+      >
+        {errorListDom}
+        {extraDom}
+      </div>
+    ) : null;
 
   const dom: React.ReactNode =
     formItemRender && formItemRender.mark === 'pro_table_render' && formItemRender.render ? (

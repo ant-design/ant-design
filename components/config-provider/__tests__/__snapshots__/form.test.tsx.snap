@@ -42,9 +42,6 @@ exports[`ConfigProvider.Form form requiredMark set requiredMark optional 1`] = `
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>

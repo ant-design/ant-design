@@ -91,9 +91,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               />
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -506,9 +503,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               </div>
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -585,9 +579,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               </div>
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -664,9 +655,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               </div>
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -743,9 +731,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               </div>
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -872,9 +857,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                           </div>
                         </div>
                       </div>
-                      <div
-                        class="ant-form-item-additional"
-                      />
                     </div>
                   </div>
                 </div>
@@ -972,18 +954,12 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                           </div>
                         </div>
                       </div>
-                      <div
-                        class="ant-form-item-additional"
-                      />
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>
@@ -1109,9 +1085,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                           </div>
                         </div>
                       </div>
-                      <div
-                        class="ant-form-item-additional"
-                      />
                     </div>
                   </div>
                 </div>
@@ -1208,18 +1181,12 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                           </div>
                         </div>
                       </div>
-                      <div
-                        class="ant-form-item-additional"
-                      />
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          />
         </div>
       </div>
     </div>

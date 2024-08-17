@@ -334,9 +334,6 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                   </button>
                 </div>
               </div>
-              <div
-                class="ant-form-item-additional"
-              />
             </div>
           </div>
         </div>
@@ -391,9 +388,6 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                   </button>
                 </div>
               </div>
-              <div
-                class="ant-form-item-additional"
-              />
             </div>
           </div>
         </div>
@@ -490,9 +484,6 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                   </div>
                 </div>
               </div>
-              <div
-                class="ant-form-item-additional"
-              />
             </div>
           </div>
         </div>
@@ -608,9 +599,6 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                   </div>
                 </div>
               </div>
-              <div
-                class="ant-form-item-additional"
-              />
             </div>
           </div>
         </div>
@@ -688,9 +676,6 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                   </div>
                 </div>
               </div>
-              <div
-                class="ant-form-item-additional"
-              />
             </div>
           </div>
         </div>

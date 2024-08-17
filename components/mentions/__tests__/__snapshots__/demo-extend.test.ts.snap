@@ -296,9 +296,6 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] 
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -341,9 +338,6 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] 
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -393,9 +387,6 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] 
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>

@@ -27,9 +27,6 @@ exports[`Form Form item hidden noStyle should not work when hidden 1`] = `
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -63,9 +60,6 @@ exports[`Form Form item hidden should work 1`] = `
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -97,9 +91,6 @@ exports[`Form Form.Item should support data-*、aria-* and custom attribute 1`] 
             text
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -158,9 +149,6 @@ exports[`Form form should support disabled 1`] = `
             </label>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -235,9 +223,6 @@ exports[`Form form should support disabled 1`] = `
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -274,9 +259,6 @@ exports[`Form form should support disabled 1`] = `
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -365,9 +347,6 @@ exports[`Form form should support disabled 1`] = `
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -456,9 +435,6 @@ exports[`Form form should support disabled 1`] = `
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -547,9 +523,6 @@ exports[`Form form should support disabled 1`] = `
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -619,9 +592,6 @@ exports[`Form form should support disabled 1`] = `
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -737,9 +707,6 @@ exports[`Form form should support disabled 1`] = `
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -844,9 +811,6 @@ exports[`Form form should support disabled 1`] = `
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -882,9 +846,6 @@ exports[`Form form should support disabled 1`] = `
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -936,9 +897,6 @@ exports[`Form form should support disabled 1`] = `
             </button>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -992,9 +950,6 @@ exports[`Form form should support disabled 1`] = `
             </span>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -1034,9 +989,6 @@ exports[`Form form should support disabled 1`] = `
             </button>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -1091,9 +1043,6 @@ exports[`Form form should support disabled 1`] = `
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -1131,9 +1080,6 @@ exports[`Form form should support disabled 1`] = `
             </div>
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -1178,9 +1124,6 @@ exports[`Form form.item should support layout 1`] = `
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -1218,9 +1161,6 @@ exports[`Form form.item should support layout 1`] = `
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -1258,9 +1198,6 @@ exports[`Form form.item should support layout 1`] = `
             />
           </div>
         </div>
-        <div
-          class="ant-form-item-additional"
-        />
       </div>
     </div>
   </div>
@@ -1290,9 +1227,6 @@ exports[`Form rtl render component should be rendered correctly in RTL direction
           class="ant-form-item-control-input-content"
         />
       </div>
-      <div
-        class="ant-form-item-additional"
-      />
     </div>
   </div>
 </div>
