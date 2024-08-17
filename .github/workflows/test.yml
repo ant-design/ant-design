@@ -16,64 +16,15 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: cache package-lock.json
-        uses: actions/cache@v4
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: create package-lock.json
-        run: npm i --package-lock-only --ignore-scripts
-
-      - name: hack for single file
-        run: |
-          if [ ! -d "package-temp-dir" ]; then
-            mkdir package-temp-dir
-          fi
-          cp package-lock.json package-temp-dir
-      - name: cache node_modules
-        id: node_modules_cache_id
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-
-      - name: install
-        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: npm ci
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install
 
   lint:
     runs-on: ubuntu-latest
     needs: setup
     steps:
-      - name: checkout
-        uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v4
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-
-      - name: lint
-        run: npm run lint
+      - run: bun run lint
 
   ################################ Test ################################
   test-react-legacy:
@@ -87,48 +38,25 @@ jobs:
     runs-on: ubuntu-latest
     needs: setup
     steps:
-      - name: checkout
-        uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v4
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-
       - name: install react 16
         if: ${{ matrix.react == '16' }}
-        run: npm run install-react-16
+        run: bun run bun-install-react-16
 
       - name: install react 17
         if: ${{ matrix.react == '17' }}
-        run: npm run install-react-17
-
+        run: bun run bun-install-react-17
       # dom test
       - name: dom test
-        run: npm test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
+        run: bun test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
 
   test-node:
     name: test-node
     runs-on: ubuntu-latest
     needs: setup
     steps:
-      - name: checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
+      - uses: oven-sh/setup-bun@v2
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v4
@@ -143,10 +71,10 @@ jobs:
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
       - name: install react 18
-        run: npm run install-react-18
+        run: bun run bun-install-react-18
 
       - name: node test
-        run: npm run test:node
+        run: bun run test:node
 
   test-react-latest:
     name: test-react-latest
@@ -157,31 +85,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: setup
     steps:
-      - name: checkout
-        uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v4
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-
       - name: install react 18
-        run: npm run install-react-18
+        run: bun run bun-install-react-18
 
       # dom test
       - name: dom test
-        run: npm test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
+        run: bun test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
 
       - name: persist coverages
         run: |
@@ -203,27 +112,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: checkout
-        uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v4
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-
       - name: install react 18
-        run: npm run install-react-18
+        run: bun run bun-install-react-18
 
       - name: restore cache from dist
         uses: actions/cache@v4
@@ -251,9 +141,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
+      - uses: oven-sh/setup-bun@v2
 
       - uses: actions/download-artifact@v4
         with:
@@ -276,25 +164,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: setup
     steps:
-      - name: checkout
-        uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v4
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-
       - name: cache lib
         uses: actions/cache@v4
         with:
@@ -308,7 +177,7 @@ jobs:
           key: es-${{ github.sha }}
 
       - name: compile
-        run: npm run compile
+        run: bun run compile
 
       - name: cache dist
         uses: actions/cache@v4
@@ -317,7 +186,7 @@ jobs:
           key: dist-${{ github.sha }}
 
       - name: dist
-        run: npm run dist
+        run: bun run dist
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
@@ -362,25 +231,7 @@ jobs:
         if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
         uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: restore cache from package-lock.json
-        # lib only run in master branch not in pull request
-        if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
-        uses: actions/cache@v4
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        # lib only run in master branch not in pull request
-        if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+      - uses: oven-sh/setup-bun@v2
 
       - name: restore cache from ${{ matrix.module }}
         # lib only run in master branch not in pull request
@@ -393,15 +244,15 @@ jobs:
       - name: compile
         # lib only run in master branch not in pull request
         if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
-        run: npm run compile
+        run: bun run compile
 
       - name: install react 18
         if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
-        run: npm run install-react-18
+        run: bun run bun-install-react-18
 
       - name: test
         # lib only run in master branch not in pull request
         if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
-        run: npm test -- --maxWorkers=2 --shard=${{matrix.shard}}
+        run: bun test -- --maxWorkers=2 --shard=${{matrix.shard}}
         env:
           LIB_DIR: ${{ matrix.module }}
