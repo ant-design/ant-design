@@ -40,6 +40,7 @@ Thank you!
 
 ### 📝 Change Log
 
+> - Read [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) like a cat tracks a laser pointer.
 > - Describe the impact of the changes on developers, not the solution approach.
 > - Reference: https://ant.design/changelog
 

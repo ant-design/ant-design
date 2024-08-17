@@ -16,7 +16,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*obM7S5lIxeMAAA
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
-<code src="./demo/simple.tsx">Chose image</code>
+<code src="./demo/simple.tsx">Choose image</code>
 <code src="./demo/customize.tsx">Customize</code>
 <code src="./demo/config-provider.tsx">ConfigProvider</code>
 <code src="./demo/description.tsx">No description</code>
