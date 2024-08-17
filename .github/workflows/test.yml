@@ -52,22 +52,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
       - run: bun install
-
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v4
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-
       - name: install react 18
         run: bun run bun-install-react-18
-
       - name: node test
         run: bun run test:node
 
@@ -82,7 +68,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
       - run: bun install
-
       - name: install react 18
         run: bun run bun-install-react-18
 
@@ -113,7 +98,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
       - run: bun install
-
       - name: install react 18
         run: bun run bun-install-react-18
 
@@ -230,10 +214,7 @@ jobs:
         module: [lib, es]
         shard: ['1/2', '2/2']
     steps:
-      - name: checkout
-        # lib only run in master branch not in pull request
-        if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
       - run: bun install
 
