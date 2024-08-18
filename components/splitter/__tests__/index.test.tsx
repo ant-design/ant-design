@@ -1,35 +1,30 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import { Splitter } from 'antd';
-import type { GetProps } from 'antd';
+import type { GetProps, SplitterProps } from 'antd';
 
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 
 type PanelProps = GetProps<typeof Splitter.Panel>;
 
-// jsdom 不执行任何布局，因此不会计算值 https://github.com/jsdom/jsdom/issues/1590
-global.HTMLElement.prototype.getBoundingClientRect = () =>
-  ({
-    height: 400,
-    width: 400,
-  }) as DOMRect;
-
-const SplitterDemo = ({ items = [{}, {}] }: { items?: PanelProps[] }) => (
-  <Splitter style={{ width: 400, height: 400 }}>
-    {items?.map((item, idx) =>
-      item ? (
-        <Splitter.Panel key={idx} {...item}>
-          {idx}
-        </Splitter.Panel>
-      ) : (
-        <Splitter.Panel key={idx}>{idx}</Splitter.Panel>
-      ),
-    )}
+const SplitterDemo = ({ items = [{}, {}], ...props }: { items?: PanelProps[] } & SplitterProps) => (
+  <Splitter {...props}>
+    {items?.map((item, idx) => (
+      <Splitter.Panel key={idx} {...item}>
+        {idx}
+      </Splitter.Panel>
+    ))}
   </Splitter>
 );
 
 describe('Splitter', () => {
   beforeEach(() => {
+    // jsdom 不执行任何布局，因此不会计算值 https://github.com/jsdom/jsdom/issues/1590
+    global.HTMLElement.prototype.getBoundingClientRect = () =>
+      ({
+        height: 400,
+        width: 400,
+      }) as DOMRect;
     jest.useFakeTimers();
   });
 
@@ -47,9 +42,17 @@ describe('Splitter', () => {
   });
 
   it('should correct render panel size', async () => {
+    // 修改 container 大小为添加操作杆后的大小 以便于测试
+    global.HTMLElement.prototype.getBoundingClientRect = () =>
+      ({
+        height: 406,
+        width: 406,
+      }) as DOMRect;
+    jest.useFakeTimers();
+
     const { container } = render(
       <SplitterDemo
-        items={[{ defaultSize: 20 }, { defaultSize: '45%' }, { defaultSize: '39.4px' }, {}]}
+        items={[{ defaultSize: 20 }, { defaultSize: '45%' }, { defaultSize: '40px' }, {}]}
       />,
     );
 
@@ -69,7 +72,15 @@ describe('Splitter', () => {
     );
   });
 
-  it('should resizable', () => {
+  it('The layout should work fine.', () => {
+    const { container, rerender } = render(<SplitterDemo />);
+    expect(container?.querySelector('.ant-splitter-horizontal')).toBeTruthy();
+
+    rerender(<SplitterDemo items={[{}, {}, {}]} layout="vertical" />);
+    expect(container?.querySelector('.ant-splitter-vertical')).toBeTruthy();
+  });
+
+  it('The resizable should work fine.', () => {
     const { container } = render(
       <SplitterDemo items={[{ defaultSize: 20 }, { resizable: false }, {}]} />,
     );
@@ -77,7 +88,7 @@ describe('Splitter', () => {
     expect(container?.querySelectorAll('.ant-splitter-bar-resizable')?.length).toBe(1);
   });
 
-  it('should collapsible', () => {
+  it('The collapsible should work fine.', () => {
     const { container, rerender } = render(
       <SplitterDemo items={[{ defaultSize: 20, collapsible: true }, {}]} />,
     );
@@ -114,7 +125,7 @@ describe('Splitter', () => {
     expect(barNodes?.[1]?.querySelector('.ant-splitter-bar-collapse-next')).toBeTruthy();
   });
 
-  it('should collapsible click work', () => {
+  it('The collapsible click should work fine.', () => {
     // previous click
     const { container, rerender } = render(
       <SplitterDemo
@@ -204,5 +215,38 @@ describe('Splitter', () => {
     expect(container?.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle(
       'flex-basis: calc(100% - 1px)',
     );
+  });
+
+  it('The mousemove should work fine.', async () => {
+    // 修改 container 大小为添加操作杆后的大小 以便于测试
+    global.HTMLElement.prototype.getBoundingClientRect = () =>
+      ({
+        height: 402,
+        width: 402,
+      }) as DOMRect;
+    const mockStart = jest.fn();
+    const mockMoving = jest.fn();
+    const mockEnd = jest.fn();
+
+    // previous click
+    const { container } = render(
+      <SplitterDemo onResizeStart={mockStart} onResize={mockMoving} onResizeEnd={mockEnd} />,
+    );
+
+    fireEvent.mouseDown(container?.querySelector('.ant-splitter-bar')!, { clientX: 0, clientY: 0 });
+    expect(container?.querySelector('.ant-splitter-resizing')).toBeTruthy();
+
+    // 模拟鼠标移动事件
+    fireEvent.mouseMove(document.documentElement, { clientX: 40 });
+    await waitFakeTimer();
+
+    // 模拟鼠标释放结束拖动
+    fireEvent.mouseUp(document.documentElement);
+
+    expect(mockStart).toHaveBeenCalled();
+    expect(mockEnd).toHaveBeenCalledWith([60, 40], 0);
+    expect(mockMoving).toHaveBeenCalled();
+
+    expect(container).toMatchSnapshot();
   });
 });
