@@ -7,9 +7,36 @@ exports[`Splitter The mousemove should work fine. 1`] = `
   >
     <div
       class="ant-splitter-panel"
-      style="flex-basis: calc(60% - 1px);"
+      style="flex-basis: calc(50% - 1px);"
     >
-      0
+      <div
+        class="ant-splitter ant-splitter-horizontal"
+      >
+        <div
+          class="ant-splitter-panel"
+          style="flex-basis: calc(60% - 1px);"
+        >
+          0
+        </div>
+        <div
+          class="ant-splitter-bar"
+          style="flex-basis: 2px;"
+        >
+          <div
+            class="ant-splitter-bar-area"
+          />
+          <div
+            class="ant-splitter-bar-resizable"
+          />
+        </div>
+        <div
+          class="ant-splitter-panel"
+          style="flex-basis: calc(40% - 1px);"
+        >
+          1
+        </div>
+      </div>
+      ,
     </div>
     <div
       class="ant-splitter-bar"
@@ -24,9 +51,36 @@ exports[`Splitter The mousemove should work fine. 1`] = `
     </div>
     <div
       class="ant-splitter-panel"
-      style="flex-basis: calc(40% - 1px);"
+      style="flex-basis: calc(50% - 1px);"
     >
-      1
+      <div
+        class="ant-splitter ant-splitter-vertical"
+      >
+        <div
+          class="ant-splitter-panel"
+          style="flex-basis: calc(70% - 1px);"
+        >
+          0
+        </div>
+        <div
+          class="ant-splitter-bar"
+          style="flex-basis: 2px;"
+        >
+          <div
+            class="ant-splitter-bar-area"
+          />
+          <div
+            class="ant-splitter-bar-resizable"
+          />
+        </div>
+        <div
+          class="ant-splitter-panel"
+          style="flex-basis: calc(30% - 1px);"
+        >
+          1
+        </div>
+      </div>
+      ,
     </div>
   </div>
 </div>

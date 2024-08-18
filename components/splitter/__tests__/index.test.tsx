@@ -126,7 +126,6 @@ describe('Splitter', () => {
   });
 
   it('The collapsible click should work fine.', () => {
-    // previous click
     const { container, rerender } = render(
       <SplitterDemo
         items={[
@@ -140,6 +139,7 @@ describe('Splitter', () => {
         ]}
       />,
     );
+    // previous click
     fireEvent.click(container?.querySelector('.ant-splitter-bar-collapse-previous')!);
     expect(container?.querySelector('.ant-splitter-bar-collapse-previous')).toBeFalsy();
     expect(container?.querySelector('.ant-splitter-bar-collapse-next')).toBeTruthy();
@@ -150,7 +150,6 @@ describe('Splitter', () => {
       'flex-basis: calc(100% - 1px)',
     );
 
-    // next click
     rerender(
       <SplitterDemo
         items={[
@@ -164,6 +163,7 @@ describe('Splitter', () => {
         ]}
       />,
     );
+    // next click
     fireEvent.click(container?.querySelector('.ant-splitter-bar-collapse-next')!);
     expect(container?.querySelector('.ant-splitter-bar-collapse-previous')).toBeTruthy();
     expect(container?.querySelector('.ant-splitter-bar-collapse-next')).toBeFalsy();
@@ -186,6 +186,12 @@ describe('Splitter', () => {
         ]}
       />,
     );
+    // mouseDown icon
+    fireEvent.mouseDown(container?.querySelector('.ant-splitter-bar-collapse-next')!);
+    expect(container?.querySelector('.ant-splitter-resizing')).toBeFalsy();
+    fireEvent.mouseDown(container?.querySelector('.ant-splitter-bar-collapse-previous')!);
+    expect(container?.querySelector('.ant-splitter-resizing')).toBeFalsy();
+
     fireEvent.click(container?.querySelector('.ant-splitter-bar-collapse-next')!);
     expect(container?.querySelector('.ant-splitter-bar-collapse-previous')).toBeTruthy();
     expect(container?.querySelector('.ant-splitter-bar-collapse-next')).toBeFalsy();
@@ -215,6 +221,16 @@ describe('Splitter', () => {
     expect(container?.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle(
       'flex-basis: calc(100% - 1px)',
     );
+
+    fireEvent.click(container?.querySelector('.ant-splitter-bar-collapse-next')!);
+    expect(container?.querySelector('.ant-splitter-bar-collapse-previous')).toBeTruthy();
+    expect(container?.querySelector('.ant-splitter-bar-collapse-next')).toBeTruthy();
+    expect(container?.querySelectorAll('.ant-splitter-panel')[0]).toHaveStyle(
+      'flex-basis: calc(10% - 1px)',
+    );
+    expect(container?.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle(
+      'flex-basis: calc(90% - 1px)',
+    );
   });
 
   it('The mousemove should work fine.', async () => {
@@ -226,26 +242,49 @@ describe('Splitter', () => {
       }) as DOMRect;
     const mockStart = jest.fn();
     const mockMoving = jest.fn();
+    const mockMovingVertical = jest.fn();
     const mockEnd = jest.fn();
 
     // previous click
     const { container } = render(
-      <SplitterDemo onResizeStart={mockStart} onResize={mockMoving} onResizeEnd={mockEnd} />,
+      <Splitter>
+        <Splitter.Panel>
+          <SplitterDemo onResizeStart={mockStart} onResize={mockMoving} onResizeEnd={mockEnd} />,
+        </Splitter.Panel>
+
+        <Splitter.Panel>
+          <SplitterDemo layout="vertical" onResize={mockMovingVertical} />,
+        </Splitter.Panel>
+      </Splitter>,
     );
 
-    fireEvent.mouseDown(container?.querySelector('.ant-splitter-bar')!, { clientX: 0, clientY: 0 });
+    // layout horizontal
+    fireEvent.mouseDown(container?.querySelectorAll('.ant-splitter-bar')[0]!, {
+      clientX: 0,
+      clientY: 0,
+    });
     expect(container?.querySelector('.ant-splitter-resizing')).toBeTruthy();
-
     // 模拟鼠标移动事件
     fireEvent.mouseMove(document.documentElement, { clientX: 40 });
     await waitFakeTimer();
-
     // 模拟鼠标释放结束拖动
     fireEvent.mouseUp(document.documentElement);
-
     expect(mockStart).toHaveBeenCalled();
-    expect(mockEnd).toHaveBeenCalledWith([60, 40], 0);
-    expect(mockMoving).toHaveBeenCalled();
+    expect(mockMoving).toHaveBeenCalledWith([60, 40], 0);
+    expect(mockEnd).toHaveBeenCalled();
+
+    // layout vertical
+    fireEvent.mouseDown(container?.querySelectorAll('.ant-splitter-bar')[2]!, {
+      clientX: 0,
+      clientY: 0,
+    });
+    expect(container?.querySelector('.ant-splitter-resizing')).toBeTruthy();
+    // 模拟鼠标移动事件
+    fireEvent.mouseMove(document.documentElement, { clientY: 80 });
+    await waitFakeTimer();
+    // 模拟鼠标释放结束拖动
+    fireEvent.mouseUp(document.documentElement);
+    expect(mockMovingVertical).toHaveBeenCalledWith([70, 30], 0);
 
     expect(container).toMatchSnapshot();
   });
