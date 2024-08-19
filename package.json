@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.20.1",
+  "version": "5.20.2",
   "description": "An enterprise-class UI design language and React components implementation",
   "keywords": [
     "ant",
@@ -31,7 +31,13 @@
   "unpkg": "dist/antd.min.js",
   "module": "es/index.js",
   "typings": "es/index.d.ts",
-  "files": ["dist", "es", "lib", "locale", "BUG_VERSIONS.json"],
+  "files": [
+    "dist",
+    "es",
+    "lib",
+    "locale",
+    "BUG_VERSIONS.json"
+  ],
   "scripts": {
     "api-collection": "antd-tools run api-collection",
     "authors": "tsx scripts/generate-authors.ts",
@@ -98,7 +104,12 @@
     "tsc:old": "tsc --noEmit -p tsconfig-old-react.json",
     "version": "tsx scripts/generate-version.ts"
   },
-  "browserslist": ["> 0.5%", "last 2 versions", "Firefox ESR", "not dead"],
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "Firefox ESR",
+    "not dead"
+  ],
   "dependencies": {
     "@ant-design/colors": "^7.1.0",
     "@ant-design/cssinjs": "^1.21.0",
