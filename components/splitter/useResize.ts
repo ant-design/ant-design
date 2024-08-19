@@ -76,7 +76,7 @@ const useResize = ({
         ? basicsRef.current[index + 1] - offset
         : basicsRef.current[index + 1] + offset;
 
-      const { max: previousMax = percentCount, min: previousMin = 0, collapsible } = items[index];
+      const { max: previousMax = percentCount, min: previousMin = 0 } = items[index];
       const { max: nextMax = percentCount, min: nextMin = 0 } = items[index + 1];
 
       const previousMaxNumber = sizeTransform(previousMax, containerSize);
@@ -84,21 +84,9 @@ const useResize = ({
       const nextMaxNumber = sizeTransform(nextMax, containerSize);
       const nextMinNumber = sizeTransform(nextMin, containerSize);
 
-      // collapsible = true 忽略大小限制
-      let previousCollapsible = false;
-      let nextCollapsible = false;
-      if (typeof collapsible === 'object') {
-        const { prev = false, next = false } = collapsible;
-        previousCollapsible = prev;
-        nextCollapsible = next;
-      } else if (collapsible) {
-        previousCollapsible = true;
-        nextCollapsible = true;
-      }
-
       // size limit
       let skipNext = false;
-      if (previousSize < previousMinNumber && !previousCollapsible) {
+      if (previousSize < previousMinNumber) {
         previousSize = previousMinNumber;
         nextSize = percentCount - previousSize;
         skipNext = true;
@@ -106,21 +94,21 @@ const useResize = ({
         previousSize = 0;
       } else if (previousSize > percentCount) {
         previousSize = percentCount;
-      } else if (previousSize > previousMaxNumber && !previousCollapsible) {
+      } else if (previousSize > previousMaxNumber) {
         previousSize = previousMaxNumber;
         nextSize = percentCount - previousSize;
         skipNext = true;
       }
 
       if (!skipNext) {
-        if (nextSize < nextMinNumber && !nextCollapsible) {
+        if (nextSize < nextMinNumber) {
           nextSize = nextMinNumber;
           previousSize = percentCount - nextSize;
         } else if (nextSize < 0) {
           nextSize = 0;
         } else if (nextSize > percentCount) {
           nextSize = percentCount;
-        } else if (nextSize > nextMaxNumber && !nextCollapsible) {
+        } else if (nextSize > nextMaxNumber) {
           nextSize = nextMaxNumber;
           previousSize = percentCount - nextSize;
         }
