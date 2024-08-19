@@ -47,30 +47,27 @@ const icons = [
 
 const App: React.FC = () => (
   <Flex justify="space-evenly" align="center" style={wrapperStyle}>
-    {(['circle', 'square'] as const).map((shape) => (
-      <div style={boxStyle} key={shape}>
-        {(['top', 'right', 'bottom', 'left'] as const).map((placement, i) => {
-          const style: React.CSSProperties = {
-            position: 'absolute',
-            insetInlineEnd: insetInlineEnd[i],
-            bottom: bottom[i],
-          };
-          return (
-            <FloatButton.Group
-              key={placement}
-              trigger="click"
-              shape={shape}
-              placement={placement}
-              style={style}
-              icon={icons[i]}
-            >
-              <FloatButton />
-              <FloatButton icon={<CommentOutlined />} />
-            </FloatButton.Group>
-          );
-        })}
-      </div>
-    ))}
+    <div style={boxStyle}>
+      {(['top', 'right', 'bottom', 'left'] as const).map((placement, i) => {
+        const style: React.CSSProperties = {
+          position: 'absolute',
+          insetInlineEnd: insetInlineEnd[i],
+          bottom: bottom[i],
+        };
+        return (
+          <FloatButton.Group
+            key={placement}
+            trigger="click"
+            placement={placement}
+            style={style}
+            icon={icons[i]}
+          >
+            <FloatButton />
+            <FloatButton icon={<CommentOutlined />} />
+          </FloatButton.Group>
+        );
+      })}
+    </div>
   </Flex>
 );
 
