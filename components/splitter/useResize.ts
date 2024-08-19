@@ -92,12 +92,12 @@ const useResize = ({
         skipNext = true;
       } else if (previousSize < 0) {
         previousSize = 0;
-      } else if (previousSize > percentCount) {
-        previousSize = percentCount;
       } else if (previousSize > previousMaxNumber) {
         previousSize = previousMaxNumber;
         nextSize = percentCount - previousSize;
         skipNext = true;
+      } else if (previousSize > percentCount) {
+        previousSize = percentCount;
       }
 
       if (!skipNext) {
@@ -106,11 +106,11 @@ const useResize = ({
           previousSize = percentCount - nextSize;
         } else if (nextSize < 0) {
           nextSize = 0;
-        } else if (nextSize > percentCount) {
-          nextSize = percentCount;
         } else if (nextSize > nextMaxNumber) {
           nextSize = nextMaxNumber;
           previousSize = percentCount - nextSize;
+        } else if (nextSize > percentCount) {
+          nextSize = percentCount;
         }
       }
 

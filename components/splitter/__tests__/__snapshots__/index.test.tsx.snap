@@ -14,7 +14,7 @@ exports[`Splitter The mousemove should work fine. 1`] = `
       >
         <div
           class="ant-splitter-panel"
-          style="flex-basis: calc(80% - 1px);"
+          style="flex-basis: calc(60% - 1px);"
         >
           0
         </div>
@@ -31,7 +31,7 @@ exports[`Splitter The mousemove should work fine. 1`] = `
         </div>
         <div
           class="ant-splitter-panel"
-          style="flex-basis: calc(20% - 1px);"
+          style="flex-basis: calc(40% - 1px);"
         >
           1
         </div>
@@ -58,7 +58,7 @@ exports[`Splitter The mousemove should work fine. 1`] = `
       >
         <div
           class="ant-splitter-panel"
-          style="flex-basis: calc(25% - 1px);"
+          style="flex-basis: calc(70% - 1px);"
         >
           0
         </div>
@@ -75,7 +75,7 @@ exports[`Splitter The mousemove should work fine. 1`] = `
         </div>
         <div
           class="ant-splitter-panel"
-          style="flex-basis: calc(75% - 1px);"
+          style="flex-basis: calc(30% - 1px);"
         >
           1
         </div>

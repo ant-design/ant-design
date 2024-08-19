@@ -278,15 +278,6 @@ describe('Splitter', () => {
     expect(mockStart).toHaveBeenCalled();
     expect(mockMoving).toHaveBeenCalledWith([60, 40], 0);
     expect(mockEnd).toHaveBeenCalled();
-    // min
-    fireEvent.mouseDown(container?.querySelectorAll('.ant-splitter-bar')[0]!, {
-      clientX: 0,
-      clientY: 0,
-    });
-    fireEvent.mouseMove(document.documentElement, { clientX: 160 });
-    await waitFakeTimer();
-    fireEvent.mouseUp(document.documentElement);
-    expect(mockMoving).toHaveBeenLastCalledWith([80, 20], 0);
 
     // layout vertical
     fireEvent.mouseDown(container?.querySelectorAll('.ant-splitter-bar')[2]!, {
@@ -298,16 +289,34 @@ describe('Splitter', () => {
     await waitFakeTimer();
     fireEvent.mouseUp(document.documentElement);
     expect(mockMovingVertical).toHaveBeenCalledWith([70, 30], 0);
-    // max
-    fireEvent.mouseDown(container?.querySelectorAll('.ant-splitter-bar')[2]!, {
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it('The min max should work fine.', async () => {
+    const mockMoving = jest.fn();
+    const { container } = render(
+      <SplitterDemo items={[{ min: 10 }, { max: 60 }, {}, {}]} onResize={mockMoving} />,
+    );
+
+    // min
+    fireEvent.mouseDown(container?.querySelectorAll('.ant-splitter-bar')[0]!, {
       clientX: 0,
       clientY: 0,
     });
-    fireEvent.mouseMove(document.documentElement, { clientY: -200 });
+    fireEvent.mouseMove(document.documentElement, { clientX: -160 }); // 40%
     await waitFakeTimer();
     fireEvent.mouseUp(document.documentElement);
-    expect(mockMovingVertical).toHaveBeenLastCalledWith([25, 75], 0);
+    expect(mockMoving).toHaveBeenNthCalledWith(1, [10, 40, 25, 25], 0);
 
-    expect(container).toMatchSnapshot();
+    // max
+    fireEvent.mouseDown(container?.querySelectorAll('.ant-splitter-bar')[1]!, {
+      clientX: 0,
+      clientY: 0,
+    });
+    fireEvent.mouseMove(document.documentElement, { clientX: 160 }); // 40%
+    await waitFakeTimer();
+    fireEvent.mouseUp(document.documentElement);
+    expect(mockMoving).toHaveBeenNthCalledWith(2, [10, 60, 5, 25], 1);
   });
 });
