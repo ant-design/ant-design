@@ -1,4 +1,8 @@
 ---
+
+### 5.19.4
+- Added information about the minimum supported version of Chrome (version 90 and above).
+
 order: 6
 title: Changelog
 toc: false
