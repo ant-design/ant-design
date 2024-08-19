@@ -249,11 +249,17 @@ describe('Splitter', () => {
     const { container } = render(
       <Splitter>
         <Splitter.Panel>
-          <SplitterDemo onResizeStart={mockStart} onResize={mockMoving} onResizeEnd={mockEnd} />,
+          <SplitterDemo
+            items={[{}, { min: 20 }]}
+            onResizeStart={mockStart}
+            onResize={mockMoving}
+            onResizeEnd={mockEnd}
+          />
+          ,
         </Splitter.Panel>
 
         <Splitter.Panel>
-          <SplitterDemo layout="vertical" onResize={mockMovingVertical} />,
+          <SplitterDemo items={[{}, { max: 75 }]} layout="vertical" onResize={mockMovingVertical} />
         </Splitter.Panel>
       </Splitter>,
     );
@@ -272,6 +278,15 @@ describe('Splitter', () => {
     expect(mockStart).toHaveBeenCalled();
     expect(mockMoving).toHaveBeenCalledWith([60, 40], 0);
     expect(mockEnd).toHaveBeenCalled();
+    // min
+    fireEvent.mouseDown(container?.querySelectorAll('.ant-splitter-bar')[0]!, {
+      clientX: 0,
+      clientY: 0,
+    });
+    fireEvent.mouseMove(document.documentElement, { clientX: 160 });
+    await waitFakeTimer();
+    fireEvent.mouseUp(document.documentElement);
+    expect(mockMoving).toHaveBeenLastCalledWith([80, 20], 0);
 
     // layout vertical
     fireEvent.mouseDown(container?.querySelectorAll('.ant-splitter-bar')[2]!, {
@@ -279,12 +294,19 @@ describe('Splitter', () => {
       clientY: 0,
     });
     expect(container?.querySelector('.ant-splitter-resizing')).toBeTruthy();
-    // 模拟鼠标移动事件
     fireEvent.mouseMove(document.documentElement, { clientY: 80 });
     await waitFakeTimer();
-    // 模拟鼠标释放结束拖动
     fireEvent.mouseUp(document.documentElement);
     expect(mockMovingVertical).toHaveBeenCalledWith([70, 30], 0);
+    // max
+    fireEvent.mouseDown(container?.querySelectorAll('.ant-splitter-bar')[2]!, {
+      clientX: 0,
+      clientY: 0,
+    });
+    fireEvent.mouseMove(document.documentElement, { clientY: -200 });
+    await waitFakeTimer();
+    fireEvent.mouseUp(document.documentElement);
+    expect(mockMovingVertical).toHaveBeenLastCalledWith([25, 75], 0);
 
     expect(container).toMatchSnapshot();
   });

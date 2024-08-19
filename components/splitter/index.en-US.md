@@ -42,12 +42,12 @@ Common props ref：[Common props](/docs/react/common-props)
 ### Panel
 
 | Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | min | Minimum threshold `1-100 \| '10%' \| '200px'` | `number \| string` | - | - |
 | max | Maximum Threshold `1-100 \| '10%' \| '200px'` | `number \| string` | - | - |
 | size | Controlled panel size `1-100 \| '10%' \| '200px'` | `number \| string` | - | - |
 | defaultSize | Initial panel size `1-100 \| '10%' \| '200px'` | `number \| string` | 50 | - |
-| collapsible | Quick folding, when using this property, the corresponding panel will ignore the `min | max` restrictions | `boolean \| { prev?: boolean; next?: boolean }` | `false` | - |
+| collapsible | Quick folding | `boolean \| { prev?: boolean; next?: boolean }` | `false` | - |
 | resizable | Whether to enable drag and drop | `boolean` | `true` | - |
 
 ## Design Token
