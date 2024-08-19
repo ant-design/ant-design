@@ -45,7 +45,7 @@ const MenuItem: GenericComponent = (props) => {
     inlineCollapsed: isInlineCollapsed,
   } = React.useContext<MenuContextProps>(MenuContext);
   const renderItemChildren = (inlineCollapsed: boolean) => {
-    const [label] = (children || []) as React.ReactNode[];
+    const label = (children as React.ReactNode[])?.[0];
 
     const wrapNode = <span className={`${prefixCls}-title-content`}>{children}</span>;
     // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
