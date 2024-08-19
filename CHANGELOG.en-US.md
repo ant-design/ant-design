@@ -18,7 +18,7 @@ tag: vVERSION
 
 ## 5.20.2
 
-`2024-08-09`
+`2024-08-19`
 
 - 💄 Fix the suffix style problem of InputNumber without control. [#50450](https://github.com/ant-design/ant-design/pull/50450) [@coding-ice](https://github.com/coding-ice)
 - 🆕 Form `rule.message` supports skipping variable substitution through `\\${}`. [#50412](https://github.com/ant-design/ant-design/pull/50412) [@zombieJ](https://github.com/zombieJ)
