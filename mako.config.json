@@ -9,5 +9,6 @@
   "watch": {
     "_nodeModulesRegexes": ["rc-.*"]
   },
-  "hmr": false
+  "hmr": false,
+  "devtool": false
 }
