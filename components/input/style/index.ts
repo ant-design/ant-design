@@ -180,12 +180,6 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
                 boxShadow: 'none',
               },
             },
-
-          '&-open, &-focused': {
-            [`${antCls}-select-selector`]: {
-              color: token.colorPrimary,
-            },
-          },
         },
 
         // https://github.com/ant-design/ant-design/issues/31333
