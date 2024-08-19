@@ -180,7 +180,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Node.js (设置 node 版本)
-        uses: actions/setup-node@v3
+        uses: oven-sh/setup-bun@v2
         with:
           node-version: 16
 
