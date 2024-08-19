@@ -18,6 +18,9 @@ An enterprise-class UI design language and React UI library.
 
 [npm-image]: http://img.shields.io/npm/v/antd.svg?style=flat-square
 [npm-url]: http://npmjs.org/package/antd
+
+### Minimum Supported Browser Versions
+Ant Design 5.19.4 supports Chrome version 90 and above.
 [github-action-image]: https://github.com/ant-design/ant-design/workflows/%E2%9C%85%20test/badge.svg
 [github-action-url]: https://github.com/ant-design/ant-design/actions?query=workflow%3A%22%E2%9C%85+test%22
 [codecov-image]: https://img.shields.io/codecov/c/github/ant-design/ant-design/master.svg?style=flat-square
