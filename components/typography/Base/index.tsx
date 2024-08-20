@@ -281,11 +281,11 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     const textEle = typographyRef.current;
 
     if (enableEllipsis && cssEllipsis && textEle) {
-      const [offsetWidth, offsetHeight] = getEleSize(textEle);
+      const [offsetWidth, offsetHeight, scrollWidth, scrollHeight] = getEleSize(textEle);
 
       const currentEllipsis = cssLineClamp
-        ? offsetHeight < textEle.scrollHeight
-        : offsetWidth < textEle.scrollWidth;
+        ? offsetHeight < scrollHeight
+        : offsetWidth < scrollWidth;
 
       if (isNativeEllipsis !== currentEllipsis) {
         setIsNativeEllipsis(currentEllipsis);

@@ -367,6 +367,7 @@ describe('Typography.Ellipsis', () => {
     let containerWidth = 100;
     let contentWidth = 200;
     let rectContainerWidth = 100;
+    let rectContentWidth = 200;
 
     beforeAll(() => {
       domSpy = spyElementPrototypes(HTMLElement, {
@@ -376,10 +377,23 @@ describe('Typography.Ellipsis', () => {
         scrollWidth: {
           get: () => contentWidth,
         },
-        getBoundingClientRect: () => ({
-          width: rectContainerWidth,
-          height: 0,
-        }),
+        getBoundingClientRect() {
+          if (
+            (this as unknown as HTMLElement).classList.contains(
+              'ant-typography-css-ellipsis-content-measure',
+            )
+          ) {
+            return {
+              width: rectContentWidth,
+              height: 0,
+            };
+          }
+
+          return {
+            width: rectContainerWidth,
+            height: 0,
+          };
+        },
       });
     });
 
@@ -387,6 +401,7 @@ describe('Typography.Ellipsis', () => {
       containerWidth = 100;
       contentWidth = 200;
       rectContainerWidth = 100;
+      rectContentWidth = 200;
     });
 
     afterAll(() => {
@@ -453,21 +468,43 @@ describe('Typography.Ellipsis', () => {
       });
     });
 
-    // https://github.com/ant-design/ant-design/issues/50143
-    it('precision', async () => {
-      containerWidth = 100;
-      contentWidth = 100;
-      rectContainerWidth = 99.9;
+    describe('precision', () => {
+      // https://github.com/ant-design/ant-design/issues/50143
+      it('should show', async () => {
+        containerWidth = 100;
+        contentWidth = 100;
+        rectContainerWidth = 99.9;
+        rectContentWidth = 100;
 
-      const { container, baseElement } = await getWrapper({
-        title: true,
-        className: 'tooltip-class-name',
-      });
-      fireEvent.mouseEnter(container.firstChild!);
+        const { container, baseElement } = await getWrapper({
+          title: true,
+          className: 'tooltip-class-name',
+        });
+        fireEvent.mouseEnter(container.firstChild!);
 
-      await waitFor(() => {
+        await waitFakeTimer();
+
         expect(container.querySelector('.tooltip-class-name')).toBeTruthy();
         expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+      });
+
+      // https://github.com/ant-design/ant-design/issues/50414
+      it('should not show', async () => {
+        containerWidth = 49;
+        contentWidth = 49;
+        rectContainerWidth = 48.52;
+        rectContentWidth = 48.52;
+
+        const { container, baseElement } = await getWrapper({
+          title: true,
+          className: 'tooltip-class-name',
+        });
+        fireEvent.mouseEnter(container.firstChild!);
+
+        await waitFakeTimer();
+
+        expect(container.querySelector('.tooltip-class-name')).toBeTruthy();
+        expect(baseElement.querySelector('.ant-tooltip-open')).toBeFalsy();
       });
     });
   });
