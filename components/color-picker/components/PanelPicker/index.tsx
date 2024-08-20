@@ -17,6 +17,11 @@ const components = {
   slider: ColorSlider,
 };
 
+type Info = {
+  type?: 'hue' | 'alpha';
+  value?: number;
+};
+
 const PanelPicker: FC = () => {
   const panelPickerContext = useContext(PanelPickerContext);
 
@@ -81,32 +86,10 @@ const PanelPicker: FC = () => {
   }, [value, activeIndex, isSingle, lockedColor, gradientDragging]);
 
   // ============================ Change ============================
-  const fillColor = (nextColor: AggregationColor) => {
-    if (mode === 'single') {
-      return nextColor;
-    }
+  const fillColor = (nextColor: AggregationColor | Color, info?: Info) => {
+    let submitColor = generateColor(nextColor);
 
-    const nextColors = [...colors];
-    nextColors[activeIndex] = {
-      ...nextColors[activeIndex],
-      color: nextColor,
-    };
-
-    return new AggregationColor(nextColors);
-  };
-
-  const onInternalChange = (
-    colorValue: AggregationColor | Color,
-    fromPicker?: boolean,
-    info?: {
-      type?: 'hue' | 'alpha';
-      value?: number;
-    },
-  ) => {
-    const nextColor = generateColor(colorValue);
-
-    let submitColor = nextColor;
-
+    // Fill alpha color to 100% if origin is cleared color
     if (value.cleared) {
       const rgb = submitColor.toRgb();
 
@@ -125,11 +108,29 @@ const PanelPicker: FC = () => {
       }
     }
 
-    onChange(fillColor(submitColor), fromPicker);
+    if (mode === 'single') {
+      return submitColor;
+    }
+
+    const nextColors = [...colors];
+    nextColors[activeIndex] = {
+      ...nextColors[activeIndex],
+      color: submitColor,
+    };
+
+    return new AggregationColor(nextColors);
   };
 
-  const onInternalChangeComplete = (nextColor: AggregationColor) => {
-    onChangeComplete(fillColor(nextColor));
+  const onInternalChange = (
+    colorValue: AggregationColor | Color,
+    fromPicker?: boolean,
+    info?: Info,
+  ) => {
+    onChange(fillColor(colorValue, info), fromPicker);
+  };
+
+  const onInternalChangeComplete = (nextColor: Color, info?: Info) => {
+    onChangeComplete(fillColor(nextColor, info));
   };
 
   // ============================ Render ============================
@@ -170,8 +171,8 @@ const PanelPicker: FC = () => {
         onChange={(colorValue, info) => {
           onInternalChange(colorValue, true, info);
         }}
-        onChangeComplete={(colorValue) => {
-          onInternalChangeComplete(generateColor(colorValue));
+        onChangeComplete={(colorValue, info) => {
+          onInternalChangeComplete(colorValue, info);
         }}
         components={components}
       />
