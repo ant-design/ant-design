@@ -1,7 +1,6 @@
-/* eslint-disable react/no-array-index-key */
 import React from 'react';
-import { Splitter } from 'antd';
 import type { GetProps, SplitterProps } from 'antd';
+import { ConfigProvider, Splitter } from 'antd';
 
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 
@@ -10,6 +9,7 @@ type PanelProps = GetProps<typeof Splitter.Panel>;
 const SplitterDemo = ({ items = [{}, {}], ...props }: { items?: PanelProps[] } & SplitterProps) => (
   <Splitter {...props}>
     {items?.map((item, idx) => (
+      // eslint-disable-next-line react/no-array-index-key
       <Splitter.Panel key={idx} {...item}>
         {idx}
       </Splitter.Panel>
@@ -32,6 +32,20 @@ describe('Splitter', () => {
     jest.clearAllTimers();
     jest.useRealTimers();
   });
+
+  const doMove = async (
+    container: HTMLElement,
+    index: number,
+    options: { clientX?: number; clientY?: number },
+  ) => {
+    fireEvent.mouseDown(container?.querySelectorAll('.ant-splitter-bar')[index]!, {
+      clientX: 0,
+      clientY: 0,
+    });
+    fireEvent.mouseMove(document.documentElement, options); // 40%
+    await waitFakeTimer();
+    fireEvent.mouseUp(document.documentElement);
+  };
 
   it('should correct render', () => {
     const { container } = render(<SplitterDemo />);
@@ -295,28 +309,44 @@ describe('Splitter', () => {
 
   it('The min max should work fine.', async () => {
     const mockMoving = jest.fn();
-    const { container } = render(
-      <SplitterDemo items={[{ min: 10 }, { max: 60 }, {}, {}]} onResize={mockMoving} />,
+    const { container, rerender } = render(
+      <SplitterDemo items={[{ min: 10 }, { max: 60 }, {}, { min: 12 }]} onResize={mockMoving} />,
     );
 
-    // min
-    fireEvent.mouseDown(container?.querySelectorAll('.ant-splitter-bar')[0]!, {
-      clientX: 0,
-      clientY: 0,
-    });
-    fireEvent.mouseMove(document.documentElement, { clientX: -160 }); // 40%
-    await waitFakeTimer();
-    fireEvent.mouseUp(document.documentElement);
+    await doMove(container, 0, { clientX: -160 });
     expect(mockMoving).toHaveBeenNthCalledWith(1, [10, 40, 25, 25], 0);
 
-    // max
-    fireEvent.mouseDown(container?.querySelectorAll('.ant-splitter-bar')[1]!, {
-      clientX: 0,
-      clientY: 0,
-    });
-    fireEvent.mouseMove(document.documentElement, { clientX: 160 }); // 40%
-    await waitFakeTimer();
-    fireEvent.mouseUp(document.documentElement);
+    await doMove(container, 1, { clientX: 160 });
     expect(mockMoving).toHaveBeenNthCalledWith(2, [10, 60, 5, 25], 1);
+
+    await doMove(container, 2, { clientX: 60 });
+    expect(mockMoving).toHaveBeenNthCalledWith(3, [10, 60, 18, 12], 2);
+
+    rerender(<SplitterDemo items={[{ size: 20 }, {}]} onResize={mockMoving} />);
+    await doMove(container, 0, { clientX: -120 });
+    expect(mockMoving).toHaveBeenNthCalledWith(4, [0, 100], 0);
+
+    await doMove(container, 0, { clientX: 440 });
+    expect(mockMoving).toHaveBeenNthCalledWith(5, [100, 0], 0);
+  });
+
+  it('The RTL should work fine.', async () => {
+    global.HTMLElement.prototype.getBoundingClientRect = () =>
+      ({
+        height: 402,
+        width: 402,
+      }) as DOMRect;
+    const mockMoving = jest.fn();
+    const { container } = render(
+      <ConfigProvider direction="rtl">
+        <SplitterDemo items={[{}, {}]} onResize={mockMoving} />
+      </ConfigProvider>,
+    );
+
+    await doMove(container, 0, { clientX: -80 });
+    expect(mockMoving).toHaveBeenNthCalledWith(1, [70, 30], 0);
+
+    await doMove(container, 0, { clientX: 40 });
+    expect(mockMoving).toHaveBeenNthCalledWith(2, [60, 40], 0);
   });
 });

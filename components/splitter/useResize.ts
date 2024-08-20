@@ -1,5 +1,6 @@
 import type React from 'react';
 import { useEffect, useRef, useState } from 'react';
+import { useEvent } from 'rc-util';
 
 import type { PanelProps } from './Panel';
 import type { SplitterProps } from './Splitter';
@@ -55,7 +56,10 @@ const useResize = ({
   const startInfo = useRef({ x: 0, y: 0, index: 0 });
   const basicsRef = useRef<number[]>(basicsData);
   const resizingRef = useRef(false);
-  const onResizeStartRef = useRef<UseResizeProps['onResizeStart']>(onResizeStart);
+
+  const resizeStartWarp = useEvent<Required<UseResizeProps>['onResizeStart']>((sizes, index) => {
+    onResizeStart?.(sizes, index);
+  });
 
   const [resizing, setResizing] = useState(false);
 
@@ -170,7 +174,7 @@ const useResize = ({
       resizingRef.current = true;
       setResizing(true);
 
-      onResizeStartRef.current?.(basicsRef.current, startInfo.current.index);
+      resizeStartWarp(basicsRef.current, startInfo.current.index);
     }
   };
 
@@ -200,10 +204,9 @@ const useResize = ({
         }
       });
     };
-  }, [layout, isRTL]);
+  }, [layout, isRTL, items]);
 
   basicsRef.current = basicsData;
-  onResizeStartRef.current = onResizeStart;
 
   return { resizing, resizeStart, setSize };
 };
