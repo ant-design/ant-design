@@ -12646,67 +12646,56 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-radio-group ant-radio-group-outline"
+              class="ant-segmented"
               id="variant"
             >
-              <label
-                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+              <div
+                class="ant-segmented-group"
               >
-                <span
-                  class="ant-radio-button"
+                <label
+                  class="ant-segmented-item"
                 >
                   <input
-                    class="ant-radio-button-input"
+                    class="ant-segmented-item-input"
                     type="radio"
-                    value="outlined"
                   />
-                  <span
-                    class="ant-radio-button-inner"
-                  />
-                </span>
-                <span>
-                  outlined
-                </span>
-              </label>
-              <label
-                class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
-              >
-                <span
-                  class="ant-radio-button ant-radio-button-checked"
+                  <div
+                    class="ant-segmented-item-label"
+                    title="outlined"
+                  >
+                    outlined
+                  </div>
+                </label>
+                <label
+                  class="ant-segmented-item ant-segmented-item-selected"
                 >
                   <input
                     checked=""
-                    class="ant-radio-button-input"
+                    class="ant-segmented-item-input"
                     type="radio"
-                    value="filled"
                   />
-                  <span
-                    class="ant-radio-button-inner"
-                  />
-                </span>
-                <span>
-                  filled
-                </span>
-              </label>
-              <label
-                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
-              >
-                <span
-                  class="ant-radio-button"
+                  <div
+                    class="ant-segmented-item-label"
+                    title="filled"
+                  >
+                    filled
+                  </div>
+                </label>
+                <label
+                  class="ant-segmented-item"
                 >
                   <input
-                    class="ant-radio-button-input"
+                    class="ant-segmented-item-input"
                     type="radio"
-                    value="borderless"
                   />
-                  <span
-                    class="ant-radio-button-inner"
-                  />
-                </span>
-                <span>
-                  borderless
-                </span>
-              </label>
+                  <div
+                    class="ant-segmented-item-label"
+                    title="borderless"
+                  >
+                    borderless
+                  </div>
+                </label>
+              </div>
             </div>
           </div>
         </div>

@@ -9,7 +9,7 @@ import {
   Mentions,
   Select,
   TreeSelect,
-  Radio,
+  Segmented,
 } from 'antd';
 import type { FormProps } from 'antd';
 
@@ -41,11 +41,7 @@ const App: React.FC = () => {
       initialValues={{ variant: componentVariant }}
     >
       <Form.Item label="Form variant" name="variant">
-        <Radio.Group>
-          <Radio.Button value="outlined">outlined</Radio.Button>
-          <Radio.Button value="filled">filled</Radio.Button>
-          <Radio.Button value="borderless">borderless</Radio.Button>
-        </Radio.Group>
+        <Segmented options={['outlined', 'filled', 'borderless']} />
       </Form.Item>
 
       <Form.Item label="Input" name="Input" rules={[{ required: true, message: 'Please input!' }]}>
