@@ -442,7 +442,6 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   };
 
   const renderOperations = (canEllipsis: boolean) => [
-    // (renderExpanded || ellipsisConfig.collapsible) && renderExpand(),
     canEllipsis && renderExpand(),
     renderEdit(),
     renderCopy(),
