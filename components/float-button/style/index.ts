@@ -257,6 +257,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
     floatButtonIconSize,
     floatButtonSize,
     borderRadiusLG,
+    borderRadiusSM,
     badgeOffset,
     dotOffsetInSquare,
     dotOffsetInCircle,
@@ -354,7 +355,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       },
       [`${componentCls}-body`]: {
         height: 'auto',
-        borderRadius: borderRadiusLG,
+        borderRadius: borderRadiusSM,
       },
     },
     [`${componentCls}-default`]: {
