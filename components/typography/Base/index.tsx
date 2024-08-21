@@ -25,7 +25,7 @@ import Typography from '../Typography';
 import CopyBtn from './CopyBtn';
 import Ellipsis from './Ellipsis';
 import EllipsisTooltip from './EllipsisTooltip';
-import { getEleSize } from './util';
+import { isEleEllipsis } from './util';
 
 export type BaseType = 'secondary' | 'success' | 'warning' | 'danger';
 
@@ -281,11 +281,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     const textEle = typographyRef.current;
 
     if (enableEllipsis && cssEllipsis && textEle) {
-      const [offsetWidth, offsetHeight] = getEleSize(textEle);
-
-      const currentEllipsis = cssLineClamp
-        ? offsetHeight < textEle.scrollHeight
-        : offsetWidth < textEle.scrollWidth;
+      const currentEllipsis = isEleEllipsis(textEle);
 
       if (isNativeEllipsis !== currentEllipsis) {
         setIsNativeEllipsis(currentEllipsis);
@@ -446,7 +442,6 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   };
 
   const renderOperations = (canEllipsis: boolean) => [
-    // (renderExpanded || ellipsisConfig.collapsible) && renderExpand(),
     canEllipsis && renderExpand(),
     renderEdit(),
     renderCopy(),
