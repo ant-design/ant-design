@@ -7,7 +7,7 @@ title: CSS Compatible
 
 ### Default Style Compatibility
 
-Ant Design supports the last 2 versions of modern browsers. If you need to be compatible with legacy browsers, please perform downgrade processing according to actual needs:
+Ant Design supports the [last 2 versions of modern browsers](https://browsersl.ist/#q=%3E+0.5%25%2C+last+2+versions%2C+Firefox+ESR%2C+not+dead%0A). If you need to be compatible with legacy browsers, please perform downgrade processing according to actual needs:
 
 | Feature | antd version | Compatibility | Minimum Chrome Version | Compatibility workaround |
 | --- | --- | --- | --- | --- |
