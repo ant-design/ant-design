@@ -258,7 +258,6 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
     floatButtonIconSize,
     floatButtonSize,
     borderRadiusLG,
-    borderRadiusSM,
     badgeOffset,
     dotOffsetInSquare,
     dotOffsetInCircle,
