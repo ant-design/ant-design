@@ -3,7 +3,10 @@ import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
-export type BaseClosableType = { closeIcon?: React.ReactNode } & React.AriaAttributes;
+export type BaseClosableType = {
+  closeIcon?: React.ReactNode;
+  disabled?: boolean;
+} & React.AriaAttributes;
 export type ClosableType = boolean | BaseClosableType;
 
 export type BaseContextClosable = { closable?: ClosableType; closeIcon?: ReactNode };
@@ -104,10 +107,12 @@ export default function useClosable(
      */
     closeIconRender?: (closeIcon: ReactNode) => ReactNode;
   } = EmptyFallbackCloseCollection,
-): [closable: boolean, closeIcon: React.ReactNode | null] {
+): [closable: boolean, closeIcon: React.ReactNode | null, closeBtnIsDisabled: boolean] {
   // Align the `props`, `context` `fallback` to config object first
   const propCloseConfig = useClosableConfig(propCloseCollection);
   const contextCloseConfig = useClosableConfig(contextCloseCollection);
+  const closeBtnIsDisabled =
+    typeof propCloseConfig !== 'boolean' ? !!propCloseConfig?.disabled : false;
   const mergedFallbackCloseCollection = React.useMemo(
     () => ({
       closeIcon: <CloseOutlined />,
@@ -173,6 +178,6 @@ export default function useClosable(
       }
     }
 
-    return [true, mergedCloseIcon];
+    return [true, mergedCloseIcon, closeBtnIsDisabled];
   }, [mergedClosableConfig, mergedFallbackCloseCollection]);
 }
