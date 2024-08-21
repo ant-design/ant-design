@@ -154,7 +154,7 @@ export default function useClosable(
   // Calculate the final closeIcon
   return React.useMemo(() => {
     if (mergedClosableConfig === false) {
-      return [false, null];
+      return [false, null, closeBtnIsDisabled];
     }
 
     const { closeIconRender } = mergedFallbackCloseCollection;
