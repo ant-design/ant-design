@@ -193,6 +193,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
           [`${componentCls}-body`]: {
             width: token.floatButtonBodySize,
             height: token.floatButtonBodySize,
+            borderRadius: borderRadiusSM,
           },
         },
       },
