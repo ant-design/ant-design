@@ -107,6 +107,10 @@ When using version >= 5.6.0, we prefer to configuring the panel by `items`.
 | key | Unique key identifying the panel from among its siblings | string \| number | - |  |
 | showArrow | If false, panel will not show arrow icon. If false, collapsible can't be set as icon | boolean | true |  |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Collapse"></ComponentTokenTable>
