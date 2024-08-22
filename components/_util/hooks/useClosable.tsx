@@ -1,13 +1,10 @@
 import type { ReactNode } from 'react';
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import type { DialogProps } from 'rc-dialog';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
-export type BaseClosableType = {
-  closeIcon?: React.ReactNode;
-  disabled?: boolean;
-} & React.AriaAttributes;
-export type ClosableType = boolean | BaseClosableType;
+export type ClosableType = DialogProps['closable'];
 
 export type BaseContextClosable = { closable?: ClosableType; closeIcon?: ReactNode };
 export type ContextClosable<T extends BaseContextClosable = any> = Partial<
@@ -52,7 +49,7 @@ function useClosableConfig(closableCollection?: ClosableCollection | null) {
       return null;
     }
 
-    let closableConfig: BaseClosableType = {
+    let closableConfig: ClosableType = {
       closeIcon: typeof closeIcon !== 'boolean' && closeIcon !== null ? closeIcon : undefined,
     };
     if (closable && typeof closable === 'object') {
