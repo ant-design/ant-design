@@ -105,7 +105,7 @@ export default function useClosable(
     closeIconRender?: (closeIcon: ReactNode) => ReactNode;
   } = EmptyFallbackCloseCollection,
 ): [closable: boolean, closeIcon: React.ReactNode | null] {
-  // Align the `props`, `context` `fallback` to config object first
+  // Align the `props`, `context` `fallback` to config object first 123
   const propCloseConfig = useClosableConfig(propCloseCollection);
   const contextCloseConfig = useClosableConfig(contextCloseCollection);
   const mergedFallbackCloseCollection = React.useMemo(
