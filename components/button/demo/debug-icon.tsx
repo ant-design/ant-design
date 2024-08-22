@@ -45,7 +45,7 @@ const App: React.FC = () => {
             <Button type="dashed" icon={<SearchOutlined />}>
               Search
             </Button>
-            <Button icon={<SearchOutlined />} href="https://www.google.com" />
+            <Button icon={<SearchOutlined />} />
             <Button>
               <SearchOutlined />
               Search
