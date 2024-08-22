@@ -49,7 +49,7 @@ function useClosableConfig(closableCollection?: ClosableCollection | null) {
       return null;
     }
 
-    let closableConfig: BaseClosableType = {
+    let closableConfig: ClosableType = {
       closeIcon: typeof closeIcon !== 'boolean' && closeIcon !== null ? closeIcon : undefined,
     };
     if (closable && typeof closable === 'object') {
