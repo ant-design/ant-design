@@ -39,12 +39,9 @@ const CopyBtn: React.FC<CopyBtnProps> = ({
 
   const ariaLabel = typeof copyTitle === 'string' ? copyTitle : systemStr;
 
-  const getIcon = () => {
-    if (copied) {
-      return getNode(iconNodes[1], <CheckOutlined />, true);
-    }
-    return getNode(iconNodes[0], btnLoading ? <LoadingOutlined /> : <CopyOutlined />, true);
-  };
+  const copyIcon = copied
+    ? getNode(iconNodes[1], <CheckOutlined />, true)
+    : getNode(iconNodes[0], btnLoading ? <LoadingOutlined /> : <CopyOutlined />, true);
 
   return (
     <Tooltip title={copyTitle}>
@@ -57,7 +54,7 @@ const CopyBtn: React.FC<CopyBtnProps> = ({
         aria-label={ariaLabel}
         tabIndex={tabIndex}
       >
-        {getIcon()}
+        {copyIcon}
       </TransButton>
     </Tooltip>
   );
