@@ -175,13 +175,17 @@ exports[`renders components/collapse/demo/basic.tsx extend context correctly 1`]
       </span>
     </div>
     <div
-      class="ant-collapse-content ant-collapse-content-box ant-collapse-content-active body-custom"
+      class="ant-collapse-content ant-collapse-content-active body-custom"
     >
-      <p>
+      <div
+        class="ant-collapse-content-box body-custom"
+      >
+        <p>
   A dog is a type of domesticated animal.
   Known for its loyalty and faithfulness,
   it can be found as a welcome guest in many households across the world.
-      </p>
+        </p>
+      </div>
     </div>
   </div>
   <div
@@ -314,13 +318,17 @@ exports[`renders components/collapse/demo/borderless.tsx extend context correctl
       </span>
     </div>
     <div
-      class="ant-collapse-content ant-collapse-content-box ant-collapse-content-active"
+      class="ant-collapse-content ant-collapse-content-active"
     >
-      <p
-        style="padding-inline-start: 24px;"
+      <div
+        class="ant-collapse-content-box"
       >
-        A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.
-      </p>
+        <p
+          style="padding-inline-start: 24px;"
+        >
+          A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.
+        </p>
+      </div>
     </div>
   </div>
   <div
@@ -457,13 +465,17 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
           </span>
         </div>
         <div
-          class="ant-collapse-content ant-collapse-content-box ant-collapse-content-active"
+          class="ant-collapse-content ant-collapse-content-active"
         >
-          <p>
+          <div
+            class="ant-collapse-content-box"
+          >
+            <p>
   A dog is a type of domesticated animal.
   Known for its loyalty and faithfulness,
   it can be found as a welcome guest in many households across the world.
-          </p>
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -513,13 +525,17 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
           </span>
         </div>
         <div
-          class="ant-collapse-content ant-collapse-content-box ant-collapse-content-active"
+          class="ant-collapse-content ant-collapse-content-active"
         >
-          <p>
+          <div
+            class="ant-collapse-content-box"
+          >
+            <p>
   A dog is a type of domesticated animal.
   Known for its loyalty and faithfulness,
   it can be found as a welcome guest in many households across the world.
-          </p>
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -753,13 +769,17 @@ exports[`renders components/collapse/demo/custom.tsx extend context correctly 1`
       </span>
     </div>
     <div
-      class="ant-collapse-content ant-collapse-content-box ant-collapse-content-active"
+      class="ant-collapse-content ant-collapse-content-active"
     >
-      <p>
+      <div
+        class="ant-collapse-content-box"
+      >
+        <p>
   A dog is a type of domesticated animal.
   Known for its loyalty and faithfulness,
   it can be found as a welcome guest in many households across the world.
-      </p>
+        </p>
+      </div>
     </div>
   </div>
   <div
@@ -919,12 +939,16 @@ Array [
         </div>
       </div>
       <div
-        class="ant-collapse-content ant-collapse-content-box ant-collapse-content-active"
+        class="ant-collapse-content ant-collapse-content-active"
       >
-        <div>
+        <div
+          class="ant-collapse-content-box"
+        >
+          <div>
   A dog is a type of domesticated animal.
   Known for its loyalty and faithfulness,
   it can be found as a welcome guest in many households across the world.
+          </div>
         </div>
       </div>
     </div>
@@ -1252,13 +1276,17 @@ exports[`renders components/collapse/demo/ghost.tsx extend context correctly 1`]
       </span>
     </div>
     <div
-      class="ant-collapse-content ant-collapse-content-box ant-collapse-content-active"
+      class="ant-collapse-content ant-collapse-content-active"
     >
-      <p>
+      <div
+        class="ant-collapse-content-box"
+      >
+        <p>
   A dog is a type of domesticated animal.
   Known for its loyalty and faithfulness,
   it can be found as a welcome guest in many households across the world.
-      </p>
+        </p>
+      </div>
     </div>
   </div>
   <div
@@ -1520,13 +1548,17 @@ exports[`renders components/collapse/demo/noarrow.tsx extend context correctly 1
       </span>
     </div>
     <div
-      class="ant-collapse-content ant-collapse-content-box ant-collapse-content-active"
+      class="ant-collapse-content ant-collapse-content-active"
     >
-      <p>
+      <div
+        class="ant-collapse-content-box"
+      >
+        <p>
   A dog is a type of domesticated animal.
   Known for its loyalty and faithfulness,
   it can be found as a welcome guest in many households across the world.
-      </p>
+        </p>
+      </div>
     </div>
   </div>
   <div
