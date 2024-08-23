@@ -30,10 +30,9 @@ const CopyBtn: React.FC<CopyBtnProps> = ({
   onCopy,
   loading: btnLoading,
 }) => {
-  const { copied: copiedText, copy: copyText } = locale ?? {};
-
   const tooltipNodes = toList(tooltips);
   const iconNodes = toList(icon);
+  const { copied: copiedText, copy: copyText } = locale ?? {};
 
   const systemStr = copied ? copiedText : copyText;
   const copyTitle = getNode(tooltipNodes[copied ? 1 : 0], systemStr);
