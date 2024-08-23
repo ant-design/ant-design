@@ -375,15 +375,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   // Expand
   const renderExpand = () => {
     const { expandable, symbol } = ellipsisConfig;
-
-    if (!expandable) {
-      return null;
-    }
-    if (expanded && expandable !== 'collapsible') {
-      return null;
-    }
-
-    return (
+    return expandable ? (
       <TransButton
         key="expand"
         className={`${prefixCls}-${expanded ? 'collapse' : 'expand'}`}
@@ -392,7 +384,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
       >
         {typeof symbol === 'function' ? symbol(expanded) : symbol}
       </TransButton>
-    );
+    ) : null;
   };
 
   // Edit
