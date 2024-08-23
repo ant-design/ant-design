@@ -25,7 +25,7 @@ import Typography from '../Typography';
 import CopyBtn from './CopyBtn';
 import Ellipsis from './Ellipsis';
 import EllipsisTooltip from './EllipsisTooltip';
-import { isEleEllipsis } from './util';
+import { isEleEllipsis, isValid } from './util';
 
 export type BaseType = 'secondary' | 'success' | 'warning' | 'danger';
 
@@ -314,40 +314,24 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   }, [cssEllipsis, mergedEnableEllipsis]);
 
   // ========================== Tooltip ===========================
-  let tooltipProps: TooltipProps = {};
-  if (ellipsisConfig.tooltip === true) {
-    tooltipProps = { title: editConfig.text ?? children };
-  } else if (React.isValidElement(ellipsisConfig.tooltip)) {
-    tooltipProps = { title: ellipsisConfig.tooltip };
-  } else if (typeof ellipsisConfig.tooltip === 'object') {
-    tooltipProps = { title: editConfig.text ?? children, ...ellipsisConfig.tooltip };
-  } else {
-    tooltipProps = { title: ellipsisConfig.tooltip };
-  }
-  const topAriaLabel = React.useMemo(() => {
-    const isValid = (val: any): val is string | number => ['string', 'number'].includes(typeof val);
+  const tooltipProps = (() => {
+    if (ellipsisConfig.tooltip === true) {
+      return { title: editConfig.text ?? children };
+    }
+    if (React.isValidElement(ellipsisConfig.tooltip)) {
+      return { title: ellipsisConfig.tooltip };
+    }
+    if (typeof ellipsisConfig.tooltip === 'object') {
+      return { title: editConfig.text ?? children, ...ellipsisConfig.tooltip };
+    }
+    return { title: ellipsisConfig.tooltip };
+  })();
 
+  const topAriaLabel = React.useMemo(() => {
     if (!enableEllipsis || cssEllipsis) {
       return undefined;
     }
-
-    if (isValid(editConfig.text)) {
-      return editConfig.text;
-    }
-
-    if (isValid(children)) {
-      return children;
-    }
-
-    if (isValid(title)) {
-      return title;
-    }
-
-    if (isValid(tooltipProps.title)) {
-      return tooltipProps.title;
-    }
-
-    return undefined;
+    return [editConfig.text, children, title, tooltipProps.title].find((value) => isValid(value));
   }, [enableEllipsis, cssEllipsis, title, tooltipProps.title, isMergedEllipsis]);
 
   // =========================== Render ===========================

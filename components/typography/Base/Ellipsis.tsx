@@ -213,12 +213,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
       if (maxIndex - minIndex === 1) {
         targetMidIndex = isOverflow ? minIndex : maxIndex;
       }
-
-      if (isOverflow) {
-        setEllipsisCutIndex([minIndex, targetMidIndex]);
-      } else {
-        setEllipsisCutIndex([targetMidIndex, maxIndex]);
-      }
+      setEllipsisCutIndex(isOverflow ? [minIndex, targetMidIndex] : [targetMidIndex, maxIndex]);
     }
   }, [ellipsisCutIndex, cutMidIndex]);
 
@@ -235,26 +230,21 @@ export default function EllipsisMeasure(props: EllipsisProps) {
       ellipsisCutIndex[0] !== ellipsisCutIndex[1]
     ) {
       const content = children(nodeList, false);
-
       // Limit the max line count to avoid scrollbar blink
       // https://github.com/ant-design/ant-design/issues/42958
-      if (
-        needEllipsis !== STATUS_MEASURE_NO_NEED_ELLIPSIS &&
-        needEllipsis !== STATUS_MEASURE_NONE
-      ) {
-        return (
-          <span
-            style={{
-              ...lineClipStyle,
-              WebkitLineClamp: rows,
-            }}
-          >
-            {content}
-          </span>
-        );
+      if ([STATUS_MEASURE_NO_NEED_ELLIPSIS, STATUS_MEASURE_NONE].includes(needEllipsis)) {
+        return content;
       }
-
-      return content;
+      return (
+        <span
+          style={{
+            ...lineClipStyle,
+            WebkitLineClamp: rows,
+          }}
+        >
+          {content}
+        </span>
+      );
     }
 
     return children(expanded ? nodeList : sliceNodes(nodeList, ellipsisCutIndex[0]), canEllipsis);

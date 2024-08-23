@@ -35,16 +35,15 @@ export function isEleEllipsis(ele: HTMLElement): boolean {
   ele.removeChild(childDiv);
 
   // Range checker
-  if (
+  return (
     // Horizontal in range
-    rect.left <= childRect.left &&
-    childRect.right <= rect.right &&
+    rect.left > childRect.left ||
+    childRect.right > rect.right ||
     // Vertical in range
-    rect.top <= childRect.top &&
-    childRect.bottom <= rect.bottom
-  ) {
-    return false;
-  }
-
-  return true;
+    rect.top > childRect.top ||
+    childRect.bottom > rect.bottom
+  );
 }
+
+export const isValid = (val: any): val is string | number =>
+  ['string', 'number'].includes(typeof val);
