@@ -185,7 +185,7 @@ exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
       class="ant-transfer-list-footer"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-sm"
+        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
         style="display:flex;margin:8px;margin-inline-end:auto"
         type="button"
       >
@@ -444,7 +444,7 @@ exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
       class="ant-transfer-list-footer"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-sm"
+        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
         style="display:flex;margin:8px;margin-inline-start:auto"
         type="button"
       >

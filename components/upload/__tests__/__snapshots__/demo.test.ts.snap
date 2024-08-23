@@ -3606,7 +3606,7 @@ exports[`renders components/upload/demo/picture-style.tsx correctly 1`] = `
         type="file"
       />
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-solid"
         type="button"
       >
         <span
@@ -3680,7 +3680,7 @@ exports[`renders components/upload/demo/picture-style.tsx correctly 1`] = `
           class="ant-upload-list-item-actions picture"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -3743,7 +3743,7 @@ exports[`renders components/upload/demo/picture-style.tsx correctly 1`] = `
           class="ant-upload-list-item-actions picture"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -3831,7 +3831,7 @@ exports[`renders components/upload/demo/picture-style.tsx correctly 1`] = `
           class="ant-upload-list-item-actions picture"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >

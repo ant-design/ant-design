@@ -848,7 +848,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
       class="ant-flex ant-flex-align-center ant-flex-vertical"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -922,7 +922,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                   class="ant-popconfirm-buttons"
                 >
                   <button
-                    class="ant-btn ant-btn-default ant-btn-sm"
+                    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
                     style="width: 80px; margin: 4px;"
                     type="button"
                   >
@@ -931,7 +931,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                     </span>
                   </button>
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                     style="width: 80px; margin: 4px;"
                     type="button"
                   >
@@ -946,7 +946,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1020,7 +1020,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                   class="ant-popconfirm-buttons"
                 >
                   <button
-                    class="ant-btn ant-btn-default ant-btn-sm"
+                    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
                     style="width: 80px; margin: 4px;"
                     type="button"
                   >
@@ -1029,7 +1029,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                     </span>
                   </button>
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                     style="width: 80px; margin: 4px;"
                     type="button"
                   >
@@ -1044,7 +1044,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1118,7 +1118,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                   class="ant-popconfirm-buttons"
                 >
                   <button
-                    class="ant-btn ant-btn-default ant-btn-sm"
+                    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
                     style="width: 80px; margin: 4px;"
                     type="button"
                   >
@@ -1127,7 +1127,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                     </span>
                   </button>
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                     style="width: 80px; margin: 4px;"
                     type="button"
                   >
@@ -1146,7 +1146,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
       class="ant-flex ant-flex-align-center ant-flex-vertical"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1220,7 +1220,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                   class="ant-popconfirm-buttons"
                 >
                   <button
-                    class="ant-btn ant-btn-default ant-btn-sm"
+                    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
                     style="width: 80px; margin: 4px;"
                     type="button"
                   >
@@ -1229,7 +1229,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                     </span>
                   </button>
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                     style="width: 80px; margin: 4px;"
                     type="button"
                   >
@@ -1244,7 +1244,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1318,7 +1318,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                   class="ant-popconfirm-buttons"
                 >
                   <button
-                    class="ant-btn ant-btn-default ant-btn-sm"
+                    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
                     style="width: 80px; margin: 4px;"
                     type="button"
                   >
@@ -1327,7 +1327,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                     </span>
                   </button>
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                     style="width: 80px; margin: 4px;"
                     type="button"
                   >
@@ -1342,7 +1342,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1416,7 +1416,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                   class="ant-popconfirm-buttons"
                 >
                   <button
-                    class="ant-btn ant-btn-default ant-btn-sm"
+                    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
                     style="width: 80px; margin: 4px;"
                     type="button"
                   >
@@ -1425,7 +1425,7 @@ exports[`renders components/popconfirm/demo/placement.tsx extend context correct
                     </span>
                   </button>
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                     style="width: 80px; margin: 4px;"
                     type="button"
                   >

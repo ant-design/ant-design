@@ -2328,11 +2328,11 @@ Array [
       style="text-decoration:underline"
       tabindex="-1"
     >
-      <div
-        class="ant-menu-inline-collapsed-noicon"
+      <span
+        class="ant-menu-title-content"
       >
-        O
-      </div>
+        Option 11
+      </span>
     </li>
     <li
       class="ant-menu-item ant-menu-item-only-child"
@@ -2340,11 +2340,11 @@ Array [
       style="text-decoration:underline"
       tabindex="-1"
     >
-      <div
-        class="ant-menu-inline-collapsed-noicon"
+      <span
+        class="ant-menu-title-content"
       >
-        O
-      </div>
+        Option 12
+      </span>
     </li>
   </ul>,
   <div

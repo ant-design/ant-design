@@ -97,7 +97,7 @@ Array [
         class="ant-flex ant-flex-align-center ant-flex-vertical"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           style="width:80px;margin:4px"
           type="button"
         >
@@ -106,7 +106,7 @@ Array [
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           style="width:80px;margin:4px"
           type="button"
         >
@@ -115,7 +115,7 @@ Array [
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           style="width:80px;margin:4px"
           type="button"
         >
@@ -128,7 +128,7 @@ Array [
         class="ant-flex ant-flex-align-center ant-flex-vertical"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           style="width:80px;margin:4px"
           type="button"
         >
@@ -137,7 +137,7 @@ Array [
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           style="width:80px;margin:4px"
           type="button"
         >
@@ -146,7 +146,7 @@ Array [
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           style="width:80px;margin:4px"
           type="button"
         >
@@ -758,7 +758,7 @@ exports[`renders components/popover/demo/placement.tsx correctly 1`] = `
       class="ant-flex ant-flex-align-center ant-flex-vertical"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width:80px;margin:4px"
         type="button"
       >
@@ -767,7 +767,7 @@ exports[`renders components/popover/demo/placement.tsx correctly 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width:80px;margin:4px"
         type="button"
       >
@@ -776,7 +776,7 @@ exports[`renders components/popover/demo/placement.tsx correctly 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width:80px;margin:4px"
         type="button"
       >
@@ -789,7 +789,7 @@ exports[`renders components/popover/demo/placement.tsx correctly 1`] = `
       class="ant-flex ant-flex-align-center ant-flex-vertical"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width:80px;margin:4px"
         type="button"
       >
@@ -798,7 +798,7 @@ exports[`renders components/popover/demo/placement.tsx correctly 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width:80px;margin:4px"
         type="button"
       >
@@ -807,7 +807,7 @@ exports[`renders components/popover/demo/placement.tsx correctly 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width:80px;margin:4px"
         type="button"
       >

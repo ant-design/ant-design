@@ -160,7 +160,7 @@ Array [
         class="ant-flex ant-flex-align-center ant-flex-vertical"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
         >
@@ -190,7 +190,7 @@ Array [
           </div>
         </div>
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
         >
@@ -220,7 +220,7 @@ Array [
           </div>
         </div>
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
         >
@@ -254,7 +254,7 @@ Array [
         class="ant-flex ant-flex-align-center ant-flex-vertical"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
         >
@@ -284,7 +284,7 @@ Array [
           </div>
         </div>
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
         >
@@ -314,7 +314,7 @@ Array [
           </div>
         </div>
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
         >
@@ -1787,7 +1787,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       class="ant-flex ant-flex-align-center ant-flex-vertical"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1817,7 +1817,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1847,7 +1847,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1881,7 +1881,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       class="ant-flex ant-flex-align-center ant-flex-vertical"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1911,7 +1911,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1941,7 +1941,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
