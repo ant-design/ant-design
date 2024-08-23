@@ -20,10 +20,10 @@ const genRibbonStyle: GenerateStyle<BadgeToken> = (token) => {
   }));
 
   return {
-    [`${ribbonWrapperPrefixCls}`]: {
+    [ribbonWrapperPrefixCls]: {
       position: 'relative',
     },
-    [`${ribbonPrefixCls}`]: {
+    [ribbonPrefixCls]: {
       ...resetComponent(token),
       position: 'absolute',
       top: marginXS,

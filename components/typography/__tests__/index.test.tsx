@@ -131,18 +131,14 @@ describe('Typography', () => {
             expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('Copy');
           } else if (tooltips === false) {
             expect(container.querySelector('.ant-tooltip-inner')).toBeFalsy();
-          } else if ((tooltips as any)[0] === '' && (tooltips as any)[1] === '') {
+          } else if (tooltips[0] === '' && tooltips[1] === '') {
             expect(container.querySelector('.ant-tooltip-inner')).toBeFalsy();
-          } else if ((tooltips as any)[0] === '' && (tooltips as any)[1]) {
+          } else if (tooltips[0] === '' && tooltips[1]) {
             expect(container.querySelector('.ant-tooltip-inner')).toBeFalsy();
-          } else if ((tooltips as any)[1] === '' && (tooltips as any)[0]) {
-            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(
-              (tooltips as any)[0],
-            );
+          } else if (tooltips[1] === '' && tooltips[0]) {
+            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(tooltips[0]);
           } else {
-            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(
-              (tooltips as any)[0],
-            );
+            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(tooltips[0]);
           }
 
           // Click to copy

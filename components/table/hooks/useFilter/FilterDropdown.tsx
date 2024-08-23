@@ -1,5 +1,6 @@
 import * as React from 'react';
 import FilterFilled from '@ant-design/icons/FilterFilled';
+import type { AnyObject } from 'antd/es/_util/type';
 import classNames from 'classnames';
 import type { FieldDataNode } from 'rc-tree';
 import isEqual from 'rc-util/lib/isEqual';
@@ -119,7 +120,7 @@ function renderFilterItems({
 
 export type TreeColumnFilterItem = ColumnFilterItem & FilterTreeDataNode;
 
-export interface FilterDropdownProps<RecordType> {
+export interface FilterDropdownProps<RecordType = AnyObject> {
   tablePrefixCls: string;
   prefixCls: string;
   dropdownPrefixCls: string;
@@ -142,7 +143,9 @@ function wrapStringListType(keys?: FilterKey) {
   return (keys as string[]) || [];
 }
 
-function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
+const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
+  props: FilterDropdownProps<RecordType>,
+) => {
   const {
     tablePrefixCls,
     prefixCls,
@@ -553,6 +556,6 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       </Dropdown>
     </div>
   );
-}
+};
 
 export default FilterDropdown;

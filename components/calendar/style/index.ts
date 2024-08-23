@@ -45,9 +45,25 @@ export interface ComponentToken {
 }
 
 interface CalendarToken extends FullToken<'Calendar'>, PickerPanelToken, PanelComponentToken {
+  /**
+   * @desc 日历类名
+   * @descEN Calendar class name
+   */
   calendarCls: string;
+  /**
+   * @desc 日期值高度
+   * @descEN Date value height
+   */
   dateValueHeight: number | string;
+  /**
+   * @desc 周高度
+   * @descEN Week height
+   */
   weekHeight: number | string;
+  /**
+   * @desc 日期内容高度
+   * @descEN Date content height
+   */
   dateContentHeight: number | string;
 }
 
@@ -107,7 +123,7 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
         th: {
           height: 'auto',
           padding: 0,
-          lineHeight: `${unit(token.weekHeight)}`,
+          lineHeight: unit(token.weekHeight),
         },
       },
       [`${componentCls}-cell::before`]: {
@@ -129,7 +145,7 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
             height: 'auto',
             paddingInlineEnd: token.paddingSM,
             paddingBottom: token.paddingXXS,
-            lineHeight: `${unit(token.weekHeight)}`,
+            lineHeight: unit(token.weekHeight),
           },
         },
       },
@@ -170,7 +186,7 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
         borderRadius: 0,
         transition: `background ${token.motionDurationSlow}`,
         '&-value': {
-          lineHeight: `${unit(token.dateValueHeight)}`,
+          lineHeight: unit(token.dateValueHeight),
           transition: `color ${token.motionDurationSlow}`,
         },
         '&-content': {
@@ -191,7 +207,7 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
       },
     },
     [`@media only screen and (max-width: ${unit(token.screenXS)}) `]: {
-      [`${calendarCls}`]: {
+      [calendarCls]: {
         [`${calendarCls}-header`]: {
           display: 'block',
           [`${calendarCls}-year-select`]: {

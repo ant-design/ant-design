@@ -364,15 +364,29 @@ describe('Typography.Ellipsis', () => {
   describe('should tooltip support', () => {
     let domSpy: ReturnType<typeof spyElementPrototypes>;
 
+    let containerWidth = 100;
+    let contentWidth = 200;
+    let rectContainerWidth = 100;
+
     beforeAll(() => {
       domSpy = spyElementPrototypes(HTMLElement, {
         offsetWidth: {
-          get: () => 100,
+          get: () => containerWidth,
         },
         scrollWidth: {
-          get: () => 200,
+          get: () => contentWidth,
         },
+        getBoundingClientRect: () => ({
+          width: rectContainerWidth,
+          height: 0,
+        }),
       });
+    });
+
+    beforeEach(() => {
+      containerWidth = 100;
+      contentWidth = 200;
+      rectContainerWidth = 100;
     });
 
     afterAll(() => {
@@ -433,6 +447,24 @@ describe('Typography.Ellipsis', () => {
         <div className="tooltip-class-name">title</div>,
       );
       fireEvent.mouseEnter(container.firstChild!);
+      await waitFor(() => {
+        expect(container.querySelector('.tooltip-class-name')).toBeTruthy();
+        expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+      });
+    });
+
+    // https://github.com/ant-design/ant-design/issues/50143
+    it('precision', async () => {
+      containerWidth = 100;
+      contentWidth = 100;
+      rectContainerWidth = 99.9;
+
+      const { container, baseElement } = await getWrapper({
+        title: true,
+        className: 'tooltip-class-name',
+      });
+      fireEvent.mouseEnter(container.firstChild!);
+
       await waitFor(() => {
         expect(container.querySelector('.tooltip-class-name')).toBeTruthy();
         expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();

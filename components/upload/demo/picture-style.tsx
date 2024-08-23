@@ -25,25 +25,15 @@ const fileList: UploadFile[] = [
 ];
 
 const App: React.FC = () => (
-  <>
-    <Upload
-      action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
-      listType="picture"
-      defaultFileList={[...fileList]}
-    >
-      <Button icon={<UploadOutlined />}>Upload</Button>
-    </Upload>
-    <br />
-    <br />
-    <Upload
-      action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
-      listType="picture"
-      defaultFileList={[...fileList]}
-      className="upload-list-inline"
-    >
-      <Button icon={<UploadOutlined />}>Upload</Button>
-    </Upload>
-  </>
+  <Upload
+    action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
+    listType="picture"
+    defaultFileList={fileList}
+  >
+    <Button type="primary" icon={<UploadOutlined />}>
+      Upload
+    </Button>
+  </Upload>
 );
 
 export default App;

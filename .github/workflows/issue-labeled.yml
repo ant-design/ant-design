@@ -58,17 +58,17 @@ jobs:
 
             你好 @${{ github.event.issue.user.login }}，Ant Design Issue 板块是用于 bug 反馈与需求讨论的地方。请[勿询问如何使用的问题](https://github.com/ant-design/ant-design/issues/2320)，你可以试着在 [antd discussions](https://github.com/ant-design/ant-design/discussions) 新开一个 discussion，选择 `Q&A` 类别进行提问，也可以在 [Stack Overflow](http://stackoverflow.com/questions/tagged/antd) 或者 [Segment Fault](https://segmentfault.com/t/antd) 中提问（记得添加 `antd` 和 `react` 标签哦~）。
 
-      - name: 3.x
-        if: github.event.label.name == '3.x'
+      - name: 3.x or 4.x
+        if: github.event.label.name == '3.x' || github.event.label.name == '4.x'
         uses: actions-cool/issues-helper@v3
         with:
           actions: 'create-comment,close-issue'
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
-            Hi @${{ github.event.issue.user.login }}. Current version (3.x) is off the maintenance period. We may not accept pull request or fix bug with it anymore. This topic will be auto closed.
+            Hi @${{ github.event.issue.user.login }}. Current version (${{ github.event.label.name }}) is off the maintenance period. We may not accept pull request or fix bug with it anymore. This topic will be auto closed.
 
-            你好 @${{ github.event.issue.user.login }}，当前版本（3.x）已经过了维护期。我们不会再接受对其的相关 PR 与 issue。当前 topic 会被自动关闭。
+            你好 @${{ github.event.issue.user.login }}，当前版本（${{ github.event.label.name }}）已经过了维护期。我们不会再接受对其的相关 PR 与 issue。当前 topic 会被自动关闭。
 
       - name: invalid
         if: github.event.label.name == 'Invalid'

@@ -21,7 +21,6 @@ Used when the user needs to make a customized color selection.
 <code src="./demo/base.tsx">Basic Usage</code>
 <code src="./demo/size.tsx">Trigger size</code>
 <code src="./demo/controlled.tsx">controlled mode</code>
-<code src="./demo/change-completed.tsx">Color change completed</code>
 <code src="./demo/line-gradient.tsx" version="5.20.0">Line Gradient</code>
 <code src="./demo/text-render.tsx">Rendering Trigger Text</code>
 <code src="./demo/disabled.tsx">Disable</code>

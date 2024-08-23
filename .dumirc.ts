@@ -56,9 +56,12 @@ export default defineConfig({
   analytics: {
     ga_v2: 'UA-72788897-1',
   },
-  analyze: {
-    analyzerPort: 'auto',
-  },
+  analyze:
+    process.env.NODE_ENV === 'production'
+      ? false
+      : {
+          analyzerPort: 'auto',
+        },
   links: [
     {
       rel: 'prefetch',

@@ -34,12 +34,15 @@ function doMouseMove(
   });
 
   fireEvent(ele, mouseDown);
-  // Drag
-  const mouseMove: any = new Event('mousemove');
-  mouseMove.pageX = end;
-  mouseMove.pageY = end;
 
-  fireEvent(document, mouseMove);
+  // Drag
+  if (start !== end) {
+    const mouseMove: any = new Event('mousemove');
+    mouseMove.pageX = end;
+    mouseMove.pageY = end;
+
+    fireEvent(document, mouseMove);
+  }
 
   const mouseUp = createEvent.mouseUp(document);
   fireEvent(document, mouseUp);
@@ -847,5 +850,33 @@ describe('ColorPicker', () => {
         'rgba(255,0,0,0.5)',
       );
     });
+  });
+
+  it('onChangeComplete with default empty color should not be alpha', async () => {
+    const spyRect = spyElementPrototypes(HTMLElement, {
+      getBoundingClientRect: () => ({
+        x: 0,
+        y: 100,
+        width: 100,
+        height: 100,
+      }),
+    });
+
+    const handleChangeComplete = jest.fn();
+    const { container } = render(<ColorPicker open onChangeComplete={handleChangeComplete} />);
+
+    // Move
+    doMouseMove(container, 50, 50);
+    expect(handleChangeComplete).toHaveBeenCalledTimes(1);
+
+    const color = handleChangeComplete.mock.calls[0][0];
+    expect(color.toRgb()).toEqual({
+      r: 255,
+      g: 128,
+      b: 128,
+      a: 1,
+    });
+
+    spyRect.mockRestore();
   });
 });

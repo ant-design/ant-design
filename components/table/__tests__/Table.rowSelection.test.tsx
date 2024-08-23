@@ -774,18 +774,20 @@ describe('Table.rowSelection', () => {
   });
 
   it('fix selection column on the left', () => {
-    const { asFragment } = render(
+    const { container } = render(
       createTable({
         rowSelection: { fixed: true },
         scroll: { x: 903 },
       }),
     );
 
-    expect(asFragment().firstChild).toMatchSnapshot();
+    expect(container.querySelector('.ant-table-selection-column')).toHaveClass(
+      'ant-table-cell-fix-left',
+    );
   });
 
   it('fix expand on th left when selection column fixed on the left', () => {
-    const { asFragment } = render(
+    const { container } = render(
       createTable({
         expandable: {
           expandedRowRender() {
@@ -797,11 +799,13 @@ describe('Table.rowSelection', () => {
       }),
     );
 
-    expect(asFragment().firstChild).toMatchSnapshot();
+    expect(container.querySelector('.ant-table-selection-column')).toHaveClass(
+      'ant-table-cell-fix-left',
+    );
   });
 
   it('fix selection column on the left when any other column is fixed', () => {
-    const { asFragment } = render(
+    const { container } = render(
       createTable({
         rowSelection: {},
         columns: [
@@ -815,7 +819,9 @@ describe('Table.rowSelection', () => {
       }),
     );
 
-    expect(asFragment().firstChild).toMatchSnapshot();
+    expect(container.querySelector('.ant-table-selection-column')).toHaveClass(
+      'ant-table-cell-fix-left',
+    );
   });
 
   it('use column as selection column when key is `selection-column`', () => {

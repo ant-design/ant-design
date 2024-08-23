@@ -14,7 +14,11 @@ export interface DividerProps {
   rootClassName?: string;
   children?: React.ReactNode;
   dashed?: boolean;
-  variant?: 'dashed' | 'dotted' | 'solid'
+  /**
+   * @since 5.20.0
+   * @default solid
+   */
+  variant?: 'dashed' | 'dotted' | 'solid';
   style?: React.CSSProperties;
   plain?: boolean;
 }

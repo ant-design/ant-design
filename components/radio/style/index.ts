@@ -86,8 +86,20 @@ export interface ComponentToken {
   radioBgColor: string;
 }
 
+/**
+ * @desc Radio 组件的 Token
+ * @descEN Token for Radio component
+ */
 interface RadioToken extends FullToken<'Radio'> {
+  /**
+   * @desc 单选框焦点阴影
+   * @descEN Focus shadow of Radio
+   */
   radioFocusShadow: string;
+  /**
+   * @desc 单选框按钮焦点阴影
+   * @descEN Focus shadow of Radio button
+   */
   radioButtonFocusShadow: string;
 }
 

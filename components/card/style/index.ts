@@ -54,10 +54,30 @@ export interface ComponentToken {
 }
 
 interface CardToken extends FullToken<'Card'> {
+  /**
+   * @desc 卡片阴影
+   * @descEN Shadow of card
+   */
   cardShadow: string;
+  /**
+   * @desc 卡片头部内边距
+   * @descEN Padding of card header
+   */
   cardHeadPadding: number;
+  /**
+   * @desc 小号卡片内边距
+   * @descEN Padding of small card
+   */
   cardPaddingSM: number;
+  /**
+   * @desc 卡片基础内边距
+   * @descEN Padding of base card
+   */
   cardPaddingBase: number;
+  /**
+   * @desc 卡片操作区图标大小
+   * @descEN Size of card actions icon
+   */
   cardActionsIconSize: number;
 }
 

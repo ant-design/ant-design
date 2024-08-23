@@ -16,4 +16,12 @@ describe('suffix', () => {
     fireEvent.click(container.querySelector('i')!);
     expect(mockFocus).toHaveBeenCalled();
   });
+
+  it('should has classname when without controls', () => {
+    const { container } = render(<InputNumber suffix={<i>antd</i>} controls={false} />);
+
+    expect(
+      container.querySelector('.ant-input-number-affix-wrapper-without-controls'),
+    ).toBeTruthy();
+  });
 });
