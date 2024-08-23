@@ -173,7 +173,7 @@ exports[`renders components/collapse/demo/basic.tsx correctly 1`] = `
       </span>
     </div>
     <div
-      class="ant-collapse-content ant-collapse-content-active body-custom"
+      class="ant-collapse-content ant-collapse-content-active"
     >
       <div
         class="ant-collapse-content-box body-custom"
