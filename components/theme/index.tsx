@@ -39,5 +39,5 @@ export default {
    * @private Private variable.
    * @warring 🔥 Do not use in production. 🔥
    */
-  _defaultContext: InternalDesignTokenContext,
+  _internalContext: InternalDesignTokenContext,
 };
