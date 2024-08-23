@@ -11,12 +11,12 @@ const locales = {
     body: '设置面板内容区域',
   },
   en: {
-    header: 'set `header` of Collapse.item',
-    body: 'set `body` of Collapse.item',
+    header: 'set `header` of Collapse item',
+    body: 'set `body` of Collapse item',
   },
 };
 
-const BlockCollapse: React.FC<React.PropsWithChildren> = (props) => {
+const BlockCollapse: React.FC = (props) => {
   const items: CollapseProps['items'] = [
     {
       key: '1',
@@ -38,8 +38,8 @@ const App: React.FC = () => {
   return (
     <SemanticPreview
       semantics={[
-        { name: 'header', desc: locale.header, version: '5.21.0' },
-        { name: 'body', desc: locale.body, version: '5.21.0' },
+        { name: 'header', desc: locale.header, version: '5.20.3' },
+        { name: 'body', desc: locale.body, version: '5.20.3' },
       ]}
     >
       <BlockCollapse />
