@@ -17,9 +17,9 @@ import {
   Tooltip,
 } from 'antd';
 import { createStyles } from 'antd-style';
-import classNames from 'classnames';
 
 import useLocale from '../../../../hooks/useLocale';
+import Tilt from './Tilt';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: ModalPanel } = Modal;
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalTooltip } = Tooltip;
@@ -72,16 +72,14 @@ const locales = {
 
 const useStyle = createStyles(({ token, css }) => {
   const gap = token.padding;
-
   return {
     holder: css`
       width: 500px;
       display: flex;
       flex-direction: column;
       row-gap: ${gap}px;
-      opacity: 0.65;
+      opacity: 0.8;
     `,
-
     flex: css`
       display: flex;
       flex-wrap: nowrap;
@@ -105,25 +103,16 @@ const useStyle = createStyles(({ token, css }) => {
   };
 });
 
-export interface ComponentsBlockProps {
-  className?: string;
-  style?: React.CSSProperties;
-}
-
-const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
-  const { className, style } = props;
-
+const ComponentsBlock: React.FC = () => {
   const [locale] = useLocale(locales);
   const { styles } = useStyle();
 
   return (
-    <div className={classNames(className, styles.holder)} style={style}>
+    <Tilt options={{ max: 20, glare: true, scale: 1 }} className={styles.holder}>
       <ModalPanel title="Ant Design 5.0" width="100%">
         {locale.text}
       </ModalPanel>
-
       <Alert message={locale.infoText} type="info" />
-
       {/* Line */}
       <div className={styles.flex}>
         <ColorPicker style={{ flex: 'none' }} />
@@ -139,57 +128,34 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
             {locale.dropdown}
           </Dropdown.Button>
         </div>
-
         <Select
           style={{ flex: 'auto' }}
           mode="multiple"
           maxTagCount="responsive"
           defaultValue={[{ value: 'apple' }, { value: 'banana' }]}
           options={[
-            {
-              value: 'apple',
-              label: locale.apple,
-            },
-            {
-              value: 'banana',
-              label: locale.banana,
-            },
-            {
-              value: 'orange',
-              label: locale.orange,
-            },
-            {
-              value: 'watermelon',
-              label: locale.watermelon,
-            },
+            { value: 'apple', label: locale.apple },
+            { value: 'banana', label: locale.banana },
+            { value: 'orange', label: locale.orange },
+            { value: 'watermelon', label: locale.watermelon },
           ]}
         />
-
         <Input style={{ flex: 'none', width: 120 }} />
       </div>
-
       <Progress
         style={{ margin: 0 }}
         percent={100}
         strokeColor={{ '0%': '#108ee9', '100%': '#87d068' }}
       />
       <Progress style={{ margin: 0 }} percent={33} status="exception" />
-
       <Steps
         current={1}
         items={[
-          {
-            title: locale.finished,
-          },
-          {
-            title: locale.inProgress,
-          },
-          {
-            title: locale.waiting,
-          },
+          { title: locale.finished },
+          { title: locale.inProgress },
+          { title: locale.waiting },
         ]}
       />
-
       {/* Line */}
       <div className={styles.block}>
         <Slider
@@ -200,16 +166,13 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
             26: '26°C',
             37: '37°C',
             100: {
-              style: {
-                color: '#f50',
-              },
+              style: { color: '#f50' },
               label: <strong>100°C</strong>,
             },
           }}
           defaultValue={[26, 37]}
         />
       </div>
-
       {/* Line */}
       <div className={styles.flex}>
         <Button className={styles.ptg_20} type="primary">
@@ -226,7 +189,6 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
           {locale.icon}
         </Button>
       </div>
-
       {/* Line */}
       <div className={styles.block}>
         <div className={styles.flex}>
@@ -236,7 +198,6 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
             checkedChildren={<CheckOutlined />}
             unCheckedChildren={<CloseOutlined />}
           />
-
           <Checkbox.Group
             className={styles.ptg_none}
             options={[locale.apple, locale.banana, locale.orange]}
@@ -244,15 +205,12 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
           />
         </div>
       </div>
-
       <div>
         <InternalMessage content={locale.release} type="success" />
       </div>
-
       <InternalTooltip title={locale.hello} placement="topLeft" className={styles.noMargin} />
-
       <Alert message="Ant Design love you!" type="success" />
-    </div>
+    </Tilt>
   );
 };
 

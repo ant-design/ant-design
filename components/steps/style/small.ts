@@ -1,4 +1,6 @@
+import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
@@ -27,19 +29,19 @@ const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         // margin: stepsSmallIconMargin,
         marginTop: 0,
         marginBottom: 0,
-        marginInline: `0 ${token.marginXS}px`,
+        marginInline: `0 ${unit(token.marginXS)}`,
         fontSize: fontSizeSM,
-        lineHeight: `${iconSizeSM}px`,
+        lineHeight: unit(iconSizeSM),
         textAlign: 'center',
         borderRadius: iconSizeSM,
       },
       [`${componentCls}-item-title`]: {
         paddingInlineEnd: token.paddingSM,
         fontSize,
-        lineHeight: `${iconSizeSM}px`,
+        lineHeight: unit(iconSizeSM),
 
         '&::after': {
-          top: iconSizeSM / 2,
+          top: token.calc(iconSizeSM).div(2).equal(),
         },
       },
       [`${componentCls}-item-description`]: {
@@ -47,7 +49,7 @@ const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         fontSize,
       },
       [`${componentCls}-item-tail`]: {
-        top: iconSizeSM / 2 - token.paddingXXS,
+        top: token.calc(iconSizeSM).div(2).sub(token.paddingXXS).equal(),
       },
       [`${componentCls}-item-custom ${componentCls}-item-icon`]: {
         width: 'inherit',
@@ -58,7 +60,7 @@ const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         borderRadius: 0,
         [`> ${componentCls}-icon`]: {
           fontSize: iconSizeSM,
-          lineHeight: `${iconSizeSM}px`,
+          lineHeight: unit(iconSizeSM),
           transform: 'none',
         },
       },

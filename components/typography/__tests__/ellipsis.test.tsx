@@ -1,7 +1,14 @@
-import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
-import { fireEvent, render, triggerResize, waitFakeTimer, waitFor } from '../../../tests/utils';
+import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
+
+import {
+  act,
+  fireEvent,
+  render,
+  triggerResize,
+  waitFakeTimer,
+  waitFor,
+} from '../../../tests/utils';
 import type { EllipsisConfig } from '../Base';
 import Base from '../Base';
 
@@ -13,33 +20,41 @@ jest.mock('../../_util/styleChecker', () => ({
 
 describe('Typography.Ellipsis', () => {
   const LINE_STR_COUNT = 20;
+  const LINE_HEIGHT = 16;
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
   let mockRectSpy: ReturnType<typeof spyElementPrototypes>;
-  let getWidthTimes = 0;
   let computeSpy: jest.SpyInstance<CSSStyleDeclaration>;
+  let offsetWidth: number;
+  let scrollWidth: number;
+
+  function getContentHeight(this: { get: (elem?: HTMLElement) => number }, elem?: HTMLElement) {
+    const regex = /<[^>]*>/g;
+
+    let html = (elem || (this as any)).innerHTML;
+    html = html.replace(regex, '');
+    const lines = Math.ceil(html.length / LINE_STR_COUNT);
+    return lines * LINE_HEIGHT;
+  }
 
   beforeAll(() => {
     jest.useFakeTimers();
     mockRectSpy = spyElementPrototypes(HTMLElement, {
-      offsetHeight: {
-        get() {
-          let html = this.innerHTML;
-          html = html.replace(/<[^>]*>/g, '');
-          const lines = Math.ceil(html.length / LINE_STR_COUNT);
-          return lines * 16;
-        },
+      scrollWidth: {
+        get: () => scrollWidth,
       },
       offsetWidth: {
-        get: () => {
-          getWidthTimes += 1;
-          return 100;
-        },
+        get: () => offsetWidth,
       },
-      getBoundingClientRect() {
-        let html = this.innerHTML;
-        html = html.replace(/<[^>]*>/g, '');
-        const lines = Math.ceil(html.length / LINE_STR_COUNT);
-        return { height: lines * 16 };
+      scrollHeight: {
+        get: getContentHeight,
+      },
+      clientHeight: {
+        get() {
+          const { WebkitLineClamp } = (this as any).style;
+          return WebkitLineClamp
+            ? Number(WebkitLineClamp) * LINE_HEIGHT
+            : (getContentHeight as any)(this);
+        },
       },
     });
 
@@ -48,9 +63,13 @@ describe('Typography.Ellipsis', () => {
       .mockImplementation(() => ({ fontSize: 12 }) as unknown as CSSStyleDeclaration);
   });
 
+  beforeEach(() => {
+    offsetWidth = 100;
+    scrollWidth = 0;
+  });
+
   afterEach(() => {
     errorSpy.mockReset();
-    getWidthTimes = 0;
   });
 
   afterAll(() => {
@@ -223,24 +242,61 @@ describe('Typography.Ellipsis', () => {
 
   it('should expandable work', async () => {
     const onExpand = jest.fn();
-    const { container: wrapper } = render(
-      <Base ellipsis={{ expandable: true, onExpand }} component="p" copyable editable>
+    const ref = React.createRef<HTMLElement>();
+    const { container } = render(
+      <Base ellipsis={{ expandable: true, onExpand }} component="p" copyable editable ref={ref}>
         {fullStr}
       </Base>,
     );
 
-    fireEvent.click(wrapper.querySelector('.ant-typography-expand')!);
+    triggerResize(ref.current!);
+    await waitFakeTimer();
+
+    fireEvent.click(container.querySelector('.ant-typography-expand')!);
     expect(onExpand).toHaveBeenCalled();
-    expect(wrapper.querySelector('p')?.textContent).toEqual(fullStr);
+    expect(container.querySelector('p')?.textContent).toEqual(fullStr);
+  });
+
+  it('should collapsible work', async () => {
+    const ref = React.createRef<HTMLElement>();
+
+    const { container: wrapper } = render(
+      <Base
+        ellipsis={{
+          expandable: 'collapsible',
+          symbol: (expanded) => (expanded ? 'CloseIt' : 'OpenIt'),
+        }}
+        component="p"
+        ref={ref}
+      >
+        {fullStr}
+      </Base>,
+    );
+
+    triggerResize(ref.current!);
+    await waitFakeTimer();
+
+    expect(wrapper.querySelector('p')?.textContent).toEqual(`Bamboo is L...OpenIt`);
+
+    fireEvent.click(wrapper.querySelector('.ant-typography-expand')!);
+    expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}CloseIt`);
+
+    fireEvent.click(wrapper.querySelector('.ant-typography-collapse')!);
+    expect(wrapper.querySelector('p')?.textContent).toEqual(`Bamboo is L...OpenIt`);
   });
 
   it('should have custom expand style', async () => {
+    const ref = React.createRef<HTMLElement>();
     const symbol = 'more';
     const { container } = render(
-      <Base ellipsis={{ expandable: true, symbol }} component="p">
+      <Base ellipsis={{ expandable: true, symbol }} component="p" ref={ref}>
         {fullStr}
       </Base>,
     );
+
+    triggerResize(ref.current!);
+    await waitFakeTimer();
+
     expect(container.querySelector('.ant-typography-expand')?.textContent).toEqual('more');
   });
 
@@ -278,15 +334,18 @@ describe('Typography.Ellipsis', () => {
       });
 
       // Trigger visible should trigger recheck
-      getWidthTimes = 0;
+      let getOffsetParent = false;
       Object.defineProperty(container.querySelector('.ant-typography'), 'offsetParent', {
-        get: () => document.body,
+        get: () => {
+          getOffsetParent = true;
+          return document.body;
+        },
       });
       act(() => {
         elementChangeCallback?.();
       });
 
-      expect(getWidthTimes).toBeGreaterThan(0);
+      expect(getOffsetParent).toBeTruthy();
 
       unmount();
       expect(disconnectFn).toHaveBeenCalled();
@@ -305,15 +364,29 @@ describe('Typography.Ellipsis', () => {
   describe('should tooltip support', () => {
     let domSpy: ReturnType<typeof spyElementPrototypes>;
 
+    let containerWidth = 100;
+    let contentWidth = 200;
+    let rectContainerWidth = 100;
+
     beforeAll(() => {
       domSpy = spyElementPrototypes(HTMLElement, {
         offsetWidth: {
-          get: () => 100,
+          get: () => containerWidth,
         },
         scrollWidth: {
-          get: () => 200,
+          get: () => contentWidth,
         },
+        getBoundingClientRect: () => ({
+          width: rectContainerWidth,
+          height: 0,
+        }),
       });
+    });
+
+    beforeEach(() => {
+      containerWidth = 100;
+      contentWidth = 200;
+      rectContainerWidth = 100;
     });
 
     afterAll(() => {
@@ -379,6 +452,24 @@ describe('Typography.Ellipsis', () => {
         expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
       });
     });
+
+    // https://github.com/ant-design/ant-design/issues/50143
+    it('precision', async () => {
+      containerWidth = 100;
+      contentWidth = 100;
+      rectContainerWidth = 99.9;
+
+      const { container, baseElement } = await getWrapper({
+        title: true,
+        className: 'tooltip-class-name',
+      });
+      fireEvent.mouseEnter(container.firstChild!);
+
+      await waitFor(() => {
+        expect(container.querySelector('.tooltip-class-name')).toBeTruthy();
+        expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+      });
+    });
   });
 
   it('js ellipsis should show aria-label', () => {
@@ -401,7 +492,7 @@ describe('Typography.Ellipsis', () => {
     mockRectSpy = spyElementPrototypes(HTMLElement, {
       scrollHeight: {
         get() {
-          let html = this.innerHTML;
+          let html = (this as any).innerHTML;
           html = html.replace(/<[^>]*>/g, '');
           const lines = Math.ceil(html.length / LINE_STR_COUNT);
           return lines * 16;
@@ -434,77 +525,44 @@ describe('Typography.Ellipsis', () => {
     mockRectSpy.mockRestore();
   });
 
-  it('should not throw default dom nodes', async () => {
-    let currentWidth = 100;
-    // string count is different with different width
-    const getLineStrCount = (width: number) => {
-      const res = width === 100 ? 20 : 17;
-      return res;
-    };
-
+  // https://github.com/ant-design/ant-design/issues/46580
+  it('dynamic to be ellipsis should show tooltip', async () => {
     const ref = React.createRef<HTMLElement>();
-    const resize = (width: number) => {
-      currentWidth = width;
-      if (ref.current) triggerResize(ref.current);
-    };
-
-    mockRectSpy = spyElementPrototypes(HTMLElement, {
-      offsetHeight: {
-        get() {
-          let html = this.innerHTML;
-          html = html.replace(/<[^>]*>/g, '');
-          const lines = Math.ceil(html.length / getLineStrCount(currentWidth));
-
-          return lines * 16;
-        },
-      },
-      offsetWidth: {
-        get: () => currentWidth,
-      },
-      getBoundingClientRect() {
-        let html = this.innerHTML;
-        html = html.replace(/<[^>]*>/g, '');
-        const lines = Math.ceil(html.length / getLineStrCount(currentWidth));
-        return { height: lines * 16 };
-      },
-    });
-
-    const { container } = render(
-      <Base
-        ellipsis={{
-          rows: 2,
-        }}
-        ref={ref}
-        editable
-        component="p"
-      >
-        {fullStr}
+    render(
+      <Base ellipsis={{ tooltip: 'bamboo' }} component="p" ref={ref}>
+        less
       </Base>,
     );
 
-    // hijackings Math.ceil
-    const originalCeil = Math.ceil;
-    let hasDefaultStr = false;
+    // Force to narrow
+    offsetWidth = 1;
+    scrollWidth = 100;
+    triggerResize(ref.current!);
 
-    // Math.ceil will be used for ellipsis's calculations;
-    Math.ceil = (value) => {
-      const text = container.querySelector('p')?.innerHTML.replace(/<[^>]*>/g, '');
-      if (text && !text.includes('...')) {
-        hasDefaultStr = true;
-      }
-      return originalCeil.call(Math, value);
-    };
-
-    resize(50);
-    await waitFakeTimer(20, 1);
-    // ignore last result
-    hasDefaultStr = false;
-    resize(100);
     await waitFakeTimer();
 
-    expect(hasDefaultStr).not.toBeTruthy();
-    // reset
-    mockRectSpy.mockRestore();
-    Math.ceil = originalCeil;
+    fireEvent.mouseEnter(ref.current!);
+    await waitFakeTimer();
+    expect(document.querySelector('.ant-tooltip')).toBeTruthy();
+  });
+
+  it('not force single line if expanded', async () => {
+    const ref = React.createRef<HTMLElement>();
+
+    const renderDemo = (expanded: boolean) => (
+      <Base ellipsis={{ rows: 1, expanded, expandable: 'collapsible' }} component="p" ref={ref}>
+        {fullStr}
+      </Base>
+    );
+
+    const { container, rerender } = render(renderDemo(false));
+
+    triggerResize(ref.current!);
+    await waitFakeTimer();
+
+    expect(container.querySelector('.ant-typography-expand')).toBeTruthy();
+
+    rerender(renderDemo(true));
+    expect(container.querySelector('.ant-typography-collapse')).toBeTruthy();
   });
 });

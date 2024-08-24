@@ -1,12 +1,13 @@
+import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { GenerateStyle } from '../../theme/internal';
 import type { TableToken } from './index';
 
 const genVirtualStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
-  const { componentCls, motionDurationMid } = token;
+  const { componentCls, motionDurationMid, lineWidth, lineType, tableBorderColor, calc } = token;
 
-  const tableBorder = `${token.lineWidth}px ${token.lineType} ${token.tableBorderColor}`;
+  const tableBorder = `${unit(lineWidth)} ${lineType} ${tableBorderColor}`;
 
   const rowCellCls = `${componentCls}-expanded-row-cell`;
 
@@ -14,7 +15,7 @@ const genVirtualStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     [`${componentCls}-wrapper`]: {
       // ========================== Row ==========================
       [`${componentCls}-tbody-virtual`]: {
-        [`${componentCls}-row`]: {
+        [`${componentCls}-row:not(tr)`]: {
           display: 'flex',
           boxSizing: 'border-box',
           width: '100%',
@@ -30,7 +31,7 @@ const genVirtualStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
             position: 'sticky',
             insetInlineStart: 0,
             overflow: 'hidden',
-            width: `calc(var(--virtual-width) - ${token.lineWidth}px)`,
+            width: `calc(var(--virtual-width) - ${unit(lineWidth)})`,
             borderInlineEnd: 'none',
           },
         },
@@ -54,7 +55,7 @@ const genVirtualStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
               content: '""',
               position: 'absolute',
               insetBlock: 0,
-              insetInlineStart: -token.lineWidth,
+              insetInlineStart: calc(lineWidth).mul(-1).equal(),
               borderInlineStart: tableBorder,
             },
           },

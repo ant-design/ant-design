@@ -1,12 +1,14 @@
+import React, { useMemo } from 'react';
 import {
   RadiusBottomleftOutlined,
   RadiusBottomrightOutlined,
   RadiusUpleftOutlined,
   RadiusUprightOutlined,
 } from '@ant-design/icons';
-import React, { useMemo } from 'react';
-import { Button, Divider, Space, notification } from 'antd';
-import type { NotificationPlacement } from 'antd/es/notification/interface';
+import { Button, Divider, notification, Space } from 'antd';
+import type { NotificationArgsProps } from 'antd';
+
+type NotificationPlacement = NotificationArgsProps['placement'];
 
 const Context = React.createContext({ name: 'Default' });
 

@@ -1,7 +1,8 @@
 import Pagination from 'rc-pagination/lib/locale/ta_IN';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/ta_IN';
 import DatePicker from '../date-picker/locale/ta_IN';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/ta_IN';
 
 const typeTemplate = '${label} is not a valid ${type}';
@@ -67,9 +68,6 @@ const localeValues: Locale = {
     copy: 'நகல் எடு',
     copied: 'நகல் எடுக்கப்பட்டது',
     expand: 'விரிவாக்கவும்',
-  },
-  PageHeader: {
-    back: 'பின் செல்லவும்',
   },
   Form: {
     optional: '(optional)',

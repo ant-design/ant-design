@@ -53,6 +53,7 @@ const miscKeys = [
   'reset.css',
   '📖',
   '🛠',
+  '📦',
   '🌐',
   ' locale ',
   ' RTL ',
@@ -69,10 +70,20 @@ const miscKeys = [
   '🇰🇷',
   '🇩🇪',
   '🇱🇹',
+  '🇮🇸',
+  '🇺🇿',
+  '🇯🇵',
+  '🇮🇩',
+  '🇵🇱',
+  '🇲🇳',
+  '🇳🇵',
+  '🇪🇬',
+  '🇪🇸',
+  '🇦🇿',
 ];
 
 (() => {
-  const missingChangelog = [];
+  const missingChangelog: string[] = [];
   const miscChangelog: string[] = [];
 
   // Read & write components changelog

@@ -2,16 +2,15 @@
 category: Components
 group: Layout
 title: Grid
+description: 24 Grids System.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*mfJeS6cqZrEAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*DLUwQ4B2_zQAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-24 Grids System.
-
 ## Design concept
 
 <div class="grid-demo">
-  <img src="https://gw.alipayobjects.com/zos/bmw-prod/9189c9ef-c601-40dc-9960-c11dbb681888.svg" alt="grid design" />
+  <img draggable="false" src="https://gw.alipayobjects.com/zos/bmw-prod/9189c9ef-c601-40dc-9960-c11dbb681888.svg" alt="grid design" />
 </div>
 
 In most business situations, Ant Design needs to solve a lot of information storage problems within the design area, so based on 12 Grids System, we divided the design area into 24 sections.
@@ -45,6 +44,7 @@ Layout uses a 24 grid layout to define the width of each "box", but does not rig
 <code src="./demo/flex-order.tsx">Order</code>
 <code src="./demo/flex-stretch.tsx">Flex Stretch</code>
 <code src="./demo/responsive.tsx">Responsive</code>
+<code src="./demo/responsive-flex.tsx" version="5.14.0">Flex Responsive</code>
 <code src="./demo/responsive-more.tsx">More responsive</code>
 <code src="./demo/playground.tsx">Playground</code>
 <code src="./demo/useBreakpoint.tsx">useBreakpoint Hook</code>

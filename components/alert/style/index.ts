@@ -1,8 +1,10 @@
-import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import type { CSSProperties } from 'react';
+import type { CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+
 import { resetComponent } from '../../style';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks } from '../../theme/internal';
 
 export interface ComponentToken {
   // Component token here
@@ -34,8 +36,8 @@ const genAlertTypeStyle = (
   token: AlertToken,
   alertCls: string,
 ): CSSObject => ({
-  backgroundColor: bgColor,
-  border: `${token.lineWidth}px ${token.lineType} ${borderColor}`,
+  background: bgColor,
+  border: `${unit(token.lineWidth)} ${token.lineType} ${borderColor}`,
   [`${alertCls}-icon`]: {
     color: iconColor,
   },
@@ -83,7 +85,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
         lineHeight: 0,
       },
 
-      [`&-description`]: {
+      '&-description': {
         display: 'none',
         fontSize,
         lineHeight,
@@ -113,7 +115,6 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
     [`${componentCls}-with-description`]: {
       alignItems: 'flex-start',
       padding: withDescriptionPadding,
-
       [`${componentCls}-icon`]: {
         marginInlineEnd: marginSM,
         fontSize: withDescriptionIconSize,
@@ -203,7 +204,7 @@ export const genActionStyle: GenerateStyle<AlertToken> = (token: AlertToken): CS
 
   return {
     [componentCls]: {
-      [`&-action`]: {
+      '&-action': {
         marginInlineStart: marginXS,
       },
 
@@ -212,7 +213,7 @@ export const genActionStyle: GenerateStyle<AlertToken> = (token: AlertToken): CS
         padding: 0,
         overflow: 'hidden',
         fontSize: fontSizeIcon,
-        lineHeight: `${fontSizeIcon}px`,
+        lineHeight: unit(fontSizeIcon),
         backgroundColor: 'transparent',
         border: 'none',
         outline: 'none',
@@ -238,22 +239,17 @@ export const genActionStyle: GenerateStyle<AlertToken> = (token: AlertToken): CS
   };
 };
 
-export const genAlertStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSInterpolation => [
-  genBaseStyle(token),
-  genTypeStyle(token),
-  genActionStyle(token),
-];
+export const prepareComponentToken: GetDefaultToken<'Alert'> = (token) => {
+  const paddingHorizontal = 12; // Fixed value here.
+  return {
+    withDescriptionIconSize: token.fontSizeHeading3,
+    defaultPadding: `${token.paddingContentVerticalSM}px ${paddingHorizontal}px`,
+    withDescriptionPadding: `${token.paddingMD}px ${token.paddingContentHorizontalLG}px`,
+  };
+};
 
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Alert',
-  (token) => [genAlertStyle(token)],
-  (token) => {
-    const paddingHorizontal = 12; // Fixed value here.
-
-    return {
-      withDescriptionIconSize: token.fontSizeHeading3,
-      defaultPadding: `${token.paddingContentVerticalSM}px ${paddingHorizontal}px`,
-      withDescriptionPadding: `${token.paddingMD}px ${token.paddingContentHorizontalLG}px`,
-    };
-  },
+  (token) => [genBaseStyle(token), genTypeStyle(token), genActionStyle(token)],
+  prepareComponentToken,
 );

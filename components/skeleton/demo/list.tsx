@@ -1,6 +1,6 @@
+import React, { useState } from 'react';
 import type Icon from '@ant-design/icons';
 import { LikeOutlined, MessageOutlined, StarOutlined } from '@ant-design/icons';
-import React, { useState } from 'react';
 import { Avatar, List, Skeleton, Switch } from 'antd';
 
 interface IconTextProps {
@@ -11,7 +11,7 @@ interface IconTextProps {
 const listData = Array.from({ length: 3 }).map((_, i) => ({
   href: 'https://ant.design',
   title: `ant design part ${i + 1}`,
-  avatar: `https://xsgames.co/randomusers/avatar.php?g=pixel&key=${i}`,
+  avatar: `https://api.dicebear.com/7.x/miniavs/svg?seed=${i}`,
   description:
     'Ant Design, a design language for background applications, is refined by Ant UED Team.',
   content:
@@ -20,7 +20,7 @@ const listData = Array.from({ length: 3 }).map((_, i) => ({
 
 const IconText: React.FC<IconTextProps> = ({ icon, text }) => (
   <>
-    {React.createElement(icon, { style: { marginRight: 8 } })}
+    {React.createElement(icon, { style: { marginInlineEnd: 8 } })}
     {text}
   </>
 );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table } from 'antd';
-import type { ColumnsType, TableProps } from 'antd/es/table';
+import type { TableColumnsType, TableProps } from 'antd';
 
 interface DataType {
   key: React.Key;
@@ -10,7 +10,7 @@ interface DataType {
   english: number;
 }
 
-const columns: ColumnsType<DataType> = [
+const columns: TableColumnsType<DataType> = [
   {
     title: 'Name',
     dataIndex: 'name',

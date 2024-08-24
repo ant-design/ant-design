@@ -1,6 +1,7 @@
-import type { GenerateStyle } from '../../theme/internal';
-import type { NotificationToken } from '.';
 import type { CSSObject } from '@ant-design/cssinjs';
+
+import type { NotificationToken } from '.';
+import type { GenerateStyle } from '../../theme/internal';
 import type { NotificationPlacement } from '../interface';
 import { NotificationPlacements } from '../interface';
 
@@ -103,7 +104,7 @@ const genStackStyle: GenerateStyle<NotificationToken> = (token) => {
           height: token.margin,
           width: '100%',
           insetInline: 0,
-          bottom: -token.margin,
+          bottom: token.calc(token.margin).mul(-1).equal(),
           background: 'transparent',
           pointerEvents: 'auto',
         },

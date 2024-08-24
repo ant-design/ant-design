@@ -40,11 +40,11 @@ const BackTop: React.FC<BackTopProps> = (props) => {
   const ref = React.useRef<HTMLDivElement>(null);
 
   const getDefaultTarget = (): HTMLElement | Document | Window =>
-    ref.current && ref.current.ownerDocument ? ref.current.ownerDocument : window;
+    ref.current?.ownerDocument || window;
 
   const handleScroll = throttleByAnimationFrame(
     (e: React.UIEvent<HTMLElement, UIEvent> | { target: any }) => {
-      const scrollTop = getScroll(e.target, true);
+      const scrollTop = getScroll(e.target);
       setVisible(scrollTop >= visibilityHeight);
     },
   );
@@ -74,11 +74,14 @@ const BackTop: React.FC<BackTopProps> = (props) => {
   const { getPrefixCls, direction } = React.useContext<ConfigConsumerProps>(ConfigContext);
 
   const prefixCls = getPrefixCls('back-top', customizePrefixCls);
+
   const rootPrefixCls = getPrefixCls();
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const classString = classNames(
     hashId,
+    cssVarCls,
     prefixCls,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -105,7 +108,7 @@ const BackTop: React.FC<BackTopProps> = (props) => {
     </div>
   );
 
-  return wrapSSR(
+  return wrapCSSVar(
     <div {...divProps} className={classString} onClick={scrollToTop} ref={ref}>
       <CSSMotion visible={visible} motionName={`${rootPrefixCls}-fade`}>
         {({ className: motionClassName }) =>

@@ -14,6 +14,11 @@ export interface DividerProps {
   rootClassName?: string;
   children?: React.ReactNode;
   dashed?: boolean;
+  /**
+   * @since 5.20.0
+   * @default solid
+   */
+  variant?: 'dashed' | 'dotted' | 'solid';
   style?: React.CSSProperties;
   plain?: boolean;
 }
@@ -30,14 +35,15 @@ const Divider: React.FC<DividerProps> = (props) => {
     rootClassName,
     children,
     dashed,
+    variant = 'solid',
     plain,
     style,
     ...restProps
   } = props;
   const prefixCls = getPrefixCls('divider', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const orientationPrefix = orientation.length > 0 ? `-${orientation}` : orientation;
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+
   const hasChildren = !!children;
   const hasCustomMarginLeft = orientation === 'left' && orientationMargin != null;
   const hasCustomMarginRight = orientation === 'right' && orientationMargin != null;
@@ -45,11 +51,13 @@ const Divider: React.FC<DividerProps> = (props) => {
     prefixCls,
     divider?.className,
     hashId,
+    cssVarCls,
     `${prefixCls}-${type}`,
     {
       [`${prefixCls}-with-text`]: hasChildren,
-      [`${prefixCls}-with-text${orientationPrefix}`]: hasChildren,
+      [`${prefixCls}-with-text-${orientation}`]: hasChildren,
       [`${prefixCls}-dashed`]: !!dashed,
+      [`${prefixCls}-${variant}`]: variant !== 'solid',
       [`${prefixCls}-plain`]: !!plain,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-no-default-orientation-margin-left`]: hasCustomMarginLeft,
@@ -85,11 +93,12 @@ const Divider: React.FC<DividerProps> = (props) => {
     );
   }
 
-  return wrapSSR(
+  return wrapCSSVar(
     <div
       className={classString}
       style={{ ...divider?.style, ...style }}
       {...restProps}
+      // biome-ignore lint/a11y/useAriaPropsForRole: divider do not need aria-value
       role="separator"
     >
       {children && type !== 'vertical' && (

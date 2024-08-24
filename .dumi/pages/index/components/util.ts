@@ -1,5 +1,6 @@
+import { useEffect, useState } from 'react';
 import { css } from 'antd-style';
-import useFetch from '../../../hooks/useFetch';
+import fetch from 'cross-fetch';
 
 export interface Author {
   avatar: string;
@@ -80,8 +81,18 @@ export function preLoad(list: string[]) {
   }
 }
 
-export function useSiteData(): Partial<SiteData> {
-  return useFetch('https://render.alipay.com/p/h5data/antd4-config_website-h5data.json');
+export function useSiteData(): Partial<SiteData> | undefined {
+  const [data, setData] = useState<SiteData | undefined>(undefined);
+
+  useEffect(() => {
+    fetch('https://render.alipay.com/p/h5data/antd4-config_website-h5data.json').then(
+      async (res) => {
+        setData(await res.json());
+      },
+    );
+  }, []);
+
+  return data;
 }
 
 export const getCarouselStyle = () => ({

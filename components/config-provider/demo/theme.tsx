@@ -10,7 +10,9 @@ import {
   Space,
   Switch,
 } from 'antd';
-import type { Color } from 'antd/es/color-picker';
+import type { ColorPickerProps, GetProp } from 'antd';
+
+type Color = Extract<GetProp<ColorPickerProps, 'value'>, { cleared: any }>;
 
 type ThemeData = {
   borderRadius: number;

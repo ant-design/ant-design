@@ -1,12 +1,12 @@
 import React from 'react';
-import type { Dayjs } from 'dayjs';
+import type { TimePickerProps } from 'antd';
+import { TimePicker } from 'antd';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import { TimePicker } from 'antd';
 
 dayjs.extend(customParseFormat);
 
-const onChange = (time: Dayjs, timeString: string) => {
+const onChange: TimePickerProps['onChange'] = (time, timeString) => {
   console.log(time, timeString);
 };
 

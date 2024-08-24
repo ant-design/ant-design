@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { cloneElement, isFragment } from '../_util/reactNode';
 import type { BaseButtonProps, LegacyButtonType } from './button';
 
@@ -52,7 +53,7 @@ function splitCNCharsBySpace(child: React.ReactElement | string | number, needIn
 }
 
 export function spaceChildren(children: React.ReactNode, needInserted: boolean) {
-  let isPrevChildPure: boolean = false;
+  let isPrevChildPure = false;
   const childList: React.ReactNode[] = [];
 
   React.Children.forEach(children, (child) => {
@@ -74,11 +75,14 @@ export function spaceChildren(children: React.ReactNode, needInserted: boolean) 
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const ButtonTypes = ['default', 'primary', 'dashed', 'link', 'text'] as const;
-export type ButtonType = typeof ButtonTypes[number];
+export type ButtonType = (typeof ButtonTypes)[number];
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const ButtonShapes = ['default', 'circle', 'round'] as const;
-export type ButtonShape = typeof ButtonShapes[number];
+export type ButtonShape = (typeof ButtonShapes)[number];
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const ButtonHTMLTypes = ['submit', 'button', 'reset'] as const;
-export type ButtonHTMLType = typeof ButtonHTMLTypes[number];
+export type ButtonHTMLType = (typeof ButtonHTMLTypes)[number];

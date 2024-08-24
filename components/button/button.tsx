@@ -1,13 +1,5 @@
 /* eslint-disable react/button-has-type */
-import React, {
-  Children,
-  createRef,
-  forwardRef,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import React, { Children, createRef, useContext, useEffect, useMemo, useState } from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import { composeRef } from 'rc-util/lib/ref';
@@ -26,13 +18,13 @@ import IconWrapper from './IconWrapper';
 import LoadingIcon from './LoadingIcon';
 import useStyle from './style';
 import CompactCmp from './style/compactCmp';
-import useCSSVar from './style/cssVar';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
 export interface BaseButtonProps {
   type?: ButtonType;
   icon?: React.ReactNode;
+  iconPosition?: 'start' | 'end';
   shape?: ButtonShape;
   size?: SizeType;
   disabled?: boolean;
@@ -59,15 +51,8 @@ type MergedHTMLAttributes = Omit<
 export interface ButtonProps extends BaseButtonProps, MergedHTMLAttributes {
   href?: string;
   htmlType?: ButtonHTMLType;
+  autoInsertSpace?: boolean;
 }
-
-type CompoundedComponent = React.ForwardRefExoticComponent<
-  ButtonProps & React.RefAttributes<HTMLElement>
-> & {
-  Group: typeof Group;
-  /** @internal */
-  __ANT_BUTTON: boolean;
-};
 
 type LoadingConfigType = {
   loading: boolean;
@@ -90,15 +75,15 @@ function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigTyp
   };
 }
 
-const InternalButton: React.ForwardRefRenderFunction<
+const InternalCompoundedButton = React.forwardRef<
   HTMLButtonElement | HTMLAnchorElement,
   ButtonProps
-> = (props, ref) => {
+>((props, ref) => {
   const {
     loading = false,
     prefixCls: customizePrefixCls,
-    type = 'default',
-    danger,
+    type,
+    danger = false,
     shape = 'default',
     size: customizeSize,
     styles,
@@ -107,20 +92,28 @@ const InternalButton: React.ForwardRefRenderFunction<
     rootClassName,
     children,
     icon,
+    iconPosition = 'start',
     ghost = false,
     block = false,
     // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
     htmlType = 'button',
     classNames: customClassNames,
     style: customStyle = {},
+    autoInsertSpace,
     ...rest
   } = props;
 
-  const { getPrefixCls, autoInsertSpaceInButton, direction, button } = useContext(ConfigContext);
+  // https://github.com/ant-design/ant-design/issues/47605
+  // Compatible with original `type` behavior
+  const mergedType = type || 'default';
+
+  const { getPrefixCls, direction, button } = useContext(ConfigContext);
+
+  const mergedInsertSpace = autoInsertSpace ?? button?.autoInsertSpace ?? true;
+
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const disabled = useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
@@ -137,7 +130,8 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const buttonRef = composeRef(ref, internalRef);
 
-  const needInserted = Children.count(children) === 1 && !icon && !isUnBorderedButtonType(type);
+  const needInserted =
+    Children.count(children) === 1 && !icon && !isUnBorderedButtonType(mergedType);
 
   useEffect(() => {
     let delayTimer: ReturnType<typeof setTimeout> | null = null;
@@ -162,7 +156,7 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   useEffect(() => {
     // FIXME: for HOC usage like <FormatMessage />
-    if (!buttonRef || !(buttonRef as any).current || autoInsertSpaceInButton === false) {
+    if (!buttonRef || !(buttonRef as any).current || !mergedInsertSpace) {
       return;
     }
     const buttonText = (buttonRef as any).current.textContent;
@@ -195,13 +189,12 @@ const InternalButton: React.ForwardRefRenderFunction<
     );
 
     warning(
-      !(ghost && isUnBorderedButtonType(type)),
+      !(ghost && isUnBorderedButtonType(mergedType)),
       'usage',
       "`link` or `text` button can't be a `ghost` button.",
     );
   }
 
-  const autoInsertSpace = autoInsertSpaceInButton !== false;
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
@@ -217,17 +210,19 @@ const InternalButton: React.ForwardRefRenderFunction<
   const classes = classNames(
     prefixCls,
     hashId,
+    cssVarCls,
     {
       [`${prefixCls}-${shape}`]: shape !== 'default' && shape,
-      [`${prefixCls}-${type}`]: type,
+      [`${prefixCls}-${mergedType}`]: mergedType,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
-      [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonType(type),
+      [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonType(mergedType),
       [`${prefixCls}-loading`]: innerLoading,
-      [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && autoInsertSpace && !innerLoading,
+      [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && mergedInsertSpace && !innerLoading,
       [`${prefixCls}-block`]: block,
-      [`${prefixCls}-dangerous`]: !!danger,
+      [`${prefixCls}-dangerous`]: danger,
       [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-icon-end`]: iconPosition === 'end',
     },
     compactItemClassnames,
     className,
@@ -249,11 +244,11 @@ const InternalButton: React.ForwardRefRenderFunction<
         {icon}
       </IconWrapper>
     ) : (
-      <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={!!innerLoading} />
+      <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={innerLoading} />
     );
 
   const kids =
-    children || children === 0 ? spaceChildren(children, needInserted && autoInsertSpace) : null;
+    children || children === 0 ? spaceChildren(children, needInserted && mergedInsertSpace) : null;
 
   if (linkButtonRestProps.href !== undefined) {
     return wrapCSSVar(
@@ -262,9 +257,11 @@ const InternalButton: React.ForwardRefRenderFunction<
         className={classNames(classes, {
           [`${prefixCls}-disabled`]: mergedDisabled,
         })}
+        href={mergedDisabled ? undefined : linkButtonRestProps.href}
         style={fullStyle}
         onClick={handleClick}
         ref={buttonRef as React.Ref<HTMLAnchorElement>}
+        tabIndex={mergedDisabled ? -1 : 0}
       >
         {iconNode}
         {kids}
@@ -284,32 +281,34 @@ const InternalButton: React.ForwardRefRenderFunction<
     >
       {iconNode}
       {kids}
-
       {/* Styles: compact */}
-      {compactItemClassnames && <CompactCmp key="compact" prefixCls={prefixCls} />}
+      {!!compactItemClassnames && <CompactCmp key="compact" prefixCls={prefixCls} />}
     </button>
   );
 
-  if (!isUnBorderedButtonType(type)) {
+  if (!isUnBorderedButtonType(mergedType)) {
     buttonNode = (
-      <Wave component="Button" disabled={!!innerLoading}>
+      <Wave component="Button" disabled={innerLoading}>
         {buttonNode}
       </Wave>
     );
   }
-
   return wrapCSSVar(buttonNode);
+});
+
+type CompoundedComponent = typeof InternalCompoundedButton & {
+  Group: typeof Group;
+  /** @internal */
+  __ANT_BUTTON: boolean;
 };
 
-const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
-  InternalButton,
-) as CompoundedComponent;
+const Button = InternalCompoundedButton as CompoundedComponent;
+
+Button.Group = Group;
+Button.__ANT_BUTTON = true;
 
 if (process.env.NODE_ENV !== 'production') {
   Button.displayName = 'Button';
 }
-
-Button.Group = Group;
-Button.__ANT_BUTTON = true;
 
 export default Button;

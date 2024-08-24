@@ -1,16 +1,15 @@
 ---
 category: Components
 group: 通用
-subtitle: 悬浮按钮
 title: FloatButton
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HS-wTIIwu0kAAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a0hwTY_rOSUAAAAAAAAAAAAADrJ8AQ/original
+subtitle: 悬浮按钮
+description: 悬浮于页面上方的按钮。
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tXAoQqyr-ioAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*hSAwR7cnabwAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
-tag: New
+tag: 5.0.0
 ---
-
-悬浮按钮。自 `5.0.0` 版本开始提供该组件。
 
 ## 何时使用
 
@@ -28,6 +27,7 @@ tag: New
 <code src="./demo/group.tsx" iframe="360">浮动按钮组</code>
 <code src="./demo/group-menu.tsx" iframe="360">菜单模式</code>
 <code src="./demo/controlled.tsx" iframe="360">受控模式</code>
+<code src="./demo/placement.tsx" iframe="380" version="5.21.0">弹出方向</code>
 <code src="./demo/back-top.tsx" iframe="360">回到顶部</code>
 <code src="./demo/badge.tsx" iframe="360">徽标数</code>
 <code src="./demo/badge-debug.tsx" iframe="360" debug>调试小圆点使用</code>
@@ -60,6 +60,8 @@ tag: New
 | shape | 设置包含的 FloatButton 按钮形状 | `circle` \| `square` | `circle` |  |
 | trigger | 触发方式（有触发方式为菜单模式） | `click` \| `hover` | - |  |
 | open | 受控展开，需配合 trigger 一起使用 | boolean | - |  |
+| closeIcon | 自定义关闭按钮 | React.ReactNode | `<CloseOutlined />` |  |
+| placement | 自定义菜单弹出位置 | `top` \| `left` \| `right` \| `bottom` | `top` | 5.21.0 |
 | onOpenChange | 展开收起时的回调，需配合 trigger 一起使用 | (open: boolean) => void | - |  |
 
 ### FloatButton.BackTop

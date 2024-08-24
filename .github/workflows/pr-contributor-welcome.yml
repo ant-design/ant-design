@@ -1,0 +1,42 @@
+# 当 PR 被合并时，留言欢迎加入共建群
+name: PullRequest Contributor Welcome
+
+on:
+  pull_request_target:
+    types:
+      - closed
+    paths:
+      - 'components/**'
+
+permissions:
+  contents: read
+
+jobs:
+  comment:
+    permissions:
+      issues: write  # for actions-cool/maintain-one-comment to modify or create issue comments
+      pull-requests: write  # for actions-cool/maintain-one-comment to modify or create PR comments
+    if: github.event.pull_request.merged == true && github.repository == 'ant-design/ant-design'
+    runs-on: ubuntu-latest
+    steps:
+      - name: get commit count
+        id: get_commit_count
+        run: |
+          PR_AUTHOR=$(echo "${{ github.event.pull_request.user.login }}")
+          RESULT_DATA=$(curl -s "https://api.github.com/repos/${{ github.repository }}/commits?author=${PR_AUTHOR}&per_page=5")
+          DATA_LENGTH=$(echo $RESULT_DATA | jq 'if type == "array" then length else 0 end')
+          echo "COUNT=$DATA_LENGTH" >> $GITHUB_OUTPUT
+      - name: Comment on PR
+        if: steps.get_commit_count.outputs.COUNT < 3
+        uses: actions-cool/maintain-one-comment@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            🎉 Thank you for your contribution! If you have not yet joined our DingTalk community group, please feel free to join us (when joining, please provide the link to this PR).
+
+            🎉 感谢您的贡献！如果您还没有加入钉钉社区群，请扫描下方二维码加入我们（加群时请提供此 PR 链接）。
+
+            <img src="https://github.com/ant-design/ant-design/assets/5378891/e24c6080-bf38-4523-b1cd-f6c43ad7375f" height="200" />
+
+            <!-- WELCOME_CONTRIBUTION -->
+          body-include: '<!-- WELCOME_CONTRIBUTION -->'

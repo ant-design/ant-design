@@ -25,7 +25,7 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
 
 - Remove less, adopt CSS-in-JS, for better support of dynamic themes. The bottom layer uses [@ant-design/cssinjs](https://github.com/ant-design/cssinjs) as a solution.
   - All less files are removed, and less variables are no longer exported.
-  - Css files are no longer included in package. Since CSS-in-JS supports importing on demand, the original `antd/dist/antd.css` has also been abandoned. If you need to reset some basic styles, please import `antd/dist/reset.css`.
+  - CSS files are no longer included in package. Since CSS-in-JS supports importing on demand, the original `antd/dist/antd.css` has also been abandoned. If you need to reset some basic styles, please import `antd/dist/reset.css`.
   - If you need to reset the style of the component, but you don't want to introduce `antd/dist/reset.css` to pollute the global style, You can try using the [App](/components/app) in the outermost layer to solve the problem that native elements do not have antd specification style.
 - Remove css variables and dynamic theme built on top of them.
 - LocaleProvider has been deprecated in 4.x (use `<ConfigProvider locale />` instead), we removed the related folder `antd/es/locale-provider` and `antd/lib/locale-provider` in 5.x.
@@ -132,7 +132,7 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
   ```diff
   - import { PageHeader, Comment } from 'antd';
   + import { Comment } from '@ant-design/compatible';
-  + import { PageHeader } from '@ant-design/pro-layout';
+  + import { PageHeader } from '@ant-design/pro-components';
 
     const App: React.FC = () => (
       <>
@@ -168,11 +168,11 @@ Use git to save your code and install latest version:
 npm install --save antd@5.x
 ```
 
-If you want to use v4 deprecated component like `Comment` or `PageHeader`. You can install `@ant-design/compatible` and `@ant-design/pro-layout` for compatible:
+If you want to use v4 deprecated component like `Comment` or `PageHeader`. You can install `@ant-design/compatible` and `@ant-design/pro-components` for compatible:
 
 ```bash
 npm install --save @ant-design/compatible@v5-compatible-v4
-npm install --save @ant-design/pro-layout
+npm install --save @ant-design/pro-components
 ```
 
 You can manually check the code one by one against the above list for modification. In addition, we also provide a codemod cli tool [@ant-design/codemod-v5](https://github.com/ant-design/codemod-v5) To help you quickly upgrade to v5.
@@ -199,13 +199,15 @@ pnpm --package=@ant-design/codemod-v5 dlx antd5-codemod src
 If you using antd less variables, you can use compatible package to covert it into v4 less variables and use less-loader to inject them:
 
 ```js
-const { convertLegacyToken } = require('@ant-design/compatible/lib');
 const { theme } = require('antd/lib');
+const { convertLegacyToken, defaultTheme } = require('@ant-design/compatible/lib');
 
 const { defaultAlgorithm, defaultSeed } = theme;
 
-const mapToken = defaultAlgorithm(defaultSeed);
-const v4Token = convertLegacyToken(mapToken);
+const mapV5Token = defaultAlgorithm(defaultSeed);
+const v5Vars = convertLegacyToken(mapV5Token);
+const mapV4Token = theme.getDesignToken(defaultTheme);
+const v4Vars = convertLegacyToken(mapV4Token);
 
 // Webpack Config
 module.exports = {
@@ -213,7 +215,7 @@ module.exports = {
   loader: 'less-loader',
   options: {
     lessOptions: {
-      modifyVars: v4Token,
+      modifyVars: v5Vars, // or v4Vars
     },
   },
 };
@@ -264,6 +266,8 @@ Replace moment.js locale with day.js locale:
 +   dayjs.locale('zh-cn');
 ```
 
+🚨 You need to pay attention to the day.js plugin system. If you find that the function originally in moment.js cannot be used in day.js, please refer to the [day.js plugin document](https://day.js.org/docs/en/plugin/plugin).
+
 If you do not want to replace with day.js, you can use `@ant-design/moment-webpack-plugin` to keep moment.js:
 
 ```bash
@@ -280,7 +284,7 @@ module.exports = {
 };
 ```
 
-### Switch to theme of v4 <Badge>Updated</Badge>
+### Switch to theme of v4
 
 If you don't want the style to change after upgrade, we have provided a v4 theme in `@ant-design/compatible` that can restore v4 style.
 

@@ -1,7 +1,8 @@
 // Proxy the dom ref with `{ nativeElement, otherFn }` type
 // ref: https://github.com/ant-design/ant-design/discussions/45242
 
-import { useImperativeHandle, type Ref } from 'react';
+import { useImperativeHandle } from 'react';
+import type { Ref } from 'react';
 
 function fillProxy(
   element: HTMLElement & { _antProxy?: Record<string, any> },

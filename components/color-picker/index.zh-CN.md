@@ -1,17 +1,16 @@
 ---
 category: Components
-subtitle: 颜色选择器
 title: ColorPicker
+subtitle: 颜色选择器
+description: 用于选择颜色。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PpY4RYNM8UcAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EHL-QYJofZsAAAAAAAAAAAAADrJ8AQ/original
-tag: New
+tag: 5.5.0
 demo:
   cols: 2
 group:
   title: 数据录入
 ---
-
-提供颜色选取的组件，自 `5.5.0` 版本开始提供该组件。
 
 ## 何时使用
 
@@ -23,7 +22,7 @@ group:
 <code src="./demo/base.tsx">基本使用</code>
 <code src="./demo/size.tsx">触发器尺寸大小</code>
 <code src="./demo/controlled.tsx">受控模式</code>
-<code src="./demo/change-completed.tsx">颜色完成选择</code>
+<code src="./demo/line-gradient.tsx" version="5.20.0">渐变色</code>
 <code src="./demo/text-render.tsx">渲染触发器文本</code>
 <code src="./demo/disabled.tsx">禁用</code>
 <code src="./demo/disabled-alpha.tsx">禁用透明度</code>
@@ -53,9 +52,10 @@ group:
 | disabledAlpha | 禁用透明度 | boolean | - | 5.8.0 |
 | destroyTooltipOnHide | 关闭后是否销毁弹窗 | `boolean` | false | 5.7.0 |
 | format | 颜色格式 | `rgb` \| `hex` \| `hsb` | `hex` | |
+| mode | 选择器模式，用于配置单色与渐变 | `('single' \| 'gradient')[]` | `single` | 5.20.0 |
 | open | 是否显示弹出窗口 | boolean | - | |
 | presets | 预设的颜色 | `{ label: ReactNode, colors: Array<string \| Color>, defaultOpen?: boolean }[]` | - | `defaultOpen: 5.11.0` |
-| placement | 弹出窗口的位置 | `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | `bottomLeft` | |
+| placement | 弹出窗口的位置 | 同 `Tooltips` 组件的 [placement](/components/tooltip-cn/#api) 参数设计 | `bottomLeft` | |
 | panelRender | 自定义渲染面板 | `(panel: React.ReactNode, extra: { components: { Picker: FC; Presets: FC } }) => React.ReactNode` | - | 5.7.0 |
 | showText | 显示颜色文本 | boolean \| `(color: Color) => React.ReactNode` | - | 5.7.0 |
 | size | 设置触发器大小 | `large` \| `middle` \| `small` | `middle` | 5.7.0 |
@@ -70,8 +70,9 @@ group:
 ### Color
 
 <!-- prettier-ignore -->
-| 参数 | 说明 | 类型 | 默认值 |
+| 参数 | 说明 | 类型 | 版本 |
 | :-- | :-- | :-- | :-- |
+| toCssString | 转换成 CSS 支持的格式 | `() => string` | 5.20.0 |
 | toHex | 转换成 `hex` 格式字符，返回格式如：`1677ff` | `() => string` | - |
 | toHexString | 转换成 `hex` 格式颜色字符串，返回格式如：`#1677ff` | `() => string` | - |
 | toHsb | 转换成 `hsb` 对象  | `() => ({ h: number, s: number, b: number, a number })` | - |

@@ -1,4 +1,6 @@
+import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
@@ -20,25 +22,30 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) =
         },
 
         '&-tail': {
-          top: Math.floor((token.dotSize - token.lineWidth * 3) / 2),
+          // Math.floor((token.size - token.lineWidth * 3) / 2)
+          top: token
+            .calc(token.dotSize)
+            .sub(token.calc(token.lineWidth).mul(3).equal())
+            .div(2)
+            .equal(),
           width: '100%',
           marginTop: 0,
           marginBottom: 0,
-          marginInline: `${descriptionMaxWidth / 2}px 0`,
+          marginInline: `${unit(token.calc(descriptionMaxWidth).div(2).equal())} 0`,
           padding: 0,
 
           '&::after': {
-            width: `calc(100% - ${token.marginSM * 2}px)`,
-            height: token.lineWidth * 3,
+            width: `calc(100% - ${unit(token.calc(token.marginSM).mul(2).equal())})`,
+            height: token.calc(token.lineWidth).mul(3).equal(),
             marginInlineStart: token.marginSM,
           },
         },
         '&-icon': {
           width: dotSize,
           height: dotSize,
-          marginInlineStart: (token.descriptionMaxWidth - dotSize) / 2,
+          marginInlineStart: token.calc(token.descriptionMaxWidth).sub(dotSize).div(2).equal(),
           paddingInlineEnd: 0,
-          lineHeight: `${dotSize}px`,
+          lineHeight: unit(dotSize),
           background: 'transparent',
           border: 0,
 
@@ -53,9 +60,13 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) =
             /* expand hover area */
             '&::after': {
               position: 'absolute',
-              top: -token.marginSM,
-              insetInlineStart: (dotSize - token.controlHeightLG * 1.5) / 2,
-              width: token.controlHeightLG * 1.5,
+              top: token.calc(token.marginSM).mul(-1).equal(),
+              insetInlineStart: token
+                .calc(dotSize)
+                .sub(token.calc(token.controlHeightLG).mul(1.5).equal())
+                .div(2)
+                .equal(),
+              width: token.calc(token.controlHeightLG).mul(1.5).equal(),
               height: token.controlHeight,
               background: 'transparent',
               content: '""',
@@ -68,12 +79,16 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) =
         },
         [`&-process ${componentCls}-item-icon`]: {
           position: 'relative',
-          top: (dotSize - dotCurrentSize) / 2,
+          top: token.calc(dotSize).sub(dotCurrentSize).div(2).equal(),
           width: dotCurrentSize,
           height: dotCurrentSize,
-          lineHeight: `${dotCurrentSize}px`,
+          lineHeight: unit(dotCurrentSize),
           background: 'none',
-          marginInlineStart: (token.descriptionMaxWidth - dotCurrentSize) / 2,
+          marginInlineStart: token
+            .calc(token.descriptionMaxWidth)
+            .sub(dotCurrentSize)
+            .div(2)
+            .equal(),
         },
         [`&-process ${componentCls}-icon`]: {
           [`&:first-child ${componentCls}-icon-dot`]: {
@@ -84,39 +99,41 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) =
     },
     [`&${componentCls}-vertical${componentCls}-dot`]: {
       [`${componentCls}-item-icon`]: {
-        marginTop: (token.controlHeight - dotSize) / 2,
+        marginTop: token.calc(token.controlHeight).sub(dotSize).div(2).equal(),
         marginInlineStart: 0,
         background: 'none',
       },
       [`${componentCls}-item-process ${componentCls}-item-icon`]: {
-        marginTop: (token.controlHeight - dotCurrentSize) / 2,
+        marginTop: token.calc(token.controlHeight).sub(dotCurrentSize).div(2).equal(),
         top: 0,
-        insetInlineStart: (dotSize - dotCurrentSize) / 2,
+        insetInlineStart: token.calc(dotSize).sub(dotCurrentSize).div(2).equal(),
         marginInlineStart: 0,
       },
 
       // https://github.com/ant-design/ant-design/issues/18354
       [`${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-tail`]: {
-        top: (token.controlHeight - dotSize) / 2,
+        top: token.calc(token.controlHeight).sub(dotSize).div(2).equal(),
         insetInlineStart: 0,
         margin: 0,
-        padding: `${dotSize + token.paddingXS}px 0 ${token.paddingXS}px`,
+        padding: `${unit(token.calc(dotSize).add(token.paddingXS).equal())} 0 ${unit(
+          token.paddingXS,
+        )}`,
 
         '&::after': {
-          marginInlineStart: (dotSize - token.lineWidth) / 2,
+          marginInlineStart: token.calc(dotSize).sub(token.lineWidth).div(2).equal(),
         },
       },
 
       [`&${componentCls}-small`]: {
         [`${componentCls}-item-icon`]: {
-          marginTop: (token.controlHeightSM - dotSize) / 2,
+          marginTop: token.calc(token.controlHeightSM).sub(dotSize).div(2).equal(),
         },
         [`${componentCls}-item-process ${componentCls}-item-icon`]: {
-          marginTop: (token.controlHeightSM - dotCurrentSize) / 2,
+          marginTop: token.calc(token.controlHeightSM).sub(dotCurrentSize).div(2).equal(),
         },
 
         [`${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-tail`]: {
-          top: (token.controlHeightSM - dotSize) / 2,
+          top: token.calc(token.controlHeightSM).sub(dotSize).div(2).equal(),
         },
       },
 

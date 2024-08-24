@@ -2,8 +2,8 @@ import * as React from 'react';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import classNames from 'classnames';
 import RcSwitch from 'rc-switch';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
-import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
@@ -24,6 +24,16 @@ export interface SwitchProps {
   rootClassName?: string;
   checked?: boolean;
   defaultChecked?: boolean;
+  /**
+   * Alias for `checked`.
+   * @since 5.12.0
+   */
+  value?: boolean;
+  /**
+   * Alias for `defaultChecked`.
+   * @since 5.12.0
+   */
+  defaultValue?: boolean;
   onChange?: SwitchChangeEventHandler;
   onClick?: SwitchClickEventHandler;
   checkedChildren?: React.ReactNode;
@@ -37,14 +47,7 @@ export interface SwitchProps {
   id?: string;
 }
 
-type CompoundedComponent = React.ForwardRefExoticComponent<
-  SwitchProps & React.RefAttributes<HTMLElement>
-> & {
-  /** @internal */
-  __ANT_SWITCH: boolean;
-};
-
-const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, ref) => {
+const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     size: customizeSize,
@@ -53,18 +56,18 @@ const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, ref) => 
     className,
     rootClassName,
     style,
+    checked: checkedProp,
+    value,
+    defaultChecked: defaultCheckedProp,
+    defaultValue,
+    onChange,
     ...restProps
   } = props;
 
-  if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('Switch');
-
-    warning(
-      'checked' in props || !('value' in props),
-      'usage',
-      '`value` is not a valid prop, do you mean `checked`?',
-    );
-  }
+  const [checked, setChecked] = useMergedState<boolean>(false, {
+    value: checkedProp ?? value,
+    defaultValue: defaultCheckedProp ?? defaultValue,
+  });
 
   const { getPrefixCls, direction, switch: SWITCH } = React.useContext(ConfigContext);
 
@@ -81,7 +84,7 @@ const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, ref) => 
   );
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const mergedSize = useSize(customizeSize);
 
@@ -95,14 +98,23 @@ const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, ref) => 
     className,
     rootClassName,
     hashId,
+    cssVarCls,
   );
 
   const mergedStyle: React.CSSProperties = { ...SWITCH?.style, ...style };
 
-  return wrapSSR(
+  const changeHandler: SwitchChangeEventHandler = (...args) => {
+    setChecked(args[0]);
+    onChange?.(...args);
+  };
+
+  return wrapCSSVar(
     <Wave component="Switch">
+      {/* @ts-ignore */}
       <RcSwitch
         {...restProps}
+        checked={checked}
+        onChange={changeHandler as any}
         prefixCls={prefixCls}
         className={classes}
         style={mergedStyle}
@@ -112,7 +124,14 @@ const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, ref) => 
       />
     </Wave>,
   );
-}) as CompoundedComponent;
+});
+
+type CompoundedComponent = typeof InternalSwitch & {
+  /** @internal */
+  __ANT_SWITCH: boolean;
+};
+
+const Switch = InternalSwitch as CompoundedComponent;
 
 Switch.__ANT_SWITCH = true;
 

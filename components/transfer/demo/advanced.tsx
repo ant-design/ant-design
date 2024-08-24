@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Transfer } from 'antd';
-import type { TransferDirection, TransferListProps } from 'antd/es/transfer';
+import type { TransferProps } from 'antd';
 
 interface RecordType {
   key: string;
@@ -11,7 +11,7 @@ interface RecordType {
 
 const App: React.FC = () => {
   const [mockData, setMockData] = useState<RecordType[]>([]);
-  const [targetKeys, setTargetKeys] = useState<string[]>([]);
+  const [targetKeys, setTargetKeys] = useState<TransferProps['targetKeys']>([]);
 
   const getMock = () => {
     const tempTargetKeys = [];
@@ -36,25 +36,28 @@ const App: React.FC = () => {
     getMock();
   }, []);
 
-  const handleChange = (newTargetKeys: string[]) => {
+  const handleChange: TransferProps['onChange'] = (newTargetKeys) => {
     setTargetKeys(newTargetKeys);
   };
 
-  const renderFooter = (
-    _: TransferListProps<any>,
-    { direction }: {
-      direction: TransferDirection;
-    },
-  ) => {
-    if (direction === 'left') {
+  const renderFooter: TransferProps['footer'] = (_, info) => {
+    if (info?.direction === 'left') {
       return (
-        <Button size="small" style={{ float: 'left', margin: 5 }} onClick={getMock}>
+        <Button
+          size="small"
+          style={{ display: 'flex', margin: 8, marginInlineEnd: 'auto' }}
+          onClick={getMock}
+        >
           Left button reload
         </Button>
       );
     }
     return (
-      <Button size="small" style={{ float: 'right', margin: 5 }} onClick={getMock}>
+      <Button
+        size="small"
+        style={{ display: 'flex', margin: 8, marginInlineStart: 'auto' }}
+        onClick={getMock}
+      >
         Right button reload
       </Button>
     );

@@ -1,7 +1,10 @@
 import * as React from 'react';
+
 import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 
-demoTest('input-number');
+demoTest('input-number', {
+  skip: ['debug-token.tsx'],
+});
 
 rootPropsTest(
   'input-number',

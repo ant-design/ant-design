@@ -52,7 +52,7 @@ export interface SiderState {
 
 const generateId = (() => {
   let i = 0;
-  return (prefix: string = '') => {
+  return (prefix = '') => {
     i += 1;
     return `${prefix}${i}`;
   };
@@ -117,10 +117,10 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     if (typeof window !== 'undefined') {
       const { matchMedia } = window;
       if (matchMedia! && breakpoint && breakpoint in dimensionMaxMap) {
-        mql = matchMedia(`(max-width: ${dimensionMaxMap[breakpoint]})`);
+        mql = matchMedia(`screen and (max-width: ${dimensionMaxMap[breakpoint]})`);
         try {
           mql.addEventListener('change', responsiveHandler);
-        } catch (error) {
+        } catch {
           mql.addListener(responsiveHandler);
         }
         responsiveHandler(mql);
@@ -129,7 +129,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     return () => {
       try {
         mql?.removeEventListener('change', responsiveHandler);
-      } catch (error) {
+      } catch {
         mql?.removeListener(responsiveHandler);
       }
     };

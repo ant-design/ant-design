@@ -5,16 +5,19 @@ import PlusOutlined from '@ant-design/icons/PlusOutlined';
 import classNames from 'classnames';
 import type { TabsProps as RcTabsProps } from 'rc-tabs';
 import RcTabs from 'rc-tabs';
-import type { EditableConfig } from 'rc-tabs/lib/interface';
+import type { GetIndicatorSize } from 'rc-tabs/lib/hooks/useIndicator';
+import type { EditableConfig, MoreProps } from 'rc-tabs/lib/interface';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import useAnimateConfig from './hooks/useAnimateConfig';
 import useLegacyItems from './hooks/useLegacyItems';
 import useStyle from './style';
-import TabPane, { type TabPaneProps } from './TabPane';
+import TabPane from './TabPane';
+import type { TabPaneProps } from './TabPane';
 
 export type TabsType = 'line' | 'card' | 'editable-card';
 export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
@@ -28,8 +31,13 @@ export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
   hideAdd?: boolean;
   centered?: boolean;
   addIcon?: React.ReactNode;
+  moreIcon?: React.ReactNode;
+  more?: MoreProps;
+  removeIcon?: React.ReactNode;
   onEdit?: (e: React.MouseEvent | React.KeyboardEvent | string, action: 'add' | 'remove') => void;
   children?: React.ReactNode;
+  /** @deprecated Please use `indicator={{ size: ... }}` instead */
+  indicatorSize?: GetIndicatorSize;
 }
 
 const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
@@ -42,18 +50,23 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
     hideAdd,
     centered,
     addIcon,
+    removeIcon,
+    moreIcon,
+    more,
     popupClassName,
     children,
     items,
     animated,
     style,
     indicatorSize,
+    indicator,
     ...otherProps
   } = props;
-  const { prefixCls: customizePrefixCls, moreIcon = <EllipsisOutlined /> } = otherProps;
+  const { prefixCls: customizePrefixCls } = otherProps;
   const { direction, tabs, getPrefixCls, getPopupContainer } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('tabs', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   let editable: EditableConfig | undefined;
   if (type === 'editable-card') {
@@ -61,8 +74,8 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
       onEdit: (editType, { key, event }) => {
         onEdit?.(editType === 'add' ? event : key!, editType);
       },
-      removeIcon: <CloseOutlined />,
-      addIcon: addIcon || <PlusOutlined />,
+      removeIcon: removeIcon ?? tabs?.removeIcon ?? <CloseOutlined />,
+      addIcon: (addIcon ?? tabs?.addIcon) || <PlusOutlined />,
       showAdd: hideAdd !== true,
     };
   }
@@ -76,21 +89,31 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
       'breaking',
       '`onPrevClick` and `onNextClick` has been removed. Please use `onTabScroll` instead.',
     );
+
+    warning(
+      !(indicatorSize || tabs?.indicatorSize),
+      'deprecated',
+      '`indicatorSize` has been deprecated. Please use `indicator={{ size: ... }}` instead.',
+    );
   }
+
+  const size = useSize(customSize);
 
   const mergedItems = useLegacyItems(items, children);
 
   const mergedAnimated = useAnimateConfig(prefixCls, animated);
 
-  const size = useSize(customSize);
-
   const mergedStyle: React.CSSProperties = { ...tabs?.style, ...style };
 
-  return wrapSSR(
+  const mergedIndicator: TabsProps['indicator'] = {
+    align: indicator?.align ?? tabs?.indicator?.align,
+    size: indicator?.size ?? indicatorSize ?? tabs?.indicator?.size ?? tabs?.indicatorSize,
+  };
+
+  return wrapCSSVar(
     <RcTabs
       direction={direction}
       getPopupContainer={getPopupContainer}
-      moreTransitionName={`${rootPrefixCls}-slide-up`}
       {...otherProps}
       items={mergedItems}
       className={classNames(
@@ -104,14 +127,20 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
         className,
         rootClassName,
         hashId,
+        cssVarCls,
+        rootCls,
       )}
-      popupClassName={classNames(popupClassName, hashId)}
+      popupClassName={classNames(popupClassName, hashId, cssVarCls, rootCls)}
       style={mergedStyle}
       editable={editable}
-      moreIcon={moreIcon}
+      more={{
+        icon: tabs?.more?.icon ?? tabs?.moreIcon ?? moreIcon ?? <EllipsisOutlined />,
+        transitionName: `${rootPrefixCls}-slide-up`,
+        ...more,
+      }}
       prefixCls={prefixCls}
       animated={mergedAnimated}
-      indicatorSize={indicatorSize ?? tabs?.indicatorSize}
+      indicator={mergedIndicator}
     />,
   );
 };

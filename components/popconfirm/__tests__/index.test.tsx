@@ -1,5 +1,6 @@
-import { spyElementPrototype } from 'rc-util/lib/test/domHook';
 import React from 'react';
+import { spyElementPrototype } from 'rc-util/lib/test/domHook';
+
 import Popconfirm from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -7,8 +8,8 @@ import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 
 describe('Popconfirm', () => {
-  mountTest(Popconfirm);
-  rtlTest(Popconfirm);
+  mountTest(Popconfirm as any);
+  rtlTest(Popconfirm as any);
 
   const eventObject = expect.objectContaining({
     target: expect.anything(),
@@ -118,6 +119,38 @@ describe('Popconfirm', () => {
 
     popconfirm.rerender(
       <Popconfirm title="code" open={false}>
+        <span>show me your code</span>
+      </Popconfirm>,
+    );
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(popconfirm.container.querySelector('.ant-popover')).not.toBe(null);
+    jest.useRealTimers();
+  });
+
+  it('should be controlled by visible', () => {
+    jest.useFakeTimers();
+    const popconfirm = render(
+      <Popconfirm title="code">
+        <span>show me your code</span>
+      </Popconfirm>,
+    );
+
+    expect(popconfirm.container.querySelector('.ant-popover')).toBe(null);
+    popconfirm.rerender(
+      <Popconfirm title="code" visible>
+        <span>show me your code</span>
+      </Popconfirm>,
+    );
+
+    expect(popconfirm.container.querySelector('.ant-popover')).not.toBe(null);
+    expect(popconfirm.container.querySelector('.ant-popover')?.className).not.toContain(
+      'ant-popover-hidden',
+    );
+
+    popconfirm.rerender(
+      <Popconfirm title="code" visible={false}>
         <span>show me your code</span>
       </Popconfirm>,
     );
@@ -321,5 +354,16 @@ describe('Popconfirm', () => {
 
     expect(onOpenChange).toHaveBeenCalledTimes(1);
     expect(onVisibleChange).toHaveBeenCalledTimes(1);
+  });
+
+  it('okText & cancelText could be empty', () => {
+    render(
+      <Popconfirm title="" okText="" cancelText="" open>
+        <span />
+      </Popconfirm>,
+    );
+
+    expect(document.body.querySelectorAll('.ant-btn')[0].textContent).toBe('Cancel');
+    expect(document.body.querySelectorAll('.ant-btn')[1].textContent).toBe('OK');
   });
 });

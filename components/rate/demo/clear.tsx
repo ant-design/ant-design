@@ -1,14 +1,17 @@
 import React from 'react';
-import { Rate } from 'antd';
+import { Flex, Rate } from 'antd';
 
 const App: React.FC = () => (
-  <>
-    <Rate defaultValue={3} />
-    <span className="ant-rate-text">allowClear: true</span>
-    <br />
-    <Rate allowClear={false} defaultValue={3} />
-    <span className="ant-rate-text">allowClear: false</span>
-  </>
+  <Flex gap="middle" vertical>
+    <Flex gap="middle">
+      <Rate defaultValue={3} />
+      <span>allowClear: true</span>
+    </Flex>
+    <Flex gap="middle">
+      <Rate defaultValue={3} allowClear={false} />
+      <span>allowClear: false</span>
+    </Flex>
+  </Flex>
 );
 
 export default App;

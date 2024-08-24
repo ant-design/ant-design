@@ -8,6 +8,7 @@ import type { NotificationAPI, NotificationConfig as RcNotificationConfig } from
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { ComponentStyleConfig } from '../config-provider/context';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type {
   ArgsProps,
   ConfigOptions,
@@ -36,11 +37,12 @@ interface HolderRef extends NotificationAPI {
 }
 
 const Wrapper: FC<PropsWithChildren<{ prefixCls: string }>> = ({ children, prefixCls }) => {
-  const [, hashId] = useStyle(prefixCls);
-  return (
-    <NotificationProvider classNames={{ list: hashId, notice: hashId }}>
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  return wrapCSSVar(
+    <NotificationProvider classNames={{ list: classNames(hashId, cssVarCls, rootCls) }}>
       {children}
-    </NotificationProvider>
+    </NotificationProvider>,
   );
 };
 
@@ -64,7 +66,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     transitionName,
     onAllRemoved,
   } = props;
-  const { getPrefixCls, getPopupContainer, message } = React.useContext(ConfigContext);
+  const { getPrefixCls, getPopupContainer, message, direction } = React.useContext(ConfigContext);
 
   const prefixCls = staticPrefixCls || getPrefixCls('message');
 
@@ -75,7 +77,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     top: top ?? DEFAULT_OFFSET,
   });
 
-  const getClassName = () => classNames({ [`${prefixCls}-rtl`]: rtl });
+  const getClassName = () => classNames({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' });
 
   // ============================== Motion ===============================
   const getNotificationMotion = () => getMotion(prefixCls, transitionName);

@@ -1,6 +1,14 @@
+import { unit } from '@ant-design/cssinjs';
+
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
-import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type {
+  AliasToken,
+  FullToken,
+  GenerateStyle,
+  GetDefaultToken,
+  CSSUtil,
+} from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import type { TreeSharedToken } from '../../tree/style';
 import { genTreeStyle, initComponentToken } from '../../tree/style';
 
@@ -22,13 +30,15 @@ const genBaseStyle: GenerateStyle<TreeSelectToken> = (token) => {
     {
       [`${componentCls}-dropdown`]: [
         {
-          padding: `${token.paddingXS}px ${token.paddingXS / 2}px`,
+          padding: `${unit(token.paddingXS)} ${unit(token.calc(token.paddingXS).div(2).equal())}`,
         },
 
         // ====================== Tree ======================
         genTreeStyle(
           treePrefixCls,
-          mergeToken<AliasToken & TreeSharedToken>(token, { colorBgContainer: colorBgElevated }),
+          mergeToken<AliasToken & TreeSharedToken & CSSUtil>(token, {
+            colorBgContainer: colorBgElevated,
+          }),
         ),
         {
           [treeCls]: {
@@ -65,14 +75,20 @@ const genBaseStyle: GenerateStyle<TreeSelectToken> = (token) => {
   ];
 };
 
+export const prepareComponentToken: GetDefaultToken<'TreeSelect'> = initComponentToken;
+
 // ============================== Export ==============================
-export default function useTreeSelectStyle(prefixCls: string, treePrefixCls: string) {
-  return genComponentStyleHook(
+export default function useTreeSelectStyle(
+  prefixCls: string,
+  treePrefixCls: string,
+  rootCls: string,
+) {
+  return genStyleHooks(
     'TreeSelect',
     (token) => {
       const treeSelectToken = mergeToken<TreeSelectToken>(token, { treePrefixCls });
       return [genBaseStyle(treeSelectToken)];
     },
     initComponentToken,
-  )(prefixCls);
+  )(prefixCls, rootCls);
 }

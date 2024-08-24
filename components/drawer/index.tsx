@@ -5,28 +5,29 @@ import RcDrawer from 'rc-drawer';
 import type { Placement } from 'rc-drawer/lib/Drawer';
 import type { CSSMotionProps } from 'rc-motion';
 
+import ContextIsolator from '../_util/ContextIsolator';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
+import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
-import { NoFormStyle } from '../form/context';
-// CSSINJS
-import { NoCompactStyle } from '../space/Compact';
 import { usePanelRef } from '../watermark/context';
 import type { DrawerClassNames, DrawerPanelProps, DrawerStyles } from './DrawerPanel';
 import DrawerPanel from './DrawerPanel';
 import useStyle from './style';
-import zIndexContext from '../_util/zindexContext';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const SizeTypes = ['default', 'large'] as const;
-type sizeType = typeof SizeTypes[number];
+type sizeType = (typeof SizeTypes)[number];
 
 export interface PushState {
   distance: string | number;
 }
 
 // Drawer diff props: 'open' | 'motion' | 'maskMotion' | 'wrapperClassName'
-export interface DrawerProps extends RcDrawerProps, Omit<DrawerPanelProps, 'prefixCls'> {
+export interface DrawerProps
+  extends Omit<RcDrawerProps, 'maskStyle'>,
+    Omit<DrawerPanelProps, 'prefixCls'> {
   size?: sizeType;
 
   open?: boolean;
@@ -65,15 +66,18 @@ const Drawer: React.FC<DrawerProps> & {
     // Deprecated
     visible,
     afterVisibleChange,
+    maskStyle,
+    drawerStyle,
+    contentWrapperStyle,
 
     ...rest
   } = props;
 
   const { getPopupContainer, getPrefixCls, direction, drawer } = React.useContext(ConfigContext);
+
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
 
-  // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const getContainer =
     // 有可能为 false，所以不能直接判断
@@ -88,6 +92,7 @@ const Drawer: React.FC<DrawerProps> & {
     },
     rootClassName,
     hashId,
+    cssVarCls,
   );
 
   // ========================== Warning ===========================
@@ -100,6 +105,9 @@ const Drawer: React.FC<DrawerProps> & {
       ['headerStyle', 'styles.header'],
       ['bodyStyle', 'styles.body'],
       ['footerStyle', 'styles.footer'],
+      ['contentWrapperStyle', 'styles.wrapper'],
+      ['maskStyle', 'styles.mask'],
+      ['drawerStyle', 'styles.content'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
@@ -149,48 +157,57 @@ const Drawer: React.FC<DrawerProps> & {
   const [zIndex, contextZIndex] = useZIndex('Drawer', rest.zIndex);
 
   // =========================== Render ===========================
-  return wrapSSR(
-    <NoCompactStyle>
-      <NoFormStyle status override>
-        <zIndexContext.Provider value={contextZIndex}>
-          <RcDrawer
-            prefixCls={prefixCls}
-            onClose={onClose}
-            maskMotion={maskMotion}
-            motion={panelMotion}
-            {...rest}
-            classNames={{
-              mask: classNames(rest.classNames?.mask, drawer?.classNames?.mask),
-              content: classNames(rest.classNames?.content, drawer?.classNames?.content),
-            }}
-            styles={{
-              mask: {
-                ...rest.styles?.mask,
-                ...drawer?.styles?.mask,
-              },
-              content: {
-                ...rest.styles?.content,
-                ...drawer?.styles?.content,
-              },
-            }}
-            open={open ?? visible}
-            mask={mask}
-            push={push}
-            width={mergedWidth}
-            height={mergedHeight}
-            style={{ ...drawer?.style, ...style }}
-            className={classNames(drawer?.className, className)}
-            rootClassName={drawerClassName}
-            getContainer={getContainer}
-            afterOpenChange={afterOpenChange ?? afterVisibleChange}
-            panelRef={panelRef}
-            zIndex={zIndex}
-          >
-            <DrawerPanel prefixCls={prefixCls} {...rest} onClose={onClose} />
-          </RcDrawer>
-        </zIndexContext.Provider>
-      </NoFormStyle>
-    </NoCompactStyle>,
+  const { classNames: propClassNames = {}, styles: propStyles = {} } = rest;
+  const { classNames: contextClassNames = {}, styles: contextStyles = {} } = drawer || {};
+
+  return wrapCSSVar(
+    <ContextIsolator form space>
+      <zIndexContext.Provider value={contextZIndex}>
+        <RcDrawer
+          prefixCls={prefixCls}
+          onClose={onClose}
+          maskMotion={maskMotion}
+          motion={panelMotion}
+          {...rest}
+          classNames={{
+            mask: classNames(propClassNames.mask, contextClassNames.mask),
+            content: classNames(propClassNames.content, contextClassNames.content),
+            wrapper: classNames(propClassNames.wrapper, contextClassNames.wrapper),
+          }}
+          styles={{
+            mask: {
+              ...propStyles.mask,
+              ...maskStyle,
+              ...contextStyles.mask,
+            },
+            content: {
+              ...propStyles.content,
+              ...drawerStyle,
+              ...contextStyles.content,
+            },
+            wrapper: {
+              ...propStyles.wrapper,
+              ...contentWrapperStyle,
+              ...contextStyles.wrapper,
+            },
+          }}
+          open={open ?? visible}
+          mask={mask}
+          push={push}
+          width={mergedWidth}
+          height={mergedHeight}
+          style={{ ...drawer?.style, ...style }}
+          className={classNames(drawer?.className, className)}
+          rootClassName={drawerClassName}
+          getContainer={getContainer}
+          afterOpenChange={afterOpenChange ?? afterVisibleChange}
+          panelRef={panelRef}
+          zIndex={zIndex}
+        >
+          <DrawerPanel prefixCls={prefixCls} {...rest} onClose={onClose} />
+        </RcDrawer>
+      </zIndexContext.Provider>
+    </ContextIsolator>,
   );
 };
 
@@ -214,18 +231,18 @@ const PurePanel: React.FC<Omit<DrawerPanelProps, 'prefixCls'> & PurePanelInterfa
 
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
 
-  // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const cls = classNames(
     prefixCls,
     `${prefixCls}-pure`,
     `${prefixCls}-${placement}`,
     hashId,
+    cssVarCls,
     className,
   );
 
-  return wrapSSR(
+  return wrapCSSVar(
     <div className={cls} style={style}>
       <DrawerPanel prefixCls={prefixCls} {...restProps} />
     </div>,

@@ -1,13 +1,14 @@
+import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
+
+import { operationUnit } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 import type { TableToken } from './index';
-import { operationUnit } from '../../style';
 
 const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
   const {
     componentCls,
     antCls,
-    controlInteractiveSize: checkboxSize,
     motionDurationSlow,
     lineWidth,
     paddingXS,
@@ -16,19 +17,18 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     tableExpandIconBg,
     tableExpandColumnWidth,
     borderRadius,
-    fontSize,
-    fontSizeSM,
-    lineHeight,
     tablePaddingVertical,
     tablePaddingHorizontal,
     tableExpandedRowBg,
     paddingXXS,
+    expandIconMarginTop,
+    expandIconSize,
+    expandIconHalfInner,
+    expandIconScale,
+    calc,
   } = token;
-  const halfInnerSize = checkboxSize / 2 - lineWidth;
-  // must be odd number, unless it cannot align center
-  const expandIconSize = halfInnerSize * 2 + lineWidth * 3;
-  const tableBorder = `${lineWidth}px ${lineType} ${tableBorderColor}`;
-  const expandIconLineOffset = paddingXXS - lineWidth;
+  const tableBorder = `${unit(lineWidth)} ${lineType} ${tableBorderColor}`;
+  const expandIconLineOffset = calc(paddingXXS).sub(lineWidth).equal();
 
   return {
     [`${componentCls}-wrapper`]: {
@@ -60,19 +60,19 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         height: expandIconSize,
         padding: 0,
         color: 'inherit',
-        lineHeight: `${expandIconSize}px`,
+        lineHeight: unit(expandIconSize),
         background: tableExpandIconBg,
         border: tableBorder,
         borderRadius,
-        transform: `scale(${checkboxSize / expandIconSize})`,
+        transform: `scale(${expandIconScale})`,
         transition: `all ${motionDurationSlow}`,
         userSelect: 'none',
 
-        [`&:focus, &:hover, &:active`]: {
+        '&:focus, &:hover, &:active': {
           borderColor: 'currentcolor',
         },
 
-        [`&::before, &::after`]: {
+        '&::before, &::after': {
           position: 'absolute',
           background: 'currentcolor',
           transition: `transform ${motionDurationSlow} ease-out`,
@@ -80,7 +80,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         },
 
         '&::before': {
-          top: halfInnerSize,
+          top: expandIconHalfInner,
           insetInlineEnd: expandIconLineOffset,
           insetInlineStart: expandIconLineOffset,
           height: lineWidth,
@@ -89,7 +89,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         '&::after': {
           top: expandIconLineOffset,
           bottom: expandIconLineOffset,
-          insetInlineStart: halfInnerSize,
+          insetInlineStart: expandIconHalfInner,
           width: lineWidth,
           transform: 'rotate(90deg)',
         },
@@ -115,15 +115,13 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       },
 
       [`${componentCls}-row-indent + ${componentCls}-row-expand-icon`]: {
-        marginTop:
-          (fontSize * lineHeight - lineWidth * 3) / 2 -
-          Math.ceil((fontSizeSM * 1.4 - lineWidth * 3) / 2),
+        marginTop: expandIconMarginTop,
         marginInlineEnd: paddingXS,
       },
 
       [`tr${componentCls}-expanded-row`]: {
         '&, &:hover': {
-          [`> th, > td`]: {
+          '> th, > td': {
             background: tableExpandedRowBg,
           },
         },
@@ -134,7 +132,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
           table: {
             flex: 'auto',
-            width: 'auto',
+            width: '100%',
           },
         },
       },
@@ -142,8 +140,10 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       // With fixed
       [`${componentCls}-expanded-row-fixed`]: {
         position: 'relative',
-        margin: `-${tablePaddingVertical}px -${tablePaddingHorizontal}px`,
-        padding: `${tablePaddingVertical}px ${tablePaddingHorizontal}px`,
+        margin: `${unit(calc(tablePaddingVertical).mul(-1).equal())} ${unit(
+          calc(tablePaddingHorizontal).mul(-1).equal(),
+        )}`,
+        padding: `${unit(tablePaddingVertical)} ${unit(tablePaddingHorizontal)}`,
       },
     },
   };

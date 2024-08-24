@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react';
 import React, { useEffect } from 'react';
 import { render } from '@testing-library/react';
-import type { MenuProps } from 'antd';
+import type { ImageProps, MenuProps } from 'antd';
 import {
   AutoComplete,
   Cascader,
@@ -9,6 +9,8 @@ import {
   DatePicker,
   Drawer,
   Dropdown,
+  FloatButton,
+  Image,
   Menu,
   Modal,
   Popconfirm,
@@ -24,17 +26,16 @@ import type { ZIndexConsumer, ZIndexContainer } from '../hooks/useZIndex';
 import { consumerBaseZIndexOffset, containerBaseZIndexOffset, useZIndex } from '../hooks/useZIndex';
 import zIndexContext from '../zindexContext';
 
-const WrapWithProvider: React.FC<PropsWithChildren<{ containerType: ZIndexContainer }>> = ({
+const WrapWithProvider: React.FC<PropsWithChildren<{ container: ZIndexContainer }>> = ({
   children,
-  containerType,
+  container,
 }) => {
-  const [, contextZIndex] = useZIndex(containerType);
+  const [, contextZIndex] = useZIndex(container);
   return <zIndexContext.Provider value={contextZIndex}>{children}</zIndexContext.Provider>;
 };
 
-const containerComponent: Record<
-  ZIndexContainer,
-  React.FC<PropsWithChildren<{ rootClassName?: string }>>
+const containerComponent: Partial<
+  Record<ZIndexContainer, React.FC<Readonly<PropsWithChildren<{ rootClassName?: string }>>>>
 > = {
   Modal: ({ children, ...restProps }) => (
     <Modal {...restProps} open>
@@ -62,16 +63,7 @@ const containerComponent: Record<
     </Tooltip>
   ),
   Tour: ({ children, ...restProps }) => (
-    <Tour
-      {...restProps}
-      open
-      steps={[
-        {
-          title: 'cover title',
-          description: children,
-        },
-      ]}
-    />
+    <Tour {...restProps} open steps={[{ title: 'cover title', description: children }]} />
   ),
 };
 
@@ -123,7 +115,9 @@ const items: MenuProps['items'] = [
   },
 ];
 
-const consumerComponent: Record<ZIndexConsumer, React.FC<{ rootClassName: string }>> = {
+const consumerComponent: Partial<
+  Record<ZIndexConsumer, React.FC<Readonly<{ rootClassName: string }>>>
+> = {
   SelectLike: ({ rootClassName, ...props }) => (
     <>
       <Select
@@ -150,6 +144,7 @@ const consumerComponent: Record<ZIndexConsumer, React.FC<{ rootClassName: string
         options={options}
         open
       />
+      <ColorPicker {...props} open rootClassName={`${rootClassName} comp-item comp-ColorPicker`} />
     </>
   ),
   Dropdown: (props) => (
@@ -166,7 +161,6 @@ const consumerComponent: Record<ZIndexConsumer, React.FC<{ rootClassName: string
       <button type="button">test</button>
     </Dropdown>
   ),
-  ColorPicker: (props) => <ColorPicker {...props} open />,
   DatePicker: ({ rootClassName, ...props }) => (
     <>
       <DatePicker {...props} rootClassName={`${rootClassName} comp-item comp-DatePicker`} open />
@@ -178,13 +172,36 @@ const consumerComponent: Record<ZIndexConsumer, React.FC<{ rootClassName: string
     </>
   ),
   Menu: (props) => <Menu {...props} items={items} defaultOpenKeys={['SubMenu']} />,
+  ImagePreview: ({ rootClassName }: ImageProps) => (
+    <>
+      <Image
+        src="xxx"
+        preview={{
+          visible: true,
+          rootClassName: `${rootClassName} comp-item comp-ImagePreview`,
+        }}
+      />
+      <Image.PreviewGroup
+        preview={{
+          visible: true,
+          rootClassName: `${rootClassName} comp-item comp-ImagePreviewGroup`,
+        }}
+      >
+        <Image src="xxx" />
+      </Image.PreviewGroup>
+    </>
+  ),
 };
 
-function getConsumerSelector(baseSelector: string, consumer: ZIndexConsumer): string {
+const getConsumerSelector = (baseSelector: string, consumer: ZIndexConsumer): string => {
   let selector = baseSelector;
   if (consumer === 'SelectLike') {
-    selector = ['Select', 'Cascader', 'TreeSelect', 'AutoComplete']
-      .map((item) => `${baseSelector}.comp-${item}.ant-slide-up`)
+    selector = ['Select', 'Cascader', 'TreeSelect', 'AutoComplete', 'ColorPicker']
+      .map((item) =>
+        item === 'ColorPicker'
+          ? `${baseSelector}.ant-popover-placement-bottomLeft`
+          : `${baseSelector}.comp-${item}.ant-slide-up`,
+      )
       .join(',');
   } else if (consumer === 'DatePicker') {
     selector = ['DatePicker', 'TimePicker']
@@ -192,11 +209,16 @@ function getConsumerSelector(baseSelector: string, consumer: ZIndexConsumer): st
       .join(',');
   } else if (['Menu'].includes(consumer)) {
     selector = `${baseSelector}.ant-menu-submenu-placement-rightTop`;
-  } else if (consumer === 'ColorPicker') {
-    selector = `${baseSelector}.ant-popover-placement-bottomLeft`;
+  } else if (consumer === 'ImagePreview') {
+    selector = ['ImagePreview', 'ImagePreviewGroup']
+      .map(
+        (item) =>
+          `${baseSelector}.comp-${item} .ant-image-preview-wrap, ${baseSelector}.comp-${item}.ant-image-preview-operations-wrapper`,
+      )
+      .join(',');
   }
   return selector;
-}
+};
 
 describe('Test useZIndex hooks', () => {
   beforeEach(() => {
@@ -205,15 +227,14 @@ describe('Test useZIndex hooks', () => {
   afterEach(() => {
     jest.useRealTimers();
   });
-  const containers = Object.keys(containerComponent);
-  const consumers = Object.keys(consumerComponent);
-
-  containers.forEach((containerKey) => {
-    consumers.forEach((key) => {
+  Object.keys(containerComponent).forEach((containerKey) => {
+    Object.keys(consumerComponent).forEach((key) => {
+      const containerZIndexValue = containerBaseZIndexOffset[containerKey as ZIndexContainer];
+      const consumerZIndexValue = consumerBaseZIndexOffset[key as ZIndexConsumer];
       describe(`Test ${key} zIndex in ${containerKey}`, () => {
         it('Test hooks', () => {
           const fn = jest.fn();
-          const Child = () => {
+          const Child: React.FC = () => {
             const [zIndex] = useZIndex(key as ZIndexConsumer);
             useEffect(() => {
               fn(zIndex);
@@ -221,27 +242,27 @@ describe('Test useZIndex hooks', () => {
             return <div>Child</div>;
           };
 
-          const App = () => (
-            <WrapWithProvider containerType={containerKey as ZIndexContainer}>
-              <WrapWithProvider containerType={containerKey as ZIndexContainer}>
-                <WrapWithProvider containerType={containerKey as ZIndexContainer}>
+          const App: React.FC = () => (
+            <WrapWithProvider container={containerKey as ZIndexContainer}>
+              <WrapWithProvider container={containerKey as ZIndexContainer}>
+                <WrapWithProvider container={containerKey as ZIndexContainer}>
                   <Child />
                 </WrapWithProvider>
               </WrapWithProvider>
             </WrapWithProvider>
           );
           render(<App />);
+
           expect(fn).toHaveBeenLastCalledWith(
-            (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 3 +
-              consumerBaseZIndexOffset[key as ZIndexConsumer],
+            1000 + containerZIndexValue * 3 + consumerZIndexValue,
           );
         });
 
         it('Test Component', async () => {
-          const Container = containerComponent[containerKey as ZIndexContainer];
-          const Consumer = consumerComponent[key as ZIndexConsumer];
+          const Container = containerComponent[containerKey as ZIndexContainer]!;
+          const Consumer = consumerComponent[key as ZIndexConsumer]!;
 
-          const App = () => (
+          const App: React.FC = () => (
             <>
               <Consumer rootClassName="consumer1" />
               <Container rootClassName="container1">
@@ -261,60 +282,117 @@ describe('Test useZIndex hooks', () => {
           const selector2 = getConsumerSelector('.consumer2', key as ZIndexConsumer);
           const selector3 = getConsumerSelector('.consumer3', key as ZIndexConsumer);
 
-          if (['SelectLike', 'DatePicker'].includes(key)) {
-            let comps = document.querySelectorAll(selector1);
+          if (['SelectLike', 'DatePicker', 'ImagePreview'].includes(key)) {
+            let comps = document.querySelectorAll<HTMLElement>(selector1);
             comps.forEach((comp) => {
-              expect((comp as HTMLDivElement).style.zIndex).toBeFalsy();
+              expect(comp?.style.zIndex).toBeFalsy();
             });
-            comps = document.querySelectorAll(selector2);
+            comps = document.querySelectorAll<HTMLElement>(selector2);
             comps.forEach((comp) => {
-              expect((comp as HTMLDivElement).style.zIndex).toBe(
-                String(
-                  1000 +
-                    containerBaseZIndexOffset[containerKey as ZIndexContainer] +
-                    consumerBaseZIndexOffset[key as ZIndexConsumer],
-                ),
+              const isColorPicker = comp?.className.includes('comp-ColorPicker');
+              const consumerOffset = isColorPicker
+                ? containerBaseZIndexOffset.Popover
+                : consumerZIndexValue;
+              const operOffset = comp.classList.contains('ant-image-preview-operations-wrapper')
+                ? 1
+                : 0;
+              expect(comp?.style.zIndex).toBe(
+                String(1000 + containerZIndexValue + consumerOffset + operOffset),
               );
             });
 
-            comps = document.querySelectorAll(selector3);
+            comps = document.querySelectorAll<HTMLElement>(selector3);
             comps.forEach((comp) => {
-              expect((comp as HTMLDivElement).style.zIndex).toBe(
-                String(
-                  (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 2 +
-                    consumerBaseZIndexOffset[key as ZIndexConsumer],
-                ),
+              const isColorPicker = comp?.className.includes('comp-ColorPicker');
+              const consumerOffset = isColorPicker
+                ? containerBaseZIndexOffset.Popover
+                : consumerZIndexValue;
+              const operOffset = comp.classList.contains('ant-image-preview-operations-wrapper')
+                ? 1
+                : 0;
+              expect(comp?.style.zIndex).toBe(
+                String(1000 + containerZIndexValue * 2 + consumerOffset + operOffset),
               );
             });
           } else {
-            if (key === 'Tour') {
-              expect((document.querySelector(selector1) as HTMLDivElement).style.zIndex).toBe(
-                '1001',
-              );
-            } else {
-              expect(
-                (document.querySelector(selector1) as HTMLDivElement).style.zIndex,
-              ).toBeFalsy();
-            }
-            expect((document.querySelector(selector2) as HTMLDivElement).style.zIndex).toBe(
-              String(
-                1000 +
-                  containerBaseZIndexOffset[containerKey as ZIndexContainer] +
-                  consumerBaseZIndexOffset[key as ZIndexConsumer],
-              ),
+            const element1 = document.querySelector<HTMLElement>(selector1);
+            const element2 = document.querySelector<HTMLElement>(selector2);
+            const element3 = document.querySelector<HTMLElement>(selector3);
+            expect(element1?.style.zIndex).toBe(key === 'Tour' ? '1001' : '');
+            expect(element2?.style.zIndex).toBe(
+              String(1000 + containerZIndexValue + consumerZIndexValue),
             );
-
-            expect((document.querySelector(selector3) as HTMLDivElement).style.zIndex).toBe(
-              String(
-                (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 2 +
-                  consumerBaseZIndexOffset[key as ZIndexConsumer],
-              ),
+            expect(element3?.style.zIndex).toBe(
+              String(1000 + containerZIndexValue * 2 + consumerZIndexValue),
             );
           }
-
           unmount();
-        }, 15000);
+        }, 20000);
       });
     });
+  });
+
+  it('Modal static func should always use max zIndex', async () => {
+    jest.useFakeTimers();
+
+    const instance = Modal.confirm({
+      title: 'bamboo',
+      content: <Select open />,
+    });
+
+    await waitFakeTimer();
+
+    expect(document.querySelector('.ant-modal-wrap')).toHaveStyle({
+      zIndex: '2000',
+    });
+
+    expect(document.querySelector('.ant-select-dropdown')).toHaveStyle({
+      zIndex: '2050',
+    });
+
+    instance.destroy();
+
+    await waitFakeTimer();
+
+    // Clean up for static method
+    document.body.innerHTML = '';
+
+    jest.useRealTimers();
+  });
+
+  it('warning for too large zIndex auto offset', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    render(
+      <Drawer open zIndex={999999999}>
+        <Tooltip open title="test">
+          <div>test</div>
+        </Tooltip>
+      </Drawer>,
+    );
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Tooltip] `zIndex` is over design token `zIndexPopupBase` too much. It may cause unexpected override.',
+    );
+
+    errorSpy.mockRestore();
+  });
+
+  it('FloatButton support zIndex', () => {
+    const { container, rerender } = render(
+      <WrapWithProvider container="FloatButton">
+        <FloatButton />
+      </WrapWithProvider>,
+    );
+    expect(container.querySelector<HTMLElement>('.ant-float-btn')?.style.zIndex).toBe(
+      // parentZIndex + containerBaseZIndexOffset["FloatButton"]
+      String(1100 + containerBaseZIndexOffset.FloatButton),
+    );
+    rerender(
+      <WrapWithProvider container="FloatButton">
+        <FloatButton style={{ zIndex: 666 }} />
+      </WrapWithProvider>,
+    );
+    expect(container.querySelector<HTMLElement>('.ant-float-btn')?.style.zIndex).toBe(String(666));
   });
 });

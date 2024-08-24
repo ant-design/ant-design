@@ -2,18 +2,17 @@
 
 exports[`WeekPicker should support style prop 1`] = `
 <div
-  class="ant-picker"
+  class="ant-picker ant-picker-outlined"
   style="width: 400px;"
 >
   <div
     class="ant-picker-input"
   >
     <input
+      aria-invalid="false"
       autocomplete="off"
       placeholder="Select week"
-      readonly=""
       size="12"
-      title=""
       value=""
     />
     <span

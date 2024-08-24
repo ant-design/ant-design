@@ -1,15 +1,14 @@
 ---
 category: Components
-subtitle: 上传
 group: 数据录入
 title: Upload
+subtitle: 上传
+description: 文件选择上传和拖拽上传控件。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*93ymR4RD4S0AAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*l1nlSryXib8AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-文件选择上传和拖拽上传控件。
 
 ## 何时使用
 
@@ -38,11 +37,12 @@ demo:
 <code src="./demo/transform-file.tsx">上传前转换文件</code>
 <code src="./demo/upload-with-aliyun-oss.tsx">阿里云 OSS</code>
 <code src="./demo/file-type.tsx" debug>自定义显示 icon</code>
-<code src="./demo/upload-custom-action-icon.tsx">自定义交互图标</code>
+<code src="./demo/upload-custom-action-icon.tsx">自定义交互图标和文件信息</code>
 <code src="./demo/drag-sorting.tsx">上传列表拖拽排序</code>
 <code src="./demo/crop-image.tsx">上传前裁切图片</code>
 <code src="./demo/customize-progress-bar.tsx">自定义进度条样式</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
+<code src="./demo/debug-disabled.tsx" debug>Debug Disabled Styles</code>
 
 ## API
 
@@ -57,7 +57,7 @@ demo:
 | data | 上传所需额外参数或返回上传额外参数的方法 | object\|(file) => object \| Promise&lt;object> | - |  |
 | defaultFileList | 默认已经上传的文件列表 | object\[] | - |  |
 | directory | 支持上传文件夹（[caniuse](https://caniuse.com/#feat=input-file-directory)） | boolean | false |  |
-| disabled | 是否禁用 | boolean | false |  |
+| disabled | 是否禁用 | boolean | false | 对于自定义 Upload children 时请将 disabled 属性同时传给 child node 确保 disabled 渲染效果保持一致 |
 | fileList | 已经上传的文件列表（受控），使用此参数时，如果遇到 `onChange` 只调用一次的问题，请参考 [#2423](https://github.com/ant-design/ant-design/issues/2423) | [UploadFile](#uploadfile)\[] | - |  |
 | headers | 设置上传的请求头部，IE10 以上有效 | object | - |  |
 | iconRender | 自定义显示 icon | (file: UploadFile, listType?: UploadListType) => ReactNode | - |  |
@@ -71,7 +71,7 @@ demo:
 | openFileDialogOnClick | 点击打开文件对话框 | boolean | true |  |
 | previewFile | 自定义文件预览逻辑 | (file: File \| Blob) => Promise&lt;dataURL: string> | - |  |
 | progress | 自定义进度条样式 | [ProgressProps](/components/progress-cn#api)（仅支持 `type="line"`） | { strokeWidth: 2, showInfo: false } | 4.3.0 |
-| showUploadList | 是否展示文件列表, 可设为一个对象，用于单独设定 `showPreviewIcon`, `showRemoveIcon`, `showDownloadIcon`, `removeIcon` 和 `downloadIcon` | boolean \| { showPreviewIcon?: boolean, showRemoveIcon?: boolean, showDownloadIcon?: boolean, previewIcon?: ReactNode \| (file: UploadFile) => ReactNode, removeIcon?: ReactNode \| (file: UploadFile) => ReactNode, downloadIcon?: ReactNode \| (file: UploadFile) => ReactNode } | true | function: 4.7.0 |
+| showUploadList | 是否展示文件列表, 可设为一个对象，用于单独设定 `extra`(5.20.0+), `showPreviewIcon`, `showRemoveIcon`, `showDownloadIcon`, `removeIcon` 和 `downloadIcon` | boolean \| { extra?: ReactNode \| (file: UploadFile) => ReactNode, showPreviewIcon?: boolean \| (file: UploadFile) => boolean, showDownloadIcon?: boolean \| (file: UploadFile) => boolean, showRemoveIcon?: boolean \| (file: UploadFile) => boolean, previewIcon?: ReactNode \| (file: UploadFile) => ReactNode, removeIcon?: ReactNode \| (file: UploadFile) => ReactNode, downloadIcon?: ReactNode \| (file: UploadFile) => ReactNode } | true | `extra`: 5.20.0, `showPreviewIcon` function: 5.21.0, `showRemoveIcon` function: 5.21.0, `showDownloadIcon` function: 5.21.0 |
 | withCredentials | 上传请求时是否携带 cookie | boolean | false |  |
 | onChange | 上传文件改变时的回调，上传每个阶段都会触发该事件。详见 [onChange](#onchange) | function | - |  |
 | onDrop | 当文件被拖入上传区域时执行的回调功能 | (event: React.DragEvent) => void | - | 4.16.0 |
@@ -132,7 +132,7 @@ demo:
 ### 服务端如何实现？
 
 - 服务端上传接口实现可以参考 [jQuery-File-Upload](https://github.com/blueimp/jQuery-File-Upload/wiki#server-side)。
-- 如果要做本地 mock 可以参考这个 [express 的例子](https://github.com/react-component/upload/blob/master/server.js)。
+- 如果要做本地 mock 可以参考这个 [express 的例子](https://github.com/react-component/upload/blob/211979fdaa2c7896b6496df7061a0cfc0fc5434e/server.js)。
 
 ### 如何显示下载链接？
 
@@ -154,8 +154,11 @@ demo:
 
 与 `antd` 无关，原生上传也会失败。请重启 `Chrome` 浏览器，让其完成升级工作。
 
+<img alt="点击 Chrome 重启启动按钮" src="https://github.com/ant-design/ant-design/assets/507615/1509b25f-4cd3-41b2-9415-90394ad08273" width="800" />
+
 相关 `issue`：
 
+- [#48007](https://github.com/ant-design/ant-design/issues/48007)
 - [#32672](https://github.com/ant-design/ant-design/issues/32672)
 - [#32913](https://github.com/ant-design/ant-design/issues/32913)
 - [#33988](https://github.com/ant-design/ant-design/issues/33988)

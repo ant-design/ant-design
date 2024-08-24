@@ -5,7 +5,7 @@ import { useCacheToken } from '@ant-design/cssinjs';
 import version from '../version';
 import type { DesignTokenProviderProps } from './context';
 import { defaultTheme, DesignTokenContext } from './context';
-import type { AliasToken, GlobalToken, MapToken, SeedToken } from './interface';
+import type { AliasToken, GlobalToken, SeedToken } from './interface';
 import defaultSeedToken from './themes/seed';
 import formatToken from './util/alias';
 
@@ -24,6 +24,7 @@ export const unitless: {
   fontWeightStrong: true,
   zIndexPopupBase: true,
   zIndexBase: true,
+  opacityImage: true,
 };
 
 export const ignore: {
@@ -42,6 +43,28 @@ export const ignore: {
   sizeStep: true,
   motionBase: true,
   motionUnit: true,
+};
+
+const preserve: {
+  [key in keyof AliasToken]?: boolean;
+} = {
+  screenXS: true,
+  screenXSMin: true,
+  screenXSMax: true,
+  screenSM: true,
+  screenSMMin: true,
+  screenSMMax: true,
+  screenMD: true,
+  screenMDMin: true,
+  screenMDMax: true,
+  screenLG: true,
+  screenLGMin: true,
+  screenLGMax: true,
+  screenXL: true,
+  screenXLMin: true,
+  screenXLMax: true,
+  screenXXL: true,
+  screenXXLMin: true,
 };
 
 export const getComputedToken = (
@@ -89,7 +112,7 @@ export const getComputedToken = (
 
 // ================================== Hook ==================================
 export default function useToken(): [
-  theme: Theme<SeedToken, MapToken>,
+  theme: Theme<SeedToken, AliasToken>,
   token: GlobalToken,
   hashId: string,
   realToken: GlobalToken,
@@ -122,6 +145,7 @@ export default function useToken(): [
         key: cssVar.key,
         unitless,
         ignore,
+        preserve,
       },
     },
   );

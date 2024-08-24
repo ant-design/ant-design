@@ -1,4 +1,6 @@
+import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
@@ -11,13 +13,13 @@ const genStepsLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token
         overflow: 'visible',
 
         '&-tail': {
-          marginInlineStart: iconSize / 2 + token.controlHeightLG,
-          padding: `${token.paddingXXS}px ${token.paddingLG}px`,
+          marginInlineStart: token.calc(iconSize).div(2).add(token.controlHeightLG).equal(),
+          padding: `0 ${unit(token.paddingLG)}`,
         },
 
         '&-content': {
           display: 'block',
-          width: (iconSize / 2 + token.controlHeightLG) * 2,
+          width: token.calc(iconSize).div(2).add(token.controlHeightLG).mul(2).equal(),
           marginTop: token.marginSM,
           textAlign: 'center',
         },
@@ -46,7 +48,12 @@ const genStepsLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token
       [`&${componentCls}-small:not(${componentCls}-dot)`]: {
         [`${componentCls}-item`]: {
           '&-icon': {
-            marginInlineStart: token.controlHeightLG + (iconSize - iconSizeSM) / 2,
+            marginInlineStart: token
+              .calc(iconSize)
+              .sub(iconSizeSM)
+              .div(2)
+              .add(token.controlHeightLG)
+              .equal(),
           },
         },
       },

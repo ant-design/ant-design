@@ -1,5 +1,6 @@
-import classNames from 'classnames';
 import * as React from 'react';
+import classNames from 'classnames';
+
 import { ConfigContext } from '../config-provider';
 import type { AvatarProps } from './Avatar';
 import SkeletonAvatar from './Avatar';
@@ -10,10 +11,9 @@ import SkeletonInput from './Input';
 import SkeletonNode from './Node';
 import type { SkeletonParagraphProps } from './Paragraph';
 import Paragraph from './Paragraph';
+import useStyle from './style';
 import type { SkeletonTitleProps } from './Title';
 import Title from './Title';
-
-import useStyle from './style';
 
 /* This only for skeleton internal. */
 type SkeletonAvatarProps = Omit<AvatarProps, 'active'>;
@@ -32,7 +32,7 @@ export interface SkeletonProps {
   round?: boolean;
 }
 
-function getComponentProps<T>(prop?: T | boolean): T | {} {
+function getComponentProps<T>(prop?: T | boolean): T | Record<string, string> {
   if (prop && typeof prop === 'object') {
     return prop;
   }
@@ -103,7 +103,7 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
 
   const { getPrefixCls, direction, skeleton } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   if (loading || !('loading' in props)) {
     const hasAvatar = !!avatar;
@@ -172,16 +172,17 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
       className,
       rootClassName,
       hashId,
+      cssVarCls,
     );
 
-    return wrapSSR(
+    return wrapCSSVar(
       <div className={cls} style={{ ...skeleton?.style, ...style }}>
         {avatarNode}
         {contentNode}
       </div>,
     );
   }
-  return typeof children !== 'undefined' ? (children as React.ReactElement) : null;
+  return children ?? null;
 };
 
 Skeleton.Button = SkeletonButton;

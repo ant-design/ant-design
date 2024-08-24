@@ -2,13 +2,12 @@
 category: Components
 group: Data Entry
 title: InputNumber
+description: Enter a number within certain range with the mouse or keyboard.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JvWbSYhuNlIAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*1uH-R5kLAMIAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-Enter a number within certain range with the mouse or keyboard.
 
 ## When To Use
 
@@ -24,9 +23,11 @@ When a numeric value needs to be provided.
 <code src="./demo/digit.tsx">High precision decimals</code>
 <code src="./demo/formatter.tsx">Formatter</code>
 <code src="./demo/keyboard.tsx">Keyboard</code>
-<code src="./demo/borderless.tsx">Borderless</code>
+<code src="./demo/change-on-wheel.tsx" version="5.14.0">Wheel</code>
+<code src="./demo/variant.tsx" version="5.13.0">Variants</code>
+<code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
 <code src="./demo/out-of-range.tsx">Out of range</code>
-<code src="./demo/prefix.tsx">Prefix</code>
+<code src="./demo/presuffix.tsx">Prefix / Suffix</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/controls.tsx" debug>Icon</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
@@ -41,8 +42,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | addonAfter | The label text displayed after (on the right side of) the input field | ReactNode | - |  |
 | addonBefore | The label text displayed before (on the left side of) the input field | ReactNode | - |  |
 | autoFocus | If get focus when component mounted | boolean | false | - |
-| bordered | Whether has border style | boolean | true | 4.12.0 |
 | changeOnBlur | Trigger `onChange` when blur. e.g. reset value in range by blur | boolean | true | 5.11.0 |
+| changeOnWheel | Allow control with mouse wheel | boolean | - | 5.14.0 |
 | controls | Whether to show `+-` controls, or set custom arrows icon | boolean \| { upIcon?: React.ReactNode; downIcon?: React.ReactNode; } | - | 4.19.0 |
 | decimalSeparator | Decimal separator | string | - | - |
 | placeholder | placeholder | string | - |  |
@@ -57,20 +58,23 @@ Common props ref：[Common props](/docs/react/common-props)
 | readOnly | If readonly the input | boolean | false | - |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | prefix | The prefix icon for the Input | ReactNode | - | 4.17.0 |
+| suffix | The suffix icon for the Input | ReactNode | - | 5.20.0 |
 | size | The height of input box | `large` \| `middle` \| `small` | - | - |
 | step | The number to which the current value is increased or decreased. It can be an integer or decimal | number \| string | 1 | - |
 | stringMode | Set value as string to support high precision decimals. Will return string value by `onChange` | boolean | false | 4.13.0 |
 | value | The current value | number | - | - |
+| variant | Variants of Input | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | onChange | The callback triggered when the value is changed | function(value: number \| string \| null) | - | - |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - | - |
 | onStep | The callback function that is triggered when click up or down buttons | (value: number, info: { offset: number, type: 'up' \| 'down' }) => void | - | 4.7.0 |
 
-## Methods
+## Ref
 
-| Name    | Description  |
-| ------- | ------------ |
-| blur()  | Remove focus |
-| focus() | Get focus    |
+| Name          | Description            | Version |
+| ------------- | ---------------------- | ------- |
+| blur()        | Remove focus           |         |
+| focus()       | Get focus              |         |
+| nativeElement | The native DOM element | 5.17.3  |
 
 ## Design Token
 
@@ -93,3 +97,9 @@ Developer handle data by their own in control. It will make data out of sync if 
 ### Why `onBlur` or other event can not get correct value?
 
 InputNumber's value is wrapped by internal logic. The `event.target.value` you get from `onBlur` or other event is the DOM element's `value` instead of the actual value of InputNumber. For example, if you change the display format through `formatter` or `decimalSeparator`, you will get the formatted string in the DOM. You should always get the current value through `onChange`.
+
+### Why `changeOnWheel` unable to control whether the mouse scroll wheel changes value?
+
+> The use of the `type` attribute is deprecated
+
+The InputNumber component allows you to use all the attributes of the input element and ultimately pass them to the input element, This attribute will also be added to the input element when you pass in `type='number'`, which will cause the input element to trigger native properties (allowing the mouse wheel to change the value), As a result `changeOnWheel` cannot control whether the mouse wheel changes the value.

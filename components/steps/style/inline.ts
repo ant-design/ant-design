@@ -1,10 +1,12 @@
+import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
 const genStepsInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const { componentCls, inlineDotSize, inlineTitleColor, inlineTailColor } = token;
-  const containerPaddingTop = token.paddingXS + token.lineWidth;
+  const containerPaddingTop = token.calc(token.paddingXS).add(token.lineWidth).equal();
   const titleStyle = {
     [`${componentCls}-item-container ${componentCls}-item-content ${componentCls}-item-title`]: {
       color: inlineTitleColor,
@@ -20,15 +22,15 @@ const genStepsInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         flex: 'none',
 
         '&-container': {
-          padding: `${containerPaddingTop}px ${token.paddingXXS}px 0`,
-          margin: `0 ${token.marginXXS / 2}px`,
+          padding: `${unit(containerPaddingTop)} ${unit(token.paddingXXS)} 0`,
+          margin: `0 ${unit(token.calc(token.marginXXS).div(2).equal())}`,
           borderRadius: token.borderRadiusSM,
           cursor: 'pointer',
           transition: `background-color ${token.motionDurationMid}`,
           '&:hover': {
             background: token.controlItemBgHover,
           },
-          [`&[role='button']:hover`]: {
+          "&[role='button']:hover": {
             opacity: 1,
           },
         },
@@ -36,25 +38,28 @@ const genStepsInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         '&-icon': {
           width: inlineDotSize,
           height: inlineDotSize,
-          marginInlineStart: `calc(50% - ${inlineDotSize / 2}px)`,
+          marginInlineStart: `calc(50% - ${unit(token.calc(inlineDotSize).div(2).equal())})`,
           [`> ${componentCls}-icon`]: {
             top: 0,
           },
           [`${componentCls}-icon-dot`]: {
-            borderRadius: token.fontSizeSM / 4,
+            borderRadius: token.calc(token.fontSizeSM).div(4).equal(),
+            '&::after': {
+              display: 'none',
+            },
           },
         },
 
         '&-content': {
           width: 'auto',
-          marginTop: token.marginXS - token.lineWidth,
+          marginTop: token.calc(token.marginXS).sub(token.lineWidth).equal(),
         },
         '&-title': {
           color: inlineTitleColor,
           fontSize: token.fontSizeSM,
           lineHeight: token.lineHeightSM,
           fontWeight: 'normal',
-          marginBottom: token.marginXXS / 2,
+          marginBottom: token.calc(token.marginXXS).div(2).equal(),
         },
         '&-description': {
           display: 'none',
@@ -62,7 +67,7 @@ const genStepsInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
         '&-tail': {
           marginInlineStart: 0,
-          top: containerPaddingTop + inlineDotSize / 2,
+          top: token.calc(inlineDotSize).div(2).add(containerPaddingTop).equal(),
           transform: `translateY(-50%)`,
           '&:after': {
             width: '100%',
@@ -85,7 +90,7 @@ const genStepsInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         '&-wait': {
           [`${componentCls}-item-icon ${componentCls}-icon ${componentCls}-icon-dot`]: {
             backgroundColor: token.colorBorderBg,
-            border: `${token.lineWidth}px ${token.lineType} ${inlineTailColor}`,
+            border: `${unit(token.lineWidth)} ${token.lineType} ${inlineTailColor}`,
           },
           ...titleStyle,
         },
@@ -95,7 +100,7 @@ const genStepsInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           },
           [`${componentCls}-item-icon ${componentCls}-icon ${componentCls}-icon-dot`]: {
             backgroundColor: inlineTailColor,
-            border: `${token.lineWidth}px ${token.lineType} ${inlineTailColor}`,
+            border: `${unit(token.lineWidth)} ${token.lineType} ${inlineTailColor}`,
           },
           ...titleStyle,
         },
@@ -104,7 +109,7 @@ const genStepsInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           [`${componentCls}-item-icon`]: {
             width: inlineDotSize,
             height: inlineDotSize,
-            marginInlineStart: `calc(50% - ${inlineDotSize / 2}px)`,
+            marginInlineStart: `calc(50% - ${unit(token.calc(inlineDotSize).div(2).equal())})`,
             top: 0,
           },
           ...titleStyle,

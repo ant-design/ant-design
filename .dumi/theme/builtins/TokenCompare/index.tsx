@@ -1,10 +1,11 @@
 // 用于 color.md 中的颜色对比
 import React from 'react';
-import classNames from 'classnames';
 import { TinyColor } from '@ctrl/tinycolor';
+import { Flex, theme } from 'antd';
 import { createStyles } from 'antd-style';
 import tokenMeta from 'antd/es/version/token-meta.json';
-import { Space, theme } from 'antd';
+import classNames from 'classnames';
+
 import useLocale from '../../../hooks/useLocale';
 
 const useStyle = createStyles(({ token, css }) => {
@@ -29,7 +30,7 @@ const useStyle = createStyles(({ token, css }) => {
       display: flex;
       align-items: center;
       justify-content: center;
-      color: rgba(0,0,0,0.88);
+      color: rgba(0, 0, 0, 0.88);
       border-right: 1px solid rgba(0, 0, 0, 0.1);
     `,
 
@@ -61,33 +62,30 @@ interface ColorCircleProps {
   color?: string;
 }
 
-function ColorCircle({ color }: ColorCircleProps) {
+const ColorCircle: React.FC<ColorCircleProps> = ({ color }) => {
   const { styles } = useStyle();
-
   return (
-    <Space size={4}>
+    <Flex align="center" gap={4}>
       <div className={styles.dot} style={{ background: color }} />
       <div className={styles.dotColor}>{color}</div>
-    </Space>
+    </Flex>
   );
-}
+};
 
 export interface TokenCompareProps {
   tokenNames?: string;
 }
 
-export default function TokenCompare(props: TokenCompareProps) {
+const TokenCompare: React.FC<TokenCompareProps> = (props) => {
   const { tokenNames = '' } = props;
-  const [, lang] = useLocale({});
+  const [, lang] = useLocale();
   const { styles } = useStyle();
 
   const tokenList = React.useMemo(() => {
     const list = tokenNames.split('|');
 
     const lightTokens = theme.getDesignToken();
-    const darkTokens = theme.getDesignToken({
-      algorithm: theme.darkAlgorithm,
-    });
+    const darkTokens = theme.getDesignToken({ algorithm: theme.darkAlgorithm });
 
     return list.map((tokenName) => {
       const meta = tokenMeta.global[tokenName];
@@ -116,4 +114,6 @@ export default function TokenCompare(props: TokenCompareProps) {
       ))}
     </div>
   );
-}
+};
+
+export default TokenCompare;

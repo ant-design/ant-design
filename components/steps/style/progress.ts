@@ -1,45 +1,61 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
 const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { antCls, componentCls } = token;
+  const {
+    antCls,
+    componentCls,
+    iconSize,
+    iconSizeSM,
+    processIconColor,
+    marginXXS,
+    lineWidthBold,
+    lineWidth,
+    paddingXXS,
+  } = token;
+
+  const progressSize = token.calc(iconSize).add(token.calc(lineWidthBold).mul(4).equal()).equal();
+  const progressSizeSM = token
+    .calc(iconSizeSM)
+    .add(token.calc(token.lineWidth).mul(4).equal())
+    .equal();
 
   return {
     [`&${componentCls}-with-progress`]: {
       [`${componentCls}-item`]: {
-        paddingTop: token.paddingXXS,
+        paddingTop: paddingXXS,
 
         [`&-process ${componentCls}-item-container ${componentCls}-item-icon ${componentCls}-icon`]:
           {
-            color: token.processIconColor,
+            color: processIconColor,
           },
       },
 
       [`&${componentCls}-vertical > ${componentCls}-item `]: {
-        paddingInlineStart: token.paddingXXS,
+        paddingInlineStart: paddingXXS,
         [`> ${componentCls}-item-container > ${componentCls}-item-tail`]: {
-          top: token.marginXXS,
-          insetInlineStart: token.iconSize / 2 - token.lineWidth + token.paddingXXS,
+          top: marginXXS,
+          insetInlineStart: token.calc(iconSize).div(2).sub(lineWidth).add(paddingXXS).equal(),
         },
       },
 
       [`&, &${componentCls}-small`]: {
         [`&${componentCls}-horizontal ${componentCls}-item:first-child`]: {
-          paddingBottom: token.paddingXXS,
-          paddingInlineStart: token.paddingXXS,
+          paddingBottom: paddingXXS,
+          paddingInlineStart: paddingXXS,
         },
       },
 
       [`&${componentCls}-small${componentCls}-vertical > ${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-tail`]:
         {
-          insetInlineStart: token.iconSizeSM / 2 - token.lineWidth + token.paddingXXS,
+          insetInlineStart: token.calc(iconSizeSM).div(2).sub(lineWidth).add(paddingXXS).equal(),
         },
 
-      [`&${componentCls}-label-vertical`]: {
-        [`${componentCls}-item ${componentCls}-item-tail`]: {
-          top: token.margin - 2 * token.lineWidth,
-        },
+      [`&${componentCls}-label-vertical ${componentCls}-item ${componentCls}-item-tail`]: {
+        top: token.calc(iconSize).div(2).add(paddingXXS).equal(),
       },
 
       [`${componentCls}-item-icon`]: {
@@ -47,8 +63,26 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
         [`${antCls}-progress`]: {
           position: 'absolute',
-          insetBlockStart: (token.iconSize - token.stepsProgressSize - token.lineWidth * 2) / 2,
-          insetInlineStart: (token.iconSize - token.stepsProgressSize - token.lineWidth * 2) / 2,
+          insetInlineStart: '50%',
+          top: '50%',
+          transform: 'translate(-50%, -50%)',
+
+          '&-inner': {
+            width: `${unit(progressSize)} !important`,
+            height: `${unit(progressSize)} !important`,
+          },
+        },
+      },
+
+      // ============================== Small size ==============================
+      [`&${componentCls}-small`]: {
+        [`&${componentCls}-label-vertical ${componentCls}-item ${componentCls}-item-tail`]: {
+          top: token.calc(iconSizeSM).div(2).add(paddingXXS).equal(),
+        },
+
+        [`${componentCls}-item-icon ${antCls}-progress-inner`]: {
+          width: `${unit(progressSizeSM)} !important`,
+          height: `${unit(progressSizeSM)} !important`,
         },
       },
     },

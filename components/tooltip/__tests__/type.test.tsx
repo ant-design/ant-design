@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import Tooltip from '..';
 
 describe('Tooltip.typescript', () => {

@@ -1,15 +1,18 @@
-import { DownOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
+import { DownOutlined } from '@ant-design/icons';
 import { ColorPicker, Space } from 'antd';
 
 const Demo = () => {
   const [open, setOpen] = useState(false);
-
   return (
     <Space direction="vertical">
-      <ColorPicker showText />
-      <ColorPicker showText={(color) => <span>Custom Text ({color.toHexString()})</span>} />
+      <ColorPicker defaultValue="#1677ff" showText allowClear />
       <ColorPicker
+        defaultValue="#1677ff"
+        showText={(color) => <span>Custom Text ({color.toHexString()})</span>}
+      />
+      <ColorPicker
+        defaultValue="#1677ff"
         open={open}
         onOpenChange={setOpen}
         showText={() => (

@@ -1,11 +1,12 @@
 import React from 'react';
+
 import type { UploadFile, UploadProps } from '..';
 import Upload from '..';
 import { act, fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
 import type { FormInstance } from '../../form';
 import Form from '../../form';
-import UploadList from '../UploadList';
 import type { UploadListProps, UploadLocale } from '../interface';
+import UploadList from '../UploadList';
 import { previewImage } from '../utils';
 import { setup, teardown } from './mock';
 import { errorRequest, successRequest } from './requests';
@@ -73,7 +74,9 @@ describe('Upload List', () => {
     mockWidthGet.mockImplementation(() => size.width);
     mockHeightGet.mockImplementation(() => size.height);
     mockSrcSet.mockImplementation(function fn() {
+      // @ts-ignore
       if (this.onload) {
+        // @ts-ignore
         this.onload();
       }
     });
@@ -161,6 +164,7 @@ describe('Upload List', () => {
 
   it('should be uploading when upload a file', async () => {
     const done = jest.fn();
+    // biome-ignore lint/style/useConst: test only
     let wrapper: ReturnType<typeof render>;
     let latestFileList: UploadFile<any>[] | null = null;
     const onChange: UploadProps['onChange'] = async ({ file, fileList: eventFileList }) => {
@@ -579,6 +583,74 @@ describe('Upload List', () => {
     unmount();
   });
 
+  // https://github.com/ant-design/ant-design/issues/27519
+  // https://github.com/ant-design/ant-design/issues/45735
+  it('should show remove icon when showRemoveIcon is true', () => {
+    const list = [
+      {
+        name: 'image',
+        status: 'uploading',
+        uid: '-4',
+        url: 'https://cdn.xxx.com/aaa',
+      },
+    ];
+
+    const { container: wrapper, unmount } = render(
+      <Upload
+        listType="picture"
+        defaultFileList={list as UploadProps['defaultFileList']}
+        showUploadList={{
+          showRemoveIcon: true,
+        }}
+        disabled
+      >
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    expect(wrapper.querySelector('.anticon-delete')).toBeTruthy();
+    unmount();
+  });
+
+  it('disabled should not affect preview and download icon', () => {
+    const list = [
+      {
+        name: 'image',
+        status: 'done',
+        uid: '-4',
+        url: 'https://cdn.xxx.com/aaa',
+      },
+    ];
+
+    const { container: wrapper, unmount } = render(
+      <Upload
+        listType="picture-card"
+        defaultFileList={list as UploadProps['defaultFileList']}
+        showUploadList={{
+          showPreviewIcon: true,
+          showDownloadIcon: true,
+          showRemoveIcon: true,
+        }}
+        disabled
+      >
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    // preview icon
+    expect(
+      wrapper.querySelectorAll('.ant-upload-list-item-actions > *')[0].hasAttribute('disabled'),
+    ).toBeFalsy();
+    // download icon
+
+    expect(
+      wrapper.querySelectorAll('.ant-upload-list-item-actions > *')[1].hasAttribute('disabled'),
+    ).toBeFalsy();
+    // delete icon
+    expect(
+      wrapper.querySelectorAll('.ant-upload-list-item-actions > *')[2].hasAttribute('disabled'),
+    ).toBeTruthy();
+    unmount();
+  });
+
   it('should support custom onClick in custom icon', async () => {
     const handleRemove = jest.fn();
     const handleChange = jest.fn();
@@ -610,6 +682,53 @@ describe('Upload List', () => {
     await waitFakeTimer();
     expect(handleChange).toHaveBeenCalledTimes(2);
 
+    unmount();
+  });
+
+  it('should support showXxxIcon functions', () => {
+    const list = [
+      {
+        name: 'image',
+        status: 'uploading',
+        uid: '-4',
+        url: 'https://cdn.xxx.com/aaa',
+        response: {
+          protected: true,
+        },
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: '-5',
+        url: 'https://cdn.xxx.com/aaa',
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: '-5',
+        url: 'https://cdn.xxx.com/aaa',
+        response: {
+          protected: true,
+        },
+      },
+    ];
+
+    const { container: wrapper, unmount } = render(
+      <Upload
+        defaultFileList={list as UploadProps['defaultFileList']}
+        showUploadList={{
+          showRemoveIcon: (file) => file.response?.protected,
+          showDownloadIcon: (file) => file.response?.protected,
+          showPreviewIcon: (file) => file.response?.protected,
+          removeIcon: <i>RM</i>,
+          downloadIcon: <i>DL</i>,
+          previewIcon: <i>PV</i>,
+        }}
+      >
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    expect(wrapper.firstChild).toMatchSnapshot();
     unmount();
   });
 
@@ -1070,6 +1189,7 @@ describe('Upload List', () => {
     it('should render <img /> when upload non-image file and configure thumbUrl in onChange', async () => {
       const thumbUrl =
         'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
+      // biome-ignore lint/style/useConst: test only
       let wrapper: ReturnType<typeof render>;
       const onChange = jest.fn<void, Record<'fileList', UploadProps['fileList']>[]>(
         ({ fileList: files }) => {
@@ -1126,6 +1246,7 @@ describe('Upload List', () => {
     it('should not render <img /> when upload non-image file without thumbUrl in onChange', async () => {
       (global as any).testName =
         'should not render <img /> when upload non-image file without thumbUrl in onChange';
+      // biome-ignore lint/style/useConst: test only
       let wrapper: ReturnType<typeof render>;
       const onChange = jest.fn<void, Record<'fileList', UploadProps['fileList']>[]>(
         ({ fileList: files }) => {
@@ -1169,6 +1290,7 @@ describe('Upload List', () => {
 
   it('[deprecated] should support transformFile', (done) => {
     jest.useRealTimers();
+    // biome-ignore lint/style/useConst: test only
     let wrapper: ReturnType<typeof render>;
     let lastFile: UploadFile;
 
@@ -1254,7 +1376,7 @@ describe('Upload List', () => {
         <Upload
           ref={uploadRef}
           fileList={testFileList}
-          action="https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188"
+          action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
           multiple
           onChange={(info) => {
             setTestFileList([...info.fileList]);
@@ -1270,7 +1392,7 @@ describe('Upload List', () => {
     // Mock async update in a frame
     const fileNames = ['light', 'bamboo', 'little'];
 
-    await act(() => {
+    act(() => {
       uploadRef.current.onBatchStart(
         fileNames.map((fileName) => {
           const file = new File([], fileName);

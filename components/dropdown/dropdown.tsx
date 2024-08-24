@@ -15,13 +15,14 @@ import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { MenuProps } from '../menu';
 import Menu from '../menu';
 import { OverrideProvider } from '../menu/OverrideContext';
 import { useToken } from '../theme/internal';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Placements = [
   'topLeft',
   'topCenter',
@@ -33,7 +34,7 @@ const Placements = [
   'bottom',
 ] as const;
 
-type Placement = typeof Placements[number];
+type Placement = (typeof Placements)[number];
 type DropdownPlacement = Exclude<Placement, 'topCenter' | 'bottomCenter'>;
 
 type OverlayFunc = () => React.ReactElement;
@@ -170,9 +171,8 @@ const Dropdown: CompoundedComponent = (props) => {
   }
 
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
-  const rootCls = `${prefixCls}-root`;
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(rootCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const [, token] = useToken();
 
@@ -186,14 +186,10 @@ const Dropdown: CompoundedComponent = (props) => {
       },
       child.props.className,
     ),
-    disabled,
+    disabled: child.props.disabled ?? disabled,
   });
-
   const triggerActions = disabled ? [] : trigger;
-  let alignPoint: boolean;
-  if (triggerActions && triggerActions.includes('contextMenu')) {
-    alignPoint = true;
-  }
+  const alignPoint = !!triggerActions?.includes('contextMenu');
 
   // =========================== Open ============================
   const [mergedOpen, setOpen] = useMergedState(false, {
@@ -211,6 +207,7 @@ const Dropdown: CompoundedComponent = (props) => {
     overlayClassName,
     rootClassName,
     hashId,
+    cssVarCls,
     rootCls,
     dropdown?.className,
     { [`${prefixCls}-rtl`]: direction === 'rtl' },
@@ -254,7 +251,7 @@ const Dropdown: CompoundedComponent = (props) => {
     return (
       <OverrideProvider
         prefixCls={`${prefixCls}-menu`}
-        rootClassName={rootCls}
+        rootClassName={classNames(cssVarCls, rootCls)}
         expandIcon={
           <span className={`${prefixCls}-menu-submenu-arrow`}>
             <RightOutlined className={`${prefixCls}-menu-submenu-arrow-icon`} />
@@ -281,30 +278,36 @@ const Dropdown: CompoundedComponent = (props) => {
   const [zIndex, contextZIndex] = useZIndex('Dropdown', overlayStyle?.zIndex as number);
 
   // ============================ Render ============================
-  return wrapCSSVar(
-    <zIndexContext.Provider value={contextZIndex}>
-      <RcDropdown
-        alignPoint={alignPoint!}
-        {...omit(props, ['rootClassName'])}
-        mouseEnterDelay={mouseEnterDelay}
-        mouseLeaveDelay={mouseLeaveDelay}
-        visible={mergedOpen}
-        builtinPlacements={builtinPlacements}
-        arrow={!!arrow}
-        overlayClassName={overlayClassNameCustomized}
-        prefixCls={prefixCls}
-        getPopupContainer={getPopupContainer || getContextPopupContainer}
-        transitionName={memoTransitionName}
-        trigger={triggerActions}
-        overlay={renderOverlay}
-        placement={memoPlacement}
-        onVisibleChange={onInnerOpenChange}
-        overlayStyle={{ ...dropdown?.style, ...overlayStyle, zIndex }}
-      >
-        {dropdownTrigger}
-      </RcDropdown>
-    </zIndexContext.Provider>,
+  let renderNode = (
+    <RcDropdown
+      alignPoint={alignPoint}
+      {...omit(props, ['rootClassName'])}
+      mouseEnterDelay={mouseEnterDelay}
+      mouseLeaveDelay={mouseLeaveDelay}
+      visible={mergedOpen}
+      builtinPlacements={builtinPlacements}
+      arrow={!!arrow}
+      overlayClassName={overlayClassNameCustomized}
+      prefixCls={prefixCls}
+      getPopupContainer={getPopupContainer || getContextPopupContainer}
+      transitionName={memoTransitionName}
+      trigger={triggerActions}
+      overlay={renderOverlay}
+      placement={memoPlacement}
+      onVisibleChange={onInnerOpenChange}
+      overlayStyle={{ ...dropdown?.style, ...overlayStyle, zIndex }}
+    >
+      {dropdownTrigger}
+    </RcDropdown>
   );
+
+  if (zIndex) {
+    renderNode = (
+      <zIndexContext.Provider value={contextZIndex}>{renderNode}</zIndexContext.Provider>
+    );
+  }
+
+  return wrapCSSVar(renderNode);
 };
 
 function postPureProps(props: DropdownProps) {

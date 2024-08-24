@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+
 import ConfigProvider from '..';
 import { fireEvent, pureRender } from '../../../tests/utils';
 import Tooltip from '../../tooltip';
@@ -24,19 +25,14 @@ describe('ConfigProvider', () => {
     const MemoedSibling = React.memo(Sibling);
     const spy = jest.fn();
     const App: React.FC = () => {
-      const [pageHeader, setPageHeader] = useState({ ghost: true });
+      const [flex, setFlex] = React.useState({ vertical: true });
       const [, forceRender] = React.useReducer((v) => v + 1, 1);
-
       return (
-        <ConfigProvider pageHeader={pageHeader}>
-          <button type="button" className="render" onClick={() => forceRender()}>
+        <ConfigProvider flex={flex}>
+          <button type="button" className="render" onClick={forceRender}>
             Force Render
           </button>
-          <button
-            type="button"
-            className="setState"
-            onClick={() => setPageHeader({ ghost: false })}
-          >
+          <button type="button" className="setState" onClick={() => setFlex({ vertical: false })}>
             Change Config
           </button>
           <MemoedSibling spy={spy} />
@@ -58,20 +54,15 @@ describe('ConfigProvider', () => {
     const MemoedSibling = React.memo(Sibling);
     const spy = jest.fn();
     const App: React.FC = () => {
-      const [pageHeader, setPageHeader] = useState({ ghost: true });
+      const [flex, setFlex] = React.useState({ vertical: true });
       const [, forceRender] = React.useReducer((v) => v + 1, 1);
-
       return (
-        <ConfigProvider pageHeader={pageHeader}>
+        <ConfigProvider flex={flex}>
           <ConfigProvider>
-            <button type="button" className="render" onClick={() => forceRender()}>
+            <button type="button" className="render" onClick={forceRender}>
               Force Render
             </button>
-            <button
-              type="button"
-              className="setState"
-              onClick={() => setPageHeader({ ghost: false })}
-            >
+            <button type="button" className="setState" onClick={() => setFlex({ vertical: false })}>
               Change Config
             </button>
             <MemoedSibling spy={spy} />

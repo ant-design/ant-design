@@ -1,4 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+
 import type { PanelComponentToken, PickerPanelToken } from '../../date-picker/style';
 import {
   genPanelStyle,
@@ -6,25 +8,25 @@ import {
   initPickerPanelToken,
 } from '../../date-picker/style';
 import { resetComponent } from '../../style';
-import type { FullToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type { FullToken, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
   /**
    * @desc 年选择器宽度
    * @descEN Width of year select
    */
-  yearControlWidth: number;
+  yearControlWidth: number | string;
   /**
    * @desc 月选择器宽度
    * @descEN Width of month select
    */
-  monthControlWidth: number;
+  monthControlWidth: number | string;
   /**
    * @desc 迷你日历内容高度
    * @descEN Height of mini calendar content
    */
-  miniContentHeight: number;
+  miniContentHeight: number | string;
   /**
    * @desc 完整日历背景色
    * @descEN Background color of full calendar
@@ -43,10 +45,26 @@ export interface ComponentToken {
 }
 
 interface CalendarToken extends FullToken<'Calendar'>, PickerPanelToken, PanelComponentToken {
+  /**
+   * @desc 日历类名
+   * @descEN Calendar class name
+   */
   calendarCls: string;
-  dateValueHeight: number;
-  weekHeight: number;
-  dateContentHeight: number;
+  /**
+   * @desc 日期值高度
+   * @descEN Date value height
+   */
+  dateValueHeight: number | string;
+  /**
+   * @desc 周高度
+   * @descEN Week height
+   */
+  weekHeight: number | string;
+  /**
+   * @desc 日期内容高度
+   * @descEN Date content height
+   */
+  dateContentHeight: number | string;
 }
 
 export const genCalendarStyles = (token: CalendarToken): CSSObject => {
@@ -62,7 +80,7 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
       [`${calendarCls}-header`]: {
         display: 'flex',
         justifyContent: 'flex-end',
-        padding: `${token.paddingSM}px 0`,
+        padding: `${unit(token.paddingSM)} 0`,
 
         [`${calendarCls}-year-select`]: {
           minWidth: token.yearControlWidth,
@@ -79,13 +97,13 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
     [`${calendarCls} ${componentCls}-panel`]: {
       background: fullPanelBg,
       border: 0,
-      borderTop: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+      borderTop: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
       borderRadius: 0,
       [`${componentCls}-month-panel, ${componentCls}-date-panel`]: {
         width: 'auto',
       },
       [`${componentCls}-body`]: {
-        padding: `${token.paddingXS}px 0`,
+        padding: `${unit(token.paddingXS)} 0`,
       },
       [`${componentCls}-content`]: {
         width: '100%',
@@ -98,14 +116,14 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
         paddingInlineStart: token.paddingXS,
       },
       [`${componentCls}-panel`]: {
-        borderRadius: `0 0 ${token.borderRadiusLG}px ${token.borderRadiusLG}px`,
+        borderRadius: `0 0 ${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)}`,
       },
       [`${componentCls}-content`]: {
         height: token.miniContentHeight,
         th: {
           height: 'auto',
           padding: 0,
-          lineHeight: `${token.weekHeight}px`,
+          lineHeight: unit(token.weekHeight),
         },
       },
       [`${componentCls}-cell::before`]: {
@@ -127,7 +145,7 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
             height: 'auto',
             paddingInlineEnd: token.paddingSM,
             paddingBottom: token.paddingXXS,
-            lineHeight: `${token.weekHeight}px`,
+            lineHeight: unit(token.weekHeight),
           },
         },
       },
@@ -161,14 +179,14 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
         display: 'block',
         width: 'auto',
         height: 'auto',
-        margin: `0 ${token.marginXS / 2}px`,
-        padding: `${token.paddingXS / 2}px ${token.paddingXS}px 0`,
+        margin: `0 ${unit(token.calc(token.marginXS).div(2).equal())}`,
+        padding: `${unit(token.calc(token.paddingXS).div(2).equal())} ${unit(token.paddingXS)} 0`,
         border: 0,
-        borderTop: `${token.lineWidthBold}px ${token.lineType} ${token.colorSplit}`,
+        borderTop: `${unit(token.lineWidthBold)} ${token.lineType} ${token.colorSplit}`,
         borderRadius: 0,
         transition: `background ${token.motionDurationSlow}`,
         '&-value': {
-          lineHeight: `${token.dateValueHeight}px`,
+          lineHeight: unit(token.dateValueHeight),
           transition: `color ${token.motionDurationSlow}`,
         },
         '&-content': {
@@ -188,15 +206,15 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
         },
       },
     },
-    [`@media only screen and (max-width: ${token.screenXS}px) `]: {
-      [`${calendarCls}`]: {
+    [`@media only screen and (max-width: ${unit(token.screenXS)}) `]: {
+      [calendarCls]: {
         [`${calendarCls}-header`]: {
           display: 'block',
           [`${calendarCls}-year-select`]: {
             width: '50%',
           },
           [`${calendarCls}-month-select`]: {
-            width: `calc(50% - ${token.paddingXS}px)`,
+            width: `calc(50% - ${unit(token.paddingXS)})`,
           },
           [`${calendarCls}-mode-switch`]: {
             width: '100%',
@@ -213,32 +231,33 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
   };
 };
 
-export default genComponentStyleHook(
+export const prepareComponentToken: GetDefaultToken<'Calendar'> = (token) => ({
+  fullBg: token.colorBgContainer,
+  fullPanelBg: token.colorBgContainer,
+  itemActiveBg: token.controlItemBgActive,
+  yearControlWidth: 80,
+  monthControlWidth: 70,
+  miniContentHeight: 256,
+  ...initPanelComponentToken(token),
+});
+
+export default genStyleHooks(
   'Calendar',
   (token) => {
     const calendarCls = `${token.componentCls}-calendar`;
-    const calendarToken = mergeToken<CalendarToken>(
-      token,
-      initPickerPanelToken(token),
-      initPanelComponentToken(token),
-      {
-        calendarCls,
-        pickerCellInnerCls: `${token.componentCls}-cell-inner`,
-        dateValueHeight: token.controlHeightSM,
-        weekHeight: token.controlHeightSM * 0.75,
-        dateContentHeight:
-          (token.fontSizeSM * token.lineHeightSM + token.marginXS) * 3 + token.lineWidth * 2,
-      },
-    );
+    const calendarToken = mergeToken<CalendarToken>(token, initPickerPanelToken(token), {
+      calendarCls,
+      pickerCellInnerCls: `${token.componentCls}-cell-inner`,
+      dateValueHeight: token.controlHeightSM,
+      weekHeight: token.calc(token.controlHeightSM).mul(0.75).equal() as number,
+      dateContentHeight: token
+        .calc(token.calc(token.fontHeightSM).add(token.marginXS))
+        .mul(3)
+        .add(token.calc(token.lineWidth).mul(2))
+        .equal() as number,
+    });
 
     return [genCalendarStyles(calendarToken)];
   },
-  (token) => ({
-    fullBg: token.colorBgContainer,
-    fullPanelBg: token.colorBgContainer,
-    itemActiveBg: token.controlItemBgActive,
-    yearControlWidth: 80,
-    monthControlWidth: 70,
-    miniContentHeight: 256,
-  }),
+  prepareComponentToken,
 );

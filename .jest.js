@@ -23,7 +23,7 @@ const transformIgnorePatterns = [
 ];
 
 function getTestRegex(libDir) {
-  if (['dist', 'lib', 'es'].includes(libDir)) {
+  if (['dist', 'lib', 'es', 'dist-min'].includes(libDir)) {
     return 'demo\\.test\\.(j|t)sx?$';
   }
   return '.*\\.test\\.(j|t)sx?$';
@@ -32,7 +32,7 @@ function getTestRegex(libDir) {
 module.exports = {
   verbose: true,
   testEnvironment: 'jsdom',
-  setupFiles: ['./tests/setup.js', 'jest-canvas-mock'],
+  setupFiles: ['./tests/setup.ts', 'jest-canvas-mock'],
   setupFilesAfterEnv: ['./tests/setupAfterEnv.ts'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'md'],
   modulePathIgnorePatterns: ['/_site/'],

@@ -4,6 +4,7 @@ import {
   AutoComplete,
   Button,
   Cascader,
+  ColorPicker,
   DatePicker,
   Input,
   InputNumber,
@@ -18,22 +19,19 @@ const { Option } = Select;
 const { TreeNode } = TreeSelect;
 
 const App: React.FC = () => (
-  <div className="site-space-compact-wrapper">
+  <Space direction="vertical">
     <Space.Compact block>
       <Input style={{ width: '20%' }} defaultValue="0571" />
       <Input style={{ width: '30%' }} defaultValue="26888888" />
     </Space.Compact>
-    <br />
     <Space.Compact block size="small">
       <Input style={{ width: 'calc(100% - 200px)' }} defaultValue="https://ant.design" />
       <Button type="primary">Submit</Button>
     </Space.Compact>
-    <br />
     <Space.Compact block>
       <Input style={{ width: 'calc(100% - 200px)' }} defaultValue="https://ant.design" />
       <Button type="primary">Submit</Button>
     </Space.Compact>
-    <br />
     <Space.Compact block>
       <Input
         style={{ width: 'calc(100% - 200px)' }}
@@ -43,7 +41,6 @@ const App: React.FC = () => (
         <Button icon={<CopyOutlined />} />
       </Tooltip>
     </Space.Compact>
-    <br />
     <Space.Compact block>
       <Select defaultValue="Zhejiang" allowClear>
         <Option value="Zhejiang">Zhejiang</Option>
@@ -51,7 +48,6 @@ const App: React.FC = () => (
       </Select>
       <Input style={{ width: '50%' }} defaultValue="Xihu District, Hangzhou" />
     </Space.Compact>
-    <br />
     <Space.Compact block>
       <Select allowClear mode="multiple" defaultValue="Zhejianggggg" style={{ width: '50%' }}>
         <Option value="Zhejianggggg">Zhejianggggg</Option>
@@ -59,13 +55,11 @@ const App: React.FC = () => (
       </Select>
       <Input style={{ width: '50%' }} defaultValue="Xihu District, Hangzhou" />
     </Space.Compact>
-    <br />
     <Space.Compact block>
       <Input.Search style={{ width: '30%' }} defaultValue="0571" />
       <Input.Search allowClear style={{ width: '50%' }} defaultValue="26888888" />
       <Input.Search style={{ width: '20%' }} defaultValue="+1" />
     </Space.Compact>
-    <br />
     <Space.Compact block>
       <Select defaultValue="Option1">
         <Option value="Option1">Option1</Option>
@@ -74,23 +68,19 @@ const App: React.FC = () => (
       <Input style={{ width: '50%' }} defaultValue="input content" />
       <InputNumber defaultValue={12} />
     </Space.Compact>
-    <br />
     <Space.Compact block>
       <Input style={{ width: '50%' }} defaultValue="input content" />
       <DatePicker style={{ width: '50%' }} />
     </Space.Compact>
-    <br />
     <Space.Compact block>
       <DatePicker.RangePicker style={{ width: '70%' }} />
       <Input style={{ width: '30%' }} defaultValue="input content" />
       <Button type="primary">查询</Button>
     </Space.Compact>
-    <br />
     <Space.Compact block>
       <Input style={{ width: '30%' }} defaultValue="input content" />
       <DatePicker.RangePicker style={{ width: '70%' }} />
     </Space.Compact>
-    <br />
     <Space.Compact block>
       <Select defaultValue="Option1-1">
         <Option value="Option1-1">Option1-1</Option>
@@ -101,7 +91,6 @@ const App: React.FC = () => (
         <Option value="Option2-2">Option2-2</Option>
       </Select>
     </Space.Compact>
-    <br />
     <Space.Compact block>
       <Select defaultValue="1">
         <Option value="1">Between</Option>
@@ -128,7 +117,6 @@ const App: React.FC = () => (
         placeholder="Maximum"
       />
     </Space.Compact>
-    <br />
     <Space.Compact block>
       <Select defaultValue="Sign Up" style={{ width: '30%' }}>
         <Option value="Sign Up">Sign Up</Option>
@@ -140,7 +128,6 @@ const App: React.FC = () => (
         options={[{ value: 'text 1' }, { value: 'text 2' }]}
       />
     </Space.Compact>
-    <br />
     <Space.Compact block>
       <TimePicker style={{ width: '70%' }} />
       <Cascader
@@ -182,7 +169,6 @@ const App: React.FC = () => (
         placeholder="Select Address"
       />
     </Space.Compact>
-    <br />
     <Space.Compact block>
       <TimePicker.RangePicker />
       <TreeSelect
@@ -207,8 +193,16 @@ const App: React.FC = () => (
       </TreeSelect>
       <Button type="primary">Submit</Button>
     </Space.Compact>
-    <br />
-  </div>
+    <Space.Compact>
+      <Input placeholder="input here" />
+      <InputNumber placeholder="another input" addonBefore="$" />
+      <InputNumber placeholder="another input" addonAfter="$" />
+    </Space.Compact>
+    <Space.Compact>
+      <Input placeholder="input here" />
+      <ColorPicker />
+    </Space.Compact>
+  </Space>
 );
 
 export default App;

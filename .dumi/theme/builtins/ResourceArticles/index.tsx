@@ -1,13 +1,13 @@
 /* eslint-disable react/no-array-index-key */
 import * as React from 'react';
-import { Suspense } from 'react';
+import { Avatar, Divider, Empty, Skeleton, Tabs } from 'antd';
+import { createStyles } from 'antd-style';
 import dayjs from 'dayjs';
 import { FormattedMessage } from 'dumi';
-import { createStyles } from 'antd-style';
-import { Avatar, Divider, Empty, Skeleton, Tabs } from 'antd';
-import type { Article, Authors } from '../../../pages/index/components/util';
-import { useSiteData } from '../../../pages/index/components/util';
+
 import useLocale from '../../../hooks/useLocale';
+import type { Article, Authors, SiteData } from '../../../pages/index/components/util';
+import { useSiteData } from '../../../pages/index/components/util';
 
 const useStyle = createStyles(({ token, css }) => {
   const { antCls } = token;
@@ -17,7 +17,7 @@ const useStyle = createStyles(({ token, css }) => {
       h4 {
         margin: 40px 0 24px;
         font-weight: 500;
-        font-size: 20px;
+        font-size: ${token.fontSizeXL}px;
       }
 
       ${antCls}-skeleton {
@@ -27,12 +27,8 @@ const useStyle = createStyles(({ token, css }) => {
 
         ul li {
           display: block;
-          margin-left: 0;
+          margin-inline-start: 0;
         }
-      }
-
-      ${antCls}-tabs-nav::before {
-        display: none;
       }
 
       table {
@@ -49,7 +45,7 @@ const useStyle = createStyles(({ token, css }) => {
       li {
         margin: 1em 0;
         padding: 0;
-        font-size: 14px;
+        font-size: ${token.fontSize}px;
         list-style: none;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -97,10 +93,11 @@ const ArticleList: React.FC<ArticleListProps> = ({ name, data = [], authors = []
   );
 };
 
-const Articles: React.FC = () => {
+const Articles: React.FC<{ data: Partial<SiteData> }> = ({ data }) => {
   const [, lang] = useLocale();
   const isZhCN = lang === 'cn';
-  const { articles = { cn: [], en: [] }, authors = [] } = useSiteData();
+
+  const { articles = { cn: [], en: [] }, authors = [] } = data;
 
   // ========================== Data ==========================
   const mergedData = React.useMemo(() => {
@@ -121,6 +118,8 @@ const Articles: React.FC = () => {
 
   return (
     <Tabs
+      centered
+      size="large"
       items={yearList.map((year) => ({
         key: year,
         label: `${year}${isZhCN ? ' 年' : ''}`,
@@ -149,11 +148,13 @@ const Articles: React.FC = () => {
 
 export default () => {
   const { styles } = useStyle();
+  const data = useSiteData();
+
+  const articles = data ? <Articles data={data} /> : <Skeleton active />;
+
   return (
     <div id="articles" className={styles.articles}>
-      <Suspense fallback={<Skeleton active />}>
-        <Articles />
-      </Suspense>
+      {articles}
     </div>
   );
 };

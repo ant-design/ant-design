@@ -4,7 +4,7 @@
 
 ## en-US
 
-Customize render list with Tree component.
+Customize the render list with a Tree component.
 
 <style>
 .tree-transfer .ant-transfer-list:first-child {

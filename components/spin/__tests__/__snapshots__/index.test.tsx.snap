@@ -5,7 +5,28 @@ exports[`Spin if indicator set null should not be render default indicator 1`] =
   aria-busy="true"
   aria-live="polite"
   class="ant-spin ant-spin-spinning"
-/>
+>
+  <span
+    class="ant-spin-dot-holder"
+  >
+    <span
+      class="ant-spin-dot ant-spin-dot-spin"
+    >
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
+    </span>
+  </span>
+</div>
 `;
 
 exports[`Spin rtl render component should be rendered correctly in RTL direction 1`] = `
@@ -15,20 +36,24 @@ exports[`Spin rtl render component should be rendered correctly in RTL direction
   class="ant-spin ant-spin-spinning ant-spin-rtl"
 >
   <span
-    class="ant-spin-dot ant-spin-dot-spin"
+    class="ant-spin-dot-holder"
   >
-    <i
-      class="ant-spin-dot-item"
-    />
-    <i
-      class="ant-spin-dot-item"
-    />
-    <i
-      class="ant-spin-dot-item"
-    />
-    <i
-      class="ant-spin-dot-item"
-    />
+    <span
+      class="ant-spin-dot ant-spin-dot-spin"
+    >
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
+    </span>
   </span>
 </div>
 `;

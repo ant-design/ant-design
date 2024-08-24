@@ -2,13 +2,12 @@
 category: Components
 group: Data Entry
 title: Upload
+description: Used to select and upload files or drag and drop files.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*93ymR4RD4S0AAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*l1nlSryXib8AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-Upload the file by selecting or dragging.
 
 ## When To Use
 
@@ -37,11 +36,12 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 <code src="./demo/transform-file.tsx">Transform file before request</code>
 <code src="./demo/upload-with-aliyun-oss.tsx">Aliyun OSS</code>
 <code src="./demo/file-type.tsx" debug>custom show icon</code>
-<code src="./demo/upload-custom-action-icon.tsx">custom action icon</code>
+<code src="./demo/upload-custom-action-icon.tsx">Custom action icon and extra info</code>
 <code src="./demo/drag-sorting.tsx">Drag sorting of uploadList</code>
 <code src="./demo/crop-image.tsx">Crop image before uploading</code>
 <code src="./demo/customize-progress-bar.tsx">Customize Progress Bar</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
+<code src="./demo/debug-disabled.tsx" debug>Debug Disabled Styles</code>
 
 ## API
 
@@ -56,7 +56,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | data | Uploading extra params or function which can return uploading extra params | object \| (file) => object \| Promise&lt;object> | - |  |
 | defaultFileList | Default list of files that have been uploaded | object\[] | - |  |
 | directory | Support upload whole directory ([caniuse](https://caniuse.com/#feat=input-file-directory)) | boolean | false |  |
-| disabled | Disable upload button | boolean | false |  |
+| disabled | Disable upload button | boolean | false | When customizing Upload children, please pass the disabled attribute to the child node at the same time to ensure the disabled rendering effect is consistent. |
 | fileList | List of files that have been uploaded (controlled). Here is a common issue [#2423](https://github.com/ant-design/ant-design/issues/2423) when using it | [UploadFile](#uploadfile)\[] | - |  |
 | headers | Set request headers, valid above IE10 | object | - |  |
 | iconRender | Custom show icon | (file: UploadFile, listType?: UploadListType) => ReactNode | - |  |
@@ -70,7 +70,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | openFileDialogOnClick | Click open file dialog | boolean | true |  |
 | previewFile | Customize preview file logic | (file: File \| Blob) => Promise&lt;dataURL: string> | - |  |
 | progress | Custom progress bar | [ProgressProps](/components/progress/#api) (support `type="line"` only) | { strokeWidth: 2, showInfo: false } | 4.3.0 |
-| showUploadList | Whether to show default upload list, could be an object to specify `showPreviewIcon`, `showRemoveIcon`, `showDownloadIcon`, `removeIcon` and `downloadIcon` individually | boolean \| { showPreviewIcon?: boolean, showDownloadIcon?: boolean, showRemoveIcon?: boolean, previewIcon?: ReactNode \| (file: UploadFile) => ReactNode, removeIcon?: ReactNode \| (file: UploadFile) => ReactNode, downloadIcon?: ReactNode \| (file: UploadFile) => ReactNode } | true | function: 4.7.0 |
+| showUploadList | Whether to show default upload list, could be an object to specify `extra`, `showPreviewIcon`, `showRemoveIcon`, `showDownloadIcon`, `removeIcon` and `downloadIcon` individually | boolean \| { extra?: ReactNode \| (file: UploadFile) => ReactNode, showPreviewIcon?: boolean \| (file: UploadFile) => boolean, showDownloadIcon?: boolean \| (file: UploadFile) => boolean, showRemoveIcon?: boolean \| (file: UploadFile) => boolean, previewIcon?: ReactNode \| (file: UploadFile) => ReactNode, removeIcon?: ReactNode \| (file: UploadFile) => ReactNode, downloadIcon?: ReactNode \| (file: UploadFile) => ReactNode } | true | `extra`: 5.20.0, `showPreviewIcon` function: 5.21.0, `showRemoveIcon` function: 5.21.0, `showDownloadIcon` function: 5.21.0 |
 | withCredentials | The ajax upload with cookie sent | boolean | false |  |
 | onChange | A callback function, can be executed when uploading state is changing. It will trigger by every uploading phase. see [onChange](#onchange) | function | - |  |
 | onDrop | A callback function executed when files are dragged and dropped into the upload area | (event: React.DragEvent) => void | - | 4.16.0 |
@@ -132,7 +132,7 @@ When uploading state change, it returns:
 ### How do I implement upload server side?
 
 - You can consult [jQuery-File-Upload](https://github.com/blueimp/jQuery-File-Upload/wiki#server-side) about how to implement server side upload interface.
-- There is a mock example of [express](https://github.com/react-component/upload/blob/master/server.js) in rc-upload.
+- There is a mock example of [express](https://github.com/react-component/upload/blob/211979fdaa2c7896b6496df7061a0cfc0fc5434e/server.js) in rc-upload.
 
 ### I want to display download links.
 
@@ -152,10 +152,13 @@ For compatible case, we return File object when `beforeUpload` return `false`. I
 
 ### Why sometimes Chrome can not upload?
 
-Chrome update will also break native upload. Please restart Chrome to finish the upload work.
+Chrome update will also break native upload. Please restart Chrome to finish the upload job.
+
+<img alt="click restart button on Chrome" src="https://github.com/ant-design/ant-design/assets/507615/1509b25f-4cd3-41b2-9415-90394ad08273" width="800" />
 
 Ref:
 
+- [#48007](https://github.com/ant-design/ant-design/issues/48007)
 - [#32672](https://github.com/ant-design/ant-design/issues/32672)
 - [#32913](https://github.com/ant-design/ant-design/issues/32913)
 - [#33988](https://github.com/ant-design/ant-design/issues/33988)

@@ -1,7 +1,9 @@
+import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
+
 import { genFocusStyle, resetComponent } from '../../style';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
   /**
@@ -44,7 +46,7 @@ export interface ComponentToken {
 interface BreadcrumbToken extends FullToken<'Breadcrumb'> {}
 
 const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) => {
-  const { componentCls, iconCls } = token;
+  const { componentCls, iconCls, calc } = token;
 
   return {
     [componentCls]: {
@@ -67,11 +69,11 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
       a: {
         color: token.linkColor,
         transition: `color ${token.motionDurationMid}`,
-        padding: `0 ${token.paddingXXS}px`,
+        padding: `0 ${unit(token.paddingXXS)}`,
         borderRadius: token.borderRadiusSM,
-        height: token.lineHeight * token.fontSize,
+        height: token.fontHeight,
         display: 'inline-block',
-        marginInline: -token.marginXXS,
+        marginInline: calc(token.marginXXS).mul(-1).equal(),
 
         '&:hover': {
           color: token.linkHoverColor,
@@ -81,7 +83,7 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
         ...genFocusStyle(token),
       },
 
-      [`li:last-child`]: {
+      'li:last-child': {
         color: token.lastItemColor,
       },
 
@@ -101,10 +103,10 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
 
       [`${componentCls}-overlay-link`]: {
         borderRadius: token.borderRadiusSM,
-        height: token.lineHeight * token.fontSize,
+        height: token.fontHeight,
         display: 'inline-block',
-        padding: `0 ${token.paddingXXS}px`,
-        marginInline: -token.marginXXS,
+        padding: `0 ${unit(token.paddingXXS)}`,
+        marginInline: calc(token.marginXXS).mul(-1).equal(),
 
         [`> ${iconCls}`]: {
           marginInlineStart: token.marginXXS,
@@ -135,20 +137,22 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
   };
 };
 
+export const prepareComponentToken: GetDefaultToken<'Breadcrumb'> = (token) => ({
+  itemColor: token.colorTextDescription,
+  lastItemColor: token.colorText,
+  iconFontSize: token.fontSize,
+  linkColor: token.colorTextDescription,
+  linkHoverColor: token.colorText,
+  separatorColor: token.colorTextDescription,
+  separatorMargin: token.marginXS,
+});
+
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Breadcrumb',
   (token) => {
-    const BreadcrumbToken = mergeToken<BreadcrumbToken>(token, {});
-    return [genBreadcrumbStyle(BreadcrumbToken)];
+    const breadcrumbToken = mergeToken<BreadcrumbToken>(token, {});
+    return genBreadcrumbStyle(breadcrumbToken);
   },
-  (token) => ({
-    itemColor: token.colorTextDescription,
-    lastItemColor: token.colorText,
-    iconFontSize: token.fontSize,
-    linkColor: token.colorTextDescription,
-    linkHoverColor: token.colorText,
-    separatorColor: token.colorTextDescription,
-    separatorMargin: token.marginXS,
-  }),
+  prepareComponentToken,
 );

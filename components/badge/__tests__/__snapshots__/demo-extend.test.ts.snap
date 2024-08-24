@@ -15,7 +15,7 @@ exports[`renders components/badge/demo/basic.tsx extend context correctly 1`] = 
       >
         <span
           class="ant-avatar-string"
-          style="transform: scale(1) translateX(-50%);"
+          style="transform: scale(1);"
         />
       </span>
       <sup
@@ -49,7 +49,7 @@ exports[`renders components/badge/demo/basic.tsx extend context correctly 1`] = 
       >
         <span
           class="ant-avatar-string"
-          style="transform: scale(1) translateX(-50%);"
+          style="transform: scale(1);"
         />
       </span>
       <sup
@@ -72,7 +72,7 @@ exports[`renders components/badge/demo/basic.tsx extend context correctly 1`] = 
       >
         <span
           class="ant-avatar-string"
-          style="transform: scale(1) translateX(-50%);"
+          style="transform: scale(1);"
         />
       </span>
       <span
@@ -126,7 +126,7 @@ exports[`renders components/badge/demo/change.tsx extend context correctly 1`] =
           >
             <span
               class="ant-avatar-string"
-              style="transform: scale(1) translateX(-50%);"
+              style="transform: scale(1);"
             />
           </span>
           <sup
@@ -263,7 +263,7 @@ exports[`renders components/badge/demo/change.tsx extend context correctly 1`] =
           >
             <span
               class="ant-avatar-string"
-              style="transform: scale(1) translateX(-50%);"
+              style="transform: scale(1);"
             />
           </span>
           <sup
@@ -1386,7 +1386,7 @@ exports[`renders components/badge/demo/component-token.tsx extend context correc
       >
         <span
           class="ant-avatar-string"
-          style="transform: scale(1) translateX(-50%);"
+          style="transform: scale(1);"
         />
       </span>
       <sup
@@ -1582,7 +1582,7 @@ exports[`renders components/badge/demo/link.tsx extend context correctly 1`] = `
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="transform: scale(1);"
       />
     </span>
     <sup
@@ -1632,7 +1632,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           >
             <span
               class="ant-avatar-string"
-              style="transform: scale(1) translateX(-50%);"
+              style="transform: scale(1);"
             />
           </span>
           <sup
@@ -1666,7 +1666,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           >
             <span
               class="ant-avatar-string"
-              style="transform: scale(1) translateX(-50%);"
+              style="transform: scale(1);"
             />
           </span>
           <sup
@@ -1700,7 +1700,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           >
             <span
               class="ant-avatar-string"
-              style="transform: scale(1) translateX(-50%);"
+              style="transform: scale(1);"
             />
           </span>
           <sup
@@ -1734,7 +1734,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           >
             <span
               class="ant-avatar-string"
-              style="transform: scale(1) translateX(-50%);"
+              style="transform: scale(1);"
             />
           </span>
           <sup
@@ -1769,7 +1769,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           >
             <span
               class="ant-avatar-string"
-              style="transform: scale(1) translateX(-50%);"
+              style="transform: scale(1);"
             />
           </span>
           <sup
@@ -1789,7 +1789,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           >
             <span
               class="ant-avatar-string"
-              style="transform: scale(1) translateX(-50%);"
+              style="transform: scale(1);"
             />
           </span>
           <sup
@@ -1809,7 +1809,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           >
             <span
               class="ant-avatar-string"
-              style="transform: scale(1) translateX(-50%);"
+              style="transform: scale(1);"
             />
           </span>
           <sup
@@ -1829,7 +1829,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           >
             <span
               class="ant-avatar-string"
-              style="transform: scale(1) translateX(-50%);"
+              style="transform: scale(1);"
             />
           </span>
           <sup
@@ -1849,7 +1849,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           >
             <span
               class="ant-avatar-string"
-              style="transform: scale(1) translateX(-50%);"
+              style="transform: scale(1);"
             />
           </span>
           <sup
@@ -1925,7 +1925,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           >
             <span
               class="ant-avatar-string"
-              style="transform: scale(1) translateX(-50%);"
+              style="transform: scale(1);"
             />
           </span>
           <sup
@@ -1948,7 +1948,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
           >
             <span
               class="ant-avatar-string"
-              style="transform: scale(1) translateX(-50%);"
+              style="transform: scale(1);"
             />
           </span>
           <sup
@@ -2129,7 +2129,7 @@ exports[`renders components/badge/demo/offset.tsx extend context correctly 1`] =
   >
     <span
       class="ant-avatar-string"
-      style="transform: scale(1) translateX(-50%);"
+      style="transform: scale(1);"
     />
   </span>
   <sup
@@ -2171,7 +2171,7 @@ exports[`renders components/badge/demo/overflow.tsx extend context correctly 1`]
       >
         <span
           class="ant-avatar-string"
-          style="transform: scale(1) translateX(-50%);"
+          style="transform: scale(1);"
         />
       </span>
       <sup
@@ -2215,7 +2215,7 @@ exports[`renders components/badge/demo/overflow.tsx extend context correctly 1`]
       >
         <span
           class="ant-avatar-string"
-          style="transform: scale(1) translateX(-50%);"
+          style="transform: scale(1);"
         />
       </span>
       <sup
@@ -2238,7 +2238,7 @@ exports[`renders components/badge/demo/overflow.tsx extend context correctly 1`]
       >
         <span
           class="ant-avatar-string"
-          style="transform: scale(1) translateX(-50%);"
+          style="transform: scale(1);"
         />
       </span>
       <sup
@@ -2261,7 +2261,7 @@ exports[`renders components/badge/demo/overflow.tsx extend context correctly 1`]
       >
         <span
           class="ant-avatar-string"
-          style="transform: scale(1) translateX(-50%);"
+          style="transform: scale(1);"
         />
       </span>
       <sup
@@ -2800,7 +2800,7 @@ exports[`renders components/badge/demo/size.tsx extend context correctly 1`] = `
       >
         <span
           class="ant-avatar-string"
-          style="transform: scale(1) translateX(-50%);"
+          style="transform: scale(1);"
         />
       </span>
       <sup
@@ -2834,7 +2834,7 @@ exports[`renders components/badge/demo/size.tsx extend context correctly 1`] = `
       >
         <span
           class="ant-avatar-string"
-          style="transform: scale(1) translateX(-50%);"
+          style="transform: scale(1);"
         />
       </span>
       <sup
@@ -3028,7 +3028,7 @@ exports[`renders components/badge/demo/title.tsx extend context correctly 1`] = 
       >
         <span
           class="ant-avatar-string"
-          style="transform: scale(1) translateX(-50%);"
+          style="transform: scale(1);"
         />
       </span>
       <sup
@@ -3062,7 +3062,7 @@ exports[`renders components/badge/demo/title.tsx extend context correctly 1`] = 
       >
         <span
           class="ant-avatar-string"
-          style="transform: scale(1) translateX(-50%);"
+          style="transform: scale(1);"
         />
       </span>
       <sup

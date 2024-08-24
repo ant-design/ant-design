@@ -1,4 +1,6 @@
+import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { GenerateStyle } from '../../theme/internal';
 import type { ColorPickerToken } from './index';
 
@@ -36,7 +38,7 @@ const genInputStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
       },
 
       [`${componentCls}-steppers${componentCls}-alpha-input`]: {
-        flex: `0 0 ${colorPickerAlphaInputWidth}px`,
+        flex: `0 0 ${unit(colorPickerAlphaInputWidth)}`,
         marginInlineStart: marginXXS,
       },
 
@@ -52,9 +54,9 @@ const genInputStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
             insetInlineEnd: 0,
           },
           [`${antCls}-select-selection-item`]: {
-            paddingInlineEnd: fontSizeIcon + marginXXS,
+            paddingInlineEnd: token.calc(fontSizeIcon).add(marginXXS).equal(),
             fontSize: fontSizeSM,
-            lineHeight: `${controlHeightSM}px`,
+            lineHeight: unit(controlHeightSM),
           },
           [`${antCls}-select-item-option-content`]: {
             fontSize: fontSizeSM,
@@ -83,11 +85,11 @@ const genInputStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
         },
         [`${componentCls}-hex-input${antCls}-input-affix-wrapper`]: {
           flex: 1,
-          padding: `0 ${paddingXS}px`,
+          padding: `0 ${unit(paddingXS)}`,
           [`${antCls}-input`]: {
             fontSize: fontSizeSM,
             textTransform: 'uppercase',
-            lineHeight: `${controlHeightSM - 2 * lineWidth}px`,
+            lineHeight: unit(token.calc(controlHeightSM).sub(token.calc(lineWidth).mul(2)).equal()),
           },
           [`${antCls}-input-prefix`]: {
             color: colorTextPlaceholder,

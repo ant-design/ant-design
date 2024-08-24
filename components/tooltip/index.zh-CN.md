@@ -1,15 +1,14 @@
 ---
 category: Components
-subtitle: 文字提示
 group: 数据展示
 title: Tooltip
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3u9eSZO_4c0AAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*gwrhTozoTC4AAAAAAAAAAAAADrJ8AQ/original
+subtitle: 文字提示
+description: 简单的文字提示气泡框。
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*9LKlRbWytugAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*bCbPTJ7LQngAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-简单的文字提示气泡框。
 
 ## 何时使用
 
@@ -23,13 +22,14 @@ demo:
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/placement.tsx">位置</code>
 <code src="./demo/arrow.tsx">箭头展示</code>
-<code src="./demo/shift.tsx" iframe="200">贴边偏移</code>
+<code src="./demo/shift.tsx" iframe="300">贴边偏移</code>
 <code src="./demo/auto-adjust-overflow.tsx" debug>自动调整位置</code>
 <code src="./demo/destroy-tooltip-on-hide.tsx" debug>隐藏后销毁</code>
 <code src="./demo/colorful.tsx">多彩文字提示</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/debug.tsx" debug>Debug</code>
-<code src="./demo/disabled.tsx" debug>禁用</code>
+<code src="./demo/disabled.tsx">禁用</code>
+<code src="./demo/disabled-children.tsx" debug>禁用子元素</code>
 
 ## API
 
@@ -45,7 +45,7 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| align | 该值将合并到 placement 的配置中，设置参考 [rc-tooltip](https://github.com/react-component/tooltip) | object | - |  |
+| align | 该值将合并到 placement 的配置中，设置参考 [dom-align](https://github.com/yiminghe/dom-align) | object | - |  |
 | arrow | 修改箭头的显示状态以及修改箭头是否指向目标元素中心 | boolean \| { pointAtCenter: boolean } | true | 5.2.0 |
 | autoAdjustOverflow | 气泡被遮挡时自动调整位置 | boolean | true |  |
 | color | 背景颜色 | string | - | 4.3.0 |
@@ -69,6 +69,10 @@ demo:
 <ComponentTokenTable component="Tooltip"></ComponentTokenTable>
 
 ## FAQ
+
+### 为何在严格模式中有时候会出现 findDOMNode is deprecated 这个警告？
+
+这是由于 `rc-trigger` 的实现方式导致的，`rc-trigger` 强制要求 children 能够接受 ref，否则就会 fallback 到 findDOMNode，所以 children 需要是原生 html 标签，如果不是，则需要使用 `React.forwardRef` 把 `ref` 透传到原生 html 标签。
 
 ### 为何有时候 HOC 组件无法生效？
 

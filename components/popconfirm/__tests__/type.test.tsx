@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import Popconfirm from '..';
 
 describe('Popconfirm.typescript', () => {

@@ -3,19 +3,20 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import Dialog from 'rc-dialog';
 
-import useClosable from '../_util/hooks/useClosable';
+import ContextIsolator from '../_util/ContextIsolator';
+import useClosable, { pickClosable } from '../_util/hooks/useClosable';
+import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import { canUseDocElement } from '../_util/styleChecker';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
-import { NoFormStyle } from '../form/context';
-import { NoCompactStyle } from '../space/Compact';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import Skeleton from '../skeleton';
 import { usePanelRef } from '../watermark/context';
 import type { ModalProps, MousePosition } from './interface';
 import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
-import { useZIndex } from '../_util/hooks/useZIndex';
 
 let mousePosition: MousePosition;
 
@@ -43,7 +44,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     direction,
-    modal,
+    modal: modalContext,
   } = React.useContext(ConfigContext);
 
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -76,8 +77,6 @@ const Modal: React.FC<ModalProps> = (props) => {
     wrapClassName,
     centered,
     getContainer,
-    closeIcon,
-    closable,
     focusTriggerAfterClose = true,
     style,
     // Deprecated
@@ -87,28 +86,35 @@ const Modal: React.FC<ModalProps> = (props) => {
     footer,
     classNames: modalClassNames,
     styles: modalStyles,
+    children,
+    loading,
     ...restProps
   } = props;
 
   const prefixCls = getPrefixCls('modal', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const wrapClassNameExtended = classNames(wrapClassName, {
     [`${prefixCls}-centered`]: !!centered,
     [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
   });
 
-  const dialogFooter = footer !== null && (
-    <Footer {...props} onOk={handleOk} onCancel={handleCancel} />
-  );
+  const dialogFooter =
+    footer !== null && !loading ? (
+      <Footer {...props} onOk={handleOk} onCancel={handleCancel} />
+    ) : null;
+
   const [mergedClosable, mergedCloseIcon] = useClosable(
-    closable,
-    closeIcon,
-    (icon) => renderCloseIcon(prefixCls, icon),
-    <CloseOutlined className={`${prefixCls}-close-icon`} />,
-    true,
+    pickClosable(props),
+    pickClosable(modalContext),
+    {
+      closable: true,
+      closeIcon: <CloseOutlined className={`${prefixCls}-close-icon`} />,
+      closeIconRender: (icon) => renderCloseIcon(prefixCls, icon),
+    },
   );
 
   // ============================ Refs ============================
@@ -119,42 +125,48 @@ const Modal: React.FC<ModalProps> = (props) => {
   const [zIndex, contextZIndex] = useZIndex('Modal', restProps.zIndex);
 
   // =========================== Render ===========================
-  return wrapSSR(
-    <NoCompactStyle>
-      <NoFormStyle status override>
-        <zIndexContext.Provider value={contextZIndex}>
-          <Dialog
-            width={width}
-            {...restProps}
-            zIndex={zIndex}
-            getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
-            prefixCls={prefixCls}
-            rootClassName={classNames(hashId, rootClassName)}
-            footer={dialogFooter}
-            visible={open ?? visible}
-            mousePosition={restProps.mousePosition ?? mousePosition}
-            onClose={handleCancel}
-            closable={mergedClosable}
-            closeIcon={mergedCloseIcon}
-            focusTriggerAfterClose={focusTriggerAfterClose}
-            transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
-            maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
-            className={classNames(hashId, className, modal?.className)}
-            style={{ ...modal?.style, ...style }}
-            classNames={{
-              wrapper: wrapClassNameExtended,
-              ...modal?.classNames,
-              ...modalClassNames,
-            }}
-            styles={{
-              ...modal?.styles,
-              ...modalStyles,
-            }}
-            panelRef={panelRef}
-          />
-        </zIndexContext.Provider>
-      </NoFormStyle>
-    </NoCompactStyle>,
+  return wrapCSSVar(
+    <ContextIsolator form space>
+      <zIndexContext.Provider value={contextZIndex}>
+        <Dialog
+          width={width}
+          {...restProps}
+          zIndex={zIndex}
+          getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
+          prefixCls={prefixCls}
+          rootClassName={classNames(hashId, rootClassName, cssVarCls, rootCls)}
+          footer={dialogFooter}
+          visible={open ?? visible}
+          mousePosition={restProps.mousePosition ?? mousePosition}
+          onClose={handleCancel as any}
+          closable={mergedClosable}
+          closeIcon={mergedCloseIcon}
+          focusTriggerAfterClose={focusTriggerAfterClose}
+          transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
+          maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
+          className={classNames(hashId, className, modalContext?.className)}
+          style={{ ...modalContext?.style, ...style }}
+          classNames={{
+            ...modalContext?.classNames,
+            ...modalClassNames,
+            wrapper: classNames(wrapClassNameExtended, modalClassNames?.wrapper),
+          }}
+          styles={{ ...modalContext?.styles, ...modalStyles }}
+          panelRef={panelRef}
+        >
+          {loading ? (
+            <Skeleton
+              active
+              title={false}
+              paragraph={{ rows: 4 }}
+              className={`${prefixCls}-body-skeleton`}
+            />
+          ) : (
+            children
+          )}
+        </Dialog>
+      </zIndexContext.Provider>
+    </ContextIsolator>,
   );
 };
 

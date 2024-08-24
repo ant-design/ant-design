@@ -1,35 +1,49 @@
+import type { ComponentProps } from 'react';
+import React, { useContext, useEffect, useMemo } from 'react';
 import { Button, Tabs, Typography } from 'antd';
 import { createStyles } from 'antd-style';
-import { LiveContext } from 'dumi';
 import toReactElement from 'jsonml-to-react-element';
 import JsonML from 'jsonml.js/lib/utils';
 import Prism from 'prismjs';
-import React, { useContext, useEffect, useMemo } from 'react';
+
+import DemoContext from '../slots/DemoContext';
 import LiveCode from './LiveCode';
 
 const useStyle = createStyles(({ token, css }) => {
-  const { colorIcon, colorBgTextHover, antCls } = token;
+  const { colorIcon, antCls } = token;
 
   return {
     code: css`
       position: relative;
-      margin-top: -16px;
+      margin-top: -${token.margin}px;
     `,
 
     copyButton: css`
       color: ${colorIcon};
       position: absolute;
+      z-index: 2;
       top: 16px;
-      inset-inline-end: 16px;
+      inset-inline-end: ${token.padding}px;
       width: 32px;
       text-align: center;
-      background: ${colorBgTextHover};
       padding: 0;
     `,
 
     copyIcon: css`
       ${antCls}-typography-copy {
+        position: relative;
         margin-inline-start: 0;
+
+        // expand clickable area
+        &::before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: -5px;
+          inset-inline-start: -9px;
+          bottom: -5px;
+          inset-inline-end: -9px;
+        }
       }
       ${antCls}-typography-copy:not(${antCls}-typography-copy-success) {
         color: ${colorIcon};
@@ -48,11 +62,13 @@ const LANGS = {
   style: 'CSS',
 };
 
-interface CodePreviewProps {
+interface CodePreviewProps
+  extends Omit<ComponentProps<typeof LiveCode>, 'initialValue' | 'lang' | 'onChange'> {
   sourceCode?: string;
   jsxCode?: string;
   styleCode?: string;
-  onCodeTypeChange?: (activeKey: string) => void;
+  entryName: string;
+  onSourceChange?: (source: Record<string, string>) => void;
 }
 
 function toReactComponent(jsonML: any[]) {
@@ -63,6 +79,7 @@ function toReactComponent(jsonML: any[]) {
         const attr = JsonML.getAttributes(node);
         return (
           <pre key={index} className={`language-${attr.lang}`}>
+            {/* biome-ignore lint/security/noDangerouslySetInnerHtml: it's for markdown */}
             <code dangerouslySetInnerHTML={{ __html: attr.highlighted }} />
           </pre>
         );
@@ -75,10 +92,12 @@ const CodePreview: React.FC<CodePreviewProps> = ({
   sourceCode = '',
   jsxCode = '',
   styleCode = '',
-  onCodeTypeChange,
+  entryName,
+  onSourceChange,
+  error,
 }) => {
   // 避免 Tabs 数量不稳定的闪动问题
-  const initialCodes = {} as Record<'tsx' | 'jsx' | 'style', string>;
+  const initialCodes: Partial<Record<'tsx' | 'jsx' | 'style', string>> = {};
   if (sourceCode) {
     initialCodes.tsx = '';
   }
@@ -89,10 +108,12 @@ const CodePreview: React.FC<CodePreviewProps> = ({
     initialCodes.style = '';
   }
   const [highlightedCodes, setHighlightedCodes] = React.useState(initialCodes);
+  const { codeType, setCodeType } = useContext(DemoContext);
   const sourceCodes = {
-    tsx: sourceCode,
-    jsx: jsxCode,
-    style: styleCode,
+    // omit trailing line break
+    tsx: sourceCode?.trim(),
+    jsx: jsxCode?.trim(),
+    style: styleCode?.trim(),
   } as Record<'tsx' | 'jsx' | 'style', string>;
   useEffect(() => {
     const codes = {
@@ -101,7 +122,7 @@ const CodePreview: React.FC<CodePreviewProps> = ({
       style: Prism.highlight(styleCode, Prism.languages.css, 'css'),
     };
     // 去掉空的代码类型
-    Object.keys(codes).forEach((key: keyof typeof codes) => {
+    (Object.keys(codes) as (keyof typeof codes)[]).forEach((key) => {
       if (!codes[key]) {
         delete codes[key];
       }
@@ -109,11 +130,9 @@ const CodePreview: React.FC<CodePreviewProps> = ({
     setHighlightedCodes(codes);
   }, [jsxCode, sourceCode, styleCode]);
 
-  const langList = Object.keys(highlightedCodes);
+  const langList = Object.keys(highlightedCodes) as ('tsx' | 'jsx' | 'style')[];
 
   const { styles } = useStyle();
-
-  const { enabled: liveEnabled } = useContext(LiveContext);
 
   const items = useMemo(
     () =>
@@ -122,8 +141,15 @@ const CodePreview: React.FC<CodePreviewProps> = ({
         key: lang,
         children: (
           <div className={styles.code}>
-            {lang === 'tsx' && liveEnabled ? (
-              <LiveCode />
+            {lang === 'tsx' ? (
+              <LiveCode
+                error={error}
+                lang={lang}
+                initialValue={sourceCodes[lang]}
+                onChange={(code: string) => {
+                  onSourceChange?.({ [entryName]: code });
+                }}
+              />
             ) : (
               toReactComponent(['pre', { lang, highlighted: highlightedCodes[lang] }])
             )}
@@ -133,7 +159,7 @@ const CodePreview: React.FC<CodePreviewProps> = ({
           </div>
         ),
       })),
-    [JSON.stringify(highlightedCodes)],
+    [JSON.stringify(highlightedCodes), styles.code, styles.copyButton, styles.copyIcon],
   );
 
   if (!langList.length) {
@@ -141,21 +167,27 @@ const CodePreview: React.FC<CodePreviewProps> = ({
   }
 
   if (langList.length === 1) {
-    return liveEnabled ? (
-      <LiveCode />
-    ) : (
-      toReactComponent([
-        'pre',
-        {
-          lang: langList[0],
-          highlighted: highlightedCodes[langList[0] as keyof typeof LANGS],
-          className: 'highlight',
-        },
-      ])
+    return (
+      <LiveCode
+        error={error}
+        lang={langList[0]}
+        initialValue={sourceCodes[langList[0]]}
+        onChange={(code: string) => {
+          onSourceChange?.({ [entryName]: code });
+        }}
+      />
     );
   }
 
-  return <Tabs centered className="highlight" onChange={onCodeTypeChange} items={items} />;
+  return (
+    <Tabs
+      centered
+      className="highlight"
+      activeKey={codeType}
+      onChange={setCodeType}
+      items={items}
+    />
+  );
 };
 
 export default CodePreview;

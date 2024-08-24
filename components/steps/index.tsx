@@ -1,3 +1,4 @@
+import * as React from 'react';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
@@ -7,7 +8,7 @@ import type {
   StepsProps as RcStepsProps,
   StepIconRender,
 } from 'rc-steps/lib/Steps';
-import * as React from 'react';
+
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
@@ -79,7 +80,7 @@ const Steps: CompoundedComponent = (props) => {
 
   const prefixCls = getPrefixCls('steps', props.prefixCls);
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const isInline = props.type === 'inline';
   const iconPrefix = getPrefixCls('', props.iconPrefix);
@@ -97,6 +98,7 @@ const Steps: CompoundedComponent = (props) => {
     className,
     rootClassName,
     hashId,
+    cssVarCls,
   );
   const icons = {
     finish: <CheckOutlined className={`${prefixCls}-finish-icon`} />,
@@ -127,7 +129,7 @@ const Steps: CompoundedComponent = (props) => {
   const itemRender = (item: StepProps, stepItem: React.ReactNode) =>
     item.description ? <Tooltip title={item.description}>{stepItem}</Tooltip> : stepItem;
 
-  return wrapSSR(
+  return wrapCSSVar(
     <RcSteps
       icons={icons}
       {...restProps}

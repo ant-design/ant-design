@@ -1,10 +1,12 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import type { CascaderProps as RcCascaderProps } from 'rc-cascader';
 import { Panel } from 'rc-cascader';
 import type { PickType } from 'rc-cascader/lib/Panel';
 
-import type { CascaderProps } from '.';
+import type { CascaderProps, DefaultOptionType } from '.';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useBase from './hooks/useBase';
 import useCheckable from './hooks/useCheckable';
 import useColumnIcons from './hooks/useColumnIcons';
@@ -13,9 +15,23 @@ import usePanelStyle from './style/panel';
 
 export type PanelPickType = Exclude<PickType, 'checkable'> | 'multiple' | 'rootClassName';
 
-export type CascaderPanelProps = Pick<CascaderProps, PanelPickType>;
+export type CascaderPanelProps<
+  OptionType extends DefaultOptionType = DefaultOptionType,
+  ValueField extends keyof OptionType = keyof OptionType,
+  Multiple extends boolean = boolean,
+> = Pick<CascaderProps<OptionType, ValueField, Multiple>, PanelPickType>;
 
-export default function CascaderPanel(props: CascaderPanelProps) {
+export type CascaderPanelAutoProps<
+  OptionType extends DefaultOptionType = DefaultOptionType,
+  ValueField extends keyof OptionType = keyof OptionType,
+> =
+  | (CascaderPanelProps<OptionType, ValueField> & { multiple?: false })
+  | (CascaderPanelProps<OptionType, ValueField, true> & { multiple: true });
+
+function CascaderPanel<
+  OptionType extends DefaultOptionType = DefaultOptionType,
+  ValueField extends keyof OptionType = keyof OptionType,
+>(props: CascaderPanelAutoProps<OptionType, ValueField>) {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -31,7 +47,8 @@ export default function CascaderPanel(props: CascaderPanelProps) {
     direction,
   );
 
-  const [, hashId] = useStyle(cascaderPrefixCls);
+  const rootCls = useCSSVarCls(cascaderPrefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(cascaderPrefixCls, rootCls);
   usePanelStyle(cascaderPrefixCls);
 
   const isRtl = mergedDirection === 'rtl';
@@ -49,16 +66,18 @@ export default function CascaderPanel(props: CascaderPanelProps) {
 
   // ==================== Render =====================
 
-  return (
+  return wrapCSSVar(
     <Panel
-      {...props}
+      {...(props as Pick<RcCascaderProps, PickType>)}
       checkable={checkable}
       prefixCls={cascaderPrefixCls}
-      className={classNames(className, hashId, rootClassName)}
+      className={classNames(className, hashId, rootClassName, cssVarCls, rootCls)}
       notFoundContent={mergedNotFoundContent}
       direction={mergedDirection}
       expandIcon={mergedExpandIcon}
       loadingIcon={loadingIcon}
-    />
+    />,
   );
 }
+
+export default CascaderPanel;

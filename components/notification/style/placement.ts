@@ -1,5 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
+
 import type { NotificationToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
@@ -34,7 +35,7 @@ const genNotificationPlacementStyle: GenerateStyle<NotificationToken, CSSObject>
 
   const bottomFadeIn = new Keyframes('antNotificationBottomFadeIn', {
     '0%': {
-      bottom: -animationMaxHeight,
+      bottom: token.calc(animationMaxHeight).mul(-1).equal(),
       opacity: 0,
     },
 

@@ -1,9 +1,11 @@
+import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { GenerateStyle } from '../../theme/internal';
 import type { TableToken } from './index';
 
 const genSizeStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
-  const { componentCls } = token;
+  const { componentCls, tableExpandColumnWidth, calc } = token;
   const getSizeStyle = (
     size: 'small' | 'middle',
     paddingVertical: number,
@@ -22,30 +24,32 @@ const genSizeStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         tfoot > tr > th,
         tfoot > tr > td
       `]: {
-        padding: `${paddingVertical}px ${paddingHorizontal}px`,
+        padding: `${unit(paddingVertical)} ${unit(paddingHorizontal)}`,
       },
 
       [`${componentCls}-filter-trigger`]: {
-        marginInlineEnd: `-${paddingHorizontal / 2}px`,
+        marginInlineEnd: unit(calc(paddingHorizontal).div(2).mul(-1).equal()),
       },
 
       [`${componentCls}-expanded-row-fixed`]: {
-        margin: `-${paddingVertical}px -${paddingHorizontal}px`,
+        margin: `${unit(calc(paddingVertical).mul(-1).equal())} ${unit(
+          calc(paddingHorizontal).mul(-1).equal(),
+        )}`,
       },
 
       [`${componentCls}-tbody`]: {
         // ========================= Nest Table ===========================
         [`${componentCls}-wrapper:only-child ${componentCls}`]: {
-          marginBlock: `-${paddingVertical}px`,
-          marginInline: `${
-            token.tableExpandColumnWidth - paddingHorizontal
-          }px -${paddingHorizontal}px`,
+          marginBlock: unit(calc(paddingVertical).mul(-1).equal()),
+          marginInline: `${unit(
+            calc(tableExpandColumnWidth).sub(paddingHorizontal).equal(),
+          )} ${unit(calc(paddingHorizontal).mul(-1).equal())}`,
         },
       },
 
       // https://github.com/ant-design/ant-design/issues/35167
       [`${componentCls}-selection-extra`]: {
-        paddingInlineStart: `${paddingHorizontal / 4}px`,
+        paddingInlineStart: unit(calc(paddingHorizontal).div(4).equal()),
       },
     },
   });

@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import { SettingOutlined, CopyOutlined, DownloadOutlined } from '@ant-design/icons';
+import { CopyOutlined, DownloadOutlined, SettingOutlined } from '@ant-design/icons';
 import {
+  Button,
   Cascader,
+  DatePicker,
+  Divider,
+  Drawer,
+  Dropdown,
   Input,
+  InputNumber,
+  Modal,
+  Popover,
   Select,
   Space,
-  Button,
   Tooltip,
-  Modal,
-  Dropdown,
-  Drawer,
-  InputNumber,
-  DatePicker,
-  Popover,
-  Divider,
 } from 'antd';
 
 const { Option } = Select;
@@ -80,6 +80,17 @@ const App: React.FC = () => {
           defaultValue="mysite"
         />
         <Button type="primary">Submit</Button>
+      </Space.Compact>
+      <Space.Compact>
+        <Input addonBefore="Prefix" defaultValue="mysite" showCount />
+        <Button type="primary">Submit</Button>
+        <Input
+          addonBefore="Prefix"
+          defaultValue="mysite"
+          showCount
+          addonAfter={<SettingOutlined />}
+        />
+        <Input addonBefore="Prefix" defaultValue="mysite" showCount />
       </Space.Compact>
       <br />
       <Space.Compact>

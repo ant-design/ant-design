@@ -1,3 +1,5 @@
+import { unit } from '@ant-design/cssinjs';
+
 import { resetComponent } from '../../style';
 import { initZoomMotion } from '../../style/motion';
 import type { ArrowOffsetToken } from '../../style/placementArrow';
@@ -5,16 +7,10 @@ import getArrowStyle, {
   getArrowOffsetToken,
   MAX_VERTICAL_CONTENT_RADIUS,
 } from '../../style/placementArrow';
-import type {
-  FullToken,
-  GenerateStyle,
-  GetDefaultToken,
-  UseComponentStyleResult,
-} from '../../theme/internal';
-import { genComponentStyleHook, genPresetColor, mergeToken } from '../../theme/internal';
-import { unit } from '@ant-design/cssinjs';
 import type { ArrowToken } from '../../style/roundedArrow';
 import { getArrowToken } from '../../style/roundedArrow';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genPresetColor, genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken extends ArrowOffsetToken, ArrowToken {
   /**
@@ -56,7 +52,11 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         width: 'max-content',
         maxWidth: tooltipMaxWidth,
         visibility: 'visible',
-        transformOrigin: `var(--arrow-x, 50%) var(--arrow-y, 50%)`,
+
+        // When use `autoArrow`, origin will follow the arrow position
+        '--valid-offset-x': 'var(--arrow-offset-horizontal, var(--arrow-x))',
+        transformOrigin: [`var(--valid-offset-x, 50%)`, `var(--arrow-y, 50%)`].join(' '),
+
         '&-hidden': {
           display: 'none',
         },
@@ -65,7 +65,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
 
         // Wrapper for the tooltip content
         [`${componentCls}-inner`]: {
-          minWidth: controlHeight,
+          minWidth: '1em',
           minHeight: controlHeight,
           padding: `${unit(token.calc(paddingSM).div(2).equal())} ${unit(paddingXS)}`,
           color: tooltipColor,
@@ -143,15 +143,10 @@ export const prepareComponentToken: GetDefaultToken<'Tooltip'> = (token) => ({
   ),
 });
 
-export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResult => {
-  const useOriginHook = genComponentStyleHook(
+export default (prefixCls: string, injectStyle = true) => {
+  const useStyle = genStyleHooks(
     'Tooltip',
     (token) => {
-      // Popover use Tooltip as internal component. We do not need to handle this.
-      if (injectStyle === false) {
-        return [];
-      }
-
       const { borderRadius, colorTextLightSolid, colorBgSpotlight } = token;
 
       const TooltipToken = mergeToken<TooltipToken>(token, {
@@ -167,8 +162,10 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
     prepareComponentToken,
     {
       resetStyle: false,
+      // Popover use Tooltip as internal component. We do not need to handle this.
+      injectStyle,
     },
   );
 
-  return useOriginHook(prefixCls);
+  return useStyle(prefixCls);
 };
