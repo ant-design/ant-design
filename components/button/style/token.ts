@@ -101,6 +101,21 @@ export interface ComponentToken {
    */
   defaultGhostBorderColor: string;
   /**
+   * @desc 主要填充按钮的浅色背景颜色
+   * @descEN Background color of primary filled button
+   */
+  colorPrimaryFill: string;
+  /**
+   * @desc 主要填充按钮的浅色背景颜色激活态
+   * @descEN The active state background color of primary filled button.
+   */
+  colorPrimaryFillActive: string;
+  /**
+   * @desc 主要填充按钮的浅色背景颜色悬浮态
+   * @descEN The hover state background color of primary filled button.
+   */
+  colorPrimaryFillHover: string;
+  /**
    * @desc 按钮横向内间距
    * @descEN Horizontal padding of button
    */
@@ -262,6 +277,9 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
     defaultActiveBg: token.colorBgContainer,
     defaultActiveColor: token.colorPrimaryActive,
     defaultActiveBorderColor: token.colorPrimaryActive,
+    colorPrimaryFill: token.blue3,
+    colorPrimaryFillActive: token.blue2,
+    colorPrimaryFillHover: token.blue4,
     contentFontSize,
     contentFontSizeSM,
     contentFontSizeLG,

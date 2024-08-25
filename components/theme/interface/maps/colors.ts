@@ -126,6 +126,24 @@ export interface ColorNeutralMapToken {
    * @descEN Control the background color of frosted glass container, usually transparent.
    */
   colorBgBlur: string;
+
+  // ----------   Solid   ---------- //
+
+  /**
+   * @desc 默认实心按钮的背景颜色
+   * @descEN Background color of default solid button
+   */
+  solidBg: string;
+  /**
+   * @desc 默认实心按钮的背景颜色激活态
+   * @descEN The active state background color of default solid button.
+   */
+  solidActiveBg: string;
+  /**
+   * @desc 默认实心按钮的背景颜色悬浮态
+   * @descEN The hover state background color of default solid button.
+   */
+  solidHoverBg: string;
 }
 
 /**
