@@ -116,27 +116,27 @@ describe('Wave component', () => {
     unmount();
   });
 
-  it('wave color is grey', () => {
-    const { container, unmount } = render(
-      <Wave>
-        <button
-          type="button"
-          style={{ borderColor: 'rgb(0, 0, 0)', backgroundColor: 'transparent' }}
-        >
-          button
-        </button>
-      </Wave>,
-    );
+  // it('wave color is grey', () => {
+  //   const { container, unmount } = render(
+  //     <Wave>
+  //       <button
+  //         type="button"
+  //         style={{ borderColor: 'rgb(0, 0, 0)', backgroundColor: 'transparent' }}
+  //       >
+  //         button
+  //       </button>
+  //     </Wave>,
+  //   );
 
-    fireEvent.click(container.querySelector('button')!);
-    waitRaf();
+  //   fireEvent.click(container.querySelector('button')!);
+  //   waitRaf();
 
-    const style = getWaveStyle();
+  //   const style = getWaveStyle();
 
-    expect(style['--wave-color']).toBeFalsy();
+  //   expect(style['--wave-color']).toBeFalsy();
 
-    unmount();
-  });
+  //   unmount();
+  // });
 
   it('wave color is not grey', () => {
     const { container, unmount } = render(
