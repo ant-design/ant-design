@@ -158,36 +158,36 @@ export default function confirm(config: ModalFuncProps) {
 
 export function withWarn(props: ModalFuncProps): ModalFuncProps {
   return {
-    ...props,
     type: 'warning',
+    ...props,
   };
 }
 
 export function withInfo(props: ModalFuncProps): ModalFuncProps {
   return {
-    ...props,
     type: 'info',
+    ...props,
   };
 }
 
 export function withSuccess(props: ModalFuncProps): ModalFuncProps {
   return {
-    ...props,
     type: 'success',
+    ...props,
   };
 }
 
 export function withError(props: ModalFuncProps): ModalFuncProps {
   return {
-    ...props,
     type: 'error',
+    ...props,
   };
 }
 
 export function withConfirm(props: ModalFuncProps): ModalFuncProps {
   return {
-    ...props,
     type: 'confirm',
+    ...props,
   };
 }
 
