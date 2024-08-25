@@ -6037,11 +6037,11 @@ Array [
       style="text-decoration: underline;"
       tabindex="-1"
     >
-      <span
-        class="ant-menu-title-content"
+      <div
+        class="ant-menu-inline-collapsed-noicon"
       >
-        Option 11
-      </span>
+        O
+      </div>
     </li>
     <li
       class="ant-menu-item ant-menu-item-only-child"
@@ -6050,11 +6050,11 @@ Array [
       style="text-decoration: underline;"
       tabindex="-1"
     >
-      <span
-        class="ant-menu-title-content"
+      <div
+        class="ant-menu-inline-collapsed-noicon"
       >
-        Option 12
-      </span>
+        O
+      </div>
     </li>
   </ul>,
   <div
