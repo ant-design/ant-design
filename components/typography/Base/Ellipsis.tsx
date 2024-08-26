@@ -17,10 +17,7 @@ const MeasureText = React.forwardRef<MeasureTextRef, MeasureTextProps>(
     const spanRef = React.useRef<HTMLSpanElement>(null);
 
     React.useImperativeHandle(ref, () => ({
-      isExceed: () => {
-        const span = spanRef.current!;
-        return span.scrollHeight > span.clientHeight;
-      },
+      isExceed: () => spanRef.current!.scrollHeight > spanRef.current!.clientHeight,
       getHeight: () => spanRef.current!.clientHeight,
     }));
 
@@ -44,60 +41,31 @@ const MeasureText = React.forwardRef<MeasureTextRef, MeasureTextProps>(
   },
 );
 
-function cuttable(node: React.ReactElement) {
-  const type = typeof node;
-  return type === 'string' || type === 'number';
-}
+const cuttable = (node: React.ReactElement) => typeof node === 'string' || typeof node === 'number';
 
-function getNodesLen(nodeList: React.ReactElement[]) {
-  let totalLen = 0;
+const getNodesLen = (nodeList: React.ReactElement[]) =>
+  nodeList.reduce((totalLen, node) => totalLen + (cuttable(node) ? String(node).length : 1), 0);
 
-  nodeList.forEach((node) => {
-    if (cuttable(node)) {
-      totalLen += String(node).length;
-    } else {
-      totalLen += 1;
-    }
-  });
-
-  return totalLen;
-}
-
-function sliceNodes(nodeList: React.ReactElement[], len: number) {
+const sliceNodes = (nodeList: React.ReactElement[], len: number) => {
   let currLen = 0;
-  const currentNodeList: React.ReactNode[] = [];
-
-  for (let i = 0; i < nodeList.length; i += 1) {
-    // Match to return
-    if (currLen === len) {
-      return currentNodeList;
-    }
-
-    const node = nodeList[i];
-    const canCut = cuttable(node);
-    const nodeLen = canCut ? String(node).length : 1;
+  return nodeList.reduce<React.ReactNode[]>((acc, node) => {
+    if (currLen >= len) return acc;
+    const nodeLen = cuttable(node) ? String(node).length : 1;
     const nextLen = currLen + nodeLen;
-
-    // Exceed but current not which means we need cut this
-    // This will not happen on validate ReactElement
     if (nextLen > len) {
-      const restLen = len - currLen;
-      currentNodeList.push(String(node).slice(0, restLen));
-      return currentNodeList;
+      acc.push(String(node).slice(0, len - currLen));
+      return acc;
     }
-
-    currentNodeList.push(node);
+    acc.push(node);
     currLen = nextLen;
-  }
-
-  return nodeList;
-}
+    return acc;
+  }, []);
+};
 
 export interface EllipsisProps {
   enableMeasure?: boolean;
   text?: React.ReactNode;
   width: number;
-  // fontSize: number;
   rows: number;
   children: (
     cutChildren: React.ReactNode[],
@@ -134,7 +102,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
 
   // ========================= Full Content =========================
   // Used for measure only, which means it's always render as no need ellipsis
-  const fullContent = React.useMemo(() => children(nodeList, false), [text]);
+  const fullContent = React.useMemo(() => children(nodeList, false), [text, children, nodeList]);
 
   // ========================= Cut Content ==========================
   const [ellipsisCutIndex, setEllipsisCutIndex] = React.useState<[number, number] | null>(null);
@@ -142,10 +110,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
 
   // ========================= NeedEllipsis =========================
   const measureWhiteSpaceRef = React.useRef<HTMLElement>(null);
-
   const needEllipsisRef = React.useRef<MeasureTextRef>(null);
-
-  // Measure for `rows-1` height, to avoid operation exceed the line height
   const descRowsEllipsisRef = React.useRef<MeasureTextRef>(null);
   const symbolRowEllipsisRef = React.useRef<MeasureTextRef>(null);
 
@@ -163,7 +128,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
     } else {
       setNeedEllipsis(STATUS_MEASURE_NONE);
     }
-  }, [width, text, rows, enableMeasure, nodeList]);
+  }, [width, text, rows, enableMeasure, nodeList, nodeLen]);
 
   // Measure process
   useLayoutEffect(() => {
@@ -187,15 +152,16 @@ export default function EllipsisMeasure(props: EllipsisProps) {
       // Get the height of `rows - 1` + symbol height
       const descRowsEllipsisHeight = rows === 1 ? 0 : descRowsEllipsisRef.current?.getHeight() || 0;
       const symbolRowEllipsisHeight = symbolRowEllipsisRef.current?.getHeight() || 0;
-      const rowsWithEllipsisHeight = descRowsEllipsisHeight + symbolRowEllipsisHeight;
-
-      const maxRowsHeight = Math.max(baseRowsEllipsisHeight, rowsWithEllipsisHeight);
+      const maxRowsHeight = Math.max(
+        baseRowsEllipsisHeight,
+        descRowsEllipsisHeight + symbolRowEllipsisHeight,
+      );
 
       setEllipsisHeight(maxRowsHeight + 1);
 
       onEllipsis(isOverflow);
     }
-  }, [needEllipsis]);
+  }, [needEllipsis, rows, nodeLen, onEllipsis]);
 
   // ========================= Cut Measure ==========================
   const cutMidIndex = ellipsisCutIndex
@@ -208,14 +174,11 @@ export default function EllipsisMeasure(props: EllipsisProps) {
       const midHeight = cutMidRef.current?.getHeight() || 0;
 
       const isOverflow = midHeight > ellipsisHeight;
-      let targetMidIndex = cutMidIndex;
-
-      if (maxIndex - minIndex === 1) {
-        targetMidIndex = isOverflow ? minIndex : maxIndex;
-      }
+      const targetMidIndex =
+        maxIndex - minIndex === 1 ? (isOverflow ? minIndex : maxIndex) : cutMidIndex;
       setEllipsisCutIndex(isOverflow ? [minIndex, targetMidIndex] : [targetMidIndex, maxIndex]);
     }
-  }, [ellipsisCutIndex, cutMidIndex]);
+  }, [ellipsisCutIndex, ellipsisHeight, cutMidIndex]);
 
   // ========================= Text Content =========================
   const finalContent = React.useMemo(() => {
@@ -248,7 +211,17 @@ export default function EllipsisMeasure(props: EllipsisProps) {
     }
 
     return children(expanded ? nodeList : sliceNodes(nodeList, ellipsisCutIndex[0]), canEllipsis);
-  }, [expanded, needEllipsis, ellipsisCutIndex, nodeList, ...miscDeps]);
+  }, [
+    expanded,
+    needEllipsis,
+    ellipsisCutIndex,
+    nodeList,
+    canEllipsis,
+    children,
+    enableMeasure,
+    rows,
+    ...miscDeps,
+  ]);
 
   // ============================ Render ============================
   const measureStyle: React.CSSProperties = {
