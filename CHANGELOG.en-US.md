@@ -18,7 +18,7 @@ tag: vVERSION
 
 ## 5.20.3
 
-`2024-08-25`
+`2024-08-26`
 
 - 🐞 Refactor Typography native css ellipsis measure logic to handle precision edge case. [#50514](https://github.com/ant-design/ant-design/pull/50514) [@zombieJ](https://github.com/zombieJ)
 - 🐞 Fix ColorPicker `onChangeComplete` not correct when click directly without move on the picker panel. [#50501](https://github.com/ant-design/ant-design/pull/50501) [@zombieJ](https://github.com/zombieJ)
