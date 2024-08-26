@@ -162,7 +162,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
 
       onEllipsis(isOverflow);
     }
-  }, [needEllipsis, rows, nodeLen, onEllipsis]);
+  }, [needEllipsis]);
 
   // ========================= Cut Measure ==========================
   const cutMidIndex = ellipsisCutIndex
@@ -181,7 +181,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
       }
       setEllipsisCutIndex(isOverflow ? [minIndex, targetMidIndex] : [targetMidIndex, maxIndex]);
     }
-  }, [ellipsisCutIndex, ellipsisHeight, cutMidIndex]);
+  }, [ellipsisCutIndex, cutMidIndex]);
 
   // ========================= Text Content =========================
   const finalContent = React.useMemo(() => {
@@ -214,17 +214,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
     }
 
     return children(expanded ? nodeList : sliceNodes(nodeList, ellipsisCutIndex[0]), canEllipsis);
-  }, [
-    expanded,
-    needEllipsis,
-    ellipsisCutIndex,
-    nodeList,
-    canEllipsis,
-    children,
-    enableMeasure,
-    rows,
-    ...miscDeps,
-  ]);
+  }, [expanded, needEllipsis, ellipsisCutIndex, nodeList, ...miscDeps]);
 
   // ============================ Render ============================
   const measureStyle: React.CSSProperties = {
