@@ -175,8 +175,10 @@ export default function EllipsisMeasure(props: EllipsisProps) {
       const midHeight = cutMidRef.current?.getHeight() || 0;
 
       const isOverflow = midHeight > ellipsisHeight;
-      const targetMidIndex =
-        maxIndex - minIndex === 1 ? (isOverflow ? minIndex : maxIndex) : cutMidIndex;
+      let targetMidIndex = cutMidIndex;
+      if (maxIndex - minIndex === 1) {
+        targetMidIndex = isOverflow ? minIndex : maxIndex;
+      }
       setEllipsisCutIndex(isOverflow ? [minIndex, targetMidIndex] : [targetMidIndex, maxIndex]);
     }
   }, [ellipsisCutIndex, ellipsisHeight, cutMidIndex]);
