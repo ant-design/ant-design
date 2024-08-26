@@ -129,7 +129,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
     } else {
       setNeedEllipsis(STATUS_MEASURE_NONE);
     }
-  }, [width, text, rows, enableMeasure, nodeList, nodeLen]);
+  }, [width, text, rows, enableMeasure, nodeList]);
 
   // Measure process
   useLayoutEffect(() => {
