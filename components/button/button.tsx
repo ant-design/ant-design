@@ -24,6 +24,7 @@ import IconWrapper from './IconWrapper';
 import LoadingIcon from './LoadingIcon';
 import useStyle from './style';
 import CompactCmp from './style/compactCmp';
+
 export type LegacyButtonType = ButtonType | 'danger';
 
 export interface BaseButtonProps {
