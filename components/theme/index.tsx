@@ -31,12 +31,12 @@ export default {
   compactAlgorithm,
   getDesignToken,
   /**
-   * @private Private variable.
+   * @private Private variable
    * @warring 🔥 Do not use in production. 🔥
    */
   defaultConfig,
   /**
-   * @private Private variable.
+   * @private Private variable
    * @warring 🔥 Do not use in production. 🔥
    */
   _internalContext: InternalDesignTokenContext,
