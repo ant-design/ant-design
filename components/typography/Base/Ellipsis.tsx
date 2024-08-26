@@ -102,7 +102,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
 
   // ========================= Full Content =========================
   // Used for measure only, which means it's always render as no need ellipsis
-  const fullContent = React.useMemo(() => children(nodeList, false), [text, children, nodeList]);
+  const fullContent = React.useMemo(() => children(nodeList, false), [text]);
 
   // ========================= Cut Content ==========================
   const [ellipsisCutIndex, setEllipsisCutIndex] = React.useState<[number, number] | null>(null);
@@ -111,6 +111,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
   // ========================= NeedEllipsis =========================
   const measureWhiteSpaceRef = React.useRef<HTMLElement>(null);
   const needEllipsisRef = React.useRef<MeasureTextRef>(null);
+  // Measure for `rows-1` height, to avoid operation exceed the line height
   const descRowsEllipsisRef = React.useRef<MeasureTextRef>(null);
   const symbolRowEllipsisRef = React.useRef<MeasureTextRef>(null);
 
