@@ -46,21 +46,35 @@ const cuttable = (node: React.ReactElement) => typeof node === 'string' || typeo
 const getNodesLen = (nodeList: React.ReactElement[]) =>
   nodeList.reduce((totalLen, node) => totalLen + (cuttable(node) ? String(node).length : 1), 0);
 
-const sliceNodes = (nodeList: React.ReactElement[], len: number) => {
+function sliceNodes(nodeList: React.ReactElement[], len: number) {
   let currLen = 0;
-  return nodeList.reduce<React.ReactNode[]>((acc, node) => {
-    if (currLen >= len) return acc;
-    const nodeLen = cuttable(node) ? String(node).length : 1;
-    const nextLen = currLen + nodeLen;
-    if (nextLen > len) {
-      acc.push(String(node).slice(0, len - currLen));
-      return acc;
+  const currentNodeList: React.ReactNode[] = [];
+
+  for (let i = 0; i < nodeList.length; i += 1) {
+    // Match to return
+    if (currLen === len) {
+      return currentNodeList;
     }
-    acc.push(node);
+
+    const node = nodeList[i];
+    const canCut = cuttable(node);
+    const nodeLen = canCut ? String(node).length : 1;
+    const nextLen = currLen + nodeLen;
+
+    // Exceed but current not which means we need cut this
+    // This will not happen on validate ReactElement
+    if (nextLen > len) {
+      const restLen = len - currLen;
+      currentNodeList.push(String(node).slice(0, restLen));
+      return currentNodeList;
+    }
+
+    currentNodeList.push(node);
     currLen = nextLen;
-    return acc;
-  }, []);
-};
+  }
+
+  return nodeList;
+}
 
 export interface EllipsisProps {
   enableMeasure?: boolean;
