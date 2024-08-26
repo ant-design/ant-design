@@ -3,7 +3,6 @@
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { codecovWebpackPlugin } = require('@codecov/webpack-plugin');
-const { EsbuildPlugin } = require('esbuild-loader');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const DuplicatePackageCheckerPlugin = require('@madccc/duplicate-package-checker-webpack-plugin');
 const path = require('path');
@@ -42,7 +41,7 @@ if (process.env.PRODUCTION_ONLY) {
   webpackConfig = webpackConfig.filter((config) => config.mode === 'production');
 }
 
-// https://github.com/ant-design/antd-tools/blob/14ee166fc1f4ab5e87da45ee3b0643a8325f1bc3/lib/gulpfile.js#L48
+// RUN_ENV: https://github.com/ant-design/antd-tools/blob/14ee166fc1f4ab5e87da45ee3b0643a8325f1bc3/lib/gulpfile.js#L48
 if (process.env.RUN_ENV === 'PRODUCTION') {
   webpackConfig.forEach((config) => {
     addLocales(config);
@@ -65,15 +64,7 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
       return;
     }
 
-    // use esbuild
-    if (process.env.ESBUILD || process.env.CSB_REPO) {
-      config.optimization.minimizer[0] = new EsbuildPlugin({
-        target: 'es2015',
-        css: true,
-      });
-    }
-
-    if (!process.env.NO_DUP_CHECK) {
+    if (!process.env.PRODUCTION_ONLY) {
       config.plugins.push(
         new DuplicatePackageCheckerPlugin({
           verbose: true,
