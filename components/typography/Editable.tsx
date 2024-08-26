@@ -1,7 +1,7 @@
 import * as React from 'react';
 import EnterOutlined from '@ant-design/icons/EnterOutlined';
 import classNames from 'classnames';
-import type { AutoSizeType } from 'rc-textarea';
+import type { TextAreaProps } from 'rc-textarea';
 import KeyCode from 'rc-util/lib/KeyCode';
 
 import { cloneElement } from '../_util/reactNode';
@@ -21,7 +21,7 @@ interface EditableProps {
   style?: React.CSSProperties;
   direction?: DirectionType;
   maxLength?: number;
-  autoSize?: boolean | AutoSizeType;
+  autoSize?: TextAreaProps['autoSize'];
   enterIcon?: React.ReactNode;
   component?: string;
 }
@@ -94,27 +94,26 @@ const Editable: React.FC<EditableProps> = (props) => {
   }) => {
     // Check if it's a real key
     if (
-      lastKeyCode.current === keyCode &&
-      !inComposition.current &&
-      !ctrlKey &&
-      !altKey &&
-      !metaKey &&
-      !shiftKey
+      lastKeyCode.current !== keyCode ||
+      inComposition.current ||
+      ctrlKey ||
+      altKey ||
+      metaKey ||
+      shiftKey
     ) {
-      if (keyCode === KeyCode.ENTER) {
-        confirmChange();
-        onEnd?.();
-      } else if (keyCode === KeyCode.ESC) {
-        onCancel();
-      }
+      return;
+    }
+    if (keyCode === KeyCode.ENTER) {
+      confirmChange();
+      onEnd?.();
+    } else if (keyCode === KeyCode.ESC) {
+      onCancel();
     }
   };
 
   const onBlur: React.FocusEventHandler<HTMLTextAreaElement> = () => {
     confirmChange();
   };
-
-  const textClassName = component ? `${prefixCls}-${component}` : '';
 
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
@@ -123,9 +122,9 @@ const Editable: React.FC<EditableProps> = (props) => {
     `${prefixCls}-edit-content`,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-${component}`]: !!component,
     },
     className,
-    textClassName,
     hashId,
     cssVarCls,
   );

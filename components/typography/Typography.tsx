@@ -1,7 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
-
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps, DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
@@ -42,6 +41,7 @@ const Typography = React.forwardRef<
     style,
     ...restProps
   } = props;
+
   const {
     getPrefixCls,
     direction: contextDirection,
@@ -49,23 +49,16 @@ const Typography = React.forwardRef<
   } = React.useContext<ConfigConsumerProps>(ConfigContext);
 
   const direction = typographyDirection ?? contextDirection;
-
-  let mergedRef = ref;
-  if (setContentRef) {
-    mergedRef = composeRef(ref, setContentRef);
-  }
+  const mergedRef = setContentRef ? composeRef(ref, setContentRef) : ref;
+  const prefixCls = getPrefixCls('typography', customizePrefixCls);
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Typography');
-
     warning.deprecated(!setContentRef, 'setContentRef', 'ref');
   }
 
-  const prefixCls = getPrefixCls('typography', customizePrefixCls);
-
   // Style
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
-
   const componentClassName = classNames(
     prefixCls,
     typography?.className,
@@ -92,5 +85,4 @@ if (process.env.NODE_ENV !== 'production') {
   Typography.displayName = 'Typography';
 }
 
-// es default export should use const instead of let
 export default Typography;
