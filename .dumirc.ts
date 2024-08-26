@@ -23,7 +23,7 @@ export default defineConfig({
   mfsu: false,
   mako: {},
   crossorigin: {},
-  runtimePublicPath: true,
+  runtimePublicPath: {},
   outputPath: '_site',
   favicons: ['https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png'],
   resolve: {
