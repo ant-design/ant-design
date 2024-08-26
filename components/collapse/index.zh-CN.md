@@ -96,7 +96,7 @@ const items: CollapseProps['items'] = [
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| classNames | 语义化结构 className | [`Record<header \| body, string>`](#semantic-dom) | - | 5.20.3 |
+| classNames | 语义化结构 className | [`Record<header \| body, string>`](#semantic-dom) | - | 5.21.0 |
 | collapsible | 是否可折叠或指定可折叠触发区域 | `header` \| `icon` \| `disabled` | - |  |
 | children | body 区域内容 | ReactNode | - |  |
 | extra | 自定义渲染每个面板右上角的内容 | ReactNode | - |  |
@@ -104,7 +104,7 @@ const items: CollapseProps['items'] = [
 | key | 对应 activeKey | string \| number | - |  |
 | label | 面板标题 | ReactNode | - | - |
 | showArrow | 是否展示当前面板上的箭头（为 false 时，collapsible 不能设为 icon） | boolean | true |  |
-| styles | 语义化结构 style | [`Record<header \| body, CSSProperties>`](#semantic-dom) | - | 5.20.3 |
+| styles | 语义化结构 style | [`Record<header \| body, CSSProperties>`](#semantic-dom) | - | 5.21.0 |
 
 ### Collapse.Panel
 

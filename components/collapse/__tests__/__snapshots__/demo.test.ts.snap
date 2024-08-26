@@ -138,7 +138,7 @@ exports[`renders components/collapse/demo/basic.tsx correctly 1`] = `
     <div
       aria-disabled="false"
       aria-expanded="true"
-      class="ant-collapse-header header-custom"
+      class="ant-collapse-header"
       role="button"
       tabindex="0"
     >
@@ -176,7 +176,7 @@ exports[`renders components/collapse/demo/basic.tsx correctly 1`] = `
       class="ant-collapse-content ant-collapse-content-active"
     >
       <div
-        class="ant-collapse-content-box body-custom"
+        class="ant-collapse-content-box"
       >
         <p>
   A dog is a type of domesticated animal.

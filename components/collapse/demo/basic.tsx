@@ -13,7 +13,6 @@ const items: CollapseProps['items'] = [
     key: '1',
     label: 'This is panel header 1',
     children: <p>{text}</p>,
-    classNames: { header: 'header-custom', body: 'body-custom' },
   },
   {
     key: '2',
