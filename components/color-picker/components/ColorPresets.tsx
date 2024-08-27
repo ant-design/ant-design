@@ -25,7 +25,7 @@ const genPresetColor = (list: PresetsItem[]) =>
     return value;
   });
 
-const isBright = (value: AggregationColor, bgColorToken: string) => {
+export const isBright = (value: AggregationColor, bgColorToken: string) => {
   const { r, g, b, a } = value.toRgb();
   const hsv = new RcColor(value.toRgbString()).onBackground(bgColorToken).toHsv();
   if (a <= 0.5) {

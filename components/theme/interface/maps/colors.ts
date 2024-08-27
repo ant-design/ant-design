@@ -140,7 +140,7 @@ export interface ColorNeutralMapToken {
    */
   solidActiveBg: string;
   /**
-   * @desc 实心的背景颜色悬浮态，目前只用在默认实心按钮的 hover 效果
+   * @desc 实心的背景颜色悬浮态，目前只用在默认实心按钮的 hover 效果。
    * @descEN Solid background color hover state, currently only used in the hover effect of the default solid button.
    */
   solidHoverBg: string;

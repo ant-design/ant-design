@@ -1,6 +1,8 @@
 import type { CSSProperties } from 'react';
 
-import type { FullToken, GetDefaultToken, GenStyleFn } from '../../theme/internal';
+import { AggregationColor } from '../../color-picker/color';
+import { isBright } from '../../color-picker/components/ColorPresets';
+import type { FullToken, GenStyleFn, GetDefaultToken } from '../../theme/internal';
 import { getLineHeight, mergeToken } from '../../theme/internal';
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -115,6 +117,11 @@ export interface ComponentToken {
    * @descEN The hover state background color of primary filled button.
    */
   colorPrimaryFillHover: string;
+  /**
+   * @desc 默认实心按钮的文本色
+   * @descEN Default text color for solid buttons.
+   */
+  solidTextColor: string;
   /**
    * @desc 按钮横向内间距
    * @descEN Horizontal padding of button
@@ -246,6 +253,7 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
   const contentLineHeight = token.contentLineHeight ?? getLineHeight(contentFontSize);
   const contentLineHeightSM = token.contentLineHeightSM ?? getLineHeight(contentFontSizeSM);
   const contentLineHeightLG = token.contentLineHeightLG ?? getLineHeight(contentFontSizeLG);
+  const solidTextColor = isBright(new AggregationColor(token.solidBg), '#fff') ? '#000' : '#fff';
 
   return {
     fontWeight: 400,
@@ -280,6 +288,7 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
     colorPrimaryFill: token.blue3,
     colorPrimaryFillActive: token.blue2,
     colorPrimaryFillHover: token.blue4,
+    solidTextColor,
     contentFontSize,
     contentFontSizeSM,
     contentFontSizeLG,

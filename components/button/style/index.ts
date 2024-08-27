@@ -234,7 +234,7 @@ const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
 
   ...genSolidButtonStyle(
     token,
-    token.colorTextLightSolid,
+    token.solidTextColor,
     token.solidBg,
     token.colorTextTertiary,
     {
