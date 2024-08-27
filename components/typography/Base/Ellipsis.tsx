@@ -17,7 +17,10 @@ const MeasureText = React.forwardRef<MeasureTextRef, MeasureTextProps>(
     const spanRef = React.useRef<HTMLSpanElement>(null);
 
     React.useImperativeHandle(ref, () => ({
-      isExceed: () => spanRef.current!.scrollHeight > spanRef.current!.clientHeight,
+      isExceed: () => {
+        const span = spanRef.current!;
+        return span.scrollHeight > span.clientHeight;
+      },
       getHeight: () => spanRef.current!.clientHeight,
     }));
 
