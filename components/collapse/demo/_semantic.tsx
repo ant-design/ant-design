@@ -7,12 +7,12 @@ import useLocale from '../../../.dumi/hooks/useLocale';
 
 const locales = {
   cn: {
-    header: '头部区域',
-    body: '内容区域',
+    header: '头部元素',
+    body: '内容元素',
   },
   en: {
-    header: 'header area',
-    body: 'body area',
+    header: 'Header element',
+    body: 'Body element',
   },
 };
 

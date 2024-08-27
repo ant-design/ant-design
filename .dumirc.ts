@@ -21,7 +21,7 @@ export default defineConfig({
       : false,
   hash: true,
   mfsu: false,
-  mako: {},
+  mako: false,
   crossorigin: {},
   outputPath: '_site',
   favicons: ['https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png'],
@@ -56,9 +56,12 @@ export default defineConfig({
   analytics: {
     ga_v2: 'UA-72788897-1',
   },
-  analyze: process.env.NODE_ENV === 'production' ? false : {
-    analyzerPort: 'auto',
-  },
+  analyze:
+    process.env.NODE_ENV === 'production'
+      ? false
+      : {
+          analyzerPort: 'auto',
+        },
   links: [
     {
       rel: 'prefetch',
