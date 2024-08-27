@@ -331,7 +331,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     if (!enableEllipsis || cssEllipsis) {
       return undefined;
     }
-    return [editConfig.text, children, title, tooltipProps.title].find((value) => isValid(value));
+    return [editConfig.text, children, title, tooltipProps.title].find(isValid);
   }, [enableEllipsis, cssEllipsis, title, tooltipProps.title, isMergedEllipsis]);
 
   // =========================== Render ===========================
