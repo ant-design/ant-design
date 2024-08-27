@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import type { AutoSizeType } from 'rc-textarea';
 import toArray from 'rc-util/lib/Children/toArray';
-import useIsomorphicLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
+import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
 import { composeRef } from 'rc-util/lib/ref';
@@ -19,13 +19,13 @@ import Editable from '../Editable';
 import useCopyClick from '../hooks/useCopyClick';
 import useMergedConfig from '../hooks/useMergedConfig';
 import usePrevious from '../hooks/usePrevious';
-import useUpdatedEffect from '../hooks/useUpdatedEffect';
+import useTooltipProps from '../hooks/useTooltipProps';
 import type { TypographyProps } from '../Typography';
 import Typography from '../Typography';
 import CopyBtn from './CopyBtn';
 import Ellipsis from './Ellipsis';
 import EllipsisTooltip from './EllipsisTooltip';
-import { isEleEllipsis, isValid } from './util';
+import { isEleEllipsis, isValidText } from './util';
 
 export type BaseType = 'secondary' | 'success' | 'warning' | 'danger';
 
@@ -162,7 +162,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   // Focus edit icon when back
   const prevEditing = usePrevious(editing);
-  useUpdatedEffect(() => {
+  useLayoutEffect(() => {
     if (!editing && prevEditing) {
       editIconRef.current?.focus();
     }
@@ -223,7 +223,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     [mergedEnableEllipsis, ellipsisConfig, enableEdit, enableCopy],
   );
 
-  useIsomorphicLayoutEffect(() => {
+  useLayoutEffect(() => {
     if (enableEllipsis && !needMeasureEllipsis) {
       setIsLineClampSupport(isStyleSupport('webkitLineClamp'));
       setIsTextOverflowSupport(isStyleSupport('textOverflow'));
@@ -246,7 +246,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   // We use effect to change from css ellipsis to js ellipsis.
   // To make SSR still can see the ellipsis.
-  useIsomorphicLayoutEffect(() => {
+  useLayoutEffect(() => {
     setCssEllipsis(canUseCssEllipsis && mergedEnableEllipsis);
   }, [canUseCssEllipsis, mergedEnableEllipsis]);
 
@@ -314,24 +314,13 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   }, [cssEllipsis, mergedEnableEllipsis]);
 
   // ========================== Tooltip ===========================
-  const tooltipProps = (() => {
-    if (ellipsisConfig.tooltip === true) {
-      return { title: editConfig.text ?? children };
-    }
-    if (React.isValidElement(ellipsisConfig.tooltip)) {
-      return { title: ellipsisConfig.tooltip };
-    }
-    if (typeof ellipsisConfig.tooltip === 'object') {
-      return { title: editConfig.text ?? children, ...ellipsisConfig.tooltip };
-    }
-    return { title: ellipsisConfig.tooltip };
-  })();
+  const tooltipProps = useTooltipProps(ellipsisConfig.tooltip, editConfig.text, children);
 
   const topAriaLabel = React.useMemo(() => {
     if (!enableEllipsis || cssEllipsis) {
       return undefined;
     }
-    return [editConfig.text, children, title, tooltipProps.title].find(isValid);
+    return [editConfig.text, children, title, tooltipProps.title].find(isValidText);
   }, [enableEllipsis, cssEllipsis, title, tooltipProps.title, isMergedEllipsis]);
 
   // =========================== Render ===========================

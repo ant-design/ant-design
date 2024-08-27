@@ -36,14 +36,14 @@ export function isEleEllipsis(ele: HTMLElement): boolean {
 
   // Range checker
   return (
-    // Horizontal in range
+    // Horizontal out of range
     rect.left > childRect.left ||
     childRect.right > rect.right ||
-    // Vertical in range
+    // Vertical out of range
     rect.top > childRect.top ||
     childRect.bottom > rect.bottom
   );
 }
 
-export const isValid = (val: any): val is string | number =>
+export const isValidText = (val: any): val is string | number =>
   ['string', 'number'].includes(typeof val);

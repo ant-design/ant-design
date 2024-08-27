@@ -1,6 +1,7 @@
 import * as React from 'react';
 import toArray from 'rc-util/lib/Children/toArray';
 import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
+import { isValidText } from './util';
 
 interface MeasureTextProps {
   style?: React.CSSProperties;
@@ -44,10 +45,8 @@ const MeasureText = React.forwardRef<MeasureTextRef, MeasureTextProps>(
   },
 );
 
-const cuttable = (node: React.ReactElement) => typeof node === 'string' || typeof node === 'number';
-
 const getNodesLen = (nodeList: React.ReactElement[]) =>
-  nodeList.reduce((totalLen, node) => totalLen + (cuttable(node) ? String(node).length : 1), 0);
+  nodeList.reduce((totalLen, node) => totalLen + (isValidText(node) ? String(node).length : 1), 0);
 
 function sliceNodes(nodeList: React.ReactElement[], len: number) {
   let currLen = 0;
@@ -60,7 +59,7 @@ function sliceNodes(nodeList: React.ReactElement[], len: number) {
     }
 
     const node = nodeList[i];
-    const canCut = cuttable(node);
+    const canCut = isValidText(node);
     const nodeLen = canCut ? String(node).length : 1;
     const nextLen = currLen + nodeLen;
 
@@ -172,6 +171,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
       const symbolRowEllipsisHeight = symbolRowEllipsisRef.current?.getHeight() || 0;
       const maxRowsHeight = Math.max(
         baseRowsEllipsisHeight,
+        // height of rows with ellipsis
         descRowsEllipsisHeight + symbolRowEllipsisHeight,
       );
 
@@ -213,7 +213,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
       ellipsisCutIndex[0] !== ellipsisCutIndex[1]
     ) {
       const content = children(nodeList, false);
-      // Limit the max line count to avoid scrollbar blink
+      // Limit the max line count to avoid scrollbar blink unless no need ellipsis
       // https://github.com/ant-design/ant-design/issues/42958
       if ([STATUS_MEASURE_NO_NEED_ELLIPSIS, STATUS_MEASURE_NONE].includes(needEllipsis)) {
         return content;
