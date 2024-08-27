@@ -56,9 +56,9 @@ exports[`site test Component components/checkbox en Page 1`] = `3`;
 
 exports[`site test Component components/checkbox zh Page 1`] = `3`;
 
-exports[`site test Component components/collapse en Page 1`] = `2`;
+exports[`site test Component components/collapse en Page 1`] = `3`;
 
-exports[`site test Component components/collapse zh Page 1`] = `2`;
+exports[`site test Component components/collapse zh Page 1`] = `3`;
 
 exports[`site test Component components/color-picker en Page 1`] = `2`;
 
