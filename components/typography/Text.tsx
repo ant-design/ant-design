@@ -15,10 +15,13 @@ const Text: React.ForwardRefRenderFunction<HTMLSpanElement, TextProps> = (
   { ellipsis, ...restProps },
   ref,
 ) => {
-  const mergedEllipsis =
-    typeof ellipsis === 'object'
-      ? omit(ellipsis as EllipsisConfig, ['expandable', 'rows'])
-      : ellipsis;
+  const mergedEllipsis = React.useMemo(() => {
+    if (ellipsis && typeof ellipsis === 'object') {
+      return omit(ellipsis as EllipsisConfig, ['expandable', 'rows']);
+    }
+    return ellipsis;
+  }, [JSON.stringify(ellipsis)]);
+
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Typography.Text');
 
