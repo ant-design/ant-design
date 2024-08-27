@@ -20,7 +20,7 @@ const Text: React.ForwardRefRenderFunction<HTMLSpanElement, TextProps> = (
       return omit(ellipsis as EllipsisConfig, ['expandable', 'rows']);
     }
     return ellipsis;
-  }, [JSON.stringify(ellipsis)]);
+  }, [ellipsis]);
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Typography.Text');
