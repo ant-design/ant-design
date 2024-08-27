@@ -10,7 +10,7 @@ const App: React.FC = () => (
       border: '1px solid #e5e7eb',
     }}
   >
-    <Splitter.Panel defaultSize={40} collapsible={{ prev: true }}>
+    <Splitter.Panel defaultSize={40} collapsible={{ start: true }}>
       <div style={{ padding: 12 }}>
         <div>1</div>
         <div>defaultSize=40</div>

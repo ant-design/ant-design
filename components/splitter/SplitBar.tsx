@@ -38,9 +38,9 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   let previousIcon = false;
   let nextIcon = false;
   if (typeof collapsible === 'object') {
-    const { prev = false, next = false } = collapsible;
-    previousIcon = prev;
-    nextIcon = next;
+    const { start = false, end = false } = collapsible;
+    previousIcon = start;
+    nextIcon = end;
 
     // 折叠后恢复
     if (previousIcon && previousSize === 0) {

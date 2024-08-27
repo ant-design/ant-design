@@ -9,8 +9,8 @@ export interface PanelProps {
   collapsible?:
     | boolean
     | {
-        prev?: boolean;
-        next?: boolean;
+        start?: boolean;
+        end?: boolean;
       };
   resizable?: boolean;
 }

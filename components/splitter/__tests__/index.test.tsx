@@ -118,12 +118,12 @@ describe('Splitter', () => {
           {
             defaultSize: 20,
             collapsible: {
-              prev: true,
+              start: true,
             },
           },
           {
             collapsible: {
-              next: true,
+              end: true,
             },
           },
           {},
@@ -146,7 +146,7 @@ describe('Splitter', () => {
           {
             size: 20,
             collapsible: {
-              prev: true,
+              start: true,
             },
           },
           {},
@@ -170,7 +170,7 @@ describe('Splitter', () => {
           {
             size: 60,
             collapsible: {
-              next: true,
+              end: true,
             },
           },
           {},
