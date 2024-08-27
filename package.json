@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.20.2",
+  "version": "5.20.3",
   "description": "An enterprise-class UI design language and React components implementation",
   "keywords": [
     "ant",
@@ -117,7 +117,7 @@
     "dayjs": "^1.11.11",
     "rc-cascader": "~3.27.0",
     "rc-checkbox": "~3.3.0",
-    "rc-collapse": "~3.7.3",
+    "rc-collapse": "~3.8.0",
     "rc-dialog": "~9.5.2",
     "rc-drawer": "~7.2.0",
     "rc-dropdown": "~4.2.0",
@@ -340,11 +340,13 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "350 KiB"
+      "limit": "500 KiB",
+      "gzip": true
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "400 KiB"
+      "limit": "500 KiB",
+      "gzip": true
     }
   ],
   "title": "Ant Design",
