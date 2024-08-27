@@ -163,7 +163,7 @@
     "@ant-design/compatible": "^5.1.3",
     "@ant-design/happy-work-theme": "^1.0.0",
     "@ant-design/tools": "^18.0.2",
-    "@antv/g6": "^5.0.17",
+    "@antv/g6": "^4.8.24",
     "@babel/eslint-plugin": "^7.24.7",
     "@biomejs/biome": "^1.8.3",
     "@codecov/webpack-plugin": "^0.0.1-beta.10",
