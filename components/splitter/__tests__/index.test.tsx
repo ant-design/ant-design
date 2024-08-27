@@ -328,6 +328,10 @@ describe('Splitter', () => {
 
     await doMove(container, 0, { clientX: 440 });
     expect(mockMoving).toHaveBeenNthCalledWith(5, [100, 0], 0);
+
+    rerender(<SplitterDemo items={[{ size: 30 }, {}, { max: 60 }]} onResize={mockMoving} />);
+    await doMove(container, 1, { clientX: -120 });
+    expect(mockMoving).toHaveBeenNthCalledWith(6, [30, 10, 60], 1);
   });
 
   it('The RTL should work fine.', async () => {

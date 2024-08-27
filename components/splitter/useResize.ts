@@ -94,27 +94,19 @@ const useResize = ({
         previousSize = previousMinNumber;
         nextSize = percentCount - previousSize;
         skipNext = true;
-      } else if (previousSize < 0) {
-        previousSize = 0;
       } else if (previousSize > previousMaxNumber) {
         previousSize = previousMaxNumber;
         nextSize = percentCount - previousSize;
         skipNext = true;
-      } else if (previousSize > percentCount) {
-        previousSize = percentCount;
       }
 
       if (!skipNext) {
         if (nextSize < nextMinNumber) {
           nextSize = nextMinNumber;
           previousSize = percentCount - nextSize;
-        } else if (nextSize < 0) {
-          nextSize = 0;
         } else if (nextSize > nextMaxNumber) {
           nextSize = nextMaxNumber;
           previousSize = percentCount - nextSize;
-        } else if (nextSize > percentCount) {
-          nextSize = percentCount;
         }
       }
 
