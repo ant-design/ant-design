@@ -1,7 +1,7 @@
 ## zh-CN
 
-使用 `gap` 参数来控制高亮区域的边距和圆角。 `5.9.0` 之前不支持单独设置水平边距和数组类型的 `offset` 参数。
+使用 `gap` 参数来控制高亮区域的边距和圆角。 `5.9.0` 之前不支持单独设置水平边距和数组类型的 `offset` 参数。`radius` 的最小值为2，设置 `radius` 小于2不生效。
 
 ## en-US
 
-Using `gap` to control the radius of highlight area and the offset between highlight area and the element. Setting horizontal offset individually and `offset` with array type is not supported until `5.9.0`.
+Using `gap` to control the radius of highlight area and the offset between highlight area and the element. Setting horizontal offset individually and `offset` with array type is not supported until `5.9.0`. The minimum of `radius` is 2, which means setting `radius` lower than 2 doesn't work.
