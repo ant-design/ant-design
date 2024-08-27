@@ -589,6 +589,40 @@ describe('Tour', () => {
     fireEvent.click(container.querySelector('.ant-tour-close-icon')!);
     expect(onClose).toHaveBeenLastCalledWith(1);
   });
+  it('using gap to change radius', () => {
+    const App: React.FC<{ gap: TourProps['gap'] }> = ({ gap }) => {
+      const ref = useRef<HTMLButtonElement>(null);
+      const [show, setShow] = React.useState<boolean>();
+      const steps: TourProps['steps'] = [
+        {
+          title: 'Show in Center',
+          description: 'Here is the content of Tour.',
+          target: () => ref.current!,
+        },
+      ];
+      return (
+        <>
+          <div>
+            <button type="button" onClick={() => setShow(true)} ref={ref}>
+              Show
+            </button>
+          </div>
+
+          <Tour open={show} steps={steps} gap={gap} />
+        </>
+      );
+    };
+    const { rerender, baseElement } = render(<App gap={{ radius: 4 }} />);
+    fireEvent.click(screen.getByRole('button', { name: 'Show' }));
+
+    expect(baseElement.querySelector('.ant-tour-placeholder-animated')).toBeTruthy();
+    expect(baseElement.querySelector('.ant-tour-placeholder-animated')).toHaveAttribute('rx', '4');
+
+    rerender(<App gap={{ radius: 0 }} />);
+    fireEvent.click(screen.getByRole('button', { name: 'Show' }));
+    expect(baseElement.querySelector('.ant-tour-placeholder-animated')).toBeTruthy();
+    expect(baseElement.querySelector('.ant-tour-placeholder-animated')).toHaveAttribute('rx', '2');
+  });
 
   // This test is for PurePanel which means safe to remove.
   describe('PurePanel', () => {
