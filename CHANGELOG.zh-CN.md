@@ -15,6 +15,14 @@ tag: vVERSION
 
 ---
 
+## 5.20.3
+
+`2024-08-26`
+
+- 🐞 重构 Typography 在使用 css 原生省略时的检查逻辑，以解决屏幕缩放等情况下的精度问题。[#50514](https://github.com/ant-design/ant-design/pull/50514) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 ColorPicker 组件在面板上不拖拽直接点击的时候，`onChangeComplete` 返回值不正确的问题。[#50501](https://github.com/ant-design/ant-design/pull/50501) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 FloatButton.Group 在受控模式下 React 会警告递归更新的问题。[#50500](https://github.com/ant-design/ant-design/pull/50500) [@zombieJ](https://github.com/zombieJ)
+
 ## 5.20.2
 
 `2024-08-19`
