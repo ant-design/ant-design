@@ -21,7 +21,7 @@ export default defineConfig({
       : false,
   hash: true,
   mfsu: false,
-  mako: false,
+  mako: {},
   crossorigin: {},
   runtimePublicPath: {},
   outputPath: '_site',
