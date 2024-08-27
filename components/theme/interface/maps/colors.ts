@@ -130,18 +130,18 @@ export interface ColorNeutralMapToken {
   // ----------   Solid   ---------- //
 
   /**
-   * @desc 默认实心按钮的背景颜色
-   * @descEN Background color of default solid button
+   * @desc 实心的背景颜色，目前只用在默认实心按钮背景色上。
+   * @descEN Solid background color, currently only used for the default solid button background color.
    */
   solidBg: string;
   /**
-   * @desc 默认实心按钮的背景颜色激活态
-   * @descEN The active state background color of default solid button.
+   * @desc 实心的背景颜色激活态，目前只用在默认实心按钮的 active 效果。
+   * @descEN Solid background color active state, currently only used in the active effect of the default solid button.
    */
   solidActiveBg: string;
   /**
-   * @desc 默认实心按钮的背景颜色悬浮态
-   * @descEN The hover state background color of default solid button.
+   * @desc 实心的背景颜色悬浮态，目前只用在默认实心按钮的 hover 效果
+   * @descEN Solid background color hover state, currently only used in the hover effect of the default solid button.
    */
   solidHoverBg: string;
 }

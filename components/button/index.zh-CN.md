@@ -98,6 +98,10 @@ group:
 
 ## FAQ
 
+### type 和 color & vairant 如何选择？
+
+`type` 本质上是 `color & vairant` 的语法糖。
+
 ### 如何关闭点击波纹效果？
 
 如果你不需要这个特性，可以设置 [ConfigProvider](/components/config-provider-cn#api) 的 `wave` 的 `disabled` 为 `true`。

@@ -92,6 +92,10 @@ It accepts all props which native buttons support.
 
 ## FAQ
 
+### How to choose type and color & vairant?
+
+`type` is essentially syntactic sugar for `color & vairant`.
+
 ### How to close the click wave effect?
 
 If you don't need this feature, you can set `disabled` of `wave` in [ConfigProvider](/components/config-provider#api) as `true`.
