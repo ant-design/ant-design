@@ -2,11 +2,10 @@
 category: Components
 group: Data Display
 title: Table
+description: A table displays rows of data.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3yz3QqMlShYAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Sv8XQ50NB40AAAAAAAAAAAAADrJ8AQ/original
 ---
-
-A table displays rows of data.
 
 ## When To Use
 
@@ -86,6 +85,7 @@ const columns = [
 <code src="./demo/tree-table-ellipsis.tsx" debug>Tree data ellipsis debug demo</code>
 <code src="./demo/fixed-header.tsx">Fixed Header</code>
 <code src="./demo/fixed-columns.tsx">Fixed Columns</code>
+<code src="./demo/fixed-gapped-columns.tsx" version="5.14.0">Stack Fixed Columns</code>
 <code src="./demo/fixed-columns-header.tsx">Fixed Columns and Header</code>
 <code src="./demo/hidden-columns.tsx">Hidden Columns</code>
 <code src="./demo/grouping-columns.tsx">Grouping table head</code>
@@ -93,10 +93,12 @@ const columns = [
 <code src="./demo/edit-row.tsx">Editable Rows</code>
 <code src="./demo/nested-table.tsx">Nested tables</code>
 <code src="./demo/drag-sorting.tsx">Drag sorting</code>
+<code src="./demo/drag-column-sorting.tsx">Drag Column sorting</code>
 <code src="./demo/drag-sorting-handler.tsx">Drag sorting with handler</code>
 <code src="./demo/resizable-column.tsx" debug>Resizable column</code>
 <code src="./demo/ellipsis.tsx">ellipsis column</code>
 <code src="./demo/ellipsis-custom-tooltip.tsx">ellipsis column custom tooltip</code>
+<code src="./demo/custom-empty.tsx">Custom empty</code>
 <code src="./demo/summary.tsx">Summary</code>
 <code src="./demo/virtual-list.tsx" version=">= 5.9.0">Virtual list</code>
 <code src="./demo/responsive.tsx">Responsive</code>
@@ -118,7 +120,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | bordered | Whether to show all table borders | boolean | false |  |
 | columns | Columns of table | [ColumnsType](#column)\[] | - |  |
-| components | Override default table elements. Not support `components.body` when in `virtual` | [TableComponents](https://github.com/react-component/table/blob/75ee0064e54a4b3215694505870c9d6c817e9e4a/src/interface.ts#L129) | - |  |
+| components | Override default table elements | [TableComponents](https://github.com/react-component/table/blob/75ee0064e54a4b3215694505870c9d6c817e9e4a/src/interface.ts#L129) | - |  |
 | dataSource | Data record array to be displayed | object\[] | - |  |
 | expandable | Config expandable content | [expandable](#expandable) | - |  |
 | footer | Table footer renderer | function(currentPageData) | - |  |
@@ -129,19 +131,21 @@ Common props ref：[Common props](/docs/react/common-props)
 | rowClassName | Row's className | function(record, index): string | - |  |
 | rowKey | Row's unique key, could be a string or function that returns a string | string \| function(record): string | `key` |  |
 | rowSelection | Row selection [config](#rowselection) | object | - |  |
+| rowHoverable | Row hover | boolean | true | 5.16.0 |
 | scroll | Whether the table can be scrollable, [config](#scroll) | object | - |  |
 | showHeader | Whether to show table header | boolean | true |  |
-| showSorterTooltip | The header show next sorter direction tooltip. It will be set as the property of Tooltip if its type is object | boolean \| [Tooltip props](/components/tooltip/#api) | true |  |
+| showSorterTooltip | The header show next sorter direction tooltip. It will be set as the property of Tooltip if its type is object | boolean \| [Tooltip props](/components/tooltip/#api) & `{target?: 'full-header' \| 'sorter-icon' }` | { target: 'full-header' } | 5.16.0 |
 | size | Size of table | `large` \| `middle` \| `small` | `large` |  |
 | sortDirections | Supported sort way, could be `ascend`, `descend` | Array | \[`ascend`, `descend`] |  |
 | sticky | Set sticky header and scroll bar | boolean \| `{offsetHeader?: number, offsetScroll?: number, getContainer?: () => HTMLElement}` | - | 4.6.0 (getContainer: 4.7.0) |
 | summary | Summary content | (currentData) => ReactNode | - |  |
 | tableLayout | The [table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) attribute of table element | - \| `auto` \| `fixed` | -<hr />`fixed` when header/columns are fixed, or using `column.ellipsis` |  |
 | title | Table title renderer | function(currentPageData) | - |  |
+| virtual | Support virtual list | boolean | - | 5.9.0 |
 | onChange | Callback executed when pagination, filters or sorter is changed | function(pagination, filters, sorter, extra: { currentDataSource: \[], action: `paginate` \| `sort` \| `filter` }) | - |  |
 | onHeaderRow | Set props on per header row | function(columns, index) | - |  |
 | onRow | Set props on per row | function(record, index) | - |  |
-| virtual | Support virtual list. Not support `components.body` when enabled | boolean | - | 5.9.0 |
+| onScroll | Triggered when the table body is scrolled. Note that only vertical scrolling will trigger the event when `virtual` | function(event) | - | 5.16.0 |
 
 ### Table ref
 
@@ -192,6 +196,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | filtered | Whether the `dataSource` is filtered | boolean | false |  |
 | filteredValue | Controlled filtered value, filter icon will highlight | string\[] | - |  |
 | filterIcon | Customized filter icon | ReactNode \| (filtered: boolean) => ReactNode | - |  |
+| filterOnClose | Whether to trigger filter when the filter menu closes | boolean | true | 5.15.0 |
 | filterMultiple | Whether multiple filters can be selected | boolean | true |  |
 | filterMode | To specify the filter interface | 'menu' \| 'tree' | 'menu' | 4.17.0 |
 | filterSearch | Whether to be searchable for filter menu | boolean \| function(input, record):boolean | false | boolean:4.17.0 function:4.19.0 |
@@ -202,7 +207,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | responsive | The list of breakpoints at which to display this column. Always visible if not set | [Breakpoint](https://github.com/ant-design/ant-design/blob/015109b42b85c63146371b4e32b883cf97b088e8/components/_util/responsiveObserve.ts#L1)\[] | - | 4.2.0 |
 | rowScope | Set scope attribute for all cells in this column | `row` \| `rowgroup` | - | 5.1.0 |
 | shouldCellUpdate | Control cell render logic | (record, prevRecord) => boolean | - | 4.3.0 |
-| showSorterTooltip | If header show next sorter direction tooltip, override `showSorterTooltip` in table | boolean \| [Tooltip props](/components/tooltip/) | true |  |
+| showSorterTooltip | If header show next sorter direction tooltip, override `showSorterTooltip` in table | boolean \| [Tooltip props](/components/tooltip/) & `{target?: 'full-header' \| 'sorter-icon' }` | { target: 'full-header' } | 5.16.0 |
 | sortDirections | Supported sort way, override `sortDirections` in `Table`, could be `ascend`, `descend` | Array | \[`ascend`, `descend`] |  |
 | sorter | Sort function for local sort, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction. If it is server-side sorting, set to `true`, but if you want to support multi-column sorting, you can set it to `{ multiple: number }` | function \| boolean \| { compare: function, multiple: number } | - |  |
 | sortOrder | Order of sorted values: `ascend` `descend` `null` | `ascend` \| `descend` \| null | - |  |
@@ -251,7 +256,7 @@ Properties for expandable.
 | indentSize | Indent size in pixels of tree data | number | 15 |  |
 | rowExpandable | Enable row can be expandable | (record) => boolean | - |  |
 | showExpandColumn | Show expand column | boolean | true | 4.18.0 |
-| onExpand | Callback executed when the row expand icon is clicked | function(record, event) | - |  |
+| onExpand | Callback executed when the row expand icon is clicked | function(expanded, record) | - |  |
 | onExpandedRowsChange | Callback executed when the expanded rows change | function(expandedRows) | - |  |
 
 ### rowSelection
@@ -284,7 +289,7 @@ Properties for row selection.
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | scrollToFirstRowOnChange | Whether to scroll to the top of the table when paging, sorting, filtering changes | boolean | - |
-| x | Set horizontal scrolling, can also be used to specify the width of the scroll area, could be number, percent value, true and ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | string \| number \| true | - |
+| x | Set horizontal scrolling, can also be used to specify the width of the scroll area, could be number, percent value, true and ['max-content'](https://developer.mozilla.org/en-US/docs/Web/CSS/width#max-content) | string \| number \| true | - |
 | y | Set vertical scrolling, can also be used to specify the height of the scroll area, could be string or number | string \| number | - |
 
 ### selection
@@ -300,14 +305,14 @@ Properties for row selection.
 ```tsx
 import React from 'react';
 import { Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import type { TableColumnsType } from 'antd';
 
 interface User {
   key: number;
   name: string;
 }
 
-const columns: ColumnsType<User> = [
+const columns: TableColumnsType<User> = [
   {
     key: 'name',
     title: 'Name',
@@ -385,3 +390,7 @@ Fixed column use `z-index` to make it over other columns. You will find sometime
 ### How to custom render Table Checkbox（For example, adding Tooltip）?
 
 Since `4.1.0`, You can use [`rowSelection.renderCell`](https://ant.design/components/table/#rowselection) to custom render Table Checkbox. If you want to add Tooltip, please refer to this [demo](https://codesandbox.io/s/table-row-tooltip-v79j2v).
+
+### Why does components.body.wrapper or components.body.row report an error when virtual is enabled?
+
+Because virtual table needs to get its ref to do some calculations, so you need to use `React.forwardRef` wrapper and pass the ref to the dom

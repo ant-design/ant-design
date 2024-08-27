@@ -31,7 +31,7 @@ export const generateCssinjs = ({ key, beforeRender, render }: GenCssinjsOptions
       let useStyle: StyleFn = () => {};
       if (file.includes('grid')) {
         const { useColStyle, useRowStyle } = await import(absPath);
-        useStyle = (prefixCls: string) => {
+        useStyle = (prefixCls) => {
           useRowStyle(prefixCls);
           useColStyle(prefixCls);
         };

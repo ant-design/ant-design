@@ -1,6 +1,7 @@
 import React from 'react';
-import TransButton from '../transButton';
+
 import { render } from '../../../tests/utils';
+import TransButton from '../transButton';
 
 describe('transButton component', () => {
   it('disabled should update style', () => {

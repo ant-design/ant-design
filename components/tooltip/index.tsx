@@ -10,17 +10,17 @@ import type {
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import type { PresetColorType } from '../_util/colors';
+import ContextIsolator from '../_util/ContextIsolator';
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import type { AdjustOverflow, PlacementsConfig } from '../_util/placements';
 import getPlacements from '../_util/placements';
-import { cloneElement, isFragment, isValidElement } from '../_util/reactNode';
+import { cloneElement, isFragment } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
-import { NoCompactStyle } from '../space/Compact';
 import { useToken } from '../theme/internal';
 import PurePanel from './PurePanel';
 import useStyle from './style';
@@ -32,6 +32,8 @@ export interface TooltipRef {
   /** @deprecated Please use `forceAlign` instead */
   forcePopupAlign: VoidFunction;
   forceAlign: VoidFunction;
+  /** Wrapped dom element. Not promise valid if child not support ref */
+  nativeElement: HTMLElement;
 }
 
 export type TooltipPlacement =
@@ -123,7 +125,7 @@ export interface TooltipPropsWithTitle extends AbstractTooltipProps {
 
 export declare type TooltipProps = TooltipPropsWithTitle | TooltipPropsWithOverlay;
 
-const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
+const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     openClassName,
@@ -168,6 +170,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
       warning.deprecated(false, 'forcePopupAlign', 'forceAlign');
       forceAlign();
     },
+    nativeElement: tooltipRef.current?.nativeElement!,
   }));
 
   // ============================== Warn ==============================
@@ -238,9 +241,9 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   }, [overlay, title]);
 
   const memoOverlayWrapper = (
-    <NoCompactStyle>
+    <ContextIsolator space>
       {typeof memoOverlay === 'function' ? memoOverlay() : memoOverlay}
-    </NoCompactStyle>
+    </ContextIsolator>
   );
 
   const {
@@ -266,7 +269,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
 
   // ============================= Render =============================
   const child =
-    isValidElement(children) && !isFragment(children) ? children : <span>{children}</span>;
+    React.isValidElement(children) && !isFragment(children) ? children : <span>{children}</span>;
   const childProps = child.props;
   const childCls =
     !childProps.className || typeof childProps.className === 'string'
@@ -331,11 +334,13 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   return wrapCSSVar(
     <zIndexContext.Provider value={contextZIndex}>{content}</zIndexContext.Provider>,
   );
-}) as React.ForwardRefExoticComponent<
-  React.PropsWithoutRef<TooltipProps> & React.RefAttributes<unknown>
-> & {
+});
+
+type CompoundedComponent = typeof InternalTooltip & {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };
+
+const Tooltip = InternalTooltip as CompoundedComponent;
 
 if (process.env.NODE_ENV !== 'production') {
   Tooltip.displayName = 'Tooltip';

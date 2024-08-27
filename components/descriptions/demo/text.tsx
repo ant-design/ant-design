@@ -1,6 +1,6 @@
 import React from 'react';
 import { Badge, Descriptions, Table } from 'antd';
-import type { DescriptionsProps } from 'antd';
+import type { DescriptionsProps, TableProps } from 'antd';
 
 const dataSource = [
   {
@@ -17,7 +17,7 @@ const dataSource = [
   },
 ];
 
-const columns = [
+const columns: TableProps['columns'] = [
   {
     title: '姓名',
     dataIndex: 'name',

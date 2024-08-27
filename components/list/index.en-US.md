@@ -2,11 +2,10 @@
 category: Components
 group: Data Display
 title: List
+description: Basic list display, which can carry text, lists, pictures, paragraphs.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EYuhSpw1iSwAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAAAAAAAAAAAADrJ8AQ/original
 ---
-
-Simple List.
 
 ## When To Use
 
@@ -79,7 +78,9 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | actions | The actions content of list item. If `itemLayout` is `vertical`, shows the content on bottom, otherwise shows content on the far right | Array&lt;ReactNode> | - |  |
+| classNames | Semantic structure className | [`Record<actions \| extra, string>`](#semantic-dom) | - | 5.18.0 |
 | extra | The extra content of list item. If `itemLayout` is `vertical`, shows the content on right, otherwise shows content on the far right | ReactNode | - |  |
+| styles | Semantic DOM style | [`Record<actions \| extra, CSSProperties>`](#semantic-dom) | - | 5.18.0 |
 
 ### List.Item.Meta
 
@@ -88,6 +89,10 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 | avatar      | The avatar of list item      | ReactNode | -       |         |
 | description | The description of list item | ReactNode | -       |         |
 | title       | The title of list item       | ReactNode | -       |         |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 

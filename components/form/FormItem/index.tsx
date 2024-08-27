@@ -6,12 +6,12 @@ import type { InternalNamePath, Meta } from 'rc-field-form/lib/interface';
 import useState from 'rc-util/lib/hooks/useState';
 import { supportRef } from 'rc-util/lib/ref';
 
-import { cloneElement, isValidElement } from '../../_util/reactNode';
+import { cloneElement } from '../../_util/reactNode';
 import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 import { FormContext, NoStyleItemContext } from '../context';
-import type { FormInstance } from '../Form';
+import type { FormInstance, FormItemLayout } from '../Form';
 import type { FormItemInputProps } from '../FormItemInput';
 import type { FormItemLabelProps, LabelTooltipType } from '../FormItemLabel';
 import useChildren from '../hooks/useChildren';
@@ -20,6 +20,7 @@ import useFrameState from '../hooks/useFrameState';
 import useItemRef from '../hooks/useItemRef';
 import useStyle from '../style';
 import { getFieldId, toArray } from '../util';
+import type { ItemHolderProps } from './ItemHolder';
 import ItemHolder from './ItemHolder';
 import StatusProvider from './StatusProvider';
 
@@ -30,6 +31,7 @@ interface FieldError {
   warnings: string[];
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const ValidateStatuses = ['success', 'warning', 'error', 'validating', ''] as const;
 export type ValidateStatus = (typeof ValidateStatuses)[number];
 
@@ -101,6 +103,7 @@ export interface FormItemProps<Values = any>
   tooltip?: LabelTooltipType;
   /** @deprecated No need anymore */
   fieldKey?: React.Key | React.Key[];
+  layout?: FormItemLayout;
 }
 
 function genEmptyMeta(): Meta {
@@ -131,6 +134,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     validateTrigger,
     hidden,
     help,
+    layout,
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const { name: formName } = React.useContext(FormContext);
@@ -199,7 +203,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   };
 
   // >>>>> Collect noStyle Field error to the top FormItem
-  const onSubItemMetaChange = (subMeta: Meta & { destroy: boolean }, uniqueKeys: React.Key[]) => {
+  const onSubItemMetaChange: ItemHolderProps['onSubItemMetaChange'] = (subMeta, uniqueKeys) => {
     // Only `noStyle` sub item will trigger
     setSubFieldErrors((prevSubFieldErrors) => {
       const clone = {
@@ -210,7 +214,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
       const mergedNamePath = [...subMeta.name.slice(0, -1), ...uniqueKeys];
       const mergedNameKey = mergedNamePath.join(NAME_SPLIT);
 
-      if (subMeta.destroy) {
+      if ((subMeta as any).destroy) {
         // Remove
         delete clone[mergedNameKey];
       } else {
@@ -272,6 +276,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
         warnings={mergedWarnings}
         meta={meta}
         onSubItemMetaChange={onSubItemMetaChange}
+        layout={layout}
       >
         {baseChildren}
       </ItemHolder>
@@ -301,26 +306,23 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
       validateTrigger={mergedValidateTrigger}
       onMetaChange={onMetaChange}
     >
-      {(control, renderMeta, context: FormInstance<Values>) => {
+      {(control, renderMeta, context) => {
         const mergedName = toArray(name).length && renderMeta ? renderMeta.name : [];
         const fieldId = getFieldId(mergedName, formName);
 
         const isRequired =
           required !== undefined
             ? required
-            : !!(
-                rules &&
-                rules.some((rule) => {
-                  if (rule && typeof rule === 'object' && rule.required && !rule.warningOnly) {
-                    return true;
-                  }
-                  if (typeof rule === 'function') {
-                    const ruleEntity = rule(context);
-                    return ruleEntity && ruleEntity.required && !ruleEntity.warningOnly;
-                  }
-                  return false;
-                })
-              );
+            : !!rules?.some((rule) => {
+                if (rule && typeof rule === 'object' && rule.required && !rule.warningOnly) {
+                  return true;
+                }
+                if (typeof rule === 'function') {
+                  const ruleEntity = rule(context);
+                  return ruleEntity?.required && !ruleEntity?.warningOnly;
+                }
+                return false;
+              });
 
         // ======================= Children =======================
         const mergedControl: typeof control = {
@@ -358,7 +360,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
             'usage',
             'Must set `name` or use a render function when `dependencies` is set.',
           );
-        } else if (isValidElement(mergedChildren)) {
+        } else if (React.isValidElement(mergedChildren)) {
           warning(
             mergedChildren.props.defaultValue === undefined,
             'usage',
@@ -423,10 +425,10 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
             </MemoInput>
           );
         } else if (isRenderProps && (shouldUpdate || dependencies) && !hasName) {
-          childNode = mergedChildren(context);
+          childNode = mergedChildren(context as any);
         } else {
           warning(
-            !mergedName.length,
+            !mergedName.length || !!noStyle,
             'usage',
             '`name` is only used for validate React element. If you are using Form.Item as layout display, please remove `name` instead.',
           );

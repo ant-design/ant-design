@@ -1,5 +1,6 @@
-import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import React from 'react';
+import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
+
 import Input from '..';
 import { fireEvent, render } from '../../../tests/utils';
 import type { InputRef } from '../Input';

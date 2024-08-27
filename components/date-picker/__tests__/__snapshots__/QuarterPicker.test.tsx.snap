@@ -9,11 +9,10 @@ exports[`QuarterPicker should support style prop 1`] = `
     class="ant-picker-input"
   >
     <input
+      aria-invalid="false"
       autocomplete="off"
       placeholder="Select quarter"
-      readonly=""
       size="12"
-      title=""
       value=""
     />
     <span

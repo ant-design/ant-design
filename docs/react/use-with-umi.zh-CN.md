@@ -1,7 +1,7 @@
 ---
 group:
   title: 如何使用
-order: 2
+order: 4
 title: 在 Umi 中使用
 ---
 
@@ -56,10 +56,10 @@ $ pnpm create umi
 
 ```bash
 $ pnpm i @umijs/plugins -D
-$ pnpm i antd axios @ant-design/pro-layout -S
+$ pnpm i antd axios @ant-design/pro-components -S
 ```
 
-其中 `@umijs/plugins` 是 Umi 的官方插件集，包含了 valtio、react-query、styled-components、locale、access、qiankun 等大量插件，可让用户通过配置的方式一键开启和使用；`antd` 就不用介绍了；`axios` 是请求库；`@ant-design/pro-layout` 是用于生成中后台布局的组件。（这里将运行时依赖和编译时依赖分别保存到 dependencies 和 devDependencies，是目前社区推荐的方式）
+其中 `@umijs/plugins` 是 Umi 的官方插件集，包含了 valtio、react-query、styled-components、locale、access、qiankun 等大量插件，可让用户通过配置的方式一键开启和使用；`antd` 就不用介绍了；`axios` 是请求库；`@ant-design/pro-components` 是用于生成中后台布局的组件。（这里将运行时依赖和编译时依赖分别保存到 dependencies 和 devDependencies，是目前社区推荐的方式）
 
 完成后，执行以下命令启动项目。
 
@@ -101,7 +101,7 @@ export default defineConfig({
   routes: [
     { path: "/", component: "index" },
     { path: "/docs", component: "docs" },
-+    { path: "/products", component: "products" },
++   { path: "/products", component: "products" },
   ],
   npmClient: "pnpm",
 });
@@ -133,12 +133,18 @@ export default defineConfig({
 ```tsx
 import React from 'react';
 import { Button, Popconfirm, Table } from 'antd';
+import type { TableProps } from 'antd';
 
-const ProductList: React.FC<{ products: { name: string }[]; onDelete: (id: string) => void }> = ({
+interface DataType {
+  id: string;
+  name: string;
+}
+
+const ProductList: React.FC<{ products: DataType[]; onDelete: (id: string) => void }> = ({
   onDelete,
   products,
 }) => {
-  const columns = [
+  const columns: TableProps<DataType>['columns'] = [
     {
       title: 'Name',
       dataIndex: 'name',
@@ -164,7 +170,7 @@ export default ProductList;
 
 假设我们已经和后端约定好了 API 接口，那现在就可以使用 Mock 数据来在本地模拟出 API 应该返回的数据，这样一来前后端开发就可以同时进行，不会因为后端 API 还在开发而导致前端的工作被阻塞。Umi 提供了开箱即用的 [Mock 功能](https://umijs.org/docs/guides/mock)，能够用方便简单的方式来完成 Mock 数据的设置。
 
-创建 `mock` 目录，并在此目录下新增 `products.ts` 文件，内容如下。
+在根目录下新建 `mock/products.ts` 文件，内容如下。
 
 ```ts
 import { defineMock } from 'umi';
@@ -291,7 +297,7 @@ export default defineConfig({
 编辑 `src/layouts/index.tsx`，内容如下。
 
 ```tsx
-import { ProLayout } from '@ant-design/pro-layout';
+import { ProLayout } from '@ant-design/pro-components';
 import { Link, Outlet, useAppData, useLocation } from 'umi';
 
 export default function Layout() {

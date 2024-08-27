@@ -81,9 +81,7 @@ describe('ConfigProvider', () => {
         // configProvider
         it('configProvider', () => {
           const { container } = render(
-            <ConfigProvider pageHeader={{ ghost: false }} prefixCls="config">
-              {renderComponent({})}
-            </ConfigProvider>,
+            <ConfigProvider prefixCls="config">{renderComponent({})}</ConfigProvider>,
           );
           expect(isArray ? container.children : container.firstChild).toMatchSnapshot();
         });

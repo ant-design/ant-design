@@ -1,9 +1,12 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
 import type { CSSProperties } from 'react';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import { genFocusOutline, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genStepsCustomIconStyle from './custom-icon';
+import genStepsHorizontalStyle from './horizontal';
 import genStepsInlineStyle from './inline';
 import genStepsLabelPlacementStyle from './label-placement';
 import genStepsNavStyle from './nav';
@@ -78,7 +81,7 @@ export interface ComponentToken {
    * @desc 标题行高
    * @descEN Line height of title
    */
-  titleLineHeight: number;
+  titleLineHeight: number | string;
   /**
    * @internal
    */
@@ -96,7 +99,7 @@ export interface ComponentToken {
    */
   finishIconBgColor: string;
   /**
-   * @Internal
+   * @internal
    */
   finishIconBorderColor: string;
 }
@@ -135,14 +138,18 @@ export interface StepsToken extends FullToken<'Steps'> {
   inlineTailColor: string;
 }
 
-enum StepItemStatusEnum {
-  wait = 'wait',
-  process = 'process',
-  finish = 'finish',
-  error = 'error',
-}
+const STEP_ITEM_STATUS_WAIT = 'wait';
+const STEP_ITEM_STATUS_PROCESS = 'process';
+const STEP_ITEM_STATUS_FINISH = 'finish';
+const STEP_ITEM_STATUS_ERROR = 'error';
 
-const genStepsItemStatusStyle = (status: StepItemStatusEnum, token: StepsToken): CSSObject => {
+type StepItemStatus =
+  | typeof STEP_ITEM_STATUS_WAIT
+  | typeof STEP_ITEM_STATUS_PROCESS
+  | typeof STEP_ITEM_STATUS_FINISH
+  | typeof STEP_ITEM_STATUS_ERROR;
+
+const genStepsItemStatusStyle = (status: StepItemStatus, token: StepsToken): CSSObject => {
   const prefix = `${token.componentCls}-item`;
   const iconColorKey: keyof StepsToken = `${status}IconColor`;
   const titleColorKey: keyof StepsToken = `${status}TitleColor`;
@@ -206,7 +213,7 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
     [`${stepsItemCls}-container`]: {
       outline: 'none',
 
-      [`&:focus-visible`]: {
+      '&:focus-visible': {
         [stepItemIconCls]: {
           ...genFocusOutline(token),
         },
@@ -225,7 +232,7 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       marginInlineEnd: token.marginXS,
       fontSize: token.iconFontSize,
       fontFamily: token.fontFamily,
-      lineHeight: `${unit(token.iconSize)}`,
+      lineHeight: unit(token.iconSize),
       textAlign: 'center',
       borderRadius: token.iconSize,
       border: `${unit(token.lineWidth)} ${token.lineType} transparent`,
@@ -239,7 +246,7 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
     },
     [`${stepsItemCls}-tail`]: {
       position: 'absolute',
-      top: token.calc(token.iconSize).div(2).sub(token.paddingXXS).equal(),
+      top: token.calc(token.iconSize).div(2).equal(),
       insetInlineStart: 0,
       width: '100%',
 
@@ -259,7 +266,7 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       paddingInlineEnd: token.padding,
       color: token.colorText,
       fontSize: token.fontSizeLG,
-      lineHeight: `${unit(token.titleLineHeight)}`,
+      lineHeight: unit(token.titleLineHeight),
 
       '&::after': {
         position: 'absolute',
@@ -283,13 +290,13 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       color: token.colorTextDescription,
       fontSize: token.fontSize,
     },
-    ...genStepsItemStatusStyle(StepItemStatusEnum.wait, token),
-    ...genStepsItemStatusStyle(StepItemStatusEnum.process, token),
+    ...genStepsItemStatusStyle(STEP_ITEM_STATUS_WAIT, token),
+    ...genStepsItemStatusStyle(STEP_ITEM_STATUS_PROCESS, token),
     [`${stepsItemCls}-process > ${stepsItemCls}-container > ${stepsItemCls}-title`]: {
       fontWeight: token.fontWeightStrong,
     },
-    ...genStepsItemStatusStyle(StepItemStatusEnum.finish, token),
-    ...genStepsItemStatusStyle(StepItemStatusEnum.error, token),
+    ...genStepsItemStatusStyle(STEP_ITEM_STATUS_FINISH, token),
+    ...genStepsItemStatusStyle(STEP_ITEM_STATUS_ERROR, token),
     [`${stepsItemCls}${componentCls}-next-error > ${componentCls}-item-title::after`]: {
       background: token.colorError,
     },
@@ -316,7 +323,7 @@ const genStepsClickableStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
 
           '&:hover': {
             [`${componentCls}-item`]: {
-              [`&-title, &-subtitle, &-description`]: {
+              '&-title, &-subtitle, &-description': {
                 color: token.colorPrimary,
               },
             },
@@ -381,6 +388,8 @@ const genStepsStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       ...genStepsSmallStyle(token),
       // vertical
       ...genStepsVerticalStyle(token),
+      // horizontal
+      ...genStepsHorizontalStyle(token),
       // label-placement
       ...genStepsLabelPlacementStyle(token),
       // progress-dot

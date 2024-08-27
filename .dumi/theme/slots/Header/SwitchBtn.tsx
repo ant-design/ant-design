@@ -1,7 +1,7 @@
-import { createStyles } from 'antd-style';
 import React from 'react';
-import classNames from 'classnames';
 import { Tooltip } from 'antd';
+import { createStyles } from 'antd-style';
+import classNames from 'classnames';
 
 export interface LangBtnProps {
   label1: React.ReactNode;
@@ -11,7 +11,7 @@ export interface LangBtnProps {
   value: 1 | 2;
   pure?: boolean;
   onClick?: React.MouseEventHandler;
-  ['aria-label']?: string;
+  'aria-label'?: string;
 }
 
 const BASE_SIZE = '1.2em';
@@ -69,7 +69,7 @@ const useStyle = createStyles(({ token, css }) => {
       color: ${colorText};
     `,
     label1Style: css`
-      left: -5%;
+      inset-inline-start: -5%;
       top: 0;
       z-index: 1;
       background-color: ${colorText};
@@ -78,7 +78,7 @@ const useStyle = createStyles(({ token, css }) => {
       transform-origin: 0 0;
     `,
     label2Style: css`
-      right: -5%;
+      inset-inline-end: -5%;
       bottom: 0;
       z-index: 0;
       transform: scale(0.5);
@@ -95,7 +95,13 @@ const LangBtn: React.FC<LangBtnProps> = (props) => {
   } = useStyle();
 
   const node = (
-    <button onClick={onClick} className={btn} key="lang-button" aria-label={props['aria-label']}>
+    <button
+      type="button"
+      onClick={onClick}
+      className={btn}
+      key="lang-button"
+      aria-label={props['aria-label']}
+    >
       <div className="btn-inner">
         {pure && (value === 1 ? label1 : label2)}
         {!pure && (

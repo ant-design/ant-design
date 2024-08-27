@@ -18,7 +18,7 @@ exports[`Collapse Collapse.Panel usage 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="collapsed"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -58,7 +58,7 @@ exports[`Collapse Collapse.Panel usage 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="collapsed"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -105,7 +105,7 @@ exports[`Collapse could override default openMotion 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="expanded"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -162,7 +162,7 @@ exports[`Collapse should render extra node of panel 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="collapsed"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -211,7 +211,7 @@ exports[`Collapse should render extra node of panel 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="collapsed"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >

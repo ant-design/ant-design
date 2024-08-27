@@ -2,11 +2,10 @@
 category: Components
 group: Layout
 title: Space
+description: Set components spacing.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ZiJ3SbOH9SUAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAAAAAAAAAAAADrJ8AQ/original
 ---
-
-Set components spacing.
 
 ## When To Use
 
@@ -42,9 +41,11 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | align | Align items | `start` \| `end` \|`center` \|`baseline` | - | 4.2.0 |
+| classNames | Semantic className | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | direction | The space direction | `vertical` \| `horizontal` | `horizontal` | 4.1.0 |
 | size | The space size | [Size](#size) \| [Size\[\]](#size) | `small` | 4.1.0 \| Array: 4.9.0 |
 | split | Set split | ReactNode | - | 4.7.0 |
+| styles | Semantic style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
 | wrap | Auto wrap line, when `horizontal` effective | boolean | false | 4.9.0 |
 
 ### Size
@@ -71,12 +72,9 @@ Use Space.Compact when child form components are compactly connected and the bor
 | direction | Set direction of layout | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
 | size | Set child component size | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
 
-### `styles` and `classNames` attribute
+## Semantic DOM
 
-<!-- prettier-ignore -->
-| Property | Description | Version |
-| -------- | ------------------------- | ------- |
-| item     | set `Space` child element | 5.6.0   |
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 

@@ -71,6 +71,13 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
         },
       },
 
+      [`${componentCls}-item, ${componentCls}-submenu-title`]: {
+        color: itemColor,
+        [`&:not(${componentCls}-item-disabled):focus-visible`]: {
+          ...accessibilityFocus(token),
+        },
+      },
+
       // Disabled
       [`${componentCls}-item-disabled, ${componentCls}-submenu-disabled`]: {
         color: `${itemDisabledColor} !important`,
@@ -135,7 +142,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
           color: dangerItemSelectedColor,
         },
 
-        [`a, a:hover`]: {
+        'a, a:hover': {
           color: 'inherit',
         },
       },
@@ -146,12 +153,6 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
         // Danger
         [`&${componentCls}-item-danger`]: {
           backgroundColor: dangerItemSelectedBg,
-        },
-      },
-
-      [`${componentCls}-item, ${componentCls}-submenu-title`]: {
-        [`&:not(${componentCls}-item-disabled):focus-visible`]: {
-          ...accessibilityFocus(token),
         },
       },
 
@@ -193,14 +194,14 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
             content: '""',
           },
 
-          [`&:hover, &-active, &-open`]: {
+          '&:hover, &-active, &-open': {
             background: horizontalItemHoverBg,
             '&::after': {
               borderBottomWidth: activeBarHeight,
               borderBottomColor: horizontalItemSelectedColor,
             },
           },
-          [`&-selected`]: {
+          '&-selected': {
             color: horizontalItemSelectedColor,
             backgroundColor: horizontalItemSelectedBg,
             '&:hover': {

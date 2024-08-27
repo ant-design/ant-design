@@ -1,8 +1,6 @@
-import * as React from 'react';
-import type { FC } from 'react';
-import { useContext } from 'react';
-import { Badge, Carousel, Skeleton, Typography } from 'antd';
-import { createStyles, useTheme } from 'antd-style';
+import React, { useContext } from 'react';
+import { Badge, Carousel, Flex, Skeleton, Typography } from 'antd';
+import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 
 import useLocale from '../../../hooks/useLocale';
@@ -46,18 +44,22 @@ const useStyle = createStyles(({ token, css, cx }) => {
     `,
     container: css`
       display: flex;
-      max-width: 1208px;
+      width: 100%;
+      max-width: 100%;
       margin-inline: auto;
       box-sizing: border-box;
-      padding-inline: ${token.marginXXL}px;
       column-gap: ${token.paddingMD * 2}px;
       align-items: stretch;
       text-align: start;
+      min-height: 178px;
       > * {
         width: calc((100% - ${token.marginXXL * 2}px) / 3);
       }
     `,
     carousel,
+    bannerBg: css`
+      height: ${token.fontSize}px;
+    `,
   };
 });
 
@@ -67,8 +69,8 @@ interface RecommendItemProps {
   icons: Icon[];
   className?: string;
 }
+
 const RecommendItem: React.FC<RecommendItemProps> = ({ extra, index, icons, className }) => {
-  const token = useTheme();
   const { styles } = useStyle();
 
   if (!extra) {
@@ -88,10 +90,10 @@ const RecommendItem: React.FC<RecommendItemProps> = ({ extra, index, icons, clas
       <Typography.Paragraph type="secondary" style={{ flex: 'auto' }}>
         {extra.description}
       </Typography.Paragraph>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <Flex justify="space-between" align="center">
         <Typography.Text>{extra.date}</Typography.Text>
-        {icon && <img src={icon.href} style={{ height: token.fontSize }} alt="banner" />}
-      </div>
+        {icon && <img src={icon.href} draggable={false} className={styles.bannerBg} alt="banner" />}
+      </Flex>
     </a>
   );
 
@@ -106,7 +108,7 @@ const RecommendItem: React.FC<RecommendItemProps> = ({ extra, index, icons, clas
   return card;
 };
 
-export const BannerRecommendsFallback: FC = () => {
+export const BannerRecommendsFallback: React.FC = () => {
   const { isMobile } = useContext(SiteContext);
   const { styles } = useStyle();
 
@@ -144,34 +146,34 @@ const BannerRecommends: React.FC = () => {
     return <BannerRecommendsFallback />;
   }
 
-  return (
-    <div>
-      {isMobile ? (
-        <Carousel className={styles.carousel}>
-          {first3.map((extra, index) => (
-            <div key={index}>
-              <RecommendItem
-                extra={extra}
-                index={index}
-                icons={icons}
-                className={styles.sliderItem}
-              />
-            </div>
-          ))}
-        </Carousel>
-      ) : (
-        <div className={styles.container}>
-          {first3.map((extra, index) => (
+  if (isMobile) {
+    return (
+      <Carousel className={styles.carousel}>
+        {first3.map((extra, index) => (
+          <div key={index}>
             <RecommendItem
               extra={extra}
               index={index}
               icons={icons}
-              className={styles.cardItem}
-              key={index}
+              className={styles.sliderItem}
             />
-          ))}
-        </div>
-      )}
+          </div>
+        ))}
+      </Carousel>
+    );
+  }
+
+  return (
+    <div className={styles.container}>
+      {first3.map((extra, index) => (
+        <RecommendItem
+          extra={extra}
+          index={index}
+          icons={icons}
+          className={styles.cardItem}
+          key={index}
+        />
+      ))}
     </div>
   );
 };

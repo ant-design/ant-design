@@ -1,8 +1,8 @@
-import { LoadingOutlined } from '@ant-design/icons';
 import React from 'react';
-import { render } from '../../../tests/utils';
+import { LoadingOutlined } from '@ant-design/icons';
 
 import List from '..';
+import { render } from '../../../tests/utils';
 
 describe('List', () => {
   it('renders empty loading', () => {

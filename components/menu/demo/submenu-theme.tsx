@@ -1,32 +1,16 @@
-import { MailOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
+import { MailOutlined } from '@ant-design/icons';
 import type { MenuProps, MenuTheme } from 'antd';
 import { Menu, Switch } from 'antd';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
-function getItem(
-  label: React.ReactNode,
-  key?: React.Key | null,
-  icon?: React.ReactNode,
-  children?: MenuItem[],
-  theme?: 'light' | 'dark',
-): MenuItem {
-  return {
-    key,
-    icon,
-    children,
-    label,
-    theme,
-  } as MenuItem;
-}
-
 const App: React.FC = () => {
-  const [theme, setTheme] = useState<MenuTheme>('light');
+  const [menuTheme, setMenuTheme] = useState<MenuTheme>('light');
   const [current, setCurrent] = useState('1');
 
   const changeTheme = (value: boolean) => {
-    setTheme(value ? 'dark' : 'light');
+    setMenuTheme(value ? 'dark' : 'light');
   };
 
   const onClick: MenuProps['onClick'] = (e) => {
@@ -34,21 +18,25 @@ const App: React.FC = () => {
   };
 
   const items: MenuItem[] = [
-    getItem(
-      'Navigation One',
-      'sub1',
-      <MailOutlined />,
-      [getItem('Option 1', '1'), getItem('Option 2', '2'), getItem('Option 3', '3')],
-      theme,
-    ),
-    getItem('Option 5', '5'),
-    getItem('Option 6', '6'),
+    {
+      key: 'sub1',
+      icon: <MailOutlined />,
+      label: 'Navigation One',
+      theme: menuTheme,
+      children: [
+        { key: '1', label: 'Option 1' },
+        { key: '2', label: 'Option 2' },
+        { key: '3', label: 'Option 3' },
+      ],
+    },
+    { key: '5', label: 'Option 5' },
+    { key: '6', label: 'Option 6' },
   ];
 
   return (
     <>
       <Switch
-        checked={theme === 'dark'}
+        checked={menuTheme === 'dark'}
         onChange={changeTheme}
         checkedChildren="Dark"
         unCheckedChildren="Light"
@@ -63,9 +51,7 @@ const App: React.FC = () => {
         mode="vertical"
         theme="dark"
         items={items}
-        getPopupContainer={function test(node) {
-          return node.parentNode as HTMLElement;
-        }}
+        getPopupContainer={(node) => node.parentNode as HTMLElement}
       />
     </>
   );

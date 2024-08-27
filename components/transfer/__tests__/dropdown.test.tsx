@@ -1,33 +1,16 @@
 /* eslint no-use-before-define: "off" */
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 
 import Transfer from '..';
-import { fireEvent, render } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 
 const listProps = {
   dataSource: [
-    {
-      key: 'a',
-      title: 'a',
-      disabled: true,
-    },
-    {
-      key: 'b',
-      title: 'b',
-    },
-    {
-      key: 'c',
-      title: 'c',
-    },
-    {
-      key: 'd',
-      title: 'd',
-    },
-    {
-      key: 'e',
-      title: 'e',
-    },
+    { key: 'a', title: 'a', disabled: true },
+    { key: 'b', title: 'b' },
+    { key: 'c', title: 'c' },
+    { key: 'd', title: 'd' },
+    { key: 'e', title: 'e' },
   ],
   selectedKeys: ['b'],
   targetKeys: [],
@@ -103,8 +86,13 @@ describe('Transfer.Dropdown', () => {
       clickItem(container, 0);
       expect(onSelectChange).toHaveBeenCalledWith(['b', 'c', 'd', 'e'], []);
 
+      fireEvent.mouseEnter(container.querySelector('.ant-transfer-list-header-dropdown')!);
+      act(() => {
+        jest.runAllTimers();
+      });
+
       clickItem(container, 2);
-      expect(onSelectChange).toHaveBeenCalledWith(['b', 'c', 'd'], []);
+      expect(onSelectChange).toHaveBeenCalledWith(['e'], []);
 
       jest.useRealTimers();
     });

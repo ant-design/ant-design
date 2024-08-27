@@ -121,6 +121,18 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           boxShadow: `inset -10px 0 8px -8px ${shadowColor}`,
         },
       },
+
+      // Gapped fixed Columns do not show the shadow
+      [`${componentCls}-fixed-column-gapped`]: {
+        [`
+        ${componentCls}-cell-fix-left-first::after,
+        ${componentCls}-cell-fix-left-last::after,
+        ${componentCls}-cell-fix-right-first::after,
+        ${componentCls}-cell-fix-right-last::after
+      `]: {
+          boxShadow: 'none',
+        },
+      },
     },
   };
 };

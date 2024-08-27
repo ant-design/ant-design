@@ -3,11 +3,11 @@ import { fillFieldNames } from 'rc-tree/lib/utils/treeUtil';
 
 import type { TreeProps } from '../Tree';
 
-enum Record {
-  None,
-  Start,
-  End,
-}
+const RECORD_NONE = 0;
+const RECORD_START = 1;
+const RECORD_END = 2;
+
+type Record = typeof RECORD_NONE | typeof RECORD_START | typeof RECORD_END;
 
 type FieldNames = TreeProps['fieldNames'];
 
@@ -26,7 +26,7 @@ function traverseNodesKey(
     }
   }
 
-  treeData.forEach(processNode);
+  treeData.forEach(processNode as any);
 }
 
 /** 计算选中范围，只考虑expanded情况以优化性能 */
@@ -44,7 +44,7 @@ export function calcRangeKeys({
   fieldNames?: FieldNames;
 }): Key[] {
   const keys: Key[] = [];
-  let record: Record = Record.None;
+  let record: Record = RECORD_NONE;
 
   if (startKey && startKey === endKey) {
     return [startKey];
@@ -59,26 +59,26 @@ export function calcRangeKeys({
 
   traverseNodesKey(
     treeData,
-    (key: Key) => {
-      if (record === Record.End) {
+    (key) => {
+      if (record === RECORD_END) {
         return false;
       }
 
-      if (matchKey(key)) {
+      if (matchKey(key as any)) {
         // Match test
-        keys.push(key);
+        keys.push(key as any);
 
-        if (record === Record.None) {
-          record = Record.Start;
-        } else if (record === Record.Start) {
-          record = Record.End;
+        if (record === RECORD_NONE) {
+          record = RECORD_START;
+        } else if (record === RECORD_START) {
+          record = RECORD_END;
           return false;
         }
-      } else if (record === Record.Start) {
+      } else if (record === RECORD_START) {
         // Append selection
-        keys.push(key);
+        keys.push(key as any);
       }
-      return expandedKeys.includes(key);
+      return expandedKeys.includes(key as any);
     },
     fillFieldNames(fieldNames),
   );
@@ -95,8 +95,8 @@ export function convertDirectoryKeysToNodes(
   const nodes: DataNode[] = [];
   traverseNodesKey(
     treeData,
-    (key: Key, node: DataNode) => {
-      const index = restKeys.indexOf(key);
+    (key, node) => {
+      const index = restKeys.indexOf(key as any);
       if (index !== -1) {
         nodes.push(node);
         restKeys.splice(index, 1);

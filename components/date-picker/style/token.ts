@@ -1,16 +1,18 @@
-import type { SharedComponentToken, SharedInputToken } from '../../input/style/token';
-import type { ArrowToken } from '../../style/roundedArrow';
-import type {
-  FullToken,
-  TokenWithCommonCls,
-  GetDefaultToken,
-} from '../../theme/util/genComponentStyleHook';
-import type { GlobalToken } from '../../theme/interface';
 import { TinyColor } from '@ctrl/tinycolor';
-import { initComponentToken } from '../../input/style/token';
-import { getArrowToken } from '../../style/roundedArrow';
 
-export interface PanelComponentToken {
+import type { SharedComponentToken, SharedInputToken } from '../../input/style/token';
+import { initComponentToken } from '../../input/style/token';
+import type { MultipleSelectorToken, SelectorToken } from '../../select/style/token';
+import type { ArrowToken } from '../../style/roundedArrow';
+import { getArrowToken } from '../../style/roundedArrow';
+import type {
+  GlobalToken,
+  FullToken,
+  GetDefaultToken,
+  TokenWithCommonCls,
+} from '../../theme/internal';
+
+export interface PanelComponentToken extends MultipleSelectorToken {
   /**
    * @desc 单元格悬浮态背景色
    * @descEN Background color of cell hover state
@@ -107,7 +109,14 @@ export type PickerPanelToken = {
   pickerControlIconBorderWidth: number;
 };
 
-export type PickerToken = FullToken<'DatePicker'> & PickerPanelToken & SharedInputToken;
+export interface PickerToken
+  extends FullToken<'DatePicker'>,
+    PickerPanelToken,
+    SharedInputToken,
+    SelectorToken {
+  /** @private Used for internal calculation */
+  INTERNAL_FIXED_ITEM_MARGIN: number;
+}
 
 export type SharedPickerToken = TokenWithCommonCls<GlobalToken> &
   PickerPanelToken &
@@ -133,20 +142,61 @@ export const initPickerPanelToken = (token: TokenWithCommonCls<GlobalToken>): Pi
   };
 };
 
-export const initPanelComponentToken = (token: GlobalToken): PanelComponentToken => ({
-  cellHoverBg: token.controlItemBgHover,
-  cellActiveWithRangeBg: token.controlItemBgActive,
-  cellHoverWithRangeBg: new TinyColor(token.colorPrimary).lighten(35).toHexString(),
-  cellRangeBorderColor: new TinyColor(token.colorPrimary).lighten(20).toHexString(),
-  cellBgDisabled: token.colorBgContainerDisabled,
-  timeColumnWidth: token.controlHeightLG * 1.4,
-  timeColumnHeight: 28 * 8,
-  timeCellHeight: 28,
-  cellWidth: token.controlHeightSM * 1.5,
-  cellHeight: token.controlHeightSM,
-  textHeight: token.controlHeightLG,
-  withoutTimeCellHeight: token.controlHeightLG * 1.65,
-});
+export const initPanelComponentToken = (token: GlobalToken): PanelComponentToken => {
+  const {
+    colorBgContainerDisabled,
+    controlHeight,
+    controlHeightSM,
+    controlHeightLG,
+    paddingXXS,
+    lineWidth,
+  } = token;
+
+  // Item height default use `controlHeight - 2 * paddingXXS`,
+  // but some case `paddingXXS=0`.
+  // Let's fallback it.
+  const dblPaddingXXS = paddingXXS * 2;
+  const dblLineWidth = lineWidth * 2;
+
+  const multipleItemHeight = Math.min(controlHeight - dblPaddingXXS, controlHeight - dblLineWidth);
+  const multipleItemHeightSM = Math.min(
+    controlHeightSM - dblPaddingXXS,
+    controlHeightSM - dblLineWidth,
+  );
+  const multipleItemHeightLG = Math.min(
+    controlHeightLG - dblPaddingXXS,
+    controlHeightLG - dblLineWidth,
+  );
+
+  // FIXED_ITEM_MARGIN is a hardcode calculation since calc not support rounding
+  const INTERNAL_FIXED_ITEM_MARGIN = Math.floor(paddingXXS / 2);
+
+  const filledToken = {
+    INTERNAL_FIXED_ITEM_MARGIN,
+    cellHoverBg: token.controlItemBgHover,
+    cellActiveWithRangeBg: token.controlItemBgActive,
+    cellHoverWithRangeBg: new TinyColor(token.colorPrimary).lighten(35).toHexString(),
+    cellRangeBorderColor: new TinyColor(token.colorPrimary).lighten(20).toHexString(),
+    cellBgDisabled: colorBgContainerDisabled,
+    timeColumnWidth: controlHeightLG * 1.4,
+    timeColumnHeight: 28 * 8,
+    timeCellHeight: 28,
+    cellWidth: controlHeightSM * 1.5,
+    cellHeight: controlHeightSM,
+    textHeight: controlHeightLG,
+    withoutTimeCellHeight: controlHeightLG * 1.65,
+    multipleItemBg: token.colorFillSecondary,
+    multipleItemBorderColor: 'transparent',
+    multipleItemHeight,
+    multipleItemHeightSM,
+    multipleItemHeightLG,
+    multipleSelectorBgDisabled: colorBgContainerDisabled,
+    multipleItemColorDisabled: token.colorTextDisabled,
+    multipleItemBorderColorDisabled: 'transparent',
+  };
+
+  return filledToken;
+};
 
 export const prepareComponentToken: GetDefaultToken<'DatePicker'> = (token) => ({
   ...initComponentToken(token),

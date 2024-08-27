@@ -5,7 +5,6 @@ const App: React.FC = () => (
   <>
     <ConfigProvider
       theme={{
-        cssVar: false,
         components: {
           Checkbox: {
             lineWidth: 6,

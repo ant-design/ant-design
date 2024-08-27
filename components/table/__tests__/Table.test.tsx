@@ -138,7 +138,7 @@ describe('Table', () => {
 
   it('should not crash when column children is empty', () => {
     render(
-      <Table
+      <Table<{ name?: string }>
         columns={[
           {
             dataIndex: 'name',
@@ -153,11 +153,7 @@ describe('Table', () => {
   it('should not crash when dataSource is array with none-object items', () => {
     render(
       <Table
-        columns={[
-          {
-            title: 'name',
-          },
-        ]}
+        columns={[{ title: 'name' }]}
         dataSource={['1', 2, undefined, {}, null, true, false, 0] as TableProps<any>['dataSource']}
       />,
     );
@@ -167,7 +163,7 @@ describe('Table', () => {
     // prevent touch event, 原来的用例感觉是少了 touchmove 调用判断
     const touchmove = jest.fn();
     const { container } = render(
-      <Table
+      <Table<{ name?: string }>
         columns={[
           {
             dataIndex: 'name',
@@ -245,28 +241,28 @@ describe('Table', () => {
 
   it('warn about rowKey when using index parameter', () => {
     warnSpy.mockReset();
-    const columns = [
+    const columns: TableProps<any>['columns'] = [
       {
         title: 'Name',
         key: 'name',
         dataIndex: 'name',
       },
     ];
-    render(<Table columns={columns} rowKey={(record, index) => record.key + index} />);
+    render(<Table columns={columns} rowKey={(record, index) => `${record.key}${index}`} />);
     expect(warnSpy).toHaveBeenCalledWith(
       'Warning: [antd: Table] `index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
     );
   });
   it('not warn about rowKey', () => {
     warnSpy.mockReset();
-    const columns = [
+    const columns: TableProps<any>['columns'] = [
       {
         title: 'Name',
         key: 'name',
         dataIndex: 'name',
       },
     ];
-    render(<Table columns={columns} rowKey={(record) => record.key} />);
+    render(<Table columns={columns} rowKey={(record) => record.key as string} />);
     expect(warnSpy).not.toHaveBeenCalled();
   });
 
@@ -336,7 +332,7 @@ describe('Table', () => {
 
   it('title should support ReactNode', () => {
     const { container } = render(
-      <Table
+      <Table<{ name?: string }>
         columns={[
           {
             title: (
@@ -476,5 +472,29 @@ describe('Table', () => {
     expect(
       container.querySelectorAll('.ant-table-thead tr')[1].querySelectorAll('th'),
     ).toHaveLength(1);
+  });
+
+  it('support disable row hover', () => {
+    const { container } = render(
+      <Table
+        columns={[
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+          },
+        ]}
+        dataSource={[
+          {
+            name: 'name1',
+          },
+        ]}
+        rowHoverable={false}
+      />,
+    );
+    const cell = container.querySelector('.ant-table-row .ant-table-cell')!;
+
+    fireEvent.mouseEnter(cell);
+    expect(container.querySelectorAll('.ant-table-cell-row-hover')).toHaveLength(0);
   });
 });

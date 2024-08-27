@@ -1,11 +1,11 @@
 import type React from 'react';
-import { unit, type CSSInterpolation } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
 import { resetComponent } from '../../style';
-import type { FullToken } from '../../theme/internal';
+import type { FullToken, GetDefaultToken, GenStyleFn } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
-import type { GenStyleFn, GetDefaultToken } from '../../theme/util/genComponentStyleHook';
 
 export interface ComponentToken {
   /**
@@ -40,6 +40,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       ...resetComponent(token),
       display: 'inline-block',
       height: 'auto',
+      // https://github.com/ant-design/ant-design/pull/47504
       marginInlineEnd: token.marginXS,
       paddingInline,
       fontSize: token.tagFontSize,
@@ -82,7 +83,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         },
       },
 
-      [`&-checkable`]: {
+      '&-checkable': {
         backgroundColor: 'transparent',
         borderColor: 'transparent',
         cursor: 'pointer',
@@ -108,7 +109,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         },
       },
 
-      [`&-hidden`]: {
+      '&-hidden': {
         display: 'none',
       },
 
@@ -133,7 +134,7 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Tag'>>[0]) => TagToken
     tagLineHeight: unit(calc(token.lineHeightSM).mul(tagFontSize).equal()),
     tagIconSize: calc(fontSizeIcon).sub(calc(lineWidth).mul(2)).equal(), // Tag icon is much smaller
     tagPaddingHorizontal: 8, // Fixed padding.
-    tagBorderlessBg: token.colorFillTertiary,
+    tagBorderlessBg: token.defaultBg,
   });
   return tagToken;
 };

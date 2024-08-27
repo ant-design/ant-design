@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Switch from '..';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 

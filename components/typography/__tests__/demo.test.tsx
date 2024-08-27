@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 
 demoTest('typography');

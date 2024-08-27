@@ -7,12 +7,12 @@ const App: React.FC = () => (
     items={[
       {
         key: '1',
-        href: '#components-anchor-demo-basic',
+        href: '#anchor-demo-basic',
         title: 'Basic demo',
       },
       {
         key: '2',
-        href: '#components-anchor-demo-static',
+        href: '#anchor-demo-static',
         title: 'Static demo',
       },
       {

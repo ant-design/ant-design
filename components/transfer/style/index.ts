@@ -1,4 +1,6 @@
-import { type CSSObject, unit } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import { resetComponent, resetIcon, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
@@ -8,32 +10,32 @@ export interface ComponentToken {
    * @desc 列表宽度
    * @descEN Width of list
    */
-  listWidth: number;
+  listWidth: number | string;
   /**
    * @desc 大号列表宽度
    * @descEN Width of large list
    */
-  listWidthLG: number;
+  listWidthLG: number | string;
   /**
    * @desc 列表高度
    * @descEN Height of list
    */
-  listHeight: number;
+  listHeight: number | string;
   /**
    * @desc 列表项高度
    * @descEN Height of list item
    */
-  itemHeight: number;
+  itemHeight: number | string;
   /**
    * @desc 列表项纵向内边距
    * @descEN Vertical padding of list item
    */
-  itemPaddingBlock: number;
+  itemPaddingBlock: number | string;
   /**
    * @desc 顶部高度
    * @descEN Height of header
    */
-  headerHeight: number;
+  headerHeight: number | string;
 }
 
 interface TransferToken extends FullToken<'Transfer'> {
@@ -43,7 +45,7 @@ interface TransferToken extends FullToken<'Transfer'> {
 const genTransferCustomizeStyle: GenerateStyle<TransferToken> = (
   token: TransferToken,
 ): CSSObject => {
-  const { antCls, componentCls, listHeight, controlHeightLG, marginXXS, margin } = token;
+  const { antCls, componentCls, listHeight, controlHeightLG } = token;
 
   const tableCls = `${antCls}-table`;
   const inputCls = `${antCls}-input`;
@@ -70,7 +72,8 @@ const genTransferCustomizeStyle: GenerateStyle<TransferToken> = (
         },
 
         [`${tableCls}-pagination${tableCls}-pagination`]: {
-          margin: `${unit(margin)} 0 ${unit(marginXXS)}`,
+          margin: 0,
+          padding: token.paddingXS,
         },
       },
 
@@ -285,7 +288,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     },
 
     '&-pagination': {
-      padding: `${unit(token.paddingXS)} 0`,
+      padding: token.paddingXS,
       textAlign: 'end',
       borderTop: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
 
@@ -347,17 +350,10 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
         alignSelf: 'center',
         margin: `0 ${unit(marginXS)}`,
         verticalAlign: 'middle',
+        gap: marginXXS,
 
-        [`${antCls}-btn`]: {
-          display: 'block',
-
-          '&:first-child': {
-            marginBottom: marginXXS,
-          },
-
-          [iconCls]: {
-            fontSize: fontSizeIcon,
-          },
+        [`${antCls}-btn ${iconCls}`]: {
+          fontSize: fontSizeIcon,
         },
       },
     },

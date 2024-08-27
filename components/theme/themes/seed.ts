@@ -1,12 +1,15 @@
 import type { PresetColorType, SeedToken } from '../internal';
 
 export const defaultPresetColors: PresetColorType = {
-  blue: '#1677ff',
+  blue: '#1677FF',
   purple: '#722ED1',
   cyan: '#13C2C2',
   green: '#52C41A',
   magenta: '#EB2F96',
-  pink: '#eb2f96',
+  /**
+   * @deprecated Use magenta instead
+   */
+  pink: '#EB2F96',
   red: '#F5222D',
   orange: '#FA8C16',
   yellow: '#FADB14',

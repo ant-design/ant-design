@@ -17,7 +17,7 @@ export interface TypographyProps<C extends keyof JSX.IntrinsicElements>
   children?: React.ReactNode;
   /** @internal */
   component?: C;
-  ['aria-label']?: string;
+  'aria-label'?: string;
   direction?: DirectionType;
 }
 

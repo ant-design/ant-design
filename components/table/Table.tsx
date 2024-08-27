@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { EXPAND_COLUMN, Summary, type Reference } from 'rc-table';
+import { EXPAND_COLUMN, Summary } from 'rc-table';
+import type { Reference } from 'rc-table';
 
 import type { AnyObject } from '../_util/type';
 import Column from './Column';

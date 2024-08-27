@@ -1,7 +1,53 @@
 import type { CSSProperties } from 'react';
-import type { FullToken, GetDefaultToken } from 'antd/es/theme/util/genComponentStyleHook';
+import type { FullToken, GetDefaultToken } from 'antd/es/theme/internal';
 
-export interface ComponentToken {
+export interface MultipleSelectorToken {
+  /**
+   * @desc 多选标签背景色
+   * @descEN Background color of multiple tag
+   */
+  multipleItemBg: string;
+  /**
+   * @desc 多选标签边框色
+   * @descEN Border color of multiple tag
+   */
+  multipleItemBorderColor: string;
+  /**
+   * @desc 多选标签高度
+   * @descEN Height of multiple tag
+   */
+  multipleItemHeight: number;
+  /**
+   * @desc 小号多选标签高度
+   * @descEN Height of multiple tag with small size
+   */
+  multipleItemHeightSM: number;
+  /**
+   * @desc 大号多选标签高度
+   * @descEN Height of multiple tag with large size
+   */
+  multipleItemHeightLG: number;
+  /**
+   * @desc 多选框禁用背景
+   * @descEN Background color of multiple selector when disabled
+   */
+  multipleSelectorBgDisabled: string;
+  /**
+   * @desc 多选标签禁用文本颜色
+   * @descEN Text color of multiple tag when disabled
+   */
+  multipleItemColorDisabled: string;
+  /**
+   * @desc 多选标签禁用边框色
+   * @descEN Border color of multiple tag when disabled
+   */
+  multipleItemBorderColorDisabled: string;
+  /**
+   * @internal
+   */
+}
+
+export interface ComponentToken extends MultipleSelectorToken {
   /**
    * @desc 下拉菜单 z-index
    * @descEN z-index of dropdown
@@ -63,58 +109,37 @@ export interface ComponentToken {
    */
   singleItemHeightLG: number;
   /**
-   * @desc 多选标签背景色
-   * @descEN Background color of multiple tag
-   */
-  multipleItemBg: string;
-  /**
-   * @desc 多选标签边框色
-   * @descEN Border color of multiple tag
-   */
-  multipleItemBorderColor: string;
-  /**
-   * @desc 多选标签高度
-   * @descEN Height of multiple tag
-   */
-  multipleItemHeight: number;
-  /**
-   * @desc 大号多选标签高度
-   * @descEN Height of multiple tag with large size
-   */
-  multipleItemHeightLG: number;
-  /**
-   * @desc 多选框禁用背景
-   * @descEN Background color of multiple selector when disabled
-   */
-  multipleSelectorBgDisabled: string;
-  /**
-   * @desc 多选标签禁用文本颜色
-   * @descEN Text color of multiple tag when disabled
-   */
-  multipleItemColorDisabled: string;
-  /**
-   * @desc 多选标签禁用边框色
-   * @descEN Border color of multiple tag when disabled
-   */
-  multipleItemBorderColorDisabled: string;
-  /**
-   * @internal
+   * @desc 箭头的行末内边距
+   * @descEN Inline end padding of arrow
    */
   showArrowPaddingInlineEnd: number;
 }
 
-export interface SelectToken extends FullToken<'Select'> {
-  rootPrefixCls: string;
+export interface SelectorToken {
   inputPaddingHorizontalBase: number | string;
   multipleSelectItemHeight: number;
   selectHeight: number;
+}
+
+export interface SelectToken extends FullToken<'Select'>, SelectorToken {
+  rootPrefixCls: string;
+
+  /** @private Used for internal calculation */
+  INTERNAL_FIXED_ITEM_MARGIN: number;
 }
 
 export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
   const {
     fontSize,
     lineHeight,
+    lineWidth,
+
     controlHeight,
+    controlHeightSM,
+    controlHeightLG,
+
+    paddingXXS,
+
     controlPaddingHorizontal,
     zIndexPopupBase,
     colorText,
@@ -123,13 +148,33 @@ export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
     controlItemBgHover,
     colorBgContainer,
     colorFillSecondary,
-    controlHeightLG,
-    controlHeightSM,
+
     colorBgContainerDisabled,
     colorTextDisabled,
   } = token;
 
+  // Item height default use `controlHeight - 2 * paddingXXS`,
+  // but some case `paddingXXS=0`.
+  // Let's fallback it.
+  const dblPaddingXXS = paddingXXS * 2;
+  const dblLineWidth = lineWidth * 2;
+
+  const multipleItemHeight = Math.min(controlHeight - dblPaddingXXS, controlHeight - dblLineWidth);
+  const multipleItemHeightSM = Math.min(
+    controlHeightSM - dblPaddingXXS,
+    controlHeightSM - dblLineWidth,
+  );
+  const multipleItemHeightLG = Math.min(
+    controlHeightLG - dblPaddingXXS,
+    controlHeightLG - dblLineWidth,
+  );
+
+  // FIXED_ITEM_MARGIN is a hardcode calculation since calc not support rounding
+  const INTERNAL_FIXED_ITEM_MARGIN = Math.floor(paddingXXS / 2);
+
   return {
+    INTERNAL_FIXED_ITEM_MARGIN,
+
     zIndexPopup: zIndexPopupBase + 50,
     optionSelectedColor: colorText,
     optionSelectedFontWeight: fontWeightStrong,
@@ -144,8 +189,9 @@ export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
     singleItemHeightLG: controlHeightLG,
     multipleItemBg: colorFillSecondary,
     multipleItemBorderColor: 'transparent',
-    multipleItemHeight: controlHeightSM,
-    multipleItemHeightLG: controlHeight,
+    multipleItemHeight,
+    multipleItemHeightSM,
+    multipleItemHeightLG,
     multipleSelectorBgDisabled: colorBgContainerDisabled,
     multipleItemColorDisabled: colorTextDisabled,
     multipleItemBorderColorDisabled: 'transparent',

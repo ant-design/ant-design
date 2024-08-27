@@ -880,7 +880,7 @@ exports[`renders components/grid/demo/offset.tsx extend context correctly 2`] = 
 exports[`renders components/grid/demo/playground.tsx extend context correctly 1`] = `
 Array [
   <span>
-    Horizontal Gutter (px):
+    Horizontal Gutter (px): 
   </span>,
   <div
     style="width: 50%;"
@@ -996,7 +996,7 @@ Array [
     </div>
   </div>,
   <span>
-    Vertical Gutter (px):
+    Vertical Gutter (px): 
   </span>,
   <div
     style="width: 50%;"
@@ -1386,6 +1386,75 @@ exports[`renders components/grid/demo/responsive.tsx extend context correctly 1`
 `;
 
 exports[`renders components/grid/demo/responsive.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/grid/demo/responsive-flex.tsx extend context correctly 1`] = `
+<div
+  class="ant-row"
+>
+  <div
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
+  >
+    Col
+  </div>
+  <div
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
+  >
+    Col
+  </div>
+  <div
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
+  >
+    Col
+  </div>
+  <div
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
+  >
+    Col
+  </div>
+  <div
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
+  >
+    Col
+  </div>
+  <div
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
+  >
+    Col
+  </div>
+  <div
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
+  >
+    Col
+  </div>
+  <div
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
+  >
+    Col
+  </div>
+  <div
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
+  >
+    Col
+  </div>
+  <div
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
+  >
+    Col
+  </div>
+</div>
+`;
+
+exports[`renders components/grid/demo/responsive-flex.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/grid/demo/responsive-more.tsx extend context correctly 1`] = `
 <div

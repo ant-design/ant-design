@@ -5,42 +5,45 @@ import { Menu, Switch } from 'antd';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
-function getItem(
-  label: React.ReactNode,
-  key?: React.Key | null,
-  icon?: React.ReactNode,
-  children?: MenuItem[],
-): MenuItem {
-  return {
-    key,
-    icon,
-    children,
-    label,
-  } as MenuItem;
-}
-
 const items: MenuItem[] = [
-  getItem('Navigation One Long Long Long Long', 'sub1', <MailOutlined />, [
-    getItem('Option 1', '1'),
-    getItem('Option 2', '2'),
-    getItem('Option 3', '3'),
-    getItem('Option 4', '4'),
-  ]),
-  getItem('Navigation Two', 'sub2', <AppstoreOutlined />, [
-    getItem('Option 5', '5'),
-    getItem('Option 6', '6'),
-    getItem('Submenu', 'sub3', null, [getItem('Option 7', '7'), getItem('Option 8', '8')]),
-  ]),
-  getItem('Option 11', '11'),
-  getItem('Option 12', '12'),
+  {
+    key: 'sub1',
+    label: 'Navigation One Long Long Long Long',
+    icon: <MailOutlined />,
+    children: [
+      { key: '1', label: 'Option 1' },
+      { key: '2', label: 'Option 2' },
+      { key: '3', label: 'Option 3' },
+      { key: '4', label: 'Option 4' },
+    ],
+  },
+  {
+    key: 'sub2',
+    label: 'Navigation Two',
+    icon: <AppstoreOutlined />,
+    children: [
+      { key: '5', label: 'Option 5' },
+      { key: '6', label: 'Option 6' },
+      {
+        key: 'sub3',
+        label: 'Submenu',
+        children: [
+          { key: '7', label: 'Option 7' },
+          { key: '8', label: 'Option 8' },
+        ],
+      },
+    ],
+  },
+  { key: '11', label: 'Option 11' },
+  { key: '12', label: 'Option 12' },
 ];
 
 const App: React.FC = () => {
-  const [theme, setTheme] = useState<MenuTheme>('dark');
+  const [menuTheme, setMenuTheme] = useState<MenuTheme>('dark');
   const [current, setCurrent] = useState('1');
 
   const changeTheme = (value: boolean) => {
-    setTheme(value ? 'dark' : 'light');
+    setMenuTheme(value ? 'dark' : 'light');
   };
 
   const onClick: MenuProps['onClick'] = (e) => {
@@ -51,7 +54,7 @@ const App: React.FC = () => {
   return (
     <>
       <Switch
-        checked={theme === 'dark'}
+        checked={menuTheme === 'dark'}
         onChange={changeTheme}
         checkedChildren="Dark"
         unCheckedChildren="Light"
@@ -59,7 +62,7 @@ const App: React.FC = () => {
       <br />
       <br />
       <Menu
-        theme={theme}
+        theme={menuTheme}
         onClick={onClick}
         selectedKeys={[current]}
         mode="inline"
@@ -79,7 +82,7 @@ const App: React.FC = () => {
           React.cloneElement(node, {
             style: {
               ...node.props.style,
-              background: 'rgba(255,255,255,0.3)',
+              background: 'rgba(255, 255, 255, 0.3)',
             },
           })
         }

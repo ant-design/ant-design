@@ -552,18 +552,17 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-outlined ant-picker-disabled"
+              class="ant-picker ant-picker-disabled ant-picker-outlined"
             >
               <div
                 class="ant-picker-input"
               >
                 <input
+                  aria-invalid="false"
                   autocomplete="off"
                   disabled=""
                   placeholder="Select date"
-                  readonly=""
                   size="12"
-                  title=""
                   value=""
                 />
                 <span
@@ -622,16 +621,17 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-range ant-picker-outlined ant-picker-disabled"
+              class="ant-picker ant-picker-range ant-picker-disabled ant-picker-outlined"
             >
               <div
-                class="ant-picker-input ant-picker-input-active"
+                class="ant-picker-input"
               >
                 <input
+                  aria-invalid="false"
                   autocomplete="off"
+                  date-range="start"
                   disabled=""
                   placeholder="Start date"
-                  readonly=""
                   size="12"
                   value=""
                 />
@@ -668,17 +668,18 @@ exports[`Form form should support disabled 1`] = `
                 class="ant-picker-input"
               >
                 <input
+                  aria-invalid="false"
                   autocomplete="off"
+                  date-range="end"
                   disabled=""
                   placeholder="End date"
-                  readonly=""
                   size="12"
                   value=""
                 />
               </div>
               <div
                 class="ant-picker-active-bar"
-                style="left: 0px; width: 0px; position: absolute;"
+                style="position: absolute; width: 0px;"
               />
               <span
                 class="ant-picker-suffix"
@@ -1076,6 +1077,124 @@ exports[`Form form should support disabled 1`] = `
                 class="ant-color-picker-clear"
               />
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Form form.item should support layout 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-col-4 ant-form-item-label"
+      >
+        <label
+          class=""
+          for="name"
+          title="name"
+        >
+          name
+        </label>
+      </div>
+      <div
+        class="ant-col ant-col-14 ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              class="ant-input ant-input-outlined"
+              id="name"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item ant-form-item-horizontal"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-col-4 ant-form-item-label"
+      >
+        <label
+          class=""
+          for="horizontal"
+          title="horizontal"
+        >
+          horizontal
+        </label>
+      </div>
+      <div
+        class="ant-col ant-col-14 ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              class="ant-input ant-input-outlined"
+              id="horizontal"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item ant-form-item-vertical"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-col-4 ant-form-item-label"
+      >
+        <label
+          class=""
+          for="vertical"
+          title="vertical"
+        >
+          vertical
+        </label>
+      </div>
+      <div
+        class="ant-col ant-col-14 ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              class="ant-input ant-input-outlined"
+              id="vertical"
+              type="text"
+              value=""
+            />
           </div>
         </div>
       </div>

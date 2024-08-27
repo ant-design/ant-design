@@ -1703,6 +1703,9 @@ exports[`Cascader should render not found content 1`] = `
                   width="64"
                   xmlns="http://www.w3.org/2000/svg"
                 >
+                  <title>
+                    Simple Empty
+                  </title>
                   <g
                     fill="none"
                     fill-rule="evenodd"
@@ -1778,6 +1781,9 @@ exports[`Cascader should show not found content when options.length is 0 1`] = `
                   width="64"
                   xmlns="http://www.w3.org/2000/svg"
                 >
+                  <title>
+                    Simple Empty
+                  </title>
                   <g
                     fill="none"
                     fill-rule="evenodd"

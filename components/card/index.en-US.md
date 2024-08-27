@@ -2,11 +2,10 @@
 category: Components
 group: Data Display
 title: Card
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VXtCTp93KPAAAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a-8zR6rrupgAAAAAAAAAAAAADrJ8AQ/original
+description: A container for displaying information.
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*QXO1SKEdIzYAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-Simple rectangular container.
 
 ## When To Use
 
@@ -35,18 +34,14 @@ Common props ref：[Common props](/docs/react/common-props)
 <Card title="Card title">Card content</Card>
 ```
 
-### Card
-
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | actions | The action list, shows at the bottom of the Card | Array&lt;ReactNode> | - |  |
 | activeTabKey | Current TabPane's key | string | - |  |
-| bodyStyle | Inline style to apply to the card content | CSSProperties | - |  |
 | bordered | Toggles rendering of the border around the card | boolean | true |  |
 | cover | Card cover | ReactNode | - |  |
-| defaultActiveTabKey | Initial active TabPane's key, if `activeTabKey` is not set | string | - |  |
+| defaultActiveTabKey | Initial active TabPane's key, if `activeTabKey` is not set | string | `The key of first tab` |  |
 | extra | Content to render in the top-right corner of the card | ReactNode | - |  |
-| headStyle | Inline style to apply to the card head | CSSProperties | - |  |
 | hoverable | Lift up when hovering card | boolean | false |  |
 | loading | Shows a loading indicator while the contents of the card are being fetched | boolean | false |  |
 | size | Size of card | `default` \| `small` | `default` |  |
@@ -55,6 +50,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | tabProps | [Tabs](/components/tabs/#tabs) | - | - |  |
 | title | Card title | ReactNode | - |  |
 | type | Card style type, can be set to `inner` or not set | string | - |  |
+| classNames | Config Card build-in module's className | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.14.0 |
+| styles | Config Card build-in module's style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.14.0 |
 | onTabChange | Callback when tab is switched | (key) => void | - |  |
 
 ### Card.Grid
@@ -74,6 +71,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | description | Description content           | ReactNode     | -       |         |
 | style       | The style object of container | CSSProperties | -       |         |
 | title       | Title content                 | ReactNode     | -       |         |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 

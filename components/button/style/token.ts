@@ -1,7 +1,7 @@
 import type { CSSProperties } from 'react';
-import type { FullToken, GetDefaultToken } from '../../theme/internal';
+
+import type { FullToken, GetDefaultToken, GenStyleFn } from '../../theme/internal';
 import { getLineHeight, mergeToken } from '../../theme/internal';
-import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -51,6 +51,36 @@ export interface ComponentToken {
    */
   dangerColor: string;
   /**
+   * @desc 默认按钮悬浮态背景色
+   * @descEN Background color of default button when hover
+   */
+  defaultHoverBg: string;
+  /**
+   * @desc 默认按钮悬浮态文本颜色
+   * @descEN Text color of default button when hover
+   */
+  defaultHoverColor: string;
+  /**
+   * @desc 默认按钮悬浮态边框颜色
+   * @descEN Border color of default button
+   */
+  defaultHoverBorderColor: string;
+  /**
+   * @desc 默认按钮激活态背景色
+   * @descEN Background color of default button when active
+   */
+  defaultActiveBg: string;
+  /**
+   * @desc 默认按钮激活态文字颜色
+   * @descEN Text color of default button when active
+   */
+  defaultActiveColor: string;
+  /**
+   * @desc 默认按钮激活态边框颜色
+   * @descEN Border color of default button when active
+   */
+  defaultActiveBorderColor: string;
+  /**
    * @desc 禁用状态边框颜色
    * @descEN Border color of disabled button
    */
@@ -86,20 +116,20 @@ export interface ComponentToken {
    */
   paddingInlineSM: CSSProperties['paddingInline'];
   /**
-   * @desc 按钮横向内间距
-   * @descEN Horizontal padding of button
+   * @desc 按钮纵向内间距
+   * @descEN Vertical padding of button
    */
-  paddingBlock: CSSProperties['paddingInline'];
+  paddingBlock: CSSProperties['paddingBlock'];
   /**
-   * @desc 大号按钮横向内间距
-   * @descEN Horizontal padding of large button
+   * @desc 大号按钮纵向内间距
+   * @descEN Vertical padding of large button
    */
-  paddingBlockLG: CSSProperties['paddingInline'];
+  paddingBlockLG: CSSProperties['paddingBlock'];
   /**
-   * @desc 小号按钮横向内间距
-   * @descEN Horizontal padding of small button
+   * @desc 小号按钮纵向内间距
+   * @descEN Vertical padding of small button
    */
-  paddingBlockSM: CSSProperties['paddingInline'];
+  paddingBlockSM: CSSProperties['paddingBlock'];
   /**
    * @desc 只有图标的按钮图标尺寸
    * @descEN Icon size of button which only contains icon
@@ -163,8 +193,20 @@ export interface ComponentToken {
 }
 
 export interface ButtonToken extends FullToken<'Button'> {
+  /**
+   * @desc 按钮横向内边距
+   * @descEN Horizontal padding of button
+   */
   buttonPaddingHorizontal: CSSProperties['paddingInline'];
+  /**
+   * @desc 按钮纵向内边距
+   * @descEN Vertical padding of button
+   */
   buttonPaddingVertical: CSSProperties['paddingBlock'];
+  /**
+   * @desc 只有图标的按钮图标尺寸
+   * @descEN Icon size of button which only contains icon
+   */
   buttonIconOnlyFontSize: number;
 }
 
@@ -214,6 +256,12 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
     defaultBg: token.colorBgContainer,
     defaultBorderColor: token.colorBorder,
     defaultBorderColorDisabled: token.colorBorder,
+    defaultHoverBg: token.colorBgContainer,
+    defaultHoverColor: token.colorPrimaryHover,
+    defaultHoverBorderColor: token.colorPrimaryHover,
+    defaultActiveBg: token.colorBgContainer,
+    defaultActiveColor: token.colorPrimaryActive,
+    defaultActiveBorderColor: token.colorPrimaryActive,
     contentFontSize,
     contentFontSizeSM,
     contentFontSizeLG,

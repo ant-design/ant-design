@@ -1,3 +1,5 @@
+export type TransferKey = React.Key;
+
 export type PaginationType =
   | boolean
   | {

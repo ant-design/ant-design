@@ -1,11 +1,28 @@
 import * as React from 'react';
 import type { Dayjs } from 'dayjs';
+import type { PickerRef } from 'rc-picker';
 
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
+import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import DatePicker from '../date-picker';
-import type { PickerTimeProps, RangePickerTimeProps } from '../date-picker/generatePicker';
+import type {
+  GenericTimePickerProps,
+  PickerPropsWithMultiple,
+  RangePickerProps,
+} from '../date-picker/generatePicker/interface';
+import useVariant from '../form/hooks/useVariants';
+
+export type PickerTimeProps<DateType extends AnyObject> = PickerPropsWithMultiple<
+  DateType,
+  GenericTimePickerProps<DateType>
+>;
+
+export type RangePickerTimeProps<DateType extends AnyObject> = Omit<
+  RangePickerProps<DateType>,
+  'showTime' | 'picker'
+>;
 
 const { TimePicker: InternalTimePicker, RangePicker: InternalRangePicker } = DatePicker;
 
@@ -18,7 +35,7 @@ export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<Dayjs>, 
   popupClassName?: string;
 }
 
-const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => (
+const RangePicker = React.forwardRef<PickerRef, TimeRangePickerProps>((props, ref) => (
   <InternalRangePicker {...props} picker="time" mode={undefined} ref={ref} />
 ));
 
@@ -29,15 +46,17 @@ export interface TimePickerProps extends Omit<PickerTimeProps<Dayjs>, 'picker'> 
   rootClassName?: string;
 }
 
-const TimePicker = React.forwardRef<any, TimePickerProps>(
-  ({ addon, renderExtraFooter, ...restProps }, ref) => {
+const TimePicker = React.forwardRef<PickerRef, TimePickerProps>(
+  ({ addon, renderExtraFooter, variant, bordered, ...restProps }, ref) => {
     if (process.env.NODE_ENV !== 'production') {
       const warning = devUseWarning('TimePicker');
 
       warning.deprecated(!addon, 'addon', 'renderExtraFooter');
     }
 
-    const internalRenderExtraFooter = React.useMemo(() => {
+    const [mergedVariant] = useVariant('timePicker', variant, bordered);
+
+    const internalRenderExtraFooter = React.useMemo<TimePickerProps['renderExtraFooter']>(() => {
       if (renderExtraFooter) {
         return renderExtraFooter;
       }
@@ -54,6 +73,7 @@ const TimePicker = React.forwardRef<any, TimePickerProps>(
         mode={undefined}
         ref={ref}
         renderExtraFooter={internalRenderExtraFooter}
+        variant={mergedVariant}
       />
     );
   },

@@ -20,7 +20,7 @@ exports[`Anchor Render render items and ignore jsx children 1`] = `
         >
           <a
             class="ant-anchor-link-title"
-            href="#components-anchor-demo-basic"
+            href="#anchor-demo-basic"
             title="Item Basic Demo"
           >
             Item Basic Demo
@@ -52,7 +52,7 @@ exports[`Anchor Render renders items correctly 1`] = `
         >
           <a
             class="ant-anchor-link-title"
-            href="#components-anchor-demo-basic"
+            href="#anchor-demo-basic"
             title="Item Basic Demo"
           >
             Item Basic Demo
@@ -63,7 +63,7 @@ exports[`Anchor Render renders items correctly 1`] = `
         >
           <a
             class="ant-anchor-link-title"
-            href="#components-anchor-demo-static"
+            href="#anchor-demo-static"
             title="Static demo"
           >
             Static demo
@@ -128,7 +128,7 @@ exports[`Anchor Render renders items correctly#horizontal 1`] = `
         >
           <a
             class="ant-anchor-link-title"
-            href="#components-anchor-demo-basic"
+            href="#anchor-demo-basic"
             title="Item Basic Demo"
           >
             Item Basic Demo
@@ -139,7 +139,7 @@ exports[`Anchor Render renders items correctly#horizontal 1`] = `
         >
           <a
             class="ant-anchor-link-title"
-            href="#components-anchor-demo-static"
+            href="#anchor-demo-static"
             title="Static demo"
           >
             Static demo

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Cascader } from 'antd';
-import type { GetProp, CascaderProps } from 'antd';
+import type { CascaderProps, GetProp } from 'antd';
 
 type DefaultOptionType = GetProp<CascaderProps, 'options'>[number];
 
@@ -51,7 +51,7 @@ const options: Option[] = [
   },
 ];
 
-const onChange = (value: string[], selectedOptions: Option[]) => {
+const onChange: CascaderProps<Option>['onChange'] = (value, selectedOptions) => {
   console.log(value, selectedOptions);
 };
 

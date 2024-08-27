@@ -36,7 +36,7 @@ title: 介绍
 - [NG-ZORRO - Ant Design of Angular](http://ng.ant.design)（社区实现）
 - [NG-ZORRO-MOBILE - Ant Design Mobile of Angular](http://ng.mobile.ant.design)（社区实现）
 - [Ant Design of Vue](http://antdv.com)（社区实现）
-- [Ant Design Blazor](https://ant-design-blazor.github.io/)（社区实现）
+- [Ant Design Blazor](https://antblazor.com/)（社区实现）
 - [San UI Toolkit for Ant Design](https://ecomfe.github.io/santd)（社区实现）
 - [antizer (ClojureScript)](https://github.com/priornix/antizer)（社区实现）
 

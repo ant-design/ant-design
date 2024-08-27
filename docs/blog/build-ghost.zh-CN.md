@@ -2,6 +2,7 @@
 title: 一个构建的幽灵
 date: 2023-12-20
 author: zombieJ
+juejin_url: https://juejin.cn/post/7322352551088341019
 ---
 
 在 antd-mobile 的维护过程中，遇到了一个恼人的幽灵。它在本地构建时几乎不会出现，但是在 github 的 workflow 中，却几乎每次都会出现。在经过一番折腾后，终于找到了它的踪迹。

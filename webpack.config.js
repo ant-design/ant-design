@@ -2,7 +2,7 @@
 // This config is for building dist files
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const { EsbuildPlugin } = require('esbuild-loader');
+const { codecovWebpackPlugin } = require('@codecov/webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const DuplicatePackageCheckerPlugin = require('@madccc/duplicate-package-checker-webpack-plugin');
 const path = require('path');
@@ -41,21 +41,14 @@ if (process.env.PRODUCTION_ONLY) {
   webpackConfig = webpackConfig.filter((config) => config.mode === 'production');
 }
 
+// RUN_ENV: https://github.com/ant-design/antd-tools/blob/14ee166fc1f4ab5e87da45ee3b0643a8325f1bc3/lib/gulpfile.js#L48
 if (process.env.RUN_ENV === 'PRODUCTION') {
   webpackConfig.forEach((config) => {
     addLocales(config);
     externalDayjs(config);
     externalCssinjs(config);
-
     // Reduce non-minified dist files size
     config.optimization.usedExports = true;
-    // use esbuild
-    if (process.env.ESBUILD || process.env.CSB_REPO) {
-      config.optimization.minimizer[0] = new EsbuildPlugin({
-        target: 'es2015',
-        css: true,
-      });
-    }
 
     if (!process.env.CI || process.env.ANALYZER) {
       config.plugins.push(
@@ -67,7 +60,11 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
       );
     }
 
-    if (!process.env.NO_DUP_CHECK) {
+    if (config.mode !== 'production') {
+      return;
+    }
+
+    if (!process.env.PRODUCTION_ONLY) {
       config.plugins.push(
         new DuplicatePackageCheckerPlugin({
           verbose: true,
@@ -75,6 +72,14 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
         }),
       );
     }
+
+    config.plugins.push(
+      codecovWebpackPlugin({
+        enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,
+        bundleName: 'antd.min',
+        uploadToken: process.env.CODECOV_TOKEN,
+      }),
+    );
 
     config.plugins.push(
       new CircularDependencyPlugin({
