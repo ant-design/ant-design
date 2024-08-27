@@ -319,6 +319,9 @@ describe('Splitter', () => {
     await doMove(container, 1, { clientX: 160 });
     expect(mockMoving).toHaveBeenNthCalledWith(2, [10, 60, 5, 25], 1);
 
+    await doMove(container, 0, { clientX: -120 });
+    expect(mockMoving).toHaveBeenNthCalledWith(2, [10, 60, 5, 25], 1);
+
     await doMove(container, 2, { clientX: 60 });
     expect(mockMoving).toHaveBeenNthCalledWith(3, [10, 60, 18, 12], 2);
 
@@ -326,7 +329,14 @@ describe('Splitter', () => {
     await doMove(container, 0, { clientX: -120 });
     expect(mockMoving).toHaveBeenNthCalledWith(4, [0, 100], 0);
 
+    await doMove(container, 0, { clientX: -120 });
+    expect(mockMoving).toHaveBeenNthCalledWith(4, [0, 100], 0);
+    await doMove(container, 0, { clientX: 120 });
+    expect(mockMoving).toHaveBeenNthCalledWith(4, [0, 100], 0);
+
     await doMove(container, 0, { clientX: 440 });
+    expect(mockMoving).toHaveBeenNthCalledWith(5, [100, 0], 0);
+    await doMove(container, 0, { clientX: 120 });
     expect(mockMoving).toHaveBeenNthCalledWith(5, [100, 0], 0);
   });
 
