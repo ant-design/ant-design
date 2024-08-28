@@ -29,7 +29,7 @@ const App: React.FC = () => (
       }}
       layout="vertical"
     >
-      <Splitter.Panel collapsible={{ prev: true }} min={10}>
+      <Splitter.Panel collapsible={{ start: true }} min={10}>
         <div style={{ padding: 12 }}>first</div>
       </Splitter.Panel>
 
