@@ -57,6 +57,8 @@
 
 ## 🖥 兼容环境
 
+支持范围：https://browsersl.ist/#q=defaults
+
 - 现代浏览器。
 - 支持服务端渲染。
 - [Electron](https://www.electronjs.org/)

@@ -224,6 +224,11 @@ export default function EllipsisMeasure(props: EllipsisProps) {
 
   // ========================= Text Content =========================
   const finalContent = React.useMemo(() => {
+    // Skip everything if `enableMeasure` is disabled
+    if (!enableMeasure) {
+      return children(nodeList, false);
+    }
+
     if (
       needEllipsis !== STATUS_MEASURE_NEED_ELLIPSIS ||
       !ellipsisCutIndex ||
