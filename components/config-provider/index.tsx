@@ -506,7 +506,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
 
   const config: ConfigConsumerProps = {
     ...parentContext,
-    themeOrigin: theme?.nextThemeEnd ? parentContext.theme : undefined,
+    themeOrigin: theme?.nextThemeEnd ? parentContext.themeOrigin || parentContext.theme : undefined,
   };
 
   (Object.keys(baseConfig) as (keyof typeof baseConfig)[]).forEach((key) => {
