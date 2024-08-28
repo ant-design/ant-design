@@ -116,6 +116,24 @@ describe('Wave component', () => {
     unmount();
   });
 
+  it('wave color is nonexistent', () => {
+    const { container, unmount } = render(
+      <Wave>
+        <button type="button" style={{ border: '#fff', background: '#fff' }}>
+          button
+        </button>
+      </Wave>,
+    );
+
+    fireEvent.click(container.querySelector('button')!);
+    waitRaf();
+
+    const style = getWaveStyle();
+    expect(style['--wave-color']).toEqual(undefined);
+
+    unmount();
+  });
+
   it('wave color is not grey', () => {
     const { container, unmount } = render(
       <Wave>
