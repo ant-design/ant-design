@@ -1,4 +1,4 @@
 {
-  "*.{ts,tsx,js,jsx,json,css}": ["biome check --write"],
+  "*.{ts,tsx,js,jsx,json,css}": ["biome check --write --files-ignore-unknown=true"],
   "*.{md,yml}": ["prettier --ignore-unknown --write"]
 }
