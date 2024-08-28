@@ -38,7 +38,6 @@ group:
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">按钮类型</code>
 <code src="./demo/color-variant.tsx" version="5.21.0">颜色与变体</code>
-<code src="./demo/debug-color-variant.tsx" debug>调试颜色与变体</code>
 <code src="./demo/icon.tsx">按钮图标</code>
 <code src="./demo/icon-position.tsx" version="5.17.0">按钮图标位置</code>
 <code src="./demo/debug-icon.tsx" debug>调试图标按钮</code>

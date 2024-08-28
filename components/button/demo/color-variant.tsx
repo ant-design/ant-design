@@ -1,42 +1,71 @@
 import React from 'react';
-import { Button, Divider, Flex, Radio } from 'antd';
-import type { ButtonProps } from 'antd';
+import { Button, ConfigProvider, Flex } from 'antd';
 
-const App: React.FC = () => {
-  const [color, setColor] = React.useState<ButtonProps['color']>('default');
-
-  return (
-    <>
-      <Radio.Group value={color} onChange={(e) => setColor(e.target.value)}>
-        <Radio.Button value="default">Default</Radio.Button>
-        <Radio.Button value="primary">Primary</Radio.Button>
-        <Radio.Button value="danger">Danger</Radio.Button>
-      </Radio.Group>
-      <Divider orientation="left" plain>
-        Preview
-      </Divider>
-      <Flex gap="small" wrap>
-        <Button color={color} variant="solid">
+const App: React.FC = () => (
+  <ConfigProvider componentSize="small">
+    <Flex vertical gap={15}>
+      <Flex justify="space-between">
+        <Button color="default" variant="solid">
           Solid
         </Button>
-        <Button color={color} variant="outlined">
+        <Button color="default" variant="outlined">
           Outlined
         </Button>
-        <Button color={color} variant="dashed">
+        <Button color="default" variant="dashed">
           Dashed
         </Button>
-        <Button color={color} variant="filled">
+        <Button color="default" variant="filled">
           Filled
         </Button>
-        <Button color={color} variant="text">
+        <Button color="default" variant="text">
           Text
         </Button>
-        <Button color={color} variant="link">
+        <Button color="default" variant="link">
           Link
         </Button>
       </Flex>
-    </>
-  );
-};
+      <Flex justify="space-between">
+        <Button color="primary" variant="solid">
+          Solid
+        </Button>
+        <Button color="primary" variant="outlined">
+          Outlined
+        </Button>
+        <Button color="primary" variant="dashed">
+          Dashed
+        </Button>
+        <Button color="primary" variant="filled">
+          Filled
+        </Button>
+        <Button color="primary" variant="text">
+          Text
+        </Button>
+        <Button color="primary" variant="link">
+          Link
+        </Button>
+      </Flex>
+      <Flex justify="space-between">
+        <Button color="danger" variant="solid">
+          Solid
+        </Button>
+        <Button color="danger" variant="outlined">
+          Outlined
+        </Button>
+        <Button color="danger" variant="dashed">
+          Dashed
+        </Button>
+        <Button color="danger" variant="filled">
+          Filled
+        </Button>
+        <Button color="danger" variant="text">
+          Text
+        </Button>
+        <Button color="danger" variant="link">
+          Link
+        </Button>
+      </Flex>
+    </Flex>
+  </ConfigProvider>
+);
 
 export default App;
