@@ -83,6 +83,12 @@ export interface ThemeConfig {
    */
   inherit?: boolean;
   /**
+   * @descCN 当前 `ConfigProvider` 配置的主题是否作用截止到下一级 `ConfigProvider`。
+   * @descEN Whether to inherit the theme configured in the outer layer `ConfigProvider`.
+   * @default true
+   */
+  nextThemeEnd?: boolean;
+  /**
    * @descCN 是否开启 `hashed` 属性。如果你的应用中只存在一个版本的 antd，你可以设置为 `false` 来进一步减小样式体积。
    * @descEN Whether to enable the `hashed` attribute. If there is only one version of antd in your application, you can set `false` to reduce the bundle size.
    * @default true
@@ -243,6 +249,7 @@ export interface ConfigConsumerProps {
   popupOverflow?: PopupOverflow;
   form?: FormConfig;
   theme?: ThemeConfig;
+  themeOrigin?: ThemeConfig;
   select?: SelectConfig;
   alert?: AlertConfig;
   anchor?: ComponentStyleConfig;

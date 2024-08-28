@@ -150,8 +150,8 @@ const GlobalLayout: React.FC = () => {
     () => ({
       algorithm: getAlgorithm(theme),
       token: { motion: !theme.includes('motion-off') },
-      cssVar: true,
-      hashed: false,
+      cssVar: false,
+      hashed: true,
     }),
     [theme],
   );
