@@ -344,6 +344,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token) => {
       },
       [numberPrefixCls]: {
         overflow: 'hidden',
+        transition: `all ${token.motionDurationMid} ${token.motionEaseOutBack}`,
         [`${numberPrefixCls}-only`]: {
           position: 'relative',
           display: 'inline-block',
