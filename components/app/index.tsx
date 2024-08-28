@@ -22,6 +22,12 @@ export interface AppProps<P = AnyObject> extends AppConfig {
   component?: CustomComponent<P> | false;
 }
 
+if (false) {
+  console.log(11);
+  const a = 1;
+  console.log(a);
+}
+
 const useApp = () => React.useContext<useAppProps>(AppContext);
 
 const App: React.FC<AppProps> & { useApp: () => useAppProps } = (props) => {
