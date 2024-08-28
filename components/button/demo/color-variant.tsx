@@ -3,8 +3,8 @@ import { Button, ConfigProvider, Flex } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider componentSize="small">
-    <Flex vertical gap={15}>
-      <Flex justify="space-between">
+    <Flex vertical gap={18}>
+      <Flex gap={18} wrap>
         <Button color="default" variant="solid">
           Solid
         </Button>
@@ -24,7 +24,7 @@ const App: React.FC = () => (
           Link
         </Button>
       </Flex>
-      <Flex justify="space-between">
+      <Flex gap={18} wrap>
         <Button color="primary" variant="solid">
           Solid
         </Button>
@@ -44,7 +44,7 @@ const App: React.FC = () => (
           Link
         </Button>
       </Flex>
-      <Flex justify="space-between">
+      <Flex gap={18} wrap>
         <Button color="danger" variant="solid">
           Solid
         </Button>
