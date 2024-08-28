@@ -7,6 +7,7 @@ import { useZIndex } from '../_util/hooks/useZIndex';
 import { cloneElement } from '../_util/reactNode';
 import type { MenuContextProps, MenuTheme } from './MenuContext';
 import MenuContext from './MenuContext';
+import { ConfigContext } from '../config-provider';
 
 interface TitleEventEntity {
   key: string;
@@ -32,6 +33,7 @@ export interface SubMenuProps {
 const SubMenu: React.FC<SubMenuProps> = (props) => {
   const { popupClassName, icon, title, theme: customTheme } = props;
   const context = React.useContext(MenuContext);
+  const { menu } = React.useContext(ConfigContext);
   const { prefixCls, inlineCollapsed, theme: contextTheme } = context;
 
   const parentPath = useFullPath();
@@ -80,6 +82,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
           popupClassName,
           `${prefixCls}-${customTheme || contextTheme}`,
         )}
+        style={{ ...menu?.style, ...style }}
         popupStyle={{
           zIndex,
         }}
