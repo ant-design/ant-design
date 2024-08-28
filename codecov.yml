@@ -6,8 +6,10 @@ coverage:
       default:
         target: 100%
         threshold: 0%
+        base: auto
     project:
       default:
         # base
         target: 100%
         threshold: 0%
+        base: auto
