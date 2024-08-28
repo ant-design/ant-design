@@ -1,13 +1,11 @@
 import type React from 'react';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import { useEvent } from 'rc-util';
 
 import type { PanelProps } from './Panel';
 import type { SplitterProps } from './Splitter';
 
-interface UseResizeProps
-  extends Pick<SplitterProps, 'layout' | 'onResizeStart' | 'onResize' | 'onResizeEnd'> {
-  containerRef: React.RefObject<HTMLDivElement | null>;
+interface UseResizeProps extends Pick<SplitterProps, 'layout' | 'onResize'> {
   panelsRef: React.RefObject<(HTMLDivElement | null)[]>;
   gutter: number;
   gutterCount: number;
@@ -17,9 +15,8 @@ interface UseResizeProps
   setBasicsState: React.Dispatch<React.SetStateAction<number[]>>;
 }
 export interface UseResize {
-  resizing: boolean;
-  resizeStart: (e: React.MouseEvent<HTMLDivElement>, index: number) => void;
   setSize: (size: number, index: number) => void;
+  setOffset: (offset: number, containerSize: number, index: number) => void;
 }
 
 export const sizeTransform = (size: number | string, sizeCount: number) => {
@@ -37,34 +34,19 @@ export const sizeTransform = (size: number | string, sizeCount: number) => {
   return currentSize;
 };
 
-const eventList: (keyof WindowEventMap)[] = ['mousemove', 'mouseup', 'contextmenu', 'blur'];
-
 const useResize = ({
-  containerRef,
-  panelsRef,
-  layout,
-  gutter,
-  gutterCount,
+  basicsData,
   items,
   isRTL,
-  basicsData,
+  layout,
+  gutter,
+  panelsRef,
   onResize,
-  onResizeEnd,
-  onResizeStart,
   setBasicsState,
 }: UseResizeProps): UseResize => {
-  const startInfo = useRef({ x: 0, y: 0, index: 0 });
   const basicsRef = useRef<number[]>(basicsData);
-  const resizingRef = useRef(false);
 
-  const resizeStartWarp = useEvent<Required<UseResizeProps>['onResizeStart']>((sizes, index) => {
-    onResizeStart?.(sizes, index);
-  });
-
-  const [resizing, setResizing] = useState(false);
-
-  const setOffset = (offset: number, x: number, y: number, containerSize: number) => {
-    const { index } = startInfo.current;
+  const setOffset = useEvent((offset: number, containerSize: number, index: number) => {
     const reverse = layout === 'horizontal' && isRTL;
 
     if (panelsRef.current?.[index] && basicsRef.current) {
@@ -113,62 +95,13 @@ const useResize = ({
       previousElement.style.flexBasis = `calc(${previousSize}% - ${gutter}px)`;
       nextElement.style.flexBasis = `calc(${nextSize}% - ${gutter}px)`;
 
-      startInfo.current.x = x;
-      startInfo.current.y = y;
       basicsRef.current[index] = previousSize;
       basicsRef.current[index + 1] = nextSize;
 
       setBasicsState([...basicsRef.current]);
       onResize?.(basicsRef.current, index);
     }
-  };
-
-  const move = (event: React.MouseEvent<HTMLDivElement> | MouseEvent) => {
-    const { x: startX, y: startY } = startInfo.current;
-    const { clientX, clientY } = event;
-
-    if (containerRef.current && resizingRef.current) {
-      const { width, height } = containerRef.current.getBoundingClientRect();
-      const containerWidth = width - gutterCount;
-      const containerHeight = height - gutterCount;
-
-      let offset = 0;
-      if (layout === 'horizontal') {
-        offset = 100 * ((startX - event.clientX) / containerWidth);
-      } else {
-        offset = 100 * ((startY - event.clientY) / containerHeight);
-      }
-
-      setOffset(
-        offset,
-        clientX,
-        clientY,
-        layout === 'horizontal' ? containerWidth : containerHeight,
-      );
-    }
-  };
-
-  const end = () => {
-    if (resizingRef.current && basicsRef.current) {
-      startInfo.current = { x: 0, y: 0, index: 0 };
-
-      resizingRef.current = false;
-      setResizing(false);
-
-      onResizeEnd?.(basicsRef.current, startInfo.current.index);
-    }
-  };
-
-  const resizeStart = (e: React.MouseEvent<HTMLDivElement>, index: number) => {
-    if (e.currentTarget && basicsRef.current) {
-      startInfo.current = { x: e.clientX, y: e.clientY, index };
-
-      resizingRef.current = true;
-      setResizing(true);
-
-      resizeStartWarp(basicsRef.current, startInfo.current.index);
-    }
-  };
+  });
 
   const setSize = (size: number, index: number) => {
     if (basicsRef.current && panelsRef.current?.[index]) {
@@ -178,29 +111,9 @@ const useResize = ({
     }
   };
 
-  useEffect(() => {
-    eventList.forEach((event) => {
-      if (event === 'mousemove') {
-        document.documentElement.addEventListener(event, move);
-      } else {
-        document.documentElement.addEventListener(event, end);
-      }
-    });
-
-    return () => {
-      eventList.forEach((event) => {
-        if (event === 'mousemove') {
-          document.documentElement.removeEventListener(event, move);
-        } else {
-          document.documentElement.removeEventListener(event, end);
-        }
-      });
-    };
-  }, [layout, isRTL, items]);
-
   basicsRef.current = basicsData;
 
-  return { resizing, resizeStart, setSize };
+  return { setSize, setOffset };
 };
 
 export default useResize;

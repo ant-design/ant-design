@@ -4,6 +4,7 @@ import classNames from 'classnames';
 
 import { SplitterContext } from './context';
 import type { PanelProps } from './Panel';
+import useMove from './useMove';
 
 export interface SplitBarProps extends Pick<PanelProps, 'resizable' | 'collapsible'> {
   prefixCls: string;
@@ -14,10 +15,20 @@ export interface SplitBarProps extends Pick<PanelProps, 'resizable' | 'collapsib
 const SplitBar: React.FC<SplitBarProps> = (props) => {
   const { prefixCls, size, index, resizable = true, collapsible = false } = props;
 
-  const { isRTL, layout, resizing, basicsState, resizeStart, setSize } =
-    React.useContext(SplitterContext);
+  const {
+    containerRef,
+    isRTL,
+    layout,
+    resizing,
+    basicsState,
+    gutterCount,
 
-  const oldBasicsRef = useRef({ previous: 0, next: 0 });
+    setSize,
+    setOffset,
+    setResizing,
+    onResizeStart,
+    onResizeEnd,
+  } = React.useContext(SplitterContext);
 
   const [active, setActive] = useState(false);
   const splitBarPrefixCls = `${prefixCls}-bar`;
@@ -26,15 +37,29 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     [`${prefixCls}-bar-active`]: active,
   });
 
-  // 面边角标
+  const oldBasicsRef = useRef({ previous: 0, next: 0 });
+
+  const { onStart } = useMove({
+    containerRef,
+    basicsState,
+    layout,
+    gutterCount,
+    setOffset,
+    setResizing,
+    onResizeStart,
+    onResizeEnd,
+  });
+
+  // 记录面边大小
+
+  // 面边编号
   const reverse = layout === 'horizontal' && isRTL;
   const previousIdx = reverse ? index + 1 : index;
   const nextIdx = reverse ? index : index + 1;
-
   // 面边大小
   const previousSize = basicsState?.[previousIdx] || 0;
   const nextSize = basicsState?.[nextIdx] || 0;
-
+  // 折叠按钮
   let previousIcon = false;
   let nextIcon = false;
   if (typeof collapsible === 'object') {
@@ -68,7 +93,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
       className={splitBarClassName}
       onMouseDown={(e) => {
         if (resizable) {
-          resizeStart?.(e, index);
+          onStart?.(e, index);
           setActive(true);
         }
       }}
