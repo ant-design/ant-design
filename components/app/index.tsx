@@ -39,6 +39,7 @@ const App: React.FC<AppProps> & { useApp: () => useAppProps } = (props) => {
   const prefixCls = getPrefixCls('app', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
   const customClassName = classNames(hashId, prefixCls, className, rootClassName, cssVarCls);
+  const a = customClassName;
 
   const appConfig = useContext<AppConfig>(AppConfigContext);
 
@@ -87,6 +88,7 @@ const App: React.FC<AppProps> & { useApp: () => useAppProps } = (props) => {
           {messageContextHolder}
           {notificationContextHolder}
           {children}
+          {a}
         </Component>
       </AppConfigContext.Provider>
     </AppContext.Provider>,
