@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import type { MenuProps } from 'antd';
-import { Tag, version } from 'antd';
+import { Space, Tag, version } from 'antd';
 import { createStyles } from 'antd-style';
 import classnames from 'classnames';
 import { useFullSidebarData, useSidebarData } from 'dumi';
@@ -22,7 +22,6 @@ const useStyle = createStyles(({ css, token }) => ({
     margin-inline-end: 0;
   `,
   subtitle: css`
-    margin-inline-start: ${token.marginXS}px;
     font-weight: normal;
     font-size: ${token.fontSizeSM}px;
     opacity: 0.8;
@@ -46,10 +45,10 @@ const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
   if (!before && !after) {
     return (
       <Link to={`${link}${search}`} className={classnames(className, { [styles.link]: tag })}>
-        <span>
-          {title}
+        <Space>
+          <span>{title}</span>
           {subtitle && <span className={styles.subtitle}>{subtitle}</span>}
-        </span>
+        </Space>
         {tag && (
           <Tag
             bordered={false}
