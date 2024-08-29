@@ -3,7 +3,7 @@ import { Segmented } from 'antd';
 
 const Demo: React.FC = () => (
   <Segmented<string>
-    position="vertical"
+    mode="vertical"
     options={['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Yearly']}
     onChange={(value) => {
       console.log(value); // string

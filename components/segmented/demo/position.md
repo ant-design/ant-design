@@ -4,4 +4,4 @@
 
 ## en-US
 
-vertical direction
+Make it vertical.
