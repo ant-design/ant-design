@@ -3,7 +3,7 @@ import { Button, InputNumber, Space, Tour } from 'antd';
 import type { TourProps } from 'antd';
 
 const App: React.FC = () => {
-  const ref1 = useRef(null);
+  const tourNodeRef = useRef(null);
   const [radius, setRadius] = useState(8);
   const [offsetX, setOffsetX] = useState(2);
   const [offsetY, setOffsetY] = useState(2);
