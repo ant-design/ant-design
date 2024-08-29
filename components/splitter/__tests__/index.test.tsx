@@ -93,19 +93,26 @@ describe('Splitter', () => {
   });
 
   it('The resizable should work fine.', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(<SplitterDemo items={[{ size: 20 }, { resizable: false }, {}]} />);
 
     expect(container?.querySelectorAll('.ant-splitter-bar-resizable')?.length).toBe(1);
+    expect(errSpy).not.toHaveBeenCalled();
   });
 
   it('The collapsible should work fine.', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { container, rerender } = render(
-      <SplitterDemo items={[{ size: 20, collapsible: true }, {}]} />,
+      <SplitterDemo items={[{ size: 20, collapsible: true }, { collapsible: true }]} />,
     );
 
     expect(container?.querySelectorAll('.ant-splitter-bar-collapse-icon')?.length).toBe(2);
     expect(container?.querySelector('.ant-splitter-bar-collapse-previous')).toBeTruthy();
     expect(container?.querySelector('.ant-splitter-bar-collapse-next')).toBeTruthy();
+
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Splitter.Panel] The last Splitter.Panel should not be configured with  `collapsible` or `resizable` properties.',
+    );
 
     // support collapsible is object
     rerender(

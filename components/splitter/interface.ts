@@ -31,6 +31,7 @@ export interface PanelProps {
 export interface InternalPanelProps extends PanelProps {
   prefixCls?: string;
   className?: string;
+  last?: boolean;
   gutter?: number;
 }
 

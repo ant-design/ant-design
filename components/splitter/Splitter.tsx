@@ -156,29 +156,28 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     <SplitterContext.Provider value={splitterContextValue}>
       <div ref={containerRef} style={style} className={containerClassName}>
         {items.map((item, idx) => (
-          <>
+          <React.Fragment key={`split-panel-${idx}`}>
             <InternalPanel
               {...item}
+              last={idx === panelCount - 1}
+              gutter={gutter}
+              prefixCls={prefixCls}
+              size={basicsState[idx]}
               ref={(ref) => {
                 panelsRef.current[idx] = ref;
               }}
-              key={`panel-${idx}`}
-              size={basicsState[idx]}
-              prefixCls={prefixCls}
-              gutter={gutter}
             />
 
             {idx + 1 < panelCount && (
               <SplitBar
-                key={`split-bar${`-${idx}`}`}
+                index={idx}
                 prefixCls={prefixCls}
                 size={SPLIT_BAR_SIZE}
-                index={idx}
                 resizable={item.resizable}
                 collapsible={item.collapsible}
               />
             )}
-          </>
+          </React.Fragment>
         ))}
       </div>
     </SplitterContext.Provider>,
