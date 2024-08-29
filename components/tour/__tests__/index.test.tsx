@@ -589,7 +589,8 @@ describe('Tour', () => {
     fireEvent.click(container.querySelector('.ant-tour-close-icon')!);
     expect(onClose).toHaveBeenLastCalledWith(1);
   });
-  it('using gap to change radius', () => {
+
+  it('should support gap.radius', () => {
     const App: React.FC<{ gap: TourProps['gap'] }> = ({ gap }) => {
       const ref = useRef<HTMLButtonElement>(null);
       const [show, setShow] = React.useState<boolean>();
