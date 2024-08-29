@@ -47,7 +47,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onChange | The callback function that is triggered when the state changes | function(value: string \| number) |  |  |
 | options | Set children optional | string\[] \| number\[] \| SegmentedItemType\[] | [] |  |
 | size | The size of the Segmented. | `large` \| `middle` \| `small` | `middle` |  |
-| mode | Orientation | `horizontal` \| `vertical` | `horizontal` |  |
+| vertical | Orientation | `false` \| `true` | `false` |  |
 | value | Currently selected value | string \| number |  |  |
 
 ### SegmentedItemType

@@ -50,7 +50,7 @@ demo:
 | onChange | 选项变化时的回调函数 | function(value: string \| number) |  |  |
 | options | 数据化配置选项内容 | string\[] \| number\[] \| SegmentedItemType\[] | [] |  |
 | size | 控件尺寸 | `large` \| `middle` \| `small` | `middle` |  |
-| mode | 排列方向 | `horizontal` \| `vertical` | `horizontal` |  |
+| vertical | 排列方向 | `false` \| `true` | `false` |  |
 | value | 当前选中的值 | string \| number |  |  |
 
 ### SegmentedItemType
