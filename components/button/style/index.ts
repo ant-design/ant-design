@@ -157,7 +157,7 @@ const genSolidButtonStyle = (
   token: ButtonToken,
   textColor: string,
   background: string,
-  borderColor: string | false,
+  borderColor: string,
   hoverStyle: CSSObject,
   activeStyle: CSSObject,
 ): CSSObject => ({
@@ -165,7 +165,7 @@ const genSolidButtonStyle = (
     ...genSolidDisabledButtonStyle(token),
 
     color: textColor,
-    borderColor: borderColor || undefined,
+    borderColor,
     background,
 
     ...genHoverActiveButtonStyle(token.componentCls, hoverStyle, activeStyle),
@@ -175,7 +175,7 @@ const genSolidButtonStyle = (
 const genOutlinedDashedButtonStyle = (
   token: ButtonToken,
   borderColor: string,
-  background: string | false,
+  background: string,
   hoverStyle: CSSObject,
   activeStyle: CSSObject,
 ) => ({
@@ -183,7 +183,7 @@ const genOutlinedDashedButtonStyle = (
     ...genSolidDisabledButtonStyle(token),
 
     borderColor,
-    background: background || undefined,
+    background,
 
     ...genHoverActiveButtonStyle(token.componentCls, hoverStyle, activeStyle),
   },
@@ -317,7 +317,7 @@ const genPrimaryButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
     token,
     token.primaryColor,
     token.colorPrimary,
-    false,
+    'none',
     {
       background: token.colorPrimaryHover,
     },
@@ -406,7 +406,7 @@ const genDangerousStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
     token,
     token.dangerColor,
     token.colorError,
-    false,
+    'none',
     {
       background: token.colorErrorHover,
     },
@@ -418,7 +418,7 @@ const genDangerousStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   ...genOutlinedDashedButtonStyle(
     token,
     token.colorError,
-    false,
+    token.colorBgContainer,
     {
       color: token.colorErrorHover,
       borderColor: token.colorErrorBorderHover,
