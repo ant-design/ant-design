@@ -1,27 +1,15 @@
-import type { ReactNode } from 'react';
+/* eslint-disable react/no-array-index-key */
 import React, { Children, useEffect, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import type { SplitterContextType } from './context';
-import { SplitterContext } from './context';
-import type { PanelProps } from './Panel';
+import SplitterContext from './context';
+import type { PanelProps, SplitterContextType, SplitterProps } from './interface';
 import { InternalPanel } from './Panel';
 import SplitBar from './SplitBar';
 import useStyle from './style';
 import useResize, { sizeTransform } from './useResize';
-
-export interface SplitterProps {
-  prefixCls?: string;
-  className?: string;
-  style?: React.CSSProperties;
-  rootClassName?: string;
-  layout?: 'horizontal' | 'vertical';
-  onResizeStart?: (sizes: number[], index: number) => void;
-  onResize?: (sizes: number[], index: number) => void;
-  onResizeEnd?: (sizes: number[], index: number) => void;
-}
 
 const SPLIT_BAR_SIZE = 2;
 
@@ -43,17 +31,18 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const isRTL = direction === 'rtl';
-
+  // ======== container ========
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // panel info
+  // ======== rtl ========
+  const isRTL = direction === 'rtl';
+
+  // ======== panel ========
   const panelsRef = useRef<(HTMLDivElement | null)[]>([]);
   const panelCount = Children.count(children);
   const gutterCount = (panelCount - 1) * SPLIT_BAR_SIZE;
   const gutter = gutterCount / panelCount;
 
-  // panel size
   const defaultSize = 100 / panelCount;
   const [basicsState, setBasicsState] = useState<number[]>(new Array(panelCount).fill(defaultSize));
   const items = useMemo(() => {
@@ -66,22 +55,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     return infos;
   }, [children]);
 
+  // ======== resizing  ========
   const [resizing, setResizing] = useState(false);
-  const containerClassName = classNames(
-    prefixCls,
-    className,
-    {
-      [`${prefixCls}-horizontal`]: layout === 'horizontal',
-      [`${prefixCls}-vertical`]: layout === 'vertical',
-      [`${prefixCls}-resizing`]: resizing,
-      [`${prefixCls}-rtl`]: isRTL,
-    },
-    rootClassName,
-    cssVarCls,
-    rootCls,
-    hashId,
-  );
-
   const { setOffset, setSize } = useResize({
     panelsRef,
     layout,
@@ -93,8 +68,9 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     onResize,
     setBasicsState,
   });
+
+  // 计算初始值
   useEffect(() => {
-    // 计算初始值
     const getInitialBasics = (container: HTMLDivElement) => {
       const { width, height } = container.getBoundingClientRect();
       const containerWidth = width - gutterCount;
@@ -104,11 +80,12 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
       let sum = 0;
       let count = 0;
 
-      items.forEach((child) => {
-        let currentSize = child.size ?? child.defaultSize;
+      items.forEach((item) => {
+        // size 为受控值
+        let currentSize = item.size;
+
         if (currentSize === undefined || currentSize === '') {
-          sizes.push(defaultSize);
-          return;
+          return sizes.push(defaultSize);
         }
 
         currentSize = sizeTransform(
@@ -126,12 +103,13 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
           sizes[idx] = averageSize;
         }
       });
-      return sizes as number[];
+      return sizes;
     };
 
     if (containerRef.current) {
       setBasicsState(getInitialBasics(containerRef.current));
     }
+
     // item.size 改变时，重新计算 flexBasis
   }, [
     JSON.stringify(items.map((item) => item.size)),
@@ -140,6 +118,21 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     gutterCount,
     defaultSize,
   ]);
+
+  const containerClassName = classNames(
+    prefixCls,
+    className,
+    {
+      [`${prefixCls}-horizontal`]: layout === 'horizontal',
+      [`${prefixCls}-vertical`]: layout === 'vertical',
+      [`${prefixCls}-resizing`]: resizing,
+      [`${prefixCls}-rtl`]: isRTL,
+    },
+    rootClassName,
+    cssVarCls,
+    rootCls,
+    hashId,
+  );
 
   const splitterContextValue = useMemo<SplitterContextType>(
     () => ({
@@ -159,45 +152,34 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     [isRTL, layout, resizing, basicsState],
   );
 
-  const childrenNode = useMemo(
-    () =>
-      items.reduce((node: ReactNode[], item, idx) => {
-        node.push(
-          <InternalPanel
-            {...item}
-            ref={(ref) => {
-              panelsRef.current[idx] = ref;
-            }}
-            // eslint-disable-next-line react/no-array-index-key
-            key={`panel-${idx}`}
-            size={basicsState[idx]}
-            prefixCls={prefixCls}
-            gutter={gutter}
-          />,
-        );
-
-        if (idx + 1 < panelCount) {
-          node.push(
-            <SplitBar
-              key={`split-bar${`-${idx}`}`}
-              prefixCls={prefixCls}
-              size={SPLIT_BAR_SIZE}
-              index={idx}
-              resizable={item.resizable}
-              collapsible={item.collapsible}
-            />,
-          );
-        }
-        return node;
-      }, []),
-
-    [items, basicsState],
-  );
-
   return wrapCSSVar(
     <SplitterContext.Provider value={splitterContextValue}>
       <div ref={containerRef} style={style} className={containerClassName}>
-        {childrenNode}
+        {items.map((item, idx) => (
+          <>
+            <InternalPanel
+              {...item}
+              ref={(ref) => {
+                panelsRef.current[idx] = ref;
+              }}
+              key={`panel-${idx}`}
+              size={basicsState[idx]}
+              prefixCls={prefixCls}
+              gutter={gutter}
+            />
+
+            {idx + 1 < panelCount && (
+              <SplitBar
+                key={`split-bar${`-${idx}`}`}
+                prefixCls={prefixCls}
+                size={SPLIT_BAR_SIZE}
+                index={idx}
+                resizable={item.resizable}
+                collapsible={item.collapsible}
+              />
+            )}
+          </>
+        ))}
       </div>
     </SplitterContext.Provider>,
   );

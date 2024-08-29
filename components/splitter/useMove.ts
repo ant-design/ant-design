@@ -1,21 +1,7 @@
 import type React from 'react';
 import { useEffect, useRef } from 'react';
 import { useEvent } from 'rc-util';
-
-import type { SplitterContextType } from './context';
-import type { SplitterProps } from './Splitter';
-
-interface UseMoveProps extends Pick<SplitterProps, 'layout' | 'onResizeStart' | 'onResizeEnd'> {
-  containerRef?: React.RefObject<HTMLDivElement | null>;
-  basicsState: SplitterContextType['basicsState'];
-  gutterCount: number;
-  setOffset: SplitterContextType['setOffset'];
-  setResizing: SplitterContextType['setResizing'];
-}
-
-interface UseMove {
-  onStart: (e: React.MouseEvent<HTMLDivElement>, index: number) => void;
-}
+import type { UseMove, UseMoveProps } from './interface';
 
 const eventList: (keyof WindowEventMap)[] = ['mousemove', 'mouseup', 'contextmenu', 'blur'];
 

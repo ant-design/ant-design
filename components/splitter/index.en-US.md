@@ -46,7 +46,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | min | Minimum threshold `1-100 \| '10%' \| '200px'` | `number \| string` | - | - |
 | max | Maximum Threshold `1-100 \| '10%' \| '200px'` | `number \| string` | - | - |
 | size | Controlled panel size `1-100 \| '10%' \| '200px'` | `number \| string` | - | - |
-| defaultSize | Initial panel size `1-100 \| '10%' \| '200px'` | `number \| string` | 50 | - |
 | collapsible | Quick folding | `boolean \| { start?: boolean; end?: boolean }` | `false` | - |
 | resizable | Whether to enable drag and drop | `boolean` | `true` | - |
 

@@ -12,8 +12,8 @@ const App: React.FC = () => (
       console.log('[ sizes index ] ===>', sizes, index);
     }}
   >
-    <Splitter.Panel defaultSize={20}>
-      <Divider>1</Divider>
+    <Splitter.Panel size={20}>
+      <Divider>1 size=20</Divider>
     </Splitter.Panel>
 
     <Splitter.Panel>

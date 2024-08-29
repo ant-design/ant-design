@@ -1,25 +1,6 @@
 import React, { forwardRef } from 'react';
 import classNames from 'classnames';
-
-export interface PanelProps {
-  min?: number | string;
-  max?: number | string;
-  size?: number | string;
-  defaultSize?: number | string;
-  collapsible?:
-    | boolean
-    | {
-        start?: boolean;
-        end?: boolean;
-      };
-  resizable?: boolean;
-}
-
-export interface InternalPanelProps extends PanelProps {
-  prefixCls?: string;
-  className?: string;
-  gutter?: number;
-}
+import type { InternalPanelProps, PanelProps } from './interface';
 
 export const InternalPanel = forwardRef<
   HTMLDivElement,

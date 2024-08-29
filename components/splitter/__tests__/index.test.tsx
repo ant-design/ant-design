@@ -65,9 +65,7 @@ describe('Splitter', () => {
     jest.useFakeTimers();
 
     const { container } = render(
-      <SplitterDemo
-        items={[{ defaultSize: 20 }, { defaultSize: '45%' }, { defaultSize: '40px' }, {}]}
-      />,
+      <SplitterDemo items={[{ size: 20 }, { size: '45%' }, { size: '40px' }, {}]} />,
     );
 
     await waitFakeTimer();
@@ -95,16 +93,14 @@ describe('Splitter', () => {
   });
 
   it('The resizable should work fine.', () => {
-    const { container } = render(
-      <SplitterDemo items={[{ defaultSize: 20 }, { resizable: false }, {}]} />,
-    );
+    const { container } = render(<SplitterDemo items={[{ size: 20 }, { resizable: false }, {}]} />);
 
     expect(container?.querySelectorAll('.ant-splitter-bar-resizable')?.length).toBe(1);
   });
 
   it('The collapsible should work fine.', () => {
     const { container, rerender } = render(
-      <SplitterDemo items={[{ defaultSize: 20, collapsible: true }, {}]} />,
+      <SplitterDemo items={[{ size: 20, collapsible: true }, {}]} />,
     );
 
     expect(container?.querySelectorAll('.ant-splitter-bar-collapse-icon')?.length).toBe(2);
@@ -116,7 +112,7 @@ describe('Splitter', () => {
       <SplitterDemo
         items={[
           {
-            defaultSize: 20,
+            size: 20,
             collapsible: {
               start: true,
             },

@@ -1,23 +1,6 @@
-import type React from 'react';
 import { useRef } from 'react';
 import { useEvent } from 'rc-util';
-
-import type { PanelProps } from './Panel';
-import type { SplitterProps } from './Splitter';
-
-interface UseResizeProps extends Pick<SplitterProps, 'layout' | 'onResize'> {
-  panelsRef: React.RefObject<(HTMLDivElement | null)[]>;
-  gutter: number;
-  gutterCount: number;
-  items: PanelProps[];
-  isRTL: boolean;
-  basicsData: number[];
-  setBasicsState: React.Dispatch<React.SetStateAction<number[]>>;
-}
-export interface UseResize {
-  setSize: (size: number, index: number) => void;
-  setOffset: (offset: number, containerSize: number, index: number) => void;
-}
+import type { UseResize, UseResizeProps } from './interface';
 
 export const sizeTransform = (size: number | string, sizeCount: number) => {
   let currentSize = 0;

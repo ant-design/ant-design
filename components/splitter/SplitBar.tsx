@@ -2,15 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 
-import { SplitterContext } from './context';
-import type { PanelProps } from './Panel';
 import useMove from './useMove';
-
-export interface SplitBarProps extends Pick<PanelProps, 'resizable' | 'collapsible'> {
-  prefixCls: string;
-  index: number;
-  size?: number;
-}
+import type { SplitBarProps } from './interface';
+import SplitterContext from './context';
 
 const SplitBar: React.FC<SplitBarProps> = (props) => {
   const { prefixCls, size, index, resizable = true, collapsible = false } = props;
@@ -37,7 +31,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     [`${prefixCls}-bar-active`]: active,
   });
 
-  const oldBasicsRef = useRef({ previous: 0, next: 0 });
+  const oldBasicsRef = useRef({ previous: basicsState[index], next: basicsState[index + 1] });
 
   const { onStart } = useMove({
     containerRef,

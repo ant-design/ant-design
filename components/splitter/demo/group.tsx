@@ -10,10 +10,10 @@ const App: React.FC = () => (
       border: '1px solid #e5e7eb',
     }}
   >
-    <Splitter.Panel defaultSize={40} collapsible={{ start: true }}>
+    <Splitter.Panel size={40} collapsible={{ start: true }}>
       <div style={{ padding: 12 }}>
         <div>1</div>
-        <div>defaultSize=40</div>
+        <div>size=40</div>
         <div>{`collapsible={ prev: true }`}</div>
       </div>
     </Splitter.Panel>
@@ -29,11 +29,11 @@ const App: React.FC = () => (
 
         <Splitter.Panel>
           <Splitter layout="vertical">
-            <Splitter.Panel collapsible defaultSize="100px">
+            <Splitter.Panel collapsible size="100px">
               <div style={{ padding: 12 }}>
                 <div>3</div>
                 <div>collapsible=true</div>
-                <div>defaultSize=120px</div>
+                <div>size=120px</div>
               </div>
             </Splitter.Panel>
 

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
+import type { SplitterProps } from 'antd';
 import { Radio, Splitter } from 'antd';
-
-import type { SplitterProps } from '../Splitter';
 
 const App: React.FC = () => {
   const [layout, setLayout] = useState<SplitterProps['layout']>('horizontal');
