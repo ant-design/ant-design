@@ -40,6 +40,9 @@ const App: React.FC<AppProps> & { useApp: () => useAppProps } = (props) => {
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
   const customClassName = classNames(hashId, prefixCls, className, rootClassName, cssVarCls);
   const a = customClassName;
+  if (false) {
+    console.log(a);
+  }
 
   const appConfig = useContext<AppConfig>(AppConfigContext);
 
