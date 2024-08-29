@@ -1,6 +1,5 @@
 import React, { useContext, useLayoutEffect, useMemo, useState } from 'react';
 import { Col, Flex, Space, Typography } from 'antd';
-import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 import { FormattedMessage, useRouteMeta } from 'dumi';
 
@@ -11,6 +10,7 @@ import type { DemoContextProps } from '../DemoContext';
 import DemoContext from '../DemoContext';
 import SiteContext from '../SiteContext';
 import InViewSuspense from './InViewSuspense';
+import { useStyle } from './DocAnchor';
 
 const Contributors = React.lazy(() => import('./Contributors'));
 const ColumnCard = React.lazy(() => import('./ColumnCard'));
@@ -20,21 +20,6 @@ const Footer = React.lazy(() => import('../Footer'));
 const PrevAndNext = React.lazy(() => import('../../common/PrevAndNext'));
 const ComponentChangelog = React.lazy(() => import('../../common/ComponentChangelog'));
 const EditButton = React.lazy(() => import('../../common/EditButton'));
-
-const useStyle = createStyles(({ token, css }) => ({
-  articleWrapper: css`
-    padding: 0 170px 32px 64px;
-    &.rtl {
-      padding: 0 64px 144px 170px;
-    }
-    @media only screen and (max-width: ${token.screenLG}px) {
-      &,
-      &.rtl {
-        padding: 0 ${token.paddingLG * 2}px;
-      }
-    }
-  `,
-}));
 
 const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
   const meta = useRouteMeta();
@@ -107,9 +92,7 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
                 version={meta.frontmatter.tag}
               />
             )}
-          <div style={{ minHeight: 'calc(100vh - 64px)', width: 'calc(100% - 10px)' }}>
-            {children}
-          </div>
+          <div style={{ minHeight: 'calc(100vh - 64px)' }}>{children}</div>
           <InViewSuspense>
             <ColumnCard
               zhihuLink={meta.frontmatter.zhihu_url}
