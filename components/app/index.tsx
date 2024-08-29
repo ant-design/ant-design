@@ -91,7 +91,6 @@ const App: React.FC<AppProps> & { useApp: () => useAppProps } = (props) => {
           {messageContextHolder}
           {notificationContextHolder}
           {children}
-          {a}
         </Component>
       </AppConfigContext.Provider>
     </AppContext.Provider>,
