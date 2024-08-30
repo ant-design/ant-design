@@ -16,7 +16,6 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     resizing,
     basicsState,
     gutterCount,
-
     setSize,
     setOffset,
     setResizing,

@@ -9,7 +9,6 @@ export const InternalPanel = forwardRef<
   React.PropsWithChildren<InternalPanelProps>
 >((props, ref) => {
   const { prefixCls, className, children, gutter, size } = props;
-
   const panelClassName = classNames(`${prefixCls}-panel`, className);
 
   if (process.env.NODE_ENV !== 'production') {

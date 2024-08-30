@@ -137,12 +137,11 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const splitterContextValue = useMemo<SplitterContextType>(
     () => ({
       containerRef,
-      panelsRef,
-      gutterCount,
       isRTL,
       layout,
       resizing,
       basicsState,
+      gutterCount,
       setSize,
       setOffset,
       setResizing,

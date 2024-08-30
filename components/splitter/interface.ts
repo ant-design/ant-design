@@ -65,14 +65,11 @@ export interface UseMove {
 
 export interface SplitterContextType {
   containerRef?: React.RefObject<HTMLDivElement | null>;
-  panelsRef?: React.MutableRefObject<(HTMLDivElement | null)[]>;
-  gutterCount: number;
-
   isRTL: boolean;
   layout: SplitterProps['layout'];
   resizing: boolean;
   basicsState: number[];
-
+  gutterCount: number;
   setSize?: UseResize['setSize'];
   setOffset?: UseResize['setOffset'];
   setResizing?: React.Dispatch<React.SetStateAction<boolean>>;
