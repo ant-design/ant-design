@@ -2,12 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 
-import useMove from './useMove';
-import type { SplitBarProps } from './interface';
 import SplitterContext from './context';
+import type { SplitBarProps } from './interface';
+import useMove from './useMove';
 
 const SplitBar: React.FC<SplitBarProps> = (props) => {
-  const { prefixCls, size, index, resizable = true, collapsible = false } = props;
+  const { prefixCls, index, resizable = true, collapsible = false } = props;
 
   const {
     containerRef,
@@ -15,7 +15,6 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     layout,
     resizing,
     basicsState,
-    gutterCount,
     setSize,
     setOffset,
     setResizing,
@@ -30,13 +29,13 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     [`${prefixCls}-bar-active`]: active,
   });
 
+  // 折叠恢复值
   const oldBasicsRef = useRef({ previous: basicsState[index], next: basicsState[index + 1] });
 
   const { onStart } = useMove({
     containerRef,
     basicsState,
     layout,
-    gutterCount,
     setOffset,
     setResizing,
     onResizeStart,
@@ -82,7 +81,6 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
 
   return (
     <div
-      style={{ flexBasis: size }}
       className={splitBarClassName}
       onMouseDown={(e) => {
         if (resizable) {
@@ -91,6 +89,8 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         }
       }}
     >
+      <div className={`${splitBarPrefixCls}-bg`} />
+
       <div className={`${splitBarPrefixCls}-area`} />
 
       {resizable ? <div className={`${splitBarPrefixCls}-resizable`} /> : null}

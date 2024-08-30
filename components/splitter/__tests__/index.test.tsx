@@ -56,12 +56,6 @@ describe('Splitter', () => {
   });
 
   it('should correct render panel size', async () => {
-    // 修改 container 大小为添加操作杆后的大小 以便于测试
-    global.HTMLElement.prototype.getBoundingClientRect = () =>
-      ({
-        height: 406,
-        width: 406,
-      }) as DOMRect;
     jest.useFakeTimers();
 
     const { container } = render(
@@ -70,18 +64,10 @@ describe('Splitter', () => {
 
     await waitFakeTimer();
 
-    expect(container?.querySelectorAll('.ant-splitter-panel')?.[0]).toHaveStyle(
-      'flex-basis: calc(20% - 1.5px)',
-    );
-    expect(container?.querySelectorAll('.ant-splitter-panel')?.[1]).toHaveStyle(
-      'flex-basis: calc(45% - 1.5px)',
-    );
-    expect(container?.querySelectorAll('.ant-splitter-panel')?.[2]).toHaveStyle(
-      'flex-basis: calc(10% - 1.5px)',
-    );
-    expect(container?.querySelectorAll('.ant-splitter-panel')?.[3]).toHaveStyle(
-      'flex-basis: calc(25% - 1.5px)',
-    );
+    expect(container?.querySelectorAll('.ant-splitter-panel')?.[0]).toHaveStyle('flex-basis: 20%');
+    expect(container?.querySelectorAll('.ant-splitter-panel')?.[1]).toHaveStyle('flex-basis: 45%');
+    expect(container?.querySelectorAll('.ant-splitter-panel')?.[2]).toHaveStyle('flex-basis: 10%');
+    expect(container?.querySelectorAll('.ant-splitter-panel')?.[3]).toHaveStyle('flex-basis: 25%');
   });
 
   it('The layout should work fine.', () => {
@@ -160,12 +146,8 @@ describe('Splitter', () => {
     fireEvent.click(container?.querySelector('.ant-splitter-bar-collapse-previous')!);
     expect(container?.querySelector('.ant-splitter-bar-collapse-previous')).toBeFalsy();
     expect(container?.querySelector('.ant-splitter-bar-collapse-next')).toBeTruthy();
-    expect(container?.querySelectorAll('.ant-splitter-panel')[0]).toHaveStyle(
-      'flex-basis: calc(0% - 1px)',
-    );
-    expect(container?.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle(
-      'flex-basis: calc(100% - 1px)',
-    );
+    expect(container?.querySelectorAll('.ant-splitter-panel')[0]).toHaveStyle('flex-basis: 0%');
+    expect(container?.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle('flex-basis: 100%');
 
     rerender(
       <SplitterDemo
@@ -184,12 +166,8 @@ describe('Splitter', () => {
     fireEvent.click(container?.querySelector('.ant-splitter-bar-collapse-next')!);
     expect(container?.querySelector('.ant-splitter-bar-collapse-previous')).toBeTruthy();
     expect(container?.querySelector('.ant-splitter-bar-collapse-next')).toBeFalsy();
-    expect(container?.querySelectorAll('.ant-splitter-panel')[0]).toHaveStyle(
-      'flex-basis: calc(100% - 1px)',
-    );
-    expect(container?.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle(
-      'flex-basis: calc(0% - 1px)',
-    );
+    expect(container?.querySelectorAll('.ant-splitter-panel')[0]).toHaveStyle('flex-basis: 100%');
+    expect(container?.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle('flex-basis: 0%');
 
     // collapsible is boolean
     rerender(
@@ -212,51 +190,29 @@ describe('Splitter', () => {
     fireEvent.click(container?.querySelector('.ant-splitter-bar-collapse-next')!);
     expect(container?.querySelector('.ant-splitter-bar-collapse-previous')).toBeTruthy();
     expect(container?.querySelector('.ant-splitter-bar-collapse-next')).toBeFalsy();
-    expect(container?.querySelectorAll('.ant-splitter-panel')[0]).toHaveStyle(
-      'flex-basis: calc(100% - 1px)',
-    );
-    expect(container?.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle(
-      'flex-basis: calc(0% - 1px)',
-    );
+    expect(container?.querySelectorAll('.ant-splitter-panel')[0]).toHaveStyle('flex-basis: 100%');
+    expect(container?.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle('flex-basis: 0%');
 
     fireEvent.click(container?.querySelector('.ant-splitter-bar-collapse-previous')!);
     expect(container?.querySelector('.ant-splitter-bar-collapse-previous')).toBeTruthy();
     expect(container?.querySelector('.ant-splitter-bar-collapse-next')).toBeTruthy();
-    expect(container?.querySelectorAll('.ant-splitter-panel')[0]).toHaveStyle(
-      'flex-basis: calc(10% - 1px)',
-    );
-    expect(container?.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle(
-      'flex-basis: calc(90% - 1px)',
-    );
+    expect(container?.querySelectorAll('.ant-splitter-panel')[0]).toHaveStyle('flex-basis: 10%');
+    expect(container?.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle('flex-basis: 90%');
 
     fireEvent.click(container?.querySelector('.ant-splitter-bar-collapse-previous')!);
     expect(container?.querySelector('.ant-splitter-bar-collapse-previous')).toBeFalsy();
     expect(container?.querySelector('.ant-splitter-bar-collapse-next')).toBeTruthy();
-    expect(container?.querySelectorAll('.ant-splitter-panel')[0]).toHaveStyle(
-      'flex-basis: calc(0% - 1px)',
-    );
-    expect(container?.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle(
-      'flex-basis: calc(100% - 1px)',
-    );
+    expect(container?.querySelectorAll('.ant-splitter-panel')[0]).toHaveStyle('flex-basis: 0%');
+    expect(container?.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle('flex-basis: 100%');
 
     fireEvent.click(container?.querySelector('.ant-splitter-bar-collapse-next')!);
     expect(container?.querySelector('.ant-splitter-bar-collapse-previous')).toBeTruthy();
     expect(container?.querySelector('.ant-splitter-bar-collapse-next')).toBeTruthy();
-    expect(container?.querySelectorAll('.ant-splitter-panel')[0]).toHaveStyle(
-      'flex-basis: calc(10% - 1px)',
-    );
-    expect(container?.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle(
-      'flex-basis: calc(90% - 1px)',
-    );
+    expect(container?.querySelectorAll('.ant-splitter-panel')[0]).toHaveStyle('flex-basis: 10%');
+    expect(container?.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle('flex-basis: 90%');
   });
 
   it('The mousemove should work fine.', async () => {
-    // 修改 container 大小为添加操作杆后的大小 以便于测试
-    global.HTMLElement.prototype.getBoundingClientRect = () =>
-      ({
-        height: 402,
-        width: 402,
-      }) as DOMRect;
     const mockStart = jest.fn();
     const mockMoving = jest.fn();
     const mockMovingVertical = jest.fn();
@@ -338,11 +294,6 @@ describe('Splitter', () => {
   });
 
   it('The RTL should work fine.', async () => {
-    global.HTMLElement.prototype.getBoundingClientRect = () =>
-      ({
-        height: 402,
-        width: 402,
-      }) as DOMRect;
     const mockMoving = jest.fn();
     const { container } = render(
       <ConfigProvider direction="rtl">
@@ -355,5 +306,58 @@ describe('Splitter', () => {
 
     await doMove(container, 0, { clientX: 40 });
     expect(mockMoving).toHaveBeenNthCalledWith(2, [60, 40], 0);
+  });
+
+  it('Nested combinations should work fine.', () => {
+    const { container } = render(
+      <Splitter
+        layout="vertical"
+        style={{ height: 300, borderRadius: 4, boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}
+      >
+        <Splitter.Panel>
+          <Splitter>
+            <Splitter.Panel>
+              <div>111</div>
+            </Splitter.Panel>
+
+            <Splitter.Panel>
+              <Splitter layout="vertical">
+                <Splitter.Panel>
+                  <div>111</div>
+                </Splitter.Panel>
+
+                <Splitter.Panel>
+                  <div>111</div>
+                </Splitter.Panel>
+              </Splitter>
+            </Splitter.Panel>
+
+            <Splitter.Panel>
+              <div>2222</div>
+            </Splitter.Panel>
+          </Splitter>
+        </Splitter.Panel>
+
+        <Splitter.Panel>
+          <SplitterDemo
+            items={[
+              { size: 10, className: 'wanpan-panel', style: { background: 'red' } },
+              { max: 75 },
+              {},
+            ]}
+          />
+        </Splitter.Panel>
+      </Splitter>,
+    );
+
+    expect(container?.querySelector('.wanpan-panel')).toBeTruthy();
+    expect(container?.querySelector('.wanpan-panel')?.nextSibling?.nextSibling).toHaveStyle({
+      'flex-basis': '45%',
+    });
+    expect(container?.querySelector('.wanpan-panel')).toHaveStyle({
+      background: 'red',
+      'flex-basis': '10%',
+    });
+    expect(container).toMatchSnapshot();
   });
 });

@@ -9,7 +9,6 @@ const useMove = ({
   containerRef,
   basicsState,
   layout,
-  gutterCount,
   setOffset,
   setResizing,
   onResizeStart,
@@ -30,8 +29,8 @@ const useMove = ({
 
     if (containerRef?.current && resizingRef.current) {
       const { width, height } = containerRef.current.getBoundingClientRect();
-      const containerWidth = width - gutterCount;
-      const containerHeight = height - gutterCount;
+      const containerWidth = width;
+      const containerHeight = height;
 
       let offset = 0;
       if (layout === 'horizontal') {

@@ -11,8 +11,6 @@ import SplitBar from './SplitBar';
 import useStyle from './style';
 import useResize, { sizeTransform } from './useResize';
 
-const SPLIT_BAR_SIZE = 2;
-
 const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const {
     prefixCls: customizePrefixCls,
@@ -40,8 +38,6 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   // ======== panel ========
   const panelsRef = useRef<(HTMLDivElement | null)[]>([]);
   const panelCount = Children.count(children);
-  const gutterCount = (panelCount - 1) * SPLIT_BAR_SIZE;
-  const gutter = gutterCount / panelCount;
 
   const defaultSize = 100 / panelCount;
   const [basicsState, setBasicsState] = useState<number[]>(new Array(panelCount).fill(defaultSize));
@@ -60,8 +56,6 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const { setOffset, setSize } = useResize({
     panelsRef,
     layout,
-    gutter,
-    gutterCount,
     items,
     isRTL,
     basicsData: basicsState,
@@ -73,8 +67,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   useEffect(() => {
     const getInitialBasics = (container: HTMLDivElement) => {
       const { width, height } = container.getBoundingClientRect();
-      const containerWidth = width - gutterCount;
-      const containerHeight = height - gutterCount;
+      const containerWidth = width;
+      const containerHeight = height;
 
       const sizes: number[] = [];
       let sum = 0;
@@ -111,13 +105,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     }
 
     // item.size 改变时，重新计算 flexBasis
-  }, [
-    JSON.stringify(items.map((item) => item.size)),
-    panelCount,
-    layout,
-    gutterCount,
-    defaultSize,
-  ]);
+  }, [JSON.stringify(items.map((item) => item.size)), panelCount, layout, defaultSize]);
 
   const containerClassName = classNames(
     prefixCls,
@@ -141,7 +129,6 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
       layout,
       resizing,
       basicsState,
-      gutterCount,
       setSize,
       setOffset,
       setResizing,
@@ -159,7 +146,6 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
             <InternalPanel
               {...item}
               last={idx === panelCount - 1}
-              gutter={gutter}
               prefixCls={prefixCls}
               size={basicsState[idx]}
               ref={(ref) => {
@@ -171,7 +157,6 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
               <SplitBar
                 index={idx}
                 prefixCls={prefixCls}
-                size={SPLIT_BAR_SIZE}
                 resizable={item.resizable}
                 collapsible={item.collapsible}
               />

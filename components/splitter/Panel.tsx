@@ -8,7 +8,7 @@ export const InternalPanel = forwardRef<
   HTMLDivElement,
   React.PropsWithChildren<InternalPanelProps>
 >((props, ref) => {
-  const { prefixCls, className, children, gutter, size } = props;
+  const { prefixCls, className, children, size, style = {} } = props;
   const panelClassName = classNames(`${prefixCls}-panel`, className);
 
   if (process.env.NODE_ENV !== 'production') {
@@ -22,13 +22,7 @@ export const InternalPanel = forwardRef<
   }
 
   return (
-    <div
-      ref={ref}
-      className={panelClassName}
-      style={{
-        flexBasis: `calc(${size}% - ${gutter}px)`,
-      }}
-    >
+    <div ref={ref} className={panelClassName} style={{ ...style, flexBasis: `${size}%` }}>
       {children}
     </div>
   );

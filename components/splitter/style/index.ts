@@ -15,6 +15,16 @@ export interface ComponentToken {
    * @descEN Height of content area
    */
   collapsibleIconSize: number;
+  /**
+   * @desc 拖拽标识元素大小
+   * @descEN Drag the element size
+   */
+  splitBarSize: number;
+  /**
+   * @desc 拖拽触发区域大小
+   * @descEN Drag and drop trigger area size
+   */
+  splitTriggerArea: number;
 }
 
 interface SplitterToken extends FullToken<'Splitter'> {}
@@ -65,6 +75,8 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
     zIndexPopupBase,
     motionDurationFast,
     paddingXXS,
+    splitBarSize,
+    splitTriggerArea,
   } = token;
 
   return {
@@ -78,24 +90,31 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
       '&-bar': {
         flexGrow: 0,
         flexShrink: 0,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
         position: 'relative',
-        background: colorFillTertiary,
-        transition: `background-color ${motionDurationFast}`,
 
         '&:hover': {
-          background: colorFill,
+          [`> ${componentCls}-bar-bg`]: {
+            background: colorFill,
+          },
 
           [`> ${componentCls}-bar-collapse-icon`]: {
             display: 'block',
           },
         },
 
-        // 扩大触发区域
-        [`> ${componentCls}-bar-area`]: {
+        [`> ${componentCls}-bar-bg,
+          > ${componentCls}-bar-area,
+          > ${componentCls}-bar-resizable`]: {
           position: 'absolute',
+          top: '50%',
+          insetInlineStart: '50%',
+          transform: 'translate(-50%, -50%)',
+        },
+
+        // 背景色
+        [`> ${componentCls}-bar-bg`]: {
+          background: colorFillTertiary,
+          transition: `background-color ${motionDurationFast}`,
         },
 
         [`> ${componentCls}-bar-resizable`]: {
@@ -121,6 +140,10 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
       [`&-bar${componentCls}-bar-active`]: {
         background: colorTextTertiary,
+
+        [`> ${componentCls}-bar-collapse-icon`]: {
+          display: 'block',
+        },
       },
 
       '&-bar-disabled': {
@@ -134,15 +157,22 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         flexDirection: 'row',
 
         [`> ${componentCls}-bar`]: {
+          width: 0,
+          height: '100%',
           cursor: 'col-resize',
 
-          [`${componentCls}-bar-area`]: {
-            width: '600%',
+          [`> ${componentCls}-bar-bg`]: {
+            width: splitBarSize,
             height: '100%',
           },
 
+          [`${componentCls}-bar-area`]: {
+            width: splitTriggerArea,
+            height: splitTriggerArea,
+          },
+
           [`${componentCls}-bar-resizable`]: {
-            width: '100%',
+            width: splitBarSize,
             height: resizableSize,
           },
 
@@ -150,14 +180,14 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
             top: '50%',
             insetInlineEnd: 'unset',
             insetInlineStart: 0,
-            transform: 'translate(-100%, -50%)',
+            transform: 'translate(-115%, -50%)',
           },
 
           [`${componentCls}-bar-collapse-next`]: {
             top: '50%',
             insetInlineEnd: 0,
             insetInlineStart: 'unset',
-            transform: 'translate(100%, -50%)',
+            transform: 'translate(115%, -50%)',
           },
         },
 
@@ -170,28 +200,35 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         flexDirection: 'column',
 
         [`> ${componentCls}-bar`]: {
+          width: '100%',
+          height: 0,
           cursor: 'row-resize',
 
-          [`${componentCls}-bar-area`]: {
+          [`> ${componentCls}-bar-bg`]: {
             width: '100%',
-            height: '600%',
+            height: splitBarSize,
+          },
+
+          [`${componentCls}-bar-area`]: {
+            width: splitTriggerArea,
+            height: splitTriggerArea,
           },
 
           [`${componentCls}-bar-resizable`]: {
             width: resizableSize,
-            height: '100%',
+            height: splitBarSize,
           },
 
           [`${componentCls}-bar-collapse-previous`]: {
             top: 0,
             insetInlineStart: '50%',
-            transform: 'translate(-50%, -100%) rotate(90deg)',
+            transform: 'translate(-50%, -115%) rotate(90deg)',
           },
 
           [`${componentCls}-bar-collapse-next`]: {
             bottom: 0,
             insetInlineStart: '50%',
-            transform: 'translate(-50%, 100%) rotate(90deg)',
+            transform: 'translate(-50%, 115%) rotate(90deg)',
           },
         },
 
@@ -207,12 +244,6 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         [`>${componentCls}-panel`]: {
           transition: 'none',
         },
-
-        [`> ${componentCls}-bar`]: {
-          [`${componentCls}-bar-collapse-icon`]: {
-            display: 'block',
-          },
-        },
       },
 
       [`&-resizing${componentCls}-horizontal`]: {
@@ -226,8 +257,10 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
       // panel
       '&-panel': {
         overflow: 'auto',
-        transition: `flex-basis ${motionDurationFast}`,
+        padding: '0 1px',
         scrollbarWidth: 'thin',
+        boxSizing: 'border-box',
+        transition: `flex-basis ${motionDurationFast}`,
       },
 
       ...genRtlStyle(token),
@@ -235,10 +268,19 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
   };
 };
 
-export const prepareComponentToken: GetDefaultToken<'Splitter'> = (token) => ({
-  resizableSize: 10,
-  collapsibleIconSize: token.fontSize,
-});
+export const prepareComponentToken: GetDefaultToken<'Splitter'> = (token) => {
+  const splitBarSize = token.splitBarSize || 2;
+  const resizableSize = token.resizableSize || 10;
+  const collapsibleIconSize = token.resizableSize || token.fontSize;
+  const splitTriggerArea = splitBarSize * 6;
+
+  return {
+    splitBarSize,
+    splitTriggerArea,
+    resizableSize,
+    collapsibleIconSize,
+  };
+};
 
 // ============================== Export ==============================
 export default genStyleHooks(

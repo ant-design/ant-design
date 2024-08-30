@@ -22,7 +22,6 @@ const useResize = ({
   items,
   isRTL,
   layout,
-  gutter,
   panelsRef,
   onResize,
   setBasicsState,
@@ -75,8 +74,8 @@ const useResize = ({
         }
       }
 
-      previousElement.style.flexBasis = `calc(${previousSize}% - ${gutter}px)`;
-      nextElement.style.flexBasis = `calc(${nextSize}% - ${gutter}px)`;
+      previousElement.style.flexBasis = `${previousSize}%`;
+      nextElement.style.flexBasis = `${nextSize}%`;
 
       basicsRef.current[index] = previousSize;
       basicsRef.current[index + 1] = nextSize;
@@ -90,7 +89,7 @@ const useResize = ({
     if (basicsRef.current && panelsRef.current?.[index]) {
       basicsRef.current[index] = size;
       setBasicsState([...basicsRef.current]);
-      panelsRef.current[index].style.flexBasis = size > 0 ? `calc(${size}% - ${gutter}px)` : '0';
+      panelsRef.current[index].style.flexBasis = size > 0 ? `${size}%` : '0';
     }
   };
 
