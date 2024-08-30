@@ -101,6 +101,18 @@ group:
 
 类型本质上是颜色与变体的语法糖，内部为类型提供了一组颜色与变体的映射关系。如果两者同时存在，优先使用类型。
 
+```jsx
+<Button type="primary">click</Button>
+```
+
+等同于
+
+```jsx
+<Button color="primary" variant="solid">
+  click
+</Button>
+```
+
 ### 如何关闭点击波纹效果？
 
 如果你不需要这个特性，可以设置 [ConfigProvider](/components/config-provider-cn#api) 的 `wave` 的 `disabled` 为 `true`。

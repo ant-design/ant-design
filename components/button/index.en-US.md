@@ -95,6 +95,18 @@ It accepts all props which native buttons support.
 
 Type is essentially syntactic sugar for colors and variants. It internally provides a set of mapping relationships between colors and variants for the type. If both exist at the same time, the type will be used first.
 
+```jsx
+<Button type="primary">click</Button>
+```
+
+Equivalent
+
+```jsx
+<Button color="primary" variant="solid">
+  click
+</Button>
+```
+
 ### How to close the click wave effect?
 
 If you don't need this feature, you can set `disabled` of `wave` in [ConfigProvider](/components/config-provider#api) as `true`.
