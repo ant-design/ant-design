@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Button, InputNumber, Space, Tour } from 'antd';
+import { Button, Col, Row, Slider, Space, Tour } from 'antd';
 import type { TourProps } from 'antd';
 
 const App: React.FC = () => {
@@ -21,7 +21,7 @@ const App: React.FC = () => {
           src="https://user-images.githubusercontent.com/5378891/197385811-55df8480-7ff4-44bd-9d43-a7dade598d70.png"
         />
       ),
-      target: () => ref1.current,
+      target: () => tourNodeRef.current,
     },
   ];
 
@@ -32,41 +32,50 @@ const App: React.FC = () => {
           offset: [offsetX, offsetY] as [number, number],
         };
   return (
-    <div ref={ref1}>
-      <Space>
-        <Button type="primary" onClick={() => setOpen(true)}>
-          Begin Tour
-        </Button>
-      </Space>
+    <div ref={tourNodeRef}>
+      <Button type="primary" onClick={() => setOpen(true)}>
+        Begin Tour
+      </Button>
       <Space style={{ display: 'flex', marginTop: 12 }} direction="vertical">
-        <div>
-          Radius:
-          <InputNumber value={radius} onChange={(val) => val && setRadius(val)} />
-        </div>
-        <div>
-          offset:
-          <InputNumber
-            value={offset}
-            onChange={(val) => val && setOffset(val)}
-            onFocus={() => setOffsetDirection('both')}
-          />
-        </div>
-        <div>
-          Horizontal offset:
-          <InputNumber
-            value={offsetX}
-            onChange={(val) => val && setOffsetX(val)}
-            onFocus={() => setOffsetDirection('individual')}
-          />
-        </div>
-        <div>
-          Vertical offset:
-          <InputNumber
-            value={offsetY}
-            onChange={(val) => val && setOffsetY(val)}
-            onFocus={() => setOffsetDirection('individual')}
-          />
-        </div>
+        <Row>
+          <Col span={6}>Radius:</Col>
+          <Col span={12}>
+            <Slider value={radius} onChange={(val) => val && setRadius(val)} />
+          </Col>
+        </Row>
+        <Row>
+          <Col span={6}>offset:</Col>
+          <Col span={12}>
+            <Slider
+              value={offset}
+              max={50}
+              onChange={(val) => val && setOffset(val)}
+              onFocus={() => setOffsetDirection('both')}
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col span={6}>Horizontal offset:</Col>
+          <Col span={12}>
+            <Slider
+              value={offsetX}
+              max={50}
+              onChange={(val) => val && setOffsetX(val)}
+              onFocus={() => setOffsetDirection('individual')}
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col span={6}>Vertical offset:</Col>
+          <Col span={12}>
+            <Slider
+              value={offsetY}
+              max={50}
+              onChange={(val) => val && setOffsetY(val)}
+              onFocus={() => setOffsetDirection('individual')}
+            />
+          </Col>
+        </Row>
       </Space>
       <Tour
         open={open}
