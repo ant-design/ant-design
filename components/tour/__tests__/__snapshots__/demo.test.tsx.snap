@@ -79,22 +79,14 @@ Array [
 
 exports[`renders components/tour/demo/gap.tsx correctly 1`] = `
 <div>
-  <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
   >
-    <div
-      class="ant-space-item"
-    >
-      <button
-        class="ant-btn ant-btn-primary"
-        type="button"
-      >
-        <span>
-          Begin Tour
-        </span>
-      </button>
-    </div>
-  </div>
+    <span>
+      Begin Tour
+    </span>
+  </button>
   <div
     class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
     style="display:flex;margin-top:12px"
@@ -102,79 +94,40 @@ exports[`renders components/tour/demo/gap.tsx correctly 1`] = `
     <div
       class="ant-space-item"
     >
-      <div>
-        Radius:
+      <div
+        class="ant-row"
+      >
         <div
-          class="ant-input-number ant-input-number-outlined"
+          class="ant-col ant-col-6"
+        >
+          Radius:
+        </div>
+        <div
+          class="ant-col ant-col-12"
         >
           <div
-            class="ant-input-number-handler-wrap"
+            class="ant-slider ant-slider-horizontal"
           >
-            <span
+            <div
+              class="ant-slider-rail"
+            />
+            <div
+              class="ant-slider-track"
+              style="left:0%;width:8%"
+            />
+            <div
+              class="ant-slider-step"
+            />
+            <div
               aria-disabled="false"
-              aria-label="Increase Value"
-              class="ant-input-number-handler ant-input-number-handler-up"
-              role="button"
-              unselectable="on"
-            >
-              <span
-                aria-label="up"
-                class="anticon anticon-up ant-input-number-handler-up-inner"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="up"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-                  />
-                </svg>
-              </span>
-            </span>
-            <span
-              aria-disabled="false"
-              aria-label="Decrease Value"
-              class="ant-input-number-handler ant-input-number-handler-down"
-              role="button"
-              unselectable="on"
-            >
-              <span
-                aria-label="down"
-                class="anticon anticon-down ant-input-number-handler-down-inner"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="down"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                  />
-                </svg>
-              </span>
-            </span>
-          </div>
-          <div
-            class="ant-input-number-input-wrap"
-          >
-            <input
+              aria-orientation="horizontal"
+              aria-valuemax="100"
+              aria-valuemin="0"
               aria-valuenow="8"
-              autocomplete="off"
-              class="ant-input-number-input"
-              role="spinbutton"
-              step="1"
-              value="8"
+              class="ant-slider-handle"
+              role="slider"
+              style="left:8%;transform:translateX(-50%)"
+              tabindex="0"
             />
           </div>
         </div>
@@ -183,79 +136,40 @@ exports[`renders components/tour/demo/gap.tsx correctly 1`] = `
     <div
       class="ant-space-item"
     >
-      <div>
-        offset:
+      <div
+        class="ant-row"
+      >
         <div
-          class="ant-input-number ant-input-number-outlined"
+          class="ant-col ant-col-6"
+        >
+          offset:
+        </div>
+        <div
+          class="ant-col ant-col-12"
         >
           <div
-            class="ant-input-number-handler-wrap"
+            class="ant-slider ant-slider-horizontal"
           >
-            <span
+            <div
+              class="ant-slider-rail"
+            />
+            <div
+              class="ant-slider-track"
+              style="left:0%;width:4%"
+            />
+            <div
+              class="ant-slider-step"
+            />
+            <div
               aria-disabled="false"
-              aria-label="Increase Value"
-              class="ant-input-number-handler ant-input-number-handler-up"
-              role="button"
-              unselectable="on"
-            >
-              <span
-                aria-label="up"
-                class="anticon anticon-up ant-input-number-handler-up-inner"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="up"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-                  />
-                </svg>
-              </span>
-            </span>
-            <span
-              aria-disabled="false"
-              aria-label="Decrease Value"
-              class="ant-input-number-handler ant-input-number-handler-down"
-              role="button"
-              unselectable="on"
-            >
-              <span
-                aria-label="down"
-                class="anticon anticon-down ant-input-number-handler-down-inner"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="down"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                  />
-                </svg>
-              </span>
-            </span>
-          </div>
-          <div
-            class="ant-input-number-input-wrap"
-          >
-            <input
+              aria-orientation="horizontal"
+              aria-valuemax="50"
+              aria-valuemin="0"
               aria-valuenow="2"
-              autocomplete="off"
-              class="ant-input-number-input"
-              role="spinbutton"
-              step="1"
-              value="2"
+              class="ant-slider-handle"
+              role="slider"
+              style="left:4%;transform:translateX(-50%)"
+              tabindex="0"
             />
           </div>
         </div>
@@ -264,79 +178,40 @@ exports[`renders components/tour/demo/gap.tsx correctly 1`] = `
     <div
       class="ant-space-item"
     >
-      <div>
-        Horizontal offset:
+      <div
+        class="ant-row"
+      >
         <div
-          class="ant-input-number ant-input-number-outlined"
+          class="ant-col ant-col-6"
+        >
+          Horizontal offset:
+        </div>
+        <div
+          class="ant-col ant-col-12"
         >
           <div
-            class="ant-input-number-handler-wrap"
+            class="ant-slider ant-slider-horizontal"
           >
-            <span
+            <div
+              class="ant-slider-rail"
+            />
+            <div
+              class="ant-slider-track"
+              style="left:0%;width:4%"
+            />
+            <div
+              class="ant-slider-step"
+            />
+            <div
               aria-disabled="false"
-              aria-label="Increase Value"
-              class="ant-input-number-handler ant-input-number-handler-up"
-              role="button"
-              unselectable="on"
-            >
-              <span
-                aria-label="up"
-                class="anticon anticon-up ant-input-number-handler-up-inner"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="up"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-                  />
-                </svg>
-              </span>
-            </span>
-            <span
-              aria-disabled="false"
-              aria-label="Decrease Value"
-              class="ant-input-number-handler ant-input-number-handler-down"
-              role="button"
-              unselectable="on"
-            >
-              <span
-                aria-label="down"
-                class="anticon anticon-down ant-input-number-handler-down-inner"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="down"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                  />
-                </svg>
-              </span>
-            </span>
-          </div>
-          <div
-            class="ant-input-number-input-wrap"
-          >
-            <input
+              aria-orientation="horizontal"
+              aria-valuemax="50"
+              aria-valuemin="0"
               aria-valuenow="2"
-              autocomplete="off"
-              class="ant-input-number-input"
-              role="spinbutton"
-              step="1"
-              value="2"
+              class="ant-slider-handle"
+              role="slider"
+              style="left:4%;transform:translateX(-50%)"
+              tabindex="0"
             />
           </div>
         </div>
@@ -345,79 +220,40 @@ exports[`renders components/tour/demo/gap.tsx correctly 1`] = `
     <div
       class="ant-space-item"
     >
-      <div>
-        Vertical offset:
+      <div
+        class="ant-row"
+      >
         <div
-          class="ant-input-number ant-input-number-outlined"
+          class="ant-col ant-col-6"
+        >
+          Vertical offset:
+        </div>
+        <div
+          class="ant-col ant-col-12"
         >
           <div
-            class="ant-input-number-handler-wrap"
+            class="ant-slider ant-slider-horizontal"
           >
-            <span
+            <div
+              class="ant-slider-rail"
+            />
+            <div
+              class="ant-slider-track"
+              style="left:0%;width:4%"
+            />
+            <div
+              class="ant-slider-step"
+            />
+            <div
               aria-disabled="false"
-              aria-label="Increase Value"
-              class="ant-input-number-handler ant-input-number-handler-up"
-              role="button"
-              unselectable="on"
-            >
-              <span
-                aria-label="up"
-                class="anticon anticon-up ant-input-number-handler-up-inner"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="up"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-                  />
-                </svg>
-              </span>
-            </span>
-            <span
-              aria-disabled="false"
-              aria-label="Decrease Value"
-              class="ant-input-number-handler ant-input-number-handler-down"
-              role="button"
-              unselectable="on"
-            >
-              <span
-                aria-label="down"
-                class="anticon anticon-down ant-input-number-handler-down-inner"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="down"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                  />
-                </svg>
-              </span>
-            </span>
-          </div>
-          <div
-            class="ant-input-number-input-wrap"
-          >
-            <input
+              aria-orientation="horizontal"
+              aria-valuemax="50"
+              aria-valuemin="0"
               aria-valuenow="2"
-              autocomplete="off"
-              class="ant-input-number-input"
-              role="spinbutton"
-              step="1"
-              value="2"
+              class="ant-slider-handle"
+              role="slider"
+              style="left:4%;transform:translateX(-50%)"
+              tabindex="0"
             />
           </div>
         </div>
