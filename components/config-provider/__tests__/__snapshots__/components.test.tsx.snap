@@ -22680,9 +22680,9 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
 
 exports[`ConfigProvider components Rate configProvider componentDisabled 1`] = `
 <ul
-  class="config-rate"
+  class="config-rate config-rate-disabled"
   role="radiogroup"
-  tabindex="0"
+  tabindex="-1"
 >
   <li
     class="config-rate-star config-rate-star-zero"
@@ -22692,7 +22692,7 @@ exports[`ConfigProvider components Rate configProvider componentDisabled 1`] = `
       aria-posinset="1"
       aria-setsize="5"
       role="radio"
-      tabindex="0"
+      tabindex="-1"
     >
       <div
         class="config-rate-star-first"
@@ -22750,7 +22750,7 @@ exports[`ConfigProvider components Rate configProvider componentDisabled 1`] = `
       aria-posinset="2"
       aria-setsize="5"
       role="radio"
-      tabindex="0"
+      tabindex="-1"
     >
       <div
         class="config-rate-star-first"
@@ -22808,7 +22808,7 @@ exports[`ConfigProvider components Rate configProvider componentDisabled 1`] = `
       aria-posinset="3"
       aria-setsize="5"
       role="radio"
-      tabindex="0"
+      tabindex="-1"
     >
       <div
         class="config-rate-star-first"
@@ -22866,7 +22866,7 @@ exports[`ConfigProvider components Rate configProvider componentDisabled 1`] = `
       aria-posinset="4"
       aria-setsize="5"
       role="radio"
-      tabindex="0"
+      tabindex="-1"
     >
       <div
         class="config-rate-star-first"
@@ -22924,7 +22924,7 @@ exports[`ConfigProvider components Rate configProvider componentDisabled 1`] = `
       aria-posinset="5"
       aria-setsize="5"
       role="radio"
-      tabindex="0"
+      tabindex="-1"
     >
       <div
         class="config-rate-star-first"
