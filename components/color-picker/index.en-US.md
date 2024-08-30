@@ -60,7 +60,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | size | Setting the trigger size | `large` \| `middle` \| `small` | `middle` | 5.7.0 |
 | trigger | ColorPicker trigger mode | `hover` \| `click` | `click` | |
 | value | Value of color | string \| `Color` | - | |
-| onChange | Callback when `value` is changed | `(value: Color, hex: string) => void` | - | |
+| onChange | Callback when `value` is changed | `(value: Color, css: string) => void` | - | |
 | onChangeComplete | Called when color pick ends   | `(value: Color) => void` | - | 5.7.0 |
 | onFormatChange | Callback when `format` is changed | `(format: 'hex' \| 'rgb' \| 'hsb') => void` | - | |
 | onOpenChange | Callback when `open` is changed | `(open: boolean) => void` | - | |
