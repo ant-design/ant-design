@@ -1,7 +1,6 @@
 import React from 'react';
 import { BgColorsOutlined, SmileOutlined } from '@ant-design/icons';
 import { FloatButton } from 'antd';
-import { useTheme } from 'antd-style';
 import { CompactTheme, DarkTheme } from 'antd-token-previewer/es/icons';
 // import { Motion } from 'antd-token-previewer/es/icons';
 import { FormattedMessage, useLocation } from 'dumi';
@@ -20,7 +19,6 @@ export interface ThemeSwitchProps {
 
 const ThemeSwitch: React.FC<ThemeSwitchProps> = (props) => {
   const { value = ['light'], onChange } = props;
-  const token = useTheme();
   const { pathname, search } = useLocation();
 
   // const isMotionOff = value.includes('motion-off');
@@ -38,7 +36,7 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = (props) => {
     >
       <Link
         to={getLocalizedPathname('/theme-editor', isZhCN(pathname), search)}
-        style={{ display: 'block', marginBottom: token.margin }}
+        style={{ display: 'block' }}
       >
         <FloatButton
           icon={<BgColorsOutlined />}

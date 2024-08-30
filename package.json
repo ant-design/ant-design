@@ -31,13 +31,7 @@
   "unpkg": "dist/antd.min.js",
   "module": "es/index.js",
   "typings": "es/index.d.ts",
-  "files": [
-    "dist",
-    "es",
-    "lib",
-    "locale",
-    "BUG_VERSIONS.json"
-  ],
+  "files": ["dist", "es", "lib", "locale", "BUG_VERSIONS.json"],
   "scripts": {
     "api-collection": "antd-tools run api-collection",
     "authors": "tsx scripts/generate-authors.ts",
@@ -102,12 +96,7 @@
     "tsc:old": "tsc --noEmit -p tsconfig-old-react.json",
     "version": "tsx scripts/generate-version.ts"
   },
-  "browserslist": [
-    "> 0.5%",
-    "last 2 versions",
-    "Firefox ESR",
-    "not dead"
-  ],
+  "browserslist": ["> 0.5%", "last 2 versions", "Firefox ESR", "not dead"],
   "dependencies": {
     "@ant-design/colors": "^7.1.0",
     "@ant-design/cssinjs": "^1.21.0",
@@ -126,7 +115,7 @@
     "dayjs": "^1.11.11",
     "rc-cascader": "~3.27.0",
     "rc-checkbox": "~3.3.0",
-    "rc-collapse": "~3.7.3",
+    "rc-collapse": "~3.8.0",
     "rc-dialog": "~9.5.2",
     "rc-drawer": "~7.2.0",
     "rc-dropdown": "~4.2.0",
@@ -148,7 +137,7 @@
     "rc-slider": "~11.1.5",
     "rc-steps": "~6.0.1",
     "rc-switch": "~4.1.0",
-    "rc-table": "~7.45.7",
+    "rc-table": "~7.47.3",
     "rc-tabs": "~15.1.1",
     "rc-textarea": "~1.8.1",
     "rc-tooltip": "~6.2.0",

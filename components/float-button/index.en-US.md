@@ -26,6 +26,7 @@ tag: 5.0.0
 <code src="./demo/group.tsx" iframe="360">FloatButton Group</code>
 <code src="./demo/group-menu.tsx" iframe="360">Menu mode</code>
 <code src="./demo/controlled.tsx" iframe="360">Controlled mode</code>
+<code src="./demo/placement.tsx" iframe="380" version="5.21.0">placement</code>
 <code src="./demo/back-top.tsx" iframe="360">BackTop</code>
 <code src="./demo/badge.tsx" iframe="360">badge</code>
 <code src="./demo/badge-debug.tsx" iframe="360" debug>debug dot</code>
@@ -59,6 +60,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | trigger | Which action can trigger menu open/close | `click` \| `hover` | - |  |
 | open | Whether the menu is visible or not, use it with trigger | boolean | - |  |
 | closeIcon | Customize close button icon | React.ReactNode | `<CloseOutlined />` |  |
+| placement | Customize menu animation placement | `top` \| `left` \| `right` \| `bottom` | `top` | 5.21.0 |
 | onOpenChange | Callback executed when active menu is changed, use it with trigger | (open: boolean) => void | - |  |
 
 ### FloatButton.BackTop
