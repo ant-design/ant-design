@@ -15,7 +15,7 @@ exports[`Splitter Nested combinations should work fine. 1`] = `
       >
         <div
           class="ant-splitter-panel"
-          style="flex-basis: 33.333333333333336%;"
+          style="flex-basis: 33.33%;"
         >
           <div>
             111
@@ -36,7 +36,7 @@ exports[`Splitter Nested combinations should work fine. 1`] = `
         </div>
         <div
           class="ant-splitter-panel"
-          style="flex-basis: 33.333333333333336%;"
+          style="flex-basis: 33.33%;"
         >
           <div
             class="ant-splitter ant-splitter-vertical"
@@ -87,7 +87,7 @@ exports[`Splitter Nested combinations should work fine. 1`] = `
         </div>
         <div
           class="ant-splitter-panel"
-          style="flex-basis: 33.333333333333336%;"
+          style="flex-basis: 33.33%;"
         >
           <div>
             2222

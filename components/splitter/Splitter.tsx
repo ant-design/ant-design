@@ -102,9 +102,10 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
       });
 
       const averageSize = sum > 100 ? 0 : (100 - sum) / (panelCount - count);
+      const adjustedSize = Math.floor(averageSize * 100) / 100;
       items.forEach((_, idx) => {
         if (sizes[idx] === defaultSize) {
-          sizes[idx] = averageSize;
+          sizes[idx] = adjustedSize;
         }
       });
       return sizes;
