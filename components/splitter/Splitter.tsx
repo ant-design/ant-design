@@ -5,11 +5,12 @@ import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import SplitterContext from './context';
+import useHandle from './hooks/useHandle';
+import useResize, { sizeTransform } from './hooks/useResize';
 import type { PanelProps, SplitterContextType, SplitterProps } from './interface';
 import { InternalPanel } from './Panel';
 import SplitBar from './SplitBar';
 import useStyle from './style';
-import useResize, { sizeTransform } from './useResize';
 
 const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const {
@@ -34,6 +35,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
   // ======== rtl ========
   const isRTL = direction === 'rtl';
+  const reverse = layout === 'horizontal' && isRTL;
 
   // ======== panel ========
   const panelsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -53,14 +55,22 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
   // ======== resizing  ========
   const [resizing, setResizing] = useState(false);
-  const { setOffset, setSize } = useResize({
+  const { basicsRef, setOffset, setSize } = useResize({
     panelsRef,
-    layout,
     items,
-    isRTL,
     basicsData: basicsState,
+    reverse,
     onResize,
     setBasicsState,
+  });
+  const { onStart } = useHandle({
+    containerRef,
+    layout,
+    basicsRef,
+    onResizeStart,
+    onResizeEnd,
+    setOffset,
+    setResizing,
   });
 
   // 计算初始值
@@ -124,16 +134,12 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
   const splitterContextValue = useMemo<SplitterContextType>(
     () => ({
-      containerRef,
-      isRTL,
+      reverse,
       layout,
       resizing,
       basicsState,
+      onStart,
       setSize,
-      setOffset,
-      setResizing,
-      onResizeStart,
-      onResizeEnd,
     }),
     [isRTL, layout, resizing, basicsState],
   );

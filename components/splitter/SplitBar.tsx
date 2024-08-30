@@ -4,23 +4,11 @@ import classNames from 'classnames';
 
 import SplitterContext from './context';
 import type { SplitBarProps } from './interface';
-import useMove from './useMove';
 
 const SplitBar: React.FC<SplitBarProps> = (props) => {
   const { prefixCls, index, resizable = true, collapsible = false } = props;
 
-  const {
-    containerRef,
-    isRTL,
-    layout,
-    resizing,
-    basicsState,
-    setSize,
-    setOffset,
-    setResizing,
-    onResizeStart,
-    onResizeEnd,
-  } = React.useContext(SplitterContext);
+  const { reverse, resizing, basicsState, setSize, onStart } = React.useContext(SplitterContext);
 
   const [active, setActive] = useState(false);
   const splitBarPrefixCls = `${prefixCls}-bar`;
@@ -32,20 +20,9 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   // 折叠恢复值
   const oldBasicsRef = useRef({ previous: basicsState[index], next: basicsState[index + 1] });
 
-  const { onStart } = useMove({
-    containerRef,
-    basicsState,
-    layout,
-    setOffset,
-    setResizing,
-    onResizeStart,
-    onResizeEnd,
-  });
-
   // 记录面边大小
 
   // 面边编号
-  const reverse = layout === 'horizontal' && isRTL;
   const previousIdx = reverse ? index + 1 : index;
   const nextIdx = reverse ? index : index + 1;
   // 面边大小
@@ -83,8 +60,8 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     <div
       className={splitBarClassName}
       onMouseDown={(e) => {
-        if (resizable) {
-          onStart?.(e, index);
+        if (resizable && e.currentTarget) {
+          onStart?.(e.clientX, e.clientY, index);
           setActive(true);
         }
       }}

@@ -1,28 +1,19 @@
-import type React from 'react';
 import { useEffect, useRef } from 'react';
-import { useEvent } from 'rc-util';
-import type { UseMove, UseMoveProps } from './interface';
+
+import type { UseHandle, UseHandleProps } from '../interface';
 
 const eventList: (keyof WindowEventMap)[] = ['mousemove', 'mouseup', 'contextmenu', 'blur'];
-
-const useMove = ({
+export default function useHandle({
   containerRef,
-  basicsState,
+  basicsRef,
   layout,
   setOffset,
   setResizing,
   onResizeStart,
   onResizeEnd,
-}: UseMoveProps): UseMove => {
+}: UseHandleProps): UseHandle {
   const startInfo = useRef({ x: 0, y: 0, index: 0 });
   const resizingRef = useRef(false);
-
-  const onResizeStartRef = useEvent((index: number) => {
-    onResizeStart?.(basicsState, index);
-  });
-  const onResizeEndRef = useEvent(() => {
-    onResizeEnd?.(basicsState, startInfo.current.index);
-  });
 
   const move = (event: React.MouseEvent<HTMLDivElement> | MouseEvent) => {
     const { x: startX, y: startY } = startInfo.current;
@@ -55,17 +46,15 @@ const useMove = ({
       startInfo.current = { x: 0, y: 0, index: 0 };
       resizingRef.current = false;
       setResizing?.(false);
-      onResizeEndRef?.();
+      onResizeEnd?.(basicsRef.current, startInfo.current.index);
     }
   };
 
-  const onStart = (e: React.MouseEvent<HTMLDivElement>, index: number) => {
-    if (e.currentTarget) {
-      startInfo.current = { x: e.clientX, y: e.clientY, index };
-      resizingRef.current = true;
-      setResizing?.(true);
-      onResizeStartRef(index);
-    }
+  const onStart = (x: number, y: number, index: number) => {
+    startInfo.current = { x, y, index };
+    resizingRef.current = true;
+    setResizing?.(true);
+    onResizeStart?.(basicsRef.current, index);
   };
 
   useEffect(() => {
@@ -89,6 +78,4 @@ const useMove = ({
   }, [layout]);
 
   return { onStart };
-};
-
-export default useMove;
+}

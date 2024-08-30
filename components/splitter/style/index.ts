@@ -148,7 +148,9 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
       '&-bar-disabled': {
         '&:hover': {
-          background: colorFillTertiary,
+          [`> ${componentCls}-bar-bg`]: {
+            background: colorFillTertiary,
+          },
         },
       },
 

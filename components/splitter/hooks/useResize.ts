@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { useEvent } from 'rc-util';
-import type { UseResize, UseResizeProps } from './interface';
+
+import type { UseResize, UseResizeProps } from '../interface';
 
 export const sizeTransform = (size: number | string, sizeCount: number) => {
   let currentSize = 0;
@@ -20,17 +21,14 @@ export const sizeTransform = (size: number | string, sizeCount: number) => {
 const useResize = ({
   basicsData,
   items,
-  isRTL,
-  layout,
   panelsRef,
+  reverse,
   onResize,
   setBasicsState,
 }: UseResizeProps): UseResize => {
   const basicsRef = useRef<number[]>(basicsData);
 
   const setOffset = useEvent((offset: number, containerSize: number, index: number) => {
-    const reverse = layout === 'horizontal' && isRTL;
-
     if (panelsRef.current?.[index] && basicsRef.current) {
       const previousElement = panelsRef.current[index];
       const nextElement = panelsRef.current[index + 1]!;
@@ -95,7 +93,7 @@ const useResize = ({
 
   basicsRef.current = basicsData;
 
-  return { setSize, setOffset };
+  return { setSize, setOffset, basicsRef };
 };
 
 export default useResize;

@@ -37,38 +37,34 @@ export interface InternalPanelProps extends PanelProps {
   last?: boolean;
 }
 
-export interface UseResizeProps extends Pick<SplitterProps, 'layout' | 'onResize'> {
-  panelsRef: React.RefObject<(HTMLDivElement | null)[]>;
-  items: PanelProps[];
-  isRTL: boolean;
+export interface UseResizeProps extends Pick<SplitterProps, 'onResize'> {
   basicsData: number[];
+  items: PanelProps[];
+  panelsRef: React.RefObject<(HTMLDivElement | null)[]>;
+  reverse: boolean;
   setBasicsState: React.Dispatch<React.SetStateAction<number[]>>;
 }
 export interface UseResize {
+  basicsRef: React.MutableRefObject<number[]>;
   setSize: (size: number, index: number) => void;
   setOffset: (offset: number, containerSize: number, index: number) => void;
 }
 
-export interface UseMoveProps
+export interface UseHandleProps
   extends Pick<SplitterProps, 'layout' | 'onResizeStart' | 'onResizeEnd'> {
+  basicsRef: UseResize['basicsRef'];
   containerRef?: React.RefObject<HTMLDivElement | null>;
-  basicsState: SplitterContextType['basicsState'];
-  setOffset: SplitterContextType['setOffset'];
-  setResizing: SplitterContextType['setResizing'];
+  setOffset: UseResize['setOffset'];
+  setResizing: React.Dispatch<React.SetStateAction<boolean>>;
 }
-export interface UseMove {
-  onStart: (e: React.MouseEvent<HTMLDivElement>, index: number) => void;
+export interface UseHandle {
+  onStart: (x: number, y: number, index: number) => void;
 }
 
 export interface SplitterContextType {
-  containerRef?: React.RefObject<HTMLDivElement | null>;
-  isRTL: boolean;
-  layout: SplitterProps['layout'];
-  resizing: boolean;
   basicsState: number[];
+  reverse: boolean;
+  resizing: boolean;
+  onStart?: UseHandle['onStart'];
   setSize?: UseResize['setSize'];
-  setOffset?: UseResize['setOffset'];
-  setResizing?: React.Dispatch<React.SetStateAction<boolean>>;
-  onResizeStart?: SplitterProps['onResizeStart'];
-  onResizeEnd?: SplitterProps['onResizeEnd'];
 }
