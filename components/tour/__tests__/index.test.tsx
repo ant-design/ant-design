@@ -622,11 +622,9 @@ describe('Tour', () => {
       ];
       return (
         <>
-          <div>
-            <button type="button" onClick={() => setShow(true)} ref={ref}>
-              Show
-            </button>
-          </div>
+          <button type="button" onClick={() => setShow(true)} ref={ref}>
+            Show
+          </button>
 
           <Tour open={show} steps={steps} gap={gap} />
         </>
@@ -659,11 +657,9 @@ describe('Tour', () => {
 
       return (
         <>
-          <div>
-            <button type="button" onClick={() => setShow(true)} ref={ref}>
-              Show
-            </button>
-          </div>
+          <button type="button" onClick={() => setShow(true)} ref={ref}>
+            Show
+          </button>
 
           <Tour steps={steps} gap={gap} open={show} />
         </>

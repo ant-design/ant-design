@@ -433,13 +433,11 @@ exports[`Tour rtl render component should be rendered correctly in RTL direction
 exports[`Tour should support gap.offset 1`] = `
 <body>
   <div>
-    <div>
-      <button
-        type="button"
-      >
-        Show
-      </button>
-    </div>
+    <button
+      type="button"
+    >
+      Show
+    </button>
     <div
       class="ant-tour ant-tour-placement-bottom"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
