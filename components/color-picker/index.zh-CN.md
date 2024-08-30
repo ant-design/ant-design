@@ -61,7 +61,7 @@ group:
 | size | 设置触发器大小 | `large` \| `middle` \| `small` | `middle` | 5.7.0 |
 | trigger | 颜色选择器的触发模式 | `hover` \| `click` | `click` | |
 | value | 颜色的值 | string \| `Color` | - | |
-| onChange | 颜色变化的回调 | `(value: Color, hex: string) => void` | - | |
+| onChange | 颜色变化的回调 | `(value: Color, css: string) => void` | - | |
 | onChangeComplete | 颜色选择完成的回调  | `(value: Color) => void` | - | 5.7.0 |
 | onFormatChange | 颜色格式变化的回调 | `(format: 'hex' \| 'rgb' \| 'hsb') => void` | - | |
 | onOpenChange | 当 `open` 被改变时的回调 | `(open: boolean) => void` | - | |
