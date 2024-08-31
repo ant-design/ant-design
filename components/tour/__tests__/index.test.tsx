@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React, { useEffect, useRef } from 'react';
+import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 
 import Tour from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -7,6 +8,24 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, screen } from '../../../tests/utils';
 import type { TourProps } from '../interface';
 
+const mockBtnRect = (
+  rect: { x: number; y: number; width: number; height: number },
+  scrollIntoViewCb?: () => void,
+) => {
+  spyElementPrototypes(HTMLButtonElement, {
+    getBoundingClientRect: {
+      get(): any {
+        return () => ({ ...rect, left: rect.x, top: rect.y });
+      },
+    },
+    scrollIntoView: {
+      get(): any {
+        scrollIntoViewCb?.();
+        return (val: boolean | ScrollIntoViewOptions) => val;
+      },
+    },
+  });
+};
 describe('Tour', () => {
   mountTest(Tour);
   rtlTest(Tour);
@@ -590,6 +609,86 @@ describe('Tour', () => {
     expect(onClose).toHaveBeenLastCalledWith(1);
   });
 
+  it('should support gap.radius', () => {
+    const App: React.FC<{ gap: TourProps['gap'] }> = ({ gap }) => {
+      const ref = useRef<HTMLButtonElement>(null);
+      const [show, setShow] = React.useState<boolean>();
+      const steps: TourProps['steps'] = [
+        {
+          title: 'Show in Center',
+          description: 'Here is the content of Tour.',
+          target: () => ref.current!,
+        },
+      ];
+      return (
+        <>
+          <button type="button" onClick={() => setShow(true)} ref={ref}>
+            Show
+          </button>
+
+          <Tour open={show} steps={steps} gap={gap} />
+        </>
+      );
+    };
+    const { rerender, baseElement } = render(<App gap={{ radius: 4 }} />);
+    fireEvent.click(screen.getByRole('button', { name: 'Show' }));
+
+    expect(baseElement.querySelector('.ant-tour-placeholder-animated')).toBeTruthy();
+    expect(baseElement.querySelector('.ant-tour-placeholder-animated')).toHaveAttribute('rx', '4');
+    rerender(<App gap={{ radius: 0 }} />);
+    fireEvent.click(screen.getByRole('button', { name: 'Show' }));
+    expect(baseElement.querySelector('.ant-tour-placeholder-animated')).toBeTruthy();
+    expect(baseElement.querySelector('.ant-tour-placeholder-animated')).toHaveAttribute('rx', '0');
+  });
+  it('should support gap.offset', () => {
+    const gap = { offset: 10 };
+    const pos = { x: 100, y: 200, width: 230, height: 180 };
+    mockBtnRect(pos);
+    const App: React.FC = () => {
+      const ref = useRef<HTMLButtonElement>(null);
+      const [show, setShow] = React.useState<boolean>();
+      const steps: TourProps['steps'] = [
+        {
+          title: 'Show in Center',
+          description: 'Here is the content of Tour.',
+          target: () => ref.current!,
+        },
+      ];
+
+      return (
+        <>
+          <button type="button" onClick={() => setShow(true)} ref={ref}>
+            Show
+          </button>
+
+          <Tour steps={steps} gap={gap} open={show} />
+        </>
+      );
+    };
+
+    const { baseElement } = render(<App />);
+    const targetBtn = screen.getByRole('button', { name: 'Show' });
+    fireEvent.click(targetBtn);
+
+    expect(baseElement.querySelector('.ant-tour-placeholder-animated')).toHaveAttribute(
+      'width',
+      String(pos.width + gap.offset * 2),
+    );
+    expect(baseElement.querySelector('.ant-tour-placeholder-animated')).toHaveAttribute(
+      'height',
+      String(pos.height + gap.offset * 2),
+    );
+    expect(baseElement.querySelector('.ant-tour-placeholder-animated')).toHaveAttribute(
+      'x',
+      String(pos.x - gap.offset),
+    );
+    expect(baseElement.querySelector('.ant-tour-placeholder-animated')).toHaveAttribute(
+      'y',
+      String(pos.y - gap.offset),
+    );
+
+    expect(baseElement).toMatchSnapshot();
+  });
   // This test is for PurePanel which means safe to remove.
   describe('PurePanel', () => {
     const PurePanel = Tour._InternalPanelDoNotUseOrYouWillBeFired;
