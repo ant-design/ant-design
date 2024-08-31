@@ -195,7 +195,11 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
         <div
           class="ant-col ant-col-6"
         >
-          Radius:
+          <span
+            class="ant-typography"
+          >
+            Radius:
+          </span>
         </div>
         <div
           class="ant-col ant-col-12"
@@ -256,7 +260,11 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
         <div
           class="ant-col ant-col-6"
         >
-          offset:
+          <span
+            class="ant-typography"
+          >
+             offset:
+          </span>
         </div>
         <div
           class="ant-col ant-col-12"
@@ -317,7 +325,11 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
         <div
           class="ant-col ant-col-6"
         >
-          Horizontal offset:
+          <span
+            class="ant-typography"
+          >
+            Horizontal offset:
+          </span>
         </div>
         <div
           class="ant-col ant-col-12"
@@ -378,7 +390,11 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
         <div
           class="ant-col ant-col-6"
         >
-          Vertical offset:
+          <span
+            class="ant-typography"
+          >
+            Vertical offset:
+          </span>
         </div>
         <div
           class="ant-col ant-col-12"

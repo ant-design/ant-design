@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react';
-import { Button, Col, Row, Slider, Space, Tour } from 'antd';
+import { Button, Col, Row, Slider, Space, Tour, Typography } from 'antd';
 import type { TourProps } from 'antd';
+
+const { Text } = Typography;
 
 const App: React.FC = () => {
   const tourNodeRef = useRef(null);
@@ -38,13 +40,17 @@ const App: React.FC = () => {
       </Button>
       <Space style={{ display: 'flex', marginTop: 12 }} direction="vertical">
         <Row>
-          <Col span={6}>Radius:</Col>
+          <Col span={6}>
+            <Text>Radius:</Text>
+          </Col>
           <Col span={12}>
             <Slider value={radius} onChange={(val) => val && setRadius(val)} />
           </Col>
         </Row>
         <Row>
-          <Col span={6}>offset:</Col>
+          <Col span={6}>
+            <Text> offset:</Text>
+          </Col>
           <Col span={12}>
             <Slider
               value={offset}
@@ -55,7 +61,9 @@ const App: React.FC = () => {
           </Col>
         </Row>
         <Row>
-          <Col span={6}>Horizontal offset:</Col>
+          <Col span={6}>
+            <Text>Horizontal offset:</Text>
+          </Col>
           <Col span={12}>
             <Slider
               value={offsetX}
@@ -66,7 +74,9 @@ const App: React.FC = () => {
           </Col>
         </Row>
         <Row>
-          <Col span={6}>Vertical offset:</Col>
+          <Col span={6}>
+            <Text>Vertical offset:</Text>
+          </Col>
           <Col span={12}>
             <Slider
               value={offsetY}
