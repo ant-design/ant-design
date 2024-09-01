@@ -96,6 +96,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
     boxShadowPopoverArrow,
     fontHeight,
     fontHeightLG,
+    fontHeightSM,
     lineHeightLG,
   } = token;
 
@@ -168,7 +169,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
         },
 
         '&-small': {
-          ...genPickerPadding(token, controlHeightSM, fontHeight, paddingInlineSM),
+          ...genPickerPadding(token, controlHeightSM, fontHeightSM, paddingInlineSM),
         },
 
         [`${componentCls}-suffix`]: {
