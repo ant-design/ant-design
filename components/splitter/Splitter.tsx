@@ -58,7 +58,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const { basicsRef, setOffset, setSize } = useResize({
     panelsRef,
     items,
-    basicsData: basicsState,
+    basicsState,
     reverse,
     onResize,
     setBasicsState,
@@ -135,14 +135,14 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
   const splitterContextValue = useMemo<SplitterContextType>(
     () => ({
-      reverse,
-      layout,
-      resizing,
       basicsState,
+      layout,
+      reverse,
+      resizing,
       onStart,
       setSize,
     }),
-    [isRTL, layout, resizing, basicsState],
+    [basicsState, layout, reverse, resizing],
   );
 
   return wrapCSSVar(

@@ -5,7 +5,7 @@ title: Splitter
 description: Split panels are used to isolate areas and display multiple contents.
 demo:
   cols: 2
-tag: 5.21.0
+tag: 5.22.0
 ---
 
 ## When To Use

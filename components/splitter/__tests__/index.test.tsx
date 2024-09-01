@@ -63,11 +63,12 @@ describe('Splitter', () => {
     );
 
     await waitFakeTimer();
+    const panels = container?.querySelectorAll('.ant-splitter-panel');
 
-    expect(container?.querySelectorAll('.ant-splitter-panel')?.[0]).toHaveStyle('flex-basis: 20%');
-    expect(container?.querySelectorAll('.ant-splitter-panel')?.[1]).toHaveStyle('flex-basis: 45%');
-    expect(container?.querySelectorAll('.ant-splitter-panel')?.[2]).toHaveStyle('flex-basis: 10%');
-    expect(container?.querySelectorAll('.ant-splitter-panel')?.[3]).toHaveStyle('flex-basis: 25%');
+    expect(panels?.[0]).toHaveStyle('flex-basis: 20%');
+    expect(panels?.[1]).toHaveStyle('flex-basis: 45%');
+    expect(panels?.[2]).toHaveStyle('flex-basis: 10%');
+    expect(panels?.[3]).toHaveStyle('flex-basis: 25%');
   });
 
   it('The layout should work fine.', () => {
@@ -359,5 +360,23 @@ describe('Splitter', () => {
       'flex-basis': '10%',
     });
     expect(container).toMatchSnapshot();
+  });
+
+  it('Collapsible should work properly at all times when using pixel units.', async () => {
+    const { container } = render(
+      <SplitterDemo items={[{ size: '100px', collapsible: true }, {}]} />,
+    );
+
+    const panels = container?.querySelectorAll('.ant-splitter-panel');
+    expect(panels?.[0]).toHaveStyle('flex-basis: 25%');
+    expect(panels?.[1]).toHaveStyle('flex-basis: 75%');
+
+    await doMove(container, 0, { clientX: -160 });
+    expect(panels?.[0]).toHaveStyle('flex-basis: 0%');
+    expect(panels?.[1]).toHaveStyle('flex-basis: 100%');
+
+    fireEvent.click(container?.querySelector('.ant-splitter-bar-collapse-next')!);
+    expect(panels?.[0]).toHaveStyle('flex-basis: 25%');
+    expect(panels?.[1]).toHaveStyle('flex-basis: 75%');
   });
 });

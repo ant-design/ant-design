@@ -28,17 +28,17 @@ export interface PanelProps {
 // ================ inside ================
 
 export interface SplitBarProps extends Pick<PanelProps, 'resizable' | 'collapsible'> {
-  prefixCls: string;
   index: number;
+  prefixCls: string;
 }
 export interface InternalPanelProps extends PanelProps {
-  prefixCls?: string;
   className?: string;
   last?: boolean;
+  prefixCls?: string;
 }
 
 export interface UseResizeProps extends Pick<SplitterProps, 'onResize'> {
-  basicsData: number[];
+  basicsState: number[];
   items: PanelProps[];
   panelsRef: React.RefObject<(HTMLDivElement | null)[]>;
   reverse: boolean;

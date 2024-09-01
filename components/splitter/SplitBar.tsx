@@ -63,6 +63,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         if (resizable && e.currentTarget) {
           onStart?.(e.clientX, e.clientY, index);
           setActive(true);
+          oldBasicsRef.current = { previous: basicsState[index], next: basicsState[index + 1] };
         }
       }}
     >

@@ -19,14 +19,14 @@ export const sizeTransform = (size: number | string, sizeCount: number) => {
 };
 
 const useResize = ({
-  basicsData,
+  basicsState,
   items,
   panelsRef,
   reverse,
   onResize,
   setBasicsState,
 }: UseResizeProps): UseResize => {
-  const basicsRef = useRef<number[]>(basicsData);
+  const basicsRef = useRef<number[]>(basicsState);
 
   const setOffset = useEvent((offset: number, containerSize: number, index: number) => {
     if (panelsRef.current?.[index] && basicsRef.current) {
@@ -91,7 +91,7 @@ const useResize = ({
     }
   };
 
-  basicsRef.current = basicsData;
+  basicsRef.current = basicsState;
 
   return { setSize, setOffset, basicsRef };
 };

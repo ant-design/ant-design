@@ -6,7 +6,7 @@ subtitle: 分隔面板
 description: 分割面板用于隔离区域，展示多个内容。
 demo:
   cols: 2
-tag: 5.21.0
+tag: 5.22.0
 ---
 
 ## 何时使用
