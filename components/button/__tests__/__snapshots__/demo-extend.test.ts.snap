@@ -314,12 +314,10 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
 
 exports[`renders components/button/demo/color-variant.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-vertical"
-  style="gap: 18px;"
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-flex ant-flex-wrap-wrap"
-    style="gap: 18px;"
+    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
   >
     <button
       class="ant-btn ant-btn-default ant-btn-solid ant-btn-sm"
@@ -371,8 +369,7 @@ exports[`renders components/button/demo/color-variant.tsx extend context correct
     </button>
   </div>
   <div
-    class="ant-flex ant-flex-wrap-wrap"
-    style="gap: 18px;"
+    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
   >
     <button
       class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
@@ -424,8 +421,7 @@ exports[`renders components/button/demo/color-variant.tsx extend context correct
     </button>
   </div>
   <div
-    class="ant-flex ant-flex-wrap-wrap"
-    style="gap: 18px;"
+    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
   >
     <button
       class="ant-btn ant-btn-dangerous ant-btn-solid ant-btn-sm"
