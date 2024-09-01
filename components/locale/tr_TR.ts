@@ -48,6 +48,7 @@ const localeValues: Locale = {
     itemsUnit: 'Öğeler',
     remove: 'Kaldır',
     selectCurrent: 'Tüm sayfayı seç',
+    deselectAll: 'Tümünün seçimini kaldır',
     removeCurrent: 'Sayfayı kaldır',
     selectAll: 'Tümünü seç',
     removeAll: 'Tümünü kaldır',
