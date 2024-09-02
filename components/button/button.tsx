@@ -83,9 +83,9 @@ function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigTyp
   };
 }
 
-type ColorVairantPairType = [color?: ButtonColorType, variant?: ButtonVariantType];
+type ColorVariantPairType = [color?: ButtonColorType, variant?: ButtonVariantType];
 
-const ButtonTypeMap: Partial<Record<ButtonType, ColorVairantPairType>> = {
+const ButtonTypeMap: Partial<Record<ButtonType, ColorVariantPairType>> = {
   default: ['default', 'outlined'],
   primary: ['primary', 'solid'],
   dashed: ['default', 'dashed'],
@@ -127,18 +127,18 @@ const InternalCompoundedButton = React.forwardRef<
   // Compatible with original `type` behavior
   const mergedType = type || 'default';
 
-  const [mergedColor, mergedVariant] = useMemo<ColorVairantPairType>(() => {
+  const [mergedColor, mergedVariant] = useMemo<ColorVariantPairType>(() => {
     if (color && variant) {
       return [color, variant];
     }
 
-    const colorVairantPair = ButtonTypeMap[mergedType] || [];
+    const colorVariantPair = ButtonTypeMap[mergedType] || [];
 
     if (danger) {
-      return ['danger', colorVairantPair[1]];
+      return ['danger', colorVariantPair[1]];
     }
 
-    return colorVairantPair;
+    return colorVariantPair;
   }, [type, color, variant, danger]);
 
   const isDanger = mergedColor === 'danger';
