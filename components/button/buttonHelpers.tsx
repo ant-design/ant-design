@@ -87,6 +87,7 @@ export type ButtonShape = (typeof ButtonShapes)[number];
 const ButtonHTMLTypes = ['submit', 'button', 'reset'] as const;
 export type ButtonHTMLType = (typeof ButtonHTMLTypes)[number];
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const ButtonVariantTypes = [
   'outlined',
   'dashed',
@@ -97,5 +98,6 @@ export const ButtonVariantTypes = [
 ] as const;
 export type ButtonVariantType = (typeof ButtonVariantTypes)[number];
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const ButtonColorTypes = ['default', 'primary', 'danger'] as const;
 export type ButtonColorType = (typeof ButtonColorTypes)[number];
