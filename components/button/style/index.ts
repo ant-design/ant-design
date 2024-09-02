@@ -4,6 +4,7 @@ import { unit } from '@ant-design/cssinjs';
 import { genFocusStyle } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import type { ButtonVariantType } from '../buttonHelpers';
 import genGroupStyle from './group';
 import type { ButtonToken, ComponentToken } from './token';
 import { prepareComponentToken, prepareToken } from './token';
@@ -153,6 +154,26 @@ const genPureDisabledButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token
 });
 
 // ============================== Variant =============================
+const genVariantButtonStyle = (
+  variant: ButtonVariantType,
+  token: ButtonToken,
+  hoverStyle: CSSObject,
+  activeStyle: CSSObject,
+): CSSObject => {
+  const isPureDisabled = ['link', 'text'].includes(variant);
+  const genDisabledButtonStyle = isPureDisabled
+    ? genPureDisabledButtonStyle
+    : genSolidDisabledButtonStyle;
+
+  return {
+    [`&${token.componentCls}-${variant}`]: {
+      ...genDisabledButtonStyle(token),
+
+      ...genHoverActiveButtonStyle(token.componentCls, hoverStyle, activeStyle),
+    },
+  };
+};
+
 const genSolidButtonStyle = (
   token: ButtonToken,
   textColor: string,
@@ -162,14 +183,11 @@ const genSolidButtonStyle = (
   activeStyle: CSSObject,
 ): CSSObject => ({
   [`&${token.componentCls}-solid`]: {
-    ...genSolidDisabledButtonStyle(token),
-
     color: textColor,
     borderColor,
     background,
-
-    ...genHoverActiveButtonStyle(token.componentCls, hoverStyle, activeStyle),
   },
+  ...genVariantButtonStyle('solid', token, hoverStyle, activeStyle),
 });
 
 const genOutlinedDashedButtonStyle = (
@@ -180,13 +198,11 @@ const genOutlinedDashedButtonStyle = (
   activeStyle: CSSObject,
 ) => ({
   [`&${token.componentCls}-outlined, &${token.componentCls}-dashed`]: {
-    ...genSolidDisabledButtonStyle(token),
-
     borderColor,
     background,
-
-    ...genHoverActiveButtonStyle(token.componentCls, hoverStyle, activeStyle),
   },
+  ...genVariantButtonStyle('outlined', token, hoverStyle, activeStyle),
+  ...genVariantButtonStyle('dashed', token, hoverStyle, activeStyle),
 });
 
 const genDashedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
@@ -202,13 +218,10 @@ const genFilledButtonStyle = (
   activeStyle: CSSObject,
 ) => ({
   [`&${token.componentCls}-filled`]: {
-    ...genSolidDisabledButtonStyle(token),
-
     boxShadow: 'none',
     background,
-
-    ...genHoverActiveButtonStyle(token.componentCls, hoverStyle, activeStyle),
   },
+  ...genVariantButtonStyle('filled', token, hoverStyle, activeStyle),
 });
 
 const genTextLinkButtonStyle = (
@@ -218,12 +231,9 @@ const genTextLinkButtonStyle = (
   activeStyle: CSSObject,
 ) => ({
   [`&${token.componentCls}-${variant}`]: {
-    ...genPureDisabledButtonStyle(token),
-
     boxShadow: 'none',
-
-    ...genHoverActiveButtonStyle(token.componentCls, hoverStyle, activeStyle),
   },
+  ...genVariantButtonStyle(variant, token, hoverStyle, activeStyle),
 });
 
 // =============================== Color ==============================
