@@ -116,7 +116,7 @@ export interface ComponentToken {
    * @desc 主要填充按钮的浅色背景颜色悬浮态
    * @descEN The hover state background color of primary filled button.
    */
-  colorPrimaryFillHover: string;
+  filledBgHover: string;
   /**
    * @desc 默认实心按钮的文本色
    * @descEN Default text color for solid buttons.
@@ -253,7 +253,9 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
   const contentLineHeight = token.contentLineHeight ?? getLineHeight(contentFontSize);
   const contentLineHeightSM = token.contentLineHeightSM ?? getLineHeight(contentFontSizeSM);
   const contentLineHeightLG = token.contentLineHeightLG ?? getLineHeight(contentFontSizeLG);
-  const solidTextColor = isBright(new AggregationColor(token.solidBg), '#fff') ? '#000' : '#fff';
+  const solidTextColor = isBright(new AggregationColor(token.colorBgSolid), '#fff')
+    ? '#000'
+    : '#fff';
 
   return {
     fontWeight: 400,
@@ -285,9 +287,9 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
     defaultActiveBg: token.colorBgContainer,
     defaultActiveColor: token.colorPrimaryActive,
     defaultActiveBorderColor: token.colorPrimaryActive,
-    colorPrimaryFill: token.colorPrimaryBg,
-    colorPrimaryFillActive: token.colorPrimaryBorder,
-    colorPrimaryFillHover: token.colorPrimaryBgHover,
+    filledBg: token.colorPrimaryBg,
+    filledBgActive: token.colorPrimaryBorder,
+    filledBgHover: token.colorPrimaryBgHover,
     solidTextColor,
     contentFontSize,
     contentFontSizeSM,

@@ -235,13 +235,13 @@ const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
   ...genSolidButtonStyle(
     token,
     token.solidTextColor,
-    token.solidBg,
+    token.colorBgSolid,
     token.colorTextTertiary,
     {
-      background: token.solidHoverBg,
+      background: token.colorBgSolidHover,
     },
     {
-      background: token.solidActiveBg,
+      background: token.colorBgSolidActive,
     },
   ),
 
@@ -346,12 +346,12 @@ const genPrimaryButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
 
   ...genFilledButtonStyle(
     token,
-    token.colorPrimaryFill,
+    token.filledBg,
     {
-      background: token.colorPrimaryFillHover,
+      background: token.filledBgHover,
     },
     {
-      background: token.colorPrimaryFillActive,
+      background: token.filledBgActive,
     },
   ),
 
