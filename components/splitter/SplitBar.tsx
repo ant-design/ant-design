@@ -84,14 +84,21 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
               onMouseDown={(e) => e.stopPropagation()}
               onClick={() => {
                 oldBasicsRef.current.previous = previousSize;
+                const count = previousSize + nextSize;
+                let curPreviousSize = 0;
+                let curNextSize = 0;
 
                 if (nextSize) {
-                  setSize?.(0, previousIdx);
-                  setSize?.(100, nextIdx);
+                  curPreviousSize = 0;
+                  curNextSize = count;
                 } else {
-                  setSize?.(100 - oldBasicsRef.current.next, previousIdx);
-                  setSize?.(oldBasicsRef.current.next, nextIdx);
+                  curPreviousSize = count - oldBasicsRef.current.next;
+                  curNextSize = oldBasicsRef.current.next;
                 }
+                oldBasicsRef.current.next = nextSize;
+
+                setSize?.(curPreviousSize, previousIdx);
+                setSize?.(curNextSize, nextIdx);
               }}
             />
           ) : null}
@@ -105,14 +112,21 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
               onMouseDown={(e) => e.stopPropagation()}
               onClick={() => {
                 oldBasicsRef.current.next = nextSize;
+                const count = previousSize + nextSize;
+                let curPreviousSize = 0;
+                let curNextSize = 0;
 
                 if (previousSize) {
-                  setSize?.(100, previousIdx);
-                  setSize?.(0, nextIdx);
+                  curPreviousSize = count;
+                  curNextSize = 0;
                 } else {
-                  setSize?.(oldBasicsRef.current.previous, previousIdx);
-                  setSize?.(100 - oldBasicsRef.current.previous, nextIdx);
+                  curPreviousSize = oldBasicsRef.current.previous;
+                  curNextSize = count - oldBasicsRef.current.previous;
                 }
+                oldBasicsRef.current.previous = previousSize;
+
+                setSize?.(curPreviousSize, previousIdx);
+                setSize?.(curNextSize, nextIdx);
               }}
             />
           ) : null}

@@ -379,4 +379,21 @@ describe('Splitter', () => {
     expect(panels?.[0]).toHaveStyle('flex-basis: 25%');
     expect(panels?.[1]).toHaveStyle('flex-basis: 75%');
   });
+
+  it('Collapsible should work properly when using multiple panels.', async () => {
+    const { container } = render(
+      <SplitterDemo items={[{ size: 22, collapsible: true }, {}, {}, {}, {}]} />,
+    );
+
+    fireEvent.click(container?.querySelector('.ant-splitter-bar-collapse-next')!);
+    expect(container?.querySelectorAll('.ant-splitter-panel')[0]).toHaveStyle('flex-basis: 41.5%');
+    expect(container?.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle('flex-basis: 0%');
+
+    fireEvent.click(container?.querySelector('.ant-splitter-bar-collapse-previous')!);
+    expect(container?.querySelectorAll('.ant-splitter-panel')[0]).toHaveStyle('flex-basis: 22%');
+    expect(container?.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle('flex-basis: 19.5%');
+    expect(container?.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle('flex-basis: 19.5%');
+    expect(container?.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle('flex-basis: 19.5%');
+    expect(container?.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle('flex-basis: 19.5%');
+  });
 });
