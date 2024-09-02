@@ -181,11 +181,11 @@ const genSolidButtonStyle = (
   activeStyle: CSSObject,
 ): CSSObject => ({
   [`&${token.componentCls}-solid`]: {
-    ...genVariantButtonStyle(token, hoverStyle, activeStyle),
-
     color: textColor,
     borderColor,
     background,
+
+    ...genVariantButtonStyle(token, hoverStyle, activeStyle),
   },
 });
 
