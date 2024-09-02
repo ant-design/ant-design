@@ -133,7 +133,7 @@ export interface ColorNeutralMapToken {
    * @desc 实心的背景颜色，目前只用在默认实心按钮背景色上。
    * @descEN Solid background color, currently only used for the default solid button background color.
    */
-  solidBg: string;
+  colorBgSolid: string;
   /**
    * @desc 实心的背景颜色激活态，目前只用在默认实心按钮的 active 效果。
    * @descEN Solid background color active state, currently only used in the active effect of the default solid button.
