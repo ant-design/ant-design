@@ -142,6 +142,7 @@ const InternalCompoundedButton = React.forwardRef<
   }, [type, color, variant, danger]);
 
   const isDanger = mergedColor === 'danger';
+  const mergedColorText = isDanger ? 'dangerous' : mergedColor;
 
   const { getPrefixCls, direction, button } = useContext(ConfigContext);
 
@@ -249,8 +250,7 @@ const InternalCompoundedButton = React.forwardRef<
     cssVarCls,
     {
       [`${prefixCls}-${shape}`]: shape !== 'default' && shape,
-      [`${prefixCls}-${mergedColor}`]: !isDanger && mergedColor,
-      [`${prefixCls}-dangerous`]: isDanger,
+      [`${prefixCls}-${mergedColorText}`]: mergedColorText,
       [`${prefixCls}-${mergedVariant}`]: mergedVariant,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
