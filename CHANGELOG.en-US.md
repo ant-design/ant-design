@@ -16,6 +16,19 @@ tag: vVERSION
 
 ---
 
+## 5.20.4
+
+`2024-09-02`
+
+- Menu
+  - 🐞 Fix Menu token `itemPaddingInline inoperative` not working. [#50663](https://github.com/ant-design/ant-design/pull/50663) [@coding-ice](https://github.com/coding-ice)
+  - 🐞 Fix Menu missing `hover` transition style. [#50624](https://github.com/ant-design/ant-design/pull/50624) [@afc163](https://github.com/afc163)
+- 💄 Badge add transition effect to count node. [#50607](https://github.com/ant-design/ant-design/pull/50607) [@afc163](https://github.com/afc163)
+- 💄 Fix Table column header move with unexpected transition. [#50605](https://github.com/ant-design/ant-design/pull/50605) [@afc163](https://github.com/afc163)
+- 🛠 Refactor Typography code to optimize internal logic. [#50561](https://github.com/ant-design/ant-design/pull/50561) [@afc163](https://github.com/afc163)
+- 🐞 Disable the Rate component within Form.Item when the form is disabled. [#50594](https://github.com/ant-design/ant-design/pull/50594) [@nikzanda](https://github.com/nikzanda)
+- 🌐 Patch tr_TR `Transfer.deselectAll` locale. [#50672](https://github.com/ant-design/ant-design/pull/50672) [@coding-ice](https://github.com/coding-ice)
+
 ## 5.20.3
 
 `2024-08-26`
