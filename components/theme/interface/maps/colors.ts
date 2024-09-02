@@ -495,6 +495,14 @@ interface ColorErrorMapToken {
   colorErrorBgHover: string; // 2
 
   /**
+   * @nameZH 错误色的浅色填充背景色悬浮态
+   * @nameEN Wrong color fill background color suspension state
+   * @desc 错误色的浅色填充背景色悬浮态，目前只用在危险填充按钮的 hover 效果。
+   * @descEN The wrong color fills the background color of the suspension state, which is currently only used in the hover effect of the dangerous filled button.
+   */
+  colorErrorBgFilledHover: string; // 2.5
+
+  /**
    * @nameZH 错误色的浅色背景色激活态
    * @nameEN Error background color active state
    * @desc 错误色的浅色背景色激活态

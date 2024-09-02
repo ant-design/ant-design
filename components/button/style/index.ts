@@ -441,7 +441,7 @@ const genDangerousStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
     token,
     token.colorErrorBg,
     {
-      background: token.colorErrorBgHover,
+      background: token.colorErrorBgFilledHover,
     },
     {
       background: token.colorErrorBgActive,
