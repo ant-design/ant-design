@@ -106,7 +106,7 @@ export interface ComponentToken {
    * @desc 主要填充按钮的浅色背景颜色
    * @descEN Background color of primary filled button
    */
-  colorPrimaryFill: string;
+  filledBg: string;
   /**
    * @desc 主要填充按钮的浅色背景颜色激活态
    * @descEN The active state background color of primary filled button.
