@@ -155,22 +155,20 @@ const genPureDisabledButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token
 
 // ============================== Variant =============================
 const genVariantButtonStyle = (
-  variant: ButtonVariantType,
   token: ButtonToken,
   hoverStyle: CSSObject,
   activeStyle: CSSObject,
+  variant?: ButtonVariantType,
 ): CSSObject => {
-  const isPureDisabled = ['link', 'text'].includes(variant);
+  const isPureDisabled = variant && ['link', 'text'].includes(variant);
   const genDisabledButtonStyle = isPureDisabled
     ? genPureDisabledButtonStyle
     : genSolidDisabledButtonStyle;
 
   return {
-    [`&${token.componentCls}-${variant}`]: {
-      ...genDisabledButtonStyle(token),
+    ...genDisabledButtonStyle(token),
 
-      ...genHoverActiveButtonStyle(token.componentCls, hoverStyle, activeStyle),
-    },
+    ...genHoverActiveButtonStyle(token.componentCls, hoverStyle, activeStyle),
   };
 };
 
@@ -183,11 +181,12 @@ const genSolidButtonStyle = (
   activeStyle: CSSObject,
 ): CSSObject => ({
   [`&${token.componentCls}-solid`]: {
+    ...genVariantButtonStyle(token, hoverStyle, activeStyle),
+
     color: textColor,
     borderColor,
     background,
   },
-  ...genVariantButtonStyle('solid', token, hoverStyle, activeStyle),
 });
 
 const genOutlinedDashedButtonStyle = (
@@ -200,9 +199,9 @@ const genOutlinedDashedButtonStyle = (
   [`&${token.componentCls}-outlined, &${token.componentCls}-dashed`]: {
     borderColor,
     background,
+
+    ...genVariantButtonStyle(token, hoverStyle, activeStyle),
   },
-  ...genVariantButtonStyle('outlined', token, hoverStyle, activeStyle),
-  ...genVariantButtonStyle('dashed', token, hoverStyle, activeStyle),
 });
 
 const genDashedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
@@ -220,8 +219,9 @@ const genFilledButtonStyle = (
   [`&${token.componentCls}-filled`]: {
     boxShadow: 'none',
     background,
+
+    ...genVariantButtonStyle(token, hoverStyle, activeStyle),
   },
-  ...genVariantButtonStyle('filled', token, hoverStyle, activeStyle),
 });
 
 const genTextLinkButtonStyle = (
@@ -232,8 +232,9 @@ const genTextLinkButtonStyle = (
 ) => ({
   [`&${token.componentCls}-${variant}`]: {
     boxShadow: 'none',
+
+    ...genVariantButtonStyle(token, hoverStyle, activeStyle, variant),
   },
-  ...genVariantButtonStyle(variant, token, hoverStyle, activeStyle),
 });
 
 // =============================== Color ==============================
@@ -374,7 +375,7 @@ const genPrimaryButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
     },
     {
       color: token.colorPrimaryTextActive,
-      background: token.colorPrimaryBg,
+      background: token.filledBgActive,
     },
   ),
 
