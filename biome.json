@@ -1,5 +1,6 @@
 {
   "files": {
+    "ignoreUnknown": true,
     "ignore": [
       ".dumi/tmp*",
       ".dumi/scripts/clarity.js",
