@@ -228,7 +228,7 @@
     "antd-style": "^3.6.2",
     "antd-token-previewer": "^2.0.8",
     "axios": "^1.7.2",
-    "chalk": "^4.1.2",
+    "chalk": "^5.0.0",
     "cheerio": "^1.0.0",
     "circular-dependency-plugin": "^5.2.2",
     "cli-progress": "^3.12.0",
