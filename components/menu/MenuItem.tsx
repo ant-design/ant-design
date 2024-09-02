@@ -45,12 +45,14 @@ const MenuItem: GenericComponent = (props) => {
     inlineCollapsed: isInlineCollapsed,
   } = React.useContext<MenuContextProps>(MenuContext);
   const renderItemChildren = (inlineCollapsed: boolean) => {
+    const label = (children as React.ReactNode[])?.[0];
+
     const wrapNode = <span className={`${prefixCls}-title-content`}>{children}</span>;
     // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
     // ref: https://github.com/ant-design/ant-design/pull/23456
     if (!icon || (React.isValidElement(children) && children.type === 'span')) {
-      if (children && inlineCollapsed && firstLevel && typeof children === 'string') {
-        return <div className={`${prefixCls}-inline-collapsed-noicon`}>{children.charAt(0)}</div>;
+      if (children && inlineCollapsed && firstLevel && typeof label === 'string') {
+        return <div className={`${prefixCls}-inline-collapsed-noicon`}>{label.charAt(0)}</div>;
       }
     }
     return wrapNode;
