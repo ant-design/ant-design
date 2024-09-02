@@ -137,7 +137,6 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
           },
         },
       },
-
       [`&-bar${componentCls}-bar-active`]: {
         background: colorTextTertiary,
 
@@ -145,7 +144,6 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
           display: 'block',
         },
       },
-
       '&-bar-disabled': {
         '&:hover': {
           [`> ${componentCls}-bar-bg`]: {
@@ -170,7 +168,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
           [`${componentCls}-bar-area`]: {
             width: splitTriggerArea,
-            height: splitTriggerArea,
+            height: '100%',
           },
 
           [`${componentCls}-bar-resizable`]: {
@@ -197,7 +195,6 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
           cursor: 'default',
         },
       },
-
       '&-vertical': {
         flexDirection: 'column',
 
@@ -212,7 +209,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
           },
 
           [`${componentCls}-bar-area`]: {
-            width: splitTriggerArea,
+            width: '100%',
             height: splitTriggerArea,
           },
 
@@ -247,11 +244,9 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
           transition: 'none',
         },
       },
-
       [`&-resizing${componentCls}-horizontal`]: {
         cursor: 'col-resize',
       },
-
       [`&-resizing${componentCls}-vertical`]: {
         cursor: 'row-resize',
       },

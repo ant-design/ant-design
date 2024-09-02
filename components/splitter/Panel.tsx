@@ -9,7 +9,13 @@ export const InternalPanel = forwardRef<
   React.PropsWithChildren<InternalPanelProps>
 >((props, ref) => {
   const { prefixCls, className, children, size, style = {} } = props;
-  const panelClassName = classNames(`${prefixCls}-panel`, className);
+  const panelClassName = classNames(
+    `${prefixCls}-panel`,
+    {
+      [`${prefixCls}-panel-hidden`]: !size,
+    },
+    className,
+  );
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Splitter.Panel');
