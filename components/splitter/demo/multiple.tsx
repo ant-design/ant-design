@@ -3,6 +3,7 @@ import { Divider, Splitter } from 'antd';
 
 const App: React.FC = () => (
   <Splitter
+    transition
     style={{
       height: 300,
       borderRadius: 4,
@@ -12,7 +13,7 @@ const App: React.FC = () => (
       console.log('[ sizes index ] ===>', sizes, index);
     }}
   >
-    <Splitter.Panel size={20}>
+    <Splitter.Panel size={20} collapsible>
       <Divider>1 size=20</Divider>
     </Splitter.Panel>
 

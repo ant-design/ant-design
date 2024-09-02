@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React, { Children, useEffect, useMemo, useRef, useState } from 'react';
+import React, { Children, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 
 import { ConfigContext } from '../config-provider';
@@ -19,6 +19,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     style,
     layout = 'horizontal',
     children,
+    transition,
     rootClassName,
     onResizeStart,
     onResize,
@@ -74,7 +75,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   });
 
   // 计算初始值
-  useEffect(() => {
+  useLayoutEffect(() => {
     const getInitialBasics = (container: HTMLDivElement) => {
       const { width, height } = container.getBoundingClientRect();
       const containerWidth = width;
@@ -126,6 +127,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
       [`${prefixCls}-vertical`]: layout === 'vertical',
       [`${prefixCls}-resizing`]: resizing,
       [`${prefixCls}-rtl`]: isRTL,
+      [`${prefixCls}-transition`]: transition,
     },
     rootClassName,
     cssVarCls,

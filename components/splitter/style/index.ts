@@ -236,10 +236,16 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         },
       },
 
+      // transition
+      '&-transition': {
+        [`${componentCls}-panel`]: {
+          transition: `flex-basis ${motionDurationFast}`,
+        },
+      },
+
       // moving
       '&-resizing': {
         userSelect: 'none',
-
         [`>${componentCls}-panel`]: {
           transition: 'none',
         },
@@ -257,7 +263,9 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         padding: '0 1px',
         scrollbarWidth: 'thin',
         boxSizing: 'border-box',
-        transition: `flex-basis ${motionDurationFast}`,
+      },
+      '&-panel-hidden': {
+        padding: 0,
       },
 
       ...genRtlStyle(token),

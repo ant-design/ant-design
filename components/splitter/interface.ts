@@ -5,6 +5,7 @@ export interface SplitterProps {
   style?: React.CSSProperties;
   rootClassName?: string;
   layout?: 'horizontal' | 'vertical';
+  transition?: boolean;
   onResizeStart?: (sizes: number[], index: number) => void;
   onResize?: (sizes: number[], index: number) => void;
   onResizeEnd?: (sizes: number[], index: number) => void;

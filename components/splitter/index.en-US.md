@@ -35,6 +35,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | layout | Layout direction | `horizontal` \| `vertical` | `horizontal` | - |
 | style | The additional style | `css-properties` | - | - |
+| transition | Whether animation is enabled when folding | `boolean` | `true` | - |
 | onResizeStart | Callback before dragging starts | `(sizes: number[], index:number) => void` | - | - |
 | onResize | Panel size change callback | `(sizes: number[], index:number) => void` | - | - |
 | onResizeEnd | Drag end callback | `(sizes: number[], index:number) => void` | - | - |

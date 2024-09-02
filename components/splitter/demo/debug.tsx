@@ -16,7 +16,10 @@ const SplitterDemo = ({ items = [{}, {}], ...props }: { items?: PanelProps[] } &
 
 const App: React.FC = () => (
   <>
-    <Splitter style={{ height: 300, borderRadius: 4, boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
+    <Splitter
+      transition
+      style={{ height: 300, borderRadius: 4, boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}
+    >
       <Splitter.Panel collapsible>
         <div style={{ padding: 12 }}>first</div>
       </Splitter.Panel>
