@@ -50,6 +50,9 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     nextIcon = true;
   }
 
+  // 重叠时无法触发操作 增加实际尺寸
+  const overlap = previousSize === 0 || nextSize === 0;
+
   useEffect(() => {
     if (!resizing && active) {
       setActive(false);
@@ -59,6 +62,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   return (
     <div
       className={splitBarClassName}
+      style={overlap ? { flexBasis: '2px' } : undefined}
       onMouseDown={(e) => {
         if (resizable && e.currentTarget) {
           onStart?.(e.clientX, e.clientY, index);
