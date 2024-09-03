@@ -22,19 +22,67 @@ export interface ComponentToken {
   dotOffsetInSquare: number;
 }
 
+/**
+ * @desc FloatButton 组件的 Token
+ * @descEN Token for FloatButton component
+ */
 type FloatButtonToken = FullToken<'FloatButton'> & {
+  /**
+   * @desc FloatButton 颜色
+   * @descEN Color of FloatButton
+   */
   floatButtonColor: string;
+  /**
+   * @desc FloatButton 背景颜色
+   * @descEN Background color of FloatButton
+   */
   floatButtonBackgroundColor: string;
+  /**
+   * @desc FloatButton 悬停背景颜色
+   * @descEN Hover background color of FloatButton
+   */
   floatButtonHoverBackgroundColor: string;
+  /**
+   * @desc FloatButton 字体大小
+   * @descEN Font size of FloatButton
+   */
   floatButtonFontSize: number;
+  /**
+   * @desc FloatButton 尺寸
+   * @descEN Size of FloatButton
+   */
   floatButtonSize: number;
+  /**
+   * @desc FloatButton 图标尺寸
+   * @descEN Icon size of FloatButton
+   */
   floatButtonIconSize: number | string;
+  /**
+   * @desc FloatButton 主体尺寸
+   * @descEN Body size of FloatButton
+   */
   floatButtonBodySize: number | string;
+  /**
+   * @desc FloatButton 主体内间距
+   * @descEN Body padding of FloatButton
+   */
   floatButtonBodyPadding: number;
+  /**
+   * @desc 徽标偏移量
+   * @descEN Offset of badge
+   */
   badgeOffset: number | string;
 
   // Position
+  /**
+   * @desc FloatButton 底部内边距
+   * @descEN Bottom inset of FloatButton
+   */
   floatButtonInsetBlockEnd: number;
+  /**
+   * @desc FloatButton 右侧内边距
+   * @descEN Right inset of FloatButton
+   */
   floatButtonInsetInlineEnd: number;
 };
 
@@ -107,7 +155,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
   return {
     [groupPrefixCls]: {
       ...resetComponent(token),
-      zIndex: 99,
+      zIndex: token.zIndexPopupBase,
       display: 'block',
       border: 'none',
       position: 'fixed',
@@ -144,8 +192,11 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
     },
     [`${groupPrefixCls}-square`]: {
       [`${componentCls}-square`]: {
-        borderRadius: 0,
         padding: 0,
+        borderRadius: 0,
+        [`&${groupPrefixCls}-trigger`]: {
+          borderRadius: borderRadiusLG,
+        },
         '&:first-child': {
           borderStartStartRadius: borderRadiusLG,
           borderStartEndRadius: borderRadiusLG,
@@ -229,7 +280,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       border: 'none',
       position: 'fixed',
       cursor: 'pointer',
-      zIndex: 99,
+      zIndex: token.zIndexPopupBase,
       // Do not remove the 'display: block' here.
       // Deleting it will cause marginBottom to become ineffective.
       // Ref: https://github.com/ant-design/ant-design/issues/44700

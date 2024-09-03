@@ -27,16 +27,24 @@ export interface ComponentToken extends SharedComponentToken {
    * @desc 弹层高度
    * @descEN Height of popup
    */
-  dropdownHeight: number;
+  dropdownHeight: number | string;
   /**
    * @desc 菜单项高度
    * @descEN Height of menu item
    */
-  controlItemWidth: number;
+  controlItemWidth: number | string;
 }
 
+/**
+ * @desc Mentions 组件的 Token
+ * @descEN Token for Mentions component
+ */
 type MentionsToken = FullToken<'Mentions'> &
   SharedInputToken & {
+    /**
+     * @desc 菜单项内边距
+     * @descEN Padding of menu item
+     */
     itemPaddingVertical: string | number;
   };
 

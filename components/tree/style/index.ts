@@ -4,9 +4,8 @@ import { Keyframes, unit } from '@ant-design/cssinjs';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 import { genFocusOutline, resetComponent } from '../../style';
 import { genCollapseMotion } from '../../style/motion';
-import type { AliasToken, DerivativeToken, FullToken, GetDefaultToken } from '../../theme/internal';
+import type { AliasToken, CSSUtil, FullToken, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
-import type { CSSUtil } from '../../theme/util/genComponentStyleHook';
 
 export interface TreeSharedToken {
   /**
@@ -50,7 +49,7 @@ const treeNodeFX = new Keyframes('ant-tree-node-fx-do-not-use', {
 });
 
 // ============================== Switch ==============================
-const getSwitchStyle = (prefixCls: string, token: DerivativeToken): CSSObject => ({
+const getSwitchStyle = (prefixCls: string, token: AliasToken): CSSObject => ({
   [`.${prefixCls}-switcher-icon`]: {
     display: 'inline-block',
     fontSize: 10,
@@ -63,7 +62,7 @@ const getSwitchStyle = (prefixCls: string, token: DerivativeToken): CSSObject =>
 });
 
 // =============================== Drop ===============================
-const getDropIndicatorStyle = (prefixCls: string, token: DerivativeToken) => ({
+const getDropIndicatorStyle = (prefixCls: string, token: AliasToken) => ({
   [`.${prefixCls}-drop-indicator`]: {
     position: 'absolute',
     // it should displayed over the following node
@@ -160,7 +159,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
       },
 
       // ===================== TreeNode =====================
-      [`${treeNodeCls}`]: {
+      [treeNodeCls]: {
         display: 'flex',
         alignItems: 'flex-start',
         padding: `0 0 ${unit(treeNodePadding)} 0`,
@@ -187,7 +186,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         },
 
         [`&:not(${treeNodeCls}-disabled).filter-node ${treeCls}-title`]: {
-          color: 'inherit',
+          color: token.colorPrimary,
           fontWeight: 500,
         },
 
@@ -198,7 +197,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
             // https://github.com/ant-design/ant-design/issues/41915
             flexShrink: 0,
             width: titleHeight,
-            lineHeight: `${unit(titleHeight)}`,
+            lineHeight: unit(titleHeight),
             textAlign: 'center',
             visibility: 'visible',
             opacity: 0.2,
@@ -241,18 +240,32 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         alignSelf: 'stretch',
         width: titleHeight,
         margin: 0,
-        lineHeight: `${unit(titleHeight)}`,
+        lineHeight: unit(titleHeight),
         textAlign: 'center',
         cursor: 'pointer',
         userSelect: 'none',
         transition: `all ${token.motionDurationSlow}`,
-        borderRadius: token.borderRadius,
 
         '&-noop': {
           cursor: 'unset',
         },
 
-        [`&:not(${treeCls}-switcher-noop):hover`]: {
+        '&:before': {
+          pointerEvents: 'none',
+          content: '""',
+          width: titleHeight,
+          height: titleHeight,
+          position: 'absolute',
+          left: {
+            _skip_check_: true,
+            value: 0,
+          },
+          top: 0,
+          borderRadius: token.borderRadius,
+          transition: `all ${token.motionDurationSlow}`,
+        },
+
+        [`&:not(${treeCls}-switcher-noop):hover:before`]: {
           backgroundColor: token.colorBgTextHover,
         },
 
@@ -313,7 +326,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         margin: 0,
         padding: `0 ${unit(token.calc(token.paddingXS).div(2).equal())}`,
         color: 'inherit',
-        lineHeight: `${unit(titleHeight)}`,
+        lineHeight: unit(titleHeight),
         background: 'transparent',
         borderRadius: token.borderRadius,
         cursor: 'pointer',
@@ -332,7 +345,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
           display: 'inline-block',
           width: titleHeight,
           height: titleHeight,
-          lineHeight: `${unit(titleHeight)}`,
+          lineHeight: unit(titleHeight),
           textAlign: 'center',
           verticalAlign: 'top',
 
@@ -349,7 +362,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
 
       // ==================== Draggable =====================
       [`${treeCls}-node-content-wrapper`]: {
-        lineHeight: `${unit(titleHeight)}`,
+        lineHeight: unit(titleHeight),
         userSelect: 'none',
 
         ...getDropIndicatorStyle(prefixCls, token),

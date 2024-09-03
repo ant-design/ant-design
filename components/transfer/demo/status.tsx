@@ -1,11 +1,11 @@
 import React from 'react';
-import { Space, Transfer } from 'antd';
+import { Flex, Transfer } from 'antd';
 
 const App: React.FC = () => (
-  <Space direction="vertical">
+  <Flex gap="middle" vertical>
     <Transfer status="error" />
     <Transfer status="warning" showSearch />
-  </Space>
+  </Flex>
 );
 
 export default App;

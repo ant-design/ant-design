@@ -20,7 +20,7 @@ export interface ComponentToken {
    */
   headerBg: string;
   /**
-   * @desc 折叠面板内容内部编辑
+   * @desc 折叠面板内容内边距
    * @descEN Padding of content
    */
   contentPadding: CSSProperties['padding'];
@@ -32,8 +32,20 @@ export interface ComponentToken {
 }
 
 type CollapseToken = FullToken<'Collapse'> & {
+  /**
+   * @desc 小号折叠面板头部内边距
+   * @descEN Padding of small header
+   */
   collapseHeaderPaddingSM: string;
+  /**
+   * @desc 大号折叠面板头部内边距
+   * @descEN Padding of large header
+   */
   collapseHeaderPaddingLG: string;
+  /**
+   * @desc 折叠面板边框圆角
+   * @descEN Border radius of collapse panel
+   */
   collapsePanelBorderRadius: number;
 };
 
@@ -77,13 +89,13 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
       border: borderBase,
       borderRadius: collapsePanelBorderRadius,
 
-      [`&-rtl`]: {
+      '&-rtl': {
         direction: 'rtl',
       },
 
       [`& > ${componentCls}-item`]: {
         borderBottom: borderBase,
-        [`&:last-child`]: {
+        '&:last-child': {
           [`
             &,
             & > ${componentCls}-header`]: {
@@ -155,12 +167,12 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
           padding: contentPadding,
         },
 
-        [`&-hidden`]: {
+        '&-hidden': {
           display: 'none',
         },
       },
 
-      [`&-small`]: {
+      '&-small': {
         [`> ${componentCls}-item`]: {
           [`> ${componentCls}-header`]: {
             padding: collapseHeaderPaddingSM,
@@ -177,7 +189,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
         },
       },
 
-      [`&-large`]: {
+      '&-large': {
         [`> ${componentCls}-item`]: {
           fontSize: fontSizeLG,
           lineHeight: lineHeightLG,

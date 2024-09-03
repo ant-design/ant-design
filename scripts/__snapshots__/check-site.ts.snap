@@ -40,9 +40,9 @@ exports[`site test Component components/calendar en Page 1`] = `1`;
 
 exports[`site test Component components/calendar zh Page 1`] = `1`;
 
-exports[`site test Component components/card en Page 1`] = `4`;
+exports[`site test Component components/card en Page 1`] = `3`;
 
-exports[`site test Component components/card zh Page 1`] = `4`;
+exports[`site test Component components/card zh Page 1`] = `3`;
 
 exports[`site test Component components/carousel en Page 1`] = `2`;
 
@@ -184,9 +184,9 @@ exports[`site test Component components/result en Page 1`] = `1`;
 
 exports[`site test Component components/result zh Page 1`] = `1`;
 
-exports[`site test Component components/segmented en Page 1`] = `1`;
+exports[`site test Component components/segmented en Page 1`] = `2`;
 
-exports[`site test Component components/segmented zh Page 1`] = `1`;
+exports[`site test Component components/segmented zh Page 1`] = `2`;
 
 exports[`site test Component components/select en Page 1`] = `4`;
 

@@ -60,6 +60,7 @@ export default function genColorMapToken(
 
     colorErrorBg: errorColors[1],
     colorErrorBgHover: errorColors[2],
+    colorErrorBgActive: errorColors[3],
     colorErrorBorder: errorColors[3],
     colorErrorBorderHover: errorColors[4],
     colorErrorHover: errorColors[5],

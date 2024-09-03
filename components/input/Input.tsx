@@ -4,6 +4,7 @@ import type { InputRef, InputProps as RcInputProps } from 'rc-input';
 import RcInput from 'rc-input';
 import { composeRef } from 'rc-util/lib/ref';
 
+import ContextIsolator from '../_util/ContextIsolator';
 import getAllowClear from '../_util/getAllowClear';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
@@ -13,10 +14,10 @@ import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
-import { FormItemInputContext, NoFormStyle } from '../form/context';
-import type { Variant } from '../form/hooks/useVariants';
+import { FormItemInputContext } from '../form/context';
+import type { Variant } from '../config-provider';
 import useVariant from '../form/hooks/useVariants';
-import { NoCompactStyle, useCompactItemContext } from '../space/Compact';
+import { useCompactItemContext } from '../space/Compact';
 import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
 import useStyle from './style';
 import { hasPrefixSuffix } from './utils';
@@ -51,7 +52,6 @@ export function triggerFocus(
         break;
       default:
         element.setSelectionRange(0, len);
-        break;
     }
   }
 }
@@ -174,7 +174,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
 
   const mergedAllowClear = getAllowClear(allowClear ?? input?.allowClear);
 
-  const [variant, enableVariantCls] = useVariant(customVariant, bordered);
+  const [variant, enableVariantCls] = useVariant('input', customVariant, bordered);
 
   return wrapCSSVar(
     <RcInput
@@ -198,22 +198,18 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
         input?.className,
       )}
       onChange={handleChange}
-      addonAfter={
-        addonAfter && (
-          <NoCompactStyle>
-            <NoFormStyle override status>
-              {addonAfter}
-            </NoFormStyle>
-          </NoCompactStyle>
-        )
-      }
       addonBefore={
         addonBefore && (
-          <NoCompactStyle>
-            <NoFormStyle override status>
-              {addonBefore}
-            </NoFormStyle>
-          </NoCompactStyle>
+          <ContextIsolator form space>
+            {addonBefore}
+          </ContextIsolator>
+        )
+      }
+      addonAfter={
+        addonAfter && (
+          <ContextIsolator form space>
+            {addonAfter}
+          </ContextIsolator>
         )
       }
       classNames={{

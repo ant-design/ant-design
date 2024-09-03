@@ -1,14 +1,15 @@
 import type { ReactElement } from 'react';
 import React, { useContext, useMemo } from 'react';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
+import type { GetProp, MenuProps } from 'antd';
 import { createStyles } from 'antd-style';
-import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
 import classNames from 'classnames';
 
 import useMenu from '../../hooks/useMenu';
 import SiteContext from '../slots/SiteContext';
 import type { SiteContextProps } from '../slots/SiteContext';
+
+type MenuItemType = Extract<GetProp<MenuProps, 'items'>[number], { type?: 'item' }>;
 
 const useStyle = createStyles(({ token, css }) => {
   const { colorSplit, iconCls, fontSizeIcon } = token;

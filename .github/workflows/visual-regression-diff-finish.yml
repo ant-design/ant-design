@@ -59,15 +59,16 @@ jobs:
       actions: read # for dawidd6/action-download-artifact to query and download artifacts
       issues: write  # for actions-cool/maintain-one-comment to modify or create issue comments
       pull-requests: write  # for actions-cool/maintain-one-comment to modify or create PR comments
+      statuses: write
     runs-on: ubuntu-latest
     needs: [upstream-workflow-summary]
     steps:
-      - name: checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
 
       # We need get persist-index first
       - name: download image snapshot artifact
-        uses: dawidd6/action-download-artifact@v3
+        uses: dawidd6/action-download-artifact@v6
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
@@ -77,13 +78,19 @@ jobs:
       # Save PR id to output
       - name: save PR id
         id: pr
-        run: echo "id=$(<tmp/visual-regression-pr-id.txt)" >> $GITHUB_OUTPUT
+        run: |
+          pr_id=$(<tmp/visual-regression-pr-id.txt)
+          if ! [[ "$pr_id" =~ ^[0-9]+$ ]]; then
+            echo "Error: pr-id.txt does not contain a valid numeric PR id. Please check."
+            exit 1
+          fi
+          echo "id=$pr_id" >> $GITHUB_OUTPUT
 
       # Download report artifact
       - name: download report artifact
         id: download_report
         if: ${{ needs.upstream-workflow-summary.outputs.build-status == 'success' || needs.upstream-workflow-summary.outputs.build-status == 'failure' }}
-        uses: dawidd6/action-download-artifact@v3
+        uses: dawidd6/action-download-artifact@v6
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
@@ -103,7 +110,7 @@ jobs:
           echo "✅ Uncompress Finished"
 
           rm package.json
-          npm i ali-oss --no-save
+          bun add ali-oss --no-save
           echo "✅ Install `ali-oss` Finished"
 
           echo "🤖 Uploading"
@@ -135,8 +142,41 @@ jobs:
             ## Visual Regression Build for PR #${{ steps.pr.outputs.id }} Failed ❌
             Potential causes:
               - `upstream workflow` status: ${{ needs.upstream-workflow-summary.outputs.build-status }} [upstream job link](${{ needs.upstream-workflow-summary.outputs.upstream-job-link }})
-              - `download report artifact` status: ${{ steps.download_report.outcome }}
-              - `report upload` status: ${{ steps.report.outcome }}
+              - `current workflow` summary:
+                - `download report artifact` status: ${{ steps.download_report.outcome }}
+                - `report upload` status: ${{ steps.report.outcome }}
+                - workflow url: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             <!-- VISUAL_DIFF_REGRESSION_HOOK -->
           body-include: '<!-- VISUAL_DIFF_REGRESSION_HOOK -->'
           number: ${{ steps.pr.outputs.id }}
+
+      # Resync commit status. This will be also reset by `visual-regression-diff-approver`
+      - name: Reset Commit Status
+        uses: actions/github-script@v7
+        if: ${{ steps.report.outcome == 'success' }}
+        env:
+          PR_ID: ${{ steps.pr.outputs.id }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const prResponse = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: process.env.PR_ID,
+            });
+            const prHeadSha = prResponse.data.head.sha;
+
+            const fullContent = `${{ toJSON(steps.report.outputs.content) }}`;
+            const hasVisualDiffSuccess = fullContent.includes('VISUAL_DIFF_SUCCESS');
+            const hasVisualDiffFailed = fullContent.includes('VISUAL_DIFF_FAILED');
+
+            const mergedStatus = hasVisualDiffSuccess ? 'success' : hasVisualDiffFailed ? 'failure' : 'pending';
+
+            await github.rest.repos.createCommitStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              sha: prHeadSha,
+              state: mergedStatus,
+              context: 'Visual Regression Diff Wait Approve',
+              description: hasVisualDiffSuccess ? 'Visual diff check pass' : 'Visual diff check failed',
+            });

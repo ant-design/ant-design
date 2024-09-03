@@ -19,7 +19,7 @@ const inlineStyle: React.CSSProperties = {
   background: 'transparent',
   padding: 0,
   lineHeight: 'inherit',
-  display: 'inline-block',
+  display: 'inline-flex',
 };
 
 const TransButton = React.forwardRef<HTMLDivElement, TransButtonProps>((props, ref) => {

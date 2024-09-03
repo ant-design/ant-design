@@ -1,7 +1,7 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
 
-import type { AliasToken } from '../theme/internal';
-import type { TokenWithCommonCls } from '../theme/util/genComponentStyleHook';
+import type { AliasToken, TokenWithCommonCls } from '../theme/internal';
 import type { ArrowToken } from './roundedArrow';
 import { genRoundedArrow } from './roundedArrow';
 
@@ -96,17 +96,25 @@ export default function getArrowStyle<
           transform: 'translateX(-50%) translateY(100%) rotate(180deg)',
         },
 
-        [`&-placement-topLeft > ${componentCls}-arrow`]: {
-          left: {
-            _skip_check_: true,
-            value: arrowOffsetHorizontal,
+        '&-placement-topLeft': {
+          '--arrow-offset-horizontal': arrowOffsetHorizontal,
+
+          [`> ${componentCls}-arrow`]: {
+            left: {
+              _skip_check_: true,
+              value: arrowOffsetHorizontal,
+            },
           },
         },
 
-        [`&-placement-topRight > ${componentCls}-arrow`]: {
-          right: {
-            _skip_check_: true,
-            value: arrowOffsetHorizontal,
+        '&-placement-topRight': {
+          '--arrow-offset-horizontal': `calc(100% - ${unit(arrowOffsetHorizontal)})`,
+
+          [`> ${componentCls}-arrow`]: {
+            right: {
+              _skip_check_: true,
+              value: arrowOffsetHorizontal,
+            },
           },
         },
       }),
@@ -130,17 +138,25 @@ export default function getArrowStyle<
           transform: `translateX(-50%) translateY(-100%)`,
         },
 
-        [`&-placement-bottomLeft > ${componentCls}-arrow`]: {
-          left: {
-            _skip_check_: true,
-            value: arrowOffsetHorizontal,
+        '&-placement-bottomLeft': {
+          '--arrow-offset-horizontal': arrowOffsetHorizontal,
+
+          [`> ${componentCls}-arrow`]: {
+            left: {
+              _skip_check_: true,
+              value: arrowOffsetHorizontal,
+            },
           },
         },
 
-        [`&-placement-bottomRight > ${componentCls}-arrow`]: {
-          right: {
-            _skip_check_: true,
-            value: arrowOffsetHorizontal,
+        '&-placement-bottomRight': {
+          '--arrow-offset-horizontal': `calc(100% - ${unit(arrowOffsetHorizontal)})`,
+
+          [`> ${componentCls}-arrow`]: {
+            right: {
+              _skip_check_: true,
+              value: arrowOffsetHorizontal,
+            },
           },
         },
       }),

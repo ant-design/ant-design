@@ -29,8 +29,8 @@ function expectMatchChecked(container: HTMLElement, checkedList: boolean[]) {
 }
 
 describe('Segmented', () => {
-  mountTest(Segmented as any);
-  rtlTest(Segmented as any);
+  mountTest(() => <Segmented options={[]} />);
+  rtlTest(() => <Segmented options={[]} />);
 
   beforeAll(() => {
     jest.useFakeTimers();

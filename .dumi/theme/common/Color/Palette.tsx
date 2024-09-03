@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { presetDarkPalettes } from '@ant-design/colors';
-import { message } from 'antd';
+import { App } from 'antd';
 import CopyToClipboard from 'react-copy-to-clipboard';
 
 const rgbToHex = (rgbString: string): string => {
@@ -36,9 +36,10 @@ const Palette: React.FC<PaletteProps> = (props) => {
   } = props;
   const [hexColors, setHexColors] = React.useState<Record<PropertyKey, string>>({});
   const colorNodesRef = React.useRef<Record<PropertyKey, HTMLDivElement>>({});
+  const { message } = App.useApp();
 
   useEffect(() => {
-    const colors = {};
+    const colors: Record<string, string> = {};
     Object.keys(colorNodesRef.current || {}).forEach((key) => {
       const computedColor = getComputedStyle(colorNodesRef.current[key])['background-color'];
       if (computedColor.includes('rgba')) {
@@ -70,7 +71,9 @@ const Palette: React.FC<PaletteProps> = (props) => {
         <div
           key={i}
           ref={(node) => {
-            colorNodesRef.current[`${name}-${i}`] = node;
+            if (node) {
+              colorNodesRef.current[`${name}-${i}`] = node;
+            }
           }}
           className={`main-color-item palette-${name}-${i}`}
           style={{

@@ -216,7 +216,7 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
         motionAppear={false}
         motionDeadline={1000}
       >
-        {({ className: motionClassName, ref: scrollNumberRef }) => {
+        {({ className: motionClassName }) => {
           const scrollNumberPrefixCls = getPrefixCls(
             'scroll-number',
             customizeScrollNumberPrefixCls,
@@ -255,7 +255,6 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
               title={titleNode}
               style={scrollNumberStyle}
               key="scrollNumber"
-              ref={scrollNumberRef}
             >
               {displayNode}
             </ScrollNumber>

@@ -33,8 +33,8 @@ title: Third-Party Libraries
 | Map | [google-map-react](https://github.com/istarkov/google-map-react) [@uiw/react-amap](https://github.com/uiwjs/react-amap) |
 | Video | [react-player](https://github.com/CookPete/react-player) [video-react](https://github.com/video-react/video-react) [video.js](http://docs.videojs.com/tutorial-react.html) |
 | Context Menu | [react-contexify](https://github.com/fkhadra/react-contexify) |
-| Emoji | [emoji-mart](https://github.com/missive/emoji-mart) [react-resizable-panels](https://github.com/bvaughn/react-resizable-panels) |
-| Split View | [react-split-pane](https://github.com/tomkp/react-split-pane) |
+| Emoji | [emoji-mart](https://github.com/missive/emoji-mart) |
+| Split View | [react-split-pane](https://github.com/tomkp/react-split-pane) [react-resizable-panels](https://github.com/bvaughn/react-resizable-panels) |
 | Image Crop | [antd-img-crop](https://github.com/nanxiaobei/antd-img-crop) [react-image-crop](https://github.com/DominicTobias/react-image-crop) |
 | Keywords highlight | [react-highlight-words](https://github.com/bvaughn/react-highlight-words) |
 | Text Loop | [react-text-loop-next](https://github.com/samarmohan/react-text-loop-next) [react-fast-marquee](https://github.com/justin-chu/react-fast-marquee) |
@@ -45,6 +45,7 @@ title: Third-Party Libraries
 | Flow-based UI | [pro-flow](https://github.com/ant-design/pro-flow) [react-flow](https://github.com/wbkd/react-flow) [x6](https://github.com/antvis/x6) |
 | Phone Input | [react-phone-number-input](https://gitlab.com/catamphetamine/react-phone-number-input) [antd-phone-input](https://github.com/ArtyomVancyan/antd-phone-input/) |
 | AI Chat | [pro-chat](https://github.com/ant-design/pro-chat) |
+| PDF | [react-pdf](https://github.com/diegomura/react-pdf) [@react-pdf/renderer](https://github.com/diegomura/react-pdf) |
 
 ## Products we are using ✨
 
@@ -64,7 +65,7 @@ There are some products to recommend for developer/designer/product manager.
   font-weight: 500;
 }
 .markdown table td > a:not(:last-child) {
-  margin-right: 18px;
+  margin-inline-end: 18px;
 }
 .markdown table td > a:not(:last-child)::after {
   position: absolute;

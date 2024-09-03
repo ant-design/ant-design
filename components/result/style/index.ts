@@ -29,8 +29,8 @@ export interface ComponentToken {
 }
 
 interface ResultToken extends FullToken<'Result'> {
-  imageWidth: number;
-  imageHeight: number;
+  imageWidth: number | string;
+  imageHeight: number | string;
   resultInfoIconColor: string;
   resultSuccessIconColor: string;
   resultWarningIconColor: string;

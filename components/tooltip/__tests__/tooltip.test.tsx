@@ -200,9 +200,7 @@ describe('Tooltip', () => {
         </Button>
       </Tooltip>,
     );
-    expect(getComputedStyle(containerInline.querySelector('button')!)?.display).toBe(
-      'inline-block',
-    );
+    expect(getComputedStyle(containerInline.querySelector('button')!)?.display).toBe('inline-flex');
     expect(getComputedStyle(containerBlock.querySelector('button')!)?.display).toBe('block');
   });
 
@@ -563,7 +561,7 @@ describe('Tooltip', () => {
   });
 
   it('not inject className when children className is not string type', () => {
-    const HOC = ({ className }: { className: Function }) => <span className={className()} />;
+    const HOC = ({ className }: { className: () => string }) => <span className={className()} />;
     const { container } = render(
       <Tooltip open>
         <HOC className={() => 'bamboo'} />

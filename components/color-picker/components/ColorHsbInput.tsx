@@ -2,19 +2,19 @@ import type { FC } from 'react';
 import React, { useEffect, useState } from 'react';
 import type { HSB } from '@rc-component/color-picker';
 
-import type { Color } from '../color';
-import type { ColorPickerBaseProps } from '../interface';
+import type { AggregationColor } from '../color';
 import { generateColor, getRoundNumber } from '../util';
 import ColorSteppers from './ColorSteppers';
 
-interface ColorHsbInputProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
-  value?: Color;
-  onChange?: (value: Color) => void;
+interface ColorHsbInputProps {
+  prefixCls: string;
+  value?: AggregationColor;
+  onChange?: (value: AggregationColor) => void;
 }
 
 const ColorHsbInput: FC<ColorHsbInputProps> = ({ prefixCls, value, onChange }) => {
   const colorHsbInputPrefixCls = `${prefixCls}-hsb-input`;
-  const [hsbValue, setHsbValue] = useState<Color>(generateColor(value || '#000'));
+  const [hsbValue, setHsbValue] = useState<AggregationColor>(generateColor(value || '#000'));
 
   // Update step value
   useEffect(() => {

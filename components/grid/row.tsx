@@ -8,7 +8,9 @@ import RowContext from './RowContext';
 import type { RowContextState } from './RowContext';
 import { useRowStyle } from './style';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const RowAligns = ['top', 'middle', 'bottom', 'stretch'] as const;
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const RowJustify = [
   'start',
   'end',

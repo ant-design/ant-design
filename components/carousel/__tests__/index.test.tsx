@@ -178,4 +178,18 @@ describe('Carousel', () => {
     await waitFakeTimer();
     expect(ref.current?.innerSlider.state.currentSlide).toBe(1);
   });
+
+  it('no dom recognize warning', async () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(
+      <Carousel arrows>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+      </Carousel>,
+    );
+    await waitFakeTimer();
+    expect(errSpy).not.toHaveBeenCalled();
+    errSpy.mockRestore();
+  });
 });

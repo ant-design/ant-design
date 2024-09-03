@@ -1,12 +1,13 @@
 import React from 'react';
 import { Flex, Input, Typography } from 'antd';
-import type { GetProp } from 'antd';
-import type { OTPProps } from 'antd/es/input/OTP';
+import type { GetProps } from 'antd';
+
+type OTPProps = GetProps<typeof Input.OTP>;
 
 const { Title } = Typography;
 
 const App: React.FC = () => {
-  const onChange: GetProp<typeof Input.OTP, 'onChange'> = (text) => {
+  const onChange: OTPProps['onChange'] = (text) => {
     console.log('onChange:', text);
   };
 

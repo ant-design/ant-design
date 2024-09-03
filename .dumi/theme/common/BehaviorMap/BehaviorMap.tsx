@@ -227,14 +227,14 @@ const useStyle = createStyles(({ token }) => ({
   title: css`
     position: absolute;
     top: 20px;
-    left: 20px;
+    inset-inline-start: 20px;
     font-size: ${token.fontSizeLG}px;
   `,
   tips: css`
     display: flex;
     position: absolute;
     bottom: 20px;
-    right: 20px;
+    inset-inline-end: 20px;
   `,
   mvp: css`
     margin-inline-end: ${token.marginMD}px;

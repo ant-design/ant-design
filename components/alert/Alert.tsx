@@ -8,6 +8,7 @@ import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import pickAttrs from 'rc-util/lib/pickAttrs';
+import { composeRef } from 'rc-util/lib/ref';
 
 import type { ClosableType } from '../_util/hooks/useClosable';
 import { replaceElement } from '../_util/reactNode';
@@ -234,10 +235,10 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
       onLeaveStart={(node) => ({ maxHeight: node.offsetHeight })}
       onLeaveEnd={afterClose}
     >
-      {({ className: motionClassName, style: motionStyle }) => (
+      {({ className: motionClassName, style: motionStyle }, setRef) => (
         <div
           id={id}
-          ref={internalRef}
+          ref={composeRef(internalRef, setRef)}
           data-show={!closed}
           className={classNames(alertCls, motionClassName)}
           style={{ ...alert?.style, ...style, ...motionStyle }}

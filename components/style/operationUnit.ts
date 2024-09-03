@@ -1,9 +1,9 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import type { DerivativeToken } from '../theme/internal';
+import type { AliasToken } from '../theme/internal';
 
 // eslint-disable-next-line import/prefer-default-export
-export const operationUnit = (token: DerivativeToken): CSSObject => ({
+export const operationUnit = (token: AliasToken): CSSObject => ({
   // FIXME: This use link but is a operation unit. Seems should be a colorPrimary.
   // And Typography use this to generate link style which should not do this.
   color: token.colorLink,

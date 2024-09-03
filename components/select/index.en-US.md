@@ -40,9 +40,10 @@ return (
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic Usage</code>
 <code src="./demo/search.tsx">Select with search field</code>
+<code src="./demo/search-filter-option.tsx">Custom Search</code>
 <code src="./demo/multiple.tsx">multiple selection</code>
 <code src="./demo/size.tsx">Sizes</code>
-<code src="./demo/option-render.tsx">Custom selection render</code>
+<code src="./demo/option-render.tsx">Custom dropdown options</code>
 <code src="./demo/search-sort.tsx">Search with sort</code>
 <code src="./demo/tags.tsx">Tags</code>
 <code src="./demo/optgroup.tsx">Option Group</code>
@@ -57,7 +58,7 @@ return (
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/filled-debug.tsx" debug>Filled debug</code>
 <code src="./demo/custom-tag-render.tsx">Custom Tag Render</code>
-<code src="./demo/custom-label-render.tsx">Custom selectd Label render</code>
+<code src="./demo/custom-label-render.tsx">Custom Selected Label Render</code>
 <code src="./demo/responsive.tsx">Responsive maxTagCount</code>
 <code src="./demo/big-data.tsx">Big Data</code>
 <code src="./demo/status.tsx">Status</code>
@@ -91,7 +92,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | dropdownStyle | The style of dropdown menu | CSSProperties | - |  |
 | fieldNames | Customize node label, value, options，groupLabel field name | object | { label: `label`, value: `value`, options: `options`, groupLabel: `label` } | 4.17.0 (`groupLabel` added in 5.6.0) |
 | filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns `true`, the option will be included in the filtered set; Otherwise, it will be excluded | boolean \| function(inputValue, option) | true |  |
-| filterSort | Sort function for search options sorting, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction | (optionA: Option, optionB: Option) => number | - | 4.9.0 |
+| filterSort | Sort function for search options sorting, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction | (optionA: Option, optionB: Option, info: { searchValue: string }) => number | - | `searchValue`: 5.19.0 |
 | getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative. [Example](https://codesandbox.io/s/4j168r7jw0) | function(triggerNode) | () => document.body |  |
 | labelInValue | Whether to embed label in value, turn the format of value from `string` to { value: string, label: ReactNode } | boolean | false |  |
 | listHeight | Config popup height | number | 256 |  |
@@ -126,12 +127,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | onChange | Called when select an option or input value change | function(value, option:Option \| Array&lt;Option>) | - |  |
 | onClear | Called when clear | function | - | 4.6.0 |
 | onDeselect | Called when an option is deselected, param is the selected option's value. Only called for `multiple` or `tags`, effective in multiple or tags mode only | function(value: string \| number \| LabeledValue) | - |  |
-| onDropdownVisibleChange | Called when dropdown open | function(open) | - |  |
-| onFocus | Called when focus | function | - |  |
-| onInputKeyDown | Called when key pressed | function | - |  |
-| onMouseEnter | Called when mouse enter | function | - |  |
-| onMouseLeave | Called when mouse leave | function | - |  |
-| onPopupScroll | Called when dropdown scrolls | function | - |  |
+| onDropdownVisibleChange | Called when dropdown open | (open: boolean) => void | - |  |
+| onFocus | Called when focus | (event: FocusEvent) => void | - |  |
+| onInputKeyDown | Called when key pressed | (event: KeyboardEvent) => void | - |  |
+| onPopupScroll | Called when dropdown scrolls | (event: UIEvent) => void | - |  |
 | onSearch | Callback function that is fired when input changed | function(value: string) | - |  |
 | onSelect | Called when an option is selected, the params are option's value (or key) and option instance | function(value: string \| number \| LabeledValue, option: Option) | - |  |
 

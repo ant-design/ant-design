@@ -15,13 +15,13 @@ import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import type { Variant } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
-import type { Variant } from '../form/hooks/useVariants';
 import useVariant from '../form/hooks/useVariants';
 import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements';
 import useSelectStyle from '../select/style';
@@ -89,7 +89,10 @@ const InternalTreeSelect = <
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = BaseOptionType,
 >(
-  {
+  props: TreeSelectProps<ValueType, OptionType>,
+  ref: React.Ref<BaseSelectRef>,
+) => {
+  const {
     prefixCls: customizePrefixCls,
     size: customizeSize,
     disabled: customDisabled,
@@ -119,10 +122,8 @@ const InternalTreeSelect = <
     variant: customVariant,
     dropdownStyle,
     tagRender,
-    ...props
-  }: TreeSelectProps<ValueType, OptionType>,
-  ref: React.Ref<BaseSelectRef>,
-) => {
+    ...restProps
+  } = props;
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
@@ -170,7 +171,7 @@ const InternalTreeSelect = <
   const [wrapCSSVar, hashId, cssVarCls] = useSelectStyle(prefixCls, rootCls);
   const [treeSelectWrapCSSVar] = useStyle(treeSelectPrefixCls, treePrefixCls, treeSelectRootCls);
 
-  const [variant, enableVariantCls] = useVariant(customVariant, bordered);
+  const [variant, enableVariantCls] = useVariant('treeSelect', customVariant, bordered);
 
   const mergedDropdownClassName = classNames(
     popupClassName || dropdownClassName,
@@ -203,7 +204,7 @@ const InternalTreeSelect = <
 
   // ===================== Icons =====================
   const { suffixIcon, removeIcon, clearIcon } = useIcons({
-    ...props,
+    ...restProps,
     multiple: isMultiple,
     showSuffixIcon,
     hasFeedback,
@@ -223,7 +224,7 @@ const InternalTreeSelect = <
   }
 
   // ==================== Render =====================
-  const selectProps = omit(props, [
+  const selectProps = omit(restProps, [
     'suffixIcon',
     'removeIcon',
     'clearIcon',
@@ -267,7 +268,7 @@ const InternalTreeSelect = <
   const renderSwitcherIcon = (nodeProps: AntTreeNodeProps) => (
     <SwitcherIconCom
       prefixCls={treePrefixCls}
-      switcherIcon={switcherIcon as any}
+      switcherIcon={switcherIcon as SwitcherIcon}
       treeNodeProps={nodeProps}
       showLine={treeLine}
     />
@@ -297,8 +298,8 @@ const InternalTreeSelect = <
       placement={memoizedPlacement}
       removeIcon={removeIcon}
       allowClear={mergedAllowClear}
-      switcherIcon={renderSwitcherIcon as any}
-      showTreeIcon={treeIcon as any}
+      switcherIcon={renderSwitcherIcon as RcTreeSelectProps['switcherIcon']}
+      showTreeIcon={treeIcon as boolean}
       notFoundContent={mergedNotFound}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       treeMotion={null}

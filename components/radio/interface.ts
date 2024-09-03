@@ -2,7 +2,6 @@ import type * as React from 'react';
 
 import type { AbstractCheckboxProps } from '../checkbox/Checkbox';
 import type { AbstractCheckboxGroupProps } from '../checkbox/Group';
-import type { DisabledType } from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 
 export type { CheckboxRef as RadioRef } from 'rc-checkbox';
@@ -14,7 +13,7 @@ export interface RadioGroupProps extends AbstractCheckboxGroupProps {
   value?: any;
   onChange?: (e: RadioChangeEvent) => void;
   size?: SizeType;
-  disabled?: DisabledType;
+  disabled?: boolean;
   onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
   name?: string;

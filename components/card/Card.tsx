@@ -140,7 +140,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   const moduleClass = (moduleName: CardClassNamesModule) =>
     classNames(card?.classNames?.[moduleName], customClassNames?.[moduleName]);
 
-  const moduleStyle = (moduleName: CardStylesModule) => ({
+  const moduleStyle = (moduleName: CardStylesModule): React.CSSProperties => ({
     ...card?.styles?.[moduleName],
     ...customStyles?.[moduleName],
   });
@@ -148,7 +148,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   const isContainGrid = React.useMemo<boolean>(() => {
     let containGrid = false;
     React.Children.forEach(children as React.ReactElement, (element: JSX.Element) => {
-      if (element && element.type && element.type === Grid) {
+      if (element?.type === Grid) {
         containGrid = true;
       }
     });
@@ -229,14 +229,13 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   );
 
   const actionClasses = classNames(`${prefixCls}-actions`, moduleClass('actions'));
-  const actionDom =
-    actions && actions.length ? (
-      <ActionNode
-        actionClasses={actionClasses}
-        actionStyle={moduleStyle('actions')}
-        actions={actions}
-      />
-    ) : null;
+  const actionDom = actions?.length ? (
+    <ActionNode
+      actionClasses={actionClasses}
+      actionStyle={moduleStyle('actions')}
+      actions={actions}
+    />
+  ) : null;
 
   const divProps = omit(others, ['onTabChange']);
 
@@ -248,7 +247,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
       [`${prefixCls}-bordered`]: bordered,
       [`${prefixCls}-hoverable`]: hoverable,
       [`${prefixCls}-contain-grid`]: isContainGrid,
-      [`${prefixCls}-contain-tabs`]: tabList && tabList.length,
+      [`${prefixCls}-contain-tabs`]: tabList?.length,
       [`${prefixCls}-${mergedSize}`]: mergedSize,
       [`${prefixCls}-type-${type}`]: !!type,
       [`${prefixCls}-rtl`]: direction === 'rtl',

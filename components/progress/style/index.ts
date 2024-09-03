@@ -41,9 +41,25 @@ export interface ComponentToken {
 export const LineStrokeColorVar = '--progress-line-stroke-color';
 export const Percent = '--progress-percent';
 
+/**
+ * @desc Progress 组件的 Token
+ * @descEN Token for Progress component
+ */
 interface ProgressToken extends FullToken<'Progress'> {
+  /**
+   * @desc 进度步骤最小宽度
+   * @descEN Minimum width of progress step
+   */
   progressStepMinWidth: number | string;
+  /**
+   * @desc 进度步骤右间距
+   * @descEN Right margin of progress step
+   */
   progressStepMarginInlineEnd: number | string;
+  /**
+   * @desc 进度条动画持续时间
+   * @descEN Duration of progress bar animation
+   */
   progressActiveMotionDuration: string;
 }
 
@@ -85,21 +101,16 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
       },
 
       [`${progressCls}-outer`]: {
-        display: 'inline-block',
+        display: 'inline-flex',
+        alignItems: 'center',
         width: '100%',
-      },
-
-      [`&${progressCls}-show-info`]: {
-        [`${progressCls}-outer`]: {
-          marginInlineEnd: `calc(-2em - ${unit(token.marginXS)})`,
-          paddingInlineEnd: `calc(2em + ${unit(token.paddingXS)})`,
-        },
       },
 
       [`${progressCls}-inner`]: {
         position: 'relative',
         display: 'inline-block',
         width: '100%',
+        flex: 1,
         overflow: 'hidden',
         verticalAlign: 'middle',
         backgroundColor: token.remainingColor,
@@ -119,9 +130,20 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
         transition: `all ${token.motionDurationSlow} ${token.motionEaseInOutCirc}`,
       },
 
+      [`${progressCls}-layout-bottom`]: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        [`${progressCls}-text`]: {
+          width: 'max-content',
+          marginInlineStart: 0,
+          marginTop: token.marginXXS,
+        },
+      },
+
       [`${progressCls}-bg`]: {
         overflow: 'hidden',
-
         '&::after': {
           content: '""',
           background: {
@@ -131,6 +153,18 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
           height: '100%',
           width: `calc(1 / var(${Percent}) * 100%)`,
           display: 'block',
+        },
+        [`&${progressCls}-bg-inner`]: {
+          minWidth: 'max-content',
+          '&::after': {
+            content: 'none',
+          },
+          [`${progressCls}-text-inner`]: {
+            color: token.colorWhite,
+            [`&${progressCls}-text-bright`]: {
+              color: 'rgba(0, 0, 0, 0.45)',
+            },
+          },
         },
       },
 
@@ -143,16 +177,40 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
 
       [`${progressCls}-text`]: {
         display: 'inline-block',
-        width: '2em',
         marginInlineStart: token.marginXS,
         color: token.colorText,
         lineHeight: 1,
+        width: '2em',
         whiteSpace: 'nowrap',
         textAlign: 'start',
         verticalAlign: 'middle',
         wordBreak: 'normal',
         [iconPrefixCls]: {
           fontSize: token.fontSize,
+        },
+        [`&${progressCls}-text-outer`]: {
+          width: 'max-content',
+        },
+        [`&${progressCls}-text-outer${progressCls}-text-start`]: {
+          width: 'max-content',
+          marginInlineStart: 0,
+          marginInlineEnd: token.marginXS,
+        },
+      },
+
+      [`${progressCls}-text-inner`]: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+        height: '100%',
+        marginInlineStart: 0,
+        padding: `0 ${unit(token.paddingXXS)}`,
+        [`&${progressCls}-text-start`]: {
+          justifyContent: 'start',
+        },
+        [`&${progressCls}-text-end`]: {
+          justifyContent: 'end',
         },
       },
 

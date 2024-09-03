@@ -163,6 +163,9 @@ exports[`Table rtl render component should be rendered correctly in RTL directio
                           width="64"
                           xmlns="http://www.w3.org/2000/svg"
                         >
+                          <title>
+                            Simple Empty
+                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -591,6 +594,9 @@ exports[`Table should render title 1`] = `
                             width="64"
                             xmlns="http://www.w3.org/2000/svg"
                           >
+                            <title>
+                              Simple Empty
+                            </title>
                             <g
                               fill="none"
                               fill-rule="evenodd"
@@ -693,6 +699,9 @@ exports[`Table support wireframe 1`] = `
                           width="64"
                           xmlns="http://www.w3.org/2000/svg"
                         >
+                          <title>
+                            Simple Empty
+                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"

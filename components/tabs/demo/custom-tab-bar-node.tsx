@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { DragEndEvent } from '@dnd-kit/core';
-import { DndContext, PointerSensor, useSensor } from '@dnd-kit/core';
+import { DndContext, PointerSensor, closestCenter, useSensor } from '@dnd-kit/core';
 import {
   arrayMove,
   horizontalListSortingStrategy,
@@ -69,7 +69,7 @@ const App: React.FC = () => {
     <Tabs
       items={items}
       renderTabBar={(tabBarProps, DefaultTabBar) => (
-        <DndContext sensors={[sensor]} onDragEnd={onDragEnd}>
+        <DndContext sensors={[sensor]} onDragEnd={onDragEnd} collisionDetection={closestCenter}>
           <SortableContext items={items.map((i) => i.key)} strategy={horizontalListSortingStrategy}>
             <DefaultTabBar {...tabBarProps}>
               {(node) => (

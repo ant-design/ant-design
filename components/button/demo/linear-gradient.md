@@ -4,4 +4,4 @@
 
 ## en-US
 
-Buttons with gradient background.
+Buttons with a gradient background.

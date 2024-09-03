@@ -10,7 +10,7 @@ import Form from '..';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, fireEvent, pureRender, render, screen, waitFakeTimer } from '../../../tests/utils';
+import { fireEvent, pureRender, render, screen, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import Cascader from '../../cascader';
 import Checkbox from '../../checkbox';
@@ -558,6 +558,26 @@ describe('Form', () => {
 
       expect(scrollIntoView).toHaveBeenCalled();
       expect((scrollIntoView as any).mock.calls[0][0]).toBe(uploadRef.current.nativeElement);
+    });
+
+    // https://github.com/ant-design/ant-design/issues/48981
+    it('should not throw error when use InputNumber', async () => {
+      const inputNumberRef = React.createRef<any>();
+
+      const { getByText } = render(
+        <Form scrollToFirstError>
+          <Form.Item name="demo-form_input-number" rules={[{ required: true }]}>
+            <InputNumber ref={inputNumberRef} />
+          </Form.Item>
+          <Form.Item>
+            <Button htmlType="submit">Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
+      fireEvent.click(getByText('Submit'));
+      await waitFakeTimer();
+      expect(scrollIntoView).toHaveBeenCalled();
+      expect((scrollIntoView as any).mock.calls[0][0]).toBe(inputNumberRef.current?.nativeElement);
     });
   });
 
@@ -1300,6 +1320,24 @@ describe('Form', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
+  it('form.item should support layout', () => {
+    const App: React.FC = () => (
+      <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }} layout="horizontal">
+        <Form.Item label="name" name="name">
+          <Input />
+        </Form.Item>
+        <Form.Item label="horizontal" name="horizontal" layout="horizontal">
+          <Input />
+        </Form.Item>
+        <Form.Item label="vertical" name="vertical" layout="vertical">
+          <Input />
+        </Form.Item>
+      </Form>
+    );
+    const { container } = render(<App />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
   it('_internalItemRender api test', () => {
     const { container } = render(
       <Form>
@@ -1512,8 +1550,8 @@ describe('Form', () => {
   });
 
   it('useFormInstance', () => {
-    let formInstance;
-    let subFormInstance;
+    let formInstance: any;
+    let subFormInstance: any;
 
     const Sub = () => {
       const formSub = Form.useFormInstance();
@@ -2224,9 +2262,8 @@ describe('Form', () => {
 
     expect(container.querySelector('.ant-input-number-suffix')).toBeTruthy();
 
-    act(() => {
-      fireEvent.focus(input);
-    });
+    fireEvent.focus(input);
+
     expect(container.querySelector('.ant-input-number-focused')).toBeTruthy();
 
     fireEvent.change(input, {

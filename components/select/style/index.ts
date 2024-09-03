@@ -11,7 +11,7 @@ import type { ComponentToken, SelectToken } from './token';
 import { prepareComponentToken } from './token';
 import genVariantsStyle from './variants';
 
-export { ComponentToken };
+export type { ComponentToken };
 
 // ============================= Selector =============================
 const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
@@ -177,16 +177,9 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         },
       },
 
-      '&:hover': {
-        [`${componentCls}-clear`]: {
-          opacity: 1,
-        },
-        // Should use the following selector, but since `:has` has poor compatibility,
-        // we use `:not(:last-child)` instead, which may cause some problems in some cases.
-        // [`${componentCls}-arrow:has(+ ${componentCls}-clear)`]: {
-        [`${componentCls}-arrow:not(:last-child)`]: {
-          opacity: 0,
-        },
+      [`&:hover ${componentCls}-clear`]: {
+        opacity: 1,
+        background: token.colorBgBase,
       },
     },
 

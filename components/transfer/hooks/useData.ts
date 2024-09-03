@@ -14,7 +14,7 @@ const useData = <RecordType extends AnyObject>(
     () =>
       (dataSource || []).map((record) => {
         if (rowKey) {
-          record = { ...record, key: rowKey(record) };
+          return { ...record, key: rowKey(record) };
         }
         return record;
       }),

@@ -18,14 +18,20 @@ export type PanelPickType = Exclude<PickType, 'checkable'> | 'multiple' | 'rootC
 export type CascaderPanelProps<
   OptionType extends DefaultOptionType = DefaultOptionType,
   ValueField extends keyof OptionType = keyof OptionType,
-  Multiple extends boolean = false,
+  Multiple extends boolean = boolean,
 > = Pick<CascaderProps<OptionType, ValueField, Multiple>, PanelPickType>;
+
+export type CascaderPanelAutoProps<
+  OptionType extends DefaultOptionType = DefaultOptionType,
+  ValueField extends keyof OptionType = keyof OptionType,
+> =
+  | (CascaderPanelProps<OptionType, ValueField> & { multiple?: false })
+  | (CascaderPanelProps<OptionType, ValueField, true> & { multiple: true });
 
 function CascaderPanel<
   OptionType extends DefaultOptionType = DefaultOptionType,
   ValueField extends keyof OptionType = keyof OptionType,
-  Multiple extends boolean = false,
->(props: CascaderPanelProps<OptionType, ValueField, Multiple>) {
+>(props: CascaderPanelAutoProps<OptionType, ValueField>) {
   const {
     prefixCls: customizePrefixCls,
     className,

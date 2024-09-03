@@ -41,7 +41,7 @@ export function removeFileItem(file: UploadFile, fileList: (UploadFile | Readonl
 }
 
 // ==================== Default Image Preview ====================
-const extname = (url: string = '') => {
+const extname = (url = '') => {
   const temp = url.split('/');
   const filename = temp[temp.length - 1];
   const filenameWithoutSuffix = filename.split(/#|\?/)[0];

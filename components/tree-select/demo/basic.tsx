@@ -1,6 +1,6 @@
-import type { SyntheticEvent } from 'react';
 import React, { useState } from 'react';
 import { TreeSelect } from 'antd';
+import type { TreeSelectProps } from 'antd';
 
 const treeData = [
   {
@@ -57,7 +57,7 @@ const App: React.FC = () => {
     setValue(newValue);
   };
 
-  const onPopupScroll = (e: SyntheticEvent) => {
+  const onPopupScroll: TreeSelectProps['onPopupScroll'] = (e) => {
     console.log('onPopupScroll', e);
   };
 

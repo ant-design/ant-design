@@ -27,7 +27,7 @@ When a numeric value needs to be provided.
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
 <code src="./demo/out-of-range.tsx">Out of range</code>
-<code src="./demo/prefix.tsx">Prefix</code>
+<code src="./demo/presuffix.tsx">Prefix / Suffix</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/controls.tsx" debug>Icon</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
@@ -58,6 +58,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | readOnly | If readonly the input | boolean | false | - |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | prefix | The prefix icon for the Input | ReactNode | - | 4.17.0 |
+| suffix | The suffix icon for the Input | ReactNode | - | 5.20.0 |
 | size | The height of input box | `large` \| `middle` \| `small` | - | - |
 | step | The number to which the current value is increased or decreased. It can be an integer or decimal | number \| string | 1 | - |
 | stringMode | Set value as string to support high precision decimals. Will return string value by `onChange` | boolean | false | 4.13.0 |
@@ -67,12 +68,13 @@ Common props ref：[Common props](/docs/react/common-props)
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - | - |
 | onStep | The callback function that is triggered when click up or down buttons | (value: number, info: { offset: number, type: 'up' \| 'down' }) => void | - | 4.7.0 |
 
-## Methods
+## Ref
 
-| Name    | Description  |
-| ------- | ------------ |
-| blur()  | Remove focus |
-| focus() | Get focus    |
+| Name          | Description            | Version |
+| ------------- | ---------------------- | ------- |
+| blur()        | Remove focus           |         |
+| focus()       | Get focus              |         |
+| nativeElement | The native DOM element | 5.17.3  |
 
 ## Design Token
 

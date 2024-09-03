@@ -1,12 +1,21 @@
 import React from 'react';
-import { render } from '@testing-library/react';
 
 import Spin from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { waitFakeTimer } from '../../../tests/utils';
+import { act, render, waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('Spin', () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.clearAllTimers();
+    jest.useRealTimers();
+  });
+
   mountTest(Spin);
   rtlTest(Spin);
 
@@ -89,7 +98,40 @@ describe('Spin', () => {
 
   it('right style when fullscreen', () => {
     const { container } = render(<Spin fullscreen spinning />);
-    const element = container.querySelector<HTMLDivElement>('.ant-spin.ant-spin-fullscreen');
+    const element = container.querySelector<HTMLDivElement>('.ant-spin-fullscreen');
     expect(element).not.toHaveStyle({ pointerEvents: 'none' });
+  });
+
+  it('should support ConfigProvider indicator', () => {
+    const { container } = render(
+      <ConfigProvider spin={{ indicator: <div className="custom-indicator" /> }}>
+        <Spin />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.custom-indicator')).toBeTruthy();
+  });
+
+  describe('percent', () => {
+    it('percent support auto', () => {
+      const { container } = render(<Spin percent="auto" />);
+
+      act(() => {
+        jest.advanceTimersByTime(100000);
+      });
+
+      const nowPTG = Number(
+        container.querySelector('[role="progressbar"]')?.getAttribute('aria-valuenow'),
+      );
+
+      expect(nowPTG).toBeGreaterThanOrEqual(1);
+    });
+
+    it('custom indicator has percent', () => {
+      const MyIndicator = ({ percent }: { percent?: number }) => (
+        <div className="custom-indicator">{percent}</div>
+      );
+      const { container } = render(<Spin indicator={<MyIndicator />} percent={23} />);
+      expect(container.querySelector('.custom-indicator')?.textContent).toBe('23');
+    });
   });
 });

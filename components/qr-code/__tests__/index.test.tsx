@@ -46,6 +46,13 @@ describe('QRCode test', () => {
     expect(refresh).toHaveBeenCalled();
   });
 
+  it('support click', () => {
+    const handleClick = jest.fn();
+    const { container } = render(<QRCode value="test" onClick={handleClick} />);
+    fireEvent.click(container?.querySelector<HTMLDivElement>('.ant-qrcode')!);
+    expect(handleClick).toHaveBeenCalled();
+  });
+
   it('support loading', () => {
     const Demo: React.FC = () => {
       const [status, setStatus] = useState<QRCodeProps['status']>('active');
@@ -90,5 +97,51 @@ describe('QRCode test', () => {
     expect(container.querySelector<HTMLElement>('.ant-qrcode canvas')).toHaveStyle(
       'width: 100%; height: 80%;',
     );
+  });
+  it('custom status render', () => {
+    const customStatusRender: QRCodeProps['statusRender'] = (info) => {
+      switch (info.status) {
+        case 'expired':
+          return <div className="custom-expired">{info.locale?.expired}</div>;
+        case 'loading':
+          return <div className="custom-loading">Loading</div>;
+        case 'scanned':
+          return <div className="custom-scanned">{info.locale?.scanned}</div>;
+        default:
+          return null;
+      }
+    };
+    const { container } = render(
+      <>
+        <QRCode
+          className="qrcode-expired"
+          value="test"
+          status="expired"
+          statusRender={customStatusRender}
+        />
+        <QRCode
+          className="qrcode-loading"
+          value="test"
+          status="loading"
+          statusRender={customStatusRender}
+        />
+        <QRCode
+          className="qrcode-scanned"
+          value="test"
+          status="scanned"
+          statusRender={customStatusRender}
+        />
+      </>,
+    );
+    expect(
+      container.querySelector<HTMLDivElement>('.qrcode-expired .custom-expired')?.textContent,
+    ).toBe('QR code expired');
+    expect(
+      container.querySelector<HTMLDivElement>('.qrcode-loading .custom-loading')?.textContent,
+    ).toBe('Loading');
+    expect(
+      container.querySelector<HTMLDivElement>('.qrcode-scanned .custom-scanned')?.textContent,
+    ).toBe('Scanned');
+    expect(container).toMatchSnapshot();
   });
 });

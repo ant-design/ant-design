@@ -189,6 +189,8 @@ export interface SeedToken extends PresetColorType {
   /**
    * @nameZH 图片不透明度
    * @nameEN Define default Image opacity. Useful when in dark-like theme
+   * @desc 控制图片不透明度
+   * @descEN Control image opacity
    */
   opacityImage: number;
 

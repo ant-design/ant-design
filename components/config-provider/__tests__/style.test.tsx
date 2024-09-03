@@ -57,6 +57,8 @@ import Transfer from '../../transfer';
 import Tree from '../../tree';
 import Typography from '../../typography';
 import Upload from '../../upload';
+import InputNumber from '../../input-number';
+import TreeSelect from '../../tree-select';
 
 describe('ConfigProvider support style and className props', () => {
   it('Should Space classNames works', () => {
@@ -1574,5 +1576,44 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLSpanElement>('.test-cp-icon');
     expect(element).toBeTruthy();
+  });
+
+  it('should variant config work', () => {
+    const { container } = render(
+      <ConfigProvider
+        input={{ variant: 'filled' }}
+        inputNumber={{ variant: 'filled' }}
+        textArea={{ variant: 'filled' }}
+        mentions={{ variant: 'borderless' }}
+        select={{ variant: 'filled' }}
+        cascader={{ variant: 'outlined' }}
+        treeSelect={{ variant: 'borderless' }}
+        datePicker={{ variant: 'filled' }}
+        rangePicker={{ variant: 'filled' }}
+        timePicker={{ variant: 'borderless' }}
+      >
+        <Input className="input-variant" />
+        <InputNumber className="input-number-variant" />
+        <Input.TextArea className="textarea-variant" />
+        <Mentions className="mentions-variant" />
+        <Select className="select-variant" />
+        <Cascader className="cascader-variant" />
+        <TreeSelect className="tree-select-variant" />
+        <DatePicker className="date-picker-variant" />
+        <DatePicker.RangePicker className="range-picker-variant" />
+        <TimePicker className="time-picker-variant" />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.input-variant')).toHaveClass('ant-input-filled');
+    expect(container.querySelector('.input-number-variant')).toHaveClass('ant-input-number-filled');
+    expect(container.querySelector('.textarea-variant')).toHaveClass('ant-input-filled');
+    expect(container.querySelector('.mentions-variant')).toHaveClass('ant-mentions-borderless');
+    expect(container.querySelector('.select-variant')).toHaveClass('ant-select-filled');
+    expect(container.querySelector('.cascader-variant')).toHaveClass('ant-select-outlined');
+    expect(container.querySelector('.tree-select-variant')).toHaveClass('ant-select-borderless');
+    expect(container.querySelector('.date-picker-variant')).toHaveClass('ant-picker-filled');
+    expect(container.querySelector('.range-picker-variant')).toHaveClass('ant-picker-filled');
+    expect(container.querySelector('.time-picker-variant')).toHaveClass('ant-picker-borderless');
   });
 });

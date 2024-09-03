@@ -3,8 +3,7 @@ import { unit } from '@ant-design/cssinjs';
 
 import { resetIcon } from '../../style';
 import { mergeToken } from '../../theme/internal';
-import type { AliasToken } from '../../theme/internal';
-import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
+import type { AliasToken, TokenWithCommonCls } from '../../theme/internal';
 import type { SelectToken } from './token';
 
 type SelectItemToken = Pick<

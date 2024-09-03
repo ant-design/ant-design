@@ -37,7 +37,6 @@ const GlobalStyle: React.FC = () => {
         .markdown p > img {
           margin: 34px auto;
           box-shadow: 0 8px 20px rgba(143, 168, 191, 0.35);
-          max-width: 1024px;
           display: block;
         }
 
@@ -111,39 +110,24 @@ const GlobalStyle: React.FC = () => {
           }
         }
 
-        .markdown ul > li {
-          margin-inline-start: ${token.marginMD}px;
+        .markdown ul > li,
+        .markdown ol > li {
           padding-inline-start: ${token.paddingXXS}px;
-          list-style-type: circle;
-
-          .rtl & {
-            margin-inline-end: ${token.marginMD}px;
-            margin-inline-start: 0;
-            padding-inline-end: ${token.paddingXXS}px;
-            padding-inline-start: 0;
+          margin-inline-start: ${token.marginMD}px;
+          > p {
+            margin: 0.2em 0;
           }
-
           &:empty {
             display: none;
           }
         }
 
-        .markdown ol > li {
-          margin-inline-start: ${token.marginMD}px;
-          padding-inline-start: ${token.paddingXXS}px;
-          list-style-type: decimal;
-
-          ${antCls}-row-rtl & {
-            margin-inline-end: ${token.marginMD}px;
-            margin-inline-start: 0;
-            padding-inline-end: ${token.paddingXXS}px;
-            padding-inline-start: 0;
-          }
+        .markdown ul > li {
+          list-style-type: circle;
         }
 
-        .markdown ul > li > p,
-        .markdown ol > li > p {
-          margin: 0.2em 0;
+        .markdown ol > li {
+          list-style-type: decimal;
         }
 
         .markdown code {
@@ -183,6 +167,8 @@ const GlobalStyle: React.FC = () => {
           background-color: ${token.siteMarkdownCodeBg};
           border-radius: ${token.borderRadius}px;
           > pre.prism-code {
+            scrollbar-width: thin;
+            scrollbar-color: unset;
             padding: ${token.paddingSM}px ${token.paddingMD}px;
             font-size: ${token.fontSize}px;
             line-height: 2;
@@ -197,6 +183,7 @@ const GlobalStyle: React.FC = () => {
             margin: 0 ${token.marginMD}px;
             color: #aaa;
             font-size: 30px;
+            user-select: none;
           }
         }
 
@@ -282,6 +269,10 @@ const GlobalStyle: React.FC = () => {
         }
 
         .markdown .dumi-default-table {
+          &-content {
+            scrollbar-width: thin;
+            scrollbar-color: unset;
+          }
           table {
             margin: 0;
             overflow-x: auto;
@@ -384,7 +375,7 @@ const GlobalStyle: React.FC = () => {
         }
 
         .grid-demo,
-        [id^='components-grid-demo-'] {
+        [id^='grid-demo-'] {
           ${antCls}-row > div,
             .code-box-demo ${antCls}-row > div {
             min-height: 30px;
@@ -462,8 +453,8 @@ const GlobalStyle: React.FC = () => {
           }
         }
 
-        [id='components-grid-demo-playground'],
-        [id='components-grid-demo-gutter'] {
+        [id='grid-demo-playground'],
+        [id='grid-demo-gutter'] {
           > .code-box-demo ${antCls}-row > div {
             margin-top: 0;
             margin-bottom: 0;

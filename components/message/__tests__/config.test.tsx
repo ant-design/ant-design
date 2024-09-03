@@ -3,7 +3,7 @@ import React from 'react';
 import message, { actDestroy, actWrapper } from '..';
 import { act } from '../../../tests/utils';
 import App from '../../app';
-import ConfigProvider from '../../config-provider';
+import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
 import { awaitPromise, triggerMotionEnd } from './util';
 
 describe('message.config', () => {
@@ -147,7 +147,7 @@ describe('message.config', () => {
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
     expect(document.querySelectorAll('.prefix-test-message-notice')).toHaveLength(1);
     expect(document.querySelectorAll('.bamboo-info-circle')).toHaveLength(1);
-    ConfigProvider.config({ prefixCls: 'ant', iconPrefixCls: null! });
+    ConfigProvider.config({ prefixCls: defaultPrefixCls, iconPrefixCls: null! });
   });
 
   it('should be able to config prefixCls', async () => {

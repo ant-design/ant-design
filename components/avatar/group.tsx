@@ -3,8 +3,10 @@ import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 
 import { cloneElement } from '../_util/reactNode';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import type { PopoverProps } from '../popover';
 import Popover from '../popover';
 import Avatar from './avatar';
 import AvatarContext from './AvatarContext';
@@ -32,10 +34,19 @@ export interface GroupProps {
   children?: React.ReactNode;
   style?: React.CSSProperties;
   prefixCls?: string;
+  /** @deprecated Please use `max={{ count: number }}` */
   maxCount?: number;
+  /** @deprecated Please use `max={{ style: CSSProperties }}` */
   maxStyle?: React.CSSProperties;
+  /** @deprecated Please use `max={{ popover: PopoverProps }}` */
   maxPopoverPlacement?: 'top' | 'bottom';
+  /** @deprecated Please use `max={{ popover: PopoverProps }}` */
   maxPopoverTrigger?: 'hover' | 'focus' | 'click';
+  max?: {
+    count?: number;
+    style?: React.CSSProperties;
+    popover?: PopoverProps;
+  };
   /*
    * Size of avatar, options: `large`, `small`, `default`
    * or a custom number size
@@ -55,10 +66,23 @@ const Group: React.FC<GroupProps> = (props) => {
     maxStyle,
     size,
     shape,
-    maxPopoverPlacement = 'top',
-    maxPopoverTrigger = 'hover',
+    maxPopoverPlacement,
+    maxPopoverTrigger,
     children,
+    max,
   } = props;
+
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Avatar.Group');
+    warning.deprecated(!maxCount, 'maxCount', 'max={{ count: number }}');
+    warning.deprecated(!maxStyle, 'maxStyle', 'max={{ style: CSSProperties }}');
+    warning.deprecated(
+      !maxPopoverPlacement,
+      'maxPopoverPlacement',
+      'max={{ popover: PopoverProps }}',
+    );
+    warning.deprecated(!maxPopoverTrigger, 'maxPopoverTrigger', 'max={{ popover: PopoverProps }}');
+  }
 
   const prefixCls = getPrefixCls('avatar', customizePrefixCls);
   const groupPrefixCls = `${prefixCls}-group`;
@@ -81,22 +105,30 @@ const Group: React.FC<GroupProps> = (props) => {
     cloneElement(child, { key: `avatar-key-${index}` }),
   );
 
+  const mergeCount = max?.count || maxCount;
   const numOfChildren = childrenWithProps.length;
-  if (maxCount && maxCount < numOfChildren) {
-    const childrenShow = childrenWithProps.slice(0, maxCount);
-    const childrenHidden = childrenWithProps.slice(maxCount, numOfChildren);
+  if (mergeCount && mergeCount < numOfChildren) {
+    const childrenShow = childrenWithProps.slice(0, mergeCount);
+    const childrenHidden = childrenWithProps.slice(mergeCount, numOfChildren);
+
+    const mergeStyle = max?.style || maxStyle;
+    const mergePopoverTrigger = max?.popover?.trigger || maxPopoverTrigger || 'hover';
+    const mergePopoverPlacement = max?.popover?.placement || maxPopoverPlacement || 'top';
+
+    const mergeProps = {
+      content: childrenHidden,
+      ...max?.popover,
+      overlayClassName: classNames(`${groupPrefixCls}-popover`, max?.popover?.overlayClassName),
+      placement: mergePopoverPlacement,
+      trigger: mergePopoverTrigger,
+    };
+
     childrenShow.push(
-      <Popover
-        key="avatar-popover-key"
-        content={childrenHidden}
-        trigger={maxPopoverTrigger}
-        placement={maxPopoverPlacement}
-        overlayClassName={`${groupPrefixCls}-popover`}
-        destroyTooltipOnHide
-      >
-        <Avatar style={maxStyle}>{`+${numOfChildren - maxCount}`}</Avatar>
+      <Popover key="avatar-popover-key" destroyTooltipOnHide {...mergeProps}>
+        <Avatar style={mergeStyle}>{`+${numOfChildren - mergeCount}`}</Avatar>
       </Popover>,
     );
+
     return wrapCSSVar(
       <AvatarContextProvider shape={shape} size={size}>
         <div className={cls} style={style}>

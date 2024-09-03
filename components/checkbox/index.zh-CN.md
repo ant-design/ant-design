@@ -52,7 +52,7 @@ demo:
 | name | CheckboxGroup 下所有 `input[type="checkbox"]` 的 `name` 属性 | string | - |  |
 | options | 指定可选项 | string\[] \| number\[] \| Option\[] | \[] |  |
 | value | 指定选中的选项 | (string \| number \| boolean)\[] | \[] |  |
-| onChange | 变化时的回调函数 | (checkedValue: CheckboxValueType[]) => void | - |  |
+| onChange | 变化时的回调函数 | (checkedValue: T[]) => void | - |  |
 
 ##### Option
 
@@ -68,10 +68,11 @@ interface Option {
 
 #### Checkbox
 
-| 名称    | 描述     | 版本 |
-| ------- | -------- | ---- |
-| blur()  | 移除焦点 |      |
-| focus() | 获取焦点 |      |
+| 名称          | 描述                      | 版本   |
+| ------------- | ------------------------- | ------ |
+| blur()        | 移除焦点                  |        |
+| focus()       | 获取焦点                  |        |
+| nativeElement | 返回 Checkbox 的 DOM 节点 | 5.17.3 |
 
 ## 主题变量（Design Token）
 

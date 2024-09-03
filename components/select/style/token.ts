@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react';
-import type { FullToken, GetDefaultToken } from 'antd/es/theme/util/genComponentStyleHook';
+import type { FullToken, GetDefaultToken } from 'antd/es/theme/internal';
 
 export interface MultipleSelectorToken {
   /**
@@ -108,7 +108,10 @@ export interface ComponentToken extends MultipleSelectorToken {
    * @descEN Height of single selected item with large size
    */
   singleItemHeightLG: number;
-
+  /**
+   * @desc 箭头的行末内边距
+   * @descEN Inline end padding of arrow
+   */
   showArrowPaddingInlineEnd: number;
 }
 

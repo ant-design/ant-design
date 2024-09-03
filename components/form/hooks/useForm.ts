@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { FormInstance as RcFormInstance } from 'rc-field-form';
 import { useForm as useRcForm } from 'rc-field-form';
+import { getDOM } from 'rc-util/lib/Dom/findDOMNode';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import type { InternalNamePath, NamePath, ScrollOptions } from '../interface';
@@ -25,13 +26,10 @@ function toNamePathStr(name: NamePath) {
 
 function getFieldDOMNode(name: NamePath, wrapForm: FormInstance) {
   const field = wrapForm.getFieldInstance(name);
+  const fieldDom = getDOM(field);
 
-  if (field instanceof HTMLElement) {
-    return field;
-  }
-
-  if (field?.nativeElement instanceof HTMLElement) {
-    return field.nativeElement;
+  if (fieldDom) {
+    return fieldDom;
   }
 
   const fieldId = getFieldId(toArray(name), wrapForm.__INTERNAL__.name);

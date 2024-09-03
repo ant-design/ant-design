@@ -127,7 +127,7 @@ const App: React.FC = () => {
         const editable = isEditing(record);
         return editable ? (
           <span>
-            <Typography.Link onClick={() => save(record.key)} style={{ marginRight: 8 }}>
+            <Typography.Link onClick={() => save(record.key)} style={{ marginInlineEnd: 8 }}>
               Save
             </Typography.Link>
             <Popconfirm title="Sure to cancel?" onConfirm={cancel}>
@@ -143,7 +143,7 @@ const App: React.FC = () => {
     },
   ];
 
-  const mergedColumns: TableProps['columns'] = columns.map((col) => {
+  const mergedColumns: TableProps<Item>['columns'] = columns.map((col) => {
     if (!col.editable) {
       return col;
     }

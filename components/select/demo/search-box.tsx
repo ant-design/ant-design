@@ -7,7 +7,7 @@ import qs from 'qs';
 let timeout: ReturnType<typeof setTimeout> | null;
 let currentValue: string;
 
-const fetch = (value: string, callback: Function) => {
+const fetch = (value: string, callback: (data: { value: string; text: string }[]) => void) => {
   if (timeout) {
     clearTimeout(timeout);
     timeout = null;

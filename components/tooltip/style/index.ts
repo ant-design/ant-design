@@ -52,7 +52,11 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         width: 'max-content',
         maxWidth: tooltipMaxWidth,
         visibility: 'visible',
-        transformOrigin: `var(--arrow-x, 50%) var(--arrow-y, 50%)`,
+
+        // When use `autoArrow`, origin will follow the arrow position
+        '--valid-offset-x': 'var(--arrow-offset-horizontal, var(--arrow-x))',
+        transformOrigin: [`var(--valid-offset-x, 50%)`, `var(--arrow-y, 50%)`].join(' '),
+
         '&-hidden': {
           display: 'none',
         },
@@ -61,7 +65,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
 
         // Wrapper for the tooltip content
         [`${componentCls}-inner`]: {
-          minWidth: controlHeight,
+          minWidth: '1em',
           minHeight: controlHeight,
           padding: `${unit(token.calc(paddingSM).div(2).equal())} ${unit(paddingXS)}`,
           color: tooltipColor,
@@ -139,7 +143,7 @@ export const prepareComponentToken: GetDefaultToken<'Tooltip'> = (token) => ({
   ),
 });
 
-export default (prefixCls: string, injectStyle: boolean = true) => {
+export default (prefixCls: string, injectStyle = true) => {
   const useStyle = genStyleHooks(
     'Tooltip',
     (token) => {
