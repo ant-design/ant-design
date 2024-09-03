@@ -138,7 +138,9 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         },
       },
       [`&-bar${componentCls}-bar-active`]: {
-        background: colorTextTertiary,
+        [`> ${componentCls}-bar-bg`]: {
+          background: colorFill,
+        },
 
         [`> ${componentCls}-bar-collapse-icon`]: {
           display: 'block',
