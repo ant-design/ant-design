@@ -1,7 +1,7 @@
 import React, { memo, useContext, useMemo, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
-import { Affix, Card, Col, Divider, Input, Row, Space, Tag, Typography } from 'antd';
+import { Affix, Card, Col, Divider, Flex, Input, Row, Tag, Typography } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import { useIntl, useLocation, useSidebarData } from 'dumi';
 import debounce from 'lodash/debounce';
@@ -14,7 +14,7 @@ import proComponentsList from './ProComponentsList';
 
 const useStyle = createStyles(({ token, css }) => ({
   componentsOverviewGroupTitle: css`
-    margin-bottom: 24px !important;
+    margin-bottom: ${token.marginLG}px !important;
   `,
   componentsOverviewTitle: css`
     overflow: hidden;
@@ -39,7 +39,7 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
   componentsOverviewAffix: css`
     display: flex;
-    transition: all 0.3s;
+    transition: all ${token.motionDurationSlow};
     justify-content: space-between;
   `,
   componentsOverviewSearch: css`
@@ -52,7 +52,7 @@ const useStyle = createStyles(({ token, css }) => ({
   componentsOverviewContent: css`
     &:empty:after {
       display: block;
-      padding: 16px 0 40px;
+      padding: ${token.padding}px 0 ${token.paddingMD * 2}px;
       color: ${token.colorTextDisabled};
       text-align: center;
       border-bottom: 1px solid ${token.colorSplit};
@@ -171,7 +171,7 @@ const Overview: React.FC = () => {
               }
             }}
             onKeyDown={onKeyDown}
-            bordered={false}
+            variant="borderless"
             suffix={<SearchOutlined />}
             style={{ fontSize: searchBarAffixed ? fontSizeXL - 2 : fontSizeXL }}
           />
@@ -191,51 +191,66 @@ const Overview: React.FC = () => {
             return components?.length ? (
               <div key={group?.title}>
                 <Title level={2} className={styles.componentsOverviewGroupTitle}>
-                  <Space align="center">
+                  <Flex gap="small" align="center">
                     <span style={{ fontSize: 24 }}>{group?.title}</span>
                     <Tag style={{ display: 'block' }}>{components.length}</Tag>
-                  </Space>
+                  </Flex>
                 </Title>
                 <Row gutter={[24, 24]}>
                   {components.map((component) => {
+                    let url = component.link;
                     /** 是否是外链 */
-                    const isExternalLink = component.link.startsWith('http');
-                    let url = `${component.link}`;
+                    const isExternalLink = url.startsWith('http');
 
                     if (!isExternalLink) {
                       url += urlSearch;
                     }
 
-                    return (
-                      <Col xs={24} sm={12} lg={8} xl={6} key={component?.title}>
-                        <Link to={url}>
-                          <Card
-                            onClick={() => onClickCard(url)}
-                            bodyStyle={{
-                              backgroundRepeat: 'no-repeat',
-                              backgroundPosition: 'bottom right',
-                              backgroundImage: `url(${component?.tag || ''})`,
-                            }}
-                            size="small"
-                            className={styles.componentsOverviewCard}
-                            title={
-                              <div className={styles.componentsOverviewTitle}>
-                                {component?.title} {component.subtitle}
-                              </div>
+                    const cardContent = (
+                      <Card
+                        key={component.title}
+                        onClick={() => onClickCard(url)}
+                        styles={{
+                          body: {
+                            backgroundRepeat: 'no-repeat',
+                            backgroundPosition: 'bottom right',
+                            backgroundImage: `url(${component.tag || ''})`,
+                          },
+                        }}
+                        size="small"
+                        className={styles.componentsOverviewCard}
+                        title={
+                          <div className={styles.componentsOverviewTitle}>
+                            {component.title} {component.subtitle}
+                          </div>
+                        }
+                      >
+                        <div className={styles.componentsOverviewImg}>
+                          <img
+                            src={
+                              theme.includes('dark') && component.coverDark
+                                ? component.coverDark
+                                : component.cover
                             }
-                          >
-                            <div className={styles.componentsOverviewImg}>
-                              <img
-                                src={
-                                  theme.includes('dark') && component.coverDark
-                                    ? component.coverDark
-                                    : component.cover
-                                }
-                                alt={component?.title}
-                              />
-                            </div>
-                          </Card>
-                        </Link>
+                            alt={component.title}
+                          />
+                        </div>
+                      </Card>
+                    );
+
+                    const linkContent = isExternalLink ? (
+                      <a href={url} key={component.title}>
+                        {cardContent}
+                      </a>
+                    ) : (
+                      <Link to={url} prefetch key={component.title}>
+                        {cardContent}
+                      </Link>
+                    );
+
+                    return (
+                      <Col xs={24} sm={12} lg={8} xl={6} key={component.title}>
+                        {linkContent}
                       </Col>
                     );
                   })}

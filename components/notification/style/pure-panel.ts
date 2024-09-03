@@ -1,5 +1,7 @@
+import { unit } from '@ant-design/cssinjs';
+
+import { genNoticeStyle, prepareComponentToken, prepareNotificationToken } from '.';
 import { genSubStyleComponent } from '../../theme/internal';
-import { prepareComponentToken, genNoticeStyle, prepareNotificationToken } from '.';
 
 export default genSubStyleComponent(
   ['Notification', 'PurePanel'],
@@ -11,7 +13,9 @@ export default genSubStyleComponent(
       [`${noticeCls}-pure-panel`]: {
         ...genNoticeStyle(notificationToken),
         width: notificationToken.width,
-        maxWidth: `calc(100vw - ${notificationToken.notificationMarginEdge * 2}px)`,
+        maxWidth: `calc(100vw - ${unit(
+          token.calc(notificationToken.notificationMarginEdge).mul(2).equal(),
+        )})`,
         margin: 0,
       },
     };

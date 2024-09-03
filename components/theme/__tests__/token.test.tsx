@@ -1,10 +1,11 @@
-import { Theme } from '@ant-design/cssinjs';
 import * as React from 'react';
-import { Input } from 'antd';
+import { Theme } from '@ant-design/cssinjs';
+
 import theme from '..';
 import { render, renderHook } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import type { ThemeConfig } from '../../config-provider/context';
+import Input from '../../input';
 import Row from '../../row';
 import genRadius from '../themes/shared/genRadius';
 
@@ -25,6 +26,7 @@ describe('Theme', () => {
     );
     delete token._hashId;
     delete token._tokenKey;
+    delete token._themeKey;
     return token;
   };
 
@@ -36,6 +38,7 @@ describe('Theme', () => {
     expect(result.current!.token).toEqual(
       expect.objectContaining({
         colorPrimary: '#1677ff',
+        'blue-6': '#1677ff',
       }),
     );
   });
@@ -53,6 +56,7 @@ describe('Theme', () => {
         theme={{
           token: {
             colorPrimary: '#ff0000',
+            orange: '#ff8800',
           },
         }}
       >
@@ -64,6 +68,8 @@ describe('Theme', () => {
       expect.objectContaining({
         colorPrimary: '#ff0000',
         colorPrimaryHover: '#ff3029', // It's safe to modify if theme logic changed
+        orange6: '#ff8800',
+        orange9: '#8c3d00', // It's safe to modify if theme logic changed
       }),
     );
   });

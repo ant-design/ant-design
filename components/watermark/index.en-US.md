@@ -2,13 +2,13 @@
 category: Components
 group: Feedback
 title: Watermark
+description: Add specific text or patterns to the page.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*wr1ISY50SyYAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*duAQQbjHlHQAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 1
+tag: 5.1.0
 ---
-
-Add specific text or patterns to the page.
 
 ## When To Use
 
@@ -27,6 +27,8 @@ Add specific text or patterns to the page.
 ## API
 
 Common props ref：[Common props](/docs/react/common-props)
+
+> This component is available since `antd@5.1.0`.
 
 ### Watermark
 
@@ -74,4 +76,12 @@ When using an image watermark and the image loads abnormally, you can add `conte
 >
   <div style={{ height: 500 }} />
 </Watermark>
+```
+
+### Why `overflow: hidden` style is added since version 5.18.0?
+
+User can hide the watermark by setting the container height to 0 through the developer tool in the previous version. To avoid this situation, we added the `overflow: hidden` style to the container. When the container height changes, the content is also hidden. You can override the style to modify this behavior:
+
+```tsx
+<Watermark style={{ overflow: 'visible' }} />
 ```

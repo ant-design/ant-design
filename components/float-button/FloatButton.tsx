@@ -1,4 +1,4 @@
-import React, { forwardRef, useContext, useMemo } from 'react';
+import React, { useContext, useMemo } from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 
@@ -6,22 +6,25 @@ import { devUseWarning } from '../_util/warning';
 import Badge from '../badge';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import Tooltip from '../tooltip';
+import type BackTop from './BackTop';
 import FloatButtonGroupContext from './context';
 import Content from './FloatButtonContent';
+import type FloatButtonGroup from './FloatButtonGroup';
 import type {
-  CompoundedComponent,
   FloatButtonBadgeProps,
   FloatButtonContentProps,
+  FloatButtonElement,
   FloatButtonProps,
-  FloatButtonRef,
   FloatButtonShape,
 } from './interface';
+import type PurePanel from './PurePanel';
 import useStyle from './style';
 
 export const floatButtonPrefixCls = 'float-btn';
 
-const FloatButton = forwardRef<FloatButtonRef['nativeElement'], FloatButtonProps>((props, ref) => {
+const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -37,17 +40,20 @@ const FloatButton = forwardRef<FloatButtonRef['nativeElement'], FloatButtonProps
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
   const groupShape = useContext<FloatButtonShape | undefined>(FloatButtonGroupContext);
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const mergeShape = groupShape || shape;
+  const mergedShape = groupShape || shape;
 
   const classString = classNames(
     hashId,
+    cssVarCls,
+    rootCls,
     prefixCls,
     className,
     rootClassName,
     `${prefixCls}-${type}`,
-    `${prefixCls}-${mergeShape}`,
+    `${prefixCls}-${mergedShape}`,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
@@ -92,7 +98,7 @@ const FloatButton = forwardRef<FloatButtonRef['nativeElement'], FloatButtonProps
     );
   }
 
-  return wrapSSR(
+  return wrapCSSVar(
     props.href ? (
       <a ref={ref} {...restProps} className={classString}>
         {buttonNode}
@@ -103,7 +109,15 @@ const FloatButton = forwardRef<FloatButtonRef['nativeElement'], FloatButtonProps
       </button>
     ),
   );
-}) as CompoundedComponent;
+});
+
+type CompoundedComponent = typeof InternalFloatButton & {
+  Group: typeof FloatButtonGroup;
+  BackTop: typeof BackTop;
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+};
+
+const FloatButton = InternalFloatButton as CompoundedComponent;
 
 if (process.env.NODE_ENV !== 'production') {
   FloatButton.displayName = 'FloatButton';

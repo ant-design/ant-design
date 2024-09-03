@@ -1,11 +1,10 @@
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genSpaceCompactStyle from './compact';
 
 /** Component only token. Which will handle additional calculation of alias token */
-export interface ComponentToken {
-  // Component token here
-}
+// biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
+export interface ComponentToken {}
 
 interface SpaceToken extends FullToken<'Space'> {
   spaceGapSmallSize: number;
@@ -14,7 +13,7 @@ interface SpaceToken extends FullToken<'Space'> {
 }
 
 const genSpaceStyle: GenerateStyle<SpaceToken> = (token) => {
-  const { componentCls } = token;
+  const { componentCls, antCls } = token;
 
   return {
     [componentCls]: {
@@ -42,6 +41,10 @@ const genSpaceStyle: GenerateStyle<SpaceToken> = (token) => {
       },
       [`${componentCls}-item:empty`]: {
         display: 'none',
+      },
+      // https://github.com/ant-design/ant-design/issues/47875
+      [`${componentCls}-item > ${antCls}-badge-not-a-wrapper:only-child`]: {
+        display: 'block',
       },
     },
   };
@@ -74,7 +77,9 @@ const genSpaceGapStyle: GenerateStyle<SpaceToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export const prepareComponentToken: GetDefaultToken<'Space'> = () => ({});
+
+export default genStyleHooks(
   'Space',
   (token) => {
     const spaceToken = mergeToken<SpaceToken>(token, {

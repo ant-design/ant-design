@@ -1,17 +1,20 @@
 import * as React from 'react';
+
 import type { KeyWise, TransferProps } from '..';
 import { groupKeysMap } from '../../_util/transKeys';
+import type { AnyObject } from '../../_util/type';
+import type { TransferKey } from '../interface';
 
-function useData<RecordType extends object>(
+const useData = <RecordType extends AnyObject>(
   dataSource?: RecordType[],
   rowKey?: TransferProps<RecordType>['rowKey'],
-  targetKeys?: string[],
-) {
+  targetKeys?: TransferKey[],
+) => {
   const mergedDataSource = React.useMemo(
     () =>
-      (dataSource || []).map((record: KeyWise<RecordType>) => {
+      (dataSource || []).map((record) => {
         if (rowKey) {
-          record = { ...record, key: rowKey(record) };
+          return { ...record, key: rowKey(record) };
         }
         return record;
       }),
@@ -22,19 +25,19 @@ function useData<RecordType extends object>(
     const leftData: KeyWise<RecordType>[] = [];
     const rightData: KeyWise<RecordType>[] = new Array((targetKeys || []).length);
     const targetKeysMap = groupKeysMap(targetKeys || []);
-    mergedDataSource.forEach((record: KeyWise<RecordType>) => {
+    mergedDataSource.forEach((record) => {
       // rightData should be ordered by targetKeys
       // leftData should be ordered by dataSource
       if (targetKeysMap.has(record.key)) {
-        rightData[targetKeysMap.get(record.key)!] = record;
+        (rightData as any)[targetKeysMap.get(record.key) as any] = record;
       } else {
-        leftData.push(record);
+        leftData.push(record as any);
       }
     });
     return [leftData, rightData] as const;
   }, [mergedDataSource, targetKeys, rowKey]);
 
   return [mergedDataSource, leftDataSource, rightDataSource];
-}
+};
 
 export default useData;

@@ -4,7 +4,6 @@ group:
   order: 1
 order: 0
 title: 定制主题
-tag: Updated
 ---
 
 Ant Design 设计规范和技术上支持灵活的样式定制，以满足业务和品牌上多样化的视觉需求，包括但不限于全局样式（主色、圆角、边框）和指定组件的视觉定制。
@@ -170,47 +169,41 @@ antd 默认内置了一些组件交互动效让企业级页面更加富有细节
 
 ```sandpack
 import React from 'react';
-import { Switch, ConfigProvider, Space, Checkbox, Radio, Row, Col } from 'antd';
+import { Checkbox, Col, ConfigProvider, Flex, Radio, Row, Switch } from 'antd';
 
-export default () => {
-  const [checked, setChecked] = React.useState(false);
-
+const App: React.FC = () => {
+  const [checked, setChecked] = React.useState<boolean>(false);
+  const timerRef = React.useRef<ReturnType<typeof setInterval>>();
   React.useEffect(() => {
-    const id = setInterval(() => {
+    timerRef.current = setInterval(() => {
       setChecked((prev) => !prev);
-    }, 1000);
-
+    }, 500);
     return () => {
-      clearInterval(id);
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
     };
   }, []);
 
   const nodes = (
-    <Space>
+    <Flex gap="small">
       <Checkbox checked={checked}>Checkbox</Checkbox>
       <Radio checked={checked}>Radio</Radio>
       <Switch checked={checked} />
-    </Space>
+    </Flex>
   );
 
   return (
     <Row gutter={[24, 24]}>
       <Col span={24}>{nodes}</Col>
-
       <Col span={24}>
-        <ConfigProvider
-          theme={{
-            token: {
-              motion: false,
-            },
-          }}
-        >
-          {nodes}
-        </ConfigProvider>
+        <ConfigProvider theme={{ token: { motion: false } }}>{nodes}</ConfigProvider>
       </Col>
     </Row>
   );
 };
+
+export default App;
 ```
 
 ## 进阶使用
@@ -228,7 +221,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <ColorPicker showText value={primary} onChangeComplete={(color) => setPrimary(color.toHexString())} />
+      <ColorPicker showText value={primary} onChange={(color) => setPrimary(color.toHexString())} />
       <Divider />
       <ConfigProvider
         theme={{
@@ -447,6 +440,8 @@ const theme = {
 | inherit | 继承上层 ConfigProvider 中配置的主题。 | boolean | true |
 | algorithm | 用于修改 Seed Token 到 Map Token 的算法 | `(token: SeedToken) => MapToken` \| `((token: SeedToken) => MapToken)[]` | `defaultAlgorithm` |
 | components | 用于修改各个组件的 Component Token 以及覆盖该组件消费的 Alias Token | `ComponentsConfig` | - |
+| cssVar | 开启 CSS 变量，参考[使用 CSS 变量](/docs/react/css-variables-cn#api) | `boolean \| { prefix?: string; key?: string }` | false |
+| hashed | 组件 class Hash 值，参考[使用 CSS 变量](/docs/react/css-variables-cn#关闭-hash) | boolean | true |
 
 ### ComponentsConfig
 

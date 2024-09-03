@@ -7,16 +7,11 @@ const App: React.FC = () => (
     defaultActiveKey="2"
     items={[AppleOutlined, AndroidOutlined].map((Icon, i) => {
       const id = String(i + 1);
-
       return {
-        label: (
-          <span>
-            <Icon />
-            Tab {id}
-          </span>
-        ),
         key: id,
+        label: `Tab ${id}`,
         children: `Tab ${id}`,
+        icon: <Icon />,
       };
     })}
   />

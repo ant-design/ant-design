@@ -36,6 +36,7 @@ config/base.yaml
 yarn.lock
 package-lock.json
 pnpm-lock.yaml
+bun.lockb
 .pnpm-debug.log
 components/**/*.js
 components/**/*.jsx
@@ -43,6 +44,8 @@ components/**/*.jsx
 !components/**/__tests__/**/*.js.snap
 /.history
 *.tmp
+artifacts.zip
+oss-artifacts.zip
 server/
 
 # Docs templates
@@ -61,11 +64,16 @@ components/version/token-meta.json
 __diff_output__/
 __image_snapshots__/
 /jest-stare
-/imageSnapshots
+/imageSnapshots*
 /imageDiffSnapshots
+/visualRegressionReport*
 
 .devcontainer*
 .husky/prepare-commit-msg
 
 .eslintcache
 .node-version
+.node
+
+.env
+examples/

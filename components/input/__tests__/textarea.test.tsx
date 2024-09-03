@@ -516,4 +516,12 @@ describe('TextArea allowClear', () => {
     );
     expect(container).toMatchSnapshot();
   });
+
+  it('legacy bordered should work', () => {
+    const errSpy = jest.spyOn(console, 'error');
+    const { container } = render(<TextArea bordered={false} />);
+    expect(container.querySelector('textarea')).toHaveClass('ant-input-borderless');
+    expect(errSpy).toHaveBeenCalledWith(expect.stringContaining('`bordered` is deprecated'));
+    errSpy.mockRestore();
+  });
 });

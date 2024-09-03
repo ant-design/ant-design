@@ -60,9 +60,9 @@ if ! has_arg '--skip-dekko' "$@"; then
   echo "[TEST ALL] dekko dist" > ~test-all.txt
   node ./tests/dekko/dist.test.js
 
-  echo "[TEST ALL] dekko lib"
-  echo "[TEST ALL] dekko lib" > ~test-all.txt
-  node ./tests/dekko/lib.test.js
+  echo "[TEST ALL] dekko lib and es"
+  echo "[TEST ALL] dekko lib and es" > ~test-all.txt
+  node ./tests/dekko/lib-es.test.js
 else
   echo "[TEST ALL] dekko test...skip"
 fi
@@ -71,6 +71,14 @@ if ! has_arg '--skip-dist' "$@"; then
   echo "[TEST ALL] dist test"
   echo "[TEST ALL] dist test" > ~test-all.txt
   LIB_DIR=dist npm test -- --bail
+else
+  echo "[TEST ALL] dist test...skip"
+fi
+
+if ! has_arg '--skip-dist' "$@"; then
+  echo "[TEST ALL] dist-min test"
+  echo "[TEST ALL] dist-min test" > ~test-all.txt
+  LIB_DIR=dist-min npm test -- --bail
 else
   echo "[TEST ALL] dist test...skip"
 fi
@@ -102,7 +110,7 @@ fi
 if ! has_arg '--skip-node' "$@"; then
   echo "[TEST ALL] test node"
   echo "[TEST ALL] test node" > ~test-all.txt
-  npm run test-node -- --bail
+  npm run test:node -- --bail
 else
   echo "[TEST ALL] test node...skip"
 fi

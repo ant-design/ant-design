@@ -1,6 +1,8 @@
+import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
-import { textEllipsis } from '../../style';
+
 import type { StepsToken } from '.';
+import { textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 
 const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
@@ -19,7 +21,7 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       [`&${componentCls}-small`]: {
         [`${componentCls}-item`]: {
           '&-container': {
-            marginInlineStart: -token.marginSM,
+            marginInlineStart: token.calc(token.marginSM).mul(-1).equal(),
           },
         },
       },
@@ -31,7 +33,7 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         '&-container': {
           display: 'inline-block',
           height: '100%',
-          marginInlineStart: -token.margin,
+          marginInlineStart: token.calc(token.margin).mul(-1).equal(),
           paddingBottom: token.paddingSM,
           textAlign: 'start',
           transition: `opacity ${motionDurationSlow}`,
@@ -71,15 +73,15 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
         '&::after': {
           position: 'absolute',
-          top: `calc(50% - ${token.paddingSM / 2}px)`,
+          top: `calc(50% - ${unit(token.calc(token.paddingSM).div(2).equal())})`,
           insetInlineStart: '100%',
           display: 'inline-block',
           width: token.fontSizeIcon,
           height: token.fontSizeIcon,
-          borderTop: `${token.lineWidth}px ${token.lineType} ${navArrowColor}`,
+          borderTop: `${unit(token.lineWidth)} ${token.lineType} ${navArrowColor}`,
           borderBottom: 'none',
           borderInlineStart: 'none',
-          borderInlineEnd: `${token.lineWidth}px ${token.lineType} ${navArrowColor}`,
+          borderInlineEnd: `${unit(token.lineWidth)} ${token.lineType} ${navArrowColor}`,
           transform: 'translateY(-50%) translateX(-50%) rotate(45deg)',
           content: '""',
         },
@@ -116,16 +118,16 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           insetInlineEnd: 0,
           insetInlineStart: 'unset',
           display: 'block',
-          width: token.lineWidth * 3,
-          height: `calc(100% - ${token.marginLG}px)`,
+          width: token.calc(token.lineWidth).mul(3).equal(),
+          height: `calc(100% - ${unit(token.marginLG)})`,
         },
 
         '&::after': {
           position: 'relative',
           insetInlineStart: '50%',
           display: 'block',
-          width: token.controlHeight * 0.25,
-          height: token.controlHeight * 0.25,
+          width: token.calc(token.controlHeight).mul(0.25).equal(),
+          height: token.calc(token.controlHeight).mul(0.25).equal(),
           marginBottom: token.marginXS,
           textAlign: 'center',
           transform: 'translateY(-50%) translateX(-50%) rotate(135deg)',

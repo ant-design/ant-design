@@ -1,5 +1,6 @@
-import { spyElementPrototype } from 'rc-util/lib/test/domHook';
 import React from 'react';
+import { spyElementPrototype } from 'rc-util/lib/test/domHook';
+
 import Popconfirm from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -7,8 +8,8 @@ import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 
 describe('Popconfirm', () => {
-  mountTest(Popconfirm);
-  rtlTest(Popconfirm);
+  mountTest(() => <Popconfirm title="test" />);
+  rtlTest(() => <Popconfirm title="test" />);
 
   const eventObject = expect.objectContaining({
     target: expect.anything(),
@@ -353,5 +354,16 @@ describe('Popconfirm', () => {
 
     expect(onOpenChange).toHaveBeenCalledTimes(1);
     expect(onVisibleChange).toHaveBeenCalledTimes(1);
+  });
+
+  it('okText & cancelText could be empty', () => {
+    render(
+      <Popconfirm title="" okText="" cancelText="" open>
+        <span />
+      </Popconfirm>,
+    );
+
+    expect(document.body.querySelectorAll('.ant-btn')[0].textContent).toBe('Cancel');
+    expect(document.body.querySelectorAll('.ant-btn')[1].textContent).toBe('OK');
   });
 });

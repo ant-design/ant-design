@@ -1,15 +1,14 @@
-import classNames from 'classnames';
 import * as React from 'react';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
+import classNames from 'classnames';
+
 import Button from '../button';
+import type { ButtonHTMLType, ButtonProps } from '../button';
+import type { ButtonGroupProps } from '../button/button-group';
 import { ConfigContext } from '../config-provider';
 import Space from '../space';
 import { useCompactItemContext } from '../space/Compact';
 import Dropdown from './dropdown';
-import useStyle from './style';
-
-import type { ButtonProps, ButtonHTMLType } from '../button';
-import type { ButtonGroupProps } from '../button/button-group';
 import type { DropdownProps } from './dropdown';
 
 export type DropdownButtonType = 'default' | 'primary' | 'dashed' | 'link' | 'text';
@@ -75,7 +74,6 @@ const DropdownButton: CompoundedComponent = (props) => {
 
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
   const buttonPrefixCls = `${prefixCls}-button`;
-  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const dropdownProps: DropdownProps = {
     menu,
@@ -96,7 +94,7 @@ const DropdownButton: CompoundedComponent = (props) => {
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
-  const classes = classNames(buttonPrefixCls, compactItemClassnames, className, hashId);
+  const classes = classNames(buttonPrefixCls, compactItemClassnames, className);
 
   if ('overlay' in props) {
     dropdownProps.overlay = overlay;
@@ -131,11 +129,11 @@ const DropdownButton: CompoundedComponent = (props) => {
 
   const [leftButtonToRender, rightButtonToRender] = buttonsRender([leftButton, rightButton]);
 
-  return wrapSSR(
+  return (
     <Space.Compact className={classes} size={compactSize} block {...restProps}>
       {leftButtonToRender}
       <Dropdown {...dropdownProps}>{rightButtonToRender}</Dropdown>
-    </Space.Compact>,
+    </Space.Compact>
   );
 };
 

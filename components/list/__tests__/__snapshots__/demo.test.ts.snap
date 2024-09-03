@@ -26,7 +26,7 @@ exports[`renders components/list/demo/basic.tsx correctly 1`] = `
                 class="ant-avatar ant-avatar-circle ant-avatar-image"
               >
                 <img
-                  src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                  src="https://api.dicebear.com/7.x/miniavs/svg?seed=0"
                 />
               </span>
             </div>
@@ -63,7 +63,7 @@ exports[`renders components/list/demo/basic.tsx correctly 1`] = `
                 class="ant-avatar ant-avatar-circle ant-avatar-image"
               >
                 <img
-                  src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+                  src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
                 />
               </span>
             </div>
@@ -100,7 +100,7 @@ exports[`renders components/list/demo/basic.tsx correctly 1`] = `
                 class="ant-avatar ant-avatar-circle ant-avatar-image"
               >
                 <img
-                  src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=2"
+                  src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
                 />
               </span>
             </div>
@@ -137,7 +137,7 @@ exports[`renders components/list/demo/basic.tsx correctly 1`] = `
                 class="ant-avatar ant-avatar-circle ant-avatar-image"
               >
                 <img
-                  src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+                  src="https://api.dicebear.com/7.x/miniavs/svg?seed=3"
                 />
               </span>
             </div>
@@ -439,7 +439,7 @@ Array [
                   class="ant-avatar ant-avatar-circle ant-avatar-image"
                 >
                   <img
-                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=0"
                   />
                 </span>
               </div>
@@ -476,7 +476,7 @@ Array [
                   class="ant-avatar ant-avatar-circle ant-avatar-image"
                 >
                   <img
-                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
                   />
                 </span>
               </div>
@@ -513,7 +513,7 @@ Array [
                   class="ant-avatar ant-avatar-circle ant-avatar-image"
                 >
                   <img
-                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=2"
+                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
                   />
                 </span>
               </div>
@@ -550,7 +550,7 @@ Array [
                   class="ant-avatar ant-avatar-circle ant-avatar-image"
                 >
                   <img
-                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=3"
                   />
                 </span>
               </div>
@@ -613,7 +613,7 @@ Array [
                   class="ant-avatar ant-avatar-circle ant-avatar-image"
                 >
                   <img
-                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=0"
                   />
                 </span>
               </div>
@@ -650,7 +650,7 @@ Array [
                   class="ant-avatar ant-avatar-circle ant-avatar-image"
                 >
                   <img
-                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
                   />
                 </span>
               </div>
@@ -687,7 +687,7 @@ Array [
                   class="ant-avatar ant-avatar-circle ant-avatar-image"
                 >
                   <img
-                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=2"
+                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
                   />
                 </span>
               </div>
@@ -724,7 +724,7 @@ Array [
                   class="ant-avatar ant-avatar-circle ant-avatar-image"
                 >
                   <img
-                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=3"
                   />
                 </span>
               </div>
@@ -786,6 +786,9 @@ Array [
                 width="64"
                 xmlns="http://www.w3.org/2000/svg"
               >
+                <title>
+                  Simple Empty
+                </title>
                 <g
                   fill="none"
                   fill-rule="evenodd"
@@ -1714,6 +1717,9 @@ exports[`renders components/list/demo/infinite-load.tsx correctly 1`] = `
                     width="64"
                     xmlns="http://www.w3.org/2000/svg"
                   >
+                    <title>
+                      Simple Empty
+                    </title>
                     <g
                       fill="none"
                       fill-rule="evenodd"
@@ -1794,20 +1800,24 @@ exports[`renders components/list/demo/loadmore.tsx correctly 1`] = `
         class="ant-spin ant-spin-spinning"
       >
         <span
-          class="ant-spin-dot ant-spin-dot-spin"
+          class="ant-spin-dot-holder"
         >
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
+          <span
+            class="ant-spin-dot ant-spin-dot-spin"
+          >
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+          </span>
         </span>
       </div>
     </div>
@@ -2016,7 +2026,7 @@ Array [
                   class="ant-avatar ant-avatar-circle ant-avatar-image"
                 >
                   <img
-                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=0"
                   />
                 </span>
               </div>
@@ -2053,7 +2063,7 @@ Array [
                   class="ant-avatar ant-avatar-circle ant-avatar-image"
                 >
                   <img
-                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
                   />
                 </span>
               </div>
@@ -2090,7 +2100,7 @@ Array [
                   class="ant-avatar ant-avatar-circle ant-avatar-image"
                 >
                   <img
-                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=2"
+                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
                   />
                 </span>
               </div>
@@ -2127,7 +2137,7 @@ Array [
                   class="ant-avatar ant-avatar-circle ant-avatar-image"
                 >
                   <img
-                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=3"
                   />
                 </span>
               </div>
@@ -2155,10 +2165,10 @@ Array [
       </div>
     </div>
     <div
-      class="ant-list-pagination ant-list-pagination-align-center"
+      class="ant-list-pagination"
     >
       <ul
-        class="ant-pagination"
+        class="ant-pagination ant-pagination-center"
       >
         <li
           aria-disabled="true"
@@ -2728,7 +2738,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
                   class="ant-avatar ant-avatar-circle ant-avatar-image"
                 >
                   <img
-                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=0"
                   />
                 </span>
               </div>
@@ -2891,7 +2901,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
                   class="ant-avatar ant-avatar-circle ant-avatar-image"
                 >
                   <img
-                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
                   />
                 </span>
               </div>
@@ -3054,7 +3064,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
                   class="ant-avatar ant-avatar-circle ant-avatar-image"
                 >
                   <img
-                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=2"
+                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
                   />
                 </span>
               </div>
@@ -3215,10 +3225,10 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-list-pagination ant-list-pagination-align-end"
+    class="ant-list-pagination"
   >
     <ul
-      class="ant-pagination"
+      class="ant-pagination ant-pagination-end"
     >
       <li
         aria-disabled="true"
@@ -3389,37 +3399,6 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
         </button>
       </li>
     </ul>
-  </div>
-</div>
-`;
-
-exports[`renders components/list/demo/virtual-list.tsx correctly 1`] = `
-<div
-  class="ant-list ant-list-split"
->
-  <div
-    class="ant-spin-nested-loading"
-  >
-    <div
-      class="ant-spin-container"
-    >
-      <div
-        class="rc-virtual-list"
-        style="position:relative"
-      >
-        <div
-          class="rc-virtual-list-holder"
-          style="height:400px;overflow-y:auto;overflow-anchor:none"
-        >
-          <div>
-            <div
-              class="rc-virtual-list-holder-inner"
-              style="display:flex;flex-direction:column"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 `;

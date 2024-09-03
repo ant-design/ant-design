@@ -1,5 +1,6 @@
 /* eslint-disable react/no-multi-comp */
 import dayjs from 'dayjs';
+
 import 'dayjs/locale/ar';
 import 'dayjs/locale/az';
 import 'dayjs/locale/be';
@@ -61,13 +62,15 @@ import 'dayjs/locale/tr';
 import 'dayjs/locale/uk';
 import 'dayjs/locale/ur';
 import 'dayjs/locale/vi';
+import 'dayjs/locale/uz-latn';
 import 'dayjs/locale/zh-cn';
 import 'dayjs/locale/zh-hk';
 import 'dayjs/locale/zh-tw';
+
+import React from 'react';
 import preParsePostFormat from 'dayjs/plugin/preParsePostFormat';
 import MockDate from 'mockdate';
-import React from 'react';
-import { render } from '../../../tests/utils';
+
 import type { Locale } from '..';
 import LocaleProvider from '..';
 import {
@@ -78,10 +81,12 @@ import {
   Popconfirm,
   Select,
   Table,
+  TableProps,
   TimePicker,
   Transfer,
 } from '../..';
 import mountTest from '../../../tests/shared/mountTest';
+import { render } from '../../../tests/utils';
 import arEG from '../../locale/ar_EG';
 import azAZ from '../../locale/az_AZ';
 import bgBG from '../../locale/bg_BG';
@@ -115,8 +120,8 @@ import itIT from '../../locale/it_IT';
 import jaJP from '../../locale/ja_JP';
 import kaGE from '../../locale/ka_GE';
 import kkKZ from '../../locale/kk_KZ';
-import kmrIQ from '../../locale/kmr_IQ';
 import kmKH from '../../locale/km_KH';
+import kmrIQ from '../../locale/kmr_IQ';
 import knIN from '../../locale/kn_IN';
 import koKR from '../../locale/ko_KR';
 import kuIQ from '../../locale/ku_IQ';
@@ -126,6 +131,7 @@ import mkMK from '../../locale/mk_MK';
 import mlIN from '../../locale/ml_IN';
 import mnMN from '../../locale/mn_MN';
 import msMY from '../../locale/ms_MY';
+import myMM from '../../locale/my_MM';
 import nbNO from '../../locale/nb_NO';
 import neNP from '../../locale/ne_NP';
 import nlBE from '../../locale/nl_BE';
@@ -146,11 +152,11 @@ import tkTK from '../../locale/tk_TK';
 import trTR from '../../locale/tr_TR';
 import ukUA from '../../locale/uk_UA';
 import urPK from '../../locale/ur_PK';
+import uzUZ from '../../locale/uz_UZ';
 import viVN from '../../locale/vi_VN';
 import zhCN from '../../locale/zh_CN';
 import zhHK from '../../locale/zh_HK';
 import zhTW from '../../locale/zh_TW';
-import myMM from '../../locale/my_MM';
 
 dayjs.extend(preParsePostFormat);
 
@@ -224,12 +230,13 @@ const locales = [
   zhTW,
   urPK,
   myMM,
+  uzUZ,
 ];
 
 const { Option } = Select;
 const { RangePicker } = DatePicker;
 
-const columns = [
+const columns: TableProps['columns'] = [
   {
     title: 'Name',
     dataIndex: 'name',

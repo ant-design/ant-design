@@ -1,4 +1,6 @@
+import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { GenerateStyle } from '../../theme/internal';
 import type { TableToken } from './index';
 
@@ -9,7 +11,7 @@ const genRadiusStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       [componentCls]: {
         // https://github.com/ant-design/ant-design/issues/39115#issuecomment-1362314574
         [`${componentCls}-title, ${componentCls}-header`]: {
-          borderRadius: `${tableRadius}px ${tableRadius}px 0 0`,
+          borderRadius: `${unit(tableRadius)} ${unit(tableRadius)} 0 0`,
         },
 
         [`${componentCls}-title + ${componentCls}-container`]: {
@@ -44,7 +46,7 @@ const genRadiusStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         },
 
         '&-footer': {
-          borderRadius: `0 0 ${tableRadius}px ${tableRadius}px`,
+          borderRadius: `0 0 ${unit(tableRadius)} ${unit(tableRadius)}`,
         },
       },
     },

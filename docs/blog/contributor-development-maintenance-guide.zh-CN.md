@@ -2,9 +2,12 @@
 title: 贡献者开发维护指南
 date: 2023-03-10
 author: kiner-tang
+zhihu_url: https://zhuanlan.zhihu.com/p/639266384
+yuque_url: https://www.yuque.com/ant-design/ant-design/rixou58ogv8hlev2
+juejin_url: https://juejin.cn/post/7322305961196273673
 ---
 
-大家好，我是[kiner-tang(文辉)](https://github.com/kiner-tang)，我个人的工作内容可以说与 Ant Design 密切相关，可以算是 Ant Design 的重度用户了。也正因如此，让我由一个使用者慢慢地向着贡献者 Contributor 迈进，将自己在工作过程中遇到的一些问题和总结出的新特性回馈于社区，并最终很荣幸地成为了 Ant Design 的 Collaborator 中的一员。在从使用者到贡献者，再从贡献者到合作者的旅途中，也遇到了不少的问题，借此机会梳理总结一下，希望能对新加入 Ant Design 社区的贡献者和合作者们有所帮助。
+大家好，我是 [kiner-tang(文辉)](https://github.com/kiner-tang)，我个人的工作内容可以说与 Ant Design 密切相关，可以算是 Ant Design 的重度用户了。也正因如此，让我由一个使用者慢慢地向着贡献者 Contributor 迈进，将自己在工作过程中遇到的一些问题和总结出的新特性回馈于社区，并最终很荣幸地成为了 Ant Design 的 Collaborator 中的一员。在从使用者到贡献者，再从贡献者到合作者的旅途中，也遇到了不少的问题，借此机会梳理总结一下，希望能对新加入 Ant Design 社区的贡献者和合作者们有所帮助。
 
 ## 普通常见问题
 

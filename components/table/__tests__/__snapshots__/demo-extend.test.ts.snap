@@ -867,7 +867,7 @@ exports[`renders components/table/demo/colspan-rowspan.tsx extend context correc
 exports[`renders components/table/demo/component-token.tsx extend context correctly 1`] = `
 Array [
   <form
-    class="ant-form ant-form-inline components-table-demo-control-bar"
+    class="ant-form ant-form-inline table-demo-control-bar"
     style="margin-bottom: 16px;"
   >
     <div
@@ -1883,7 +1883,7 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <td
+                    <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     />
                     <th
@@ -2145,42 +2145,7 @@ Array [
                             <div
                               aria-hidden="true"
                               style="display: none;"
-                            >
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
-                            </div>
+                            />
                             <div
                               class="ant-table-filter-dropdown-btns"
                             >
@@ -3410,6 +3375,426 @@ Array [
 
 exports[`renders components/table/demo/component-token.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/table/demo/custom-empty.tsx extend context correctly 1`] = `
+Array [
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Toggle Data
+    </span>
+  </button>,
+  <div
+    style="margin-block: 8px;"
+  />,
+  <div
+    class="ant-table-wrapper"
+  >
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-table ant-table-bordered"
+        >
+          <div
+            class="ant-table-container"
+          >
+            <div
+              class="ant-table-content"
+            >
+              <table
+                style="table-layout: auto;"
+              >
+                <colgroup />
+                <thead
+                  class="ant-table-thead"
+                >
+                  <tr>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Name
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      <div
+                        class="ant-table-filter-column"
+                      >
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Age
+                        </span>
+                        <span
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <span
+                            aria-label="filter"
+                            class="anticon anticon-filter"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="filter"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                        <div
+                          class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomRight"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                        >
+                          <div
+                            class="ant-table-filter-dropdown"
+                          >
+                            <ul
+                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
+                              data-menu-list="true"
+                              role="menu"
+                              tabindex="0"
+                            >
+                              <li
+                                class="ant-dropdown-menu-item"
+                                data-menu-id="rc-menu-uuid-test-gte35"
+                                role="menuitem"
+                                tabindex="-1"
+                              >
+                                <span
+                                  class="ant-dropdown-menu-title-content"
+                                >
+                                  <label
+                                    class="ant-checkbox-wrapper"
+                                  >
+                                    <span
+                                      class="ant-checkbox ant-wave-target"
+                                    >
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    &gt;=35
+                                  </span>
+                                </span>
+                              </li>
+                              <div
+                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                              >
+                                <div
+                                  class="ant-tooltip-arrow"
+                                  style="position: absolute; top: 0px; left: 0px;"
+                                />
+                                <div
+                                  class="ant-tooltip-content"
+                                >
+                                  <div
+                                    class="ant-tooltip-inner"
+                                    role="tooltip"
+                                  />
+                                </div>
+                              </div>
+                              <li
+                                class="ant-dropdown-menu-item"
+                                data-menu-id="rc-menu-uuid-test-lt18"
+                                role="menuitem"
+                                tabindex="-1"
+                              >
+                                <span
+                                  class="ant-dropdown-menu-title-content"
+                                >
+                                  <label
+                                    class="ant-checkbox-wrapper"
+                                  >
+                                    <span
+                                      class="ant-checkbox ant-wave-target"
+                                    >
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    &lt;18
+                                  </span>
+                                </span>
+                              </li>
+                              <div
+                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                              >
+                                <div
+                                  class="ant-tooltip-arrow"
+                                  style="position: absolute; top: 0px; left: 0px;"
+                                />
+                                <div
+                                  class="ant-tooltip-content"
+                                >
+                                  <div
+                                    class="ant-tooltip-inner"
+                                    role="tooltip"
+                                  />
+                                </div>
+                              </div>
+                            </ul>
+                            <div
+                              aria-hidden="true"
+                              style="display: none;"
+                            />
+                            <div
+                              class="ant-table-filter-dropdown-btns"
+                            >
+                              <button
+                                class="ant-btn ant-btn-link ant-btn-sm"
+                                disabled=""
+                                type="button"
+                              >
+                                <span>
+                                  Reset
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary ant-btn-sm"
+                                type="button"
+                              >
+                                <span>
+                                  OK
+                                </span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Address
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  class="ant-table-tbody"
+                >
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="0"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      Edward King 0
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      32
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London, Park Lane no. 0
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="1"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      Edward King 1
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      33
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London, Park Lane no. 1
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="2"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      Edward King 2
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      34
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London, Park Lane no. 2
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="3"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      Edward King 3
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      35
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London, Park Lane no. 3
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="4"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      Edward King 4
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      36
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London, Park Lane no. 4
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <ul
+          class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        >
+          <li
+            aria-disabled="true"
+            class="ant-pagination-prev ant-pagination-disabled"
+            title="Previous Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="left"
+                class="anticon anticon-left"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="left"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            tabindex="0"
+            title="1"
+          >
+            <a
+              rel="nofollow"
+            >
+              1
+            </a>
+          </li>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-next ant-pagination-disabled"
+            title="Next Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/table/demo/custom-empty.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/custom-filter-panel.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -3492,7 +3877,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                             style="padding: 8px;"
                           >
                             <input
-                              class="ant-input"
+                              class="ant-input ant-input-outlined"
                               placeholder="Search name"
                               style="margin-bottom: 8px; display: block;"
                               type="text"
@@ -3628,7 +4013,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                             style="padding: 8px;"
                           >
                             <input
-                              class="ant-input"
+                              class="ant-input ant-input-outlined"
                               placeholder="Search age"
                               style="margin-bottom: 8px; display: block;"
                               type="text"
@@ -3840,7 +4225,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                             style="padding: 8px;"
                           >
                             <input
-                              class="ant-input"
+                              class="ant-input ant-input-outlined"
                               placeholder="Search address"
                               style="margin-bottom: 8px; display: block;"
                               type="text"
@@ -4104,6 +4489,351 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
 
 exports[`renders components/table/demo/custom-filter-panel.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/table/demo/drag-column-sorting.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-table-wrapper"
+  >
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-table"
+        >
+          <div
+            class="ant-table-container"
+          >
+            <div
+              class="ant-table-content"
+            >
+              <table
+                style="table-layout: auto;"
+              >
+                <colgroup />
+                <thead
+                  class="ant-table-thead"
+                >
+                  <tr>
+                    <th
+                      aria-describedby="DndDescribedBy-5"
+                      aria-disabled="false"
+                      aria-roledescription="sortable"
+                      class="ant-table-cell"
+                      id="0"
+                      role="button"
+                      scope="col"
+                      style="cursor: move;"
+                      tabindex="0"
+                    >
+                      Name
+                    </th>
+                    <th
+                      aria-describedby="DndDescribedBy-5"
+                      aria-disabled="false"
+                      aria-roledescription="sortable"
+                      class="ant-table-cell"
+                      id="1"
+                      role="button"
+                      scope="col"
+                      style="cursor: move;"
+                      tabindex="0"
+                    >
+                      Gender
+                    </th>
+                    <th
+                      aria-describedby="DndDescribedBy-5"
+                      aria-disabled="false"
+                      aria-roledescription="sortable"
+                      class="ant-table-cell"
+                      id="2"
+                      role="button"
+                      scope="col"
+                      style="cursor: move;"
+                      tabindex="0"
+                    >
+                      Age
+                    </th>
+                    <th
+                      aria-describedby="DndDescribedBy-5"
+                      aria-disabled="false"
+                      aria-roledescription="sortable"
+                      class="ant-table-cell"
+                      id="3"
+                      role="button"
+                      scope="col"
+                      style="cursor: move;"
+                      tabindex="0"
+                    >
+                      Email
+                    </th>
+                    <th
+                      aria-describedby="DndDescribedBy-5"
+                      aria-disabled="false"
+                      aria-roledescription="sortable"
+                      class="ant-table-cell"
+                      id="4"
+                      role="button"
+                      scope="col"
+                      style="cursor: move;"
+                      tabindex="0"
+                    >
+                      Address
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  class="ant-table-tbody"
+                >
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="1"
+                  >
+                    <td
+                      class="ant-table-cell"
+                      id="0"
+                    >
+                      John Brown
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                      id="1"
+                    >
+                      male
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                      id="2"
+                    >
+                      32
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                      id="3"
+                    >
+                      John Brown@example.com
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                      id="4"
+                    >
+                      London No. 1 Lake Park
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="2"
+                  >
+                    <td
+                      class="ant-table-cell"
+                      id="0"
+                    >
+                      Jim Green
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                      id="1"
+                    >
+                      female
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                      id="2"
+                    >
+                      42
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                      id="3"
+                    >
+                      jimGreen@example.com
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                      id="4"
+                    >
+                      London No. 1 Lake Park
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="3"
+                  >
+                    <td
+                      class="ant-table-cell"
+                      id="0"
+                    >
+                      Joe Black
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                      id="1"
+                    >
+                      female
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                      id="2"
+                    >
+                      32
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                      id="3"
+                    >
+                      JoeBlack@example.com
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                      id="4"
+                    >
+                      Sidney No. 1 Lake Park
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="4"
+                  >
+                    <td
+                      class="ant-table-cell"
+                      id="0"
+                    >
+                      George Hcc
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                      id="1"
+                    >
+                      male
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                      id="2"
+                    >
+                      20
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                      id="3"
+                    >
+                      george@example.com
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                      id="4"
+                    >
+                      Sidney No. 1 Lake Park
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <ul
+          class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        >
+          <li
+            aria-disabled="true"
+            class="ant-pagination-prev ant-pagination-disabled"
+            title="Previous Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="left"
+                class="anticon anticon-left"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="left"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            tabindex="0"
+            title="1"
+          >
+            <a
+              rel="nofollow"
+            >
+              1
+            </a>
+          </li>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-next ant-pagination-disabled"
+            title="Next Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+  <div
+    id="DndDescribedBy-5"
+    style="display: none;"
+  >
+    To pick up a draggable item, press the space bar.
+    While dragging, use the arrow keys to move the item.
+    Press space again to drop the item in its new position, or press escape to cancel.
+  </div>,
+  <div
+    aria-atomic="true"
+    aria-live="assertive"
+    id="DndLiveRegion-5"
+    role="status"
+    style="position: fixed; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+  />,
+]
+`;
+
+exports[`renders components/table/demo/drag-column-sorting.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/drag-sorting.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -4363,13 +5093,18 @@ Array [
               <table
                 style="table-layout: auto;"
               >
-                <colgroup />
+                <colgroup>
+                  <col
+                    style="width: 80px;"
+                  />
+                </colgroup>
                 <thead
                   class="ant-table-thead"
                 >
                   <tr>
-                    <td
+                    <th
                       class="ant-table-cell"
+                      style="text-align: center;"
                     />
                     <th
                       class="ant-table-cell"
@@ -4405,27 +5140,37 @@ Array [
                   >
                     <td
                       class="ant-table-cell"
+                      style="text-align: center;"
                     >
-                      <span
-                        aria-label="menu"
-                        class="anticon anticon-menu"
-                        role="img"
+                      <button
+                        class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
                         style="cursor: move;"
+                        type="button"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="menu"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
+                        <span
+                          class="ant-btn-icon"
                         >
-                          <path
-                            d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
-                          />
-                        </svg>
-                      </span>
+                          <span
+                            aria-label="holder"
+                            class="anticon anticon-holder"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="holder"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </button>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -4440,7 +5185,7 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text
+                      Long text Long
                     </td>
                   </tr>
                   <tr
@@ -4454,27 +5199,37 @@ Array [
                   >
                     <td
                       class="ant-table-cell"
+                      style="text-align: center;"
                     >
-                      <span
-                        aria-label="menu"
-                        class="anticon anticon-menu"
-                        role="img"
+                      <button
+                        class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
                         style="cursor: move;"
+                        type="button"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="menu"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
+                        <span
+                          class="ant-btn-icon"
                         >
-                          <path
-                            d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
-                          />
-                        </svg>
-                      </span>
+                          <span
+                            aria-label="holder"
+                            class="anticon anticon-holder"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="holder"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </button>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -4503,27 +5258,37 @@ Array [
                   >
                     <td
                       class="ant-table-cell"
+                      style="text-align: center;"
                     >
-                      <span
-                        aria-label="menu"
-                        class="anticon anticon-menu"
-                        role="img"
+                      <button
+                        class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
                         style="cursor: move;"
+                        type="button"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="menu"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
+                        <span
+                          class="ant-btn-icon"
                         >
-                          <path
-                            d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
-                          />
-                        </svg>
-                      </span>
+                          <span
+                            aria-label="holder"
+                            class="anticon anticon-holder"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="holder"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </button>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -4651,7 +5416,7 @@ exports[`renders components/table/demo/drag-sorting-handler.tsx extend context c
 exports[`renders components/table/demo/dynamic-settings.tsx extend context correctly 1`] = `
 Array [
   <form
-    class="ant-form ant-form-inline components-table-demo-control-bar"
+    class="ant-form ant-form-inline table-demo-control-bar"
     style="margin-bottom: 16px;"
   >
     <div
@@ -5667,7 +6432,7 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <td
+                    <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     />
                     <th
@@ -5929,42 +6694,7 @@ Array [
                             <div
                               aria-hidden="true"
                               style="display: none;"
-                            >
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
-                            </div>
+                            />
                             <div
                               class="ant-table-filter-dropdown-btns"
                             >
@@ -7273,7 +8003,7 @@ exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`
                     >
                       <div
                         class="editable-cell-value-wrap"
-                        style="padding-right: 24px;"
+                        style="padding-inline-end: 24px;"
                       >
                         Edward King 0
                       </div>
@@ -7387,7 +8117,7 @@ exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`
                     >
                       <div
                         class="editable-cell-value-wrap"
-                        style="padding-right: 24px;"
+                        style="padding-inline-end: 24px;"
                       >
                         Edward King 1
                       </div>
@@ -8121,7 +8851,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
         >
           <div
             aria-label="Page Size"
-            class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+            class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
               class="ant-select-selector"
@@ -9146,7 +9876,7 @@ exports[`renders components/table/demo/expand.tsx extend context correctly 1`] =
                 class="ant-table-thead"
               >
                 <tr>
-                  <td
+                  <th
                     class="ant-table-cell ant-table-row-expand-icon-cell"
                   />
                   <th
@@ -9500,7 +10230,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                             class="ant-table-filter-dropdown-search"
                           >
                             <span
-                              class="ant-input-affix-wrapper ant-table-filter-dropdown-search-input"
+                              class="ant-input-affix-wrapper ant-input-outlined ant-table-filter-dropdown-search-input"
                             >
                               <span
                                 class="ant-input-prefix"
@@ -9594,7 +10324,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                     >
                                       <div
                                         aria-grabbed="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close"
                                         draggable="false"
                                       >
                                         <span
@@ -9674,7 +10404,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                       </div>
                                       <div
                                         aria-grabbed="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close"
                                         draggable="false"
                                       >
                                         <span
@@ -9708,7 +10438,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                       </div>
                                       <div
                                         aria-grabbed="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
                                         draggable="false"
                                       >
                                         <span
@@ -9792,7 +10522,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                       </div>
                                       <div
                                         aria-grabbed="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close"
                                         draggable="false"
                                       >
                                         <span
@@ -9826,7 +10556,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                       </div>
                                       <div
                                         aria-grabbed="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
                                         draggable="false"
                                       >
                                         <span
@@ -10019,7 +10749,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                             class="ant-table-filter-dropdown-search"
                           >
                             <span
-                              class="ant-input-affix-wrapper ant-table-filter-dropdown-search-input"
+                              class="ant-input-affix-wrapper ant-input-outlined ant-table-filter-dropdown-search-input"
                             >
                               <span
                                 class="ant-input-prefix"
@@ -10155,42 +10885,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                           <div
                             aria-hidden="true"
                             style="display: none;"
-                          >
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                          </div>
+                          />
                           <div
                             class="ant-table-filter-dropdown-btns"
                           >
@@ -10475,7 +11170,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                             class="ant-table-filter-dropdown-search"
                           >
                             <span
-                              class="ant-input-affix-wrapper ant-table-filter-dropdown-search-input"
+                              class="ant-input-affix-wrapper ant-input-outlined ant-table-filter-dropdown-search-input"
                             >
                               <span
                                 class="ant-input-prefix"
@@ -10569,7 +11264,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                                     >
                                       <div
                                         aria-grabbed="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close"
                                         draggable="false"
                                       >
                                         <span
@@ -10599,7 +11294,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                                       </div>
                                       <div
                                         aria-grabbed="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close"
                                         draggable="false"
                                       >
                                         <span
@@ -10629,7 +11324,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                                       </div>
                                       <div
                                         aria-grabbed="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
                                         draggable="false"
                                       >
                                         <span
@@ -10818,7 +11513,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                             class="ant-table-filter-dropdown-search"
                           >
                             <span
-                              class="ant-input-affix-wrapper ant-table-filter-dropdown-search-input"
+                              class="ant-input-affix-wrapper ant-input-outlined ant-table-filter-dropdown-search-input"
                             >
                               <span
                                 class="ant-input-prefix"
@@ -10954,42 +11649,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                           <div
                             aria-hidden="true"
                             style="display: none;"
-                          >
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                          </div>
+                          />
                           <div
                             class="ant-table-filter-dropdown-btns"
                           >
@@ -12771,7 +13431,7 @@ exports[`renders components/table/demo/fixed-columns-header.tsx extend context c
         >
           <div
             aria-label="Page Size"
-            class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+            class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
               class="ant-select-selector"
@@ -12938,6 +13598,347 @@ exports[`renders components/table/demo/fixed-columns-header.tsx extend context c
 `;
 
 exports[`renders components/table/demo/fixed-columns-header.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/table/demo/fixed-gapped-columns.tsx extend context correctly 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table ant-table-bordered ant-table-fixed-column ant-table-fixed-column-gapped ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-content"
+            style="overflow-x: auto; overflow-y: hidden;"
+          >
+            <table
+              style="width: 1300px; min-width: 100%; table-layout: fixed;"
+            >
+              <colgroup>
+                <col
+                  style="width: 100px;"
+                />
+                <col
+                  style="width: 100px;"
+                />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col
+                  style="width: 90px;"
+                />
+                <col
+                  style="width: 90px;"
+                />
+                <col
+                  style="width: 90px;"
+                />
+              </colgroup>
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    scope="col"
+                    style="position: sticky; left: 0px;"
+                  >
+                    Full Name
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Age
+                  </th>
+                  <th
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    scope="col"
+                    style="position: sticky; left: 0px;"
+                  >
+                    Column 1
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 2
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 3
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 4
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 5
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 6
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 7
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 8
+                  </th>
+                  <th
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    scope="col"
+                    style="position: sticky; right: 0px;"
+                  >
+                    Action 1
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Action 2
+                  </th>
+                  <th
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    scope="col"
+                    style="position: sticky; right: 0px;"
+                  >
+                    Action 3
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  aria-hidden="true"
+                  class="ant-table-measure-row"
+                  style="height: 0px; font-size: 0px;"
+                >
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                    </div>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                >
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    style="position: sticky; left: 0px;"
+                  >
+                    John Brown
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    style="position: sticky; left: 0px;"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    style="position: sticky; right: 0px;"
+                  >
+                    <a>
+                      action
+                    </a>
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    <a>
+                      action
+                    </a>
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    style="position: sticky; right: 0px;"
+                  >
+                    <a>
+                      action
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/table/demo/fixed-gapped-columns.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/fixed-header.tsx extend context correctly 1`] = `
 <div
@@ -14136,7 +15137,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
         >
           <div
             aria-label="Page Size"
-            class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+            class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
               class="ant-select-selector"
@@ -14480,42 +15481,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                           <div
                             aria-hidden="true"
                             style="display: none;"
-                          >
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                          </div>
+                          />
                           <div
                             class="ant-table-filter-dropdown-btns"
                           >
@@ -15458,7 +16424,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
         >
           <div
             aria-label="Page Size"
-            class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+            class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
               class="ant-select-selector"
@@ -16003,76 +16969,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                           <div
                             aria-hidden="true"
                             style="display: none;"
-                          >
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                          </div>
+                          />
                           <div
                             class="ant-table-filter-dropdown-btns"
                           >
@@ -16105,7 +17002,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                     tabindex="0"
                   >
                     <div
-                      class="ant-table-column-sorters"
+                      class="ant-table-column-sorters ant-table-column-sorters-tooltip-target-sorter"
                     >
                       <span
                         class="ant-table-column-title"
@@ -16159,23 +17056,23 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                           </span>
                         </span>
                       </span>
-                    </div>
-                    <div
-                      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                    >
                       <div
-                        class="ant-tooltip-arrow"
-                        style="position: absolute; bottom: 0px; left: 0px;"
-                      />
-                      <div
-                        class="ant-tooltip-content"
+                        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
-                          class="ant-tooltip-inner"
-                          role="tooltip"
+                          class="ant-tooltip-arrow"
+                          style="position: absolute; bottom: 0px; left: 0px;"
+                        />
+                        <div
+                          class="ant-tooltip-content"
                         >
-                          Click to cancel sorting
+                          <div
+                            class="ant-tooltip-inner"
+                            role="tooltip"
+                          >
+                            Click to cancel sorting
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -16326,42 +17223,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                           <div
                             aria-hidden="true"
                             style="display: none;"
-                          >
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                          </div>
+                          />
                           <div
                             class="ant-table-filter-dropdown-btns"
                           >
@@ -16563,6 +17425,444 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
 
 exports[`renders components/table/demo/head.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/table/demo/hidden-columns.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Columns displayed
+    </span>
+  </div>,
+  <div
+    class="ant-checkbox-group"
+  >
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+    >
+      <span
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="1"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Column 1
+      </span>
+    </label>
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+    >
+      <span
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="2"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Column 2
+      </span>
+    </label>
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+    >
+      <span
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="3"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Column 3
+      </span>
+    </label>
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+    >
+      <span
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="4"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Column 4
+      </span>
+    </label>
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+    >
+      <span
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="5"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Column 5
+      </span>
+    </label>
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+    >
+      <span
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="6"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Column 6
+      </span>
+    </label>
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+    >
+      <span
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="7"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Column 7
+      </span>
+    </label>
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+    >
+      <span
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="8"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Column 8
+      </span>
+    </label>
+  </div>,
+  <div
+    class="ant-table-wrapper"
+    style="margin-top: 24px;"
+  >
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-table"
+        >
+          <div
+            class="ant-table-container"
+          >
+            <div
+              class="ant-table-content"
+            >
+              <table
+                style="table-layout: auto;"
+              >
+                <colgroup />
+                <thead
+                  class="ant-table-thead"
+                >
+                  <tr>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Column 1
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Column 2
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Column 3
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Column 4
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Column 5
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Column 6
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Column 7
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Column 8
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  class="ant-table-tbody"
+                >
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="1"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York Park
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="2"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London Park
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <ul
+          class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        >
+          <li
+            aria-disabled="true"
+            class="ant-pagination-prev ant-pagination-disabled"
+            title="Previous Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="left"
+                class="anticon anticon-left"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="left"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            tabindex="0"
+            title="1"
+          >
+            <a
+              rel="nofollow"
+            >
+              1
+            </a>
+          </li>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-next ant-pagination-disabled"
+            title="Next Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/table/demo/hidden-columns.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/jsx.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -16672,14 +17972,14 @@ exports[`renders components/table/demo/jsx.tsx extend context correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <span
-                      class="ant-tag ant-tag-blue"
+                      class="ant-tag ant-tag-green"
                     >
-                      nice
+                      NICE
                     </span>
                     <span
-                      class="ant-tag ant-tag-blue"
+                      class="ant-tag ant-tag-geekblue"
                     >
-                      developer
+                      DEVELOPER
                     </span>
                   </td>
                   <td
@@ -16733,9 +18033,9 @@ exports[`renders components/table/demo/jsx.tsx extend context correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <span
-                      class="ant-tag ant-tag-blue"
+                      class="ant-tag ant-tag-volcano"
                     >
-                      loser
+                      LOSER
                     </span>
                   </td>
                   <td
@@ -16789,14 +18089,14 @@ exports[`renders components/table/demo/jsx.tsx extend context correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <span
-                      class="ant-tag ant-tag-blue"
+                      class="ant-tag ant-tag-green"
                     >
-                      cool
+                      COOL
                     </span>
                     <span
-                      class="ant-tag ant-tag-blue"
+                      class="ant-tag ant-tag-geekblue"
                     >
-                      teacher
+                      TEACHER
                     </span>
                   </td>
                   <td
@@ -17871,7 +19171,7 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
           >
             <div
               aria-label="Page Size"
-              class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+              class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
             >
               <div
                 class="ant-select-selector"
@@ -18043,7 +19343,7 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 2`] =
 exports[`renders components/table/demo/nest-table-border-debug.tsx extend context correctly 1`] = `
 Array [
   <form
-    class="ant-form ant-form-inline components-table-demo-control-bar"
+    class="ant-form ant-form-inline table-demo-control-bar"
     style="margin-bottom: 16px;"
   >
     <div
@@ -18182,7 +19482,7 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <td
+                    <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     />
                     <th
@@ -18517,7 +19817,7 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <td
+                    <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     />
                     <th
@@ -18748,7 +20048,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More
+                                                More 
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -18841,42 +20141,7 @@ Array [
                                                 <div
                                                   aria-hidden="true"
                                                   style="display: none;"
-                                                >
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                </div>
+                                                />
                                               </div>
                                             </div>
                                           </div>
@@ -18943,7 +20208,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More
+                                                More 
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -19036,42 +20301,7 @@ Array [
                                                 <div
                                                   aria-hidden="true"
                                                   style="display: none;"
-                                                >
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                </div>
+                                                />
                                               </div>
                                             </div>
                                           </div>
@@ -19138,7 +20368,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More
+                                                More 
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -19231,42 +20461,7 @@ Array [
                                                 <div
                                                   aria-hidden="true"
                                                   style="display: none;"
-                                                >
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                </div>
+                                                />
                                               </div>
                                             </div>
                                           </div>
@@ -19503,7 +20698,7 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <td
+                    <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     />
                     <th
@@ -19734,7 +20929,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More
+                                                More 
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -19827,42 +21022,7 @@ Array [
                                                 <div
                                                   aria-hidden="true"
                                                   style="display: none;"
-                                                >
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                </div>
+                                                />
                                               </div>
                                             </div>
                                           </div>
@@ -19929,7 +21089,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More
+                                                More 
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -20022,42 +21182,7 @@ Array [
                                                 <div
                                                   aria-hidden="true"
                                                   style="display: none;"
-                                                >
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                </div>
+                                                />
                                               </div>
                                             </div>
                                           </div>
@@ -20124,7 +21249,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More
+                                                More 
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -20217,42 +21342,7 @@ Array [
                                                 <div
                                                   aria-hidden="true"
                                                   style="display: none;"
-                                                >
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                </div>
+                                                />
                                               </div>
                                             </div>
                                           </div>
@@ -20489,7 +21579,7 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <td
+                    <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     />
                     <th
@@ -20720,7 +21810,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More
+                                                More 
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -20813,42 +21903,7 @@ Array [
                                                 <div
                                                   aria-hidden="true"
                                                   style="display: none;"
-                                                >
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                </div>
+                                                />
                                               </div>
                                             </div>
                                           </div>
@@ -20915,7 +21970,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More
+                                                More 
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -21008,42 +22063,7 @@ Array [
                                                 <div
                                                   aria-hidden="true"
                                                   style="display: none;"
-                                                >
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                </div>
+                                                />
                                               </div>
                                             </div>
                                           </div>
@@ -21110,7 +22130,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More
+                                                More 
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -21203,42 +22223,7 @@ Array [
                                                 <div
                                                   aria-hidden="true"
                                                   style="display: none;"
-                                                >
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                  <div
-                                                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                                                  >
-                                                    <div
-                                                      class="ant-tooltip-arrow"
-                                                      style="position: absolute; top: 0px; left: 0px;"
-                                                    />
-                                                    <div
-                                                      class="ant-tooltip-content"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-inner"
-                                                        role="tooltip"
-                                                      />
-                                                    </div>
-                                                  </div>
-                                                </div>
+                                                />
                                               </div>
                                             </div>
                                           </div>
@@ -21492,7 +22477,7 @@ exports[`renders components/table/demo/order-column.tsx extend context correctly
                   >
                     Name
                   </th>
-                  <td
+                  <th
                     class="ant-table-cell ant-table-row-expand-icon-cell"
                   />
                   <th
@@ -22691,42 +23676,7 @@ Array [
                             <div
                               aria-hidden="true"
                               style="display: none;"
-                            >
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
-                            </div>
+                            />
                             <div
                               class="ant-table-filter-dropdown-btns"
                             >
@@ -23058,42 +24008,7 @@ Array [
                             <div
                               aria-hidden="true"
                               style="display: none;"
-                            >
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
-                              <div
-                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position: absolute; top: 0px; left: 0px;"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
-                            </div>
+                            />
                             <div
                               class="ant-table-filter-dropdown-btns"
                             >
@@ -24188,9 +25103,11 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
 exports[`renders components/table/demo/row-selection.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/row-selection-and-operation.tsx extend context correctly 1`] = `
-<div>
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
   <div
-    style="margin-bottom: 16px;"
+    class="ant-flex ant-flex-align-center ant-flex-gap-middle"
   >
     <button
       class="ant-btn ant-btn-primary"
@@ -24201,9 +25118,6 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
         Reload
       </span>
     </button>
-    <span
-      style="margin-left: 8px;"
-    />
   </div>
   <div
     class="ant-table-wrapper"
@@ -25048,93 +25962,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                           <div
                             aria-hidden="true"
                             style="display: none;"
-                          >
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                          </div>
+                          />
                         </div>
                       </div>
                     </div>
@@ -25762,7 +26590,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                     class="ant-table-cell ant-table-selection-column"
                     rowspan="2"
                   >
-                    false:
+                    false: 
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -25803,7 +26631,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                     class="ant-table-cell ant-table-selection-column"
                     rowspan="2"
                   >
-                    false:
+                    false: 
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -25844,7 +26672,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                     class="ant-table-cell ant-table-selection-column"
                     rowspan="2"
                   >
-                    false:
+                    false: 
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -25885,7 +26713,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                     class="ant-table-cell ant-table-selection-column"
                     rowspan="2"
                   >
-                    false:
+                    false: 
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -25926,7 +26754,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                     class="ant-table-cell ant-table-selection-column"
                     rowspan="2"
                   >
-                    false:
+                    false: 
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -26101,7 +26929,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
 exports[`renders components/table/demo/row-selection-debug.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-input-number"
+    class="ant-input-number ant-input-number-outlined"
   >
     <div
       class="ant-input-number-handler-wrap"
@@ -28546,59 +29374,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                           <div
                             aria-hidden="true"
                             style="display: none;"
-                          >
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                                style="position: absolute; top: 0px; left: 0px;"
-                              />
-                              <div
-                                class="ant-tooltip-content"
-                              >
-                                <div
-                                  class="ant-tooltip-inner"
-                                  role="tooltip"
-                                />
-                              </div>
-                            </div>
-                          </div>
+                          />
                         </div>
                       </div>
                     </div>
@@ -30380,7 +31156,7 @@ exports[`renders components/table/demo/sticky.tsx extend context correctly 1`] =
         >
           <div
             aria-label="Page Size"
-            class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+            class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
               class="ant-select-selector"
@@ -31184,7 +31960,7 @@ Array [
     <div
       class="ant-space-item"
     >
-      CheckStrictly:
+      CheckStrictly: 
     </div>
     <div
       class="ant-space-item"
@@ -31495,7 +32271,7 @@ Array [
     <div
       class="ant-space-item"
     >
-      Fixed first column:
+      Fixed first column: 
     </div>
     <div
       class="ant-space-item"

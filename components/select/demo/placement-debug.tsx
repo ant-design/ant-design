@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import type { RadioChangeEvent } from 'antd';
+import type { RadioChangeEvent, SelectProps } from 'antd';
 import { Button, Radio, Select, Space, Switch } from 'antd';
-import type { SelectCommonPlacement } from 'antd/es/_util/motion';
+
+type SelectCommonPlacement = SelectProps['placement'];
 
 const randomOptions = (count?: number) => {
   const length = count ?? Math.floor(Math.random() * 5) + 1;
@@ -34,7 +35,14 @@ const App: React.FC = () => {
         position: 'relative',
       }}
     >
-      <Space style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)' }}>
+      <Space
+        style={{
+          position: 'absolute',
+          top: 0,
+          insetInlineStart: '50%',
+          transform: 'translateX(-50%)',
+        }}
+      >
         <Radio.Group value={placement} onChange={placementChange}>
           <Radio.Button value="topLeft">TL</Radio.Button>
           <Radio.Button value="topRight">TR</Radio.Button>

@@ -1,35 +1,42 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
-import type { AliasToken } from '../theme/internal';
-import type { TokenWithCommonCls } from '../theme/util/genComponentStyleHook';
-import { roundedArrow } from './roundedArrow';
+import { unit } from '@ant-design/cssinjs';
+
+import type { AliasToken, TokenWithCommonCls } from '../theme/internal';
+import type { ArrowToken } from './roundedArrow';
+import { genRoundedArrow } from './roundedArrow';
 
 export const MAX_VERTICAL_CONTENT_RADIUS = 8;
 
-export function getArrowOffset(options: {
+export interface ArrowOffsetToken {
+  /** @internal */
+  arrowOffsetHorizontal: number;
+  /** @internal */
+  arrowOffsetVertical: number;
+}
+
+export function getArrowOffsetToken(options: {
   contentRadius: number;
   limitVerticalRadius?: boolean;
-}) {
-  const maxVerticalContentRadius = MAX_VERTICAL_CONTENT_RADIUS;
+}): ArrowOffsetToken {
   const { contentRadius, limitVerticalRadius } = options;
-  const dropdownArrowOffset = contentRadius > 12 ? contentRadius + 2 : 12;
-  const dropdownArrowOffsetVertical = limitVerticalRadius
-    ? maxVerticalContentRadius
-    : dropdownArrowOffset;
-  return { dropdownArrowOffset, dropdownArrowOffsetVertical };
+  const arrowOffset = contentRadius > 12 ? contentRadius + 2 : 12;
+  const arrowOffsetVertical = limitVerticalRadius ? MAX_VERTICAL_CONTENT_RADIUS : arrowOffset;
+  return { arrowOffsetHorizontal: arrowOffset, arrowOffsetVertical };
 }
 
 function isInject(valid: boolean, code: CSSObject): CSSObject {
-  if (!valid) return {};
+  if (!valid) {
+    return {};
+  }
   return code;
 }
 
-export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToken>>(
+export default function getArrowStyle<
+  Token extends TokenWithCommonCls<AliasToken> & ArrowOffsetToken & ArrowToken,
+>(
   token: Token,
-  options: {
-    colorBg: string;
-    showArrowCls?: string;
-    contentRadius?: number;
-    limitVerticalRadius?: boolean;
+  colorBg: string,
+  options?: {
     arrowDistance?: number;
     arrowPlacement?: {
       left?: boolean;
@@ -39,13 +46,9 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
     };
   },
 ): CSSInterpolation {
-  const { componentCls, sizePopupArrow, borderRadiusXS, borderRadiusOuter, boxShadowPopoverArrow } =
-    token;
+  const { componentCls, boxShadowPopoverArrow, arrowOffsetVertical, arrowOffsetHorizontal } = token;
 
   const {
-    colorBg,
-    contentRadius = token.borderRadiusLG,
-    limitVerticalRadius,
     arrowDistance = 0,
     arrowPlacement = {
       left: true,
@@ -53,12 +56,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
       top: true,
       bottom: true,
     },
-  } = options;
-
-  const { dropdownArrowOffsetVertical, dropdownArrowOffset } = getArrowOffset({
-    contentRadius,
-    limitVerticalRadius,
-  });
+  } = options || {};
 
   return {
     [componentCls]: {
@@ -69,13 +67,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           zIndex: 1, // lift it up so the menu wouldn't cask shadow on it
           display: 'block',
 
-          ...roundedArrow(
-            sizePopupArrow,
-            borderRadiusXS,
-            borderRadiusOuter,
-            colorBg,
-            boxShadowPopoverArrow,
-          ),
+          ...genRoundedArrow(token, colorBg, boxShadowPopoverArrow),
 
           '&:before': {
             background: colorBg,
@@ -88,15 +80,15 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
       // >>>>> Top
       ...isInject(!!arrowPlacement.top, {
         [[
-          `&-placement-top ${componentCls}-arrow`,
-          `&-placement-topLeft ${componentCls}-arrow`,
-          `&-placement-topRight ${componentCls}-arrow`,
+          `&-placement-top > ${componentCls}-arrow`,
+          `&-placement-topLeft > ${componentCls}-arrow`,
+          `&-placement-topRight > ${componentCls}-arrow`,
         ].join(',')]: {
           bottom: arrowDistance,
           transform: 'translateY(100%) rotate(180deg)',
         },
 
-        [`&-placement-top ${componentCls}-arrow`]: {
+        [`&-placement-top > ${componentCls}-arrow`]: {
           left: {
             _skip_check_: true,
             value: '50%',
@@ -104,17 +96,25 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           transform: 'translateX(-50%) translateY(100%) rotate(180deg)',
         },
 
-        [`&-placement-topLeft ${componentCls}-arrow`]: {
-          left: {
-            _skip_check_: true,
-            value: dropdownArrowOffset,
+        '&-placement-topLeft': {
+          '--arrow-offset-horizontal': arrowOffsetHorizontal,
+
+          [`> ${componentCls}-arrow`]: {
+            left: {
+              _skip_check_: true,
+              value: arrowOffsetHorizontal,
+            },
           },
         },
 
-        [`&-placement-topRight ${componentCls}-arrow`]: {
-          right: {
-            _skip_check_: true,
-            value: dropdownArrowOffset,
+        '&-placement-topRight': {
+          '--arrow-offset-horizontal': `calc(100% - ${unit(arrowOffsetHorizontal)})`,
+
+          [`> ${componentCls}-arrow`]: {
+            right: {
+              _skip_check_: true,
+              value: arrowOffsetHorizontal,
+            },
           },
         },
       }),
@@ -122,15 +122,15 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
       // >>>>> Bottom
       ...isInject(!!arrowPlacement.bottom, {
         [[
-          `&-placement-bottom ${componentCls}-arrow`,
-          `&-placement-bottomLeft ${componentCls}-arrow`,
-          `&-placement-bottomRight ${componentCls}-arrow`,
+          `&-placement-bottom > ${componentCls}-arrow`,
+          `&-placement-bottomLeft > ${componentCls}-arrow`,
+          `&-placement-bottomRight > ${componentCls}-arrow`,
         ].join(',')]: {
           top: arrowDistance,
           transform: `translateY(-100%)`,
         },
 
-        [`&-placement-bottom ${componentCls}-arrow`]: {
+        [`&-placement-bottom > ${componentCls}-arrow`]: {
           left: {
             _skip_check_: true,
             value: '50%',
@@ -138,17 +138,25 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           transform: `translateX(-50%) translateY(-100%)`,
         },
 
-        [`&-placement-bottomLeft ${componentCls}-arrow`]: {
-          left: {
-            _skip_check_: true,
-            value: dropdownArrowOffset,
+        '&-placement-bottomLeft': {
+          '--arrow-offset-horizontal': arrowOffsetHorizontal,
+
+          [`> ${componentCls}-arrow`]: {
+            left: {
+              _skip_check_: true,
+              value: arrowOffsetHorizontal,
+            },
           },
         },
 
-        [`&-placement-bottomRight ${componentCls}-arrow`]: {
-          right: {
-            _skip_check_: true,
-            value: dropdownArrowOffset,
+        '&-placement-bottomRight': {
+          '--arrow-offset-horizontal': `calc(100% - ${unit(arrowOffsetHorizontal)})`,
+
+          [`> ${componentCls}-arrow`]: {
+            right: {
+              _skip_check_: true,
+              value: arrowOffsetHorizontal,
+            },
           },
         },
       }),
@@ -156,9 +164,9 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
       // >>>>> Left
       ...isInject(!!arrowPlacement.left, {
         [[
-          `&-placement-left ${componentCls}-arrow`,
-          `&-placement-leftTop ${componentCls}-arrow`,
-          `&-placement-leftBottom ${componentCls}-arrow`,
+          `&-placement-left > ${componentCls}-arrow`,
+          `&-placement-leftTop > ${componentCls}-arrow`,
+          `&-placement-leftBottom > ${componentCls}-arrow`,
         ].join(',')]: {
           right: {
             _skip_check_: true,
@@ -167,7 +175,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           transform: 'translateX(100%) rotate(90deg)',
         },
 
-        [`&-placement-left ${componentCls}-arrow`]: {
+        [`&-placement-left > ${componentCls}-arrow`]: {
           top: {
             _skip_check_: true,
             value: '50%',
@@ -175,21 +183,21 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           transform: 'translateY(-50%) translateX(100%) rotate(90deg)',
         },
 
-        [`&-placement-leftTop ${componentCls}-arrow`]: {
-          top: dropdownArrowOffsetVertical,
+        [`&-placement-leftTop > ${componentCls}-arrow`]: {
+          top: arrowOffsetVertical,
         },
 
-        [`&-placement-leftBottom ${componentCls}-arrow`]: {
-          bottom: dropdownArrowOffsetVertical,
+        [`&-placement-leftBottom > ${componentCls}-arrow`]: {
+          bottom: arrowOffsetVertical,
         },
       }),
 
       // >>>>> Right
       ...isInject(!!arrowPlacement.right, {
         [[
-          `&-placement-right ${componentCls}-arrow`,
-          `&-placement-rightTop ${componentCls}-arrow`,
-          `&-placement-rightBottom ${componentCls}-arrow`,
+          `&-placement-right > ${componentCls}-arrow`,
+          `&-placement-rightTop > ${componentCls}-arrow`,
+          `&-placement-rightBottom > ${componentCls}-arrow`,
         ].join(',')]: {
           left: {
             _skip_check_: true,
@@ -198,7 +206,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           transform: 'translateX(-100%) rotate(-90deg)',
         },
 
-        [`&-placement-right ${componentCls}-arrow`]: {
+        [`&-placement-right > ${componentCls}-arrow`]: {
           top: {
             _skip_check_: true,
             value: '50%',
@@ -206,12 +214,12 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           transform: 'translateY(-50%) translateX(-100%) rotate(-90deg)',
         },
 
-        [`&-placement-rightTop ${componentCls}-arrow`]: {
-          top: dropdownArrowOffsetVertical,
+        [`&-placement-rightTop > ${componentCls}-arrow`]: {
+          top: arrowOffsetVertical,
         },
 
-        [`&-placement-rightBottom ${componentCls}-arrow`]: {
-          bottom: dropdownArrowOffsetVertical,
+        [`&-placement-rightBottom > ${componentCls}-arrow`]: {
+          bottom: arrowOffsetVertical,
         },
       }),
     },

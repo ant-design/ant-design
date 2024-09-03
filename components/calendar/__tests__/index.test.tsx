@@ -1,11 +1,14 @@
 import Dayjs from 'dayjs';
+
 import 'dayjs/locale/zh-cn';
+
+import React from 'react';
 import MockDate from 'mockdate';
-import { type PickerPanelProps } from 'rc-picker';
+import type { PickerPanelProps } from 'rc-picker';
 import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 import type { Locale } from 'rc-picker/lib/interface';
 import { resetWarned } from 'rc-util/lib/warning';
-import React from 'react';
+
 import Calendar from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -13,10 +16,12 @@ import { fireEvent, render } from '../../../tests/utils';
 import Group from '../../radio/group';
 import Button from '../../radio/radioButton';
 import Select from '../../select';
-import Header, { type CalendarHeaderProps } from '../Header';
+import Header from '../Header';
+import type { CalendarHeaderProps } from '../Header';
+import ConfigProvider from '../../config-provider';
 
 const ref: {
-  calendarProps?: PickerPanelProps<unknown>;
+  calendarProps?: PickerPanelProps;
   calendarHeaderProps?: CalendarHeaderProps<unknown>;
 } = {};
 
@@ -34,7 +39,7 @@ jest.mock('rc-picker', () => {
   const PickerPanelComponent = RcPicker.PickerPanel;
   return {
     ...RcPicker,
-    PickerPanel: (props: PickerPanelProps<unknown>) => {
+    PickerPanel: (props: PickerPanelProps) => {
       ref.calendarProps = props;
       return <PickerPanelComponent {...props} />;
     },
@@ -149,8 +154,8 @@ describe('Calendar', () => {
   it('getDateRange should returns a disabledDate function', () => {
     const validRange: [Dayjs.Dayjs, Dayjs.Dayjs] = [Dayjs('2018-02-02'), Dayjs('2018-05-18')];
     render(<Calendar validRange={validRange} defaultValue={Dayjs('2018-02-02')} />);
-    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-06-02'))).toBe(true);
-    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-04-02'))).toBe(false);
+    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-06-02'), {} as any)).toBe(true);
+    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-04-02'), {} as any)).toBe(false);
   });
 
   it('validRange should work with disabledDate function', () => {
@@ -162,11 +167,11 @@ describe('Calendar', () => {
       />,
     );
 
-    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-02-01'))).toBe(true);
-    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-02-02'))).toBe(false);
-    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-02-03'))).toBe(true);
-    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-02-04'))).toBe(false);
-    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-06-01'))).toBe(true);
+    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-02-01'), {} as any)).toBe(true);
+    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-02-02'), {} as any)).toBe(false);
+    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-02-03'), {} as any)).toBe(true);
+    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-02-04'), {} as any)).toBe(false);
+    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-06-01'), {} as any)).toBe(true);
   });
 
   it('Calendar MonthSelect should display correct label', () => {
@@ -201,6 +206,23 @@ describe('Calendar', () => {
     const zhCN = require('../locale/zh_CN').default;
     const wrapper = render(<Calendar locale={zhCN} />);
     expect(wrapper.container.children[0]).toMatchSnapshot();
+    MockDate.reset();
+  });
+
+  it('Calendar locale support should override ConfigProvider locale', () => {
+    MockDate.set(Dayjs('2018-10-19').valueOf());
+    // eslint-disable-next-line global-require
+    const zhCN = require('../locale/zh_CN').default;
+    // eslint-disable-next-line global-require
+    const enUs = require('../../locale/en_US').default;
+    const wrapper = render(
+      <ConfigProvider locale={enUs}>
+        <Calendar locale={zhCN} />
+      </ConfigProvider>,
+    );
+    expect(wrapper.container.querySelector('.ant-picker-content thead')?.textContent).toBe(
+      '一二三四五六日',
+    );
     MockDate.reset();
   });
 
@@ -331,7 +353,7 @@ describe('Calendar', () => {
     const onTypeChange = jest.fn();
     const value = Dayjs('2018-12-03');
     const wrapper = render(
-      <Header
+      <Header<Dayjs.Dayjs>
         prefixCls="ant-picker-calendar"
         generateConfig={dayjsGenerateConfig}
         onModeChange={onTypeChange}
@@ -367,7 +389,7 @@ describe('Calendar', () => {
       return (
         <Select
           size="small"
-          dropdownMatchSelectWidth={false}
+          popupMatchSelectWidth={false}
           className="my-year-select"
           onChange={onYearChange}
           value={String(year)}
@@ -411,7 +433,7 @@ describe('Calendar', () => {
       return (
         <Select
           size="small"
-          dropdownMatchSelectWidth={false}
+          popupMatchSelectWidth={false}
           className="my-month-select"
           onChange={onMonthChange}
           value={String(month)}

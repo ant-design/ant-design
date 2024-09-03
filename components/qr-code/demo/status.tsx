@@ -1,11 +1,14 @@
 import React from 'react';
-import { QRCode, Space } from 'antd';
+import { Flex, QRCode } from 'antd';
+
+const value = 'https://ant.design';
 
 const App: React.FC = () => (
-  <Space wrap>
-    <QRCode value="https://ant.design/" status="loading" />
-    <QRCode value="https://ant.design/" status="expired" onRefresh={() => console.log('refresh')} />
-  </Space>
+  <Flex gap="middle" wrap>
+    <QRCode value={value} status="loading" />
+    <QRCode value={value} status="expired" onRefresh={() => console.log('refresh')} />
+    <QRCode value={value} status="scanned" />
+  </Flex>
 );
 
 export default App;

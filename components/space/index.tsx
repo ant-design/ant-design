@@ -30,11 +30,11 @@ export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   styles?: { item: React.CSSProperties };
 }
 
-const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
+const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
   const { getPrefixCls, space, direction: directionConfig } = React.useContext(ConfigContext);
 
   const {
-    size = space?.size || 'small',
+    size = space?.size ?? 'small',
     align,
     className,
     rootClassName,
@@ -63,7 +63,7 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
 
   const mergedAlign = align === undefined && direction === 'horizontal' ? 'center' : align;
   const prefixCls = getPrefixCls('space', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const cls = classNames(
     prefixCls,
@@ -78,6 +78,7 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     },
     className,
     rootClassName,
+    cssVarCls,
   );
 
   const itemClassName = classNames(
@@ -92,7 +93,7 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
       latestIndex = i;
     }
 
-    const key = (child && child.key) || `${itemClassName}-${i}`;
+    const key = child?.key || `${itemClassName}-${i}`;
 
     return (
       <Item
@@ -128,7 +129,7 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     gapStyle.rowGap = verticalSize;
   }
 
-  return wrapSSR(
+  return wrapCSSVar(
     <div
       ref={ref}
       className={cls}
@@ -140,18 +141,16 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
   );
 });
 
+type CompoundedComponent = typeof InternalSpace & {
+  Compact: typeof Compact;
+};
+
+const Space = InternalSpace as CompoundedComponent;
+
+Space.Compact = Compact;
+
 if (process.env.NODE_ENV !== 'production') {
   Space.displayName = 'Space';
 }
 
-type CompoundedComponent = React.ForwardRefExoticComponent<
-  SpaceProps & React.RefAttributes<HTMLDivElement>
-> & {
-  Compact: typeof Compact;
-};
-
-const CompoundedSpace = Space as CompoundedComponent;
-
-CompoundedSpace.Compact = Compact;
-
-export default CompoundedSpace;
+export default Space;

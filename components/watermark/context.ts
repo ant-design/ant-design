@@ -1,5 +1,5 @@
-import { useEvent } from 'rc-util';
 import * as React from 'react';
+import { useEvent } from 'rc-util';
 
 export interface WatermarkContextProps {
   add: (ele: HTMLElement) => void;

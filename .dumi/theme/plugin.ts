@@ -1,19 +1,22 @@
+import { createHash } from 'crypto';
 import fs from 'fs';
 import path from 'path';
-import { createHash } from 'crypto';
+import createEmotionServer from '@emotion/server/create-instance';
+import chalk from 'chalk';
 import type { IApi, IRoute } from 'dumi';
 import ReactTechStack from 'dumi/dist/techStacks/react';
-import chalk from 'chalk';
 import sylvanas from 'sylvanas';
-import createEmotionServer from '@emotion/server/create-instance';
-import localPackage from '../../package.json';
+
+import { dependencies, devDependencies } from '../../package.json';
 
 function extractEmotionStyle(html: string) {
   // copy from emotion ssr
   // https://github.com/vercel/next.js/blob/deprecated-main/examples/with-emotion-vanilla/pages/_document.js
   const styles = global.__ANTD_STYLE_CACHE_MANAGER_FOR_SSR__.getCacheList().map((cache) => {
     const result = createEmotionServer(cache).extractCritical(html);
-    if (!result.css) return null;
+    if (!result.css) {
+      return null;
+    }
 
     const { css, ids } = result;
 
@@ -36,6 +39,13 @@ export const getHash = (str: string, length = 8) =>
 class AntdReactTechStack extends ReactTechStack {
   // eslint-disable-next-line class-methods-use-this
   generatePreviewerProps(...[props, opts]: any) {
+    props.pkgDependencyList = { ...devDependencies, ...dependencies };
+    props.jsx ??= '';
+
+    if (opts.type === 'code-block') {
+      props.jsx = opts?.entryPointCode ? sylvanas.parseText(opts.entryPointCode) : '';
+    }
+
     if (opts.type === 'external') {
       // try to find md file with the same name as the demo tsx file
       const locale = opts.mdAbsPath.match(/index\.([a-z-]+)\.md$/i)?.[1];
@@ -45,21 +55,69 @@ class AntdReactTechStack extends ReactTechStack {
       const codePath = opts.fileAbsPath!.replace(/\.\w+$/, '.tsx');
       const code = fs.existsSync(codePath) ? fs.readFileSync(codePath, 'utf-8') : '';
 
-      props.pkgDependencyList = {
-        ...localPackage.devDependencies,
-        ...localPackage.dependencies,
-      };
       props.jsx = sylvanas.parseText(code);
 
       if (md) {
         // extract description & css style from md file
-        const description = md.match(
-          new RegExp(`(?:^|\\n)## ${locale}([^]+?)(\\n## [a-z]|\\n\`\`\`|\\n<style>|$)`),
-        )?.[1];
-        const style = md.match(/\r?\n(?:```css|<style>)\r?\n([^]+?)\r?\n(?:```|<\/style>)/)?.[1];
+        const blocks: Record<string, string> = {};
 
-        props.description ??= description?.trim();
-        props.style ??= style;
+        const lines = md.split('\n');
+
+        let blockName = '';
+        let cacheList: string[] = [];
+
+        // Get block name
+        const getBlockName = (text: string) => {
+          if (text.startsWith('## ')) {
+            return text.replace('## ', '').trim();
+          }
+
+          if (text.startsWith('```css') || text.startsWith('<style>')) {
+            return 'style';
+          }
+
+          return null;
+        };
+
+        // Fill block content
+        const fillBlock = (name: string, lineList: string[]) => {
+          if (lineList.length) {
+            let fullText: string;
+
+            if (name === 'style') {
+              fullText = lineList
+                .join('\n')
+                .replace(/<\/?style>/g, '')
+                .replace(/```(\s*css)/g, '');
+            } else {
+              fullText = lineList.slice(1).join('\n');
+            }
+
+            blocks[name] = fullText;
+          }
+        };
+
+        for (let i = 0; i < lines.length; i++) {
+          const line = lines[i];
+
+          // Mark as new block
+          const nextBlockName = getBlockName(line);
+          if (nextBlockName) {
+            fillBlock(blockName, cacheList);
+
+            // Next Block
+            blockName = nextBlockName;
+            cacheList = [line];
+          } else {
+            cacheList.push(line);
+          }
+        }
+
+        // Last block
+        fillBlock(blockName, cacheList);
+
+        props.description = blocks[locale];
+        props.style = blocks.style;
       }
     }
 
@@ -129,26 +187,6 @@ const RoutesPlugin = (api: IApi) => {
       // exclude dynamic route path, to avoid deploy failed by `:id` directory
       .filter((f) => !f.path.includes(':'))
       .map((file) => {
-        let globalStyles = '';
-
-        // Debug for file content: uncomment this if need check raw out
-        // const tmpFileName = `_${file.path.replace(/\//g, '-')}`;
-        // const tmpFilePath = path.join(api.paths.absOutputPath, tmpFileName);
-        // fs.writeFileSync(tmpFilePath, file.content, 'utf8');
-
-        // extract all emotion style tags from body
-        file.content = file.content.replace(
-          /<style (data-emotion|data-sandpack)[\S\s]+?<\/style>/g,
-          (s) => {
-            globalStyles += s;
-
-            return '';
-          },
-        );
-
-        // insert emotion style tags to head
-        file.content = file.content.replace('</head>', `${globalStyles}</head>`);
-
         // 1. 提取 antd-style 样式
         const styles = extractEmotionStyle(file.content);
 
@@ -165,20 +203,6 @@ const RoutesPlugin = (api: IApi) => {
           file.content = addLinkStyle(file.content, cssFile);
         });
 
-        // Insert antd style to head
-        const matchRegex = /<style data-type="antd-cssinjs">(.*?)<\/style>/;
-        const matchList = file.content.match(matchRegex) || [];
-
-        let antdStyle = '';
-
-        matchList.forEach((text) => {
-          file.content = file.content.replace(text, '');
-          antdStyle += text.replace(matchRegex, '$1');
-        });
-
-        const cssFile = writeCSSFile('antd', antdStyle, antdStyle);
-        file.content = addLinkStyle(file.content, cssFile, true);
-
         return file;
       }),
   );
@@ -190,20 +214,6 @@ const RoutesPlugin = (api: IApi) => {
 
     return memo;
   });
-
-  // zombieJ: Unique CSS file is large, we move to build css for each page.
-  // See the `modifyExportHTMLFiles` above.
-
-  // generate ssr css file
-  // api.onBuildHtmlComplete(() => {
-  //   const styleCache = (global as any)?.styleCache;
-  //   const styleText = styleCache ? extractStyle(styleCache) : '';
-  //   const styleTextWithoutStyleTag = styleText
-  //     .replace(/<style\s[^>]*>/g, '')
-  //     .replace(/<\/style>/g, '');
-
-  //   fs.writeFileSync(`./_site/${ssrCssFileName}`, styleTextWithoutStyleTag, 'utf8');
-  // });
 };
 
 export default RoutesPlugin;

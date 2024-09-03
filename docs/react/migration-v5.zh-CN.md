@@ -125,7 +125,9 @@ tag: Updated
   ```diff
   - import { PageHeader, Comment } from 'antd';
   + import { Comment } from '@ant-design/compatible';
-  + import { PageHeader } from '@ant-design/pro-layout';
+  + import { PageHeader } from '@ant-design/pro-components';
+    // 如果是蚂蚁内网用户建议从 @alipay/tech-ui 引入
+    // import { PageHeader } from '@alipay/tech-ui';
 
     const App: React.FC = () => (
       <>
@@ -161,11 +163,11 @@ tag: Updated
 npm install --save antd@5.x
 ```
 
-如果你需要使用 v4 废弃组件如 `Comment`、`PageHeader`，请安装 `@ant-design/compatible` 与 `@ant-design/pro-layout` 做兼容：
+如果你需要使用 v4 废弃组件如 `Comment`、`PageHeader`，请安装 `@ant-design/compatible` 与 `@ant-design/pro-components` 做兼容：
 
 ```bash
 npm install --save @ant-design/compatible@v5-compatible-v4
-npm install --save @ant-design/pro-layout
+npm install --save @ant-design/pro-components
 ```
 
 你可以手动对照上面的列表逐条检查代码进行修改，另外，我们也提供了一个 codemod cli 工具 [@ant-design/codemod-v5](https://github.com/ant-design/codemod-v5) 以帮助你快速升级到 v5 版本。
@@ -193,12 +195,14 @@ pnpm --package=@ant-design/codemod-v5 dlx antd5-codemod src
 
 ```js
 const { theme } = require('antd/lib');
-const { convertLegacyToken } = require('@ant-design/compatible/lib');
+const { convertLegacyToken, defaultTheme } = require('@ant-design/compatible/lib');
 
 const { defaultAlgorithm, defaultSeed } = theme;
 
-const mapToken = defaultAlgorithm(defaultSeed);
-const v4Token = convertLegacyToken(mapToken);
+const mapV5Token = defaultAlgorithm(defaultSeed);
+const v5Vars = convertLegacyToken(mapV5Token);
+const mapV4Token = theme.getDesignToken(defaultTheme);
+const v4Vars = convertLegacyToken(mapV4Token);
 
 // Webpack Config
 module.exports = {
@@ -206,7 +210,7 @@ module.exports = {
   loader: 'less-loader',
   options: {
     lessOptions: {
-      modifyVars: v4Token,
+      modifyVars: v5Vars, // or v4Vars
     },
   },
 };
@@ -257,6 +261,8 @@ export default {
 +   dayjs.locale('zh-cn');
 ```
 
+🚨 需要注意 day.js 通过插件系统拓展功能。如果你发现原本 moment.js 的功能在 day.js 中无法使用，请查阅 [day.js 官方文档](https://day.js.org/docs/en/plugin/plugin)。
+
 如果你暂时不想替换 day.js，也可以使用 `@ant-design/moment-webpack-plugin` 插件将 day.js 替换回 moment.js：
 
 ```bash
@@ -273,7 +279,7 @@ module.exports = {
 };
 ```
 
-### 使用 V4 主题包 <Badge>Updated</Badge>
+### 使用 V4 主题包
 
 如果你不希望样式在升级后发生变化，我们在兼容包中提供了完整的 V4 主题，可以还原到 V4 的样式。
 

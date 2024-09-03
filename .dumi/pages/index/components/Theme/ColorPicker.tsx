@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { ColorPicker, Input, Space } from 'antd';
+import { ColorPicker, Flex, Input } from 'antd';
 import { createStyles } from 'antd-style';
-import type { Color } from 'antd/es/color-picker';
+import type { ColorPickerProps, GetProp } from 'antd';
 import { generateColor } from 'antd/es/color-picker/util';
 import classNames from 'classnames';
 
 import { PRESET_COLORS } from './colorUtil';
+
+type Color = Extract<GetProp<ColorPickerProps, 'value'>, string | { cleared: any }>;
 
 const useStyle = createStyles(({ token, css }) => ({
   color: css`
@@ -34,14 +36,13 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
 }));
 
-export interface ColorPickerProps {
+export interface ThemeColorPickerProps {
   id?: string;
-  children?: React.ReactNode;
   value?: string | Color;
   onChange?: (value?: Color | string) => void;
 }
 
-const DebouncedColorPicker: React.FC<ColorPickerProps> = (props) => {
+const DebouncedColorPicker: React.FC<React.PropsWithChildren<ThemeColorPickerProps>> = (props) => {
   const { value: color, children, onChange } = props;
   const [value, setValue] = useState(color);
 
@@ -67,7 +68,7 @@ const DebouncedColorPicker: React.FC<ColorPickerProps> = (props) => {
   );
 };
 
-const ThemeColorPicker: React.FC<ColorPickerProps> = ({ value, onChange, id }) => {
+const ThemeColorPicker: React.FC<ThemeColorPickerProps> = ({ value, onChange, id }) => {
   const { styles } = useStyle();
 
   const matchColors = React.useMemo(() => {
@@ -91,21 +92,20 @@ const ThemeColorPicker: React.FC<ColorPickerProps> = ({ value, onChange, id }) =
   }, [value]);
 
   return (
-    <Space size="large">
+    <Flex gap="large" align="center" wrap>
       <Input
         value={typeof value === 'string' ? value : value?.toHexString()}
         onChange={(event) => onChange?.(event.target.value)}
         style={{ width: 120 }}
         id={id}
       />
-
-      <Space size="middle">
-        {matchColors.map(({ color, active, picker }) => {
-          let colorNode = (
+      <Flex gap="middle">
+        {matchColors.map<React.ReactNode>(({ color, active, picker }) => {
+          const colorNode = (
             // eslint-disable-next-line jsx-a11y/label-has-associated-control
             <label
               key={color}
-              className={classNames(styles.color, active && styles.colorActive)}
+              className={classNames(styles.color, { [styles.colorActive]: active })}
               style={{ background: color }}
               onClick={() => {
                 if (!picker) {
@@ -116,28 +116,26 @@ const ThemeColorPicker: React.FC<ColorPickerProps> = ({ value, onChange, id }) =
               <input
                 type="radio"
                 name={picker ? 'picker' : 'color'}
+                aria-label={color}
                 tabIndex={picker ? -1 : 0}
                 onClick={(e) => e.stopPropagation()}
               />
             </label>
           );
-
-          if (picker) {
-            colorNode = (
-              <DebouncedColorPicker
-                key={`colorpicker-${value}`}
-                value={value || ''}
-                onChange={onChange}
-              >
-                {colorNode}
-              </DebouncedColorPicker>
-            );
-          }
-
-          return colorNode;
+          return picker ? (
+            <DebouncedColorPicker
+              key={`colorpicker-${value}`}
+              value={value || ''}
+              onChange={onChange}
+            >
+              {colorNode}
+            </DebouncedColorPicker>
+          ) : (
+            colorNode
+          );
         })}
-      </Space>
-    </Space>
+      </Flex>
+    </Flex>
   );
 };
 

@@ -1,7 +1,8 @@
-import classnames from 'classnames';
-import CSSMotion from 'rc-motion';
 import * as React from 'react';
 import { useMemo, useRef } from 'react';
+import classnames from 'classnames';
+import CSSMotion from 'rc-motion';
+
 import type { PresetStatusColorType } from '../_util/colors';
 import { isPresetColor } from '../_util/colors';
 import { cloneElement } from '../_util/reactNode';
@@ -13,12 +14,6 @@ import ScrollNumber from './ScrollNumber';
 import useStyle from './style';
 
 export type { ScrollNumberProps } from './ScrollNumber';
-
-type CompoundedComponent = React.ForwardRefExoticComponent<
-  BadgeProps & React.RefAttributes<HTMLSpanElement>
-> & {
-  Ribbon: typeof Ribbon;
-};
 
 export interface BadgeProps {
   /** Number to show in badge */
@@ -50,7 +45,7 @@ export interface BadgeProps {
   };
 }
 
-const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps> = (props, ref) => {
+const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     scrollNumberPrefixCls: customizeScrollNumberPrefixCls,
@@ -75,8 +70,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
   const { getPrefixCls, direction, badge } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('badge', customizePrefixCls);
 
-  // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   // ================================ Misc ================================
   const numberedDisplayCount = (
@@ -183,12 +177,13 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
     badge?.classNames?.root,
     classNames?.root,
     hashId,
+    cssVarCls,
   );
 
   // <Badge status="success" />
   if (!children && hasStatus) {
     const statusTextColor = mergedStyle.color;
-    return wrapSSR(
+    return wrapCSSVar(
       <span
         {...restProps}
         className={badgeClassName}
@@ -207,7 +202,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
     );
   }
 
-  return wrapSSR(
+  return wrapCSSVar(
     <span
       ref={ref}
       {...restProps}
@@ -221,7 +216,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
         motionAppear={false}
         motionDeadline={1000}
       >
-        {({ className: motionClassName, ref: scrollNumberRef }) => {
+        {({ className: motionClassName }) => {
           const scrollNumberPrefixCls = getPrefixCls(
             'scroll-number',
             customizeScrollNumberPrefixCls,
@@ -260,7 +255,6 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
               title={titleNode}
               style={scrollNumberStyle}
               key="scrollNumber"
-              ref={scrollNumberRef}
             >
               {displayNode}
             </ScrollNumber>
@@ -270,9 +264,13 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
       {statusTextNode}
     </span>,
   );
+});
+
+type CompoundedComponent = typeof InternalBadge & {
+  Ribbon: typeof Ribbon;
 };
 
-const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(InternalBadge) as CompoundedComponent;
+const Badge = InternalBadge as CompoundedComponent;
 
 Badge.Ribbon = Ribbon;
 

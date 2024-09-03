@@ -1,12 +1,14 @@
 import React, { Suspense } from 'react';
-import { Button, ConfigProvider, Space, Typography } from 'antd';
-import { createStyles, useTheme } from 'antd-style';
-import { Link, useLocation } from 'dumi';
+import { ConfigProvider, Flex, Typography } from 'antd';
+import { createStyles } from 'antd-style';
+import classNames from 'classnames';
+import { useLocation } from 'dumi';
 
 import useLocale from '../../../../hooks/useLocale';
+import LinkButton from '../../../../theme/common/LinkButton';
 import SiteContext from '../../../../theme/slots/SiteContext';
 import * as utils from '../../../../theme/utils';
-import { GroupMask } from '../Group';
+import GroupMaskLayer from '../GroupMaskLayer';
 
 const ComponentsBlock = React.lazy(() => import('./ComponentsBlock'));
 
@@ -26,23 +28,24 @@ const locales = {
 
 const useStyle = () => {
   const { direction } = React.useContext(ConfigProvider.ConfigContext);
+  const { isMobile } = React.useContext(SiteContext);
   const isRTL = direction === 'rtl';
   return createStyles(({ token, css, cx }) => {
-    const textShadow = `0 0 3px ${token.colorBgContainer}`;
+    const textShadow = `0 0 4px ${token.colorBgContainer}`;
 
     const mask = cx(css`
       position: absolute;
       inset: 0;
       backdrop-filter: blur(4px);
       opacity: 1;
-      background: rgba(255, 255, 255, 0.2);
+      background-color: rgba(255, 255, 255, 0.2);
       transition: all 1s ease;
       pointer-events: none;
     `);
 
     return {
       holder: css`
-        height: 520px;
+        height: 640px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -91,42 +94,55 @@ const useStyle = () => {
         top: -38px;
         transform: ${isRTL ? 'rotate3d(24, 83, -45, 57deg)' : 'rotate3d(24, -83, 45, 57deg)'};
       `,
-
       child: css`
         position: relative;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
         z-index: 1;
+      `,
+      btnWrap: css`
+        margin-bottom: ${token.marginXL}px;
+      `,
+      bgImg: css`
+        position: absolute;
+        width: 240px;
+      `,
+      bgImgTop: css`
+        top: 0;
+        inset-inline-start: ${isMobile ? '-120px' : 0};
+      `,
+      bgImgBottom: css`
+        bottom: 120px;
+        inset-inline-end: ${isMobile ? 0 : '40%'};
       `,
     };
   })();
 };
 
-export interface PreviewBannerProps {
-  children?: React.ReactNode;
-}
-
-const PreviewBanner: React.FC<PreviewBannerProps> = (props) => {
+const PreviewBanner: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
   const { children } = props;
-
   const [locale] = useLocale(locales);
   const { styles } = useStyle();
   const { isMobile } = React.useContext(SiteContext);
-  const token = useTheme();
   const { pathname, search } = useLocation();
   const isZhCN = utils.isZhCN(pathname);
 
   return (
-    <GroupMask>
+    <GroupMaskLayer>
       {/* Image Left Top */}
       <img
-        style={{ position: 'absolute', left: isMobile ? -120 : 0, top: 0, width: 240 }}
-        src="https://gw.alipayobjects.com/zos/bmw-prod/49f963db-b2a8-4f15-857a-270d771a1204.svg"
         alt="bg"
+        src="https://gw.alipayobjects.com/zos/bmw-prod/49f963db-b2a8-4f15-857a-270d771a1204.svg"
+        draggable={false}
+        className={classNames(styles.bgImg, styles.bgImgTop)}
       />
       {/* Image Right Top */}
       <img
-        style={{ position: 'absolute', right: isMobile ? 0 : '40%', bottom: 120, width: 240 }}
-        src="https://gw.alipayobjects.com/zos/bmw-prod/e152223c-bcae-4913-8938-54fda9efe330.svg"
         alt="bg"
+        src="https://gw.alipayobjects.com/zos/bmw-prod/e152223c-bcae-4913-8938-54fda9efe330.svg"
+        draggable={false}
+        className={classNames(styles.bgImg, styles.bgImgBottom)}
       />
 
       <div className={styles.holder}>
@@ -139,25 +155,28 @@ const PreviewBanner: React.FC<PreviewBannerProps> = (props) => {
           )}
         </Suspense>
         <div className={styles.mask} />
-
         <Typography className={styles.typography}>
           <h1>Ant Design 5.0</h1>
           <p>{locale.slogan}</p>
         </Typography>
-
-        <Space size="middle" style={{ marginBottom: token.marginXL }}>
-          <Link to={utils.getLocalizedPathname('/components/overview/', isZhCN, search)}>
-            <Button size="large" type="primary">
-              {locale.start}
-            </Button>
-          </Link>
-          <Link to={utils.getLocalizedPathname('/docs/spec/introduce/', isZhCN, search)}>
-            <Button size="large">{locale.designLanguage}</Button>
-          </Link>
-        </Space>
+        <Flex gap="middle" className={styles.btnWrap}>
+          <LinkButton
+            size="large"
+            type="primary"
+            to={utils.getLocalizedPathname('/components/overview/', isZhCN, search)}
+          >
+            {locale.start}
+          </LinkButton>
+          <LinkButton
+            size="large"
+            to={utils.getLocalizedPathname('/docs/spec/introduce/', isZhCN, search)}
+          >
+            {locale.designLanguage}
+          </LinkButton>
+        </Flex>
         <div className={styles.child}>{children}</div>
       </div>
-    </GroupMask>
+    </GroupMaskLayer>
   );
 };
 

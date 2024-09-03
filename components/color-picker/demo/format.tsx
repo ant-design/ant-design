@@ -1,77 +1,82 @@
-import React, { useMemo, useState } from 'react';
-import { Col, ColorPicker, Row, Space } from 'antd';
-import type { Color, ColorPickerProps } from 'antd/es/color-picker';
+import React, { useState } from 'react';
+import { ColorPicker, Space } from 'antd';
+import type { ColorPickerProps, GetProp } from 'antd';
 
-export default () => {
-  const [colorHex, setColorHex] = useState<Color | string>('#1677ff');
-  const [colorHsb, setColorHsb] = useState<Color | string>('hsb(215, 91%, 100%)');
-  const [colorRgb, setColorRgb] = useState<Color | string>('rgb(22, 119, 255)');
-  const [formatHex, setFormatHex] = useState<ColorPickerProps['format']>('hex');
-  const [formatHsb, setFormatHsb] = useState<ColorPickerProps['format']>('hsb');
-  const [formatRgb, setFormatRgb] = useState<ColorPickerProps['format']>('rgb');
+type Color = Extract<GetProp<ColorPickerProps, 'value'>, string | { cleared: any }>;
+type Format = GetProp<ColorPickerProps, 'format'>;
 
-  const hexString = useMemo(
-    () => (typeof colorHex === 'string' ? colorHex : colorHex.toHexString()),
+const HexCase: React.FC = () => {
+  const [colorHex, setColorHex] = useState<Color>('#1677ff');
+  const [formatHex, setFormatHex] = useState<Format | undefined>('hex');
+
+  const hexString = React.useMemo<string>(
+    () => (typeof colorHex === 'string' ? colorHex : colorHex?.toHexString()),
     [colorHex],
   );
 
-  const hsbString = useMemo(
-    () => (typeof colorHsb === 'string' ? colorHsb : colorHsb.toHsbString()),
+  return (
+    <Space>
+      <ColorPicker
+        format={formatHex}
+        value={colorHex}
+        onChange={setColorHex}
+        onFormatChange={setFormatHex}
+      />
+      <span>HEX: {hexString}</span>
+    </Space>
+  );
+};
+
+const HsbCase: React.FC = () => {
+  const [colorHsb, setColorHsb] = useState<Color>('hsb(215, 91%, 100%)');
+  const [formatHsb, setFormatHsb] = useState<ColorPickerProps['format']>('hsb');
+
+  const hsbString = React.useMemo(
+    () => (typeof colorHsb === 'string' ? colorHsb : colorHsb?.toHsbString()),
     [colorHsb],
   );
 
-  const rgbString = useMemo(
-    () => (typeof colorRgb === 'string' ? colorRgb : colorRgb.toRgbString()),
+  return (
+    <Space>
+      <ColorPicker
+        format={formatHsb}
+        value={colorHsb}
+        onChange={setColorHsb}
+        onFormatChange={setFormatHsb}
+      />
+      <span>HSB: {hsbString}</span>
+    </Space>
+  );
+};
+
+const RgbCase: React.FC = () => {
+  const [colorRgb, setColorRgb] = useState<Color>('rgb(22, 119, 255)');
+  const [formatRgb, setFormatRgb] = useState<ColorPickerProps['format']>('rgb');
+
+  const rgbString = React.useMemo(
+    () => (typeof colorRgb === 'string' ? colorRgb : colorRgb?.toRgbString()),
     [colorRgb],
   );
 
   return (
-    <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
-      <Row align="middle">
-        <Space>
-          <Col>
-            <ColorPicker
-              format={formatHex}
-              value={colorHex}
-              onChange={setColorHex}
-              onFormatChange={setFormatHex}
-            />
-          </Col>
-          <Col>
-            HEX: <span>{hexString}</span>
-          </Col>
-        </Space>
-      </Row>
-      <Row align="middle">
-        <Space>
-          <Col>
-            <ColorPicker
-              format={formatHsb}
-              value={colorHsb}
-              onChange={setColorHsb}
-              onFormatChange={setFormatHsb}
-            />
-          </Col>
-          <Col>
-            HSB: <span>{hsbString}</span>
-          </Col>
-        </Space>
-      </Row>
-      <Row align="middle">
-        <Space>
-          <Col>
-            <ColorPicker
-              format={formatRgb}
-              value={colorRgb}
-              onChange={setColorRgb}
-              onFormatChange={setFormatRgb}
-            />
-          </Col>
-          <Col>
-            RGB: <span>{rgbString}</span>
-          </Col>
-        </Space>
-      </Row>
+    <Space>
+      <ColorPicker
+        format={formatRgb}
+        value={colorRgb}
+        onChange={setColorRgb}
+        onFormatChange={setFormatRgb}
+      />
+      <span>RGB: {rgbString}</span>
     </Space>
   );
 };
+
+const Demo: React.FC = () => (
+  <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
+    <HexCase />
+    <HsbCase />
+    <RgbCase />
+  </Space>
+);
+
+export default Demo;

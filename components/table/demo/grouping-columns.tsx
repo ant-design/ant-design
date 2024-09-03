@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import type { TableColumnsType } from 'antd';
 
 interface DataType {
   key: React.Key;
@@ -14,7 +14,7 @@ interface DataType {
   gender: string;
 }
 
-const columns: ColumnsType<DataType> = [
+const columns: TableColumnsType<DataType> = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -31,7 +31,7 @@ const columns: ColumnsType<DataType> = [
         value: 'John',
       },
     ],
-    onFilter: (value: string, record) => record.name.indexOf(value) === 0,
+    onFilter: (value, record) => record.name.indexOf(value as string) === 0,
   },
   {
     title: 'Other',

@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import type { AnyObject } from '../../../_util/type';
 import { devUseWarning } from '../../../_util/warning';
 import type {
   ColumnsType,
@@ -16,18 +17,18 @@ import type {
 import { getColumnKey, getColumnPos, renderColumnTitle } from '../../util';
 import FilterDropdown, { flattenKeys } from './FilterDropdown';
 
-export interface FilterState<RecordType> {
+export interface FilterState<RecordType = AnyObject> {
   column: ColumnType<RecordType>;
   key: Key;
   filteredKeys?: FilterKey;
   forceFiltered?: boolean;
 }
 
-function collectFilterStates<RecordType>(
+const collectFilterStates = <RecordType extends AnyObject = AnyObject>(
   columns: ColumnsType<RecordType>,
   init: boolean,
   pos?: string,
-): FilterState<RecordType>[] {
+): FilterState<RecordType>[] => {
   let filterStates: FilterState<RecordType>[] = [];
 
   (columns || []).forEach((column, index) => {
@@ -65,9 +66,9 @@ function collectFilterStates<RecordType>(
   });
 
   return filterStates;
-}
+};
 
-function injectFilter<RecordType>(
+function injectFilter<RecordType extends AnyObject = AnyObject>(
   prefixCls: string,
   dropdownPrefixCls: string,
   columns: ColumnsType<RecordType>,
@@ -76,10 +77,16 @@ function injectFilter<RecordType>(
   triggerFilter: (filterState: FilterState<RecordType>) => void,
   getPopupContainer?: GetPopupContainer,
   pos?: string,
+  rootClassName?: string,
 ): ColumnsType<RecordType> {
   return columns.map((column, index) => {
     const columnPos = getColumnPos(index, pos);
-    const { filterMultiple = true, filterMode, filterSearch } = column as ColumnType<RecordType>;
+    const {
+      filterOnClose = true,
+      filterMultiple = true,
+      filterMode,
+      filterSearch,
+    } = column as ColumnType<RecordType>;
 
     let newColumn: ColumnsType<RecordType>[number] = column;
 
@@ -97,14 +104,16 @@ function injectFilter<RecordType>(
             column={newColumn}
             columnKey={columnKey}
             filterState={filterState}
+            filterOnClose={filterOnClose}
             filterMultiple={filterMultiple}
             filterMode={filterMode}
             filterSearch={filterSearch}
             triggerFilter={triggerFilter}
             locale={locale}
             getPopupContainer={getPopupContainer}
+            rootClassName={rootClassName}
           >
-            {renderColumnTitle(column.title, renderProps)}
+            {renderColumnTitle<RecordType>(column.title, renderProps)}
           </FilterDropdown>
         ),
       };
@@ -122,6 +131,7 @@ function injectFilter<RecordType>(
           triggerFilter,
           getPopupContainer,
           columnPos,
+          rootClassName,
         ),
       };
     }
@@ -130,7 +140,9 @@ function injectFilter<RecordType>(
   });
 }
 
-function generateFilterInfo<RecordType>(filterStates: FilterState<RecordType>[]) {
+const generateFilterInfo = <RecordType extends AnyObject = AnyObject>(
+  filterStates: FilterState<RecordType>[],
+) => {
   const currentFilters: Record<string, FilterValue | null> = {};
 
   filterStates.forEach(({ key, filteredKeys, column }) => {
@@ -149,32 +161,49 @@ function generateFilterInfo<RecordType>(filterStates: FilterState<RecordType>[])
   });
 
   return currentFilters;
-}
+};
 
-export function getFilterData<RecordType>(
+export const getFilterData = <RecordType extends AnyObject = AnyObject>(
   data: RecordType[],
   filterStates: FilterState<RecordType>[],
-) {
-  return filterStates.reduce((currentData, filterState) => {
+  childrenColumnName: string,
+) => {
+  const filterDatas = filterStates.reduce<RecordType[]>((currentData, filterState) => {
     const {
       column: { onFilter, filters },
       filteredKeys,
     } = filterState;
     if (onFilter && filteredKeys && filteredKeys.length) {
-      return currentData.filter((record) =>
-        filteredKeys.some((key) => {
-          const keys = flattenKeys(filters);
-          const keyIndex = keys.findIndex((k) => String(k) === String(key));
-          const realKey = keyIndex !== -1 ? keys[keyIndex] : key;
-          return onFilter(realKey, record);
-        }),
+      return (
+        currentData
+          // shallow copy
+          .map((record) => ({ ...record }))
+          .filter((record: any) =>
+            filteredKeys.some((key) => {
+              const keys = flattenKeys(filters);
+              const keyIndex = keys.findIndex((k) => String(k) === String(key));
+              const realKey = keyIndex !== -1 ? keys[keyIndex] : key;
+
+              // filter children
+              if (record[childrenColumnName]) {
+                record[childrenColumnName] = getFilterData(
+                  record[childrenColumnName],
+                  filterStates,
+                  childrenColumnName,
+                );
+              }
+
+              return onFilter(realKey, record);
+            }),
+          )
       );
     }
     return currentData;
   }, data);
-}
+  return filterDatas;
+};
 
-interface FilterConfig<RecordType> {
+export interface FilterConfig<RecordType = AnyObject> {
   prefixCls: string;
   dropdownPrefixCls: string;
   mergedColumns: ColumnsType<RecordType>;
@@ -184,34 +213,39 @@ interface FilterConfig<RecordType> {
     filterStates: FilterState<RecordType>[],
   ) => void;
   getPopupContainer?: GetPopupContainer;
+  rootClassName?: string;
 }
 
-const getMergedColumns = <RecordType extends unknown>(
+const getMergedColumns = <RecordType extends AnyObject = AnyObject>(
   rawMergedColumns: ColumnsType<RecordType>,
 ): ColumnsType<RecordType> =>
   rawMergedColumns.flatMap((column) => {
     if ('children' in column) {
-      return [column, ...getMergedColumns(column.children || [])];
+      return [column, ...getMergedColumns<RecordType>(column.children || [])];
     }
     return [column];
   });
 
-function useFilter<RecordType>({
-  prefixCls,
-  dropdownPrefixCls,
-  mergedColumns: rawMergedColumns,
-  onFilterChange,
-  getPopupContainer,
-  locale: tableLocale,
-}: FilterConfig<RecordType>): [
+const useFilter = <RecordType extends AnyObject = AnyObject>(
+  props: FilterConfig<RecordType>,
+): [
   TransformColumns<RecordType>,
   FilterState<RecordType>[],
   Record<string, FilterValue | null>,
-] {
+] => {
+  const {
+    prefixCls,
+    dropdownPrefixCls,
+    mergedColumns: rawMergedColumns,
+    onFilterChange,
+    getPopupContainer,
+    locale: tableLocale,
+    rootClassName,
+  } = props;
   const warning = devUseWarning('Table');
 
   const mergedColumns = React.useMemo(
-    () => getMergedColumns(rawMergedColumns || []),
+    () => getMergedColumns<RecordType>(rawMergedColumns || []),
     [rawMergedColumns],
   );
 
@@ -264,13 +298,16 @@ function useFilter<RecordType>({
     return collectedStates;
   }, [mergedColumns, filterStates]);
 
-  const filters = React.useMemo(() => generateFilterInfo(mergedFilterStates), [mergedFilterStates]);
+  const filters = React.useMemo(
+    () => generateFilterInfo<RecordType>(mergedFilterStates),
+    [mergedFilterStates],
+  );
 
   const triggerFilter = (filterState: FilterState<RecordType>) => {
     const newFilterStates = mergedFilterStates.filter(({ key }) => key !== filterState.key);
     newFilterStates.push(filterState);
     setFilterStates(newFilterStates);
-    onFilterChange(generateFilterInfo(newFilterStates), newFilterStates);
+    onFilterChange(generateFilterInfo<RecordType>(newFilterStates), newFilterStates);
   };
 
   const transformColumns = (innerColumns: ColumnsType<RecordType>) =>
@@ -282,10 +319,12 @@ function useFilter<RecordType>({
       tableLocale,
       triggerFilter,
       getPopupContainer,
+      undefined,
+      rootClassName,
     );
 
-  return [transformColumns, mergedFilterStates, filters];
-}
+  return [transformColumns, mergedFilterStates, filters] as const;
+};
 
 export { flattenKeys };
 

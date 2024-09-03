@@ -6,14 +6,14 @@ import {
   UserOutlined,
   VideoCameraOutlined,
 } from '@ant-design/icons';
-import { Layout, Menu, Button, theme } from 'antd';
+import { Button, Layout, Menu, theme } from 'antd';
 
 const { Header, Sider, Content } = Layout;
 
 const App: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
   const {
-    token: { colorBgContainer },
+    token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
   return (
@@ -62,6 +62,7 @@ const App: React.FC = () => {
             padding: 24,
             minHeight: 280,
             background: colorBgContainer,
+            borderRadius: borderRadiusLG,
           }}
         >
           Content

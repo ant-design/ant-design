@@ -3,7 +3,6 @@ group:
   title: Advanced
 order: 2
 title: Server Side Rendering
-tag: New
 ---
 
 There are two options for server-side rendering styles, each with advantages and disadvantages:

@@ -41,6 +41,11 @@ type TypeWarning = BaseTypeWarning & {
 };
 
 export interface WarningContextProps {
+  /**
+   * @descCN 设置警告等级，设置 `false` 时会将废弃相关信息聚合为单条信息。
+   * @descEN Set the warning level. When set to `false`, discard related information will be aggregated into a single message.
+   * @since 5.10.0
+   */
   strict?: boolean;
 }
 

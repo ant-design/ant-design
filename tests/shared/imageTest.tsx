@@ -1,21 +1,24 @@
+import path from 'path';
 import React from 'react';
 // Reference: https://github.com/ant-design/ant-design/pull/24003#discussion_r427267386
-// eslint-disable-next-line import/no-unresolved
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import dayjs from 'dayjs';
+import fse from 'fs-extra';
 import { globSync } from 'glob';
-import { configureToMatchImageSnapshot } from 'jest-image-snapshot';
+import { JSDOM } from 'jsdom';
 import MockDate from 'mockdate';
+import type { HTTPRequest } from 'puppeteer';
 import ReactDOMServer from 'react-dom/server';
 
 import { App, ConfigProvider, theme } from '../../components';
+import { fillWindowEnv } from '../setup';
+import { render } from '../utils';
+import { TriggerMockContext } from './demoTestContext';
 
-const toMatchImageSnapshot = configureToMatchImageSnapshot({
-  customSnapshotsDir: `${process.cwd()}/imageSnapshots`,
-  customDiffDir: `${process.cwd()}/imageDiffSnapshots`,
-});
+jest.mock('../../components/grid/hooks/useBreakpoint', () => () => ({}));
 
-expect.extend({ toMatchImageSnapshot });
+const snapshotPath = path.join(process.cwd(), 'imageSnapshots');
+fse.ensureDirSync(snapshotPath);
 
 const themes = {
   default: theme.defaultAlgorithm,
@@ -25,16 +28,90 @@ const themes = {
 
 interface ImageTestOptions {
   onlyViewport?: boolean;
-  splitTheme?: boolean;
+  ssr?: boolean;
+  openTriggerClassName?: string;
 }
 
 // eslint-disable-next-line jest/no-export
-export default function imageTest(component: React.ReactElement, options: ImageTestOptions) {
-  function test(name: string, themedComponent: React.ReactElement) {
+export default function imageTest(
+  component: React.ReactElement,
+  identifier: string,
+  options: ImageTestOptions,
+) {
+  let doc: Document;
+  let container: HTMLDivElement;
+
+  beforeAll(async () => {
+    const dom = new JSDOM('<!DOCTYPE html><body></body></html>', {
+      url: 'http://localhost/',
+    });
+    const win = dom.window;
+    doc = win.document;
+
+    (global as any).window = win;
+
+    // Fill env
+    const keys = [
+      ...Object.keys(win),
+      'HTMLElement',
+      'SVGElement',
+      'ShadowRoot',
+      'Element',
+      'File',
+      'Blob',
+    ].filter((key) => !(global as any)[key]);
+
+    keys.forEach((key) => {
+      (global as any)[key] = win[key];
+    });
+
+    // Fake Resize Observer
+    global.ResizeObserver = function FakeResizeObserver() {
+      return {
+        observe() {},
+        unobserve() {},
+        disconnect() {},
+      };
+    } as unknown as typeof ResizeObserver;
+
+    // Fake promise not called
+    global.fetch = function mockFetch() {
+      return {
+        then() {
+          return this;
+        },
+        catch() {
+          return this;
+        },
+        finally() {
+          return this;
+        },
+      };
+    } as unknown as typeof fetch;
+
+    // Fake matchMedia
+    win.matchMedia = (() => ({
+      matches: false,
+      addListener: jest.fn(),
+      removeListener: jest.fn(),
+    })) as unknown as typeof matchMedia;
+
+    // Fill window
+    fillWindowEnv(win);
+
+    await page.setRequestInterception(true);
+  });
+
+  beforeEach(() => {
+    doc.body.innerHTML = `<div id="root"></div>`;
+    container = doc.querySelector<HTMLDivElement>('#root')!;
+  });
+
+  function test(name: string, suffix: string, themedComponent: React.ReactElement) {
     it(name, async () => {
-      await jestPuppeteer.resetPage();
-      await page.setRequestInterception(true);
-      const onRequestHandle = (request: any) => {
+      await page.setViewport({ width: 800, height: 600 });
+
+      const onRequestHandle = (request: HTTPRequest) => {
         if (['image'].includes(request.resourceType())) {
           request.abort();
         } else {
@@ -42,32 +119,84 @@ export default function imageTest(component: React.ReactElement, options: ImageT
         }
       };
 
+      const { openTriggerClassName } = options;
+
+      const requestListener = (request: any) => onRequestHandle(request as HTTPRequest);
+
       MockDate.set(dayjs('2016-11-22').valueOf());
-      page.on('request', onRequestHandle);
+      page.on('request', requestListener);
       await page.goto(`file://${process.cwd()}/tests/index.html`);
       await page.addStyleTag({ path: `${process.cwd()}/components/style/reset.css` });
       await page.addStyleTag({ content: '*{animation: none!important;}' });
 
       const cache = createCache();
 
-      const element = (
-        <StyleProvider cache={cache}>
+      const emptyStyleHolder = doc.createElement('div');
+
+      let element = (
+        <StyleProvider cache={cache} container={emptyStyleHolder}>
           <App>{themedComponent}</App>
         </StyleProvider>
       );
 
-      const html = ReactDOMServer.renderToString(element);
-      const styleStr = extractStyle(cache);
+      // Do inject open trigger
+      if (openTriggerClassName) {
+        element = (
+          <TriggerMockContext.Provider value={{ popupVisible: true }}>
+            {element}
+          </TriggerMockContext.Provider>
+        );
+      }
+
+      let html: string;
+      let styleStr: string;
+
+      if (options.ssr) {
+        html = ReactDOMServer.renderToString(element);
+        styleStr = extractStyle(cache);
+      } else {
+        const { unmount } = render(element, {
+          container,
+        });
+        html = container.innerHTML;
+        styleStr = extractStyle(cache);
+
+        // We should extract style before unmount
+        unmount();
+      }
+
+      if (openTriggerClassName) {
+        styleStr += `<style>
+          .${openTriggerClassName} {
+            position: relative !important;
+            left: 0 !important;
+            top: 0 !important;
+            opacity: 1 !important;
+            display: inline-block !important;
+            vertical-align: top !important;
+          }
+        </style>`;
+      }
 
       await page.evaluate(
-        (innerHTML, ssrStyle) => {
-          document.querySelector('#root')!.innerHTML = innerHTML;
-
-          const head = document.querySelector('head')!;
+        (innerHTML: string, ssrStyle: string, triggerClassName?: string) => {
+          const root = document.querySelector<HTMLDivElement>('#root')!;
+          root.innerHTML = innerHTML;
+          const head = document.querySelector<HTMLElement>('head')!;
           head.innerHTML += ssrStyle;
+          // Inject open trigger with block style
+          if (triggerClassName) {
+            document.querySelectorAll<HTMLElement>(`.${triggerClassName}`).forEach((node) => {
+              const blockStart = document.createElement('div');
+              const blockEnd = document.createElement('div');
+              node.parentNode?.insertBefore(blockStart, node);
+              node.parentNode?.insertBefore(blockEnd, node.nextSibling);
+            });
+          }
         },
         html,
         styleStr,
+        openTriggerClassName || '',
       );
 
       if (!options.onlyViewport) {
@@ -80,46 +209,53 @@ export default function imageTest(component: React.ReactElement, options: ImageT
         fullPage: !options.onlyViewport,
       });
 
-      expect(image).toMatchImageSnapshot();
+      await fse.writeFile(path.join(snapshotPath, `${identifier}${suffix}.png`), image);
 
       MockDate.reset();
-      page.off('request', onRequestHandle);
+      page.off('request', requestListener);
     });
   }
 
-  if (options.splitTheme) {
-    Object.entries(themes).forEach(([key, algorithm]) => {
-      test(
-        `component image screenshot should correct ${key}`,
-        <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
-          <ConfigProvider theme={{ algorithm }}>{component}</ConfigProvider>
-        </div>,
-      );
-    });
-  } else {
+  Object.entries(themes).forEach(([key, algorithm]) => {
+    const configTheme = {
+      algorithm,
+      token: {
+        fontFamily: 'Arial',
+      },
+    };
+
     test(
-      `component image screenshot should correct`,
-      <>
-        {Object.entries(themes).map(([key, algorithm]) => (
-          <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
-            <ConfigProvider theme={{ algorithm }}>{component}</ConfigProvider>
-          </div>
-        ))}
-      </>,
+      `component image screenshot should correct ${key}`,
+      `.${key}`,
+      <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
+        <ConfigProvider theme={configTheme}>{component}</ConfigProvider>
+      </div>,
     );
-  }
+    test(
+      `[CSS Var] component image screenshot should correct ${key}`,
+      `.${key}.css-var`,
+      <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
+        <ConfigProvider theme={{ ...configTheme, cssVar: true }}>{component}</ConfigProvider>
+      </div>,
+    );
+  });
 }
 
 type Options = {
   skip?: boolean | string[];
   onlyViewport?: boolean | string[];
-  splitTheme?: boolean | string[];
+  /** Use SSR render instead. Only used when the third part deps component */
+  ssr?: boolean;
+  /** Open Trigger to check the popup render */
+  openTriggerClassName?: string;
 };
 
 // eslint-disable-next-line jest/no-export
 export function imageDemoTest(component: string, options: Options = {}) {
   let describeMethod = options.skip === true ? describe.skip : describe;
-  const files = globSync(`./components/${component}/demo/*.tsx`);
+  const files = globSync(`./components/${component}/demo/*.tsx`).filter(
+    (file) => !file.includes('_semantic'),
+  );
 
   files.forEach((file) => {
     if (Array.isArray(options.skip) && options.skip.some((c) => file.endsWith(c))) {
@@ -133,14 +269,13 @@ export function imageDemoTest(component: string, options: Options = {}) {
       if (typeof Demo === 'function') {
         Demo = <Demo />;
       }
-      imageTest(Demo, {
+      imageTest(Demo, `${component}-${path.basename(file, '.tsx')}`, {
         onlyViewport:
           options.onlyViewport === true ||
           (Array.isArray(options.onlyViewport) &&
             options.onlyViewport.some((c) => file.endsWith(c))),
-        splitTheme:
-          options.splitTheme === true ||
-          (Array.isArray(options.splitTheme) && options.splitTheme.some((c) => file.endsWith(c))),
+        ssr: options.ssr,
+        openTriggerClassName: options.openTriggerClassName,
       });
     });
   });

@@ -29,6 +29,10 @@ export interface DesignTokenProviderProps {
   /** Just merge `token` & `override` at top to save perf */
   override: { override: Partial<AliasToken> } & ComponentsToken;
   hashed?: string | boolean;
+  cssVar?: {
+    prefix?: string;
+    key?: string;
+  };
 }
 
 export const DesignTokenContext = React.createContext<DesignTokenProviderProps>(defaultConfig);

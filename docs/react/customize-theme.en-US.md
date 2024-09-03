@@ -4,7 +4,6 @@ group:
   order: 1
 order: 0
 title: Customize Theme
-tag: Updated
 ---
 
 Ant Design allows you to customize our design tokens to satisfy UI diversity from business or brand requirements, including primary color, border radius, border color, etc.
@@ -13,12 +12,12 @@ In version 5.0, we provide a new way to customize themes. Different from the les
 
 1. Switching theme dynamically；
 2. Multiple themes；
-3. Customizing theme variables for some component；
+3. Customizing theme variables for some components；
 4. ...
 
 ## Basic Usage
 
-In version 5.0 we call the smallest element that affects the theme **Design Token**. By modifying the Design Token, we can present various themes or components. You can pass `theme` to `ConfigProvider`` to customize theme. After migrate to V5, theme of V5 will be applied by default
+In version 5.0 we call the smallest element that affects the theme **Design Token**. By modifying the Design Token, we can present various themes or components. You can pass `theme` to `ConfigProvider` to customize theme. After migrate to V5, theme of V5 will be applied by default.
 
 <!-- prettier-ignore -->
 :::warning
@@ -166,51 +165,45 @@ export default App;
 
 ### Disable Motion
 
-antd has built-in interaction animations to make enterprise-level pages more detailed. In some extreme scenarios, it may affect the performance of page interaction. If you need to turn off the animation, try seting `motion` of `token` to `false`:
+antd has built-in interaction animations to make enterprise-level pages more detailed. In some extreme scenarios, it may affect the performance of page interaction. If you need to turn off the animation, try setting `motion` of `token` to `false`:
 
 ```sandpack
 import React from 'react';
-import { Switch, ConfigProvider, Space, Checkbox, Radio, Row, Col } from 'antd';
+import { Checkbox, Col, ConfigProvider, Flex, Radio, Row, Switch } from 'antd';
 
-export default () => {
-  const [checked, setChecked] = React.useState(false);
-
+const App: React.FC = () => {
+  const [checked, setChecked] = React.useState<boolean>(false);
+  const timerRef = React.useRef<ReturnType<typeof setInterval>>();
   React.useEffect(() => {
-    const id = setInterval(() => {
+    timerRef.current = setInterval(() => {
       setChecked((prev) => !prev);
-    }, 1000);
-
+    }, 500);
     return () => {
-      clearInterval(id);
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
     };
   }, []);
 
   const nodes = (
-    <Space>
+    <Flex gap="small">
       <Checkbox checked={checked}>Checkbox</Checkbox>
       <Radio checked={checked}>Radio</Radio>
       <Switch checked={checked} />
-    </Space>
+    </Flex>
   );
 
   return (
     <Row gutter={[24, 24]}>
       <Col span={24}>{nodes}</Col>
-
       <Col span={24}>
-        <ConfigProvider
-          theme={{
-            token: {
-              motion: false,
-            },
-          }}
-        >
-          {nodes}
-        </ConfigProvider>
+        <ConfigProvider theme={{ token: { motion: false } }}>{nodes}</ConfigProvider>
       </Col>
     </Row>
   );
 };
+
+export default App;
 ```
 
 ## Advanced
@@ -228,7 +221,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <ColorPicker showText value={primary} onChangeComplete={(color) => setPrimary(color.toHexString())} />
+      <ColorPicker showText value={primary} onChange={(color) => setPrimary(color.toHexString())} />
       <Divider />
       <ConfigProvider
         theme={{
@@ -329,9 +322,9 @@ const globalToken = getDesignToken();
 Same as ConfigProvider, `getDesignToken` could also accept a config object as `theme`:
 
 ```tsx
-import { createRoot } from 'react-dom/client';
 import type { ThemeConfig } from 'antd';
 import { theme } from 'antd';
+import { createRoot } from 'react-dom/client';
 
 const { getDesignToken, useToken } = theme;
 
@@ -447,6 +440,8 @@ const theme = {
 | inherit | Inherit theme configured in upper ConfigProvider | boolean | true |
 | algorithm | Modify the algorithms of theme | `(token: SeedToken) => MapToken` \| `((token: SeedToken) => MapToken)[]` | `defaultAlgorithm` |
 | components | Modify Component Token and Alias Token applied to components | `ComponentsConfig` | - |
+| cssVar | Toggle CSS Variables, refer [CSS Variables](/docs/react/css-variables#api) | `boolean \| { prefix?: string; key?: string }` | false |
+| hashed | Component class Hash value, refer [CSS Variables](/docs/react/css-variables#disable-hash) | boolean | true |
 
 ### ComponentsConfig
 

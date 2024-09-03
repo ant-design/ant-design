@@ -2,6 +2,7 @@
 import path from 'path';
 import * as React from 'react';
 import { createCache, StyleProvider } from '@ant-design/cssinjs';
+import { ConfigProvider } from 'antd';
 import { globSync } from 'glob';
 import kebabCase from 'lodash/kebabCase';
 import { renderToString } from 'react-dom/server';
@@ -27,7 +28,9 @@ export type Options = {
 };
 
 function baseText(doInject: boolean, component: string, options: Options = {}) {
-  const files = globSync(`./components/${component}/demo/*.tsx`);
+  const files = globSync(`./components/${component}/demo/*.tsx`).filter(
+    (file) => !file.includes('_semantic'),
+  );
   files.forEach((file) => {
     // to compatible windows path
     file = file.split(path.sep).join('/');
@@ -60,7 +63,11 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
         }
 
         // Inject cssinjs cache to avoid create <style /> element
-        Demo = <StyleProvider cache={createCache()}>{Demo}</StyleProvider>;
+        Demo = (
+          <ConfigProvider theme={{ hashed: false }}>
+            <StyleProvider cache={createCache()}>{Demo}</StyleProvider>
+          </ConfigProvider>
+        );
 
         // Demo Test also include `dist` test which is already uglified.
         // We need test this as SSR instead.

@@ -4,10 +4,7 @@ import { ConfigProvider, Progress, Space } from 'antd';
 const App: React.FC = () => (
   <ConfigProvider
     theme={{
-      token: {
-        marginXXS: 20,
-        fontSizeSM: 24,
-      },
+      token: { marginXXS: 20, fontSizeSM: 24 },
       components: {
         Progress: {
           defaultColor: '#bae0ff',

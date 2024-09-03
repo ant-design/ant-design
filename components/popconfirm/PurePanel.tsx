@@ -1,6 +1,7 @@
+import * as React from 'react';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import classNames from 'classnames';
-import * as React from 'react';
+
 import type { PopconfirmProps } from '.';
 import ActionButton from '../_util/ActionButton';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
@@ -32,7 +33,7 @@ export interface OverlayProps
     | 'onPopupClick'
   > {
   prefixCls: string;
-  close?: Function;
+  close?: (...args: any[]) => void;
   onConfirm?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   onCancel?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
 }
@@ -58,22 +59,23 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const [contextLocale] = useLocale('Popconfirm', defaultLocale.Popconfirm);
-  const theTitle = getRenderPropValue(title);
-  const theDescription = getRenderPropValue(description);
+
+  const titleNode = getRenderPropValue(title);
+  const descriptionNode = getRenderPropValue(description);
 
   return (
     <div className={`${prefixCls}-inner-content`} onClick={onPopupClick}>
       <div className={`${prefixCls}-message`}>
         {icon && <span className={`${prefixCls}-message-icon`}>{icon}</span>}
         <div className={`${prefixCls}-message-text`}>
-          {theTitle && <div className={classNames(`${prefixCls}-title`)}>{theTitle}</div>}
-          {theDescription && <div className={`${prefixCls}-description`}>{theDescription}</div>}
+          {titleNode && <div className={`${prefixCls}-title`}>{titleNode}</div>}
+          {descriptionNode && <div className={`${prefixCls}-description`}>{descriptionNode}</div>}
         </div>
       </div>
       <div className={`${prefixCls}-buttons`}>
         {showCancel && (
           <Button onClick={onCancel} size="small" {...cancelButtonProps}>
-            {cancelText ?? contextLocale?.cancelText}
+            {cancelText || contextLocale?.cancelText}
           </Button>
         )}
         <ActionButton
@@ -88,7 +90,7 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
           quitOnNullishReturnValue
           emitEvent
         >
-          {okText ?? contextLocale?.okText}
+          {okText || contextLocale?.okText}
         </ActionButton>
       </div>
     </div>
@@ -108,9 +110,9 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
 
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('popconfirm', customizePrefixCls);
-  const [wrapSSR] = useStyle(prefixCls);
+  const [wrapCSSVar] = useStyle(prefixCls);
 
-  return wrapSSR(
+  return wrapCSSVar(
     <PopoverPurePanel
       placement={placement}
       className={classNames(prefixCls, className)}

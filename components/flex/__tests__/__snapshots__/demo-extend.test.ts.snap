@@ -297,7 +297,7 @@ exports[`renders components/flex/demo/combination.tsx extend context correctly 1
           target="_blank"
         >
           <span>
-            Get Start
+            Get Started
           </span>
         </a>
       </div>

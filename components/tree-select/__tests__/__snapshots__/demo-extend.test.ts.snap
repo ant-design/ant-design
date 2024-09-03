@@ -2,7 +2,7 @@
 
 exports[`renders components/tree-select/demo/async.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
+  class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
   style="width: 100%;"
 >
   <div
@@ -228,7 +228,7 @@ exports[`renders components/tree-select/demo/async.tsx extend context correctly 
 
 exports[`renders components/tree-select/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-tree-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
   style="width: 100%;"
 >
   <div
@@ -393,7 +393,7 @@ exports[`renders components/tree-select/demo/basic.tsx extend context correctly 
                   </div>
                   <div
                     aria-grabbed="false"
-                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
                     draggable="false"
                   >
                     <span
@@ -423,7 +423,7 @@ exports[`renders components/tree-select/demo/basic.tsx extend context correctly 
                   </div>
                   <div
                     aria-grabbed="false"
-                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
                     draggable="false"
                   >
                     <span
@@ -448,6 +448,126 @@ exports[`renders components/tree-select/demo/basic.tsx extend context correctly 
                         class="ant-select-tree-title"
                       >
                         leaf2
+                      </span>
+                    </span>
+                  </div>
+                  <div
+                    aria-grabbed="false"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
+                    draggable="false"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-tree-indent"
+                    >
+                      <span
+                        class="ant-select-tree-indent-unit ant-select-tree-indent-unit-start ant-select-tree-indent-unit-end"
+                      />
+                      <span
+                        class="ant-select-tree-indent-unit ant-select-tree-indent-unit-start"
+                      />
+                    </span>
+                    <span
+                      class="ant-select-tree-switcher ant-select-tree-switcher-noop"
+                    />
+                    <span
+                      class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-normal"
+                      title="leaf3"
+                    >
+                      <span
+                        class="ant-select-tree-title"
+                      >
+                        leaf3
+                      </span>
+                    </span>
+                  </div>
+                  <div
+                    aria-grabbed="false"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
+                    draggable="false"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-tree-indent"
+                    >
+                      <span
+                        class="ant-select-tree-indent-unit ant-select-tree-indent-unit-start ant-select-tree-indent-unit-end"
+                      />
+                      <span
+                        class="ant-select-tree-indent-unit ant-select-tree-indent-unit-start"
+                      />
+                    </span>
+                    <span
+                      class="ant-select-tree-switcher ant-select-tree-switcher-noop"
+                    />
+                    <span
+                      class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-normal"
+                      title="leaf4"
+                    >
+                      <span
+                        class="ant-select-tree-title"
+                      >
+                        leaf4
+                      </span>
+                    </span>
+                  </div>
+                  <div
+                    aria-grabbed="false"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
+                    draggable="false"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-tree-indent"
+                    >
+                      <span
+                        class="ant-select-tree-indent-unit ant-select-tree-indent-unit-start ant-select-tree-indent-unit-end"
+                      />
+                      <span
+                        class="ant-select-tree-indent-unit ant-select-tree-indent-unit-start"
+                      />
+                    </span>
+                    <span
+                      class="ant-select-tree-switcher ant-select-tree-switcher-noop"
+                    />
+                    <span
+                      class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-normal"
+                      title="leaf5"
+                    >
+                      <span
+                        class="ant-select-tree-title"
+                      >
+                        leaf5
+                      </span>
+                    </span>
+                  </div>
+                  <div
+                    aria-grabbed="false"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
+                    draggable="false"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-tree-indent"
+                    >
+                      <span
+                        class="ant-select-tree-indent-unit ant-select-tree-indent-unit-start ant-select-tree-indent-unit-end"
+                      />
+                      <span
+                        class="ant-select-tree-indent-unit ant-select-tree-indent-unit-start"
+                      />
+                    </span>
+                    <span
+                      class="ant-select-tree-switcher ant-select-tree-switcher-noop"
+                    />
+                    <span
+                      class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-normal"
+                      title="leaf6"
+                    >
+                      <span
+                        class="ant-select-tree-title"
+                      >
+                        leaf6
                       </span>
                     </span>
                   </div>
@@ -500,7 +620,7 @@ exports[`renders components/tree-select/demo/basic.tsx extend context correctly 
                   </div>
                   <div
                     aria-grabbed="false"
-                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                     draggable="false"
                   >
                     <span
@@ -527,7 +647,7 @@ exports[`renders components/tree-select/demo/basic.tsx extend context correctly 
                         <b
                           style="color: rgb(0, 136, 204);"
                         >
-                          leaf3
+                          leaf11
                         </b>
                       </span>
                     </span>
@@ -573,7 +693,7 @@ exports[`renders components/tree-select/demo/basic.tsx extend context correctly 
 
 exports[`renders components/tree-select/demo/checkable.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-tree-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-tree-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width: 100%;"
 >
   <div
@@ -842,7 +962,7 @@ exports[`renders components/tree-select/demo/checkable.tsx extend context correc
 
 exports[`renders components/tree-select/demo/multiple.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-tree-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-tree-select ant-select-outlined ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
   style="width: 100%;"
 >
   <div
@@ -1025,7 +1145,7 @@ exports[`renders components/tree-select/demo/multiple.tsx extend context correct
                   </div>
                   <div
                     aria-grabbed="false"
-                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
                     draggable="false"
                   >
                     <span
@@ -1055,7 +1175,7 @@ exports[`renders components/tree-select/demo/multiple.tsx extend context correct
                   </div>
                   <div
                     aria-grabbed="false"
-                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                     draggable="false"
                   >
                     <span
@@ -1132,7 +1252,7 @@ exports[`renders components/tree-select/demo/multiple.tsx extend context correct
                   </div>
                   <div
                     aria-grabbed="false"
-                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                     draggable="false"
                   >
                     <span
@@ -1289,7 +1409,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-tree-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+    class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
   >
     <div
       class="ant-select-selector"
@@ -1453,7 +1573,7 @@ Array [
                     </div>
                     <div
                       aria-grabbed="false"
-                      class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open"
+                      class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
                       draggable="false"
                     >
                       <span
@@ -1483,7 +1603,7 @@ Array [
                     </div>
                     <div
                       aria-grabbed="false"
-                      class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
+                      class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                       draggable="false"
                     >
                       <span
@@ -1560,7 +1680,7 @@ Array [
                     </div>
                     <div
                       aria-grabbed="false"
-                      class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
+                      class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                       draggable="false"
                     >
                       <span
@@ -1630,18 +1750,14 @@ Array [
 ]
 `;
 
-exports[`renders components/tree-select/demo/placement.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: TreeSelect] \`dropdownMatchSelectWidth\` is deprecated. Please use \`popupMatchSelectWidth\` instead.",
-]
-`;
+exports[`renders components/tree-select/demo/placement.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tree-select/demo/render-panel.tsx extend context correctly 1`] = `
 <div
   style="padding-bottom: 0px; position: relative; min-width: 0;"
 >
   <div
-    class="ant-select ant-tree-select ant-select-single ant-select-show-arrow ant-select-open"
+    class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-open"
     style="width: 100%; margin: 0px;"
   >
     <div
@@ -1841,7 +1957,7 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-tree-select ant-select-status-error ant-select-single ant-select-show-arrow"
+      class="ant-select ant-tree-select ant-select-outlined ant-select-status-error ant-select-single ant-select-show-arrow"
       style="width: 100%;"
     >
       <div
@@ -1894,6 +2010,9 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
                   width="64"
                   xmlns="http://www.w3.org/2000/svg"
                 >
+                  <title>
+                    Simple Empty
+                  </title>
                   <g
                     fill="none"
                     fill-rule="evenodd"
@@ -1962,7 +2081,7 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-tree-select ant-select-status-warning ant-select-multiple ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-tree-select ant-select-outlined ant-select-status-warning ant-select-multiple ant-select-show-arrow ant-select-show-search"
       style="width: 100%;"
     >
       <div
@@ -2030,6 +2149,9 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
                   width="64"
                   xmlns="http://www.w3.org/2000/svg"
                 >
+                  <title>
+                    Simple Empty
+                  </title>
                   <g
                     fill="none"
                     fill-rule="evenodd"
@@ -2101,7 +2223,7 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
 
 exports[`renders components/tree-select/demo/suffix.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-tree-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
   style="width: 100%;"
 >
   <div
@@ -2266,7 +2388,7 @@ exports[`renders components/tree-select/demo/suffix.tsx extend context correctly
                   </div>
                   <div
                     aria-grabbed="false"
-                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
                     draggable="false"
                   >
                     <span
@@ -2296,7 +2418,7 @@ exports[`renders components/tree-select/demo/suffix.tsx extend context correctly
                   </div>
                   <div
                     aria-grabbed="false"
-                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                     draggable="false"
                   >
                     <span
@@ -2373,7 +2495,7 @@ exports[`renders components/tree-select/demo/suffix.tsx extend context correctly
                   </div>
                   <div
                     aria-grabbed="false"
-                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                     draggable="false"
                   >
                     <span
@@ -2446,7 +2568,7 @@ exports[`renders components/tree-select/demo/suffix.tsx extend context correctly
 
 exports[`renders components/tree-select/demo/treeData.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
+  class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
   style="width: 100%;"
 >
   <div
@@ -2567,7 +2689,7 @@ exports[`renders components/tree-select/demo/treeData.tsx extend context correct
                   </div>
                   <div
                     aria-grabbed="false"
-                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
                     draggable="false"
                   >
                     <span
@@ -2594,7 +2716,7 @@ exports[`renders components/tree-select/demo/treeData.tsx extend context correct
                   </div>
                   <div
                     aria-grabbed="false"
-                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                     draggable="false"
                   >
                     <span
@@ -2621,7 +2743,7 @@ exports[`renders components/tree-select/demo/treeData.tsx extend context correct
                   </div>
                   <div
                     aria-grabbed="false"
-                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                     draggable="false"
                   >
                     <span
@@ -2773,7 +2895,7 @@ exports[`renders components/tree-select/demo/treeLine.tsx extend context correct
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
       style="width: 300px;"
     >
       <div

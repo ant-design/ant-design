@@ -1,8 +1,9 @@
 /* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/it_IT';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/it_IT';
 import DatePicker from '../date-picker/locale/it_IT';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/it_IT';
 
 const typeTemplate = ' ${label} non è un ${type} valido';
@@ -34,6 +35,11 @@ const localeValues: Locale = {
     triggerDesc: 'Clicca per ordinare in modo discendente',
     triggerAsc: 'Clicca per ordinare in modo ascendente',
     cancelSort: "Clicca per eliminare l'ordinamento",
+  },
+  Tour: {
+    Next: 'Successivo',
+    Previous: 'Precedente',
+    Finish: 'Termina',
   },
   Modal: {
     okText: 'OK',
@@ -74,9 +80,6 @@ const localeValues: Locale = {
     copy: 'copia',
     copied: 'copia effettuata',
     expand: 'espandi',
-  },
-  PageHeader: {
-    back: 'Torna',
   },
   Form: {
     optional: '(opzionale)',

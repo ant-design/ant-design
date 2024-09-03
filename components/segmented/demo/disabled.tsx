@@ -1,8 +1,8 @@
 import React from 'react';
-import { Segmented, Space } from 'antd';
+import { Flex, Segmented } from 'antd';
 
 const App: React.FC = () => (
-  <Space direction="vertical">
+  <Flex gap="small" align="flex-start" vertical>
     <Segmented options={['Map', 'Transit', 'Satellite']} disabled />
     <Segmented
       options={[
@@ -13,7 +13,7 @@ const App: React.FC = () => (
         'Yearly',
       ]}
     />
-  </Space>
+  </Flex>
 );
 
 export default App;

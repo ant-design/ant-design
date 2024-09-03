@@ -1,6 +1,8 @@
 import React from 'react';
 import { Cascader } from 'antd';
-import type { DefaultOptionType } from 'antd/es/cascader';
+import type { CascaderProps, GetProp } from 'antd';
+
+type DefaultOptionType = GetProp<CascaderProps, 'options'>[number];
 
 interface Option {
   value: string;
@@ -55,7 +57,7 @@ const handleAreaClick = (
   console.log('clicked', label, option);
 };
 
-const displayRender = (labels: string[], selectedOptions: DefaultOptionType[]) =>
+const displayRender: CascaderProps<Option>['displayRender'] = (labels, selectedOptions = []) =>
   labels.map((label, i) => {
     const option = selectedOptions[i];
     if (i === labels.length - 1) {

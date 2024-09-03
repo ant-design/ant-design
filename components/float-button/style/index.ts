@@ -1,32 +1,88 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { Keyframes } from '@ant-design/cssinjs';
+import { Keyframes, unit } from '@ant-design/cssinjs';
+
 import { resetComponent } from '../../style';
 import { initFadeMotion } from '../../style/motion/fade';
 import { initMotion } from '../../style/motion/motion';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import getOffset from '../util';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
-  zIndexPopup: number;
+  /**
+   * Offset of the badge dot in a circular button
+   * @internal
+   */
+  dotOffsetInCircle: number;
+  /**
+   * Offset of the badge dot in a square button
+   * @internal
+   */
+  dotOffsetInSquare: number;
 }
 
+/**
+ * @desc FloatButton 组件的 Token
+ * @descEN Token for FloatButton component
+ */
 type FloatButtonToken = FullToken<'FloatButton'> & {
+  /**
+   * @desc FloatButton 颜色
+   * @descEN Color of FloatButton
+   */
   floatButtonColor: string;
+  /**
+   * @desc FloatButton 背景颜色
+   * @descEN Background color of FloatButton
+   */
   floatButtonBackgroundColor: string;
+  /**
+   * @desc FloatButton 悬停背景颜色
+   * @descEN Hover background color of FloatButton
+   */
   floatButtonHoverBackgroundColor: string;
+  /**
+   * @desc FloatButton 字体大小
+   * @descEN Font size of FloatButton
+   */
   floatButtonFontSize: number;
+  /**
+   * @desc FloatButton 尺寸
+   * @descEN Size of FloatButton
+   */
   floatButtonSize: number;
-  floatButtonIconSize: number;
-  floatButtonBodySize: number;
+  /**
+   * @desc FloatButton 图标尺寸
+   * @descEN Icon size of FloatButton
+   */
+  floatButtonIconSize: number | string;
+  /**
+   * @desc FloatButton 主体尺寸
+   * @descEN Body size of FloatButton
+   */
+  floatButtonBodySize: number | string;
+  /**
+   * @desc FloatButton 主体内间距
+   * @descEN Body padding of FloatButton
+   */
   floatButtonBodyPadding: number;
-  badgeOffset: number;
-  dotOffsetInCircle: number;
-  dotOffsetInSquare: number;
+  /**
+   * @desc 徽标偏移量
+   * @descEN Offset of badge
+   */
+  badgeOffset: number | string;
 
   // Position
+  /**
+   * @desc FloatButton 底部内边距
+   * @descEN Bottom inset of FloatButton
+   */
   floatButtonInsetBlockEnd: number;
+  /**
+   * @desc FloatButton 右侧内边距
+   * @descEN Right inset of FloatButton
+   */
   floatButtonInsetInlineEnd: number;
 };
 
@@ -35,7 +91,7 @@ const initFloatButtonGroupMotion = (token: FloatButtonToken) => {
   const groupPrefixCls = `${componentCls}-group`;
   const moveDownIn = new Keyframes('antFloatButtonMoveDownIn', {
     '0%': {
-      transform: `translate3d(0, ${floatButtonSize}px, 0)`,
+      transform: `translate3d(0, ${unit(floatButtonSize)}, 0)`,
       transformOrigin: '0 0',
       opacity: 0,
     },
@@ -53,7 +109,7 @@ const initFloatButtonGroupMotion = (token: FloatButtonToken) => {
       opacity: 1,
     },
     '100%': {
-      transform: `translate3d(0, ${floatButtonSize}px, 0)`,
+      transform: `translate3d(0, ${unit(floatButtonSize)}, 0)`,
       transformOrigin: '0 0',
       opacity: 0,
     },
@@ -93,12 +149,13 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
     borderRadiusSM,
     badgeOffset,
     floatButtonBodyPadding,
+    calc,
   } = token;
   const groupPrefixCls = `${componentCls}-group`;
   return {
     [groupPrefixCls]: {
       ...resetComponent(token),
-      zIndex: 99,
+      zIndex: token.zIndexPopupBase,
       display: 'block',
       border: 'none',
       position: 'fixed',
@@ -135,8 +192,11 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
     },
     [`${groupPrefixCls}-square`]: {
       [`${componentCls}-square`]: {
-        borderRadius: 0,
         padding: 0,
+        borderRadius: 0,
+        [`&${groupPrefixCls}-trigger`]: {
+          borderRadius: borderRadiusLG,
+        },
         '&:first-child': {
           borderStartStartRadius: borderRadiusLG,
           borderStartEndRadius: borderRadiusLG,
@@ -146,12 +206,12 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
           borderEndEndRadius: borderRadiusLG,
         },
         '&:not(:last-child)': {
-          borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+          borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
         },
         [`${antCls}-badge`]: {
           [`${antCls}-badge-count`]: {
-            top: -(floatButtonBodyPadding + badgeOffset),
-            insetInlineEnd: -(floatButtonBodyPadding + badgeOffset),
+            top: calc(calc(floatButtonBodyPadding).add(badgeOffset)).mul(-1).equal(),
+            insetInlineEnd: calc(calc(floatButtonBodyPadding).add(badgeOffset)).mul(-1).equal(),
           },
         },
       },
@@ -173,7 +233,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
             borderEndEndRadius: borderRadiusLG,
           },
           '&:not(:last-child)': {
-            borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+            borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
           },
           [`${componentCls}-body`]: {
             width: token.floatButtonBodySize,
@@ -212,6 +272,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
     badgeOffset,
     dotOffsetInSquare,
     dotOffsetInCircle,
+    calc,
   } = token;
   return {
     [componentCls]: {
@@ -219,7 +280,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       border: 'none',
       position: 'fixed',
       cursor: 'pointer',
-      zIndex: 99,
+      zIndex: token.zIndexPopupBase,
       // Do not remove the 'display: block' here.
       // Deleting it will cause marginBottom to become ineffective.
       // Ref: https://github.com/ant-design/ant-design/issues/44700
@@ -243,8 +304,8 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
         [`${antCls}-badge-count`]: {
           transform: 'translate(0, 0)',
           transformOrigin: 'center',
-          top: -badgeOffset,
-          insetInlineEnd: -badgeOffset,
+          top: calc(badgeOffset).mul(-1).equal(),
+          insetInlineEnd: calc(badgeOffset).mul(-1).equal(),
         },
       },
       [`${componentCls}-body`]: {
@@ -262,7 +323,9 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          padding: `${floatButtonBodyPadding / 2}px ${floatButtonBodyPadding}px`,
+          padding: `${unit(calc(floatButtonBodyPadding).div(2).equal())} ${unit(
+            floatButtonBodyPadding,
+          )}`,
           [`${componentCls}-icon`]: {
             textAlign: 'center',
             margin: 'auto',
@@ -321,7 +384,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
           [`${componentCls}-description`]: {
             display: 'flex',
             alignItems: 'center',
-            lineHeight: `${token.fontSizeLG}px`,
+            lineHeight: unit(token.fontSizeLG),
             color: token.colorText,
             fontSize: token.fontSizeSM,
           },
@@ -343,7 +406,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
           [`${componentCls}-description`]: {
             display: 'flex',
             alignItems: 'center',
-            lineHeight: `${token.fontSizeLG}px`,
+            lineHeight: unit(token.fontSizeLG),
             color: token.colorTextLightSolid,
             fontSize: token.fontSizeSM,
           },
@@ -354,41 +417,48 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook<'FloatButton'>('FloatButton', (token) => {
-  const {
-    colorTextLightSolid,
-    colorBgElevated,
-    controlHeightLG,
-    marginXXL,
-    marginLG,
-    fontSize,
-    fontSizeIcon,
-    controlItemBgHover,
-    paddingXXS,
-    borderRadiusLG,
-  } = token;
-
-  const floatButtonToken = mergeToken<FloatButtonToken>(token, {
-    floatButtonBackgroundColor: colorBgElevated,
-    floatButtonColor: colorTextLightSolid,
-    floatButtonHoverBackgroundColor: controlItemBgHover,
-    floatButtonFontSize: fontSize,
-    floatButtonIconSize: fontSizeIcon * 1.5,
-    floatButtonSize: controlHeightLG,
-    floatButtonInsetBlockEnd: marginXXL,
-    floatButtonInsetInlineEnd: marginLG,
-    floatButtonBodySize: controlHeightLG - paddingXXS * 2,
-    // 这里的 paddingXXS 是简写，完整逻辑是 (controlHeightLG - (controlHeightLG - paddingXXS * 2)) / 2,
-    floatButtonBodyPadding: paddingXXS,
-    badgeOffset: paddingXXS * 1.5,
-    dotOffsetInCircle: getOffset(controlHeightLG / 2),
-    dotOffsetInSquare: getOffset(borderRadiusLG),
-  });
-
-  return [
-    floatButtonGroupStyle(floatButtonToken),
-    sharedFloatButtonStyle(floatButtonToken),
-    initFadeMotion(token),
-    initFloatButtonGroupMotion(floatButtonToken),
-  ];
+export const prepareComponentToken: GetDefaultToken<'FloatButton'> = (token) => ({
+  dotOffsetInCircle: getOffset(token.controlHeightLG / 2),
+  dotOffsetInSquare: getOffset(token.borderRadiusLG),
 });
+
+export default genStyleHooks(
+  'FloatButton',
+  (token) => {
+    const {
+      colorTextLightSolid,
+      colorBgElevated,
+      controlHeightLG,
+      marginXXL,
+      marginLG,
+      fontSize,
+      fontSizeIcon,
+      controlItemBgHover,
+      paddingXXS,
+      calc,
+    } = token;
+
+    const floatButtonToken = mergeToken<FloatButtonToken>(token, {
+      floatButtonBackgroundColor: colorBgElevated,
+      floatButtonColor: colorTextLightSolid,
+      floatButtonHoverBackgroundColor: controlItemBgHover,
+      floatButtonFontSize: fontSize,
+      floatButtonIconSize: calc(fontSizeIcon).mul(1.5).equal(),
+      floatButtonSize: controlHeightLG,
+      floatButtonInsetBlockEnd: marginXXL,
+      floatButtonInsetInlineEnd: marginLG,
+      floatButtonBodySize: calc(controlHeightLG).sub(calc(paddingXXS).mul(2)).equal(),
+      // 这里的 paddingXXS 是简写，完整逻辑是 (controlHeightLG - (controlHeightLG - paddingXXS * 2)) / 2,
+      floatButtonBodyPadding: paddingXXS,
+      badgeOffset: calc(paddingXXS).mul(1.5).equal(),
+    });
+
+    return [
+      floatButtonGroupStyle(floatButtonToken),
+      sharedFloatButtonStyle(floatButtonToken),
+      initFadeMotion(token),
+      initFloatButtonGroupMotion(floatButtonToken),
+    ];
+  },
+  prepareComponentToken,
+);

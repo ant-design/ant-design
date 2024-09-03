@@ -1,7 +1,9 @@
-import SourceCode from 'dumi/theme-default/builtins/SourceCode';
 import React from 'react';
-import type { TabsProps } from 'antd';
-import { Tabs } from 'antd';
+import { ConfigProvider, Tabs } from 'antd';
+import SourceCode from 'dumi/theme-default/builtins/SourceCode';
+import type { Tab } from 'rc-tabs/lib/interface';
+
+import BunLogo from './bun';
 import NpmLogo from './npm';
 import PnpmLogo from './pnpm';
 import YarnLogo from './yarn';
@@ -10,53 +12,43 @@ interface InstallProps {
   npm?: string;
   yarn?: string;
   pnpm?: string;
+  bun?: string;
 }
 
-const npmLabel = (
-  <span className="snippet-label">
-    <NpmLogo />
-    npm
-  </span>
-);
-
-const pnpmLabel = (
-  <span className="snippet-label">
-    <PnpmLogo />
-    pnpm
-  </span>
-);
-
-const yarnLabel = (
-  <span className="snippet-label">
-    <YarnLogo />
-    yarn
-  </span>
-);
-
 const InstallDependencies: React.FC<InstallProps> = (props) => {
-  const { npm, yarn, pnpm } = props;
-  const items = React.useMemo<TabsProps['items']>(
-    () =>
-      [
-        {
-          key: 'npm',
-          children: npm ? <SourceCode lang="bash">{npm}</SourceCode> : null,
-          label: npmLabel,
-        },
-        {
-          key: 'yarn',
-          children: yarn ? <SourceCode lang="bash">{yarn}</SourceCode> : null,
-          label: yarnLabel,
-        },
-        {
-          key: 'pnpm',
-          children: pnpm ? <SourceCode lang="bash">{pnpm}</SourceCode> : null,
-          label: pnpmLabel,
-        },
-      ].filter((item) => item.children),
-    [npm, yarn, pnpm],
+  const { npm, yarn, pnpm, bun } = props;
+  const items: Tab[] = [
+    {
+      key: 'npm',
+      label: 'npm',
+      children: npm ? <SourceCode lang="bash">{npm}</SourceCode> : null,
+      icon: <NpmLogo />,
+    },
+    {
+      key: 'yarn',
+      label: 'yarn',
+      children: yarn ? <SourceCode lang="bash">{yarn}</SourceCode> : null,
+      icon: <YarnLogo />,
+    },
+    {
+      key: 'pnpm',
+      label: 'pnpm',
+      children: pnpm ? <SourceCode lang="bash">{pnpm}</SourceCode> : null,
+      icon: <PnpmLogo />,
+    },
+    {
+      key: 'bun',
+      label: 'Bun',
+      children: bun ? <SourceCode lang="bash">{bun}</SourceCode> : null,
+      icon: <BunLogo />,
+    },
+  ].filter((item) => item.children);
+
+  return (
+    <ConfigProvider theme={{ components: { Tabs: { horizontalMargin: '0' } } }}>
+      <Tabs className="markdown" size="small" defaultActiveKey="npm" items={items} />
+    </ConfigProvider>
   );
-  return <Tabs className="antd-site-snippet" defaultActiveKey="npm" items={items} />;
 };
 
 export default InstallDependencies;

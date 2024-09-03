@@ -1,21 +1,22 @@
 import React, { Suspense } from 'react';
-import type { IPreviewerProps } from 'dumi';
-import { Skeleton, Alert } from 'antd';
+import { Alert, Skeleton } from 'antd';
 import { createStyles } from 'antd-style';
+import type { IPreviewerProps } from 'dumi';
 
 const { ErrorBoundary } = Alert;
 
 const Previewer = React.lazy(() => import('./Previewer'));
 
-const useStyle = createStyles(({ css }) => ({
+const useStyle = createStyles(({ token, css }) => ({
   skeletonWrapper: css`
     width: 100% !important;
-    height: 500px;
-    margin-bottom: 16px;
+    height: 250px;
+    margin-bottom: ${token.margin}px;
+    border-radius: ${token.borderRadiusLG}px;
   `,
 }));
 
-export default (props: IPreviewerProps) => {
+const PreviewerSuspense: React.FC<IPreviewerProps> = (props) => {
   const { styles } = useStyle();
   return (
     <ErrorBoundary>
@@ -24,10 +25,7 @@ export default (props: IPreviewerProps) => {
           <Skeleton.Node
             active
             className={styles.skeletonWrapper}
-            style={{
-              width: '100%',
-              height: '100%',
-            }}
+            style={{ width: '100%', height: '100%' }}
           >
             {' '}
           </Skeleton.Node>
@@ -38,3 +36,5 @@ export default (props: IPreviewerProps) => {
     </ErrorBoundary>
   );
 };
+
+export default PreviewerSuspense;

@@ -4,7 +4,7 @@ exports[`Watermark Image watermark snapshot 1`] = `
 <div>
   <div
     class=""
-    style="position: relative;"
+    style="position: relative; overflow: hidden;"
   >
     <div
       style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 470px; visibility: visible !important;"
@@ -17,7 +17,7 @@ exports[`Watermark Interleaved watermark backgroundSize is correct 1`] = `
 <div>
   <div
     class="watermark"
-    style="position: relative;"
+    style="position: relative; overflow: hidden;"
   >
     <div
       style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 720px; visibility: visible !important;"
@@ -30,7 +30,7 @@ exports[`Watermark Invalid image watermark 1`] = `
 <div>
   <div
     class="watermark"
-    style="position: relative;"
+    style="position: relative; overflow: hidden;"
   >
     <div
       style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 470px; visibility: visible !important;"
@@ -43,7 +43,7 @@ exports[`Watermark MutationObserver should work properly 1`] = `
 <div>
   <div
     class="watermark"
-    style="position: relative;"
+    style="position: relative; overflow: hidden;"
   >
     <div
       style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 229px; visibility: visible !important;"
@@ -52,11 +52,11 @@ exports[`Watermark MutationObserver should work properly 1`] = `
 </div>
 `;
 
-exports[`Watermark Observe the modification of style 1`] = `
+exports[`Watermark Observe the modification of style watermark 1`] = `
 <div>
   <div
     class="watermark"
-    style="position: relative;"
+    style="position: relative; overflow: hidden;"
   >
     <div
       style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: -250px -250px; background-image: url('data:image/png;base64,00'); background-size: 229px; visibility: visible !important;"
@@ -69,7 +69,7 @@ exports[`Watermark The offset should be correct 1`] = `
 <div>
   <div
     class="watermark"
-    style="position: relative;"
+    style="position: relative; overflow: hidden;"
   >
     <div
       style="z-index: 9; position: absolute; left: 150px; top: 150px; width: calc(100% - 150px); height: calc(100% - 150px); pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 228px; visibility: visible !important;"
@@ -82,7 +82,7 @@ exports[`Watermark The watermark should render successfully 1`] = `
 <div>
   <div
     class="watermark"
-    style="position: relative;"
+    style="position: relative; overflow: hidden;"
   >
     <div
       style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 218px; visibility: visible !important;"
@@ -94,7 +94,7 @@ exports[`Watermark The watermark should render successfully 1`] = `
 exports[`Watermark rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   class=""
-  style="position: relative;"
+  style="position: relative; overflow: hidden;"
 >
   <div
     style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 200px; visibility: visible !important;"

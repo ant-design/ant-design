@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Tooltip } from 'antd';
+
 import type { ProgressProps } from '..';
 import Progress from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import { handleGradient, sortGradient } from '../Line';
-import ProgressSteps from '../Steps';
 import { ProgressTypes } from '../progress';
+import ProgressSteps from '../Steps';
 
 describe('Progress', () => {
   mountTest(Progress);
@@ -137,11 +138,11 @@ describe('Progress', () => {
   });
 
   it('get correct line-gradient', () => {
-    expect(handleGradient({ from: 'test', to: 'test' }).backgroundImage).toBe(
+    expect(handleGradient({ from: 'test', to: 'test' }).background).toBe(
       'linear-gradient(to right, test, test)',
     );
-    expect(handleGradient({}).backgroundImage).toBe('linear-gradient(to right, #1677FF, #1677FF)');
-    expect(handleGradient({ from: 'test', to: 'test', '0%': 'test' }).backgroundImage).toBe(
+    expect(handleGradient({}).background).toBe('linear-gradient(to right, #1677FF, #1677FF)');
+    expect(handleGradient({ from: 'test', to: 'test', '0%': 'test' }).background).toBe(
       'linear-gradient(to right, test 0%)',
     );
   });
@@ -278,6 +279,13 @@ describe('Progress', () => {
       'Warning: [antd: Progress] Type "circle" and "dashboard" do not accept array as `size`, please use number or preset size instead.',
     );
   });
+  it('should warnning if pass object into `size` in type dashboard', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<Progress size={{ width: 60, height: 20 }} type="dashboard" />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Progress] Type "circle" and "dashboard" do not accept object as `size`, please use number or preset size instead.',
+    );
+  });
 
   it('should update the percentage based on the value of percent', () => {
     const Content: React.FC = () => {
@@ -332,9 +340,6 @@ describe('Progress', () => {
     );
 
     const { container, rerender } = render(<App size={30} />);
-    expect(container.querySelector('.ant-progress-line .ant-progress-outer')).toHaveStyle({
-      width: '30px',
-    });
     expect(container.querySelector('.ant-progress-steps .ant-progress-steps-item')).toHaveStyle({
       width: '30px',
       height: '30px',
@@ -352,6 +357,8 @@ describe('Progress', () => {
 
     expect(container.querySelector('.ant-progress-line .ant-progress-outer')).toHaveStyle({
       width: '60px',
+    });
+    expect(container.querySelector('.ant-progress-line .ant-progress-bg')).toHaveStyle({
       height: '20px',
     });
     expect(container.querySelector('.ant-progress-steps .ant-progress-steps-item')).toHaveStyle({
@@ -365,6 +372,19 @@ describe('Progress', () => {
     expect(container.querySelectorAll('.ant-progress-circle .ant-progress-inner')[1]).toHaveStyle({
       width: '60px',
       height: '60px',
+    });
+
+    rerender(<App size={{ width: 60, height: 20 }} />);
+
+    expect(container.querySelector('.ant-progress-line .ant-progress-outer')).toHaveStyle({
+      width: '60px',
+    });
+    expect(container.querySelector('.ant-progress-line .ant-progress-bg')).toHaveStyle({
+      height: '20px',
+    });
+    expect(container.querySelector('.ant-progress-steps .ant-progress-steps-item')).toHaveStyle({
+      width: '60px',
+      height: '20px',
     });
   });
 
@@ -403,5 +423,51 @@ describe('Progress', () => {
     progress = wrapper.querySelector('[role="progressbar"]');
     expect(progress).toHaveAttribute('aria-labelledby', 'progressLabel');
     expect(progress).toHaveAttribute('aria-valuenow', '90');
+  });
+
+  it('circle progress should accept steps', () => {
+    const { container } = render(<Progress percent={70} steps={{ count: 5, gap: 5 }} />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('circle progress steps can be number', () => {
+    const { container } = render(<Progress percent={70} steps={5} />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('should show inner info position', () => {
+    const { container: wrapper, rerender } = render(
+      <Progress
+        percent={0}
+        percentPosition={{ align: 'center', type: 'inner' }}
+        size={[200, 20]}
+      />,
+    );
+    expect(
+      wrapper.querySelectorAll('.ant-progress-line-align-center.ant-progress-line-position-inner'),
+    ).toHaveLength(1);
+
+    rerender(
+      <Progress
+        percent={100}
+        percentPosition={{ align: 'center', type: 'inner' }}
+        size={[400, 20]}
+      />,
+    );
+    expect(wrapper.querySelectorAll('.ant-progress-text-inner')).toHaveLength(1);
+
+    rerender(<Progress percent={100} percentPosition={{ align: 'center', type: 'outer' }} />);
+    expect(wrapper.querySelectorAll('.ant-progress-layout-bottom')).toHaveLength(1);
+  });
+
+  it('render inner info position', () => {
+    const { container } = render(
+      <Progress
+        percent={100}
+        percentPosition={{ align: 'center', type: 'inner' }}
+        size={[400, 20]}
+      />,
+    );
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

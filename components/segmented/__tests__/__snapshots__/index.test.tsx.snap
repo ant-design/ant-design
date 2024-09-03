@@ -59,9 +59,11 @@ exports[`Segmented render label with ReactNode 1`] = `
       <div
         class="ant-segmented-item-label"
       >
-        <h2>
+        <div
+          class="little"
+        >
           Monthly
-        </h2>
+        </div>
       </div>
     </label>
   </div>

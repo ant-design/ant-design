@@ -1,4 +1,5 @@
 import React from 'react';
+
 import FloatButton from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -38,11 +39,20 @@ describe('FloatButton', () => {
     rerender(<FloatButton shape={squareShape} />);
     expect(container.querySelector(`.ant-float-btn-${squareShape}`)).toBeTruthy();
   });
-  it('support onClick', () => {
+  it('support onClick & onMouseEnter & onMouseLeave', () => {
     const onClick = jest.fn();
-    const { container } = render(<FloatButton onClick={onClick} />);
-    fireEvent.click(container.querySelector('.ant-float-btn')!);
+    const onMouseEnter = jest.fn();
+    const onMouseLeave = jest.fn();
+    const { container } = render(
+      <FloatButton onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />,
+    );
+    const element = container.querySelector('.ant-float-btn')!;
+    fireEvent.click(element);
     expect(onClick).toHaveBeenCalled();
+    fireEvent.mouseEnter(element);
+    expect(onMouseEnter).toHaveBeenCalled();
+    fireEvent.mouseLeave(element);
+    expect(onMouseLeave).toHaveBeenCalled();
   });
   it('should console Error', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});

@@ -4,6 +4,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import { RadioGroupContextProvider } from './context';
 import type { RadioChangeEvent, RadioGroupButtonStyle, RadioGroupProps } from './interface';
@@ -49,7 +50,8 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
   const groupPrefixCls = `${prefixCls}-group`;
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   let childrenToRender = children;
   // 如果存在 options, 优先使用
@@ -100,8 +102,10 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     className,
     rootClassName,
     hashId,
+    cssVarCls,
+    rootCls,
   );
-  return wrapSSR(
+  return wrapCSSVar(
     <div
       {...pickAttrs(props, { aria: true, data: true })}
       className={classString}

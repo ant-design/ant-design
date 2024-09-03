@@ -1,14 +1,12 @@
 import type { FC } from 'react';
-import React, { useContext } from 'react';
-import { LiveContext } from 'dumi';
+import React from 'react';
 import { Alert, theme } from 'antd';
 
-const LiveError: FC = () => {
-  const { error } = useContext(LiveContext);
+const LiveError: FC<{ error: Error | null }> = ({ error }) => {
   const { token } = theme.useToken();
 
   return error ? (
-    <Alert banner type="error" message={error} style={{ color: token.colorError }} />
+    <Alert banner type="error" message={error.toString()} style={{ color: token.colorError }} />
   ) : null;
 };
 

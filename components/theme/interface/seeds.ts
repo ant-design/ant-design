@@ -1,4 +1,5 @@
 import type { PresetColorType } from './presetColors';
+
 // ======================================================================
 // ==                            Seed Token                            ==
 // ======================================================================
@@ -188,6 +189,8 @@ export interface SeedToken extends PresetColorType {
   /**
    * @nameZH 图片不透明度
    * @nameEN Define default Image opacity. Useful when in dark-like theme
+   * @desc 控制图片不透明度
+   * @descEN Control image opacity
    */
   opacityImage: number;
 
@@ -273,7 +276,7 @@ export interface SeedToken extends PresetColorType {
    * @nameEN Motion Style
    * @desc 用于配置动画效果，为 `false` 时则关闭动画
    * @descEN Used to configure the motion effect, when it is `false`, the motion is turned off
-   * @default false
+   * @default true
    */
   motion: boolean;
 }

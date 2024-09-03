@@ -1,8 +1,11 @@
 import React from 'react';
-import CountUp from 'react-countup';
+import type { StatisticProps } from 'antd';
 import { Col, Row, Statistic } from 'antd';
+import CountUp from 'react-countup';
 
-const formatter = (value: number) => <CountUp end={value} separator="," />;
+const formatter: StatisticProps['formatter'] = (value) => (
+  <CountUp end={value as number} separator="," />
+);
 
 const App: React.FC = () => (
   <Row gutter={16}>

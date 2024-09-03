@@ -1,11 +1,12 @@
-import classNames from 'classnames';
-// eslint-disable-next-line import/no-named-as-default
 import * as React from 'react';
+import classNames from 'classnames';
+
 import extendsObject from '../_util/extendsObject';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import useSize from '../config-provider/hooks/useSize';
 import { Row } from '../grid';
 import type { RowProps } from '../grid';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
@@ -13,12 +14,9 @@ import type { PaginationConfig } from '../pagination';
 import Pagination from '../pagination';
 import type { SpinProps } from '../spin';
 import Spin from '../spin';
-import Item from './Item';
-
-// CSSINJS
 import { ListContext } from './context';
+import Item from './Item';
 import useStyle from './style';
-import useSize from '../config-provider/hooks/useSize';
 
 export type { ListItemMetaProps, ListItemProps } from './Item';
 export type { ListConsumerProps } from './context';
@@ -110,7 +108,7 @@ function List<T>({
     (eventName: 'onChange' | 'onShowSizeChange') => (page: number, pageSize: number) => {
       setPaginationCurrent(page);
       setPaginationSize(pageSize);
-      if (pagination && pagination[eventName]) {
+      if (pagination) {
         pagination?.[eventName]?.(page, pageSize);
       }
     };
@@ -122,7 +120,7 @@ function List<T>({
   const renderInnerItem = (item: T, index: number) => {
     if (!renderItem) return null;
 
-    let key;
+    let key: any;
 
     if (typeof rowKey === 'function') {
       key = rowKey(item);
@@ -144,7 +142,7 @@ function List<T>({
   const prefixCls = getPrefixCls('list', customizePrefixCls);
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   let loadingProp = loading;
   if (typeof loadingProp === 'boolean') {
@@ -152,7 +150,7 @@ function List<T>({
       spinning: loadingProp,
     };
   }
-  const isLoading = loadingProp && loadingProp.spinning;
+  const isLoading = !!loadingProp?.spinning;
 
   const mergedSize = useSize(customizeSize);
 
@@ -186,6 +184,7 @@ function List<T>({
     className,
     rootClassName,
     hashId,
+    cssVarCls,
   );
 
   const paginationProps = extendsObject<PaginationConfig>(
@@ -202,20 +201,16 @@ function List<T>({
   if (paginationProps.current > largestPage) {
     paginationProps.current = largestPage;
   }
-  const paginationContent = pagination ? (
-    <div
-      className={classNames(
-        `${prefixCls}-pagination`,
-        `${prefixCls}-pagination-align-${paginationProps?.align ?? 'end'}`,
-      )}
-    >
+  const paginationContent = pagination && (
+    <div className={classNames(`${prefixCls}-pagination`)}>
       <Pagination
+        align="end"
         {...paginationProps}
         onChange={onPaginationChange}
         onShowSizeChange={onPaginationShowSizeChange}
       />
     </div>
-  ) : null;
+  );
 
   let splitDataSource = [...dataSource];
   if (pagination) {
@@ -253,7 +248,7 @@ function List<T>({
         maxWidth: `${100 / columnCount}%`,
       };
     }
-  }, [grid?.column, currentBreakpoint]);
+  }, [JSON.stringify(grid), currentBreakpoint]);
 
   let childrenContent: React.ReactNode = isLoading && <div style={{ minHeight: 53 }} />;
   if (splitDataSource.length > 0) {
@@ -272,9 +267,7 @@ function List<T>({
   } else if (!children && !isLoading) {
     childrenContent = (
       <div className={`${prefixCls}-empty-text`}>
-        {(locale && locale.emptyText) || renderEmpty?.('List') || (
-          <DefaultRenderEmpty componentName="List" />
-        )}
+        {locale?.emptyText || renderEmpty?.('List') || <DefaultRenderEmpty componentName="List" />}
       </div>
     );
   }
@@ -285,7 +278,7 @@ function List<T>({
     [JSON.stringify(grid), itemLayout],
   );
 
-  return wrapSSR(
+  return wrapCSSVar(
     <ListContext.Provider value={contextValue}>
       <div style={{ ...list?.style, ...style }} className={classString} {...rest}>
         {(paginationPosition === 'top' || paginationPosition === 'both') && paginationContent}

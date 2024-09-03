@@ -1,7 +1,8 @@
-import type { CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+
 import { resetComponent, textEllipsis } from '../../style';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
   /**
@@ -16,15 +17,35 @@ export interface ComponentToken {
   linkPaddingInlineStart: number;
 }
 
+/**
+ * @desc Anchor 组件的 Token
+ * @descEN Token for Anchor component
+ */
 interface AnchorToken extends FullToken<'Anchor'> {
+  /**
+   * @desc 容器块偏移量
+   * @descEN Holder block offset
+   */
   holderOffsetBlock: number;
-  anchorPaddingBlockSecondary: number;
-  anchorBallSize: number;
-  anchorTitleBlock: number;
+  /**
+   * @desc 次级锚点块内间距
+   * @descEN Secondary anchor block padding
+   */
+  anchorPaddingBlockSecondary: number | string;
+  /**
+   * @desc 锚点球大小
+   * @descEN Anchor ball size
+   */
+  anchorBallSize: number | string;
+  /**
+   * @desc 锚点标题块
+   * @descEN Anchor title block
+   */
+  anchorTitleBlock: number | string;
 }
 
 // ============================== Shared ==============================
-const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
+const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token) => {
   const {
     componentCls,
     holderOffsetBlock,
@@ -33,11 +54,12 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
     colorPrimary,
     lineType,
     colorSplit,
+    calc,
   } = token;
 
   return {
     [`${componentCls}-wrapper`]: {
-      marginBlockStart: -holderOffsetBlock,
+      marginBlockStart: calc(holderOffsetBlock).mul(-1).equal(),
       paddingBlockStart: holderOffsetBlock,
 
       // delete overflow: auto
@@ -50,7 +72,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
 
         [`${componentCls}-link`]: {
           paddingBlock: token.linkPaddingBlock,
-          paddingInline: `${token.linkPaddingInlineStart}px 0`,
+          paddingInline: `${unit(token.linkPaddingInlineStart)} 0`,
 
           '&-title': {
             ...textEllipsis,
@@ -83,7 +105,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
             insetInlineStart: 0,
             top: 0,
             height: '100%',
-            borderInlineStart: `${lineWidthBold}px ${lineType} ${colorSplit}`,
+            borderInlineStart: `${unit(lineWidthBold)} ${lineType} ${colorSplit}`,
             content: '" "',
           },
 
@@ -95,7 +117,6 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
             transition: `top ${motionDurationSlow} ease-in-out`,
             width: lineWidthBold,
             backgroundColor: colorPrimary,
-
             [`&${componentCls}-ink-visible`]: {
               display: 'inline-block',
             },
@@ -110,7 +131,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
   };
 };
 
-const genSharedAnchorHorizontalStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
+const genSharedAnchorHorizontalStyle: GenerateStyle<AnchorToken> = (token) => {
   const { componentCls, motionDurationSlow, lineWidthBold, colorPrimary } = token;
 
   return {
@@ -128,7 +149,7 @@ const genSharedAnchorHorizontalStyle: GenerateStyle<AnchorToken> = (token): CSSO
           value: 0,
         },
         bottom: 0,
-        borderBottom: `1px ${token.lineType} ${token.colorSplit}`,
+        borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
         content: '" "',
       },
 
@@ -158,22 +179,23 @@ const genSharedAnchorHorizontalStyle: GenerateStyle<AnchorToken> = (token): CSSO
   };
 };
 
+export const prepareComponentToken: GetDefaultToken<'Anchor'> = (token) => ({
+  linkPaddingBlock: token.paddingXXS,
+  linkPaddingInlineStart: token.padding,
+});
+
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Anchor',
   (token) => {
-    const { fontSize, fontSizeLG, paddingXXS } = token;
-
+    const { fontSize, fontSizeLG, paddingXXS, calc } = token;
     const anchorToken = mergeToken<AnchorToken>(token, {
       holderOffsetBlock: paddingXXS,
-      anchorPaddingBlockSecondary: paddingXXS / 2,
-      anchorTitleBlock: (fontSize / 14) * 3,
-      anchorBallSize: fontSizeLG / 2,
+      anchorPaddingBlockSecondary: calc(paddingXXS).div(2).equal(),
+      anchorTitleBlock: calc(fontSize).div(14).mul(3).equal(),
+      anchorBallSize: calc(fontSizeLG).div(2).equal(),
     });
     return [genSharedAnchorStyle(anchorToken), genSharedAnchorHorizontalStyle(anchorToken)];
   },
-  (token) => ({
-    linkPaddingBlock: token.paddingXXS,
-    linkPaddingInlineStart: token.padding,
-  }),
+  prepareComponentToken,
 );

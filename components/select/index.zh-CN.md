@@ -1,15 +1,14 @@
 ---
 category: Components
-subtitle: 选择器
 group: 数据录入
 title: Select
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*zo76T7KQx2UAAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5oPiTqPxGAUAAAAAAAAAAAAADrJ8AQ/original
+subtitle: 选择器
+description: 下拉选择器。
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*qGSbQJ0POEsAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a6ggRInInJ4AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-下拉选择器。
 
 ## 何时使用
 
@@ -17,14 +16,35 @@ demo:
 - 当选项少时（少于 5 项），建议直接将选项平铺，使用 [Radio](/components/radio-cn/) 是更好的选择。
 - 如果你在寻找一个可输可选的输入框，那你可能需要 [AutoComplete](/components/auto-complete-cn/)。
 
+### 5.11.0 用法升级
+
+<!-- prettier-ignore -->
+:::info{title="升级提示"}
+在 5.11.0 版本后，我们提供了 `<Select options={[...]} />` 的简写方式，有更好的性能和更方便的数据组织方式，开发者不再需要自行拼接 JSX。
+同时我们废弃了原先的写法，你还是可以在 5.x 继续使用，但会在控制台看到警告，并会在 6.0 后移除。
+:::
+
+```jsx
+// >=5.11.0 可用，推荐的写法 ✅
+return <Select options={[{ value: 'sample', label: <span>sample</span> }]} />;
+
+// 5.x 都可用，>=5.11.0 时不推荐 🙅🏻‍♀️
+return (
+  <Select onChange={onChange}>
+    <Select.Option value="sample">Sample</Select.Option>
+  </Select>
+);
+```
+
 ## 代码演示
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本使用</code>
 <code src="./demo/search.tsx">带搜索框</code>
+<code src="./demo/search-filter-option.tsx">自定义搜索</code>
 <code src="./demo/multiple.tsx">多选</code>
 <code src="./demo/size.tsx">三种大小</code>
-<code src="./demo/option-label-prop.tsx">定制回填内容</code>
+<code src="./demo/option-render.tsx">自定义下拉选项</code>
 <code src="./demo/search-sort.tsx">带排序的搜索</code>
 <code src="./demo/tags.tsx">标签</code>
 <code src="./demo/optgroup.tsx">分组</code>
@@ -36,8 +56,10 @@ demo:
 <code src="./demo/suffix.tsx" debug>后缀图标</code>
 <code src="./demo/custom-dropdown-menu.tsx">扩展菜单</code>
 <code src="./demo/hide-selected.tsx">隐藏已选择选项</code>
-<code src="./demo/bordered.tsx">无边框</code>
+<code src="./demo/variant.tsx" version="5.13.0">多种形态</code>
+<code src="./demo/filled-debug.tsx" debug>Filled debug</code>
 <code src="./demo/custom-tag-render.tsx">自定义选择标签</code>
+<code src="./demo/custom-label-render.tsx">自定义选中 label</code>
 <code src="./demo/responsive.tsx">响应式 maxTagCount</code>
 <code src="./demo/big-data.tsx">大数据</code>
 <code src="./demo/status.tsx">自定义状态</code>
@@ -48,6 +70,7 @@ demo:
 <code src="./demo/option-label-center.tsx" debug>选项文本居中</code>
 <code src="./demo/debug-flip-shift.tsx" iframe="200" debug>翻转+偏移</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
+<code src="./demo/maxCount.tsx" version="5.13.0">最大选中数量</code>
 
 ## API
 
@@ -60,7 +83,6 @@ demo:
 | allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: 支持对象类型 |
 | autoClearSearchValue | 是否在选中项后清空搜索框，只在 `mode` 为 `multiple` 或 `tags` 时有效 | boolean | true |  |
 | autoFocus | 默认获取焦点 | boolean | false |  |
-| bordered | 是否有边框 | boolean | true |  |
 | defaultActiveFirstOption | 是否默认高亮第一个选项 | boolean | true |  |
 | defaultOpen | 是否默认展开下拉菜单 | boolean | - |  |
 | defaultValue | 指定默认选中的条目 | string \| string\[] \|<br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
@@ -71,11 +93,12 @@ demo:
 | dropdownStyle | 下拉菜单的 style 属性 | CSSProperties | - |  |
 | fieldNames | 自定义节点 label、value、options、groupLabel 的字段 | object | { label: `label`, value: `value`, options: `options`, groupLabel: `label` } | 4.17.0（`groupLabel` 在 5.6.0 新增） |
 | filterOption | 是否根据输入项进行筛选。当其为一个函数时，会接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 true，反之则返回 false。[示例](#select-demo-search) | boolean \| function(inputValue, option) | true |  |
-| filterSort | 搜索时对筛选结果项的排序函数, 类似[Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)里的 compareFunction | (optionA: Option, optionB: Option) => number | - | 4.9.0 |
+| filterSort | 搜索时对筛选结果项的排序函数, 类似[Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)里的 compareFunction | (optionA: Option, optionB: Option, info: { searchValue: string }) => number | - | `searchValue`: 5.19.0 |
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codesandbox.io/s/4j168r7jw0) | function(triggerNode) | () => document.body |  |
 | labelInValue | 是否把每个选项的 label 包装到 value 中，会把 Select 的 value 类型从 `string` 变为 { value: string, label: ReactNode } 的格式 | boolean | false |  |
 | listHeight | 设置弹窗滚动高度 | number | 256 |  |
 | loading | 加载中状态 | boolean | false |  |
+| maxCount | 指定可选中的最多 items 数量，仅在 `mode` 为 `multiple` 或 `tags` 时生效 | number | - | 5.13.0 |
 | maxTagCount | 最多显示多少个 tag，响应式模式会对性能产生损耗 | number \| `responsive` | - | responsive: 4.10 |
 | maxTagPlaceholder | 隐藏 tag 时显示的内容 | ReactNode \| function(omittedValues) | - |  |
 | maxTagTextLength | 最大显示的 tag 文本长度 | number | - |  |
@@ -96,19 +119,19 @@ demo:
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | suffixIcon | 自定义的选择框后缀图标。以防止图标被用于其他交互，替换的图标默认不会响应展开、收缩事件，可以通过添加 `pointer-events: none` 样式透传。 | ReactNode | `<DownOutlined />` |  |
 | tagRender | 自定义 tag 内容 render，仅在 `mode` 为 `multiple` 或 `tags` 时生效 | (props) => ReactNode | - |  |
+| labelRender | 自定义当前选中的 label 内容 render | (label: ReactNode) => ReactNode | - | 5.15.0 |
 | tokenSeparators | 自动分词的分隔符，仅在 `mode="tags"` 时生效 | string\[] | - |  |
 | value | 指定当前选中的条目，多选时为一个数组。（value 数组引用未变化时，Select 不会更新） | string \| string\[] \| <br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 |
 | onBlur | 失去焦点时回调 | function | - |  |
 | onChange | 选中 option，或 input 的 value 变化时，调用此函数 | function(value, option:Option \| Array&lt;Option>) | - |  |
 | onClear | 清除内容时回调 | function | - | 4.6.0 |
 | onDeselect | 取消选中时调用，参数为选中项的 value (或 key) 值，仅在 `multiple` 或 `tags` 模式下生效 | function(value: string \| number \| LabeledValue) | - |  |
-| onDropdownVisibleChange | 展开下拉菜单的回调 | function(open) | - |  |
-| onFocus | 获得焦点时回调 | function | - |  |
-| onInputKeyDown | 按键按下时回调 | function | - |  |
-| onMouseEnter | 鼠标移入时回调 | function | - |  |
-| onMouseLeave | 鼠标移出时回调 | function | - |  |
-| onPopupScroll | 下拉列表滚动时的回调 | function | - |  |
+| onDropdownVisibleChange | 展开下拉菜单的回调 | (open: boolean) => void | - |  |
+| onFocus | 获得焦点时回调 | (event: FocusEvent) => void | - |  |
+| onInputKeyDown | 按键按下时回调 | (event: KeyboardEvent) => void | - |  |
+| onPopupScroll | 下拉列表滚动时的回调 | (event: UIEvent) => void | - |  |
 | onSearch | 文本框值变化时回调 | function(value: string) | - |  |
 | onSelect | 被选中时调用，参数为选中项的 value (或 key) 值 | function(value: string \| number \| LabeledValue, option: Option) | - |  |
 
@@ -132,10 +155,12 @@ demo:
 
 ### OptGroup props
 
-| 参数  | 说明 | 类型                    | 默认值 | 版本 |
-| ----- | ---- | ----------------------- | ------ | ---- |
-| key   | Key  | string                  | -      |      |
-| label | 组名 | string \| React.Element | -      |      |
+| 参数      | 说明                    | 类型            | 默认值 | 版本 |
+| --------- | ----------------------- | --------------- | ------ | ---- |
+| key       | Key                     | string          | -      |      |
+| label     | 组名                    | React.ReactNode | -      |      |
+| className | Option 器类名           | string          | -      |      |
+| title     | 选项上的原生 title 提示 | string          | -      |      |
 
 ## 主题变量（Design Token）
 

@@ -1,11 +1,12 @@
 import { blue } from '@ant-design/colors';
-import { TinyColor } from '@ctrl/tinycolor';
+import { unit } from '@ant-design/cssinjs';
+
 import type { UploadToken } from '.';
 import { clearFix, textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 
 const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
-  const { componentCls, iconCls, uploadThumbnailSize, uploadProgressOffset } = token;
+  const { componentCls, iconCls, uploadThumbnailSize, uploadProgressOffset, calc } = token;
   const listCls = `${componentCls}-list`;
   const itemCls = `${listCls}-item`;
 
@@ -19,9 +20,12 @@ const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
       `]: {
         [itemCls]: {
           position: 'relative',
-          height: uploadThumbnailSize + token.lineWidth * 2 + token.paddingXS * 2,
+          height: calc(uploadThumbnailSize)
+            .add(calc(token.lineWidth).mul(2))
+            .add(calc(token.paddingXS).mul(2))
+            .equal(),
           padding: token.paddingXS,
-          border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
+          border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
           borderRadius: token.borderRadiusLG,
 
           '&:hover': {
@@ -32,7 +36,7 @@ const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
             ...textEllipsis,
             width: uploadThumbnailSize,
             height: uploadThumbnailSize,
-            lineHeight: `${uploadThumbnailSize + token.paddingSM}px`,
+            lineHeight: unit(calc(uploadThumbnailSize).add(token.paddingSM).equal()),
             textAlign: 'center',
             flex: 'none',
 
@@ -51,9 +55,9 @@ const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
 
           [`${itemCls}-progress`]: {
             bottom: uploadProgressOffset,
-            width: `calc(100% - ${token.paddingSM * 2}px)`,
+            width: `calc(100% - ${unit(calc(token.paddingSM).mul(2).equal())})`,
             marginTop: 0,
-            paddingInlineStart: uploadThumbnailSize + token.paddingXS,
+            paddingInlineStart: calc(uploadThumbnailSize).add(token.paddingXS).equal(),
           },
         },
 
@@ -90,7 +94,7 @@ const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
 };
 
 const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
-  const { componentCls, iconCls, fontSizeLG, colorTextLightSolid } = token;
+  const { componentCls, iconCls, fontSizeLG, colorTextLightSolid, calc } = token;
 
   const listCls = `${componentCls}-list`;
   const itemCls = `${listCls}-item`;
@@ -103,18 +107,15 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
       ${componentCls}-wrapper${componentCls}-picture-circle-wrapper
     `]: {
       ...clearFix(),
-      display: 'inline-block',
-      width: '100%',
+      display: 'block',
 
       [`${componentCls}${componentCls}-select`]: {
         width: uploadPictureCardSize,
         height: uploadPictureCardSize,
-        marginInlineEnd: token.marginXS,
-        marginBottom: token.marginXS,
         textAlign: 'center',
         verticalAlign: 'top',
         backgroundColor: token.colorFillAlter,
-        border: `${token.lineWidth}px dashed ${token.colorBorder}`,
+        border: `${unit(token.lineWidth)} dashed ${token.colorBorder}`,
         borderRadius: token.borderRadiusLG,
         cursor: 'pointer',
         transition: `border-color ${token.motionDurationSlow}`,
@@ -134,16 +135,30 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
 
       // list
       [`${listCls}${listCls}-picture-card, ${listCls}${listCls}-picture-circle`]: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        '@supports not (gap: 1px)': {
+          '& > *': {
+            marginBlockEnd: token.marginXS,
+            marginInlineEnd: token.marginXS,
+          },
+        },
+        '@supports (gap: 1px)': {
+          gap: token.marginXS,
+        },
+
         [`${listCls}-item-container`]: {
           display: 'inline-block',
           width: uploadPictureCardSize,
           height: uploadPictureCardSize,
-          marginBlock: `0 ${token.marginXS}px`,
-          marginInline: `0 ${token.marginXS}px`,
           verticalAlign: 'top',
         },
 
         '&::after': {
+          display: 'none',
+        },
+
+        '&::before': {
           display: 'none',
         },
 
@@ -154,8 +169,8 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
           '&::before': {
             position: 'absolute',
             zIndex: 1,
-            width: `calc(100% - ${token.paddingXS * 2}px)`,
-            height: `calc(100% - ${token.paddingXS * 2}px)`,
+            width: `calc(100% - ${unit(calc(token.paddingXS).mul(2).equal())})`,
+            height: `calc(100% - ${unit(calc(token.paddingXS).mul(2).equal())})`,
             backgroundColor: token.colorBgMask,
             opacity: 0,
             transition: `all ${token.motionDurationSlow}`,
@@ -179,25 +194,25 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
           opacity: 0,
           transition: `all ${token.motionDurationSlow}`,
 
-          [`${iconCls}-eye, ${iconCls}-download, ${iconCls}-delete`]: {
+          [`
+            ${iconCls}-eye,
+            ${iconCls}-download,
+            ${iconCls}-delete
+          `]: {
             zIndex: 10,
             width: fontSizeLG,
-            margin: `0 ${token.marginXXS}px`,
+            margin: `0 ${unit(token.marginXXS)}`,
             fontSize: fontSizeLG,
             cursor: 'pointer',
             transition: `all ${token.motionDurationSlow}`,
+            color: colorTextLightSolid,
+
+            '&:hover': {
+              color: colorTextLightSolid,
+            },
 
             svg: {
               verticalAlign: 'baseline',
-            },
-          },
-        },
-
-        [`${itemCls}-actions, ${itemCls}-actions:hover`]: {
-          [`${iconCls}-eye, ${iconCls}-download, ${iconCls}-delete`]: {
-            color: new TinyColor(colorTextLightSolid).setAlpha(0.65).toRgbString(),
-            '&:hover': {
-              color: colorTextLightSolid,
             },
           },
         },
@@ -219,7 +234,7 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
           position: 'absolute',
           bottom: token.margin,
           display: 'block',
-          width: `calc(100% - ${token.paddingXS * 2}px)`,
+          width: `calc(100% - ${unit(calc(token.paddingXS).mul(2).equal())})`,
         },
 
         [`${itemCls}-uploading`]: {
@@ -234,7 +249,7 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
 
         [`${itemCls}-progress`]: {
           bottom: token.marginXL,
-          width: `calc(100% - ${token.paddingXS * 2}px)`,
+          width: `calc(100% - ${unit(calc(token.paddingXS).mul(2).equal())})`,
           paddingInlineStart: 0,
         },
       },

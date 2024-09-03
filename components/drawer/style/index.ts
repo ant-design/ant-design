@@ -1,5 +1,8 @@
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { unit } from '@ant-design/cssinjs';
+
+import { genFocusStyle } from '../../style';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genMotionStyle from './motion';
 
 export interface ComponentToken {
@@ -23,14 +26,16 @@ export interface ComponentToken {
 export interface DrawerToken extends FullToken<'Drawer'> {}
 
 // =============================== Base ===============================
-const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
+const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
   const {
+    borderRadiusSM,
     componentCls,
     zIndexPopup,
     colorBgMask,
     colorBgElevated,
     motionDurationSlow,
     motionDurationMid,
+    paddingXS,
     padding,
     paddingLG,
     fontSizeLG,
@@ -38,13 +43,16 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
     lineWidth,
     lineType,
     colorSplit,
-    marginSM,
+    marginXS,
     colorIcon,
     colorIconHover,
+    colorBgTextHover,
+    colorBgTextActive,
     colorText,
     fontWeightStrong,
     footerPaddingBlock,
     footerPaddingInline,
+    calc,
   } = token;
 
   const wrapperCls = `${componentCls}-content-wrapper`;
@@ -55,10 +63,13 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
       inset: 0,
       zIndex: zIndexPopup,
       pointerEvents: 'none',
+      color: colorText,
 
       '&-pure': {
         position: 'relative',
         background: colorBgElevated,
+        display: 'flex',
+        flexDirection: 'column',
 
         [`&${componentCls}-left`]: {
           boxShadow: token.boxShadowDrawerLeft,
@@ -130,6 +141,8 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
       },
 
       [`${componentCls}-content`]: {
+        display: 'flex',
+        flexDirection: 'column',
         width: '100%',
         height: '100%',
         overflow: 'auto',
@@ -137,23 +150,15 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
         pointerEvents: 'auto',
       },
 
-      // ===================== Panel ======================
-      [`${componentCls}-wrapper-body`]: {
-        display: 'flex',
-        flexDirection: 'column',
-        width: '100%',
-        height: '100%',
-      },
-
       // Header
       [`${componentCls}-header`]: {
         display: 'flex',
         flex: 0,
         alignItems: 'center',
-        padding: `${padding}px ${paddingLG}px`,
+        padding: `${unit(padding)} ${unit(paddingLG)}`,
         fontSize: fontSizeLG,
         lineHeight: lineHeightLG,
-        borderBottom: `${lineWidth}px ${lineType} ${colorSplit}`,
+        borderBottom: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
 
         '&-title': {
           display: 'flex',
@@ -169,8 +174,13 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
       },
 
       [`${componentCls}-close`]: {
-        display: 'inline-block',
-        marginInlineEnd: marginSM,
+        display: 'inline-flex',
+        width: calc(fontSizeLG).add(paddingXS).equal(),
+        height: calc(fontSizeLG).add(paddingXS).equal(),
+        borderRadius: borderRadiusSM,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginInlineEnd: marginXS,
         color: colorIcon,
         fontWeight: fontWeightStrong,
         fontSize: fontSizeLG,
@@ -181,21 +191,26 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
         textDecoration: 'none',
         background: 'transparent',
         border: 0,
-        outline: 0,
         cursor: 'pointer',
-        transition: `color ${motionDurationMid}`,
+        transition: `all ${motionDurationMid}`,
         textRendering: 'auto',
 
-        '&:focus, &:hover': {
+        '&:hover': {
           color: colorIconHover,
+          backgroundColor: colorBgTextHover,
           textDecoration: 'none',
         },
+
+        '&:active': {
+          backgroundColor: colorBgTextActive,
+        },
+
+        ...genFocusStyle(token),
       },
 
       [`${componentCls}-title`]: {
         flex: 1,
         margin: 0,
-        color: colorText,
         fontWeight: token.fontWeightStrong,
         fontSize: fontSizeLG,
         lineHeight: lineHeightLG,
@@ -208,13 +223,19 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
         minHeight: 0,
         padding: paddingLG,
         overflow: 'auto',
+        [`${componentCls}-body-skeleton`]: {
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          justifyContent: 'center',
+        },
       },
 
       // Footer
       [`${componentCls}-footer`]: {
         flexShrink: 0,
-        padding: `${footerPaddingBlock}px ${footerPaddingInline}px`,
-        borderTop: `${lineWidth}px ${lineType} ${colorSplit}`,
+        padding: `${unit(footerPaddingBlock)} ${unit(footerPaddingInline)}`,
+        borderTop: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
       },
 
       // ====================== RTL =======================
@@ -225,17 +246,18 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
   };
 };
 
+export const prepareComponentToken: GetDefaultToken<'Drawer'> = (token) => ({
+  zIndexPopup: token.zIndexPopupBase,
+  footerPaddingBlock: token.paddingXS,
+  footerPaddingInline: token.padding,
+});
+
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Drawer',
   (token) => {
     const drawerToken = mergeToken<DrawerToken>(token, {});
-
     return [genDrawerStyle(drawerToken), genMotionStyle(drawerToken)];
   },
-  (token) => ({
-    zIndexPopup: token.zIndexPopupBase,
-    footerPaddingBlock: token.paddingXS,
-    footerPaddingInline: token.padding,
-  }),
+  prepareComponentToken,
 );

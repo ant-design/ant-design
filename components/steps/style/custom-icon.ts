@@ -1,4 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
@@ -16,7 +18,7 @@ const genStepsCustomIconStyle: GenerateStyle<StepsToken, CSSObject> = (token) =>
           width: customIconSize,
           height: customIconSize,
           fontSize: customIconFontSize,
-          lineHeight: `${customIconFontSize}px`,
+          lineHeight: unit(customIconSize),
         },
       },
     },

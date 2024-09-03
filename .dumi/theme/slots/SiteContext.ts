@@ -1,5 +1,6 @@
 import * as React from 'react';
 import type { DirectionType } from 'antd/es/config-provider';
+
 import type { ThemeName } from '../common/ThemeSwitch';
 
 export interface SiteContextProps {
@@ -12,7 +13,7 @@ export interface SiteContextProps {
 
 const SiteContext = React.createContext<SiteContextProps>({
   isMobile: false,
-  bannerVisible: true,
+  bannerVisible: false,
   direction: 'ltr',
   theme: ['light'],
   updateSiteConfig: () => {},

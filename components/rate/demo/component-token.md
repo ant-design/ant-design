@@ -1,6 +1,6 @@
 ## zh-CN
 
-Component Token Debug.
+调试使用。
 
 ## en-US
 

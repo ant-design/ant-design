@@ -5,19 +5,19 @@ const onChange = (value: number | number[]) => {
   console.log('onChange: ', value);
 };
 
-const onAfterChange = (value: number | number[]) => {
-  console.log('onAfterChange: ', value);
+const onChangeComplete = (value: number | number[]) => {
+  console.log('onChangeComplete: ', value);
 };
 
 const App: React.FC = () => (
   <>
-    <Slider defaultValue={30} onChange={onChange} onAfterChange={onAfterChange} />
+    <Slider defaultValue={30} onChange={onChange} onChangeComplete={onChangeComplete} />
     <Slider
       range
       step={10}
       defaultValue={[20, 50]}
       onChange={onChange}
-      onAfterChange={onAfterChange}
+      onChangeComplete={onChangeComplete}
     />
   </>
 );

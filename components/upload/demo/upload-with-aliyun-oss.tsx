@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { UploadOutlined } from '@ant-design/icons';
-import type { UploadProps } from 'antd';
+import type { UploadFile, UploadProps } from 'antd';
 import { Button, Form, message, Upload } from 'antd';
-import type { UploadFile } from 'antd/es/upload/interface';
 
 interface OSSDataType {
   dir: string;
@@ -26,7 +25,7 @@ const AliyunOSSUpload = ({ value, onChange }: AliyunOSSUploadProps) => {
   const mockGetOSSData = () => ({
     dir: 'user-dir/',
     expire: '1577811661',
-    host: '//www.mocky.io/v2/5cc8019d300000980a055e76',
+    host: 'https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload',
     accessId: 'c2hhb2RhaG9uZw==',
     policy: 'eGl4aWhhaGFrdWt1ZGFkYQ==',
     signature: 'ZGFob25nc2hhbw==',
@@ -37,7 +36,7 @@ const AliyunOSSUpload = ({ value, onChange }: AliyunOSSUploadProps) => {
       const result = await mockGetOSSData();
       setOSSData(result);
     } catch (error) {
-      message.error(error);
+      message.error(error as string);
     }
   };
 
