@@ -516,11 +516,6 @@ exports[`renders components/mentions/demo/render-panel.tsx extend context correc
 
 exports[`renders components/mentions/demo/render-panel.tsx extend context correctly 2`] = `
 [
-  "Warning: Received \`%s\` for a non-boolean attribute \`%s\`.
-
-If you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}.
-
-If you used to conditionally omit it with %s={condition && value}, pass %s={condition ? value : undefined} instead.%s",
   "Warning: \`open\` of Mentions is only used for debug usage. Do not use in you production.",
 ]
 `;
