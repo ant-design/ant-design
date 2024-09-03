@@ -30,7 +30,6 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
     trigger,
     children,
     onOpenChange,
-    onClick: customizeOnClick,
     open: customOpen,
     onClick: onTriggerButtonClick,
     ...floatButtonProps
@@ -147,7 +146,6 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
               type={type}
               icon={open ? mergedCloseIcon : icon}
               description={description}
-              onClick={customizeOnClick}
               aria-label={props['aria-label']}
               className={`${groupPrefixCls}-trigger`}
               onClick={onInternalTriggerButtonClick}
