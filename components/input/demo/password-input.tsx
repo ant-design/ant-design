@@ -21,6 +21,7 @@ const App: React.FC = () => {
           {passwordVisible ? 'Hide' : 'Show'}
         </Button>
       </Space>
+      <Input.Password disabled placeholder="disabled input password" />
     </Space>
   );
 };
