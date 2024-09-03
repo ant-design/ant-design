@@ -449,7 +449,7 @@ Array [
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
       tabindex="0"
     >
       <span
@@ -1047,7 +1047,7 @@ Array [
     </div>
     <div
       class="ant-picker-active-bar"
-      style="position:absolute;width:0;left:0"
+      style="position:absolute;width:0"
     />
     <span
       class="ant-picker-suffix"
@@ -1547,6 +1547,44 @@ exports[`renders components/input/demo/borderless-debug.tsx correctly 1`] = `
         </span>
       </span>
     </span>
+  </span>
+  <input
+    class="ant-input ant-input-borderless ant-input-status-error"
+    type="text"
+    value="error"
+  />
+  <input
+    class="ant-input ant-input-borderless ant-input-status-warning"
+    type="text"
+    value="warning"
+  />
+  <span
+    class="ant-input-affix-wrapper ant-input-borderless ant-input-status-error"
+  >
+    <span
+      class="ant-input-prefix"
+    >
+      $
+    </span>
+    <input
+      class="ant-input"
+      type="text"
+      value="error"
+    />
+  </span>
+  <span
+    class="ant-input-affix-wrapper ant-input-borderless ant-input-status-warning"
+  >
+    <span
+      class="ant-input-prefix"
+    >
+      $
+    </span>
+    <input
+      class="ant-input"
+      type="text"
+      value="warning"
+    />
   </span>
 </div>
 `;
@@ -3053,7 +3091,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"

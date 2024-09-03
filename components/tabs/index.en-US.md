@@ -13,7 +13,7 @@ Ant Design has 3 types of Tabs for different situations.
 
 - Card Tabs: for managing too many closeable views.
 - Normal Tabs: for functional aspects of a page.
-- [Radio.Button](/components/radio/#components-radio-demo-radiobutton): for secondary tabs.
+- [Radio.Button](/components/radio/#radio-demo-radiobutton): for secondary tabs.
 
 ## Examples
 
@@ -54,7 +54,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | hideAdd | Hide plus icon or not. Only works while `type="editable-card"` | boolean | false |  |
 | indicator | Customize `size` and `align` of indicator | { size?: number \| (origin: number) => number; align: `start` \| `center` \| `end`; } | - | 5.13.0 |
 | items | Configure tab content | [TabItemType](#tabitemtype) | [] | 4.23.0 |
-| moreIcon | The custom icon of ellipsis | ReactNode | `<EllipsisOutlined />` | 4.14.0 |
+| more | 自定义折叠菜单属性 | [MoreProps](#moreprops) | { icon: `<EllipsisOutlined />` , trigger: 'hover' } |  |
 | removeIcon | The custom icon of remove, only works with `type="editable-card"` | ReactNode | `<CloseOutlined />` | 5.15.0 |
 | popupClassName | `className` for more dropdown. | string | - | 4.21.0 |
 | renderTabBar | Replace the TabBar | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  |

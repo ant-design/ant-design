@@ -23,6 +23,8 @@ demo:
 <code src="./demo/triggerType.tsx">三种触发方式</code>
 <code src="./demo/placement.tsx">位置</code>
 <code src="./demo/arrow.tsx">箭头展示</code>
+<code src="./demo/arrow-point-at-center.tsx" debug>Arrow.pointAtCenter</code>
+<code src="./demo/shift.tsx" iframe="300">贴边偏移</code>
 <code src="./demo/control.tsx">从浮层内关闭</code>
 <code src="./demo/hover-with-click.tsx">悬停点击弹出窗口</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
@@ -58,4 +60,4 @@ demo:
 
 请确保 `Popover` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onPointerEnter`、`onPointerLeave`、`onFocus`、`onClick` 事件。
 
-更多问题，请参考 [Tooltip FAQ](/components/tooltip#faq)。
+更多问题，请参考 [Tooltip FAQ](/components/tooltip-cn#faq)。

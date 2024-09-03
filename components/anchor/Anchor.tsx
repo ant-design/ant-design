@@ -7,6 +7,7 @@ import getScroll from '../_util/getScroll';
 import scrollTo from '../_util/scrollTo';
 import { devUseWarning } from '../_util/warning';
 import Affix from '../affix';
+import type { AffixProps } from '../affix';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -35,8 +36,7 @@ function getOffsetTop(element: HTMLElement, container: AnchorContainer): number 
 
   if (rect.width || rect.height) {
     if (container === window) {
-      container = element.ownerDocument!.documentElement!;
-      return rect.top - container.clientTop;
+      return rect.top - element.ownerDocument!.documentElement!.clientTop;
     }
     return rect.top - (container as HTMLElement).getBoundingClientRect().top;
   }
@@ -62,7 +62,7 @@ export interface AnchorProps {
   children?: React.ReactNode;
   offsetTop?: number;
   bounds?: number;
-  affix?: boolean;
+  affix?: boolean | Omit<AffixProps, 'offsetTop' | 'target' | 'children'>;
   showInkInFixed?: boolean;
   getContainer?: () => AnchorContainer;
   /** Return customize highlight anchor */
@@ -256,7 +256,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
       }
 
       const container = getCurrentContainer();
-      const scrollTop = getScroll(container, true);
+      const scrollTop = getScroll(container);
       const eleOffsetTop = getOffsetTop(targetElement, container);
       let y = scrollTop + eleOffsetTop;
       y -= targetOffset !== undefined ? targetOffset : offsetTop || 0;
@@ -348,10 +348,12 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     [activeLink, onClick, handleScrollTo, anchorDirection],
   );
 
+  const affixProps = affix && typeof affix === 'object' ? affix : undefined;
+
   return wrapCSSVar(
     <AnchorContext.Provider value={memoizedContextValue}>
       {affix ? (
-        <Affix offsetTop={offsetTop} target={getCurrentContainer}>
+        <Affix offsetTop={offsetTop} target={getCurrentContainer} {...affixProps}>
           {anchorContent}
         </Affix>
       ) : (

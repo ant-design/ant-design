@@ -40,7 +40,7 @@ export const SELECTION_NONE = 'SELECT_NONE' as const;
 
 const EMPTY_LIST: React.Key[] = [];
 
-interface UseSelectionConfig<RecordType extends AnyObject = AnyObject> {
+interface UseSelectionConfig<RecordType = AnyObject> {
   prefixCls: string;
   pageData: RecordType[];
   data: RecordType[];

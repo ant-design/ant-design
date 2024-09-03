@@ -214,13 +214,13 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
       if (!filteredFileInfoList[index].parsedFile) {
         // `beforeUpload` return false
         const { originFileObj } = fileObj;
-        let clone;
+        let clone: UploadFile;
 
         try {
           clone = new File([originFileObj], originFileObj.name, {
             type: originFileObj.type,
           }) as any as UploadFile;
-        } catch (e) {
+        } catch {
           clone = new Blob([originFileObj], {
             type: originFileObj.type,
           }) as any as UploadFile;
@@ -243,9 +243,10 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   const onSuccess = (response: any, file: RcFile, xhr: any) => {
     try {
       if (typeof response === 'string') {
+        // biome-ignore lint/style/noParameterAssign: we need to modify response
         response = JSON.parse(response);
       }
-    } catch (e) {
+    } catch {
       /* do nothing */
     }
 
@@ -385,6 +386,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     removeIcon,
     previewIcon,
     downloadIcon,
+    extra,
   } = typeof showUploadList === 'boolean' ? ({} as ShowUploadListInterface) : showUploadList;
 
   // use showRemoveIcon if it is specified explicitly
@@ -411,6 +413,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
         previewIcon={previewIcon}
         downloadIcon={downloadIcon}
         iconRender={iconRender}
+        extra={extra}
         locale={{ ...contextLocale, ...propLocale }}
         isImageUrl={isImageUrl}
         progress={progress}

@@ -460,7 +460,7 @@ describe('Upload', () => {
       url: 'http://www.baidu.com/xxx.png',
     };
 
-    let removePromise: (value: boolean | Promise<void | boolean>) => void;
+    let removePromise: (value: boolean | Promise<undefined | boolean>) => void;
 
     const onRemove: UploadProps['onRemove'] = () =>
       new Promise((resolve) => {

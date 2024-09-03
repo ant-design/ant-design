@@ -1,4 +1,5 @@
 import React from 'react';
+
 import type { ComponentChangelogProps } from './ComponentChangelog';
 import ComponentChangelog from './ComponentChangelog';
 

@@ -144,6 +144,9 @@ const localeValues: Locale = {
   },
   ColorPicker: {
     presetEmpty: '暂无',
+    transparent: '无色',
+    singleColor: '单色',
+    gradientColor: '渐变色',
   },
 };
 

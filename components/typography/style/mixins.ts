@@ -246,11 +246,8 @@ export const getEllipsisStyles = (): CSSObject => ({
     maxWidth: '100%',
   },
 
-  '&-single-line': {
-    whiteSpace: 'nowrap',
-  },
-
   '&-ellipsis-single-line': {
+    whiteSpace: 'nowrap',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
 

@@ -8,14 +8,15 @@ import type { CollapseProps } from '../../collapse';
 import Collapse from '../../collapse';
 import { useLocale } from '../../locale';
 import { useToken } from '../../theme/internal';
-import type { Color } from '../color';
-import type { ColorPickerBaseProps, PresetsItem } from '../interface';
+import type { AggregationColor } from '../color';
+import type { PresetsItem } from '../interface';
 import { generateColor } from '../util';
 
-interface ColorPresetsProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
+interface ColorPresetsProps {
+  prefixCls: string;
   presets: PresetsItem[];
-  value?: Color;
-  onChange?: (value: Color) => void;
+  value?: AggregationColor;
+  onChange?: (value: AggregationColor) => void;
 }
 
 const genPresetColor = (list: PresetsItem[]) =>
@@ -24,7 +25,7 @@ const genPresetColor = (list: PresetsItem[]) =>
     return value;
   });
 
-const isBright = (value: Color, bgColorToken: string) => {
+const isBright = (value: AggregationColor, bgColorToken: string) => {
   const { r, g, b, a } = value.toRgb();
   const hsv = new RcColor(value.toRgbString()).onBackground(bgColorToken).toHsv();
   if (a <= 0.5) {
@@ -55,7 +56,7 @@ const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color,
     [presetsValue],
   );
 
-  const handleClick = (colorValue: Color) => {
+  const handleClick = (colorValue: AggregationColor) => {
     onChange?.(colorValue);
   };
 
@@ -65,7 +66,7 @@ const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color,
     children: (
       <div className={`${colorPresetsPrefixCls}-items`}>
         {Array.isArray(preset?.colors) && preset.colors?.length > 0 ? (
-          (preset.colors as Color[]).map((presetColor, index) => (
+          (preset.colors as AggregationColor[]).map((presetColor, index) => (
             <ColorBlock
               // eslint-disable-next-line react/no-array-index-key
               key={`preset-${index}-${presetColor.toHexString()}`}

@@ -132,7 +132,7 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
   ```diff
   - import { PageHeader, Comment } from 'antd';
   + import { Comment } from '@ant-design/compatible';
-  + import { PageHeader } from '@ant-design/pro-layout';
+  + import { PageHeader } from '@ant-design/pro-components';
 
     const App: React.FC = () => (
       <>
@@ -168,11 +168,11 @@ Use git to save your code and install latest version:
 npm install --save antd@5.x
 ```
 
-If you want to use v4 deprecated component like `Comment` or `PageHeader`. You can install `@ant-design/compatible` and `@ant-design/pro-layout` for compatible:
+If you want to use v4 deprecated component like `Comment` or `PageHeader`. You can install `@ant-design/compatible` and `@ant-design/pro-components` for compatible:
 
 ```bash
 npm install --save @ant-design/compatible@v5-compatible-v4
-npm install --save @ant-design/pro-layout
+npm install --save @ant-design/pro-components
 ```
 
 You can manually check the code one by one against the above list for modification. In addition, we also provide a codemod cli tool [@ant-design/codemod-v5](https://github.com/ant-design/codemod-v5) To help you quickly upgrade to v5.

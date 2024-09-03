@@ -3,12 +3,12 @@ import classNames from 'classnames';
 import { debounce } from 'throttle-debounce';
 
 import { devUseWarning } from '../_util/warning';
-import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import Indicator from './Indicator';
 import useStyle from './style/index';
 import usePercent from './usePercent';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const SpinSizes = ['small', 'default', 'large'] as const;
 export type SpinSize = (typeof SpinSizes)[number];
 export type SpinIndicator = React.ReactElement<HTMLElement>;
@@ -70,7 +70,7 @@ const Spin: SpinType = (props) => {
     ...restProps
   } = props;
 
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, spin } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('spin', customizePrefixCls);
 
@@ -111,8 +111,6 @@ const Spin: SpinType = (props) => {
     );
   }
 
-  const { direction, spin } = React.useContext<ConfigConsumerProps>(ConfigContext);
-
   const spinClassName = classNames(
     prefixCls,
     spin?.className,
@@ -133,6 +131,8 @@ const Spin: SpinType = (props) => {
     [`${prefixCls}-blur`]: spinning,
   });
 
+  const mergedIndicator = indicator ?? spin?.indicator ?? defaultIndicator;
+
   const mergedStyle: React.CSSProperties = { ...spin?.style, ...style };
 
   const spinElement: React.ReactNode = (
@@ -143,11 +143,7 @@ const Spin: SpinType = (props) => {
       aria-live="polite"
       aria-busy={spinning}
     >
-      <Indicator
-        prefixCls={prefixCls}
-        indicator={indicator ?? defaultIndicator}
-        percent={mergedPercent}
-      />
+      <Indicator prefixCls={prefixCls} indicator={mergedIndicator} percent={mergedPercent} />
       {tip && (isNestedPattern || fullscreen) ? (
         <div className={`${prefixCls}-text`}>{tip}</div>
       ) : null}

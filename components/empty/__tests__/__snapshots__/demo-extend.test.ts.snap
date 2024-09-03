@@ -13,6 +13,9 @@ exports[`renders components/empty/demo/basic.tsx extend context correctly 1`] = 
       width="184"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        empty image
+      </title>
       <g
         fill="none"
         fill-rule="evenodd"
@@ -1020,7 +1023,9 @@ exports[`renders components/empty/demo/customize.tsx extend context correctly 1`
   <div
     class="ant-empty-description"
   >
-    <span>
+    <span
+      class="ant-typography"
+    >
       Customize 
       <a
         href="#API"
@@ -1059,6 +1064,9 @@ exports[`renders components/empty/demo/description.tsx extend context correctly 
       width="184"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        empty image
+      </title>
       <g
         fill="none"
         fill-rule="evenodd"
@@ -1131,6 +1139,9 @@ exports[`renders components/empty/demo/simple.tsx extend context correctly 1`] =
       width="64"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        Simple Empty
+      </title>
       <g
         fill="none"
         fill-rule="evenodd"

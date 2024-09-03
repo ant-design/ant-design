@@ -867,7 +867,7 @@ exports[`renders components/table/demo/colspan-rowspan.tsx extend context correc
 exports[`renders components/table/demo/component-token.tsx extend context correctly 1`] = `
 Array [
   <form
-    class="ant-form ant-form-inline components-table-demo-control-bar"
+    class="ant-form ant-form-inline table-demo-control-bar"
     style="margin-bottom: 16px;"
   >
     <div
@@ -3375,6 +3375,426 @@ Array [
 
 exports[`renders components/table/demo/component-token.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/table/demo/custom-empty.tsx extend context correctly 1`] = `
+Array [
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Toggle Data
+    </span>
+  </button>,
+  <div
+    style="margin-block: 8px;"
+  />,
+  <div
+    class="ant-table-wrapper"
+  >
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-table ant-table-bordered"
+        >
+          <div
+            class="ant-table-container"
+          >
+            <div
+              class="ant-table-content"
+            >
+              <table
+                style="table-layout: auto;"
+              >
+                <colgroup />
+                <thead
+                  class="ant-table-thead"
+                >
+                  <tr>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Name
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      <div
+                        class="ant-table-filter-column"
+                      >
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Age
+                        </span>
+                        <span
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <span
+                            aria-label="filter"
+                            class="anticon anticon-filter"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="filter"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                        <div
+                          class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomRight"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                        >
+                          <div
+                            class="ant-table-filter-dropdown"
+                          >
+                            <ul
+                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
+                              data-menu-list="true"
+                              role="menu"
+                              tabindex="0"
+                            >
+                              <li
+                                class="ant-dropdown-menu-item"
+                                data-menu-id="rc-menu-uuid-test-gte35"
+                                role="menuitem"
+                                tabindex="-1"
+                              >
+                                <span
+                                  class="ant-dropdown-menu-title-content"
+                                >
+                                  <label
+                                    class="ant-checkbox-wrapper"
+                                  >
+                                    <span
+                                      class="ant-checkbox ant-wave-target"
+                                    >
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    &gt;=35
+                                  </span>
+                                </span>
+                              </li>
+                              <div
+                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                              >
+                                <div
+                                  class="ant-tooltip-arrow"
+                                  style="position: absolute; top: 0px; left: 0px;"
+                                />
+                                <div
+                                  class="ant-tooltip-content"
+                                >
+                                  <div
+                                    class="ant-tooltip-inner"
+                                    role="tooltip"
+                                  />
+                                </div>
+                              </div>
+                              <li
+                                class="ant-dropdown-menu-item"
+                                data-menu-id="rc-menu-uuid-test-lt18"
+                                role="menuitem"
+                                tabindex="-1"
+                              >
+                                <span
+                                  class="ant-dropdown-menu-title-content"
+                                >
+                                  <label
+                                    class="ant-checkbox-wrapper"
+                                  >
+                                    <span
+                                      class="ant-checkbox ant-wave-target"
+                                    >
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    &lt;18
+                                  </span>
+                                </span>
+                              </li>
+                              <div
+                                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                              >
+                                <div
+                                  class="ant-tooltip-arrow"
+                                  style="position: absolute; top: 0px; left: 0px;"
+                                />
+                                <div
+                                  class="ant-tooltip-content"
+                                >
+                                  <div
+                                    class="ant-tooltip-inner"
+                                    role="tooltip"
+                                  />
+                                </div>
+                              </div>
+                            </ul>
+                            <div
+                              aria-hidden="true"
+                              style="display: none;"
+                            />
+                            <div
+                              class="ant-table-filter-dropdown-btns"
+                            >
+                              <button
+                                class="ant-btn ant-btn-link ant-btn-sm"
+                                disabled=""
+                                type="button"
+                              >
+                                <span>
+                                  Reset
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary ant-btn-sm"
+                                type="button"
+                              >
+                                <span>
+                                  OK
+                                </span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Address
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  class="ant-table-tbody"
+                >
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="0"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      Edward King 0
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      32
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London, Park Lane no. 0
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="1"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      Edward King 1
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      33
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London, Park Lane no. 1
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="2"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      Edward King 2
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      34
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London, Park Lane no. 2
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="3"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      Edward King 3
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      35
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London, Park Lane no. 3
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="4"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      Edward King 4
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      36
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London, Park Lane no. 4
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <ul
+          class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        >
+          <li
+            aria-disabled="true"
+            class="ant-pagination-prev ant-pagination-disabled"
+            title="Previous Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="left"
+                class="anticon anticon-left"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="left"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            tabindex="0"
+            title="1"
+          >
+            <a
+              rel="nofollow"
+            >
+              1
+            </a>
+          </li>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-next ant-pagination-disabled"
+            title="Next Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/table/demo/custom-empty.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/custom-filter-panel.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -4996,7 +5416,7 @@ exports[`renders components/table/demo/drag-sorting-handler.tsx extend context c
 exports[`renders components/table/demo/dynamic-settings.tsx extend context correctly 1`] = `
 Array [
   <form
-    class="ant-form ant-form-inline components-table-demo-control-bar"
+    class="ant-form ant-form-inline table-demo-control-bar"
     style="margin-bottom: 16px;"
   >
     <div
@@ -7583,7 +8003,7 @@ exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`
                     >
                       <div
                         class="editable-cell-value-wrap"
-                        style="padding-right: 24px;"
+                        style="padding-inline-end: 24px;"
                       >
                         Edward King 0
                       </div>
@@ -7697,7 +8117,7 @@ exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`
                     >
                       <div
                         class="editable-cell-value-wrap"
-                        style="padding-right: 24px;"
+                        style="padding-inline-end: 24px;"
                       >
                         Edward King 1
                       </div>
@@ -9904,7 +10324,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                     >
                                       <div
                                         aria-grabbed="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close"
                                         draggable="false"
                                       >
                                         <span
@@ -9984,7 +10404,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                       </div>
                                       <div
                                         aria-grabbed="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close"
                                         draggable="false"
                                       >
                                         <span
@@ -10018,7 +10438,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                       </div>
                                       <div
                                         aria-grabbed="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
                                         draggable="false"
                                       >
                                         <span
@@ -10102,7 +10522,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                       </div>
                                       <div
                                         aria-grabbed="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close"
                                         draggable="false"
                                       >
                                         <span
@@ -10136,7 +10556,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                       </div>
                                       <div
                                         aria-grabbed="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
                                         draggable="false"
                                       >
                                         <span
@@ -10844,7 +11264,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                                     >
                                       <div
                                         aria-grabbed="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close"
                                         draggable="false"
                                       >
                                         <span
@@ -10874,7 +11294,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                                       </div>
                                       <div
                                         aria-grabbed="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close"
                                         draggable="false"
                                       >
                                         <span
@@ -10904,7 +11324,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                                       </div>
                                       <div
                                         aria-grabbed="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
                                         draggable="false"
                                       >
                                         <span
@@ -18923,7 +19343,7 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 2`] =
 exports[`renders components/table/demo/nest-table-border-debug.tsx extend context correctly 1`] = `
 Array [
   <form
-    class="ant-form ant-form-inline components-table-demo-control-bar"
+    class="ant-form ant-form-inline table-demo-control-bar"
     style="margin-bottom: 16px;"
   >
     <div
@@ -24683,9 +25103,11 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
 exports[`renders components/table/demo/row-selection.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/row-selection-and-operation.tsx extend context correctly 1`] = `
-<div>
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
   <div
-    style="margin-bottom: 16px;"
+    class="ant-flex ant-flex-align-center ant-flex-gap-middle"
   >
     <button
       class="ant-btn ant-btn-primary"
@@ -24696,9 +25118,6 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
         Reload
       </span>
     </button>
-    <span
-      style="margin-left: 8px;"
-    />
   </div>
   <div
     class="ant-table-wrapper"

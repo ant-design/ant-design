@@ -6,20 +6,11 @@
 
 An enterprise-class UI design language and React UI library.
 
-[![CI status][github-action-image]][github-action-url]
-[![codecov][codecov-image]][codecov-url]
-[![NPM version][npm-image]][npm-url]
-[![NPM downloads][download-image]][download-url]
+[![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
-[![][bundlephobia-image]][bundlephobia-url]
-[![][bundlesize-js-image]][unpkg-js-url]
-[![FOSSA Status][fossa-image]][fossa-url]
+[![][bundlephobia-image]][bundlephobia-url] [![][jsdelivr-image]][jsdelivr-url] [![FOSSA Status][fossa-image]][fossa-url]
 
-[![Follow Twitter][twitter-image]][twitter-url]
-[![Renovate status][renovate-image]][renovate-dashboard-url]
-[![][issues-helper-image]][issues-helper-url]
-[![dumi][dumi-image]][dumi-url]
-[![Issues need help][help-wanted-image]][help-wanted-url]
+[![Follow Twitter][twitter-image]][twitter-url] [![Renovate status][renovate-image]][renovate-dashboard-url] [![][issues-helper-image]][issues-helper-url] [![dumi][dumi-image]][dumi-url] [![Issues need help][help-wanted-image]][help-wanted-url]
 
 [Changelog](./CHANGELOG.en-US.md) · [Report Bug][github-issues-url] · [Request Feature][github-issues-url] · English · [中文](./README-zh_CN.md)
 
@@ -39,8 +30,8 @@ An enterprise-class UI design language and React UI library.
 [help-wanted-url]: https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22
 [twitter-image]: https://img.shields.io/twitter/follow/AntDesignUI.svg?label=Ant%20Design
 [twitter-url]: https://twitter.com/AntDesignUI
-[bundlesize-js-image]: https://img.badgesize.io/https:/unpkg.com/antd/dist/antd.min.js?label=antd.min.js&compression=gzip&style=flat-square
-[unpkg-js-url]: https://unpkg.com/browse/antd/dist/antd.min.js
+[jsdelivr-image]: https://data.jsdelivr.com/v1/package/npm/antd/badge
+[jsdelivr-url]: https://www.jsdelivr.com/package/npm/antd
 [bundlephobia-image]: https://badgen.net/bundlephobia/minzip/antd?style=flat-square
 [bundlephobia-url]: https://bundlephobia.com/package/antd
 [issues-helper-image]: https://img.shields.io/badge/using-actions--cool-blue?style=flat-square
@@ -50,6 +41,7 @@ An enterprise-class UI design language and React UI library.
 [dumi-image]: https://img.shields.io/badge/docs%20by-dumi-blue?style=flat-square
 [dumi-url]: https://github.com/umijs/dumi
 [github-issues-url]: https://new-issue.ant.design
+
 </div>
 
 [![](https://user-images.githubusercontent.com/507615/209472919-6f7e8561-be8c-4b0b-9976-eb3c692aa20a.png)](https://ant.design)
@@ -119,7 +111,7 @@ export default () => (
 - [Developer Instruction](https://github.com/ant-design/ant-design/wiki/Development)
 - [Versioning Release Note](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
 - [FAQ](https://ant.design/docs/react/faq)
-- [CodeSandbox Template](https://u.ant.design/codesandbox-repro) for bug reports
+- [Stackblitz Demo](https://u.ant.design/reproduce) for bug reports
 - [Customize Theme](https://ant.design/docs/react/customize-theme)
 - [How to Apply for Being A Collaborator](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
 
@@ -129,7 +121,7 @@ Use Gitpod, a free online dev environment for GitHub.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/ant-design/ant-design)
 
-Or use opensumi.run, a free online pure front-end dev environemt.
+Or use opensumi.run, a free online pure front-end dev environment.
 
 [![opensumi.run](https://custom-icon-badges.demolab.com/badge/opensumi-run-blue.svg?logo=opensumi)](https://opensumi.run/ide/ant-design/ant-design)
 

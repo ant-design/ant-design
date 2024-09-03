@@ -58,7 +58,7 @@ exports[`renders components/date-picker/demo/allow-empty.tsx correctly 1`] = `
   </div>
   <div
     class="ant-picker-active-bar"
-    style="position:absolute;width:0;left:0"
+    style="position:absolute;width:0"
   />
   <span
     class="ant-picker-suffix"
@@ -711,7 +711,7 @@ exports[`renders components/date-picker/demo/cell-render.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -1009,7 +1009,7 @@ exports[`renders components/date-picker/demo/disabled.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -1097,7 +1097,7 @@ exports[`renders components/date-picker/demo/disabled.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -1368,7 +1368,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -1455,7 +1455,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -1634,7 +1634,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -1721,7 +1721,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -1946,7 +1946,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -2034,7 +2034,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -2258,7 +2258,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -2346,7 +2346,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -2710,7 +2710,7 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -3031,7 +3031,7 @@ exports[`renders components/date-picker/demo/mode.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -4950,7 +4950,7 @@ Array [
     </div>
     <div
       class="ant-picker-active-bar"
-      style="position:absolute;width:0;left:0"
+      style="position:absolute;width:0"
     />
     <span
       class="ant-picker-suffix"
@@ -5086,7 +5086,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -5173,7 +5173,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -5268,7 +5268,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -5355,7 +5355,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -5442,7 +5442,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -5529,7 +5529,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -5616,7 +5616,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -5705,7 +5705,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -5854,7 +5854,7 @@ exports[`renders components/date-picker/demo/select-in-range.tsx correctly 1`] =
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -5950,7 +5950,7 @@ exports[`renders components/date-picker/demo/select-in-range.tsx correctly 1`] =
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -6195,7 +6195,7 @@ exports[`renders components/date-picker/demo/size.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -6510,7 +6510,7 @@ exports[`renders components/date-picker/demo/status.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -6598,7 +6598,7 @@ exports[`renders components/date-picker/demo/status.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -6777,7 +6777,7 @@ exports[`renders components/date-picker/demo/suffix.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -6954,7 +6954,7 @@ exports[`renders components/date-picker/demo/suffix.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -7212,7 +7212,7 @@ exports[`renders components/date-picker/demo/time.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -7346,7 +7346,7 @@ exports[`renders components/date-picker/demo/variant.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -7472,7 +7472,7 @@ exports[`renders components/date-picker/demo/variant.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -7598,7 +7598,7 @@ exports[`renders components/date-picker/demo/variant.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"

@@ -55,6 +55,8 @@ config 参数如下：
 | closeIcon | 自定义关闭图标 | ReactNode | true | 5.7.0：设置为 null 或 false 时隐藏关闭按钮 |
 | description | 通知提醒内容，必选 | ReactNode | - | - |
 | duration | 默认 4.5 秒后自动关闭，配置为 null 则不自动关闭 | number | 4.5 | - |
+| showProgress | 显示自动关闭通知框的进度条 | boolean |  | 5.18.0 |
+| pauseOnHover | 悬停时是否暂停计时器 | boolean | true | 5.18.0 |
 | icon | 自定义图标 | ReactNode | - | - |
 | key | 当前通知唯一标志 | string | - | - |
 | message | 通知提醒标题，必选 | ReactNode | - | - |
@@ -75,6 +77,8 @@ config 参数如下：
 | closeIcon | 自定义关闭图标 | ReactNode | true | 5.7.0：设置为 null 或 false 时隐藏关闭按钮 |
 | getContainer | 配置渲染节点的输出位置 | () => HTMLNode | () => document.body |  |
 | placement | 弹出位置，可选 `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | string | `topRight` |  |
+| showProgress | 显示自动关闭通知框的进度条 | boolean |  | 5.18.0 |
+| pauseOnHover | 悬停时是否暂停计时器 | boolean | true | 5.18.0 |
 | rtl | 是否开启 RTL 模式 | boolean | false |  |
 | stack | 堆叠模式，超过阈值时会将所有消息收起 | boolean \| `{ threshold: number }` | `{ threshold: 3 }` | 5.10.0 |
 | top | 消息从顶部弹出时，距离顶部的位置，单位像素 | number | 24 |  |

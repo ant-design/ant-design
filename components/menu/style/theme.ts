@@ -142,7 +142,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
           color: dangerItemSelectedColor,
         },
 
-        [`a, a:hover`]: {
+        'a, a:hover': {
           color: 'inherit',
         },
       },
@@ -194,14 +194,14 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
             content: '""',
           },
 
-          [`&:hover, &-active, &-open`]: {
+          '&:hover, &-active, &-open': {
             background: horizontalItemHoverBg,
             '&::after': {
               borderBottomWidth: activeBarHeight,
               borderBottomColor: horizontalItemSelectedColor,
             },
           },
-          [`&-selected`]: {
+          '&-selected': {
             color: horizontalItemSelectedColor,
             backgroundColor: horizontalItemSelectedBg,
             '&:hover': {

@@ -52,7 +52,7 @@ demo:
 | allowClear | 支持清除 | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: 支持对象形式 |
 | autoClearSearchValue | 是否在选中项后清空搜索框，只在 `multiple` 为 `true` 时有效 | boolean | true | 5.9.0 |
 | autoFocus | 自动获取焦点 | boolean | false |  |
-| changeOnSelect | （单选时生效）当此项为 true 时，点选每级菜单选项值都会发生变化，具体见上面的演示 | boolean | false |  |
+| changeOnSelect | 单选时生效（multiple 下始终都可以选择），点选每级菜单选项值都会发生变化。 | boolean | false |  |
 | className | 自定义类名 | string | - |  |
 | defaultValue | 默认的选中项 | string\[] \| number\[] | \[] |  |
 | disabled | 禁用 | boolean | false |  |
@@ -71,7 +71,7 @@ demo:
 | notFoundContent | 当下拉列表为空时显示的内容 | string | `Not Found` |  |
 | open | 控制浮层显隐 | boolean | - | 4.17.0 |
 | options | 可选项数据源 | [Option](#option)\[] | - |  |
-| placeholder | 输入框占位文本 | string | `请选择` |  |
+| placeholder | 输入框占位文本 | string | - |  |
 | placement | 浮层预设位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | 4.17.0 |
 | showSearch | 在选择框中显示搜索框 | boolean \| [Object](#showsearch) | false |  |
 | size | 输入框大小 | `large` \| `middle` \| `small` | - |  |

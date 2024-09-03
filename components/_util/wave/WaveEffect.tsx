@@ -21,7 +21,7 @@ export interface WaveEffectProps {
 
 const WaveEffect: React.FC<WaveEffectProps> = (props) => {
   const { className, target, component } = props;
-  const divRef = React.useRef<HTMLDivElement | null>(null);
+  const divRef = React.useRef<HTMLDivElement>(null);
 
   const [color, setWaveColor] = React.useState<string | null>(null);
   const [borderRadius, setBorderRadius] = React.useState<number[]>([]);
@@ -129,7 +129,7 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
       {({ className: motionClassName }, ref) => (
         <div
           ref={composeRef(divRef, ref)}
-          className={classNames(className, { 'wave-quick': isSmallComponent }, motionClassName)}
+          className={classNames(className, motionClassName, { 'wave-quick': isSmallComponent })}
           style={waveStyle}
         />
       )}
@@ -141,7 +141,7 @@ const showWaveEffect: ShowWaveEffect = (target, info) => {
   const { component } = info;
 
   // Skip for unchecked checkbox
-  if (component === 'Checkbox' && !target.querySelector('input')?.checked) {
+  if (component === 'Checkbox' && !target.querySelector<HTMLInputElement>('input')?.checked) {
     return;
   }
 

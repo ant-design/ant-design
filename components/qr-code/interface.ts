@@ -1,37 +1,34 @@
-import type { CSSProperties } from 'react';
+import type { ReactNode } from 'react';
+import type { QRProps } from '@rc-component/qrcode';
 
-interface ImageSettings {
-  src: string;
-  height: number;
-  width: number;
-  excavate: boolean;
-  x?: number;
-  y?: number;
-}
+import type { Locale } from '../locale';
 
-export interface QRProps {
-  value: string;
-  type?: 'canvas' | 'svg';
-  size?: number;
-  color?: string;
-  style?: CSSProperties;
-  includeMargin?: boolean;
-  imageSettings?: ImageSettings;
-  bgColor?: string;
-}
+type ImageSettings = QRProps['imageSettings'];
+
+export type { QRProps, ImageSettings };
 
 export type QRPropsCanvas = QRProps & React.CanvasHTMLAttributes<HTMLCanvasElement>;
 
 export type QRPropsSvg = QRProps & React.SVGAttributes<SVGSVGElement>;
 
-export interface QRCodeProps extends QRProps {
+export type QRStatus = 'active' | 'expired' | 'loading' | 'scanned';
+
+export type StatusRenderInfo = {
+  status: Exclude<QRStatus, 'active'>;
+  locale: Locale['QRCode'];
+  onRefresh?: () => void;
+};
+
+export interface QRCodeProps extends QRProps, React.HTMLAttributes<HTMLDivElement> {
+  type?: 'canvas' | 'svg';
   className?: string;
   rootClassName?: string;
   prefixCls?: string;
   icon?: string;
-  iconSize?: number;
+  iconSize?: number | { width: number; height: number };
   bordered?: boolean;
   errorLevel?: 'L' | 'M' | 'Q' | 'H';
-  status?: 'active' | 'expired' | 'loading' | 'scanned';
+  status?: QRStatus;
   onRefresh?: () => void;
+  statusRender?: (info: StatusRenderInfo) => ReactNode;
 }

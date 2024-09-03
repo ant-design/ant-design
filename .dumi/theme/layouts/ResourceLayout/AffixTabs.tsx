@@ -6,7 +6,7 @@ import throttle from 'lodash/throttle';
 
 import scrollTo from '../../../../components/_util/scrollTo';
 
-const listenerEvents = ['scroll', 'resize'] as const;
+const listenerEvents: (keyof WindowEventMap)[] = ['scroll', 'resize'];
 
 const useStyle = createStyles(({ token, css }) => {
   const { boxShadowSecondary, antCls } = token;
@@ -15,8 +15,8 @@ const useStyle = createStyles(({ token, css }) => {
     affixTabs: css`
       position: fixed;
       top: 0;
-      right: 0;
-      left: 0;
+      inset-inline-end: 0;
+      inset-inline-start: 0;
       z-index: 1001;
       padding: 0 40px;
       background: #fff;

@@ -386,7 +386,7 @@ const genTypeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
 };
 
 // =============================== Size ===============================
-const genButtonStyle = (token: ButtonToken, prefixCls: string = ''): CSSInterpolation => {
+const genButtonStyle = (token: ButtonToken, prefixCls = ''): CSSInterpolation => {
   const {
     componentCls,
     controlHeight,
@@ -402,7 +402,7 @@ const genButtonStyle = (token: ButtonToken, prefixCls: string = ''): CSSInterpol
 
   return [
     {
-      [`${prefixCls}`]: {
+      [prefixCls]: {
         fontSize,
         lineHeight,
         height: controlHeight,

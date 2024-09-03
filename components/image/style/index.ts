@@ -36,9 +36,25 @@ export interface ComponentToken {
   previewOperationColorDisabled: string;
 }
 
+/**
+ * @desc Image 组件的 Token
+ * @descEN Token for Image component
+ */
 export interface ImageToken extends FullToken<'Image'> {
+  /**
+   * @desc 预览类名
+   * @descEN Preview class name
+   */
   previewCls: string;
+  /**
+   * @desc 模态框遮罩背景色
+   * @descEN Background color of modal mask
+   */
   modalMaskBg: string;
+  /**
+   * @desc 预览切换按钮尺寸
+   * @descEN Size of preview switch button
+   */
   imagePreviewSwitchSize: number;
 }
 
@@ -101,13 +117,13 @@ export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
       bottom: marginXL,
       left: {
         _skip_check_: true,
-        value: 0,
+        value: '50%',
       },
-      width: '100%',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       color: token.previewOperationColor,
+      transform: 'translateX(-50%)',
     },
     [`${previewCls}-progress`]: {
       marginBottom: margin,
@@ -189,7 +205,7 @@ export const genPreviewSwitchStyle = (token: ImageToken): CSSObject => {
     [`${previewCls}-switch-left, ${previewCls}-switch-right`]: {
       position: 'fixed',
       insetBlockStart: '50%',
-      zIndex: token.calc(zIndexPopup).add(1).equal({ unit: false }),
+      zIndex: token.calc(zIndexPopup).add(1).equal(),
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -208,7 +224,7 @@ export const genPreviewSwitchStyle = (token: ImageToken): CSSObject => {
         background: operationBgHover.toRgbString(),
       },
 
-      [`&-disabled`]: {
+      '&-disabled': {
         '&, &:hover': {
           color: previewOperationColorDisabled,
           background: 'transparent',
@@ -308,7 +324,7 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
     {
       [`${componentCls}-preview-operations-wrapper`]: {
         position: 'fixed',
-        zIndex: token.calc(token.zIndexPopup).add(1).equal({ unit: false }),
+        zIndex: token.calc(token.zIndexPopup).add(1).equal(),
       },
       '&': [genPreviewOperationsStyle(token), genPreviewSwitchStyle(token)],
     },
@@ -353,7 +369,7 @@ const genPreviewMotion: GenerateStyle<ImageToken> = (token) => {
 
   return {
     [`${previewCls}-root`]: initZoomMotion(token, 'zoom'),
-    [`&`]: initFadeMotion(token, true),
+    '&': initFadeMotion(token, true),
   };
 };
 

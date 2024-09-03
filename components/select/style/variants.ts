@@ -201,6 +201,19 @@ const genBorderlessStyle = (token: SelectToken): CSSObject => ({
       background: token.multipleItemBg,
       border: `${unit(token.lineWidth)} ${token.lineType} ${token.multipleItemBorderColor}`,
     },
+
+    // Status
+    [`&${token.componentCls}-status-error`]: {
+      [`${token.componentCls}-selection-item`]: {
+        color: token.colorError,
+      },
+    },
+
+    [`&${token.componentCls}-status-warning`]: {
+      [`${token.componentCls}-selection-item`]: {
+        color: token.colorWarning,
+      },
+    },
   },
 });
 

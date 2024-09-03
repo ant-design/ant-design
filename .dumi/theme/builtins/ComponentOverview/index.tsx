@@ -198,46 +198,59 @@ const Overview: React.FC = () => {
                 </Title>
                 <Row gutter={[24, 24]}>
                   {components.map((component) => {
+                    let url = component.link;
                     /** 是否是外链 */
-                    const isExternalLink = component.link.startsWith('http');
-                    let url = `${component.link}`;
+                    const isExternalLink = url.startsWith('http');
 
                     if (!isExternalLink) {
                       url += urlSearch;
                     }
 
-                    return (
-                      <Col xs={24} sm={12} lg={8} xl={6} key={component?.title}>
-                        <Link to={url}>
-                          <Card
-                            onClick={() => onClickCard(url)}
-                            styles={{
-                              body: {
-                                backgroundRepeat: 'no-repeat',
-                                backgroundPosition: 'bottom right',
-                                backgroundImage: `url(${component?.tag || ''})`,
-                              },
-                            }}
-                            size="small"
-                            className={styles.componentsOverviewCard}
-                            title={
-                              <div className={styles.componentsOverviewTitle}>
-                                {component?.title} {component.subtitle}
-                              </div>
+                    const cardContent = (
+                      <Card
+                        key={component.title}
+                        onClick={() => onClickCard(url)}
+                        styles={{
+                          body: {
+                            backgroundRepeat: 'no-repeat',
+                            backgroundPosition: 'bottom right',
+                            backgroundImage: `url(${component.tag || ''})`,
+                          },
+                        }}
+                        size="small"
+                        className={styles.componentsOverviewCard}
+                        title={
+                          <div className={styles.componentsOverviewTitle}>
+                            {component.title} {component.subtitle}
+                          </div>
+                        }
+                      >
+                        <div className={styles.componentsOverviewImg}>
+                          <img
+                            src={
+                              theme.includes('dark') && component.coverDark
+                                ? component.coverDark
+                                : component.cover
                             }
-                          >
-                            <div className={styles.componentsOverviewImg}>
-                              <img
-                                src={
-                                  theme.includes('dark') && component.coverDark
-                                    ? component.coverDark
-                                    : component.cover
-                                }
-                                alt={component?.title}
-                              />
-                            </div>
-                          </Card>
-                        </Link>
+                            alt={component.title}
+                          />
+                        </div>
+                      </Card>
+                    );
+
+                    const linkContent = isExternalLink ? (
+                      <a href={url} key={component.title}>
+                        {cardContent}
+                      </a>
+                    ) : (
+                      <Link to={url} prefetch key={component.title}>
+                        {cardContent}
+                      </Link>
+                    );
+
+                    return (
+                      <Col xs={24} sm={12} lg={8} xl={6} key={component.title}>
+                        {linkContent}
                       </Col>
                     );
                   })}

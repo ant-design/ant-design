@@ -90,7 +90,7 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
   });
 
   const isItemContainsTextNodeAndNotSingular = () => {
-    let result;
+    let result = false;
     Children.forEach(children as ReactElement, (element) => {
       if (typeof element === 'string') {
         result = true;
@@ -107,7 +107,7 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
   };
 
   const prefixCls = getPrefixCls('list', customizePrefixCls);
-  const actionsContent = actions && actions.length > 0 && (
+  const actionsContent = (actions && actions.length > 0) && (
     <ul
       className={classNames(`${prefixCls}-item-action`, moduleClass('actions'))}
       key="actions"

@@ -45,8 +45,8 @@ export interface AutoCompleteProps<
   popupMatchSelectWidth?: boolean | number;
 }
 
-function isSelectOptionOrSelectOptGroup(child: any): Boolean {
-  return child && child.type && (child.type.isSelectOption || child.type.isSelectOptGroup);
+function isSelectOptionOrSelectOptGroup(child: any): boolean {
+  return child?.type && (child.type.isSelectOption || child.type.isSelectOptGroup);
 }
 
 const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteProps> = (

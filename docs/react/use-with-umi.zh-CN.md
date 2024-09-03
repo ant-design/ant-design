@@ -56,10 +56,10 @@ $ pnpm create umi
 
 ```bash
 $ pnpm i @umijs/plugins -D
-$ pnpm i antd axios @ant-design/pro-layout -S
+$ pnpm i antd axios @ant-design/pro-components -S
 ```
 
-其中 `@umijs/plugins` 是 Umi 的官方插件集，包含了 valtio、react-query、styled-components、locale、access、qiankun 等大量插件，可让用户通过配置的方式一键开启和使用；`antd` 就不用介绍了；`axios` 是请求库；`@ant-design/pro-layout` 是用于生成中后台布局的组件。（这里将运行时依赖和编译时依赖分别保存到 dependencies 和 devDependencies，是目前社区推荐的方式）
+其中 `@umijs/plugins` 是 Umi 的官方插件集，包含了 valtio、react-query、styled-components、locale、access、qiankun 等大量插件，可让用户通过配置的方式一键开启和使用；`antd` 就不用介绍了；`axios` 是请求库；`@ant-design/pro-components` 是用于生成中后台布局的组件。（这里将运行时依赖和编译时依赖分别保存到 dependencies 和 devDependencies，是目前社区推荐的方式）
 
 完成后，执行以下命令启动项目。
 
@@ -101,7 +101,7 @@ export default defineConfig({
   routes: [
     { path: "/", component: "index" },
     { path: "/docs", component: "docs" },
-+    { path: "/products", component: "products" },
++   { path: "/products", component: "products" },
   ],
   npmClient: "pnpm",
 });
@@ -297,7 +297,7 @@ export default defineConfig({
 编辑 `src/layouts/index.tsx`，内容如下。
 
 ```tsx
-import { ProLayout } from '@ant-design/pro-layout';
+import { ProLayout } from '@ant-design/pro-components';
 import { Link, Outlet, useAppData, useLocation } from 'umi';
 
 export default function Layout() {

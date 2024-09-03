@@ -14,7 +14,7 @@ const useStyle = createStyles(({ token }) => ({
   image: css`
     transition: all ${token.motionDurationSlow};
     position: absolute;
-    left: 0;
+    inset-inline-start: 0;
     top: 0;
     height: 100%;
     width: 100%;
@@ -64,10 +64,11 @@ const BackgroundImage: React.FC<BackgroundImageProps> = ({ colorPrimary, isLight
             <source srcSet={entity.webp} type="image/webp" />
             <source srcSet={entity.url} type="image/jpeg" />
             <img
+              draggable={false}
               className={cls}
               style={{ ...style, opacity: isLight ? opacity : 0 }}
               src={entity.url}
-              alt=""
+              alt="bg"
             />
           </picture>
         );

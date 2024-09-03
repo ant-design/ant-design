@@ -12,7 +12,7 @@ import {
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { Button, Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import type { TableColumnsType } from 'antd';
 
 interface DataType {
   key: string;
@@ -42,7 +42,7 @@ const DragHandle: React.FC = () => {
   );
 };
 
-const columns: ColumnsType<DataType> = [
+const columns: TableColumnsType<DataType> = [
   { key: 'sort', align: 'center', width: 80, render: () => <DragHandle /> },
   { title: 'Name', dataIndex: 'name' },
   { title: 'Age', dataIndex: 'age' },

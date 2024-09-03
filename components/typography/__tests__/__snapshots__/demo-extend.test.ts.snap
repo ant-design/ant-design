@@ -444,7 +444,7 @@ Array [
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
       tabindex="0"
     >
       <span
@@ -495,7 +495,7 @@ Array [
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
       tabindex="0"
     >
       <span
@@ -546,7 +546,7 @@ Array [
       aria-label="click here"
       class="ant-typography-copy"
       role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
       tabindex="0"
     >
       <span
@@ -597,7 +597,7 @@ Array [
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
       tabindex="0"
     >
       <span
@@ -638,6 +638,57 @@ Array [
       </div>
     </div>
   </div>,
+  <div
+    class="ant-typography"
+  >
+    Request copy text.
+    <div
+      aria-label="Copy"
+      class="ant-typography-copy"
+      role="button"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
+      tabindex="0"
+    >
+      <span
+        aria-label="copy"
+        class="anticon anticon-copy"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="copy"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          Copy
+        </div>
+      </div>
+    </div>
+  </div>,
   <span
     class="ant-typography"
   >
@@ -645,7 +696,7 @@ Array [
       aria-label="Copy"
       class="ant-typography-copy ant-typography-copy-icon-only"
       role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
       tabindex="0"
     >
       <span
@@ -688,57 +739,6 @@ Array [
       </div>
     </div>
   </span>,
-  <div
-    class="ant-typography"
-  >
-    Request copy text.
-    <div
-      aria-label="Copy"
-      class="ant-typography-copy"
-      role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-      tabindex="0"
-    >
-      <span
-        aria-label="copy"
-        class="anticon anticon-copy"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="copy"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-          />
-        </svg>
-      </span>
-    </div>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
-      >
-        <div
-          class="ant-tooltip-inner"
-          role="tooltip"
-        >
-          Copy
-        </div>
-      </div>
-    </div>
-  </div>,
 ]
 `;
 
@@ -754,7 +754,7 @@ Array [
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
       tabindex="0"
     >
       <span
@@ -799,14 +799,14 @@ Array [
   </div>,
   <div
     aria-label="This is a loooooooooooooooooooooooooooooooong editable text with suffix."
-    class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+    class="ant-typography ant-typography-ellipsis"
   >
     This is a loooooooooooooooooooooooooooooooong editable text with suffix.
     <div
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
       tabindex="0"
     >
       <span
@@ -857,7 +857,7 @@ Array [
       aria-label="click to edit text"
       class="ant-typography-edit"
       role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
       tabindex="0"
     >
       <span
@@ -971,7 +971,7 @@ Array [
       aria-label="click to edit text"
       class="ant-typography-edit"
       role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
       tabindex="0"
     >
       <span
@@ -1022,7 +1022,7 @@ Array [
       aria-label="click to edit text"
       class="ant-typography-edit"
       role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
       tabindex="0"
     >
       <span
@@ -1073,7 +1073,7 @@ Array [
       aria-label="click to edit text"
       class="ant-typography-edit"
       role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
       tabindex="0"
     >
       <span
@@ -1124,7 +1124,7 @@ Array [
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
       tabindex="0"
     >
       <span
@@ -1173,7 +1173,7 @@ Array [
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
       tabindex="0"
     >
       <span
@@ -1225,7 +1225,7 @@ Array [
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
       tabindex="0"
     >
       <span
@@ -1277,7 +1277,7 @@ Array [
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
       tabindex="0"
     >
       <span
@@ -1329,7 +1329,7 @@ Array [
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
       tabindex="0"
     >
       <span
@@ -1381,7 +1381,7 @@ Array [
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
       tabindex="0"
     >
       <span
@@ -1433,7 +1433,7 @@ Array [
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
       tabindex="0"
     >
       <span
@@ -1504,7 +1504,7 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+    class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
   </div>,
@@ -1515,7 +1515,7 @@ Array [
     Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
   </div>,
   <span
-    class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+    class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
     style="width: 200px;"
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team.
@@ -1540,7 +1540,7 @@ Array [
     </div>
   </div>,
   <span
-    class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+    class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
     style="width: 200px;"
   >
     <code>
@@ -1656,7 +1656,7 @@ exports[`renders components/typography/demo/ellipsis-controlled.tsx extend conte
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
       tabindex="0"
     >
       <span
@@ -1833,7 +1833,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+    class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team. This is a nest sample 
     <span
@@ -1851,7 +1851,7 @@ Array [
   </div>,
   <span
     aria-label="In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development."
-    class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+    class="ant-typography ant-typography-ellipsis"
     style="max-width: 400px; font-size: 24px;"
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
@@ -1859,7 +1859,7 @@ Array [
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
       tabindex="0"
     >
       <span
@@ -1905,7 +1905,7 @@ Array [
   <br />,
   <span
     aria-label="In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development."
-    class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+    class="ant-typography ant-typography-ellipsis"
     style="max-width: 400px; font-size: 12px;"
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
@@ -1913,7 +1913,7 @@ Array [
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
       tabindex="0"
     >
       <span
@@ -1959,7 +1959,7 @@ Array [
   <br />,
   <span
     aria-label="In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development."
-    class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+    class="ant-typography ant-typography-ellipsis"
     style="width: 400px; font-size: 24px;"
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
@@ -1967,7 +1967,7 @@ Array [
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
       tabindex="0"
     >
       <span
@@ -2013,7 +2013,7 @@ Array [
   <br />,
   <span
     aria-label="Ant Design is a design language for background applications, is refined by Ant UED Team."
-    class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+    class="ant-typography ant-typography-ellipsis"
     style="width: 100px;"
   >
     Ant Design is a design language for background applications, is refined by Ant UED Team.
@@ -2021,7 +2021,7 @@ Array [
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
       tabindex="0"
     >
       <span
@@ -2067,7 +2067,7 @@ Array [
   <p>
     [Before]
     <span
-      class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+      class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
     >
       not ellipsis
     </span>
@@ -2077,7 +2077,7 @@ Array [
     style="display: none;"
   >
     <span
-      class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+      class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
       style="width: 100px;"
     >
       默认display none 样式的超长文字， 悬停tooltip失效了
@@ -2114,6 +2114,78 @@ Array [
     </span>
      many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
   </div>,
+  <pre>
+    <div
+      aria-label="this is a multiline
+  text that has many
+  lines and 
+    - render like this
+    - and this
+  and that"
+      class="ant-typography ant-typography-ellipsis"
+    >
+      this is a multiline
+  text that has many
+  lines and 
+    - render like this
+    - and this
+  and that
+    </div>
+  </pre>,
+  <br />,
+  <span
+    aria-label="In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development."
+    class="ant-typography ant-typography-ellipsis"
+    style="width: 100px; white-space: nowrap;"
+  >
+    In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
+    <div
+      aria-label="Copy"
+      class="ant-typography-copy"
+      role="button"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
+      tabindex="0"
+    >
+      <span
+        aria-label="copy"
+        class="anticon anticon-copy"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="copy"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          Copy
+        </div>
+      </div>
+    </div>
+  </span>,
 ]
 `;
 
@@ -2122,7 +2194,7 @@ exports[`renders components/typography/demo/ellipsis-debug.tsx extend context co
 exports[`renders components/typography/demo/ellipsis-middle.tsx extend context correctly 1`] = `
 <span
   aria-label="In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of "
-  class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+  class="ant-typography ant-typography-ellipsis"
   style="max-width: 100%;"
 >
   In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
@@ -2382,7 +2454,7 @@ Array [
   </div>,
   <div
     aria-label="To be, or not to be, that is the question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life"
-    class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+    class="ant-typography ant-typography-ellipsis"
     title="To be, or not to be, that is the question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life--William Shakespeare"
   >
     To be, or not to be, that is the question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life--William Shakespeare
