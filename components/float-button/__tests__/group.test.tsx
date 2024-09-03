@@ -117,6 +117,7 @@ describe('FloatButtonGroup', () => {
     expect(onClick).toHaveBeenCalled();
     expect(onClick2).not.toHaveBeenCalled();
    });
+
   it('warning if set `open` but not set `trigger`', () => {
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
