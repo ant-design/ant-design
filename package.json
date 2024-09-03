@@ -246,7 +246,7 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jest": "^28.6.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
-    "eslint-plugin-lodash": "^7.4.0",
+    "eslint-plugin-lodash": "^8.0.0",
     "eslint-plugin-markdown": "^5.1.0",
     "eslint-plugin-react": "^7.34.4",
     "eslint-plugin-react-hooks": "^4.6.2",
