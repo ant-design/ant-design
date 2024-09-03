@@ -43,29 +43,8 @@ export type GetProp<
   PropName extends keyof GetProps<T>,
 > = NonNullable<GetProps<T>[PropName]>;
 
-type ReactRefComponent<Props extends { ref?: React.Ref<any> | string }> = (
-  props: Props,
-) => React.ReactNode;
-
-type ExtractRefAttributesRef<T> = T extends React.RefAttributes<infer P> ? P : never;
-
-/**
- * Get component ref
- * @example
- * ```ts
- * import { Input } from 'antd';
- * import type { GetRef } from 'antd';
- *
- * type InputRef = GetRef<typeof Input>;
- * ```
- * @since 5.13.0
- */
-export type GetRef<T extends ReactRefComponent<any> | React.Component<any>> =
-  T extends React.Component<any>
-    ? T
-    : T extends React.ComponentType<infer P>
-      ? ExtractRefAttributesRef<P>
-      : never;
+// https://github.com/ant-design/ant-design/issues/50682
+export type { ElementRef as GetRef } from 'react';
 
 export type GetContextProps<T> = T extends React.Context<infer P> ? P : never;
 
