@@ -73,7 +73,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     setResizing,
   });
 
-  // 计算初始值
+  // Calculate initial value
   useLayoutEffect(() => {
     const getInitialBasics = (container: HTMLDivElement) => {
       const { width, height } = container.getBoundingClientRect();
@@ -85,7 +85,6 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
       let count = 0;
 
       items.forEach((item) => {
-        // size 为受控值
         let currentSize = item.size;
 
         if (currentSize === undefined || currentSize === '') {
@@ -115,7 +114,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
       setBasicsState(getInitialBasics(containerRef.current));
     }
 
-    // item.size 改变时，重新计算 flexBasis
+    // When item.size changes, recalculate flexBasis
   }, [JSON.stringify(items.map((item) => item.size)), layout]);
 
   const containerClassName = classNames(

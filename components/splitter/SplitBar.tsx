@@ -17,18 +17,16 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     [`${prefixCls}-bar-active`]: active,
   });
 
-  // 折叠恢复值
+  // Panel size before folding
   const oldBasicsRef = useRef({ previous: basicsState[index], next: basicsState[index + 1] });
 
-  // 记录面边大小
-
-  // 面边编号
+  // panel index
   const previousIdx = reverse ? index + 1 : index;
   const nextIdx = reverse ? index : index + 1;
-  // 面边大小
+  // panel size
   const previousSize = basicsState?.[previousIdx] || 0;
   const nextSize = basicsState?.[nextIdx] || 0;
-  // 折叠按钮
+  // collapsible
   let previousIcon = false;
   let nextIcon = false;
   if (typeof collapsible === 'object') {
@@ -36,7 +34,6 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     previousIcon = start;
     nextIcon = end;
 
-    // 折叠后恢复
     if (previousIcon && previousSize === 0) {
       previousIcon = false;
       nextIcon = true;
@@ -50,7 +47,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     nextIcon = true;
   }
 
-  // 重叠时无法触发操作 增加实际尺寸
+  // When the panel size is 0, the SplitBar will overlap
   const overlap = previousSize === 0 || nextSize === 0;
 
   useEffect(() => {
