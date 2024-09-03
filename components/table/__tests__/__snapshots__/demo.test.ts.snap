@@ -3203,7 +3203,7 @@ Array [
 exports[`renders components/table/demo/custom-empty.tsx correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-solid"
     type="button"
   >
     <span>
@@ -4482,7 +4482,7 @@ exports[`renders components/table/demo/drag-sorting-handler.tsx correctly 1`] = 
                     style="text-align:center"
                   >
                     <button
-                      class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
+                      class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only"
                       style="cursor:move"
                       type="button"
                     >
@@ -4541,7 +4541,7 @@ exports[`renders components/table/demo/drag-sorting-handler.tsx correctly 1`] = 
                     style="text-align:center"
                   >
                     <button
-                      class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
+                      class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only"
                       style="cursor:move"
                       type="button"
                     >
@@ -4600,7 +4600,7 @@ exports[`renders components/table/demo/drag-sorting-handler.tsx correctly 1`] = 
                     style="text-align:center"
                   >
                     <button
-                      class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
+                      class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only"
                       style="cursor:move"
                       type="button"
                     >
@@ -7073,7 +7073,7 @@ Array [
 exports[`renders components/table/demo/edit-cell.tsx correctly 1`] = `
 <div>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-solid"
     style="margin-bottom:16px"
     type="button"
   >
@@ -19258,7 +19258,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         type="button"
       >
         <span>
@@ -19270,7 +19270,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         type="button"
       >
         <span>
@@ -19282,7 +19282,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         type="button"
       >
         <span>
@@ -20624,7 +20624,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
     class="ant-flex ant-flex-align-center ant-flex-gap-middle"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-solid"
       disabled=""
       type="button"
     >
