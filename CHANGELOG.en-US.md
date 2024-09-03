@@ -16,6 +16,14 @@ tag: vVERSION
 
 ---
 
+## 5.20.5
+
+`2024-09-03`
+
+- 🛠 Adjust Tree & TreeSelect `defaultExpandAll` logic to only add internal `expandedKeys` which `treeNode` has children instead to avoid perf issue when with large data or `loadData` case. [#50689](https://github.com/ant-design/ant-design/pull/50689) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Cascader not show parent option in search when using `multiple`. [#50689](https://github.com/ant-design/ant-design/pull/50689)
+- 🐞 Fix Typography `ellipsis.tooltip.title` with ReactNode will cause dead loop. [#50688](https://github.com/ant-design/ant-design/pull/50688) [@zombieJ](https://github.com/zombieJ)
+
 ## 5.20.4
 
 `2024-09-02`

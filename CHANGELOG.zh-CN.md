@@ -15,6 +15,14 @@ tag: vVERSION
 
 ---
 
+## 5.20.5
+
+`2024-09-03`
+
+- 🛠 调整 Tree 与 TreeSelect 的 `defaultExpandAll` 的行为，仅将有子节点的 `treeNode` 加入 `expandedKeys` 以防止在大数据与 `loadData` 异步的情况下引发的性能问题。[#50689](https://github.com/ant-design/ant-design/pull/50689) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 Cascader 在 `multiple` 下搜索不会显示父节点作为选项的问题。[#50689](https://github.com/ant-design/ant-design/pull/50689)
+- 🐞 修复 Typography `ellipsis.tooltip.title` 配置 ReactNode 会导致死循环的问题。[#50688](https://github.com/ant-design/ant-design/pull/50688) [@zombieJ](https://github.com/zombieJ)
+
 ## 5.20.4
 
 `2024-09-02`
