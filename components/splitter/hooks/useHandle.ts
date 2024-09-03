@@ -2,7 +2,8 @@ import { useEffect, useRef } from 'react';
 
 import type { UseHandle, UseHandleProps } from '../interface';
 
-const eventList: (keyof WindowEventMap)[] = ['mousemove', 'mouseup', 'contextmenu', 'blur'];
+const resizeEvent = 'mousemove';
+const stopResizeEvents: (keyof WindowEventMap)[] = ['mouseup', 'contextmenu', 'blur'];
 export default function useHandle({
   containerRef,
   basicsRef,
@@ -58,21 +59,15 @@ export default function useHandle({
   };
 
   useEffect(() => {
-    eventList.forEach((event) => {
-      if (event === 'mousemove') {
-        document.documentElement.addEventListener(event, move);
-      } else {
-        document.documentElement.addEventListener(event, end);
-      }
+    document.documentElement.addEventListener(resizeEvent, move);
+    stopResizeEvents.forEach((event) => {
+      document.documentElement.addEventListener(event, end);
     });
 
     return () => {
-      eventList.forEach((event) => {
-        if (event === 'mousemove') {
-          document.documentElement.removeEventListener(event, move);
-        } else {
-          document.documentElement.removeEventListener(event, end);
-        }
+      document.documentElement.removeEventListener(resizeEvent, move);
+      stopResizeEvents.forEach((event) => {
+        document.documentElement.removeEventListener(event, end);
       });
     };
   }, [layout]);

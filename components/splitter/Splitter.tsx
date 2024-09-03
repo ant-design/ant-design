@@ -42,17 +42,16 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const panelsRef = useRef<(HTMLDivElement | null)[]>([]);
   const panelCount = Children.count(children);
 
-  const defaultSize = 100 / panelCount;
-  const [basicsState, setBasicsState] = useState<number[]>(new Array(panelCount).fill(defaultSize));
-  const items = useMemo(() => {
-    const infos: PanelProps[] = [];
-    React.Children.forEach(children, (child) => {
-      if (React.isValidElement(child)) {
-        infos.push({ ...child.props });
-      }
-    });
-    return infos;
-  }, [children]);
+  const initializeSize = 100 / panelCount;
+  const [basicsState, setBasicsState] = useState<number[]>(
+    new Array(panelCount).fill(initializeSize),
+  );
+  const items: PanelProps[] = [];
+  React.Children.forEach(children, (child) => {
+    if (React.isValidElement(child)) {
+      items.push({ ...child.props });
+    }
+  });
 
   // ======== resizing  ========
   const [resizing, setResizing] = useState(false);
@@ -90,7 +89,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
         let currentSize = item.size;
 
         if (currentSize === undefined || currentSize === '') {
-          return sizes.push(defaultSize);
+          return sizes.push(initializeSize);
         }
 
         currentSize = sizeTransform(
@@ -105,7 +104,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
       const averageSize = sum > 100 ? 0 : (100 - sum) / (panelCount - count);
       const adjustedSize = Math.floor(averageSize * 100) / 100;
       items.forEach((_, idx) => {
-        if (sizes[idx] === defaultSize) {
+        if (sizes[idx] === initializeSize) {
           sizes[idx] = adjustedSize;
         }
       });
@@ -117,7 +116,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     }
 
     // item.size 改变时，重新计算 flexBasis
-  }, [JSON.stringify(items.map((item) => item.size)), panelCount, layout, defaultSize]);
+  }, [JSON.stringify(items.map((item) => item.size)), layout]);
 
   const containerClassName = classNames(
     prefixCls,
@@ -150,28 +149,32 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   return wrapCSSVar(
     <SplitterContext.Provider value={splitterContextValue}>
       <div ref={containerRef} style={style} className={containerClassName}>
-        {items.map((item, idx) => (
-          <React.Fragment key={`split-panel-${idx}`}>
-            <InternalPanel
-              {...item}
-              last={idx === panelCount - 1}
-              prefixCls={prefixCls}
-              size={basicsState[idx]}
-              ref={(ref) => {
-                panelsRef.current[idx] = ref;
-              }}
-            />
+        {items.map((item, idx) => {
+          const last = idx === panelCount - 1;
 
-            {idx + 1 < panelCount && (
-              <SplitBar
-                index={idx}
+          return (
+            <React.Fragment key={`split-panel-${idx}`}>
+              <InternalPanel
+                {...item}
+                last={last}
                 prefixCls={prefixCls}
-                resizable={item.resizable}
-                collapsible={item.collapsible}
+                size={basicsState[idx]}
+                ref={(ref) => {
+                  panelsRef.current[idx] = ref;
+                }}
               />
-            )}
-          </React.Fragment>
-        ))}
+
+              {!last && (
+                <SplitBar
+                  index={idx}
+                  prefixCls={prefixCls}
+                  resizable={item.resizable}
+                  collapsible={item.collapsible}
+                />
+              )}
+            </React.Fragment>
+          );
+        })}
       </div>
     </SplitterContext.Provider>,
   );
