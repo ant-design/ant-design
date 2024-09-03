@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import { useEvent } from 'rc-util';
 
 import type { UseResize, UseResizeProps } from '../interface';
@@ -26,21 +25,15 @@ const useResize = ({
   onResize,
   setBasicsState,
 }: UseResizeProps): UseResize => {
-  const basicsRef = useRef<number[]>(basicsState);
-
   const setOffset = useEvent((offset: number, containerSize: number, index: number) => {
-    if (panelsRef.current?.[index] && basicsRef.current) {
+    if (panelsRef.current?.[index] && basicsState) {
       const previousElement = panelsRef.current[index];
       const nextElement = panelsRef.current[index + 1]!;
 
-      const percentCount = basicsRef.current[index] + basicsRef.current[index + 1];
+      const percentCount = basicsState[index] + basicsState[index + 1];
 
-      let previousSize = reverse
-        ? basicsRef.current[index] + offset
-        : basicsRef.current[index] - offset;
-      let nextSize = reverse
-        ? basicsRef.current[index + 1] - offset
-        : basicsRef.current[index + 1] + offset;
+      let previousSize = reverse ? basicsState[index] + offset : basicsState[index] - offset;
+      let nextSize = reverse ? basicsState[index + 1] - offset : basicsState[index + 1] + offset;
 
       const { max: previousMax = percentCount, min: previousMin = 0 } = items[index];
       const { max: nextMax = percentCount, min: nextMin = 0 } = items[index + 1];
@@ -75,25 +68,28 @@ const useResize = ({
       previousElement.style.flexBasis = `${previousSize}%`;
       nextElement.style.flexBasis = `${nextSize}%`;
 
-      basicsRef.current[index] = previousSize;
-      basicsRef.current[index + 1] = nextSize;
-
-      setBasicsState([...basicsRef.current]);
-      onResize?.(basicsRef.current, index);
+      const newData = [...basicsState];
+      newData[index] = previousSize;
+      newData[index + 1] = nextSize;
+      setBasicsState(newData);
+      onResize?.(newData, index);
     }
   });
 
-  const setSize = (size: number, index: number) => {
-    if (basicsRef.current && panelsRef.current?.[index]) {
-      basicsRef.current[index] = size;
-      setBasicsState([...basicsRef.current]);
-      panelsRef.current[index].style.flexBasis = size > 0 ? `${size}%` : '0';
-    }
-  };
+  const setSize = useEvent((data: { size: number; index: number }[]) => {
+    const newData = [...basicsState];
 
-  basicsRef.current = basicsState;
+    data.forEach((item) => {
+      newData[item.index] = item.size;
+      if (panelsRef.current?.[item.index]) {
+        panelsRef.current[item.index]!.style.flexBasis = item.size > 0 ? `${item.size}%` : '0';
+      }
+    });
 
-  return { setSize, setOffset, basicsRef };
+    setBasicsState(newData);
+  });
+
+  return { setSize, setOffset };
 };
 
 export default useResize;

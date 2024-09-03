@@ -1,12 +1,13 @@
 import { useEffect, useRef } from 'react';
+import { useEvent } from 'rc-util';
 
 import type { UseHandle, UseHandleProps } from '../interface';
 
 const resizeEvent = 'mousemove';
 const stopResizeEvents: (keyof WindowEventMap)[] = ['mouseup', 'contextmenu', 'blur'];
 export default function useHandle({
+  basicsState,
   containerRef,
-  basicsRef,
   layout,
   setOffset,
   setResizing,
@@ -42,21 +43,21 @@ export default function useHandle({
     }
   };
 
-  const end = () => {
+  const end = useEvent(() => {
     if (resizingRef.current) {
       startInfo.current = { x: 0, y: 0, index: 0 };
       resizingRef.current = false;
       setResizing?.(false);
-      onResizeEnd?.(basicsRef.current, startInfo.current.index);
+      onResizeEnd?.(basicsState, startInfo.current.index);
     }
-  };
+  });
 
-  const onStart = (x: number, y: number, index: number) => {
+  const onStart = useEvent((x: number, y: number, index: number) => {
     startInfo.current = { x, y, index };
     resizingRef.current = true;
     setResizing?.(true);
-    onResizeStart?.(basicsRef.current, index);
-  };
+    onResizeStart?.(basicsState, index);
+  });
 
   useEffect(() => {
     document.documentElement.addEventListener(resizeEvent, move);

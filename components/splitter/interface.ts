@@ -46,20 +46,34 @@ export interface UseResizeProps extends Pick<SplitterProps, 'onResize'> {
   setBasicsState: React.Dispatch<React.SetStateAction<number[]>>;
 }
 export interface UseResize {
-  basicsRef: React.MutableRefObject<number[]>;
-  setSize: (size: number, index: number) => void;
+  setSize: (data: { size: number; index: number }[]) => void;
   setOffset: (offset: number, containerSize: number, index: number) => void;
 }
 
 export interface UseHandleProps
   extends Pick<SplitterProps, 'layout' | 'onResizeStart' | 'onResizeEnd'> {
-  basicsRef: UseResize['basicsRef'];
+  basicsState: number[];
   containerRef?: React.RefObject<HTMLDivElement | null>;
   setOffset: UseResize['setOffset'];
   setResizing: React.Dispatch<React.SetStateAction<boolean>>;
 }
 export interface UseHandle {
   onStart: (x: number, y: number, index: number) => void;
+}
+
+export interface UseCollapsibleProps {
+  basicsState: number[];
+  collapsible?: PanelProps['collapsible'];
+  index: number;
+  reverse: boolean;
+  setSize?: UseResize['setSize'];
+}
+export interface UseCollapsible {
+  nextIcon: boolean;
+  overlap: boolean;
+  previousIcon: boolean;
+  onFold: (type: 'previous' | 'next') => void;
+  setOldBasics: () => void;
 }
 
 export interface SplitterContextType {

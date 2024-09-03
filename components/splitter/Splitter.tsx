@@ -55,7 +55,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
   // ======== resizing  ========
   const [resizing, setResizing] = useState(false);
-  const { basicsRef, setOffset, setSize } = useResize({
+  const { setOffset, setSize } = useResize({
     panelsRef,
     items,
     basicsState,
@@ -66,7 +66,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const { onStart } = useHandle({
     containerRef,
     layout,
-    basicsRef,
+    basicsState,
     onResizeStart,
     onResizeEnd,
     setOffset,
