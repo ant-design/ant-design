@@ -54,7 +54,7 @@ describe('type', () => {
 
   describe('GetRef', () => {
     it('CC', () => {
-      type Ref = GetRef<CC>;
+      type Ref = GetRef<typeof CC>;
       const ref = React.createRef<Ref>();
 
       expect(<CC ref={ref} />).toBeTruthy();
