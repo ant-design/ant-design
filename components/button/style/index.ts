@@ -353,12 +353,12 @@ const genPrimaryButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
 
   ...genFilledButtonStyle(
     token,
-    token.filledBg,
+    token.colorPrimaryBg,
     {
-      background: token.filledBgHover,
+      background: token.colorPrimaryBgHover,
     },
     {
-      background: token.filledBgActive,
+      background: token.colorPrimaryBorder,
     },
   ),
 
@@ -371,7 +371,7 @@ const genPrimaryButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
     },
     {
       color: token.colorPrimaryTextActive,
-      background: token.filledBgActive,
+      background: token.colorPrimaryBorder,
     },
   ),
 
