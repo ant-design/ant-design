@@ -1,10 +1,8 @@
 import React from 'react';
-import { Simulate } from 'react-dom/test-utils';
-
 import { CheckCircleOutlined } from '@ant-design/icons';
+
 import Tag from '..';
 import { resetWarned } from '../../_util/warning';
-
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
@@ -24,9 +22,9 @@ function waitRaf() {
 
 describe('Tag', () => {
   mountTest(Tag);
-  mountTest(Tag.CheckableTag);
+  mountTest(() => <Tag.CheckableTag checked={false} />);
   rtlTest(Tag);
-  rtlTest(Tag.CheckableTag);
+  rtlTest(() => <Tag.CheckableTag checked={false} />);
 
   beforeAll(() => {
     jest.useFakeTimers();
@@ -90,40 +88,20 @@ describe('Tag', () => {
     });
   });
 
-  it('should trigger onClick', () => {
+  it('should trigger onClick on Tag', () => {
     const onClick = jest.fn();
     const { container } = render(<Tag onClick={onClick} />);
-    const target = container.querySelectorAll('.ant-tag')[0];
-    Simulate.click(target);
-    expect(onClick).toHaveBeenCalledWith(
-      expect.objectContaining({
-        type: 'click',
-        target,
-        preventDefault: expect.any(Function),
-        nativeEvent: {
-          type: 'click',
-          target,
-        },
-      }),
-    );
+    const tagElement = container.querySelector<HTMLSpanElement>('.ant-tag')!;
+    fireEvent.click(tagElement);
+    expect(onClick).toHaveBeenCalled();
   });
 
-  it('should trigger onClick on CheckableTag', () => {
+  it('should trigger onClick on Tag.CheckableTag', () => {
     const onClick = jest.fn();
     const { container } = render(<Tag.CheckableTag checked={false} onClick={onClick} />);
-    const target = container.querySelectorAll('.ant-tag')[0];
-    Simulate.click(target);
-    expect(onClick).toHaveBeenCalledWith(
-      expect.objectContaining({
-        type: 'click',
-        target,
-        preventDefault: expect.any(Function),
-        nativeEvent: {
-          type: 'click',
-          target,
-        },
-      }),
-    );
+    const tagElement = container.querySelector<HTMLSpanElement>('.ant-tag')!;
+    fireEvent.click(tagElement);
+    expect(onClick).toHaveBeenCalled();
   });
 
   // https://github.com/ant-design/ant-design/issues/20344
@@ -218,5 +196,12 @@ describe('Tag', () => {
     fireEvent.click(container.querySelectorAll('.ant-tag')[0]);
     waitRaf();
     expect(document.querySelector('.ant-wave')).toBeFalsy();
+  });
+  it('should support aria-* in closable', () => {
+    const { container } = render(<Tag closable={{ closeIcon: 'X', 'aria-label': 'CloseBtn' }} />);
+    expect(container.querySelector('.ant-tag-close-icon')?.getAttribute('aria-label')).toEqual(
+      'CloseBtn',
+    );
+    expect(container.querySelector('.ant-tag-close-icon')?.textContent).toEqual('X');
   });
 });

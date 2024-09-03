@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { closestCenter, DndContext, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
-import type { DragEndEvent } from '@dnd-kit/core/dist/types/index';
+import type { DragEndEvent } from '@dnd-kit/core';
 import {
   arrayMove,
   horizontalListSortingStrategy,
@@ -68,7 +68,7 @@ const App: React.FC = () => {
   return (
     <DndContext sensors={sensors} onDragEnd={handleDragEnd} collisionDetection={closestCenter}>
       <SortableContext items={items} strategy={horizontalListSortingStrategy}>
-        <Flex gap="4px 0" wrap="wrap">
+        <Flex gap="4px 0" wrap>
           {items.map<React.ReactNode>((item) => (
             <DraggableTag tag={item} key={item.id} />
           ))}

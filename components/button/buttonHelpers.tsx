@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { cloneElement, isFragment } from '../_util/reactNode';
 import type { BaseButtonProps, LegacyButtonType } from './button';
 
@@ -18,7 +19,7 @@ export function isString(str: any): str is string {
   return typeof str === 'string';
 }
 
-export function isUnBorderedButtonType(type?: ButtonType) {
+export function isUnBorderedButtonVariant(type?: ButtonVariantType) {
   return type === 'text' || type === 'link';
 }
 
@@ -52,7 +53,7 @@ function splitCNCharsBySpace(child: React.ReactElement | string | number, needIn
 }
 
 export function spaceChildren(children: React.ReactNode, needInserted: boolean) {
-  let isPrevChildPure: boolean = false;
+  let isPrevChildPure = false;
   const childList: React.ReactNode[] = [];
 
   React.Children.forEach(children, (child) => {
@@ -74,11 +75,29 @@ export function spaceChildren(children: React.ReactNode, needInserted: boolean) 
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const ButtonTypes = ['default', 'primary', 'dashed', 'link', 'text'] as const;
-export type ButtonType = typeof ButtonTypes[number];
+export type ButtonType = (typeof ButtonTypes)[number];
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const ButtonShapes = ['default', 'circle', 'round'] as const;
-export type ButtonShape = typeof ButtonShapes[number];
+export type ButtonShape = (typeof ButtonShapes)[number];
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const ButtonHTMLTypes = ['submit', 'button', 'reset'] as const;
-export type ButtonHTMLType = typeof ButtonHTMLTypes[number];
+export type ButtonHTMLType = (typeof ButtonHTMLTypes)[number];
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const ButtonVariantTypes = [
+  'outlined',
+  'dashed',
+  'solid',
+  'filled',
+  'text',
+  'link',
+] as const;
+export type ButtonVariantType = (typeof ButtonVariantTypes)[number];
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const ButtonColorTypes = ['default', 'primary', 'danger'] as const;
+export type ButtonColorType = (typeof ButtonColorTypes)[number];

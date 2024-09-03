@@ -1,5 +1,6 @@
-import { render as testLibRender } from '@testing-library/react';
 import React from 'react';
+import { render as testLibRender } from '@testing-library/react';
+
 import { fireEvent, render } from '../../../tests/utils';
 import Transfer from '../index';
 import Search from '../search';
@@ -8,21 +9,9 @@ describe('Transfer.Search', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   const dataSource = [
-    {
-      key: 'a',
-      title: 'a',
-      description: 'a',
-    },
-    {
-      key: 'b',
-      title: 'b',
-      description: 'b',
-    },
-    {
-      key: 'c',
-      title: 'c',
-      description: 'c',
-    },
+    { key: 'a', title: 'a', description: 'a' },
+    { key: 'b', title: 'b', description: 'b' },
+    { key: 'c', title: 'c', description: 'c' },
   ];
 
   afterEach(() => {

@@ -2,11 +2,10 @@
 category: Components
 group: Data Entry
 title: Form
+description: High-performance form component with data domain management. Includes data entry, validation, and corresponding styles.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-lcdS5Qm1bsAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-High performance Form component with data scope management. Including data collection, verification, and styles.
 
 ## When to use
 
@@ -19,6 +18,7 @@ High performance Form component with data scope management. Including data colle
 <code src="./demo/basic.tsx">Basic Usage</code>
 <code src="./demo/control-hooks.tsx">Form methods</code>
 <code src="./demo/layout.tsx">Form Layout</code>
+<code src="./demo/layout-multiple.tsx">Form mix layout</code>
 <code src="./demo/disabled.tsx">Form disabled</code>
 <code src="./demo/variant.tsx" version="5.13.0">Form variants</code>
 <code src="./demo/required-mark.tsx">Required style</code>
@@ -39,7 +39,7 @@ High performance Form component with data scope management. Including data colle
 <code src="./demo/global-state.tsx">Store Form Data into Upper Component</code>
 <code src="./demo/form-context.tsx">Control between forms</code>
 <code src="./demo/inline-login.tsx">Inline Login Form</code>
-<code src="./demo/normal-login.tsx">Login Form</code>
+<code src="./demo/login.tsx">Login Form</code>
 <code src="./demo/register.tsx">Registration</code>
 <code src="./demo/advanced-search.tsx">Advanced search</code>
 <code src="./demo/form-in-modal.tsx">Form in Modal to Create</code>
@@ -47,7 +47,9 @@ High performance Form component with data scope management. Including data colle
 <code src="./demo/without-form-create.tsx">Handle Form Data Manually</code>
 <code src="./demo/validate-static.tsx">Customized Validation</code>
 <code src="./demo/dynamic-rule.tsx">Dynamic Rules</code>
-<code src="./demo/dependencies.tsx">Dependencies</code>
+<code src="./demo/form-dependencies.tsx">Dependencies</code>
+<code src="./demo/getValueProps-normalize.tsx">getValueProps + normalize</code>
+<code src="./demo/validate-scroll-to-field.tsx" iframe="360">Slide to error field</code>
 <code src="./demo/validate-other.tsx">Other Form Controls</code>
 <code src="./demo/disabled-input-debug.tsx" debug>Disabled Input Debug</code>
 <code src="./demo/label-debug.tsx" debug>label ellipsis</code>
@@ -67,7 +69,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | colon | Configure the default value of `colon` for Form.Item. Indicates whether the colon after the label is displayed (only effective when prop layout is horizontal) | boolean | true |  |
 | disabled | Set form component disable, only available for antd components | boolean | false | 4.21.0 |
 | component | Set the Form rendering element. Do not create a DOM node for `false` | ComponentType \| false | form |  |
-| fields | Control of form fields through state management (such as redux). Not recommended for non-strong demand. View [example](#components-form-demo-global-state) | [FieldData](#fielddata)\[] | - |  |
+| fields | Control of form fields through state management (such as redux). Not recommended for non-strong demand. View [example](#form-demo-global-state) | [FieldData](#fielddata)\[] | - |  |
 | form | Form control instance created by `Form.useForm()`. Automatically created when not provided | [FormInstance](#forminstance) | - |  |
 | feedbackIcons | Can be passed custom icons while `Form.Item` element has `hasFeedback` | [FeedbackIcons](#feedbackicons) | - | 5.9.0 |
 | initialValues | Set value by Form initialization or reset | object | - |  |
@@ -88,6 +90,9 @@ Common props ref：[Common props](/docs/react/common-props)
 | onFinish | Trigger after submitting the form and verifying data successfully | function(values) | - |  |
 | onFinishFailed | Trigger after submitting the form and verifying data failed | function({ values, errorFields, outOfDate }) | - |  |
 | onValuesChange | Trigger when value updated | function(changedValues, allValues) | - |  |
+| clearOnDestroy | Clear form values when the form is uninstalled | boolean | false | 5.18.0 |
+
+> It accepts all props which native forms support but `onSubmit`.
 
 ### validateMessages
 
@@ -134,22 +139,23 @@ Form field component for data bidirectional binding, validation, layout, and so 
 | label | Label text | ReactNode | - |  |
 | labelAlign | The text align of label | `left` \| `right` | `right` |  |
 | labelCol | The layout of label. You can set `span` `offset` to something like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` same as with `<Col>`. You can set `labelCol` on Form which will not affect nest Item. If both exists, use Item first | [object](/components/grid/#col) | - |  |
-| messageVariables | The default validate field info | Record&lt;string, string> | - | 4.7.0 |
+| messageVariables | The default validate field info, description [see below](#messagevariables) | Record&lt;string, string> | - | 4.7.0 |
 | name | Field name, support array | [NamePath](#namepath) | - |  |
 | normalize | Normalize value from component value before passing to Form instance. Do not support async | (value, prevValue, prevValues) => any | - |  |
 | noStyle | No style for `true`, used as a pure field control. Will inherit parent Form.Item `validateStatus` if self `validateStatus` not configured | boolean | false |  |
 | preserve | Keep field value even when field removed | boolean | true | 4.4.0 |
 | required | Display required style. It will be generated by the validation rule | boolean | false |  |
-| rules | Rules for field validation. Click [here](#components-form-demo-basic) to see an example | [Rule](#rule)\[] | - |  |
+| rules | Rules for field validation. Click [here](#form-demo-basic) to see an example | [Rule](#rule)\[] | - |  |
 | shouldUpdate | Custom field update logic. See [below](#shouldupdate) | boolean \| (prevValue, curValue) => boolean | false |  |
 | tooltip | Config tooltip info | ReactNode \| [TooltipProps & { icon: ReactNode }](/components/tooltip#api) | - | 4.7.0 |
-| trigger | When to collect the value of children node. Click [here](#components-form-demo-customized-form-controls) to see an example | string | `onChange` |  |
+| trigger | When to collect the value of children node. Click [here](#form-demo-customized-form-controls) to see an example | string | `onChange` |  |
 | validateDebounce | Delay milliseconds to start validation | number | - | 5.9.0 |
 | validateFirst | Whether stop validate on first rule of error for this field. Will parallel validate when `parallel` configured | boolean \| `parallel` | false | `parallel`: 4.5.0 |
 | validateStatus | The validation status. If not provided, it will be generated by validation rule. options: `success` `warning` `error` `validating` | string | - |  |
 | validateTrigger | When to validate the value of children node | string \| string\[] | `onChange` |  |
 | valuePropName | Props of children node, for example, the prop of Switch or Checkbox is `checked`. This prop is an encapsulation of `getValueProps`, which will be invalid after customizing `getValueProps` | string | `value` |  |
 | wrapperCol | The layout for input controls, same as `labelCol`. You can set `wrapperCol` on Form which will not affect nest Item. If both exists, use Item first | [object](/components/grid/#col) | - |  |
+| layout | Form item layout | `horizontal` \| `vertical` | - | 5.18.0 |
 
 After wrapped by `Form.Item` with `name` property, `value`(or other property defined by `valuePropName`) `onChange`(or other property defined by `trigger`) props will be added to form controls, the flow of form data will be handled by Form which will cause:
 
@@ -159,7 +165,7 @@ After wrapped by `Form.Item` with `name` property, `value`(or other property def
 
 ### dependencies
 
-Used when there are dependencies between fields. If a field has the `dependencies` prop, this field will automatically trigger updates and validations when upstream is updated. A common scenario is a user registration form with "password" and "confirm password" fields. The "Confirm Password" validation depends on the "Password" field. After setting `dependencies`, the "Password" field update will re-trigger the validation of "Check Password". You can refer [examples](#components-form-demo-dependencies).
+Used when there are dependencies between fields. If a field has the `dependencies` prop, this field will automatically trigger updates and validations when upstream is updated. A common scenario is a user registration form with "password" and "confirm password" fields. The "Confirm Password" validation depends on the "Password" field. After setting `dependencies`, the "Password" field update will re-trigger the validation of "Check Password". You can refer [examples](#form-demo-dependencies).
 
 `dependencies` shouldn't be used together with `shouldUpdate`, since it may result in conflicting update logic.
 
@@ -183,7 +189,7 @@ related issue: [#34500](https://github.com/ant-design/ant-design/issues/34500)
 </Form.Item>
 ```
 
-You can ref [example](#components-form-demo-horizontal-login) to see detail.
+You can ref [example](#form-demo-inline-login) to see detail.
 
 When `shouldUpdate` is a function, it will be called by form values update. Providing original values and current value to compare. This is very helpful for rendering additional fields based on values:
 
@@ -199,7 +205,7 @@ When `shouldUpdate` is a function, it will be called by form values update. Prov
 </Form.Item>
 ```
 
-You can ref [example](#components-form-demo-control-hooks) to see detail.
+You can ref [example](#form-demo-control-hooks) to see detail.
 
 ### messageVariables
 
@@ -222,6 +228,14 @@ You can modify the default verification information of Form.Item through `messag
     <Input />
   </Form.Item>
 </Form>
+```
+
+Since `5.20.2`, when you don't want to convert `${}`, you can use `\\${}` to skip:
+
+```jsx
+{ required: true, message: '${label} is convert, \\${label} is not convert' }
+
+// good is convert, ${label} is not convert
 ```
 
 ## Form.List
@@ -263,7 +277,7 @@ Some operator functions in render form of Form.List.
 
 ## Form.ErrorList
 
-New in 4.7.0. Show error messages, should only work with `rules` of Form.List. See [example](#components-form-demo-dynamic-form-item).
+New in 4.7.0. Show error messages, should only work with `rules` of Form.List. See [example](#form-demo-dynamic-form-item).
 
 | Property | Description | Type         | Default |
 | -------- | ----------- | ------------ | ------- |
@@ -271,7 +285,7 @@ New in 4.7.0. Show error messages, should only work with `rules` of Form.List. S
 
 ## Form.Provider
 
-Provide linkage between forms. If a sub form with `name` prop update, it will auto trigger Provider related events. See [example](#components-form-demo-form-context).
+Provide linkage between forms. If a sub form with `name` prop update, it will auto trigger Provider related events. See [example](#form-demo-form-context).
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
@@ -309,7 +323,7 @@ Provide linkage between forms. If a sub form with `name` prop update, it will au
 | setFieldValue | Set fields value(Will directly pass to form store and **reset validation message**. If you do not want to modify passed object, please clone first) | (name: [NamePath](#namepath), value: any) => void | 4.22.0 |
 | setFieldsValue | Set fields value(Will directly pass to form store and **reset validation message**. If you do not want to modify passed object, please clone first). Use `setFieldValue` instead if you want to only config single value in Form.List | (values) => void |  |
 | submit | Submit the form. It's same as click `submit` button | () => void |  |
-| validateFields | Validate fields. Use `recursive` to validate all the field in the path | (nameList?: [NamePath](#namepath)\[], config?: [ValidateConfig](#validateFields)) => Promise |  |
+| validateFields | Validate fields. Use `recursive` to validate all the field in the path | (nameList?: [NamePath](#namepath)\[], config?: [ValidateConfig](#validatefields)) => Promise |  |
 
 #### validateFields
 
@@ -468,17 +482,17 @@ export default () => (
 
 Form only update the Field which changed to avoid full refresh perf issue. Thus you can not get real time value with `getFieldsValue` in render. And `useWatch` will rerender current component to sync with latest value. You can also use Field renderProps to get better performance if only want to do conditional render. If component no need care field value change, you can use `onValuesChange` to give to parent component to avoid current one rerender.
 
-### Interface
+## Interface
 
-#### NamePath
+### NamePath
 
 `string | number | (string | number)[]`
 
-#### GetFieldsValue
+### GetFieldsValue
 
 `getFieldsValue` provides overloaded methods:
 
-##### getFieldsValue(nameList?: true | [NamePath](#namepath)\[], filterFunc?: FilterFunc)
+#### getFieldsValue(nameList?: true | [NamePath](#namepath)\[], filterFunc?: FilterFunc)
 
 When `nameList` is empty, return all registered fields, including values of List (even if List has no Item children).
 
@@ -497,11 +511,11 @@ form.getFieldsValue([
 ]);
 ```
 
-##### getFieldsValue({ strict?: boolean, filter?: FilterFunc })
+#### getFieldsValue({ strict?: boolean, filter?: FilterFunc })
 
 New in `5.8.0`. Accept configuration parameters. When `strict` is `true`, only the value of Item will be matched. For example, in `{ list: [{ bamboo: 1, little: 2 }] }`, if List is only bound to the `bamboo` field, then `getFieldsValue({ strict: true })` will only get `{ list: [{ bamboo: 1 }] }`.
 
-#### FilterFunc
+### FilterFunc
 
 To filter certain field values, `meta` will provide information related to the fields. For example, it can be used to retrieve values that have only been modified by the user, and so on.
 
@@ -509,7 +523,7 @@ To filter certain field values, `meta` will provide information related to the f
 type FilterFunc = (meta: { touched: boolean; validating: boolean }) => boolean;
 ```
 
-#### FieldData
+### FieldData
 
 | Name       | Description              | Type                     |
 | ---------- | ------------------------ | ------------------------ |
@@ -520,7 +534,7 @@ type FilterFunc = (meta: { touched: boolean; validating: boolean }) => boolean;
 | validating | Whether is in validating | boolean                  |
 | value      | Field value              | any                      |
 
-#### Rule
+### Rule
 
 Rule supports a config object, or a function returning config object:
 
@@ -540,13 +554,13 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | pattern | Regex pattern | RegExp |  |
 | required | Required field | boolean |  |
 | transform | Transform value to the rule before validation | (value) => any |  |
-| type | Normally `string` \|`number` \|`boolean` \|`url` \| `email`. More type to ref [here](https://github.com/yiminghe/async-validator#type) | string |  |
+| type | Normally `string` \|`number` \|`boolean` \|`url` \| `email`. More type to ref [here](https://github.com/react-component/async-validator#type) | string |  |
 | validateTrigger | Set validate trigger event. Must be the sub set of `validateTrigger` in Form.Item | string \| string\[] |  |
-| validator | Customize validation rule. Accept Promise as return. See [example](#components-form-demo-register) | ([rule](#rule), value) => Promise |  |
+| validator | Customize validation rule. Accept Promise as return. See [example](#form-demo-register) | ([rule](#rule), value) => Promise |  |
 | warningOnly | Warning only. Not block form submit | boolean | 4.17.0 |
 | whitespace | Failed if only has whitespace, only work with `type: 'string'` rule | boolean |  |
 
-#### WatchOptions
+### WatchOptions
 
 | Name | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
@@ -655,17 +669,13 @@ dependencies should be `['users', 0, 'name']`
 
 React can not get correct interaction of controlled component with async value update. When user trigger `onChange`, component will do no response since `value` update is async. If you want to trigger value update async, you should use customize component to handle value state internal and pass sync value control to Form instead.
 
-<style>
-.site-form-item-icon {
-  color: rgba(0, 0, 0, 0.25);
-}
-</style>
-
 ### `scrollToFirstError` and `scrollToField` not working?
 
 1. use custom form control
 
 See similar issues: [#28370](https://github.com/ant-design/ant-design/issues/28370) [#27994](https://github.com/ant-design/ant-design/issues/27994)
+
+Starting from version `5.17.0`, the sliding operation will prioritize using the ref element forwarded by the form control elements. Therefore, when considering custom components to support verification scrolling, please consider forwarding it to the form control elements first.
 
 `scrollToFirstError` and `scrollToField` deps on `id` attribute passed to form control, please make sure that it hasn't been ignored in your custom form control. Check [codesandbox](https://codesandbox.io/s/antd-reproduction-template-forked-25nul?file=/index.js) for solution.
 

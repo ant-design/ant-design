@@ -37,7 +37,7 @@ const DocLayout: React.FC = () => {
   const location = useLocation();
   const { pathname, search, hash } = location;
   const [locale, lang] = useLocale(locales);
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const timerRef = useRef<ReturnType<typeof setTimeout>>();
   const { direction } = useContext(SiteContext);
   const { loading } = useSiteData();
 
@@ -51,11 +51,10 @@ const DocLayout: React.FC = () => {
 
   useEffect(() => {
     const nprogressHiddenStyle = document.getElementById('nprogress-style');
-    if (nprogressHiddenStyle) {
-      timerRef.current = setTimeout(() => {
-        nprogressHiddenStyle.parentNode?.removeChild(nprogressHiddenStyle);
-      }, 0);
-    }
+    timerRef.current = setTimeout(() => {
+      nprogressHiddenStyle?.remove();
+    }, 0);
+    return () => clearTimeout(timerRef.current);
   }, []);
 
   // handle hash change or visit page hash from Link component, and jump after async chunk loaded

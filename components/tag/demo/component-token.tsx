@@ -6,7 +6,7 @@ const App: React.FC = () => (
   <ConfigProvider
     theme={{ components: { Tag: { defaultBg: '#f9f0ff', defaultColor: '#4b34d3' } } }}
   >
-    <Flex gap="4px 0" wrap="wrap">
+    <Flex gap="4px 0" wrap>
       <Tag>
         <a href="https://github.com/ant-design/ant-design/issues/1862">Link</a>
       </Tag>

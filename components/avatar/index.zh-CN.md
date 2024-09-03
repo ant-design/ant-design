@@ -1,7 +1,8 @@
 ---
 category: Components
-subtitle: 头像
 title: Avatar
+subtitle: 头像
+description: 用来代表用户或事物，支持图片、图标或字符展示。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JJBSS5lBG4IAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*YbgyQaRGz-UAAAAAAAAAAAAADrJ8AQ/original
 demo:
@@ -10,8 +11,6 @@ group:
   title: 数据展示
   order: 5
 ---
-
-用来代表用户或事物，支持图片、图标或字符展示。
 
 ## 设计师专属
 
@@ -55,10 +54,7 @@ group:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| maxCount | 显示的最大头像个数 | number | - |  |
-| maxPopoverPlacement | 多余头像气泡弹出位置 | `top` \| `bottom` | `top` |  |
-| maxPopoverTrigger | 设置多余头像 Popover 的触发方式 | `hover` \| `focus` \| `click` | `hover` | 4.17.0 |
-| maxStyle | 多余头像样式 | CSSProperties | - |  |
+| max | 设置最多显示相关配置，`5.18.0` 前可使用 [参数](https://github.com/ant-design/ant-design/blob/9d134859becbdae5b9ce276f6d9af4264691d81f/components/avatar/group.tsx#L35-L38) | `{ count?: number; style?: CSSProperties; popover?: PopoverProps }` | - | 5.18.0 |
 | size | 设置头像的大小 | number \| `large` \| `small` \| `default` \| { xs: number, sm: number, ...} | `default` | 4.8.0 |
 | shape | 设置头像的形状 | `circle` \| `square` | `circle` | 5.8.0 |
 

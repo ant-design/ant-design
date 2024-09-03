@@ -1,13 +1,13 @@
 import React from 'react';
 import { BgColorsOutlined, SmileOutlined } from '@ant-design/icons';
 import { FloatButton } from 'antd';
-import { useTheme } from 'antd-style';
 import { CompactTheme, DarkTheme } from 'antd-token-previewer/es/icons';
 // import { Motion } from 'antd-token-previewer/es/icons';
-import { FormattedMessage, Link, useLocation } from 'dumi';
+import { FormattedMessage, useLocation } from 'dumi';
 
 import useThemeAnimation from '../../../hooks/useThemeAnimation';
 import { getLocalizedPathname, isZhCN } from '../../utils';
+import Link from '../Link';
 import ThemeIcon from './ThemeIcon';
 
 export type ThemeName = 'light' | 'dark' | 'compact' | 'motion-off' | 'happy-work';
@@ -19,7 +19,6 @@ export interface ThemeSwitchProps {
 
 const ThemeSwitch: React.FC<ThemeSwitchProps> = (props) => {
   const { value = ['light'], onChange } = props;
-  const token = useTheme();
   const { pathname, search } = useLocation();
 
   // const isMotionOff = value.includes('motion-off');
@@ -34,11 +33,10 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = (props) => {
       icon={<ThemeIcon />}
       aria-label="Theme Switcher"
       badge={{ dot: true }}
-      style={{ zIndex: 1010 }}
     >
       <Link
         to={getLocalizedPathname('/theme-editor', isZhCN(pathname), search)}
-        style={{ display: 'block', marginBottom: token.margin }}
+        style={{ display: 'block' }}
       >
         <FloatButton
           icon={<BgColorsOutlined />}

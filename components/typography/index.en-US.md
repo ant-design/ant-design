@@ -2,15 +2,14 @@
 category: Components
 group: General
 title: Typography
+description: Basic text writing, including headings, body text, lists, and more.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*MLt3R6m9huoAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-Basic text writing, including headings, body text, lists, and more.
-
 ## When To Use
 
-- When need to display a title or paragraph contents in Articles/Blogs/Notes.
+- When you need to display a title or paragraph contents in Articles/Blogs/Notes.
 - When you need copyable/editable/ellipsis texts.
 
 ## Examples
@@ -88,11 +87,12 @@ Common props ref：[Common props](/docs/react/common-props)
 ### copyable
 
     {
-      text: string,
+      text: string | (() => string | Promise<string>),
       onCopy: function(event),
       icon: ReactNode,
       tooltips: false | [ReactNode, ReactNode],
       format: 'text/plain' | 'text/html',
+      tabIndex: number,
     }
 
 | Property | Description | Type | Default | Version |
@@ -102,12 +102,13 @@ Common props ref：[Common props](/docs/react/common-props)
 | text | The text to copy | string | - |  |
 | tooltips | Custom tooltip text, hide when it is false | \[ReactNode, ReactNode] | \[`Copy`, `Copied`] | 4.4.0 |
 | onCopy | Called when copied text | function | - |  |
+| tabIndex | Set tabIndex of the copy button | number | 0 | 5.17.0 |
 
 ### editable
 
     {
       icon: ReactNode,
-      tooltip: boolean | ReactNode,
+      tooltip: ReactNode,
       editing: boolean,
       maxLength: number,
       autoSize: boolean | { minRows: number, maxRows: number },
@@ -118,6 +119,7 @@ Common props ref：[Common props](/docs/react/common-props)
       onEnd: function,
       triggerType: ('icon' | 'text')[],
       enterIcon: ReactNode,
+      tabIndex: number,
     }
 
 | Property | Description | Type | Default | Version |
@@ -134,6 +136,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onEnd | Called when type ENTER to exit editable state | function | - | 4.14.0 |
 | triggerType | Edit mode trigger - icon, text or both (not specifying icon as trigger hides it) | Array&lt;`icon`\|`text`> | \[`icon`] |  |
 | enterIcon | Custom "enter" icon in the edit field (passing `null` removes the icon) | ReactNode | `<EnterOutlined />` | 4.17.0 |
+| tabIndex | Set tabIndex of the edit button | number | 0 | 5.17.0 |
 
 ### ellipsis
 
@@ -145,7 +148,7 @@ interface EllipsisConfig {
   suffix: string;
   /** render function added in `5.16.0` */
   symbol: ReactNode | ((expanded: boolean) => ReactNode);
-  tooltip: boolean | ReactNode | TooltipProps;
+  tooltip: ReactNode | TooltipProps;
   /** added in `5.16.0` */
   defaultExpanded: boolean;
   /** added in `5.16.0` */

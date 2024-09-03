@@ -2,13 +2,12 @@
 category: Components
 group: Data Entry
 title: TimePicker
+description: To select/input a time.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*kGmGSLk_1fwAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*1hDmQJIDFJQAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-To select/input a time.
 
 ## When To Use
 
@@ -20,6 +19,7 @@ By clicking the input box, you can select a time from a popup panel.
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/value.tsx">Under Control</code>
 <code src="./demo/size.tsx">Three Sizes</code>
+<code src="./demo/need-confirm.tsx" version="5.14.0">Need Confirm</code>
 <code src="./demo/disabled.tsx">disabled</code>
 <code src="./demo/hide-column.tsx">Hour and minute</code>
 <code src="./demo/interval-options.tsx">interval option</code>

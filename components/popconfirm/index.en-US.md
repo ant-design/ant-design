@@ -2,13 +2,12 @@
 category: Components
 group: Feedback
 title: Popconfirm
+description: Pop up a bubble confirmation box for an action.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a7tqQ6wrdeAAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*iwYsQpeFcB0AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-A simple and compact confirmation dialog of an action.
 
 ## When To Use
 
@@ -22,6 +21,7 @@ The difference with the `confirm` modal dialog is that it's more lightweight tha
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/locale.tsx">Locale text</code>
 <code src="./demo/placement.tsx">Placement</code>
+<code src="./demo/shift.tsx" iframe="300">Auto Shift</code>
 <code src="./demo/dynamic-trigger.tsx">Conditional trigger</code>
 <code src="./demo/icon.tsx">Customize icon</code>
 <code src="./demo/async.tsx">Asynchronously close</code>
@@ -54,6 +54,12 @@ Consult [Tooltip's documentation](/components/tooltip/#api) to find more APIs.
 ## Design Token
 
 <ComponentTokenTable component="Popconfirm"></ComponentTokenTable>
+
+## FAQ
+
+### Why does the warning findDOMNode is deprecated some times appear in strict mode?
+
+This is due to the implementation of `rc-trigger`. `rc-trigger` forces children to accept ref, otherwise it will fall back to findDOMNode, so children need to be native html tags. If not, you need to use `React.forwardRef` transparently passes `ref` to native html tags.
 
 ## Note
 

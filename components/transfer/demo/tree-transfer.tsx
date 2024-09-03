@@ -6,7 +6,7 @@ type TransferItem = GetProp<TransferProps, 'dataSource'>[number];
 
 interface TreeTransferProps {
   dataSource: TreeDataNode[];
-  targetKeys: string[];
+  targetKeys: TransferProps['targetKeys'];
   onChange: TransferProps['onChange'];
 }
 
@@ -14,14 +14,21 @@ interface TreeTransferProps {
 const isChecked = (selectedKeys: React.Key[], eventKey: React.Key) =>
   selectedKeys.includes(eventKey);
 
-const generateTree = (treeNodes: TreeDataNode[] = [], checkedKeys: string[] = []): TreeDataNode[] =>
+const generateTree = (
+  treeNodes: TreeDataNode[] = [],
+  checkedKeys: TreeTransferProps['targetKeys'] = [],
+): TreeDataNode[] =>
   treeNodes.map(({ children, ...props }) => ({
     ...props,
     disabled: checkedKeys.includes(props.key as string),
     children: generateTree(children, checkedKeys),
   }));
 
-const TreeTransfer: React.FC<TreeTransferProps> = ({ dataSource, targetKeys, ...restProps }) => {
+const TreeTransfer: React.FC<TreeTransferProps> = ({
+  dataSource,
+  targetKeys = [],
+  ...restProps
+}) => {
   const { token } = theme.useToken();
 
   const transferDataSource: TransferItem[] = [];
@@ -85,8 +92,8 @@ const treeData: TreeDataNode[] = [
 ];
 
 const App: React.FC = () => {
-  const [targetKeys, setTargetKeys] = useState<string[]>([]);
-  const onChange = (keys: string[]) => {
+  const [targetKeys, setTargetKeys] = useState<TreeTransferProps['targetKeys']>([]);
+  const onChange: TreeTransferProps['onChange'] = (keys) => {
     setTargetKeys(keys);
   };
   return <TreeTransfer dataSource={treeData} targetKeys={targetKeys} onChange={onChange} />;

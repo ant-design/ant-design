@@ -1,10 +1,11 @@
 import React from 'react';
 import classNames from 'classnames';
+
 import mountTest from '../../../tests/shared/mountTest';
 import { act, fireEvent, getByText, render, waitFakeTimer } from '../../../tests/utils';
+import Checkbox from '../../checkbox';
 import Wave from '../wave';
 import { TARGET_CLS } from '../wave/interface';
-import Checkbox from '../../checkbox';
 
 (global as any).isVisible = true;
 
@@ -79,6 +80,7 @@ describe('Wave component', () => {
   }
 
   it('work', async () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { container, unmount } = render(
       <Wave>
         <button type="button">button</button>
@@ -93,6 +95,8 @@ describe('Wave component', () => {
     await waitFakeTimer();
 
     expect(document.querySelector('.ant-wave')).toBeFalsy();
+
+    expect(errorSpy).not.toHaveBeenCalled();
 
     unmount();
   });
@@ -112,13 +116,10 @@ describe('Wave component', () => {
     unmount();
   });
 
-  it('wave color is grey', () => {
+  it('wave color is nonexistent', () => {
     const { container, unmount } = render(
       <Wave>
-        <button
-          type="button"
-          style={{ borderColor: 'rgb(0, 0, 0)', backgroundColor: 'transparent' }}
-        >
+        <button type="button" style={{ border: '#fff', background: '#fff' }}>
           button
         </button>
       </Wave>,
@@ -128,8 +129,7 @@ describe('Wave component', () => {
     waitRaf();
 
     const style = getWaveStyle();
-
-    expect(style['--wave-color']).toBeFalsy();
+    expect(style['--wave-color']).toEqual(undefined);
 
     unmount();
   });

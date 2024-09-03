@@ -1,5 +1,4 @@
 import * as React from 'react';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 
 import useClosable from '../_util/hooks/useClosable';
@@ -31,17 +30,14 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
 
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
-  const [mergedClosable, mergedCloseIcon] = useClosable({
-    closable,
-    closeIcon,
-    customCloseIconRender: (icon) =>
+  const [mergedClosable, mergedCloseIcon] = useClosable({ closable, closeIcon }, null, {
+    closable: true,
+    closeIconRender: (icon) =>
       React.isValidElement(icon)
         ? cloneElement(icon, {
             className: classNames(icon.props.className, `${prefixCls}-close-icon`),
           })
         : icon,
-    defaultCloseIcon: <CloseOutlined />,
-    defaultClosable: true,
   });
 
   return wrapCSSVar(

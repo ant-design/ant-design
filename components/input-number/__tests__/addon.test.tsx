@@ -1,4 +1,5 @@
 import React from 'react';
+
 import InputNumber from '..';
 import { render } from '../../../tests/utils';
 

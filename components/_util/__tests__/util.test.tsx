@@ -1,6 +1,7 @@
 /* eslint-disable class-methods-use-this */
-import KeyCode from 'rc-util/lib/KeyCode';
 import React from 'react';
+import KeyCode from 'rc-util/lib/KeyCode';
+
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import { isStyleSupport } from '../styleChecker';
 import throttleByAnimationFrame from '../throttleByAnimationFrame';

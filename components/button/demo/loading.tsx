@@ -23,7 +23,7 @@ const App: React.FC = () => {
 
   return (
     <Flex gap="small" vertical>
-      <Flex gap="small" align="center" wrap="wrap">
+      <Flex gap="small" align="center" wrap>
         <Button type="primary" loading>
           Loading
         </Button>
@@ -32,7 +32,7 @@ const App: React.FC = () => {
         </Button>
         <Button type="primary" icon={<PoweroffOutlined />} loading />
       </Flex>
-      <Flex gap="small" wrap="wrap">
+      <Flex gap="small" wrap>
         <Button type="primary" loading={loadings[0]} onClick={() => enterLoading(0)}>
           Click me!
         </Button>

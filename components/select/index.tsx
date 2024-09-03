@@ -21,7 +21,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
-import type { Variant } from '../form/hooks/useVariants';
+import type { Variant } from '../config-provider';
 import useVariants from '../form/hooks/useVariants';
 import { useCompactItemContext } from '../space/Compact';
 import { useToken } from '../theme/internal';
@@ -142,7 +142,7 @@ const InternalSelect = <
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
-  const [variant, enableVariantCls] = useVariants(customizeVariant, bordered);
+  const [variant, enableVariantCls] = useVariants('select', customizeVariant, bordered);
 
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);

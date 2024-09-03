@@ -2,6 +2,8 @@
 title: Tree's check conduction
 date: 2022-12-14
 author: zombieJ
+zhihu_url: https://zhuanlan.zhihu.com/p/608106800
+yuque_url: https://www.yuque.com/ant-design/ant-design/hiufwnq7iqoded0h
 ---
 
 In the Tree or similar components (such as TreeSelect, Cascader), needs check function. It's unambiguous most of the time, but when a `disabled` node appears somewhere in the middle, it's worth talking about. This article will introduce the logic of check conduction in antd. It should be noted that in different scenarios, there will be various requirements, and antd has chosen the most commonly used check conduction logic. If you need a different custom style, you can implement it yourself through `checkStrictly`.

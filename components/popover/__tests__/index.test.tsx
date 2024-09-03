@@ -28,6 +28,15 @@ describe('Popover', () => {
     expect(container.querySelector('.ant-popover-inner-content')).toBeTruthy();
   });
 
+  it('should support defaultOpen', () => {
+    const { container } = render(
+      <Popover title="code" defaultOpen>
+        <span>show me your code</span>
+      </Popover>,
+    );
+    expect(container.querySelector('.ant-popover')).toBeTruthy();
+  });
+
   it('shows content for render functions', () => {
     const renderTitle = () => 'some-title';
     const renderContent = () => 'some-content';
@@ -114,5 +123,18 @@ describe('Popover', () => {
     expect(onOpenChange).toHaveBeenLastCalledWith(true, undefined);
     fireEvent.keyDown(triggerNode, { key: 'Escape', keyCode: 27 });
     expect(onOpenChange).toHaveBeenLastCalledWith(false, eventObject);
+  });
+
+  it('should not display overlay when the content is null/undefined', () => {
+    [null, undefined].forEach((item) => {
+      const { container } = render(
+        <Popover title={() => item} content={() => item} trigger="click">
+          <span>show me your code</span>
+        </Popover>,
+      );
+      fireEvent.click(container.querySelector<HTMLSpanElement>('span')!);
+      const popup = document.querySelector('.ant-popover');
+      expect(popup).toBe(null);
+    });
   });
 });

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Space, Button, Tooltip } from 'antd';
+import { Button, Space, Tooltip } from 'antd';
 
 const App: React.FC = () => {
   const [disabled, setDisabled] = useState(true);

@@ -1,13 +1,13 @@
 import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
-import type { Dayjs } from 'dayjs';
+import { TimePicker } from 'antd';
+import type { TimePickerProps } from 'antd';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import { TimePicker } from 'antd';
 
 dayjs.extend(customParseFormat);
 
-const onChange = (time: Dayjs, timeString: string) => {
+const onChange: TimePickerProps['onChange'] = (time, timeString) => {
   console.log(time, timeString);
 };
 

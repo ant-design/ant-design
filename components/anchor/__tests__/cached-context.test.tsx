@@ -1,4 +1,5 @@
 import React, { memo, useContext } from 'react';
+
 import { fireEvent, pureRender } from '../../../tests/utils';
 import Anchor from '../Anchor';
 import AnchorContext from '../context';

@@ -1,16 +1,16 @@
+import { unit } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
-import { resetComponent, genFocusStyle } from '../../style';
+import { genFocusStyle, resetComponent } from '../../style';
 import type { ArrowOffsetToken } from '../../style/placementArrow';
 import getArrowStyle, {
   getArrowOffsetToken,
   MAX_VERTICAL_CONTENT_RADIUS,
 } from '../../style/placementArrow';
-import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genStyleHooks, mergeToken } from '../../theme/internal';
 import type { ArrowToken } from '../../style/roundedArrow';
 import { getArrowToken } from '../../style/roundedArrow';
-import { unit } from '@ant-design/cssinjs';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken extends ArrowOffsetToken, ArrowToken {
   /**
@@ -36,9 +36,8 @@ export interface ComponentToken extends ArrowOffsetToken, ArrowToken {
 }
 
 interface TourToken extends FullToken<'Tour'> {
-  tourZIndexPopup: number;
-  indicatorWidth: number;
-  indicatorHeight: number;
+  indicatorWidth: number | string;
+  indicatorHeight: number | string;
   tourBorderRadius: number;
 }
 
@@ -46,19 +45,16 @@ interface TourToken extends FullToken<'Tour'> {
 const genBaseStyle: GenerateStyle<TourToken> = (token) => {
   const {
     componentCls,
-    lineHeight,
     padding,
     paddingXS,
     borderRadius,
     borderRadiusXS,
     colorPrimary,
-    colorText,
     colorFill,
     indicatorHeight,
     indicatorWidth,
     boxShadowTertiary,
-    tourZIndexPopup,
-    fontSize,
+    zIndexPopup,
     colorBgElevated,
     fontWeightStrong,
     marginXS,
@@ -77,13 +73,10 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
       [componentCls]: {
         ...resetComponent(token),
 
-        color: colorText,
         position: 'absolute',
-        zIndex: tourZIndexPopup,
-        display: 'block',
+        zIndex: zIndexPopup,
+        maxWidth: 'fit-content',
         visibility: 'visible',
-        fontSize,
-        lineHeight,
         width: 520,
         '--antd-arrow-background-color': colorBgElevated,
 
@@ -100,6 +93,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
         [`${componentCls}-content`]: {
           position: 'relative',
         },
+
         [`${componentCls}-inner`]: {
           textAlign: 'start',
           textDecoration: 'none',
@@ -151,15 +145,12 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
             padding: `${unit(padding)} ${unit(padding)} ${unit(paddingXS)}`,
 
             [`${componentCls}-title`]: {
-              lineHeight,
-              fontSize,
               fontWeight: fontWeightStrong,
             },
           },
 
           [`${componentCls}-description`]: {
             padding: `0 ${unit(padding)}`,
-            lineHeight,
             wordWrap: 'break-word',
           },
 

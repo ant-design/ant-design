@@ -81,9 +81,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   selectionsIcon?: React.ReactNode;
 }
 
-export interface TransferCustomListBodyProps<T> extends TransferListBodyProps<T> {
-  onItemSelect: (key: string, check: boolean) => void;
-}
+export interface TransferCustomListBodyProps<T> extends TransferListBodyProps<T> {}
 
 const TransferList = <RecordType extends KeyWiseTransferItem>(
   props: TransferListProps<RecordType>,
@@ -99,6 +97,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     searchPlaceholder,
     notFoundContent,
     selectAll,
+    deselectAll,
     selectCurrent,
     selectInvert,
     removeAll,
@@ -145,11 +144,12 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     let bodyContent: React.ReactNode = renderList
       ? renderList({
           ...listProps,
-          onItemSelect: (key: string, check: boolean) => listProps.onItemSelect(key, check),
+          onItemSelect: (key, check) => listProps.onItemSelect(key, check),
         })
       : null;
     const customize: boolean = !!bodyContent;
     if (!customize) {
+      // @ts-ignore
       bodyContent = <DefaultListBody ref={listBodyRef} {...listProps} />;
     }
     return { customize, bodyContent };
@@ -326,7 +326,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     items = [
       {
         key: 'selectAll',
-        label: selectAll,
+        label: checkStatus === 'all' ? deselectAll : selectAll,
         onClick() {
           const keys = getEnabledItemKeys(filteredItems);
           onItemSelectAll?.(keys, keys.length !== checkedKeys.length);
@@ -363,7 +363,6 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
       },
     ];
   }
-
   const dropdown: React.ReactNode = (
     <Dropdown className={`${prefixCls}-header-dropdown`} menu={{ items }} disabled={disabled}>
       {isValidIcon(selectionsIcon) ? selectionsIcon : <DownOutlined />}

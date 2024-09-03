@@ -13,6 +13,9 @@ exports[`renders components/empty/demo/basic.tsx correctly 1`] = `
       width="184"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        empty image
+      </title>
       <g
         fill="none"
         fill-rule="evenodd"
@@ -416,7 +419,7 @@ Array [
           class="ant-transfer-operation"
         >
           <button
-            class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+            class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
             disabled=""
             type="button"
           >
@@ -445,7 +448,7 @@ Array [
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+            class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
             disabled=""
             type="button"
           >
@@ -738,8 +741,10 @@ exports[`renders components/empty/demo/customize.tsx correctly 1`] = `
   <div
     class="ant-empty-description"
   >
-    <span>
-      Customize
+    <span
+      class="ant-typography"
+    >
+      Customize 
       <a
         href="#API"
       >
@@ -751,7 +756,7 @@ exports[`renders components/empty/demo/customize.tsx correctly 1`] = `
     class="ant-empty-footer"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-solid"
       type="button"
     >
       <span>
@@ -775,6 +780,9 @@ exports[`renders components/empty/demo/description.tsx correctly 1`] = `
       width="184"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        empty image
+      </title>
       <g
         fill="none"
         fill-rule="evenodd"
@@ -845,6 +853,9 @@ exports[`renders components/empty/demo/simple.tsx correctly 1`] = `
       width="64"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        Simple Empty
+      </title>
       <g
         fill="none"
         fill-rule="evenodd"

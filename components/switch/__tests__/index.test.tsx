@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Switch from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
@@ -66,5 +67,13 @@ describe('Switch', () => {
 
   it('have static property for type detecting', () => {
     expect(Switch.__ANT_SWITCH).toBeTruthy();
+  });
+
+  it('inner element have min-height', () => {
+    const { container, rerender } = render(<Switch unCheckedChildren="0" size="small" />);
+    expect(container.querySelector('.ant-switch-inner-unchecked')).toHaveStyle('min-height: 16px');
+
+    rerender(<Switch unCheckedChildren="0" />);
+    expect(container.querySelector('.ant-switch-inner-unchecked')).toHaveStyle('min-height: 22px');
   });
 });

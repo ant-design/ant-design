@@ -428,7 +428,7 @@ Array [
     style="width:100px"
   />,
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-solid"
     type="button"
   >
     <span>
@@ -449,7 +449,7 @@ Array [
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
       tabindex="0"
     >
       <span
@@ -1047,7 +1047,7 @@ Array [
     </div>
     <div
       class="ant-picker-active-bar"
-      style="position:absolute;width:0;left:0"
+      style="position:absolute;width:0"
     />
     <span
       class="ant-picker-suffix"
@@ -1548,6 +1548,44 @@ exports[`renders components/input/demo/borderless-debug.tsx correctly 1`] = `
       </span>
     </span>
   </span>
+  <input
+    class="ant-input ant-input-borderless ant-input-status-error"
+    type="text"
+    value="error"
+  />
+  <input
+    class="ant-input ant-input-borderless ant-input-status-warning"
+    type="text"
+    value="warning"
+  />
+  <span
+    class="ant-input-affix-wrapper ant-input-borderless ant-input-status-error"
+  >
+    <span
+      class="ant-input-prefix"
+    >
+      $
+    </span>
+    <input
+      class="ant-input"
+      type="text"
+      value="error"
+    />
+  </span>
+  <span
+    class="ant-input-affix-wrapper ant-input-borderless ant-input-status-warning"
+  >
+    <span
+      class="ant-input-prefix"
+    >
+      $
+    </span>
+    <input
+      class="ant-input"
+      type="text"
+      value="warning"
+    />
+  </span>
 </div>
 `;
 
@@ -1649,7 +1687,7 @@ exports[`renders components/input/demo/compact-style.tsx correctly 1`] = `
             class="ant-input-group-addon"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+              class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-input-search-button"
               type="button"
             >
               <span
@@ -1694,7 +1732,7 @@ exports[`renders components/input/demo/compact-style.tsx correctly 1`] = `
         value="Combine input and button"
       />
       <button
-        class="ant-btn ant-btn-primary ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -1856,7 +1894,7 @@ exports[`renders components/input/demo/debug-addon.tsx correctly 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-primary"
+            class="ant-btn ant-btn-primary ant-btn-solid"
             type="button"
           >
             <span>
@@ -1885,7 +1923,7 @@ exports[`renders components/input/demo/debug-addon.tsx correctly 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-outlined"
             type="button"
           >
             <span>
@@ -1929,7 +1967,7 @@ exports[`renders components/input/demo/debug-addon.tsx correctly 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-outlined"
             type="button"
           >
             <span
@@ -2348,7 +2386,7 @@ exports[`renders components/input/demo/focus.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           type="button"
         >
           <span>
@@ -2360,7 +2398,7 @@ exports[`renders components/input/demo/focus.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           type="button"
         >
           <span>
@@ -2372,7 +2410,7 @@ exports[`renders components/input/demo/focus.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           type="button"
         >
           <span>
@@ -2384,7 +2422,7 @@ exports[`renders components/input/demo/focus.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           type="button"
         >
           <span>
@@ -2501,7 +2539,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       value="https://ant.design"
     />
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-solid"
       type="button"
     >
       <span>
@@ -2520,7 +2558,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       value="git@github.com:ant-design/ant-design.git"
     />
     <button
-      class="ant-btn ant-btn-default ant-btn-icon-only"
+      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only"
       type="button"
     >
       <span
@@ -2672,7 +2710,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+            class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-input-search-button"
             type="button"
           >
             <span
@@ -2752,7 +2790,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+            class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-input-search-button"
             type="button"
           >
             <span
@@ -3053,7 +3091,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="position:absolute;width:0;left:0"
+        style="position:absolute;width:0"
       />
       <span
         class="ant-picker-suffix"
@@ -3511,6 +3549,256 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/input/demo/otp.tsx correctly 1`] = `
+<div
+  class="ant-flex ant-flex-align-flex-start ant-flex-gap-middle ant-flex-vertical"
+>
+  <h5
+    class="ant-typography"
+  >
+    With formatter (Upcase)
+  </h5>
+  <div
+    class="ant-otp"
+  >
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+  </div>
+  <h5
+    class="ant-typography"
+  >
+    With Disabled
+  </h5>
+  <div
+    class="ant-otp"
+  >
+    <input
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      disabled=""
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      disabled=""
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      disabled=""
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      disabled=""
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      disabled=""
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-disabled ant-input-outlined ant-otp-input"
+      disabled=""
+      size="1"
+      type="text"
+      value=""
+    />
+  </div>
+  <h5
+    class="ant-typography"
+  >
+    With Length (8)
+  </h5>
+  <div
+    class="ant-otp"
+  >
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+  </div>
+  <h5
+    class="ant-typography"
+  >
+    With variant
+  </h5>
+  <div
+    class="ant-otp"
+  >
+    <input
+      class="ant-input ant-input-filled ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-filled ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-filled ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-filled ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-filled ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-filled ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+  </div>
+  <h5
+    class="ant-typography"
+  >
+    With custom display character
+  </h5>
+  <div
+    class="ant-otp"
+  >
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="ant-input ant-input-outlined ant-otp-input"
+      size="1"
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;
+
 exports[`renders components/input/demo/password-input.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
@@ -3648,7 +3936,7 @@ exports[`renders components/input/demo/password-input.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           style="width:80px"
           type="button"
         >
@@ -3672,8 +3960,9 @@ Array [
     >
       <span
         aria-label="user"
-        class="anticon anticon-user site-form-item-icon"
+        class="anticon anticon-user"
         role="img"
+        style="color:rgba(0,0,0,.25)"
       >
         <svg
           aria-hidden="true"
@@ -3794,7 +4083,7 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+            class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-input-search-button"
             type="button"
           >
             <span
@@ -3879,7 +4168,7 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+            class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-input-search-button"
             type="button"
           >
             <span
@@ -3969,7 +4258,7 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+            class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-input-search-button"
             type="button"
           >
             <span
@@ -4019,7 +4308,7 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-primary ant-input-search-button"
+            class="ant-btn ant-btn-primary ant-btn-solid ant-input-search-button"
             type="button"
           >
             <span
@@ -4103,7 +4392,7 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-primary ant-btn-lg ant-input-search-button"
+            class="ant-btn ant-btn-primary ant-btn-solid ant-btn-lg ant-input-search-button"
             type="button"
           >
             <span>
@@ -4161,7 +4450,7 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-primary ant-btn-lg ant-input-search-button"
+            class="ant-btn ant-btn-primary ant-btn-solid ant-btn-lg ant-input-search-button"
             type="button"
           >
             <span>
@@ -4193,7 +4482,7 @@ Array [
         class="ant-input-group-addon"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-loading ant-input-search-button"
+          class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-btn-loading ant-input-search-button"
           type="button"
         >
           <span
@@ -4241,7 +4530,7 @@ Array [
         class="ant-input-group-addon"
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-loading ant-input-search-button"
+          class="ant-btn ant-btn-primary ant-btn-solid ant-btn-loading ant-input-search-button"
           type="button"
         >
           <span
@@ -4289,7 +4578,7 @@ Array [
         class="ant-input-group-addon"
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-lg ant-btn-loading ant-input-search-button"
+          class="ant-btn ant-btn-primary ant-btn-solid ant-btn-lg ant-btn-loading ant-input-search-button"
           type="button"
         >
           <span
@@ -4628,7 +4917,7 @@ Array [
 exports[`renders components/input/demo/textarea-resize.tsx correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-default"
+    class="ant-btn ant-btn-default ant-btn-outlined"
     style="margin-bottom:16px"
     type="button"
   >

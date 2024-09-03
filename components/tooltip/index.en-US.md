@@ -2,13 +2,12 @@
 category: Components
 group: Data Display
 title: Tooltip
+description: Simple text popup box.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*9LKlRbWytugAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*bCbPTJ7LQngAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-A simple text popup tip.
 
 ## When To Use
 
@@ -21,7 +20,7 @@ A simple text popup tip.
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/arrow.tsx">Arrow</code>
-<code src="./demo/shift.tsx" iframe="200">Auto Shift</code>
+<code src="./demo/shift.tsx" iframe="300">Auto Shift</code>
 <code src="./demo/auto-adjust-overflow.tsx" debug>Adjust placement automatically</code>
 <code src="./demo/destroy-tooltip-on-hide.tsx" debug>Destroy tooltip when hidden</code>
 <code src="./demo/colorful.tsx">Colorful Tooltip</code>
@@ -44,7 +43,7 @@ The following APIs are shared by Tooltip, Popconfirm, Popover.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| align | This value will be merged into placement's config, please refer to the settings [rc-tooltip](https://github.com/react-component/tooltip) | object | - |  |
+| align | This value will be merged into placement's config, please refer to the settings [dom-align](https://github.com/yiminghe/dom-align) | object | - |  |
 | arrow | Change arrow's visible state and change whether the arrow is pointed at the center of target. | boolean \| { pointAtCenter: boolean } | true | 5.2.0 |
 | autoAdjustOverflow | Whether to adjust popup placement automatically when popup is off screen | boolean | true |  |
 | color | The background color | string | - | 4.3.0 |

@@ -1,4 +1,5 @@
 import { TinyColor } from '@ctrl/tinycolor';
+
 import type { ColorMapToken, SeedToken } from '../../interface';
 import type { GenerateColorMap, GenerateNeutralColorMap } from '../ColorMap';
 
@@ -32,6 +33,10 @@ export default function genColorMapToken(
   const colorLink = seed.colorLink || seed.colorInfo;
   const linkColors = generateColorPalettes(colorLink);
 
+  const colorErrorBgFilledHover = new TinyColor(errorColors[1])
+    .mix(new TinyColor(errorColors[3]), 50)
+    .toHexString();
+
   return {
     ...neutralColors,
 
@@ -59,6 +64,8 @@ export default function genColorMapToken(
 
     colorErrorBg: errorColors[1],
     colorErrorBgHover: errorColors[2],
+    colorErrorBgFilledHover,
+    colorErrorBgActive: errorColors[3],
     colorErrorBorder: errorColors[3],
     colorErrorBorderHover: errorColors[4],
     colorErrorHover: errorColors[5],

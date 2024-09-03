@@ -1,7 +1,7 @@
+import React, { useEffect, useRef } from 'react';
 import G6 from '@antv/g6';
 import { createStyles, css } from 'antd-style';
 import { useRouteMeta } from 'dumi';
-import React, { useEffect, useRef } from 'react';
 
 G6.registerNode('behavior-start-node', {
   draw: (cfg, group) => {
@@ -214,37 +214,37 @@ type BehaviorMapItem = {
   link?: string;
 };
 
-const useStyle = createStyles(() => ({
+const useStyle = createStyles(({ token }) => ({
   container: css`
     width: 100%;
     height: 600px;
     background-color: #f5f5f5;
     border: 1px solid #e8e8e8;
-    border-radius: 8px;
+    border-radius: ${token.borderRadiusLG}px;
     overflow: hidden;
     position: relative;
   `,
   title: css`
     position: absolute;
     top: 20px;
-    left: 20px;
-    font-size: 16px;
+    inset-inline-start: 20px;
+    font-size: ${token.fontSizeLG}px;
   `,
   tips: css`
     display: flex;
     position: absolute;
     bottom: 20px;
-    right: 20px;
+    inset-inline-end: 20px;
   `,
   mvp: css`
-    margin-right: 20px;
+    margin-inline-end: ${token.marginMD}px;
     display: flex;
     align-items: center;
     &::before {
       display: block;
       width: 8px;
       height: 8px;
-      margin-right: 8px;
+      margin-inline-end: ${token.marginXS}px;
       background-color: #1677ff;
       border-radius: 50%;
       content: '';
@@ -257,7 +257,7 @@ const useStyle = createStyles(() => ({
       display: block;
       width: 8px;
       height: 8px;
-      margin-right: 8px;
+      margin-inline-end: ${token.marginXS}px;
       background-color: #a0a0a0;
       border-radius: 50%;
       content: '';

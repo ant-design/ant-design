@@ -1,4 +1,6 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
@@ -29,14 +31,14 @@ const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         marginBottom: 0,
         marginInline: `0 ${unit(token.marginXS)}`,
         fontSize: fontSizeSM,
-        lineHeight: `${unit(iconSizeSM)}`,
+        lineHeight: unit(iconSizeSM),
         textAlign: 'center',
         borderRadius: iconSizeSM,
       },
       [`${componentCls}-item-title`]: {
         paddingInlineEnd: token.paddingSM,
         fontSize,
-        lineHeight: `${unit(iconSizeSM)}`,
+        lineHeight: unit(iconSizeSM),
 
         '&::after': {
           top: token.calc(iconSizeSM).div(2).equal(),
@@ -58,7 +60,7 @@ const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         borderRadius: 0,
         [`> ${componentCls}-icon`]: {
           fontSize: iconSizeSM,
-          lineHeight: `${unit(iconSizeSM)}`,
+          lineHeight: unit(iconSizeSM),
           transform: 'none',
         },
       },

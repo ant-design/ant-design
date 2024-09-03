@@ -67,6 +67,7 @@ export interface TransferLocale {
   itemsUnit: string;
   remove?: string;
   selectAll?: string;
+  deselectAll?: string;
   selectCurrent?: string;
   selectInvert?: string;
   removeAll?: string;
@@ -172,7 +173,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     // Setters
     setSourceSelectedKeys,
     setTargetSelectedKeys,
-  ] = useSelection(leftDataSource, rightDataSource, selectedKeys);
+  ] = useSelection(leftDataSource as any, rightDataSource as any, selectedKeys);
 
   const [leftMultipleSelect, updateLeftPrevSelectedIndex] = useMultipleSelect<
     KeyWise<RecordType>,
@@ -342,12 +343,12 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     const holder = [...(isLeftDirection ? sourceSelectedKeys : targetSelectedKeys)];
     const holderSet = new Set(holder);
     const data = [...(isLeftDirection ? leftDataSource : rightDataSource)].filter(
-      (item) => !item.disabled,
+      (item) => !item?.disabled,
     );
     const currentSelectedIndex = data.findIndex((item) => item.key === selectedKey);
     // multiple select by hold down the shift key
     if (multiple && holder.length > 0) {
-      handleMultipleSelect(direction, data, holderSet, currentSelectedIndex);
+      handleMultipleSelect(direction, data as any, holderSet, currentSelectedIndex);
     } else {
       handleSingleSelect(direction, holderSet, selectedKey, checked, currentSelectedIndex);
     }
@@ -358,10 +359,10 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     }
   };
 
-  const onLeftItemSelect = (
-    selectedKey: string,
-    checked: boolean,
-    e?: React.MouseEvent<Element, MouseEvent>,
+  const onLeftItemSelect: TransferListProps<KeyWise<RecordType>>['onItemSelect'] = (
+    selectedKey,
+    checked,
+    e,
   ) => {
     onItemSelect('left', selectedKey, checked, e?.shiftKey);
   };
@@ -434,18 +435,18 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       <List<KeyWise<RecordType>>
         prefixCls={`${prefixCls}-list`}
         titleText={leftTitle}
-        dataSource={leftDataSource}
+        dataSource={leftDataSource as any}
         filterOption={filterOption}
         style={handleListStyle('left')}
         checkedKeys={sourceSelectedKeys}
         handleFilter={leftFilter}
         handleClear={handleLeftClear}
         onItemSelect={onLeftItemSelect}
-        onItemSelectAll={onLeftItemSelectAll}
+        onItemSelectAll={onLeftItemSelectAll as any}
         render={render}
         showSearch={showSearch}
-        renderList={children}
-        footer={footer}
+        renderList={children as any}
+        footer={footer as any}
         onScroll={handleLeftScroll}
         disabled={disabled}
         direction={dir === 'rtl' ? 'right' : 'left'}
@@ -471,19 +472,19 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       <List<KeyWise<RecordType>>
         prefixCls={`${prefixCls}-list`}
         titleText={rightTitle}
-        dataSource={rightDataSource}
+        dataSource={rightDataSource as any}
         filterOption={filterOption}
         style={handleListStyle('right')}
         checkedKeys={targetSelectedKeys}
         handleFilter={rightFilter}
         handleClear={handleRightClear}
         onItemSelect={onRightItemSelect}
-        onItemSelectAll={onRightItemSelectAll}
+        onItemSelectAll={onRightItemSelectAll as any}
         onItemRemove={onRightItemRemove}
         render={render}
         showSearch={showSearch}
-        renderList={children}
-        footer={footer}
+        renderList={children as any}
+        footer={footer as any}
         onScroll={handleRightScroll}
         disabled={disabled}
         direction={dir === 'rtl' ? 'left' : 'right'}

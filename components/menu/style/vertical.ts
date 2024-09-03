@@ -1,4 +1,6 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { MenuToken } from '.';
 import { textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
@@ -77,7 +79,7 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
   return [
     {
       [componentCls]: {
-        [`&-inline, &-vertical`]: {
+        '&-inline, &-vertical': {
           [`&${componentCls}-root`]: {
             boxShadow: 'none',
           },

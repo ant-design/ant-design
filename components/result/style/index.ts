@@ -1,6 +1,7 @@
 import type { CSSProperties } from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
+
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
@@ -28,8 +29,8 @@ export interface ComponentToken {
 }
 
 interface ResultToken extends FullToken<'Result'> {
-  imageWidth: number;
-  imageHeight: number;
+  imageWidth: number | string;
+  imageHeight: number | string;
   resultInfoIconColor: string;
   resultSuccessIconColor: string;
   resultWarningIconColor: string;

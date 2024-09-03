@@ -1,9 +1,17 @@
 import React from 'react';
 
 import useToken from '../../theme/useToken';
+import { devUseWarning } from '../warning';
 import zIndexContext from '../zindexContext';
 
-export type ZIndexContainer = 'Modal' | 'Drawer' | 'Popover' | 'Popconfirm' | 'Tooltip' | 'Tour';
+export type ZIndexContainer =
+  | 'Modal'
+  | 'Drawer'
+  | 'Popover'
+  | 'Popconfirm'
+  | 'Tooltip'
+  | 'Tour'
+  | 'FloatButton';
 
 export type ZIndexConsumer = 'SelectLike' | 'Dropdown' | 'DatePicker' | 'Menu' | 'ImagePreview';
 
@@ -24,7 +32,9 @@ export const containerBaseZIndexOffset: Record<ZIndexContainer, number> = {
   Popconfirm: CONTAINER_OFFSET,
   Tooltip: CONTAINER_OFFSET,
   Tour: CONTAINER_OFFSET,
+  FloatButton: CONTAINER_OFFSET,
 };
+
 export const consumerBaseZIndexOffset: Record<ZIndexConsumer, number> = {
   SelectLike: 50,
   Dropdown: 50,
@@ -37,30 +47,47 @@ function isContainerType(type: ZIndexContainer | ZIndexConsumer): type is ZIndex
   return type in containerBaseZIndexOffset;
 }
 
-export function useZIndex(
+type ReturnResult = [zIndex: number | undefined, contextZIndex: number];
+
+export const useZIndex = (
   componentType: ZIndexContainer | ZIndexConsumer,
   customZIndex?: number,
-): [zIndex: number | undefined, contextZIndex: number] {
+): ReturnResult => {
   const [, token] = useToken();
   const parentZIndex = React.useContext(zIndexContext);
   const isContainer = isContainerType(componentType);
 
+  let result: ReturnResult;
+
   if (customZIndex !== undefined) {
-    return [customZIndex, customZIndex];
-  }
-
-  let zIndex = parentZIndex ?? 0;
-
-  if (isContainer) {
-    zIndex +=
-      // Use preset token zIndex by default but not stack when has parent container
-      (parentZIndex ? 0 : token.zIndexPopupBase) +
-      // Container offset
-      containerBaseZIndexOffset[componentType];
-
-    zIndex = Math.min(zIndex, token.zIndexPopupBase + CONTAINER_MAX_OFFSET);
+    result = [customZIndex, customZIndex];
   } else {
-    zIndex += consumerBaseZIndexOffset[componentType];
+    let zIndex = parentZIndex ?? 0;
+
+    if (isContainer) {
+      zIndex +=
+        // Use preset token zIndex by default but not stack when has parent container
+        (parentZIndex ? 0 : token.zIndexPopupBase) +
+        // Container offset
+        containerBaseZIndexOffset[componentType];
+    } else {
+      zIndex += consumerBaseZIndexOffset[componentType];
+    }
+    result = [parentZIndex === undefined ? customZIndex : zIndex, zIndex];
   }
-  return [parentZIndex === undefined ? customZIndex : zIndex, zIndex];
-}
+
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning(componentType);
+
+    const maxZIndex = token.zIndexPopupBase + CONTAINER_MAX_OFFSET;
+    const currentZIndex = result[0] || 0;
+
+    warning(
+      customZIndex !== undefined || currentZIndex <= maxZIndex,
+      'usage',
+      '`zIndex` is over design token `zIndexPopupBase` too much. It may cause unexpected override.',
+    );
+  }
+
+  return result;
+};

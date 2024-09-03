@@ -7,7 +7,7 @@
     "skipDefaultLibCheck": true,
     "incremental": true,
     "sourceMap": false,
-    "strict": false,
+    "strict": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
