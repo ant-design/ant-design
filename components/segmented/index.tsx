@@ -47,6 +47,7 @@ export interface SegmentedProps<ValueType = RcSegmentedValue>
   block?: boolean;
   /** Option to control the display size */
   size?: SizeType;
+  vertical?: boolean;
 }
 
 const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) => {

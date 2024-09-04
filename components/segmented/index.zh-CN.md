@@ -21,6 +21,7 @@ demo:
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
+<code src="./demo/vertical.tsx">垂直方向</code>
 <code src="./demo/block.tsx">Block 分段选择器</code>
 <code src="./demo/disabled.tsx">不可用</code>
 <code src="./demo/controlled.tsx">受控模式</code>
@@ -49,6 +50,7 @@ demo:
 | onChange | 选项变化时的回调函数 | function(value: string \| number) |  |  |
 | options | 数据化配置选项内容  | string\[] \| number\[] \| SegmentedItemType\[] | [] |  |
 | size | 控件尺寸 | `large` \| `middle` \| `small` | `middle` |  |
+| vertical | 排列方向 | boolean | `false` | |
 | value | 当前选中的值 | string \| number |  |  |
 
 ### SegmentedItemType
