@@ -951,7 +951,7 @@ exports[`renders components/tree/demo/block-node.tsx extend context correctly 1`
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-open"
+            class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-close"
             draggable="false"
           >
             <span
@@ -985,7 +985,7 @@ exports[`renders components/tree/demo/block-node.tsx extend context correctly 1`
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-selected ant-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
@@ -1132,7 +1132,7 @@ exports[`renders components/tree/demo/customized-icon.tsx extend context correct
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-selected"
             draggable="false"
           >
             <span
@@ -1182,7 +1182,7 @@ exports[`renders components/tree/demo/customized-icon.tsx extend context correct
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
             draggable="false"
           >
             <span

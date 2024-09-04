@@ -633,4 +633,15 @@ describe('Typography.Ellipsis', () => {
     rerender(renderDemo(true));
     expect(container.querySelector('.ant-typography-collapse')).toBeTruthy();
   });
+
+  it('no dead loop', () => {
+    const tooltipObj: any = {};
+    tooltipObj.loop = tooltipObj;
+
+    render(
+      <Base ellipsis={{ tooltip: tooltipObj }} component="p">
+        {fullStr}
+      </Base>,
+    );
+  });
 });

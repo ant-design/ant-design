@@ -2508,7 +2508,7 @@ exports[`renders components/button/demo/linear-gradient.tsx extend context corre
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-lg css-ykstnd"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-lg acss-9mi5l3"
       type="button"
     >
       <span
@@ -2543,7 +2543,7 @@ exports[`renders components/button/demo/linear-gradient.tsx extend context corre
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-lg css-ykstnd"
+      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-lg acss-9mi5l3"
       type="button"
     >
       <span>
