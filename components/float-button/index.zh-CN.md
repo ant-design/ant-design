@@ -63,6 +63,7 @@ tag: 5.0.0
 | closeIcon | 自定义关闭按钮 | React.ReactNode | `<CloseOutlined />` |  |
 | placement | 自定义菜单弹出位置 | `top` \| `left` \| `right` \| `bottom` | `top` | 5.21.0 |
 | onOpenChange | 展开收起时的回调，需配合 trigger 一起使用 | (open: boolean) => void | - |  |
+| onClick | 点击按钮时的回调（仅在菜单模式中有效） | (event) => void | - | 5.3.0 |
 
 ### FloatButton.BackTop
 

@@ -62,6 +62,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | closeIcon | Customize close button icon | React.ReactNode | `<CloseOutlined />` |  |
 | placement | Customize menu animation placement | `top` \| `left` \| `right` \| `bottom` | `top` | 5.21.0 |
 | onOpenChange | Callback executed when active menu is changed, use it with trigger | (open: boolean) => void | - |  |
+| onClick | Set the handler to handle `click` event (only work in `Menu mode`) | (event) => void | - | 5.3.0 |
 
 ### FloatButton.BackTop
 
