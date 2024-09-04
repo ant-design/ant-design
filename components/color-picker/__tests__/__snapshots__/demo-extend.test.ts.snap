@@ -10553,7 +10553,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
 exports[`renders components/color-picker/demo/trigger.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-solid"
     style="background-color: rgb(22, 119, 255);"
     type="button"
   >

@@ -37,6 +37,7 @@ group:
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">按钮类型</code>
+<code src="./demo/color-variant.tsx" version="5.21.0">颜色与变体</code>
 <code src="./demo/icon.tsx">按钮图标</code>
 <code src="./demo/icon-position.tsx" version="5.17.0">按钮图标位置</code>
 <code src="./demo/debug-icon.tsx" debug>调试图标按钮</code>
@@ -67,6 +68,7 @@ group:
 | autoInsertSpace | 我们默认提供两个汉字之间的空格，可以设置 `autoInsertSpace` 为 `false` 关闭 | boolean | `true` | 5.17.0 |
 | block | 将按钮宽度调整为其父宽度的选项 | boolean | false |  |
 | classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.4.0 |
+| color | 设置按钮的颜色 | `default` \| `primary` \| `danger` | - | 5.21.0 |
 | danger | 设置危险按钮 | boolean | false |  |
 | disabled | 设置按钮失效状态 | boolean | false |  |
 | ghost | 幽灵属性，使按钮背景透明 | boolean | false |  |
@@ -81,6 +83,7 @@ group:
 | target | 相当于 a 链接的 target 属性，href 存在时生效 | string | - |  |
 | type | 设置按钮类型 | `primary` \| `dashed` \| `link` \| `text` \| `default` | `default` |  |
 | onClick | 点击按钮时的回调 | (event: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
+| variant | 设置按钮的变体 | `outlined` \| `dashed` \| `solid` \| `filled` \| `text` \| `link` | - | 5.21.0 |
 
 支持原生 button 的其他所有属性。
 
@@ -93,6 +96,22 @@ group:
 <ComponentTokenTable component="Button"></ComponentTokenTable>
 
 ## FAQ
+
+### 类型和颜色与变体如何选择？
+
+类型本质上是颜色与变体的语法糖，内部为其提供了一组颜色与变体的映射关系。如果两者同时存在，优先使用类型。
+
+```jsx
+<Button type="primary">click</Button>
+```
+
+等同于
+
+```jsx
+<Button color="primary" variant="solid">
+  click
+</Button>
+```
 
 ### 如何关闭点击波纹效果？
 

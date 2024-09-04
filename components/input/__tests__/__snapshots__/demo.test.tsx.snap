@@ -428,7 +428,7 @@ Array [
     style="width:100px"
   />,
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-solid"
     type="button"
   >
     <span>
@@ -1687,7 +1687,7 @@ exports[`renders components/input/demo/compact-style.tsx correctly 1`] = `
             class="ant-input-group-addon"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+              class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-input-search-button"
               type="button"
             >
               <span
@@ -1732,7 +1732,7 @@ exports[`renders components/input/demo/compact-style.tsx correctly 1`] = `
         value="Combine input and button"
       />
       <button
-        class="ant-btn ant-btn-primary ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -1894,7 +1894,7 @@ exports[`renders components/input/demo/debug-addon.tsx correctly 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-primary"
+            class="ant-btn ant-btn-primary ant-btn-solid"
             type="button"
           >
             <span>
@@ -1923,7 +1923,7 @@ exports[`renders components/input/demo/debug-addon.tsx correctly 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-outlined"
             type="button"
           >
             <span>
@@ -1967,7 +1967,7 @@ exports[`renders components/input/demo/debug-addon.tsx correctly 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-outlined"
             type="button"
           >
             <span
@@ -2386,7 +2386,7 @@ exports[`renders components/input/demo/focus.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           type="button"
         >
           <span>
@@ -2398,7 +2398,7 @@ exports[`renders components/input/demo/focus.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           type="button"
         >
           <span>
@@ -2410,7 +2410,7 @@ exports[`renders components/input/demo/focus.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           type="button"
         >
           <span>
@@ -2422,7 +2422,7 @@ exports[`renders components/input/demo/focus.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           type="button"
         >
           <span>
@@ -2539,7 +2539,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       value="https://ant.design"
     />
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-solid"
       type="button"
     >
       <span>
@@ -2558,7 +2558,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       value="git@github.com:ant-design/ant-design.git"
     />
     <button
-      class="ant-btn ant-btn-default ant-btn-icon-only"
+      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only"
       type="button"
     >
       <span
@@ -2710,7 +2710,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+            class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-input-search-button"
             type="button"
           >
             <span
@@ -2790,7 +2790,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+            class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-input-search-button"
             type="button"
           >
             <span
@@ -3936,7 +3936,7 @@ exports[`renders components/input/demo/password-input.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           style="width:80px"
           type="button"
         >
@@ -4083,7 +4083,7 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+            class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-input-search-button"
             type="button"
           >
             <span
@@ -4168,7 +4168,7 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+            class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-input-search-button"
             type="button"
           >
             <span
@@ -4258,7 +4258,7 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+            class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-input-search-button"
             type="button"
           >
             <span
@@ -4308,7 +4308,7 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-primary ant-input-search-button"
+            class="ant-btn ant-btn-primary ant-btn-solid ant-input-search-button"
             type="button"
           >
             <span
@@ -4392,7 +4392,7 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-primary ant-btn-lg ant-input-search-button"
+            class="ant-btn ant-btn-primary ant-btn-solid ant-btn-lg ant-input-search-button"
             type="button"
           >
             <span>
@@ -4450,7 +4450,7 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-primary ant-btn-lg ant-input-search-button"
+            class="ant-btn ant-btn-primary ant-btn-solid ant-btn-lg ant-input-search-button"
             type="button"
           >
             <span>
@@ -4482,7 +4482,7 @@ Array [
         class="ant-input-group-addon"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-loading ant-input-search-button"
+          class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-btn-loading ant-input-search-button"
           type="button"
         >
           <span
@@ -4530,7 +4530,7 @@ Array [
         class="ant-input-group-addon"
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-loading ant-input-search-button"
+          class="ant-btn ant-btn-primary ant-btn-solid ant-btn-loading ant-input-search-button"
           type="button"
         >
           <span
@@ -4578,7 +4578,7 @@ Array [
         class="ant-input-group-addon"
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-lg ant-btn-loading ant-input-search-button"
+          class="ant-btn ant-btn-primary ant-btn-solid ant-btn-lg ant-btn-loading ant-input-search-button"
           type="button"
         >
           <span
@@ -4917,7 +4917,7 @@ Array [
 exports[`renders components/input/demo/textarea-resize.tsx correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-default"
+    class="ant-btn ant-btn-default ant-btn-outlined"
     style="margin-bottom:16px"
     type="button"
   >
