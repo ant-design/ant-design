@@ -20,7 +20,7 @@ This component is available since `antd@4.20.0`.
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
-<code src="./demo/mode.tsx">Vertical Direction</code>
+<code src="./demo/vertical.tsx">Vertical Direction</code>
 <code src="./demo/block.tsx">Block Segmented</code>
 <code src="./demo/disabled.tsx">Disabled</code>
 <code src="./demo/controlled.tsx">Controlled mode</code>
