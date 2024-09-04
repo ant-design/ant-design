@@ -42,7 +42,7 @@ describe('Splitter', () => {
       clientX: 0,
       clientY: 0,
     });
-    fireEvent.mouseMove(document.documentElement, options); // 40%
+    fireEvent.mouseMove(document.documentElement, options);
     await waitFakeTimer();
     fireEvent.mouseUp(document.documentElement);
   };
@@ -388,20 +388,27 @@ describe('Splitter', () => {
     fireEvent.click(container?.querySelector('.ant-splitter-bar-collapse-next')!);
     await doMove(container, 1, { clientX: 40 });
     await doMove(container, 2, { clientX: 40 });
-    expect(container?.querySelectorAll('.ant-splitter-panel')[0]).toHaveStyle('flex-basis: 41.5%');
+    expect(container?.querySelectorAll('.ant-splitter-panel')[0]).toHaveStyle('flex-basis: 41%');
     expect(container?.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle('flex-basis: 10%');
-    expect(container?.querySelectorAll('.ant-splitter-panel')[2]).toHaveStyle('flex-basis: 19.5%');
-    expect(container?.querySelectorAll('.ant-splitter-panel')[3]).toHaveStyle('flex-basis: 9.5%');
-    expect(container?.querySelectorAll('.ant-splitter-panel')[4]).toHaveStyle('flex-basis: 19.5%');
+    expect(container?.querySelectorAll('.ant-splitter-panel')[2]).toHaveStyle('flex-basis: 19%');
+    expect(container?.querySelectorAll('.ant-splitter-panel')[3]).toHaveStyle('flex-basis: 9%');
+    expect(container?.querySelectorAll('.ant-splitter-panel')[4]).toHaveStyle('flex-basis: 21%');
 
     fireEvent.click(container?.querySelector('.ant-splitter-bar-collapse-next')!);
     expect(container?.querySelectorAll('.ant-splitter-bar')[0]).toHaveStyle('flex-basis: 2px');
-    expect(container?.querySelectorAll('.ant-splitter-panel')[0]).toHaveStyle('flex-basis: 51.5%');
+    expect(container?.querySelectorAll('.ant-splitter-panel')[0]).toHaveStyle('flex-basis: 51%');
     expect(container?.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle('flex-basis: 0%');
 
     fireEvent.click(container?.querySelector('.ant-splitter-bar-collapse-previous')!);
     expect(container?.querySelectorAll('.ant-splitter-bar')[0]).not.toHaveStyle('flex-basis: 2px');
-    expect(container?.querySelectorAll('.ant-splitter-panel')[0]).toHaveStyle('flex-basis: 41.5%');
+    expect(container?.querySelectorAll('.ant-splitter-panel')[0]).toHaveStyle('flex-basis: 41%');
     expect(container?.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle('flex-basis: 10%');
+  });
+
+  it('The panel size retains precision when initialized.', () => {
+    const { container } = render(<SplitterDemo items={[{}, {}, {}]} />);
+    expect(container?.querySelectorAll('.ant-splitter-panel')[0]).toHaveStyle('flex-basis: 33%');
+    expect(container?.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle('flex-basis: 33%');
+    expect(container?.querySelectorAll('.ant-splitter-panel')[2]).toHaveStyle('flex-basis: 34%');
   });
 });
