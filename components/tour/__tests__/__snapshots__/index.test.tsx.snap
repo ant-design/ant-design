@@ -498,7 +498,7 @@ exports[`Tour should support gap.offset 1`] = `
               class="ant-tour-buttons"
             >
               <button
-                class="ant-btn ant-btn-primary ant-btn-sm ant-tour-next-btn"
+                class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-tour-next-btn"
                 type="button"
               >
                 <span>
