@@ -36,7 +36,7 @@ You can find that although the `<style />` node can be omitted, hash still deps 
 
 In the [component-level CSS-in-JS](/docs/blog/css-in-js) article, we mentioned that Ant Design's Cache mechanism does not need to calculate the complete style. For the component library, as long as the Token and ComponentName can determine the consistency of the generated style, so we can calculate the hash value in advance:
 
-![Component CSS-in-JS](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*yZMNSYVtxnAAAAAAAAAAAAAADrJ8AQ/original)
+<img alt="CSS-in-JS hash compute way" width="800" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*yZMNSYVtxnAAAAAAAAAAAAAADrJ8AQ/original" />
 
 Therefore, we found that we can reuse this mechanism to realize whether the component style has been injected on the client side.
 

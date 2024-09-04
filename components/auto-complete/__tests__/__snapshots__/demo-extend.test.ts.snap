@@ -292,17 +292,18 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
               <div
                 class="ant-select-item ant-select-item-group"
               >
-                <span>
+                <div
+                  class="ant-flex ant-flex-align-center ant-flex-justify-space-between"
+                >
                   Libraries
                   <a
                     href="https://www.google.com/search?q=antd"
                     rel="noopener noreferrer"
-                    style="float: right;"
                     target="_blank"
                   >
                     more
                   </a>
-                </span>
+                </div>
               </div>
               <div
                 aria-selected="false"
@@ -312,7 +313,7 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
                   class="ant-select-item-option-content"
                 >
                   <div
-                    style="display: flex; justify-content: space-between;"
+                    class="ant-flex ant-flex-align-center ant-flex-justify-space-between"
                   >
                     AntDesign
                     <span>
@@ -354,7 +355,7 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
                   class="ant-select-item-option-content"
                 >
                   <div
-                    style="display: flex; justify-content: space-between;"
+                    class="ant-flex ant-flex-align-center ant-flex-justify-space-between"
                   >
                     AntDesign UI
                     <span>
@@ -391,17 +392,18 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
               <div
                 class="ant-select-item ant-select-item-group"
               >
-                <span>
+                <div
+                  class="ant-flex ant-flex-align-center ant-flex-justify-space-between"
+                >
                   Solutions
                   <a
                     href="https://www.google.com/search?q=antd"
                     rel="noopener noreferrer"
-                    style="float: right;"
                     target="_blank"
                   >
                     more
                   </a>
-                </span>
+                </div>
               </div>
               <div
                 aria-selected="false"
@@ -411,7 +413,7 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
                   class="ant-select-item-option-content"
                 >
                   <div
-                    style="display: flex; justify-content: space-between;"
+                    class="ant-flex ant-flex-align-center ant-flex-justify-space-between"
                   >
                     AntDesign UI FAQ
                     <span>
@@ -453,7 +455,7 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
                   class="ant-select-item-option-content"
                 >
                   <div
-                    style="display: flex; justify-content: space-between;"
+                    class="ant-flex ant-flex-align-center ant-flex-justify-space-between"
                   >
                     AntDesign FAQ
                     <span>
@@ -490,17 +492,18 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
               <div
                 class="ant-select-item ant-select-item-group"
               >
-                <span>
+                <div
+                  class="ant-flex ant-flex-align-center ant-flex-justify-space-between"
+                >
                   Articles
                   <a
                     href="https://www.google.com/search?q=antd"
                     rel="noopener noreferrer"
-                    style="float: right;"
                     target="_blank"
                   >
                     more
                   </a>
-                </span>
+                </div>
               </div>
               <div
                 aria-selected="false"
@@ -510,7 +513,7 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
                   class="ant-select-item-option-content"
                 >
                   <div
-                    style="display: flex; justify-content: space-between;"
+                    class="ant-flex ant-flex-align-center ant-flex-justify-space-between"
                   >
                     AntDesign design language
                     <span>

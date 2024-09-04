@@ -55,10 +55,11 @@ Array [
     </div>
   </div>,
   <div
-    class="demo"
+    class="demo ant-flex ant-flex-align-center ant-flex-justify-center ant-flex-vertical"
   >
     <div
-      style="margin-inline-start:84px;white-space:nowrap"
+      class="ant-flex ant-flex-align-center ant-flex-justify-center"
+      style="white-space:nowrap"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -89,69 +90,75 @@ Array [
       </button>
     </div>
     <div
-      style="width:80px;float:inline-start"
+      class="ant-flex ant-flex-align-center ant-flex-justify-space-between"
+      style="width:432px"
     >
-      <button
-        class="ant-btn ant-btn-default"
-        style="width:80px;margin:4px"
-        type="button"
+      <div
+        class="ant-flex ant-flex-align-center ant-flex-vertical"
       >
-        <span>
-          LT
-        </span>
-      </button>
-      <button
-        class="ant-btn ant-btn-default"
-        style="width:80px;margin:4px"
-        type="button"
+        <button
+          class="ant-btn ant-btn-default"
+          style="width:80px;margin:4px"
+          type="button"
+        >
+          <span>
+            LT
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          style="width:80px;margin:4px"
+          type="button"
+        >
+          <span>
+            Left
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          style="width:80px;margin:4px"
+          type="button"
+        >
+          <span>
+            LB
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-flex ant-flex-align-center ant-flex-vertical"
       >
-        <span>
-          Left
-        </span>
-      </button>
-      <button
-        class="ant-btn ant-btn-default"
-        style="width:80px;margin:4px"
-        type="button"
-      >
-        <span>
-          LB
-        </span>
-      </button>
+        <button
+          class="ant-btn ant-btn-default"
+          style="width:80px;margin:4px"
+          type="button"
+        >
+          <span>
+            RT
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          style="width:80px;margin:4px"
+          type="button"
+        >
+          <span>
+            Right
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          style="width:80px;margin:4px"
+          type="button"
+        >
+          <span>
+            RB
+          </span>
+        </button>
+      </div>
     </div>
     <div
-      style="width:80px;margin-inline-start:344px"
-    >
-      <button
-        class="ant-btn ant-btn-default"
-        style="width:80px;margin:4px"
-        type="button"
-      >
-        <span>
-          RT
-        </span>
-      </button>
-      <button
-        class="ant-btn ant-btn-default"
-        style="width:80px;margin:4px"
-        type="button"
-      >
-        <span>
-          Right
-        </span>
-      </button>
-      <button
-        class="ant-btn ant-btn-default"
-        style="width:80px;margin:4px"
-        type="button"
-      >
-        <span>
-          RB
-        </span>
-      </button>
-    </div>
-    <div
-      style="margin-inline-start:80px;clear:both;white-space:nowrap"
+      class="ant-flex ant-flex-align-center ant-flex-justify-center"
+      style="white-space:nowrap"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -183,6 +190,422 @@ Array [
     </div>
   </div>,
 ]
+`;
+
+exports[`renders components/popover/demo/arrow-point-at-center.tsx correctly 1`] = `
+<div
+  class="ant-flex ant-flex-wrap-wrap"
+  style="gap:16px"
+>
+  <div
+    class="acss-6kvo78"
+  >
+    <div
+      class="acss-1nif5xu ant-popover-open"
+    />
+    <div
+      class="ant-popover ant-popover-placement-topLeft"
+      style="--arrow-x:0px;--arrow-y:0px;left:-1000vw;top:-1000vh;right:auto;bottom:auto;box-sizing:border-box"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-inner-content"
+          >
+            <div
+              class="ant-flex ant-flex-align-center ant-flex-justify-center"
+            >
+              topLeft
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="acss-6kvo78"
+  >
+    <div
+      class="acss-1nif5xu ant-popover-open"
+    />
+    <div
+      class="ant-popover ant-popover-placement-top"
+      style="--arrow-x:0px;--arrow-y:0px;left:-1000vw;top:-1000vh;right:auto;bottom:auto;box-sizing:border-box"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-inner-content"
+          >
+            <div
+              class="ant-flex ant-flex-align-center ant-flex-justify-center"
+            >
+              top
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="acss-6kvo78"
+  >
+    <div
+      class="acss-1nif5xu ant-popover-open"
+    />
+    <div
+      class="ant-popover ant-popover-placement-topRight"
+      style="--arrow-x:0px;--arrow-y:0px;left:-1000vw;top:-1000vh;right:auto;bottom:auto;box-sizing:border-box"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-inner-content"
+          >
+            <div
+              class="ant-flex ant-flex-align-center ant-flex-justify-center"
+            >
+              topRight
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="acss-6kvo78"
+  >
+    <div
+      class="acss-1nif5xu ant-popover-open"
+    />
+    <div
+      class="ant-popover ant-popover-placement-leftTop"
+      style="--arrow-x:0px;--arrow-y:0px;left:-1000vw;top:-1000vh;right:auto;bottom:auto;box-sizing:border-box"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-inner-content"
+          >
+            <div
+              class="ant-flex ant-flex-align-center ant-flex-justify-center"
+            >
+              leftTop
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="acss-6kvo78"
+  >
+    <div
+      class="acss-1nif5xu ant-popover-open"
+    />
+    <div
+      class="ant-popover ant-popover-placement-left"
+      style="--arrow-x:0px;--arrow-y:0px;left:-1000vw;top:-1000vh;right:auto;bottom:auto;box-sizing:border-box"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position:absolute;top:0;right:0"
+      />
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-inner-content"
+          >
+            <div
+              class="ant-flex ant-flex-align-center ant-flex-justify-center"
+            >
+              left
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="acss-6kvo78"
+  >
+    <div
+      class="acss-1nif5xu ant-popover-open"
+    />
+    <div
+      class="ant-popover ant-popover-placement-leftBottom"
+      style="--arrow-x:0px;--arrow-y:0px;left:-1000vw;top:-1000vh;right:auto;bottom:auto;box-sizing:border-box"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-inner-content"
+          >
+            <div
+              class="ant-flex ant-flex-align-center ant-flex-justify-center"
+            >
+              leftBottom
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="acss-6kvo78"
+  >
+    <div
+      class="acss-1nif5xu ant-popover-open"
+    />
+    <div
+      class="ant-popover ant-popover-placement-rightTop"
+      style="--arrow-x:0px;--arrow-y:0px;left:-1000vw;top:-1000vh;right:auto;bottom:auto;box-sizing:border-box"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-inner-content"
+          >
+            <div
+              class="ant-flex ant-flex-align-center ant-flex-justify-center"
+            >
+              rightTop
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="acss-6kvo78"
+  >
+    <div
+      class="acss-1nif5xu ant-popover-open"
+    />
+    <div
+      class="ant-popover ant-popover-placement-right"
+      style="--arrow-x:0px;--arrow-y:0px;left:-1000vw;top:-1000vh;right:auto;bottom:auto;box-sizing:border-box"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position:absolute;top:0;left:0"
+      />
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-inner-content"
+          >
+            <div
+              class="ant-flex ant-flex-align-center ant-flex-justify-center"
+            >
+              right
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="acss-6kvo78"
+  >
+    <div
+      class="acss-1nif5xu ant-popover-open"
+    />
+    <div
+      class="ant-popover ant-popover-placement-rightBottom"
+      style="--arrow-x:0px;--arrow-y:0px;left:-1000vw;top:-1000vh;right:auto;bottom:auto;box-sizing:border-box"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-inner-content"
+          >
+            <div
+              class="ant-flex ant-flex-align-center ant-flex-justify-center"
+            >
+              rightBottom
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="acss-6kvo78"
+  >
+    <div
+      class="acss-1nif5xu ant-popover-open"
+    />
+    <div
+      class="ant-popover ant-popover-placement-bottomLeft"
+      style="--arrow-x:0px;--arrow-y:0px;left:-1000vw;top:-1000vh;right:auto;bottom:auto;box-sizing:border-box"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-inner-content"
+          >
+            <div
+              class="ant-flex ant-flex-align-center ant-flex-justify-center"
+            >
+              bottomLeft
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="acss-6kvo78"
+  >
+    <div
+      class="acss-1nif5xu ant-popover-open"
+    />
+    <div
+      class="ant-popover ant-popover-placement-bottom"
+      style="--arrow-x:0px;--arrow-y:0px;left:-1000vw;top:-1000vh;right:auto;bottom:auto;box-sizing:border-box"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position:absolute;top:0;left:0"
+      />
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-inner-content"
+          >
+            <div
+              class="ant-flex ant-flex-align-center ant-flex-justify-center"
+            >
+              bottom
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="acss-6kvo78"
+  >
+    <div
+      class="acss-1nif5xu ant-popover-open"
+    />
+    <div
+      class="ant-popover ant-popover-placement-bottomRight"
+      style="--arrow-x:0px;--arrow-y:0px;left:-1000vw;top:-1000vh;right:auto;bottom:auto;box-sizing:border-box"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-inner-content"
+          >
+            <div
+              class="ant-flex ant-flex-align-center ant-flex-justify-center"
+            >
+              bottomRight
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 `;
 
 exports[`renders components/popover/demo/basic.tsx correctly 1`] = `
@@ -293,10 +716,11 @@ exports[`renders components/popover/demo/hover-with-click.tsx correctly 1`] = `
 
 exports[`renders components/popover/demo/placement.tsx correctly 1`] = `
 <div
-  class="demo"
+  class="demo ant-flex ant-flex-align-center ant-flex-justify-center ant-flex-vertical"
 >
   <div
-    style="margin-inline-start:84px;white-space:nowrap"
+    class="ant-flex ant-flex-align-center ant-flex-justify-center"
+    style="white-space:nowrap"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -327,69 +751,75 @@ exports[`renders components/popover/demo/placement.tsx correctly 1`] = `
     </button>
   </div>
   <div
-    style="width:80px;float:inline-start"
+    class="ant-flex ant-flex-align-center ant-flex-justify-space-between"
+    style="width:432px"
   >
-    <button
-      class="ant-btn ant-btn-default"
-      style="width:80px;margin:4px"
-      type="button"
+    <div
+      class="ant-flex ant-flex-align-center ant-flex-vertical"
     >
-      <span>
-        LT
-      </span>
-    </button>
-    <button
-      class="ant-btn ant-btn-default"
-      style="width:80px;margin:4px"
-      type="button"
+      <button
+        class="ant-btn ant-btn-default"
+        style="width:80px;margin:4px"
+        type="button"
+      >
+        <span>
+          LT
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        style="width:80px;margin:4px"
+        type="button"
+      >
+        <span>
+          Left
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        style="width:80px;margin:4px"
+        type="button"
+      >
+        <span>
+          LB
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-flex ant-flex-align-center ant-flex-vertical"
     >
-      <span>
-        Left
-      </span>
-    </button>
-    <button
-      class="ant-btn ant-btn-default"
-      style="width:80px;margin:4px"
-      type="button"
-    >
-      <span>
-        LB
-      </span>
-    </button>
+      <button
+        class="ant-btn ant-btn-default"
+        style="width:80px;margin:4px"
+        type="button"
+      >
+        <span>
+          RT
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        style="width:80px;margin:4px"
+        type="button"
+      >
+        <span>
+          Right
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        style="width:80px;margin:4px"
+        type="button"
+      >
+        <span>
+          RB
+        </span>
+      </button>
+    </div>
   </div>
   <div
-    style="width:80px;margin-inline-start:344px"
-  >
-    <button
-      class="ant-btn ant-btn-default"
-      style="width:80px;margin:4px"
-      type="button"
-    >
-      <span>
-        RT
-      </span>
-    </button>
-    <button
-      class="ant-btn ant-btn-default"
-      style="width:80px;margin:4px"
-      type="button"
-    >
-      <span>
-        Right
-      </span>
-    </button>
-    <button
-      class="ant-btn ant-btn-default"
-      style="width:80px;margin:4px"
-      type="button"
-    >
-      <span>
-        RB
-      </span>
-    </button>
-  </div>
-  <div
-    style="margin-inline-start:80px;clear:both;white-space:nowrap"
+    class="ant-flex ant-flex-align-center ant-flex-justify-center"
+    style="white-space:nowrap"
   >
     <button
       class="ant-btn ant-btn-default"

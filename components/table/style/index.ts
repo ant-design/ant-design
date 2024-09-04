@@ -481,6 +481,8 @@ export const prepareComponentToken: GetDefaultToken<'Table'> = (token) => {
   };
 };
 
+const zIndexTableFixed = 2;
+
 // ============================== Export ==============================
 export default genStyleHooks(
   'Table',
@@ -522,8 +524,6 @@ export default genStyleHooks(
       calc,
     } = token;
 
-    const zIndexTableFixed: number = 2;
-
     const tableToken = mergeToken<TableToken>(token, {
       tableFontSize: cellFontSize,
       tableBg: colorBgContainer,
@@ -551,7 +551,7 @@ export default genStyleHooks(
       tableSelectedRowBg: rowSelectedBg,
       tableSelectedRowHoverBg: rowSelectedHoverBg,
       zIndexTableFixed,
-      zIndexTableSticky: zIndexTableFixed + 1,
+      zIndexTableSticky: calc(zIndexTableFixed).add(1).equal({ unit: false }),
       tableFontSizeMiddle: cellFontSizeMD,
       tableFontSizeSmall: cellFontSizeSM,
       tableSelectionColumnWidth: selectionColumnWidth,

@@ -117,3 +117,10 @@ jobs:
             <!-- AUTO_PREVIEW_HOOK -->
           body-include: '<!-- AUTO_PREVIEW_HOOK -->'
           number: ${{ steps.pr.outputs.id }}
+
+      - name: Check surge deploy result and exit if failed
+        run: |
+            if [ "${{ steps.deploy.outcome }}" != "success" ]; then
+              echo "Surge Deploy failed."
+              exit 1
+            fi

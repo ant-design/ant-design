@@ -245,13 +245,27 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         cursor: 'pointer',
         userSelect: 'none',
         transition: `all ${token.motionDurationSlow}`,
-        borderRadius: token.borderRadius,
 
         '&-noop': {
           cursor: 'unset',
         },
 
-        [`&:not(${treeCls}-switcher-noop):hover`]: {
+        '&:before': {
+          pointerEvents: 'none',
+          content: '""',
+          width: titleHeight,
+          height: titleHeight,
+          position: 'absolute',
+          left: {
+            _skip_check_: true,
+            value: 0,
+          },
+          top: 0,
+          borderRadius: token.borderRadius,
+          transition: `all ${token.motionDurationSlow}`,
+        },
+
+        [`&:not(${treeCls}-switcher-noop):hover:before`]: {
           backgroundColor: token.colorBgTextHover,
         },
 

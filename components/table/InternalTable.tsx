@@ -57,9 +57,9 @@ import useStyle from './style';
 
 export type { ColumnsType, TablePaginationConfig };
 
-const EMPTY_LIST: any[] = [];
+const EMPTY_LIST: AnyObject[] = [];
 
-interface ChangeEventInfo<RecordType> {
+interface ChangeEventInfo<RecordType = AnyObject> {
   pagination: {
     current?: number;
     pageSize?: number;
@@ -74,12 +74,7 @@ interface ChangeEventInfo<RecordType> {
   resetPagination: (current?: number, pageSize?: number) => void;
 }
 
-/** Same as `TableProps` but we need record parent render times */
-export interface InternalTableProps<RecordType> extends TableProps<RecordType> {
-  _renderTimes: number;
-}
-
-export interface TableProps<RecordType = any>
+export interface TableProps<RecordType = AnyObject>
   extends Omit<
     RcTableProps<RecordType>,
     | 'transformColumns'
@@ -115,6 +110,11 @@ export interface TableProps<RecordType = any>
   sortDirections?: SortOrder[];
   showSorterTooltip?: boolean | SorterTooltipProps;
   virtual?: boolean;
+}
+
+/** Same as `TableProps` but we need record parent render times */
+export interface InternalTableProps<RecordType = AnyObject> extends TableProps<RecordType> {
+  _renderTimes: number;
 }
 
 const InternalTable = <RecordType extends AnyObject = AnyObject>(
@@ -176,9 +176,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const mergedColumns = React.useMemo(() => {
     const matched = new Set(Object.keys(screens).filter((m) => screens[m as Breakpoint]));
 
-    return baseColumns.filter(
-      (c) => !c.responsive || c.responsive.some((r: Breakpoint) => matched.has(r)),
-    );
+    return baseColumns.filter((c) => !c.responsive || c.responsive.some((r) => matched.has(r)));
   }, [baseColumns, screens]);
 
   const tableProps: TableProps<RecordType> = omit(props, ['className', 'style', 'columns']);

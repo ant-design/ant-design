@@ -51,10 +51,6 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
     }
 
     if (color.isGradient()) {
-      // return color
-      //   .getColors()
-      //   .map((c) => `${c.color.toRgbString()} ${c.percent}%`)
-      //   .join(', ');
       return color.getColors().map((c, index) => {
         const inactive = activeIndex !== -1 && activeIndex !== index;
 

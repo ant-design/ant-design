@@ -24,7 +24,6 @@ const GlobalStyle: React.FC = () => {
         }
 
         .markdown img {
-          display: block;
           max-width: calc(100% - 32px);
           max-height: 100%;
         }
@@ -38,7 +37,6 @@ const GlobalStyle: React.FC = () => {
         .markdown p > img {
           margin: 34px auto;
           box-shadow: 0 8px 20px rgba(143, 168, 191, 0.35);
-          max-width: 1024px;
           display: block;
         }
 
@@ -112,39 +110,24 @@ const GlobalStyle: React.FC = () => {
           }
         }
 
-        .markdown ul > li {
-          margin-inline-start: ${token.marginMD}px;
+        .markdown ul > li,
+        .markdown ol > li {
           padding-inline-start: ${token.paddingXXS}px;
-          list-style-type: circle;
-
-          .rtl & {
-            margin-inline-end: ${token.marginMD}px;
-            margin-inline-start: 0;
-            padding-inline-end: ${token.paddingXXS}px;
-            padding-inline-start: 0;
+          margin-inline-start: ${token.marginMD}px;
+          > p {
+            margin: 0.2em 0;
           }
-
           &:empty {
             display: none;
           }
         }
 
-        .markdown ol > li {
-          margin-inline-start: ${token.marginMD}px;
-          padding-inline-start: ${token.paddingXXS}px;
-          list-style-type: decimal;
-
-          ${antCls}-row-rtl & {
-            margin-inline-end: ${token.marginMD}px;
-            margin-inline-start: 0;
-            padding-inline-end: ${token.paddingXXS}px;
-            padding-inline-start: 0;
-          }
+        .markdown ul > li {
+          list-style-type: circle;
         }
 
-        .markdown ul > li > p,
-        .markdown ol > li > p {
-          margin: 0.2em 0;
+        .markdown ol > li {
+          list-style-type: decimal;
         }
 
         .markdown code {

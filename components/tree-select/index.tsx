@@ -89,7 +89,10 @@ const InternalTreeSelect = <
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = BaseOptionType,
 >(
-  {
+  props: TreeSelectProps<ValueType, OptionType>,
+  ref: React.Ref<BaseSelectRef>,
+) => {
+  const {
     prefixCls: customizePrefixCls,
     size: customizeSize,
     disabled: customDisabled,
@@ -119,10 +122,8 @@ const InternalTreeSelect = <
     variant: customVariant,
     dropdownStyle,
     tagRender,
-    ...props
-  }: TreeSelectProps<ValueType, OptionType>,
-  ref: React.Ref<BaseSelectRef>,
-) => {
+    ...restProps
+  } = props;
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
@@ -203,7 +204,7 @@ const InternalTreeSelect = <
 
   // ===================== Icons =====================
   const { suffixIcon, removeIcon, clearIcon } = useIcons({
-    ...props,
+    ...restProps,
     multiple: isMultiple,
     showSuffixIcon,
     hasFeedback,
@@ -223,7 +224,7 @@ const InternalTreeSelect = <
   }
 
   // ==================== Render =====================
-  const selectProps = omit(props, [
+  const selectProps = omit(restProps, [
     'suffixIcon',
     'removeIcon',
     'clearIcon',

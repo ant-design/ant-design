@@ -193,8 +193,20 @@ export interface ComponentToken {
 }
 
 export interface ButtonToken extends FullToken<'Button'> {
+  /**
+   * @desc 按钮横向内边距
+   * @descEN Horizontal padding of button
+   */
   buttonPaddingHorizontal: CSSProperties['paddingInline'];
+  /**
+   * @desc 按钮纵向内边距
+   * @descEN Vertical padding of button
+   */
   buttonPaddingVertical: CSSProperties['paddingBlock'];
+  /**
+   * @desc 只有图标的按钮图标尺寸
+   * @descEN Icon size of button which only contains icon
+   */
   buttonIconOnlyFontSize: number;
 }
 

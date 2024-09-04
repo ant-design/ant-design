@@ -35,8 +35,16 @@ export interface ComponentToken extends SharedComponentToken {
   controlItemWidth: number | string;
 }
 
+/**
+ * @desc Mentions 组件的 Token
+ * @descEN Token for Mentions component
+ */
 type MentionsToken = FullToken<'Mentions'> &
   SharedInputToken & {
+    /**
+     * @desc 菜单项内边距
+     * @descEN Padding of menu item
+     */
     itemPaddingVertical: string | number;
   };
 

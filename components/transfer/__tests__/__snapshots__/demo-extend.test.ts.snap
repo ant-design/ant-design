@@ -458,7 +458,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
     >
       <button
         class="ant-btn ant-btn-default ant-btn-sm"
-        style="float: left; margin: 5px;"
+        style="display: flex; margin: 8px; margin-inline-end: auto;"
         type="button"
       >
         <span>
@@ -989,7 +989,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
     >
       <button
         class="ant-btn ant-btn-default ant-btn-sm"
-        style="float: right; margin: 5px;"
+        style="display: flex; margin: 8px; margin-inline-start: auto;"
         type="button"
       >
         <span>
@@ -11861,7 +11861,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                   >
                     <div
                       aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close"
                       draggable="false"
                     >
                       <span
@@ -11941,7 +11941,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                     </div>
                     <div
                       aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close"
                       draggable="false"
                     >
                       <span
@@ -11975,7 +11975,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                     </div>
                     <div
                       aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
                       draggable="false"
                     >
                       <span
@@ -12009,7 +12009,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                     </div>
                     <div
                       aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close"
                       draggable="false"
                     >
                       <span
@@ -12039,7 +12039,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                     </div>
                     <div
                       aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close"
                       draggable="false"
                     >
                       <span
@@ -12069,7 +12069,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                     </div>
                     <div
                       aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
                       draggable="false"
                     >
                       <span
