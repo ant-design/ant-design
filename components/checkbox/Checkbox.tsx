@@ -12,6 +12,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { FormItemInputContext } from '../form/context';
 import GroupContext from './GroupContext';
 import useStyle from './style';
+import { isNil } from 'lodash';
 
 export interface AbstractCheckboxProps<T> {
   prefixCls?: string;
@@ -76,7 +77,8 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
   const { isFormItemInput } = React.useContext(FormItemInputContext);
   const contextDisabled = React.useContext(DisabledContext);
   const mergedDisabled = (checkboxGroup?.disabled || disabled) ?? contextDisabled;
-
+  // is controlled by CheckBoxGroup
+  const groupControl = isNil(checkboxGroup?.groupControl) ? true : checkboxGroup?.groupControl;
   const prevValue = React.useRef(restProps.value);
 
   if (process.env.NODE_ENV !== 'production') {
@@ -120,7 +122,9 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
       }
     };
     checkboxProps.name = checkboxGroup.name;
-    checkboxProps.checked = checkboxGroup.value.includes(restProps.value);
+    if (groupControl) {
+      checkboxProps.checked = checkboxGroup.value.includes(restProps.value);
+    }
   }
   const classString = classNames(
     `${prefixCls}-wrapper`,
