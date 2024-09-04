@@ -125,7 +125,7 @@ describe('Tree', () => {
       <Tree
         switcherIcon="switcherIcon"
         loadData={onLoadData}
-        defaultExpandAll
+        defaultExpandedKeys={['0-0-2', '0-0-3']}
         switcherLoadingIcon={<div>loading...</div>}
       >
         <TreeNode icon="icon">
