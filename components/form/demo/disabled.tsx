@@ -10,6 +10,7 @@ import {
   Input,
   InputNumber,
   Radio,
+  Rate,
   Select,
   Slider,
   Switch,
@@ -116,6 +117,9 @@ const FormDisabledDemo: React.FC = () => {
         </Form.Item>
         <Form.Item label="ColorPicker">
           <ColorPicker />
+        </Form.Item>
+        <Form.Item label="Rate">
+          <Rate />
         </Form.Item>
       </Form>
     </>
