@@ -10324,7 +10324,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                     >
                                       <div
                                         aria-grabbed="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close"
                                         draggable="false"
                                       >
                                         <span
@@ -10404,7 +10404,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                       </div>
                                       <div
                                         aria-grabbed="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close"
                                         draggable="false"
                                       >
                                         <span
@@ -10438,7 +10438,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                       </div>
                                       <div
                                         aria-grabbed="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
                                         draggable="false"
                                       >
                                         <span
@@ -10522,7 +10522,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                       </div>
                                       <div
                                         aria-grabbed="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close"
                                         draggable="false"
                                       >
                                         <span
@@ -10556,7 +10556,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                       </div>
                                       <div
                                         aria-grabbed="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
                                         draggable="false"
                                       >
                                         <span
@@ -11264,7 +11264,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                                     >
                                       <div
                                         aria-grabbed="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close"
                                         draggable="false"
                                       >
                                         <span
@@ -11294,7 +11294,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                                       </div>
                                       <div
                                         aria-grabbed="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close"
                                         draggable="false"
                                       >
                                         <span
@@ -11324,7 +11324,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                                       </div>
                                       <div
                                         aria-grabbed="false"
-                                        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+                                        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
                                         draggable="false"
                                       >
                                         <span

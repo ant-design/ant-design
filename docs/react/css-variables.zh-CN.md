@@ -58,7 +58,7 @@ hash 是 Ant Design 5.0 以来的特性之一，其功能是为每一份主题�
 </ConfigProvider>
 ```
 
-同时我们非常推荐使用 `extractStyle` 来抽取静态样式，这样会为应用性能带来一定量的提升。
+同时我们非常推荐使用 [extractStyle](/docs/react/server-side-rendering-cn) 来抽取静态样式，这样会为应用性能带来一定量的提升。
 
 ### 修改主题
 
