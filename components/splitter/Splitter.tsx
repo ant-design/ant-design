@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React, { Children, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import React, { Children, useEffect, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 
 import { ConfigContext } from '../config-provider';
@@ -11,6 +11,17 @@ import type { PanelProps, SplitterContextType, SplitterProps } from './interface
 import { InternalPanel } from './Panel';
 import SplitBar from './SplitBar';
 import useStyle from './style';
+
+function calculatePanelSize(containerSize: number, numCells: number) {
+  const averageSize = Math.floor(containerSize / numCells);
+  const totalSize = averageSize * (numCells - 1);
+  const lastSize = containerSize - totalSize;
+
+  return {
+    averageSize,
+    lastSize,
+  };
+}
 
 const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const {
@@ -41,7 +52,6 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   // ======== panel ========
   const panelsRef = useRef<(HTMLDivElement | null)[]>([]);
   const panelCount = Children.count(children);
-
   const initializeSize = 100 / panelCount;
   const [basicsState, setBasicsState] = useState<number[]>(
     new Array(panelCount).fill(initializeSize),
@@ -74,16 +84,17 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   });
 
   // Calculate initial value
-  useLayoutEffect(() => {
+  useEffect(() => {
     const getInitialBasics = (container: HTMLDivElement) => {
       const { width, height } = container.getBoundingClientRect();
       const containerWidth = width;
       const containerHeight = height;
 
       const sizes: number[] = [];
-      let sum = 0;
-      let count = 0;
+      let customSum = 0;
+      let customCount = 0;
 
+      // Collect custom sizes
       items.forEach((item) => {
         let currentSize = item.size;
 
@@ -95,18 +106,21 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
           currentSize,
           layout === 'horizontal' ? containerWidth : containerHeight,
         );
-        sum += currentSize;
-        count += 1;
+        customSum += currentSize;
+        customCount += 1;
         sizes.push(currentSize);
       });
 
-      const averageSize = sum > 100 ? 0 : (100 - sum) / (panelCount - count);
-      const adjustedSize = Math.floor(averageSize * 100) / 100;
+      // Supplementary mean size
+      let supplementCount = panelCount - customCount;
+      const { averageSize, lastSize } = calculatePanelSize(100 - customSum, supplementCount);
       items.forEach((_, idx) => {
         if (sizes[idx] === initializeSize) {
-          sizes[idx] = adjustedSize;
+          sizes[idx] = supplementCount === 1 ? lastSize : averageSize;
+          supplementCount -= 1;
         }
       });
+
       return sizes;
     };
 
@@ -132,7 +146,6 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     rootCls,
     hashId,
   );
-
   const splitterContextValue = useMemo<SplitterContextType>(
     () => ({
       basicsState,
