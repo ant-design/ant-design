@@ -15,3 +15,5 @@ export type ShowWaveEffect = (
 ) => void;
 
 export type ShowWave = (event: MouseEvent) => void;
+
+export type WaveComponent = 'Tag' | 'Button' | 'Checkbox' | 'Radio' | 'Switch';
