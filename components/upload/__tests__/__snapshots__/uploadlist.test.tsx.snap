@@ -12,6 +12,7 @@ exports[`Upload List handle error 1`] = `
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
@@ -172,6 +173,7 @@ exports[`Upload List should be uploading when upload a file 1`] = `
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
@@ -273,6 +275,7 @@ exports[`Upload List should non-image format file preview 1`] = `
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
@@ -989,6 +992,7 @@ exports[`Upload List should support removeIcon and downloadIcon 1`] = `
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
@@ -1134,6 +1138,7 @@ exports[`Upload List should support removeIcon and downloadIcon 2`] = `
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
@@ -1279,6 +1284,7 @@ exports[`Upload List should support showRemoveIcon and showPreviewIcon 1`] = `
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />

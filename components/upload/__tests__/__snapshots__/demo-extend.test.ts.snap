@@ -15,6 +15,7 @@ exports[`renders components/upload/demo/avatar.tsx extend context correctly 1`] 
       >
         <input
           accept=""
+          name="avatar"
           style="display: none;"
           type="file"
         />
@@ -64,6 +65,7 @@ exports[`renders components/upload/demo/avatar.tsx extend context correctly 1`] 
       >
         <input
           accept=""
+          name="avatar"
           style="display: none;"
           type="file"
         />
@@ -119,6 +121,7 @@ exports[`renders components/upload/demo/basic.tsx extend context correctly 1`] =
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
@@ -175,6 +178,7 @@ exports[`renders components/upload/demo/component-token.tsx extend context corre
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
@@ -473,6 +477,7 @@ exports[`renders components/upload/demo/customize-progress-bar.tsx extend contex
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
@@ -536,6 +541,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
           <input
             accept=""
             disabled=""
+            name="file"
             style="display: none;"
             type="file"
           />
@@ -562,6 +568,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
           <input
             accept=""
             disabled=""
+            name="file"
             style="display: none;"
             type="file"
           />
@@ -837,6 +844,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
             <input
               accept=""
               disabled=""
+              name="avatar"
               style="display: none;"
               type="file"
             />
@@ -1111,6 +1119,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
             <input
               accept=""
               disabled=""
+              name="avatar"
               style="display: none;"
               type="file"
             />
@@ -1167,6 +1176,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
           <input
             accept=""
             disabled=""
+            name="file"
             style="display: none;"
             type="file"
           />
@@ -1231,6 +1241,7 @@ exports[`renders components/upload/demo/defaultFileList.tsx extend context corre
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
@@ -1530,6 +1541,7 @@ exports[`renders components/upload/demo/directory.tsx extend context correctly 1
       <input
         accept=""
         directory="directory"
+        name="file"
         style="display: none;"
         type="file"
         webkitdirectory="webkitdirectory"
@@ -1590,6 +1602,7 @@ exports[`renders components/upload/demo/drag.tsx extend context correctly 1`] = 
       <input
         accept=""
         multiple=""
+        name="file"
         style="display: none;"
         type="file"
       />
@@ -1653,6 +1666,7 @@ Array [
       >
         <input
           accept=""
+          name="file"
           style="display: none;"
           type="file"
         />
@@ -2710,6 +2724,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
       >
         <input
           accept=""
+          name="file"
           style="display: none;"
           type="file"
         />
@@ -2766,6 +2781,7 @@ exports[`renders components/upload/demo/fileList.tsx extend context correctly 1`
       <input
         accept=""
         multiple=""
+        name="file"
         style="display: none;"
         type="file"
       />
@@ -2904,6 +2920,7 @@ exports[`renders components/upload/demo/max-count.tsx extend context correctly 1
         >
           <input
             accept=""
+            name="file"
             style="display: none;"
             type="file"
           />
@@ -2960,6 +2977,7 @@ exports[`renders components/upload/demo/max-count.tsx extend context correctly 1
           <input
             accept=""
             multiple=""
+            name="file"
             style="display: none;"
             type="file"
           />
@@ -3506,6 +3524,7 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
       >
         <input
           accept=""
+          name="file"
           style="display: none;"
           type="file"
         />
@@ -3782,6 +3801,7 @@ exports[`renders components/upload/demo/picture-circle.tsx extend context correc
       >
         <input
           accept=""
+          name="file"
           style="display: none;"
           type="file"
         />
@@ -3837,6 +3857,7 @@ exports[`renders components/upload/demo/picture-style.tsx extend context correct
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
@@ -4135,6 +4156,7 @@ exports[`renders components/upload/demo/preview-file.tsx extend context correctl
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
@@ -4191,6 +4213,7 @@ exports[`renders components/upload/demo/transform-file.tsx extend context correc
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
@@ -4247,6 +4270,7 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
@@ -4591,6 +4615,7 @@ Array [
       >
         <input
           accept=""
+          name="file"
           style="display: none;"
           type="file"
         />
@@ -4658,6 +4683,7 @@ exports[`renders components/upload/demo/upload-png-only.tsx extend context corre
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
@@ -4743,6 +4769,7 @@ exports[`renders components/upload/demo/upload-with-aliyun-oss.tsx extend contex
                 >
                   <input
                     accept=""
+                    name="file"
                     style="display: none;"
                     type="file"
                   />
