@@ -3,6 +3,8 @@ category: Components
 group: Layout
 title: Splitter
 description: Split panels are used to isolate areas and display multiple contents.
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*mQmMTYq6OjYAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*7v4GTo2Ely8AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 tag: 5.21.0

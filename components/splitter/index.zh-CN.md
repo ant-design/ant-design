@@ -4,6 +4,8 @@ group: 布局
 title: Splitter
 subtitle: 分隔面板
 description: 分割面板用于隔离区域，展示多个内容。
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*mQmMTYq6OjYAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*7v4GTo2Ely8AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 tag: 5.21.0
