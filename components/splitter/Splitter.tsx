@@ -6,7 +6,9 @@ import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import SplitterContext from './context';
 import useHandle from './hooks/useHandle';
+import useItems from './hooks/useItems';
 import useResize, { sizeTransform } from './hooks/useResize';
+import useSizes from './hooks/useSizes';
 import type { PanelProps, SplitterContextType, SplitterProps } from './interface';
 import { InternalPanel } from './Panel';
 import SplitBar from './SplitBar';
@@ -42,6 +44,13 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
+  // ====================== Items Data ======================
+  const items = useItems(children);
+
+  // ========================= Size =========================
+  const s = useSizes(items, 100);
+  console.log('>>>', s);
+
   // ======== container ========
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -56,12 +65,6 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const [basicsState, setBasicsState] = useState<number[]>(
     new Array(panelCount).fill(initializeSize),
   );
-  const items: PanelProps[] = [];
-  React.Children.forEach(children, (child) => {
-    if (React.isValidElement(child)) {
-      items.push({ ...child.props });
-    }
-  });
 
   // ======== resizing  ========
   const [resizing, setResizing] = useState(false);

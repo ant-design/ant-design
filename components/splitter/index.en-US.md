@@ -46,9 +46,9 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| min | Minimum threshold `1-100 \| '10%' \| '200px'` | `number \| string` | - | - |
-| max | Maximum Threshold `1-100 \| '10%' \| '200px'` | `number \| string` | - | - |
-| size | Controlled panel size `1-100 \| '10%' \| '200px'` | `number \| string` | - | - |
+| min | Minimum threshold support number for px or 'percent%' usage | `number \| string` | - | - |
+| max | Maximum threshold support number for px or 'percent%' usage | `number \| string` | - | - |
+| size | Controlled panel size support number for px or 'percent%' usage | `number \| string` | - | - |
 | collapsible | Quick folding | `boolean \| { start?: boolean; end?: boolean }` | `false` | - |
 | resizable | Whether to enable drag and drop | `boolean` | `true` | - |
 
