@@ -66,10 +66,6 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const [itemPtgSizes, itemPxSizes, onOffsetStart, onOffsetUpdate] = useSizes(items, containerSize);
 
   // ======================== Events ========================
-  // const     onResizeStart,
-  // onResize,
-  // onResizeEnd,
-
   const onInternalResizeStart = useEvent(() => {
     onOffsetStart();
     onResizeStart?.(itemPxSizes);
@@ -163,6 +159,19 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     // When item.size changes, recalculate flexBasis
   }, [JSON.stringify(items.map((item) => item.size)), layout]);
 
+  const splitterContextValue = useMemo<SplitterContextType>(
+    () => ({
+      basicsState,
+      layout,
+      reverse,
+      resizing,
+      onStart,
+      setSize,
+    }),
+    [basicsState, layout, reverse, resizing],
+  );
+
+  // ======================== Styles ========================
   const containerClassName = classNames(
     prefixCls,
     className,
@@ -178,18 +187,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     rootCls,
     hashId,
   );
-  const splitterContextValue = useMemo<SplitterContextType>(
-    () => ({
-      basicsState,
-      layout,
-      reverse,
-      resizing,
-      onStart,
-      setSize,
-    }),
-    [basicsState, layout, reverse, resizing],
-  );
 
+  // ======================== Render ========================
   return wrapCSSVar(
     <SplitterContext.Provider value={splitterContextValue}>
       <ResizeObserver onResize={onContainerResize}>

@@ -22,8 +22,8 @@ You need to display multiple contents, and you want users to be able to adjust t
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/size.tsx">Panel size control</code>
 <code src="./demo/control.tsx">Control mode</code>
-<code src="./demo/collapsible.tsx">Quick Folding</code>
-<code src="./demo/layout.tsx">Layout Switching</code>
+<code src="./demo/vertical.tsx">Vertical</code>
+<code src="./demo/collapsible.tsx">Collapsible</code>
 <code src="./demo/multiple.tsx">Multiple panels</code>
 <code src="./demo/group.tsx">Complex combination</code>
 <code src="./demo/debug.tsx" debug>test</code>

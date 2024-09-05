@@ -102,6 +102,8 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
       // }}
       onMouseDown={onMouseDown}
     >
+      <div className={`${splitBarPrefixCls}-dragger`} />
+
       <div className={`${splitBarPrefixCls}-bg`} />
 
       <div className={`${splitBarPrefixCls}-area`} />

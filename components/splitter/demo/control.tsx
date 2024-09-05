@@ -3,7 +3,7 @@ import { Button, Flex, GetProp, Splitter } from 'antd';
 import { set } from 'lodash';
 
 const App: React.FC = () => {
-  const [sizes, setSizes] = React.useState<(number | string)[]>(['90%', '10%']);
+  const [sizes, setSizes] = React.useState<(number | string)[]>(['50%', '50%']);
 
   return (
     <Flex vertical gap={16}>
@@ -31,7 +31,7 @@ const App: React.FC = () => {
 
       <Button
         onClick={() => {
-          setSizes(['90%', '10%']);
+          setSizes(['50%', '50%']);
         }}
       >
         Reset
