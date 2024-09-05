@@ -3,18 +3,25 @@ import { useEvent, useMergedState } from 'rc-util';
 
 import type { PanelProps } from '../interface';
 
+function getPtg(str: string) {
+  return Number(str.slice(0, -1)) / 100;
+}
+
 /**
  * Save the size state.
  * Align the size into flex percentage base.
  */
 export default function useSizes(items: PanelProps[], containerSize: number) {
   const propSizes = items.map((item) => item.size);
+  const limitSizes = items.map((item) => [item.min, item.max]);
 
   const itemsCount = items.length;
 
   // We do not need care the size state match the `items` length in `useState`.
   // It will calculate later.
-  const [innerSizes, setInnerSizes] = React.useState<(string | number | undefined)[]>(propSizes);
+  const [innerSizes, setInnerSizes] = React.useState<(string | number | undefined)[]>(() =>
+    items.map((item) => item.defaultSize),
+  );
   const sizes = React.useMemo(() => {
     const mergedSizes = [];
 
@@ -38,7 +45,7 @@ export default function useSizes(items: PanelProps[], containerSize: number) {
       const itemSize = sizes[i];
 
       if (typeof itemSize === 'string' && itemSize.endsWith('%')) {
-        ptgList[i] = Number(itemSize.slice(0, -1));
+        ptgList[i] = getPtg(itemSize);
       } else if (itemSize || itemSize === 0) {
         const num = Number(itemSize);
         if (!Number.isNaN(num)) {
@@ -66,10 +73,12 @@ export default function useSizes(items: PanelProps[], containerSize: number) {
   }, [sizes, containerSize]);
 
   // ======================== Resize ========================
+  const ptg2px = (ptg: number) => ptg * containerSize;
+
   // Real px sizes
   const [cacheSizes, setCacheSizes] = React.useState<number[]>([]);
 
-  const getPxSizes = () => postPercentSizes.map((ptg) => ptg * containerSize);
+  const getPxSizes = () => postPercentSizes.map(ptg2px);
 
   const onOffsetStart = useEvent(() => {
     setCacheSizes(getPxSizes());
@@ -77,9 +86,40 @@ export default function useSizes(items: PanelProps[], containerSize: number) {
 
   const onOffsetUpdate = useEvent((index: number, offset: number) => {
     const numSizes = [...cacheSizes];
+    const nextIndex = index + 1;
 
-    numSizes[index] += offset;
-    numSizes[index + 1] -= offset;
+    function getLimitSize(str: string | number | undefined, defaultLimit: number) {
+      if (typeof str === 'string') {
+        return ptg2px(getPtg(str));
+      }
+      return str ?? defaultLimit;
+    }
+
+    // Get boundary
+    const startMinSize = getLimitSize(limitSizes[index][0], 0);
+    const endMinSize = getLimitSize(limitSizes[nextIndex][0], 0);
+    const startMaxSize = getLimitSize(limitSizes[index][1], containerSize);
+    const endMaxSize = getLimitSize(limitSizes[nextIndex][1], containerSize);
+
+    let mergedOffset = offset;
+
+    // Align with the boundary
+    if (numSizes[index] + mergedOffset < startMinSize) {
+      mergedOffset = startMinSize - numSizes[index];
+    }
+    if (numSizes[nextIndex] - mergedOffset < endMinSize) {
+      mergedOffset = numSizes[nextIndex] - endMinSize;
+    }
+    if (numSizes[index] + mergedOffset > startMaxSize) {
+      mergedOffset = startMaxSize - numSizes[index];
+    }
+    if (numSizes[nextIndex] - mergedOffset > endMaxSize) {
+      mergedOffset = numSizes[nextIndex] - endMaxSize;
+    }
+
+    // Do offset
+    numSizes[index] += mergedOffset;
+    numSizes[nextIndex] -= mergedOffset;
 
     setInnerSizes(numSizes);
   });

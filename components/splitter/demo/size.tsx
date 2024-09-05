@@ -12,12 +12,12 @@ const App: React.FC = () => (
       console.log('[ sizes index ] ===>', sizes, index);
     }}
   >
-    <Splitter.Panel size={40} min={20} max={80}>
+    <Splitter.Panel defaultSize="40%" min="20%" max="80%">
       <div style={{ padding: 12 }}>
         <div>first</div>
-        <div>size=40</div>
-        <div>max=80</div>
-        <div>min=20</div>
+        <div>size=40%</div>
+        <div>min=20%</div>
+        <div>max=80%</div>
       </div>
     </Splitter.Panel>
 

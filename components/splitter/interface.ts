@@ -19,6 +19,7 @@ export interface PanelProps {
   size?: number | string;
   collapsible?: boolean;
   resizable?: boolean;
+  defaultSize?: number | string;
 }
 
 // ================ inside ================
