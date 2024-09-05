@@ -91,6 +91,8 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
   const splitBarCls = `${componentCls}-bar`;
 
+  const halfTriggerSize = token.calc(splitTriggerSize).div(2).equal();
+
   return {
     [componentCls]: {
       ...resetComponent(token),
@@ -249,7 +251,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         [`> ${splitBarCls}`]: {
           width: 0,
 
-          // Dragger
+          // ======================= Dragger =======================
           [`${splitBarCls}-dragger`]: {
             cursor: 'col-resize',
             height: '100%',
@@ -263,6 +265,33 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
             '&:after': {
               height: resizeSpinnerSize,
               width: splitBarSize,
+            },
+          },
+
+          // ======================= Collapse =======================
+          [`${splitBarCls}-collapse-bar`]: {
+            '&-start': {
+              left: {
+                _skip_check_: true,
+                value: 'auto',
+              },
+              right: {
+                _skip_check_: true,
+                value: halfTriggerSize,
+              },
+              transform: 'translateY(-50%)',
+            },
+
+            '&-end': {
+              left: {
+                _skip_check_: true,
+                value: halfTriggerSize,
+              },
+              right: {
+                _skip_check_: true,
+                value: 'auto',
+              },
+              transform: 'translateY(-50%)',
             },
           },
         },

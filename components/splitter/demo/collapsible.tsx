@@ -13,7 +13,7 @@ const App: React.FC = () => (
       <div style={{ padding: 12 }}>first</div>
     </Splitter.Panel>
 
-    <Splitter.Panel>
+    <Splitter.Panel collapsible>
       <div style={{ padding: 12 }}>second</div>
     </Splitter.Panel>
   </Splitter>
