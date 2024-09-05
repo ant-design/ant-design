@@ -17,6 +17,8 @@ export default function useSizes(items: PanelProps[], containerSize: number) {
 
   const itemsCount = items.length;
 
+  const ptg2px = (ptg: number) => ptg * containerSize;
+
   // We do not need care the size state match the `items` length in `useState`.
   // It will calculate later.
   const [innerSizes, setInnerSizes] = React.useState<(string | number | undefined)[]>(() =>
@@ -72,19 +74,23 @@ export default function useSizes(items: PanelProps[], containerSize: number) {
     return ptgList as number[];
   }, [sizes, containerSize]);
 
+  const postPxSizes = React.useMemo(
+    () => postPercentSizes.map(ptg2px),
+    [postPercentSizes, containerSize],
+  );
+
   // ======================== Resize ========================
-  const ptg2px = (ptg: number) => ptg * containerSize;
 
   // Real px sizes
   const [cacheSizes, setCacheSizes] = React.useState<number[]>([]);
 
   const getPxSizes = () => postPercentSizes.map(ptg2px);
 
-  const onOffsetStart = useEvent(() => {
+  const onOffsetStart = () => {
     setCacheSizes(getPxSizes());
-  });
+  };
 
-  const onOffsetUpdate = useEvent((index: number, offset: number) => {
+  const onOffsetUpdate = (index: number, offset: number) => {
     const numSizes = [...cacheSizes];
     const nextIndex = index + 1;
 
@@ -122,9 +128,9 @@ export default function useSizes(items: PanelProps[], containerSize: number) {
     numSizes[nextIndex] -= mergedOffset;
 
     setInnerSizes(numSizes);
-  });
 
-  const onOffsetEnd = useEvent(() => {});
+    return numSizes;
+  };
 
-  return [postPercentSizes, onOffsetStart, onOffsetUpdate, onOffsetEnd] as const;
+  return [postPercentSizes, postPxSizes, onOffsetStart, onOffsetUpdate] as const;
 }

@@ -2,6 +2,7 @@
 import React, { Children, useEffect, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
+import { useEvent } from 'rc-util';
 
 import type { GetProp } from '../_util/type';
 import { ConfigContext } from '../config-provider';
@@ -62,7 +63,26 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   };
 
   // ========================= Size =========================
-  const [itemSizes, onOffsetStart, onOffsetUpdate, onOffsetEnd] = useSizes(items, containerSize);
+  const [itemPtgSizes, itemPxSizes, onOffsetStart, onOffsetUpdate] = useSizes(items, containerSize);
+
+  // ======================== Events ========================
+  // const     onResizeStart,
+  // onResize,
+  // onResizeEnd,
+
+  const onInternalResizeStart = useEvent(() => {
+    onOffsetStart();
+    onResizeStart?.(itemPxSizes);
+  });
+
+  const onInternalResizeUpdate = useEvent((index: number, offset: number) => {
+    const nextSizes = onOffsetUpdate(index, offset);
+    onResize?.(nextSizes);
+  });
+
+  const onInternalResizeEnd = useEvent(() => {
+    onResizeEnd?.(itemPxSizes);
+  });
 
   // ======== container ========
   const containerRef = useRef<HTMLDivElement>(null);
@@ -183,7 +203,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 {...item}
                 last={last}
                 prefixCls={prefixCls}
-                size={itemSizes[idx] * 100}
+                size={itemPtgSizes[idx] * 100}
                 ref={(ref) => {
                   panelsRef.current[idx] = ref;
                 }}
@@ -201,15 +221,15 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                   prefixCls={prefixCls}
                   resizable={[item.resizable, nextItem.resizable]}
                   collapsible={[item.collapsible, nextItem.collapsible]}
-                  onOffsetStart={onOffsetStart}
+                  onOffsetStart={onInternalResizeStart}
                   onOffsetUpdate={(offsetX, offsetY) => {
                     let offset = isVertical ? offsetY : offsetX;
                     if (reverse) {
                       offset = -offset;
                     }
-                    onOffsetUpdate(idx, offset);
+                    onInternalResizeUpdate(idx, offset);
                   }}
-                  onOffsetEnd={onOffsetEnd}
+                  onOffsetEnd={onInternalResizeEnd}
                 />
               );
             }

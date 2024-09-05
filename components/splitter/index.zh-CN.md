@@ -22,6 +22,7 @@ tag: 5.21.0
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本用法</code>
 <code src="./demo/size.tsx">面板大小控制</code>
+<code src="./demo/control.tsx">受控模式</code>
 <code src="./demo/collapsible.tsx">快捷折叠</code>
 <code src="./demo/layout.tsx">布局切换</code>
 <code src="./demo/multiple.tsx">多面板</code>

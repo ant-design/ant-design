@@ -6,9 +6,9 @@ export interface SplitterProps {
   rootClassName?: string;
   layout?: 'horizontal' | 'vertical';
   transition?: boolean;
-  onResizeStart?: (sizes: number[], index: number) => void;
-  onResize?: (sizes: number[], index: number) => void;
-  onResizeEnd?: (sizes: number[], index: number) => void;
+  onResizeStart?: (sizes: number[]) => void;
+  onResize?: (sizes: number[]) => void;
+  onResizeEnd?: (sizes: number[]) => void;
 }
 
 export interface PanelProps {

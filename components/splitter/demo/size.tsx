@@ -8,9 +8,6 @@ const App: React.FC = () => (
       borderRadius: 4,
       boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
     }}
-    onResize={(sizes, index) => {
-      console.log('[ sizes index ] ===>', sizes, index);
-    }}
   >
     <Splitter.Panel defaultSize="40%" min="20%" max="80%">
       <div style={{ padding: 12 }}>
