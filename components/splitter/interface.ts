@@ -17,21 +17,12 @@ export interface PanelProps {
   min?: number | string;
   max?: number | string;
   size?: number | string;
-  collapsible?:
-    | boolean
-    | {
-        start?: boolean;
-        end?: boolean;
-      };
+  collapsible?: boolean;
   resizable?: boolean;
 }
 
 // ================ inside ================
 
-export interface SplitBarProps extends Pick<PanelProps, 'resizable' | 'collapsible'> {
-  index: number;
-  prefixCls: string;
-}
 export interface InternalPanelProps extends PanelProps {
   className?: string;
   last?: boolean;

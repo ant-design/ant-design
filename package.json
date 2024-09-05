@@ -349,5 +349,8 @@
   "title": "Ant Design",
   "tnpm": {
     "mode": "npm"
+  },
+  "overrides": {
+    "@umijs/mako": "0.8.8-rc.1"
   }
 }

@@ -1,7 +1,9 @@
 /* eslint-disable react/no-array-index-key */
 import React, { Children, useEffect, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
+import ResizeObserver from 'rc-resize-observer';
 
+import type { GetProp } from '../_util/type';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import SplitterContext from './context';
@@ -44,18 +46,28 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
+  // ======================== Direct ========================
+  const isVertical = layout === 'vertical';
+  const isRTL = direction === 'rtl';
+
   // ====================== Items Data ======================
   const items = useItems(children);
 
+  // ====================== Container =======================
+  const [containerSize, setContainerSize] = useState<number>(100);
+
+  const onContainerResize: GetProp<typeof ResizeObserver, 'onResize'> = (size) => {
+    setContainerSize(isVertical ? size.offsetHeight : size.offsetWidth);
+  };
+
   // ========================= Size =========================
-  const s = useSizes(items, 100);
-  console.log('>>>', s);
+  const [itemSizes, onOffsetStart, onOffsetUpdate, onOffsetEnd] = useSizes(items, containerSize);
+  console.log('>>>', itemSizes);
 
   // ======== container ========
   const containerRef = useRef<HTMLDivElement>(null);
 
   // ======== rtl ========
-  const isRTL = direction === 'rtl';
   const reverse = layout === 'horizontal' && isRTL;
 
   // ======== panel ========
@@ -163,34 +175,53 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
   return wrapCSSVar(
     <SplitterContext.Provider value={splitterContextValue}>
-      <div ref={containerRef} style={style} className={containerClassName}>
-        {items.map((item, idx) => {
-          const last = idx === panelCount - 1;
+      <ResizeObserver onResize={onContainerResize}>
+        <div ref={containerRef} style={style} className={containerClassName}>
+          {items.map((item, idx) => {
+            const last = idx === panelCount - 1;
 
-          return (
-            <React.Fragment key={`split-panel-${idx}`}>
+            // Panel
+            const panel = (
               <InternalPanel
                 {...item}
                 last={last}
                 prefixCls={prefixCls}
-                size={basicsState[idx]}
+                size={itemSizes[idx] * 100}
                 ref={(ref) => {
                   panelsRef.current[idx] = ref;
                 }}
               />
+            );
 
-              {!last && (
+            // Split Bar
+            let splitBar: React.ReactElement | null = null;
+            if (!last) {
+              const nextItem = items[idx + 1];
+
+              splitBar = (
                 <SplitBar
                   index={idx}
                   prefixCls={prefixCls}
-                  resizable={item.resizable}
-                  collapsible={item.collapsible}
+                  resizable={[item.resizable, nextItem.resizable]}
+                  collapsible={[item.collapsible, nextItem.collapsible]}
+                  onOffsetStart={onOffsetStart}
+                  onOffsetUpdate={(offsetX, offsetY) => {
+                    onOffsetUpdate(idx, isVertical ? offsetY : offsetX);
+                  }}
+                  onOffsetEnd={onOffsetEnd}
                 />
-              )}
-            </React.Fragment>
-          );
-        })}
-      </div>
+              );
+            }
+
+            return (
+              <React.Fragment key={`split-panel-${idx}`}>
+                {panel}
+                {splitBar}
+              </React.Fragment>
+            );
+          })}
+        </div>
+      </ResizeObserver>
     </SplitterContext.Provider>,
   );
 };

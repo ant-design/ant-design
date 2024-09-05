@@ -1,5 +1,5 @@
 import React from 'react';
-import { useMergedState } from 'rc-util';
+import { useEvent, useMergedState } from 'rc-util';
 
 import type { PanelProps } from '../interface';
 
@@ -8,15 +8,22 @@ import type { PanelProps } from '../interface';
  * Align the size into flex percentage base.
  */
 export default function useSizes(items: PanelProps[], containerSize: number) {
-  const propSize = items.map((item) => item.size);
+  const propSizes = items.map((item) => item.size);
 
   const itemsCount = items.length;
 
   // We do not need care the size state match the `items` length in `useState`.
   // It will calculate later.
-  const [size, setSize] = useMergedState<(string | number | undefined)[]>([], {
-    value: propSize,
-  });
+  const [innerSizes, setInnerSizes] = React.useState<(string | number | undefined)[]>(propSizes);
+  const sizes = React.useMemo(() => {
+    const mergedSizes = [];
+
+    for (let i = 0; i < itemsCount; i += 1) {
+      mergedSizes[i] = propSizes[i] ?? innerSizes[i];
+    }
+
+    return mergedSizes;
+  }, [itemsCount, innerSizes, propSizes]);
 
   // Post handle the size. Will do:
   // 1. Convert all the px into percentage if not empty.
@@ -28,7 +35,7 @@ export default function useSizes(items: PanelProps[], containerSize: number) {
 
     // Fill default percentage
     for (let i = 0; i < itemsCount; i += 1) {
-      const itemSize = size[i];
+      const itemSize = sizes[i];
 
       if (typeof itemSize === 'string' && itemSize.endsWith('%')) {
         ptgList[i] = Number(itemSize.slice(0, -1));
@@ -55,7 +62,28 @@ export default function useSizes(items: PanelProps[], containerSize: number) {
     }
 
     return ptgList;
-  }, [size, containerSize]);
+  }, [sizes, containerSize]);
 
-  return [postPercentSizes] as const;
+  // ======================== Resize ========================
+  // Real px sizes
+  const [cacheSizes, setCacheSizes] = React.useState<number[]>([]);
+
+  const getPxSizes = () => postPercentSizes.map((ptg) => ptg * containerSize);
+
+  const onOffsetStart = useEvent(() => {
+    setCacheSizes(getPxSizes());
+  });
+
+  const onOffsetUpdate = useEvent((index: number, offset: number) => {
+    const numSizes = [...cacheSizes];
+
+    numSizes[index] += offset;
+    numSizes[index + 1] -= offset;
+
+    setInnerSizes(numSizes);
+  });
+
+  const onOffsetEnd = useEvent(() => {});
+
+  return [postPercentSizes, onOffsetStart, onOffsetUpdate, onOffsetEnd] as const;
 }
