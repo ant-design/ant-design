@@ -6,7 +6,6 @@ const App: React.FC = () => (
     layout="vertical"
     style={{
       height: 300,
-      borderRadius: 4,
       boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
     }}
   >

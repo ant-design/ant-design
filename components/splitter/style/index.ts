@@ -62,7 +62,7 @@ const genRtlStyle = (token: SplitterToken): CSSObject => {
   };
 };
 
-const centerStyle = {
+const centerStyle: CSSObject = {
   position: 'absolute',
   top: '50%',
   left: '50%',
@@ -142,6 +142,17 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
               '&:before': {
                 background: controlItemBgActiveHover,
               },
+            },
+          },
+        },
+
+        // Disabled
+        '&-disabled': {
+          [`${splitBarCls}-dragger`]: {
+            pointerEvents: 'none',
+
+            '&:after': {
+              display: 'none',
             },
           },
         },
@@ -295,6 +306,11 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
             '&:before': {
               width: '100%',
+              height: splitBarSize,
+            },
+
+            '&:after': {
+              width: resizeSpinnerSize,
               height: splitBarSize,
             },
           },
