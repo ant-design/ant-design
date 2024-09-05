@@ -49,6 +49,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   // ======================== Direct ========================
   const isVertical = layout === 'vertical';
   const isRTL = direction === 'rtl';
+  const reverse = layout === 'horizontal' && isRTL;
 
   // ====================== Items Data ======================
   const items = useItems(children);
@@ -62,13 +63,9 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
   // ========================= Size =========================
   const [itemSizes, onOffsetStart, onOffsetUpdate, onOffsetEnd] = useSizes(items, containerSize);
-  console.log('>>>', itemSizes);
 
   // ======== container ========
   const containerRef = useRef<HTMLDivElement>(null);
-
-  // ======== rtl ========
-  const reverse = layout === 'horizontal' && isRTL;
 
   // ======== panel ========
   const panelsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -206,7 +203,11 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                   collapsible={[item.collapsible, nextItem.collapsible]}
                   onOffsetStart={onOffsetStart}
                   onOffsetUpdate={(offsetX, offsetY) => {
-                    onOffsetUpdate(idx, isVertical ? offsetY : offsetX);
+                    let offset = isVertical ? offsetY : offsetX;
+                    if (reverse) {
+                      offset = -offset;
+                    }
+                    onOffsetUpdate(idx, offset);
                   }}
                   onOffsetEnd={onOffsetEnd}
                 />

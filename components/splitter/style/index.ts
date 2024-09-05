@@ -91,6 +91,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         flexGrow: 0,
         flexShrink: 0,
         position: 'relative',
+        userSelect: 'none',
 
         '&:hover': {
           [`> ${componentCls}-bar-bg`]: {

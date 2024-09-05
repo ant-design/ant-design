@@ -21,22 +21,22 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
 
   const { reverse, resizing, basicsState, setSize, onStart } = React.useContext(SplitterContext);
 
-  const [active, setActive] = useState(false);
+  // const [active, setActive] = useState(false);
   const splitBarPrefixCls = `${prefixCls}-bar`;
 
-  // const { previousIcon, nextIcon, overlap, onFold, setOldBasics } = useCollapsible({
-  //   basicsState,
-  //   collapsible: mergedCollapsible,
-  //   index,
-  //   reverse,
-  //   setSize,
-  // });
+  // // const { previousIcon, nextIcon, overlap, onFold, setOldBasics } = useCollapsible({
+  // //   basicsState,
+  // //   collapsible: mergedCollapsible,
+  // //   index,
+  // //   reverse,
+  // //   setSize,
+  // // });
 
-  useEffect(() => {
-    if (!resizing && active) {
-      setActive(false);
-    }
-  }, [active, resizing]);
+  // useEffect(() => {
+  //   if (!resizing && active) {
+  //     setActive(false);
+  //   }
+  // }, [active, resizing]);
 
   // ======================== Enable ========================
   const mergedResizable = React.useMemo(() => {
@@ -85,7 +85,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   // ======================== Styles ========================
   const splitBarClassName = classNames(splitBarPrefixCls, {
     [`${prefixCls}-bar-disabled`]: !mergedResizable,
-    [`${prefixCls}-bar-active`]: active,
+    [`${prefixCls}-bar-active`]: !!startPos,
   });
 
   // ======================== Render ========================

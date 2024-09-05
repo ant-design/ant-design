@@ -30,7 +30,7 @@ export default function useSizes(items: PanelProps[], containerSize: number) {
   // 2. Get rest percentage for exist percentage.
   // 3. Fill the rest percentage into empty item.
   const postPercentSizes = React.useMemo(() => {
-    const ptgList: number[] = [];
+    let ptgList: (number | undefined)[] = [];
     let emptyCount = 0;
 
     // Fill default percentage
@@ -46,22 +46,23 @@ export default function useSizes(items: PanelProps[], containerSize: number) {
         }
       } else {
         emptyCount += 1;
+        ptgList[i] = undefined;
       }
     }
 
-    // Get empty percentage
-    const totalPtg = ptgList.reduce((acc, ptg) => acc + ptg, 0);
-    const restPtg = 1 - totalPtg;
-    const restAvgPtg = Math.max(restPtg, 0) / emptyCount;
+    const totalPtg = ptgList.reduce((acc: number, ptg) => acc + (ptg || 0), 0);
 
-    // Fill empty percentage
-    for (let i = 0; i < itemsCount; i += 1) {
-      if (ptgList[i] === undefined) {
-        ptgList[i] = restAvgPtg;
-      }
+    if (totalPtg > 1 || !emptyCount) {
+      // If total percentage is larger than 1, we will scale it down.
+      const scale = 1 / totalPtg;
+      ptgList = ptgList.map((ptg) => (ptg === undefined ? 0 : ptg * scale));
+    } else {
+      // If total percentage is smaller than 1, we will fill the rest.
+      const avgRest = (1 - totalPtg) / emptyCount;
+      ptgList = ptgList.map((ptg) => (ptg === undefined ? avgRest : ptg));
     }
 
-    return ptgList;
+    return ptgList as number[];
   }, [sizes, containerSize]);
 
   // ======================== Resize ========================
