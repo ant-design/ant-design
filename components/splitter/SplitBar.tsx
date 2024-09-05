@@ -104,34 +104,48 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     >
       <div className={`${splitBarPrefixCls}-dragger`} />
 
-      <div className={`${splitBarPrefixCls}-bg`} />
+      {/* <div className={`${splitBarPrefixCls}-bg`} />
 
-      <div className={`${splitBarPrefixCls}-area`} />
+      <div className={`${splitBarPrefixCls}-area`} /> */}
 
-      {mergedResizable ? <div className={`${splitBarPrefixCls}-resizable`} /> : null}
+      {/* {mergedResizable ? <div className={`${splitBarPrefixCls}-resizable`} /> : null} */}
 
       {/* Start Collapsible */}
       {startCollapsible && (
-        <LeftOutlined
+        <div
           className={classNames(
-            `${splitBarPrefixCls}-collapse-icon`,
-            `${splitBarPrefixCls}-collapse-previous`,
+            `${splitBarPrefixCls}-collapse-bar`,
+            `${splitBarPrefixCls}-collapse-bar-start`,
           )}
-          // onMouseDown={(e) => e.stopPropagation()}
-          // onClick={() => onFold('previous')}
-        />
+        >
+          <LeftOutlined
+            className={classNames(
+              `${splitBarPrefixCls}-collapse-icon`,
+              `${splitBarPrefixCls}-collapse-start`,
+            )}
+            // onMouseDown={(e) => e.stopPropagation()}
+            // onClick={() => onFold('previous')}
+          />
+        </div>
       )}
 
       {/* End Collapsible */}
       {endCollapsible && (
-        <RightOutlined
+        <div
           className={classNames(
-            `${splitBarPrefixCls}-collapse-icon`,
-            `${splitBarPrefixCls}-collapse-next`,
+            `${splitBarPrefixCls}-collapse-bar`,
+            `${splitBarPrefixCls}-collapse-bar-end`,
           )}
-          // onMouseDown={(e) => e.stopPropagation()}
-          // onClick={() => onFold('next')}
-        />
+        >
+          <RightOutlined
+            className={classNames(
+              `${splitBarPrefixCls}-collapse-icon`,
+              `${splitBarPrefixCls}-collapse-end`,
+            )}
+            // onMouseDown={(e) => e.stopPropagation()}
+            // onClick={() => onFold('next')}
+          />
+        </div>
       )}
     </div>
   );

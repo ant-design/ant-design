@@ -218,6 +218,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 <SplitBar
                   index={idx}
                   prefixCls={prefixCls}
+                  vertical={isVertical}
                   resizable={[item.resizable, nextItem.resizable]}
                   collapsible={[item.collapsible, nextItem.collapsible]}
                   onOffsetStart={onInternalResizeStart}

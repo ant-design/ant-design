@@ -106,7 +106,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         position: 'relative',
         userSelect: 'none',
 
-        // Dragger
+        // ======================= Dragger =======================
         [`${splitBarCls}-dragger`]: {
           ...centerStyle,
 
@@ -156,6 +156,21 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
             },
           },
         },
+
+        // ======================= Collapse =======================
+        [`${splitBarCls}-collapse-bar`]: {
+          ...centerStyle,
+          height: '100%',
+          display: 'flex',
+          alignItems: 'center',
+        },
+        // [`${splitBarCls}-collapse-icon`]: {
+        //   position: 'absolute',
+        //   top: '50%',
+        //   fontSize: collapsibleIconSize,
+        //   right: 0,
+        //   transform: 'translateY(-50%)',
+        // },
       },
 
       // // split bar
