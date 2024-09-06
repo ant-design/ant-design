@@ -40,8 +40,8 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     return start && end;
   }, [resizable]);
 
-  const startCollapsible = collapsible[0];
-  const endCollapsible = collapsible[1];
+  const startCollapsible = collapsible[0] && size[0] > 0;
+  const endCollapsible = collapsible[1] && size[1] > 0;
 
   // ======================== Resize ========================
   const [startPos, setStartPos] = useState<[x: number, y: number] | null>(null);

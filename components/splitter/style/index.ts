@@ -154,7 +154,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
           color: token.colorText,
           cursor: 'pointer',
           opacity: 0,
-          transition: `all ${token.motionDurationSlow}`,
+          transition: `all ${token.motionDurationFast}`,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',

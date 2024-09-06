@@ -21,7 +21,7 @@ const renderSplitter = ({ style, ...restProps }: SplitterProps) => (
 );
 
 const App: React.FC = () => (
-  <Flex gap={16} vertical>
+  <Flex gap={16} vertical style={{ padding: 32 }}>
     {renderSplitter({
       style: { height: 200 },
     })}

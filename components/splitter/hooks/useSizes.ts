@@ -79,6 +79,13 @@ export default function useSizes(items: PanelProps[], containerSize: number) {
   );
 
   // ======================== Resize ========================
+  function getLimitSize(str: string | number | undefined, defaultLimit: number) {
+    if (typeof str === 'string') {
+      return ptg2px(getPtg(str));
+    }
+    return str ?? defaultLimit;
+  }
+
   // Real px sizes
   const [cacheSizes, setCacheSizes] = React.useState<number[]>([]);
 
@@ -91,13 +98,6 @@ export default function useSizes(items: PanelProps[], containerSize: number) {
   const onOffsetUpdate = (index: number, offset: number) => {
     const numSizes = [...cacheSizes];
     const nextIndex = index + 1;
-
-    function getLimitSize(str: string | number | undefined, defaultLimit: number) {
-      if (typeof str === 'string') {
-        return ptg2px(getPtg(str));
-      }
-      return str ?? defaultLimit;
-    }
 
     // Get boundary
     const startMinSize = getLimitSize(limitSizes[index][0], 0);
@@ -131,7 +131,37 @@ export default function useSizes(items: PanelProps[], containerSize: number) {
   };
 
   // ======================= Collapse =======================
-  const onCollapse = (index: number) => {};
+  const onCollapse = (index: number, type: 'start' | 'end') => {
+    const currentSizes = getPxSizes();
+
+    const currentIndex = type === 'start' ? index : index + 1;
+    const targetIndex = type === 'start' ? index + 1 : index;
+
+    const currentSize = currentSizes[currentIndex];
+    const targetSize = currentSizes[targetIndex];
+
+    if (currentSize !== 0 && targetSize !== 0) {
+      // Collapse directly
+      currentSizes[currentIndex] = 0;
+      currentSizes[targetIndex] += currentSize;
+    } else {
+      const totalSize = currentSize + targetSize;
+
+      const currentSizeMin = getLimitSize(limitSizes[currentIndex][0], 0);
+      const currentSizeMax = getLimitSize(limitSizes[currentIndex][1], containerSize);
+      const targetSizeMin = getLimitSize(limitSizes[targetIndex][0], 0);
+      const targetSizeMax = getLimitSize(limitSizes[targetIndex][1], containerSize);
+
+      const limitStart = Math.max(currentSizeMin, totalSize - targetSizeMax);
+      const limitEnd = Math.min(currentSizeMax, totalSize - targetSizeMin);
+      const halfOffset = (limitEnd - limitStart) / 2;
+
+      currentSizes[currentIndex] = limitStart + halfOffset;
+      currentSizes[targetIndex] = limitEnd - halfOffset;
+    }
+
+    setInnerSizes(currentSizes);
+  };
 
   return [postPercentSizes, postPxSizes, onOffsetStart, onOffsetUpdate, onCollapse] as const;
 }
