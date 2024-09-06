@@ -1,7 +1,7 @@
 ## zh-CN
 
-当配置 `collapsible` 时，即便 `min` 限制了最小尺寸，也可以通过折叠按钮折叠面板。
+配置 `collapsible` 提供快捷收缩能力。可以通过 `min` 限制收缩后不能通过拖拽展开。
 
 ## en-US
 
-When `collapsible` is configured, the panel can be collapsed by the collapse button even if `min` limits the minimum size.
+Set `collapsible` to enable collapse. Can through `min` to limit dragging to expand when collapsed.

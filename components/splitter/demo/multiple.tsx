@@ -3,7 +3,6 @@ import { Divider, Splitter } from 'antd';
 
 const App: React.FC = () => (
   <Splitter
-    transition
     style={{
       height: 200,
       border: '1px solid #e5e7eb',

@@ -135,9 +135,14 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
             },
           },
 
-          // Disabled
-          '&-disabled': {
-            pointerEvents: 'none',
+          // Disabled, not use `pointer-events: none` since still need trigger collapse
+          [`&-disabled${splitBarCls}-dragger`]: {
+            '&, &:hover, &:active': {
+              cursor: 'default',
+              '&:before': {
+                background: controlItemBgHover,
+              },
+            },
 
             '&:after': {
               display: 'none',
@@ -154,7 +159,6 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
           color: token.colorText,
           cursor: 'pointer',
           opacity: 0,
-          transition: `all ${token.motionDurationFast}`,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -277,13 +281,6 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
               transform: 'translateX(-50%)',
             },
           },
-        },
-      },
-
-      // transition
-      '&-transition': {
-        [`${componentCls}-panel`]: {
-          transition: `flex-basis ${motionDurationFast}`,
         },
       },
 

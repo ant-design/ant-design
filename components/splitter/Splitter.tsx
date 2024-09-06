@@ -22,7 +22,6 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     style,
     layout = 'horizontal',
     children,
-    transition,
     rootClassName,
     onResizeStart,
     onResize,
@@ -102,7 +101,6 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
       [`${prefixCls}-horizontal`]: layout === 'horizontal',
       [`${prefixCls}-vertical`]: layout === 'vertical',
       [`${prefixCls}-rtl`]: isRTL,
-      [`${prefixCls}-transition`]: transition,
     },
     rootClassName,
     cssVarCls,
@@ -140,6 +138,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 resizable={[item.resizable, nextItem.resizable]}
                 collapsible={[item.collapsible, nextItem.collapsible]}
                 size={[itemPxSizes[idx], itemPxSizes[idx + 1]]}
+                sizeMin={[item.min, nextItem.min]}
                 onOffsetStart={onInternalResizeStart}
                 onOffsetUpdate={(index, offsetX, offsetY) => {
                   let offset = isVertical ? offsetY : offsetX;

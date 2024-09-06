@@ -11,6 +11,7 @@ export interface SplitBarProps {
   resizable: [start?: boolean, end?: boolean];
   collapsible: [start?: boolean, end?: boolean];
   size: [start: number, end: number];
+  sizeMin: [start?: number, end?: number];
   onOffsetStart: VoidFunction;
   onOffsetUpdate: (index: number, offsetX: number, offsetY: number) => void;
   onOffsetEnd: VoidFunction;
@@ -24,6 +25,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     vertical,
     index,
     size,
+    sizeMin,
     resizable,
     collapsible,
     onOffsetStart,
@@ -37,8 +39,23 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   // ======================== Enable ========================
   const mergedResizable = React.useMemo(() => {
     const [start = true, end = true] = resizable;
-    return start && end;
-  }, [resizable]);
+
+    // One of it not support resize
+    if (!start || !end) {
+      return false;
+    }
+
+    // One of it is collapsed and limit min size
+    if (size[0] === 0 && sizeMin[0]) {
+      return false;
+    }
+
+    if (size[1] === 0 && sizeMin[1]) {
+      return false;
+    }
+
+    return true;
+  }, [resizable, size, sizeMin]);
 
   const startCollapsible = collapsible[0] && size[0] > 0;
   const endCollapsible = collapsible[1] && size[1] > 0;
