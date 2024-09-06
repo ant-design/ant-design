@@ -13,6 +13,7 @@ export interface SplitBarProps {
   prefixCls: string;
   resizable: [start?: boolean, end?: boolean];
   collapsible: [start?: boolean, end?: boolean];
+  size: [start: number, end: number];
   onOffsetStart: VoidFunction;
   onOffsetUpdate: (offsetX: number, offsetY: number) => void;
   onOffsetEnd: VoidFunction;
@@ -24,6 +25,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     prefixCls,
     vertical,
     index,
+    size,
     resizable,
     collapsible,
     onOffsetStart,

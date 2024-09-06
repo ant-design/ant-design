@@ -150,7 +150,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
           ...centerStyle,
           background: controlItemBgHover,
           fontSize: token.fontSizeSM,
-          borderRadius: token.borderRadiusSM,
+          borderRadius: token.borderRadiusXS,
           color: token.colorText,
           cursor: 'pointer',
           opacity: 0,
@@ -207,7 +207,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
           // ======================= Collapse =======================
           [`${splitBarCls}-collapse-bar`]: {
-            width: token.fontSize,
+            width: token.fontSizeSM,
             height: token.controlHeightSM,
 
             '&-start': {
@@ -262,7 +262,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
           // ======================= Collapse =======================
           [`${splitBarCls}-collapse-bar`]: {
-            height: token.fontSize,
+            height: token.fontSizeSM,
             width: token.controlHeightSM,
 
             '&-start': {

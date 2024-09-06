@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 import classNames from 'classnames';
 
-import { devUseWarning } from '../_util/warning';
 import type { InternalPanelProps, PanelProps } from './interface';
 
 export const InternalPanel = forwardRef<
@@ -17,16 +16,6 @@ export const InternalPanel = forwardRef<
     className,
   );
 
-  if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('Splitter.Panel');
-
-    warning(
-      !((props.collapsible || props.resizable) && props.last),
-      'usage',
-      `The last Splitter.Panel should not be configured with  \`collapsible\` or \`resizable\` properties.`,
-    );
-  }
-
   return (
     <div ref={ref} className={panelClassName} style={{ ...style, flexBasis: `${size}%` }}>
       {children}
@@ -38,6 +27,6 @@ if (process.env.NODE_ENV !== 'production') {
   InternalPanel.displayName = 'Panel';
 }
 
-const Panel: React.FC<React.PropsWithChildren<PanelProps>> = (props) => props.children;
+const Panel: React.FC<React.PropsWithChildren<PanelProps>> = ({ value }) => null;
 
 export default Panel;

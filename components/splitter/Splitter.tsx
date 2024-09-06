@@ -5,6 +5,7 @@ import ResizeObserver from 'rc-resize-observer';
 import { useEvent } from 'rc-util';
 
 import type { GetProp } from '../_util/type';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import SplitterContext from './context';
@@ -54,6 +55,30 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
   // ====================== Items Data ======================
   const items = useItems(children);
+
+  // >>> Warning for uncontrolled
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Splitter');
+
+    let existSize = false;
+    let existUndefinedSize = false;
+
+    items.forEach((item) => {
+      if (item.size !== undefined) {
+        existSize = true;
+      } else {
+        existUndefinedSize = true;
+      }
+    });
+
+    if (existSize && existUndefinedSize && !onResize) {
+      warning(
+        false,
+        'usage',
+        'When part of `Splitter.Panel` has `size`, `onResize` is required or change `size` to `defaultSize`.',
+      );
+    }
+  }
 
   // ====================== Container =======================
   const [containerSize, setContainerSize] = useState<number>(100);
@@ -221,6 +246,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                   vertical={isVertical}
                   resizable={[item.resizable, nextItem.resizable]}
                   collapsible={[item.collapsible, nextItem.collapsible]}
+                  size={[itemPxSizes[idx], itemPxSizes[idx + 1]]}
                   onOffsetStart={onInternalResizeStart}
                   onOffsetUpdate={(offsetX, offsetY) => {
                     let offset = isVertical ? offsetY : offsetX;
