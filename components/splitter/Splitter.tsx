@@ -20,7 +20,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     prefixCls: customizePrefixCls,
     className,
     style,
-    layout = 'horizontal',
+    layout,
     children,
     rootClassName,
     onResizeStart,
@@ -36,7 +36,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   // ======================== Direct ========================
   const isVertical = layout === 'vertical';
   const isRTL = direction === 'rtl';
-  const reverse = layout === 'horizontal' && isRTL;
+  const reverse = !isVertical && isRTL;
 
   // ====================== Items Data ======================
   const items = useItems(children);
@@ -104,8 +104,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     prefixCls,
     className,
     {
-      [`${prefixCls}-horizontal`]: layout === 'horizontal',
-      [`${prefixCls}-vertical`]: layout === 'vertical',
+      [`${prefixCls}-horizontal`]: !isVertical,
+      [`${prefixCls}-vertical`]: isVertical,
       [`${prefixCls}-rtl`]: isRTL,
     },
     rootClassName,
