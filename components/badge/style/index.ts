@@ -145,7 +145,6 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token) => {
     iconCls,
     antCls,
     badgeShadowSize,
-    motionDurationSlow,
     textFontSize,
     textFontSizeSM,
     statusSize,
