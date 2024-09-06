@@ -120,7 +120,7 @@ const App: React.FC = () => {
       </Space>
       <Table
         columns={columns}
-        rowSelection={{ ...rowSelection, checkStrictly }}
+        rowSelection={{ ...rowSelection, checkStrictly, preserveSelectedRowKeys: true }}
         dataSource={data}
       />
     </>
