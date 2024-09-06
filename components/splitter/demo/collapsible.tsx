@@ -1,6 +1,20 @@
 import React from 'react';
-import { Flex, Splitter } from 'antd';
+import { Flex, Splitter, Typography } from 'antd';
 import type { SplitterProps } from 'antd';
+
+const renderDesc = (text: string) => (
+  <Flex justify="center" align="center" style={{ height: '100%' }}>
+    <Typography.Title
+      type="secondary"
+      level={5}
+      style={{
+        whiteSpace: 'nowrap',
+      }}
+    >
+      {text}
+    </Typography.Title>
+  </Flex>
+);
 
 const renderSplitter = ({ style, ...restProps }: SplitterProps) => (
   <Splitter
@@ -10,18 +24,14 @@ const renderSplitter = ({ style, ...restProps }: SplitterProps) => (
     }}
     {...restProps}
   >
-    <Splitter.Panel collapsible min="20%">
-      <div style={{ padding: 12 }}>first</div>
-    </Splitter.Panel>
+    <Splitter.Panel collapsible>{renderDesc('first')}</Splitter.Panel>
 
-    <Splitter.Panel collapsible>
-      <div style={{ padding: 12 }}>second</div>
-    </Splitter.Panel>
+    <Splitter.Panel collapsible>{renderDesc('second')}</Splitter.Panel>
   </Splitter>
 );
 
 const App: React.FC = () => (
-  <Flex gap={16} vertical style={{ padding: 32 }}>
+  <Flex gap="middle" vertical>
     {renderSplitter({
       style: { height: 200 },
     })}

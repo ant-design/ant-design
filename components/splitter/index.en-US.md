@@ -25,7 +25,6 @@ You need to display multiple contents, and you want users to be able to adjust t
 <code src="./demo/collapsible.tsx">Collapsible</code>
 <code src="./demo/multiple.tsx">Multiple panels</code>
 <code src="./demo/group.tsx">Complex combination</code>
-<code src="./demo/debug.tsx" debug>test</code>
 
 ## API
 
