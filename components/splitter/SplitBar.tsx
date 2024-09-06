@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import DownOutlined from '@ant-design/icons/DownOutlined';
+import LeftOutlined from '@ant-design/icons/LeftOutlined';
+import RightOutlined from '@ant-design/icons/RightOutlined';
+import UpOutlined from '@ant-design/icons/UpOutlined';
 import classNames from 'classnames';
 
 import SplitterContext from './context';
@@ -13,11 +16,20 @@ export interface SplitBarProps {
   onOffsetStart: VoidFunction;
   onOffsetUpdate: (offsetX: number, offsetY: number) => void;
   onOffsetEnd: VoidFunction;
+  vertical: boolean;
 }
 
 const SplitBar: React.FC<SplitBarProps> = (props) => {
-  const { prefixCls, index, resizable, collapsible, onOffsetStart, onOffsetUpdate, onOffsetEnd } =
-    props;
+  const {
+    prefixCls,
+    vertical,
+    index,
+    resizable,
+    collapsible,
+    onOffsetStart,
+    onOffsetUpdate,
+    onOffsetEnd,
+  } = props;
 
   const { reverse, resizing, basicsState, setSize, onStart } = React.useContext(SplitterContext);
 
@@ -82,33 +94,19 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     }
   }, [startPos]);
 
-  // ======================== Styles ========================
-  const splitBarClassName = classNames(splitBarPrefixCls, {
-    [`${prefixCls}-bar-disabled`]: !mergedResizable,
-    [`${prefixCls}-bar-active`]: !!startPos,
-  });
-
   // ======================== Render ========================
+  const StartIcon = vertical ? UpOutlined : LeftOutlined;
+  const EndIcon = vertical ? DownOutlined : RightOutlined;
+
   return (
-    <div
-      className={splitBarClassName}
-      // style={overlap ? { flexBasis: '2px' } : undefined}
-      // onMouseDown={(e) => {
-      //   if (mergedResizable && e.currentTarget) {
-      //     onStart?.(e.clientX, e.clientY, index);
-      //     setActive(true);
-      //     setOldBasics();
-      //   }
-      // }}
-      onMouseDown={onMouseDown}
-    >
-      <div className={`${splitBarPrefixCls}-dragger`} />
-
-      {/* <div className={`${splitBarPrefixCls}-bg`} />
-
-      <div className={`${splitBarPrefixCls}-area`} /> */}
-
-      {/* {mergedResizable ? <div className={`${splitBarPrefixCls}-resizable`} /> : null} */}
+    <div className={splitBarPrefixCls}>
+      <div
+        className={classNames(`${splitBarPrefixCls}-dragger`, {
+          [`${splitBarPrefixCls}-dragger-disabled`]: !mergedResizable,
+          [`${splitBarPrefixCls}-dragger-active`]: !!startPos,
+        })}
+        onMouseDown={onMouseDown}
+      />
 
       {/* Start Collapsible */}
       {startCollapsible && (
@@ -118,7 +116,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
             `${splitBarPrefixCls}-collapse-bar-start`,
           )}
         >
-          <LeftOutlined
+          <StartIcon
             className={classNames(
               `${splitBarPrefixCls}-collapse-icon`,
               `${splitBarPrefixCls}-collapse-start`,
@@ -137,7 +135,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
             `${splitBarPrefixCls}-collapse-bar-end`,
           )}
         >
-          <RightOutlined
+          <EndIcon
             className={classNames(
               `${splitBarPrefixCls}-collapse-icon`,
               `${splitBarPrefixCls}-collapse-end`,

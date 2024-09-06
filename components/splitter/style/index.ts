@@ -11,11 +11,6 @@ export interface ComponentToken {
    */
   resizeSpinnerSize: number;
   /**
-   * @desc 快速折叠 图标大小
-   * @descEN Height of content area
-   */
-  collapsibleIconSize: number;
-  /**
    * @desc 拖拽标识元素大小
    * @descEN Drag the element size
    */
@@ -78,7 +73,6 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
     colorFillTertiary,
     resizeSpinnerSize,
     borderRadius,
-    collapsibleIconSize,
     zIndexPopupBase,
     motionDurationFast,
     paddingXXS,
@@ -126,31 +120,23 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
             background: colorFill,
             ...centerStyle,
           },
-        },
 
-        // Hover
-        '&:hover': {
-          [`${splitBarCls}-dragger`]: {
+          // Hover
+          '&:hover': {
             '&:before': {
               background: controlItemBgActive,
             },
           },
-        },
 
-        // Active
-        '&-active': {
-          '&, &:hover': {
-            [`${splitBarCls}-dragger`]: {
-              '&:before': {
-                background: controlItemBgActiveHover,
-              },
+          // Active
+          '&:active': {
+            '&:before': {
+              background: controlItemBgActiveHover,
             },
           },
-        },
 
-        // Disabled
-        '&-disabled': {
-          [`${splitBarCls}-dragger`]: {
+          // Disabled
+          '&-disabled': {
             pointerEvents: 'none',
 
             '&:after': {
@@ -162,89 +148,40 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         // ======================= Collapse =======================
         [`${splitBarCls}-collapse-bar`]: {
           ...centerStyle,
-          height: '100%',
+          background: controlItemBgHover,
+          fontSize: token.fontSizeSM,
+          borderRadius: token.borderRadiusSM,
+          color: token.colorText,
+          cursor: 'pointer',
+          opacity: 0,
+          transition: `all ${token.motionDurationSlow}`,
           display: 'flex',
           alignItems: 'center',
+          justifyContent: 'center',
+
+          // Hover
+          '&:hover': {
+            background: controlItemBgActive,
+          },
+
+          // Active
+          '&:active': {
+            background: controlItemBgActiveHover,
+          },
         },
-        // [`${splitBarCls}-collapse-icon`]: {
-        //   position: 'absolute',
-        //   top: '50%',
-        //   fontSize: collapsibleIconSize,
-        //   right: 0,
-        //   transform: 'translateY(-50%)',
-        // },
+
+        // ======================== Status ========================
+        // Hover
+        '&:hover, &:active': {
+          [`${splitBarCls}-collapse-bar`]: {
+            opacity: 1,
+          },
+        },
       },
 
-      // // split bar
-      // '&-bar': {
-      //   flexGrow: 0,
-      //   flexShrink: 0,
-      //   position: 'relative',
-      //   userSelect: 'none',
-
-      //   '&:hover': {
-      //     [`> ${componentCls}-bar-bg`]: {
-      //       background: colorFill,
-      //     },
-
-      //     [`> ${componentCls}-bar-collapse-icon`]: {
-      //       display: 'block',
-      //     },
-      //   },
-
-      //   [`> ${componentCls}-bar-bg,
-      //     > ${componentCls}-bar-area,
-      //     > ${componentCls}-bar-resizable`]: {
-      //     position: 'absolute',
-      //     top: '50%',
-      //     insetInlineStart: '50%',
-      //     transform: 'translate(-50%, -50%)',
-      //   },
-
-      //   // 背景色
-      //   [`> ${componentCls}-bar-bg`]: {
-      //     background: colorFillTertiary,
-      //     transition: `background-color ${motionDurationFast}`,
-      //   },
-
-      //   [`> ${componentCls}-bar-resizable`]: {
-      //     borderRadius,
-      //     pointerEvents: 'none',
-      //     background: colorFill,
-      //   },
-
-      //   // 快捷折叠
-      //   [`${componentCls}-bar-collapse-icon`]: {
-      //     display: 'none',
-      //     position: 'absolute',
-      //     fontSize: collapsibleIconSize,
-      //     zIndex: zIndexPopupBase,
-      //     color: colorTextTertiary,
-      //     padding: paddingXXS,
-
-      //     '&:hover': {
-      //       color: colorPrimary,
-      //     },
-      //   },
-      // },
-      // [`&-bar${componentCls}-bar-active`]: {
-      //   [`> ${componentCls}-bar-bg`]: {
-      //     background: colorFill,
-      //   },
-
-      //   [`> ${componentCls}-bar-collapse-icon`]: {
-      //     display: 'block',
-      //   },
-      // },
-      // '&-bar-disabled': {
-      //   '&:hover': {
-      //     [`> ${componentCls}-bar-bg`]: {
-      //       background: colorFillTertiary,
-      //     },
-      //   },
-      // },
-
-      // ========================= Layout =========================
+      // ==========================================================
+      // ==                        Layout                        ==
+      // ==========================================================
       '&-horizontal': {
         flexDirection: 'row',
 
@@ -270,6 +207,9 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
           // ======================= Collapse =======================
           [`${splitBarCls}-collapse-bar`]: {
+            width: token.fontSize,
+            height: token.controlHeightSM,
+
             '&-start': {
               left: {
                 _skip_check_: true,
@@ -295,45 +235,6 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
             },
           },
         },
-
-        // [`> ${componentCls}-bar`]: {
-        //   width: 0,
-        //   height: '100%',
-        //   cursor: 'col-resize',
-
-        //   [`> ${componentCls}-bar-bg`]: {
-        //     width: splitBarSize,
-        //     height: '100%',
-        //   },
-
-        //   [`${componentCls}-bar-area`]: {
-        //     width: splitTriggerSize,
-        //     height: '100%',
-        //   },
-
-        //   [`${componentCls}-bar-resizable`]: {
-        //     width: splitBarSize,
-        //     height: resizeSpinnerSize,
-        //   },
-
-        //   [`${componentCls}-bar-collapse-previous`]: {
-        //     top: '50%',
-        //     insetInlineEnd: 'unset',
-        //     insetInlineStart: 0,
-        //     transform: 'translate(-115%, -50%)',
-        //   },
-
-        //   [`${componentCls}-bar-collapse-next`]: {
-        //     top: '50%',
-        //     insetInlineEnd: 0,
-        //     insetInlineStart: 'unset',
-        //     transform: 'translate(115%, -50%)',
-        //   },
-        // },
-
-        // [`> ${componentCls}-bar-disabled`]: {
-        //   cursor: 'default',
-        // },
       },
 
       '&-vertical': {
@@ -342,7 +243,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         [`> ${splitBarCls}`]: {
           height: 0,
 
-          // Dragger
+          // ======================= Dragger =======================
           [`${splitBarCls}-dragger`]: {
             cursor: 'row-resize',
             width: '100%',
@@ -358,44 +259,25 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
               height: splitBarSize,
             },
           },
+
+          // ======================= Collapse =======================
+          [`${splitBarCls}-collapse-bar`]: {
+            height: token.fontSize,
+            width: token.controlHeightSM,
+
+            '&-start': {
+              top: 'auto',
+              bottom: halfTriggerSize,
+              transform: 'translateX(-50%)',
+            },
+
+            '&-end': {
+              top: halfTriggerSize,
+              bottom: 'auto',
+              transform: 'translateX(-50%)',
+            },
+          },
         },
-
-        // [`> ${componentCls}-bar`]: {
-        //   width: '100%',
-        //   height: 0,
-        //   cursor: 'row-resize',
-
-        //   [`> ${componentCls}-bar-bg`]: {
-        //     width: '100%',
-        //     height: splitBarSize,
-        //   },
-
-        //   [`${componentCls}-bar-area`]: {
-        //     width: '100%',
-        //     height: splitTriggerSize,
-        //   },
-
-        //   [`${componentCls}-bar-resizable`]: {
-        //     width: resizeSpinnerSize,
-        //     height: splitBarSize,
-        //   },
-
-        //   [`${componentCls}-bar-collapse-previous`]: {
-        //     top: 0,
-        //     insetInlineStart: '50%',
-        //     transform: 'translate(-50%, -115%) rotate(90deg)',
-        //   },
-
-        //   [`${componentCls}-bar-collapse-next`]: {
-        //     bottom: 0,
-        //     insetInlineStart: '50%',
-        //     transform: 'translate(-50%, 115%) rotate(90deg)',
-        //   },
-        // },
-
-        // [`> ${componentCls}-bar-disabled`]: {
-        //   cursor: 'default',
-        // },
       },
 
       // transition
@@ -437,17 +319,14 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
 export const prepareComponentToken: GetDefaultToken<'Splitter'> = (token) => {
   const splitBarSize = token.splitBarSize || 2;
-  const splitTriggerSize = token.splitTriggerSize || 8;
+  const splitTriggerSize = token.splitTriggerSize || 6;
 
-  const resizeSpinnerSize = token.resizeSpinnerSize || 10;
-
-  const collapsibleIconSize = token.resizeSpinnerSize || token.fontSize;
+  const resizeSpinnerSize = token.resizeSpinnerSize || 20;
 
   return {
     splitBarSize,
     splitTriggerSize,
     resizeSpinnerSize,
-    collapsibleIconSize,
   };
 };
 
