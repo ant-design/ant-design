@@ -33,6 +33,7 @@ const genRadiusStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         '&-container': {
           borderStartStartRadius: tableRadius,
           borderStartEndRadius: tableRadius,
+          overflowX: 'hidden',
 
           'table > thead > tr:first-child': {
             '> *:first-child': {
