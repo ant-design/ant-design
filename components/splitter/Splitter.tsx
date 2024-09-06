@@ -165,4 +165,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   );
 };
 
+if (process.env.NODE_ENV !== 'production') {
+  Splitter.displayName = 'Splitter';
+}
+
 export default Splitter;
