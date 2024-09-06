@@ -93,6 +93,12 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     onResizeEnd?.(itemPxSizes);
   });
 
+  const onInternalCollapse = useEvent((index: number, type: 'start' | 'end') => {
+    const nextSizes = onCollapse(index, type);
+    onResize?.(nextSizes);
+    onResizeEnd?.(nextSizes);
+  });
+
   // ======================== Styles ========================
   const containerClassName = classNames(
     prefixCls,
@@ -148,7 +154,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                   onInternalResizeUpdate(index, offset);
                 }}
                 onOffsetEnd={onInternalResizeEnd}
-                onCollapse={onCollapse}
+                onCollapse={onInternalCollapse}
               />
             );
           }

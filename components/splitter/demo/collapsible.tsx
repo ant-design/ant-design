@@ -24,7 +24,9 @@ const renderSplitter = ({ style, ...restProps }: SplitterProps) => (
     }}
     {...restProps}
   >
-    <Splitter.Panel collapsible>{renderDesc('first')}</Splitter.Panel>
+    <Splitter.Panel collapsible min="20%">
+      {renderDesc('first')}
+    </Splitter.Panel>
 
     <Splitter.Panel collapsible>{renderDesc('second')}</Splitter.Panel>
   </Splitter>

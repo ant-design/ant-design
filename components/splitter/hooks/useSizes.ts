@@ -156,11 +156,13 @@ export default function useSizes(items: PanelProps[], containerSize: number) {
       const limitEnd = Math.min(currentSizeMax, totalSize - targetSizeMin);
       const halfOffset = (limitEnd - limitStart) / 2;
 
-      currentSizes[currentIndex] = limitStart + halfOffset;
-      currentSizes[targetIndex] = limitEnd - halfOffset;
+      currentSizes[currentIndex] -= halfOffset;
+      currentSizes[targetIndex] += halfOffset;
     }
 
     setInnerSizes(currentSizes);
+
+    return currentSizes;
   };
 
   return [postPercentSizes, postPxSizes, onOffsetStart, onOffsetUpdate, onCollapse] as const;
