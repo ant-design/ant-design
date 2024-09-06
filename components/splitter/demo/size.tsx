@@ -1,5 +1,13 @@
 import React from 'react';
-import { Splitter } from 'antd';
+import { Flex, Splitter, Typography } from 'antd';
+
+const renderDesc = (text: string) => (
+  <Flex justify="center" align="center" style={{ height: '100%' }}>
+    <Typography.Title type="secondary" level={5}>
+      {text}
+    </Typography.Title>
+  </Flex>
+);
 
 const App: React.FC = () => (
   <Splitter
@@ -9,17 +17,10 @@ const App: React.FC = () => (
     }}
   >
     <Splitter.Panel defaultSize="40%" min="20%" max="80%">
-      <div style={{ padding: 12 }}>
-        <div>first</div>
-        <div>size=40%</div>
-        <div>min=20%</div>
-        <div>max=80%</div>
-      </div>
+      {renderDesc('First')}
     </Splitter.Panel>
 
-    <Splitter.Panel>
-      <div style={{ padding: 12 }}>second</div>
-    </Splitter.Panel>
+    <Splitter.Panel>{renderDesc('Second')}</Splitter.Panel>
   </Splitter>
 );
 

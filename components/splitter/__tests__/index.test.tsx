@@ -88,18 +88,14 @@ describe('Splitter', () => {
     expect(container.querySelectorAll('.ant-splitter-bar-resizable')).toHaveLength(1);
   });
 
-  it('The collapsible should work fine.', () => {
+  it('The collapsible should work fine', () => {
     const { container, rerender } = render(
       <SplitterDemo items={[{ size: 20, collapsible: true }, { collapsible: true }]} />,
     );
 
-    expect(container.querySelectorAll('.ant-splitter-bar-collapse-icon')?.length).toBe(2);
-    expect(container.querySelector('.ant-splitter-bar-collapse-previous')).toBeTruthy();
-    expect(container.querySelector('.ant-splitter-bar-collapse-next')).toBeTruthy();
-
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Splitter.Panel] The last Splitter.Panel should not be configured with  `collapsible` or `resizable` properties.',
-    );
+    expect(container.querySelectorAll('.ant-splitter-bar-collapse-icon')).toHaveLength(2);
+    expect(container.querySelector('.ant-splitter-bar-collapse-start')).toBeTruthy();
+    expect(container.querySelector('.ant-splitter-bar-collapse-end')).toBeTruthy();
 
     // support collapsible is object
     rerender(

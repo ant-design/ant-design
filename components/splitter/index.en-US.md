@@ -19,8 +19,7 @@ You need to display multiple contents, and you want users to be able to adjust t
 ## Examples
 
 <!-- prettier-ignore -->
-<code src="./demo/basic.tsx">Basic</code>
-<code src="./demo/size.tsx">Panel size control</code>
+<code src="./demo/size.tsx">Basic</code>
 <code src="./demo/control.tsx">Control mode</code>
 <code src="./demo/vertical.tsx">Vertical</code>
 <code src="./demo/collapsible.tsx">Collapsible</code>

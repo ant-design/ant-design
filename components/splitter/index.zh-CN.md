@@ -20,8 +20,7 @@ tag: 5.21.0
 ## 代码演示
 
 <!-- prettier-ignore -->
-<code src="./demo/basic.tsx">基本用法</code>
-<code src="./demo/size.tsx">面板大小控制</code>
+<code src="./demo/size.tsx">基本用法</code>
 <code src="./demo/control.tsx">受控模式</code>
 <code src="./demo/vertical.tsx">垂直方向</code>
 <code src="./demo/collapsible.tsx">可折叠</code>

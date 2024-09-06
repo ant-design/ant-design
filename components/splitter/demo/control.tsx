@@ -1,12 +1,26 @@
 import React from 'react';
-import { Button, Flex, Splitter, Switch } from 'antd';
+import { Button, Flex, Splitter, Switch, Typography } from 'antd';
+
+const renderDesc = (text: string) => (
+  <Flex justify="center" align="center" style={{ height: '100%' }}>
+    <Typography.Title
+      type="secondary"
+      level={5}
+      style={{
+        whiteSpace: 'nowrap',
+      }}
+    >
+      {text}
+    </Typography.Title>
+  </Flex>
+);
 
 const App: React.FC = () => {
   const [sizes, setSizes] = React.useState<(number | string)[]>(['50%', '50%']);
-  const [disabled, setDisabled] = React.useState(false);
+  const [enabled, setEnabled] = React.useState(true);
 
   return (
-    <Flex vertical gap={16}>
+    <Flex vertical gap="middle">
       <Splitter
         style={{
           height: 200,
@@ -16,25 +30,20 @@ const App: React.FC = () => {
           setSizes(nextSizes);
         }}
       >
-        <Splitter.Panel size={sizes[0]} min={50} resizable={!disabled}>
-          <div style={{ padding: 12 }}>
-            <div>first</div>
-            <div>min=50</div>
-          </div>
+        <Splitter.Panel size={sizes[0]} resizable={enabled}>
+          {renderDesc('First')}
         </Splitter.Panel>
 
-        <Splitter.Panel size={sizes[1]} resizable={!disabled}>
-          <div style={{ padding: 12 }}>second</div>
-        </Splitter.Panel>
+        <Splitter.Panel size={sizes[1]}>{renderDesc('Second')}</Splitter.Panel>
       </Splitter>
 
-      <Flex gap={16} justify="space-between">
+      <Flex gap="middle" justify="space-between">
         <Switch
-          value={disabled}
+          value={enabled}
           onChange={() => {
-            setDisabled(!disabled);
+            setEnabled(!enabled);
           }}
-          checkedChildren="Disabled"
+          checkedChildren="Enabled"
           unCheckedChildren="Disabled"
         />
 
