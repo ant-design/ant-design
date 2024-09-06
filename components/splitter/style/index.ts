@@ -287,20 +287,6 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         },
       },
 
-      // moving
-      '&-resizing': {
-        userSelect: 'none',
-        [`>${componentCls}-panel`]: {
-          transition: 'none',
-        },
-      },
-      [`&-resizing${componentCls}-horizontal`]: {
-        cursor: 'col-resize',
-      },
-      [`&-resizing${componentCls}-vertical`]: {
-        cursor: 'row-resize',
-      },
-
       // ========================= Panels =========================
       '&-panel': {
         overflow: 'auto',

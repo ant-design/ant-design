@@ -67,11 +67,3 @@ export interface UseCollapsible {
   onFold: (type: 'previous' | 'next') => void;
   setOldBasics: () => void;
 }
-
-export interface SplitterContextType {
-  basicsState: number[];
-  reverse: boolean;
-  resizing: boolean;
-  onStart?: UseHandle['onStart'];
-  setSize?: UseResize['setSize'];
-}

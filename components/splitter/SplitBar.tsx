@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import classNames from 'classnames';
-
-import SplitterContext from './context';
-import useCollapsible from './hooks/useCollapsible';
 
 export interface SplitBarProps {
   index: number;
@@ -15,8 +12,9 @@ export interface SplitBarProps {
   collapsible: [start?: boolean, end?: boolean];
   size: [start: number, end: number];
   onOffsetStart: VoidFunction;
-  onOffsetUpdate: (offsetX: number, offsetY: number) => void;
+  onOffsetUpdate: (index: number, offsetX: number, offsetY: number) => void;
   onOffsetEnd: VoidFunction;
+  onCollapse: (index: number, type: 'start' | 'end') => void;
   vertical: boolean;
 }
 
@@ -31,26 +29,10 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     onOffsetStart,
     onOffsetUpdate,
     onOffsetEnd,
+    onCollapse,
   } = props;
 
-  const { reverse, resizing, basicsState, setSize, onStart } = React.useContext(SplitterContext);
-
-  // const [active, setActive] = useState(false);
   const splitBarPrefixCls = `${prefixCls}-bar`;
-
-  // // const { previousIcon, nextIcon, overlap, onFold, setOldBasics } = useCollapsible({
-  // //   basicsState,
-  // //   collapsible: mergedCollapsible,
-  // //   index,
-  // //   reverse,
-  // //   setSize,
-  // // });
-
-  // useEffect(() => {
-  //   if (!resizing && active) {
-  //     setActive(false);
-  //   }
-  // }, [active, resizing]);
 
   // ======================== Enable ========================
   const mergedResizable = React.useMemo(() => {
@@ -78,7 +60,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         const offsetX = pageX - startPos[0];
         const offsetY = pageY - startPos[1];
 
-        onOffsetUpdate(offsetX, offsetY);
+        onOffsetUpdate(index, offsetX, offsetY);
       };
 
       const onMouseUp = () => {
@@ -123,8 +105,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
               `${splitBarPrefixCls}-collapse-icon`,
               `${splitBarPrefixCls}-collapse-start`,
             )}
-            // onMouseDown={(e) => e.stopPropagation()}
-            // onClick={() => onFold('previous')}
+            onClick={() => onCollapse(index, 'start')}
           />
         </div>
       )}
@@ -142,8 +123,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
               `${splitBarPrefixCls}-collapse-icon`,
               `${splitBarPrefixCls}-collapse-end`,
             )}
-            // onMouseDown={(e) => e.stopPropagation()}
-            // onClick={() => onFold('next')}
+            onClick={() => onCollapse(index, 'end')}
           />
         </div>
       )}

@@ -1,5 +1,4 @@
 import React from 'react';
-import { useEvent, useMergedState } from 'rc-util';
 
 import type { PanelProps } from '../interface';
 
@@ -80,7 +79,6 @@ export default function useSizes(items: PanelProps[], containerSize: number) {
   );
 
   // ======================== Resize ========================
-
   // Real px sizes
   const [cacheSizes, setCacheSizes] = React.useState<number[]>([]);
 
@@ -132,5 +130,8 @@ export default function useSizes(items: PanelProps[], containerSize: number) {
     return numSizes;
   };
 
-  return [postPercentSizes, postPxSizes, onOffsetStart, onOffsetUpdate] as const;
+  // ======================= Collapse =======================
+  const onCollapse = (index: number) => {};
+
+  return [postPercentSizes, postPxSizes, onOffsetStart, onOffsetUpdate, onCollapse] as const;
 }
