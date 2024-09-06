@@ -686,8 +686,6 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
             paddingTop: 0,
             paddingBottom: 0,
             borderStartStartRadius: 0,
-            borderStartEndRadius: token.borderRadius,
-            borderEndEndRadius: token.borderRadius,
             borderEndStartRadius: 0,
             boxShadow: 'none',
           },
