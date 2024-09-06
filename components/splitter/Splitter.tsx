@@ -136,7 +136,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 prefixCls={prefixCls}
                 vertical={isVertical}
                 resizable={[item.resizable, nextItem.resizable]}
-                collapsible={[item.collapsible, nextItem.collapsible]}
+                collapsible={[item.collapsible.end, nextItem.collapsible.start]}
                 size={[itemPxSizes[idx], itemPxSizes[idx + 1]]}
                 sizeMin={[item.min, nextItem.min]}
                 onOffsetStart={onInternalResizeStart}

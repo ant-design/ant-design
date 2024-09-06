@@ -1,5 +1,19 @@
 import React from 'react';
-import { Splitter } from 'antd';
+import { Flex, Splitter, Typography } from 'antd';
+
+const renderDesc = (text: string) => (
+  <Flex justify="center" align="center" style={{ height: '100%' }}>
+    <Typography.Title
+      type="secondary"
+      level={5}
+      style={{
+        whiteSpace: 'nowrap',
+      }}
+    >
+      {text}
+    </Typography.Title>
+  </Flex>
+);
 
 const App: React.FC = () => (
   <Splitter
@@ -8,11 +22,11 @@ const App: React.FC = () => (
       border: '1px solid #e5e7eb',
     }}
   >
-    <Splitter.Panel collapsible>aaa</Splitter.Panel>
+    <Splitter.Panel collapsible>{renderDesc('Left')}</Splitter.Panel>
     <Splitter.Panel>
       <Splitter layout="vertical">
-        <Splitter.Panel>bbb</Splitter.Panel>
-        <Splitter.Panel>ccc</Splitter.Panel>
+        <Splitter.Panel>{renderDesc('Top')}</Splitter.Panel>
+        <Splitter.Panel>{renderDesc('Bottom')}</Splitter.Panel>
       </Splitter>
     </Splitter.Panel>
   </Splitter>
