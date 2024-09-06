@@ -34,6 +34,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     name,
     defaultValue,
     value: customizedValue,
+    onChange,
     onMouseEnter,
     onMouseLeave,
     onFocus,
@@ -44,17 +45,19 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     value: customizedValue,
   });
 
-  const onRadioChange = (ev: RadioChangeEvent) => {
-    const lastValue = value;
-    const val = ev.target.value;
-    if (!('value' in props)) {
-      setValue(val);
-    }
-    const { onChange } = props;
-    if (onChange && val !== lastValue) {
-      onChange(ev);
-    }
-  };
+  const onRadioChange = React.useCallback(
+    (event: RadioChangeEvent) => {
+      const lastValue = value;
+      const val = event.target.value;
+      if (!('value' in props)) {
+        setValue(val);
+      }
+      if (val !== lastValue) {
+        onChange?.(event);
+      }
+    },
+    [value, setValue, onChange],
+  );
 
   const prefixCls = getPrefixCls('radio', customizePrefixCls);
   const groupPrefixCls = `${prefixCls}-group`;
