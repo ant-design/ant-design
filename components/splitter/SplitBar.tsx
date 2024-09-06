@@ -11,7 +11,7 @@ export interface SplitBarProps {
   resizable: [start?: boolean, end?: boolean];
   collapsible: [start?: boolean, end?: boolean];
   size: [start: number, end: number];
-  sizeMin: [start?: number, end?: number];
+  sizeMin: [start?: number | string, end?: number | string];
   onOffsetStart: VoidFunction;
   onOffsetUpdate: (index: number, offsetX: number, offsetY: number) => void;
   onOffsetEnd: VoidFunction;
@@ -36,7 +36,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
 
   const splitBarPrefixCls = `${prefixCls}-bar`;
 
-  // ======================== Enable ========================
+  // ====================== Resizable =======================
   const mergedResizable = React.useMemo(() => {
     const [start = true, end = true] = resizable;
 
@@ -57,8 +57,18 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     return true;
   }, [resizable, size, sizeMin]);
 
-  const startCollapsible = collapsible[0] && size[0] > 0;
-  const endCollapsible = collapsible[1] && size[1] > 0;
+  // ===================== Collapsible ======================
+  const startCollapsible =
+    // Self is collapsible
+    (collapsible[0] && size[0] > 0) ||
+    // Collapsed and can be collapsed
+    (collapsible[1] && size[1] === 0 && size[0] > 0);
+
+  const endCollapsible =
+    // Self is collapsible
+    (collapsible[1] && size[1] > 0) ||
+    // Collapsed and can be collapsed
+    (collapsible[0] && size[0] === 0 && size[1] > 0);
 
   // ======================== Resize ========================
   const [startPos, setStartPos] = useState<[x: number, y: number] | null>(null);

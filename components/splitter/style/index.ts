@@ -67,15 +67,8 @@ const centerStyle: CSSObject = {
 const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): CSSObject => {
   const {
     componentCls,
-    colorPrimary,
     colorFill,
-    colorTextTertiary,
-    colorFillTertiary,
     resizeSpinnerSize,
-    borderRadius,
-    zIndexPopupBase,
-    motionDurationFast,
-    paddingXXS,
     splitBarSize,
     splitTriggerSize,
     controlItemBgHover,
@@ -153,6 +146,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         // ======================= Collapse =======================
         [`${splitBarCls}-collapse-bar`]: {
           ...centerStyle,
+          zIndex: 1,
           background: controlItemBgHover,
           fontSize: token.fontSizeSM,
           borderRadius: token.borderRadiusXS,
