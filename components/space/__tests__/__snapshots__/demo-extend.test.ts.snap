@@ -8539,7 +8539,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         </div>
                         <div
                           aria-grabbed="false"
-                          class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-selected"
+                          class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-selected"
                           draggable="false"
                         >
                           <span
@@ -8569,7 +8569,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         </div>
                         <div
                           aria-grabbed="false"
-                          class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
+                          class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                           draggable="false"
                         >
                           <span
@@ -8646,7 +8646,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         </div>
                         <div
                           aria-grabbed="false"
-                          class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
+                          class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                           draggable="false"
                         >
                           <span

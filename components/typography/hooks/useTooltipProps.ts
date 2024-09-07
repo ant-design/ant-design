@@ -17,6 +17,6 @@ const useTooltipProps = (
       return { title: editConfigText ?? children, ...tooltip };
     }
     return { title: tooltip };
-  }, [typeof tooltip === 'object' ? JSON.stringify(tooltip) : tooltip, editConfigText, children]);
+  }, [tooltip, editConfigText, children]);
 
 export default useTooltipProps;

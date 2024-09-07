@@ -56,5 +56,6 @@
   ">= 5.16.0 <= 5.16.1": ["https://github.com/ant-design/ant-design/issues/48200"],
   "5.16.3": ["https://github.com/ant-design/ant-design/issues/48568"],
   "5.17.1": ["https://github.com/ant-design/ant-design/issues/48913"],
-  "5.18.2": ["https://github.com/ant-design/ant-design/pull/49487"]
+  "5.18.2": ["https://github.com/ant-design/ant-design/pull/49487"],
+  "5.20.4": ["https://github.com/ant-design/ant-design/issues/50687"]
 }
