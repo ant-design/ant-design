@@ -167,7 +167,7 @@ const genFilterStyle: GenerateStyle<TableToken> = (token) => {
             color: colorText,
           },
 
-          [`> ul`]: {
+          '> ul': {
             maxHeight: 'calc(100vh - 130px)',
             overflowX: 'hidden',
             overflowY: 'auto',

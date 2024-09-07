@@ -68,7 +68,7 @@ export const Footer: React.FC<
 
   const btnCtxValueMemo = React.useMemo(() => btnCtxValue, [...Object.values(btnCtxValue)]);
 
-  let footerNode;
+  let footerNode: React.ReactNode;
   if (typeof footer === 'function' || typeof footer === 'undefined') {
     footerNode = (
       <>

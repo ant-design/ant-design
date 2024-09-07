@@ -22,7 +22,7 @@ The complete design pattern will include examples of templates, components (ETC)
 - **Template:** A page-level example that inspires users how to build a typical page in a system, such as a detail page.
 - **Component**
   - Basic components: The most basic elements of the system, such as buttons and pagers.
-  - Business components/modules: Block-level examples, typically consisting of multiple components, such as the PageHeader generic header.
+  - Business components/modules: Block-level examples, typically consisting of multiple components.
 - **General concepts:** Some conventions that guarantee ETC systematization, such as typesetting, fonts, and copywriting.
 
 ## Resources
@@ -30,5 +30,5 @@ The complete design pattern will include examples of templates, components (ETC)
 We work with engineers to transform design patterns into reusable code that maximizes your productivity and communication efficiency.
 
 - [Ant Design Pro](https://pro.ant.design): Out-of-the-box solution with 20+ templates and 10+ business components.
-- [Offcial UI](/components/overview): Ant Design's React UI library is a global component library with 60+ base components.
+- [Official UI](/components/overview): Ant Design's React UI library is a global component library with 60+ base components.
 - [Axure Library](http://library.ant.design/): Axure resource packs are included with the code to make your prototype look like a visual draft, including templates, components, and more.

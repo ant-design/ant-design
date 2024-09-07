@@ -89,6 +89,18 @@ describe('Table', () => {
     });
   });
 
+  it('renders empty table when emptyText is null', () => {
+    const { container, asFragment } = render(
+      <Table dataSource={[]} columns={columns} pagination={false} locale={{ emptyText: null }} />,
+    );
+
+    expect(container.querySelector('.ant-table-placeholder>.ant-table-cell')?.hasChildNodes()).toBe(
+      false,
+    );
+
+    expect(asFragment().firstChild).toMatchSnapshot();
+  });
+
   it('renders empty table with custom emptyText', () => {
     const { asFragment } = render(
       <Table

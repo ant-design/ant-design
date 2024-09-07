@@ -1,9 +1,11 @@
 import type { render } from '../../../tests/utils';
-import { fireEvent, screen } from '../../../tests/utils';
+import { fireEvent } from '../../../tests/utils';
 
 export function openPicker(wrapper: ReturnType<typeof render>, index = 0) {
-  fireEvent.mouseDown(wrapper.container?.querySelectorAll('input')?.[index]!);
-  fireEvent.focus(wrapper.container?.querySelectorAll('input')?.[index]!);
+  const inputEle = wrapper.container?.querySelectorAll<HTMLInputElement>('input')?.[index]!;
+  fireEvent.mouseDown(inputEle);
+  fireEvent.focus(inputEle);
+  fireEvent.click(inputEle);
 }
 
 export function closePicker(wrapper: ReturnType<typeof render>, index = 0) {
@@ -26,10 +28,6 @@ export function selectCell(wrapper: ReturnType<typeof render>, text: string | nu
   return matchCell;
 }
 
-export const closeCircleByRole = { role: 'img', options: { name: 'close-circle' } } as const;
-
-export function expectCloseCircle(shouldExist: boolean) {
-  const { role, options } = closeCircleByRole;
-  const count = shouldExist ? 1 : 0;
-  return expect(screen.queryAllByRole(role, options).length).toStrictEqual(count);
+export function getClearButton() {
+  return document.querySelector('.ant-picker-clear');
 }

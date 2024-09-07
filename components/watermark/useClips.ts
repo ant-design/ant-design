@@ -5,7 +5,7 @@ export const FontGap = 3;
 function prepareCanvas(
   width: number,
   height: number,
-  ratio: number = 1,
+  ratio = 1,
 ): [
   ctx: CanvasRenderingContext2D,
   canvas: HTMLCanvasElement,

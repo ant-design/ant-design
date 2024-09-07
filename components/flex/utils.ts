@@ -2,9 +2,9 @@ import classNames from 'classnames';
 
 import type { FlexProps } from './interface';
 
-export const flexWrapValues = ['wrap', 'nowrap', 'wrap-reverse'] as const;
+export const flexWrapValues: React.CSSProperties['flexWrap'][] = ['wrap', 'nowrap', 'wrap-reverse'];
 
-export const justifyContentValues = [
+export const justifyContentValues: React.CSSProperties['justifyContent'][] = [
   'flex-start',
   'flex-end',
   'start',
@@ -17,9 +17,9 @@ export const justifyContentValues = [
   'normal',
   'left',
   'right',
-] as const;
+];
 
-export const alignItemsValues = [
+export const alignItemsValues: React.CSSProperties['alignItems'][] = [
   'center',
   'start',
   'end',
@@ -30,14 +30,13 @@ export const alignItemsValues = [
   'baseline',
   'normal',
   'stretch',
-] as const;
+];
 
 const genClsWrap = (prefixCls: string, props: FlexProps) => {
-  const wrapCls: Record<PropertyKey, boolean> = {};
-  flexWrapValues.forEach((cssKey) => {
-    wrapCls[`${prefixCls}-wrap-${cssKey}`] = props.wrap === cssKey;
-  });
-  return wrapCls;
+  const wrap = props.wrap === true ? 'wrap' : props.wrap;
+  return {
+    [`${prefixCls}-wrap-${wrap}`]: wrap && flexWrapValues.includes(wrap),
+  };
 };
 
 const genClsAlign = (prefixCls: string, props: FlexProps) => {

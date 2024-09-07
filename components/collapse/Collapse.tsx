@@ -90,29 +90,32 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
   }
 
   // Align with logic position
-  const mergedExpandIconPosition = React.useMemo(() => {
+  const mergedExpandIconPosition = React.useMemo<'start' | 'end'>(() => {
     if (expandIconPosition === 'left') {
       return 'start';
     }
     return expandIconPosition === 'right' ? 'end' : expandIconPosition;
   }, [expandIconPosition]);
 
-  const renderExpandIcon = (panelProps: PanelProps = {}) => {
-    const icon = (
-      expandIcon ? (
-        expandIcon(panelProps)
-      ) : (
-        <RightOutlined rotate={panelProps.isActive ? 90 : undefined} />
-      )
-    ) as React.ReactNode;
+  const mergedExpandIcon = expandIcon ?? collapse?.expandIcon;
 
-    return cloneElement(icon, () => ({
-      className: classNames(
-        (icon as React.ReactElement<any>).props.className,
-        `${prefixCls}-arrow`,
-      ),
-    }));
-  };
+  const renderExpandIcon = React.useCallback(
+    (panelProps: PanelProps = {}) => {
+      const icon =
+        typeof mergedExpandIcon === 'function' ? (
+          mergedExpandIcon(panelProps)
+        ) : (
+          <RightOutlined
+            rotate={panelProps.isActive ? 90 : undefined}
+            aria-label={panelProps.isActive ? 'expanded' : 'collapsed'}
+          />
+        );
+      return cloneElement(icon, () => ({
+        className: classNames((icon as React.ReactElement)?.props?.className, `${prefixCls}-arrow`),
+      }));
+    },
+    [mergedExpandIcon, prefixCls],
+  );
 
   const collapseClassName = classNames(
     `${prefixCls}-icon-position-${mergedExpandIconPosition}`,
@@ -155,6 +158,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
   );
 
   return wrapCSSVar(
+    // @ts-ignore
     <RcCollapse
       ref={ref}
       openMotion={openMotion}

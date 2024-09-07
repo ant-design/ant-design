@@ -1,4 +1,5 @@
 import React from 'react';
+import type { CascaderProps } from 'antd';
 import { Cascader } from 'antd';
 
 const { SHOW_CHILD } = Cascader;
@@ -43,7 +44,7 @@ const options: Option[] = [
 ];
 
 const App: React.FC = () => {
-  const onChange = (value: string[][]) => {
+  const onChange: CascaderProps<Option, 'value', true>['onChange'] = (value) => {
     console.log(value);
   };
   return (
@@ -69,7 +70,7 @@ const App: React.FC = () => {
         onChange={onChange}
         multiple
         maxTagCount="responsive"
-        defaultValue={['bamboo']}
+        defaultValue={[['bamboo']]}
       />
     </>
   );

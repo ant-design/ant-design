@@ -11,9 +11,9 @@ title: Usage with create-react-app
 
 ## Install and Initialization
 
-Before all start, you may need install [yarn](https://github.com/yarnpkg/yarn/) or [pnpm](https://pnpm.io/).
+Before all start, you may need install [yarn](https://github.com/yarnpkg/yarn/) or [pnpm](https://pnpm.io/) or [bun](https://bun.sh/).
 
-<InstallDependencies npm='$ npx create-react-app antd-demo --template typescript' yarn='$ yarn create react-app antd-demo --template typescript' pnpm='$ pnpm create react-app antd-demo --template typescript'></InstallDependencies>
+<InstallDependencies npm='$ npx create-react-app antd-demo --template typescript' yarn='$ yarn create react-app antd-demo --template typescript' pnpm='$ pnpm create react-app antd-demo --template typescript' bun='$ bun create react-app antd-demo --template typescript'></InstallDependencies>
 
 The tool will create and initialize environment and dependencies automatically, please try config your proxy setting or use another npm registry if any network errors happen during it.
 
@@ -48,13 +48,13 @@ Below is the default directory structure.
 
 Now we install `antd` from yarn or npm or pnpm.
 
-<InstallDependencies npm='$ npm install antd --save' yarn='$ yarn add antd' pnpm='$ pnpm install antd --save'></InstallDependencies>
+<InstallDependencies npm='$ npm install antd --save' yarn='$ yarn add antd' pnpm='$ pnpm install antd --save' bun='$ bun add antd'></InstallDependencies>
 
 Modify `src/App.js`, import Button component from `antd`.
 
 ```tsx
-import { Button } from 'antd';
 import React from 'react';
+import { Button } from 'antd';
 
 const App: React.FC = () => (
   <div className="App">
@@ -72,8 +72,8 @@ OK, you should now see a blue primary button displayed on the page. Next you can
 Ref to the [Customize Theme documentation](/docs/react/customize-theme). Modify theme with ConfigProvider:
 
 ```tsx
-import { ConfigProvider } from 'antd';
 import React from 'react';
+import { ConfigProvider } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider theme={{ token: { colorPrimary: '#00b96b' } }}>

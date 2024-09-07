@@ -1,4 +1,5 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { GenerateStyle } from '../../theme/internal';
 import type { TableToken } from './index';
@@ -14,10 +15,15 @@ const genVirtualStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     [`${componentCls}-wrapper`]: {
       // ========================== Row ==========================
       [`${componentCls}-tbody-virtual`]: {
-        [`${componentCls}-row`]: {
-          display: 'flex',
-          boxSizing: 'border-box',
-          width: '100%',
+        [`${componentCls}-tbody-virtual-holder-inner`]: {
+          [`
+            & > ${componentCls}-row, 
+            & > div:not(${componentCls}-row) > ${componentCls}-row
+          `]: {
+            display: 'flex',
+            boxSizing: 'border-box',
+            width: '100%',
+          },
         },
 
         [`${componentCls}-cell`]: {

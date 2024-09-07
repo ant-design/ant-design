@@ -1,25 +1,19 @@
 /* eslint-disable no-console, import/prefer-default-export */
 import util from 'util';
+import React from 'react';
 import type { DOMWindow } from 'jsdom';
-
-// import { fillWindowEnv } from './utils';
-
-const React = require('react');
 
 // eslint-disable-next-line no-console
 console.log('Current React Version:', React.version);
 
 const originConsoleErr = console.error;
 
+const ignoreWarns = ['validateDOMNesting', 'on an unmounted component', 'not wrapped in act'];
+
 // Hack off React warning to avoid too large log in CI.
 console.error = (...args) => {
   const str = args.join('').replace(/\n/g, '');
-
-  if (
-    ['validateDOMNesting', 'on an unmounted component', 'not wrapped in act'].every(
-      (warn) => !str.includes(warn),
-    )
-  ) {
+  if (ignoreWarns.every((warn) => !str.includes(warn))) {
     originConsoleErr(...args);
   }
 };

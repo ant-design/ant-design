@@ -1,5 +1,6 @@
 import * as React from 'react';
 import FilterFilled from '@ant-design/icons/FilterFilled';
+import type { AnyObject } from 'antd/es/_util/type';
 import classNames from 'classnames';
 import type { FieldDataNode } from 'rc-tree';
 import isEqual from 'rc-util/lib/isEqual';
@@ -11,7 +12,8 @@ import Button from '../../../button';
 import type { CheckboxChangeEvent } from '../../../checkbox';
 import Checkbox from '../../../checkbox';
 import { ConfigContext } from '../../../config-provider/context';
-import Dropdown, { type DropdownProps } from '../../../dropdown';
+import Dropdown from '../../../dropdown';
+import type { DropdownProps } from '../../../dropdown';
 import Empty from '../../../empty';
 import type { MenuProps } from '../../../menu';
 import Menu from '../../../menu';
@@ -35,8 +37,8 @@ import FilterDropdownMenuWrapper from './FilterWrapper';
 type FilterTreeDataNode = FieldDataNode<{ title: React.ReactNode; key: string }>;
 
 interface FilterRestProps {
-  confirm?: Boolean;
-  closeDropdown?: Boolean;
+  confirm?: boolean;
+  closeDropdown?: boolean;
 }
 
 export function flattenKeys(filters?: ColumnFilterItem[]) {
@@ -118,12 +120,13 @@ function renderFilterItems({
 
 export type TreeColumnFilterItem = ColumnFilterItem & FilterTreeDataNode;
 
-export interface FilterDropdownProps<RecordType> {
+export interface FilterDropdownProps<RecordType = AnyObject> {
   tablePrefixCls: string;
   prefixCls: string;
   dropdownPrefixCls: string;
   column: ColumnType<RecordType>;
   filterState?: FilterState<RecordType>;
+  filterOnClose: boolean;
   filterMultiple: boolean;
   filterMode?: 'menu' | 'tree';
   filterSearch?: FilterSearchType<ColumnFilterItem | TreeColumnFilterItem>;
@@ -140,13 +143,16 @@ function wrapStringListType(keys?: FilterKey) {
   return (keys as string[]) || [];
 }
 
-function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
+const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
+  props: FilterDropdownProps<RecordType>,
+) => {
   const {
     tablePrefixCls,
     prefixCls,
     column,
     dropdownPrefixCls,
     columnKey,
+    filterOnClose,
     filterMultiple,
     filterMode = 'menu',
     filterSearch = false,
@@ -250,7 +256,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
   // ======================= Submit ========================
   const internalTriggerFilter = (keys?: string[]) => {
-    const mergedKeys = keys && keys.length ? keys : null;
+    const mergedKeys = keys?.length ? keys : null;
     if (mergedKeys === null && (!filterState || !filterState.filteredKeys)) {
       return null;
     }
@@ -306,8 +312,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
       triggerVisible(newVisible);
 
-      // Default will filter when closed
-      if (!newVisible && !column.filterDropdown) {
+      if (!newVisible && !column.filterDropdown && filterOnClose) {
         onConfirm();
       }
     }
@@ -348,10 +353,12 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
   let dropdownContent: React.ReactNode;
 
+  const { direction, renderEmpty } = React.useContext(ConfigContext);
+
   if (typeof column.filterDropdown === 'function') {
     dropdownContent = column.filterDropdown({
       prefixCls: `${dropdownPrefixCls}-custom`,
-      setSelectedKeys: (selectedKeys: string[]) => onSelectKeys({ selectedKeys }),
+      setSelectedKeys: (selectedKeys) => onSelectKeys({ selectedKeys: selectedKeys as string[] }),
       selectedKeys: getFilteredKeysSync(),
       confirm: doFilter,
       clearFilters: onReset,
@@ -366,20 +373,21 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   } else {
     const selectedKeys = getFilteredKeysSync() || [];
     const getFilterComponent = () => {
+      const empty = renderEmpty?.('Table.filter') ?? (
+        <Empty
+          image={Empty.PRESENTED_IMAGE_SIMPLE}
+          description={locale.filterEmptyText}
+          imageStyle={{
+            height: 24,
+          }}
+          style={{
+            margin: 0,
+            padding: '16px 0',
+          }}
+        />
+      );
       if ((column.filters || []).length === 0) {
-        return (
-          <Empty
-            image={Empty.PRESENTED_IMAGE_SIMPLE}
-            description={locale.filterEmptyText}
-            imageStyle={{
-              height: 24,
-            }}
-            style={{
-              margin: 0,
-              padding: '16px 0',
-            }}
-          />
-        );
+        return empty;
       }
       if (filterMode === 'tree') {
         return (
@@ -412,7 +420,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
                 multiple={filterMultiple}
                 checkStrictly={!filterMultiple}
                 className={`${dropdownPrefixCls}-menu`}
-                onCheck={onCheck}
+                onCheck={onCheck as any}
                 checkedKeys={selectedKeys}
                 selectedKeys={selectedKeys}
                 showIcon={false}
@@ -434,6 +442,16 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
           </>
         );
       }
+      const items = renderFilterItems({
+        filters: column.filters || [],
+        filterSearch,
+        prefixCls,
+        filteredKeys: getFilteredKeysSync(),
+        filterMultiple,
+        searchValue,
+      });
+      const isEmpty = items.every((item) => item === null);
+
       return (
         <>
           <FilterSearch
@@ -443,26 +461,23 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
             tablePrefixCls={tablePrefixCls}
             locale={locale}
           />
-          <Menu
-            selectable
-            multiple={filterMultiple}
-            prefixCls={`${dropdownPrefixCls}-menu`}
-            className={dropdownMenuClass}
-            onSelect={onSelectKeys}
-            onDeselect={onSelectKeys}
-            selectedKeys={selectedKeys}
-            getPopupContainer={getPopupContainer}
-            openKeys={openKeys}
-            onOpenChange={onOpenChange}
-            items={renderFilterItems({
-              filters: column.filters || [],
-              filterSearch,
-              prefixCls,
-              filteredKeys: getFilteredKeysSync(),
-              filterMultiple,
-              searchValue,
-            })}
-          />
+          {isEmpty ? (
+            empty
+          ) : (
+            <Menu
+              selectable
+              multiple={filterMultiple}
+              prefixCls={`${dropdownPrefixCls}-menu`}
+              className={dropdownMenuClass}
+              onSelect={onSelectKeys}
+              onDeselect={onSelectKeys}
+              selectedKeys={selectedKeys}
+              getPopupContainer={getPopupContainer}
+              openKeys={openKeys}
+              onOpenChange={onOpenChange}
+              items={items}
+            />
+          )}
         </>
       );
     };
@@ -514,8 +529,6 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     filterIcon = <FilterFilled />;
   }
 
-  const { direction } = React.useContext(ConfigContext);
-
   return (
     <div className={`${prefixCls}-column`}>
       <span className={`${tablePrefixCls}-column-title`}>{children}</span>
@@ -543,6 +556,6 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       </Dropdown>
     </div>
   );
-}
+};
 
 export default FilterDropdown;

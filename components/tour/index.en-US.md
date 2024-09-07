@@ -2,14 +2,13 @@
 category: Components
 group: Data Display
 title: Tour
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8CC_Tbe3_e4AAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*nF6hQpM0XtEAAAAAAAAAAAAADrJ8AQ/original
+description: A popup component for guiding users through a product.
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*NMvqRZpuJfQAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*D70qQJJmzhgAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
-tag: New
+tag: 5.0.0
 ---
-
-A popup component for guiding users through a product. Available since `5.0.0`.
 
 ## When To Use
 
@@ -23,6 +22,7 @@ Use when you want to guide users through a product.
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/mask.tsx">Custom mask style</code>
 <code src="./demo/indicator.tsx">Custom indicator</code>
+<code src="./demo/gap.tsx">Custom highlighted area style</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
@@ -35,6 +35,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | arrow | Whether to show the arrow, including the configuration whether to point to the center of the element | `boolean`\|`{ pointAtCenter: boolean}` | `true` |  |
 | closeIcon | Customize close icon | `React.ReactNode` | `true` | 5.9.0 |
+| disabledInteraction | Disable interaction on highlighted area. | `boolean` | `false` | 5.13.0 |
+| gap | Control the radius of the highlighted area and the offset between highlighted area and the element. | `{ offset?: number \| [number, number]; radius?: number }` | `{ offset?: 6 ; radius?: 2 }` | 5.0.0 (array type `offset`: 5.9.0) |
 | placement | Position of the guide card relative to the target element | `center` `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | `bottom` |  |
 | onClose | Callback function on shutdown | `Function` | - |  |
 | mask | Whether to enable masking, change mask style and fill color by pass custom props | `boolean \| { style?: React.CSSProperties; color?: string; }` | `true` |  |

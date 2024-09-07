@@ -1,30 +1,37 @@
 import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
-import { Alert, Space } from 'antd';
+import { Alert } from 'antd';
 
 const icon = <SmileOutlined />;
 
 const App: React.FC = () => (
-  <Space direction="vertical" style={{ width: '100%' }}>
+  <>
     <Alert icon={icon} message="showIcon = false" type="success" />
+    <br />
     <Alert icon={icon} message="Success Tips" type="success" showIcon />
+    <br />
     <Alert icon={icon} message="Informational Notes" type="info" showIcon />
+    <br />
     <Alert icon={icon} message="Warning" type="warning" showIcon />
+    <br />
     <Alert icon={icon} message="Error" type="error" showIcon />
+    <br />
     <Alert
       icon={icon}
       message="Success Tips"
-      description="Detailed description and advices about successful copywriting."
+      description="Detailed description and advice about successful copywriting."
       type="success"
       showIcon
     />
+    <br />
     <Alert
       icon={icon}
       message="Informational Notes"
-      description="Additional description and informations about copywriting."
+      description="Additional description and information about copywriting."
       type="info"
       showIcon
     />
+    <br />
     <Alert
       icon={icon}
       message="Warning"
@@ -32,6 +39,7 @@ const App: React.FC = () => (
       type="warning"
       showIcon
     />
+    <br />
     <Alert
       icon={icon}
       message="Error"
@@ -39,7 +47,7 @@ const App: React.FC = () => (
       type="error"
       showIcon
     />
-  </Space>
+  </>
 );
 
 export default App;

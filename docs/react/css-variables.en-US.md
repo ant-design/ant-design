@@ -58,7 +58,7 @@ However, after enabling CSS variables, the component styles of the same antd ver
 </ConfigProvider>
 ```
 
-By the way, we strongly recommend using `extractStyle` to extract static styles, which will bring a certain amount of performance improvement to the application.
+By the way, we strongly recommend using [extractStyle](/docs/react/server-side-rendering) to extract static styles, which will bring a certain amount of performance improvement to the application.
 
 ### Customize Theme
 
@@ -70,5 +70,5 @@ With CSS variable mode, the method of modifying the theme is the same as before,
 
 | Properties | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| prefix | Prefix of CSS Variables | string | `ant` | 5.12.0 |
+| prefix | Prefix of CSS Variables, same as `prefixCls` of ConfigProvider by default | string | `ant` | 5.12.0 |
 | key | The unique key of theme. Automatically set by `useId` in React 18, but need to be set manually in React 17 or 16 | string | `useId` in React 18 | 5.12.0 |

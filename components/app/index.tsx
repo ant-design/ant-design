@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import classNames from 'classnames';
 
 import type { AnyObject, CustomComponent } from '../_util/type';
+import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useMessage from '../message/useMessage';
@@ -62,6 +63,13 @@ const App: React.FC<AppProps> & { useApp: () => useAppProps } = (props) => {
       modal: ModalApi,
     }),
     [messageApi, notificationApi, ModalApi],
+  );
+
+  // https://github.com/ant-design/ant-design/issues/48802#issuecomment-2097813526
+  devUseWarning('App')(
+    !(cssVarCls && component === false),
+    'usage',
+    'When using cssVar, ensure `component` is assigned a valid React component string.',
   );
 
   // ============================ Render ============================

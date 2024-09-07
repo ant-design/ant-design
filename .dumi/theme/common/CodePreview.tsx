@@ -1,19 +1,21 @@
-import React, { type ComponentProps, useEffect, useMemo } from 'react';
+import type { ComponentProps } from 'react';
+import React, { useContext, useEffect, useMemo } from 'react';
 import { Button, Tabs, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import toReactElement from 'jsonml-to-react-element';
 import JsonML from 'jsonml.js/lib/utils';
 import Prism from 'prismjs';
 
+import DemoContext from '../slots/DemoContext';
 import LiveCode from './LiveCode';
 
 const useStyle = createStyles(({ token, css }) => {
-  const { colorIcon, colorBgTextHover, antCls } = token;
+  const { colorIcon, antCls } = token;
 
   return {
     code: css`
       position: relative;
-      margin-top: -16px;
+      margin-top: -${token.margin}px;
     `,
 
     copyButton: css`
@@ -21,10 +23,9 @@ const useStyle = createStyles(({ token, css }) => {
       position: absolute;
       z-index: 2;
       top: 16px;
-      inset-inline-end: 16px;
+      inset-inline-end: ${token.padding}px;
       width: 32px;
       text-align: center;
-      background: ${colorBgTextHover};
       padding: 0;
     `,
 
@@ -39,9 +40,9 @@ const useStyle = createStyles(({ token, css }) => {
           display: block;
           position: absolute;
           top: -5px;
-          left: -9px;
+          inset-inline-start: -9px;
           bottom: -5px;
-          right: -9px;
+          inset-inline-end: -9px;
         }
       }
       ${antCls}-typography-copy:not(${antCls}-typography-copy-success) {
@@ -61,13 +62,13 @@ const LANGS = {
   style: 'CSS',
 };
 
-interface CodePreviewProps extends Omit<ComponentProps<typeof LiveCode>, 'initialValue' | 'lang'> {
+interface CodePreviewProps
+  extends Omit<ComponentProps<typeof LiveCode>, 'initialValue' | 'lang' | 'onChange'> {
   sourceCode?: string;
   jsxCode?: string;
   styleCode?: string;
   entryName: string;
-  onCodeTypeChange?: (activeKey: string) => void;
-  onSourceTranspile?: (source: Record<string, string>) => void;
+  onSourceChange?: (source: Record<string, string>) => void;
 }
 
 function toReactComponent(jsonML: any[]) {
@@ -78,6 +79,7 @@ function toReactComponent(jsonML: any[]) {
         const attr = JsonML.getAttributes(node);
         return (
           <pre key={index} className={`language-${attr.lang}`}>
+            {/* biome-ignore lint/security/noDangerouslySetInnerHtml: it's for markdown */}
             <code dangerouslySetInnerHTML={{ __html: attr.highlighted }} />
           </pre>
         );
@@ -91,11 +93,11 @@ const CodePreview: React.FC<CodePreviewProps> = ({
   jsxCode = '',
   styleCode = '',
   entryName,
-  onCodeTypeChange,
-  onSourceTranspile,
+  onSourceChange,
+  error,
 }) => {
   // 避免 Tabs 数量不稳定的闪动问题
-  const initialCodes = {} as Record<'tsx' | 'jsx' | 'style', string>;
+  const initialCodes: Partial<Record<'tsx' | 'jsx' | 'style', string>> = {};
   if (sourceCode) {
     initialCodes.tsx = '';
   }
@@ -106,6 +108,7 @@ const CodePreview: React.FC<CodePreviewProps> = ({
     initialCodes.style = '';
   }
   const [highlightedCodes, setHighlightedCodes] = React.useState(initialCodes);
+  const { codeType, setCodeType } = useContext(DemoContext);
   const sourceCodes = {
     // omit trailing line break
     tsx: sourceCode?.trim(),
@@ -119,7 +122,7 @@ const CodePreview: React.FC<CodePreviewProps> = ({
       style: Prism.highlight(styleCode, Prism.languages.css, 'css'),
     };
     // 去掉空的代码类型
-    Object.keys(codes).forEach((key: keyof typeof codes) => {
+    (Object.keys(codes) as (keyof typeof codes)[]).forEach((key) => {
       if (!codes[key]) {
         delete codes[key];
       }
@@ -140,10 +143,11 @@ const CodePreview: React.FC<CodePreviewProps> = ({
           <div className={styles.code}>
             {lang === 'tsx' ? (
               <LiveCode
+                error={error}
                 lang={lang}
                 initialValue={sourceCodes[lang]}
-                onTranspile={(code) => {
-                  onSourceTranspile?.({ [entryName]: code });
+                onChange={(code: string) => {
+                  onSourceChange?.({ [entryName]: code });
                 }}
               />
             ) : (
@@ -155,7 +159,7 @@ const CodePreview: React.FC<CodePreviewProps> = ({
           </div>
         ),
       })),
-    [JSON.stringify(highlightedCodes)],
+    [JSON.stringify(highlightedCodes), styles.code, styles.copyButton, styles.copyIcon],
   );
 
   if (!langList.length) {
@@ -165,16 +169,25 @@ const CodePreview: React.FC<CodePreviewProps> = ({
   if (langList.length === 1) {
     return (
       <LiveCode
+        error={error}
         lang={langList[0]}
         initialValue={sourceCodes[langList[0]]}
-        onTranspile={(code) => {
-          onSourceTranspile?.({ [entryName]: code });
+        onChange={(code: string) => {
+          onSourceChange?.({ [entryName]: code });
         }}
       />
     );
   }
 
-  return <Tabs centered className="highlight" onChange={onCodeTypeChange} items={items} />;
+  return (
+    <Tabs
+      centered
+      className="highlight"
+      activeKey={codeType}
+      onChange={setCodeType}
+      items={items}
+    />
+  );
 };
 
 export default CodePreview;

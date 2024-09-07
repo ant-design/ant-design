@@ -24,7 +24,7 @@ export function excludeWarning() {
 }
 
 export default function excludeAllWarning() {
-  let cleanUp: Function;
+  let cleanUp: () => void;
 
   beforeAll(() => {
     cleanUp = excludeWarning().mockRestore;

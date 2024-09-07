@@ -38,7 +38,6 @@ const App: React.FC = () => {
       { title: 'Upgrade Status', dataIndex: 'upgradeNum', key: 'upgradeNum' },
       {
         title: 'Action',
-        dataIndex: 'operation',
         key: 'operation',
         render: () => (
           <Space size="middle">

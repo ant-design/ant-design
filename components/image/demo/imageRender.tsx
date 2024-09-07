@@ -5,6 +5,7 @@ const App: React.FC = () => (
   <Image
     width={200}
     preview={{
+      destroyOnClose: true,
       imageRender: () => (
         <video
           muted

@@ -2,33 +2,32 @@ import React from 'react';
 import type { FormInstance } from 'antd';
 import { Button, Form, Input, Space } from 'antd';
 
-const SubmitButton = ({ form }: { form: FormInstance }) => {
-  const [submittable, setSubmittable] = React.useState(false);
+interface SubmitButtonProps {
+  form: FormInstance;
+}
+
+const SubmitButton: React.FC<React.PropsWithChildren<SubmitButtonProps>> = ({ form, children }) => {
+  const [submittable, setSubmittable] = React.useState<boolean>(false);
 
   // Watch all values
   const values = Form.useWatch([], form);
 
   React.useEffect(() => {
-    form.validateFields({ validateOnly: true }).then(
-      () => {
-        setSubmittable(true);
-      },
-      () => {
-        setSubmittable(false);
-      },
-    );
-  }, [values]);
+    form
+      .validateFields({ validateOnly: true })
+      .then(() => setSubmittable(true))
+      .catch(() => setSubmittable(false));
+  }, [form, values]);
 
   return (
     <Button type="primary" htmlType="submit" disabled={!submittable}>
-      Submit
+      {children}
     </Button>
   );
 };
 
 const App: React.FC = () => {
   const [form] = Form.useForm();
-
   return (
     <Form form={form} name="validateOnly" layout="vertical" autoComplete="off">
       <Form.Item name="name" label="Name" rules={[{ required: true }]}>
@@ -39,7 +38,7 @@ const App: React.FC = () => {
       </Form.Item>
       <Form.Item>
         <Space>
-          <SubmitButton form={form} />
+          <SubmitButton form={form}>Submit</SubmitButton>
           <Button htmlType="reset">Reset</Button>
         </Space>
       </Form.Item>

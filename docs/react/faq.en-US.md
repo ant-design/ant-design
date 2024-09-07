@@ -5,7 +5,7 @@ order: 2
 title: FAQ
 ---
 
-Here are the frequently asked questions about Ant Design and antd that you should look up before you ask in the community or create a new issue. We also maintain a [FAQ issues label](http://u.ant.design/faq) for common github issues.
+Here are the frequently asked questions about Ant Design and antd that you should look up before you ask in the community or create a new issue. We also maintain a [FAQ issues label](http://u.ant.design/faq) for common GitHub issues.
 
 ---
 
@@ -53,12 +53,12 @@ While you can override a component's style, we don't recommend doing so. antd is
 
 ## How to avoid breaking change when update version?
 
-antd will avoid breaking change in minor & patch version. You can safe do follow things:
+antd will avoid breaking change in minor & patch version. You can safely do the following things:
 
 - Official demo usage
 - FAQ suggestion. Including codesandbox sample, marked as FAQ issue
 
-And which you should avoid to do:
+And which you should avoid doing:
 
 - Bug as feature. It will break in any other case (e.g. Use div as Tabs children)
 - Use magic code to realize requirement but which can be realized with normal API
@@ -113,17 +113,23 @@ Yes, you can [import `antd` with script tag](https://ant.design/docs/react/intro
 
 If you need some features which should not be included in antd, try to extend antd's component with [HOC](https://gist.github.com/sebmarkbage/ef0bf1f338a7182b6775). [more](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.eeu8q01s1)
 
+antd will have a strict discussion on the demand for new components to prevent API corruption and become [historical debt](/docs/blog/historical-debt). And it is also more inclined to provide atomic capabilities for APIs so that developers can customize the features they need more flexibly.
+
 ## How to get the definition which is not export?
 
-antd will export mainly definitions, but not export internal definitions which may be rename or changed. So we recommend you to use Typescript's native ability to get the definition if needed:
+antd expose the basic component definitions. For the unexposed props, you can get them via the utility types provided by antd. For example:
 
 ```tsx
-import { Table } from 'antd';
+import type { Checkbox, CheckboxProps, GetProp, GetProps, GetRef, Input } from 'antd';
 
-type Props<T extends (...args: any) => any> = Parameters<T>[0];
+// Get Props
+type CheckboxGroupProps = GetProps<typeof Checkbox.Group>;
 
-type TableProps = Props<typeof Table<{ key: string; name: string; age: number }>>;
-type DataSource = TableProps['dataSource'];
+// Get Prop
+type CheckboxValue = GetProp<CheckboxProps, 'value'>;
+
+// Get Ref
+type InputRef = GetRef<typeof Input>;
 ```
 
 ## Date-related components locale is not working?
@@ -131,6 +137,8 @@ type DataSource = TableProps['dataSource'];
 Please check whether you have imported dayjs locale correctly.
 
 ```jsx
+import dayjs from 'dayjs';
+
 import 'dayjs/locale/zh-cn';
 
 dayjs.locale('zh-cn');
@@ -159,17 +167,15 @@ Like [the explanation](https://github.com/ant-design/ant-design/issues/11586#iss
 
 Likewise, `disabledDate` [cannot work on year/month panels](https://github.com/ant-design/ant-design/issues/9008#issuecomment-358554118) of `<DatePicker mode="year/month" />`, but only on cells of date panel.
 
-### Workaround
+:::success{title=Workaround} You can refer to [this article](https://juejin.im/post/5cf65c366fb9a07eca6968f9) or [this article](https://www.cnblogs.com/zyl-Tara/p/10197177.html), using `mode` and `onPanelChange` to encapsulate a `YearPicker` or `MonthRangePicker` for your needs.
 
-You can refer to [this article](https://juejin.im/post/5cf65c366fb9a07eca6968f9) or [this article](https://www.cnblogs.com/zyl-Tara/p/10197177.html), using `mode` and `onPanelChange` to encapsulate a `YearPicker` or `MonthRangePicker` for your needs.
-
-Or you can simply upgrade to [antd@4.0](https://github.com/ant-design/ant-design/issues/16911), in which we [added more XxxPickers](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884) to meet those requirements, and `disabledDate` could be effect on those pickers too.
+Or you can simply upgrade to [antd@4.0](https://github.com/ant-design/ant-design/issues/16911), in which we [added more XxxPickers](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884) to meet those requirements, and `disabledDate` could be effect on those pickers too. :::
 
 ## message/notification/Modal.confirm lost styles when set `prefixCls` on ConfigProvider?
 
 Static methods like message/notification/Modal.confirm are not using the same render tree as `<Button />`, but rendered to independent DOM node created by `ReactDOM.render`, which cannot access React context from ConfigProvider. Consider two solutions here:
 
-1. Replace original usages with [message.useMessage](/components/message/#components-message-demo-hooks), [notification.useNotification](/components/notification/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-notification) and [Modal.useModal](/components/modal/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-modalxxx).
+1. Replace original usages with [message.useMessage](/components/message/#message-demo-hooks), [notification.useNotification](/components/notification/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-notification) and [Modal.useModal](/components/modal/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-modalxxx).
 
 2. Use [App.useApp](/components/app-cn#%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95) to get message/notification/modal instance.
 
@@ -217,9 +223,11 @@ In the Ant Design Token system, `colorPrimary` and `colorInfo` are both [Seed To
 
 ## How to spell Ant Design correctly?
 
-- ✅ **Ant Design**: Capitalized with space, for the design language.
-- ✅ **antd**: all lowercase, for the React UI library.
-- ✅ **ant.design**：For ant.design website url.
+| Spelt | Usage | Pronunciation |
+| --- | --- | --- |
+| ✅ **Ant Design** | Capitalized with space, for the design language | - |
+| ✅ **antd** | All lowercase, for the React UI library | <audio controls src="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*ChCdRJ0w8SUAAAAAAAAAAAAADgCCAQ"></audio> |
+| ✅ **ant.design** | For ant.design website url | - |
 
 Here are some typical wrong examples:
 
@@ -276,7 +284,6 @@ Error: Cannot access .Option on the server. You cannot dot into a client module 
 
 Currently, this problem is [waiting for Next.js to give an official solution](https://github.com/vercel/next.js/issues/51593). There are two workarounds as of now if you need to use sub-components in your page with the App Router:
 
-
 - Create a wrapper component that extracts the sub-components that you need, and re-exports them. Take the `Typography` component as an example. A wrapper component would look something like this:
 
 ```tsx
@@ -326,5 +333,3 @@ export default () => {
   );
 };
 ```
-
-

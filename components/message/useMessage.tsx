@@ -8,6 +8,7 @@ import type { NotificationAPI, NotificationConfig as RcNotificationConfig } from
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { ComponentStyleConfig } from '../config-provider/context';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type {
   ArgsProps,
   ConfigOptions,
@@ -19,7 +20,6 @@ import type {
 import { PureContent } from './PurePanel';
 import useStyle from './style';
 import { getMotion, wrapPromiseFn } from './util';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 const DEFAULT_OFFSET = 8;
 const DEFAULT_DURATION = 3;
@@ -66,7 +66,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     transitionName,
     onAllRemoved,
   } = props;
-  const { getPrefixCls, getPopupContainer, message } = React.useContext(ConfigContext);
+  const { getPrefixCls, getPopupContainer, message, direction } = React.useContext(ConfigContext);
 
   const prefixCls = staticPrefixCls || getPrefixCls('message');
 
@@ -77,7 +77,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     top: top ?? DEFAULT_OFFSET,
   });
 
-  const getClassName = () => classNames({ [`${prefixCls}-rtl`]: rtl });
+  const getClassName = () => classNames({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' });
 
   // ============================== Motion ===============================
   const getNotificationMotion = () => getMotion(prefixCls, transitionName);

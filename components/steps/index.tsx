@@ -1,3 +1,4 @@
+import * as React from 'react';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
@@ -7,7 +8,7 @@ import type {
   StepsProps as RcStepsProps,
   StepIconRender,
 } from 'rc-steps/lib/Steps';
-import * as React from 'react';
+
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';

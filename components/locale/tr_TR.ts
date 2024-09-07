@@ -1,8 +1,9 @@
 /* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/tr_TR';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/tr_TR';
 import DatePicker from '../date-picker/locale/tr_TR';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/tr_TR';
 
 const typeTemplate = '${label} geçerli bir ${type} değil';
@@ -49,6 +50,7 @@ const localeValues: Locale = {
     selectCurrent: 'Tüm sayfayı seç',
     removeCurrent: 'Sayfayı kaldır',
     selectAll: 'Tümünü seç',
+    deselectAll: 'Tümünün seçimini kaldır',
     removeAll: 'Tümünü kaldır',
     selectInvert: 'Tersini seç',
   },
@@ -70,9 +72,6 @@ const localeValues: Locale = {
     copy: 'Kopyala',
     copied: 'Kopyalandı',
     expand: 'Genişlet',
-  },
-  PageHeader: {
-    back: 'Geri',
   },
   Form: {
     optional: '(opsiyonel)',

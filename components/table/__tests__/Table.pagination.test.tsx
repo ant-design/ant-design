@@ -1,12 +1,13 @@
-/* eslint-disable import/first */
-jest.mock('../../_util/scrollTo');
-
 import React from 'react';
+
 import type { TablePaginationConfig, TableProps } from '..';
 import Table from '..';
-import { act, fireEvent, render } from '../../../tests/utils';
 import scrollTo from '../../_util/scrollTo';
 import { resetWarned } from '../../_util/warning';
+import { act, fireEvent, render } from '../../../tests/utils';
+
+/* eslint-disable import/first */
+jest.mock('../../_util/scrollTo');
 
 describe('Table.pagination', () => {
   const columns = [

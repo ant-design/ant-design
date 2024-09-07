@@ -1,16 +1,15 @@
 ---
 category: Components
-subtitle: 漫游式引导
 group: 数据展示
 title: Tour
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8CC_Tbe3_e4AAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*nF6hQpM0XtEAAAAAAAAAAAAADrJ8AQ/original
+subtitle: 漫游式引导
+description: 用于分步引导用户了解产品功能的气泡组件。
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*NMvqRZpuJfQAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*D70qQJJmzhgAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
-tag: New
+tag: 5.0.0
 ---
-
-用于分步引导用户了解产品功能的气泡组件。自 `5.0.0` 版本开始提供该组件。
 
 ## 何时使用
 
@@ -24,6 +23,7 @@ tag: New
 <code src="./demo/placement.tsx">位置</code>
 <code src="./demo/mask.tsx">自定义遮罩样式</code>
 <code src="./demo/indicator.tsx">自定义指示器</code>
+<code src="./demo/gap.tsx">自定义高亮区域的样式</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
@@ -36,6 +36,8 @@ tag: New
 | --- | --- | --- | --- | --- |
 | arrow | 是否显示箭头，包含是否指向元素中心的配置 | `boolean` \| `{ pointAtCenter: boolean}` | `true` |  |
 | closeIcon | 自定义关闭按钮 | `React.ReactNode` | `true` | 5.9.0 |
+| disabledInteraction | 禁用高亮区域交互 | `boolean` | `false` | 5.13.0 |
+| gap | 控制高亮区域的圆角边框和显示间距 | `{ offset?: number \| [number, number]; radius?: number }` | `{ offset?: 6 ; radius?: 2 }` | 5.0.0 (数组类型的 `offset`: 5.9.0 ) |
 | placement | 引导卡片相对于目标元素的位置 | `center` `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | `bottom` |  |
 | onClose | 关闭引导时的回调函数 | `Function` | - |  |
 | onFinish | 引导完成时的回调 | `Function` | - |  |

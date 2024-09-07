@@ -1,5 +1,5 @@
 /* eslint-disable compat/compat */
-/* eslint-disable no-console, no-await-in-loop, import/no-extraneous-dependencies, lodash/import-scope, no-restricted-syntax */
+/* eslint-disable no-console, no-await-in-loop, import/no-extraneous-dependencies, no-restricted-syntax */
 import { assert } from 'console';
 import fs from 'fs';
 import os from 'os';
@@ -8,17 +8,19 @@ import { Readable } from 'stream';
 import { finished } from 'stream/promises';
 import chalk from 'chalk';
 import fse from 'fs-extra';
-import _ from 'lodash';
+import difference from 'lodash/difference';
 import minimist from 'minimist';
 import pixelmatch from 'pixelmatch';
 import { PNG } from 'pngjs';
-import { remark } from 'remark';
-import remarkGfm from 'remark-gfm';
-import remarkHtml from 'remark-html';
 import sharp from 'sharp';
-import tar from 'tar';
+import simpleGit from 'simple-git';
 
+import markdown2Html from './convert';
+
+const ROOT_DIR = process.cwd();
 const ALI_OSS_BUCKET = 'antd-visual-diff';
+
+const REPORT_DIR = path.join(ROOT_DIR, './visualRegressionReport');
 
 const isLocalEnv = process.env.LOCAL;
 
@@ -31,26 +33,38 @@ const compareScreenshots = async (
   const currentImgBuf = await sharp(currentImgPath).toBuffer();
 
   const basePng = PNG.sync.read(baseImgBuf);
-  const targetWidth = basePng.width;
-  const targetHeight = basePng.height;
+  const currentPng = PNG.sync.read(currentImgBuf);
 
-  const comparePng = PNG.sync.read(
-    await sharp(currentImgBuf)
-      .resize({
-        width: targetWidth,
-        height: targetHeight,
-        fit: sharp.fit.contain,
-        background: { r: 255, g: 255, b: 255, alpha: 0 },
-      })
-      .png()
-      .toBuffer(),
+  const targetWidth = Math.max(basePng.width, currentPng.width);
+  const targetHeight = Math.max(basePng.height, currentPng.height);
+
+  // fill color for transparent png
+  const fillColor =
+    baseImgPath.endsWith('dark.png') || baseImgPath.endsWith('dark.css-var.png')
+      ? { r: 0, g: 0, b: 0, alpha: 255 }
+      : { r: 255, g: 255, b: 255, alpha: 255 };
+
+  const resizeOptions = {
+    width: targetWidth,
+    height: targetHeight,
+    position: 'left top',
+    fit: sharp.fit.contain,
+    background: fillColor,
+  };
+
+  const resizedBasePng = PNG.sync.read(
+    await sharp(baseImgBuf).resize(resizeOptions).png().toBuffer(),
+  );
+
+  const resizedCurrentPng = PNG.sync.read(
+    await sharp(currentImgBuf).resize(resizeOptions).png().toBuffer(),
   );
 
   const diffPng = new PNG({ width: targetWidth, height: targetHeight });
 
   const mismatchedPixels = pixelmatch(
-    basePng.data,
-    comparePng.data,
+    resizedBasePng.data,
+    resizedCurrentPng.data,
     diffPng.data,
     targetWidth,
     targetHeight,
@@ -91,6 +105,7 @@ async function getBranchLatestRef(branchName: string) {
 }
 
 async function downloadBaseSnapshots(ref: string, targetDir: string) {
+  const tar = await import('tar');
   // download imageSnapshotsUrl
   const imageSnapshotsUrl = `${ossDomain}/${ref}/imageSnapshots.tar.gz`;
   const targzPath = path.resolve(os.tmpdir(), `./${path.basename(targetDir)}.tar.gz`);
@@ -104,68 +119,166 @@ async function downloadBaseSnapshots(ref: string, targetDir: string) {
   });
 }
 
+interface IImageDesc {
+  src: string;
+  alt: string;
+}
+
+function getMdImageTag(desc: IImageDesc, extraCaption?: boolean) {
+  const { src, alt } = desc;
+  if (!extraCaption || !alt) {
+    // in md2html report, we use `@microflash/rehype-figure` to generate a figure
+    return `![${alt}](${src})`;
+  }
+  // show caption with image in github markdown comment
+  return `![${alt}](${src}) ${alt}`;
+}
+
 interface IBadCase {
-  type: 'removed' | 'changed';
+  type: 'removed' | 'changed' | 'added';
   filename: string;
+  /**
+   * compare target file
+   */
+  targetFilename?: string;
   /**
    * 0 - 1
    */
   weight: number;
 }
 
-function md2Html(md: string) {
-  return remark().use(remarkGfm).use(remarkHtml).processSync(md).toString();
-}
+const git = simpleGit();
 
-function parseArgs() {
-  // parse args from -- --pr-id=123 --base_ref=feature
+async function parseArgs() {
+  // parse args from -- --pr-id=123 --base_ref=feature --max-workers=2
   const argv = minimist(process.argv.slice(2));
   const prId = argv['pr-id'];
   assert(prId, 'Missing --pr-id');
   const baseRef = argv['base-ref'];
   assert(baseRef, 'Missing --base-ref');
+
+  const maxWorkers = argv['max-workers'] ? parseInt(argv['max-workers'], 10) : 1;
+
+  const { latest } = await git.log();
+
   return {
     prId,
     baseRef,
+    currentRef: latest?.hash.slice(0, 8) || '',
+    maxWorkers,
   };
+}
+
+function generateLineReport(
+  badCase: IBadCase,
+  publicPath: string,
+  currentRef: string,
+  extraCaption?: boolean,
+) {
+  const { filename, type, targetFilename } = badCase;
+
+  let lineHTMLReport = '';
+  if (type === 'changed') {
+    lineHTMLReport += '| ';
+    lineHTMLReport += [
+      // add ref as query to avoid github cache image object
+      getMdImageTag(
+        {
+          src: `${publicPath}/images/base/${filename}?ref=${currentRef}`,
+          alt: targetFilename || '',
+        },
+        extraCaption,
+      ),
+      getMdImageTag(
+        {
+          src: `${publicPath}/images/current/${filename}?ref=${currentRef}`,
+          alt: filename,
+        },
+        extraCaption,
+      ),
+      getMdImageTag(
+        {
+          src: `${publicPath}/images/diff/${filename}?ref=${currentRef}`,
+          alt: '',
+        },
+        extraCaption,
+      ),
+    ].join(' | ');
+    lineHTMLReport += ' |\n';
+  } else if (type === 'removed') {
+    lineHTMLReport += '| ';
+    lineHTMLReport += [
+      getMdImageTag(
+        {
+          src: `${publicPath}/images/base/${filename}?ref=${currentRef}`,
+          alt: filename || '',
+        },
+        extraCaption,
+      ),
+      `⛔️⛔️⛔️ Missing ⛔️⛔️⛔️`,
+      `🚨🚨🚨 Removed 🚨🚨🚨`,
+    ].join(' | ');
+    lineHTMLReport += ' |\n';
+  } else if (type === 'added') {
+    lineHTMLReport += '| ';
+    lineHTMLReport += [
+      '',
+      getMdImageTag(
+        {
+          src: `${publicPath}/images/current/${filename}?ref=${currentRef}`,
+          alt: filename,
+        },
+        extraCaption,
+      ),
+      `🆕🆕🆕 Added 🆕🆕🆕`,
+    ].join(' | ');
+    lineHTMLReport += ' |\n';
+  }
+  return lineHTMLReport;
 }
 
 function generateReport(
   badCases: IBadCase[],
   targetBranch: string,
   targetRef: string,
+  currentRef: string,
   prId: string,
 ): [string, string] {
-  const publicPath = isLocalEnv ? path.resolve(__dirname, '../..') : `${ossDomain}/pr-${prId}`;
+  const reportDirname = path.basename(REPORT_DIR);
+
+  const publicPath = isLocalEnv ? '.' : `${ossDomain}/pr-${prId}/${reportDirname}`;
 
   const passed = badCases.length === 0;
 
   const commonHeader = `
-## Visual Regression Report for PR #${prId} ${passed ? 'Passed ✅' : 'Failed ❌'}
-> **Target branch:** ${targetBranch} (${targetRef})
+<!-- ${passed ? 'VISUAL_DIFF_SUCCESS' : 'VISUAL_DIFF_FAILED'} -->
+
+## 👁 Visual Regression Report for PR #${prId} ${passed ? 'Passed ✅' : 'Failed ❌'}
+> **🎯 Target branch:** ${targetBranch} (${targetRef})
   `.trim();
 
+  const htmlReportLink = `${publicPath}/report.html`;
+
+  const fullReport = `> 📖 <a href="${htmlReportLink}" target="_blank">View Full Report ↗︎</a>`;
   if (passed) {
     const mdStr = [
       commonHeader,
-      '------------------------',
-      'Congrats! No visual-regression diff found',
+      fullReport,
+      '\n🎊 Congrats! No visual-regression diff found.\n',
+      '<img src="https://github.com/ant-design/ant-design/assets/507615/2d1a77dc-dbc6-4b0f-9cbc-19a43d3c29cd" width="300" />',
     ].join('\n');
 
-    return [mdStr, md2Html(mdStr)];
+    return [mdStr, markdown2Html(mdStr)];
   }
-
-  const htmlReportLink = `${publicPath}/visualRegressionReport/report.html`;
-
-  const addonFullReportDesc = `\n\nCheck <a href="${htmlReportLink}" target="_blank">Full Report</a> for details`;
 
   let reportMdStr = `
 ${commonHeader}
-> <a href="${htmlReportLink}" target="_blank">View Full Report</a> \n
-------------------------
-| image name | expected | actual | diff |
-| --- | --- | --- | --- |
+${fullReport}
+
+| Expected (Branch ${targetBranch}) | Actual (Current PR) | Diff |
+| --- | --- | --- |
     `.trim();
+
   reportMdStr += '\n';
 
   let fullVersionMd = reportMdStr;
@@ -173,46 +286,40 @@ ${commonHeader}
   let diffCount = 0;
 
   for (const badCase of badCases) {
-    const { filename, type } = badCase;
-    let lineReportMdStr = '';
-    if (type === 'changed') {
-      lineReportMdStr += '| ';
-      lineReportMdStr += [
-        badCase.filename,
-        `![${targetBranch}: ${targetRef}](${publicPath}/visualRegressionReport/images/base/${filename})`,
-        `![current: pr-${prId}](${publicPath}/visualRegressionReport/images/current/${filename})`,
-        `![diff](${publicPath}/visualRegressionReport/images/diff/${filename})`,
-      ].join(' | ');
-      lineReportMdStr += ' |\n';
-    } else if (type === 'removed') {
-      lineReportMdStr += '| ';
-      lineReportMdStr += [
-        badCase.filename,
-        `![${targetBranch}: ${targetRef}](${publicPath}/visualRegressionReport/images/base/${filename})`,
-        `⛔️⛔️⛔️ Missing ⛔️⛔️⛔️`,
-        `🚨🚨🚨 Removed 🚨🚨🚨`,
-      ].join(' | ');
-      lineReportMdStr += ' |\n';
-    }
-
     diffCount += 1;
     if (diffCount <= 10) {
-      reportMdStr += lineReportMdStr;
+      // 将图片下方增加文件名
+      reportMdStr += generateLineReport(badCase, publicPath, currentRef, true);
     }
 
-    fullVersionMd += lineReportMdStr;
+    fullVersionMd += generateLineReport(badCase, publicPath, currentRef, false);
   }
 
-  reportMdStr += addonFullReportDesc;
+  reportMdStr += `\n\nCheck <a href="${htmlReportLink}" target="_blank">Full Report</a> for details`;
+
+  // tips for comment `Pass Visual Diff` will pass the CI
+  if (!passed) {
+    reportMdStr += `
+
+-----
+
+If you think the visual diff is acceptable, please check:
+
+- [ ] Visual diff is acceptable
+`;
+  }
 
   // convert fullVersionMd to html
-  return [reportMdStr, md2Html(fullVersionMd)];
+  return [reportMdStr, markdown2Html(fullVersionMd)];
 }
 
 async function boot() {
-  const { prId, baseRef: targetBranch = 'master' } = parseArgs();
+  const args = await parseArgs();
+  console.log(`Args: ${JSON.stringify(args)}`);
 
-  const baseImgSourceDir = path.resolve(__dirname, `../../imageSnapshots-${targetBranch}`);
+  const { prId, baseRef: targetBranch = 'master', currentRef, maxWorkers } = args;
+
+  const baseImgSourceDir = path.resolve(ROOT_DIR, `./imageSnapshots-${targetBranch}`);
 
   /* --- prepare stage --- */
   console.log(
@@ -238,13 +345,12 @@ async function boot() {
     process.exit(1);
   }
 
-  const currentImgSourceDir = path.resolve(__dirname, '../../imageSnapshots');
+  const currentImgSourceDir = path.resolve(ROOT_DIR, './imageSnapshots');
 
-  const reportDir = path.resolve(__dirname, '../../visualRegressionReport');
   // save diff images(x3) to reportDir
-  const diffImgReportDir = path.resolve(reportDir, './images/diff');
-  const baseImgReportDir = path.resolve(reportDir, './images/base');
-  const currentImgReportDir = path.resolve(reportDir, './images/current');
+  const diffImgReportDir = path.resolve(REPORT_DIR, './images/diff');
+  const baseImgReportDir = path.resolve(REPORT_DIR, './images/base');
+  const currentImgReportDir = path.resolve(REPORT_DIR, './images/current');
 
   await fse.ensureDir(diffImgReportDir);
   await fse.ensureDir(baseImgReportDir);
@@ -264,8 +370,9 @@ async function boot() {
     .filter((i) => !i.endsWith('.css-var.png'))
     .map((n) => path.basename(n, path.extname(n)));
 
-  for (const basename of cssInJsImgNames) {
-    for (const extname of ['.png', '.css-var.png']) {
+  // compare to target branch
+  const compareTasks = cssInJsImgNames.map((basename) =>
+    ['.png', '.css-var.png'].map((extname) => async () => {
       // baseImg always use cssinjs png
       const baseImgName = `${basename}.png`;
       const baseImgPath = path.join(baseImgSourceDir, baseImgName);
@@ -278,13 +385,13 @@ async function boot() {
       const currentImgExists = await fse.exists(currentImgPath);
       if (!currentImgExists) {
         console.log(chalk.red(`⛔️ Missing image: ${compareImgName}\n`));
-        badCases.push({
+        // base img would use twice so we cannot move it
+        await fse.copy(baseImgPath, path.join(baseImgReportDir, compareImgName));
+        return {
           type: 'removed',
           filename: compareImgName,
           weight: 1,
-        });
-        await fse.copy(baseImgPath, path.join(baseImgReportDir, compareImgName));
-        continue;
+        } as IBadCase;
       }
 
       const mismatchedPxPercent = await compareScreenshots(
@@ -299,57 +406,39 @@ async function boot() {
           chalk.yellow(compareImgName),
           `${(mismatchedPxPercent * 100).toFixed(2)}%\n`,
         );
-        // copy compare imgs(x2) to report dir
+        // copy/move compare imgs(x2) to report dir
+        // base img would use twice so we cannot move it
         await fse.copy(baseImgPath, path.join(baseImgReportDir, compareImgName));
-        await fse.copy(currentImgPath, path.join(currentImgReportDir, compareImgName));
+        await fse.move(currentImgPath, path.join(currentImgReportDir, compareImgName));
 
-        badCases.push({
+        return {
           type: 'changed',
           filename: compareImgName,
+          targetFilename: baseImgName,
           weight: mismatchedPxPercent,
-        });
-      } else {
-        console.log('Passed for: %s\n', chalk.green(compareImgName));
+        } as IBadCase;
       }
+      console.log('Passed for: %s\n', chalk.green(compareImgName));
+    }),
+  );
+
+  const { default: pAll } = await import('p-all');
+
+  const compareResults = await pAll(compareTasks.flat(), { concurrency: maxWorkers });
+  for (const compareResult of compareResults) {
+    if (compareResult) {
+      badCases.push(compareResult);
     }
   }
 
-  /* --- generate report stage --- */
-  const jsonl = badCases.map((i) => JSON.stringify(i)).join('\n');
-  // write jsonl and markdown report to diffImgDir
-  await fse.writeFile(path.join(reportDir, './report.jsonl'), jsonl);
-  const [reportMdStr, reportHtmlStr] = generateReport(
-    badCases,
-    targetBranch,
-    targetCommitSha,
-    prId,
-  );
-  await fse.writeFile(path.join(reportDir, './report.md'), reportMdStr);
-  const htmlTemplate = await fse.readFile(path.join(__dirname, './report-template.html'), 'utf8');
-
-  await fse.writeFile(
-    path.join(reportDir, './report.html'),
-    htmlTemplate.replace('{{reportContent}}', reportHtmlStr),
-    'utf-8',
-  );
-
-  await tar.c(
-    {
-      gzip: true,
-      // ignore top-level dir(e.g. visualRegressionReport) and zip all files in it
-      cwd: reportDir,
-      file: `${path.basename(reportDir)}.tar.gz`,
-    },
-    await fse.readdir(reportDir),
-  );
-
+  // collect all new added cases
   const currentImgFileList = readPngs(currentImgSourceDir);
   /* --- text report stage --- */
   console.log(
     chalk.blue(`📊 Text report from pr #${prId} comparing to ${targetBranch}@${targetCommitSha}\n`),
   );
   // new images
-  const newImgs = _.difference(currentImgFileList, baseImgFileList);
+  const newImgs = difference(currentImgFileList, baseImgFileList);
   if (newImgs.length) {
     console.log(chalk.green(`🆕 ${newImgs.length} images added from this pr`));
     console.log(chalk.green('🆕 Added images list:\n'));
@@ -357,7 +446,58 @@ async function boot() {
     console.log('\n');
   }
 
-  if (!badCases.length) {
+  const newImgTask = newImgs.map((newImg) => async () => {
+    await fse.move(
+      path.join(currentImgSourceDir, newImg),
+      path.resolve(currentImgReportDir, newImg),
+    );
+    return {
+      type: 'added',
+      filename: newImg,
+      weight: 0,
+    } as IBadCase;
+  });
+
+  const newTaskResults = await pAll(newImgTask, { concurrency: maxWorkers });
+  for (const newTaskResult of newTaskResults) {
+    if (newTaskResult) {
+      badCases.push(newTaskResult);
+    }
+  }
+
+  /* --- generate report stage --- */
+  const jsonl = badCases.map((i) => JSON.stringify(i)).join('\n');
+  // write jsonl and markdown report to diffImgDir
+  await fse.writeFile(path.join(REPORT_DIR, './report.jsonl'), jsonl);
+  const [reportMdStr, reportHtmlStr] = generateReport(
+    badCases,
+    targetBranch,
+    targetCommitSha,
+    currentRef,
+    prId,
+  );
+  await fse.writeFile(path.join(REPORT_DIR, './report.md'), reportMdStr);
+  const htmlTemplate = await fse.readFile(path.join(__dirname, './report-template.html'), 'utf8');
+
+  await fse.writeFile(
+    path.join(REPORT_DIR, './report.html'),
+    htmlTemplate.replace('{{reportContent}}', reportHtmlStr),
+    'utf-8',
+  );
+  const tar = await import('tar');
+  await tar.c(
+    {
+      gzip: true,
+      // ignore top-level dir(e.g. visualRegressionReport) and zip all files in it
+      cwd: REPORT_DIR,
+      file: `${path.basename(REPORT_DIR)}.tar.gz`,
+    },
+    await fse.readdir(REPORT_DIR),
+  );
+
+  const validBadCases = badCases.filter((i) => ['removed', 'changed'].includes(i.type));
+
+  if (!validBadCases.length) {
     console.log(chalk.green('🎉 All passed!'));
     console.log('\n');
     return;
@@ -367,8 +507,9 @@ async function boot() {
   console.log(chalk.red('⛔️ Failed cases:\n'));
   console.log(prettyList(sortedBadCases.map((i) => `[${i.type}] ${i.filename}`)));
   console.log('\n');
-  // let job failed
-  process.exit(1);
+
+  // let job failed. Skip to let CI/CD to handle it
+  // process.exit(1);
 }
 
 boot();

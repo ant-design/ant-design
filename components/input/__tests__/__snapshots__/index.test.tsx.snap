@@ -2,7 +2,7 @@
 
 exports[`Input allowClear should change type when click 1`] = `
 <span
-  class="ant-input-affix-wrapper"
+  class="ant-input-affix-wrapper ant-input-outlined"
 >
   <input
     class="ant-input"
@@ -44,7 +44,7 @@ exports[`Input allowClear should change type when click 1`] = `
 
 exports[`Input allowClear should change type when click 2`] = `
 <span
-  class="ant-input-affix-wrapper ant-input-affix-wrapper-focused"
+  class="ant-input-affix-wrapper ant-input-affix-wrapper-focused ant-input-outlined"
 >
   <input
     class="ant-input"
@@ -86,7 +86,7 @@ exports[`Input allowClear should change type when click 2`] = `
 
 exports[`Input allowClear should not show icon if defaultValue is undefined, null or empty string 1`] = `
 <span
-  class="ant-input-affix-wrapper"
+  class="ant-input-affix-wrapper ant-input-outlined"
 >
   <input
     class="ant-input"
@@ -128,7 +128,7 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
 
 exports[`Input allowClear should not show icon if defaultValue is undefined, null or empty string 2`] = `
 <span
-  class="ant-input-affix-wrapper"
+  class="ant-input-affix-wrapper ant-input-outlined"
 >
   <input
     class="ant-input"
@@ -170,7 +170,7 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
 
 exports[`Input allowClear should not show icon if defaultValue is undefined, null or empty string 3`] = `
 <span
-  class="ant-input-affix-wrapper"
+  class="ant-input-affix-wrapper ant-input-outlined"
 >
   <input
     class="ant-input"
@@ -212,7 +212,7 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
 
 exports[`Input allowClear should not show icon if value is undefined, null or empty string 1`] = `
 <span
-  class="ant-input-affix-wrapper"
+  class="ant-input-affix-wrapper ant-input-outlined"
 >
   <input
     class="ant-input"
@@ -254,7 +254,7 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
 
 exports[`Input allowClear should not show icon if value is undefined, null or empty string 2`] = `
 <span
-  class="ant-input-affix-wrapper"
+  class="ant-input-affix-wrapper ant-input-outlined"
 >
   <input
     class="ant-input"
@@ -296,7 +296,7 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
 
 exports[`Input allowClear should not show icon if value is undefined, null or empty string 3`] = `
 <span
-  class="ant-input-affix-wrapper"
+  class="ant-input-affix-wrapper ant-input-outlined"
 >
   <input
     class="ant-input"
@@ -339,7 +339,7 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
 exports[`Input allowClear should support classNames and styles 1`] = `
 <div>
   <span
-    class="rc-input-affix-wrapper custom-class"
+    class="rc-input-affix-wrapper rc-input-outlined custom-class"
     style="background-color: red;"
   >
     <span
@@ -368,14 +368,14 @@ exports[`Input allowClear should support classNames and styles 1`] = `
     </span>
   </span>
   <span
-    class="rc-input-group-wrapper custom-class"
+    class="rc-input-group-wrapper rc-input-group-wrapper-outlined custom-class"
     style="background-color: red;"
   >
     <span
       class="rc-input-wrapper rc-input-group"
     >
       <span
-        class="rc-input-affix-wrapper"
+        class="rc-input-affix-wrapper rc-input-outlined"
       >
         <span
           class="rc-input-prefix custom-prefix"
@@ -410,20 +410,20 @@ exports[`Input allowClear should support classNames and styles 1`] = `
     </span>
   </span>
   <input
-    class="rc-input custom-input custom-class"
+    class="rc-input custom-input rc-input-outlined custom-class"
     style="color: red; background-color: red;"
     type="text"
     value="123"
   />
   <span
-    class="rc-input-group-wrapper custom-class"
+    class="rc-input-group-wrapper rc-input-group-wrapper-outlined custom-class"
     style="background-color: red;"
   >
     <span
       class="rc-input-wrapper rc-input-group"
     >
       <input
-        class="rc-input custom-input"
+        class="rc-input custom-input rc-input-outlined"
         style="color: red;"
         type="text"
         value="123"
@@ -440,7 +440,7 @@ exports[`Input allowClear should support classNames and styles 1`] = `
 
 exports[`Input rtl render component should be rendered correctly in RTL direction 1`] = `
 <input
-  class="ant-input ant-input-rtl"
+  class="ant-input ant-input-rtl ant-input-outlined"
   type="text"
   value=""
 />
@@ -454,7 +454,7 @@ exports[`Input rtl render component should be rendered correctly in RTL directio
 
 exports[`Input should support maxLength 1`] = `
 <input
-  class="ant-input"
+  class="ant-input ant-input-outlined"
   maxlength="3"
   type="text"
   value=""
@@ -463,7 +463,7 @@ exports[`Input should support maxLength 1`] = `
 
 exports[`Input should support size 1`] = `
 <input
-  class="ant-input ant-input-lg"
+  class="ant-input ant-input-lg ant-input-outlined"
   type="text"
   value=""
 />
@@ -489,7 +489,7 @@ exports[`Input should support size in form 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input ant-input-lg"
+              class="ant-input ant-input-lg ant-input-outlined"
               type="text"
               value=""
             />

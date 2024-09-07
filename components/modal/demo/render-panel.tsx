@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Modal, Space, Typography } from 'antd';
-import type { ModalFuncProps } from 'antd/es/modal/interface';
+import type { ModalFuncProps } from 'antd';
 
 /** Test usage. Do not use in your production. */
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPanel } = Modal;

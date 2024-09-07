@@ -3,12 +3,12 @@ order: 0
 title: Ant Design of React
 ---
 
-Following the Ant Design specification, we developed a React UI library `antd` that contains a set of high quality components and demos for building rich, interactive user interfaces.
+Following the Ant Design specification, we developed a React UI library `antd` (<a href="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*ChCdRJ0w8SUAAAAAAAAAAAAADgCCAQ" target="_blank">🔊 Pronunciation</a>) that contains a set of high quality components and demos for building rich, interactive user interfaces.
 
 <div class="pic-plus">
-  <img width="150" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
+  <img width="150" draggable="false" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
   <span>+</span>
-  <img width="160" src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg" />
+  <img width="160" draggable="false" src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg" />
 </div>
 
 ---
@@ -44,11 +44,11 @@ You can subscribe to this feed for new version notifications: https://github.com
 
 ## Installation
 
-### Using npm or yarn or pnpm
+### Using npm or yarn or pnpm or bun
 
-**We recommend using [npm](https://www.npmjs.com/) or [yarn](https://github.com/yarnpkg/yarn/) or [pnpm](https://pnpm.io/) to install**, it not only makes development easier, but also allow you to take advantage of the rich ecosystem of Javascript packages and tooling.
+**We recommend using [npm](https://www.npmjs.com/) or [yarn](https://github.com/yarnpkg/yarn/) or [pnpm](https://pnpm.io/) or [bun](https://bun.sh/) to install**, it not only makes development easier, but also allow you to take advantage of the rich ecosystem of Javascript packages and tooling.
 
-<InstallDependencies npm='$ npm install antd --save' yarn='$ yarn add antd' pnpm='$ pnpm install antd --save'></InstallDependencies>
+<InstallDependencies npm='$ npm install antd --save' yarn='$ yarn add antd' pnpm='$ pnpm install antd --save' bun='$ bun add antd'></InstallDependencies>
 
 If you are in a bad network environment, you can try other registries and tools like [cnpm](https://github.com/cnpm/cnpm).
 

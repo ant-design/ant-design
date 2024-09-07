@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { DownloadOutlined } from '@ant-design/icons';
 import { Button, Divider, Flex, Radio } from 'antd';
-import type { SizeType } from 'antd/es/config-provider/SizeContext';
+import type { ConfigProviderProps } from 'antd';
+
+type SizeType = ConfigProviderProps['componentSize'];
 
 const App: React.FC = () => {
   const [size, setSize] = useState<SizeType>('large'); // default is 'middle'
@@ -16,7 +18,7 @@ const App: React.FC = () => {
         Preview
       </Divider>
       <Flex gap="small" align="flex-start" vertical>
-        <Flex gap="small" wrap="wrap">
+        <Flex gap="small" wrap>
           <Button type="primary" size={size}>
             Primary
           </Button>
@@ -28,7 +30,7 @@ const App: React.FC = () => {
         <Button type="link" size={size}>
           Link
         </Button>
-        <Flex gap="small" wrap="wrap">
+        <Flex gap="small" wrap>
           <Button type="primary" icon={<DownloadOutlined />} size={size} />
           <Button type="primary" shape="circle" icon={<DownloadOutlined />} size={size} />
           <Button type="primary" shape="round" icon={<DownloadOutlined />} size={size} />

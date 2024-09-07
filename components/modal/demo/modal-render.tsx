@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
+import { Button, Modal } from 'antd';
 import type { DraggableData, DraggableEvent } from 'react-draggable';
 import Draggable from 'react-draggable';
-import { Button, Modal } from 'antd';
 
 const App: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -43,10 +43,7 @@ const App: React.FC = () => {
       <Modal
         title={
           <div
-            style={{
-              width: '100%',
-              cursor: 'move',
-            }}
+            style={{ width: '100%', cursor: 'move' }}
             onMouseOver={() => {
               if (disabled) {
                 setDisabled(false);

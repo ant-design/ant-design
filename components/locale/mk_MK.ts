@@ -1,7 +1,8 @@
 import Pagination from 'rc-pagination/lib/locale/mk_MK';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/mk_MK';
 import DatePicker from '../date-picker/locale/mk_MK';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/mk_MK';
 
 const localeValues: Locale = {
@@ -53,9 +54,6 @@ const localeValues: Locale = {
     copy: 'Копирај',
     copied: 'Копирано',
     expand: 'Зголеми',
-  },
-  PageHeader: {
-    back: 'Назад',
   },
 };
 

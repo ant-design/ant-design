@@ -1,8 +1,9 @@
-import { enUS, zhCN } from 'antd-token-previewer';
-import { Helmet } from 'dumi';
 import React, { Suspense, useEffect } from 'react';
+import { Button, App, Skeleton } from 'antd';
+import { enUS, zhCN } from 'antd-token-previewer';
 import type { ThemeConfig } from 'antd/es/config-provider/context';
-import { Button, message, Skeleton } from 'antd';
+import { Helmet } from 'dumi';
+
 import useLocale from '../../hooks/useLocale';
 
 const ThemeEditor = React.lazy(() => import('antd-token-previewer/lib/ThemeEditor'));
@@ -34,8 +35,8 @@ const locales = {
 
 const ANT_DESIGN_V5_THEME_EDITOR_THEME = 'ant-design-v5-theme-editor-theme';
 
-const CustomTheme = () => {
-  const [messageApi, contextHolder] = message.useMessage();
+const CustomTheme: React.FC = () => {
+  const { message } = App.useApp();
   const [locale, lang] = useLocale(locales);
 
   const [theme, setTheme] = React.useState<ThemeConfig>({});
@@ -50,7 +51,7 @@ const CustomTheme = () => {
 
   const handleSave = () => {
     localStorage.setItem(ANT_DESIGN_V5_THEME_EDITOR_THEME, JSON.stringify(theme));
-    messageApi.success(locale.saveSuccessfully);
+    message.success(locale.saveSuccessfully);
   };
 
   return (
@@ -59,7 +60,6 @@ const CustomTheme = () => {
         <title>{`${locale.title} - Ant Design`}</title>
         <meta property="og:title" content={`${locale.title} - Ant Design`} />
       </Helmet>
-      {contextHolder}
       <Suspense fallback={<Skeleton style={{ margin: 24 }} />}>
         <ThemeEditor
           advanced

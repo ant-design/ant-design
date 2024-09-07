@@ -8,7 +8,9 @@ import {
   RadiusUprightOutlined,
 } from '@ant-design/icons';
 import { Button, Divider, notification, Space } from 'antd';
-import type { NotificationPlacement } from 'antd/es/notification/interface';
+import type { NotificationArgsProps } from 'antd';
+
+type NotificationPlacement = NotificationArgsProps['placement'];
 
 const App: React.FC = () => {
   const [api, contextHolder] = notification.useNotification();

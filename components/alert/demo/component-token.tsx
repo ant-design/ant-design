@@ -1,5 +1,5 @@
-import { SmileOutlined } from '@ant-design/icons';
 import React from 'react';
+import { SmileOutlined } from '@ant-design/icons';
 import { Alert, ConfigProvider } from 'antd';
 
 const icon = <SmileOutlined />;
@@ -18,7 +18,7 @@ const App: React.FC = () => (
     <Alert
       icon={icon}
       message="Success Tips"
-      description="Detailed description and advices about successful copywriting."
+      description="Detailed description and advice about successful copywriting."
       type="success"
       showIcon
     />

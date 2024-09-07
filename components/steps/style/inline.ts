@@ -1,4 +1,6 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
@@ -28,7 +30,7 @@ const genStepsInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           '&:hover': {
             background: token.controlItemBgHover,
           },
-          [`&[role='button']:hover`]: {
+          "&[role='button']:hover": {
             opacity: 1,
           },
         },
@@ -42,6 +44,9 @@ const genStepsInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           },
           [`${componentCls}-icon-dot`]: {
             borderRadius: token.calc(token.fontSizeSM).div(4).equal(),
+            '&::after': {
+              display: 'none',
+            },
           },
         },
 

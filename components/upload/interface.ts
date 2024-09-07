@@ -50,6 +50,7 @@ export interface UploadChangeParam<T = UploadFile> {
 }
 
 export interface ShowUploadListInterface<T = any> {
+  extra?: React.ReactNode | ((file: UploadFile<T>) => React.ReactNode);
   showRemoveIcon?: boolean;
   showPreviewIcon?: boolean;
   showDownloadIcon?: boolean;
@@ -104,7 +105,7 @@ export interface UploadProps<T = any> extends Pick<RcUploadProps, 'capture' | 'h
   accept?: string;
   beforeUpload?: (
     file: RcFile,
-    FileList: RcFile[],
+    fileList: RcFile[],
   ) => BeforeUploadValueType | Promise<BeforeUploadValueType>;
   onChange?: (info: UploadChangeParam<UploadFile<T>>) => void;
   onDrop?: (event: React.DragEvent<HTMLDivElement>) => void;
@@ -118,7 +119,7 @@ export interface UploadProps<T = any> extends Pick<RcUploadProps, 'capture' | 'h
   style?: React.CSSProperties;
   disabled?: boolean;
   prefixCls?: string;
-  customRequest?: (options: RcCustomRequestOptions) => void;
+  customRequest?: (options: RcCustomRequestOptions<T>) => void;
   withCredentials?: boolean;
   openFileDialogOnClick?: boolean;
   locale?: UploadLocale;
@@ -152,9 +153,10 @@ export interface UploadListProps<T = any> {
   showRemoveIcon?: boolean;
   showDownloadIcon?: boolean;
   showPreviewIcon?: boolean;
-  removeIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
-  downloadIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
-  previewIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
+  removeIcon?: React.ReactNode | ((file: UploadFile<T>) => React.ReactNode);
+  downloadIcon?: React.ReactNode | ((file: UploadFile<T>) => React.ReactNode);
+  previewIcon?: React.ReactNode | ((file: UploadFile<T>) => React.ReactNode);
+  extra?: React.ReactNode | ((file: UploadFile<T>) => React.ReactNode);
   locale: UploadLocale;
   previewFile?: PreviewFileHandler;
   iconRender?: (file: UploadFile<T>, listType?: UploadListType) => React.ReactNode;

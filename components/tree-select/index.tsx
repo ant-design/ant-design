@@ -15,12 +15,14 @@ import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import type { Variant } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
+import useVariant from '../form/hooks/useVariants';
 import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements';
 import useSelectStyle from '../select/style';
 import useIcons from '../select/useIcons';
@@ -61,6 +63,7 @@ export interface TreeSelectProps<
   popupClassName?: string;
   /** @deprecated Please use `popupClassName` instead */
   dropdownClassName?: string;
+  /** @deprecated Use `variant` instead. */
   bordered?: boolean;
   treeLine?: TreeProps['showLine'];
   status?: InputStatus;
@@ -75,13 +78,21 @@ export interface TreeSelectProps<
    *   default behavior, you can hide it by setting `suffixIcon` to null.
    */
   showArrow?: boolean;
+  /**
+   * @since 5.13.0
+   * @default "outlined"
+   */
+  variant?: Variant;
 }
 
 const InternalTreeSelect = <
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = BaseOptionType,
 >(
-  {
+  props: TreeSelectProps<ValueType, OptionType>,
+  ref: React.Ref<BaseSelectRef>,
+) => {
+  const {
     prefixCls: customizePrefixCls,
     size: customizeSize,
     disabled: customDisabled,
@@ -108,10 +119,11 @@ const InternalTreeSelect = <
     dropdownMatchSelectWidth,
     popupMatchSelectWidth,
     allowClear,
-    ...props
-  }: TreeSelectProps<ValueType, OptionType>,
-  ref: React.Ref<BaseSelectRef>,
-) => {
+    variant: customVariant,
+    dropdownStyle,
+    tagRender,
+    ...restProps
+  } = props;
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
@@ -144,6 +156,8 @@ const InternalTreeSelect = <
       'deprecated',
       '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
     );
+
+    warning.deprecated(!('bordered' in props), 'bordered', 'variant');
   }
 
   const rootPrefixCls = getPrefixCls();
@@ -156,6 +170,8 @@ const InternalTreeSelect = <
   const treeSelectRootCls = useCSSVarCls(treeSelectPrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useSelectStyle(prefixCls, rootCls);
   const [treeSelectWrapCSSVar] = useStyle(treeSelectPrefixCls, treePrefixCls, treeSelectRootCls);
+
+  const [variant, enableVariantCls] = useVariant('treeSelect', customVariant, bordered);
 
   const mergedDropdownClassName = classNames(
     popupClassName || dropdownClassName,
@@ -171,6 +187,7 @@ const InternalTreeSelect = <
   );
 
   const isMultiple = !!(treeCheckable || multiple);
+
   const showSuffixIcon = useShowArrow(props.suffixIcon, props.showArrow);
 
   const mergedPopupMatchSelectWidth =
@@ -187,7 +204,7 @@ const InternalTreeSelect = <
 
   // ===================== Icons =====================
   const { suffixIcon, removeIcon, clearIcon } = useIcons({
-    ...props,
+    ...restProps,
     multiple: isMultiple,
     showSuffixIcon,
     hasFeedback,
@@ -207,12 +224,12 @@ const InternalTreeSelect = <
   }
 
   // ==================== Render =====================
-  const selectProps = omit(props as typeof props & { itemIcon: any; switcherIcon: any }, [
+  const selectProps = omit(restProps, [
     'suffixIcon',
-    'itemIcon',
     'removeIcon',
     'clearIcon',
-    'switcherIcon',
+    'itemIcon' as any,
+    'switcherIcon' as any,
   ]);
 
   // ===================== Placement =====================
@@ -235,7 +252,7 @@ const InternalTreeSelect = <
       [`${prefixCls}-lg`]: mergedSize === 'large',
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-borderless`]: !bordered,
+      [`${prefixCls}-${variant}`]: enableVariantCls,
       [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
@@ -251,14 +268,14 @@ const InternalTreeSelect = <
   const renderSwitcherIcon = (nodeProps: AntTreeNodeProps) => (
     <SwitcherIconCom
       prefixCls={treePrefixCls}
-      switcherIcon={switcherIcon}
+      switcherIcon={switcherIcon as SwitcherIcon}
       treeNodeProps={nodeProps}
       showLine={treeLine}
     />
   );
 
   // ============================ zIndex ============================
-  const [zIndex] = useZIndex('SelectLike', props.dropdownStyle?.zIndex as number);
+  const [zIndex] = useZIndex('SelectLike', dropdownStyle?.zIndex as number);
 
   const returnNode = (
     <RcTreeSelect
@@ -281,19 +298,17 @@ const InternalTreeSelect = <
       placement={memoizedPlacement}
       removeIcon={removeIcon}
       allowClear={mergedAllowClear}
-      switcherIcon={renderSwitcherIcon}
-      showTreeIcon={treeIcon as any}
+      switcherIcon={renderSwitcherIcon as RcTreeSelectProps['switcherIcon']}
+      showTreeIcon={treeIcon as boolean}
       notFoundContent={mergedNotFound}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       treeMotion={null}
       dropdownClassName={mergedDropdownClassName}
-      dropdownStyle={{
-        ...props.dropdownStyle,
-        zIndex,
-      }}
+      dropdownStyle={{ ...dropdownStyle, zIndex }}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       treeExpandAction={treeExpandAction}
+      tagRender={isMultiple ? tagRender : undefined}
     />
   );
 

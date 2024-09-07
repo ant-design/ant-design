@@ -35,7 +35,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                 class="ant-table-thead"
               >
                 <tr>
-                  <td
+                  <th
                     class="ant-table-cell ant-table-row-expand-icon-cell ant-table-cell-fix-left"
                     style="position: sticky; left: 0px;"
                   />

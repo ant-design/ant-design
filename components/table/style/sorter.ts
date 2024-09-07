@@ -1,4 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { GenerateStyle } from '../../theme/internal';
 import type { TableToken } from './index';
 
@@ -9,7 +10,9 @@ const genSorterStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       [`${componentCls}-thead th${componentCls}-column-has-sorters`]: {
         outline: 'none',
         cursor: 'pointer',
-        transition: `all ${token.motionDurationSlow}`,
+        // why left 0s? Avoid column header move with transition when left is changed
+        // https://github.com/ant-design/ant-design/issues/50588
+        transition: `all ${token.motionDurationSlow}, left 0s`,
 
         '&:hover': {
           background: token.tableHeaderSortHoverBg,
@@ -62,6 +65,12 @@ const genSorterStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           width: '100%',
           height: '100%',
           content: '""',
+        },
+      },
+
+      [`${componentCls}-column-sorters-tooltip-target-sorter`]: {
+        '&::after': {
+          content: 'none',
         },
       },
 

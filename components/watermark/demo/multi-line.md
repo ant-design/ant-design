@@ -4,4 +4,4 @@
 
 ## en-US
 
-Use 'content' to set a string array to specify multi-line text watermark content.
+Use `content` to set a string array to specify multi-line text watermark content.

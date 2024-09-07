@@ -1,13 +1,16 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { ColorPicker, Space } from 'antd';
-import type { Color, ColorPickerProps } from 'antd/es/color-picker';
+import type { ColorPickerProps, GetProp } from 'antd';
 
-const HexCase = () => {
-  const [colorHex, setColorHex] = useState<Color | string>('#1677ff');
-  const [formatHex, setFormatHex] = useState<ColorPickerProps['format']>('hex');
+type Color = Extract<GetProp<ColorPickerProps, 'value'>, string | { cleared: any }>;
+type Format = GetProp<ColorPickerProps, 'format'>;
 
-  const hexString = useMemo(
-    () => (typeof colorHex === 'string' ? colorHex : colorHex.toHexString()),
+const HexCase: React.FC = () => {
+  const [colorHex, setColorHex] = useState<Color>('#1677ff');
+  const [formatHex, setFormatHex] = useState<Format | undefined>('hex');
+
+  const hexString = React.useMemo<string>(
+    () => (typeof colorHex === 'string' ? colorHex : colorHex?.toHexString()),
     [colorHex],
   );
 
@@ -24,12 +27,12 @@ const HexCase = () => {
   );
 };
 
-const HsbCase = () => {
-  const [colorHsb, setColorHsb] = useState<Color | string>('hsb(215, 91%, 100%)');
+const HsbCase: React.FC = () => {
+  const [colorHsb, setColorHsb] = useState<Color>('hsb(215, 91%, 100%)');
   const [formatHsb, setFormatHsb] = useState<ColorPickerProps['format']>('hsb');
 
-  const hsbString = useMemo(
-    () => (typeof colorHsb === 'string' ? colorHsb : colorHsb.toHsbString()),
+  const hsbString = React.useMemo(
+    () => (typeof colorHsb === 'string' ? colorHsb : colorHsb?.toHsbString()),
     [colorHsb],
   );
 
@@ -46,12 +49,12 @@ const HsbCase = () => {
   );
 };
 
-const RgbCase = () => {
-  const [colorRgb, setColorRgb] = useState<Color | string>('rgb(22, 119, 255)');
+const RgbCase: React.FC = () => {
+  const [colorRgb, setColorRgb] = useState<Color>('rgb(22, 119, 255)');
   const [formatRgb, setFormatRgb] = useState<ColorPickerProps['format']>('rgb');
 
-  const rgbString = useMemo(
-    () => (typeof colorRgb === 'string' ? colorRgb : colorRgb.toRgbString()),
+  const rgbString = React.useMemo(
+    () => (typeof colorRgb === 'string' ? colorRgb : colorRgb?.toRgbString()),
     [colorRgb],
   );
 
@@ -68,10 +71,12 @@ const RgbCase = () => {
   );
 };
 
-export default () => (
+const Demo: React.FC = () => (
   <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
     <HexCase />
     <HsbCase />
     <RgbCase />
   </Space>
 );
+
+export default Demo;

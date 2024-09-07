@@ -19,6 +19,25 @@ if (args.length < 2) {
 
 const ALI_OSS_BUCKET = 'antd-visual-diff';
 
+function retry(promise, retries, delay = 3000) {
+  return new Promise((resolve, reject) => {
+    const attempt = () => {
+      promise.then(resolve).catch((error) => {
+        if (retries > 0) {
+          setTimeout(() => {
+            attempt();
+          }, delay);
+          retries--;
+        } else {
+          reject(error);
+        }
+      });
+    };
+
+    attempt();
+  });
+}
+
 /**
  * Extract the tar file path and ref value from the cli arguments
  * @param {string[]} cliArgs
@@ -73,28 +92,35 @@ async function uploadFile(client, filePath, refValue) {
     'x-oss-object-acl': 'public-read',
     // https://help.aliyun.com/zh/oss/developer-reference/prevent-objects-from-being-overwritten-by-objects-that-have-the-same-names-3
     'x-oss-forbid-overwrite': 'false',
+    'Content-Disposition': 'inline',
   };
+  // Set content-type to allow individual preview of images
+  if (path.extname(filePath) === '.png') {
+    headers['Content-Type'] = 'image/png';
+  }
 
   console.log('Uploading file: %s', filePath);
   try {
     const targetFilePath = path.relative(process.cwd(), filePath);
-    const r1 = await client.put(`${refValue}/${targetFilePath}`, filePath, { headers });
+    const r1 = await client.put(`${refValue}/${targetFilePath}`, filePath, {
+      headers,
+      timeout: 60000 * 2,
+    });
     console.log('Uploading file successfully: %s', r1.name);
   } catch (err) {
     console.error('Uploading file failed: %s', err);
-    process.exit(1);
+    throw err;
   }
 }
 
 async function boot() {
-  const [filepath, refValue] = parseArgs(args);
+  const [fileOrFolderName, refValue] = parseArgs(args);
 
-  const fileOrFolderName = filepath;
   // check if exists
-  const filePath = path.resolve(process.cwd(), fileOrFolderName);
+  const workspacePath = path.resolve(process.cwd(), fileOrFolderName);
 
-  if (!fs.existsSync(filePath)) {
-    console.error('File not exists: %s', filePath);
+  if (!fs.existsSync(workspacePath)) {
+    console.error('File not exists: %s', workspacePath);
     process.exit(1);
   }
 
@@ -106,17 +132,39 @@ async function boot() {
   });
 
   // if is a file then upload it directly
-  const stat = fs.statSync(filePath);
+  const stat = fs.statSync(workspacePath);
   if (stat.isFile()) {
-    await uploadFile(client, filePath, refValue);
+    const doUpload = uploadFile(client, workspacePath, refValue);
+    try {
+      await retry(doUpload, 3);
+    } catch (err) {
+      console.error(
+        'Uploading file `%s` failed after retry %s, error: %s',
+        fileOrFolderName,
+        3,
+        err,
+      );
+      process.exit(1);
+    }
     return;
   }
 
   if (stat.isDirectory()) {
-    const fileList = await walkDir(filePath);
+    const fileList = await walkDir(workspacePath);
     for (const file of fileList) {
-      // eslint-disable-next-line no-await-in-loop
-      await uploadFile(client, file, refValue);
+      const doUpload = uploadFile(client, file, refValue);
+      try {
+        // eslint-disable-next-line no-await-in-loop
+        await retry(doUpload, 3);
+      } catch (err) {
+        console.warn(
+          'Skip uploading file `%s` in folder `%s` failed after retry %s, error: %s',
+          path.relative(workspacePath, file),
+          fileOrFolderName,
+          3,
+          err,
+        );
+      }
     }
   }
 }

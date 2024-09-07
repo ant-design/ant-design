@@ -32,7 +32,7 @@ export const icons = {
 const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
   previewPrefixCls: customizePrefixCls,
   preview,
-  ...props
+  ...otherProps
 }) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('image', customizePrefixCls);
@@ -73,7 +73,7 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
       preview={mergedPreview}
       previewPrefixCls={previewPrefixCls}
       icons={icons}
-      {...props}
+      {...otherProps}
     />,
   );
 };

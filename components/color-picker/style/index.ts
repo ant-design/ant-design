@@ -1,23 +1,67 @@
-import { type CSSObject, unit } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 
+import { genCompactItemStyle } from '../../style/compact-item';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genColorBlockStyle from './color-block';
 import genInputStyle from './input';
 import genPickerStyle from './picker';
 import genPresetsStyle from './presets';
+import genSliderStyle from './slider';
 
+// biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
 export interface ComponentToken {}
 
+/**
+ * @desc ColorPicker 组件的 Token
+ * @descEN Token for ColorPicker component
+ */
 export interface ColorPickerToken extends FullToken<'ColorPicker'> {
+  /**
+   * @desc ColorPicker 宽度
+   * @descEN Width of ColorPicker
+   */
   colorPickerWidth: number;
+  /**
+   * @desc ColorPicker 内嵌阴影
+   * @descEN Inset shadow of ColorPicker
+   */
   colorPickerInsetShadow: string;
+  /**
+   * @desc ColorPicker 处理器尺寸
+   * @descEN Handler size of ColorPicker
+   */
   colorPickerHandlerSize: number;
+  /**
+   * @desc ColorPicker 小号处理器尺寸
+   * @descEN Small handler size of ColorPicker
+   */
   colorPickerHandlerSizeSM: number;
+  /**
+   * @desc ColorPicker 滑块高度
+   * @descEN Slider height of ColorPicker
+   */
   colorPickerSliderHeight: number;
+  /**
+   * @desc ColorPicker 预览尺寸
+   * @descEN Preview size of ColorPicker
+   */
   colorPickerPreviewSize: number;
+  /**
+   * @desc ColorPicker Alpha 输入宽度
+   * @descEN Alpha input width of ColorPicker
+   */
   colorPickerAlphaInputWidth: number;
+  /**
+   * @desc ColorPicker 输入数字处理器宽度
+   * @descEN Input number handle width of ColorPicker
+   */
   colorPickerInputNumberHandleWidth: number;
+  /**
+   * @desc ColorPicker 预设颜色尺寸
+   * @descEN Preset color size of ColorPicker
+   */
   colorPickerPresetColorSize: number;
 }
 
@@ -55,7 +99,7 @@ const genClearStyle = (
   size: number,
   extraStyle?: CSSObject,
 ): CSSObject => {
-  const { componentCls, borderRadiusSM, lineWidth, colorSplit, red6 } = token;
+  const { componentCls, borderRadiusSM, lineWidth, colorSplit, colorBorder, red6 } = token;
 
   return {
     [`${componentCls}-clear`]: {
@@ -64,20 +108,26 @@ const genClearStyle = (
       borderRadius: borderRadiusSM,
       border: `${unit(lineWidth)} solid ${colorSplit}`,
       position: 'relative',
-      cursor: 'pointer',
       overflow: 'hidden',
+      cursor: 'inherit',
+      transition: `all ${token.motionDurationFast}`,
+
       ...extraStyle,
       '&::after': {
         content: '""',
         position: 'absolute',
-        insetInlineEnd: lineWidth,
-        top: 0,
+        insetInlineEnd: token.calc(lineWidth).mul(-1).equal(),
+        top: token.calc(lineWidth).mul(-1).equal(),
         display: 'block',
         width: 40, // maximum
         height: 2, // fixed
-        transformOrigin: 'right',
+        transformOrigin: `calc(100% - 1px) 1px`,
         transform: 'rotate(-45deg)',
         backgroundColor: red6,
+      },
+
+      '&:hover': {
+        borderColor: colorBorder,
       },
     },
   };
@@ -130,7 +180,7 @@ const genSizeStyle = (token: ColorPickerToken): CSSObject => {
   return {
     [`&${componentCls}-lg`]: {
       minWidth: controlHeightLG,
-      height: controlHeightLG,
+      minHeight: controlHeightLG,
       borderRadius: borderRadiusLG,
       [`${componentCls}-color-block, ${componentCls}-clear`]: {
         width: controlHeight,
@@ -143,12 +193,16 @@ const genSizeStyle = (token: ColorPickerToken): CSSObject => {
     },
     [`&${componentCls}-sm`]: {
       minWidth: controlHeightSM,
-      height: controlHeightSM,
+      minHeight: controlHeightSM,
       borderRadius: borderRadiusSM,
       [`${componentCls}-color-block, ${componentCls}-clear`]: {
         width: controlHeightXS,
         height: controlHeightXS,
         borderRadius: borderRadiusXS,
+      },
+
+      [`${componentCls}-trigger-text`]: {
+        lineHeight: unit(controlHeightXS),
       },
     },
   };
@@ -156,6 +210,7 @@ const genSizeStyle = (token: ColorPickerToken): CSSObject => {
 
 const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
   const {
+    antCls,
     componentCls,
     colorPickerWidth,
     colorPrimary,
@@ -183,34 +238,44 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
   return [
     {
       [componentCls]: {
-        [`${componentCls}-inner-content`]: {
-          display: 'flex',
-          flexDirection: 'column',
-          width: colorPickerWidth,
+        [`${componentCls}-inner`]: {
+          '&-content': {
+            display: 'flex',
+            flexDirection: 'column',
+            width: colorPickerWidth,
 
-          '&-divider': {
-            margin: `${unit(marginSM)} 0 ${unit(marginXS)}`,
+            [`& > ${antCls}-divider`]: {
+              margin: `${unit(marginSM)} 0 ${unit(marginXS)}`,
+            },
           },
+
           [`${componentCls}-panel`]: {
             ...genPickerStyle(token),
           },
+          ...genSliderStyle(token),
           ...genColorBlockStyle(token, colorPickerPreviewSize),
           ...genInputStyle(token),
           ...genPresetsStyle(token),
           ...genClearStyle(token, colorPickerPresetColorSize, {
             marginInlineStart: 'auto',
-            marginBottom: marginXS,
           }),
+
+          // Operation bar
+          [`${componentCls}-operation`]: {
+            display: 'flex',
+            justifyContent: 'space-between',
+            marginBottom: marginXS,
+          },
         },
 
         '&-trigger': {
           minWidth: controlHeight,
-          height: controlHeight,
+          minHeight: controlHeight,
           borderRadius,
           border: `${unit(lineWidth)} solid ${colorBorder}`,
           cursor: 'pointer',
           display: 'inline-flex',
-          alignItems: 'center',
+          alignItems: 'flex-start',
           justifyContent: 'center',
           transition: `all ${motionDurationMid}`,
           background: colorBgElevated,
@@ -223,6 +288,17 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
               .equal(),
             fontSize,
             color: colorText,
+            alignSelf: 'center',
+
+            '&-cell': {
+              '&:not(:last-child):after': {
+                content: '", "',
+              },
+
+              '&-inactive': {
+                color: colorTextDisabled,
+              },
+            },
           },
           '&:hover': {
             borderColor: colorPrimaryHover,
@@ -249,6 +325,10 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
         ...genRtlStyle(token),
       },
     },
+
+    genCompactItemStyle(token, {
+      focusElCls: `${componentCls}-trigger-active`,
+    }),
   ];
 };
 
@@ -263,7 +343,7 @@ export default genStyleHooks('ColorPicker', (token) => {
     colorPickerHandlerSizeSM: 12,
     colorPickerAlphaInputWidth: 44,
     colorPickerInputNumberHandleWidth: 16,
-    colorPickerPresetColorSize: 18,
+    colorPickerPresetColorSize: 24,
     colorPickerInsetShadow: `inset 0 0 1px 0 ${colorTextQuaternary}`,
     colorPickerSliderHeight,
     colorPickerPreviewSize: token

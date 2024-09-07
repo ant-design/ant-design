@@ -55,11 +55,18 @@ describe('Image', () => {
     const { container, baseElement } = render(
       <Image
         src={src}
-        preview={{ visible: true, transitionName: 'abc', maskTransitionName: 'def' }}
+        preview={{
+          visible: true,
+          transitionName: 'abc',
+          maskTransitionName: 'def',
+          getContainer: false,
+        }}
       />,
     );
 
     fireEvent.click(container.querySelector('.ant-image')!);
+
+    expect(container.querySelector('.ant-image-preview-root')).not.toBe(null);
 
     expect(baseElement.querySelector('.ant-image-preview')).toHaveClass('abc');
     expect(baseElement.querySelector('.ant-image-preview-mask')).toHaveClass('def');

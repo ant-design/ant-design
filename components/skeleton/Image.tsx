@@ -1,5 +1,6 @@
-import classNames from 'classnames';
 import * as React from 'react';
+import classNames from 'classnames';
+
 import { ConfigContext } from '../config-provider';
 import type { SkeletonElementProps } from './Element';
 import useStyle from './style';
@@ -34,6 +35,7 @@ const SkeletonImage: React.FC<SkeletonImageProps> = (props) => {
           xmlns="http://www.w3.org/2000/svg"
           className={`${prefixCls}-image-svg`}
         >
+          <title>Image placeholder</title>
           <path d={path} className={`${prefixCls}-image-path`} />
         </svg>
       </div>
