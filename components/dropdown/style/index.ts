@@ -256,7 +256,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
 
           // =========================== Item ===========================
           [`${menuCls}-item, ${menuCls}-submenu-title`]: {
-            clear: 'both',
+            display: 'flex',
             margin: 0,
             padding: `${unit(paddingBlock!)} ${unit(controlPaddingHorizontal)}`,
             color: token.colorText,
