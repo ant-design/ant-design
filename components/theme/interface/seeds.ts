@@ -97,7 +97,7 @@ export interface SeedToken extends PresetColorType {
    * @descEN The most widely used font size in the design system, from which the text gradient will be derived.
    * @default 14
    */
-  fontSize: number;
+  fontSize: number | string;
 
   //  ----------   Line   ---------- //
 
@@ -125,7 +125,7 @@ export interface SeedToken extends PresetColorType {
    * @descEN Border radius of base components
    * @desc 基础组件的圆角大小，例如按钮、输入框、卡片等
    */
-  borderRadius: number;
+  borderRadius: number | string;
 
   //  ----------   Size   ---------- //
 
@@ -161,7 +161,7 @@ export interface SeedToken extends PresetColorType {
    * @descEN The height of the basic controls such as buttons and input boxes in Ant Design
    * @default 32
    */
-  controlHeight: number;
+  controlHeight: number | string;
 
   //  ----------   zIndex   ---------- //
 

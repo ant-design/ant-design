@@ -15,7 +15,7 @@ export interface StyleMapToken {
    * @descEN XS size border radius, used in some small border radius components, such as Segmented, Arrow and other components with small border radius.
    * @default 2
    */
-  borderRadiusXS: number;
+  borderRadiusXS: number | string;
   /**
    * @nameZH SM号圆角
    * @nameEN SM Border Radius
@@ -23,7 +23,7 @@ export interface StyleMapToken {
    * @descEN SM size border radius, used in small size components, such as Button, Input, Select and other input components in small size
    * @default 4
    */
-  borderRadiusSM: number;
+  borderRadiusSM: number | string;
   /**
    * @nameZH LG号圆角
    * @nameEN LG Border Radius
@@ -31,7 +31,7 @@ export interface StyleMapToken {
    * @descEN LG size border radius, used in some large border radius components, such as Card, Modal and other components.
    * @default 8
    */
-  borderRadiusLG: number;
+  borderRadiusLG: number | string;
   /**
    * @nameZH 外部圆角
    * @nameEN Outer Border Radius
@@ -39,5 +39,5 @@ export interface StyleMapToken {
    * @desc 外部圆角
    * @descEN Outer border radius
    */
-  borderRadiusOuter: number;
+  borderRadiusOuter: number | string;
 }
