@@ -93,7 +93,7 @@ It accepts all props which native buttons support.
 
 ### How to choose type and color & variant?
 
-Type is essentially syntactic sugar for colors and variants. It internally provides a set of mapping relationships between colors and variants for the type. If both exist at the same time, the type will be used first.
+Type is essentially syntactic sugar for colors and variants. It internally provides a set of mapping relationships between colors and variants for the type. If both exist at the same time, the colors and variants will be used first.
 
 ```jsx
 <Button type="primary">click</Button>
