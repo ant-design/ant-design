@@ -278,6 +278,169 @@ exports[`renders components/splitter/demo/control.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <h3
+    class="ant-typography"
+  >
+    [true, 0, false]
+  </h3>
+  <div
+    class="ant-splitter ant-splitter-horizontal"
+    style="height:200px;border:1px solid #e5e7eb"
+  >
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis:50%"
+    >
+      <div
+        class="ant-flex ant-flex-align-center ant-flex-justify-center"
+        style="height:100%"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary"
+          style="white-space:nowrap"
+        >
+          Panel 
+          <!-- -->
+          1
+        </h5>
+      </div>
+    </div>
+    <div
+      class="ant-splitter-bar"
+    >
+      <div
+        class="ant-splitter-bar-dragger"
+      />
+    </div>
+    <div
+      class="ant-splitter-panel ant-splitter-panel-hidden"
+      style="flex-basis:0%"
+    >
+      <div
+        class="ant-flex ant-flex-align-center ant-flex-justify-center"
+        style="height:100%"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary"
+          style="white-space:nowrap"
+        >
+          Panel 
+          <!-- -->
+          2
+        </h5>
+      </div>
+    </div>
+    <div
+      class="ant-splitter-bar"
+    >
+      <div
+        class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
+      />
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis:50%"
+    >
+      <div
+        class="ant-flex ant-flex-align-center ant-flex-justify-center"
+        style="height:100%"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary"
+          style="white-space:nowrap"
+        >
+          Panel 
+          <!-- -->
+          3
+        </h5>
+      </div>
+    </div>
+  </div>
+  <h3
+    class="ant-typography"
+  >
+    [false, 0, true]
+  </h3>
+  <div
+    class="ant-splitter ant-splitter-horizontal"
+    style="height:200px;border:1px solid #e5e7eb"
+  >
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis:50%"
+    >
+      <div
+        class="ant-flex ant-flex-align-center ant-flex-justify-center"
+        style="height:100%"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary"
+          style="white-space:nowrap"
+        >
+          Panel 
+          <!-- -->
+          1
+        </h5>
+      </div>
+    </div>
+    <div
+      class="ant-splitter-bar"
+    >
+      <div
+        class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
+      />
+    </div>
+    <div
+      class="ant-splitter-panel ant-splitter-panel-hidden"
+      style="flex-basis:0%"
+    >
+      <div
+        class="ant-flex ant-flex-align-center ant-flex-justify-center"
+        style="height:100%"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary"
+          style="white-space:nowrap"
+        >
+          Panel 
+          <!-- -->
+          2
+        </h5>
+      </div>
+    </div>
+    <div
+      class="ant-splitter-bar"
+    >
+      <div
+        class="ant-splitter-bar-dragger"
+      />
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis:50%"
+    >
+      <div
+        class="ant-flex ant-flex-align-center ant-flex-justify-center"
+        style="height:100%"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary"
+          style="white-space:nowrap"
+        >
+          Panel 
+          <!-- -->
+          3
+        </h5>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/splitter/demo/group.tsx correctly 1`] = `
 <div
   class="ant-splitter ant-splitter-horizontal"
