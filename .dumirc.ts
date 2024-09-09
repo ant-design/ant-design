@@ -24,6 +24,7 @@ export default defineConfig({
   mako: {},
   publicPath: 'runtime',
   crossorigin: {},
+  runtimePublicPath: {},
   outputPath: '_site',
   favicons: ['https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png'],
   resolve: {

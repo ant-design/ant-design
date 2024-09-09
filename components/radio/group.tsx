@@ -7,28 +7,17 @@ import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import { RadioGroupContextProvider } from './context';
-import type { RadioChangeEvent, RadioGroupButtonStyle, RadioGroupProps } from './interface';
+import type {
+  RadioChangeEvent,
+  RadioGroupButtonStyle,
+  RadioGroupContextProps,
+  RadioGroupProps,
+} from './interface';
 import Radio from './radio';
 import useStyle from './style';
 
 const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-
-  const [value, setValue] = useMergedState(props.defaultValue, {
-    value: props.value,
-  });
-
-  const onRadioChange = (ev: RadioChangeEvent) => {
-    const lastValue = value;
-    const val = ev.target.value;
-    if (!('value' in props)) {
-      setValue(val);
-    }
-    const { onChange } = props;
-    if (onChange && val !== lastValue) {
-      onChange(ev);
-    }
-  };
 
   const {
     prefixCls: customizePrefixCls,
@@ -41,11 +30,35 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     size: customizeSize,
     style,
     id,
+    optionType,
+    name,
+    defaultValue,
+    value: customizedValue,
+    onChange,
     onMouseEnter,
     onMouseLeave,
     onFocus,
     onBlur,
   } = props;
+
+  const [value, setValue] = useMergedState(defaultValue, {
+    value: customizedValue,
+  });
+
+  const onRadioChange = React.useCallback(
+    (event: RadioChangeEvent) => {
+      const lastValue = value;
+      const val = event.target.value;
+      if (!('value' in props)) {
+        setValue(val);
+      }
+      if (val !== lastValue) {
+        onChange?.(event);
+      }
+    },
+    [value, setValue, onChange],
+  );
+
   const prefixCls = getPrefixCls('radio', customizePrefixCls);
   const groupPrefixCls = `${prefixCls}-group`;
 
@@ -105,6 +118,12 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     cssVarCls,
     rootCls,
   );
+
+  const memoizedValue = React.useMemo<RadioGroupContextProps>(
+    () => ({ onChange: onRadioChange, value, disabled, name, optionType }),
+    [onRadioChange, value, disabled, name, optionType],
+  );
+
   return wrapCSSVar(
     <div
       {...pickAttrs(props, { aria: true, data: true })}
@@ -117,15 +136,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
       id={id}
       ref={ref}
     >
-      <RadioGroupContextProvider
-        value={{
-          onChange: onRadioChange,
-          value,
-          disabled: props.disabled,
-          name: props.name,
-          optionType: props.optionType,
-        }}
-      >
+      <RadioGroupContextProvider value={memoizedValue}>
         {childrenToRender}
       </RadioGroupContextProvider>
     </div>,

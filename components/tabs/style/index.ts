@@ -38,7 +38,7 @@ export interface ComponentToken {
    */
   cardPaddingLG: string;
   /**
-   * @desc 标齐页标题文本大小
+   * @desc 标签页标题文本大小
    * @descEN Font size of title
    */
   titleFontSize: number;

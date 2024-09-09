@@ -16,6 +16,62 @@ tag: vVERSION
 
 ---
 
+## 5.20.6
+
+`2024-09-09`
+
+- 🐞 Improve Menu collapse animation smoothness. [#50751](https://github.com/ant-design/ant-design/pull/50751) [@afc163](https://github.com/afc163)
+- 🐞 Fix Table cell overflow bug if edit with virtual scroll. [#50737](https://github.com/ant-design/ant-design/pull/50737) [@huiliangShen](https://github.com/huiliangShen)
+- 🐞 Fix Input.Search button radius not changing with `size`. [#50734](https://github.com/ant-design/ant-design/pull/50734) [@afc163](https://github.com/afc163)
+- 🐞 Fix Form password still can be toggle show/hide even if disabled. [#50616](https://github.com/ant-design/ant-design/pull/50616) [@Jarryxin](https://github.com/Jarryxin)
+- 🐞 Revert [#49899](https://github.com/ant-design/ant-design/pull/49899) to fix wrap behavior for Dropdown, and re-fix wrap when out of screen edge. [#50718](https://github.com/ant-design/ant-design/pull/50718) [@afc163](https://github.com/afc163)
+- 💄 Fix Badge background transition when mouse out. [#50743](https://github.com/ant-design/ant-design/pull/50743) [@coding-ice](https://github.com/coding-ice)
+- TypeScript
+  - 🤖 Fix Collapse types for `onChange` arguments. [#50754](https://github.com/ant-design/ant-design/pull/50754) [@yuanliu147](https://github.com/yuanliu147)
+
+## 5.20.5
+
+`2024-09-03`
+
+- 🛠 Adjust Tree & TreeSelect `defaultExpandAll` logic to only add internal `expandedKeys` which `treeNode` has children instead to avoid perf issue when with large data or `loadData` case. [#50689](https://github.com/ant-design/ant-design/pull/50689) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Cascader not show parent option in search when using `multiple`. [#50689](https://github.com/ant-design/ant-design/pull/50689)
+- 🐞 Fix Typography `ellipsis.tooltip.title` with ReactNode will cause dead loop. [#50688](https://github.com/ant-design/ant-design/pull/50688) [@zombieJ](https://github.com/zombieJ)
+
+## 5.20.4
+
+`2024-09-02`
+
+- Menu
+  - 🐞 Fix Menu token `itemPaddingInline inoperative` not working. [#50663](https://github.com/ant-design/ant-design/pull/50663) [@coding-ice](https://github.com/coding-ice)
+  - 🐞 Fix Menu missing `hover` transition style. [#50624](https://github.com/ant-design/ant-design/pull/50624) [@afc163](https://github.com/afc163)
+- 💄 Badge add transition effect to count node. [#50607](https://github.com/ant-design/ant-design/pull/50607) [@afc163](https://github.com/afc163)
+- 💄 Fix Table column header move with unexpected transition. [#50605](https://github.com/ant-design/ant-design/pull/50605) [@afc163](https://github.com/afc163)
+- 🛠 Refactor Typography code to optimize internal logic. [#50561](https://github.com/ant-design/ant-design/pull/50561) [@afc163](https://github.com/afc163)
+- 🐞 Disable the Rate component within Form.Item when the form is disabled. [#50594](https://github.com/ant-design/ant-design/pull/50594) [@nikzanda](https://github.com/nikzanda)
+- 🌐 Patch tr_TR `Transfer.deselectAll` locale. [#50672](https://github.com/ant-design/ant-design/pull/50672) [@coding-ice](https://github.com/coding-ice)
+
+## 5.20.3
+
+`2024-08-26`
+
+- 🐞 Refactor Typography native css ellipsis measure logic to handle precision edge case. [#50514](https://github.com/ant-design/ant-design/pull/50514) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix ColorPicker `onChangeComplete` not correct when click directly without move on the picker panel. [#50501](https://github.com/ant-design/ant-design/pull/50501) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix FloatButton.Group with controlled mode warning for nest updating issue. [#50500](https://github.com/ant-design/ant-design/pull/50500) [@zombieJ](https://github.com/zombieJ)
+
+## 5.20.2
+
+`2024-08-19`
+
+- 💄 Fix the suffix style problem of InputNumber without control. [#50450](https://github.com/ant-design/ant-design/pull/50450) [@coding-ice](https://github.com/coding-ice)
+- 🆕 Form `rule.message` supports skipping variable substitution through `\\${}`. [#50412](https://github.com/ant-design/ant-design/pull/50412) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fixed the issue where the rounded corners of the trigger element are missing when the FloatButton component has shape="square" and in menu mode when the menu pops up. [#50408](https://github.com/ant-design/ant-design/pull/50408) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Fixed the problem that Upload.Dragger does not work when dragging and dropping upload folders. [#50394](https://github.com/ant-design/ant-design/pull/50394) [@huiliangShen](https://github.com/huiliangShen)
+- 🐞 Fixed the issue where the arrow icon disappears after hovering when Select specifies `getPopcontainer={node=node.parentNode}`. [#50382](https://github.com/ant-design/ant-design/pull/50382) [@afc163](https://github.com/afc163)
+- 🐞 Fixed the arrow misalignment error when Popover sets the `arrow.pointAtCenter` property. [#50260](https://github.com/ant-design/ant-design/pull/50260) [@Wxh16144](https://github.com/Wxh16144)
+- 📖 Transfer adds Russian and Ukrainian localization copy. [#50429](https://github.com/ant-design/ant-design/pull/50429) [@alexlag](https://github.com/alexlag)
+- TypeScript
+  - 🤖 Roll back the Table partial generic constraint object to any to reduce break changes caused by [#50351](https://github.com/ant-design/ant-design/pull/50351). [#50372](https://github.com/ant-design/ant-design/pull/50372) [@crazyair](https://github.com/crazyair)
+
 ## 5.20.1
 
 `2024-08-11`
