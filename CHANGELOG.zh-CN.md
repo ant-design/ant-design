@@ -19,9 +19,7 @@ tag: vVERSION
 
 `2024-09-09`
 
-- Dropdown
-  - 🐞 修复 Dropdown 菜单项在屏幕视口外时未能正确换行的问题。[#50752](https://github.com/ant-design/ant-design/pull/50752) [@afc163](https://github.com/afc163)
-  - 🐞 修复 Dropdown 菜单项未能正确换行的问题。[#50718](https://github.com/ant-design/ant-design/pull/50718) [@afc163](https://github.com/afc163)
+- 🐞 修复 Dropdown 菜单项在某些情况下未能正确换行的问题。[#50752](https://github.com/ant-design/ant-design/pull/50752) [#50718](https://github.com/ant-design/ant-design/pull/50718) [@afc163](https://github.com/afc163)
 - 🐞 修复 Menu 折叠动画不够丝滑的问题。[#50751](https://github.com/ant-design/ant-design/pull/50751) [@afc163](https://github.com/afc163)
 - 🐞 修复 Table 虚拟滚动时单元格宽度可能溢出的问题。[#50737](https://github.com/ant-design/ant-design/pull/50737) [@huiliangShen](https://github.com/huiliangShen)
 - 🐞 修复 Input.Search 的按钮圆角不随 `size` 变化的问题。[#50734](https://github.com/ant-design/ant-design/pull/50734) [@afc163](https://github.com/afc163)

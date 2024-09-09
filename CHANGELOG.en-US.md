@@ -20,9 +20,7 @@ tag: vVERSION
 
 `2024-09-09`
 
-- Dropdown
-  - 🐞 Fix Dropdown cannot wrap correctly when out of screen edge. [#50752](https://github.com/ant-design/ant-design/pull/50752) [@afc163](https://github.com/afc163)
-  - 🐞 Fix Dropdown cannot wrap correctly. [#50718](https://github.com/ant-design/ant-design/pull/50718) [@afc163](https://github.com/afc163)
+- 🐞 Fix Dropdown cannot wrap correctly in some cases. [#50752](https://github.com/ant-design/ant-design/pull/50752) [#50718](https://github.com/ant-design/ant-design/pull/50718) [@afc163](https://github.com/afc163)
 - 🐞 Improve Menu collapse animation smoothness. [#50751](https://github.com/ant-design/ant-design/pull/50751) [@afc163](https://github.com/afc163)
 - 🐞 Fix Table cell overflow bug if edit with virtual scroll. [#50737](https://github.com/ant-design/ant-design/pull/50737) [@huiliangShen](https://github.com/huiliangShen)
 - 🐞 Fix Input.Search button radius not changing with `size`. [#50734](https://github.com/ant-design/ant-design/pull/50734) [@afc163](https://github.com/afc163)
