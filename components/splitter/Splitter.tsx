@@ -10,6 +10,7 @@ import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useItems from './hooks/useItems';
 import useResizable from './hooks/useResizable';
+import useResize from './hooks/useResize';
 import useSizes from './hooks/useSizes';
 import type { SplitterProps } from './interface';
 import { InternalPanel } from './Panel';
@@ -74,18 +75,18 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   };
 
   // ========================= Size =========================
-  const [
-    itemPtgSizes,
-    itemPxSizes,
-    movingIndex,
-    onOffsetStart,
-    onOffsetUpdate,
-    onOffsetEnd,
-    onCollapse,
-  ] = useSizes(items, containerSize);
+  const [itemPtgSizes, itemPxSizes, updateSizes] = useSizes(items, containerSize);
 
   // ====================== Resizable =======================
   const resizableInfos = useResizable(items, itemPxSizes);
+
+  const [onOffsetStart, onOffsetUpdate, onOffsetEnd, onCollapse, movingIndex] = useResize(
+    items,
+    resizableInfos,
+    itemPtgSizes,
+    containerSize,
+    updateSizes,
+  );
 
   // ======================== Events ========================
   const onInternalResizeStart = useEvent((index: number) => {

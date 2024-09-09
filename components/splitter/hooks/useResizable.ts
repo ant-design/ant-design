@@ -2,13 +2,15 @@ import * as React from 'react';
 
 import type { ItemType } from './useItems';
 
+export type ResizableInfo = {
+  resizable: boolean;
+  startCollapsible: boolean;
+  endCollapsible: boolean;
+};
+
 export default function useResizable(items: ItemType[], pxSizes: number[]) {
   return React.useMemo(() => {
-    const resizeInfos: {
-      resizable: boolean;
-      startCollapsible: boolean;
-      endCollapsible: boolean;
-    }[] = [];
+    const resizeInfos: ResizableInfo[] = [];
 
     for (let i = 0; i < items.length - 1; i += 1) {
       const prevItem = items[i];
