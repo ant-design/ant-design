@@ -17,6 +17,9 @@ export interface SplitBarProps {
   onOffsetEnd: VoidFunction;
   onCollapse: (index: number, type: 'start' | 'end') => void;
   vertical: boolean;
+  ariaNow: number;
+  ariaMin: number;
+  ariaMax: number;
 }
 
 const SplitBar: React.FC<SplitBarProps> = (props) => {
@@ -25,6 +28,9 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     vertical,
     index,
     active,
+    ariaNow,
+    ariaMin = 0,
+    ariaMax = 100,
     resizable,
     startCollapsible,
     endCollapsible,
@@ -76,7 +82,13 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   const EndIcon = vertical ? DownOutlined : RightOutlined;
 
   return (
-    <div className={splitBarPrefixCls}>
+    <div
+      className={splitBarPrefixCls}
+      role="separator"
+      aria-valuenow={Math.round(ariaNow)}
+      aria-valuemin={Math.round(ariaMin)}
+      aria-valuemax={Math.round(ariaMax)}
+    >
       <div
         className={classNames(`${splitBarPrefixCls}-dragger`, {
           [`${splitBarPrefixCls}-dragger-disabled`]: !resizable,

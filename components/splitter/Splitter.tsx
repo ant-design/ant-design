@@ -75,7 +75,10 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   };
 
   // ========================= Size =========================
-  const [itemPtgSizes, itemPxSizes, updateSizes] = useSizes(items, containerSize);
+  const [itemPxSizes, itemPtgSizes, itemPtgMinSizes, itemPtgMaxSizes, updateSizes] = useSizes(
+    items,
+    containerSize,
+  );
 
   // ====================== Resizable =======================
   const resizableInfos = useResizable(items, itemPxSizes);
@@ -128,6 +131,18 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   // ======================== Render ========================
   const maskCls = `${prefixCls}-mask`;
 
+  const stackSizes = React.useMemo(() => {
+    const mergedSizes = [];
+
+    let stack = 0;
+    for (let i = 0; i < items.length; i += 1) {
+      stack += itemPtgSizes[i];
+      mergedSizes.push(stack);
+    }
+
+    return mergedSizes;
+  }, [itemPtgSizes]);
+
   return wrapCSSVar(
     <>
       <ResizeObserver onResize={onContainerResize}>
@@ -143,6 +158,12 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
             const resizableInfo = resizableInfos[idx];
             if (resizableInfo) {
+              const ariaMinStart = (stackSizes[idx - 1] || 0) + itemPtgMinSizes[idx];
+              const ariaMinEnd = (stackSizes[idx + 1] || 100) - itemPtgMaxSizes[idx + 1];
+
+              const ariaMaxStart = (stackSizes[idx - 1] || 0) + itemPtgMaxSizes[idx];
+              const ariaMaxEnd = (stackSizes[idx + 1] || 100) - itemPtgMinSizes[idx + 1];
+
               splitBar = (
                 <SplitBar
                   index={idx}
@@ -150,6 +171,9 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                   prefixCls={prefixCls}
                   vertical={isVertical}
                   resizable={resizableInfo.resizable}
+                  ariaNow={stackSizes[idx] * 100}
+                  ariaMin={Math.max(ariaMinStart, ariaMinEnd) * 100}
+                  ariaMax={Math.min(ariaMaxStart, ariaMaxEnd) * 100}
                   startCollapsible={resizableInfo.startCollapsible}
                   endCollapsible={resizableInfo.endCollapsible}
                   onOffsetStart={onInternalResizeStart}

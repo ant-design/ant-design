@@ -6,6 +6,10 @@ export function getPtg(str: string) {
   return Number(str.slice(0, -1)) / 100;
 }
 
+function isPtg(itemSize: string | number | undefined): itemSize is string {
+  return typeof itemSize === 'string' && itemSize.endsWith('%');
+}
+
 /**
  * Save the size state.
  * Align the size into flex percentage base.
@@ -44,7 +48,7 @@ export default function useSizes(items: PanelProps[], containerSize: number) {
     for (let i = 0; i < itemsCount; i += 1) {
       const itemSize = sizes[i];
 
-      if (typeof itemSize === 'string' && itemSize.endsWith('%')) {
+      if (isPtg(itemSize)) {
         ptgList[i] = getPtg(itemSize);
       } else if (itemSize || itemSize === 0) {
         const num = Number(itemSize);
@@ -77,5 +81,33 @@ export default function useSizes(items: PanelProps[], containerSize: number) {
     [postPercentSizes, containerSize],
   );
 
-  return [postPercentSizes, postPxSizes, setInnerSizes] as const;
+  const postPercentMinSizes = React.useMemo(
+    () =>
+      items.map((item) => {
+        if (isPtg(item.min)) {
+          return getPtg(item.min);
+        }
+        return (item.min || 0) / containerSize;
+      }),
+    [items, containerSize],
+  );
+
+  const postPercentMaxSizes = React.useMemo(
+    () =>
+      items.map((item) => {
+        if (isPtg(item.max)) {
+          return getPtg(item.max);
+        }
+        return (item.max || containerSize) / containerSize;
+      }),
+    [items, containerSize],
+  );
+
+  return [
+    postPxSizes,
+    postPercentSizes,
+    postPercentMinSizes,
+    postPercentMaxSizes,
+    setInnerSizes,
+  ] as const;
 }

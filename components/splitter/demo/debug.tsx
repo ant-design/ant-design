@@ -44,6 +44,34 @@ const App: React.FC = () => (
 
       <Splitter.Panel>{renderDesc(3)}</Splitter.Panel>
     </Splitter>
+
+    <Typography.Title level={3}>Start have min & max</Typography.Title>
+    <Splitter
+      style={{
+        height: 200,
+        border: '1px solid #e5e7eb',
+      }}
+    >
+      <Splitter.Panel min={50} max={100}>
+        {renderDesc(1)}
+      </Splitter.Panel>
+
+      <Splitter.Panel>{renderDesc(2)}</Splitter.Panel>
+    </Splitter>
+
+    <Typography.Title level={3}>End have min & max</Typography.Title>
+    <Splitter
+      style={{
+        height: 200,
+        border: '1px solid #e5e7eb',
+      }}
+    >
+      <Splitter.Panel>{renderDesc(1)}</Splitter.Panel>
+
+      <Splitter.Panel min="20%" max="70%">
+        {renderDesc(2)}
+      </Splitter.Panel>
+    </Splitter>
   </Flex>
 );
 

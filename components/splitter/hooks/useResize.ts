@@ -72,7 +72,6 @@ export default function useResize(
       }
     }
     const mergedIndex = confirmedIndex ?? movingIndex?.index ?? index;
-    console.log('--->', mergedIndex, index, offset);
 
     const numSizes = [...cacheSizes];
     const nextIndex = mergedIndex + 1;
