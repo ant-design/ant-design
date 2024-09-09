@@ -203,3 +203,11 @@ $ npm start
 1. [GitHub Discussions](https://github.com/ant-design/ant-design/discussions)
 2. [Stack Overflow](http://stackoverflow.com/questions/tagged/antd)（英文）
 3. [Segment Fault](https://segmentfault.com/t/antd)（中文）
+
+## Issue 赞助
+
+我们使用 [Polar.sh](https://polar.sh/ant-design) 和 [Issuehunt](https://issuehunt.io/repos/3452688) 来推动您希望看到的针对 antd 的修复和改进，请查看我们的赞助列表：
+
+<a href="https://polar.sh/ant-design"><img src="https://polar.sh/embed/fund-our-backlog.svg?org=ant-design" /></a>
+
+[![Let's fund issues in this repository](https://raw.githubusercontent.com/BoostIO/issuehunt-materials/master/v1/issuehunt-button-v1.svg)](https://issuehunt.io/repos/34526884)
