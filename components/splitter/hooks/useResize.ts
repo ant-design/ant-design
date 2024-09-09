@@ -46,10 +46,14 @@ export default function useResize(
   };
 
   const onOffsetUpdate = (index: number, offset: number) => {
+    // First time trigger move index update is not sync in the state
+    let confirmedIndex: number | null = null;
+
     // We need to know what the real index is.
     if ((!movingIndex || !movingIndex.confirmed) && offset !== 0) {
       // Search for the real index
       if (offset > 0) {
+        confirmedIndex = index;
         setMovingIndex({
           index,
           confirmed: true,
@@ -57,6 +61,7 @@ export default function useResize(
       } else {
         for (let i = index; i >= 0; i -= 1) {
           if (cacheSizes[i] > 0 && resizableInfos[i].resizable) {
+            confirmedIndex = i;
             setMovingIndex({
               index: i,
               confirmed: true,
@@ -66,7 +71,8 @@ export default function useResize(
         }
       }
     }
-    const mergedIndex = movingIndex?.index ?? index;
+    const mergedIndex = confirmedIndex ?? movingIndex?.index ?? index;
+    console.log('--->', mergedIndex, index, offset);
 
     const numSizes = [...cacheSizes];
     const nextIndex = mergedIndex + 1;

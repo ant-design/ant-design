@@ -196,6 +196,40 @@ describe('Splitter', () => {
       expect(onResize).toHaveBeenCalledWith([90, 10]);
       expect(onResizeEnd).toHaveBeenCalledWith([90, 10]);
     });
+
+    it('[true, 0, true] can be move left', () => {
+      const onResize = jest.fn();
+      const onResizeEnd = jest.fn();
+
+      const { container } = render(
+        <SplitterDemo
+          items={[{}, { defaultSize: 0 }, {}]}
+          onResize={onResize}
+          onResizeEnd={onResizeEnd}
+        />,
+      );
+
+      mockDrag(container.querySelectorAll<HTMLDivElement>('.ant-splitter-bar-dragger')[1], -100);
+      expect(onResize).toHaveBeenCalledWith([0, 50, 50]);
+      expect(onResizeEnd).toHaveBeenCalledWith([0, 50, 50]);
+    });
+
+    it('[false, 0, true] can not be move left', () => {
+      const onResize = jest.fn();
+      const onResizeEnd = jest.fn();
+
+      const { container } = render(
+        <SplitterDemo
+          items={[{ resizable: false }, { defaultSize: 0 }, {}]}
+          onResize={onResize}
+          onResizeEnd={onResizeEnd}
+        />,
+      );
+
+      mockDrag(container.querySelectorAll<HTMLDivElement>('.ant-splitter-bar-dragger')[1], -100);
+      expect(onResize).toHaveBeenCalledWith([50, 0, 50]);
+      expect(onResizeEnd).toHaveBeenCalledWith([50, 0, 50]);
+    });
   });
 
   // ============================= Collapsible =============================
