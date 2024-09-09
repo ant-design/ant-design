@@ -184,6 +184,22 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         },
       },
 
+      // =========================== Mask =========================
+      // Util dom for handle cursor
+      '&-mask': {
+        position: 'fixed',
+        zIndex: token.zIndexPopupBase,
+        inset: 0,
+
+        '&-horizontal': {
+          cursor: 'col-resize',
+        },
+
+        '&-vertical': {
+          cursor: 'row-resize',
+        },
+      },
+
       // ==========================================================
       // ==                        Layout                        ==
       // ==========================================================

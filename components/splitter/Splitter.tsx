@@ -126,52 +126,67 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   );
 
   // ======================== Render ========================
+  const maskCls = `${prefixCls}-mask`;
+
   return wrapCSSVar(
-    <ResizeObserver onResize={onContainerResize}>
-      <div style={style} className={containerClassName}>
-        {items.map((item, idx) => {
-          // Panel
-          const panel = (
-            <InternalPanel {...item} prefixCls={prefixCls} size={itemPtgSizes[idx] * 100} />
-          );
-
-          // Split Bar
-          let splitBar: React.ReactElement | null = null;
-
-          const resizableInfo = resizableInfos[idx];
-          if (resizableInfo) {
-            splitBar = (
-              <SplitBar
-                index={idx}
-                active={movingIndex === idx}
-                prefixCls={prefixCls}
-                vertical={isVertical}
-                resizable={resizableInfo.resizable}
-                startCollapsible={resizableInfo.startCollapsible}
-                endCollapsible={resizableInfo.endCollapsible}
-                onOffsetStart={onInternalResizeStart}
-                onOffsetUpdate={(index, offsetX, offsetY) => {
-                  let offset = isVertical ? offsetY : offsetX;
-                  if (reverse) {
-                    offset = -offset;
-                  }
-                  onInternalResizeUpdate(index, offset);
-                }}
-                onOffsetEnd={onInternalResizeEnd}
-                onCollapse={onInternalCollapse}
-              />
+    <>
+      <ResizeObserver onResize={onContainerResize}>
+        <div style={style} className={containerClassName}>
+          {items.map((item, idx) => {
+            // Panel
+            const panel = (
+              <InternalPanel {...item} prefixCls={prefixCls} size={itemPtgSizes[idx] * 100} />
             );
-          }
 
-          return (
-            <React.Fragment key={`split-panel-${idx}`}>
-              {panel}
-              {splitBar}
-            </React.Fragment>
-          );
-        })}
-      </div>
-    </ResizeObserver>,
+            // Split Bar
+            let splitBar: React.ReactElement | null = null;
+
+            const resizableInfo = resizableInfos[idx];
+            if (resizableInfo) {
+              splitBar = (
+                <SplitBar
+                  index={idx}
+                  active={movingIndex === idx}
+                  prefixCls={prefixCls}
+                  vertical={isVertical}
+                  resizable={resizableInfo.resizable}
+                  startCollapsible={resizableInfo.startCollapsible}
+                  endCollapsible={resizableInfo.endCollapsible}
+                  onOffsetStart={onInternalResizeStart}
+                  onOffsetUpdate={(index, offsetX, offsetY) => {
+                    let offset = isVertical ? offsetY : offsetX;
+                    if (reverse) {
+                      offset = -offset;
+                    }
+                    onInternalResizeUpdate(index, offset);
+                  }}
+                  onOffsetEnd={onInternalResizeEnd}
+                  onCollapse={onInternalCollapse}
+                />
+              );
+            }
+
+            return (
+              <React.Fragment key={`split-panel-${idx}`}>
+                {panel}
+                {splitBar}
+              </React.Fragment>
+            );
+          })}
+        </div>
+      </ResizeObserver>
+
+      {/* Fake mask for cursor */}
+      {typeof movingIndex === 'number' && (
+        <div
+          aria-hidden
+          className={classNames(maskCls, {
+            [`${maskCls}-horizontal`]: !isVertical,
+            [`${maskCls}-vertical`]: isVertical,
+          })}
+        />
+      )}
+    </>,
   );
 };
 
