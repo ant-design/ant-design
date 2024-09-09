@@ -208,6 +208,10 @@ exports[`site test Component components/spin en Page 1`] = `1`;
 
 exports[`site test Component components/spin zh Page 1`] = `1`;
 
+exports[`site test Component components/splitter en Page 1`] = `2`;
+
+exports[`site test Component components/splitter zh Page 1`] = `2`;
+
 exports[`site test Component components/statistic en Page 1`] = `2`;
 
 exports[`site test Component components/statistic zh Page 1`] = `2`;

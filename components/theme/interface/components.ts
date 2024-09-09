@@ -63,6 +63,7 @@ import type { ComponentToken as TreeSelectComponentToken } from '../../tree-sele
 import type { ComponentToken as TreeComponentToken } from '../../tree/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
 import type { ComponentToken as UploadComponentToken } from '../../upload/style';
+import type { ComponentToken as SplitterComponentToken } from '../../splitter/style';
 
 export interface ComponentTokenMap {
   Affix?: AffixComponentToken;
@@ -109,6 +110,7 @@ export interface ComponentTokenMap {
   Spin?: SpinComponentToken;
   Statistic?: StatisticComponentToken;
   Switch?: SwitchComponentToken;
+  Splitter?: SplitterComponentToken;
   Tag?: TagComponentToken;
   Tree?: TreeComponentToken;
   TreeSelect?: TreeSelectComponentToken;
