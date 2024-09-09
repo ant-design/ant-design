@@ -7,7 +7,7 @@ description: 分割面板用于隔离区域，展示多个内容。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*mQmMTYq6OjYAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*7v4GTo2Ely8AAAAAAAAAAAAADrJ8AQ/original
 demo:
-  cols: 2
+  cols: 1
 tag: 5.21.0
 ---
 
@@ -33,14 +33,12 @@ tag: 5.21.0
 
 ### Splitter
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| layout | 布局方向 | `horizontal` \| `vertical` | `horizontal` | - |
-| style | 容器样式 | `css-properties` | - | - |
-| transition | 折叠时是否启用动画 | `boolean` | `true` | - |
-| onResizeStart | 开始拖拽之前回调 | `(sizes: number[], index:number) => void` | - | - |
-| onResize | 面板大小变化回调 | `(sizes: number[], index:number) => void` | - | - |
-| onResizeEnd | 拖拽结束回调 | `(sizes: number[], index:number) => void` | - | - |
+| 参数          | 说明             | 类型                        | 默认值       | 版本 |
+| ------------- | ---------------- | --------------------------- | ------------ | ---- |
+| layout        | 布局方向         | `horizontal` \| `vertical`  | `horizontal` | -    |
+| onResizeStart | 开始拖拽之前回调 | `(sizes: number[]) => void` | -            | -    |
+| onResize      | 面板大小变化回调 | `(sizes: number[]) => void` | -            | -    |
+| onResizeEnd   | 拖拽结束回调     | `(sizes: number[]) => void` | -            | -    |
 
 ### Panel
 

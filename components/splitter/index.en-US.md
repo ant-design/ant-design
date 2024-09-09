@@ -6,7 +6,7 @@ description: Split panels are used to isolate areas and display multiple content
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*mQmMTYq6OjYAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*7v4GTo2Ely8AAAAAAAAAAAAADrJ8AQ/original
 demo:
-  cols: 2
+  cols: 1
 tag: 5.21.0
 ---
 
@@ -35,11 +35,9 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | layout | Layout direction | `horizontal` \| `vertical` | `horizontal` | - |
-| style | The additional style | `css-properties` | - | - |
-| transition | Whether animation is enabled when folding | `boolean` | `true` | - |
-| onResizeStart | Callback before dragging starts | `(sizes: number[], index:number) => void` | - | - |
-| onResize | Panel size change callback | `(sizes: number[], index:number) => void` | - | - |
-| onResizeEnd | Drag end callback | `(sizes: number[], index:number) => void` | - | - |
+| onResizeStart | Callback before dragging starts | `(sizes: number[]) => void` | - | - |
+| onResize | Panel size change callback | `(sizes: number[]) => void` | - | - |
+| onResizeEnd | Drag end callback | `(sizes: number[]) => void` | - | - |
 
 ### Panel
 
