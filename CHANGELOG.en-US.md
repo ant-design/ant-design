@@ -28,7 +28,6 @@ tag: vVERSION
 - 🐞 Fix Input.Search button radius not changing with `size`. [#50734](https://github.com/ant-design/ant-design/pull/50734) [@afc163](https://github.com/afc163)
 - 🐞 Fix Form password still can be toggle show/hide even if disabled. [#50616](https://github.com/ant-design/ant-design/pull/50616) [@Jarryxin](https://github.com/Jarryxin)
 - 💄 Fix Badge background transition when mouse out. [#50743](https://github.com/ant-design/ant-design/pull/50743) [@coding-ice](https://github.com/coding-ice)
-
 - TypeScript
   - 🤖 Fix Collapse types for `onChange` arguments. [#50754](https://github.com/ant-design/ant-design/pull/50754) [@yuanliu147](https://github.com/yuanliu147)
 

@@ -27,7 +27,6 @@ tag: vVERSION
 - 🐞 修复 Input.Search 的按钮圆角不随 `size` 变化的问题。[#50734](https://github.com/ant-design/ant-design/pull/50734) [@afc163](https://github.com/afc163)
 - 🐞 修复 Form 禁用时仍可切换密码显隐的问题。[#50616](https://github.com/ant-design/ant-design/pull/50616) [@Jarryxin](https://github.com/Jarryxin)
 - 💄 修复 Badge 鼠标移出时无背景色过渡动画的问题。[#50743](https://github.com/ant-design/ant-design/pull/50743) [@coding-ice](https://github.com/coding-ice)
-
 - TypeScript
   - 🤖 修复 Collapse 的 `onChange` 的函数入参类型。[#50754](https://github.com/ant-design/ant-design/pull/50754) [@yuanliu147](https://github.com/yuanliu147)
 
