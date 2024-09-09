@@ -149,9 +149,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
         <div style={style} className={containerClassName}>
           {items.map((item, idx) => {
             // Panel
-            const panel = (
-              <InternalPanel {...item} prefixCls={prefixCls} size={itemPtgSizes[idx] * 100} />
-            );
+            const panel = <InternalPanel {...item} prefixCls={prefixCls} size={itemPxSizes[idx]} />;
 
             // Split Bar
             let splitBar: React.ReactElement | null = null;

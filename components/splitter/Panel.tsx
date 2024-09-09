@@ -17,7 +17,7 @@ export const InternalPanel = forwardRef<
   );
 
   return (
-    <div ref={ref} className={panelClassName} style={{ ...style, flexBasis: `${size}%` }}>
+    <div ref={ref} className={panelClassName} style={{ ...style, flexBasis: size }}>
       {children}
     </div>
   );

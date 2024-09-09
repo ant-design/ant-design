@@ -19,7 +19,7 @@ const App: React.FC = () => (
   <Splitter
     style={{
       height: 200,
-      border: '1px solid #e5e7eb',
+      boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
     }}
   >
     <Splitter.Panel collapsible>{renderDesc(1)}</Splitter.Panel>

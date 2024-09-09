@@ -63,9 +63,9 @@ describe('Splitter', () => {
 
     const panels = container.querySelectorAll('.ant-splitter-panel');
 
-    expect(panels?.[0]).toHaveStyle('flex-basis: 20%');
-    expect(panels?.[1]).toHaveStyle('flex-basis: 45%');
-    expect(panels?.[2]).toHaveStyle('flex-basis: 35%');
+    expect(panels?.[0]).toHaveStyle('flex-basis: 20px');
+    expect(panels?.[1]).toHaveStyle('flex-basis: 45px');
+    expect(panels?.[2]).toHaveStyle('flex-basis: 35px');
   });
 
   it('The layout should work fine', () => {

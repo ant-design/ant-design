@@ -21,7 +21,7 @@ const App: React.FC = () => (
     <Splitter
       style={{
         height: 200,
-        border: '1px solid #e5e7eb',
+        boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
       }}
     >
       <Splitter.Panel>{renderDesc(1)}</Splitter.Panel>
@@ -35,7 +35,7 @@ const App: React.FC = () => (
     <Splitter
       style={{
         height: 200,
-        border: '1px solid #e5e7eb',
+        boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
       }}
     >
       <Splitter.Panel resizable={false}>{renderDesc(1)}</Splitter.Panel>
@@ -49,7 +49,7 @@ const App: React.FC = () => (
     <Splitter
       style={{
         height: 200,
-        border: '1px solid #e5e7eb',
+        boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
       }}
     >
       <Splitter.Panel min={50} max={100}>
@@ -63,7 +63,7 @@ const App: React.FC = () => (
     <Splitter
       style={{
         height: 200,
-        border: '1px solid #e5e7eb',
+        boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
       }}
     >
       <Splitter.Panel>{renderDesc(1)}</Splitter.Panel>
