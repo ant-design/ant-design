@@ -16,6 +16,22 @@ tag: vVERSION
 
 ---
 
+## 5.20.6
+
+`2024-09-09`
+
+- Dropdown
+  - 🐞 Fix Dropdown cannot wrap correctly when out of screen edge. [#50752](https://github.com/ant-design/ant-design/pull/50752) [@afc163](https://github.com/afc163)
+  - 🐞 Fix Dropdown cannot wrap correctly. [#50718](https://github.com/ant-design/ant-design/pull/50718) [@afc163](https://github.com/afc163)
+- 🐞 Improve Menu collapse animation smoothness. [#50751](https://github.com/ant-design/ant-design/pull/50751) [@afc163](https://github.com/afc163)
+- 🐞 Fix Table cell overflow bug if edit with virtual scroll. [#50737](https://github.com/ant-design/ant-design/pull/50737) [@huiliangShen](https://github.com/huiliangShen)
+- 🐞 Fix Input.Search button radius not changing with `size`. [#50734](https://github.com/ant-design/ant-design/pull/50734) [@afc163](https://github.com/afc163)
+- 🐞 Fix Form password still can be toggle show/hide even if disabled. [#50616](https://github.com/ant-design/ant-design/pull/50616) [@Jarryxin](https://github.com/Jarryxin)
+- 💄 Fix Badge background transition when mouse out. [#50743](https://github.com/ant-design/ant-design/pull/50743) [@coding-ice](https://github.com/coding-ice)
+
+- TypeScript
+  - 🤖 Fix Collapse types for `onChange` arguments. [#50754](https://github.com/ant-design/ant-design/pull/50754) [@yuanliu147](https://github.com/yuanliu147)
+
 ## 5.20.5
 
 `2024-09-03`
