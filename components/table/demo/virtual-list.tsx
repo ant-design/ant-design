@@ -89,7 +89,6 @@ const columns: TableProps<RecordType>['columns'] = [
   {
     title: 'LastName',
     dataIndex: 'lastName',
-    width: 120,
   },
 ];
 
