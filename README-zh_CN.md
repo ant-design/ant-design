@@ -138,7 +138,11 @@ export default App;
 
 ## ⌨️ 本地开发
 
-使用 [opensumi.run](https://opensumi.run) 进行在线开发：
+你可以使用 Gitpod 进行在线开发：
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/ant-design/ant-design)
+
+或者使用 [opensumi.run](https://opensumi.run/) 进行在线开发：
 
 [![opensumi.run](https://custom-icon-badges.demolab.com/badge/opensumi-run-blue.svg?logo=opensumi)](https://opensumi.run/ide/ant-design/ant-design)
 
