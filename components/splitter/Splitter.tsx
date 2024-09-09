@@ -9,6 +9,7 @@ import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useItems from './hooks/useItems';
+import useResizable from './hooks/useResizable';
 import useSizes from './hooks/useSizes';
 import type { SplitterProps } from './interface';
 import { InternalPanel } from './Panel';
@@ -73,14 +74,22 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   };
 
   // ========================= Size =========================
-  const [itemPtgSizes, itemPxSizes, onOffsetStart, onOffsetUpdate, onCollapse] = useSizes(
-    items,
-    containerSize,
-  );
+  const [
+    itemPtgSizes,
+    itemPxSizes,
+    movingIndex,
+    onOffsetStart,
+    onOffsetUpdate,
+    onOffsetEnd,
+    onCollapse,
+  ] = useSizes(items, containerSize);
+
+  // ====================== Resizable =======================
+  const resizableInfos = useResizable(items, itemPxSizes);
 
   // ======================== Events ========================
-  const onInternalResizeStart = useEvent(() => {
-    onOffsetStart();
+  const onInternalResizeStart = useEvent((index: number) => {
+    onOffsetStart(index);
     onResizeStart?.(itemPxSizes);
   });
 
@@ -90,6 +99,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   });
 
   const onInternalResizeEnd = useEvent(() => {
+    onOffsetEnd();
     onResizeEnd?.(itemPxSizes);
   });
 
@@ -119,32 +129,25 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     <ResizeObserver onResize={onContainerResize}>
       <div style={style} className={containerClassName}>
         {items.map((item, idx) => {
-          const last = idx === items.length - 1;
-
           // Panel
           const panel = (
-            <InternalPanel
-              {...item}
-              last={last}
-              prefixCls={prefixCls}
-              size={itemPtgSizes[idx] * 100}
-            />
+            <InternalPanel {...item} prefixCls={prefixCls} size={itemPtgSizes[idx] * 100} />
           );
 
           // Split Bar
           let splitBar: React.ReactElement | null = null;
-          if (!last) {
-            const nextItem = items[idx + 1];
 
+          const resizableInfo = resizableInfos[idx];
+          if (resizableInfo) {
             splitBar = (
               <SplitBar
                 index={idx}
+                active={movingIndex === idx}
                 prefixCls={prefixCls}
                 vertical={isVertical}
-                resizable={[item.resizable, nextItem.resizable]}
-                collapsible={[item.collapsible.end, nextItem.collapsible.start]}
-                size={[itemPxSizes[idx], itemPxSizes[idx + 1]]}
-                sizeMin={[item.min, nextItem.min]}
+                resizable={resizableInfo.resizable}
+                startCollapsible={resizableInfo.startCollapsible}
+                endCollapsible={resizableInfo.endCollapsible}
                 onOffsetStart={onInternalResizeStart}
                 onOffsetUpdate={(index, offsetX, offsetY) => {
                   let offset = isVertical ? offsetY : offsetX;

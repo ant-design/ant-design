@@ -89,45 +89,84 @@ export default function useSizes(items: PanelProps[], containerSize: number) {
   // Real px sizes
   const [cacheSizes, setCacheSizes] = React.useState<number[]>([]);
 
+  /**
+   * When start drag, check the direct is `start` or `end`.
+   * This will handle when 2 splitter bar are in the same position.
+   */
+  const [movingIndex, setMovingIndex] = React.useState<{
+    index: number;
+    confirmed: boolean;
+  } | null>(null);
+
   const getPxSizes = () => postPercentSizes.map(ptg2px);
 
-  const onOffsetStart = () => {
+  const onOffsetStart = (index: number) => {
     setCacheSizes(getPxSizes());
+    setMovingIndex({
+      index,
+      confirmed: false,
+    });
   };
 
   const onOffsetUpdate = (index: number, offset: number) => {
+    // We need to know what the real index is.
+    if ((!movingIndex || !movingIndex.confirmed) && offset !== 0) {
+      // Search for the real index
+      if (offset > 0) {
+        setMovingIndex({
+          index,
+          confirmed: true,
+        });
+      } else {
+        for (let i = index; i >= 0; i -= 1) {
+          if (cacheSizes[i] > 0) {
+            setMovingIndex({
+              index: i,
+              confirmed: true,
+            });
+            break;
+          }
+        }
+      }
+    }
+    const mergedIndex = movingIndex?.index ?? index;
+
     const numSizes = [...cacheSizes];
-    const nextIndex = index + 1;
+    const nextIndex = mergedIndex + 1;
 
     // Get boundary
-    const startMinSize = getLimitSize(limitSizes[index][0], 0);
+    const startMinSize = getLimitSize(limitSizes[mergedIndex][0], 0);
     const endMinSize = getLimitSize(limitSizes[nextIndex][0], 0);
-    const startMaxSize = getLimitSize(limitSizes[index][1], containerSize);
+    const startMaxSize = getLimitSize(limitSizes[mergedIndex][1], containerSize);
     const endMaxSize = getLimitSize(limitSizes[nextIndex][1], containerSize);
 
     let mergedOffset = offset;
 
     // Align with the boundary
-    if (numSizes[index] + mergedOffset < startMinSize) {
-      mergedOffset = startMinSize - numSizes[index];
+    if (numSizes[mergedIndex] + mergedOffset < startMinSize) {
+      mergedOffset = startMinSize - numSizes[mergedIndex];
     }
     if (numSizes[nextIndex] - mergedOffset < endMinSize) {
       mergedOffset = numSizes[nextIndex] - endMinSize;
     }
-    if (numSizes[index] + mergedOffset > startMaxSize) {
-      mergedOffset = startMaxSize - numSizes[index];
+    if (numSizes[mergedIndex] + mergedOffset > startMaxSize) {
+      mergedOffset = startMaxSize - numSizes[mergedIndex];
     }
     if (numSizes[nextIndex] - mergedOffset > endMaxSize) {
       mergedOffset = numSizes[nextIndex] - endMaxSize;
     }
 
     // Do offset
-    numSizes[index] += mergedOffset;
+    numSizes[mergedIndex] += mergedOffset;
     numSizes[nextIndex] -= mergedOffset;
 
     setInnerSizes(numSizes);
 
     return numSizes;
+  };
+
+  const onOffsetEnd = () => {
+    setMovingIndex(null);
   };
 
   // ======================= Collapse =======================
@@ -165,5 +204,13 @@ export default function useSizes(items: PanelProps[], containerSize: number) {
     return currentSizes;
   };
 
-  return [postPercentSizes, postPxSizes, onOffsetStart, onOffsetUpdate, onCollapse] as const;
+  return [
+    postPercentSizes,
+    postPxSizes,
+    movingIndex?.index,
+    onOffsetStart,
+    onOffsetUpdate,
+    onOffsetEnd,
+    onCollapse,
+  ] as const;
 }

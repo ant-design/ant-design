@@ -30,7 +30,6 @@ export interface PanelProps {
 
 export interface InternalPanelProps extends PanelProps {
   className?: string;
-  last?: boolean;
   prefixCls?: string;
 }
 

@@ -7,12 +7,12 @@ import classNames from 'classnames';
 
 export interface SplitBarProps {
   index: number;
+  active: boolean;
   prefixCls: string;
-  resizable: [start?: boolean, end?: boolean];
-  collapsible: [start?: boolean, end?: boolean];
-  size: [start: number, end: number];
-  sizeMin: [start?: number | string, end?: number | string];
-  onOffsetStart: VoidFunction;
+  resizable: boolean;
+  startCollapsible: boolean;
+  endCollapsible: boolean;
+  onOffsetStart: (index: number) => void;
   onOffsetUpdate: (index: number, offsetX: number, offsetY: number) => void;
   onOffsetEnd: VoidFunction;
   onCollapse: (index: number, type: 'start' | 'end') => void;
@@ -24,10 +24,10 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     prefixCls,
     vertical,
     index,
-    size,
-    sizeMin,
+    active,
     resizable,
-    collapsible,
+    startCollapsible,
+    endCollapsible,
     onOffsetStart,
     onOffsetUpdate,
     onOffsetEnd,
@@ -36,47 +36,13 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
 
   const splitBarPrefixCls = `${prefixCls}-bar`;
 
-  // ====================== Resizable =======================
-  const mergedResizable = React.useMemo(() => {
-    const [start = true, end = true] = resizable;
-
-    // One of it not support resize
-    if (!start || !end) {
-      return false;
-    }
-
-    // One of it is collapsed and limit min size
-    if (size[0] === 0 && sizeMin[0]) {
-      return false;
-    }
-
-    if (size[1] === 0 && sizeMin[1]) {
-      return false;
-    }
-
-    return true;
-  }, [resizable, size, sizeMin]);
-
-  // ===================== Collapsible ======================
-  const startCollapsible =
-    // Self is collapsible
-    (collapsible[0] && size[0] > 0) ||
-    // Collapsed and can be collapsed
-    (collapsible[1] && size[1] === 0 && size[0] > 0);
-
-  const endCollapsible =
-    // Self is collapsible
-    (collapsible[1] && size[1] > 0) ||
-    // Collapsed and can be collapsed
-    (collapsible[0] && size[0] === 0 && size[1] > 0);
-
   // ======================== Resize ========================
   const [startPos, setStartPos] = useState<[x: number, y: number] | null>(null);
 
   const onMouseDown: React.MouseEventHandler<HTMLDivElement> = (e) => {
-    if (mergedResizable && e.currentTarget) {
+    if (resizable && e.currentTarget) {
       setStartPos([e.pageX, e.pageY]);
-      onOffsetStart();
+      onOffsetStart(index);
     }
   };
 
@@ -113,8 +79,8 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     <div className={splitBarPrefixCls}>
       <div
         className={classNames(`${splitBarPrefixCls}-dragger`, {
-          [`${splitBarPrefixCls}-dragger-disabled`]: !mergedResizable,
-          [`${splitBarPrefixCls}-dragger-active`]: !!startPos,
+          [`${splitBarPrefixCls}-dragger-disabled`]: !resizable,
+          [`${splitBarPrefixCls}-dragger-active`]: active,
         })}
         onMouseDown={onMouseDown}
       />
