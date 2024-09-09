@@ -173,4 +173,10 @@ We warmly invite contributions from everyone. Before you get started, please tak
 
 For collaborators, adhere to our [Pull Request Principle](https://github.com/ant-design/ant-design/wiki/PR-principle) and utilize our [Pull Request Template](https://github.com/ant-design/ant-design/wiki/PR-principle#pull-request-template) when creating a Pull Request.
 
+## Issue funding
+
+We use [Polar.sh](https://polar.sh/ant-design) and [Issuehunt](https://issuehunt.io/repos/3452688) to up-vote and promote specific features that you would like to see and implement. Check our backlog and help us:
+
+<a href="https://polar.sh/ant-design"><img src="https://polar.sh/embed/fund-our-backlog.svg?org=ant-design" /></a>
+
 [![Let's fund issues in this repository](https://raw.githubusercontent.com/BoostIO/issuehunt-materials/master/v1/issuehunt-button-v1.svg)](https://issuehunt.io/repos/34526884)
