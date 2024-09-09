@@ -60,7 +60,10 @@ const genRtlStyle = (token: SplitterToken): CSSObject => {
 const centerStyle: CSSObject = {
   position: 'absolute',
   top: '50%',
-  left: '50%',
+  left: {
+    _skip_check_: true,
+    value: '50%',
+  },
   transform: 'translate(-50%, -50%)',
 };
 
