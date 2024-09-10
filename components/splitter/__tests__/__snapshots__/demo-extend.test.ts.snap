@@ -20,7 +20,7 @@ exports[`renders components/splitter/demo/collapsible.tsx extend context correct
           class="ant-typography ant-typography-secondary"
           style="white-space: nowrap;"
         >
-          first
+          First
         </h5>
       </div>
     </div>
@@ -95,7 +95,7 @@ exports[`renders components/splitter/demo/collapsible.tsx extend context correct
           class="ant-typography ant-typography-secondary"
           style="white-space: nowrap;"
         >
-          second
+          Second
         </h5>
       </div>
     </div>
@@ -116,7 +116,7 @@ exports[`renders components/splitter/demo/collapsible.tsx extend context correct
           class="ant-typography ant-typography-secondary"
           style="white-space: nowrap;"
         >
-          first
+          First
         </h5>
       </div>
     </div>
@@ -191,7 +191,7 @@ exports[`renders components/splitter/demo/collapsible.tsx extend context correct
           class="ant-typography ant-typography-secondary"
           style="white-space: nowrap;"
         >
-          second
+          Second
         </h5>
       </div>
     </div>
@@ -825,6 +825,7 @@ exports[`renders components/splitter/demo/size.tsx extend context correctly 1`] 
     >
       <h5
         class="ant-typography ant-typography-secondary"
+        style="white-space: nowrap;"
       >
         First
       </h5>
@@ -851,6 +852,7 @@ exports[`renders components/splitter/demo/size.tsx extend context correctly 1`] 
     >
       <h5
         class="ant-typography ant-typography-secondary"
+        style="white-space: nowrap;"
       >
         Second
       </h5>
@@ -876,6 +878,7 @@ exports[`renders components/splitter/demo/vertical.tsx extend context correctly 
     >
       <h5
         class="ant-typography ant-typography-secondary"
+        style="white-space: nowrap;"
       >
         First
       </h5>
@@ -902,6 +905,7 @@ exports[`renders components/splitter/demo/vertical.tsx extend context correctly 
     >
       <h5
         class="ant-typography ant-typography-secondary"
+        style="white-space: nowrap;"
       >
         Second
       </h5>

@@ -132,7 +132,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const maskCls = `${prefixCls}-mask`;
 
   const stackSizes = React.useMemo(() => {
-    const mergedSizes = [];
+    const mergedSizes: number[] = [];
 
     let stack = 0;
     for (let i = 0; i < items.length; i += 1) {
@@ -200,13 +200,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
       {/* Fake mask for cursor */}
       {typeof movingIndex === 'number' && (
-        <div
-          aria-hidden
-          className={classNames(maskCls, {
-            [`${maskCls}-horizontal`]: !isVertical,
-            [`${maskCls}-vertical`]: isVertical,
-          })}
-        />
+        <div aria-hidden className={classNames(maskCls, `${maskCls}-${layout}`)} />
       )}
     </>,
   );
