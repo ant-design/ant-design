@@ -87,12 +87,13 @@ const PanelPicker: FC = () => {
 
   // ========================= Picker Color =========================
   const [pickerColor, setPickerColor] = React.useState<AggregationColor | null>(activeColor);
+  const [forceSync, setForceSync] = React.useState(0);
 
   const mergedPickerColor = pickerColor?.equals(activeColor) ? activeColor : pickerColor;
 
   useLayoutEffect(() => {
     setPickerColor(activeColor);
-  }, [activeColor?.toHexString()]);
+  }, [forceSync, activeColor?.toHexString()]);
 
   // ============================ Change ============================
   const fillColor = (nextColor: AggregationColor | Color, info?: Info) => {
@@ -147,7 +148,7 @@ const PanelPicker: FC = () => {
     // Back of origin color in case in controlled
     // This will set after `onChangeComplete` to avoid `setState` trigger rerender
     // which will make `fillColor` get wrong `color.cleared` state
-    setPickerColor(activeColor);
+    setForceSync((ori) => ori + 1);
   };
 
   const onInputChange = (colorValue: AggregationColor) => {
