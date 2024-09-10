@@ -27,7 +27,7 @@ export { initPickerPanelToken, initPanelComponentToken, genPanelStyle };
 const genPickerPadding = (
   token: PickerToken,
   inputHeight: number,
-  fontHeight: number,
+  fontHeight: number | string,
   paddingHorizontal: number,
 ): CSSObject => {
   const height = token.calc(fontHeight).add(2).equal();
@@ -169,7 +169,12 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
         },
 
         '&-small': {
-          ...genPickerPadding(token, controlHeightSM, fontHeightSM, paddingInlineSM),
+          ...genPickerPadding(
+            token,
+            controlHeightSM,
+            token.calc(fontHeightSM).add(2).equal(),
+            paddingInlineSM,
+          ),
         },
 
         [`${componentCls}-suffix`]: {
