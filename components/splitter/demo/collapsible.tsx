@@ -13,10 +13,10 @@ const Desc: React.FC<Readonly<{ text?: string | number }>> = (props) => (
 const CustomSplitter: React.FC<Readonly<SplitterProps>> = ({ style, ...restProps }) => (
   <Splitter style={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', ...style }} {...restProps}>
     <Splitter.Panel collapsible min="20%">
-      <Desc text="first" />
+      <Desc text="First" />
     </Splitter.Panel>
     <Splitter.Panel collapsible>
-      <Desc text="second" />
+      <Desc text="Second" />
     </Splitter.Panel>
   </Splitter>
 );

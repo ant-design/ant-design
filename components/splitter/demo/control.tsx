@@ -19,10 +19,10 @@ const App: React.FC = () => {
         style={{ height: 200, boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}
       >
         <Splitter.Panel size={sizes[0]} resizable={enabled}>
-          <Desc text="first" />
+          <Desc text="First" />
         </Splitter.Panel>
         <Splitter.Panel size={sizes[1]}>
-          <Desc text="second" />
+          <Desc text="Second" />
         </Splitter.Panel>
       </Splitter>
       <Flex gap="middle" justify="space-between">
