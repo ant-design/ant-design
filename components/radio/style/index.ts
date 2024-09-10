@@ -120,6 +120,10 @@ const getGroupRadioStyle: GenerateStyle<RadioToken> = (token) => {
         direction: 'rtl',
       },
 
+      [`&${groupPrefixCls}-flex`]: {
+        display: 'flex',
+      },
+
       [`${antCls}-badge ${antCls}-badge-count`]: {
         zIndex: 1,
       },
@@ -542,6 +546,11 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
         backgroundColor: buttonCheckedBgDisabled,
         borderColor: colorBorder,
         boxShadow: 'none',
+      },
+
+      '&-flex-item': {
+        flex: 1,
+        textAlign: 'center',
       },
     },
   };
