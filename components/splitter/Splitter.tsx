@@ -22,7 +22,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     prefixCls: customizePrefixCls,
     className,
     style,
-    layout,
+    layout = 'horizontal',
     children,
     rootClassName,
     onResizeStart,
@@ -117,9 +117,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const containerClassName = classNames(
     prefixCls,
     className,
+    `${prefixCls}-${layout}`,
     {
-      [`${prefixCls}-horizontal`]: !isVertical,
-      [`${prefixCls}-vertical`]: isVertical,
       [`${prefixCls}-rtl`]: isRTL,
     },
     rootClassName,
