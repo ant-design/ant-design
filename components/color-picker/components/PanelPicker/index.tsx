@@ -2,7 +2,6 @@ import type { FC } from 'react';
 import React, { useContext } from 'react';
 import RcColorPicker from '@rc-component/color-picker';
 import type { Color } from '@rc-component/color-picker';
-import { useEvent } from 'rc-util';
 import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
 import Segmented from '../../../segmented';
@@ -89,6 +88,8 @@ const PanelPicker: FC = () => {
   // ========================= Picker Color =========================
   const [pickerColor, setPickerColor] = React.useState<AggregationColor | null>(activeColor);
 
+  const mergedPickerColor = pickerColor?.equals(activeColor) ? activeColor : pickerColor;
+
   useLayoutEffect(() => {
     setPickerColor(activeColor);
   }, [activeColor?.toHexString()]);
@@ -139,13 +140,15 @@ const PanelPicker: FC = () => {
     onChange(nextColor, fromPicker);
   };
 
-  const onInternalChangeComplete = useEvent((nextColor: Color, info?: Info) => {
-    // Back of origin color in case in controlled
-    setPickerColor(activeColor);
-
+  const onInternalChangeComplete = (nextColor: Color, info?: Info) => {
     // Trigger complete event
     onChangeComplete(fillColor(nextColor, info));
-  });
+
+    // Back of origin color in case in controlled
+    // This will set after `onChangeComplete` to avoid `setState` trigger rerender
+    // which will make `fillColor` get wrong `color.cleared` state
+    setPickerColor(activeColor);
+  };
 
   const onInputChange = (colorValue: AggregationColor) => {
     onChange(fillColor(colorValue));
@@ -184,7 +187,7 @@ const PanelPicker: FC = () => {
 
       <RcColorPicker
         prefixCls={prefixCls}
-        value={pickerColor?.toHsb()}
+        value={mergedPickerColor?.toHsb()}
         disabledAlpha={disabledAlpha}
         onChange={(colorValue, info) => {
           onPickerChange(colorValue, true, info);
