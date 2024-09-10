@@ -61,7 +61,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | trigger | ColorPicker trigger mode | `hover` \| `click` | `click` | |
 | value | Value of color | string \| `Color` | - | |
 | onChange | Callback when `value` is changed | `(value: Color, css: string) => void` | - | |
-| onChangeComplete | Called when color pick ends   | `(value: Color) => void` | - | 5.7.0 |
+| onChangeComplete | Called when color pick ends. Will not change the display color when `value` controlled by `onChangeComplete` | `(value: Color) => void` | - | 5.7.0 |
 | onFormatChange | Callback when `format` is changed | `(format: 'hex' \| 'rgb' \| 'hsb') => void` | - | |
 | onOpenChange | Callback when `open` is changed | `(open: boolean) => void` | - | |
 | onClear | Called when clear | `() => void` | - | 5.6.0 |

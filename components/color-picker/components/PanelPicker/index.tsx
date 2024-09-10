@@ -85,6 +85,13 @@ const PanelPicker: FC = () => {
     return colors[activeIndex]?.color;
   }, [value, activeIndex, isSingle, lockedColor, gradientDragging]);
 
+  // ========================= Picker Color =========================
+  const [pickerColor, setPickerColor] = React.useState<AggregationColor | null>(activeColor);
+
+  useLayoutEffect(() => {
+    setPickerColor(activeColor);
+  }, [activeColor?.toHexString()]);
+
   // ============================ Change ============================
   const fillColor = (nextColor: AggregationColor | Color, info?: Info) => {
     let submitColor = generateColor(nextColor);
@@ -121,16 +128,26 @@ const PanelPicker: FC = () => {
     return new AggregationColor(nextColors);
   };
 
-  const onInternalChange = (
+  const onPickerChange = (
     colorValue: AggregationColor | Color,
-    fromPicker?: boolean,
+    fromPicker: boolean,
     info?: Info,
   ) => {
-    onChange(fillColor(colorValue, info), fromPicker);
+    const nextColor = fillColor(colorValue, info);
+    setPickerColor(nextColor);
+    onChange(nextColor, fromPicker);
   };
 
   const onInternalChangeComplete = (nextColor: Color, info?: Info) => {
+    // Back of origin color in case in controlled
+    setPickerColor(activeColor);
+
+    // Trigger complete event
     onChangeComplete(fillColor(nextColor, info));
+  };
+
+  const onInputChange = (colorValue: AggregationColor) => {
+    onChange(fillColor(colorValue));
   };
 
   // ============================ Render ============================
@@ -166,10 +183,10 @@ const PanelPicker: FC = () => {
 
       <RcColorPicker
         prefixCls={prefixCls}
-        value={activeColor?.toHsb()}
+        value={pickerColor?.toHsb()}
         disabledAlpha={disabledAlpha}
         onChange={(colorValue, info) => {
-          onInternalChange(colorValue, true, info);
+          onPickerChange(colorValue, true, info);
         }}
         onChangeComplete={(colorValue, info) => {
           onInternalChangeComplete(colorValue, info);
@@ -178,7 +195,7 @@ const PanelPicker: FC = () => {
       />
       <ColorInput
         value={activeColor}
-        onChange={onInternalChange}
+        onChange={onInputChange}
         prefixCls={prefixCls}
         disabledAlpha={disabledAlpha}
         {...injectProps}
