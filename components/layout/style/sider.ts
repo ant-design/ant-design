@@ -35,7 +35,15 @@ const genSiderStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
       background: siderBg,
       transition: `all ${motionDurationMid}, background 0s`,
 
-      '&-children': {
+      '&-has-trigger': {
+        paddingBottom: triggerHeight,
+      },
+
+      '&-right': {
+        order: 1,
+      },
+
+      [`${componentCls}-children`]: {
         height: '100%',
         // Hack for fixing margin collapse bug
         // https://github.com/ant-design/ant-design/issues/7967
@@ -48,15 +56,7 @@ const genSiderStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
         },
       },
 
-      '&-has-trigger': {
-        paddingBottom: triggerHeight,
-      },
-
-      '&-right': {
-        order: 1,
-      },
-
-      '&-trigger': {
+      [`${componentCls}-trigger`]: {
         position: 'fixed',
         bottom: 0,
         zIndex: 1,
@@ -74,7 +74,7 @@ const genSiderStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
           overflow: 'hidden',
         },
 
-        '&-trigger': {
+        [`${componentCls}-trigger`]: {
           position: 'absolute',
           top: headerHeight,
           insetInlineEnd: token.calc(zeroTriggerWidth).mul(-1).equal(),
