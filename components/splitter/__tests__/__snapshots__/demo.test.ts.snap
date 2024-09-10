@@ -315,6 +315,8 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
           class="ant-typography ant-typography-secondary"
           style="white-space:nowrap"
         >
+          Panel 
+          <!-- -->
           1
         </h5>
       </div>
@@ -342,6 +344,8 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
           class="ant-typography ant-typography-secondary"
           style="white-space:nowrap"
         >
+          Panel 
+          <!-- -->
           2
         </h5>
       </div>
@@ -369,6 +373,8 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
           class="ant-typography ant-typography-secondary"
           style="white-space:nowrap"
         >
+          Panel 
+          <!-- -->
           3
         </h5>
       </div>
@@ -395,6 +401,8 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
           class="ant-typography ant-typography-secondary"
           style="white-space:nowrap"
         >
+          Panel 
+          <!-- -->
           1
         </h5>
       </div>
@@ -422,6 +430,8 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
           class="ant-typography ant-typography-secondary"
           style="white-space:nowrap"
         >
+          Panel 
+          <!-- -->
           2
         </h5>
       </div>
@@ -449,6 +459,8 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
           class="ant-typography ant-typography-secondary"
           style="white-space:nowrap"
         >
+          Panel 
+          <!-- -->
           3
         </h5>
       </div>
@@ -475,6 +487,8 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
           class="ant-typography ant-typography-secondary"
           style="white-space:nowrap"
         >
+          Panel 
+          <!-- -->
           1
         </h5>
       </div>
@@ -502,6 +516,8 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
           class="ant-typography ant-typography-secondary"
           style="white-space:nowrap"
         >
+          Panel 
+          <!-- -->
           2
         </h5>
       </div>
@@ -528,6 +544,8 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
           class="ant-typography ant-typography-secondary"
           style="white-space:nowrap"
         >
+          Panel 
+          <!-- -->
           1
         </h5>
       </div>
@@ -555,6 +573,8 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
           class="ant-typography ant-typography-secondary"
           style="white-space:nowrap"
         >
+          Panel 
+          <!-- -->
           2
         </h5>
       </div>
@@ -691,6 +711,8 @@ exports[`renders components/splitter/demo/multiple.tsx correctly 1`] = `
         class="ant-typography ant-typography-secondary"
         style="white-space:nowrap"
       >
+        Panel 
+        <!-- -->
         1
       </h5>
     </div>
@@ -766,6 +788,8 @@ exports[`renders components/splitter/demo/multiple.tsx correctly 1`] = `
         class="ant-typography ant-typography-secondary"
         style="white-space:nowrap"
       >
+        Panel 
+        <!-- -->
         2
       </h5>
     </div>
@@ -793,6 +817,8 @@ exports[`renders components/splitter/demo/multiple.tsx correctly 1`] = `
         class="ant-typography ant-typography-secondary"
         style="white-space:nowrap"
       >
+        Panel 
+        <!-- -->
         3
       </h5>
     </div>
