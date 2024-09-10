@@ -27,7 +27,7 @@ export default function useSizes(items: PanelProps[], containerSize: number) {
     items.map((item) => item.defaultSize),
   );
   const sizes = React.useMemo(() => {
-    const mergedSizes = [];
+    const mergedSizes: PanelProps['size'][] = [];
 
     for (let i = 0; i < itemsCount; i += 1) {
       mergedSizes[i] = propSizes[i] ?? innerSizes[i];
@@ -61,7 +61,7 @@ export default function useSizes(items: PanelProps[], containerSize: number) {
       }
     }
 
-    const totalPtg = ptgList.reduce((acc: number, ptg) => acc + (ptg || 0), 0);
+    const totalPtg = ptgList.reduce<number>((acc, ptg) => acc + (ptg || 0), 0);
 
     if (totalPtg > 1 || !emptyCount) {
       // If total percentage is larger than 1, we will scale it down.

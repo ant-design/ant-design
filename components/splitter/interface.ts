@@ -16,12 +16,7 @@ export interface PanelProps {
   min?: number | string;
   max?: number | string;
   size?: number | string;
-  collapsible?:
-    | boolean
-    | {
-        start?: boolean;
-        end?: boolean;
-      };
+  collapsible?: boolean | { start?: boolean; end?: boolean };
   resizable?: boolean;
   defaultSize?: number | string;
 }
@@ -40,6 +35,7 @@ export interface UseResizeProps extends Pick<SplitterProps, 'onResize'> {
   reverse: boolean;
   setBasicsState: React.Dispatch<React.SetStateAction<number[]>>;
 }
+
 export interface UseResize {
   setSize: (data: { size: number; index: number }[]) => void;
   setOffset: (offset: number, containerSize: number, index: number) => void;
@@ -52,6 +48,7 @@ export interface UseHandleProps
   setOffset: UseResize['setOffset'];
   setResizing: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
 export interface UseHandle {
   onStart: (x: number, y: number, index: number) => void;
 }
@@ -63,6 +60,7 @@ export interface UseCollapsibleProps {
   reverse: boolean;
   setSize?: UseResize['setSize'];
 }
+
 export interface UseCollapsible {
   nextIcon: boolean;
   overlap: boolean;
