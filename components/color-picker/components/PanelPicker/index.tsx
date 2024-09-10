@@ -2,6 +2,7 @@ import type { FC } from 'react';
 import React, { useContext } from 'react';
 import RcColorPicker from '@rc-component/color-picker';
 import type { Color } from '@rc-component/color-picker';
+import { useEvent } from 'rc-util';
 import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
 import Segmented from '../../../segmented';
@@ -138,13 +139,13 @@ const PanelPicker: FC = () => {
     onChange(nextColor, fromPicker);
   };
 
-  const onInternalChangeComplete = (nextColor: Color, info?: Info) => {
+  const onInternalChangeComplete = useEvent((nextColor: Color, info?: Info) => {
     // Back of origin color in case in controlled
     setPickerColor(activeColor);
 
     // Trigger complete event
     onChangeComplete(fillColor(nextColor, info));
-  };
+  });
 
   const onInputChange = (colorValue: AggregationColor) => {
     onChange(fillColor(colorValue));
