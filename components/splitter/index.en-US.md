@@ -44,6 +44,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| defaultSize | Initial panel size support number for px or 'percent%' usage | `number \| string` | - | - |
 | min | Minimum threshold support number for px or 'percent%' usage | `number \| string` | - | - |
 | max | Maximum threshold support number for px or 'percent%' usage | `number \| string` | - | - |
 | size | Controlled panel size support number for px or 'percent%' usage | `number \| string` | - | - |
