@@ -204,7 +204,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
           aria-hidden
           className={classNames(
             maskCls,
-            isVertical ? `${maskCls}-vertical` : `${maskCls}-horizontal`,
+            `${maskCls}-${layout}`,
           )}
         />
       )}
