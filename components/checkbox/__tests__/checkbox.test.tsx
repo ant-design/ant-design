@@ -37,4 +37,27 @@ describe('Checkbox', () => {
     );
     errorSpy.mockRestore();
   });
+
+  it('onFocus', () => {
+    const onFocus = jest.fn();
+
+    const { container } = render(<Checkbox onFocus={onFocus} />);
+    const inputEl = container.querySelector('input')!;
+
+    fireEvent.focus(inputEl);
+
+    expect(onFocus).toHaveBeenCalledTimes(1);
+  });
+
+  it('onBlur', () => {
+    const onBlur = jest.fn();
+
+    const { container } = render(<Checkbox onBlur={onBlur} />);
+    const inputEl = container.querySelector('input')!;
+
+    fireEvent.focus(inputEl);
+    fireEvent.blur(inputEl);
+
+    expect(onBlur).toHaveBeenCalledTimes(1);
+  });
 });

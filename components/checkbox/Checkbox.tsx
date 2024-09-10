@@ -37,6 +37,8 @@ export interface AbstractCheckboxProps<T> {
   type?: string;
   skipGroup?: boolean;
   required?: boolean;
+  onFocus?: React.FocusEventHandler<HTMLElement>;
+  onBlur?: React.FocusEventHandler<HTMLElement>;
 }
 
 export interface CheckboxChangeEventTarget extends CheckboxProps {
