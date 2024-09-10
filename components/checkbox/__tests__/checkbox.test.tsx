@@ -37,27 +37,18 @@ describe('Checkbox', () => {
     );
     errorSpy.mockRestore();
   });
-
-  it('onFocus', () => {
+  // https://github.com/ant-design/ant-design/issues/50768
+  it('onFocus / onBlur', () => {
+    const onBlur = jest.fn();
     const onFocus = jest.fn();
 
-    const { container } = render(<Checkbox onFocus={onFocus} />);
-    const inputEl = container.querySelector('input')!;
-
-    fireEvent.focus(inputEl);
-
-    expect(onFocus).toHaveBeenCalledTimes(1);
-  });
-
-  it('onBlur', () => {
-    const onBlur = jest.fn();
-
-    const { container } = render(<Checkbox onBlur={onBlur} />);
+    const { container } = render(<Checkbox onBlur={onBlur} onFocus={onFocus}/>);
     const inputEl = container.querySelector('input')!;
 
     fireEvent.focus(inputEl);
     fireEvent.blur(inputEl);
 
+    expect(onFocus).toHaveBeenCalledTimes(1);
     expect(onBlur).toHaveBeenCalledTimes(1);
   });
 });
