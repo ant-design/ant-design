@@ -200,13 +200,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
       {/* Fake mask for cursor */}
       {typeof movingIndex === 'number' && (
-        <div
-          aria-hidden
-          className={classNames(
-            maskCls,
-            `${maskCls}-${layout}`,
-          )}
-        />
+        <div aria-hidden className={classNames(maskCls, `${maskCls}-${layout}`)} />
       )}
     </>,
   );
