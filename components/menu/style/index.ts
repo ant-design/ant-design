@@ -639,8 +639,8 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
           alignItems: 'center',
           transition: `color ${motionDurationSlow}`,
 
-          '> a:first-child': {
-            flexGrow: 1,
+          '> *:first-child': {
+            flex: 'auto',
           },
 
           // https://github.com/ant-design/ant-design/issues/41143
