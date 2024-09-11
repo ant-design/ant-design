@@ -120,7 +120,7 @@ const getGroupRadioStyle: GenerateStyle<RadioToken> = (token) => {
         direction: 'rtl',
       },
 
-      [`&${groupPrefixCls}-flex`]: {
+      [`&${groupPrefixCls}-block`]: {
         display: 'flex',
       },
 
@@ -187,6 +187,11 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
         width: 0,
         overflow: 'hidden',
         content: '"\\a0"',
+      },
+
+      '&-block': {
+        flex: 1,
+        justifyContent: 'center',
       },
 
       // hashId 在 wrapper 上，只能铺平
@@ -548,7 +553,7 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
         boxShadow: 'none',
       },
 
-      '&-flex-item': {
+      '&-block': {
         flex: 1,
         textAlign: 'center',
       },

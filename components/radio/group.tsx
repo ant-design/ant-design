@@ -112,7 +112,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     {
       [`${groupPrefixCls}-${mergedSize}`]: mergedSize,
       [`${groupPrefixCls}-rtl`]: direction === 'rtl',
-      [`${groupPrefixCls}-flex`]: block,
+      [`${groupPrefixCls}-block`]: block,
     },
     className,
     rootClassName,
