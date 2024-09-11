@@ -62,6 +62,7 @@ demo:
 | optionType | 用于设置 Radio `options` 类型 | `default` \| `button` | `default` | 4.4.0 |  |
 | size | 大小，只对按钮样式生效 | `large` \| `middle` \| `small` | - |  |  |
 | value | 用于设置当前选中的值 | any | - |  |  |
+| block | 配置 RadioGroup 宽度撑开 | boolean | false |  |  |
 | onChange | 选项变化时的回调函数 | function(e:Event) | - |  |  |
 
 ### CheckboxOptionType
