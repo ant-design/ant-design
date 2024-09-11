@@ -1,0 +1,23 @@
+name: Issue remove unconfirmed label
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: read
+
+jobs:
+  issue-labeled:
+    permissions:
+      issues: write  # for actions-cool/issues-helper to update issues
+      pull-requests: write  # for actions-cool/issues-helper to update PRs
+    runs-on: ubuntu-latest
+    steps:
+      - name: remove unconfirmed label
+        if: github.event.label.name != 'unconfirmed'
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'remove-labels'
+          issue-number: ${{ github.event.issue.number }}
+          labels: 'unconfirmed'
