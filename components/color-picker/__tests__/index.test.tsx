@@ -20,6 +20,7 @@ function doMouseMove(
   start: number,
   end: number,
   element: string | HTMLElement = 'ant-color-picker-handler',
+  fireMouseUp = true,
 ) {
   const ele =
     element instanceof HTMLElement ? element : container.getElementsByClassName(element)[0];
@@ -44,8 +45,10 @@ function doMouseMove(
     fireEvent(document, mouseMove);
   }
 
-  const mouseUp = createEvent.mouseUp(document);
-  fireEvent(document, mouseUp);
+  if (fireMouseUp) {
+    const mouseUp = createEvent.mouseUp(document);
+    fireEvent(document, mouseUp);
+  }
 }
 
 describe('ColorPicker', () => {
@@ -878,5 +881,59 @@ describe('ColorPicker', () => {
     });
 
     spyRect.mockRestore();
+  });
+
+  describe('controlled with `onChangeComplete`', () => {
+    let spyRect: ReturnType<typeof spyElementPrototypes>;
+
+    beforeEach(() => {
+      spyRect = spyElementPrototypes(HTMLElement, {
+        getBoundingClientRect: () => ({
+          x: 0,
+          y: 100,
+          width: 100,
+          height: 100,
+        }),
+      });
+    });
+
+    afterEach(() => {
+      spyRect.mockRestore();
+    });
+
+    it('lock value', async () => {
+      const onChange = jest.fn();
+      const onChangeComplete = jest.fn();
+      const { container } = render(
+        <ColorPicker value="#F00" open onChange={onChange} onChangeComplete={onChangeComplete} />,
+      );
+
+      doMouseMove(container, 0, 50, 'ant-color-picker-slider-handle', false);
+
+      expect(onChange).toHaveBeenCalledWith(
+        expect.anything(),
+        // Safe to change with any value but (255/0/0)
+        'rgb(0,255,255)',
+      );
+      expect(onChangeComplete).not.toHaveBeenCalled();
+
+      // Inline Color Block (locked)
+      expect(container.querySelectorAll('.ant-color-picker-color-block-inner')[0]).toHaveStyle({
+        background: 'rgb(255, 0, 0)',
+      });
+
+      // Popup Color Block (follow operation)
+      expect(container.querySelectorAll('.ant-color-picker-color-block-inner')[1]).toHaveStyle({
+        background: 'rgb(0, 255, 255)',
+      });
+
+      // Mouse up
+      fireEvent.mouseUp(document);
+
+      // Lock color back
+      expect(container.querySelectorAll('.ant-color-picker-color-block-inner')[1]).toHaveStyle({
+        background: 'rgb(255, 0, 0)',
+      });
+    });
   });
 });
