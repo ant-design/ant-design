@@ -150,7 +150,7 @@ type TransformAction =
     zoomInIcon: React.ReactNode;
   };
   actions: {
-    onActive?: (index: number) => void; // support after 5.19.0
+    onActive?: (index: number) => void; // support after 5.21.0
     onFlipY: () => void;
     onFlipX: () => void;
     onRotateLeft: () => void;
