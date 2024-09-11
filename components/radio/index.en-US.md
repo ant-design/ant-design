@@ -50,7 +50,7 @@ Common props ref：[Common props](/docs/react/common-props)
 Radio group can wrap a group of `Radio`。
 
 | Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | buttonStyle | The style type of radio button | `outline` \| `solid` | `outline` |  |
 | defaultValue | Default selected value | any | - |  |
 | disabled | Disable all radio buttons | boolean | false |  |
@@ -59,7 +59,7 @@ Radio group can wrap a group of `Radio`。
 | optionType | Set Radio optionType | `default` \| `button` | `default` | 4.4.0 |
 | size | The size of radio button style | `large` \| `middle` \| `small` | - |  |
 | value | Used for setting the currently selected value | any | - |  |
-| block | set RadioGroup width expansion | boolean | false |  |  |
+| block | set RadioGroup width expansion | boolean | false | 5.21.0 |
 | onChange | The callback function that is triggered when the state changes | function(e:Event) | - |  |
 
 ### CheckboxOptionType
