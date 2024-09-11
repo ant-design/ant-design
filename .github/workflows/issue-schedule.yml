@@ -21,7 +21,7 @@ jobs:
             const data = await response.json()
             const issueList = [];
             for (const item of data.items) {
-                const { created_at, html_url, pull_request, state, title } = item;
+                const { created_at, html_url, pull_request, state, title, labels } = item;
                 const createdAt = new Date(created_at);
                 const now = new Date();
                 const diffTime = Math.abs(now - createdAt);
@@ -30,6 +30,13 @@ jobs:
                 if (diffDays > 7) {
                     break;
                 }
+                
+                const isUnconfirmed = labels.some(label => label.name === 'unconfirmed');
+
+                if (!isUnconfirmed) {
+                    continue;
+                }
+
 
                 if (!pull_request && !html_url.includes('pull') && state === 'open') {
                     issueList.push({
