@@ -36,6 +36,11 @@ const localeValues: Locale = {
     triggerAsc: 'Click para ordenar en orden ascendente',
     cancelSort: 'Click para cancelar ordenamiento',
   },
+  Tour: {
+    Next: 'Siguiente',
+    Previous: 'Anterior',
+    Finish: 'Finalizar',
+  },
   Modal: {
     okText: 'Aceptar',
     cancelText: 'Cancelar',
