@@ -123,7 +123,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
 
   const memoizedValue = React.useMemo<RadioGroupContextProps>(
     () => ({ onChange: onRadioChange, value, disabled, name, optionType, block }),
-    [onRadioChange, value, disabled, name, optionType],
+    [onRadioChange, value, disabled, name, optionType, block],
   );
 
   return wrapCSSVar(
