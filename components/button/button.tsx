@@ -12,8 +12,14 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { useCompactItemContext } from '../space/Compact';
 import Group, { GroupSizeContext } from './button-group';
-import type { ButtonHTMLType, ButtonShape, ButtonType } from './buttonHelpers';
-import { isTwoCNChar, isUnBorderedButtonType, spaceChildren } from './buttonHelpers';
+import type {
+  ButtonColorType,
+  ButtonHTMLType,
+  ButtonShape,
+  ButtonType,
+  ButtonVariantType,
+} from './buttonHelpers';
+import { isTwoCNChar, isUnBorderedButtonVariant, spaceChildren } from './buttonHelpers';
 import IconWrapper from './IconWrapper';
 import LoadingIcon from './LoadingIcon';
 import useStyle from './style';
@@ -23,6 +29,8 @@ export type LegacyButtonType = ButtonType | 'danger';
 
 export interface BaseButtonProps {
   type?: ButtonType;
+  color?: ButtonColorType;
+  variant?: ButtonVariantType;
   icon?: React.ReactNode;
   iconPosition?: 'start' | 'end';
   shape?: ButtonShape;
@@ -45,7 +53,7 @@ type MergedHTMLAttributes = Omit<
   React.HTMLAttributes<HTMLElement> &
     React.ButtonHTMLAttributes<HTMLElement> &
     React.AnchorHTMLAttributes<HTMLElement>,
-  'type'
+  'type' | 'color'
 >;
 
 export interface ButtonProps extends BaseButtonProps, MergedHTMLAttributes {
@@ -75,6 +83,16 @@ function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigTyp
   };
 }
 
+type ColorVariantPairType = [color?: ButtonColorType, variant?: ButtonVariantType];
+
+const ButtonTypeMap: Partial<Record<ButtonType, ColorVariantPairType>> = {
+  default: ['default', 'outlined'],
+  primary: ['primary', 'solid'],
+  dashed: ['default', 'dashed'],
+  link: ['primary', 'link'],
+  text: ['default', 'text'],
+};
+
 const InternalCompoundedButton = React.forwardRef<
   HTMLButtonElement | HTMLAnchorElement,
   ButtonProps
@@ -82,6 +100,8 @@ const InternalCompoundedButton = React.forwardRef<
   const {
     loading = false,
     prefixCls: customizePrefixCls,
+    color,
+    variant,
     type,
     danger = false,
     shape = 'default',
@@ -107,6 +127,23 @@ const InternalCompoundedButton = React.forwardRef<
   // Compatible with original `type` behavior
   const mergedType = type || 'default';
 
+  const [mergedColor, mergedVariant] = useMemo<ColorVariantPairType>(() => {
+    if (color && variant) {
+      return [color, variant];
+    }
+
+    const colorVariantPair = ButtonTypeMap[mergedType] || [];
+
+    if (danger) {
+      return ['danger', colorVariantPair[1]];
+    }
+
+    return colorVariantPair;
+  }, [type, color, variant, danger]);
+
+  const isDanger = mergedColor === 'danger';
+  const mergedColorText = isDanger ? 'dangerous' : mergedColor;
+
   const { getPrefixCls, direction, button } = useContext(ConfigContext);
 
   const mergedInsertSpace = autoInsertSpace ?? button?.autoInsertSpace ?? true;
@@ -131,7 +168,7 @@ const InternalCompoundedButton = React.forwardRef<
   const buttonRef = composeRef(ref, internalRef);
 
   const needInserted =
-    Children.count(children) === 1 && !icon && !isUnBorderedButtonType(mergedType);
+    Children.count(children) === 1 && !icon && !isUnBorderedButtonVariant(mergedVariant);
 
   useEffect(() => {
     let delayTimer: ReturnType<typeof setTimeout> | null = null;
@@ -189,7 +226,7 @@ const InternalCompoundedButton = React.forwardRef<
     );
 
     warning(
-      !(ghost && isUnBorderedButtonType(mergedType)),
+      !(ghost && isUnBorderedButtonVariant(mergedVariant)),
       'usage',
       "`link` or `text` button can't be a `ghost` button.",
     );
@@ -213,14 +250,14 @@ const InternalCompoundedButton = React.forwardRef<
     cssVarCls,
     {
       [`${prefixCls}-${shape}`]: shape !== 'default' && shape,
-      [`${prefixCls}-${mergedType}`]: mergedType,
+      [`${prefixCls}-${mergedColorText}`]: mergedColorText,
+      [`${prefixCls}-${mergedVariant}`]: mergedVariant,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
-      [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonType(mergedType),
+      [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonVariant(mergedVariant),
       [`${prefixCls}-loading`]: innerLoading,
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && mergedInsertSpace && !innerLoading,
       [`${prefixCls}-block`]: block,
-      [`${prefixCls}-dangerous`]: danger,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-icon-end`]: iconPosition === 'end',
     },
@@ -286,7 +323,7 @@ const InternalCompoundedButton = React.forwardRef<
     </button>
   );
 
-  if (!isUnBorderedButtonType(mergedType)) {
+  if (!isUnBorderedButtonVariant(mergedVariant)) {
     buttonNode = (
       <Wave component="Button" disabled={innerLoading}>
         {buttonNode}
