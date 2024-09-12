@@ -1,8 +1,11 @@
 import type { PropsWithChildren } from 'react';
 import React, { useEffect } from 'react';
 import { render } from '@testing-library/react';
-import type { ImageProps, MenuProps } from 'antd';
+
+import { waitFakeTimer } from '../../../tests/utils';
+import type { ImageProps, MenuProps } from '../../index';
 import {
+  App,
   AutoComplete,
   Cascader,
   ColorPicker,
@@ -18,11 +21,10 @@ import {
   Tooltip,
   Tour,
   TreeSelect,
-} from 'antd';
-
-import { waitFakeTimer } from '../../../tests/utils';
+} from '../../index';
 import type { ZIndexConsumer, ZIndexContainer } from '../hooks/useZIndex';
 import { consumerBaseZIndexOffset, containerBaseZIndexOffset, useZIndex } from '../hooks/useZIndex';
+import { resetWarned } from '../warning';
 import zIndexContext from '../zindexContext';
 
 const WrapWithProvider: React.FC<PropsWithChildren<{ containerType: ZIndexContainer }>> = ({
@@ -229,6 +231,7 @@ function getConsumerSelector(baseSelector: string, consumer: ZIndexConsumer): st
 
 describe('Test useZIndex hooks', () => {
   beforeEach(() => {
+    resetWarned();
     jest.useFakeTimers();
   });
   afterEach(() => {
@@ -250,7 +253,7 @@ describe('Test useZIndex hooks', () => {
             return <div>Child</div>;
           };
 
-          const App = () => (
+          const Demo = () => (
             <WrapWithProvider containerType={containerKey as ZIndexContainer}>
               <WrapWithProvider containerType={containerKey as ZIndexContainer}>
                 <WrapWithProvider containerType={containerKey as ZIndexContainer}>
@@ -259,7 +262,7 @@ describe('Test useZIndex hooks', () => {
               </WrapWithProvider>
             </WrapWithProvider>
           );
-          render(<App />);
+          render(<Demo />);
           expect(fn).toHaveBeenLastCalledWith(
             1000 +
               containerBaseZIndexOffset[containerKey as ZIndexContainer] * 3 +
@@ -271,7 +274,7 @@ describe('Test useZIndex hooks', () => {
           const Container = containerComponent[containerKey as ZIndexContainer];
           const Consumer = consumerComponent[key as ZIndexConsumer];
 
-          const App = () => (
+          const Demo = () => (
             <>
               <Consumer rootClassName="consumer1" />
               <Container rootClassName="container1">
@@ -283,7 +286,7 @@ describe('Test useZIndex hooks', () => {
             </>
           );
 
-          const { unmount } = render(<App />);
+          const { unmount } = render(<Demo />);
 
           await waitFakeTimer(1000);
 
@@ -409,5 +412,31 @@ describe('Test useZIndex hooks', () => {
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Tooltip] `zIndex` is over design token `zIndexPopupBase` too much. It may cause unexpected override.',
     );
+
+    errorSpy.mockRestore();
+  });
+
+  it('not warning for static func', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const Demo = () => {
+      const { modal } = App.useApp();
+
+      React.useEffect(() => {
+        modal.confirm({ content: <Select open /> });
+      }, []);
+
+      return null;
+    };
+
+    render(
+      <App>
+        <Demo />
+      </App>,
+    );
+
+    expect(errorSpy).not.toHaveBeenCalled();
+
+    errorSpy.mockRestore();
   });
 });
