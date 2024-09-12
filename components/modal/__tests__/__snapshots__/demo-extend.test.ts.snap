@@ -83,13 +83,8 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
     style="width: 100%;"
   >
     <div
-      aria-hidden="true"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-      tabindex="0"
-    />
-    <div
       style="outline: none;"
-      tabindex="-1"
+      tabindex="0"
     >
       <div
         class="ant-modal-content"
@@ -161,7 +156,6 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
       </div>
     </div>
     <div
-      aria-hidden="true"
       style="width: 0px; height: 0px; overflow: hidden; outline: none;"
       tabindex="0"
     />
@@ -173,13 +167,8 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
     style="width: 100%;"
   >
     <div
-      aria-hidden="true"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-      tabindex="0"
-    />
-    <div
       style="outline: none;"
-      tabindex="-1"
+      tabindex="0"
     >
       <div
         class="ant-modal-content"
@@ -251,7 +240,6 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
       </div>
     </div>
     <div
-      aria-hidden="true"
       style="width: 0px; height: 0px; overflow: hidden; outline: none;"
       tabindex="0"
     />
@@ -263,13 +251,8 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
     style="width: 200px;"
   >
     <div
-      aria-hidden="true"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-      tabindex="0"
-    />
-    <div
       style="outline: none;"
-      tabindex="-1"
+      tabindex="0"
     >
       <div
         class="ant-modal-content"
@@ -329,7 +312,6 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
       </div>
     </div>
     <div
-      aria-hidden="true"
       style="width: 0px; height: 0px; overflow: hidden; outline: none;"
       tabindex="0"
     />
@@ -341,13 +323,8 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
     style="width: 300px;"
   >
     <div
-      aria-hidden="true"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-      tabindex="0"
-    />
-    <div
       style="outline: none;"
-      tabindex="-1"
+      tabindex="0"
     >
       <div
         class="ant-modal-content"
@@ -420,7 +397,6 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
       </div>
     </div>
     <div
-      aria-hidden="true"
       style="width: 0px; height: 0px; overflow: hidden; outline: none;"
       tabindex="0"
     />
@@ -797,13 +773,8 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
     style="width: 100%; height: 200px;"
   >
     <div
-      aria-hidden="true"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-      tabindex="0"
-    />
-    <div
       style="outline: none;"
-      tabindex="-1"
+      tabindex="0"
     >
       <div
         class="ant-modal-content"
@@ -875,7 +846,6 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
       </div>
     </div>
     <div
-      aria-hidden="true"
       style="width: 0px; height: 0px; overflow: hidden; outline: none;"
       tabindex="0"
     />
@@ -887,13 +857,8 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
     style="width: 200px; height: 150px;"
   >
     <div
-      aria-hidden="true"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-      tabindex="0"
-    />
-    <div
       style="outline: none;"
-      tabindex="-1"
+      tabindex="0"
     >
       <div
         class="ant-modal-content"
@@ -953,7 +918,6 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
       </div>
     </div>
     <div
-      aria-hidden="true"
       style="width: 0px; height: 0px; overflow: hidden; outline: none;"
       tabindex="0"
     />
@@ -965,13 +929,8 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
     style="width: 300px; height: 200px;"
   >
     <div
-      aria-hidden="true"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-      tabindex="0"
-    />
-    <div
       style="outline: none;"
-      tabindex="-1"
+      tabindex="0"
     >
       <div
         class="ant-modal-content"
@@ -1044,7 +1003,6 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
       </div>
     </div>
     <div
-      aria-hidden="true"
       style="width: 0px; height: 0px; overflow: hidden; outline: none;"
       tabindex="0"
     />
@@ -1056,13 +1014,8 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
     style="width: 380px; height: 200px;"
   >
     <div
-      aria-hidden="true"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-      tabindex="0"
-    />
-    <div
       style="outline: none;"
-      tabindex="-1"
+      tabindex="0"
     >
       <div
         class="ant-modal-content"
@@ -1207,7 +1160,6 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
       </div>
     </div>
     <div
-      aria-hidden="true"
       style="width: 0px; height: 0px; overflow: hidden; outline: none;"
       tabindex="0"
     />
@@ -1299,13 +1251,8 @@ exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`
     style="width: 100%;"
   >
     <div
-      aria-hidden="true"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-      tabindex="0"
-    />
-    <div
       style="outline: none;"
-      tabindex="-1"
+      tabindex="0"
     >
       <div
         class="ant-modal-content"
@@ -1377,7 +1324,6 @@ exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`
       </div>
     </div>
     <div
-      aria-hidden="true"
       style="width: 0px; height: 0px; overflow: hidden; outline: none;"
       tabindex="0"
     />
@@ -1389,13 +1335,8 @@ exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`
     style="width: 200px;"
   >
     <div
-      aria-hidden="true"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-      tabindex="0"
-    />
-    <div
       style="outline: none;"
-      tabindex="-1"
+      tabindex="0"
     >
       <div
         class="ant-modal-content"
@@ -1455,7 +1396,6 @@ exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`
       </div>
     </div>
     <div
-      aria-hidden="true"
       style="width: 0px; height: 0px; overflow: hidden; outline: none;"
       tabindex="0"
     />
@@ -1467,13 +1407,8 @@ exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`
     style="width: 300px;"
   >
     <div
-      aria-hidden="true"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-      tabindex="0"
-    />
-    <div
       style="outline: none;"
-      tabindex="-1"
+      tabindex="0"
     >
       <div
         class="ant-modal-content"
@@ -1546,7 +1481,6 @@ exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`
       </div>
     </div>
     <div
-      aria-hidden="true"
       style="width: 0px; height: 0px; overflow: hidden; outline: none;"
       tabindex="0"
     />
