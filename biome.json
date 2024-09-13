@@ -34,7 +34,6 @@
         "useImportType": "off",
         "useNumberNamespace": "off",
         "useNodejsImportProtocol": "off",
-        "useSemanticElements": "off",
         "noNonNullAssertion": "off",
         "noUnusedTemplateLiteral": "off"
       },
