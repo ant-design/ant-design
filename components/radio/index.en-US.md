@@ -26,6 +26,7 @@ demo:
 <code src="./demo/radiogroup-with-name.tsx">Radio.Group with name</code>
 <code src="./demo/size.tsx">Size</code>
 <code src="./demo/radiobutton-solid.tsx">Solid radio button</code>
+<code src="./demo/radiogroup-block.tsx">Width automatic expansion</code>
 <code src="./demo/badge.tsx" debug>Badge style</code>
 <code src="./demo/wireframe.tsx" debug>Wireframe</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
