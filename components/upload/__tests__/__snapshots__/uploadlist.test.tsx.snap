@@ -1389,6 +1389,7 @@ exports[`Upload List should support showXxxIcon functions 1`] = `
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
