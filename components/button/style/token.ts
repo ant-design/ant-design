@@ -1,6 +1,8 @@
 import type { CSSProperties } from 'react';
 
-import type { FullToken, GetDefaultToken, GenStyleFn } from '../../theme/internal';
+import { AggregationColor } from '../../color-picker/color';
+import { isBright } from '../../color-picker/components/ColorPresets';
+import type { FullToken, GenStyleFn, GetDefaultToken } from '../../theme/internal';
 import { getLineHeight, mergeToken } from '../../theme/internal';
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -100,6 +102,15 @@ export interface ComponentToken {
    * @descEN Border color of default ghost button
    */
   defaultGhostBorderColor: string;
+  /**
+   * @desc 主要填充按钮的浅色背景颜色
+   * @descEN Background color of primary filled button
+   */
+  /**
+   * @desc 默认实心按钮的文本色
+   * @descEN Default text color for solid buttons.
+   */
+  solidTextColor: string;
   /**
    * @desc 按钮横向内间距
    * @descEN Horizontal padding of button
@@ -231,6 +242,9 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
   const contentLineHeight = token.contentLineHeight ?? getLineHeight(contentFontSize);
   const contentLineHeightSM = token.contentLineHeightSM ?? getLineHeight(contentFontSizeSM);
   const contentLineHeightLG = token.contentLineHeightLG ?? getLineHeight(contentFontSizeLG);
+  const solidTextColor = isBright(new AggregationColor(token.colorBgSolid), '#fff')
+    ? '#000'
+    : '#fff';
 
   return {
     fontWeight: 400,
@@ -262,6 +276,7 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
     defaultActiveBg: token.colorBgContainer,
     defaultActiveColor: token.colorPrimaryActive,
     defaultActiveBorderColor: token.colorPrimaryActive,
+    solidTextColor,
     contentFontSize,
     contentFontSizeSM,
     contentFontSizeLG,

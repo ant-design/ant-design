@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { DotChartOutlined } from '@ant-design/icons';
 import type { RadioChangeEvent } from 'antd';
-import { Divider, Form, Radio, Skeleton, Space, Switch } from 'antd';
+import { Flex, Divider, Form, Radio, Skeleton, Space, Switch } from 'antd';
 
 type SizeType = 'default' | 'small' | 'large';
 type ButtonShapeType = 'circle' | 'square' | 'round' | 'default';
@@ -35,22 +35,17 @@ const App: React.FC = () => {
   };
 
   return (
-    <>
+    <Flex gap="middle" vertical>
       <Space>
         <Skeleton.Button active={active} size={size} shape={buttonShape} block={block} />
         <Skeleton.Avatar active={active} size={size} shape={avatarShape} />
         <Skeleton.Input active={active} size={size} />
       </Space>
-      <br />
-      <br />
       <Skeleton.Button active={active} size={size} shape={buttonShape} block={block} />
-      <br />
-      <br />
       <Skeleton.Input active={active} size={size} block={block} />
-      <br />
-      <br />
       <Space>
         <Skeleton.Image active={active} />
+        <Skeleton.Node active={active} style={{ width: 160 }} />
         <Skeleton.Node active={active}>
           <DotChartOutlined style={{ fontSize: 40, color: '#bfbfbf' }} />
         </Skeleton.Node>
@@ -87,7 +82,7 @@ const App: React.FC = () => {
           </Form.Item>
         </Space>
       </Form>
-    </>
+    </Flex>
   );
 };
 

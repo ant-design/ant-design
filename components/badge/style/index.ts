@@ -145,7 +145,6 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token) => {
     iconCls,
     antCls,
     badgeShadowSize,
-    motionDurationSlow,
     textFontSize,
     textFontSizeSM,
     statusSize,
@@ -230,9 +229,6 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token) => {
         background: token.badgeColor,
         borderRadius: '100%',
         boxShadow: `0 0 0 ${unit(badgeShadowSize)} ${token.badgeShadowColor}`,
-      },
-      [`${componentCls}-dot${numberPrefixCls}`]: {
-        transition: `background ${motionDurationSlow}`,
       },
       [`${componentCls}-count, ${componentCls}-dot, ${numberPrefixCls}-custom-component`]: {
         position: 'absolute',

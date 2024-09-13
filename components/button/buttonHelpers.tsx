@@ -19,7 +19,7 @@ export function isString(str: any): str is string {
   return typeof str === 'string';
 }
 
-export function isUnBorderedButtonType(type?: ButtonType) {
+export function isUnBorderedButtonVariant(type?: ButtonVariantType) {
   return type === 'text' || type === 'link';
 }
 
@@ -86,3 +86,18 @@ export type ButtonShape = (typeof ButtonShapes)[number];
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const ButtonHTMLTypes = ['submit', 'button', 'reset'] as const;
 export type ButtonHTMLType = (typeof ButtonHTMLTypes)[number];
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const ButtonVariantTypes = [
+  'outlined',
+  'dashed',
+  'solid',
+  'filled',
+  'text',
+  'link',
+] as const;
+export type ButtonVariantType = (typeof ButtonVariantTypes)[number];
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const ButtonColorTypes = ['default', 'primary', 'danger'] as const;
+export type ButtonColorType = (typeof ButtonColorTypes)[number];
