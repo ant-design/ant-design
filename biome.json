@@ -57,6 +57,9 @@
         "noAccumulatingSpread": "off"
       },
       "a11y": {
+        "noAriaHiddenOnFocusable": "off",
+        "noLabelWithoutControl": "off",
+        "useFocusableInteractive": "off",
         "useKeyWithClickEvents": "off",
         "useSemanticElements": "off"
       }
