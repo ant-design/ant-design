@@ -57,7 +57,8 @@
         "noAccumulatingSpread": "off"
       },
       "a11y": {
-        "useKeyWithClickEvents": "off"
+        "useKeyWithClickEvents": "off",
+        "useSemanticElements": "off"
       }
     }
   },
