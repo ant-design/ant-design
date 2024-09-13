@@ -7,12 +7,12 @@ import { getMergedStatus } from '../../_util/statusUtils';
 import type { InputStatus } from '../../_util/statusUtils';
 import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
+import type { Variant } from '../../config-provider';
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 import useSize from '../../config-provider/hooks/useSize';
 import type { SizeType } from '../../config-provider/SizeContext';
 import { FormItemInputContext } from '../../form/context';
 import type { FormItemStatusContextProps } from '../../form/context';
-import type { Variant } from '../../config-provider';
 import type { InputRef } from '../Input';
 import useStyle from '../style/otp';
 import OTPInput from './OTPInput';
@@ -46,6 +46,8 @@ export interface OTPProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'on
   status?: InputStatus;
 
   mask?: boolean | string;
+
+  type?: React.HTMLInputTypeAttribute;
 }
 
 function strToArr(str: string) {
@@ -66,6 +68,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     status: customStatus,
     autoFocus,
     mask,
+    type,
     ...restProps
   } = props;
 
@@ -213,6 +216,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     disabled,
     status: mergedStatus as InputStatus,
     mask,
+    type,
   };
 
   return wrapCSSVar(
