@@ -10,6 +10,7 @@ import useClips, { FontGap } from './useClips';
 import useRafDebounce from './useRafDebounce';
 import useWatermark from './useWatermark';
 import { getPixelRatio, reRendering } from './utils';
+import toList from '../_util/toList';
 
 export interface WatermarkProps {
   zIndex?: number;
@@ -145,7 +146,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     let defaultHeight = 64;
     if (!image && ctx.measureText) {
       ctx.font = `${Number(fontSize)}px ${fontFamily}`;
-      const contents = Array.isArray(content) ? content : [content];
+      const contents = toList(content);
       const sizes = contents.map((item) => {
         const metrics = ctx.measureText(item!);
 
