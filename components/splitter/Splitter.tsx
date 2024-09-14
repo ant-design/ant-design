@@ -131,24 +131,16 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   // ======================== Render ========================
   const maskCls = `${prefixCls}-mask`;
 
-  // const stackSizes = React.useMemo(() => {
-  //   const mergedSizes: number[] = [];
-
-  //   let stack = 0;
-  //   for (let i = 0; i < items.length; i += 1) {
-  //     stack += itemPtgSizes[i];
-  //     mergedSizes.push(stack);
-  //   }
-
-  //   return mergedSizes;
-  // }, [itemPtgSizes]);
-
   const stackSizes = React.useMemo(() => {
+    const mergedSizes: number[] = [];
+
     let stack = 0;
-    return itemPtgSizes.map<number>((size) => {
-      stack += size;
-      return stack;
-    });
+    for (let i = 0; i < items.length; i += 1) {
+      stack += itemPtgSizes[i];
+      mergedSizes.push(stack);
+    }
+
+    return mergedSizes;
   }, [itemPtgSizes]);
 
   const mergedStyle: React.CSSProperties = { ...splitter?.style, ...style };
