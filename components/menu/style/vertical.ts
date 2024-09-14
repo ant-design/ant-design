@@ -58,11 +58,11 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
     colorTextLightSolid,
     dropdownWidth,
     controlHeightLG,
-    motionDurationMid,
     motionEaseOut,
     paddingXL,
     itemMarginInline,
     fontSizeLG,
+    motionDurationFast,
     motionDurationSlow,
     paddingXS,
     boxShadowSecondary,
@@ -128,7 +128,7 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
             transition: [
               `border-color ${motionDurationSlow}`,
               `background ${motionDurationSlow}`,
-              `padding ${motionDurationMid} ${motionEaseOut}`,
+              `padding ${motionDurationFast} ${motionEaseOut}`,
             ].join(','),
 
             [`> ${componentCls}-title-content`]: {
