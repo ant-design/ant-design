@@ -30,7 +30,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     onResizeEnd,
   } = props;
 
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, splitter } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('splitter', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
@@ -122,6 +122,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
       [`${prefixCls}-rtl`]: isRTL,
     },
     rootClassName,
+    splitter?.className,
     cssVarCls,
     rootCls,
     hashId,
@@ -142,10 +143,12 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     return mergedSizes;
   }, [itemPtgSizes]);
 
+  const mergedStyle: React.CSSProperties = { ...splitter?.style, ...style };
+
   return wrapCSSVar(
     <>
       <ResizeObserver onResize={onContainerResize}>
-        <div style={style} className={containerClassName}>
+        <div style={mergedStyle} className={containerClassName}>
           {items.map((item, idx) => {
             // Panel
             const panel = <InternalPanel {...item} prefixCls={prefixCls} size={itemPxSizes[idx]} />;
