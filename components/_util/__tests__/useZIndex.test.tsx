@@ -245,28 +245,17 @@ describe('Test useZIndex hooks', () => {
             return <div>Child</div>;
           };
 
-<<<<<<< HEAD
-          const App: React.FC = () => (
+          const Demo: React.FC = () => (
             <WrapWithProvider container={containerKey as ZIndexContainer}>
               <WrapWithProvider container={containerKey as ZIndexContainer}>
                 <WrapWithProvider container={containerKey as ZIndexContainer}>
-=======
-          const Demo = () => (
-            <WrapWithProvider containerType={containerKey as ZIndexContainer}>
-              <WrapWithProvider containerType={containerKey as ZIndexContainer}>
-                <WrapWithProvider containerType={containerKey as ZIndexContainer}>
->>>>>>> master
                   <Child />
                 </WrapWithProvider>
               </WrapWithProvider>
             </WrapWithProvider>
           );
-<<<<<<< HEAD
-          render(<App />);
-
-=======
           render(<Demo />);
->>>>>>> master
+
           expect(fn).toHaveBeenLastCalledWith(
             1000 + containerZIndexValue * 3 + consumerZIndexValue,
           );
@@ -276,11 +265,7 @@ describe('Test useZIndex hooks', () => {
           const Container = containerComponent[containerKey as ZIndexContainer]!;
           const Consumer = consumerComponent[key as ZIndexConsumer]!;
 
-<<<<<<< HEAD
-          const App: React.FC = () => (
-=======
-          const Demo = () => (
->>>>>>> master
+          const Demo: React.FC = () => (
             <>
               <Consumer rootClassName="consumer1" />
               <Container rootClassName="container1">
@@ -396,7 +381,6 @@ describe('Test useZIndex hooks', () => {
     errorSpy.mockRestore();
   });
 
-<<<<<<< HEAD
   it('FloatButton support zIndex', () => {
     const { container, rerender } = render(
       <WrapWithProvider container="FloatButton">
@@ -413,7 +397,8 @@ describe('Test useZIndex hooks', () => {
       </WrapWithProvider>,
     );
     expect(container.querySelector<HTMLElement>('.ant-float-btn')?.style.zIndex).toBe(String(666));
-=======
+  });
+
   it('not warning for static func', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
@@ -436,6 +421,5 @@ describe('Test useZIndex hooks', () => {
     expect(errorSpy).not.toHaveBeenCalled();
 
     errorSpy.mockRestore();
->>>>>>> master
   });
 });
