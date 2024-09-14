@@ -58,6 +58,7 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
   // ========================= Render =========================
   return (
     <Input
+      type={mask === true ? 'password' : 'text'}
       {...restProps}
       ref={inputRef}
       value={internalValue}
@@ -67,7 +68,6 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
       onKeyUp={onInternalKeyUp}
       onMouseDown={syncSelection}
       onMouseUp={syncSelection}
-      type={mask === true ? 'password' : 'text'}
     />
   );
 });

@@ -114,6 +114,20 @@ const localeValues: Locale = {
       },
     },
   },
+  Image: {
+    preview: 'معاينة',
+  },
+  QRCode: {
+    expired: 'انتهت صلاحية رمز الاستجابة السريعة',
+    refresh: 'انقر للتحديث',
+    scanned: 'تم المسح',
+  },
+  ColorPicker: {
+    presetEmpty: 'لا يوجد',
+    transparent: 'شفاف',
+    singleColor: 'لون واحد',
+    gradientColor: 'تدرج لوني',
+  },
 };
 
 export default localeValues;
