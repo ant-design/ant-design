@@ -163,7 +163,15 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
   >
     <aside
       class="ant-layout-sider ant-layout-sider-dark"
-      style="background:#ffffff;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
+      style="flex:0 0 32px;max-width:32px;min-width:32px;width:32px"
+    >
+      <div
+        class="ant-layout-sider-children"
+      />
+    </aside>
+    <aside
+      class="ant-layout-sider ant-layout-sider-dark"
+      style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
     >
       <div
         class="ant-layout-sider-children"
@@ -172,7 +180,7 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
           class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
           data-menu-list="true"
           role="menu"
-          style="height:100%;border-right:0"
+          style="border-right:0"
           tabindex="0"
         >
           <li

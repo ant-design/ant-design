@@ -27,7 +27,7 @@ export interface CollapseProps extends Pick<RcCollapseProps, 'items'> {
   /** 手风琴效果 */
   accordion?: boolean;
   destroyInactivePanel?: boolean;
-  onChange?: (key: string | string[]) => void;
+  onChange?: (key: string[]) => void;
   style?: React.CSSProperties;
   className?: string;
   rootClassName?: string;

@@ -18325,13 +18325,8 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
         style="width: 520px;"
       >
         <div
-          aria-hidden="true"
-          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-          tabindex="0"
-        />
-        <div
           style="outline: none;"
-          tabindex="-1"
+          tabindex="0"
         >
           <div
             class="config-modal-content"
@@ -18394,7 +18389,6 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
           </div>
         </div>
         <div
-          aria-hidden="true"
           style="width: 0px; height: 0px; overflow: hidden; outline: none;"
           tabindex="0"
         />
@@ -18423,13 +18417,8 @@ exports[`ConfigProvider components Modal configProvider componentDisabled 1`] = 
         style="width: 520px;"
       >
         <div
-          aria-hidden="true"
-          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-          tabindex="0"
-        />
-        <div
           style="outline: none;"
-          tabindex="-1"
+          tabindex="0"
         >
           <div
             class="config-modal-content"
@@ -18492,7 +18481,6 @@ exports[`ConfigProvider components Modal configProvider componentDisabled 1`] = 
           </div>
         </div>
         <div
-          aria-hidden="true"
           style="width: 0px; height: 0px; overflow: hidden; outline: none;"
           tabindex="0"
         />
@@ -18521,13 +18509,8 @@ exports[`ConfigProvider components Modal configProvider componentSize large 1`] 
         style="width: 520px;"
       >
         <div
-          aria-hidden="true"
-          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-          tabindex="0"
-        />
-        <div
           style="outline: none;"
-          tabindex="-1"
+          tabindex="0"
         >
           <div
             class="config-modal-content"
@@ -18590,7 +18573,6 @@ exports[`ConfigProvider components Modal configProvider componentSize large 1`] 
           </div>
         </div>
         <div
-          aria-hidden="true"
           style="width: 0px; height: 0px; overflow: hidden; outline: none;"
           tabindex="0"
         />
@@ -18619,13 +18601,8 @@ exports[`ConfigProvider components Modal configProvider componentSize middle 1`]
         style="width: 520px;"
       >
         <div
-          aria-hidden="true"
-          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-          tabindex="0"
-        />
-        <div
           style="outline: none;"
-          tabindex="-1"
+          tabindex="0"
         >
           <div
             class="config-modal-content"
@@ -18688,7 +18665,6 @@ exports[`ConfigProvider components Modal configProvider componentSize middle 1`]
           </div>
         </div>
         <div
-          aria-hidden="true"
           style="width: 0px; height: 0px; overflow: hidden; outline: none;"
           tabindex="0"
         />
@@ -18717,13 +18693,8 @@ exports[`ConfigProvider components Modal configProvider componentSize small 1`] 
         style="width: 520px;"
       >
         <div
-          aria-hidden="true"
-          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-          tabindex="0"
-        />
-        <div
           style="outline: none;"
-          tabindex="-1"
+          tabindex="0"
         >
           <div
             class="config-modal-content"
@@ -18786,7 +18757,6 @@ exports[`ConfigProvider components Modal configProvider componentSize small 1`] 
           </div>
         </div>
         <div
-          aria-hidden="true"
           style="width: 0px; height: 0px; overflow: hidden; outline: none;"
           tabindex="0"
         />
@@ -18815,13 +18785,8 @@ exports[`ConfigProvider components Modal normal 1`] = `
         style="width: 520px;"
       >
         <div
-          aria-hidden="true"
-          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-          tabindex="0"
-        />
-        <div
           style="outline: none;"
-          tabindex="-1"
+          tabindex="0"
         >
           <div
             class="ant-modal-content"
@@ -18884,7 +18849,6 @@ exports[`ConfigProvider components Modal normal 1`] = `
           </div>
         </div>
         <div
-          aria-hidden="true"
           style="width: 0px; height: 0px; overflow: hidden; outline: none;"
           tabindex="0"
         />
@@ -18913,13 +18877,8 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
         style="width: 520px;"
       >
         <div
-          aria-hidden="true"
-          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-          tabindex="0"
-        />
-        <div
           style="outline: none;"
-          tabindex="-1"
+          tabindex="0"
         >
           <div
             class="prefix-Modal-content"
@@ -18982,7 +18941,6 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
           </div>
         </div>
         <div
-          aria-hidden="true"
           style="width: 0px; height: 0px; overflow: hidden; outline: none;"
           tabindex="0"
         />
