@@ -62,7 +62,7 @@ const App: React.FC = () => {
             items={[
               { title: 'Home' },
               { title: 'List' },
-              { title: 'APP' },
+              { title: 'App' },
             ]} 
             style={{ margin: '16px 0' }}
           />
