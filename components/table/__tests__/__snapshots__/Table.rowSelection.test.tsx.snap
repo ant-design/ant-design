@@ -11,7 +11,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-ping-right ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left"
+        class="ant-table ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left"
       >
         <div
           class="ant-table-container"
@@ -370,7 +370,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-ping-right ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left"
+        class="ant-table ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left"
       >
         <div
           class="ant-table-container"
@@ -670,7 +670,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-ping-right ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left"
+        class="ant-table ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left"
       >
         <div
           class="ant-table-container"

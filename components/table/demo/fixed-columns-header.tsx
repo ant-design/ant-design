@@ -120,7 +120,7 @@ const App: React.FC = () => {
       className={styles.customTable}
       columns={columns}
       dataSource={dataSource}
-      scroll={{ x: 'max-content', y: 275 }}
+      scroll={{ x: 'max-content', y: 55 * 5 }}
     />
   );
 };
