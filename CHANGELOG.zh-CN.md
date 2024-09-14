@@ -15,6 +15,19 @@ tag: vVERSION
 
 ---
 
+## 5.20.6
+
+`2024-09-09`
+
+- 🐞 修复 Menu 折叠动画不够丝滑的问题。[#50751](https://github.com/ant-design/ant-design/pull/50751) [@afc163](https://github.com/afc163)
+- 🐞 修复 Table 虚拟滚动时单元格宽度可能溢出的问题。[#50737](https://github.com/ant-design/ant-design/pull/50737) [@huiliangShen](https://github.com/huiliangShen)
+- 🐞 修复 Input.Search 的按钮圆角不随 `size` 变化的问题。[#50734](https://github.com/ant-design/ant-design/pull/50734) [@afc163](https://github.com/afc163)
+- 🐞 修复 Form 禁用时仍可切换密码显隐的问题。[#50616](https://github.com/ant-design/ant-design/pull/50616) [@Jarryxin](https://github.com/Jarryxin)
+- 🐞 回滚 [#49899](https://github.com/ant-design/ant-design/pull/49899) 以修复 Dropdown 菜单项文字溢出菜单的问题，并重新修复屏幕视口外菜单项内容换行错误的问题。[#50752](https://github.com/ant-design/ant-design/pull/50752) [#50718](https://github.com/ant-design/ant-design/pull/50718) [@afc163](https://github.com/afc163)
+- 💄 修复 Badge 鼠标移出时无背景色过渡动画的问题。[#50743](https://github.com/ant-design/ant-design/pull/50743) [@coding-ice](https://github.com/coding-ice)
+- TypeScript
+  - 🤖 修复 Collapse 的 `onChange` 的函数入参类型。[#50754](https://github.com/ant-design/ant-design/pull/50754) [@yuanliu147](https://github.com/yuanliu147)
+
 ## 5.20.5
 
 `2024-09-03`

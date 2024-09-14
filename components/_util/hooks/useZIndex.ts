@@ -25,6 +25,13 @@ const CONTAINER_OFFSET_MAX_COUNT = 10;
 
 export const CONTAINER_MAX_OFFSET = CONTAINER_OFFSET * CONTAINER_OFFSET_MAX_COUNT;
 
+/**
+ * Static function will default be the `CONTAINER_MAX_OFFSET`.
+ * But it still may have children component like Select, Dropdown.
+ * So the warning zIndex should exceed the `CONTAINER_MAX_OFFSET`.
+ */
+const CONTAINER_MAX_OFFSET_WITH_CHILDREN = CONTAINER_MAX_OFFSET + CONTAINER_OFFSET;
+
 export const containerBaseZIndexOffset: Record<ZIndexContainer, number> = {
   Modal: CONTAINER_OFFSET,
   Drawer: CONTAINER_OFFSET,
@@ -79,7 +86,7 @@ export const useZIndex = (
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning(componentType);
 
-    const maxZIndex = token.zIndexPopupBase + CONTAINER_MAX_OFFSET;
+    const maxZIndex = token.zIndexPopupBase + CONTAINER_MAX_OFFSET_WITH_CHILDREN;
     const currentZIndex = result[0] || 0;
 
     warning(
