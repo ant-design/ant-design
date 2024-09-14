@@ -6,7 +6,7 @@ import { useEvent } from 'rc-util';
 import { useToken } from '../theme/internal';
 import WatermarkContext from './context';
 import type { WatermarkContextProps } from './context';
-import useClips, { FontGap } from './useClips';
+import useClips from './useClips';
 import useRafDebounce from './useRafDebounce';
 import useWatermark from './useWatermark';
 import { getPixelRatio, reRendering } from './utils';
@@ -153,9 +153,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
         return [metrics.width, metrics.fontBoundingBoxAscent + metrics.fontBoundingBoxDescent];
       });
       defaultWidth = Math.ceil(Math.max(...sizes.map((size) => size[0])));
-      defaultHeight =
-        Math.ceil(Math.max(...sizes.map((size) => size[1]))) * contents.length +
-        (contents.length - 1) * FontGap;
+      defaultHeight = Math.ceil(Math.max(...sizes.map((size) => size[1]))) * contents.length;
     }
     return [width ?? defaultWidth, height ?? defaultHeight] as const;
   };

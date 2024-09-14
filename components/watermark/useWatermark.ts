@@ -2,13 +2,6 @@ import * as React from 'react';
 
 import { getStyleStr } from './utils';
 
-/**
- * Base size of the canvas, 1 for parallel layout and 2 for alternate layout
- * Only alternate layout is currently supported
- */
-export const BaseSize = 2;
-export const FontGap = 3;
-
 // Prevent external hidden elements from adding accent styles
 const emphasizedStyle = {
   visibility: 'visible !important',

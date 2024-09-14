@@ -1,8 +1,6 @@
 import type { WatermarkProps } from '.';
 import toList from '../_util/toList';
 
-export const FontGap = 3;
-
 function prepareCanvas(
   width: number,
   height: number,
@@ -57,8 +55,9 @@ export default function useClips() {
       ctx.textAlign = textAlign;
       ctx.textBaseline = 'top';
       const contents = toList(content);
+      const lineHeight = contentHeight / contents.length;
       contents?.forEach((item, index) => {
-        ctx.fillText(item ?? '', contentWidth / 2, index * (mergedFontSize + FontGap * ratio));
+        ctx.fillText(item ?? '', contentWidth / 2, index * lineHeight);
       });
     }
 
