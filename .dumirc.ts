@@ -1,7 +1,8 @@
 import path from 'path';
 import { defineConfig } from 'dumi';
 import * as fs from 'fs-extra';
-import os from 'os';
+import os from 'node:os';
+
 import rehypeAntd from './.dumi/rehypeAntd';
 import remarkAntd from './.dumi/remarkAntd';
 import { version } from './package.json';
