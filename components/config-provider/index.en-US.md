@@ -152,6 +152,7 @@ const {
 | slider | Set Slider common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | switch | Set Switch common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | space | Set Space common props, ref [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number`, className?: string, style?: React.CSSProperties, classNames?: [SpaceProps\["classNames"\]](/components/space#api), styles?: [SpaceProps\["styles"\]](/components/space#api) } | - | 5.6.0 |
+| splitter | Set Splitter common props | { className?: string, style?: React.CSSProperties } | - | 5.21.0 |
 | spin | Set Spin common props | { className?: string, style?: React.CSSProperties, indicator?: React.ReactElement } | - | 5.7.0, indicator: 5.20.0 |
 | statistic | Set Statistic common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | steps | Set Steps common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
