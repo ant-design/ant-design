@@ -936,4 +936,16 @@ describe('ColorPicker', () => {
       });
     });
   });
+
+  it('input precision', async () => {
+    const onChange = jest.fn();
+    const { container } = render(<ColorPicker open onChange={onChange} />);
+
+    fireEvent.change(container.querySelector('.ant-color-picker-hex-input input')!, {
+      target: { value: '2ddcb4' },
+    });
+
+    const onChangeColor = onChange.mock.calls[0][0];
+    expect(onChangeColor.toHexString()).toBe('#2ddcb4');
+  });
 });
