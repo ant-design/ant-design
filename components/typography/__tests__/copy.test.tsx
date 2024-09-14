@@ -352,4 +352,24 @@ describe('Typography copy', () => {
     fireEvent.click(container.querySelectorAll('.ant-typography-copy')[0]);
     expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('Copied');
   });
+
+  it('copy array children', () => {
+    const spy = jest.spyOn(copyObj, 'default');
+
+    const bamboo = 'bamboo';
+    const little = 'little';
+
+    const { container } = render(
+      <Base component="p" copyable>
+        {bamboo}
+        {little}
+      </Base>,
+    );
+    fireEvent.click(container.querySelector('.ant-typography-copy')!);
+
+    // Check copy content
+    expect(spy.mock.calls[0][0]).toBe(`${bamboo}${little}`);
+
+    spy.mockRestore();
+  });
 });

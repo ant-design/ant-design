@@ -1536,7 +1536,7 @@ exports[`renders components/select/demo/custom-label-render.tsx extend context c
       class="ant-select-selection-item"
     >
       <span>
-        当前 value 没有对应的选项
+        No option match
       </span>
     </span>
   </div>
