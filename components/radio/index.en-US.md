@@ -21,12 +21,12 @@ demo:
 <code src="./demo/disabled.tsx">disabled</code>
 <code src="./demo/radiogroup.tsx">Radio Group</code>
 <code src="./demo/radiogroup-more.tsx">Vertical Radio.Group</code>
+<code src="./demo/radiogroup-block.tsx">Block Radio.Group</code>
 <code src="./demo/radiogroup-options.tsx">Radio.Group group - optional</code>
 <code src="./demo/radiobutton.tsx">radio style</code>
 <code src="./demo/radiogroup-with-name.tsx">Radio.Group with name</code>
 <code src="./demo/size.tsx">Size</code>
 <code src="./demo/radiobutton-solid.tsx">Solid radio button</code>
-<code src="./demo/radiogroup-block.tsx">Width automatic expansion</code>
 <code src="./demo/badge.tsx" debug>Badge style</code>
 <code src="./demo/wireframe.tsx" debug>Wireframe</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
@@ -60,7 +60,7 @@ Radio group can wrap a group of `Radio`。
 | optionType | Set Radio optionType | `default` \| `button` | `default` | 4.4.0 |
 | size | The size of radio button style | `large` \| `middle` \| `small` | - |  |
 | value | Used for setting the currently selected value | any | - |  |
-| block | set RadioGroup width expansion | boolean | false | 5.21.0 |
+| block | Option to fit RadioGroup width to its parent width | boolean | false | 5.21.0 |
 | onChange | The callback function that is triggered when the state changes | function(e:Event) | - |  |
 
 ### CheckboxOptionType

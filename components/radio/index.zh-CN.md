@@ -22,12 +22,12 @@ demo:
 <code src="./demo/disabled.tsx">不可用</code>
 <code src="./demo/radiogroup.tsx">单选组合</code>
 <code src="./demo/radiogroup-more.tsx">Radio.Group 垂直</code>
+<code src="./demo/radiogroup-block.tsx">Block 单选组合</code>
 <code src="./demo/radiogroup-options.tsx">Radio.Group 组合 - 配置方式</code>
 <code src="./demo/radiobutton.tsx">按钮样式</code>
 <code src="./demo/radiogroup-with-name.tsx">单选组合 - 配合 name 使用</code>
 <code src="./demo/size.tsx">大小</code>
 <code src="./demo/radiobutton-solid.tsx">填底的按钮样式</code>
-<code src="./demo/radiogroup-block.tsx">宽度自动撑开</code>
 <code src="./demo/badge.tsx" debug>测试 Badge 的样式</code>
 <code src="./demo/wireframe.tsx" debug>线框风格</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
@@ -63,7 +63,7 @@ demo:
 | optionType | 用于设置 Radio `options` 类型 | `default` \| `button` | `default` | 4.4.0 |  |
 | size | 大小，只对按钮样式生效 | `large` \| `middle` \| `small` | - |  |  |
 | value | 用于设置当前选中的值 | any | - |  |  |
-| block | 配置 RadioGroup 宽度撑开 | boolean | false | 5.21.0 |  |
+| block | 将 RadioGroup 宽度调整为其父宽度的选项 | boolean | false | 5.21.0 |  |
 | onChange | 选项变化时的回调函数 | function(e:Event) | - |  |  |
 
 ### CheckboxOptionType

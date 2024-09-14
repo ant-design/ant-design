@@ -13,11 +13,11 @@ const App: React.FC = () => (
     <Radio.Group
       block
       options={options}
-      defaultValue="Pear"
+      defaultValue="Apple"
       optionType="button"
       buttonStyle="solid"
     />
-    <Radio.Group block options={options} defaultValue="Orange" optionType="button" />
+    <Radio.Group block options={options} defaultValue="Pear" optionType="button" />
   </Flex>
 );
 
