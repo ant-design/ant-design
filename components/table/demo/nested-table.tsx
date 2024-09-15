@@ -34,7 +34,7 @@ const expandDataSource = Array.from({ length: 3 }).map<ExpandedDataType>((_, i) 
 
 const dataSource = Array.from({ length: 3 }).map<DataType>((_, i) => ({
   key: i.toString(),
-  name: 'Screem',
+  name: 'Screen',
   platform: 'iOS',
   version: '10.3.4.5654',
   upgradeNum: 500,

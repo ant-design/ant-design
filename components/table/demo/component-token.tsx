@@ -61,18 +61,18 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-const data: DataType[] = [];
-for (let i = 1; i <= 10; i++) {
-  data.push({
-    key: i,
-    name: 'John Brown',
-    age: Number(`${i}2`),
-    address: `New York No. ${i} Lake Park`,
-    description: `My name is John Brown, I am ${i}2 years old, living in New York No. ${i} Lake Park.`,
-  });
-}
+const data = Array.from({ length: 10 }).map<DataType>((_, i) => ({
+  key: i,
+  name: 'John Brown',
+  age: Number(`${i}2`),
+  address: `New York No. ${i} Lake Park`,
+  description: `My name is John Brown, I am ${i}2 years old, living in New York No. ${i} Lake Park.`,
+}));
 
-const defaultExpandable = { expandedRowRender: (record: DataType) => <p>{record.description}</p> };
+const defaultExpandable: ExpandableConfig<DataType> = {
+  expandedRowRender: (record: DataType) => <p>{record.description}</p>,
+};
+
 const defaultTitle = () => 'Here is title';
 const defaultFooter = () => 'Here is footer';
 
