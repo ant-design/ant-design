@@ -1,6 +1,6 @@
 ## zh-CN
 
-block 属性将使 Radio.Group 适合其父宽度。
+`block` 属性将使 Radio.Group 撑满父容器。
 
 ## en-US
 
