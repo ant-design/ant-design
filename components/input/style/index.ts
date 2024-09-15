@@ -664,6 +664,11 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         },
       },
 
+      [`${componentCls}, ${componentCls}-affix-wrapper`]: {
+        height: token.controlHeight,
+        padding: `0 ${unit(token.paddingSM)}`,
+      },
+
       [`${componentCls}-affix-wrapper`]: {
         borderRadius: 0,
       },
@@ -725,6 +730,18 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 
       [`&-small ${searchPrefixCls}-button`]: {
         height: token.controlHeightSM,
+      },
+
+      '&-large': {
+        [`${componentCls}, ${componentCls}-affix-wrapper, ${searchPrefixCls}-button`]: {
+          height: token.controlHeightLG,
+        },
+      },
+
+      '&-small': {
+        [`${componentCls}, ${componentCls}-affix-wrapper, ${searchPrefixCls}-button`]: {
+          height: token.controlHeightSM,
+        },
       },
 
       '&-rtl': {
