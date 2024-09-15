@@ -57,7 +57,7 @@ const App: React.FC = () => {
         </Button>
         {hasSelected ? `Selected ${selectedRowKeys.length} items` : null}
       </Flex>
-      <Table rowSelection={rowSelection} columns={columns} dataSource={dataSource} />
+      <Table<DataType> rowSelection={rowSelection} columns={columns} dataSource={dataSource} />
     </Flex>
   );
 };

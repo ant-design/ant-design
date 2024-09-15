@@ -113,9 +113,7 @@ const App: React.FC = () => {
   return (
     <Table<DataType>
       bordered
-      components={{
-        header: { cell: ResizableTitle },
-      }}
+      components={{ header: { cell: ResizableTitle } }}
       columns={mergedColumns}
       dataSource={data}
     />

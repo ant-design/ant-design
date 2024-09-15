@@ -290,7 +290,7 @@ const App: React.FC = () => {
           },
         }}
       >
-        <Table
+        <Table<DataType>
           {...tableProps}
           pagination={{ position: [top, bottom] }}
           columns={tableColumns}

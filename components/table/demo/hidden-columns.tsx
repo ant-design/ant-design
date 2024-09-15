@@ -35,7 +35,7 @@ const data: DataType[] = [
   },
 ];
 
-const defaultCheckedList = columns.map((item) => item.key as string);
+const defaultCheckedList = columns.map((item) => item.key);
 
 const App: React.FC = () => {
   const [checkedList, setCheckedList] = useState(defaultCheckedList);
@@ -60,8 +60,7 @@ const App: React.FC = () => {
           setCheckedList(value as string[]);
         }}
       />
-
-      <Table columns={newColumns} dataSource={data} style={{ marginTop: 24 }} />
+      <Table<DataType> columns={newColumns} dataSource={data} style={{ marginTop: 24 }} />
     </>
   );
 };

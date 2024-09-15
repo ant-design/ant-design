@@ -84,9 +84,7 @@ const App: React.FC = () => {
       });
   };
 
-  useEffect(() => {
-    fetchData();
-  }, [
+  useEffect(fetchData, [
     tableParams.pagination?.current,
     tableParams.pagination?.pageSize,
     tableParams?.sortOrder,
@@ -109,7 +107,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Table
+    <Table<DataType>
       columns={columns}
       rowKey={(record) => record.login.uuid}
       dataSource={data}
