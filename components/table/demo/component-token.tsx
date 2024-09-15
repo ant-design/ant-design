@@ -61,7 +61,7 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-const data = Array.from({ length: 10 }).map<DataType>((_, i) => ({
+const dataSource = Array.from({ length: 10 }).map<DataType>((_, i) => ({
   key: i,
   name: 'John Brown',
   age: Number(`${i}2`),
@@ -228,12 +228,7 @@ const App: React.FC = () => {
           </Radio.Group>
         </Form.Item>
         <Form.Item label="Pagination Top">
-          <Radio.Group
-            value={top}
-            onChange={(e) => {
-              setTop(e.target.value);
-            }}
-          >
+          <Radio.Group value={top} onChange={(e) => setTop(e.target.value)}>
             <Radio.Button value="topLeft">TopLeft</Radio.Button>
             <Radio.Button value="topCenter">TopCenter</Radio.Button>
             <Radio.Button value="topRight">TopRight</Radio.Button>
@@ -241,12 +236,7 @@ const App: React.FC = () => {
           </Radio.Group>
         </Form.Item>
         <Form.Item label="Pagination Bottom">
-          <Radio.Group
-            value={bottom}
-            onChange={(e) => {
-              setBottom(e.target.value);
-            }}
-          >
+          <Radio.Group value={bottom} onChange={(e) => setBottom(e.target.value)}>
             <Radio.Button value="bottomLeft">BottomLeft</Radio.Button>
             <Radio.Button value="bottomCenter">BottomCenter</Radio.Button>
             <Radio.Button value="bottomRight">BottomRight</Radio.Button>
@@ -294,7 +284,7 @@ const App: React.FC = () => {
           {...tableProps}
           pagination={{ position: [top, bottom] }}
           columns={tableColumns}
-          dataSource={hasData ? data : []}
+          dataSource={hasData ? dataSource : []}
           scroll={scroll}
         />
       </ConfigProvider>
