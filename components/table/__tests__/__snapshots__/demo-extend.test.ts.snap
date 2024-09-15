@@ -2260,6 +2260,108 @@ Array [
                 >
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="0"
+                  >
+                    <td
+                      class="ant-table-cell ant-table-row-expand-icon-cell"
+                    >
+                      <button
+                        aria-expanded="false"
+                        aria-label="Expand row"
+                        class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                        type="button"
+                      />
+                    </td>
+                    <td
+                      class="ant-table-cell ant-table-selection-column"
+                    >
+                      <label
+                        class="ant-checkbox-wrapper"
+                      >
+                        <span
+                          class="ant-checkbox ant-wave-target"
+                        >
+                          <input
+                            class="ant-checkbox-input"
+                            type="checkbox"
+                          />
+                          <span
+                            class="ant-checkbox-inner"
+                          />
+                        </span>
+                      </label>
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      John Brown
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      2
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York No. 0 Lake Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
+                      >
+                        <div
+                          class="ant-space-item"
+                        >
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
+                        >
+                          <a>
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                            >
+                              <div
+                                class="ant-space-item"
+                              >
+                                More actions
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="1"
                   >
                     <td
@@ -3121,108 +3223,6 @@ Array [
                       class="ant-table-cell"
                     >
                       New York No. 9 Lake Park
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
-                      >
-                        <div
-                          class="ant-space-item"
-                        >
-                          <a>
-                            Delete
-                          </a>
-                        </div>
-                        <div
-                          class="ant-space-item"
-                        >
-                          <a>
-                            <div
-                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
-                            >
-                              <div
-                                class="ant-space-item"
-                              >
-                                More actions
-                              </div>
-                              <div
-                                class="ant-space-item"
-                              >
-                                <span
-                                  aria-label="down"
-                                  class="anticon anticon-down"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="down"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                            </div>
-                          </a>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr
-                    class="ant-table-row ant-table-row-level-0"
-                    data-row-key="10"
-                  >
-                    <td
-                      class="ant-table-cell ant-table-row-expand-icon-cell"
-                    >
-                      <button
-                        aria-expanded="false"
-                        aria-label="Expand row"
-                        class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
-                        type="button"
-                      />
-                    </td>
-                    <td
-                      class="ant-table-cell ant-table-selection-column"
-                    >
-                      <label
-                        class="ant-checkbox-wrapper"
-                      >
-                        <span
-                          class="ant-checkbox ant-wave-target"
-                        >
-                          <input
-                            class="ant-checkbox-input"
-                            type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
-                        </span>
-                      </label>
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      John Brown
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      102
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      New York No. 10 Lake Park
                     </td>
                     <td
                       class="ant-table-cell"
@@ -6809,6 +6809,108 @@ Array [
                 >
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="0"
+                  >
+                    <td
+                      class="ant-table-cell ant-table-row-expand-icon-cell"
+                    >
+                      <button
+                        aria-expanded="false"
+                        aria-label="Expand row"
+                        class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                        type="button"
+                      />
+                    </td>
+                    <td
+                      class="ant-table-cell ant-table-selection-column"
+                    >
+                      <label
+                        class="ant-checkbox-wrapper"
+                      >
+                        <span
+                          class="ant-checkbox ant-wave-target"
+                        >
+                          <input
+                            class="ant-checkbox-input"
+                            type="checkbox"
+                          />
+                          <span
+                            class="ant-checkbox-inner"
+                          />
+                        </span>
+                      </label>
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      John Brown
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      2
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York No. 0 Lake Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
+                      >
+                        <div
+                          class="ant-space-item"
+                        >
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
+                        >
+                          <a>
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                            >
+                              <div
+                                class="ant-space-item"
+                              >
+                                More actions
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="1"
                   >
                     <td
@@ -7670,108 +7772,6 @@ Array [
                       class="ant-table-cell"
                     >
                       New York No. 9 Lake Park
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
-                      >
-                        <div
-                          class="ant-space-item"
-                        >
-                          <a>
-                            Delete
-                          </a>
-                        </div>
-                        <div
-                          class="ant-space-item"
-                        >
-                          <a>
-                            <div
-                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
-                            >
-                              <div
-                                class="ant-space-item"
-                              >
-                                More actions
-                              </div>
-                              <div
-                                class="ant-space-item"
-                              >
-                                <span
-                                  aria-label="down"
-                                  class="anticon anticon-down"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="down"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                            </div>
-                          </a>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr
-                    class="ant-table-row ant-table-row-level-0"
-                    data-row-key="10"
-                  >
-                    <td
-                      class="ant-table-cell ant-table-row-expand-icon-cell"
-                    >
-                      <button
-                        aria-expanded="false"
-                        aria-label="Expand row"
-                        class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
-                        type="button"
-                      />
-                    </td>
-                    <td
-                      class="ant-table-cell ant-table-selection-column"
-                    >
-                      <label
-                        class="ant-checkbox-wrapper"
-                      >
-                        <span
-                          class="ant-checkbox ant-wave-target"
-                        >
-                          <input
-                            class="ant-checkbox-input"
-                            type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
-                        </span>
-                      </label>
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      John Brown
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      102
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      New York No. 10 Lake Park
                     </td>
                     <td
                       class="ant-table-cell"
@@ -15323,7 +15323,7 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx extend context c
 
 exports[`renders components/table/demo/fixed-header.tsx extend context correctly 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="ant-table-wrapper acss-6kbv1r"
 >
   <div
     class="ant-spin-nested-loading"
@@ -15373,7 +15373,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
           </div>
           <div
             class="ant-table-body"
-            style="overflow-y: scroll; max-height: 240px;"
+            style="overflow-y: scroll; max-height: 275px;"
           >
             <table
               style="table-layout: fixed;"
@@ -16688,7 +16688,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
 
 exports[`renders components/table/demo/grouping-columns.tsx extend context correctly 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="ant-table-wrapper acss-6kbv1r"
 >
   <div
     class="ant-spin-nested-loading"
@@ -17052,7 +17052,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
           </div>
           <div
             class="ant-table-body"
-            style="overflow-x: auto; overflow-y: scroll; max-height: 240px;"
+            style="overflow-x: auto; overflow-y: scroll; max-height: 235px;"
           >
             <table
               style="width: calc(700px + 50%); min-width: 100%; table-layout: fixed;"
@@ -32706,9 +32706,11 @@ exports[`renders components/table/demo/sticky.tsx extend context correctly 1`] =
 exports[`renders components/table/demo/sticky.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/summary.tsx extend context correctly 1`] = `
-Array [
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+>
   <div
-    class="ant-table-wrapper"
+    class="ant-table-wrapper acss-6kbv1r"
   >
     <div
       class="ant-spin-nested-loading"
@@ -32889,10 +32891,9 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-  <br />,
+  </div>
   <div
-    class="ant-table-wrapper"
+    class="ant-table-wrapper acss-6kbv1r"
   >
     <div
       class="ant-spin-nested-loading"
@@ -33326,8 +33327,8 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders components/table/demo/summary.tsx extend context correctly 2`] = `[]`;

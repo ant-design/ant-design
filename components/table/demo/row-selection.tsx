@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Divider, Radio, Table } from 'antd';
-import type { TableColumnsType } from 'antd';
+import type { TableColumnsType, TableProps } from 'antd';
 
 interface DataType {
   key: React.Key;
@@ -53,7 +53,7 @@ const data: DataType[] = [
 ];
 
 // rowSelection object indicates the need for row selection
-const rowSelection = {
+const rowSelection: TableProps<DataType>['rowSelection'] = {
   onChange: (selectedRowKeys: React.Key[], selectedRows: DataType[]) => {
     console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
   },
@@ -68,23 +68,13 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <Radio.Group
-        onChange={({ target: { value } }) => {
-          setSelectionType(value);
-        }}
-        value={selectionType}
-      >
+      <Radio.Group onChange={(e) => setSelectionType(e.target.value)} value={selectionType}>
         <Radio value="checkbox">Checkbox</Radio>
         <Radio value="radio">radio</Radio>
       </Radio.Group>
-
       <Divider />
-
-      <Table
-        rowSelection={{
-          type: selectionType,
-          ...rowSelection,
-        }}
+      <Table<DataType>
+        rowSelection={{ type: selectionType, ...rowSelection }}
         columns={columns}
         dataSource={data}
       />

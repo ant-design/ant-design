@@ -16,26 +16,24 @@ const columns: TableColumnsType<DataType> = [
   },
 ];
 
-const data: DataType[] = [];
-for (let i = 0; i < 46; i++) {
-  data.push({
-    key: i,
-    name: i % 2 === 0 ? `Edward King ${i}` : 'Another Row',
-  });
-}
+const dataSource = Array.from({ length: 46 }).map<DataType>((_, i) => ({
+  key: i,
+  name: i % 2 === 0 ? `Edward King ${i}` : 'Another Row',
+}));
 
-const App: React.FC = () => {
-  const rowSelection: TableRowSelection<DataType> = {
-    renderCell: (checked, _record, index, node) => ({
-      props: { rowSpan: index % 2 === 0 ? 2 : 0 },
-      children: (
-        <>
-          {String(checked)}: {node}
-        </>
-      ),
-    }),
-  };
-  return <Table rowSelection={rowSelection} columns={columns} dataSource={data} />;
+const rowSelection: TableRowSelection<DataType> = {
+  renderCell: (checked, _record, index, node) => ({
+    props: { rowSpan: index % 2 === 0 ? 2 : 0 },
+    children: (
+      <>
+        {String(checked)}: {node}
+      </>
+    ),
+  }),
 };
+
+const App: React.FC = () => (
+  <Table<DataType> rowSelection={rowSelection} columns={columns} dataSource={dataSource} />
+);
 
 export default App;
