@@ -22,7 +22,7 @@ demo:
 <code src="./demo/disabled.tsx">不可用</code>
 <code src="./demo/radiogroup.tsx">单选组合</code>
 <code src="./demo/radiogroup-more.tsx">Radio.Group 垂直</code>
-<code src="./demo/radiogroup-block.tsx">Block 单选组合</code>
+<code src="./demo/radiogroup-block.tsx" version="5.21.0">Block 单选组合</code>
 <code src="./demo/radiogroup-options.tsx">Radio.Group 组合 - 配置方式</code>
 <code src="./demo/radiobutton.tsx">按钮样式</code>
 <code src="./demo/radiogroup-with-name.tsx">单选组合 - 配合 name 使用</code>

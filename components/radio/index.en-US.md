@@ -21,7 +21,7 @@ demo:
 <code src="./demo/disabled.tsx">disabled</code>
 <code src="./demo/radiogroup.tsx">Radio Group</code>
 <code src="./demo/radiogroup-more.tsx">Vertical Radio.Group</code>
-<code src="./demo/radiogroup-block.tsx">Block Radio.Group</code>
+<code src="./demo/radiogroup-block.tsx" version="5.21.0">Block Radio.Group</code>
 <code src="./demo/radiogroup-options.tsx">Radio.Group group - optional</code>
 <code src="./demo/radiobutton.tsx">radio style</code>
 <code src="./demo/radiogroup-with-name.tsx">Radio.Group with name</code>
