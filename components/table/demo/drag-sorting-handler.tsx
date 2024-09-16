@@ -105,7 +105,7 @@ const App: React.FC = () => {
   return (
     <DndContext modifiers={[restrictToVerticalAxis]} onDragEnd={onDragEnd}>
       <SortableContext items={dataSource.map((i) => i.key)} strategy={verticalListSortingStrategy}>
-        <Table
+        <Table<DataType>
           rowKey="key"
           components={{ body: { row: Row } }}
           columns={columns}

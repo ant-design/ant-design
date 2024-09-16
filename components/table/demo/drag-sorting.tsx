@@ -38,7 +38,7 @@ interface RowProps extends React.HTMLAttributes<HTMLTableRowElement> {
   'data-row-key': string;
 }
 
-const Row = (props: RowProps) => {
+const Row: React.FC<Readonly<RowProps>> = (props) => {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: props['data-row-key'],
   });
@@ -103,11 +103,9 @@ const App: React.FC = () => {
         items={dataSource.map((i) => i.key)}
         strategy={verticalListSortingStrategy}
       >
-        <Table
+        <Table<DataType>
           components={{
-            body: {
-              row: Row,
-            },
+            body: { row: Row },
           }}
           rowKey="key"
           columns={columns}

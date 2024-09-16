@@ -103,7 +103,7 @@ interface DataType {
   address: string;
 }
 
-type ColumnTypes = Exclude<TableProps['columns'], undefined>;
+type ColumnTypes = Exclude<TableProps<DataType>['columns'], undefined>;
 
 const App: React.FC = () => {
   const [dataSource, setDataSource] = useState<DataType[]>([
@@ -205,7 +205,7 @@ const App: React.FC = () => {
       <Button onClick={handleAdd} type="primary" style={{ marginBottom: 16 }}>
         Add a row
       </Button>
-      <Table
+      <Table<DataType>
         components={components}
         rowClassName={() => 'editable-row'}
         bordered
