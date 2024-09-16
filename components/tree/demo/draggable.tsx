@@ -61,6 +61,7 @@ const App: React.FC = () => {
         }
       }
     };
+
     const data = [...gData];
 
     // Find dragObject

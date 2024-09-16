@@ -1,11 +1,11 @@
 /* eslint-disable compat/compat */
 /* eslint-disable no-console, no-await-in-loop, import/no-extraneous-dependencies, no-restricted-syntax */
-import { assert } from 'console';
-import fs from 'fs';
-import os from 'os';
-import path from 'path';
-import { Readable } from 'stream';
-import { finished } from 'stream/promises';
+import { assert } from 'node:console';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { Readable } from 'node:stream';
+import { finished } from 'node:stream/promises';
 import chalk from 'chalk';
 import fse from 'fs-extra';
 import difference from 'lodash/difference';

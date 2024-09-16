@@ -99,7 +99,7 @@ Of course, this is a little cumbersome for developers. So we extracted a three-p
 
 ```tsx
 import { extractStyle } from '@ant-design/static-style-extract';
-import fs from 'fs';
+import fs from 'node:fs';
 
 // `extractStyle` containers all the antd component
 // excludes popup like component which is no need in ssr: Modal, message, notification, etc.
@@ -126,7 +126,7 @@ const css = extractStyle((node) => (
 In most cases, the above usage has met the needs. But sometimes, we want to combine the flexibility of CSS-in-JS with the benefits of static file caching. Then at this time we need to start at the application level. After rendering and exporting the required content, it is different from the Inline Style, but converts it to file storage. File caching can be achieved through a simple hash:
 
 ```tsx
-import { createHash } from 'crypto';
+import { createHash } from 'node:crypto';
 
 // Get Style content like above
 const styleText = extractStyle(cache);

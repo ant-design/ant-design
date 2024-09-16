@@ -1,5 +1,5 @@
 // doc: https://github.com/raineorshine/npm-check-updates/tree/v16.14.6#readme
-const path = require('path');
+const path = require('node:path');
 
 const rcOrg = ['@rc-component/', 'rc-'];
 const check = ['@ant-design/', ...rcOrg];

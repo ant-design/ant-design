@@ -1,6 +1,6 @@
-import { createHash } from 'crypto';
-import fs from 'fs';
-import path from 'path';
+import { createHash } from 'node:crypto';
+import fs from 'node:fs';
+import path from 'node:path';
 import createEmotionServer from '@emotion/server/create-instance';
 import chalk from 'chalk';
 import type { IApi, IRoute } from 'dumi';

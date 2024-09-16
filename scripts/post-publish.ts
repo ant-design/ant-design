@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-console */
-import { execSync, spawnSync } from 'child_process';
+import { execSync, spawnSync } from 'node:child_process';
 import { confirm, select } from '@inquirer/prompts';
 import chalk from 'chalk';
 import dayjs from 'dayjs';

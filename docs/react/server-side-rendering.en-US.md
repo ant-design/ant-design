@@ -77,7 +77,7 @@ npm install ts-node tslib cross-env --save-dev
 
 ```tsx
 // scripts/genAntdCss.tsx
-import fs from 'fs';
+import fs from 'node:fs';
 import { extractStyle } from '@ant-design/static-style-extract';
 
 const outputPath = './public/antd.min.css';
@@ -90,7 +90,7 @@ fs.writeFileSync(outputPath, css);
 If you want to use mixed themes or custom themes, you can use the following script:
 
 ```tsx
-import fs from 'fs';
+import fs from 'node:fs';
 import React from 'react';
 import { extractStyle } from '@ant-design/static-style-extract';
 import { ConfigProvider } from 'antd';
@@ -237,9 +237,9 @@ More about static-style-extract, see [static-style-extract](https://github.com/a
 
 ```tsx
 // scripts/genAntdCss.tsx
-import { createHash } from 'crypto';
-import fs from 'fs';
-import path from 'path';
+import { createHash } from 'node:crypto';
+import fs from 'node:fs';
+import path from 'node:path';
 import { extractStyle } from '@ant-design/cssinjs';
 import type Entity from '@ant-design/cssinjs/lib/Cache';
 

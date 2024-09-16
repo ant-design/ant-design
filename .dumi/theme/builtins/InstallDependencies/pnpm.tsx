@@ -27,7 +27,6 @@ const PnpmIcon: React.FC<IconProps> = (props) => {
         fill="#F69220"
         focusable="false"
         height="1em"
-        role="img"
         stroke="#F69220"
         strokeWidth="0"
         viewBox="0 0 24 24"

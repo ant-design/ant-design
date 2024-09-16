@@ -1,5 +1,5 @@
 /* eslint-disable no-console, import/prefer-default-export */
-import util from 'util';
+import util from 'node:util';
 import React from 'react';
 import type { DOMWindow } from 'jsdom';
 

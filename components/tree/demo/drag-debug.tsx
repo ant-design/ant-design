@@ -45,16 +45,16 @@ const App: React.FC = () => {
 
   const onDrop: TreeProps['onDrop'] = (info) => {
     console.log(info);
-    const dropKey = info.node.key as number;
-    const dragKey = info.dragNode.key as number;
+    const dropKey = info.node.key;
+    const dragKey = info.dragNode.key;
     const dropPos = info.node.pos.split('-');
-    const dropPosition = info.dropPosition - Number(dropPos[dropPos.length - 1]);
+    const dropPosition = info.dropPosition - Number(dropPos[dropPos.length - 1]); // the drop position relative to the drop node, inside 0, top -1, bottom 1
 
     const loop = (
       data: TreeDataNode[],
-      key: number,
-      callback: (item: TreeDataNode, index: number, err: TreeDataNode[]) => void,
-    ): void => {
+      key: React.Key,
+      callback: (node: TreeDataNode, i: number, data: TreeDataNode[]) => void,
+    ) => {
       for (let i = 0; i < data.length; i++) {
         if (data[i].key === key) {
           return callback(data[i], i, data);

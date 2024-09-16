@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
-import fs from 'fs';
-import { join } from 'path';
+import fs from 'node:fs';
+import { join } from 'node:path';
 import chalk from 'chalk';
 import dayjs from 'dayjs';
 import isBetween from 'dayjs/plugin/isBetween';

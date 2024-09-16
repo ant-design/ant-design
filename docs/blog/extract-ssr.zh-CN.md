@@ -99,7 +99,7 @@ const styleText = extractStyle(cache);
 
 ```tsx
 import { extractStyle } from '@ant-design/static-style-extract';
-import fs from 'fs';
+import fs from 'node:fs';
 
 // `extractStyle` containers all the antd component
 // excludes popup like component which is no need in ssr: Modal, message, notification, etc.
@@ -126,7 +126,7 @@ const css = extractStyle((node) => (
 在大部分情况下，上面的用法已经满足了需求。但是有时候，我们会希望兼顾 CSS-in-JS 的灵活性，又获得静态文件缓存的好处。那么这个时候我们就需要在应用层面进行下手，在渲染导出所需的内容后，不同于 Inline Style，而是将其转为文件存储。通过简单的 hash 就可以实现文件的缓存：
 
 ```tsx
-import { createHash } from 'crypto';
+import { createHash } from 'node:crypto';
 
 // Get Style content like above
 const styleText = extractStyle(cache);

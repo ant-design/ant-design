@@ -33,7 +33,6 @@
       "style": {
         "useImportType": "off",
         "useNumberNamespace": "off",
-        "useNodejsImportProtocol": "off",
         "noNonNullAssertion": "off",
         "noUnusedTemplateLiteral": "off"
       },
@@ -57,7 +56,6 @@
         "noAccumulatingSpread": "off"
       },
       "a11y": {
-        "noAriaHiddenOnFocusable": "off",
         "noLabelWithoutControl": "off",
         "useFocusableInteractive": "off",
         "useKeyWithClickEvents": "off",
@@ -82,8 +80,7 @@
           },
           "a11y": {
             "useValidAnchor": "off",
-            "useAnchorContent": "off",
-            "useKeyWithClickEvents": "off"
+            "useAnchorContent": "off"
           }
         }
       }
@@ -92,13 +89,9 @@
       "include": ["components/*/demo/*"],
       "linter": {
         "rules": {
-          "correctness": {
-            "noVoidTypeReturn": "off"
-          },
           "a11y": {
             "useValidAnchor": "off",
-            "useAnchorContent": "off",
-            "useKeyWithClickEvents": "off"
+            "useAnchorContent": "off"
           }
         }
       }

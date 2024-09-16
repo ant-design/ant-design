@@ -1,4 +1,4 @@
-import path from 'path';
+import path from 'node:path';
 import { defineConfig } from 'dumi';
 import * as fs from 'fs-extra';
 import os from 'node:os';

@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require('node:fs');
+const path = require('node:path');
 
 const restCssPath = path.join(process.cwd(), 'components', 'style', 'reset.css');
 const tokenStatisticPath = path.join(process.cwd(), 'components', 'version', 'token.json');

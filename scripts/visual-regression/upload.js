@@ -4,9 +4,9 @@
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 const OSS = require('ali-oss');
-const path = require('path');
-const fs = require('fs');
-const assert = require('assert');
+const path = require('node:path');
+const fs = require('node:fs');
+const assert = require('node:assert');
 
 // node scripts/visual-regression/upload.js ./visualRegressionReport.tar.gz --ref=pr-id
 // node scripts/visual-regression/upload.js ./imageSnapshots.tar.gz --ref=master-commitId

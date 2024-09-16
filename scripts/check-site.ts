@@ -1,8 +1,8 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
-import type http from 'http';
-import type https from 'https';
-import { join } from 'path';
+import type http from 'node:http';
+import type https from 'node:https';
+import { join } from 'node:path';
 import { load } from 'cheerio';
 import { globSync } from 'glob';
 import { createServer } from 'http-server';
