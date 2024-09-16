@@ -72,6 +72,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
       [`${prefixCls}-wrapper-disabled`]: radioProps.disabled,
       [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',
       [`${prefixCls}-wrapper-in-form-item`]: isFormItemInput,
+      [`${prefixCls}-wrapper-block`]: !!groupContext?.block,
     },
     radio?.className,
     className,
