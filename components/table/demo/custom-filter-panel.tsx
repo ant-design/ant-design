@@ -163,7 +163,7 @@ const App: React.FC = () => {
     },
   ];
 
-  return <Table columns={columns} dataSource={data} />;
+  return <Table<DataType> columns={columns} dataSource={data} />;
 };
 
 export default App;

@@ -32,29 +32,26 @@ const columns: TableColumnsType<DataType> = [
   },
 ];
 
-const data: DataType[] = [];
-for (let i = 0; i < 15; i++) {
-  data.push({
-    key: `key${i}`,
-    name: `Edward ${i}`,
-    age: 32,
-    address: `London Park no. ${i}`,
-    children: [
-      {
-        key: `subKey${i}1`,
-        name: 'Brown',
-        age: 16,
-        address: 'New York No. 3 Lake Park',
-      },
-      {
-        key: `subKey${i}2`,
-        name: 'Jimmy',
-        age: 16,
-        address: 'New York No. 3 Lake Park',
-      },
-    ],
-  });
-}
+const dataSource = Array.from({ length: 15 }).map<DataType>((_, i) => ({
+  key: `key${i}`,
+  name: `Edward ${i}`,
+  age: 32,
+  address: `London Park no. ${i}`,
+  children: [
+    {
+      key: `subKey${i}1`,
+      name: 'Brown',
+      age: 16,
+      address: 'New York No. 3 Lake Park',
+    },
+    {
+      key: `subKey${i}2`,
+      name: 'Jimmy',
+      age: 16,
+      address: 'New York No. 3 Lake Park',
+    },
+  ],
+}));
 
 // rowSelection objects indicates the need for row selection
 const rowSelection: TableRowSelection<DataType> = {
@@ -80,10 +77,10 @@ const App: React.FC = () => {
         preserveSelectedRowKeys:{' '}
         <Switch checked={preserveSelectedRowKeys} onChange={setPreserveSelectedRowKeys} />
       </Space>
-      <Table
+      <Table<DataType>
         columns={columns}
         rowSelection={{ ...rowSelection, checkStrictly, preserveSelectedRowKeys }}
-        dataSource={data}
+        dataSource={dataSource}
         pagination={{ defaultPageSize: 5 }}
       />
     </>
