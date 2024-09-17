@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 import React, { useContext, useMemo } from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
@@ -35,6 +36,7 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
     icon,
     description,
     tooltip,
+    htmlType = 'button',
     badge = {},
     ...restProps
   } = props;
@@ -107,7 +109,7 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
         {buttonNode}
       </a>
     ) : (
-      <button ref={ref} {...restProps} className={classString} style={mergedStyle} type="button">
+      <button ref={ref} {...restProps} className={classString} style={mergedStyle} type={htmlType}>
         {buttonNode}
       </button>
     ),

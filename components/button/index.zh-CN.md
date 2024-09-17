@@ -73,7 +73,7 @@ group:
 | disabled | 设置按钮失效状态 | boolean | false |  |
 | ghost | 幽灵属性，使按钮背景透明 | boolean | false |  |
 | href | 点击跳转的地址，指定此属性 button 的行为和 a 链接一致 | string | - |  |
-| htmlType | 设置 `button` 原生的 `type` 值，可选值请参考 [HTML 标准](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-type) | string | `button` |  |
+| htmlType | 设置 `button` 原生的 `type` 值，可选值请参考 [HTML 标准](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#type) | `submit` \| `reset` \| `button` | `button` |  |
 | icon | 设置按钮的图标组件 | ReactNode | - |  |
 | iconPosition | 设置按钮图标组件的位置 | `start` \| `end` | `start` | 5.17.0 |
 | loading | 设置按钮载入状态 | boolean \| { delay: number } | false |  |
