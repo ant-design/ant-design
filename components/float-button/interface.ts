@@ -1,6 +1,7 @@
 import type React from 'react';
 
 import type { BadgeProps } from '../badge';
+import type { ButtonHTMLType } from '../button';
 import type { TooltipProps } from '../tooltip';
 
 export type FloatButtonElement = HTMLAnchorElement & HTMLButtonElement;
@@ -30,6 +31,11 @@ export interface FloatButtonProps extends React.DOMAttributes<FloatButtonElement
   href?: string;
   target?: React.HTMLAttributeAnchorTarget;
   badge?: FloatButtonBadgeProps;
+  /**
+   * @since 5.21.0
+   * @default button
+   */
+  htmlType?: ButtonHTMLType;
   'aria-label'?: React.HtmlHTMLAttributes<HTMLElement>['aria-label'];
 }
 
