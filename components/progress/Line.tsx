@@ -31,14 +31,11 @@ interface LineProps extends ProgressProps {
  *   }
  */
 export const sortGradient = (gradients: StringGradients) => {
-  let tempArr: any[] = [];
+  let tempArr: { key: number; value?: string }[] = [];
   Object.keys(gradients).forEach((key) => {
     const formattedKey = parseFloat(key.replace(/%/g, ''));
     if (!isNaN(formattedKey)) {
-      tempArr.push({
-        key: formattedKey,
-        value: gradients[key],
-      });
+      tempArr.push({ key: formattedKey, value: gradients[key] });
     }
   });
   tempArr = tempArr.sort((a, b) => a.key - b.key);
@@ -126,12 +123,12 @@ const Line: React.FC<LineProps> = (props) => {
 
   const successPercent = getSuccessPercent(props);
 
-  const successPercentStyle = {
+  const successPercentStyle: React.CSSProperties = {
     width: `${validProgress(successPercent)}%`,
     height,
     borderRadius,
     backgroundColor: success?.strokeColor,
-  } as React.CSSProperties;
+  };
 
   const outerStyle: React.CSSProperties = {
     width: width < 0 ? '100%' : width,

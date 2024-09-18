@@ -51,6 +51,7 @@ tag: 5.0.0
 | onClick | 点击按钮时的回调 | (event) => void | - |  |
 | href | 点击跳转的地址，指定此属性 button 的行为和 a 链接一致 | string | - |  |
 | target | 相当于 a 标签的 target 属性，href 存在时生效 | string | - |  |
+| htmlType | 设置 `button` 原生的 `type` 值，可选值请参考 [HTML 标准](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#type) | `submit` \| `reset` \| `button` | `button` | 5.21.0 |
 | badge | 带徽标数字的悬浮按钮（不支持 `status` 以及相关属性） | [BadgeProps](/components/badge-cn#api) | - | 5.4.0 |
 
 ### FloatButton.Group

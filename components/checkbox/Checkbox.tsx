@@ -28,6 +28,8 @@ export interface AbstractCheckboxProps<T> {
   onMouseLeave?: React.MouseEventHandler<HTMLElement>;
   onKeyPress?: React.KeyboardEventHandler<HTMLElement>;
   onKeyDown?: React.KeyboardEventHandler<HTMLElement>;
+  onFocus?: React.FocusEventHandler<HTMLElement>;
+  onBlur?: React.FocusEventHandler<HTMLElement>;
   value?: any;
   tabIndex?: number;
   name?: string;

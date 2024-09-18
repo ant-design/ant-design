@@ -2591,6 +2591,7 @@ Array [
                       <input
                         accept=""
                         disabled=""
+                        name="file"
                         style="display:none"
                         type="file"
                       />
@@ -10261,6 +10262,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                     accept=""
                     aria-describedby="validate_other_upload_extra"
                     id="validate_other_upload"
+                    name="logo"
                     style="display:none"
                     type="file"
                   />
@@ -10351,6 +10353,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                   <input
                     accept=""
                     id="validate_other_dragger"
+                    name="files"
                     style="display:none"
                     type="file"
                   />

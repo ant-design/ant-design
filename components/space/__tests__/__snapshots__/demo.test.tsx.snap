@@ -178,6 +178,7 @@ exports[`renders components/space/demo/base.tsx correctly 1`] = `
         >
           <input
             accept=""
+            name="file"
             style="display:none"
             type="file"
           />

@@ -92,4 +92,11 @@ describe('FloatButton', () => {
     const badgeElement = container?.querySelector<HTMLSpanElement>('.ant-float-btn .ant-badge');
     expect(badgeElement?.querySelector<HTMLElement>('.ant-badge-dot')).toBeTruthy();
   });
+
+  it('support button htmlType', () => {
+    const type = 'submit';
+    const { container } = render(<FloatButton htmlType={type} />);
+    const element = container?.querySelector<HTMLButtonElement>('.ant-float-btn');
+    expect(element?.type).toBe(type);
+  });
 });

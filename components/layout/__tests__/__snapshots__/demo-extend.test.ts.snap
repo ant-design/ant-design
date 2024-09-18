@@ -5182,8 +5182,4 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Breadcrumb] \`Breadcrumb.Item and Breadcrumb.Separator\` is deprecated. Please use \`items\` instead.",
-]
-`;
+exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 2`] = `[]`;
