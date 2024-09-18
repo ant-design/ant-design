@@ -143,7 +143,7 @@
     "rc-progress": "~4.0.0",
     "rc-rate": "~2.13.0",
     "rc-resize-observer": "^1.4.0",
-    "rc-segmented": "~2.3.0",
+    "rc-segmented": "~2.5.0",
     "rc-select": "~14.15.2",
     "rc-slider": "~11.1.5",
     "rc-steps": "~6.0.1",

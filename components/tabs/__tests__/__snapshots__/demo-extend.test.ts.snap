@@ -1994,7 +1994,9 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx extend context corr
 exports[`renders components/tabs/demo/custom-indicator.tsx extend context correctly 1`] = `
 Array [
   <div
+    aria-label="segmented control"
     class="ant-segmented"
+    role="listbox"
     style="margin-bottom: 8px;"
   >
     <div
@@ -2008,7 +2010,9 @@ Array [
           type="radio"
         />
         <div
+          aria-selected="false"
           class="ant-segmented-item-label"
+          role="option"
           title="start"
         >
           start
@@ -2023,7 +2027,9 @@ Array [
           type="radio"
         />
         <div
+          aria-selected="true"
           class="ant-segmented-item-label"
+          role="option"
           title="center"
         >
           center
@@ -2037,7 +2043,9 @@ Array [
           type="radio"
         />
         <div
+          aria-selected="false"
           class="ant-segmented-item-label"
+          role="option"
           title="end"
         >
           end

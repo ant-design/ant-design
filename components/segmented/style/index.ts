@@ -109,12 +109,25 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         display: 'flex',
         alignItems: 'stretch',
         justifyItems: 'flex-start',
+        flexDirection: 'row',
         width: '100%',
       },
 
       // RTL styles
       [`&${componentCls}-rtl`]: {
         direction: 'rtl',
+      },
+
+      [`&${componentCls}-vertical`]: {
+        [`${componentCls}-group`]: {
+          flexDirection: 'column',
+        },
+
+        [`${componentCls}-thumb`]: {
+          width: '100%',
+          height: 0,
+          padding: `0 ${unit(token.paddingXXS)}`,
+        },
       },
 
       // block styles
@@ -205,6 +218,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         height: '100%',
         padding: `${unit(token.paddingXXS)} 0`,
         borderRadius: token.borderRadiusSM,
+        transition: `transform ${token.motionDurationSlow} ${token.motionEaseInOut}, height ${token.motionDurationSlow} ${token.motionEaseInOut}`,
 
         [`& ~ ${componentCls}-item:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)::after`]:
           {
