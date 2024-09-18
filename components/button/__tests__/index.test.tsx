@@ -232,7 +232,6 @@ describe('Button', () => {
   it('should merge text if children using variable', () => {
     const wrapper = render(
       <Button>
-        {/* eslint-disable-next-line react/jsx-curly-brace-presence */}
         This {'is'} a test {1}
       </Button>,
     );
@@ -330,7 +329,6 @@ describe('Button', () => {
   it('should handle fragment as children', () => {
     const wrapper = render(
       <Button>
-        {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
         <>text</>
       </Button>,
     );

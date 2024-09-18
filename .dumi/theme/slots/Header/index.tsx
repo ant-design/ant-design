@@ -210,7 +210,6 @@ const Header: React.FC = () => {
     };
   }, []);
 
-  // eslint-disable-next-line class-methods-use-this
   const handleVersionChange = useCallback((url: string) => {
     const currentUrl = window.location.href;
     const currentPathname = window.location.pathname;

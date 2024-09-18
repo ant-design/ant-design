@@ -264,7 +264,6 @@ export function imageDemoTest(component: string, options: Options = {}) {
       describeMethod = describe;
     }
     describeMethod(`Test ${file} image`, () => {
-      // eslint-disable-next-line global-require,import/no-dynamic-require
       let Demo = require(`../../${file}`).default;
       if (typeof Demo === 'function') {
         Demo = <Demo />;

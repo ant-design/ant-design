@@ -21,7 +21,6 @@ describe('Wave component', () => {
   let disCnt = 0;
 
   beforeAll(() => {
-    /* eslint-disable class-methods-use-this */
     class FakeResizeObserver {
       observe = () => {
         obCnt += 1;

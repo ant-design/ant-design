@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import type { AnyObject } from '../_util/type';
 import type { ColumnTitle, ColumnTitleProps, ColumnType, Key } from './interface';
 
@@ -35,7 +34,6 @@ export const renderColumnTitle = <RecordType extends AnyObject = AnyObject>(
  * Should filter [object Object]
  *
  * @param title
- * @returns
  */
 export const safeColumnTitle = <RecordType extends AnyObject = AnyObject>(
   title: ColumnTitle<RecordType>,
