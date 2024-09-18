@@ -209,7 +209,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
           [`${componentCls}-item-content`]: {
             display: 'inline-flex',
             alignItems: 'baseline',
-            minWidth: 0,
+            minWidth: '1em',
           },
         },
       },
