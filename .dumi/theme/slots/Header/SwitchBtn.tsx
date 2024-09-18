@@ -69,7 +69,7 @@ const useStyle = createStyles(({ token, css }) => {
       color: ${colorText};
     `,
     label1Style: css`
-      left: -5%;
+      inset-inline-start: -5%;
       top: 0;
       z-index: 1;
       background-color: ${colorText};
@@ -78,7 +78,7 @@ const useStyle = createStyles(({ token, css }) => {
       transform-origin: 0 0;
     `,
     label2Style: css`
-      right: -5%;
+      inset-inline-end: -5%;
       bottom: 0;
       z-index: 0;
       transform: scale(0.5);

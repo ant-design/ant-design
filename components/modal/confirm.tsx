@@ -68,7 +68,6 @@ export default function confirm(config: ModalFuncProps) {
   }
 
   const container = document.createDocumentFragment();
-  // eslint-disable-next-line @typescript-eslint/no-use-before-define
   let currentConfig = { ...config, close, open: true } as any;
   let timeoutId: ReturnType<typeof setTimeout>;
 
@@ -79,7 +78,6 @@ export default function confirm(config: ModalFuncProps) {
     }
     for (let i = 0; i < destroyFns.length; i++) {
       const fn = destroyFns[i];
-      // eslint-disable-next-line @typescript-eslint/no-use-before-define
       if (fn === close) {
         destroyFns.splice(i, 1);
         break;

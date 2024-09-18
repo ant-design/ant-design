@@ -27,6 +27,7 @@ To input a value in a range.
 <code src="./demo/reverse.tsx">Reverse</code>
 <code src="./demo/draggableTrack.tsx">Draggable track</code>
 <code src="./demo/multiple.tsx">Multiple handles</code>
+<code src="./demo/editable.tsx" version="5.20.0">Dynamic edit nodes</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
@@ -57,9 +58,12 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### range
 
-| Property       | Description                     | Type    | Default | Version |
-| -------------- | ------------------------------- | ------- | ------- | ------- |
-| draggableTrack | Whether range track can be drag | boolean | false   | 4.10.0  |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| draggableTrack | Whether range track can be drag | boolean | false | - |
+| editable | Dynamic edit nodes, can't be used with `draggableTrack` | boolean | false | 5.20.0 |
+| minCount | The minimum count of nodes | number | 0 | 5.20.0 |
+| maxCount | The maximum count of nodes | number | - | 5.20.0 |
 
 ### tooltip
 

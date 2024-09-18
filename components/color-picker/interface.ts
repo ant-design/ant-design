@@ -1,10 +1,20 @@
 import type { CSSProperties, FC, ReactNode } from 'react';
-import type { ColorPickerProps as RcColorPickerProps } from '@rc-component/color-picker';
+import type {
+  ColorGenInput,
+  ColorPickerProps as RcColorPickerProps,
+} from '@rc-component/color-picker';
 
 import type { SizeType } from '../config-provider/SizeContext';
 import type { PopoverProps } from '../popover';
 import type { TooltipPlacement } from '../tooltip';
-import type { Color } from './color';
+import type { AggregationColor } from './color';
+
+export type { ColorGenInput };
+
+export type Colors<T> = {
+  color: ColorGenInput<T>;
+  percent: number;
+}[];
 
 export enum ColorFormat {
   hex = 'hex',
@@ -16,7 +26,7 @@ export type ColorFormatType = keyof typeof ColorFormat;
 
 export interface PresetsItem {
   label: ReactNode;
-  colors: (string | Color)[];
+  colors: (string | AggregationColor)[];
   /**
    * Whether the initial state is collapsed
    * @since 5.11.0
@@ -28,25 +38,29 @@ export type TriggerType = 'click' | 'hover';
 
 export type TriggerPlacement = TooltipPlacement; // Alias, to prevent breaking changes.
 
-export interface ColorPickerBaseProps {
-  color?: Color;
-  prefixCls: string;
-  format?: ColorFormatType;
-  allowClear?: boolean;
-  disabled?: boolean;
-  disabledAlpha?: boolean;
-  presets?: PresetsItem[];
-  panelRender?: ColorPickerProps['panelRender'];
-  onFormatChange?: ColorPickerProps['onFormatChange'];
-  onChangeComplete?: ColorPickerProps['onChangeComplete'];
-}
+export type SingleValueType = AggregationColor | string;
 
-export type ColorValueType = Color | string | null;
+export type ColorValueType =
+  | SingleValueType
+  | null
+  | {
+      color: SingleValueType;
+      percent: number;
+    }[];
+
+export type ModeType = 'single' | 'gradient';
 
 export type ColorPickerProps = Omit<
   RcColorPickerProps,
-  'onChange' | 'value' | 'defaultValue' | 'panelRender' | 'disabledAlpha' | 'onChangeComplete'
+  | 'onChange'
+  | 'value'
+  | 'defaultValue'
+  | 'panelRender'
+  | 'disabledAlpha'
+  | 'onChangeComplete'
+  | 'components'
 > & {
+  mode?: ModeType | ModeType[];
   value?: ColorValueType;
   defaultValue?: ColorValueType;
   children?: React.ReactNode;
@@ -63,7 +77,7 @@ export type ColorPickerProps = Omit<
     panel: React.ReactNode,
     extra: { components: { Picker: FC; Presets: FC } },
   ) => React.ReactNode;
-  showText?: boolean | ((color: Color) => React.ReactNode);
+  showText?: boolean | ((color: AggregationColor) => React.ReactNode);
   size?: SizeType;
   styles?: { popup?: CSSProperties; popupOverlayInner?: CSSProperties };
   rootClassName?: string;
@@ -71,7 +85,7 @@ export type ColorPickerProps = Omit<
   [key: `data-${string}`]: string;
   onOpenChange?: (open: boolean) => void;
   onFormatChange?: (format?: ColorFormatType) => void;
-  onChange?: (value: Color, hex: string) => void;
+  onChange?: (value: AggregationColor, css: string) => void;
   onClear?: () => void;
-  onChangeComplete?: (value: Color) => void;
+  onChangeComplete?: (value: AggregationColor) => void;
 } & Pick<PopoverProps, 'getPopupContainer' | 'autoAdjustOverflow' | 'destroyTooltipOnHide'>;

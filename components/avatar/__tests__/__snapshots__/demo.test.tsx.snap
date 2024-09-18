@@ -555,7 +555,7 @@ Array [
     </span>
   </span>,
   <button
-    class="ant-btn ant-btn-default ant-btn-sm"
+    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
     style="margin:0 16px;vertical-align:middle"
     type="button"
   >
@@ -564,7 +564,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-default ant-btn-sm"
+    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
     style="vertical-align:middle"
     type="button"
   >
@@ -908,7 +908,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         type="button"
       >
         <span>
@@ -920,7 +920,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         type="button"
       >
         <span>
@@ -932,7 +932,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         type="button"
       >
         <span>

@@ -12,7 +12,7 @@ import {
 } from 'antd';
 import type { ColorPickerProps, GetProp } from 'antd';
 
-type Color = Exclude<GetProp<ColorPickerProps, 'value'>, string>;
+type Color = Extract<GetProp<ColorPickerProps, 'value'>, { cleared: any }>;
 
 type ThemeData = {
   borderRadius: number;

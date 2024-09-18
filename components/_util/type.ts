@@ -71,3 +71,10 @@ export type GetRef<T extends ReactRefComponent<any> | React.Component<any>> =
     : T extends React.ComponentType<infer P>
       ? ExtractRefAttributesRef<P>
       : never;
+
+export type GetContextProps<T> = T extends React.Context<infer P> ? P : never;
+
+export type GetContextProp<
+  T extends React.Context<any>,
+  PropName extends keyof GetContextProps<T>,
+> = NonNullable<GetContextProps<T>[PropName]>;

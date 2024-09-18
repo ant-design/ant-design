@@ -77,6 +77,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | -------- | ------------------------------------ | --------- | ------------- | ------- |
 | danger   | Display the danger style             | boolean   | false         |         |
 | disabled | Whether menu item is disabled        | boolean   | false         |         |
+| extra    | The extra of the menu item           | ReactNode | -             | 5.21.0  |
 | icon     | The icon of the menu item            | ReactNode | -             |         |
 | key      | Unique ID of the menu item           | string    | -             |         |
 | label    | Menu label                           | ReactNode | -             |         |

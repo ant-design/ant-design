@@ -1455,7 +1455,7 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                     disabled=""
                     type="button"
                   >
@@ -2921,7 +2921,7 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                     disabled=""
                     type="button"
                   >
@@ -3782,7 +3782,7 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                     disabled=""
                     type="button"
                   >
@@ -5334,7 +5334,7 @@ Array [
               class="ant-picker-footer-extra"
             >
               <button
-                class="ant-btn ant-btn-primary ant-btn-sm"
+                class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -5359,7 +5359,7 @@ Array [
                 class="ant-picker-ok"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                   disabled=""
                   type="button"
                 >
@@ -6923,7 +6923,7 @@ Array [
                 class="ant-picker-ok"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -10037,7 +10037,7 @@ Array [
                 class="ant-picker-ok"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -11601,7 +11601,7 @@ Array [
                 class="ant-picker-ok"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -12584,7 +12584,7 @@ Array [
                 class="ant-picker-ok"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -13047,7 +13047,7 @@ Array [
                 class="ant-picker-ok"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                   disabled=""
                   type="button"
                 >
@@ -14611,7 +14611,7 @@ Array [
                 class="ant-picker-ok"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                   disabled=""
                   type="button"
                 >
@@ -16217,7 +16217,7 @@ Array [
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                     disabled=""
                     type="button"
                   >
@@ -17785,7 +17785,7 @@ exports[`renders components/time-picker/demo/render-panel.tsx extend context cor
                 class="ant-picker-ok"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                   disabled=""
                   type="button"
                 >
@@ -19380,7 +19380,7 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                     type="button"
                   >
                     <span>
@@ -20965,7 +20965,7 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                     type="button"
                   >
                     <span>
@@ -22550,7 +22550,7 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                     type="button"
                   >
                     <span>
@@ -24119,7 +24119,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                     disabled=""
                     type="button"
                   >
@@ -25680,7 +25680,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                     disabled=""
                     type="button"
                   >
@@ -27283,7 +27283,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
                     class="ant-picker-ok"
                   >
                     <button
-                      class="ant-btn ant-btn-primary ant-btn-sm"
+                      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                       disabled=""
                       type="button"
                     >
@@ -28887,7 +28887,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
                     class="ant-picker-ok"
                   >
                     <button
-                      class="ant-btn ant-btn-primary ant-btn-sm"
+                      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                       disabled=""
                       type="button"
                     >
@@ -30450,7 +30450,7 @@ Array [
                 class="ant-picker-ok"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -32013,7 +32013,7 @@ Array [
                 class="ant-picker-ok"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                   disabled=""
                   type="button"
                 >
@@ -33584,7 +33584,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                     disabled=""
                     type="button"
                   >
@@ -35183,7 +35183,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
                     class="ant-picker-ok"
                   >
                     <button
-                      class="ant-btn ant-btn-primary ant-btn-sm"
+                      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                       disabled=""
                       type="button"
                     >
@@ -36746,7 +36746,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                     disabled=""
                     type="button"
                   >
@@ -38345,7 +38345,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
                     class="ant-picker-ok"
                   >
                     <button
-                      class="ant-btn ant-btn-primary ant-btn-sm"
+                      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                       disabled=""
                       type="button"
                     >
@@ -39908,7 +39908,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                     disabled=""
                     type="button"
                   >
@@ -41507,7 +41507,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
                     class="ant-picker-ok"
                   >
                     <button
-                      class="ant-btn ant-btn-primary ant-btn-sm"
+                      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
                       disabled=""
                       type="button"
                     >

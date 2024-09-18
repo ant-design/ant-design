@@ -15,22 +15,22 @@ export interface ComponentToken {
    * @desc 卡片头部文字大小
    * @descEN Font size of card header
    */
-  headerFontSize: number;
+  headerFontSize: number | string;
   /**
    * @desc 小号卡片头部文字大小
    * @descEN Font size of small card header
    */
-  headerFontSizeSM: number;
+  headerFontSizeSM: number | string;
   /**
    * @desc 卡片头部高度
    * @descEN Height of card header
    */
-  headerHeight: number;
+  headerHeight: number | string;
   /**
    * @desc 小号卡片头部高度
    * @descEN Height of small card header
    */
-  headerHeightSM: number;
+  headerHeightSM: number | string;
   /**
    * @desc 操作区背景色
    * @descEN Background color of card actions
@@ -54,10 +54,30 @@ export interface ComponentToken {
 }
 
 interface CardToken extends FullToken<'Card'> {
+  /**
+   * @desc 卡片阴影
+   * @descEN Shadow of card
+   */
   cardShadow: string;
+  /**
+   * @desc 卡片头部内边距
+   * @descEN Padding of card header
+   */
   cardHeadPadding: number;
+  /**
+   * @desc 小号卡片内边距
+   * @descEN Padding of small card
+   */
   cardPaddingSM: number;
+  /**
+   * @desc 卡片基础内边距
+   * @descEN Padding of base card
+   */
   cardPaddingBase: number;
+  /**
+   * @desc 卡片操作区图标大小
+   * @descEN Size of card actions icon
+   */
   cardActionsIconSize: number;
 }
 

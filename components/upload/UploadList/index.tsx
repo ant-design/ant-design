@@ -43,6 +43,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
     removeIcon,
     previewIcon,
     downloadIcon,
+    extra,
     progress = { size: [-1, 2], showInfo: false },
     appendAction,
     appendActionVisible = true,
@@ -225,6 +226,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
             removeIcon={removeIcon}
             previewIcon={previewIcon}
             downloadIcon={downloadIcon}
+            extra={extra}
             iconRender={internalIconRender}
             actionIconRender={actionIconRender}
             itemRender={itemRender}

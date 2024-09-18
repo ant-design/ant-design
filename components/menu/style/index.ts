@@ -19,7 +19,7 @@ export interface ComponentToken {
    * @desc 弹出菜单的宽度
    * @descEN Width of popup menu
    */
-  dropdownWidth: number;
+  dropdownWidth: number | string;
   /**
    * @desc 弹出菜单的 z-index
    * @descEN z-index of popup menu
@@ -205,12 +205,12 @@ export interface ComponentToken {
 
   // Ink Bar
   /** @deprecated Use `activeBarWidth` instead */
-  colorActiveBarWidth: number;
+  colorActiveBarWidth: number | string;
   /**
    * @desc 菜单项指示条宽度
    * @descEN Width of menu item active bar
    */
-  activeBarWidth: number;
+  activeBarWidth: number | string;
 
   /** @deprecated Use `activeBarHeight` instead */
   colorActiveBarHeight: number;
@@ -226,7 +226,7 @@ export interface ComponentToken {
    * @desc 菜单项指示条边框宽度
    * @descEN Border width of menu item active bar
    */
-  activeBarBorderWidth: number;
+  activeBarBorderWidth: number | string;
 
   /**
    * @desc 菜单项横向外间距
@@ -247,12 +247,12 @@ export interface ComponentToken {
    * @desc 菜单项高度
    * @descEN Height of menu item
    */
-  itemHeight: number;
+  itemHeight: number | string;
   /**
    * @desc 收起后的宽度
    * @descEN Width when collapsed
    */
-  collapsedWidth: number;
+  collapsedWidth: number | string;
   /**
    * @desc 弹出框背景色
    * @descEN Background color of popup
@@ -366,14 +366,38 @@ export interface ComponentToken {
    */
   darkDangerItemActiveBg: string;
   /** @internal */
-  itemWidth: string;
+  itemWidth: number | string;
 }
 
+/**
+ * @desc Menu 组件的 Token
+ * @descEN Token for Menu component
+ */
 export interface MenuToken extends FullToken<'Menu'> {
+  /**
+   * @desc 水平菜单高度
+   * @descEN Height of horizontal menu
+   */
   menuHorizontalHeight: number | string;
+  /**
+   * @desc 菜单箭头尺寸
+   * @descEN Size of menu arrow
+   */
   menuArrowSize: number | string;
+  /**
+   * @desc 菜单箭头偏移量
+   * @descEN Offset of menu arrow
+   */
   menuArrowOffset: number | string;
+  /**
+   * @desc 子菜单背景色
+   * @descEN Background color of sub-menu
+   */
   menuSubMenuBg: string;
+  /**
+   * @desc 暗色模式下的浮层菜单背景色
+   * @descEN Background color of popup menu in dark mode
+   */
   darkPopupBg: string;
 }
 
@@ -400,7 +424,7 @@ const genMenuItemStyle = (token: MenuToken): CSSObject => {
       transition: [
         `border-color ${motionDurationSlow}`,
         `background ${motionDurationSlow}`,
-        `padding ${motionDurationSlow} ${motionEaseInOut}`,
+        `padding calc(${motionDurationSlow} + 0.1s) ${motionEaseInOut}`,
       ].join(','),
 
       [`${componentCls}-item-icon, ${iconCls}`]: {
@@ -535,7 +559,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
     // Misc
     {
       '': {
-        [`${componentCls}`]: {
+        [componentCls]: {
           ...clearFix(),
 
           // Hidden
@@ -611,12 +635,25 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
         },
 
         [`${componentCls}-title-content`]: {
+          display: 'inline-flex',
+          alignItems: 'center',
           transition: `color ${motionDurationSlow}`,
+
+          '> a:first-child': {
+            flexGrow: 1,
+          },
 
           // https://github.com/ant-design/ant-design/issues/41143
           [`> ${antCls}-typography-ellipsis-single-line`]: {
             display: 'inline',
             verticalAlign: 'unset',
+          },
+
+          [`${componentCls}-item-extra`]: {
+            marginInlineStart: 'auto',
+            paddingInlineStart: token.padding,
+            fontSize: token.fontSizeSM,
+            color: token.colorTextDescription,
           },
         },
 

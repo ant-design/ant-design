@@ -28,9 +28,9 @@ import { TIME } from './constant';
 import type { RangePickerProps } from './interface';
 import useComponents from './useComponents';
 
-export default function generateRangePicker<DateType extends AnyObject>(
+const generateRangePicker = <DateType extends AnyObject = AnyObject>(
   generateConfig: GenerateConfig<DateType>,
-) {
+) => {
   type DateRangePickerProps = RangePickerProps<DateType>;
 
   const RangePicker = forwardRef<PickerRef, DateRangePickerProps>((props, ref) => {
@@ -179,4 +179,6 @@ export default function generateRangePicker<DateType extends AnyObject>(
   }
 
   return RangePicker;
-}
+};
+
+export default generateRangePicker;

@@ -1,15 +1,17 @@
 import type { ReactNode } from 'react';
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import type { DialogProps } from 'rc-dialog';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
-export type BaseClosableType = { closeIcon?: React.ReactNode } & React.AriaAttributes;
-export type ClosableType = boolean | BaseClosableType;
+export type ClosableType = DialogProps['closable'];
 
-export type ContextClosable<T extends { closable?: ClosableType; closeIcon?: ReactNode } = any> =
-  Partial<Pick<T, 'closable' | 'closeIcon'>>;
+export type BaseContextClosable = { closable?: ClosableType; closeIcon?: ReactNode };
+export type ContextClosable<T extends BaseContextClosable = any> = Partial<
+  Pick<T, 'closable' | 'closeIcon'>
+>;
 
-export function pickClosable<T extends { closable?: ClosableType; closeIcon?: ReactNode }>(
+export function pickClosable<T extends BaseContextClosable>(
   context?: ContextClosable<T>,
 ): ContextClosable<T> | undefined {
   if (!context) {
@@ -47,7 +49,7 @@ function useClosableConfig(closableCollection?: ClosableCollection | null) {
       return null;
     }
 
-    let closableConfig: BaseClosableType = {
+    let closableConfig: ClosableType = {
       closeIcon: typeof closeIcon !== 'boolean' && closeIcon !== null ? closeIcon : undefined,
     };
     if (closable && typeof closable === 'object') {
@@ -102,10 +104,12 @@ export default function useClosable(
      */
     closeIconRender?: (closeIcon: ReactNode) => ReactNode;
   } = EmptyFallbackCloseCollection,
-): [closable: boolean, closeIcon: React.ReactNode | null] {
+): [closable: boolean, closeIcon: React.ReactNode, closeBtnIsDisabled: boolean] {
   // Align the `props`, `context` `fallback` to config object first
   const propCloseConfig = useClosableConfig(propCloseCollection);
   const contextCloseConfig = useClosableConfig(contextCloseCollection);
+  const closeBtnIsDisabled =
+    typeof propCloseConfig !== 'boolean' ? !!propCloseConfig?.disabled : false;
   const mergedFallbackCloseCollection = React.useMemo(
     () => ({
       closeIcon: <CloseOutlined />,
@@ -147,7 +151,7 @@ export default function useClosable(
   // Calculate the final closeIcon
   return React.useMemo(() => {
     if (mergedClosableConfig === false) {
-      return [false, null];
+      return [false, null, closeBtnIsDisabled];
     }
 
     const { closeIconRender } = mergedFallbackCloseCollection;
@@ -171,6 +175,6 @@ export default function useClosable(
       }
     }
 
-    return [true, mergedCloseIcon];
+    return [true, mergedCloseIcon, closeBtnIsDisabled];
   }, [mergedClosableConfig, mergedFallbackCloseCollection]);
 }

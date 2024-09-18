@@ -5,7 +5,7 @@ exports[`renders components/button/demo/basic.tsx extend context correctly 1`] =
   class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
 >
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-solid"
     type="button"
   >
     <span>
@@ -13,7 +13,7 @@ exports[`renders components/button/demo/basic.tsx extend context correctly 1`] =
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default"
+    class="ant-btn ant-btn-default ant-btn-outlined"
     type="button"
   >
     <span>
@@ -21,7 +21,7 @@ exports[`renders components/button/demo/basic.tsx extend context correctly 1`] =
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-dashed"
+    class="ant-btn ant-btn-default ant-btn-dashed"
     type="button"
   >
     <span>
@@ -29,7 +29,7 @@ exports[`renders components/button/demo/basic.tsx extend context correctly 1`] =
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-text"
+    class="ant-btn ant-btn-default ant-btn-text"
     type="button"
   >
     <span>
@@ -37,7 +37,7 @@ exports[`renders components/button/demo/basic.tsx extend context correctly 1`] =
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-link"
+    class="ant-btn ant-btn-primary ant-btn-link"
     type="button"
   >
     <span>
@@ -55,7 +55,7 @@ exports[`renders components/button/demo/block.tsx extend context correctly 1`] =
   style="width: 100%;"
 >
   <button
-    class="ant-btn ant-btn-primary ant-btn-block"
+    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-block"
     type="button"
   >
     <span>
@@ -63,7 +63,7 @@ exports[`renders components/button/demo/block.tsx extend context correctly 1`] =
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-block"
+    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-block"
     type="button"
   >
     <span>
@@ -71,7 +71,7 @@ exports[`renders components/button/demo/block.tsx extend context correctly 1`] =
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-dashed ant-btn-block"
+    class="ant-btn ant-btn-default ant-btn-dashed ant-btn-block"
     type="button"
   >
     <span>
@@ -79,7 +79,7 @@ exports[`renders components/button/demo/block.tsx extend context correctly 1`] =
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-block"
+    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-block"
     disabled=""
     type="button"
   >
@@ -88,7 +88,7 @@ exports[`renders components/button/demo/block.tsx extend context correctly 1`] =
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-text ant-btn-block"
+    class="ant-btn ant-btn-default ant-btn-text ant-btn-block"
     type="button"
   >
     <span>
@@ -96,7 +96,7 @@ exports[`renders components/button/demo/block.tsx extend context correctly 1`] =
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-link ant-btn-block"
+    class="ant-btn ant-btn-primary ant-btn-link ant-btn-block"
     type="button"
   >
     <span>
@@ -113,7 +113,7 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
   class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
 >
   <button
-    class="ant-btn ant-btn-default ant-btn-two-chinese-chars"
+    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-two-chinese-chars"
     type="button"
   >
     <span>
@@ -123,7 +123,7 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-loading"
+    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-loading"
     type="button"
   >
     <span
@@ -155,7 +155,7 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-loading"
+    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-loading"
     type="button"
   >
     <span
@@ -185,7 +185,7 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
     部署
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-loading"
+    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-loading"
     type="button"
   >
     <span
@@ -217,7 +217,7 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-loading"
+    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-loading"
     type="button"
   >
     <span
@@ -247,7 +247,7 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
     Submit
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-loading"
+    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-loading"
     type="button"
   >
     <span
@@ -276,7 +276,7 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
     部署
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-loading"
+    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-loading"
     type="button"
   >
     <span
@@ -312,12 +312,177 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
 
 exports[`renders components/button/demo/chinese-chars-loading.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/button/demo/color-variant.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
+  >
+    <button
+      class="ant-btn ant-btn-default ant-btn-solid ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Solid
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Outlined
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-dashed ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Dashed
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-filled ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Filled
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-text ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Text
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-link ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Link
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
+  >
+    <button
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Solid
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-outlined ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Outlined
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-dashed ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Dashed
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-filled ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Filled
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-text ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Text
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-link ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Link
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
+  >
+    <button
+      class="ant-btn ant-btn-dangerous ant-btn-solid ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Solid
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-dangerous ant-btn-outlined ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Outlined
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-dangerous ant-btn-dashed ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Dashed
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-dangerous ant-btn-filled ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Filled
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-dangerous ant-btn-text ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Text
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-dangerous ant-btn-link ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Link
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/button/demo/color-variant.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/button/demo/danger.tsx extend context correctly 1`] = `
 <div
   class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
 >
   <button
-    class="ant-btn ant-btn-primary ant-btn-dangerous"
+    class="ant-btn ant-btn-dangerous ant-btn-solid"
     type="button"
   >
     <span>
@@ -325,7 +490,7 @@ exports[`renders components/button/demo/danger.tsx extend context correctly 1`] 
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-dangerous"
+    class="ant-btn ant-btn-dangerous ant-btn-outlined"
     type="button"
   >
     <span>
@@ -333,7 +498,7 @@ exports[`renders components/button/demo/danger.tsx extend context correctly 1`] 
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-dashed ant-btn-dangerous"
+    class="ant-btn ant-btn-dangerous ant-btn-dashed"
     type="button"
   >
     <span>
@@ -341,7 +506,7 @@ exports[`renders components/button/demo/danger.tsx extend context correctly 1`] 
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-text ant-btn-dangerous"
+    class="ant-btn ant-btn-dangerous ant-btn-text"
     type="button"
   >
     <span>
@@ -349,7 +514,7 @@ exports[`renders components/button/demo/danger.tsx extend context correctly 1`] 
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-link ant-btn-dangerous"
+    class="ant-btn ant-btn-dangerous ant-btn-link"
     type="button"
   >
     <span>
@@ -381,7 +546,7 @@ exports[`renders components/button/demo/debug-block.tsx extend context correctly
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-round ant-btn-default ant-btn-lg ant-btn-block"
+              class="ant-btn ant-btn-round ant-btn-default ant-btn-outlined ant-btn-lg ant-btn-block"
               style="margin-bottom: 12px;"
               type="button"
             >
@@ -390,7 +555,7 @@ exports[`renders components/button/demo/debug-block.tsx extend context correctly
               </span>
             </button>
             <button
-              class="ant-btn ant-btn-round ant-btn-default ant-btn-lg ant-btn-icon-only"
+              class="ant-btn ant-btn-round ant-btn-default ant-btn-outlined ant-btn-lg ant-btn-icon-only"
               type="button"
             >
               <span
@@ -508,7 +673,7 @@ Array [
       class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
     >
       <button
-        class="ant-btn ant-btn-circle ant-btn-primary ant-btn-lg ant-btn-icon-only"
+        class="ant-btn ant-btn-circle ant-btn-primary ant-btn-solid ant-btn-lg ant-btn-icon-only"
         type="button"
       >
         <span
@@ -555,7 +720,7 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-circle ant-btn-primary ant-btn-lg"
+        class="ant-btn ant-btn-circle ant-btn-primary ant-btn-solid ant-btn-lg"
         type="button"
       >
         <span>
@@ -563,7 +728,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-lg"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-lg"
         type="button"
       >
         <span
@@ -594,7 +759,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-circle ant-btn-default ant-btn-lg ant-btn-icon-only"
+        class="ant-btn ant-btn-circle ant-btn-default ant-btn-outlined ant-btn-lg ant-btn-icon-only"
         type="button"
       >
         <span
@@ -641,7 +806,7 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default ant-btn-lg"
+        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-lg"
         type="button"
       >
         <span
@@ -676,7 +841,7 @@ Array [
       class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
     >
       <button
-        class="ant-btn ant-btn-circle ant-btn-default ant-btn-lg ant-btn-icon-only"
+        class="ant-btn ant-btn-circle ant-btn-default ant-btn-outlined ant-btn-lg ant-btn-icon-only"
         type="button"
       >
         <span
@@ -723,7 +888,7 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default ant-btn-lg"
+        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-lg"
         type="button"
       >
         <span
@@ -754,7 +919,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-circle ant-btn-dashed ant-btn-lg ant-btn-icon-only"
+        class="ant-btn ant-btn-circle ant-btn-default ant-btn-dashed ant-btn-lg ant-btn-icon-only"
         type="button"
       >
         <span
@@ -801,7 +966,7 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-dashed ant-btn-lg"
+        class="ant-btn ant-btn-default ant-btn-dashed ant-btn-lg"
         type="button"
       >
         <span
@@ -832,7 +997,7 @@ Array [
         </span>
       </button>
       <a
-        class="ant-btn ant-btn-default ant-btn-lg ant-btn-icon-only"
+        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-lg ant-btn-icon-only"
         href="https://www.google.com"
         tabindex="0"
       >
@@ -861,7 +1026,7 @@ Array [
         </span>
       </a>
       <button
-        class="ant-btn ant-btn-default ant-btn-lg"
+        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-lg"
         type="button"
       >
         <span
@@ -902,7 +1067,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
     class="ant-flex ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-solid"
       type="button"
     >
       <span>
@@ -910,7 +1075,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-solid"
       disabled=""
       type="button"
     >
@@ -923,7 +1088,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
     class="ant-flex ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -931,7 +1096,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       disabled=""
       type="button"
     >
@@ -944,7 +1109,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
     class="ant-flex ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-dashed"
+      class="ant-btn ant-btn-default ant-btn-dashed"
       type="button"
     >
       <span>
@@ -952,7 +1117,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-dashed"
+      class="ant-btn ant-btn-default ant-btn-dashed"
       disabled=""
       type="button"
     >
@@ -965,7 +1130,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
     class="ant-flex ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-text"
+      class="ant-btn ant-btn-default ant-btn-text"
       type="button"
     >
       <span>
@@ -973,7 +1138,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-text"
+      class="ant-btn ant-btn-default ant-btn-text"
       disabled=""
       type="button"
     >
@@ -986,7 +1151,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
     class="ant-flex ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-link"
+      class="ant-btn ant-btn-primary ant-btn-link"
       type="button"
     >
       <span>
@@ -994,7 +1159,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-link"
+      class="ant-btn ant-btn-primary ant-btn-link"
       disabled=""
       type="button"
     >
@@ -1007,7 +1172,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
     class="ant-flex ant-flex-gap-small"
   >
     <a
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-solid"
       href="https://ant.design/index-cn"
       tabindex="0"
     >
@@ -1016,7 +1181,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
       </span>
     </a>
     <a
-      class="ant-btn ant-btn-primary ant-btn-disabled"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-disabled"
       tabindex="-1"
     >
       <span>
@@ -1028,7 +1193,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
     class="ant-flex ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-dangerous"
+      class="ant-btn ant-btn-dangerous ant-btn-outlined"
       type="button"
     >
       <span>
@@ -1036,7 +1201,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-dangerous"
+      class="ant-btn ant-btn-dangerous ant-btn-outlined"
       disabled=""
       type="button"
     >
@@ -1049,7 +1214,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
     class="ant-flex ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-text ant-btn-dangerous"
+      class="ant-btn ant-btn-dangerous ant-btn-text"
       type="button"
     >
       <span>
@@ -1057,7 +1222,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-text ant-btn-dangerous"
+      class="ant-btn ant-btn-dangerous ant-btn-text"
       disabled=""
       type="button"
     >
@@ -1070,7 +1235,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
     class="ant-flex ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-link ant-btn-dangerous"
+      class="ant-btn ant-btn-dangerous ant-btn-link"
       type="button"
     >
       <span>
@@ -1078,7 +1243,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-link ant-btn-dangerous"
+      class="ant-btn ant-btn-dangerous ant-btn-link"
       disabled=""
       type="button"
     >
@@ -1091,7 +1256,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
     class="site-button-ghost-wrapper ant-flex ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-background-ghost"
+      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-background-ghost"
       type="button"
     >
       <span>
@@ -1099,7 +1264,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-background-ghost"
+      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-background-ghost"
       disabled=""
       type="button"
     >
@@ -1118,7 +1283,7 @@ exports[`renders components/button/demo/ghost.tsx extend context correctly 1`] =
   class="site-button-ghost-wrapper ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
 >
   <button
-    class="ant-btn ant-btn-primary ant-btn-background-ghost"
+    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-background-ghost"
     type="button"
   >
     <span>
@@ -1126,7 +1291,7 @@ exports[`renders components/button/demo/ghost.tsx extend context correctly 1`] =
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-background-ghost"
+    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-background-ghost"
     type="button"
   >
     <span>
@@ -1134,7 +1299,7 @@ exports[`renders components/button/demo/ghost.tsx extend context correctly 1`] =
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-dashed ant-btn-background-ghost"
+    class="ant-btn ant-btn-default ant-btn-dashed ant-btn-background-ghost"
     type="button"
   >
     <span>
@@ -1142,7 +1307,7 @@ exports[`renders components/button/demo/ghost.tsx extend context correctly 1`] =
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-background-ghost ant-btn-dangerous"
+    class="ant-btn ant-btn-dangerous ant-btn-solid ant-btn-background-ghost"
     type="button"
   >
     <span>
@@ -1162,7 +1327,7 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
     class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-circle ant-btn-primary ant-btn-icon-only"
+      class="ant-btn ant-btn-circle ant-btn-primary ant-btn-solid ant-btn-icon-only"
       type="button"
     >
       <span
@@ -1209,7 +1374,7 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-circle ant-btn-primary"
+      class="ant-btn ant-btn-circle ant-btn-primary ant-btn-solid"
       type="button"
     >
       <span>
@@ -1217,7 +1382,7 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-solid"
       type="button"
     >
       <span
@@ -1248,7 +1413,7 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-circle ant-btn-default ant-btn-icon-only"
+      class="ant-btn ant-btn-circle ant-btn-default ant-btn-outlined ant-btn-icon-only"
       type="button"
     >
       <span
@@ -1295,7 +1460,7 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span
@@ -1330,7 +1495,7 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
     class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-circle ant-btn-default ant-btn-icon-only"
+      class="ant-btn ant-btn-circle ant-btn-default ant-btn-outlined ant-btn-icon-only"
       type="button"
     >
       <span
@@ -1377,7 +1542,7 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span
@@ -1408,7 +1573,7 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-circle ant-btn-dashed ant-btn-icon-only"
+      class="ant-btn ant-btn-circle ant-btn-default ant-btn-dashed ant-btn-icon-only"
       type="button"
     >
       <span
@@ -1455,7 +1620,7 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-dashed"
+      class="ant-btn ant-btn-default ant-btn-dashed"
       type="button"
     >
       <span
@@ -1486,7 +1651,7 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
       </span>
     </button>
     <a
-      class="ant-btn ant-btn-default ant-btn-icon-only"
+      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only"
       href="https://www.google.com"
       tabindex="0"
     >
@@ -1590,7 +1755,7 @@ Array [
       class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
     >
       <button
-        class="ant-btn ant-btn-circle ant-btn-primary ant-btn-icon-only"
+        class="ant-btn ant-btn-circle ant-btn-primary ant-btn-solid ant-btn-icon-only"
         type="button"
       >
         <span
@@ -1637,7 +1802,7 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-circle ant-btn-primary"
+        class="ant-btn ant-btn-circle ant-btn-primary ant-btn-solid"
         type="button"
       >
         <span>
@@ -1645,7 +1810,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-icon-end"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-icon-end"
         type="button"
       >
         <span
@@ -1676,7 +1841,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-circle ant-btn-default ant-btn-icon-only"
+        class="ant-btn ant-btn-circle ant-btn-default ant-btn-outlined ant-btn-icon-only"
         type="button"
       >
         <span
@@ -1723,7 +1888,7 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default ant-btn-icon-end"
+        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-end"
         type="button"
       >
         <span
@@ -1758,7 +1923,7 @@ Array [
       class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
     >
       <button
-        class="ant-btn ant-btn-circle ant-btn-default ant-btn-icon-only"
+        class="ant-btn ant-btn-circle ant-btn-default ant-btn-outlined ant-btn-icon-only"
         type="button"
       >
         <span
@@ -1805,7 +1970,7 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-text ant-btn-icon-end"
+        class="ant-btn ant-btn-default ant-btn-text ant-btn-icon-end"
         type="button"
       >
         <span
@@ -1836,7 +2001,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-circle ant-btn-dashed ant-btn-icon-only"
+        class="ant-btn ant-btn-circle ant-btn-default ant-btn-dashed ant-btn-icon-only"
         type="button"
       >
         <span
@@ -1883,7 +2048,7 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-dashed ant-btn-icon-end"
+        class="ant-btn ant-btn-default ant-btn-dashed ant-btn-icon-end"
         type="button"
       >
         <span
@@ -1914,7 +2079,7 @@ Array [
         </span>
       </button>
       <a
-        class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-icon-end"
+        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-btn-icon-end"
         href="https://www.google.com"
         tabindex="0"
       >
@@ -1943,7 +2108,7 @@ Array [
         </span>
       </a>
       <button
-        class="ant-btn ant-btn-primary ant-btn-loading ant-btn-icon-end"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-loading ant-btn-icon-end"
         type="button"
       >
         <span
@@ -1987,7 +2152,7 @@ Array [
     class="ant-btn-group ant-btn-group-sm"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
       type="button"
     >
       <span>
@@ -1995,7 +2160,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
       type="button"
     >
       <span>
@@ -2003,7 +2168,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -2051,7 +2216,7 @@ Array [
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
       type="button"
     >
       <span
@@ -2103,7 +2268,7 @@ Array [
     class="ant-btn-group"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-solid"
       type="button"
     >
       <span>
@@ -2111,7 +2276,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-solid"
       type="button"
     >
       <span>
@@ -2119,7 +2284,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -2167,7 +2332,7 @@ Array [
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-primary ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-icon-only"
       type="button"
     >
       <span
@@ -2219,7 +2384,7 @@ Array [
     class="ant-btn-group ant-btn-group-lg"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-lg"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-lg"
       type="button"
     >
       <span>
@@ -2227,7 +2392,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-lg"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-lg"
       type="button"
     >
       <span>
@@ -2235,7 +2400,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-lg ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-lg ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -2283,7 +2448,7 @@ Array [
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-primary ant-btn-lg ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-lg ant-btn-icon-only"
       type="button"
     >
       <span
@@ -2343,7 +2508,7 @@ exports[`renders components/button/demo/linear-gradient.tsx extend context corre
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-lg css-ykstnd"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-lg acss-9mi5l3"
       type="button"
     >
       <span
@@ -2378,7 +2543,7 @@ exports[`renders components/button/demo/linear-gradient.tsx extend context corre
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-lg css-ykstnd"
+      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-lg acss-9mi5l3"
       type="button"
     >
       <span>
@@ -2399,7 +2564,7 @@ exports[`renders components/button/demo/loading.tsx extend context correctly 1`]
     class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-loading"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-loading"
       type="button"
     >
       <span
@@ -2431,7 +2596,7 @@ exports[`renders components/button/demo/loading.tsx extend context correctly 1`]
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-loading"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-loading"
       type="button"
     >
       <span
@@ -2463,7 +2628,7 @@ exports[`renders components/button/demo/loading.tsx extend context correctly 1`]
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-icon-only ant-btn-loading"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-icon-only ant-btn-loading"
       type="button"
     >
       <span
@@ -2495,7 +2660,7 @@ exports[`renders components/button/demo/loading.tsx extend context correctly 1`]
     class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-solid"
       type="button"
     >
       <span>
@@ -2503,7 +2668,7 @@ exports[`renders components/button/demo/loading.tsx extend context correctly 1`]
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-solid"
       type="button"
     >
       <span
@@ -2534,7 +2699,7 @@ exports[`renders components/button/demo/loading.tsx extend context correctly 1`]
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-icon-only"
       type="button"
     >
       <span
@@ -2572,7 +2737,7 @@ exports[`renders components/button/demo/multiple.tsx extend context correctly 1`
   class="ant-flex ant-flex-align-flex-start ant-flex-gap-small ant-flex-vertical"
 >
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-solid"
     type="button"
   >
     <span>
@@ -2580,7 +2745,7 @@ exports[`renders components/button/demo/multiple.tsx extend context correctly 1`
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default"
+    class="ant-btn ant-btn-default ant-btn-outlined"
     type="button"
   >
     <span>
@@ -2591,7 +2756,7 @@ exports[`renders components/button/demo/multiple.tsx extend context correctly 1`
     class="ant-space-compact ant-space-compact-block ant-dropdown-button"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item"
+      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-compact-item ant-btn-compact-first-item"
       type="button"
     >
       <span>
@@ -2599,7 +2764,7 @@ exports[`renders components/button/demo/multiple.tsx extend context correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
       type="button"
     >
       <span
@@ -2740,7 +2905,7 @@ exports[`renders components/button/demo/noSpace.tsx extend context correctly 1`]
   class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
 >
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-solid"
     type="button"
   >
     <span>
@@ -2748,7 +2913,7 @@ exports[`renders components/button/demo/noSpace.tsx extend context correctly 1`]
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-solid"
     type="button"
   >
     <span>
@@ -2841,7 +3006,7 @@ Array [
       class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-lg"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-lg"
         type="button"
       >
         <span>
@@ -2849,7 +3014,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default ant-btn-lg"
+        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-lg"
         type="button"
       >
         <span>
@@ -2857,7 +3022,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-dashed ant-btn-lg"
+        class="ant-btn ant-btn-default ant-btn-dashed ant-btn-lg"
         type="button"
       >
         <span>
@@ -2866,7 +3031,7 @@ Array [
       </button>
     </div>
     <button
-      class="ant-btn ant-btn-link ant-btn-lg"
+      class="ant-btn ant-btn-primary ant-btn-link ant-btn-lg"
       type="button"
     >
       <span>
@@ -2877,7 +3042,7 @@ Array [
       class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-lg ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-lg ant-btn-icon-only"
         type="button"
       >
         <span
@@ -2905,7 +3070,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-circle ant-btn-primary ant-btn-lg ant-btn-icon-only"
+        class="ant-btn ant-btn-circle ant-btn-primary ant-btn-solid ant-btn-lg ant-btn-icon-only"
         type="button"
       >
         <span
@@ -2933,7 +3098,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-round ant-btn-primary ant-btn-lg ant-btn-icon-only"
+        class="ant-btn ant-btn-round ant-btn-primary ant-btn-solid ant-btn-lg ant-btn-icon-only"
         type="button"
       >
         <span
@@ -2961,7 +3126,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-round ant-btn-primary ant-btn-lg"
+        class="ant-btn ant-btn-round ant-btn-primary ant-btn-solid ant-btn-lg"
         type="button"
       >
         <span
@@ -2992,7 +3157,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-lg"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-lg"
         type="button"
       >
         <span

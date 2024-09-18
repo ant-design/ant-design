@@ -190,11 +190,9 @@ npm ls dayjs
 
 同样的，`disabledDate` 对于任何 `<DatePicker />` 也只会针对**日面板**生效，[并不会对 `<DatePicker mode="year/month" />` 上的年/月面板生效](https://github.com/ant-design/ant-design/issues/9008#issuecomment-358554118)。
 
-### 解决办法
+:::success{title=解决办法} 你可以参照 [这篇文章](https://juejin.im/post/5cf65c366fb9a07eca6968f9) 或者 [这篇文章](https://www.cnblogs.com/zyl-Tara/p/10197177.html) 里的做法，利用 `mode` 和 `onPanelChange` 等方法去封装一个 `YearPicker` 等组件。
 
-你可以参照 [这篇文章](https://juejin.im/post/5cf65c366fb9a07eca6968f9) 或者 [这篇文章](https://www.cnblogs.com/zyl-Tara/p/10197177.html) 里的做法，利用 `mode` 和 `onPanelChange` 等方法去封装一个 `YearPicker` 等组件。
-
-另外我们已经在 [antd@4.0](https://github.com/ant-design/ant-design/issues/16911) 中直接[添加了更多相关日期组件](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884)来支持这些需求，现在不再需要使用 `mode="year|month"`，而是直接可以用 `YearPicker` `MonthPicker`，并且 `disabledDate` 也可以正确作用于这些 Picker。
+另外我们已经在 [antd@4.0](https://github.com/ant-design/ant-design/issues/16911) 中直接[添加了更多相关日期组件](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884)来支持这些需求，现在不再需要使用 `mode="year|month"`，而是直接可以用 `YearPicker` `MonthPicker`，并且 `disabledDate` 也可以正确作用于这些 Picker。:::
 
 ## ConfigProvider 设置 `prefixCls` 后，message/notification/Modal.confirm 生成的节点样式丢失了？
 
@@ -248,9 +246,11 @@ import { ConfigProvider } from 'antd';
 
 ## 如何正确的拼写 Ant Design？
 
-- ✅ **Ant Design**：用空格分隔的首字母大写单词，指代设计语言。
-- ✅ **antd**：全小写，指代 React UI 组件库。
-- ✅ **ant.design**：特指 ant.design 网站网址。
+| 拼写 | 用法 | 发音 |
+| --- | --- | --- |
+| ✅ **Ant Design** | 用空格分隔的首字母大写单词，指代设计语言 | - |
+| ✅ **antd** | 全小写，指代 React UI 组件库 | <audio controls src="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*ChCdRJ0w8SUAAAAAAAAAAAAADgCCAQ"></audio> |
+| ✅ **ant.design** | 指 ant.design 网站 | - |
 
 下面是一些典型的错误例子：
 

@@ -13,15 +13,19 @@ interface SwitcherIconProps {
   prefixCls: string;
   treeNodeProps: AntTreeNodeProps;
   switcherIcon?: SwitcherIcon;
+  switcherLoadingIcon?: React.ReactNode;
   showLine?: boolean | { showLeafIcon: boolean | TreeLeafIcon };
 }
 
 const SwitcherIconCom: React.FC<SwitcherIconProps> = (props) => {
-  const { prefixCls, switcherIcon, treeNodeProps, showLine } = props;
+  const { prefixCls, switcherIcon, treeNodeProps, showLine, switcherLoadingIcon } = props;
 
   const { isLeaf, expanded, loading } = treeNodeProps;
 
   if (loading) {
+    if (React.isValidElement(switcherLoadingIcon)) {
+      return switcherLoadingIcon;
+    }
     return <LoadingOutlined className={`${prefixCls}-switcher-loading-icon`} />;
   }
   let showLeafIcon: boolean | TreeLeafIcon;

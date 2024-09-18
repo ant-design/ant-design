@@ -22,7 +22,7 @@ import { OverrideProvider } from '../menu/OverrideContext';
 import { useToken } from '../theme/internal';
 import useStyle from './style';
 
-const Placements = [
+const _Placements = [
   'topLeft',
   'topCenter',
   'topRight',
@@ -33,7 +33,7 @@ const Placements = [
   'bottom',
 ] as const;
 
-type Placement = (typeof Placements)[number];
+type Placement = (typeof _Placements)[number];
 type DropdownPlacement = Exclude<Placement, 'topCenter' | 'bottomCenter'>;
 
 type OverlayFunc = () => React.ReactElement;

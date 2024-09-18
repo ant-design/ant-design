@@ -9,6 +9,7 @@ import omit from 'rc-util/lib/omit';
 import isNumeric from '../_util/isNumeric';
 import { ConfigContext } from '../config-provider';
 import { LayoutContext } from './context';
+import useStyle from './style/sider';
 
 const dimensionMaxMap = {
   xs: '479.98px',
@@ -97,6 +98,12 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     onCollapse?.(value, type);
   };
 
+  // =========================== Prefix ===========================
+  const { getPrefixCls } = useContext(ConfigContext);
+  const prefixCls = getPrefixCls('layout-sider', customizePrefixCls);
+
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+
   // ========================= Responsive =========================
   const responsiveHandlerRef = useRef<(mql: MediaQueryListEvent | MediaQueryList) => void>();
   responsiveHandlerRef.current = (mql: MediaQueryListEvent | MediaQueryList) => {
@@ -120,7 +127,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
         mql = matchMedia(`screen and (max-width: ${dimensionMaxMap[breakpoint]})`);
         try {
           mql.addEventListener('change', responsiveHandler);
-        } catch (error) {
+        } catch {
           mql.addListener(responsiveHandler);
         }
         responsiveHandler(mql);
@@ -129,7 +136,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     return () => {
       try {
         mql?.removeEventListener('change', responsiveHandler);
-      } catch (error) {
+      } catch {
         mql?.removeListener(responsiveHandler);
       }
     };
@@ -145,10 +152,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     handleSetCollapsed(!collapsed, 'clickTrigger');
   };
 
-  const { getPrefixCls } = useContext(ConfigContext);
-
   const renderSider = () => {
-    const prefixCls = getPrefixCls('layout-sider', customizePrefixCls);
     const divProps = omit(otherProps, ['collapsed']);
     const rawWidth = collapsed ? collapsedWidth : width;
     // use "px" as fallback unit for width
@@ -200,6 +204,8 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
         [`${prefixCls}-zero-width`]: parseFloat(siderWidth) === 0,
       },
       className,
+      hashId,
+      cssVarCls,
     );
     return (
       <aside className={siderCls} {...divProps} style={divStyle} ref={ref}>
@@ -211,7 +217,9 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
 
   const contextValue = React.useMemo(() => ({ siderCollapsed: collapsed }), [collapsed]);
 
-  return <SiderContext.Provider value={contextValue}>{renderSider()}</SiderContext.Provider>;
+  return wrapCSSVar(
+    <SiderContext.Provider value={contextValue}>{renderSider()}</SiderContext.Provider>,
+  );
 });
 
 if (process.env.NODE_ENV !== 'production') {

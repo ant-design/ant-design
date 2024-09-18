@@ -24,6 +24,7 @@ export const unitless: {
   fontWeightStrong: true,
   zIndexPopupBase: true,
   zIndexBase: true,
+  opacityImage: true,
 };
 
 export const ignore: {

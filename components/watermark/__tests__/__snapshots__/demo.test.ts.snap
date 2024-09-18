@@ -121,7 +121,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-color-picker-color-block-inner"
-                    style="background:rgba(0, 0, 0, 0.15)"
+                    style="background:rgba(0,0,0,0.15)"
                   />
                 </div>
               </div>
@@ -786,7 +786,7 @@ Array [
     class="ant-flex ant-flex-gap-middle"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-solid"
       type="button"
     >
       <span>
@@ -794,7 +794,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-solid"
       type="button"
     >
       <span>
@@ -802,7 +802,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-solid"
       type="button"
     >
       <span>

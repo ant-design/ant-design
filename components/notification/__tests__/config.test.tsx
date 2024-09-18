@@ -43,7 +43,6 @@ describe('notification.config', () => {
         duration: 999,
       });
 
-      // eslint-disable-next-line no-await-in-loop
       await awaitPromise();
 
       act(() => {
@@ -51,7 +50,6 @@ describe('notification.config', () => {
         jest.advanceTimersByTime(100);
       });
 
-      // eslint-disable-next-line no-await-in-loop
       await triggerMotionEnd(false);
 
       const count = document.querySelectorAll('.ant-notification-notice').length;

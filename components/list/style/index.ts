@@ -11,7 +11,7 @@ export interface ComponentToken {
    * @desc 内容宽度
    * @descEN Width of content
    */
-  contentWidth: number;
+  contentWidth: number | string;
   /**
    * @desc 大号列表项内间距
    * @descEN Padding of large item
@@ -64,9 +64,21 @@ export interface ComponentToken {
   descriptionFontSize: number;
 }
 
+/**
+ * @desc List 组件的 Token
+ * @descEN Token for List component
+ */
 interface ListToken extends FullToken<'List'> {
+  /**
+   * @desc 列表项类名
+   * @descEN Class name of list item
+   */
   listBorderedCls: string;
-  minHeight: number;
+  /**
+   * @desc 最小高度
+   * @descEN Minimum height
+   */
+  minHeight: number | string;
 }
 
 const genBorderedStyle = (token: ListToken): CSSObject => {
@@ -81,7 +93,7 @@ const genBorderedStyle = (token: ListToken): CSSObject => {
     borderRadiusLG,
   } = token;
   return {
-    [`${listBorderedCls}`]: {
+    [listBorderedCls]: {
       border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
       borderRadius: borderRadiusLG,
       [`${componentCls}-header,${componentCls}-footer,${componentCls}-item`]: {
@@ -109,7 +121,7 @@ const genResponsiveStyle = (token: ListToken): CSSObject => {
   const { componentCls, screenSM, screenMD, marginLG, marginSM, margin } = token;
   return {
     [`@media screen and (max-width:${screenMD}px)`]: {
-      [`${componentCls}`]: {
+      [componentCls]: {
         [`${componentCls}-item`]: {
           [`${componentCls}-item-action`]: {
             marginInlineStart: marginLG,
@@ -127,7 +139,7 @@ const genResponsiveStyle = (token: ListToken): CSSObject => {
     },
 
     [`@media screen and (max-width: ${screenSM}px)`]: {
-      [`${componentCls}`]: {
+      [componentCls]: {
         [`${componentCls}-item`]: {
           flexWrap: 'wrap',
 
@@ -184,7 +196,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
   } = token;
 
   return {
-    [`${componentCls}`]: {
+    [componentCls]: {
       ...resetComponent(token),
       position: 'relative',
       '*': {

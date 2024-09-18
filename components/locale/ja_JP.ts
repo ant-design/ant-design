@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/ja_JP';
 
 import type { Locale } from '.';
@@ -143,6 +142,9 @@ const localeValues: Locale = {
   },
   ColorPicker: {
     presetEmpty: '空の',
+    transparent: '透明',
+    singleColor: '単色',
+    gradientColor: 'グラデーション',
   },
 };
 

@@ -81,7 +81,7 @@ export interface ComponentToken {
    * @desc 标题行高
    * @descEN Line height of title
    */
-  titleLineHeight: number;
+  titleLineHeight: number | string;
   /**
    * @internal
    */
@@ -232,7 +232,7 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       marginInlineEnd: token.marginXS,
       fontSize: token.iconFontSize,
       fontFamily: token.fontFamily,
-      lineHeight: `${unit(token.iconSize)}`,
+      lineHeight: unit(token.iconSize),
       textAlign: 'center',
       borderRadius: token.iconSize,
       border: `${unit(token.lineWidth)} ${token.lineType} transparent`,
@@ -266,7 +266,7 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       paddingInlineEnd: token.padding,
       color: token.colorText,
       fontSize: token.fontSizeLG,
-      lineHeight: `${unit(token.titleLineHeight)}`,
+      lineHeight: unit(token.titleLineHeight),
 
       '&::after': {
         position: 'absolute',

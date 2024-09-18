@@ -19,7 +19,7 @@ exports[`renders components/space/demo/align.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-solid"
           type="button"
         >
           <span>
@@ -53,7 +53,7 @@ exports[`renders components/space/demo/align.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-solid"
           type="button"
         >
           <span>
@@ -87,7 +87,7 @@ exports[`renders components/space/demo/align.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-solid"
           type="button"
         >
           <span>
@@ -121,7 +121,7 @@ exports[`renders components/space/demo/align.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-solid"
           type="button"
         >
           <span>
@@ -156,7 +156,7 @@ exports[`renders components/space/demo/base.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-solid"
       type="button"
     >
       <span>
@@ -178,11 +178,12 @@ exports[`renders components/space/demo/base.tsx correctly 1`] = `
         >
           <input
             accept=""
+            name="file"
             style="display:none"
             type="file"
           />
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-outlined"
             type="button"
           >
             <span
@@ -223,7 +224,7 @@ exports[`renders components/space/demo/base.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -271,7 +272,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         value="https://ant.design"
       />
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -293,7 +294,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         value="https://ant.design"
       />
       <button
-        class="ant-btn ant-btn-primary ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -315,7 +316,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         value="git@github.com:ant-design/ant-design.git"
       />
       <button
-        class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span
@@ -618,7 +619,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
             class="ant-input-group-addon"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+              class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-input-search-button"
               type="button"
             >
               <span
@@ -698,7 +699,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
             class="ant-input-group-addon"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+              class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-input-search-button"
               type="button"
             >
               <span
@@ -744,7 +745,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
             class="ant-input-group-addon"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+              class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-input-search-button"
               type="button"
             >
               <span
@@ -1073,7 +1074,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         value="input content"
       />
       <button
-        class="ant-btn ant-btn-primary ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -1779,7 +1780,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         </span>
       </div>
       <button
-        class="ant-btn ant-btn-primary ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -1976,6 +1977,27 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
       </div>
     </div>
   </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space-compact"
+    >
+      <input
+        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
+        placeholder="input here"
+        type="text"
+        value=""
+      />
+      <div
+        class="ant-color-picker-trigger ant-color-picker-compact-item ant-color-picker-compact-last-item"
+      >
+        <div
+          class="ant-color-picker-clear"
+        />
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -1990,7 +2012,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx correctly 1`]
       class="ant-space-compact ant-space-compact-vertical"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-compact-vertical-item ant-btn-compact-vertical-first-item"
+        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-compact-vertical-item ant-btn-compact-vertical-first-item"
         type="button"
       >
         <span>
@@ -1998,7 +2020,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx correctly 1`]
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default ant-btn-compact-vertical-item"
+        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-compact-vertical-item"
         type="button"
       >
         <span>
@@ -2006,7 +2028,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx correctly 1`]
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default ant-btn-compact-vertical-item ant-btn-compact-vertical-last-item"
+        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-compact-vertical-item ant-btn-compact-vertical-last-item"
         type="button"
       >
         <span>
@@ -2022,7 +2044,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx correctly 1`]
       class="ant-space-compact ant-space-compact-vertical"
     >
       <button
-        class="ant-btn ant-btn-dashed ant-btn-compact-vertical-item ant-btn-compact-vertical-first-item"
+        class="ant-btn ant-btn-default ant-btn-dashed ant-btn-compact-vertical-item ant-btn-compact-vertical-first-item"
         type="button"
       >
         <span>
@@ -2030,7 +2052,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx correctly 1`]
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-dashed ant-btn-compact-vertical-item"
+        class="ant-btn ant-btn-default ant-btn-dashed ant-btn-compact-vertical-item"
         type="button"
       >
         <span>
@@ -2038,7 +2060,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx correctly 1`]
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-dashed ant-btn-compact-vertical-item ant-btn-compact-vertical-last-item"
+        class="ant-btn ant-btn-default ant-btn-dashed ant-btn-compact-vertical-item ant-btn-compact-vertical-last-item"
         type="button"
       >
         <span>
@@ -2054,7 +2076,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx correctly 1`]
       class="ant-space-compact ant-space-compact-vertical"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-compact-vertical-item ant-btn-compact-vertical-first-item"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-compact-vertical-item ant-btn-compact-vertical-first-item"
         type="button"
       >
         <span>
@@ -2062,7 +2084,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx correctly 1`]
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-compact-vertical-item"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-compact-vertical-item"
         type="button"
       >
         <span>
@@ -2070,7 +2092,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx correctly 1`]
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-compact-vertical-item ant-btn-compact-vertical-last-item"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-compact-vertical-item ant-btn-compact-vertical-last-item"
         type="button"
       >
         <span>
@@ -2088,7 +2110,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
     class="ant-space-compact ant-space-compact-block"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-first-item"
+      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-first-item"
       type="button"
     >
       <span
@@ -2116,7 +2138,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item"
+      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
       <span
@@ -2153,7 +2175,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item"
+      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
       <span
@@ -2181,7 +2203,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item"
+      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
       <span
@@ -2209,7 +2231,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item"
+      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
       <span
@@ -2237,7 +2259,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item"
+      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
       <span
@@ -2265,7 +2287,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
       type="button"
     >
       <span
@@ -2298,7 +2320,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
     class="ant-space-compact ant-space-compact-block"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-compact-item ant-btn-compact-first-item"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-compact-item ant-btn-compact-first-item"
       type="button"
     >
       <span>
@@ -2306,7 +2328,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-compact-item"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -2314,7 +2336,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-compact-item"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -2322,7 +2344,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-compact-item"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -2330,7 +2352,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-icon-only ant-btn-compact-item"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-icon-only ant-btn-compact-item"
       disabled=""
       type="button"
     >
@@ -2359,7 +2381,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
       type="button"
     >
       <span
@@ -2392,7 +2414,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
     class="ant-space-compact ant-space-compact-block"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item"
+      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-compact-item ant-btn-compact-first-item"
       type="button"
     >
       <span>
@@ -2400,7 +2422,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-compact-item"
+      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -2408,7 +2430,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-compact-item"
+      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -2416,7 +2438,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item"
+      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-btn-compact-item"
       disabled=""
       type="button"
     >
@@ -2445,7 +2467,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item"
+      class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
       <span
@@ -2473,7 +2495,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-compact-item"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -2481,7 +2503,7 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
       type="button"
     >
       <span
@@ -2523,7 +2545,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
       class="ant-space-compact ant-space-compact-block"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item"
+        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-compact-item ant-btn-compact-first-item"
         type="button"
       >
         <span>
@@ -2531,7 +2553,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-compact-item"
+        class="ant-btn ant-btn-dangerous ant-btn-outlined ant-btn-compact-item"
         type="button"
       >
         <span>
@@ -2539,7 +2561,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-dashed ant-btn-compact-item"
+        class="ant-btn ant-btn-default ant-btn-dashed ant-btn-compact-item"
         type="button"
       >
         <span>
@@ -2547,7 +2569,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-text ant-btn-compact-item"
+        class="ant-btn ant-btn-default ant-btn-text ant-btn-compact-item"
         type="button"
       >
         <span>
@@ -2555,7 +2577,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-link ant-btn-compact-item"
+        class="ant-btn ant-btn-primary ant-btn-link ant-btn-compact-item"
         type="button"
       >
         <span>
@@ -2563,7 +2585,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
         disabled=""
         type="button"
       >
@@ -2605,7 +2627,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
       class="ant-space-compact"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item"
+        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-compact-item ant-btn-compact-first-item"
         type="button"
       >
         <span>
@@ -2636,7 +2658,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         </span>
       </span>
       <button
-        class="ant-btn ant-btn-primary ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -2797,7 +2819,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         </span>
       </span>
       <button
-        class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span
@@ -2847,7 +2869,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
             class="ant-input-group-addon"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+              class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-input-search-button"
               type="button"
             >
               <span
@@ -2892,7 +2914,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
             class="ant-input-group-addon"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+              class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-input-search-button"
               type="button"
             >
               <span
@@ -2923,7 +2945,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         </span>
       </span>
       <button
-        class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span
@@ -2995,7 +3017,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         </span>
       </span>
       <button
-        class="ant-btn ant-btn-primary ant-btn-compact-item"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-compact-item"
         type="button"
       >
         <span>
@@ -3075,7 +3097,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         </span>
       </span>
       <button
-        class="ant-btn ant-btn-primary ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -3091,7 +3113,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
       class="ant-space-compact"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item"
+        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-compact-item ant-btn-compact-first-item"
         type="button"
       >
         <span>
@@ -3175,7 +3197,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         </span>
       </span>
       <button
-        class="ant-btn ant-btn-primary ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -3222,7 +3244,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         </span>
       </span>
       <button
-        class="ant-btn ant-btn-primary ant-btn-compact-item"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-compact-item"
         type="button"
       >
         <span>
@@ -3328,7 +3350,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
       class="ant-space-compact"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-compact-item ant-btn-compact-first-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -3347,7 +3369,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         class="ant-space-compact ant-space-compact-block ant-dropdown-button ant-dropdown-compact-item ant-dropdown-compact-first-item ant-dropdown-compact-last-item"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item"
+          class="ant-btn ant-btn-default ant-btn-outlined ant-btn-compact-item ant-btn-compact-first-item"
           type="button"
         >
           <span>
@@ -3355,7 +3377,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+          class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
           type="button"
         >
           <span
@@ -3392,7 +3414,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
       class="ant-space-compact"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-compact-item ant-btn-compact-first-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -3414,7 +3436,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         value=""
       />
       <button
-        class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -3838,7 +3860,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
       class="ant-space-compact ant-space-compact-vertical"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-compact-vertical-item ant-btn-compact-vertical-first-item ant-btn-compact-vertical-last-item"
+        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-compact-vertical-item ant-btn-compact-vertical-first-item ant-btn-compact-vertical-last-item"
         type="button"
       >
         <span>
@@ -3869,7 +3891,7 @@ Array [
           value=""
         />
         <button
-          class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item"
+          class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-btn-compact-item"
           type="button"
         >
           <span
@@ -4036,7 +4058,7 @@ Array [
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-primary ant-btn-compact-item"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -4066,7 +4088,7 @@ Array [
               class="ant-input-group-addon"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+                class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-input-search-button"
                 type="button"
               >
                 <span
@@ -4097,7 +4119,7 @@ Array [
           </span>
         </span>
         <button
-          class="ant-btn ant-btn-primary ant-btn-compact-item"
+          class="ant-btn ant-btn-primary ant-btn-solid ant-btn-compact-item"
           type="button"
         >
           <span>
@@ -4114,7 +4136,7 @@ Array [
           value="mysite"
         />
         <button
-          class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
+          class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
           type="button"
         >
           <span
@@ -4193,7 +4215,7 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-primary ant-btn-compact-item"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-compact-item"
         type="button"
       >
         <span>
@@ -4263,7 +4285,7 @@ Array [
         </span>
       </div>
       <button
-        class="ant-btn ant-btn-primary ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
         <span>
@@ -4288,7 +4310,7 @@ exports[`renders components/space/demo/debug.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -4305,7 +4327,7 @@ exports[`renders components/space/demo/debug.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -4317,7 +4339,7 @@ exports[`renders components/space/demo/debug.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       disabled=""
       type="button"
     >
@@ -4493,7 +4515,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-solid"
         type="button"
       >
         <span>
@@ -4505,7 +4527,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         type="button"
       >
         <span>
@@ -4517,7 +4539,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-dashed"
+        class="ant-btn ant-btn-default ant-btn-dashed"
         type="button"
       >
         <span>
@@ -4529,7 +4551,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-link"
+        class="ant-btn ant-btn-primary ant-btn-link"
         type="button"
       >
         <span>
@@ -4701,7 +4723,7 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -4713,7 +4735,7 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -4725,7 +4747,7 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -4737,7 +4759,7 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -4749,7 +4771,7 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -4761,7 +4783,7 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -4773,7 +4795,7 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -4785,7 +4807,7 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -4797,7 +4819,7 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -4809,7 +4831,7 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -4821,7 +4843,7 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -4833,7 +4855,7 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -4845,7 +4867,7 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -4857,7 +4879,7 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -4869,7 +4891,7 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -4881,7 +4903,7 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -4893,7 +4915,7 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -4905,7 +4927,7 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -4917,7 +4939,7 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -4929,7 +4951,7 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>

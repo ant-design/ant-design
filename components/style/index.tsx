@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
@@ -12,10 +11,7 @@ export const textEllipsis: CSSObject = {
   textOverflow: 'ellipsis',
 };
 
-export const resetComponent = (
-  token: AliasToken,
-  needInheritFontFamily = false,
-): CSSObject => ({
+export const resetComponent = (token: AliasToken, needInheritFontFamily = false): CSSObject => ({
   boxSizing: 'border-box',
   margin: 0,
   padding: 0,

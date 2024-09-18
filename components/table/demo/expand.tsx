@@ -54,7 +54,7 @@ const data: DataType[] = [
 ];
 
 const App: React.FC = () => (
-  <Table
+  <Table<DataType>
     columns={columns}
     expandable={{
       expandedRowRender: (record) => <p style={{ margin: 0 }}>{record.description}</p>,

@@ -15,6 +15,7 @@ const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
     marginXS,
     itemMarginBlock,
     itemWidth,
+    itemPaddingInline,
   } = token;
 
   const paddingWithArrow = token.calc(menuArrowSize).add(padding).add(marginXS).equal();
@@ -28,7 +29,7 @@ const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
     [`${componentCls}-item, ${componentCls}-submenu-title`]: {
       height: itemHeight,
       lineHeight: unit(itemHeight),
-      paddingInline: padding,
+      paddingInline: itemPaddingInline,
       overflow: 'hidden',
       textOverflow: 'ellipsis',
       marginInline: itemMarginInline,
@@ -57,11 +58,11 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
     colorTextLightSolid,
     dropdownWidth,
     controlHeightLG,
-    motionDurationMid,
     motionEaseOut,
     paddingXL,
     itemMarginInline,
     fontSizeLG,
+    motionDurationFast,
     motionDurationSlow,
     paddingXS,
     boxShadowSecondary,
@@ -127,10 +128,7 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
             transition: [
               `border-color ${motionDurationSlow}`,
               `background ${motionDurationSlow}`,
-              `padding ${motionDurationMid} ${motionEaseOut}`,
-              `padding-inline calc(50% - ${unit(token.calc(fontSizeLG).div(2).equal())} - ${unit(
-                itemMarginInline,
-              )})`,
+              `padding ${motionDurationFast} ${motionEaseOut}`,
             ].join(','),
 
             [`> ${componentCls}-title-content`]: {

@@ -37,7 +37,6 @@ describe('Descriptions', () => {
   });
 
   it('when max-width: 575px, column=2', () => {
-    // eslint-disable-next-line global-require
     const wrapper = render(
       <Descriptions column={{ xs: 2 }}>
         <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
@@ -51,7 +50,6 @@ describe('Descriptions', () => {
   });
 
   it('when max-width: 575px, column=2, span=2', () => {
-    // eslint-disable-next-line global-require
     const { container } = render(
       <Descriptions
         column={{ xs: 2 }}
@@ -81,7 +79,6 @@ describe('Descriptions', () => {
   });
 
   it('column is number', () => {
-    // eslint-disable-next-line global-require
     const wrapper = render(
       <Descriptions column={3}>
         <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
@@ -146,7 +143,6 @@ describe('Descriptions', () => {
   });
 
   it('vertical layout', () => {
-    // eslint-disable-next-line global-require
     const wrapper = render(
       <Descriptions layout="vertical">
         <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>

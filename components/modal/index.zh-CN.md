@@ -49,12 +49,12 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | afterClose | Modal 完全关闭后的回调 | function | - |  |
-| classNames | 配置弹窗内置模块的 className | `header?: string; body?: string; footer?: string; mask?: string; content?: string; wrapper?: string;` | - |  |
-| styles | 配置弹窗内置模块的 style | `header?: CSSProperties; body?: CSSProperties; footer?: CSSProperties; mask?: CSSProperties; content?: CSSProperties; wrapper?: CSSProperties;` | - | 5.10.0 |
+| classNames | 配置弹窗内置模块的 className | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| styles | 配置弹窗内置模块的 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.10.0 |
 | cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | cancelText | 取消按钮文字 | ReactNode | `取消` |  |
 | centered | 垂直居中展示 Modal | boolean | false |  |
-| closable | 是否显示右上角的关闭按钮 | boolean \| { closeIcon?: React.ReactNode } | true |  |
+| closable | 是否显示右上角的关闭按钮 | boolean \| { closeIcon?: React.ReactNode; disabled?: boolean; } | true |  |
 | closeIcon | 自定义关闭图标。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | ReactNode | &lt;CloseOutlined /> |  |
 | confirmLoading | 确定按钮 loading | boolean | false |  |
 | destroyOnClose | 关闭时销毁 Modal 里的子元素 | boolean | false |  |
@@ -193,7 +193,7 @@ const confirmed = await modal.confirm({ ... });
 | originNode | 默认节点 | React.ReactNode | - |
 | extra | 扩展选项 | { OkBtn: FC; CancelBtn: FC } | - |
 
-### `styles` and `classNames` 属性
+## Semantic DOM
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 

@@ -180,12 +180,6 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
                 boxShadow: 'none',
               },
             },
-
-          '&-open, &-focused': {
-            [`${antCls}-select-selector`]: {
-              color: token.colorPrimary,
-            },
-          },
         },
 
         // https://github.com/ant-design/ant-design/issues/31333
@@ -201,7 +195,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       },
     },
 
-    [`${componentCls}`]: {
+    [componentCls]: {
       width: '100%',
       marginBottom: 0,
       textAlign: 'inherit',
@@ -307,7 +301,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       },
 
       // Undo float for .ant-input-group .ant-input
-      [`${componentCls}`]: {
+      [componentCls]: {
         float: 'none',
       },
 
@@ -466,6 +460,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
   } = token;
 
   const affixCls = `${componentCls}-affix-wrapper`;
+  const affixClsDisabled = `${componentCls}-affix-wrapper-disabled`;
 
   return {
     [affixCls]: {
@@ -511,7 +506,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         content: '"\\a0"',
       },
 
-      [`${componentCls}`]: {
+      [componentCls]: {
         '&-prefix, &-suffix': {
           display: 'flex',
           flex: 'none',
@@ -549,6 +544,17 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 
         '&:hover': {
           color: colorIconHover,
+        },
+      },
+    },
+    [affixClsDisabled]: {
+      // password disabled
+      [`${iconCls}${componentCls}-password-icon`]: {
+        color: colorIcon,
+        cursor: 'not-allowed',
+
+        '&:hover': {
+          color: colorIcon,
         },
       },
     },
@@ -642,7 +648,7 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
   const searchPrefixCls = `${componentCls}-search`;
   return {
     [searchPrefixCls]: {
-      [`${componentCls}`]: {
+      [componentCls]: {
         '&:hover, &:focus': {
           borderColor: token.colorPrimaryHover,
 
@@ -674,8 +680,6 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
             paddingTop: 0,
             paddingBottom: 0,
             borderStartStartRadius: 0,
-            borderStartEndRadius: token.borderRadius,
-            borderEndEndRadius: token.borderRadius,
             borderEndStartRadius: 0,
             boxShadow: 'none',
           },

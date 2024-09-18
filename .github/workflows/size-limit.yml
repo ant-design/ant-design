@@ -25,7 +25,6 @@ jobs:
           package_manager: bun
           build_script: dist
         env:
-          NODE_OPTIONS: "--max_old_space_size=4096"
+          NODE_OPTIONS: --max_old_space_size=4096
           PRODUCTION_ONLY: 1
-          NO_DUP_CHECK: 1
           CI_JOB_NUMBER: 1

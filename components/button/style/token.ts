@@ -1,10 +1,8 @@
 import type { CSSProperties } from 'react';
 
-import type {
-  FullToken,
-  GetDefaultToken,
-  GenStyleFn,
-} from '../../theme/internal';
+import { AggregationColor } from '../../color-picker/color';
+import { isBright } from '../../color-picker/components/ColorPresets';
+import type { FullToken, GenStyleFn, GetDefaultToken } from '../../theme/internal';
 import { getLineHeight, mergeToken } from '../../theme/internal';
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -105,6 +103,30 @@ export interface ComponentToken {
    */
   defaultGhostBorderColor: string;
   /**
+   * @desc 主要填充按钮的浅色背景颜色
+   * @descEN Background color of primary filled button
+   */
+  /**
+   * @desc 默认实心按钮的文本色
+   * @descEN Default text color for solid buttons.
+   */
+  solidTextColor: string;
+  /**
+   * @desc 默认文本按钮的文本色
+   * @descEN Default text color for text buttons
+   */
+  textTextColor: string;
+  /**
+   * @desc 默认文本按钮悬浮态文本颜色
+   * @descEN Default text color for text buttons on hover
+   */
+  textTextHoverColor: string;
+  /**
+   * @desc 默认文本按钮激活态文字颜色
+   * @descEN Default text color for text buttons on active
+   */
+  textTextActiveColor: string;
+  /**
    * @desc 按钮横向内间距
    * @descEN Horizontal padding of button
    */
@@ -197,8 +219,20 @@ export interface ComponentToken {
 }
 
 export interface ButtonToken extends FullToken<'Button'> {
+  /**
+   * @desc 按钮横向内边距
+   * @descEN Horizontal padding of button
+   */
   buttonPaddingHorizontal: CSSProperties['paddingInline'];
+  /**
+   * @desc 按钮纵向内边距
+   * @descEN Vertical padding of button
+   */
   buttonPaddingVertical: CSSProperties['paddingBlock'];
+  /**
+   * @desc 只有图标的按钮图标尺寸
+   * @descEN Icon size of button which only contains icon
+   */
   buttonIconOnlyFontSize: number;
 }
 
@@ -223,6 +257,9 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
   const contentLineHeight = token.contentLineHeight ?? getLineHeight(contentFontSize);
   const contentLineHeightSM = token.contentLineHeightSM ?? getLineHeight(contentFontSizeSM);
   const contentLineHeightLG = token.contentLineHeightLG ?? getLineHeight(contentFontSizeLG);
+  const solidTextColor = isBright(new AggregationColor(token.colorBgSolid), '#fff')
+    ? '#000'
+    : '#fff';
 
   return {
     fontWeight: 400,
@@ -243,6 +280,9 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
     onlyIconSizeLG: token.fontSizeLG + 2,
     groupBorderColor: token.colorPrimaryHover,
     linkHoverBg: 'transparent',
+    textTextColor: token.colorText,
+    textTextHoverColor: token.colorText,
+    textTextActiveColor: token.colorText,
     textHoverBg: token.colorBgTextHover,
     defaultColor: token.colorText,
     defaultBg: token.colorBgContainer,
@@ -254,6 +294,7 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
     defaultActiveBg: token.colorBgContainer,
     defaultActiveColor: token.colorPrimaryActive,
     defaultActiveBorderColor: token.colorPrimaryActive,
+    solidTextColor,
     contentFontSize,
     contentFontSizeSM,
     contentFontSizeLG,

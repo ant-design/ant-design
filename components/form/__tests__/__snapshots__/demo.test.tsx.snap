@@ -394,7 +394,7 @@ Array [
           class="ant-space-item"
         >
           <button
-            class="ant-btn ant-btn-primary"
+            class="ant-btn ant-btn-primary ant-btn-solid"
             type="submit"
           >
             <span>
@@ -406,7 +406,7 @@ Array [
           class="ant-space-item"
         >
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-outlined"
             type="button"
           >
             <span>
@@ -623,7 +623,7 @@ exports[`renders components/form/demo/basic.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary"
+              class="ant-btn ant-btn-primary ant-btn-solid"
               type="submit"
             >
               <span>
@@ -917,7 +917,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <button
-                class="ant-btn ant-btn-primary"
+                class="ant-btn ant-btn-primary ant-btn-solid"
                 type="submit"
               >
                 <span>
@@ -1058,7 +1058,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <button
-                class="ant-btn ant-btn-primary"
+                class="ant-btn ant-btn-primary ant-btn-solid"
                 type="submit"
               >
                 <span>
@@ -1425,7 +1425,7 @@ exports[`renders components/form/demo/control-hooks.tsx correctly 1`] = `
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-primary"
+                  class="ant-btn ant-btn-primary ant-btn-solid"
                   type="submit"
                 >
                   <span>
@@ -1437,7 +1437,7 @@ exports[`renders components/form/demo/control-hooks.tsx correctly 1`] = `
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-default"
+                  class="ant-btn ant-btn-default ant-btn-outlined"
                   type="button"
                 >
                   <span>
@@ -1449,7 +1449,7 @@ exports[`renders components/form/demo/control-hooks.tsx correctly 1`] = `
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-link"
+                  class="ant-btn ant-btn-primary ant-btn-link"
                   type="button"
                 >
                   <span>
@@ -1578,7 +1578,7 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx correctly 1`] = 
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-default"
+              class="ant-btn ant-btn-default ant-btn-outlined"
               type="submit"
             >
               <span>
@@ -1715,7 +1715,7 @@ exports[`renders components/form/demo/customized-form-controls.tsx correctly 1`]
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary"
+              class="ant-btn ant-btn-primary ant-btn-solid"
               type="submit"
             >
               <span>
@@ -2591,6 +2591,7 @@ Array [
                       <input
                         accept=""
                         disabled=""
+                        name="file"
                         style="display:none"
                         type="file"
                       />
@@ -2661,7 +2662,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <button
-                class="ant-btn ant-btn-default"
+                class="ant-btn ant-btn-default ant-btn-outlined"
                 disabled=""
                 type="button"
               >
@@ -2760,6 +2761,332 @@ Array [
                   class="ant-color-picker-clear"
                 />
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-col-4 ant-form-item-label"
+        >
+          <label
+            class=""
+            title="Rate"
+          >
+            Rate
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-14 ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <ul
+                class="ant-rate ant-rate-disabled"
+                role="radiogroup"
+                tabindex="-1"
+              >
+                <li
+                  class="ant-rate-star ant-rate-star-zero"
+                >
+                  <div
+                    aria-checked="false"
+                    aria-posinset="1"
+                    aria-setsize="5"
+                    role="radio"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="ant-rate-star-first"
+                    >
+                      <span
+                        aria-label="star"
+                        class="anticon anticon-star"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="star"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                    <div
+                      class="ant-rate-star-second"
+                    >
+                      <span
+                        aria-label="star"
+                        class="anticon anticon-star"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="star"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </li>
+                <li
+                  class="ant-rate-star ant-rate-star-zero"
+                >
+                  <div
+                    aria-checked="false"
+                    aria-posinset="2"
+                    aria-setsize="5"
+                    role="radio"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="ant-rate-star-first"
+                    >
+                      <span
+                        aria-label="star"
+                        class="anticon anticon-star"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="star"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                    <div
+                      class="ant-rate-star-second"
+                    >
+                      <span
+                        aria-label="star"
+                        class="anticon anticon-star"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="star"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </li>
+                <li
+                  class="ant-rate-star ant-rate-star-zero"
+                >
+                  <div
+                    aria-checked="false"
+                    aria-posinset="3"
+                    aria-setsize="5"
+                    role="radio"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="ant-rate-star-first"
+                    >
+                      <span
+                        aria-label="star"
+                        class="anticon anticon-star"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="star"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                    <div
+                      class="ant-rate-star-second"
+                    >
+                      <span
+                        aria-label="star"
+                        class="anticon anticon-star"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="star"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </li>
+                <li
+                  class="ant-rate-star ant-rate-star-zero"
+                >
+                  <div
+                    aria-checked="false"
+                    aria-posinset="4"
+                    aria-setsize="5"
+                    role="radio"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="ant-rate-star-first"
+                    >
+                      <span
+                        aria-label="star"
+                        class="anticon anticon-star"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="star"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                    <div
+                      class="ant-rate-star-second"
+                    >
+                      <span
+                        aria-label="star"
+                        class="anticon anticon-star"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="star"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </li>
+                <li
+                  class="ant-rate-star ant-rate-star-zero"
+                >
+                  <div
+                    aria-checked="false"
+                    aria-posinset="5"
+                    aria-setsize="5"
+                    role="radio"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="ant-rate-star-first"
+                    >
+                      <span
+                        aria-label="star"
+                        class="anticon anticon-star"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="star"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                    <div
+                      class="ant-rate-star-second"
+                    >
+                      <span
+                        aria-label="star"
+                        class="anticon anticon-star"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="star"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -3301,7 +3628,7 @@ exports[`renders components/form/demo/dynamic-form-item.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-dashed"
+              class="ant-btn ant-btn-default ant-btn-dashed"
               style="width:60%"
               type="button"
             >
@@ -3336,7 +3663,7 @@ exports[`renders components/form/demo/dynamic-form-item.tsx correctly 1`] = `
               </span>
             </button>
             <button
-              class="ant-btn ant-btn-dashed"
+              class="ant-btn ant-btn-default ant-btn-dashed"
               style="width:60%;margin-top:20px"
               type="button"
             >
@@ -3391,7 +3718,7 @@ exports[`renders components/form/demo/dynamic-form-item.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary"
+              class="ant-btn ant-btn-primary ant-btn-solid"
               type="submit"
             >
               <span>
@@ -3429,7 +3756,7 @@ exports[`renders components/form/demo/dynamic-form-items.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-dashed ant-btn-block"
+              class="ant-btn ant-btn-default ant-btn-dashed ant-btn-block"
               type="button"
             >
               <span
@@ -3483,7 +3810,7 @@ exports[`renders components/form/demo/dynamic-form-items.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary"
+              class="ant-btn ant-btn-primary ant-btn-solid"
               type="submit"
             >
               <span>
@@ -3618,7 +3945,7 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx correctly 1
                     style="display:flex;flex-direction:column;row-gap:16px"
                   >
                     <button
-                      class="ant-btn ant-btn-dashed ant-btn-block"
+                      class="ant-btn ant-btn-default ant-btn-dashed ant-btn-block"
                       type="button"
                     >
                       <span>
@@ -3634,7 +3961,7 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx correctly 1
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-dashed ant-btn-block"
+      class="ant-btn ant-btn-default ant-btn-dashed ant-btn-block"
       type="button"
     >
       <span>
@@ -3700,7 +4027,7 @@ exports[`renders components/form/demo/dynamic-form-items-no-style.tsx correctly 
                       class="ant-form-item-control-input-content"
                     >
                       <button
-                        class="ant-btn ant-btn-dashed ant-btn-block"
+                        class="ant-btn ant-btn-default ant-btn-dashed ant-btn-block"
                         type="button"
                       >
                         <span
@@ -3759,7 +4086,7 @@ exports[`renders components/form/demo/dynamic-form-items-no-style.tsx correctly 
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary"
+              class="ant-btn ant-btn-primary ant-btn-solid"
               type="submit"
             >
               <span>
@@ -3911,7 +4238,7 @@ exports[`renders components/form/demo/dynamic-rule.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary"
+              class="ant-btn ant-btn-primary ant-btn-solid"
               type="button"
             >
               <span>
@@ -4041,7 +4368,7 @@ exports[`renders components/form/demo/form-context.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary"
+              class="ant-btn ant-btn-primary ant-btn-solid"
               type="submit"
             >
               <span>
@@ -4049,7 +4376,7 @@ exports[`renders components/form/demo/form-context.tsx correctly 1`] = `
               </span>
             </button>
             <button
-              class="ant-btn ant-btn-default"
+              class="ant-btn ant-btn-default ant-btn-outlined"
               style="margin:0 8px"
               type="button"
             >
@@ -4202,7 +4529,7 @@ exports[`renders components/form/demo/form-dependencies.tsx correctly 1`] = `
 exports[`renders components/form/demo/form-in-modal.tsx correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-solid"
     type="button"
   >
     <span>
@@ -4330,7 +4657,7 @@ exports[`renders components/form/demo/form-item-path.tsx correctly 1`] = `
     </div>
   </div>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-solid"
     type="submit"
   >
     <span>
@@ -4459,7 +4786,7 @@ exports[`renders components/form/demo/getValueProps-normalize.tsx correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary"
+              class="ant-btn ant-btn-primary ant-btn-solid"
               type="submit"
             >
               <span>
@@ -4670,7 +4997,7 @@ exports[`renders components/form/demo/inline-login.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary"
+              class="ant-btn ant-btn-primary ant-btn-solid"
               disabled=""
               type="submit"
             >
@@ -4995,7 +5322,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary"
+              class="ant-btn ant-btn-primary ant-btn-solid"
               type="button"
             >
               <span>
@@ -5123,7 +5450,7 @@ exports[`renders components/form/demo/layout-can-wrap.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary"
+              class="ant-btn ant-btn-primary ant-btn-solid"
               type="submit"
             >
               <span>
@@ -5487,7 +5814,7 @@ exports[`renders components/form/demo/login.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-block"
+              class="ant-btn ant-btn-primary ant-btn-solid ant-btn-block"
               type="submit"
             >
               <span>
@@ -5782,7 +6109,7 @@ exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary"
+              class="ant-btn ant-btn-primary ant-btn-solid"
               type="submit"
             >
               <span>
@@ -5866,7 +6193,7 @@ exports[`renders components/form/demo/ref-item.tsx correctly 1`] = `
     </div>
   </div>
   <button
-    class="ant-btn ant-btn-default"
+    class="ant-btn ant-btn-default ant-btn-outlined"
     type="button"
   >
     <span>
@@ -5874,7 +6201,7 @@ exports[`renders components/form/demo/ref-item.tsx correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default"
+    class="ant-btn ant-btn-default ant-btn-outlined"
     type="button"
   >
     <span>
@@ -6788,7 +7115,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                 style="padding-left:4px;padding-right:4px"
               >
                 <button
-                  class="ant-btn ant-btn-default"
+                  class="ant-btn ant-btn-default ant-btn-outlined"
                   type="button"
                 >
                   <span>
@@ -6867,7 +7194,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary"
+              class="ant-btn ant-btn-primary ant-btn-solid"
               type="submit"
             >
               <span>
@@ -7145,7 +7472,7 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary"
+              class="ant-btn ant-btn-primary ant-btn-solid"
               type="button"
             >
               <span>
@@ -7799,7 +8126,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-default"
+              class="ant-btn ant-btn-default ant-btn-outlined"
               type="button"
             >
               <span>
@@ -8357,7 +8684,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary"
+              class="ant-btn ant-btn-primary ant-btn-solid"
               type="submit"
             >
               <span>
@@ -8638,7 +8965,7 @@ exports[`renders components/form/demo/validate-only.tsx correctly 1`] = `
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-primary"
+                  class="ant-btn ant-btn-primary ant-btn-solid"
                   disabled=""
                   type="submit"
                 >
@@ -8651,7 +8978,7 @@ exports[`renders components/form/demo/validate-only.tsx correctly 1`] = `
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-default"
+                  class="ant-btn ant-btn-default ant-btn-outlined"
                   type="reset"
                 >
                   <span>
@@ -9012,7 +9339,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
             </div>
             <span
               class="ant-form-text"
-              style="margin-left:8px"
+              style="margin-inline-start:8px"
             >
               machines
             </span>
@@ -9935,11 +10262,12 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                     accept=""
                     aria-describedby="validate_other_upload_extra"
                     id="validate_other_upload"
+                    name="logo"
                     style="display:none"
                     type="file"
                   />
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-outlined"
                     type="button"
                   >
                     <span
@@ -10025,6 +10353,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                   <input
                     accept=""
                     id="validate_other_dragger"
+                    name="files"
                     style="display:none"
                     type="file"
                   />
@@ -10138,7 +10467,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-primary"
+                  class="ant-btn ant-btn-primary ant-btn-solid"
                   type="submit"
                 >
                   <span>
@@ -10150,7 +10479,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-default"
+                  class="ant-btn ant-btn-default ant-btn-outlined"
                   type="reset"
                 >
                   <span>
@@ -10188,7 +10517,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-default"
+              class="ant-btn ant-btn-default ant-btn-outlined"
               type="button"
             >
               <span>
@@ -10418,7 +10747,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
               class="ant-flex ant-flex-gap-small"
             >
               <button
-                class="ant-btn ant-btn-primary"
+                class="ant-btn ant-btn-primary ant-btn-solid"
                 type="submit"
               >
                 <span>
@@ -10426,7 +10755,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-default ant-btn-dangerous"
+                class="ant-btn ant-btn-dangerous ant-btn-outlined"
                 type="button"
               >
                 <span>
@@ -12629,6 +12958,97 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
       >
         <label
+          class=""
+          for="variant"
+          title="Form variant"
+        >
+          Form variant
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              aria-label="segmented control"
+              class="ant-segmented"
+              id="variant"
+              role="listbox"
+            >
+              <div
+                class="ant-segmented-group"
+              >
+                <label
+                  class="ant-segmented-item"
+                >
+                  <input
+                    class="ant-segmented-item-input"
+                    type="radio"
+                  />
+                  <div
+                    aria-selected="false"
+                    class="ant-segmented-item-label"
+                    role="option"
+                    title="outlined"
+                  >
+                    outlined
+                  </div>
+                </label>
+                <label
+                  class="ant-segmented-item ant-segmented-item-selected"
+                >
+                  <input
+                    checked=""
+                    class="ant-segmented-item-input"
+                    type="radio"
+                  />
+                  <div
+                    aria-selected="true"
+                    class="ant-segmented-item-label"
+                    role="option"
+                    title="filled"
+                  >
+                    filled
+                  </div>
+                </label>
+                <label
+                  class="ant-segmented-item"
+                >
+                  <input
+                    class="ant-segmented-item-input"
+                    type="radio"
+                  />
+                  <div
+                    aria-selected="false"
+                    class="ant-segmented-item-label"
+                    role="option"
+                    title="borderless"
+                  >
+                    borderless
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
+      >
+        <label
           class="ant-form-item-required"
           for="Input"
           title="Input"
@@ -13315,7 +13735,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary"
+              class="ant-btn ant-btn-primary ant-btn-solid"
               type="submit"
             >
               <span>
@@ -13396,7 +13816,7 @@ exports[`renders components/form/demo/warning-only.tsx correctly 1`] = `
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-primary"
+                  class="ant-btn ant-btn-primary ant-btn-solid"
                   type="submit"
                 >
                   <span>
@@ -13408,7 +13828,7 @@ exports[`renders components/form/demo/warning-only.tsx correctly 1`] = `
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-default"
+                  class="ant-btn ant-btn-default ant-btn-outlined"
                   type="button"
                 >
                   <span>

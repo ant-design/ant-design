@@ -14,7 +14,7 @@ type TokenTableProps = {
   lang: 'zh' | 'en';
 };
 
-type TokenData = {
+export type TokenData = {
   name: string;
   desc: string;
   type: string;

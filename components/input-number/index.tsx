@@ -27,6 +27,7 @@ export interface InputNumberProps<T extends ValueType = ValueType>
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
   prefix?: React.ReactNode;
+  suffix?: React.ReactNode;
   size?: SizeType;
   disabled?: boolean;
   /** @deprecated Use `variant` instead. */
@@ -66,6 +67,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     addonBefore,
     addonAfter,
     prefix,
+    suffix,
     bordered,
     readOnly,
     status: customStatus,
@@ -116,7 +118,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
 
   const [variant, enableVariantCls] = useVariant('inputNumber', customVariant, bordered);
 
-  /* biome-ignore lint/complexity/noUselessFragments: avoid falsy value */ /* eslint-disable-next-line react/jsx-no-useless-fragment */
+  /* biome-ignore lint/complexity/noUselessFragments: avoid falsy value */
   const suffixNode = hasFeedback && <>{feedbackIcon}</>;
 
   const inputNumberClass = classNames(
@@ -141,7 +143,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       readOnly={readOnly}
       controls={controlsTemp}
       prefix={prefix}
-      suffix={suffixNode}
+      suffix={suffixNode || suffix}
       addonBefore={
         addonBefore && (
           <ContextIsolator form space>
@@ -169,6 +171,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
             [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
+            [`${prefixCls}-affix-wrapper-without-controls`]: controls === false,
           },
           hashId,
         ),

@@ -98,4 +98,50 @@ describe('QRCode test', () => {
       'width: 100%; height: 80%;',
     );
   });
+  it('custom status render', () => {
+    const customStatusRender: QRCodeProps['statusRender'] = (info) => {
+      switch (info.status) {
+        case 'expired':
+          return <div className="custom-expired">{info.locale?.expired}</div>;
+        case 'loading':
+          return <div className="custom-loading">Loading</div>;
+        case 'scanned':
+          return <div className="custom-scanned">{info.locale?.scanned}</div>;
+        default:
+          return null;
+      }
+    };
+    const { container } = render(
+      <>
+        <QRCode
+          className="qrcode-expired"
+          value="test"
+          status="expired"
+          statusRender={customStatusRender}
+        />
+        <QRCode
+          className="qrcode-loading"
+          value="test"
+          status="loading"
+          statusRender={customStatusRender}
+        />
+        <QRCode
+          className="qrcode-scanned"
+          value="test"
+          status="scanned"
+          statusRender={customStatusRender}
+        />
+      </>,
+    );
+    expect(
+      container.querySelector<HTMLDivElement>('.qrcode-expired .custom-expired')?.textContent,
+    ).toBe('QR code expired');
+    expect(
+      container.querySelector<HTMLDivElement>('.qrcode-loading .custom-loading')?.textContent,
+    ).toBe('Loading');
+    expect(
+      container.querySelector<HTMLDivElement>('.qrcode-scanned .custom-scanned')?.textContent,
+    ).toBe('Scanned');
+    expect(container).toMatchSnapshot();
+  });
 });

@@ -14,7 +14,7 @@ Implement resizable column by integrate with [react-resizable](https://github.co
 
 #table-demo-resizable-column .react-resizable-handle {
   position: absolute;
-  right: -5px;
+  inset-inline-end: -5px;
   bottom: 0;
   z-index: 1;
   width: 10px;

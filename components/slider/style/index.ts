@@ -38,12 +38,12 @@ export interface ComponentToken {
    * @desc 滑块边框宽度
    * @descEN Border width of handle
    */
-  handleLineWidth: number;
+  handleLineWidth: number | string;
   /**
    * @desc 滑块边框宽度（悬浮态）
    * @descEN Border width of handle when hover
    */
-  handleLineWidthHover: number;
+  handleLineWidthHover: number | string;
   /**
    * @desc 滑块圆点尺寸
    * @descEN Size of dot
@@ -198,6 +198,12 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
         width: handleSize,
         height: handleSize,
         outline: 'none',
+        userSelect: 'none',
+
+        // Dragging status
+        '&-dragging-delete': {
+          opacity: 0,
+        },
 
         // 扩大选区
         '&::before': {

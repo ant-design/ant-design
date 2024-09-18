@@ -74,6 +74,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | variant | Variants of Input | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | onBlur | Trigger when mentions lose focus | () => void | - |  |
 | onChange | Trigger when value changed | (text: string) => void | - |  |
+| onClear | Callback when click the clear button | () => void | - | 5.20.0 |
 | onFocus | Trigger when mentions get focus | () => void | - |  |
 | onResize | The callback function that is triggered when textarea resize | function({ width, height }) | - |  |
 | onSearch | Trigger when prefix hit | (text: string, prefix: string) => void | - |  |

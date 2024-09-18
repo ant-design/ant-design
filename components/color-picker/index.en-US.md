@@ -21,7 +21,7 @@ Used when the user needs to make a customized color selection.
 <code src="./demo/base.tsx">Basic Usage</code>
 <code src="./demo/size.tsx">Trigger size</code>
 <code src="./demo/controlled.tsx">controlled mode</code>
-<code src="./demo/change-completed.tsx">Color change completed</code>
+<code src="./demo/line-gradient.tsx" version="5.20.0">Line Gradient</code>
 <code src="./demo/text-render.tsx">Rendering Trigger Text</code>
 <code src="./demo/disabled.tsx">Disable</code>
 <code src="./demo/disabled-alpha.tsx">Disabled Alpha</code>
@@ -51,6 +51,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | disabledAlpha | Disable Alpha | boolean | - | 5.8.0 |
 | destroyTooltipOnHide | Whether destroy popover when hidden | `boolean` | false | 5.7.0 |
 | format | Format of color | `rgb` \| `hex` \| `hsb` | `hex` | |
+| mode | Configure single or gradient color | `('single' \| 'gradient')[]` | `single` | 5.20.0 |
 | open | Whether to show popup | boolean | - | |
 | presets | Preset colors | `{ label: ReactNode, colors: Array<string \| Color>, defaultOpen?: boolean }[]` | - | `defaultOpen: 5.11.0` |
 | placement | Placement of popup | The design of the [placement](/components/tooltip/#api) parameter is the same as the `Tooltips` component. | `bottomLeft` | |
@@ -59,8 +60,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | size | Setting the trigger size | `large` \| `middle` \| `small` | `middle` | 5.7.0 |
 | trigger | ColorPicker trigger mode | `hover` \| `click` | `click` | |
 | value | Value of color | string \| `Color` | - | |
-| onChange | Callback when `value` is changed | `(value: Color, hex: string) => void` | - | |
-| onChangeComplete | Called when color pick ends   | `(value: Color) => void` | - | 5.7.0 |
+| onChange | Callback when `value` is changed | `(value: Color, css: string) => void` | - | |
+| onChangeComplete | Called when color pick ends. Will not change the display color when `value` controlled by `onChangeComplete` | `(value: Color) => void` | - | 5.7.0 |
 | onFormatChange | Callback when `format` is changed | `(format: 'hex' \| 'rgb' \| 'hsb') => void` | - | |
 | onOpenChange | Callback when `open` is changed | `(open: boolean) => void` | - | |
 | onClear | Called when clear | `() => void` | - | 5.6.0 |
@@ -68,8 +69,9 @@ Common props ref：[Common props](/docs/react/common-props)
 ### Color
 
 <!-- prettier-ignore -->
-| Property | Description | Type | Default |
+| Property | Description | Type | Version |
 | :-- | :-- | :-- | :-- |
+| toCssString | Convert to CSS support format | `() => string` | 5.20.0 |
 | toHex | Convert to `hex` format characters, the return type like: `1677ff` | `() => string` | - |
 | toHexString | Convert to `hex` format color string, the return type like: `#1677ff` | `() => string` | - |
 | toHsb | Convert to `hsb` object  | `() => ({ h: number, s: number, b: number, a number })` | - |

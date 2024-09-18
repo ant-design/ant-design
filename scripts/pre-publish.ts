@@ -1,4 +1,3 @@
-/* eslint-disable camelcase, no-async-promise-executor */
 import fs from 'node:fs';
 import runScript from '@npmcli/run-script';
 import { Octokit } from '@octokit/rest';
@@ -258,7 +257,7 @@ const runPrePublish = async () => {
     firstArtifactFile = await Promise.any([downloadArtifactPromise, downloadOSSPromise]);
   } catch (error) {
     showMessage(
-      chalk.bgRedBright(`下载失败，请确认你当前 ${sha.slice(0, 6)} 位于 master 分支中`),
+      chalk.bgRedBright(`下载失败 ${error}，请确认你当前 ${sha.slice(0, 6)} 位于 master 分支中`),
       'fail',
     );
     process.exit(1);

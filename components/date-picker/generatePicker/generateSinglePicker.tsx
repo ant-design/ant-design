@@ -39,7 +39,9 @@ import {
 import type { GenericTimePickerProps, PickerProps, PickerPropsWithMultiple } from './interface';
 import useComponents from './useComponents';
 
-const generatePicker = <DateType extends AnyObject>(generateConfig: GenerateConfig<DateType>) => {
+const generatePicker = <DateType extends AnyObject = AnyObject>(
+  generateConfig: GenerateConfig<DateType>,
+) => {
   type DatePickerProps = PickerProps<DateType>;
   type TimePickerProps = GenericTimePickerProps<DateType>;
 

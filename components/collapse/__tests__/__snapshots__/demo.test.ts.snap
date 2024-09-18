@@ -320,7 +320,7 @@ exports[`renders components/collapse/demo/borderless.tsx correctly 1`] = `
         class="ant-collapse-content-box"
       >
         <p
-          style="padding-left:24px"
+          style="padding-inline-start:24px"
         >
           A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.
         </p>

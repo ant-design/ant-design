@@ -1,5 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
-
 import Pagination from 'rc-pagination/lib/locale/ru_RU';
 
 import type { Locale } from '.';
@@ -58,6 +56,7 @@ const localeValues: Locale = {
     itemsUnit: 'элем.',
     remove: 'Удалить',
     selectAll: 'Выбрать все данные',
+    deselectAll: 'Очистить все данные',
     selectCurrent: 'Выбрать текущую страницу',
     selectInvert: 'Инвертировать выбор',
     removeAll: 'Удалить все данные',

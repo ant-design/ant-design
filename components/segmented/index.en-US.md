@@ -20,6 +20,7 @@ This component is available since `antd@4.20.0`.
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/vertical.tsx" version="5.21.0">Vertical Direction</code>
 <code src="./demo/block.tsx">Block Segmented</code>
 <code src="./demo/disabled.tsx">Disabled</code>
 <code src="./demo/controlled.tsx">Controlled mode</code>
@@ -44,9 +45,21 @@ Common props ref：[Common props](/docs/react/common-props)
 | defaultValue | Default selected value | string \| number |  |  |
 | disabled | Disable all segments | boolean | false |  |
 | onChange | The callback function that is triggered when the state changes | function(value: string \| number) |  |  |
-| options | Set children optional | string\[] \| number\[] \| Array<{ label: ReactNode value: string icon? ReactNode disabled?: boolean className?: string }> | [] |  |
+| options | Set children optional | string\[] \| number\[] \| SegmentedItemType\[] | [] |  |
 | size | The size of the Segmented. | `large` \| `middle` \| `small` | `middle` |  |
+| vertical | Orientation | boolean | `false` | 5.21.0 |
 | value | Currently selected value | string \| number |  |  |
+
+### SegmentedItemType
+
+
+| Property  | Description  | Type  | Default | Version |
+| --- | --- | --- | --- | --- |
+| label | Display text for Segmented item  | ReactNode | - |  |
+| value | Value for Segmented item  | string \| number | - |  |
+| icon  | Display icon for Segmented item  | ReactNode | - |  |
+| disabled | Disabled state of segmented item | boolean | false |  |
+| className | The additional css class | string | - |  |
 
 ## Design Token
 
