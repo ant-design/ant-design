@@ -1,13 +1,14 @@
 import React from 'react';
+import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
 import { Segmented } from 'antd';
 
 const Demo: React.FC = () => (
-  <Segmented<string>
+  <Segmented
     vertical
-    options={['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Yearly']}
-    onChange={(value) => {
-      console.log(value); // string
-    }}
+    options={[
+      { value: 'List', icon: <BarsOutlined /> },
+      { value: 'Kanban', icon: <AppstoreOutlined /> },
+    ]}
   />
 );
 
