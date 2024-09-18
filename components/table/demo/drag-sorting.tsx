@@ -10,7 +10,7 @@ import {
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import type { TableColumnsType } from 'antd';
 
 interface DataType {
   key: string;
@@ -19,7 +19,7 @@ interface DataType {
   address: string;
 }
 
-const columns: ColumnsType<DataType> = [
+const columns: TableColumnsType<DataType> = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -38,7 +38,7 @@ interface RowProps extends React.HTMLAttributes<HTMLTableRowElement> {
   'data-row-key': string;
 }
 
-const Row = (props: RowProps) => {
+const Row: React.FC<Readonly<RowProps>> = (props) => {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: props['data-row-key'],
   });
@@ -103,11 +103,9 @@ const App: React.FC = () => {
         items={dataSource.map((i) => i.key)}
         strategy={verticalListSortingStrategy}
       >
-        <Table
+        <Table<DataType>
           components={{
-            body: {
-              row: Row,
-            },
+            body: { row: Row },
           }}
           rowKey="key"
           columns={columns}

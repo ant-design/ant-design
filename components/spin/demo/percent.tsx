@@ -1,26 +1,25 @@
 import React from 'react';
-import { Space, Spin, Switch } from 'antd';
+import { Flex, Spin, Switch } from 'antd';
 
 const App: React.FC = () => {
   const [auto, setAuto] = React.useState(false);
   const [percent, setPercent] = React.useState(-50);
+  const timerRef = React.useRef<ReturnType<typeof setTimeout>>();
 
   React.useEffect(() => {
-    const timeout = setTimeout(() => {
+    timerRef.current = setTimeout(() => {
       setPercent((v) => {
         const nextPercent = v + 5;
         return nextPercent > 150 ? -50 : nextPercent;
       });
     }, 100);
-    return () => {
-      clearTimeout(timeout);
-    };
+    return () => clearTimeout(timerRef.current);
   }, [percent]);
 
   const mergedPercent = auto ? 'auto' : percent;
 
   return (
-    <Space>
+    <Flex align="center" gap="middle">
       <Switch
         checkedChildren="Auto"
         unCheckedChildren="Auto"
@@ -33,7 +32,7 @@ const App: React.FC = () => {
       <Spin percent={mergedPercent} size="small" />
       <Spin percent={mergedPercent} />
       <Spin percent={mergedPercent} size="large" />
-    </Space>
+    </Flex>
   );
 };
 

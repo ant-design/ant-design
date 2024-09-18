@@ -8,7 +8,7 @@ describe('antd dist files', () => {
   // https://github.com/ant-design/ant-design/issues/1638
   // https://github.com/ant-design/ant-design/issues/1968
   it('exports modules correctly', () => {
-    let antd;
+    let antd: any;
     if (testDist) {
       // eslint-disable-next-line import/no-unresolved
       antd = require('../dist/antd');

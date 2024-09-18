@@ -54,9 +54,7 @@ const genGroupStyle: GenerateStyle<ButtonToken> = (token) => {
           position: 'relative',
           zIndex: 1,
 
-          [`&:hover,
-          &:focus,
-          &:active`]: {
+          '&:hover, &:focus, &:active': {
             zIndex: 2,
           },
 

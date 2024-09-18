@@ -21,7 +21,9 @@ describe('site test', () => {
   const render = async (path: string) => {
     const resp = await fetch(`http://127.0.0.1:${port}${path}`).then(async (res) => {
       const html: string = await res.text();
-      const $ = load(html, { decodeEntities: false, recognizeSelfClosing: true });
+      const $ = load(html, {
+        xml: true,
+      });
       return { status: res.status, $ };
     });
     return resp;
@@ -61,7 +63,7 @@ describe('site test', () => {
 
   it('Basic Pages en', async () => {
     const { status, $ } = await render('/');
-    expect($('title').text()).toEqual(
+    expect($('title').first().text()).toEqual(
       `Ant Design - The world's second most popular React UI framework`,
     );
     expect(status).toBe(200);
@@ -69,7 +71,7 @@ describe('site test', () => {
 
   it('Basic Pages zh', async () => {
     const { status, $ } = await render('/index-cn');
-    expect($('title').text()).toEqual(`Ant Design - 一套企业级 UI 设计语言和 React 组件库`);
+    expect($('title').first().text()).toEqual(`Ant Design - 一套企业级 UI 设计语言和 React 组件库`);
     expect(status).toBe(200);
   });
 

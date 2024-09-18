@@ -3072,6 +3072,7 @@ Array [
                             class="ant-picker-header"
                           >
                             <button
+                              aria-label="super-prev-year"
                               class="ant-picker-header-super-prev-btn"
                               tabindex="-1"
                               type="button"
@@ -3081,6 +3082,7 @@ Array [
                               />
                             </button>
                             <button
+                              aria-label="prev-year"
                               class="ant-picker-header-prev-btn"
                               tabindex="-1"
                               type="button"
@@ -3093,6 +3095,7 @@ Array [
                               class="ant-picker-header-view"
                             >
                               <button
+                                aria-label="month panel"
                                 class="ant-picker-month-btn"
                                 tabindex="-1"
                                 type="button"
@@ -3100,6 +3103,7 @@ Array [
                                 Nov
                               </button>
                               <button
+                                aria-label="year panel"
                                 class="ant-picker-year-btn"
                                 tabindex="-1"
                                 type="button"
@@ -3108,6 +3112,7 @@ Array [
                               </button>
                             </div>
                             <button
+                              aria-label="next-year"
                               class="ant-picker-header-next-btn"
                               tabindex="-1"
                               type="button"
@@ -3117,6 +3122,7 @@ Array [
                               />
                             </button>
                             <button
+                              aria-label="super-next-year"
                               class="ant-picker-header-super-next-btn"
                               tabindex="-1"
                               type="button"
@@ -3706,7 +3712,7 @@ Array [
                 </div>
                 <div
                   class="ant-picker-active-bar"
-                  style="position: absolute; width: 0px; left: 0px;"
+                  style="position: absolute; width: 0px;"
                 />
                 <span
                   class="ant-picker-suffix"
@@ -3741,7 +3747,7 @@ Array [
                 >
                   <div
                     class="ant-picker-range-arrow"
-                    style="left: 0px;"
+                    style="inset-inline-start: 0;"
                   />
                   <div
                     class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -3766,6 +3772,7 @@ Array [
                                 class="ant-picker-header"
                               >
                                 <button
+                                  aria-label="super-prev-year"
                                   class="ant-picker-header-super-prev-btn"
                                   tabindex="-1"
                                   type="button"
@@ -3775,6 +3782,7 @@ Array [
                                   />
                                 </button>
                                 <button
+                                  aria-label="prev-year"
                                   class="ant-picker-header-prev-btn"
                                   tabindex="-1"
                                   type="button"
@@ -3787,6 +3795,7 @@ Array [
                                   class="ant-picker-header-view"
                                 >
                                   <button
+                                    aria-label="month panel"
                                     class="ant-picker-month-btn"
                                     tabindex="-1"
                                     type="button"
@@ -3794,6 +3803,7 @@ Array [
                                     Nov
                                   </button>
                                   <button
+                                    aria-label="year panel"
                                     class="ant-picker-year-btn"
                                     tabindex="-1"
                                     type="button"
@@ -3802,6 +3812,7 @@ Array [
                                   </button>
                                 </div>
                                 <button
+                                  aria-label="next-year"
                                   class="ant-picker-header-next-btn"
                                   style="visibility: hidden;"
                                   tabindex="-1"
@@ -3812,6 +3823,7 @@ Array [
                                   />
                                 </button>
                                 <button
+                                  aria-label="super-next-year"
                                   class="ant-picker-header-super-next-btn"
                                   style="visibility: hidden;"
                                   tabindex="-1"
@@ -4302,6 +4314,7 @@ Array [
                                 class="ant-picker-header"
                               >
                                 <button
+                                  aria-label="super-prev-year"
                                   class="ant-picker-header-super-prev-btn"
                                   style="visibility: hidden;"
                                   tabindex="-1"
@@ -4312,6 +4325,7 @@ Array [
                                   />
                                 </button>
                                 <button
+                                  aria-label="prev-year"
                                   class="ant-picker-header-prev-btn"
                                   style="visibility: hidden;"
                                   tabindex="-1"
@@ -4325,6 +4339,7 @@ Array [
                                   class="ant-picker-header-view"
                                 >
                                   <button
+                                    aria-label="month panel"
                                     class="ant-picker-month-btn"
                                     tabindex="-1"
                                     type="button"
@@ -4332,6 +4347,7 @@ Array [
                                     Dec
                                   </button>
                                   <button
+                                    aria-label="year panel"
                                     class="ant-picker-year-btn"
                                     tabindex="-1"
                                     type="button"
@@ -4340,6 +4356,7 @@ Array [
                                   </button>
                                 </div>
                                 <button
+                                  aria-label="next-year"
                                   class="ant-picker-header-next-btn"
                                   tabindex="-1"
                                   type="button"
@@ -4349,6 +4366,7 @@ Array [
                                   />
                                 </button>
                                 <button
+                                  aria-label="super-next-year"
                                   class="ant-picker-header-super-next-btn"
                                   tabindex="-1"
                                   type="button"
@@ -5291,7 +5309,7 @@ Array [
                                 style="position: relative;"
                               >
                                 <div
-                                  style="position: absolute; left: 0px; top: 0px; z-index: 1;"
+                                  style="position: absolute; left: 0%; top: 100%; z-index: 1; transform: translate(-50%, -50%);"
                                 >
                                   <div
                                     class="ant-color-picker-handler"
@@ -5311,46 +5329,46 @@ Array [
                                 class="ant-color-picker-slider-group"
                               >
                                 <div
-                                  class="ant-color-picker-slider ant-color-picker-slider-hue"
+                                  class="ant-slider ant-color-picker-slider ant-slider-horizontal"
                                 >
                                   <div
-                                    class="ant-color-picker-palette"
-                                    style="position: relative;"
-                                  >
-                                    <div
-                                      style="position: absolute; left: 0px; top: 0px; z-index: 1;"
-                                    >
-                                      <div
-                                        class="ant-color-picker-handler ant-color-picker-handler-sm"
-                                        style="background-color: rgb(255, 0, 0);"
-                                      />
-                                    </div>
-                                    <div
-                                      class="ant-color-picker-gradient"
-                                      style="position: absolute; inset: 0;"
-                                    />
-                                  </div>
+                                    class="ant-slider-rail ant-color-picker-slider-rail"
+                                  />
+                                  <div
+                                    class="ant-slider-step"
+                                  />
+                                  <div
+                                    aria-disabled="false"
+                                    aria-orientation="horizontal"
+                                    aria-valuemax="359"
+                                    aria-valuemin="0"
+                                    aria-valuenow="0"
+                                    class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                                    role="slider"
+                                    style="left: 0%; transform: translateX(-50%); background: rgb(255, 0, 0);"
+                                    tabindex="0"
+                                  />
                                 </div>
                                 <div
-                                  class="ant-color-picker-slider ant-color-picker-slider-alpha"
+                                  class="ant-slider ant-color-picker-slider ant-slider-horizontal"
                                 >
                                   <div
-                                    class="ant-color-picker-palette"
-                                    style="position: relative;"
-                                  >
-                                    <div
-                                      style="position: absolute; left: 0px; top: 0px; z-index: 1;"
-                                    >
-                                      <div
-                                        class="ant-color-picker-handler ant-color-picker-handler-sm"
-                                        style="background-color: rgba(0, 0, 0, 0);"
-                                      />
-                                    </div>
-                                    <div
-                                      class="ant-color-picker-gradient"
-                                      style="position: absolute; inset: 0;"
-                                    />
-                                  </div>
+                                    class="ant-slider-rail ant-color-picker-slider-rail"
+                                  />
+                                  <div
+                                    class="ant-slider-step"
+                                  />
+                                  <div
+                                    aria-disabled="false"
+                                    aria-orientation="horizontal"
+                                    aria-valuemax="100"
+                                    aria-valuemin="0"
+                                    aria-valuenow="0"
+                                    class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                                    role="slider"
+                                    style="left: 0%; transform: translateX(-50%); background: rgba(0, 0, 0, 0);"
+                                    tabindex="0"
+                                  />
                                 </div>
                               </div>
                               <div
@@ -5627,6 +5645,332 @@ Array [
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-col-4 ant-form-item-label"
+        >
+          <label
+            class=""
+            title="Rate"
+          >
+            Rate
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-14 ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <ul
+                class="ant-rate ant-rate-disabled"
+                role="radiogroup"
+                tabindex="-1"
+              >
+                <li
+                  class="ant-rate-star ant-rate-star-zero"
+                >
+                  <div
+                    aria-checked="false"
+                    aria-posinset="1"
+                    aria-setsize="5"
+                    role="radio"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="ant-rate-star-first"
+                    >
+                      <span
+                        aria-label="star"
+                        class="anticon anticon-star"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="star"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                    <div
+                      class="ant-rate-star-second"
+                    >
+                      <span
+                        aria-label="star"
+                        class="anticon anticon-star"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="star"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </li>
+                <li
+                  class="ant-rate-star ant-rate-star-zero"
+                >
+                  <div
+                    aria-checked="false"
+                    aria-posinset="2"
+                    aria-setsize="5"
+                    role="radio"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="ant-rate-star-first"
+                    >
+                      <span
+                        aria-label="star"
+                        class="anticon anticon-star"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="star"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                    <div
+                      class="ant-rate-star-second"
+                    >
+                      <span
+                        aria-label="star"
+                        class="anticon anticon-star"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="star"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </li>
+                <li
+                  class="ant-rate-star ant-rate-star-zero"
+                >
+                  <div
+                    aria-checked="false"
+                    aria-posinset="3"
+                    aria-setsize="5"
+                    role="radio"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="ant-rate-star-first"
+                    >
+                      <span
+                        aria-label="star"
+                        class="anticon anticon-star"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="star"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                    <div
+                      class="ant-rate-star-second"
+                    >
+                      <span
+                        aria-label="star"
+                        class="anticon anticon-star"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="star"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </li>
+                <li
+                  class="ant-rate-star ant-rate-star-zero"
+                >
+                  <div
+                    aria-checked="false"
+                    aria-posinset="4"
+                    aria-setsize="5"
+                    role="radio"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="ant-rate-star-first"
+                    >
+                      <span
+                        aria-label="star"
+                        class="anticon anticon-star"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="star"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                    <div
+                      class="ant-rate-star-second"
+                    >
+                      <span
+                        aria-label="star"
+                        class="anticon anticon-star"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="star"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </li>
+                <li
+                  class="ant-rate-star ant-rate-star-zero"
+                >
+                  <div
+                    aria-checked="false"
+                    aria-posinset="5"
+                    aria-setsize="5"
+                    role="radio"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="ant-rate-star-first"
+                    >
+                      <span
+                        aria-label="star"
+                        class="anticon anticon-star"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="star"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                    <div
+                      class="ant-rate-star-second"
+                    >
+                      <span
+                        aria-label="star"
+                        class="anticon anticon-star"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="star"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -7535,6 +7879,7 @@ exports[`renders components/form/demo/getValueProps-normalize.tsx extend context
                           class="ant-picker-header"
                         >
                           <button
+                            aria-label="super-prev-year"
                             class="ant-picker-header-super-prev-btn"
                             tabindex="-1"
                             type="button"
@@ -7544,6 +7889,7 @@ exports[`renders components/form/demo/getValueProps-normalize.tsx extend context
                             />
                           </button>
                           <button
+                            aria-label="prev-year"
                             class="ant-picker-header-prev-btn"
                             tabindex="-1"
                             type="button"
@@ -7556,6 +7902,7 @@ exports[`renders components/form/demo/getValueProps-normalize.tsx extend context
                             class="ant-picker-header-view"
                           >
                             <button
+                              aria-label="month panel"
                               class="ant-picker-month-btn"
                               tabindex="-1"
                               type="button"
@@ -7563,6 +7910,7 @@ exports[`renders components/form/demo/getValueProps-normalize.tsx extend context
                               Jan
                             </button>
                             <button
+                              aria-label="year panel"
                               class="ant-picker-year-btn"
                               tabindex="-1"
                               type="button"
@@ -7571,6 +7919,7 @@ exports[`renders components/form/demo/getValueProps-normalize.tsx extend context
                             </button>
                           </div>
                           <button
+                            aria-label="next-year"
                             class="ant-picker-header-next-btn"
                             tabindex="-1"
                             type="button"
@@ -7580,6 +7929,7 @@ exports[`renders components/form/demo/getValueProps-normalize.tsx extend context
                             />
                           </button>
                           <button
+                            aria-label="super-next-year"
                             class="ant-picker-header-super-next-btn"
                             tabindex="-1"
                             type="button"
@@ -8211,7 +8561,7 @@ exports[`renders components/form/demo/inline-login.tsx extend context correctly 
               >
                 <span
                   aria-label="user"
-                  class="anticon anticon-user site-form-item-icon"
+                  class="anticon anticon-user"
                   role="img"
                 >
                   <svg
@@ -8266,7 +8616,7 @@ exports[`renders components/form/demo/inline-login.tsx extend context correctly 
               >
                 <span
                   aria-label="lock"
-                  class="anticon anticon-lock site-form-item-icon"
+                  class="anticon anticon-lock"
                   role="img"
                 >
                   <svg
@@ -8960,6 +9310,210 @@ Array [
 
 exports[`renders components/form/demo/layout-multiple.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/form/demo/login.tsx extend context correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+  id="login"
+  style="max-width: 360px;"
+>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <span
+              class="ant-input-affix-wrapper ant-input-outlined"
+            >
+              <span
+                class="ant-input-prefix"
+              >
+                <span
+                  aria-label="user"
+                  class="anticon anticon-user"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="user"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <input
+                aria-required="true"
+                class="ant-input"
+                id="login_username"
+                placeholder="Username"
+                type="text"
+                value=""
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <span
+              class="ant-input-affix-wrapper ant-input-outlined"
+            >
+              <span
+                class="ant-input-prefix"
+              >
+                <span
+                  aria-label="lock"
+                  class="anticon anticon-lock"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="lock"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 10-56 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <input
+                aria-required="true"
+                class="ant-input"
+                id="login_password"
+                placeholder="Password"
+                type="password"
+                value=""
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-flex ant-flex-align-center ant-flex-justify-space-between"
+            >
+              <label
+                class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item"
+              >
+                <span
+                  class="ant-checkbox ant-wave-target ant-checkbox-checked"
+                >
+                  <input
+                    checked=""
+                    class="ant-checkbox-input"
+                    id="login_remember"
+                    type="checkbox"
+                  />
+                  <span
+                    class="ant-checkbox-inner"
+                  />
+                </span>
+                <span>
+                  Remember me
+                </span>
+              </label>
+              <a
+                href=""
+              >
+                Forgot password
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <button
+              class="ant-btn ant-btn-primary ant-btn-block"
+              type="submit"
+            >
+              <span>
+                Log in
+              </span>
+            </button>
+            or 
+            <a
+              href=""
+            >
+              Register now!
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`renders components/form/demo/login.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/form/demo/nest-messages.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
@@ -9250,206 +9804,6 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
 `;
 
 exports[`renders components/form/demo/nest-messages.tsx extend context correctly 2`] = `[]`;
-
-exports[`renders components/form/demo/normal-login.tsx extend context correctly 1`] = `
-<form
-  class="ant-form ant-form-horizontal login-form"
-  id="normal_login"
->
-  <div
-    class="ant-form-item"
-  >
-    <div
-      class="ant-row ant-form-item-row"
-    >
-      <div
-        class="ant-col ant-form-item-control"
-      >
-        <div
-          class="ant-form-item-control-input"
-        >
-          <div
-            class="ant-form-item-control-input-content"
-          >
-            <span
-              class="ant-input-affix-wrapper ant-input-outlined"
-            >
-              <span
-                class="ant-input-prefix"
-              >
-                <span
-                  aria-label="user"
-                  class="anticon anticon-user site-form-item-icon"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="user"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
-                    />
-                  </svg>
-                </span>
-              </span>
-              <input
-                aria-required="true"
-                class="ant-input"
-                id="normal_login_username"
-                placeholder="Username"
-                type="text"
-                value=""
-              />
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-form-item"
-  >
-    <div
-      class="ant-row ant-form-item-row"
-    >
-      <div
-        class="ant-col ant-form-item-control"
-      >
-        <div
-          class="ant-form-item-control-input"
-        >
-          <div
-            class="ant-form-item-control-input-content"
-          >
-            <span
-              class="ant-input-affix-wrapper ant-input-outlined"
-            >
-              <span
-                class="ant-input-prefix"
-              >
-                <span
-                  aria-label="lock"
-                  class="anticon anticon-lock site-form-item-icon"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="lock"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 10-56 0z"
-                    />
-                  </svg>
-                </span>
-              </span>
-              <input
-                aria-required="true"
-                class="ant-input"
-                id="normal_login_password"
-                placeholder="Password"
-                type="password"
-                value=""
-              />
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-form-item"
-  >
-    <div
-      class="ant-row ant-form-item-row"
-    >
-      <div
-        class="ant-col ant-form-item-control"
-      >
-        <div
-          class="ant-form-item-control-input"
-        >
-          <div
-            class="ant-form-item-control-input-content"
-          >
-            <label
-              class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item"
-            >
-              <span
-                class="ant-checkbox ant-wave-target ant-checkbox-checked"
-              >
-                <input
-                  checked=""
-                  class="ant-checkbox-input"
-                  id="normal_login_remember"
-                  type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
-                />
-              </span>
-              <span>
-                Remember me
-              </span>
-            </label>
-            <a
-              class="login-form-forgot"
-              href=""
-            >
-              Forgot password
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-form-item"
-  >
-    <div
-      class="ant-row ant-form-item-row"
-    >
-      <div
-        class="ant-col ant-form-item-control"
-      >
-        <div
-          class="ant-form-item-control-input"
-        >
-          <div
-            class="ant-form-item-control-input-content"
-          >
-            <button
-              class="ant-btn ant-btn-primary login-form-button"
-              type="submit"
-            >
-              <span>
-                Log in
-              </span>
-            </button>
-            Or 
-            <a
-              href=""
-            >
-              register now!
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</form>
-`;
-
-exports[`renders components/form/demo/normal-login.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/ref-item.tsx extend context correctly 1`] = `
 <form
@@ -11918,6 +12272,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                           class="ant-picker-header"
                         >
                           <button
+                            aria-label="super-prev-year"
                             class="ant-picker-header-super-prev-btn"
                             tabindex="-1"
                             type="button"
@@ -11927,6 +12282,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                             />
                           </button>
                           <button
+                            aria-label="prev-year"
                             class="ant-picker-header-prev-btn"
                             tabindex="-1"
                             type="button"
@@ -11939,6 +12295,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                             class="ant-picker-header-view"
                           >
                             <button
+                              aria-label="month panel"
                               class="ant-picker-month-btn"
                               tabindex="-1"
                               type="button"
@@ -11946,6 +12303,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                               Nov
                             </button>
                             <button
+                              aria-label="year panel"
                               class="ant-picker-year-btn"
                               tabindex="-1"
                               type="button"
@@ -11954,6 +12312,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                             </button>
                           </div>
                           <button
+                            aria-label="next-year"
                             class="ant-picker-header-next-btn"
                             tabindex="-1"
                             type="button"
@@ -11963,6 +12322,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                             />
                           </button>
                           <button
+                            aria-label="super-next-year"
                             class="ant-picker-header-super-next-btn"
                             tabindex="-1"
                             type="button"
@@ -12760,6 +13120,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                           class="ant-picker-header"
                         >
                           <button
+                            aria-label="super-prev-year"
                             class="ant-picker-header-super-prev-btn"
                             tabindex="-1"
                             type="button"
@@ -12769,6 +13130,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                             />
                           </button>
                           <button
+                            aria-label="prev-year"
                             class="ant-picker-header-prev-btn"
                             tabindex="-1"
                             type="button"
@@ -12781,6 +13143,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                             class="ant-picker-header-view"
                           >
                             <button
+                              aria-label="month panel"
                               class="ant-picker-month-btn"
                               tabindex="-1"
                               type="button"
@@ -12788,6 +13151,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                               Nov
                             </button>
                             <button
+                              aria-label="year panel"
                               class="ant-picker-year-btn"
                               tabindex="-1"
                               type="button"
@@ -12796,6 +13160,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                             </button>
                           </div>
                           <button
+                            aria-label="next-year"
                             class="ant-picker-header-next-btn"
                             tabindex="-1"
                             type="button"
@@ -12805,6 +13170,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                             />
                           </button>
                           <button
+                            aria-label="super-next-year"
                             class="ant-picker-header-super-next-btn"
                             tabindex="-1"
                             type="button"
@@ -13403,6 +13769,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                             class="ant-picker-header"
                           >
                             <button
+                              aria-label="super-prev-year"
                               class="ant-picker-header-super-prev-btn"
                               tabindex="-1"
                               type="button"
@@ -13412,6 +13779,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                               />
                             </button>
                             <button
+                              aria-label="prev-year"
                               class="ant-picker-header-prev-btn"
                               tabindex="-1"
                               type="button"
@@ -13424,6 +13792,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                               class="ant-picker-header-view"
                             >
                               <button
+                                aria-label="month panel"
                                 class="ant-picker-month-btn"
                                 tabindex="-1"
                                 type="button"
@@ -13431,6 +13800,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                                 Nov
                               </button>
                               <button
+                                aria-label="year panel"
                                 class="ant-picker-year-btn"
                                 tabindex="-1"
                                 type="button"
@@ -13439,6 +13809,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                               </button>
                             </div>
                             <button
+                              aria-label="next-year"
                               class="ant-picker-header-next-btn"
                               tabindex="-1"
                               type="button"
@@ -13448,6 +13819,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                               />
                             </button>
                             <button
+                              aria-label="super-next-year"
                               class="ant-picker-header-super-next-btn"
                               tabindex="-1"
                               type="button"
@@ -15528,6 +15900,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                           class="ant-picker-header"
                         >
                           <button
+                            aria-label="super-prev-year"
                             class="ant-picker-header-super-prev-btn"
                             tabindex="-1"
                             type="button"
@@ -15540,6 +15913,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                             class="ant-picker-header-view"
                           >
                             <button
+                              aria-label="year panel"
                               class="ant-picker-year-btn"
                               tabindex="-1"
                               type="button"
@@ -15548,6 +15922,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                             </button>
                           </div>
                           <button
+                            aria-label="super-next-year"
                             class="ant-picker-header-super-next-btn"
                             tabindex="-1"
                             type="button"
@@ -15792,7 +16167,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
               </div>
               <div
                 class="ant-picker-active-bar"
-                style="position: absolute; width: 0px; left: 0px;"
+                style="position: absolute; width: 0px;"
               />
               <span
                 class="ant-picker-suffix"
@@ -15827,7 +16202,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
               >
                 <div
                   class="ant-picker-range-arrow"
-                  style="left: 0px;"
+                  style="inset-inline-start: 0;"
                 />
                 <div
                   class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -15852,6 +16227,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                               class="ant-picker-header"
                             >
                               <button
+                                aria-label="super-prev-year"
                                 class="ant-picker-header-super-prev-btn"
                                 tabindex="-1"
                                 type="button"
@@ -15861,6 +16237,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                                 />
                               </button>
                               <button
+                                aria-label="prev-year"
                                 class="ant-picker-header-prev-btn"
                                 tabindex="-1"
                                 type="button"
@@ -15873,6 +16250,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                                 class="ant-picker-header-view"
                               >
                                 <button
+                                  aria-label="month panel"
                                   class="ant-picker-month-btn"
                                   tabindex="-1"
                                   type="button"
@@ -15880,6 +16258,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                                   Nov
                                 </button>
                                 <button
+                                  aria-label="year panel"
                                   class="ant-picker-year-btn"
                                   tabindex="-1"
                                   type="button"
@@ -15888,6 +16267,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                                 </button>
                               </div>
                               <button
+                                aria-label="next-year"
                                 class="ant-picker-header-next-btn"
                                 style="visibility: hidden;"
                                 tabindex="-1"
@@ -15898,6 +16278,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                                 />
                               </button>
                               <button
+                                aria-label="super-next-year"
                                 class="ant-picker-header-super-next-btn"
                                 style="visibility: hidden;"
                                 tabindex="-1"
@@ -16388,6 +16769,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                               class="ant-picker-header"
                             >
                               <button
+                                aria-label="super-prev-year"
                                 class="ant-picker-header-super-prev-btn"
                                 style="visibility: hidden;"
                                 tabindex="-1"
@@ -16398,6 +16780,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                                 />
                               </button>
                               <button
+                                aria-label="prev-year"
                                 class="ant-picker-header-prev-btn"
                                 style="visibility: hidden;"
                                 tabindex="-1"
@@ -16411,6 +16794,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                                 class="ant-picker-header-view"
                               >
                                 <button
+                                  aria-label="month panel"
                                   class="ant-picker-month-btn"
                                   tabindex="-1"
                                   type="button"
@@ -16418,6 +16802,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                                   Dec
                                 </button>
                                 <button
+                                  aria-label="year panel"
                                   class="ant-picker-year-btn"
                                   tabindex="-1"
                                   type="button"
@@ -16426,6 +16811,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                                 </button>
                               </div>
                               <button
+                                aria-label="next-year"
                                 class="ant-picker-header-next-btn"
                                 tabindex="-1"
                                 type="button"
@@ -16435,6 +16821,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                                 />
                               </button>
                               <button
+                                aria-label="super-next-year"
                                 class="ant-picker-header-super-next-btn"
                                 tabindex="-1"
                                 type="button"
@@ -17010,7 +17397,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
               </div>
               <div
                 class="ant-picker-active-bar"
-                style="position: absolute; width: 0px; left: 0px;"
+                style="position: absolute; width: 0px;"
               />
               <span
                 class="ant-picker-suffix"
@@ -17045,7 +17432,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
               >
                 <div
                   class="ant-picker-range-arrow"
-                  style="left: 0px;"
+                  style="inset-inline-start: 0;"
                 />
                 <div
                   class="ant-picker-panel-container ant-picker-datetime-panel-container"
@@ -17070,6 +17457,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                               class="ant-picker-header"
                             >
                               <button
+                                aria-label="super-prev-year"
                                 class="ant-picker-header-super-prev-btn"
                                 tabindex="-1"
                                 type="button"
@@ -17079,6 +17467,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                                 />
                               </button>
                               <button
+                                aria-label="prev-year"
                                 class="ant-picker-header-prev-btn"
                                 tabindex="-1"
                                 type="button"
@@ -17091,6 +17480,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                                 class="ant-picker-header-view"
                               >
                                 <button
+                                  aria-label="month panel"
                                   class="ant-picker-month-btn"
                                   tabindex="-1"
                                   type="button"
@@ -17098,6 +17488,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                                   Nov
                                 </button>
                                 <button
+                                  aria-label="year panel"
                                   class="ant-picker-year-btn"
                                   tabindex="-1"
                                   type="button"
@@ -17106,6 +17497,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                                 </button>
                               </div>
                               <button
+                                aria-label="next-year"
                                 class="ant-picker-header-next-btn"
                                 tabindex="-1"
                                 type="button"
@@ -17115,6 +17507,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                                 />
                               </button>
                               <button
+                                aria-label="super-next-year"
                                 class="ant-picker-header-super-next-btn"
                                 tabindex="-1"
                                 type="button"
@@ -21522,7 +21915,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             </div>
             <span
               class="ant-form-text"
-              style="margin-left: 8px;"
+              style="margin-inline-start: 8px;"
             >
               machines
             </span>
@@ -22675,7 +23068,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                               style="position: relative;"
                             >
                               <div
-                                style="position: absolute; left: 0px; top: 0px; z-index: 1;"
+                                style="position: absolute; left: 0%; top: 100%; z-index: 1; transform: translate(-50%, -50%);"
                               >
                                 <div
                                   class="ant-color-picker-handler"
@@ -22695,46 +23088,46 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                               class="ant-color-picker-slider-group"
                             >
                               <div
-                                class="ant-color-picker-slider ant-color-picker-slider-hue"
+                                class="ant-slider ant-color-picker-slider ant-slider-horizontal"
                               >
                                 <div
-                                  class="ant-color-picker-palette"
-                                  style="position: relative;"
-                                >
-                                  <div
-                                    style="position: absolute; left: 0px; top: 0px; z-index: 1;"
-                                  >
-                                    <div
-                                      class="ant-color-picker-handler ant-color-picker-handler-sm"
-                                      style="background-color: rgb(255, 0, 0);"
-                                    />
-                                  </div>
-                                  <div
-                                    class="ant-color-picker-gradient"
-                                    style="position: absolute; inset: 0;"
-                                  />
-                                </div>
+                                  class="ant-slider-rail ant-color-picker-slider-rail"
+                                />
+                                <div
+                                  class="ant-slider-step"
+                                />
+                                <div
+                                  aria-disabled="false"
+                                  aria-orientation="horizontal"
+                                  aria-valuemax="359"
+                                  aria-valuemin="0"
+                                  aria-valuenow="0"
+                                  class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                                  role="slider"
+                                  style="left: 0%; transform: translateX(-50%); background: rgb(255, 0, 0);"
+                                  tabindex="0"
+                                />
                               </div>
                               <div
-                                class="ant-color-picker-slider ant-color-picker-slider-alpha"
+                                class="ant-slider ant-color-picker-slider ant-slider-horizontal"
                               >
                                 <div
-                                  class="ant-color-picker-palette"
-                                  style="position: relative;"
-                                >
-                                  <div
-                                    style="position: absolute; left: 0px; top: 0px; z-index: 1;"
-                                  >
-                                    <div
-                                      class="ant-color-picker-handler ant-color-picker-handler-sm"
-                                      style="background-color: rgba(0, 0, 0, 0);"
-                                    />
-                                  </div>
-                                  <div
-                                    class="ant-color-picker-gradient"
-                                    style="position: absolute; inset: 0;"
-                                  />
-                                </div>
+                                  class="ant-slider-rail ant-color-picker-slider-rail"
+                                />
+                                <div
+                                  class="ant-slider-step"
+                                />
+                                <div
+                                  aria-disabled="false"
+                                  aria-orientation="horizontal"
+                                  aria-valuemax="100"
+                                  aria-valuemin="0"
+                                  aria-valuenow="0"
+                                  class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                                  role="slider"
+                                  style="left: 0%; transform: translateX(-50%); background: rgba(0, 0, 0, 0);"
+                                  tabindex="0"
+                                />
                               </div>
                             </div>
                             <div
@@ -23996,6 +24389,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                           class="ant-picker-header"
                         >
                           <button
+                            aria-label="super-prev-year"
                             class="ant-picker-header-super-prev-btn"
                             tabindex="-1"
                             type="button"
@@ -24005,6 +24399,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                             />
                           </button>
                           <button
+                            aria-label="prev-year"
                             class="ant-picker-header-prev-btn"
                             tabindex="-1"
                             type="button"
@@ -24017,6 +24412,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                             class="ant-picker-header-view"
                           >
                             <button
+                              aria-label="month panel"
                               class="ant-picker-month-btn"
                               tabindex="-1"
                               type="button"
@@ -24024,6 +24420,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                               Nov
                             </button>
                             <button
+                              aria-label="year panel"
                               class="ant-picker-year-btn"
                               tabindex="-1"
                               type="button"
@@ -24032,6 +24429,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                             </button>
                           </div>
                           <button
+                            aria-label="next-year"
                             class="ant-picker-header-next-btn"
                             tabindex="-1"
                             type="button"
@@ -24041,6 +24439,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                             />
                           </button>
                           <button
+                            aria-label="super-next-year"
                             class="ant-picker-header-super-next-btn"
                             tabindex="-1"
                             type="button"
@@ -26240,7 +26639,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               </div>
               <div
                 class="ant-picker-active-bar"
-                style="position: absolute; width: 0px; left: 0px;"
+                style="position: absolute; width: 0px;"
               />
               <span
                 class="ant-picker-suffix"
@@ -26299,7 +26698,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               >
                 <div
                   class="ant-picker-range-arrow"
-                  style="left: 0px;"
+                  style="inset-inline-start: 0;"
                 />
                 <div
                   class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -26324,6 +26723,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                               class="ant-picker-header"
                             >
                               <button
+                                aria-label="super-prev-year"
                                 class="ant-picker-header-super-prev-btn"
                                 tabindex="-1"
                                 type="button"
@@ -26333,6 +26733,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                 />
                               </button>
                               <button
+                                aria-label="prev-year"
                                 class="ant-picker-header-prev-btn"
                                 tabindex="-1"
                                 type="button"
@@ -26345,6 +26746,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                 class="ant-picker-header-view"
                               >
                                 <button
+                                  aria-label="month panel"
                                   class="ant-picker-month-btn"
                                   tabindex="-1"
                                   type="button"
@@ -26352,6 +26754,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                   Nov
                                 </button>
                                 <button
+                                  aria-label="year panel"
                                   class="ant-picker-year-btn"
                                   tabindex="-1"
                                   type="button"
@@ -26360,6 +26763,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                 </button>
                               </div>
                               <button
+                                aria-label="next-year"
                                 class="ant-picker-header-next-btn"
                                 style="visibility: hidden;"
                                 tabindex="-1"
@@ -26370,6 +26774,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                 />
                               </button>
                               <button
+                                aria-label="super-next-year"
                                 class="ant-picker-header-super-next-btn"
                                 style="visibility: hidden;"
                                 tabindex="-1"
@@ -26860,6 +27265,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                               class="ant-picker-header"
                             >
                               <button
+                                aria-label="super-prev-year"
                                 class="ant-picker-header-super-prev-btn"
                                 style="visibility: hidden;"
                                 tabindex="-1"
@@ -26870,6 +27276,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                 />
                               </button>
                               <button
+                                aria-label="prev-year"
                                 class="ant-picker-header-prev-btn"
                                 style="visibility: hidden;"
                                 tabindex="-1"
@@ -26883,6 +27290,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                 class="ant-picker-header-view"
                               >
                                 <button
+                                  aria-label="month panel"
                                   class="ant-picker-month-btn"
                                   tabindex="-1"
                                   type="button"
@@ -26890,6 +27298,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                   Dec
                                 </button>
                                 <button
+                                  aria-label="year panel"
                                   class="ant-picker-year-btn"
                                   tabindex="-1"
                                   type="button"
@@ -26898,6 +27307,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                 </button>
                               </div>
                               <button
+                                aria-label="next-year"
                                 class="ant-picker-header-next-btn"
                                 tabindex="-1"
                                 type="button"
@@ -26907,6 +27317,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                 />
                               </button>
                               <button
+                                aria-label="super-next-year"
                                 class="ant-picker-header-super-next-btn"
                                 tabindex="-1"
                                 type="button"
@@ -28083,6 +28494,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                     class="ant-picker-header"
                                   >
                                     <button
+                                      aria-label="super-prev-year"
                                       class="ant-picker-header-super-prev-btn"
                                       tabindex="-1"
                                       type="button"
@@ -28092,6 +28504,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                       />
                                     </button>
                                     <button
+                                      aria-label="prev-year"
                                       class="ant-picker-header-prev-btn"
                                       tabindex="-1"
                                       type="button"
@@ -28104,6 +28517,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                       class="ant-picker-header-view"
                                     >
                                       <button
+                                        aria-label="month panel"
                                         class="ant-picker-month-btn"
                                         tabindex="-1"
                                         type="button"
@@ -28111,6 +28525,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                         Nov
                                       </button>
                                       <button
+                                        aria-label="year panel"
                                         class="ant-picker-year-btn"
                                         tabindex="-1"
                                         type="button"
@@ -28119,6 +28534,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                       </button>
                                     </div>
                                     <button
+                                      aria-label="next-year"
                                       class="ant-picker-header-next-btn"
                                       tabindex="-1"
                                       type="button"
@@ -28128,6 +28544,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                       />
                                     </button>
                                     <button
+                                      aria-label="super-next-year"
                                       class="ant-picker-header-super-next-btn"
                                       tabindex="-1"
                                       type="button"
@@ -28738,6 +29155,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                     class="ant-picker-header"
                                   >
                                     <button
+                                      aria-label="super-prev-year"
                                       class="ant-picker-header-super-prev-btn"
                                       tabindex="-1"
                                       type="button"
@@ -28747,6 +29165,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                       />
                                     </button>
                                     <button
+                                      aria-label="prev-year"
                                       class="ant-picker-header-prev-btn"
                                       tabindex="-1"
                                       type="button"
@@ -28759,6 +29178,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                       class="ant-picker-header-view"
                                     >
                                       <button
+                                        aria-label="month panel"
                                         class="ant-picker-month-btn"
                                         tabindex="-1"
                                         type="button"
@@ -28766,6 +29186,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                         Nov
                                       </button>
                                       <button
+                                        aria-label="year panel"
                                         class="ant-picker-year-btn"
                                         tabindex="-1"
                                         type="button"
@@ -28774,6 +29195,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                       </button>
                                     </div>
                                     <button
+                                      aria-label="next-year"
                                       class="ant-picker-header-next-btn"
                                       tabindex="-1"
                                       type="button"
@@ -28783,6 +29205,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                       />
                                     </button>
                                     <button
+                                      aria-label="super-next-year"
                                       class="ant-picker-header-super-next-btn"
                                       tabindex="-1"
                                       type="button"
@@ -30313,6 +30736,89 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
       >
         <label
+          class=""
+          for="variant"
+          title="Form variant"
+        >
+          Form variant
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-segmented"
+              id="variant"
+            >
+              <div
+                class="ant-segmented-group"
+              >
+                <label
+                  class="ant-segmented-item"
+                >
+                  <input
+                    class="ant-segmented-item-input"
+                    type="radio"
+                  />
+                  <div
+                    class="ant-segmented-item-label"
+                    title="outlined"
+                  >
+                    outlined
+                  </div>
+                </label>
+                <label
+                  class="ant-segmented-item ant-segmented-item-selected"
+                >
+                  <input
+                    checked=""
+                    class="ant-segmented-item-input"
+                    type="radio"
+                  />
+                  <div
+                    class="ant-segmented-item-label"
+                    title="filled"
+                  >
+                    filled
+                  </div>
+                </label>
+                <label
+                  class="ant-segmented-item"
+                >
+                  <input
+                    class="ant-segmented-item-input"
+                    type="radio"
+                  />
+                  <div
+                    class="ant-segmented-item-label"
+                    title="borderless"
+                  >
+                    borderless
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
+      >
+        <label
           class="ant-form-item-required"
           for="Input"
           title="Input"
@@ -30605,6 +31111,9 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                           width="64"
                           xmlns="http://www.w3.org/2000/svg"
                         >
+                          <title>
+                            Simple Empty
+                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -30764,6 +31273,9 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                                 width="64"
                                 xmlns="http://www.w3.org/2000/svg"
                               >
+                                <title>
+                                  Simple Empty
+                                </title>
                                 <g
                                   fill="none"
                                   fill-rule="evenodd"
@@ -30914,6 +31426,9 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                           width="64"
                           xmlns="http://www.w3.org/2000/svg"
                         >
+                          <title>
+                            Simple Empty
+                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -31072,6 +31587,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                           class="ant-picker-header"
                         >
                           <button
+                            aria-label="super-prev-year"
                             class="ant-picker-header-super-prev-btn"
                             tabindex="-1"
                             type="button"
@@ -31081,6 +31597,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                             />
                           </button>
                           <button
+                            aria-label="prev-year"
                             class="ant-picker-header-prev-btn"
                             tabindex="-1"
                             type="button"
@@ -31093,6 +31610,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                             class="ant-picker-header-view"
                           >
                             <button
+                              aria-label="month panel"
                               class="ant-picker-month-btn"
                               tabindex="-1"
                               type="button"
@@ -31100,6 +31618,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                               Nov
                             </button>
                             <button
+                              aria-label="year panel"
                               class="ant-picker-year-btn"
                               tabindex="-1"
                               type="button"
@@ -31108,6 +31627,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                             </button>
                           </div>
                           <button
+                            aria-label="next-year"
                             class="ant-picker-header-next-btn"
                             tabindex="-1"
                             type="button"
@@ -31117,6 +31637,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                             />
                           </button>
                           <button
+                            aria-label="super-next-year"
                             class="ant-picker-header-super-next-btn"
                             tabindex="-1"
                             type="button"
@@ -31708,7 +32229,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
               </div>
               <div
                 class="ant-picker-active-bar"
-                style="position: absolute; width: 0px; left: 0px;"
+                style="position: absolute; width: 0px;"
               />
               <span
                 class="ant-picker-suffix"
@@ -31743,7 +32264,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
               >
                 <div
                   class="ant-picker-range-arrow"
-                  style="left: 0px;"
+                  style="inset-inline-start: 0;"
                 />
                 <div
                   class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -31768,6 +32289,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                               class="ant-picker-header"
                             >
                               <button
+                                aria-label="super-prev-year"
                                 class="ant-picker-header-super-prev-btn"
                                 tabindex="-1"
                                 type="button"
@@ -31777,6 +32299,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                                 />
                               </button>
                               <button
+                                aria-label="prev-year"
                                 class="ant-picker-header-prev-btn"
                                 tabindex="-1"
                                 type="button"
@@ -31789,6 +32312,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                                 class="ant-picker-header-view"
                               >
                                 <button
+                                  aria-label="month panel"
                                   class="ant-picker-month-btn"
                                   tabindex="-1"
                                   type="button"
@@ -31796,6 +32320,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                                   Nov
                                 </button>
                                 <button
+                                  aria-label="year panel"
                                   class="ant-picker-year-btn"
                                   tabindex="-1"
                                   type="button"
@@ -31804,6 +32329,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                                 </button>
                               </div>
                               <button
+                                aria-label="next-year"
                                 class="ant-picker-header-next-btn"
                                 style="visibility: hidden;"
                                 tabindex="-1"
@@ -31814,6 +32340,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                                 />
                               </button>
                               <button
+                                aria-label="super-next-year"
                                 class="ant-picker-header-super-next-btn"
                                 style="visibility: hidden;"
                                 tabindex="-1"
@@ -32304,6 +32831,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                               class="ant-picker-header"
                             >
                               <button
+                                aria-label="super-prev-year"
                                 class="ant-picker-header-super-prev-btn"
                                 style="visibility: hidden;"
                                 tabindex="-1"
@@ -32314,6 +32842,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                                 />
                               </button>
                               <button
+                                aria-label="prev-year"
                                 class="ant-picker-header-prev-btn"
                                 style="visibility: hidden;"
                                 tabindex="-1"
@@ -32327,6 +32856,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                                 class="ant-picker-header-view"
                               >
                                 <button
+                                  aria-label="month panel"
                                   class="ant-picker-month-btn"
                                   tabindex="-1"
                                   type="button"
@@ -32334,6 +32864,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                                   Dec
                                 </button>
                                 <button
+                                  aria-label="year panel"
                                   class="ant-picker-year-btn"
                                   tabindex="-1"
                                   type="button"
@@ -32342,6 +32873,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                                 </button>
                               </div>
                               <button
+                                aria-label="next-year"
                                 class="ant-picker-header-next-btn"
                                 tabindex="-1"
                                 type="button"
@@ -32351,6 +32883,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                                 />
                               </button>
                               <button
+                                aria-label="super-next-year"
                                 class="ant-picker-header-super-next-btn"
                                 tabindex="-1"
                                 type="button"

@@ -75,33 +75,47 @@ rules={[{
 
 ## 最终效果
 
-```tsx
+```tsx | demo
+/**
+ * defaultShowCode: true
+ */
 import React from 'react';
 import type { FormItemProps } from 'antd';
-import { Cascader, Form } from 'antd';
+import { Button, Cascader, DatePicker, Form as OriginForm } from 'antd';
+import dayjs from 'dayjs';
 
-export const AggregateFormItem = (
-  props: FormItemProps & { names?: FormItemProps<Record<string, any>>['name'][] },
-) => {
-  const form = Form.useFormInstance();
+interface AggregateProps<V = any> extends FormItemProps<V> {
+  names?: FormItemProps<V>['name'][];
+}
+
+const Aggregate = (props: AggregateProps) => {
+  const form = OriginForm.useFormInstance();
 
   const { names = [], rules = [], ...rest } = props;
   const [firstName, ...resetNames] = names;
+
   return (
     <>
-      <Form.Item
+      <OriginForm.Item
         name={firstName}
         // 将 names 的值转成数组传给 children
-        getValueProps={() => ({ value: names.map((name) => form.getFieldValue(name)) })}
+        getValueProps={() => {
+          const value = names.map((name) => form.getFieldValue(name));
+          if (value.every((v) => v === undefined)) {
+            return undefined;
+          }
+          return { value };
+        }}
         getValueFromEvent={(values) => {
           // 将 form store 分别设置给 names
-          form.setFields(names.map((name, index) => ({ name, value: values[index] })));
-          return values[0];
+          const fieldData = names.map((name, index) => ({ name, value: values?.[index] }));
+          form.setFields(fieldData);
+          return values?.[0];
         }}
-        rules={rules.map((thisRule) => {
-          if (typeof thisRule === 'object') {
+        rules={rules.map((rule) => {
+          if (typeof rule === 'object' && rule) {
             return {
-              ...thisRule,
+              ...rule,
               transform: () => {
                 // 将 names 字段的值设置给 rule value
                 const values = names.map((name) => form.getFieldValue(name));
@@ -109,39 +123,70 @@ export const AggregateFormItem = (
               },
             };
           }
-          return thisRule;
+          return rule;
         })}
         {...rest}
       />
       {/* 绑定其他字段，使其可以 getFieldValue 获取值、setFields 设置值 */}
       {resetNames.map((name) => (
-        <Form.Item key={name?.toString()} name={name} noStyle />
+        <OriginForm.Item key={name?.toString()} name={name} noStyle />
       ))}
     </>
   );
 };
 
-const data = { province: 'Beijing', city: 'Haidian' };
-const options = [
-  { value: 'zhejiang', label: 'Zhejiang', children: [{ value: 'hangzhou', label: 'Hangzhou' }] },
-  { value: 'jiangsu', label: 'Jiangsu', children: [{ value: 'nanjing', label: 'Nanjing' }] },
-];
-const createUser = (values) => console.log(values);
+const data = {
+  province: 'Beijing',
+  city: 'Haidian',
+  startTime: dayjs(),
+  endTime: dayjs().add(1, 'month'),
+};
 
-export const Demo = () => (
-  <Form
-    initialValues={data}
-    onFinish={(values) => {
-      createUser(values);
-    }}
-  >
-    <AggregateFormItem label="Address" names={['province', 'city']} rules={[{ required: true }]}>
+const options = [
+  {
+    value: 'zhejiang',
+    label: 'Zhejiang',
+    children: [{ value: 'hangzhou', label: 'Hangzhou' }],
+  },
+  {
+    value: 'jiangsu',
+    label: 'Jiangsu',
+    children: [{ value: 'nanjing', label: 'Nanjing' }],
+  },
+];
+
+const Form = Object.assign(OriginForm, { Aggregate });
+
+export default () => (
+  <Form initialValues={data} onFinish={(value) => console.log(value)}>
+    <Form.Aggregate label="Address" names={['province', 'city']} rules={[{ required: true }]}>
       <Cascader options={options} placeholder="Please select" />
-    </AggregateFormItem>
+    </Form.Aggregate>
+
+    <Form.Item label="Address (use Default)" name="defaultAddress">
+      <Cascader options={options} placeholder="Please select" />
+    </Form.Item>
+
+    {/* 同理，也适用于 DatePicker.RangePicker */}
+    <Form.Aggregate label="Date" names={['startTime', 'endTime']}>
+      <DatePicker.RangePicker />
+    </Form.Aggregate>
+
+    <Form.Item>
+      <Button htmlType="submit" type="primary">
+        提交
+      </Button>
+    </Form.Item>
   </Form>
 );
 ```
 
 ## 总结
 
-通过这种方式，我们实现了一个可以在 `Form.Item` 中操作多个 `name` 的功能，使得表单逻辑更加清晰和易于维护。另外此示例还有些边界场景没有考虑，比如 `setFields([{ name:'city' value:'nanjing' }])` 不会更新 `Cascader` 选中的值，需要增加 `Form.useWatch(values => resetNames.map(name => get(values, name)), form);` 达到刷新效果等。更多的边界问题就交给你去试试吧~
+通过这种方式，我们实现了一个可以在 `Form.Item` 中操作多个 `name` 的功能，使得表单逻辑更加清晰和易于维护。
+
+除了文中的 `Cascader` 示例，同样适用于 `DatePicker.RangePicker` 等组件。换句话说，只要是需要聚合多个字段的场景，都可以使用这种方式。
+
+另外此示例还有些边界场景没有考虑，比如 `setFields([{ name:'city' value:'nanjing' }])` 不会更新 `Cascader` 选中的值，需要增加 `Form.useWatch(values => resetNames.map(name => get(values, name)), form);` 达到刷新效果等。
+
+更多的边界问题就交给你去试试吧~

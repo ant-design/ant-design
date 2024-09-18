@@ -7963,11 +7963,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
 </div>
 `;
 
-exports[`renders components/calendar/demo/customize-header.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Select] \`dropdownMatchSelectWidth\` is deprecated. Please use \`popupMatchSelectWidth\` instead.",
-]
-`;
+exports[`renders components/calendar/demo/customize-header.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/calendar/demo/notice-calendar.tsx extend context correctly 1`] = `
 <div

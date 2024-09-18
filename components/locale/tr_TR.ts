@@ -50,6 +50,7 @@ const localeValues: Locale = {
     selectCurrent: 'Tüm sayfayı seç',
     removeCurrent: 'Sayfayı kaldır',
     selectAll: 'Tümünü seç',
+    deselectAll: 'Tümünün seçimini kaldır',
     removeAll: 'Tümünü kaldır',
     selectInvert: 'Tersini seç',
   },

@@ -37,12 +37,12 @@ group:
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">按钮类型</code>
-<code src="./demo/icon.tsx" >按钮图标</code>
+<code src="./demo/icon.tsx">按钮图标</code>
 <code src="./demo/icon-position.tsx" version="5.17.0">按钮图标位置</code>
 <code src="./demo/debug-icon.tsx" debug>调试图标按钮</code>
 <code src="./demo/debug-block.tsx" debug>调试按钮block属性</code>
 <code src="./demo/size.tsx">按钮尺寸</code>
-<code src="./demo/disabled.tsx">不可用状态</code> 
+<code src="./demo/disabled.tsx">不可用状态</code>
 <code src="./demo/loading.tsx">加载中状态</code>
 <code src="./demo/multiple.tsx">多个按钮组合</code>
 <code src="./demo/ghost.tsx">幽灵按钮</code>

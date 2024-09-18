@@ -44,9 +44,19 @@ Common props ref：[Common props](/docs/react/common-props)
 | defaultValue | Default selected value | string \| number |  |  |
 | disabled | Disable all segments | boolean | false |  |
 | onChange | The callback function that is triggered when the state changes | function(value: string \| number) |  |  |
-| options | Set children optional | string\[] \| number\[] \| Array<{ label: ReactNode value: string icon? ReactNode disabled?: boolean className?: string }> | [] |  |
+| options | Set children optional | string\[] \| number\[] \| SegmentedItemType\[] | [] |  |
 | size | The size of the Segmented. | `large` \| `middle` \| `small` | `middle` |  |
 | value | Currently selected value | string \| number |  |  |
+
+### SegmentedItemType
+
+| Property  | Description  | Type  | Default | Version |
+| --- | --- | --- | --- | --- |
+| label | Display text for Segmented item  | ReactNode | - |  |
+| value | Value for Segmented item  | string \| number | - |  |
+| icon  | Display icon for Segmented item  | ReactNode | - |  |
+| disabled | Disabled state of segmented item | boolean | false |  |
+| className | The additional css class | string | - |  |
 
 ## Design Token
 

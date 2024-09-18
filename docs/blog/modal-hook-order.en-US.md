@@ -2,6 +2,9 @@
 title: Funny Modal hook BUG
 date: 2022-12-21
 author: zombieJ
+zhihu_url: https://zhuanlan.zhihu.com/p/639265725
+yuque_url: https://www.yuque.com/ant-design/ant-design/yq0w59gikugthyqz
+juejin_url: https://juejin.cn/post/7322306608103686194
 ---
 
 Recently we encountered an [issue](https://github.com/ant-design/ant-design/issues/39427), saying that when `contextHolder` of `Modal.useModal` is placed in different positions, `modal.confirm` popup location will be different:

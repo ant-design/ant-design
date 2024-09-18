@@ -1690,6 +1690,127 @@ describe('Table.rowSelection', () => {
       );
     });
 
+    it('treeData cache with preserveSelectedRowKeys and checkStrictly false', () => {
+      const onChange = jest.fn();
+      const treeDataColumns = [
+        {
+          title: 'Name',
+          dataIndex: 'name',
+          key: 'name',
+        },
+      ];
+      const { container, rerender } = render(
+        <Table
+          expandable={{
+            defaultExpandAllRows: true,
+          }}
+          columns={treeDataColumns}
+          dataSource={[
+            {
+              key: 1,
+              name: 'a',
+              children: [
+                {
+                  key: 11,
+                  name: 'b',
+                },
+                {
+                  key: 12,
+                  name: 'c',
+                  children: [
+                    {
+                      key: 121,
+                      name: 'd',
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              key: 2,
+              name: 'e',
+            },
+          ]}
+          rowSelection={{ onChange, preserveSelectedRowKeys: true, checkStrictly: false }}
+        />,
+      );
+
+      fireEvent.click(container.querySelector('th input')!);
+      expect(onChange).toHaveBeenCalledWith(
+        [1, 11, 12, 121, 2],
+        [
+          {
+            key: 1,
+            name: 'a',
+            children: [
+              {
+                key: 11,
+                name: 'b',
+              },
+              {
+                key: 12,
+                name: 'c',
+                children: [
+                  {
+                    key: 121,
+                    name: 'd',
+                  },
+                ],
+              },
+            ],
+          },
+          { key: 11, name: 'b' },
+          { key: 12, name: 'c', children: [{ key: 121, name: 'd' }] },
+          { key: 121, name: 'd' },
+          { key: 2, name: 'e' },
+        ],
+        { type: 'all' },
+      );
+
+      rerender(
+        <Table
+          expandable={{
+            defaultExpandAllRows: true,
+          }}
+          columns={treeDataColumns}
+          dataSource={[
+            {
+              key: 1,
+              name: 'a',
+              children: [
+                {
+                  key: 11,
+                  name: 'b',
+                },
+                {
+                  key: 12,
+                  name: 'c',
+                  children: [
+                    {
+                      key: 121,
+                      name: 'd',
+                    },
+                  ],
+                },
+              ],
+            },
+          ]}
+          rowSelection={{ onChange, preserveSelectedRowKeys: true, checkStrictly: false }}
+        />,
+      );
+      fireEvent.click(container.querySelectorAll('tbody input[type="checkbox"]')[1]);
+      expect(onChange).toHaveBeenCalledWith(
+        [12, 121, 2],
+        [
+          { key: 12, name: 'c', children: [{ key: 121, name: 'd' }] },
+          { key: 121, name: 'd' },
+          { key: 2, name: 'e' },
+        ],
+        { type: 'single' },
+      );
+      expect(getIndeterminateSelection(container)).toEqual([1]);
+    });
+
     it('works with receive selectedRowKeys from [] to undefined', () => {
       const onChange = jest.fn();
       const dataSource = [{ name: 'Jack' }];

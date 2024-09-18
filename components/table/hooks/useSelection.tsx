@@ -40,7 +40,7 @@ export const SELECTION_NONE = 'SELECT_NONE' as const;
 
 const EMPTY_LIST: React.Key[] = [];
 
-interface UseSelectionConfig<RecordType extends AnyObject = AnyObject> {
+interface UseSelectionConfig<RecordType = AnyObject> {
   prefixCls: string;
   pageData: RecordType[];
   data: RecordType[];
@@ -152,13 +152,20 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     updatePreserveRecordsCache(mergedSelectedKeys);
   }, [mergedSelectedKeys]);
 
+  // Get flatten data
+  const flattedData = useMemo(
+    () => flattenData(childrenColumnName, pageData),
+    [childrenColumnName, pageData],
+  );
+
   const { keyEntities } = useMemo(() => {
     if (checkStrictly) {
       return { keyEntities: null };
     }
     let convertData = data;
     if (preserveSelectedRowKeys) {
-      const keysSet = new Set(data.map((record, index) => getRowKey(record, index)));
+      // use flattedData keys
+      const keysSet = new Set(flattedData.map((record, index) => getRowKey(record, index)));
       // remove preserveRecords that duplicate data
       const preserveRecords = Array.from(preserveRecordsRef.current).reduce(
         (total: RecordType[], [key, value]) => (keysSet.has(key) ? total : total.concat(value)),
@@ -170,13 +177,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
       externalGetKey: getRowKey as any,
       childrenPropName: childrenColumnName,
     });
-  }, [data, getRowKey, checkStrictly, childrenColumnName, preserveSelectedRowKeys]);
-
-  // Get flatten data
-  const flattedData = useMemo(
-    () => flattenData(childrenColumnName, pageData),
-    [childrenColumnName, pageData],
-  );
+  }, [data, getRowKey, checkStrictly, childrenColumnName, preserveSelectedRowKeys, flattedData]);
 
   // Get all checkbox props
   const checkboxPropsMap = useMemo(() => {

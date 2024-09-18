@@ -150,12 +150,14 @@ interface IBadCase {
 const git = simpleGit();
 
 async function parseArgs() {
-  // parse args from -- --pr-id=123 --base_ref=feature
+  // parse args from -- --pr-id=123 --base_ref=feature --max-workers=2
   const argv = minimist(process.argv.slice(2));
   const prId = argv['pr-id'];
   assert(prId, 'Missing --pr-id');
   const baseRef = argv['base-ref'];
   assert(baseRef, 'Missing --base-ref');
+
+  const maxWorkers = argv['max-workers'] ? parseInt(argv['max-workers'], 10) : 1;
 
   const { latest } = await git.log();
 
@@ -163,6 +165,7 @@ async function parseArgs() {
     prId,
     baseRef,
     currentRef: latest?.hash.slice(0, 8) || '',
+    maxWorkers,
   };
 }
 
@@ -311,7 +314,10 @@ If you think the visual diff is acceptable, please check:
 }
 
 async function boot() {
-  const { prId, baseRef: targetBranch = 'master', currentRef } = await parseArgs();
+  const args = await parseArgs();
+  console.log(`Args: ${JSON.stringify(args)}`);
+
+  const { prId, baseRef: targetBranch = 'master', currentRef, maxWorkers } = args;
 
   const baseImgSourceDir = path.resolve(ROOT_DIR, `./imageSnapshots-${targetBranch}`);
 
@@ -365,8 +371,8 @@ async function boot() {
     .map((n) => path.basename(n, path.extname(n)));
 
   // compare to target branch
-  for (const basename of cssInJsImgNames) {
-    for (const extname of ['.png', '.css-var.png']) {
+  const compareTasks = cssInJsImgNames.map((basename) =>
+    ['.png', '.css-var.png'].map((extname) => async () => {
       // baseImg always use cssinjs png
       const baseImgName = `${basename}.png`;
       const baseImgPath = path.join(baseImgSourceDir, baseImgName);
@@ -379,13 +385,13 @@ async function boot() {
       const currentImgExists = await fse.exists(currentImgPath);
       if (!currentImgExists) {
         console.log(chalk.red(`⛔️ Missing image: ${compareImgName}\n`));
-        badCases.push({
+        // base img would use twice so we cannot move it
+        await fse.copy(baseImgPath, path.join(baseImgReportDir, compareImgName));
+        return {
           type: 'removed',
           filename: compareImgName,
           weight: 1,
-        });
-        await fse.copy(baseImgPath, path.join(baseImgReportDir, compareImgName));
-        continue;
+        } as IBadCase;
       }
 
       const mismatchedPxPercent = await compareScreenshots(
@@ -400,19 +406,28 @@ async function boot() {
           chalk.yellow(compareImgName),
           `${(mismatchedPxPercent * 100).toFixed(2)}%\n`,
         );
-        // copy compare imgs(x2) to report dir
+        // copy/move compare imgs(x2) to report dir
+        // base img would use twice so we cannot move it
         await fse.copy(baseImgPath, path.join(baseImgReportDir, compareImgName));
-        await fse.copy(currentImgPath, path.join(currentImgReportDir, compareImgName));
+        await fse.move(currentImgPath, path.join(currentImgReportDir, compareImgName));
 
-        badCases.push({
+        return {
           type: 'changed',
           filename: compareImgName,
           targetFilename: baseImgName,
           weight: mismatchedPxPercent,
-        });
-      } else {
-        console.log('Passed for: %s\n', chalk.green(compareImgName));
+        } as IBadCase;
       }
+      console.log('Passed for: %s\n', chalk.green(compareImgName));
+    }),
+  );
+
+  const { default: pAll } = await import('p-all');
+
+  const compareResults = await pAll(compareTasks.flat(), { concurrency: maxWorkers });
+  for (const compareResult of compareResults) {
+    if (compareResult) {
+      badCases.push(compareResult);
     }
   }
 
@@ -431,16 +446,23 @@ async function boot() {
     console.log('\n');
   }
 
-  for (const newImg of newImgs) {
-    badCases.push({
-      type: 'added',
-      filename: newImg,
-      weight: 0,
-    });
-    await fse.copy(
+  const newImgTask = newImgs.map((newImg) => async () => {
+    await fse.move(
       path.join(currentImgSourceDir, newImg),
       path.resolve(currentImgReportDir, newImg),
     );
+    return {
+      type: 'added',
+      filename: newImg,
+      weight: 0,
+    } as IBadCase;
+  });
+
+  const newTaskResults = await pAll(newImgTask, { concurrency: maxWorkers });
+  for (const newTaskResult of newTaskResults) {
+    if (newTaskResult) {
+      badCases.push(newTaskResult);
+    }
   }
 
   /* --- generate report stage --- */

@@ -5,12 +5,12 @@ import { initComponentToken } from '../../input/style/token';
 import type { MultipleSelectorToken, SelectorToken } from '../../select/style/token';
 import type { ArrowToken } from '../../style/roundedArrow';
 import { getArrowToken } from '../../style/roundedArrow';
-import type { GlobalToken } from '../../theme/interface';
 import type {
+  GlobalToken,
   FullToken,
   GetDefaultToken,
   TokenWithCommonCls,
-} from '../../theme/util/genComponentStyleHook';
+} from '../../theme/internal';
 
 export interface PanelComponentToken extends MultipleSelectorToken {
   /**

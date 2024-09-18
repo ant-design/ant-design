@@ -1,0 +1,4 @@
+{
+  "*.{ts,tsx,js,jsx,css}": ["biome check --write"],
+  "*.{md,yml}": ["prettier --ignore-unknown --write"]
+}

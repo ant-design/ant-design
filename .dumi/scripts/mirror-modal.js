@@ -50,8 +50,8 @@
   .mirror-modal-dialog {
     position: fixed;
     top: 120px;
-    left: 0;
-    right: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
     margin: 0 auto;
     width: 420px;
     display: flex;

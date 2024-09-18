@@ -33,7 +33,7 @@ export interface OverlayProps
     | 'onPopupClick'
   > {
   prefixCls: string;
-  close?: Function;
+  close?: (...args: any[]) => void;
   onConfirm?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   onCancel?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
 }
@@ -59,16 +59,17 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const [contextLocale] = useLocale('Popconfirm', defaultLocale.Popconfirm);
-  const theTitle = getRenderPropValue(title);
-  const theDescription = getRenderPropValue(description);
+
+  const titleNode = getRenderPropValue(title);
+  const descriptionNode = getRenderPropValue(description);
 
   return (
     <div className={`${prefixCls}-inner-content`} onClick={onPopupClick}>
       <div className={`${prefixCls}-message`}>
         {icon && <span className={`${prefixCls}-message-icon`}>{icon}</span>}
         <div className={`${prefixCls}-message-text`}>
-          {theTitle && <div className={classNames(`${prefixCls}-title`)}>{theTitle}</div>}
-          {theDescription && <div className={`${prefixCls}-description`}>{theDescription}</div>}
+          {titleNode && <div className={`${prefixCls}-title`}>{titleNode}</div>}
+          {descriptionNode && <div className={`${prefixCls}-description`}>{descriptionNode}</div>}
         </div>
       </div>
       <div className={`${prefixCls}-buttons`}>

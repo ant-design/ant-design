@@ -12,7 +12,7 @@ import {
   Tour,
   Typography,
 } from 'antd';
-import { createStyles, css, useTheme } from 'antd-style';
+import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
 
@@ -104,6 +104,13 @@ const useStyle = () => {
         justify-content: center;
       `,
       carousel,
+      componentsList: css`
+        width: 100%;
+        overflow: hidden;
+      `,
+      mobileComponentsList: css`
+        margin: 0 ${token.margin}px;
+      `,
     };
   })();
 };
@@ -119,7 +126,7 @@ const ComponentItem: React.FC<ComponentItemProps> = ({ title, node, type, index 
       {/* Decorator */}
       <div
         className={styles.cardCircle}
-        style={{ right: (index % 2) * -20 - 20, bottom: (index % 3) * -40 - 20 }}
+        style={{ insetInlineEnd: (index % 2) * -20 - 20, bottom: (index % 3) * -40 - 20 }}
       />
 
       {/* Title */}
@@ -142,7 +149,6 @@ interface ComponentItemProps {
 }
 
 const ComponentsList: React.FC = () => {
-  const token = useTheme();
   const { styles } = useStyle();
   const [locale] = useLocale(locales);
   const { isMobile } = useContext(SiteContext);
@@ -260,21 +266,33 @@ const ComponentsList: React.FC = () => {
   );
 
   return isMobile ? (
-    <div style={{ margin: '0 16px' }}>
+    <div className={styles.mobileComponentsList}>
       <Carousel className={styles.carousel}>
         {COMPONENTS.map<React.ReactNode>(({ title, node, type }, index) => (
-          <ComponentItem title={title} node={node} type={type} index={index} key={index} />
+          <ComponentItem
+            title={title}
+            node={node}
+            type={type}
+            index={index}
+            key={`mobile-item-${index}`}
+          />
         ))}
       </Carousel>
     </div>
   ) : (
-    <div style={{ width: '100%', overflow: 'hidden', display: 'flex', justifyContent: 'center' }}>
-      <div style={{ display: 'flex', alignItems: 'stretch', columnGap: token.paddingLG }}>
+    <Flex justify="center" className={styles.componentsList}>
+      <Flex align="stretch" gap="large">
         {COMPONENTS.map<React.ReactNode>(({ title, node, type }, index) => (
-          <ComponentItem title={title} node={node} type={type} index={index} key={index} />
+          <ComponentItem
+            title={title}
+            node={node}
+            type={type}
+            index={index}
+            key={`desktop-item-${index}`}
+          />
         ))}
-      </div>
-    </div>
+      </Flex>
+    </Flex>
   );
 };
 

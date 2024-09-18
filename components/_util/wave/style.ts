@@ -1,6 +1,7 @@
 import { genComponentStyleHook } from '../../theme/internal';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 
+// biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
 export interface ComponentToken {}
 
 export interface WaveToken extends FullToken<'Wave'> {}

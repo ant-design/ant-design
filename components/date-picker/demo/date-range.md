@@ -4,4 +4,4 @@
 
 ## en-US
 
-Limit the range of dates by `minDate` and `maxDate`.
+Limit the range of available dates by using `minDate` and `maxDate`.

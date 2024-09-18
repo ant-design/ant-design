@@ -93,7 +93,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
       latestIndex = i;
     }
 
-    const key = (child && child.key) || `${itemClassName}-${i}`;
+    const key = child?.key || `${itemClassName}-${i}`;
 
     return (
       <Item

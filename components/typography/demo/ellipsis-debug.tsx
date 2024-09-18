@@ -102,6 +102,12 @@ const App: React.FC = () => {
       <pre>
         <Typography.Paragraph ellipsis={{ rows: 2, expandable: true }}>{text}</Typography.Paragraph>
       </pre>
+
+      <br />
+
+      <Text style={{ width: 100, whiteSpace: 'nowrap' }} ellipsis copyable>
+        {templateStr}
+      </Text>
     </>
   );
 };

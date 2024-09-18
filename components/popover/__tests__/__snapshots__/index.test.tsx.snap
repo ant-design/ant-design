@@ -27,9 +27,6 @@ Array [
         >
           RTL
         </div>
-        <div
-          class="ant-popover-inner-content"
-        />
       </div>
     </div>
   </div>,

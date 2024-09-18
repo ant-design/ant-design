@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { supportNodeRef, useComposeRef } from 'rc-util';
 
-import { NoCompactStyle } from '../space/Compact';
+import ContextIsolator from '../_util/ContextIsolator';
 import type { MenuProps } from './menu';
 
 // Used for Dropdown only
@@ -43,9 +43,9 @@ export const OverrideProvider = React.forwardRef<
 
   return (
     <OverrideContext.Provider value={context}>
-      <NoCompactStyle>
+      <ContextIsolator space>
         {canRef ? React.cloneElement(children as React.ReactElement, { ref: mergedRef }) : children}
-      </NoCompactStyle>
+      </ContextIsolator>
     </OverrideContext.Provider>
   );
 });

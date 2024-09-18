@@ -4,6 +4,7 @@ import Spin from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, render, waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('Spin', () => {
   beforeEach(() => {
@@ -99,6 +100,15 @@ describe('Spin', () => {
     const { container } = render(<Spin fullscreen spinning />);
     const element = container.querySelector<HTMLDivElement>('.ant-spin-fullscreen');
     expect(element).not.toHaveStyle({ pointerEvents: 'none' });
+  });
+
+  it('should support ConfigProvider indicator', () => {
+    const { container } = render(
+      <ConfigProvider spin={{ indicator: <div className="custom-indicator" /> }}>
+        <Spin />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.custom-indicator')).toBeTruthy();
   });
 
   describe('percent', () => {

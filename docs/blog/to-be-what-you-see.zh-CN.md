@@ -2,6 +2,9 @@
 title: 所见即所得
 date: 2023-05-10
 author: zombieJ
+zhihu_url: https://zhuanlan.zhihu.com/p/639266810
+yuque_url: https://www.yuque.com/ant-design/ant-design/vhife82m442inpws
+juejin_url: https://juejin.cn/post/7322296529783078949
 ---
 
 在日常开发过程中，你是否思考过一个问题。那就是范围限定和实际值不同的时候，应该如何去处理？假设我们有一个展示组件，它很简单的将你的值进行展示：

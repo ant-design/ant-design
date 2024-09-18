@@ -7,7 +7,7 @@ export async function awaitPromise() {
   }
 }
 
-export async function triggerMotionEnd(runAllTimers: boolean = true) {
+export async function triggerMotionEnd(runAllTimers = true) {
   await awaitPromise();
 
   if (runAllTimers) {

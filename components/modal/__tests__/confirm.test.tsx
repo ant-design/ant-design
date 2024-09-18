@@ -8,7 +8,7 @@ import { resetWarned } from 'rc-util/lib/warning';
 import type { ModalFuncProps } from '..';
 import Modal from '..';
 import { act, fireEvent, waitFakeTimer } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
+import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
 import type { ModalFunc } from '../confirm';
 import destroyFns from '../destroyFns';
 
@@ -582,7 +582,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(document.querySelectorAll('.my-btn').length).toBe(2);
     expect(document.querySelectorAll('.bamboo-smile').length).toBe(1);
     expect(document.querySelectorAll('.my-modal-confirm').length).toBe(1);
-    ConfigProvider.config({ prefixCls: 'ant', iconPrefixCls: undefined });
+    ConfigProvider.config({ prefixCls: defaultPrefixCls, iconPrefixCls: undefined });
   });
 
   it('should be able to config rootPrefixCls', async () => {

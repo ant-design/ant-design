@@ -87,7 +87,7 @@ const columns = [
 <code src="./demo/fixed-columns.tsx">Fixed Columns</code>
 <code src="./demo/fixed-gapped-columns.tsx" version="5.14.0">Stack Fixed Columns</code>
 <code src="./demo/fixed-columns-header.tsx">Fixed Columns and Header</code>
-<code src="./demo/hidden-columns.tsx">Hidden Columns</code>
+<code src="./demo/hidden-columns.tsx" version="5.13.0">Hidden Columns</code>
 <code src="./demo/grouping-columns.tsx">Grouping table head</code>
 <code src="./demo/edit-cell.tsx">Editable Cells</code>
 <code src="./demo/edit-row.tsx">Editable Rows</code>
@@ -98,8 +98,9 @@ const columns = [
 <code src="./demo/resizable-column.tsx" debug>Resizable column</code>
 <code src="./demo/ellipsis.tsx">ellipsis column</code>
 <code src="./demo/ellipsis-custom-tooltip.tsx">ellipsis column custom tooltip</code>
+<code src="./demo/custom-empty.tsx">Custom empty</code>
 <code src="./demo/summary.tsx">Summary</code>
-<code src="./demo/virtual-list.tsx" version=">= 5.9.0">Virtual list</code>
+<code src="./demo/virtual-list.tsx" version="5.9.0">Virtual list</code>
 <code src="./demo/responsive.tsx">Responsive</code>
 <code src="./demo/nest-table-border-debug.tsx" debug>Nested Bordered Table Debug</code>
 <code src="./demo/pagination.tsx">Pagination Settings</code>
@@ -288,7 +289,7 @@ Properties for row selection.
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | scrollToFirstRowOnChange | Whether to scroll to the top of the table when paging, sorting, filtering changes | boolean | - |
-| x | Set horizontal scrolling, can also be used to specify the width of the scroll area, could be number, percent value, true and ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | string \| number \| true | - |
+| x | Set horizontal scrolling, can also be used to specify the width of the scroll area, could be number, percent value, true and ['max-content'](https://developer.mozilla.org/en-US/docs/Web/CSS/width#max-content) | string \| number \| true | - |
 | y | Set vertical scrolling, can also be used to specify the height of the scroll area, could be string or number | string \| number | - |
 
 ### selection
@@ -304,14 +305,14 @@ Properties for row selection.
 ```tsx
 import React from 'react';
 import { Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import type { TableColumnsType } from 'antd';
 
 interface User {
   key: number;
   name: string;
 }
 
-const columns: ColumnsType<User> = [
+const columns: TableColumnsType<User> = [
   {
     key: 'name',
     title: 'Name',

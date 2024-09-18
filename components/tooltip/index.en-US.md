@@ -20,7 +20,7 @@ demo:
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/arrow.tsx">Arrow</code>
-<code src="./demo/shift.tsx" iframe="200">Auto Shift</code>
+<code src="./demo/shift.tsx" iframe="300">Auto Shift</code>
 <code src="./demo/auto-adjust-overflow.tsx" debug>Adjust placement automatically</code>
 <code src="./demo/destroy-tooltip-on-hide.tsx" debug>Destroy tooltip when hidden</code>
 <code src="./demo/colorful.tsx">Colorful Tooltip</code>

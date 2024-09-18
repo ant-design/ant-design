@@ -61,18 +61,18 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-const data: DataType[] = [];
-for (let i = 1; i <= 10; i++) {
-  data.push({
-    key: i,
-    name: 'John Brown',
-    age: Number(`${i}2`),
-    address: `New York No. ${i} Lake Park`,
-    description: `My name is John Brown, I am ${i}2 years old, living in New York No. ${i} Lake Park.`,
-  });
-}
+const dataSource = Array.from({ length: 10 }).map<DataType>((_, i) => ({
+  key: i,
+  name: 'John Brown',
+  age: Number(`${i}2`),
+  address: `New York No. ${i} Lake Park`,
+  description: `My name is John Brown, I am ${i}2 years old, living in New York No. ${i} Lake Park.`,
+}));
 
-const defaultExpandable = { expandedRowRender: (record: DataType) => <p>{record.description}</p> };
+const defaultExpandable: ExpandableConfig<DataType> = {
+  expandedRowRender: (record: DataType) => <p>{record.description}</p>,
+};
+
 const defaultTitle = () => 'Here is title';
 const defaultFooter = () => 'Here is footer';
 
@@ -176,11 +176,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Form
-        layout="inline"
-        className="components-table-demo-control-bar"
-        style={{ marginBottom: 16 }}
-      >
+      <Form layout="inline" className="table-demo-control-bar" style={{ marginBottom: 16 }}>
         <Form.Item label="Bordered">
           <Switch checked={bordered} onChange={handleBorderChange} />
         </Form.Item>
@@ -232,12 +228,7 @@ const App: React.FC = () => {
           </Radio.Group>
         </Form.Item>
         <Form.Item label="Pagination Top">
-          <Radio.Group
-            value={top}
-            onChange={(e) => {
-              setTop(e.target.value);
-            }}
-          >
+          <Radio.Group value={top} onChange={(e) => setTop(e.target.value)}>
             <Radio.Button value="topLeft">TopLeft</Radio.Button>
             <Radio.Button value="topCenter">TopCenter</Radio.Button>
             <Radio.Button value="topRight">TopRight</Radio.Button>
@@ -245,12 +236,7 @@ const App: React.FC = () => {
           </Radio.Group>
         </Form.Item>
         <Form.Item label="Pagination Bottom">
-          <Radio.Group
-            value={bottom}
-            onChange={(e) => {
-              setBottom(e.target.value);
-            }}
-          >
+          <Radio.Group value={bottom} onChange={(e) => setBottom(e.target.value)}>
             <Radio.Button value="bottomLeft">BottomLeft</Radio.Button>
             <Radio.Button value="bottomCenter">BottomCenter</Radio.Button>
             <Radio.Button value="bottomRight">BottomRight</Radio.Button>
@@ -294,11 +280,11 @@ const App: React.FC = () => {
           },
         }}
       >
-        <Table
+        <Table<DataType>
           {...tableProps}
           pagination={{ position: [top, bottom] }}
           columns={tableColumns}
-          dataSource={hasData ? data : []}
+          dataSource={hasData ? dataSource : []}
           scroll={scroll}
         />
       </ConfigProvider>

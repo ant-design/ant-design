@@ -6,10 +6,12 @@ import pickAttrs from 'rc-util/lib/pickAttrs';
 export type BaseClosableType = { closeIcon?: React.ReactNode } & React.AriaAttributes;
 export type ClosableType = boolean | BaseClosableType;
 
-export type ContextClosable<T extends { closable?: ClosableType; closeIcon?: ReactNode } = any> =
-  Partial<Pick<T, 'closable' | 'closeIcon'>>;
+export type BaseContextClosable = { closable?: ClosableType; closeIcon?: ReactNode };
+export type ContextClosable<T extends BaseContextClosable = any> = Partial<
+  Pick<T, 'closable' | 'closeIcon'>
+>;
 
-export function pickClosable<T extends { closable?: ClosableType; closeIcon?: ReactNode }>(
+export function pickClosable<T extends BaseContextClosable>(
   context?: ContextClosable<T>,
 ): ContextClosable<T> | undefined {
   if (!context) {

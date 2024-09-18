@@ -30,7 +30,7 @@ export interface FloatButtonProps extends React.DOMAttributes<FloatButtonElement
   href?: string;
   target?: React.HTMLAttributeAnchorTarget;
   badge?: FloatButtonBadgeProps;
-  ['aria-label']?: React.HtmlHTMLAttributes<HTMLElement>['aria-label'];
+  'aria-label'?: React.HtmlHTMLAttributes<HTMLElement>['aria-label'];
 }
 
 export interface FloatButtonContentProps extends React.DOMAttributes<HTMLDivElement> {

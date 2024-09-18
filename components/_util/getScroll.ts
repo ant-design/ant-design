@@ -19,7 +19,7 @@ const getScroll = (target: HTMLElement | Window | Document | null): number => {
     //    `{ documentElement: { scrollLeft: 200, scrollTop: 400 } }`,
     //    the program may falls into this branch.
     // Check the corresponding tests for details. Don't sure what is the real scenario this happens.
-    // eslint-disable-next-line dot-notation
+    /* biome-ignore lint/complexity/useLiteralKeys: target is a never type */ /* eslint-disable-next-line dot-notation */
     result = target['scrollTop'];
   }
 

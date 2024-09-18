@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React, { useState } from 'react';
 import { ClockCircleOutlined, DownOutlined } from '@ant-design/icons';
 import {
@@ -20,6 +19,8 @@ import {
   Tree,
   Typography,
 } from 'antd';
+import type { TableProps, TransferProps } from 'antd';
+import type { TransferKey } from 'antd/es/transfer/interface';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import difference from 'lodash/difference';
@@ -39,133 +40,126 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
-const mockData = [];
-for (let i = 0; i < 20; i++) {
-  mockData.push({
-    key: i.toString(),
-    title: `content${i + 1}`,
-    description: `description of content${i + 1}`,
-    disabled: i % 3 < 1,
-  });
+interface DataType {
+  key: string;
+  title: string;
+  description: string;
+  disabled: boolean;
 }
 
-const oriTargetKeys = mockData.filter((item) => +item.key % 3 > 1).map((item) => item.key);
+interface RecordType {
+  key: string;
+  name: string;
+  age: number;
+  address: string;
+}
 
-const data = [
+interface DataTableType {
+  key: string;
+  name: string;
+  borrow: number;
+  repayment: number;
+}
+
+interface ExpandDataType {
+  key: React.Key;
+  date: string;
+  name: string;
+  upgradeNum: string;
+}
+
+interface NestDataType {
+  key: React.Key;
+  name: string;
+  platform: string;
+  version: string;
+  upgradeNum: number;
+  creator: string;
+  createdAt: string;
+}
+
+interface FixedDataType {
+  key: string;
+  name: string;
+  age: number;
+  address: string;
+}
+
+const mockData = Array.from({ length: 20 }).map<DataType>((_, i) => ({
+  key: i.toString(),
+  title: `content${i + 1}`,
+  description: `description of content${i + 1}`,
+  disabled: i % 3 < 1,
+}));
+
+const oriTargetKeys = mockData
+  .filter((item) => Number(item.key) % 3 > 1)
+  .map<TransferKey>((item) => item.key);
+
+const dataSource: RecordType[] = [
+  { key: '1', name: 'John Brown', age: 32, address: 'New York No. 1 Lake Park' },
+  { key: '2', name: 'Jim Green', age: 42, address: 'London No. 1 Lake Park' },
+  { key: '3', name: 'Joe Black', age: 32, address: 'Sydney No. 1 Lake Park' },
+  { key: '4', name: 'Jim Red', age: 32, address: 'London No. 2 Lake Park' },
+];
+
+const columnsTable: TableProps<DataTableType>['columns'] = [
+  { title: 'Name', dataIndex: 'name' },
+  { title: 'Borrow', dataIndex: 'borrow' },
+  { title: 'Repayment', dataIndex: 'repayment' },
+];
+
+const summaryDataSource: DataTableType[] = [
+  { key: '1', name: 'John Brown', borrow: 10, repayment: 33 },
+  { key: '2', name: 'Jim Green', borrow: 100, repayment: 0 },
+  { key: '3', name: 'Joe Black', borrow: 10, repayment: 10 },
+  { key: '4', name: 'Jim Red', borrow: 75, repayment: 45 },
+];
+
+const expandDataSource = Array.from({ length: 3 }).map<ExpandDataType>((_, i) => ({
+  key: i,
+  date: '2014-12-24 23:12:00',
+  name: 'This is production name',
+  upgradeNum: 'Upgraded: 56',
+}));
+
+const expandColumns: TableProps<ExpandDataType>['columns'] = [
+  { title: 'Date', dataIndex: 'date', key: 'date' },
+  { title: 'Name', dataIndex: 'name', key: 'name' },
   {
-    key: '1',
-    name: 'John Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
+    title: 'Status',
+    key: 'state',
+    render: () => (
+      <span>
+        <Badge status="success" />
+        Finished
+      </span>
+    ),
   },
+  { title: 'Upgrade Status', dataIndex: 'upgradeNum', key: 'upgradeNum' },
   {
-    key: '2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-  },
-  {
-    key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sydney No. 1 Lake Park',
-  },
-  {
-    key: '4',
-    name: 'Jim Red',
-    age: 32,
-    address: 'London No. 2 Lake Park',
+    title: 'Action',
+    dataIndex: 'operation',
+    key: 'operation',
+    render: () => (
+      <span className="table-operation">
+        <a>Pause</a>
+        <a>Stop</a>
+        <Dropdown>
+          <a>
+            More <DownOutlined />
+          </a>
+        </Dropdown>
+      </span>
+    ),
   },
 ];
 
-const columnsTable = [
-  {
-    title: 'Name',
-    dataIndex: 'name',
-  },
-  {
-    title: 'Borrow',
-    dataIndex: 'borrow',
-  },
-  {
-    title: 'Repayment',
-    dataIndex: 'repayment',
-  },
-];
+const expandedRowRender = () => (
+  <Table<ExpandDataType> columns={expandColumns} dataSource={expandDataSource} pagination={false} />
+);
 
-const dataTable = [
-  {
-    key: '1',
-    name: 'John Brown',
-    borrow: 10,
-    repayment: 33,
-  },
-  {
-    key: '2',
-    name: 'Jim Green',
-    borrow: 100,
-    repayment: 0,
-  },
-  {
-    key: '3',
-    name: 'Joe Black',
-    borrow: 10,
-    repayment: 10,
-  },
-  {
-    key: '4',
-    name: 'Jim Red',
-    borrow: 75,
-    repayment: 45,
-  },
-];
-
-const expandedRowRender = () => {
-  const columnsExpand = [
-    { title: 'Date', dataIndex: 'date', key: 'date' },
-    { title: 'Name', dataIndex: 'name', key: 'name' },
-    {
-      title: 'Status',
-      key: 'state',
-      render: () => (
-        <span>
-          <Badge status="success" />
-          Finished
-        </span>
-      ),
-    },
-    { title: 'Upgrade Status', dataIndex: 'upgradeNum', key: 'upgradeNum' },
-    {
-      title: 'Action',
-      dataIndex: 'operation',
-      key: 'operation',
-      render: () => (
-        <span className="table-operation">
-          <a>Pause</a>
-          <a>Stop</a>
-          <Dropdown>
-            <a>
-              More <DownOutlined />
-            </a>
-          </Dropdown>
-        </span>
-      ),
-    },
-  ];
-
-  const dataExpand = [];
-  for (let i = 0; i < 3; ++i) {
-    data.push({
-      key: i,
-      date: '2014-12-24 23:12:00',
-      name: 'This is production name',
-      upgradeNum: 'Upgraded: 56',
-    });
-  }
-  return <Table columns={columnsExpand} dataSource={dataExpand} pagination={false} />;
-};
-
-const columnsNest = [
+const columnsNest: TableProps<NestDataType>['columns'] = [
   { title: 'Name', dataIndex: 'name', key: 'name' },
   { title: 'Platform', dataIndex: 'platform', key: 'platform' },
   { title: 'Version', dataIndex: 'version', key: 'version' },
@@ -175,34 +169,19 @@ const columnsNest = [
   { title: 'Action', key: 'operation', render: () => <a>Publish</a> },
 ];
 
-const dataNest = [];
-for (let i = 0; i < 3; ++i) {
-  dataNest.push({
-    key: i,
-    name: 'Screem',
-    platform: 'iOS',
-    version: '10.3.4.5654',
-    upgradeNum: 500,
-    creator: 'Jack',
-    createdAt: '2014-12-24 23:12:00',
-  });
-}
+const nestDataSource = Array.from({ length: 3 }).map<NestDataType>((_, i) => ({
+  key: i,
+  name: 'Screem',
+  platform: 'iOS',
+  version: '10.3.4.5654',
+  upgradeNum: 500,
+  creator: 'Jack',
+  createdAt: '2014-12-24 23:12:00',
+}));
 
-const columnsFixed = [
-  {
-    title: 'Full Name',
-    width: 100,
-    dataIndex: 'name',
-    key: 'name',
-    fixed: 'left',
-  },
-  {
-    title: 'Age',
-    width: 100,
-    dataIndex: 'age',
-    key: 'age',
-    fixed: 'left',
-  },
+const columnsFixed: TableProps<FixedDataType>['columns'] = [
+  { title: 'Full Name', width: 100, dataIndex: 'name', key: 'name', fixed: 'left' },
+  { title: 'Age', width: 100, dataIndex: 'age', key: 'age', fixed: 'left' },
   { title: 'Column 1', dataIndex: 'address', key: '1' },
   { title: 'Column 2', dataIndex: 'address', key: '2' },
   { title: 'Column 3', dataIndex: 'address', key: '3' },
@@ -211,107 +190,148 @@ const columnsFixed = [
   { title: 'Column 6', dataIndex: 'address', key: '6' },
   { title: 'Column 7', dataIndex: 'address', key: '7' },
   { title: 'Column 8', dataIndex: 'address', key: '8' },
+  { title: 'Action', key: 'operation', fixed: 'right', width: 100, render: () => <a>action</a> },
+];
+
+const fixedDataSource: FixedDataType[] = [
+  { key: '1', name: 'John Brown', age: 32, address: 'New York Park' },
+  { key: '2', name: 'Jim Green', age: 40, address: 'London Park' },
+];
+
+const TableTransfer: React.FC<
+  Readonly<Partial<Record<'leftColumns' | 'rightColumns', TableProps<DataType>['columns']>>> &
+    TransferProps<DataType>
+> = (props) => {
+  const { leftColumns, rightColumns, ...restProps } = props;
+  return (
+    <Transfer<DataType> {...restProps} showSelectAll={false}>
+      {(transferProps) => {
+        const {
+          direction,
+          filteredItems,
+          onItemSelectAll,
+          onItemSelect,
+          selectedKeys: listSelectedKeys,
+          disabled: listDisabled,
+        } = transferProps;
+
+        const columns = (direction === 'left' ? leftColumns : rightColumns) ?? [];
+
+        const rowSelection: TableProps<DataType>['rowSelection'] = {
+          getCheckboxProps: (item) => ({ disabled: listDisabled || item.disabled }),
+          onSelectAll(selected, selectedRows) {
+            const treeSelectedKeys = selectedRows
+              .filter((item) => !item.disabled)
+              .map(({ key }) => key);
+            const diffKeys = selected
+              ? difference(treeSelectedKeys, listSelectedKeys)
+              : difference(listSelectedKeys, treeSelectedKeys);
+            onItemSelectAll(diffKeys, selected);
+          },
+          onSelect({ key }, selected) {
+            onItemSelect(key, selected);
+          },
+          selectedRowKeys: listSelectedKeys,
+        };
+
+        return (
+          <Table<DataType>
+            id="components-transfer-table"
+            rowSelection={rowSelection}
+            columns={columns}
+            dataSource={filteredItems}
+            size="small"
+            style={{ pointerEvents: listDisabled ? 'none' : 'auto' }}
+            onRow={({ key, disabled: itemDisabled }) => ({
+              onClick: () => {
+                if (itemDisabled || listDisabled) {
+                  return;
+                }
+                onItemSelect(key, !listSelectedKeys.includes(key));
+              },
+            })}
+          />
+        );
+      }}
+    </Transfer>
+  );
+};
+
+const columns: TableProps<RecordType>['columns'] = [
   {
-    title: 'Action',
-    key: 'operation',
-    fixed: 'right',
-    width: 100,
-    render: () => <a>action</a>,
+    title: 'Name',
+    dataIndex: 'name',
+    key: 'name',
+    filters: [
+      { text: 'Joe', value: 'Joe' },
+      { text: 'Jim', value: 'Jim' },
+    ],
+    filteredValue: null,
+    onFilter: (value, record) => record.name.includes(value as string),
+    sorter: (a, b) => a.name.length - b.name.length,
+    sortOrder: 'ascend',
+    ellipsis: true,
+  },
+  {
+    title: 'Age',
+    dataIndex: 'age',
+    key: 'age',
+    sorter: false,
+    sortOrder: 'ascend',
+    ellipsis: true,
+  },
+  {
+    title: 'Address',
+    dataIndex: 'address',
+    key: 'address',
+    filters: [
+      { text: 'London', value: 'London' },
+      { text: 'New York', value: 'New York' },
+    ],
+    filteredValue: null,
+    onFilter: (value, record) => record.address.includes(value as string),
+    sorter: false,
+    sortOrder: 'ascend',
+    ellipsis: true,
   },
 ];
 
-const dataFixed = [
-  {
-    key: '1',
-    name: 'John Brown',
-    age: 32,
-    address: 'New York Park',
-  },
-  {
-    key: '2',
-    name: 'Jim Green',
-    age: 40,
-    address: 'London Park',
-  },
+const tableTransferColumns: TableProps<DataType>['columns'] = [
+  { dataIndex: 'title', title: 'Name' },
+  { dataIndex: 'description', title: 'Description' },
 ];
 
-const TableTransfer = ({ leftColumns, rightColumns, ...restProps }) => (
-  <Transfer {...restProps} showSelectAll={false}>
-    {({
-      direction,
-      filteredItems,
-      onItemSelectAll,
-      onItemSelect,
-      selectedKeys: listSelectedKeys,
-      disabled: listDisabled,
-    }) => {
-      const columns = direction === 'left' ? leftColumns : rightColumns;
-
-      const rowSelection = {
-        getCheckboxProps: (item) => ({ disabled: listDisabled || item.disabled }),
-        onSelectAll(selected, selectedRows) {
-          const treeSelectedKeys = selectedRows
-            .filter((item) => !item.disabled)
-            .map(({ key }) => key);
-          const diffKeys = selected
-            ? difference(treeSelectedKeys, listSelectedKeys)
-            : difference(listSelectedKeys, treeSelectedKeys);
-          onItemSelectAll(diffKeys, selected);
-        },
-        onSelect({ key }, selected) {
-          onItemSelect(key, selected);
-        },
-        selectedRowKeys: listSelectedKeys,
-      };
-
-      return (
-        <Table
-          id="components-transfer-table"
-          rowSelection={rowSelection}
-          columns={columns}
-          dataSource={filteredItems}
-          size="small"
-          style={{ pointerEvents: listDisabled ? 'none' : null }}
-          onRow={({ key, disabled: itemDisabled }) => ({
-            onClick: () => {
-              if (itemDisabled || listDisabled) return;
-              onItemSelect(key, !listSelectedKeys.includes(key));
-            },
-          })}
-        />
-      );
-    }}
-  </Transfer>
-);
-
-export default () => {
+const Demo: React.FC = () => {
   const [open, setOpen] = useState(false);
-  const [targetKeys, setTargetKeys] = useState(oriTargetKeys);
-  const [selectedKeys, setSelectedKeys] = useState([]);
+  const [targetKeys, setTargetKeys] = useState<TransferKey[]>(oriTargetKeys);
+  const [selectedKeys, setSelectedKeys] = useState<TransferKey[]>([]);
   const [disabled, setDisabled] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
 
-  const handleDisable = (isDisabled) => {
+  const handleDisable = (isDisabled: boolean) => {
     setDisabled(isDisabled);
   };
 
-  const handleTableTransferChange = (nextTargetKeys) => {
+  const handleTableTransferChange = (nextTargetKeys: TransferKey[]) => {
     setTargetKeys(nextTargetKeys);
   };
 
-  const triggerDisable = (isDisabled) => {
+  const triggerDisable = (isDisabled: boolean) => {
     setDisabled(isDisabled);
   };
 
-  const triggerShowSearch = (isShowSearch) => {
+  const triggerShowSearch = (isShowSearch: boolean) => {
     setShowSearch(isShowSearch);
   };
 
-  const handleTransferChange = (nextTargetKeys) => {
-    setTargetKeys(nextTargetKeys);
+  const handleTransferChange = (keys: TransferKey[]) => {
+    setTargetKeys(keys);
   };
 
-  const handleTransferSelectChange = (sourceSelectedKeys, targetSelectedKeys) => {
+  const handleTransferSelectChange = (
+    sourceSelectedKeys: TransferKey[],
+    targetSelectedKeys: TransferKey[],
+  ) => {
     setSelectedKeys([...sourceSelectedKeys, ...targetSelectedKeys]);
   };
 
@@ -319,54 +339,16 @@ export default () => {
     setOpen(true);
   };
 
-  const handleOk = (e) => {
+  const handleOk = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     console.log(e);
     setOpen(false);
   };
 
-  const handleCancel = (e) => {
+  const handleCancel = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     console.log(e);
     setOpen(false);
   };
 
-  const columns = [
-    {
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
-      filters: [
-        { text: 'Joe', value: 'Joe' },
-        { text: 'Jim', value: 'Jim' },
-      ],
-      filteredValue: null,
-      onFilter: (value, record) => record.name.includes(value),
-      sorter: (a, b) => a.name.length - b.name.length,
-      sortOrder: true,
-      ellipsis: true,
-    },
-    {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age',
-      sorter: false,
-      sortOrder: true,
-      ellipsis: true,
-    },
-    {
-      title: 'Address',
-      dataIndex: 'address',
-      key: 'address',
-      filters: [
-        { text: 'London', value: 'London' },
-        { text: 'New York', value: 'New York' },
-      ],
-      filteredValue: null,
-      onFilter: (value, record) => record.address.includes(value),
-      sorter: false,
-      sortOrder: true,
-      ellipsis: true,
-    },
-  ];
   return (
     <>
       <Button type="primary" onClick={showModal}>
@@ -404,7 +386,7 @@ export default () => {
             <p>{text}</p>
           </Panel>
         </Collapse>
-        <Transfer
+        <Transfer<DataType>
           dataSource={mockData}
           titles={['Source', 'Target']}
           targetKeys={targetKeys}
@@ -419,26 +401,12 @@ export default () => {
           targetKeys={targetKeys}
           disabled={disabled}
           showSearch={showSearch}
+          leftColumns={tableTransferColumns}
+          rightColumns={tableTransferColumns}
           onChange={handleTableTransferChange}
-          filterOption={(inputValue, item) =>
-            item.title.indexOf(inputValue) !== -1 || item.tag?.indexOf(inputValue) !== -1
+          filterOption={(inputValue: string, item: any) =>
+            item.title?.includes(inputValue) || item.tag?.includes(inputValue)
           }
-          leftColumns={[
-            {
-              dataIndex: 'title',
-              title: 'Name',
-            },
-            {
-              dataIndex: 'description',
-              title: 'Description',
-            },
-          ]}
-          rightColumns={[
-            {
-              dataIndex: 'title',
-              title: 'Name',
-            },
-          ]}
         />
         <Switch
           unCheckedChildren="disabled"
@@ -455,13 +423,9 @@ export default () => {
           style={{ marginTop: 16 }}
         />
         <Anchor>
-          <Link href="#components-anchor-demo-basic" title="Basic demo" />
-          <Link href="#components-anchor-demo-static" title="Static demo" />
-          <Link
-            href="#components-anchor-demo-basic"
-            title="Basic demo with Target"
-            target="_blank"
-          />
+          <Link href="#anchor-demo-basic" title="Basic demo" />
+          <Link href="#anchor-demo-static" title="Static demo" />
+          <Link href="#anchor-demo-basic" title="Basic demo with Target" target="_blank" />
           <Link href="#API" title="API">
             <Link href="#Anchor-Props" title="Anchor Props" />
             <Link href="#Link-Props" title="Link Props" />
@@ -503,22 +467,20 @@ export default () => {
             </TreeNode>
           </TreeNode>
         </Tree>
-        <Table columns={columns} dataSource={data} footer={() => 'Footer'} />
-        <Table
+        <Table<RecordType> columns={columns} dataSource={dataSource} footer={() => 'Footer'} />
+        <Table<DataTableType>
           columns={columnsTable}
-          dataSource={dataTable}
+          dataSource={summaryDataSource}
           pagination={false}
           id="table-demo-summary"
           bordered
           summary={(pageData) => {
             let totalBorrow = 0;
             let totalRepayment = 0;
-
             pageData.forEach(({ borrow, repayment }) => {
               totalBorrow += borrow;
               totalRepayment += repayment;
             });
-
             return (
               <>
                 <tr>
@@ -541,13 +503,25 @@ export default () => {
           }}
         />
         <br />
-        <Table columns={columnsNest} expandable={{ expandedRowRender }} dataSource={dataNest} />
-        <Table columns={columnsFixed} dataSource={dataFixed} scroll={{ x: 1300, y: 100 }} />
+        <Table<NestDataType>
+          columns={columnsNest}
+          expandable={{ expandedRowRender }}
+          dataSource={nestDataSource}
+        />
+        <Table<FixedDataType>
+          columns={columnsFixed}
+          dataSource={fixedDataSource}
+          scroll={{ x: 1300, y: 100 }}
+        />
         <Card
           hoverable
           style={{ width: 240 }}
           cover={
-            <img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />
+            <img
+              draggable={false}
+              alt="example"
+              src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+            />
           }
         >
           <Meta title="Europe Street beat" description="www.instagram.com" />
@@ -561,3 +535,5 @@ export default () => {
     </>
   );
 };
+
+export default Demo;

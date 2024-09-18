@@ -11,6 +11,9 @@ exports[`renders components/result/demo/403.tsx extend context correctly 1`] = `
       height="294"
       width="251"
     >
+      <title>
+        Unauthorized
+      </title>
       <g
         fill="none"
         fill-rule="evenodd"
@@ -326,6 +329,9 @@ exports[`renders components/result/demo/404.tsx extend context correctly 1`] = `
       height="294"
       width="252"
     >
+      <title>
+        No Found
+      </title>
       <defs>
         <path
           d="M0 .387h251.772v251.772H0z"
@@ -659,6 +665,9 @@ exports[`renders components/result/demo/500.tsx extend context correctly 1`] = `
       height="294"
       width="254"
     >
+      <title>
+        Server Error
+      </title>
       <defs>
         <path
           d="M0 .335h253.49v253.49H0z"

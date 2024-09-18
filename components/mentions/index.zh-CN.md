@@ -75,6 +75,7 @@ return (
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | onBlur | 失去焦点时触发 | () => void | - |  |
 | onChange | 值改变时触发 | (text: string) => void | - |  |
+| onClear | 按下清除按钮的回调 | () => void | - | 5.20.0 |
 | onFocus | 获得焦点时触发 | () => void | - |  |
 | onResize | resize 回调 | function({ width, height }) | - |  |
 | onSearch | 搜索时触发 | (text: string, prefix: string) => void | - |  |

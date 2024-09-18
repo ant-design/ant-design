@@ -86,7 +86,7 @@ const MultiDrawer: React.FC<DrawerPropsType> = (props) => {
             borderRadius: '0 0 4px 4px',
           }}
         >
-          <Button style={{ marginRight: 8 }} onClick={onClose}>
+          <Button style={{ marginInlineEnd: 8 }} onClick={onClose}>
             Cancel
           </Button>
           <Button onClick={onClose} type="primary">

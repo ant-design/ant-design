@@ -35,7 +35,6 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = (props) => {
       icon={<ThemeIcon />}
       aria-label="Theme Switcher"
       badge={{ dot: true }}
-      style={{ zIndex: 1010 }}
     >
       <Link
         to={getLocalizedPathname('/theme-editor', isZhCN(pathname), search)}

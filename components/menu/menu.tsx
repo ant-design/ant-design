@@ -13,11 +13,11 @@ import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import Divider from './MenuDivider';
 import type { SiderContextProps } from '../layout/Sider';
 import type { ItemType } from './interface';
 import type { MenuContextProps, MenuTheme } from './MenuContext';
 import MenuContext from './MenuContext';
+import Divider from './MenuDivider';
 import MenuItem from './MenuItem';
 import OverrideContext from './OverrideContext';
 import useStyle from './style';
@@ -148,7 +148,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     return cloneElement(mergedIcon, {
       className: classNames(
         `${prefixCls}-submenu-expand-icon`,
-        React.isValidElement(mergedIcon) ? mergedIcon.props?.className : undefined,
+        React.isValidElement<any>(mergedIcon) ? mergedIcon.props?.className : undefined,
       ),
     });
   }, [expandIcon, overrideObj?.expandIcon, menu?.expandIcon, prefixCls]);
