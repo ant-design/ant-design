@@ -123,7 +123,7 @@
     "@rc-component/trigger": "^2.2.3",
     "classnames": "^2.5.1",
     "copy-to-clipboard": "^3.3.3",
-    "dayjs": "^1.11.13",
+    "dayjs": "^1.11.11",
     "rc-cascader": "~3.28.1",
     "rc-checkbox": "~3.3.0",
     "rc-collapse": "~3.8.0",
