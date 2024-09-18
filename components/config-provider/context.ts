@@ -238,6 +238,7 @@ export interface ConfigConsumerProps {
   locale?: Locale;
   direction?: DirectionType;
   space?: SpaceConfig;
+  splitter?: ComponentStyleConfig;
   virtual?: boolean;
   popupMatchSelectWidth?: boolean;
   popupOverflow?: PopupOverflow;

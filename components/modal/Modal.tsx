@@ -107,7 +107,7 @@ const Modal: React.FC<ModalProps> = (props) => {
       <Footer {...props} onOk={handleOk} onCancel={handleCancel} />
     ) : null;
 
-  const [mergedClosable, mergedCloseIcon] = useClosable(
+  const [mergedClosable, mergedCloseIcon, closeBtnIsDisabled] = useClosable(
     pickClosable(props),
     pickClosable(modalContext),
     {
@@ -139,7 +139,11 @@ const Modal: React.FC<ModalProps> = (props) => {
           visible={open ?? visible}
           mousePosition={restProps.mousePosition ?? mousePosition}
           onClose={handleCancel as any}
-          closable={mergedClosable}
+          closable={
+            mergedClosable
+              ? { disabled: closeBtnIsDisabled, closeIcon: mergedCloseIcon }
+              : mergedClosable
+          }
           closeIcon={mergedCloseIcon}
           focusTriggerAfterClose={focusTriggerAfterClose}
           transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}

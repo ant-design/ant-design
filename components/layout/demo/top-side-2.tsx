@@ -59,11 +59,7 @@ const App: React.FC = () => {
         </Sider>
         <Layout style={{ padding: '0 24px 24px' }}>
           <Breadcrumb
-            items={[
-              { title: 'Home' },
-              { title: 'List' },
-              { title: 'App' },
-            ]} 
+            items={[{ title: 'Home' }, { title: 'List' }, { title: 'App' }]}
             style={{ margin: '16px 0' }}
           />
           <Content

@@ -391,7 +391,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
   // use showRemoveIcon if it is specified explicitly
   const realShowRemoveIcon =
-    typeof showRemoveIcon === 'undefined' ? !mergedDisabled : !!showRemoveIcon;
+    typeof showRemoveIcon === 'undefined' ? !mergedDisabled : showRemoveIcon;
 
   const renderUploadList = (button?: React.ReactNode, buttonVisible?: boolean) => {
     if (!showUploadList) {

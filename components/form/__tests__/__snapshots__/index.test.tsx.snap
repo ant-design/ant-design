@@ -938,6 +938,7 @@ exports[`Form form should support disabled 1`] = `
                   <input
                     accept=""
                     disabled=""
+                    name="file"
                     style="display: none;"
                     type="file"
                   />
@@ -978,7 +979,7 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-default"
+              class="ant-btn ant-btn-default ant-btn-outlined"
               disabled=""
               type="button"
             >

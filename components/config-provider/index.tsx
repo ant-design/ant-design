@@ -166,6 +166,7 @@ export interface ConfigProviderProps {
    */
   direction?: DirectionType;
   space?: SpaceConfig;
+  splitter?: ComponentStyleConfig;
   /**
    * @descCN 设置 `false` 时关闭虚拟滚动。
    * @descEN Close the virtual scrolling when setting `false`.
@@ -326,6 +327,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     componentSize,
     direction,
     space,
+    splitter,
     virtual,
     dropdownMatchSelectWidth,
     popupMatchSelectWidth,
@@ -428,6 +430,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     locale: locale || legacyLocale,
     direction,
     space,
+    splitter,
     virtual,
     popupMatchSelectWidth: popupMatchSelectWidth ?? dropdownMatchSelectWidth,
     popupOverflow,
