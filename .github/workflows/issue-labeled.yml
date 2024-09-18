@@ -20,7 +20,7 @@ jobs:
         if: github.event.label.name == 'help wanted'
         uses: actions-cool/issues-helper@v3
         with:
-          actions: 'create-comment'
+          actions: create-comment
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
@@ -34,7 +34,7 @@ jobs:
         if: github.event.label.name == '🤔 Need Reproduce'
         uses: actions-cool/issues-helper@v3
         with:
-          actions: 'create-comment'
+          actions: create-comment
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
@@ -86,6 +86,6 @@ jobs:
         if: github.event.label.name != 'unconfirmed'
         uses: actions-cool/issues-helper@v3
         with:
-            actions: 'remove-labels'
+            actions: remove-labels
             issue-number: ${{ github.event.issue.number }}
-            labels: 'unconfirmed'
+            labels: unconfirmed

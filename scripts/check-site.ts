@@ -1,5 +1,3 @@
-/* eslint-disable no-await-in-loop */
-/* eslint-disable no-restricted-syntax */
 import type http from 'http';
 import type https from 'https';
 import { join } from 'path';
@@ -51,7 +49,7 @@ describe('site test', () => {
   beforeAll(() => {
     server = createServer({ root: join(process.cwd(), '_site') });
     server.listen(port);
-    // eslint-disable-next-line no-console
+
     console.log(`site static server run: http://localhost:${port}`);
   });
 
@@ -101,9 +99,11 @@ describe('site test', () => {
     if (component.split('/').length < 3) {
       it(`Component ${component} zh Page`, async () => {
         await expectComponent(`${component}-cn`);
+        expect(component).toBeTruthy();
       });
       it(`Component ${component} en Page`, async () => {
         await expectComponent(component);
+        expect(component).toBeTruthy();
       });
     }
   }

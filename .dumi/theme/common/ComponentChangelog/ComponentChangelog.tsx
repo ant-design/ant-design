@@ -1,4 +1,3 @@
-/* eslint-disable global-require, import/no-unresolved */
 import React from 'react';
 import { BugOutlined, HistoryOutlined } from '@ant-design/icons';
 import { Button, Drawer, Grid, Popover, Timeline, Typography } from 'antd';

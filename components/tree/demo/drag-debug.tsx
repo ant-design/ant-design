@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-shadow */
 import React from 'react';
 import { CarryOutOutlined } from '@ant-design/icons';
 import type { TreeDataNode, TreeProps } from 'antd';

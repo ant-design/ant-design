@@ -1,5 +1,3 @@
-/* eslint-disable no-unsafe-optional-chaining */
-/* eslint-disable react/no-multi-comp */
 import React, { useEffect, useState } from 'react';
 
 import type { ColumnGroupType, ColumnType, TableProps } from '..';
@@ -1013,7 +1011,6 @@ describe('Table.filter', () => {
             dataIndex: 'name',
             key: 'name',
             filteredValue: name,
-            // eslint-disable-next-line react/no-unstable-nested-components
             filterDropdown: ({ setSelectedKeys, selectedKeys, confirm }) => (
               <div>
                 <Input

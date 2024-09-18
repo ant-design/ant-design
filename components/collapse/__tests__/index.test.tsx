@@ -4,7 +4,6 @@ import { resetWarned } from '../../_util/warning';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 
 describe('Collapse', () => {
-  // eslint-disable-next-line global-require
   const Collapse = require('..').default;
 
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});

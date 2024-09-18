@@ -78,8 +78,8 @@ describe('AutoComplete', () => {
     );
     expect(screen.getByRole('combobox')).toBeInTheDocument();
     await userEvent.type(screen.getByRole('combobox'), '1');
-    expect(screen.getByTitle(/111/i)).toBeInTheDocument();
-    expect(screen.getByTitle(/222/i)).toBeInTheDocument();
+    expect(screen.getByTitle(/111/)).toBeInTheDocument();
+    expect(screen.getByTitle(/222/)).toBeInTheDocument();
   });
 
   it('should not warning when getInputElement is null', () => {
