@@ -225,7 +225,7 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
             class="ant-input-group-addon"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-lg ant-btn-icon-only ant-input-search-button"
+              class="ant-btn ant-btn-default ant-btn-outlined ant-btn-lg ant-btn-icon-only ant-input-search-button"
               type="button"
             >
               <span
@@ -1517,7 +1517,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                           class="ant-input-group-addon"
                         >
                           <button
-                            class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+                            class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-input-search-button"
                             type="button"
                           >
                             <span
@@ -1749,7 +1749,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                           class="ant-input-group-addon"
                         >
                           <button
-                            class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+                            class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-input-search-button"
                             type="button"
                           >
                             <span
@@ -1798,7 +1798,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 </div>
               </div>
               <button
-                class="ant-btn ant-btn-primary"
+                class="ant-btn ant-btn-primary ant-btn-solid"
                 type="button"
               >
                 <span
@@ -2332,7 +2332,7 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx extend con
             class="ant-input-group-addon"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-lg ant-input-search-button"
+              class="ant-btn ant-btn-primary ant-btn-solid ant-btn-lg ant-input-search-button"
               type="button"
             >
               <span

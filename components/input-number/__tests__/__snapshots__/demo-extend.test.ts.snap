@@ -1501,7 +1501,7 @@ Array [
     style="margin-top: 20px;"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-solid"
       type="button"
     >
       <span>
@@ -3190,7 +3190,7 @@ exports[`renders components/input-number/demo/out-of-range.tsx extend context co
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-solid"
       type="button"
     >
       <span>

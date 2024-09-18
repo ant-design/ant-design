@@ -1,12 +1,12 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { Keyframes, unit } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
 import { initFadeMotion } from '../../style/motion/fade';
-import { initMotion } from '../../style/motion/motion';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import getOffset from '../util';
+import floatButtonGroupMotion from './keyframes';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -26,7 +26,7 @@ export interface ComponentToken {
  * @desc FloatButton 组件的 Token
  * @descEN Token for FloatButton component
  */
-type FloatButtonToken = FullToken<'FloatButton'> & {
+export type FloatButtonToken = FullToken<'FloatButton'> & {
   /**
    * @desc FloatButton 颜色
    * @descEN Color of FloatButton
@@ -86,58 +86,6 @@ type FloatButtonToken = FullToken<'FloatButton'> & {
   floatButtonInsetInlineEnd: number;
 };
 
-const initFloatButtonGroupMotion = (token: FloatButtonToken) => {
-  const { componentCls, floatButtonSize, motionDurationSlow, motionEaseInOutCirc } = token;
-  const groupPrefixCls = `${componentCls}-group`;
-  const moveDownIn = new Keyframes('antFloatButtonMoveDownIn', {
-    '0%': {
-      transform: `translate3d(0, ${unit(floatButtonSize)}, 0)`,
-      transformOrigin: '0 0',
-      opacity: 0,
-    },
-    '100%': {
-      transform: 'translate3d(0, 0, 0)',
-      transformOrigin: '0 0',
-      opacity: 1,
-    },
-  });
-
-  const moveDownOut = new Keyframes('antFloatButtonMoveDownOut', {
-    '0%': {
-      transform: 'translate3d(0, 0, 0)',
-      transformOrigin: '0 0',
-      opacity: 1,
-    },
-    '100%': {
-      transform: `translate3d(0, ${unit(floatButtonSize)}, 0)`,
-      transformOrigin: '0 0',
-      opacity: 0,
-    },
-  });
-
-  return [
-    {
-      [`${groupPrefixCls}-wrap`]: {
-        ...initMotion(`${groupPrefixCls}-wrap`, moveDownIn, moveDownOut, motionDurationSlow, true),
-      },
-    },
-    {
-      [`${groupPrefixCls}-wrap`]: {
-        [`
-          &${groupPrefixCls}-wrap-enter,
-          &${groupPrefixCls}-wrap-appear
-        `]: {
-          opacity: 0,
-          animationTimingFunction: motionEaseInOutCirc,
-        },
-        [`&${groupPrefixCls}-wrap-leave`]: {
-          animationTimingFunction: motionEaseInOutCirc,
-        },
-      },
-    },
-  ];
-};
-
 // ============================== Group ==============================
 const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
   const {
@@ -149,29 +97,33 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
     borderRadiusSM,
     badgeOffset,
     floatButtonBodyPadding,
+    zIndexPopupBase,
     calc,
   } = token;
   const groupPrefixCls = `${componentCls}-group`;
   return {
     [groupPrefixCls]: {
       ...resetComponent(token),
-      zIndex: token.zIndexPopupBase,
-      display: 'block',
+      zIndex: zIndexPopupBase,
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
       border: 'none',
       position: 'fixed',
-      width: floatButtonSize,
       height: 'auto',
       boxShadow: 'none',
+      minWidth: floatButtonSize,
       minHeight: floatButtonSize,
       insetInlineEnd: token.floatButtonInsetInlineEnd,
-      insetBlockEnd: token.floatButtonInsetBlockEnd,
+      bottom: token.floatButtonInsetBlockEnd,
       borderRadius: borderRadiusLG,
-
       [`${groupPrefixCls}-wrap`]: {
         zIndex: -1,
-        display: 'block',
-        position: 'relative',
-        marginBottom: margin,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'absolute',
       },
       [`&${groupPrefixCls}-rtl`]: {
         direction: 'rtl',
@@ -180,14 +132,30 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
         position: 'static',
       },
     },
+    [`${groupPrefixCls}-top > ${groupPrefixCls}-wrap`]: {
+      flexDirection: 'column',
+      top: 'auto',
+      bottom: calc(floatButtonSize).add(margin).equal(),
+    },
+    [`${groupPrefixCls}-bottom > ${groupPrefixCls}-wrap`]: {
+      flexDirection: 'column',
+      top: calc(floatButtonSize).add(margin).equal(),
+      bottom: 'auto',
+    },
+    [`${groupPrefixCls}-right > ${groupPrefixCls}-wrap`]: {
+      flexDirection: 'row',
+      left: { _skip_check_: true, value: calc(floatButtonSize).add(margin).equal() },
+      right: { _skip_check_: true, value: 'auto' },
+    },
+    [`${groupPrefixCls}-left > ${groupPrefixCls}-wrap`]: {
+      flexDirection: 'row',
+      left: { _skip_check_: true, value: 'auto' },
+      right: { _skip_check_: true, value: calc(floatButtonSize).add(margin).equal() },
+    },
     [`${groupPrefixCls}-circle`]: {
-      [`${componentCls}-circle:not(:last-child)`]: {
-        marginBottom: token.margin,
-        [`${componentCls}-body`]: {
-          width: floatButtonSize,
-          height: floatButtonSize,
-          borderRadius: '50%',
-        },
+      gap: margin,
+      [`${groupPrefixCls}-wrap`]: {
+        gap: margin,
       },
     },
     [`${groupPrefixCls}-square`]: {
@@ -216,14 +184,23 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
         },
       },
       [`${groupPrefixCls}-wrap`]: {
-        display: 'block',
         borderRadius: borderRadiusLG,
         boxShadow: token.boxShadowSecondary,
         [`${componentCls}-square`]: {
           boxShadow: 'none',
-          marginTop: 0,
           borderRadius: 0,
           padding: floatButtonBodyPadding,
+          [`${componentCls}-body`]: {
+            width: token.floatButtonBodySize,
+            height: token.floatButtonBodySize,
+            borderRadius: borderRadiusSM,
+          },
+        },
+      },
+    },
+    [`${groupPrefixCls}-top > ${groupPrefixCls}-wrap, ${groupPrefixCls}-bottom > ${groupPrefixCls}-wrap`]:
+      {
+        [`> ${componentCls}-square`]: {
           '&:first-child': {
             borderStartStartRadius: borderRadiusLG,
             borderStartEndRadius: borderRadiusLG,
@@ -235,13 +212,25 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
           '&:not(:last-child)': {
             borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
           },
-          [`${componentCls}-body`]: {
-            width: token.floatButtonBodySize,
-            height: token.floatButtonBodySize,
+        },
+      },
+    [`${groupPrefixCls}-left > ${groupPrefixCls}-wrap, ${groupPrefixCls}-right > ${groupPrefixCls}-wrap`]:
+      {
+        [`> ${componentCls}-square`]: {
+          '&:first-child': {
+            borderStartStartRadius: borderRadiusLG,
+            borderEndStartRadius: borderRadiusLG,
+          },
+          '&:last-child': {
+            borderStartEndRadius: borderRadiusLG,
+            borderEndEndRadius: borderRadiusLG,
+          },
+          '&:not(:last-child)': {
+            borderInlineEnd: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
           },
         },
       },
-    },
+
     [`${groupPrefixCls}-circle-shadow`]: {
       boxShadow: 'none',
     },
@@ -272,6 +261,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
     badgeOffset,
     dotOffsetInSquare,
     dotOffsetInCircle,
+    zIndexPopupBase,
     calc,
   } = token;
   return {
@@ -280,7 +270,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       border: 'none',
       position: 'fixed',
       cursor: 'pointer',
-      zIndex: token.zIndexPopupBase,
+      zIndex: zIndexPopupBase,
       // Do not remove the 'display: block' here.
       // Deleting it will cause marginBottom to become ineffective.
       // Ref: https://github.com/ant-design/ant-design/issues/44700
@@ -288,7 +278,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       width: floatButtonSize,
       height: floatButtonSize,
       insetInlineEnd: token.floatButtonInsetInlineEnd,
-      insetBlockEnd: token.floatButtonInsetBlockEnd,
+      bottom: token.floatButtonInsetBlockEnd,
       boxShadow: token.boxShadowSecondary,
       // Pure Panel
       '&-pure': {
@@ -452,12 +442,11 @@ export default genStyleHooks(
       floatButtonBodyPadding: paddingXXS,
       badgeOffset: calc(paddingXXS).mul(1.5).equal(),
     });
-
     return [
       floatButtonGroupStyle(floatButtonToken),
       sharedFloatButtonStyle(floatButtonToken),
       initFadeMotion(token),
-      initFloatButtonGroupMotion(floatButtonToken),
+      floatButtonGroupMotion(floatButtonToken),
     ];
   },
   prepareComponentToken,

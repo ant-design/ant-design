@@ -236,6 +236,8 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
           },
 
           [`${menuCls}-title-content`]: {
+            display: 'flex',
+            alignItems: 'center',
             flex: 'auto',
 
             '> a': {
@@ -251,6 +253,13 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
                 inset: 0,
                 content: '""',
               },
+            },
+
+            [`${menuCls}-item-extra`]: {
+              paddingInlineStart: token.padding,
+              marginInlineStart: 'auto',
+              fontSize: token.fontSizeSM,
+              color: token.colorTextDescription,
             },
           },
 
