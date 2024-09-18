@@ -126,7 +126,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         [`${componentCls}-thumb`]: {
           width: '100%',
           height: 0,
-          padding: '0 4px',
+          padding: `0 ${unit(token.paddingXXS)}`,
         },
       },
 
