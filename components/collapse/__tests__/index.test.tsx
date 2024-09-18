@@ -1,8 +1,8 @@
 import React from 'react';
-import ConfigProvider from 'antd/es/config-provider';
 
 import { resetWarned } from '../../_util/warning';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('Collapse', () => {
   // eslint-disable-next-line global-require
