@@ -59,6 +59,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     options = [],
     size: customSize = 'middle',
     style,
+    vertical,
     ...restProps
   } = props;
 
@@ -99,6 +100,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
       [`${prefixCls}-block`]: block,
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-lg`]: mergedSize === 'large',
+      [`${prefixCls}-vertical`]: vertical,
     },
     hashId,
     cssVarCls,
@@ -115,6 +117,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
       ref={ref}
       prefixCls={prefixCls}
       direction={direction}
+      vertical={vertical}
     />,
   );
 });
