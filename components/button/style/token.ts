@@ -112,6 +112,21 @@ export interface ComponentToken {
    */
   solidTextColor: string;
   /**
+   * @desc 默认文本按钮的文本色
+   * @descEN Default text color for text buttons
+   */
+  textTextColor: string;
+  /**
+   * @desc 默认文本按钮悬浮态文本颜色
+   * @descEN Default text color for text buttons on hover
+   */
+  textTextHoverColor: string;
+  /**
+   * @desc 默认文本按钮激活态文字颜色
+   * @descEN Default text color for text buttons on active
+   */
+  textTextActiveColor: string;
+  /**
    * @desc 按钮横向内间距
    * @descEN Horizontal padding of button
    */
@@ -166,21 +181,6 @@ export interface ComponentToken {
    * @descEN Background color of link button when hover
    */
   linkHoverBg: string;
-  /**
-   * @desc 文本按钮文本颜色
-   * @descEN Text color of text button
-   */
-  textColor: string;
-  /**
-   * @desc 文本按钮悬浮态文本颜色
-   * @descEN Text color of text button when hover
-   */
-  textHoverColor: string;
-  /**
-   * @desc 文本按钮激活态文字颜色
-   * @descEN Text color of text button when active
-   */
-  textActiveColor: string;
   /**
    * @desc 文本按钮悬浮态背景色
    * @descEN Background color of text button when hover
@@ -280,9 +280,9 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
     onlyIconSizeLG: token.fontSizeLG + 2,
     groupBorderColor: token.colorPrimaryHover,
     linkHoverBg: 'transparent',
-    textColor: token.colorText,
-    textHoverColor: token.colorText,
-    textActiveColor: token.colorText,
+    textTextColor: token.colorText,
+    textTextHoverColor: token.colorText,
+    textTextActiveColor: token.colorText,
     textHoverBg: token.colorBgTextHover,
     defaultColor: token.colorText,
     defaultBg: token.colorBgContainer,

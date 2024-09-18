@@ -224,12 +224,13 @@ const genFilledButtonStyle = (
 
 const genTextLinkButtonStyle = (
   token: ButtonToken,
+  textColor: string,
   variant: 'text' | 'link',
   hoverStyle: CSSObject,
   activeStyle: CSSObject,
 ) => ({
   [`&${token.componentCls}-${variant}`]: {
-    color: variant === 'text' ? token.textColor : undefined,
+    color: textColor,
     boxShadow: 'none',
 
     ...genVariantButtonStyle(token, hoverStyle, activeStyle, variant),
@@ -285,18 +286,20 @@ const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
 
   ...genTextLinkButtonStyle(
     token,
+    token.textTextColor,
     'text',
     {
-      color: token.textHoverColor,
+      color: token.textTextHoverColor,
       background: token.textHoverBg,
     },
     {
-      color: token.textActiveColor,
+      color: token.textTextActiveColor,
       background: token.colorBgTextActive,
     },
   ),
   ...genTextLinkButtonStyle(
     token,
+    token.colorLink,
     'link',
     {
       color: token.colorLinkHover,
@@ -365,6 +368,7 @@ const genPrimaryButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
 
   ...genTextLinkButtonStyle(
     token,
+    token.colorPrimary,
     'text',
     {
       color: token.colorPrimaryTextHover,
@@ -378,6 +382,7 @@ const genPrimaryButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
 
   ...genTextLinkButtonStyle(
     token,
+    token.colorPrimary,
     'link',
     {
       color: token.colorPrimaryTextHover,
@@ -451,6 +456,7 @@ const genDangerousStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
 
   ...genTextLinkButtonStyle(
     token,
+    token.colorError,
     'text',
     {
       color: token.colorErrorHover,
@@ -464,6 +470,7 @@ const genDangerousStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
 
   ...genTextLinkButtonStyle(
     token,
+    token.colorError,
     'link',
     {
       color: token.colorErrorHover,
