@@ -13,20 +13,37 @@ export function getNode(dom: React.ReactNode, defaultNode: React.ReactNode, need
 }
 
 /**
- * Get React of element with precision.
- * ref: https://github.com/ant-design/ant-design/issues/50143
+ * Check for element is native ellipsis
+ * ref:
+ * - https://github.com/ant-design/ant-design/issues/50143
+ * - https://github.com/ant-design/ant-design/issues/50414
  */
-export function getEleSize(ele: HTMLElement): [width: number, height: number] {
-  const rect = ele.getBoundingClientRect();
-  const { offsetWidth, offsetHeight } = ele;
+export function isEleEllipsis(ele: HTMLElement): boolean {
+  // Create a new div to get the size
+  const childDiv = document.createElement('em');
+  ele.appendChild(childDiv);
 
-  let returnWidth = offsetWidth;
-  let returnHeight = offsetHeight;
-
-  if (Math.abs(offsetWidth - rect.width) < 1 && Math.abs(offsetHeight - rect.height) < 1) {
-    returnWidth = rect.width;
-    returnHeight = rect.height;
+  // For test case
+  if (process.env.NODE_ENV !== 'production') {
+    childDiv.className = 'ant-typography-css-ellipsis-content-measure';
   }
 
-  return [returnWidth, returnHeight];
+  const rect = ele.getBoundingClientRect();
+  const childRect = childDiv.getBoundingClientRect();
+
+  // Reset
+  ele.removeChild(childDiv);
+
+  // Range checker
+  return (
+    // Horizontal out of range
+    rect.left > childRect.left ||
+    childRect.right > rect.right ||
+    // Vertical out of range
+    rect.top > childRect.top ||
+    childRect.bottom > rect.bottom
+  );
 }
+
+export const isValidText = (val: any): val is string | number =>
+  ['string', 'number'].includes(typeof val);

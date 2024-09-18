@@ -8,6 +8,7 @@ import tokenData from 'antd/es/version/token.json';
 
 import useLocale from '../../../hooks/useLocale';
 import { useColumns } from '../TokenTable';
+import type { TokenData } from '../TokenTable';
 
 const compare = (token1: string, token2: string) => {
   const hasColor1 = token1.toLowerCase().includes('color');
@@ -108,13 +109,13 @@ const SubTokenTable: React.FC<SubTokenTableProps> = (props) => {
 
   const data = tokens
     .sort(component ? undefined : compare)
-    .map((name) => {
+    .map<TokenData>((name) => {
       const meta = component
         ? tokenMeta.components[component].find((item) => item.token === name)
         : tokenMeta.global[name];
 
       if (!meta) {
-        return null;
+        return null as unknown as TokenData;
       }
 
       return {
@@ -177,7 +178,7 @@ const SubTokenTable: React.FC<SubTokenTableProps> = (props) => {
       </div>
       {open && (
         <ConfigProvider theme={{ token: { borderRadius: 0 } }}>
-          <Table
+          <Table<TokenData>
             size="middle"
             columns={columns}
             bordered

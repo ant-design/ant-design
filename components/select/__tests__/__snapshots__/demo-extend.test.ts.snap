@@ -1536,7 +1536,7 @@ exports[`renders components/select/demo/custom-label-render.tsx extend context c
       class="ant-select-selection-item"
     >
       <span>
-        当前 value 没有对应的选项
+        No option match
       </span>
     </span>
   </div>
@@ -8459,7 +8459,7 @@ exports[`renders components/select/demo/option-label-center.tsx extend context c
                       </div>
                       <div
                         aria-grabbed="false"
-                        class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open"
+                        class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
                         draggable="false"
                       >
                         <span
@@ -8490,7 +8490,7 @@ exports[`renders components/select/demo/option-label-center.tsx extend context c
                       </div>
                       <div
                         aria-grabbed="false"
-                        class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open"
+                        class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
                         draggable="false"
                       >
                         <span
@@ -8521,7 +8521,7 @@ exports[`renders components/select/demo/option-label-center.tsx extend context c
                       </div>
                       <div
                         aria-grabbed="false"
-                        class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
+                        class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                         draggable="false"
                       >
                         <span

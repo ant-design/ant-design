@@ -167,4 +167,9 @@ describe('Input.OTP', () => {
     expect(errSpy).not.toHaveBeenCalled();
     errSpy.mockRestore();
   });
+
+  it('support type', () => {
+    const { container } = render(<OTP type="number" />);
+    expect(container.querySelector('input')).toHaveAttribute('type', 'number');
+  });
 });

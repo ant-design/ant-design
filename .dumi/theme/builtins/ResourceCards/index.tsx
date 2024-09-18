@@ -11,7 +11,7 @@ const useStyle = createStyles(({ token, css }) => ({
   card: css`
     position: relative;
     overflow: hidden;
-    .${token.antCls}-card-cover {
+    ${token.antCls}-card-cover {
       overflow: hidden;
     }
     img {
