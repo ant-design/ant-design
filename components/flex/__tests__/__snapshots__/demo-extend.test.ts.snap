@@ -8,7 +8,9 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
     Select justify :
   </p>
   <div
+    aria-label="segmented control"
     class="ant-segmented"
+    role="listbox"
   >
     <div
       class="ant-segmented-group"
@@ -22,7 +24,9 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
           type="radio"
         />
         <div
+          aria-selected="true"
           class="ant-segmented-item-label"
+          role="option"
           title="flex-start"
         >
           flex-start
@@ -36,7 +40,9 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
           type="radio"
         />
         <div
+          aria-selected="false"
           class="ant-segmented-item-label"
+          role="option"
           title="center"
         >
           center
@@ -50,7 +56,9 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
           type="radio"
         />
         <div
+          aria-selected="false"
           class="ant-segmented-item-label"
+          role="option"
           title="flex-end"
         >
           flex-end
@@ -64,7 +72,9 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
           type="radio"
         />
         <div
+          aria-selected="false"
           class="ant-segmented-item-label"
+          role="option"
           title="space-between"
         >
           space-between
@@ -78,7 +88,9 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
           type="radio"
         />
         <div
+          aria-selected="false"
           class="ant-segmented-item-label"
+          role="option"
           title="space-around"
         >
           space-around
@@ -92,7 +104,9 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
           type="radio"
         />
         <div
+          aria-selected="false"
           class="ant-segmented-item-label"
+          role="option"
           title="space-evenly"
         >
           space-evenly
@@ -104,7 +118,9 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
     Select align :
   </p>
   <div
+    aria-label="segmented control"
     class="ant-segmented"
+    role="listbox"
   >
     <div
       class="ant-segmented-group"
@@ -118,7 +134,9 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
           type="radio"
         />
         <div
+          aria-selected="true"
           class="ant-segmented-item-label"
+          role="option"
           title="flex-start"
         >
           flex-start
@@ -132,7 +150,9 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
           type="radio"
         />
         <div
+          aria-selected="false"
           class="ant-segmented-item-label"
+          role="option"
           title="center"
         >
           center
@@ -146,7 +166,9 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
           type="radio"
         />
         <div
+          aria-selected="false"
           class="ant-segmented-item-label"
+          role="option"
           title="flex-end"
         >
           flex-end

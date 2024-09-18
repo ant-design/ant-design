@@ -3943,7 +3943,9 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                   class="ant-color-picker-operation"
                 >
                   <div
+                    aria-label="segmented control"
                     class="ant-segmented ant-segmented-sm"
+                    role="listbox"
                   >
                     <div
                       class="ant-segmented-group"
@@ -3957,7 +3959,9 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                           type="radio"
                         />
                         <div
+                          aria-selected="false"
                           class="ant-segmented-item-label"
+                          role="option"
                           title="Single"
                         >
                           Single
@@ -3971,7 +3975,9 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                           type="radio"
                         />
                         <div
+                          aria-selected="true"
                           class="ant-segmented-item-label"
+                          role="option"
                           title="Gradient"
                         >
                           Gradient

@@ -30753,8 +30753,10 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="segmented control"
               class="ant-segmented"
               id="variant"
+              role="listbox"
             >
               <div
                 class="ant-segmented-group"
@@ -30767,7 +30769,9 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                     type="radio"
                   />
                   <div
+                    aria-selected="false"
                     class="ant-segmented-item-label"
+                    role="option"
                     title="outlined"
                   >
                     outlined
@@ -30782,7 +30786,9 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                     type="radio"
                   />
                   <div
+                    aria-selected="true"
                     class="ant-segmented-item-label"
+                    role="option"
                     title="filled"
                   >
                     filled
@@ -30796,7 +30802,9 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                     type="radio"
                   />
                   <div
+                    aria-selected="false"
                     class="ant-segmented-item-label"
+                    role="option"
                     title="borderless"
                   >
                     borderless
