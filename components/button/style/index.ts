@@ -299,7 +299,7 @@ const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
   ),
   ...genTextLinkButtonStyle(
     token,
-    token.colorLink,
+    token.textTextColor,
     'link',
     {
       color: token.colorLinkHover,
