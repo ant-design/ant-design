@@ -660,7 +660,6 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 
       [`${componentCls}-affix-wrapper`]: {
         height: token.controlHeight,
-        lineHeight: token.controlHeight,
         borderRadius: 0,
       },
 
@@ -718,14 +717,12 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       '&-large': {
         [`${componentCls}-affix-wrapper, ${searchPrefixCls}-button`]: {
           height: token.controlHeightLG,
-          lineHeight: token.controlHeightLG,
         },
       },
 
       '&-small': {
         [`${componentCls}-affix-wrapper, ${searchPrefixCls}-button`]: {
           height: token.controlHeightSM,
-          lineHeight: token.controlHeightSM,
         },
       },
 
