@@ -12,6 +12,11 @@ import type { SubMenuType } from './interface';
 export interface SubMenuProps extends Omit<SubMenuType, 'children' | 'ref'> {
   title?: React.ReactNode;
   children?: React.ReactNode;
+  /**
+   * @deprecated No longer needed, it can now be safely deleted.
+   * @see: https://github.com/ant-design/ant-design/pull/30638
+   */
+  level?: number;
 }
 
 const SubMenu: React.FC<SubMenuProps> = (props) => {
