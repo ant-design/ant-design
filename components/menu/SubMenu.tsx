@@ -9,7 +9,7 @@ import type { MenuContextProps } from './MenuContext';
 import MenuContext from './MenuContext';
 import type { SubMenuType } from './interface';
 
-export interface SubMenuProps extends Omit<SubMenuType, 'children' | 'ref'> {
+export interface SubMenuProps extends Omit<SubMenuType, 'ref' | 'key' | 'children' | 'label'> {
   title?: React.ReactNode;
   children?: React.ReactNode;
   /**
