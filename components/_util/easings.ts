@@ -1,4 +1,3 @@
-/* eslint-disable */
 export function easeInOutCubic(t: number, b: number, c: number, d: number) {
   const cc = c - b;
   // biome-ignore lint: it is a common easing function

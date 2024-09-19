@@ -1,4 +1,3 @@
-/* eslint-disable react/button-has-type */
 import React, { Children, createRef, useContext, useEffect, useMemo, useState } from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';

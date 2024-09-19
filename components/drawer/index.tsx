@@ -16,9 +16,8 @@ import type { DrawerClassNames, DrawerPanelProps, DrawerStyles } from './DrawerP
 import DrawerPanel from './DrawerPanel';
 import useStyle from './style';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const SizeTypes = ['default', 'large'] as const;
-type sizeType = (typeof SizeTypes)[number];
+const _SizeTypes = ['default', 'large'] as const;
+type sizeType = (typeof _SizeTypes)[number];
 
 export interface PushState {
   distance: string | number;
