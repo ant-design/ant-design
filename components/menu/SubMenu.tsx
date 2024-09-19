@@ -5,28 +5,13 @@ import omit from 'rc-util/lib/omit';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { cloneElement } from '../_util/reactNode';
-import type { MenuContextProps, MenuTheme } from './MenuContext';
+import type { MenuContextProps } from './MenuContext';
 import MenuContext from './MenuContext';
+import type { SubMenuType } from './interface';
 
-interface TitleEventEntity {
-  key: string;
-  domEvent: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>;
-}
-
-export interface SubMenuProps {
-  className?: string;
-  disabled?: boolean;
-  level?: number;
+export interface SubMenuProps extends Omit<SubMenuType, 'children' | 'ref'> {
   title?: React.ReactNode;
-  icon?: React.ReactNode;
-  style?: React.CSSProperties;
-  onTitleClick?: (e: TitleEventEntity) => void;
-  onTitleMouseEnter?: (e: TitleEventEntity) => void;
-  onTitleMouseLeave?: (e: TitleEventEntity) => void;
-  popupOffset?: [number, number];
-  popupClassName?: string;
   children?: React.ReactNode;
-  theme?: MenuTheme;
 }
 
 const SubMenu: React.FC<SubMenuProps> = (props) => {
