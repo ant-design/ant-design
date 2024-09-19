@@ -80,7 +80,7 @@ const IconSearch: React.FC = () => {
         let iconList = categories[key as CategoriesKeys];
         if (searchKey) {
           const matchKey = searchKey
-            // eslint-disable-next-line prefer-regex-literals
+
             .replace(/^<([a-z]*)\s\/>$/gi, (_, name) => name)
             .replace(/(Filled|Outlined|TwoTone)$/, '')
             .toLowerCase();

@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/ga_IE';
 
 import type { Locale } from '.';

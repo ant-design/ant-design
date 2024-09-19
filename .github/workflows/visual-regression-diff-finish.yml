@@ -4,7 +4,7 @@ name: 👀 Visual Regression Diff Finish
 
 on:
   workflow_run:
-    workflows: ["👀 Visual Regression Diff Build"]
+    workflows: [👀 Visual Regression Diff Build]
     types:
       - completed
 
@@ -130,7 +130,7 @@ jobs:
           body: |
             ${{ steps.report.outputs.content }}
             <!-- VISUAL_DIFF_REGRESSION_HOOK -->
-          body-include: '<!-- VISUAL_DIFF_REGRESSION_HOOK -->'
+          body-include: <!-- VISUAL_DIFF_REGRESSION_HOOK -->
           number: ${{ steps.pr.outputs.id }}
 
       - name: failed comment
@@ -147,7 +147,7 @@ jobs:
                 - `report upload` status: ${{ steps.report.outcome }}
                 - workflow url: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             <!-- VISUAL_DIFF_REGRESSION_HOOK -->
-          body-include: '<!-- VISUAL_DIFF_REGRESSION_HOOK -->'
+          body-include: <!-- VISUAL_DIFF_REGRESSION_HOOK -->
           number: ${{ steps.pr.outputs.id }}
 
       # Resync commit status. This will be also reset by `visual-regression-diff-approver`

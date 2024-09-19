@@ -21,7 +21,6 @@ describe('Wave component', () => {
   let disCnt = 0;
 
   beforeAll(() => {
-    /* eslint-disable class-methods-use-this */
     class FakeResizeObserver {
       observe = () => {
         obCnt += 1;
@@ -116,13 +115,10 @@ describe('Wave component', () => {
     unmount();
   });
 
-  it('wave color is grey', () => {
+  it('wave color is nonexistent', () => {
     const { container, unmount } = render(
       <Wave>
-        <button
-          type="button"
-          style={{ borderColor: 'rgb(0, 0, 0)', backgroundColor: 'transparent' }}
-        >
+        <button type="button" style={{ border: '#fff', background: '#fff' }}>
           button
         </button>
       </Wave>,
@@ -132,8 +128,7 @@ describe('Wave component', () => {
     waitRaf();
 
     const style = getWaveStyle();
-
-    expect(style['--wave-color']).toBeFalsy();
+    expect(style['--wave-color']).toEqual(undefined);
 
     unmount();
   });

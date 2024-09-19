@@ -466,7 +466,7 @@ Array [
   </label>,
   <br />,
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-solid"
     style="margin-top:16px"
     type="button"
   >
@@ -983,6 +983,199 @@ exports[`renders components/radio/demo/radiogroup.tsx correctly 1`] = `
       D
     </span>
   </label>
+</div>
+`;
+
+exports[`renders components/radio/demo/radiogroup-block.tsx correctly 1`] = `
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="ant-radio-group ant-radio-group-outline ant-radio-group-block"
+  >
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-block"
+    >
+      <span
+        class="ant-radio ant-wave-target ant-radio-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-input"
+          type="radio"
+          value="Apple"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        Apple
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-block"
+    >
+      <span
+        class="ant-radio ant-wave-target"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="Pear"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        Pear
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-block"
+    >
+      <span
+        class="ant-radio ant-wave-target"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="Orange"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        Orange
+      </span>
+    </label>
+  </div>
+  <div
+    class="ant-radio-group ant-radio-group-solid ant-radio-group-block"
+  >
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-block"
+    >
+      <span
+        class="ant-radio-button ant-radio-button-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-button-input"
+          type="radio"
+          value="Apple"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Apple
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-block"
+    >
+      <span
+        class="ant-radio-button"
+      >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="Pear"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Pear
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-block"
+    >
+      <span
+        class="ant-radio-button"
+      >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="Orange"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Orange
+      </span>
+    </label>
+  </div>
+  <div
+    class="ant-radio-group ant-radio-group-outline ant-radio-group-block"
+  >
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-block"
+    >
+      <span
+        class="ant-radio-button"
+      >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="Apple"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Apple
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-block"
+    >
+      <span
+        class="ant-radio-button ant-radio-button-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-button-input"
+          type="radio"
+          value="Pear"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Pear
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-block"
+    >
+      <span
+        class="ant-radio-button"
+      >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="Orange"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Orange
+      </span>
+    </label>
+  </div>
 </div>
 `;
 

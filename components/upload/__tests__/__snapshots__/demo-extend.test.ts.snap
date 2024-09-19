@@ -15,6 +15,7 @@ exports[`renders components/upload/demo/avatar.tsx extend context correctly 1`] 
       >
         <input
           accept=""
+          name="avatar"
           style="display: none;"
           type="file"
         />
@@ -64,6 +65,7 @@ exports[`renders components/upload/demo/avatar.tsx extend context correctly 1`] 
       >
         <input
           accept=""
+          name="avatar"
           style="display: none;"
           type="file"
         />
@@ -119,11 +121,12 @@ exports[`renders components/upload/demo/basic.tsx extend context correctly 1`] =
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         type="button"
       >
         <span
@@ -175,11 +178,12 @@ exports[`renders components/upload/demo/component-token.tsx extend context corre
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         type="button"
       >
         <span
@@ -256,7 +260,7 @@ exports[`renders components/upload/demo/component-token.tsx extend context corre
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -330,7 +334,7 @@ exports[`renders components/upload/demo/component-token.tsx extend context corre
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -404,7 +408,7 @@ exports[`renders components/upload/demo/component-token.tsx extend context corre
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -473,11 +477,12 @@ exports[`renders components/upload/demo/customize-progress-bar.tsx extend contex
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         type="button"
       >
         <span
@@ -536,6 +541,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
           <input
             accept=""
             disabled=""
+            name="file"
             style="display: none;"
             type="file"
           />
@@ -562,11 +568,12 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
           <input
             accept=""
             disabled=""
+            name="file"
             style="display: none;"
             type="file"
           />
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-outlined"
             type="button"
           >
             <span
@@ -837,6 +844,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
             <input
               accept=""
               disabled=""
+              name="avatar"
               style="display: none;"
               type="file"
             />
@@ -1111,6 +1119,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
             <input
               accept=""
               disabled=""
+              name="avatar"
               style="display: none;"
               type="file"
             />
@@ -1167,6 +1176,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
           <input
             accept=""
             disabled=""
+            name="file"
             style="display: none;"
             type="file"
           />
@@ -1231,11 +1241,12 @@ exports[`renders components/upload/demo/defaultFileList.tsx extend context corre
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         type="button"
       >
         <span
@@ -1312,7 +1323,7 @@ exports[`renders components/upload/demo/defaultFileList.tsx extend context corre
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -1386,7 +1397,7 @@ exports[`renders components/upload/demo/defaultFileList.tsx extend context corre
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -1460,7 +1471,7 @@ exports[`renders components/upload/demo/defaultFileList.tsx extend context corre
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -1530,12 +1541,13 @@ exports[`renders components/upload/demo/directory.tsx extend context correctly 1
       <input
         accept=""
         directory="directory"
+        name="file"
         style="display: none;"
         type="file"
         webkitdirectory="webkitdirectory"
       />
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         type="button"
       >
         <span
@@ -1590,6 +1602,7 @@ exports[`renders components/upload/demo/drag.tsx extend context correctly 1`] = 
       <input
         accept=""
         multiple=""
+        name="file"
         style="display: none;"
         type="file"
       />
@@ -1653,11 +1666,12 @@ Array [
       >
         <input
           accept=""
+          name="file"
           style="display: none;"
           type="file"
         />
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           type="button"
         >
           <span
@@ -1743,7 +1757,7 @@ Array [
               class="ant-upload-list-item-actions"
             >
               <button
-                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+                class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
                 title="Remove file"
                 type="button"
               >
@@ -1827,7 +1841,7 @@ Array [
               class="ant-upload-list-item-actions"
             >
               <button
-                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+                class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
                 title="Remove file"
                 type="button"
               >
@@ -1911,7 +1925,7 @@ Array [
               class="ant-upload-list-item-actions"
             >
               <button
-                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+                class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
                 title="Remove file"
                 type="button"
               >
@@ -1995,7 +2009,7 @@ Array [
               class="ant-upload-list-item-actions"
             >
               <button
-                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+                class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
                 title="Remove file"
                 type="button"
               >
@@ -2076,7 +2090,7 @@ Array [
               class="ant-upload-list-item-actions"
             >
               <button
-                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+                class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
                 title="Remove file"
                 type="button"
               >
@@ -2245,7 +2259,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
             </span>
           </a>
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -2357,7 +2371,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
             </span>
           </a>
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -2445,7 +2459,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -2552,7 +2566,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -2651,7 +2665,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -2710,6 +2724,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
       >
         <input
           accept=""
+          name="file"
           style="display: none;"
           type="file"
         />
@@ -2766,11 +2781,12 @@ exports[`renders components/upload/demo/fileList.tsx extend context correctly 1`
       <input
         accept=""
         multiple=""
+        name="file"
         style="display: none;"
         type="file"
       />
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         type="button"
       >
         <span
@@ -2847,7 +2863,7 @@ exports[`renders components/upload/demo/fileList.tsx extend context correctly 1`
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -2904,11 +2920,12 @@ exports[`renders components/upload/demo/max-count.tsx extend context correctly 1
         >
           <input
             accept=""
+            name="file"
             style="display: none;"
             type="file"
           />
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-outlined"
             type="button"
           >
             <span
@@ -2960,11 +2977,12 @@ exports[`renders components/upload/demo/max-count.tsx extend context correctly 1
           <input
             accept=""
             multiple=""
+            name="file"
             style="display: none;"
             type="file"
           />
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-outlined"
             type="button"
           >
             <span
@@ -3070,7 +3088,7 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
             </span>
           </a>
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -3159,7 +3177,7 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
             </span>
           </a>
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -3248,7 +3266,7 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
             </span>
           </a>
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -3337,7 +3355,7 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
             </span>
           </a>
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -3447,7 +3465,7 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -3506,6 +3524,7 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
       >
         <input
           accept=""
+          name="file"
           style="display: none;"
           type="file"
         />
@@ -3613,7 +3632,7 @@ exports[`renders components/upload/demo/picture-circle.tsx extend context correc
             </span>
           </a>
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -3723,7 +3742,7 @@ exports[`renders components/upload/demo/picture-circle.tsx extend context correc
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -3782,6 +3801,7 @@ exports[`renders components/upload/demo/picture-circle.tsx extend context correc
       >
         <input
           accept=""
+          name="file"
           style="display: none;"
           type="file"
         />
@@ -3837,11 +3857,12 @@ exports[`renders components/upload/demo/picture-style.tsx extend context correct
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-solid"
         type="button"
       >
         <span
@@ -3915,7 +3936,7 @@ exports[`renders components/upload/demo/picture-style.tsx extend context correct
           class="ant-upload-list-item-actions picture"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -3978,7 +3999,7 @@ exports[`renders components/upload/demo/picture-style.tsx extend context correct
           class="ant-upload-list-item-actions picture"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -4066,7 +4087,7 @@ exports[`renders components/upload/demo/picture-style.tsx extend context correct
           class="ant-upload-list-item-actions picture"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -4135,11 +4156,12 @@ exports[`renders components/upload/demo/preview-file.tsx extend context correctl
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         type="button"
       >
         <span
@@ -4191,11 +4213,12 @@ exports[`renders components/upload/demo/transform-file.tsx extend context correc
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         type="button"
       >
         <span
@@ -4247,11 +4270,12 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         type="button"
       >
         <span
@@ -4337,7 +4361,7 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-upload-list-item-action"
             title="Download file"
             type="button"
           >
@@ -4346,7 +4370,7 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -4429,7 +4453,7 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-upload-list-item-action"
             title="Download file"
             type="button"
           >
@@ -4438,7 +4462,7 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -4521,7 +4545,7 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -4591,11 +4615,12 @@ Array [
       >
         <input
           accept=""
+          name="file"
           style="display: none;"
           type="file"
         />
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           type="button"
         >
           <span
@@ -4632,7 +4657,7 @@ Array [
     />
   </span>,
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-solid"
     disabled=""
     style="margin-top: 16px;"
     type="button"
@@ -4658,11 +4683,12 @@ exports[`renders components/upload/demo/upload-png-only.tsx extend context corre
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         type="button"
       >
         <span
@@ -4743,11 +4769,12 @@ exports[`renders components/upload/demo/upload-with-aliyun-oss.tsx extend contex
                 >
                   <input
                     accept=""
+                    name="file"
                     style="display: none;"
                     type="file"
                   />
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-outlined"
                     type="button"
                   >
                     <span

@@ -37,7 +37,6 @@ export const getHash = (str: string, length = 8) =>
  * extends dumi internal tech stack, for customize previewer props
  */
 class AntdReactTechStack extends ReactTechStack {
-  // eslint-disable-next-line class-methods-use-this
   generatePreviewerProps(...[props, opts]: any) {
     props.pkgDependencyList = { ...devDependencies, ...dependencies };
     props.jsx ??= '';

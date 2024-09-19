@@ -8,9 +8,8 @@ import Indicator from './Indicator';
 import useStyle from './style/index';
 import usePercent from './usePercent';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const SpinSizes = ['small', 'default', 'large'] as const;
-export type SpinSize = (typeof SpinSizes)[number];
+const _SpinSizes = ['small', 'default', 'large'] as const;
+export type SpinSize = (typeof _SpinSizes)[number];
 export type SpinIndicator = React.ReactElement<HTMLElement>;
 
 export interface SpinProps {

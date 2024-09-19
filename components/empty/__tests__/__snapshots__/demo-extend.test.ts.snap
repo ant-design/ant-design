@@ -628,7 +628,7 @@ Array [
           class="ant-transfer-operation"
         >
           <button
-            class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+            class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
             disabled=""
             type="button"
           >
@@ -657,7 +657,7 @@ Array [
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+            class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
             disabled=""
             type="button"
           >
@@ -1038,7 +1038,7 @@ exports[`renders components/empty/demo/customize.tsx extend context correctly 1`
     class="ant-empty-footer"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-solid"
       type="button"
     >
       <span>

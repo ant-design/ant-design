@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/ms_MY';
 
 import type { Locale } from '.';

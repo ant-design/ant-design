@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-named-as-default
 import * as React from 'react';
 import classNames from 'classnames';
 import RcMentions from 'rc-mentions';
@@ -164,7 +163,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
 
   const [variant, enableVariantCls] = useVariant('mentions', customVariant);
 
-  /* eslint-disable-next-line react/jsx-no-useless-fragment */ /* biome-ignore lint/complexity/noUselessFragments: avoid falsy value */
+  /* biome-ignore lint/complexity/noUselessFragments: avoid falsy value */
   const suffixNode = hasFeedback && <>{feedbackIcon}</>;
 
   const mergedClassName = classNames(
