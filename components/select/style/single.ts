@@ -6,11 +6,16 @@ import { mergeToken } from '../../theme/internal';
 import type { SelectToken } from './token';
 
 function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
-  const { componentCls, inputPaddingHorizontalBase, borderRadius } = token;
+  const { componentCls, inputPaddingHorizontalBase, borderRadius, fontSizeIcon } = token;
 
   const selectHeightWithoutBorder = token
     .calc(token.controlHeight)
     .sub(token.calc(token.lineWidth).mul(2))
+    .equal();
+
+  const singleInputPaddingHorizontal = token
+    .calc(inputPaddingHorizontalBase)
+    .add(fontSizeIcon)
     .equal();
 
   const suffixCls = suffix ? `${componentCls}-${suffix}` : '';
@@ -31,7 +36,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
           position: 'absolute',
           top: 0,
           insetInlineStart: inputPaddingHorizontalBase,
-          insetInlineEnd: inputPaddingHorizontalBase,
+          insetInlineEnd: unit(singleInputPaddingHorizontal),
           bottom: 0,
 
           '&-input': {
