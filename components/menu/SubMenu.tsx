@@ -72,6 +72,8 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
         )}
         popupStyle={{
           zIndex,
+          // fix: https://github.com/ant-design/ant-design/issues/47826#issuecomment-2360737237
+          ...props.popupStyle,
         }}
       />
     </MenuContext.Provider>
