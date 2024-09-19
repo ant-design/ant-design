@@ -157,7 +157,9 @@ const Spin: SpinType = (props) => {
       >
         {spinning && <div key="loading">{spinElement}</div>}
         <div className={containerClassName} key="container">
-          {children}
+          <div>
+            {children}
+          </div>
         </div>
       </div>,
     );
