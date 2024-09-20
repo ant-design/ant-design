@@ -1,4 +1,3 @@
-/* eslint-disable class-methods-use-this */
 import React from 'react';
 import KeyCode from 'rc-util/lib/KeyCode';
 

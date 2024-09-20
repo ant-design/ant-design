@@ -1,6 +1,7 @@
 import * as React from 'react';
 import toArray from 'rc-util/lib/Children/toArray';
 import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
+import { isValidText } from './util';
 
 interface MeasureTextProps {
   style?: React.CSSProperties;
@@ -44,24 +45,8 @@ const MeasureText = React.forwardRef<MeasureTextRef, MeasureTextProps>(
   },
 );
 
-function cuttable(node: React.ReactElement) {
-  const type = typeof node;
-  return type === 'string' || type === 'number';
-}
-
-function getNodesLen(nodeList: React.ReactElement[]) {
-  let totalLen = 0;
-
-  nodeList.forEach((node) => {
-    if (cuttable(node)) {
-      totalLen += String(node).length;
-    } else {
-      totalLen += 1;
-    }
-  });
-
-  return totalLen;
-}
+const getNodesLen = (nodeList: React.ReactElement[]) =>
+  nodeList.reduce((totalLen, node) => totalLen + (isValidText(node) ? String(node).length : 1), 0);
 
 function sliceNodes(nodeList: React.ReactElement[], len: number) {
   let currLen = 0;
@@ -74,7 +59,7 @@ function sliceNodes(nodeList: React.ReactElement[], len: number) {
     }
 
     const node = nodeList[i];
-    const canCut = cuttable(node);
+    const canCut = isValidText(node);
     const nodeLen = canCut ? String(node).length : 1;
     const nextLen = currLen + nodeLen;
 
@@ -97,7 +82,6 @@ export interface EllipsisProps {
   enableMeasure?: boolean;
   text?: React.ReactNode;
   width: number;
-  // fontSize: number;
   rows: number;
   children: (
     cutChildren: React.ReactNode[],
@@ -142,9 +126,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
 
   // ========================= NeedEllipsis =========================
   const measureWhiteSpaceRef = React.useRef<HTMLElement>(null);
-
   const needEllipsisRef = React.useRef<MeasureTextRef>(null);
-
   // Measure for `rows-1` height, to avoid operation exceed the line height
   const descRowsEllipsisRef = React.useRef<MeasureTextRef>(null);
   const symbolRowEllipsisRef = React.useRef<MeasureTextRef>(null);
@@ -187,9 +169,11 @@ export default function EllipsisMeasure(props: EllipsisProps) {
       // Get the height of `rows - 1` + symbol height
       const descRowsEllipsisHeight = rows === 1 ? 0 : descRowsEllipsisRef.current?.getHeight() || 0;
       const symbolRowEllipsisHeight = symbolRowEllipsisRef.current?.getHeight() || 0;
-      const rowsWithEllipsisHeight = descRowsEllipsisHeight + symbolRowEllipsisHeight;
-
-      const maxRowsHeight = Math.max(baseRowsEllipsisHeight, rowsWithEllipsisHeight);
+      const maxRowsHeight = Math.max(
+        baseRowsEllipsisHeight,
+        // height of rows with ellipsis
+        descRowsEllipsisHeight + symbolRowEllipsisHeight,
+      );
 
       setEllipsisHeight(maxRowsHeight + 1);
 
@@ -209,47 +193,41 @@ export default function EllipsisMeasure(props: EllipsisProps) {
 
       const isOverflow = midHeight > ellipsisHeight;
       let targetMidIndex = cutMidIndex;
-
       if (maxIndex - minIndex === 1) {
         targetMidIndex = isOverflow ? minIndex : maxIndex;
       }
-
-      if (isOverflow) {
-        setEllipsisCutIndex([minIndex, targetMidIndex]);
-      } else {
-        setEllipsisCutIndex([targetMidIndex, maxIndex]);
-      }
+      setEllipsisCutIndex(isOverflow ? [minIndex, targetMidIndex] : [targetMidIndex, maxIndex]);
     }
   }, [ellipsisCutIndex, cutMidIndex]);
 
   // ========================= Text Content =========================
   const finalContent = React.useMemo(() => {
+    // Skip everything if `enableMeasure` is disabled
+    if (!enableMeasure) {
+      return children(nodeList, false);
+    }
+
     if (
       needEllipsis !== STATUS_MEASURE_NEED_ELLIPSIS ||
       !ellipsisCutIndex ||
       ellipsisCutIndex[0] !== ellipsisCutIndex[1]
     ) {
       const content = children(nodeList, false);
-
-      // Limit the max line count to avoid scrollbar blink
+      // Limit the max line count to avoid scrollbar blink unless no need ellipsis
       // https://github.com/ant-design/ant-design/issues/42958
-      if (
-        needEllipsis !== STATUS_MEASURE_NO_NEED_ELLIPSIS &&
-        needEllipsis !== STATUS_MEASURE_NONE
-      ) {
-        return (
-          <span
-            style={{
-              ...lineClipStyle,
-              WebkitLineClamp: rows,
-            }}
-          >
-            {content}
-          </span>
-        );
+      if ([STATUS_MEASURE_NO_NEED_ELLIPSIS, STATUS_MEASURE_NONE].includes(needEllipsis)) {
+        return content;
       }
-
-      return content;
+      return (
+        <span
+          style={{
+            ...lineClipStyle,
+            WebkitLineClamp: rows,
+          }}
+        >
+          {content}
+        </span>
+      );
     }
 
     return children(expanded ? nodeList : sliceNodes(nodeList, ellipsisCutIndex[0]), canEllipsis);

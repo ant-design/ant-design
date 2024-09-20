@@ -20,6 +20,7 @@ function doMouseMove(
   start: number,
   end: number,
   element: string | HTMLElement = 'ant-color-picker-handler',
+  fireMouseUp = true,
 ) {
   const ele =
     element instanceof HTMLElement ? element : container.getElementsByClassName(element)[0];
@@ -34,15 +35,20 @@ function doMouseMove(
   });
 
   fireEvent(ele, mouseDown);
+
   // Drag
-  const mouseMove: any = new Event('mousemove');
-  mouseMove.pageX = end;
-  mouseMove.pageY = end;
+  if (start !== end) {
+    const mouseMove: any = new Event('mousemove');
+    mouseMove.pageX = end;
+    mouseMove.pageY = end;
 
-  fireEvent(document, mouseMove);
+    fireEvent(document, mouseMove);
+  }
 
-  const mouseUp = createEvent.mouseUp(document);
-  fireEvent(document, mouseUp);
+  if (fireMouseUp) {
+    const mouseUp = createEvent.mouseUp(document);
+    fireEvent(document, mouseUp);
+  }
 }
 
 describe('ColorPicker', () => {
@@ -847,5 +853,99 @@ describe('ColorPicker', () => {
         'rgba(255,0,0,0.5)',
       );
     });
+  });
+
+  it('onChangeComplete with default empty color should not be alpha', async () => {
+    const spyRect = spyElementPrototypes(HTMLElement, {
+      getBoundingClientRect: () => ({
+        x: 0,
+        y: 100,
+        width: 100,
+        height: 100,
+      }),
+    });
+
+    const handleChangeComplete = jest.fn();
+    const { container } = render(<ColorPicker open onChangeComplete={handleChangeComplete} />);
+
+    // Move
+    doMouseMove(container, 50, 50);
+    expect(handleChangeComplete).toHaveBeenCalledTimes(1);
+
+    const color = handleChangeComplete.mock.calls[0][0];
+    expect(color.toRgb()).toEqual({
+      r: 255,
+      g: 128,
+      b: 128,
+      a: 1,
+    });
+
+    spyRect.mockRestore();
+  });
+
+  describe('controlled with `onChangeComplete`', () => {
+    let spyRect: ReturnType<typeof spyElementPrototypes>;
+
+    beforeEach(() => {
+      spyRect = spyElementPrototypes(HTMLElement, {
+        getBoundingClientRect: () => ({
+          x: 0,
+          y: 100,
+          width: 100,
+          height: 100,
+        }),
+      });
+    });
+
+    afterEach(() => {
+      spyRect.mockRestore();
+    });
+
+    it('lock value', async () => {
+      const onChange = jest.fn();
+      const onChangeComplete = jest.fn();
+      const { container } = render(
+        <ColorPicker value="#F00" open onChange={onChange} onChangeComplete={onChangeComplete} />,
+      );
+
+      doMouseMove(container, 0, 50, 'ant-color-picker-slider-handle', false);
+
+      expect(onChange).toHaveBeenCalledWith(
+        expect.anything(),
+        // Safe to change with any value but (255/0/0)
+        'rgb(0,255,255)',
+      );
+      expect(onChangeComplete).not.toHaveBeenCalled();
+
+      // Inline Color Block (locked)
+      expect(container.querySelectorAll('.ant-color-picker-color-block-inner')[0]).toHaveStyle({
+        background: 'rgb(255, 0, 0)',
+      });
+
+      // Popup Color Block (follow operation)
+      expect(container.querySelectorAll('.ant-color-picker-color-block-inner')[1]).toHaveStyle({
+        background: 'rgb(0, 255, 255)',
+      });
+
+      // Mouse up
+      fireEvent.mouseUp(document);
+
+      // Lock color back
+      expect(container.querySelectorAll('.ant-color-picker-color-block-inner')[1]).toHaveStyle({
+        background: 'rgb(255, 0, 0)',
+      });
+    });
+  });
+
+  it('input precision', async () => {
+    const onChange = jest.fn();
+    const { container } = render(<ColorPicker open onChange={onChange} />);
+
+    fireEvent.change(container.querySelector('.ant-color-picker-hex-input input')!, {
+      target: { value: '2ddcb4' },
+    });
+
+    const onChangeColor = onChange.mock.calls[0][0];
+    expect(onChangeColor.toHexString()).toBe('#2ddcb4');
   });
 });

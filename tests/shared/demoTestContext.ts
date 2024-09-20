@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import * as React from 'react';
 import type { TriggerProps } from '@rc-component/trigger';
 

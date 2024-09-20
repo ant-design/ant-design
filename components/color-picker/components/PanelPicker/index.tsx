@@ -17,6 +17,11 @@ const components = {
   slider: ColorSlider,
 };
 
+type Info = {
+  type?: 'hue' | 'alpha';
+  value?: number;
+};
+
 const PanelPicker: FC = () => {
   const panelPickerContext = useContext(PanelPickerContext);
 
@@ -80,33 +85,21 @@ const PanelPicker: FC = () => {
     return colors[activeIndex]?.color;
   }, [value, activeIndex, isSingle, lockedColor, gradientDragging]);
 
+  // ========================= Picker Color =========================
+  const [pickerColor, setPickerColor] = React.useState<AggregationColor | null>(activeColor);
+  const [forceSync, setForceSync] = React.useState(0);
+
+  const mergedPickerColor = pickerColor?.equals(activeColor) ? activeColor : pickerColor;
+
+  useLayoutEffect(() => {
+    setPickerColor(activeColor);
+  }, [forceSync, activeColor?.toHexString()]);
+
   // ============================ Change ============================
-  const fillColor = (nextColor: AggregationColor) => {
-    if (mode === 'single') {
-      return nextColor;
-    }
+  const fillColor = (nextColor: AggregationColor | Color, info?: Info) => {
+    let submitColor = generateColor(nextColor);
 
-    const nextColors = [...colors];
-    nextColors[activeIndex] = {
-      ...nextColors[activeIndex],
-      color: nextColor,
-    };
-
-    return new AggregationColor(nextColors);
-  };
-
-  const onInternalChange = (
-    colorValue: AggregationColor | Color,
-    fromPicker?: boolean,
-    info?: {
-      type?: 'hue' | 'alpha';
-      value?: number;
-    },
-  ) => {
-    const nextColor = generateColor(colorValue);
-
-    let submitColor = nextColor;
-
+    // Fill alpha color to 100% if origin is cleared color
     if (value.cleared) {
       const rgb = submitColor.toRgb();
 
@@ -125,11 +118,41 @@ const PanelPicker: FC = () => {
       }
     }
 
-    onChange(fillColor(submitColor), fromPicker);
+    if (mode === 'single') {
+      return submitColor;
+    }
+
+    const nextColors = [...colors];
+    nextColors[activeIndex] = {
+      ...nextColors[activeIndex],
+      color: submitColor,
+    };
+
+    return new AggregationColor(nextColors);
   };
 
-  const onInternalChangeComplete = (nextColor: AggregationColor) => {
-    onChangeComplete(fillColor(nextColor));
+  const onPickerChange = (
+    colorValue: AggregationColor | Color,
+    fromPicker: boolean,
+    info?: Info,
+  ) => {
+    const nextColor = fillColor(colorValue, info);
+    setPickerColor(nextColor);
+    onChange(nextColor, fromPicker);
+  };
+
+  const onInternalChangeComplete = (nextColor: Color, info?: Info) => {
+    // Trigger complete event
+    onChangeComplete(fillColor(nextColor, info));
+
+    // Back of origin color in case in controlled
+    // This will set after `onChangeComplete` to avoid `setState` trigger rerender
+    // which will make `fillColor` get wrong `color.cleared` state
+    setForceSync((ori) => ori + 1);
+  };
+
+  const onInputChange = (colorValue: AggregationColor) => {
+    onChange(fillColor(colorValue));
   };
 
   // ============================ Render ============================
@@ -165,19 +188,19 @@ const PanelPicker: FC = () => {
 
       <RcColorPicker
         prefixCls={prefixCls}
-        value={activeColor?.toHsb()}
+        value={mergedPickerColor?.toHsb()}
         disabledAlpha={disabledAlpha}
         onChange={(colorValue, info) => {
-          onInternalChange(colorValue, true, info);
+          onPickerChange(colorValue, true, info);
         }}
-        onChangeComplete={(colorValue) => {
-          onInternalChangeComplete(generateColor(colorValue));
+        onChangeComplete={(colorValue, info) => {
+          onInternalChangeComplete(colorValue, info);
         }}
         components={components}
       />
       <ColorInput
         value={activeColor}
-        onChange={onInternalChange}
+        onChange={onInputChange}
         prefixCls={prefixCls}
         disabledAlpha={disabledAlpha}
         {...injectProps}

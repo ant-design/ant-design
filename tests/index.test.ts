@@ -1,4 +1,3 @@
-/* eslint-disable global-require */
 import { version as packageVersion } from '../package.json';
 
 const testDist = process.env.LIB_DIR === 'dist';
@@ -10,10 +9,8 @@ describe('antd dist files', () => {
   it('exports modules correctly', () => {
     let antd: any;
     if (testDist) {
-      // eslint-disable-next-line import/no-unresolved
       antd = require('../dist/antd');
     } else if (testDistMin) {
-      // eslint-disable-next-line import/no-unresolved
       antd = require('../dist/antd.min');
     } else {
       antd = require('../components');
@@ -25,14 +22,12 @@ describe('antd dist files', () => {
   // https://github.com/ant-design/ant-design/issues/1804
   if (testDist) {
     it('antd.js should export version', () => {
-      // eslint-disable-next-line global-require,import/no-unresolved
       const antd = require('../dist/antd');
       expect(antd).toBeTruthy();
       expect(antd.version).toBe(packageVersion);
     });
 
     it('antd.min.js should export version', () => {
-      // eslint-disable-next-line global-require,import/no-unresolved
       const antd = require('../dist/antd.min');
       expect(antd).toBeTruthy();
       expect(antd.version).toBe(packageVersion);

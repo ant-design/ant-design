@@ -364,29 +364,48 @@ describe('Typography.Ellipsis', () => {
   describe('should tooltip support', () => {
     let domSpy: ReturnType<typeof spyElementPrototypes>;
 
-    let containerWidth = 100;
-    let contentWidth = 200;
-    let rectContainerWidth = 100;
+    let containerRect = {
+      left: 0,
+      top: 0,
+      right: 100,
+      bottom: 22,
+    };
+    let measureRect = {
+      left: 200,
+      top: 0,
+    };
 
     beforeAll(() => {
       domSpy = spyElementPrototypes(HTMLElement, {
-        offsetWidth: {
-          get: () => containerWidth,
+        getBoundingClientRect() {
+          if (
+            (this as unknown as HTMLElement).classList.contains(
+              'ant-typography-css-ellipsis-content-measure',
+            )
+          ) {
+            return {
+              ...measureRect,
+              right: measureRect.left,
+              bottom: measureRect.top + 22,
+            };
+          }
+
+          return containerRect;
         },
-        scrollWidth: {
-          get: () => contentWidth,
-        },
-        getBoundingClientRect: () => ({
-          width: rectContainerWidth,
-          height: 0,
-        }),
       });
     });
 
     beforeEach(() => {
-      containerWidth = 100;
-      contentWidth = 200;
-      rectContainerWidth = 100;
+      containerRect = {
+        left: 0,
+        top: 0,
+        right: 100,
+        bottom: 22,
+      };
+      measureRect = {
+        left: 200,
+        top: 0,
+      };
     });
 
     afterAll(() => {
@@ -453,21 +472,39 @@ describe('Typography.Ellipsis', () => {
       });
     });
 
-    // https://github.com/ant-design/ant-design/issues/50143
-    it('precision', async () => {
-      containerWidth = 100;
-      contentWidth = 100;
-      rectContainerWidth = 99.9;
+    describe('precision', () => {
+      // https://github.com/ant-design/ant-design/issues/50143
+      it('should show', async () => {
+        containerRect.right = 99.9;
+        measureRect.left = 100;
 
-      const { container, baseElement } = await getWrapper({
-        title: true,
-        className: 'tooltip-class-name',
-      });
-      fireEvent.mouseEnter(container.firstChild!);
+        const { container, baseElement } = await getWrapper({
+          title: true,
+          className: 'tooltip-class-name',
+        });
+        fireEvent.mouseEnter(container.firstChild!);
 
-      await waitFor(() => {
+        await waitFakeTimer();
+
         expect(container.querySelector('.tooltip-class-name')).toBeTruthy();
         expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+      });
+
+      // https://github.com/ant-design/ant-design/issues/50414
+      it('should not show', async () => {
+        containerRect.right = 48.52;
+        measureRect.left = 48.52;
+
+        const { container, baseElement } = await getWrapper({
+          title: true,
+          className: 'tooltip-class-name',
+        });
+        fireEvent.mouseEnter(container.firstChild!);
+
+        await waitFakeTimer();
+
+        expect(container.querySelector('.tooltip-class-name')).toBeTruthy();
+        expect(baseElement.querySelector('.ant-tooltip-open')).toBeFalsy();
       });
     });
   });
@@ -490,22 +527,26 @@ describe('Typography.Ellipsis', () => {
 
   it('should display tooltip if line clamp', async () => {
     mockRectSpy = spyElementPrototypes(HTMLElement, {
-      scrollHeight: {
-        get() {
-          let html = (this as any).innerHTML;
-          html = html.replace(/<[^>]*>/g, '');
-          const lines = Math.ceil(html.length / LINE_STR_COUNT);
-          return lines * 16;
-        },
-      },
-      offsetHeight: {
-        get: () => 32,
-      },
-      offsetWidth: {
-        get: () => 100,
-      },
-      scrollWidth: {
-        get: () => 100,
+      getBoundingClientRect() {
+        if (
+          (this as unknown as HTMLElement).classList.contains(
+            'ant-typography-css-ellipsis-content-measure',
+          )
+        ) {
+          return {
+            left: 0,
+            right: 0,
+            top: 100,
+            bottom: 122,
+          };
+        }
+
+        return {
+          left: 0,
+          right: 100,
+          top: 0,
+          bottom: 22 * 3,
+        };
       },
     });
 
@@ -527,6 +568,32 @@ describe('Typography.Ellipsis', () => {
 
   // https://github.com/ant-design/ant-design/issues/46580
   it('dynamic to be ellipsis should show tooltip', async () => {
+    let dynamicWidth = 100;
+
+    mockRectSpy = spyElementPrototypes(HTMLElement, {
+      getBoundingClientRect() {
+        if (
+          (this as unknown as HTMLElement).classList.contains(
+            'ant-typography-css-ellipsis-content-measure',
+          )
+        ) {
+          return {
+            left: 0,
+            right: dynamicWidth,
+            top: 0,
+            bottom: 22,
+          };
+        }
+
+        return {
+          left: 100,
+          right: 100,
+          top: 0,
+          bottom: 22,
+        };
+      },
+    });
+
     const ref = React.createRef<HTMLElement>();
     render(
       <Base ellipsis={{ tooltip: 'bamboo' }} component="p" ref={ref}>
@@ -535,8 +602,7 @@ describe('Typography.Ellipsis', () => {
     );
 
     // Force to narrow
-    offsetWidth = 1;
-    scrollWidth = 100;
+    dynamicWidth = 50;
     triggerResize(ref.current!);
 
     await waitFakeTimer();
@@ -544,6 +610,8 @@ describe('Typography.Ellipsis', () => {
     fireEvent.mouseEnter(ref.current!);
     await waitFakeTimer();
     expect(document.querySelector('.ant-tooltip')).toBeTruthy();
+
+    mockRectSpy.mockRestore();
   });
 
   it('not force single line if expanded', async () => {
@@ -564,5 +632,16 @@ describe('Typography.Ellipsis', () => {
 
     rerender(renderDemo(true));
     expect(container.querySelector('.ant-typography-collapse')).toBeTruthy();
+  });
+
+  it('no dead loop', () => {
+    const tooltipObj: any = {};
+    tooltipObj.loop = tooltipObj;
+
+    render(
+      <Base ellipsis={{ tooltip: tooltipObj }} component="p">
+        {fullStr}
+      </Base>,
+    );
   });
 });

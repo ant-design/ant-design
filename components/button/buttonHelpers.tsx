@@ -3,7 +3,7 @@ import React from 'react';
 import { cloneElement, isFragment } from '../_util/reactNode';
 import type { BaseButtonProps, LegacyButtonType } from './button';
 
-const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
+const rxTwoCNChar = /^[\u4E00-\u9FA5]{2}$/;
 export const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
 
 export function convertLegacyProps(
@@ -19,7 +19,7 @@ export function isString(str: any): str is string {
   return typeof str === 'string';
 }
 
-export function isUnBorderedButtonType(type?: ButtonType) {
+export function isUnBorderedButtonVariant(type?: ButtonVariantType) {
   return type === 'text' || type === 'link';
 }
 
@@ -75,14 +75,24 @@ export function spaceChildren(children: React.ReactNode, needInserted: boolean) 
   );
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const ButtonTypes = ['default', 'primary', 'dashed', 'link', 'text'] as const;
-export type ButtonType = (typeof ButtonTypes)[number];
+const _ButtonTypes = ['default', 'primary', 'dashed', 'link', 'text'] as const;
+export type ButtonType = (typeof _ButtonTypes)[number];
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const ButtonShapes = ['default', 'circle', 'round'] as const;
-export type ButtonShape = (typeof ButtonShapes)[number];
+const _ButtonShapes = ['default', 'circle', 'round'] as const;
+export type ButtonShape = (typeof _ButtonShapes)[number];
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const ButtonHTMLTypes = ['submit', 'button', 'reset'] as const;
-export type ButtonHTMLType = (typeof ButtonHTMLTypes)[number];
+const _ButtonHTMLTypes = ['submit', 'button', 'reset'] as const;
+export type ButtonHTMLType = (typeof _ButtonHTMLTypes)[number];
+
+export const _ButtonVariantTypes = [
+  'outlined',
+  'dashed',
+  'solid',
+  'filled',
+  'text',
+  'link',
+] as const;
+export type ButtonVariantType = (typeof _ButtonVariantTypes)[number];
+
+export const _ButtonColorTypes = ['default', 'primary', 'danger'] as const;
+export type ButtonColorType = (typeof _ButtonColorTypes)[number];

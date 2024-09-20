@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-constructed-context-values */
 import path from 'path';
 import * as React from 'react';
 import { createCache, StyleProvider } from '@ant-design/cssinjs';
@@ -51,7 +50,7 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
         Date.now = jest.fn(() => new Date('2016-11-22').getTime());
         jest.useFakeTimers().setSystemTime(new Date('2016-11-22'));
 
-        let Demo = require(`../../${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
+        let Demo = require(`../../${file}`).default;
         // Inject Trigger status unless skipped
         Demo = typeof Demo === 'function' ? <Demo /> : Demo;
         if (doInject) {
@@ -117,7 +116,7 @@ export default function demoTest(component: string, options: Options = {}) {
     const kebabName = kebabCase(component);
 
     // Path should exist
-    // eslint-disable-next-line global-require, import/no-dynamic-require
+
     const { default: Component } = require(`../../components/${kebabName}`);
 
     if (options.nameCheckPathOnly !== true) {

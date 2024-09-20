@@ -118,7 +118,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
 
   const [variant, enableVariantCls] = useVariant('inputNumber', customVariant, bordered);
 
-  /* biome-ignore lint/complexity/noUselessFragments: avoid falsy value */ /* eslint-disable-next-line react/jsx-no-useless-fragment */
+  /* biome-ignore lint/complexity/noUselessFragments: avoid falsy value */
   const suffixNode = hasFeedback && <>{feedbackIcon}</>;
 
   const inputNumberClass = classNames(
@@ -171,6 +171,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
             [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
+            [`${prefixCls}-affix-wrapper-without-controls`]: controls === false,
           },
           hashId,
         ),

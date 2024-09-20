@@ -6,13 +6,14 @@ import { composeRef, supportRef } from 'rc-util/lib/ref';
 import type { ConfigConsumerProps } from '../../config-provider';
 import { ConfigContext } from '../../config-provider';
 import { cloneElement } from '../reactNode';
+import type { WaveComponent } from './interface';
 import useStyle from './style';
 import useWave from './useWave';
 
 export interface WaveProps {
   disabled?: boolean;
   children?: React.ReactNode;
-  component?: 'Tag' | 'Button' | 'Checkbox' | 'Radio' | 'Switch';
+  component?: WaveComponent;
 }
 
 const Wave: React.FC<WaveProps> = (props) => {

@@ -2,6 +2,7 @@ import * as React from 'react';
 import copy from 'copy-to-clipboard';
 import { useEvent } from 'rc-util';
 
+import toList from '../../_util/toList';
 import type { CopyConfig } from '../Base';
 
 const useCopyClick = ({
@@ -38,7 +39,7 @@ const useCopyClick = ({
     try {
       const text =
         typeof copyConfig.text === 'function' ? await copyConfig.text() : copyConfig.text;
-      copy(text || String(children) || '', copyOptions);
+      copy(text || toList(children, true).join('') || '', copyOptions);
       setCopyLoading(false);
 
       setCopied(true);

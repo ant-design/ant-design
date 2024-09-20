@@ -21,6 +21,7 @@ demo:
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
+<code src="./demo/extra.tsx" version="5.21.0">额外节点</code>
 <code src="./demo/placement.tsx">弹出位置</code>
 <code src="./demo/arrow.tsx">箭头</code>
 <code src="./demo/item.tsx">其他元素</code>

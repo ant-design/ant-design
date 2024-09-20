@@ -87,7 +87,7 @@ const columns = [
 <code src="./demo/fixed-columns.tsx">Fixed Columns</code>
 <code src="./demo/fixed-gapped-columns.tsx" version="5.14.0">Stack Fixed Columns</code>
 <code src="./demo/fixed-columns-header.tsx">Fixed Columns and Header</code>
-<code src="./demo/hidden-columns.tsx">Hidden Columns</code>
+<code src="./demo/hidden-columns.tsx" version="5.13.0">Hidden Columns</code>
 <code src="./demo/grouping-columns.tsx">Grouping table head</code>
 <code src="./demo/edit-cell.tsx">Editable Cells</code>
 <code src="./demo/edit-row.tsx">Editable Rows</code>
@@ -100,7 +100,7 @@ const columns = [
 <code src="./demo/ellipsis-custom-tooltip.tsx">ellipsis column custom tooltip</code>
 <code src="./demo/custom-empty.tsx">Custom empty</code>
 <code src="./demo/summary.tsx">Summary</code>
-<code src="./demo/virtual-list.tsx" version=">= 5.9.0">Virtual list</code>
+<code src="./demo/virtual-list.tsx" version="5.9.0">Virtual list</code>
 <code src="./demo/responsive.tsx">Responsive</code>
 <code src="./demo/nest-table-border-debug.tsx" debug>Nested Bordered Table Debug</code>
 <code src="./demo/pagination.tsx">Pagination Settings</code>
@@ -214,6 +214,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | sortIcon | Customized sort icon | (props: { sortOrder }) => ReactNode | - | 5.6.0 |
 | title | Title of this column | ReactNode \| ({ sortOrder, sortColumn, filters }) => ReactNode | - |  |
 | width | Width of this column ([width not working?](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)) | string \| number | - |  |
+| minWidth | Min width of this column, only works when `tableLayout="auto"` | number | - | 5.21.0 |
 | hidden | Hidden this column | boolean | false | 5.13.0 |
 | onCell | Set props on per cell | function(record, rowIndex) | - |  |
 | onFilter | Function that determines if the row is displayed when filtered | function(value, record) => boolean | - |  |

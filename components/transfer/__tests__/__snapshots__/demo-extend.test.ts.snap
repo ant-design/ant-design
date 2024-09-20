@@ -457,7 +457,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
       class="ant-transfer-list-footer"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-sm"
+        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
         style="display: flex; margin: 8px; margin-inline-end: auto;"
         type="button"
       >
@@ -471,7 +471,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
     class="ant-transfer-operation"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
       disabled=""
       type="button"
     >
@@ -503,7 +503,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
       disabled=""
       type="button"
     >
@@ -988,7 +988,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
       class="ant-transfer-list-footer"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-sm"
+        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
         style="display: flex; margin: 8px; margin-inline-start: auto;"
         type="button"
       >
@@ -1420,7 +1420,7 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
     class="ant-transfer-operation"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -1449,7 +1449,7 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -2263,7 +2263,7 @@ Array [
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -2292,7 +2292,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -2871,7 +2871,7 @@ Array [
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -2900,7 +2900,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -3366,7 +3366,7 @@ Array [
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -3395,7 +3395,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -4421,7 +4421,7 @@ Array [
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -4450,7 +4450,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -5525,7 +5525,7 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
     class="ant-transfer-operation"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -5554,7 +5554,7 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -6326,7 +6326,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
     class="ant-transfer-operation"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -6355,7 +6355,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -7084,7 +7084,7 @@ Array [
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -7113,7 +7113,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -8153,7 +8153,7 @@ Array [
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -8981,7 +8981,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
     class="ant-transfer-operation"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -9010,7 +9010,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -9685,7 +9685,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -9714,7 +9714,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -10180,7 +10180,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -10209,7 +10209,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -11341,7 +11341,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -11370,7 +11370,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -11861,7 +11861,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                   >
                     <div
                       aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close"
                       draggable="false"
                     >
                       <span
@@ -11941,7 +11941,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                     </div>
                     <div
                       aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close"
                       draggable="false"
                     >
                       <span
@@ -11975,7 +11975,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                     </div>
                     <div
                       aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
                       draggable="false"
                     >
                       <span
@@ -12009,7 +12009,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                     </div>
                     <div
                       aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close"
                       draggable="false"
                     >
                       <span
@@ -12039,7 +12039,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                     </div>
                     <div
                       aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close"
                       draggable="false"
                     >
                       <span
@@ -12069,7 +12069,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                     </div>
                     <div
                       aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
                       draggable="false"
                     >
                       <span
@@ -12110,7 +12110,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
     class="ant-transfer-operation"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -12139,7 +12139,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >

@@ -14,7 +14,9 @@ An enterprise-class UI design language and React UI library.
 
 [Changelog](./CHANGELOG.en-US.md) · [Report Bug][github-issues-url] · [Request Feature][github-issues-url] · English · [中文](./README-zh_CN.md)
 
-![](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+## ❤️ Sponsors and Backers [![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)](https://opencollective.com/ant-design#support) [![](https://opencollective.com/ant-design/tiers/backers/badge.svg?label=Backers&color=brightgreen)](https://opencollective.com/ant-design#support)
+
+[![](https://opencollective.com/ant-design/tiers/sponsors.svg?avatarHeight=72)](https://opencollective.com/ant-design/contribute/sponsors-218/checkout) [![](https://opencollective.com/ant-design/tiers/backers.svg?avatarHeight=72)](https://opencollective.com/ant-design/contribute/backers-217/checkout)
 
 [npm-image]: http://img.shields.io/npm/v/antd.svg?style=flat-square
 [npm-url]: http://npmjs.org/package/antd
@@ -117,11 +119,7 @@ export default () => (
 
 ## ⌨️ Development
 
-Use Gitpod, a free online dev environment for GitHub.
-
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/ant-design/ant-design)
-
-Or use opensumi.run, a free online pure front-end dev environemt.
+Use [opensumi.run](https://opensumi.run), a free online pure front-end dev environment.
 
 [![opensumi.run](https://custom-icon-badges.demolab.com/badge/opensumi-run-blue.svg?logo=opensumi)](https://opensumi.run/ide/ant-design/ant-design)
 
@@ -175,10 +173,10 @@ We warmly invite contributions from everyone. Before you get started, please tak
 
 For collaborators, adhere to our [Pull Request Principle](https://github.com/ant-design/ant-design/wiki/PR-principle) and utilize our [Pull Request Template](https://github.com/ant-design/ant-design/wiki/PR-principle#pull-request-template) when creating a Pull Request.
 
+## Issue funding
+
+We use [Polar.sh](https://polar.sh/ant-design) and [Issuehunt](https://issuehunt.io/repos/3452688) to up-vote and promote specific features that you would like to see and implement. Check our backlog and help us:
+
+<a href="https://polar.sh/ant-design"><img src="https://polar.sh/embed/fund-our-backlog.svg?org=ant-design" /></a>
+
 [![Let's fund issues in this repository](https://raw.githubusercontent.com/BoostIO/issuehunt-materials/master/v1/issuehunt-button-v1.svg)](https://issuehunt.io/repos/34526884)
-
-## ❤️ Sponsors and Backers [![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)](https://opencollective.com/ant-design#support) [![](https://opencollective.com/ant-design/tiers/backers/badge.svg?label=Backers&color=brightgreen)](https://opencollective.com/ant-design#support)
-
-[![](https://opencollective.com/ant-design/tiers/sponsors.svg?avatarHeight=36)](https://opencollective.com/ant-design#support)
-
-[![](https://opencollective.com/ant-design/tiers/backers.svg?avatarHeight=36)](https://opencollective.com/ant-design#support)

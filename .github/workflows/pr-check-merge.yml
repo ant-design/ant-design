@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions-cool/issues-helper@v3
         with:
-          actions: 'create-comment'
+          actions: create-comment
           issue-number: ${{ github.event.number }}
           body: |
             Hi @${{ github.event.pull_request.user.login }}。

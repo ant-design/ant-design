@@ -3,14 +3,10 @@ import { CommentOutlined, CustomerServiceOutlined } from '@ant-design/icons';
 import { FloatButton, Switch } from 'antd';
 
 const App: React.FC = () => {
-  const [open, setOpen] = useState(true);
-
-  const onChange = (checked: boolean) => {
-    setOpen(checked);
-  };
-
+  const [open, setOpen] = useState<boolean>(true);
   return (
     <>
+      <Switch onChange={setOpen} checked={open} style={{ margin: 16 }} />
       <FloatButton.Group
         open={open}
         trigger="click"
@@ -18,9 +14,20 @@ const App: React.FC = () => {
         icon={<CustomerServiceOutlined />}
       >
         <FloatButton />
+        <FloatButton />
         <FloatButton icon={<CommentOutlined />} />
       </FloatButton.Group>
-      <Switch onChange={onChange} checked={open} style={{ margin: 16 }} />
+      <FloatButton.Group
+        open={open}
+        shape="square"
+        trigger="click"
+        style={{ insetInlineEnd: 88 }}
+        icon={<CustomerServiceOutlined />}
+      >
+        <FloatButton />
+        <FloatButton />
+        <FloatButton icon={<CommentOutlined />} />
+      </FloatButton.Group>
     </>
   );
 };
