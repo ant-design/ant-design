@@ -4,7 +4,7 @@ date: 2024-09-20
 author: zombieJ
 ---
 
-In antd, there are many issues with DatePicker. One is due to the commonality of date selection requirements, and the other is that there are various combinations of disabled selections for business requirements. Today, let's talk about the `disabledDate` API.
+In antd, there are many question about DatePicker. One is due to the commonality of date selection requirements, and the other is that there are various combinations of disabled selections for business requirements. Today, let's talk about the `disabledDate` API.
 
 ### disableDate cannot control time
 
