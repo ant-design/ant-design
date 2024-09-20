@@ -290,3 +290,7 @@ dayjs.updateLocale('zh-cn', {
 ### 为何使用 `panelRender` 时，原来面板无法切换？
 
 当你通过 `panelRender` 动态改变层级结构时，会使得原本的 Panel 被当做新的节点删除并创建。这使得其原本的状态会被重置，保持结构稳定即可。详情请参考 [#27263](https://github.com/ant-design/ant-design/issues/27263)。
+
+### 如何理解禁用时间日期？
+
+欢迎阅读博客[《为什么禁用日期这么难？》](/docs/blog/picker-cn)了解如何使用。

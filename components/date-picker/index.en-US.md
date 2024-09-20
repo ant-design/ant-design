@@ -295,3 +295,7 @@ dayjs.updateLocale('zh-cn', {
 ### Why origin panel don't switch when using `panelRender`?
 
 When you change the layout of nodes by `panelRender`, React will unmount and re-mount it which reset the component state. You should keep the layout stable. Please ref [#27263](https://github.com/ant-design/ant-design/issues/27263) for more info.
+
+### How to understand disabled time and date?
+
+Please refer to the blog ['Why is it so hard to disable the date?'](/docs/blog/picker), to learn how to use it.
