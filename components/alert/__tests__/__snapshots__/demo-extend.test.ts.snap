@@ -271,11 +271,7 @@ Array [
 ]
 `;
 
-exports[`renders components/alert/demo/action.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Button] \`link\` or \`text\` button can't be a \`ghost\` button.",
-]
-`;
+exports[`renders components/alert/demo/action.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/alert/demo/banner.tsx extend context correctly 1`] = `
 Array [
