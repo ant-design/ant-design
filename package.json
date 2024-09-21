@@ -116,7 +116,6 @@
     "classnames": "^2.5.1",
     "copy-to-clipboard": "^3.3.3",
     "dayjs": "^1.11.11",
-    "luxon": "^3.5.0",
     "rc-cascader": "~3.28.1",
     "rc-checkbox": "~3.3.0",
     "rc-collapse": "~3.8.0",
