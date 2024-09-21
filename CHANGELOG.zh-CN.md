@@ -51,7 +51,7 @@ tag: vVERSION
 - 🆕 Menu.Item 支持 `extra` 属性。[#50431](https://github.com/ant-design/ant-design/pull/50431) [@coding-ice](https://github.com/coding-ice)
 - 🆕 Collapse 支持语义化 `classNames` 和 `styles` 属性。[#50557](https://github.com/ant-design/ant-design/pull/50557) [@wanpan11](https://github.com/wanpan11)
 - 💄 统一 FloatButton 和 FloatButton.Group 的按钮圆角。[#50513](https://github.com/ant-design/ant-design/pull/50513) [@Layouwen](https://github.com/Layouwen)
-- 🆕 FloatButton 组件支持 `placement` 属性，支持从多个方向弹出菜单。[#50407](https://github.com/ant-design/ant-design/pull/50407) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 FloatButton 组件支持 `placement` 属性，支持从四个方向弹出菜单。[#50407](https://github.com/ant-design/ant-design/pull/50407) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 Table 列支持配置 `minWidth` 属性。修复 Table 虚拟表格下的空数据和阴影问题。[#50416](https://github.com/ant-design/ant-design/pull/50416) [@linxianxi](https://github.com/linxianxi)
 - 💄 将 FloatButton 组件的 `z-index` 加入 `useZIndex` 管理，兼容弹层类组件，并且将默认的 `z-index: 99` 样式替换为 `z-index: zIndexPopupBase`。[#50311](https://github.com/ant-design/ant-design/pull/50311) [@li-jia-nan](https://github.com/li-jia-nan)
 - 💄 移除 Skeleton.Node 默认的图标 `children` 使其成为真正的自定义节点。[#50278](https://github.com/ant-design/ant-design/pull/50278) [@afc163](https://github.com/afc163)
