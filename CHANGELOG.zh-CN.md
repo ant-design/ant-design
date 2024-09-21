@@ -15,6 +15,52 @@ tag: vVERSION
 
 ---
 
+## 5.21.0 🔥
+
+`2024-09-22`
+
+- 🐞 修复 Menu `popupStyle` 在 SubMenu 上失效的问题。[#50922](https://github.com/ant-design/ant-design/pull/50922) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 修复 Select 搜索模式下搜索词内容覆盖右侧图标的问题。[#50917](https://github.com/ant-design/ant-design/pull/50917) [@yezhonghu0503](https://github.com/yezhonghu0503)
+- 🐞 修复 Input Addon 内 Select 选中时的文字颜色。[#50486](https://github.com/ant-design/ant-design/pull/50486) [@DDDDD12138](https://github.com/DDDDD12138)
+- 🆕 Modal 支持 `closable.disabled` 属性以禁用关闭按钮。[#50522](https://github.com/ant-design/ant-design/pull/50522) [@Ke1sy](https://github.com/Ke1sy)
+- 💄 Button 添加 `textColor`、`textHoverColor` 和 `textActiveColor` 三个 token。[#47870](https://github.com/ant-design/ant-design/pull/47870) [@madocto](https://github.com/madocto)
+- 🔥 Segmented 新增 `vertical` 属性以支持垂直模式，并优化了可访问性。[#50708](https://github.com/ant-design/ant-design/pull/50708) [@liangchaofei](https://github.com/liangchaofei)
+- 🐞 优化 Descriptions 在某些情况下列内容消失的问题。[#50895](https://github.com/ant-design/ant-design/pull/50895) [@yezhonghu0503](https://github.com/yezhonghu0503)
+- 🌐 补充 `ja_JP` 语言的 `shortWeekDays` 和 `shortMonths` 文案。[#50893](https://github.com/ant-design/ant-design/pull/50893) [@harapeko](https://github.com/harapeko)
+- 🆕 FloatButton 支持传入 `htmlType` 属性。[#50892](https://github.com/ant-design/ant-design/pull/50892) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 回滚 <a href="https://github.com/ant-design/ant-design/pull/49946" data-hovercard-type="pull_request" data-hovercard-url="/ant-design/ant-design/pull/49946/hovercard">#49946</a> 以修复 Descriptions 内弹层组件被截断的问题。[#50891](https://github.com/ant-design/ant-design/pull/50891) [@afc163](https://github.com/afc163)
+- 🆕 Radio.Group 支持 `block` 属性以撑满一行。[#50828](https://github.com/ant-design/ant-design/pull/50828) [@yuanliu147](https://github.com/yuanliu147)
+- 🆕 Upload `name` 属性将透传给 `<input type="file" />`。[#50652](https://github.com/ant-design/ant-design/pull/50652) [@Wxh16144](https://github.com/Wxh16144)
+- 🆕 ConfigProvider 支持配置 Splitter 组件的 `className` 和 `style` 属性。[#50855](https://github.com/ant-design/ant-design/pull/50855) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🌐 Image 预览功能补充阿拉伯语文案。[#50851](https://github.com/ant-design/ant-design/pull/50851) [@nathanlao](https://github.com/nathanlao)
+- 🐞 修复 ColorPicker 在 hex 输入框输入颜色时，部分颜色会因为精度问题得到不正确的颜色的问题。[#50843](https://github.com/ant-design/ant-design/pull/50843) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 App 的 `useApp` 调用 `modal` 方法时，填入弹层组件会警告 `zIndex` 过大的问题。[#50829](https://github.com/ant-design/ant-design/pull/50829) [@zombieJ](https://github.com/zombieJ)
+- 🌐 完善 Form 的希腊语文案。[#50825](https://github.com/ant-design/ant-design/pull/50825) [@nathanlao](https://github.com/nathanlao)
+- ⌨️ 修复 Modal 抛出 `avoid using aria-hidden on a focused element or its ancestor` 警告的问题。[#50823](https://github.com/ant-design/ant-design/pull/50823) [@afc163](https://github.com/afc163)
+- 🆕 Image 新增 `onActive` 到 `toolbarRender` 以切换图片 。[#50812](https://github.com/ant-design/ant-design/pull/50812) [@madocto](https://github.com/madocto)
+- 🌐 补充 Tour 组件的西班牙语文案。[#50805](https://github.com/ant-design/ant-design/pull/50805) [@thinkasany](https://github.com/thinkasany)
+- 🐞 修复 Typography `copyable` 对数组 `children` 复制时会有额外 `,` 字符的问题。[#50813](https://github.com/ant-design/ant-design/pull/50813) [@zombieJ](https://github.com/zombieJ)
+- 🆕 Input.OTP 添加 `type` 属性以支持只需要输入数字的场景。[#50811](https://github.com/ant-design/ant-design/pull/50811) [@zombieJ](https://github.com/zombieJ)
+- 💄 Remove Pagination default font family.。[#50808](https://github.com/ant-design/ant-design/pull/50808) [@afc163](https://github.com/afc163)
+- 🐞 修复 Table 列选择在某些情况下无法取消选择的问题。[#50746](https://github.com/ant-design/ant-design/pull/50746) [@Jarryxin](https://github.com/Jarryxin)
+- 🐞 调整 ColorPicker 在受控时，弹出面板现在不会被 `value` 锁定从而允许与 `onChangeComplete` 配合使用的受控场景。[#50785](https://github.com/ant-design/ant-design/pull/50785) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 Layout.Sider 单独使用时无法修改主题的问题。[#50780](https://github.com/ant-design/ant-design/pull/50780) [@zombieJ](https://github.com/zombieJ)
+- 🆕 List 组件支持传递 ref 属性。[#50772](https://github.com/ant-design/ant-design/pull/50772) [@Asanio06](https://github.com/Asanio06)
+- 🔥 新增 Splitter 组件，可拖拽的隔离面板。[#50038](https://github.com/ant-design/ant-design/pull/50038) [@wanpan11](https://github.com/wanpan11)
+- 🔥 Button 支持 `variant` 变体和 `color` 颜色属性，以支持更多组合样式。[#50051](https://github.com/ant-design/ant-design/pull/50051) [@coding-ice](https://github.com/coding-ice)
+- 🆕 Menu.Item 支持 `extra` 属性。[#50431](https://github.com/ant-design/ant-design/pull/50431) [@coding-ice](https://github.com/coding-ice)
+- 🆕 Collapse 支持语义化 `classNames` 和 `styles` 属性。[#50557](https://github.com/ant-design/ant-design/pull/50557) [@wanpan11](https://github.com/wanpan11)
+- 💄 统一 FloatButton 和 FloatButton.Group 的按钮圆角。[#50513](https://github.com/ant-design/ant-design/pull/50513) [@Layouwen](https://github.com/Layouwen)
+- 🆕 FloatButton 组件支持 `placement` 属性，支持从多个方向弹出菜单。[#50407](https://github.com/ant-design/ant-design/pull/50407) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 Table 列支持配置 `minWidth` 属性。修复 Table 虚拟表格下的空数据和阴影问题。[#50416](https://github.com/ant-design/ant-design/pull/50416) [@linxianxi](https://github.com/linxianxi)
+- 💄 将 FloatButton 组件的 `z-index` 加入 `useZIndex` 管理，兼容弹层类组件，并且将默认的 `z-index: 99` 样式替换为 `z-index: zIndexPopupBase`。[#50311](https://github.com/ant-design/ant-design/pull/50311) [@li-jia-nan](https://github.com/li-jia-nan)
+- 💄 移除 Skeleton.Node 默认的图标 `children` 使其成为真正的自定义节点。[#50278](https://github.com/ant-design/ant-design/pull/50278) [@afc163](https://github.com/afc163)
+- 🆕 Upload 的 `showUploadList.showXxxIcon` 选项支持传入函数。[#50245](https://github.com/ant-design/ant-design/pull/50245) [@guoyunhe](https://github.com/guoyunhe)
+- 🐞 修复 App rtl 样式不遵守 ConfigProvider `direction` 配置。[#50246](https://github.com/ant-design/ant-design/pull/50246) [@li-jia-nan](https://github.com/li-jia-nan)
+- TypeScript
+  - 🤖 Checkbox 新增 `onFocus` `onBlur` 类型定义。[#50842](https://github.com/ant-design/ant-design/pull/50842) [@huiliangShen](https://github.com/huiliangShen)
+  - 🤖 修复 Badge 属性类型定义不支持传递鼠标事件的问题。[#50774](https://github.com/ant-design/ant-design/pull/50774) [@yuanliu147](https://github.com/yuanliu147)
+
 ## 5.20.6
 
 `2024-09-09`

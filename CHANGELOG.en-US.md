@@ -16,6 +16,52 @@ tag: vVERSION
 
 ---
 
+## 5.21.0 🔥
+
+`2024-09-22`
+
+- 🐞 Fix Menu `popupStyle` not working on SubMenu. [#50922](https://github.com/ant-design/ant-design/pull/50922) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Fix Select search text overlap with arror icon. [#50917](https://github.com/ant-design/ant-design/pull/50917) [@yezhonghu0503](https://github.com/yezhonghu0503)
+- 🐞 Fix Select inside Input addon text color when Select is focused. [#50486](https://github.com/ant-design/ant-design/pull/50486) [@DDDDD12138](https://github.com/DDDDD12138)
+- 🆕 Modal supports `closable.disabled` prop now. [#50522](https://github.com/ant-design/ant-design/pull/50522) [@Ke1sy](https://github.com/Ke1sy)
+- 💄 Button adds `textColor`, `textHoverColor` and ` textActiveColor` tokens. [#47870](https://github.com/ant-design/ant-design/pull/47870) [@madocto](https://github.com/madocto)
+- 🔥 Segmented adds `vertical` property and improves accessibility. [#50708](https://github.com/ant-design/ant-design/pull/50708) [@liangchaofei](https://github.com/liangchaofei)
+- 🐞 Fix Descriptions column is missing in some cases. [#50895](https://github.com/ant-design/ant-design/pull/50895) [@yezhonghu0503](https://github.com/yezhonghu0503)
+- 🌐 Adds `ja_JP` locale for `shortWeekDays` and `shortMonths`. [#50893](https://github.com/ant-design/ant-design/pull/50893) [@harapeko](https://github.com/harapeko)
+- 🆕 FloatButton supports `htmlType` prop. [#50892](https://github.com/ant-design/ant-design/pull/50892) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Revert <a href="https://github.com/ant-design/ant-design/pull/49946" data-hovercard-type="pull_request" data-hovercard-url="/ant-design/ant-design/pull/49946/hovercard">#49946</a> to fix the issue where the popup layer component inside Descriptions is being cut off. [#50891](https://github.com/ant-design/ant-design/pull/50891) [@afc163](https://github.com/afc163)
+- 🆕 Radio.Group supports `block` prop now. [#50828](https://github.com/ant-design/ant-design/pull/50828) [@yuanliu147](https://github.com/yuanliu147)
+- 🆕 Upload will pass `name` prop to `<input type="file" />`. [#50652](https://github.com/ant-design/ant-design/pull/50652) [@Wxh16144](https://github.com/Wxh16144)
+- 🆕 ConfigProvider supports configuring the `className` and `style` properties of the Splitter component. [#50855](https://github.com/ant-design/ant-design/pull/50855) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🌐 Add missing Arabic translation for Image Preview. [#50851](https://github.com/ant-design/ant-design/pull/50851) [@nathanlao](https://github.com/nathanlao)
+- 🐞 Fix ColorPicker when type hex input may not get correct color with precision issue. [#50843](https://github.com/ant-design/ant-design/pull/50843) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fixed App warn about `zIndex` too large when using the `modal` with having popup component method via `useApp`. [#50829](https://github.com/ant-design/ant-design/pull/50829) [@zombieJ](https://github.com/zombieJ)
+- 🌐 Add missing Greek translation for Form. [#50825](https://github.com/ant-design/ant-design/pull/50825) [@nathanlao](https://github.com/nathanlao)
+- ⌨️ Fix Modal throws warning `avoid using aria-hidden on a focused element or its ancestor`. [#50823](https://github.com/ant-design/ant-design/pull/50823) [@afc163](https://github.com/afc163)
+- 🆕 Image add `onActive` to `toolbarRender` for toggling images . [#50812](https://github.com/ant-design/ant-design/pull/50812) [@madocto](https://github.com/madocto)
+- 🌐 Add missing es_ES translation for Tour. [#50805](https://github.com/ant-design/ant-design/pull/50805) [@thinkasany](https://github.com/thinkasany)
+- 🐞 Fix Typography `copyable` with array `children` has additional `,` string issue. [#50813](https://github.com/ant-design/ant-design/pull/50813) [@zombieJ](https://github.com/zombieJ)
+- 🆕 Input.OTP support `type` to help handle some case need number only. [#50811](https://github.com/ant-design/ant-design/pull/50811) [@zombieJ](https://github.com/zombieJ)
+- 💄 移除 Pagination 默认 `font-family`。. [#50808](https://github.com/ant-design/ant-design/pull/50808) [@afc163](https://github.com/afc163)
+- 🐞 Fix Table column selection issue where deselection was not possible under certain circumstances. [#50746](https://github.com/ant-design/ant-design/pull/50746) [@Jarryxin](https://github.com/Jarryxin)
+- 🐞 Adjust ColorPicker popup panel not lock by `value` to allow control mode with `onChangeComplete` scenarios. [#50785](https://github.com/ant-design/ant-design/pull/50785) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Layout.Sider can not modify theme when used alone. [#50780](https://github.com/ant-design/ant-design/pull/50780) [@zombieJ](https://github.com/zombieJ)
+- 🆕 Add ref on List component. [#50772](https://github.com/ant-design/ant-design/pull/50772) [@Asanio06](https://github.com/Asanio06)
+- 🔥 Introduce the new Splitter component, the draggale split panel. [#50038](https://github.com/ant-design/ant-design/pull/50038) [@wanpan11](https://github.com/wanpan11)
+- 🔥 Button supports `variant` and `color` properties for more combination styles. [#50051](https://github.com/ant-design/ant-design/pull/50051) [@coding-ice](https://github.com/coding-ice)
+- 🆕 Menu.Item supports `extra` prop now. [#50431](https://github.com/ant-design/ant-design/pull/50431) [@coding-ice](https://github.com/coding-ice)
+- 🆕 Collapse support `classNames` and `styles` for semantic style customization. [#50557](https://github.com/ant-design/ant-design/pull/50557) [@wanpan11](https://github.com/wanpan11)
+- 💄 Unify FloatButton and FloatButton.Group button round style. [#50513](https://github.com/ant-design/ant-design/pull/50513) [@Layouwen](https://github.com/Layouwen)
+- 🆕 FloatButton supports `placement` property, allowing menus to pop up from multiple directions. [#50407](https://github.com/ant-design/ant-design/pull/50407) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 Table supports `minWidth` for columns. Fix Table empty and shadow issues in virtual mode. [#50416](https://github.com/ant-design/ant-design/pull/50416) [@linxianxi](https://github.com/linxianxi)
+- 💄 将 FloatButton 组件的 `z-index` 加入 `useZIndex` 管理，兼容弹层类组件，并且将默认的 `z-index: 99` 样式替换为 `z-index: zIndexPopupBase`. [#50311](https://github.com/ant-design/ant-design/pull/50311) [@li-jia-nan](https://github.com/li-jia-nan)
+- 💄 Make Skeleton.Node custom node by remove it's default icon children. [#50278](https://github.com/ant-design/ant-design/pull/50278) [@afc163](https://github.com/afc163)
+- 🆕 Upload `showUploadList.showXxxIcon` accept a function value now. [#50245](https://github.com/ant-design/ant-design/pull/50245) [@guoyunhe](https://github.com/guoyunhe)
+- 🐞 Fix App rtl style does not respect ConfigProvider direction prop. [#50246](https://github.com/ant-design/ant-design/pull/50246) [@li-jia-nan](https://github.com/li-jia-nan)
+- TypeScript
+  - 🤖 Checkbox adds onFocus` `onBlur` in types. [#50842](https://github.com/ant-design/ant-design/pull/50842) [@huiliangShen](https://github.com/huiliangShen)
+  - 🤖 Fix Badge property type definition to support passing mouse events. [#50774](https://github.com/ant-design/ant-design/pull/50774) [@yuanliu147](https://github.com/yuanliu147)
+
 ## 5.20.6
 
 `2024-09-09`
