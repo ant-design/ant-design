@@ -20,12 +20,14 @@ tag: vVERSION
 
 `2024-09-22`
 
+- 🔥 Introduce the new Splitter component, the draggale split panel. [#50038](https://github.com/ant-design/ant-design/pull/50038) [@wanpan11](https://github.com/wanpan11)
+- 🔥 Button supports `variant` and `color` properties for more combination styles. [#50051](https://github.com/ant-design/ant-design/pull/50051) [@coding-ice](https://github.com/coding-ice)
+- 🔥 Segmented adds `vertical` property and improves accessibility. [#50708](https://github.com/ant-design/ant-design/pull/50708) [@liangchaofei](https://github.com/liangchaofei)
 - 🐞 Fix Menu `popupStyle` not working on SubMenu. [#50922](https://github.com/ant-design/ant-design/pull/50922) [@Wxh16144](https://github.com/Wxh16144)
 - 🐞 Fix Select search text overlap with arror icon. [#50917](https://github.com/ant-design/ant-design/pull/50917) [@yezhonghu0503](https://github.com/yezhonghu0503)
 - 🐞 Fix Select inside Input addon text color when Select is focused. [#50486](https://github.com/ant-design/ant-design/pull/50486) [@DDDDD12138](https://github.com/DDDDD12138)
 - 🆕 Modal supports `closable.disabled` prop now. [#50522](https://github.com/ant-design/ant-design/pull/50522) [@Ke1sy](https://github.com/Ke1sy)
 - 💄 Button adds `textColor`, `textHoverColor` and ` textActiveColor` tokens. [#47870](https://github.com/ant-design/ant-design/pull/47870) [@madocto](https://github.com/madocto)
-- 🔥 Segmented adds `vertical` property and improves accessibility. [#50708](https://github.com/ant-design/ant-design/pull/50708) [@liangchaofei](https://github.com/liangchaofei)
 - 🐞 Fix Descriptions column is missing in some cases. [#50895](https://github.com/ant-design/ant-design/pull/50895) [@yezhonghu0503](https://github.com/yezhonghu0503)
 - 🆕 FloatButton supports `htmlType` prop. [#50892](https://github.com/ant-design/ant-design/pull/50892) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 Revert [#49946](https://github.com/ant-design/ant-design/pull/49946) to fix the issue where the popup layer component inside Descriptions is being cut off. [#50891](https://github.com/ant-design/ant-design/pull/50891) [@afc163](https://github.com/afc163)
@@ -43,8 +45,6 @@ tag: vVERSION
 - 🐞 Adjust ColorPicker popup panel not lock by `value` to allow control mode with `onChangeComplete` scenarios. [#50785](https://github.com/ant-design/ant-design/pull/50785) [@zombieJ](https://github.com/zombieJ)
 - 🐞 Fix Layout.Sider can not modify theme when used alone. [#50780](https://github.com/ant-design/ant-design/pull/50780) [@zombieJ](https://github.com/zombieJ)
 - 🆕 Add ref on List component. [#50772](https://github.com/ant-design/ant-design/pull/50772) [@Asanio06](https://github.com/Asanio06)
-- 🔥 Introduce the new Splitter component, the draggale split panel. [#50038](https://github.com/ant-design/ant-design/pull/50038) [@wanpan11](https://github.com/wanpan11)
-- 🔥 Button supports `variant` and `color` properties for more combination styles. [#50051](https://github.com/ant-design/ant-design/pull/50051) [@coding-ice](https://github.com/coding-ice)
 - 🆕 Menu.Item supports `extra` prop now. [#50431](https://github.com/ant-design/ant-design/pull/50431) [@coding-ice](https://github.com/coding-ice)
 - 🆕 Collapse support `classNames` and `styles` for semantic style customization. [#50557](https://github.com/ant-design/ant-design/pull/50557) [@wanpan11](https://github.com/wanpan11)
 - 💄 Unify FloatButton and FloatButton.Group button round style. [#50513](https://github.com/ant-design/ant-design/pull/50513) [@Layouwen](https://github.com/Layouwen)
