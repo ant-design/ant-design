@@ -57,6 +57,13 @@ tag: vVERSION
 - App
   - 🐞 修复 App 的 `useApp` 调用 `modal` 方法时，填入弹层组件会警告 `zIndex` 过大的问题。[#50829](https://github.com/ant-design/ant-design/pull/50829) [@zombieJ](https://github.com/zombieJ)
   - 🐞 修复 App rtl 样式不遵守 ConfigProvider `direction` 配置。[#50246](https://github.com/ant-design/ant-design/pull/50246) [@li-jia-nan](https://github.com/li-jia-nan)
+- Pagination
+  - 🆕 Pagination `showSizeChanger` 属性现在支持传入 Select 属性对象。[#50952](https://github.com/ant-design/ant-design/pull/50952) [@afc163](https://github.com/afc163)
+  - 💄 移除 Pagination 默认 `font-family` 样式。[#50808](https://github.com/ant-design/ant-design/pull/50808) [@afc163](https://github.com/afc163)
+- Select
+  - 💄 Select 组件新增一些 token 以支持自定义 hover 和 focus 样式。[#50951](https://github.com/ant-design/ant-design/pull/50951) [@kiner-tang](https://github.com/kiner-tang)
+  - 🐞 修复 Select 搜索模式下搜索词内容覆盖右侧图标的问题。[#50917](https://github.com/ant-design/ant-design/pull/50917) [@yezhonghu0503](https://github.com/yezhonghu0503)
+  - 🐞 修复 Select 同时启用 `allowClear` 和 `variant="filled"` 时清除图标多余的白色背景的问题。[#50916](https://github.com/ant-design/ant-design/pull/50916) [@yezhonghu0503](https://github.com/yezhonghu0503)
 - 🆕 Segmented 新增 `vertical` 属性以支持垂直模式，并优化了可访问性。[#50708](https://github.com/ant-design/ant-design/pull/50708) [@liangchaofei](https://github.com/liangchaofei)
   <img width="72" alt="Segmented vertical demo" src="https://github.com/user-attachments/assets/c1b0f971-9966-48d4-b641-4fd476c59513">
 - 🆕 Radio.Group 支持 `block` 属性以撑满一行。[#50828](https://github.com/ant-design/ant-design/pull/50828) [@yuanliu147](https://github.com/yuanliu147)
@@ -64,11 +71,10 @@ tag: vVERSION
 - 🆕 Image 新增 `onActive` 到 `toolbarRender` 以切换图片 。[#50812](https://github.com/ant-design/ant-design/pull/50812) [@madocto](https://github.com/madocto)
 - 🆕 List 组件支持传递 `ref` 属性。[#50772](https://github.com/ant-design/ant-design/pull/50772) [@Asanio06](https://github.com/Asanio06)
 - 🆕 Collapse 支持语义化 `classNames` 和 `styles` 属性。[#50557](https://github.com/ant-design/ant-design/pull/50557) [@wanpan11](https://github.com/wanpan11)
-- 💄 移除 Pagination 默认 `font-family`。[#50808](https://github.com/ant-design/ant-design/pull/50808) [@afc163](https://github.com/afc163)
 - 💄 移除 Skeleton.Node 默认的图标 `children` 使其成为真正的自定义节点。[#50278](https://github.com/ant-design/ant-design/pull/50278) [@afc163](https://github.com/afc163)
-- 🐞 修复 Select 搜索模式下搜索词内容覆盖右侧图标的问题。[#50917](https://github.com/ant-design/ant-design/pull/50917) [@yezhonghu0503](https://github.com/yezhonghu0503)
 - 🐞 修复 Typography `copyable` 对数组 `children` 复制时会有额外 `,` 字符的问题。[#50813](https://github.com/ant-design/ant-design/pull/50813) [@zombieJ](https://github.com/zombieJ)
 - 🐞 修复 Layout.Sider 单独使用时无法修改主题的问题。[#50780](https://github.com/ant-design/ant-design/pull/50780) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 Tour 组件标题过长时会遮挡关闭按钮的问题。[#50942](https://github.com/ant-design/ant-design/pull/50942) [@kiner-tang](https://github.com/kiner-tang)
 - 🌐 本地化
   - 🇯🇵 补充 DatePicker `ja_JP` 语言环境的 `shortWeekDays` 和 `shortMonths` 文案。[#50893](https://github.com/ant-design/ant-design/pull/50893) [@harapeko](https://github.com/harapeko)
   - 🇪🇬 补充 Image 预览功能的 `ar_EG` 阿拉伯语文案。[#50851](https://github.com/ant-design/ant-design/pull/50851) [@nathanlao](https://github.com/nathanlao)

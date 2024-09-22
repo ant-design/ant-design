@@ -58,6 +58,13 @@ tag: vVERSION
 - App
   - 🐞 Fixed App warn about `zIndex` too large when using the `modal` with having popup component method via `useApp`. [#50829](https://github.com/ant-design/ant-design/pull/50829) [@zombieJ](https://github.com/zombieJ)
   - 🐞 Fix App rtl style does not respect ConfigProvider direction prop. [#50246](https://github.com/ant-design/ant-design/pull/50246) [@li-jia-nan](https://github.com/li-jia-nan)
+- Pagination
+  - 🆕 Pagination `showSizeChanger` accepts Select props now. [#50952](https://github.com/ant-design/ant-design/pull/50952) [@afc163](https://github.com/afc163)
+  - 💄 Remove Pagination default font family. [#50808](https://github.com/ant-design/ant-design/pull/50808) [@afc163](https://github.com/afc163)
+- Select
+  - 💄 Add more tokens for Select to customize hover/focus style. [#50951](https://github.com/ant-design/ant-design/pull/50951) [@kiner-tang](https://github.com/kiner-tang)
+  - 🐞 Fix Select search text overlap with arrow icon. [#50917](https://github.com/ant-design/ant-design/pull/50917) [@thinkasany](https://github.com/thinkasany)
+  - 🐞 Fix Select extra background of clear icon when enable `allowClear` and `variant="filled"`. [#50916](https://github.com/ant-design/ant-design/pull/50916) [@yezhonghu0503](https://github.com/yezhonghu0503)
 - 🆕 Segmented adds `vertical` property and improves accessibility. [#50708](https://github.com/ant-design/ant-design/pull/50708) [@liangchaofei](https://github.com/liangchaofei)
   <img width="72" alt="Segmented vertical demo" src="https://github.com/user-attachments/assets/c1b0f971-9966-48d4-b641-4fd476c59513">
 - 🆕 Radio.Group supports `block` prop now. [#50828](https://github.com/ant-design/ant-design/pull/50828) [@yuanliu147](https://github.com/yuanliu147)
@@ -65,11 +72,10 @@ tag: vVERSION
 - 🆕 Image add `onActive` to `toolbarRender` for toggling images . [#50812](https://github.com/ant-design/ant-design/pull/50812) [@madocto](https://github.com/madocto)
 - 🆕 Add ref on List component. [#50772](https://github.com/ant-design/ant-design/pull/50772) [@Asanio06](https://github.com/Asanio06)
 - 🆕 Collapse support `classNames` and `styles` for semantic style customization. [#50557](https://github.com/ant-design/ant-design/pull/50557) [@wanpan11](https://github.com/wanpan11)
-- 💄 Remove Pagination default font family. [#50808](https://github.com/ant-design/ant-design/pull/50808) [@afc163](https://github.com/afc163)
 - 💄 Make Skeleton.Node custom node by remove it's default icon children. [#50278](https://github.com/ant-design/ant-design/pull/50278) [@afc163](https://github.com/afc163)
-- 🐞 Fix Select search text overlap with arrow icon. [#50917](https://github.com/ant-design/ant-design/pull/50917) [@yezhonghu0503](https://github.com/yezhonghu0503)
 - 🐞 Fix Layout.Sider can not modify theme when used alone. [#50780](https://github.com/ant-design/ant-design/pull/50780) [@zombieJ](https://github.com/zombieJ)
 - 🐞 Fix Typography `copyable` with array `children` has additional `,` string issue. [#50813](https://github.com/ant-design/ant-design/pull/50813) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Tour where long title will overlap with close button. [#50942](https://github.com/ant-design/ant-design/pull/50942) [@kiner-tang](https://github.com/kiner-tang)
 - 🌐 Localization
   - 🇯🇵 Added `ja_JP` locale for DatePicker's `shortWeekDays` and `shortMonths` text. [#50893](https://github.com/ant-design/ant-design/pull/50893) [@harapeko](https://github.com/harapeko)
   - 🇪🇬 Added Arabic `ar_EG` text for Image preview feature. [#50851](https://github.com/ant-design/ant-design/pull/50851) [@nathanlao](https://github.com/nathanlao)
