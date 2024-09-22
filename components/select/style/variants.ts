@@ -56,9 +56,9 @@ const genOutlinedStyle = (token: SelectToken): CSSObject => ({
   '&-outlined': {
     ...genBaseOutlinedStyle(token, {
       borderColor: token.colorBorder,
-      hoverBorderHover: token.colorPrimaryHover,
-      activeBorderColor: token.colorPrimary,
-      activeShadowColor: token.controlOutline,
+      hoverBorderHover: token.hoverBorderColor,
+      activeBorderColor: token.activeBorderColor,
+      activeShadowColor: token.activeShadowColor,
     }),
 
     ...genOutlinedStatusStyle(token, {
