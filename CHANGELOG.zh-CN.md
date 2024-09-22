@@ -25,8 +25,6 @@ tag: vVERSION
   - 🔥 Button 支持 `variant` 变体和 `color` 颜色属性，以支持更多组合样式。[#50051](https://github.com/ant-design/ant-design/pull/50051) [@coding-ice](https://github.com/coding-ice)
   <img width="420" alt="image" src="https://github.com/user-attachments/assets/cd5cb7fb-25e8-445f-b217-7fdd4ae0f9b4">
   - 💄 Button 添加 `textColor`、`textHoverColor` 和 `textActiveColor` 三个 token。[#47870](https://github.com/ant-design/ant-design/pull/47870) [@madocto](https://github.com/madocto)
-- 🔥 Segmented 新增 `vertical` 属性以支持垂直模式，并优化了可访问性。[#50708](https://github.com/ant-design/ant-design/pull/50708) [@liangchaofei](https://github.com/liangchaofei)
-  <img width="72" alt="image" src="https://github.com/user-attachments/assets/c1b0f971-9966-48d4-b641-4fd476c59513">
 - FloatButton
   - 🆕 FloatButton 组件支持 `placement` 属性，支持从四个方向弹出菜单。（实现方式改为 `position: absolute` + flex 布局，可能会对你现有的布局造成 breaking change，请注意兼容）[#50407](https://github.com/ant-design/ant-design/pull/50407) [@li-jia-nan](https://github.com/li-jia-nan)
   <img width="300" alt="float button" src="https://github.com/user-attachments/assets/4b53c0f6-7bdd-4e2a-91cc-2fb804f6e6d3" />
@@ -50,17 +48,19 @@ tag: vVERSION
 - Descriptions
   - 🐞 优化 Descriptions 在某些情况下列内容消失的问题。[#50895](https://github.com/ant-design/ant-design/pull/50895) [@yezhonghu0503](https://github.com/yezhonghu0503)
   - 🐞 回滚 [#49946](https://github.com/ant-design/ant-design/pull/49946) 以修复 Descriptions 内弹层组件被截断的问题。[#50891](https://github.com/ant-design/ant-design/pull/50891) [@afc163](https://github.com/afc163)
-- 🆕 Radio.Group 支持 `block` 属性以撑满一行。[#50828](https://github.com/ant-design/ant-design/pull/50828) [@yuanliu147](https://github.com/yuanliu147)
 - Upload
   - 🆕 Upload `name` 属性将透传给 `<input type="file" />`。[#50652](https://github.com/ant-design/ant-design/pull/50652) [@Wxh16144](https://github.com/Wxh16144)
   - 🆕 Upload 的 `showUploadList.showXxxIcon` 选项支持传入函数。[#50245](https://github.com/ant-design/ant-design/pull/50245) [@guoyunhe](https://github.com/guoyunhe)
-- 🆕 ConfigProvider 支持配置 Splitter 组件的 `className` 和 `style` 属性。[#50855](https://github.com/ant-design/ant-design/pull/50855) [@li-jia-nan](https://github.com/li-jia-nan)
 - ColorPicker
   - 🐞 修复 ColorPicker 在 hex 输入框输入颜色时，部分颜色会因为精度问题得到不正确的颜色的问题。[#50843](https://github.com/ant-design/ant-design/pull/50843) [@zombieJ](https://github.com/zombieJ)
   - 🐞 调整 ColorPicker 在受控时，弹出面板现在不会被 `value` 锁定从而允许与 `onChangeComplete` 配合使用的受控场景。[#50785](https://github.com/ant-design/ant-design/pull/50785) [@zombieJ](https://github.com/zombieJ)
 - App
   - 🐞 修复 App 的 `useApp` 调用 `modal` 方法时，填入弹层组件会警告 `zIndex` 过大的问题。[#50829](https://github.com/ant-design/ant-design/pull/50829) [@zombieJ](https://github.com/zombieJ)
   - 🐞 修复 App rtl 样式不遵守 ConfigProvider `direction` 配置。[#50246](https://github.com/ant-design/ant-design/pull/50246) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 Segmented 新增 `vertical` 属性以支持垂直模式，并优化了可访问性。[#50708](https://github.com/ant-design/ant-design/pull/50708) [@liangchaofei](https://github.com/liangchaofei)
+  <img width="72" alt="image" src="https://github.com/user-attachments/assets/c1b0f971-9966-48d4-b641-4fd476c59513">
+- 🆕 Radio.Group 支持 `block` 属性以撑满一行。[#50828](https://github.com/ant-design/ant-design/pull/50828) [@yuanliu147](https://github.com/yuanliu147)
+- 🆕 ConfigProvider 支持配置 Splitter 组件的 `className` 和 `style` 属性。[#50855](https://github.com/ant-design/ant-design/pull/50855) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 Image 新增 `onActive` 到 `toolbarRender` 以切换图片 。[#50812](https://github.com/ant-design/ant-design/pull/50812) [@madocto](https://github.com/madocto)
 - 🆕 List 组件支持传递 `ref` 属性。[#50772](https://github.com/ant-design/ant-design/pull/50772) [@Asanio06](https://github.com/Asanio06)
 - 🆕 Collapse 支持语义化 `classNames` 和 `styles` 属性。[#50557](https://github.com/ant-design/ant-design/pull/50557) [@wanpan11](https://github.com/wanpan11)
