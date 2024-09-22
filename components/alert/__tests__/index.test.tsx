@@ -84,7 +84,6 @@ describe('Alert', () => {
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     expect(warnSpy).toHaveBeenCalledTimes(0);
     // @ts-expect-error
-    // eslint-disable-next-line react/jsx-no-undef
     const ThrowError = () => <NotExisted />;
     render(
       <ErrorBoundary>

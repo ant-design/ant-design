@@ -3,7 +3,9 @@
 exports[`renders components/popover/demo/arrow.tsx extend context correctly 1`] = `
 Array [
   <div
+    aria-label="segmented control"
     class="ant-segmented"
+    role="listbox"
     style="margin-bottom: 24px;"
   >
     <div
@@ -18,7 +20,9 @@ Array [
           type="radio"
         />
         <div
+          aria-selected="true"
           class="ant-segmented-item-label"
+          role="option"
           title="Show"
         >
           Show
@@ -32,7 +36,9 @@ Array [
           type="radio"
         />
         <div
+          aria-selected="false"
           class="ant-segmented-item-label"
+          role="option"
           title="Hide"
         >
           Hide
@@ -46,7 +52,9 @@ Array [
           type="radio"
         />
         <div
+          aria-selected="false"
           class="ant-segmented-item-label"
+          role="option"
           title="Center"
         >
           Center
@@ -62,7 +70,7 @@ Array [
       style="white-space: nowrap;"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -108,7 +116,7 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -154,7 +162,7 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -208,7 +216,7 @@ Array [
         class="ant-flex ant-flex-align-center ant-flex-vertical"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
         >
@@ -254,7 +262,7 @@ Array [
           </div>
         </div>
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
         >
@@ -300,7 +308,7 @@ Array [
           </div>
         </div>
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
         >
@@ -350,7 +358,7 @@ Array [
         class="ant-flex ant-flex-align-center ant-flex-vertical"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
         >
@@ -396,7 +404,7 @@ Array [
           </div>
         </div>
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
         >
@@ -442,7 +450,7 @@ Array [
           </div>
         </div>
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
         >
@@ -494,7 +502,7 @@ Array [
       style="white-space: nowrap;"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -540,7 +548,7 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -586,7 +594,7 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1059,7 +1067,7 @@ exports[`renders components/popover/demo/arrow-point-at-center.tsx extend contex
 exports[`renders components/popover/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-solid"
     type="button"
   >
     <span>
@@ -1184,7 +1192,7 @@ exports[`renders components/popover/demo/component-token.tsx extend context corr
 exports[`renders components/popover/demo/control.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-solid"
     type="button"
   >
     <span>
@@ -1229,7 +1237,7 @@ exports[`renders components/popover/demo/control.tsx extend context correctly 2`
 exports[`renders components/popover/demo/hover-with-click.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-default"
+    class="ant-btn ant-btn-default ant-btn-outlined"
     type="button"
   >
     <span>
@@ -1315,7 +1323,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
     style="white-space: nowrap;"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
     >
@@ -1361,7 +1369,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
     >
@@ -1407,7 +1415,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
     >
@@ -1461,7 +1469,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       class="ant-flex ant-flex-align-center ant-flex-vertical"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1507,7 +1515,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1553,7 +1561,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1603,7 +1611,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       class="ant-flex ant-flex-align-center ant-flex-vertical"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1649,7 +1657,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1695,7 +1703,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1747,7 +1755,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
     style="white-space: nowrap;"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
     >
@@ -1793,7 +1801,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
     >
@@ -1839,7 +1847,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
     >
@@ -2014,7 +2022,7 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -2061,7 +2069,7 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -2108,7 +2116,7 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>

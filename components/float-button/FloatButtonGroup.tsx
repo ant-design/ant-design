@@ -1,4 +1,4 @@
-import React, { memo, useContext } from 'react';
+import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
 import classNames from 'classnames';
@@ -6,6 +6,7 @@ import CSSMotion from 'rc-motion';
 import { useEvent } from 'rc-util';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
+import { useZIndex } from '../_util/hooks/useZIndex';
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
@@ -15,13 +16,14 @@ import FloatButton, { floatButtonPrefixCls } from './FloatButton';
 import type { FloatButtonGroupProps } from './interface';
 import useStyle from './style';
 
-const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
+const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
     style,
     shape = 'circle',
     type = 'default',
+    placement = 'top',
     icon = <FileTextOutlined />,
     closeIcon,
     description,
@@ -34,20 +36,30 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
   } = props;
 
   const { direction, getPrefixCls, floatButtonGroup } =
-    useContext<ConfigConsumerProps>(ConfigContext);
+    React.useContext<ConfigConsumerProps>(ConfigContext);
 
   const mergedCloseIcon = closeIcon ?? floatButtonGroup?.closeIcon ?? <CloseOutlined />;
 
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+
   const groupPrefixCls = `${prefixCls}-group`;
+
+  const isMenuMode = trigger && ['click', 'hover'].includes(trigger);
+  const isValidPlacement = placement && ['top', 'left', 'right', 'bottom'].includes(placement);
 
   const groupCls = classNames(groupPrefixCls, hashId, cssVarCls, rootCls, className, {
     [`${groupPrefixCls}-rtl`]: direction === 'rtl',
     [`${groupPrefixCls}-${shape}`]: shape,
-    [`${groupPrefixCls}-${shape}-shadow`]: !trigger,
+    [`${groupPrefixCls}-${shape}-shadow`]: !isMenuMode,
+    [`${groupPrefixCls}-${placement}`]: isMenuMode && isValidPlacement, // 只有菜单模式才支持弹出方向
   });
+
+  // ============================ zIndex ============================
+  const [zIndex] = useZIndex('FloatButton', style?.zIndex as number);
+
+  const mergedStyle: React.CSSProperties = { ...style, zIndex };
 
   const wrapperCls = classNames(hashId, `${groupPrefixCls}-wrap`);
 
@@ -67,13 +79,13 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
   });
 
   // ===================== Trigger: Hover =====================
-  const onMouseEnter = () => {
+  const onMouseEnter: React.MouseEventHandler<HTMLDivElement> = () => {
     if (hoverTrigger) {
       triggerOpen(true);
     }
   };
 
-  const onMouseLeave = () => {
+  const onMouseLeave: React.MouseEventHandler<HTMLDivElement> = () => {
     if (hoverTrigger) {
       triggerOpen(false);
     }
@@ -94,18 +106,10 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
         if (floatButtonGroupRef.current?.contains(e.target as Node)) {
           return;
         }
-
         triggerOpen(false);
       };
-
-      document.addEventListener('click', onDocClick, {
-        capture: true,
-      });
-      return () => {
-        document.removeEventListener('click', onDocClick, {
-          capture: true,
-        });
-      };
+      document.addEventListener('click', onDocClick, { capture: true });
+      return () => document.removeEventListener('click', onDocClick, { capture: true });
     }
   }, [clickTrigger]);
 
@@ -126,12 +130,12 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
       <div
         ref={floatButtonGroupRef}
         className={groupCls}
-        style={style}
+        style={mergedStyle}
         // Hover trigger
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >
-        {trigger && ['click', 'hover'].includes(trigger) ? (
+        {isMenuMode ? (
           <>
             <CSSMotion visible={open} motionName={`${groupPrefixCls}-wrap`}>
               {({ className: motionClassName }) => (
@@ -156,4 +160,4 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
   );
 };
 
-export default memo(FloatButtonGroup);
+export default FloatButtonGroup;

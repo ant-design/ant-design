@@ -8,10 +8,8 @@ import RowContext from './RowContext';
 import type { RowContextState } from './RowContext';
 import { useRowStyle } from './style';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const RowAligns = ['top', 'middle', 'bottom', 'stretch'] as const;
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const RowJustify = [
+const _RowAligns = ['top', 'middle', 'bottom', 'stretch'] as const;
+const _RowJustify = [
   'start',
   'end',
   'center',
@@ -28,12 +26,12 @@ type ResponsiveLike<T> = {
 type Gap = number | undefined;
 export type Gutter = number | undefined | Partial<Record<Breakpoint, number>>;
 
-type ResponsiveAligns = ResponsiveLike<(typeof RowAligns)[number]>;
-type ResponsiveJustify = ResponsiveLike<(typeof RowJustify)[number]>;
+type ResponsiveAligns = ResponsiveLike<(typeof _RowAligns)[number]>;
+type ResponsiveJustify = ResponsiveLike<(typeof _RowJustify)[number]>;
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   gutter?: Gutter | [Gutter, Gutter];
-  align?: (typeof RowAligns)[number] | ResponsiveAligns;
-  justify?: (typeof RowJustify)[number] | ResponsiveJustify;
+  align?: (typeof _RowAligns)[number] | ResponsiveAligns;
+  justify?: (typeof _RowJustify)[number] | ResponsiveJustify;
   prefixCls?: string;
   wrap?: boolean;
 }

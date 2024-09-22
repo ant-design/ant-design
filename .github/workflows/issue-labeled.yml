@@ -20,7 +20,7 @@ jobs:
         if: github.event.label.name == 'help wanted'
         uses: actions-cool/issues-helper@v3
         with:
-          actions: 'create-comment'
+          actions: create-comment
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
@@ -34,7 +34,7 @@ jobs:
         if: github.event.label.name == '🤔 Need Reproduce'
         uses: actions-cool/issues-helper@v3
         with:
-          actions: 'create-comment'
+          actions: create-comment
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
@@ -81,3 +81,11 @@ jobs:
             Hello @${{ github.event.issue.user.login }}, your issue has been closed because it does not conform to our issue requirements. Please use the [Issue Helper](http://new-issue.ant.design) to create an issue, thank you!
 
             你好 @${{ github.event.issue.user.login }}，为了能够进行高效沟通，我们对 issue 有一定的格式要求，你的 issue 因为不符合要求而被自动关闭。你可以通过 [issue 助手](http://new-issue.ant.design) 来创建 issue 以方便我们定位错误。谢谢配合！
+
+      - name: remove unconfirmed label
+        if: github.event.label.name != 'unconfirmed'
+        uses: actions-cool/issues-helper@v3
+        with:
+            actions: remove-labels
+            issue-number: ${{ github.event.issue.number }}
+            labels: unconfirmed

@@ -112,7 +112,7 @@ export const BannerRecommendsFallback: React.FC = () => {
   const { isMobile } = useContext(SiteContext);
   const { styles } = useStyle();
 
-  const list = Array(3).fill(1);
+  const list = new Array(3).fill(1);
 
   return isMobile ? (
     <Carousel className={styles.carousel}>
@@ -140,7 +140,7 @@ const BannerRecommends: React.FC = () => {
   const data = useSiteData();
   const extras = data?.extras?.[lang];
   const icons = data?.icons || [];
-  const first3 = !extras || extras.length === 0 ? Array(3).fill(null) : extras.slice(0, 3);
+  const first3 = !extras || extras.length === 0 ? new Array(3).fill(null) : extras.slice(0, 3);
 
   if (!data) {
     return <BannerRecommendsFallback />;

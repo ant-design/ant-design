@@ -1,5 +1,3 @@
-/* eslint-disable compat/compat */
-/* eslint-disable no-console, no-await-in-loop, import/no-extraneous-dependencies, no-restricted-syntax */
 import { assert } from 'console';
 import fs from 'fs';
 import os from 'os';

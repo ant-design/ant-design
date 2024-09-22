@@ -1,6 +1,7 @@
 import path from 'path';
 import { defineConfig } from 'dumi';
 import * as fs from 'fs-extra';
+import os from 'node:os';
 
 import rehypeAntd from './.dumi/rehypeAntd';
 import remarkAntd from './.dumi/remarkAntd';
@@ -21,7 +22,7 @@ export default defineConfig({
       : false,
   hash: true,
   mfsu: false,
-  mako: {},
+  mako: ['Darwin', 'Linux'].includes(os.type()) ? {} : false,
   publicPath: 'runtime',
   crossorigin: {},
   runtimePublicPath: {},

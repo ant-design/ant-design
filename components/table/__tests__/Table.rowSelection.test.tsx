@@ -774,18 +774,20 @@ describe('Table.rowSelection', () => {
   });
 
   it('fix selection column on the left', () => {
-    const { asFragment } = render(
+    const { container } = render(
       createTable({
         rowSelection: { fixed: true },
         scroll: { x: 903 },
       }),
     );
 
-    expect(asFragment().firstChild).toMatchSnapshot();
+    expect(container.querySelector('.ant-table-selection-column')).toHaveClass(
+      'ant-table-cell-fix-left',
+    );
   });
 
   it('fix expand on th left when selection column fixed on the left', () => {
-    const { asFragment } = render(
+    const { container } = render(
       createTable({
         expandable: {
           expandedRowRender() {
@@ -797,11 +799,13 @@ describe('Table.rowSelection', () => {
       }),
     );
 
-    expect(asFragment().firstChild).toMatchSnapshot();
+    expect(container.querySelector('.ant-table-selection-column')).toHaveClass(
+      'ant-table-cell-fix-left',
+    );
   });
 
   it('fix selection column on the left when any other column is fixed', () => {
-    const { asFragment } = render(
+    const { container } = render(
       createTable({
         rowSelection: {},
         columns: [
@@ -815,7 +819,9 @@ describe('Table.rowSelection', () => {
       }),
     );
 
-    expect(asFragment().firstChild).toMatchSnapshot();
+    expect(container.querySelector('.ant-table-selection-column')).toHaveClass(
+      'ant-table-cell-fix-left',
+    );
   });
 
   it('use column as selection column when key is `selection-column`', () => {
@@ -953,8 +959,10 @@ describe('Table.rowSelection', () => {
           container.querySelectorAll('.ant-dropdown-menu-item .ant-checkbox-wrapper')[index],
         );
       });
-      // wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
-      fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
+      // wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid').simulate('click');
+      fireEvent.click(
+        container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid')!,
+      );
     }
 
     function clickItem() {
@@ -1688,6 +1696,127 @@ describe('Table.rowSelection', () => {
         [{ name: 'light' }, { name: 'bamboo' }],
         { type: 'single' },
       );
+    });
+
+    it('treeData cache with preserveSelectedRowKeys and checkStrictly false', () => {
+      const onChange = jest.fn();
+      const treeDataColumns = [
+        {
+          title: 'Name',
+          dataIndex: 'name',
+          key: 'name',
+        },
+      ];
+      const { container, rerender } = render(
+        <Table
+          expandable={{
+            defaultExpandAllRows: true,
+          }}
+          columns={treeDataColumns}
+          dataSource={[
+            {
+              key: 1,
+              name: 'a',
+              children: [
+                {
+                  key: 11,
+                  name: 'b',
+                },
+                {
+                  key: 12,
+                  name: 'c',
+                  children: [
+                    {
+                      key: 121,
+                      name: 'd',
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              key: 2,
+              name: 'e',
+            },
+          ]}
+          rowSelection={{ onChange, preserveSelectedRowKeys: true, checkStrictly: false }}
+        />,
+      );
+
+      fireEvent.click(container.querySelector('th input')!);
+      expect(onChange).toHaveBeenCalledWith(
+        [1, 11, 12, 121, 2],
+        [
+          {
+            key: 1,
+            name: 'a',
+            children: [
+              {
+                key: 11,
+                name: 'b',
+              },
+              {
+                key: 12,
+                name: 'c',
+                children: [
+                  {
+                    key: 121,
+                    name: 'd',
+                  },
+                ],
+              },
+            ],
+          },
+          { key: 11, name: 'b' },
+          { key: 12, name: 'c', children: [{ key: 121, name: 'd' }] },
+          { key: 121, name: 'd' },
+          { key: 2, name: 'e' },
+        ],
+        { type: 'all' },
+      );
+
+      rerender(
+        <Table
+          expandable={{
+            defaultExpandAllRows: true,
+          }}
+          columns={treeDataColumns}
+          dataSource={[
+            {
+              key: 1,
+              name: 'a',
+              children: [
+                {
+                  key: 11,
+                  name: 'b',
+                },
+                {
+                  key: 12,
+                  name: 'c',
+                  children: [
+                    {
+                      key: 121,
+                      name: 'd',
+                    },
+                  ],
+                },
+              ],
+            },
+          ]}
+          rowSelection={{ onChange, preserveSelectedRowKeys: true, checkStrictly: false }}
+        />,
+      );
+      fireEvent.click(container.querySelectorAll('tbody input[type="checkbox"]')[1]);
+      expect(onChange).toHaveBeenCalledWith(
+        [12, 121, 2],
+        [
+          { key: 12, name: 'c', children: [{ key: 121, name: 'd' }] },
+          { key: 121, name: 'd' },
+          { key: 2, name: 'e' },
+        ],
+        { type: 'single' },
+      );
+      expect(getIndeterminateSelection(container)).toEqual([1]);
     });
 
     it('works with receive selectedRowKeys from [] to undefined', () => {

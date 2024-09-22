@@ -32,7 +32,7 @@ const App: React.FC = () => (
       type="warning"
       action={
         <Space>
-          <Button type="text" size="small" ghost>
+          <Button type="text" size="small">
             Done
           </Button>
         </Space>

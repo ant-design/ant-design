@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import chalk from 'chalk';
 import fetch from 'isomorphic-fetch';
 import ora from 'ora';

@@ -3,7 +3,7 @@
 exports[`renders components/qr-code/demo/Popover.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-solid"
     type="button"
   >
     <span>
@@ -125,7 +125,7 @@ Array [
     style="margin-bottom: 16px;"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span
@@ -156,7 +156,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span
@@ -301,7 +301,7 @@ exports[`renders components/qr-code/demo/customStatusRender.tsx extend context c
          QR code expired
         <p>
           <button
-            class="ant-btn ant-btn-link"
+            class="ant-btn ant-btn-primary ant-btn-link"
             type="button"
           >
             <span
@@ -387,7 +387,9 @@ exports[`renders components/qr-code/demo/download.tsx extend context correctly 1
     class="ant-space-item"
   >
     <div
+      aria-label="segmented control"
       class="ant-segmented"
+      role="listbox"
     >
       <div
         class="ant-segmented-group"
@@ -401,7 +403,9 @@ exports[`renders components/qr-code/demo/download.tsx extend context correctly 1
             type="radio"
           />
           <div
+            aria-selected="true"
             class="ant-segmented-item-label"
+            role="option"
             title="canvas"
           >
             canvas
@@ -415,7 +419,9 @@ exports[`renders components/qr-code/demo/download.tsx extend context correctly 1
             type="radio"
           />
           <div
+            aria-selected="false"
             class="ant-segmented-item-label"
+            role="option"
             title="svg"
           >
             svg
@@ -444,7 +450,7 @@ exports[`renders components/qr-code/demo/download.tsx extend context correctly 1
         />
       </div>
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-solid"
         type="button"
       >
         <span>
@@ -471,7 +477,9 @@ Array [
     />
   </div>,
   <div
+    aria-label="segmented control"
     class="ant-segmented"
+    role="listbox"
   >
     <div
       class="ant-segmented-group"
@@ -485,7 +493,9 @@ Array [
           type="radio"
         />
         <div
+          aria-selected="true"
           class="ant-segmented-item-label"
+          role="option"
           title="L"
         >
           L
@@ -499,7 +509,9 @@ Array [
           type="radio"
         />
         <div
+          aria-selected="false"
           class="ant-segmented-item-label"
+          role="option"
           title="M"
         >
           M
@@ -513,7 +525,9 @@ Array [
           type="radio"
         />
         <div
+          aria-selected="false"
           class="ant-segmented-item-label"
+          role="option"
           title="Q"
         >
           Q
@@ -527,7 +541,9 @@ Array [
           type="radio"
         />
         <div
+          aria-selected="false"
           class="ant-segmented-item-label"
+          role="option"
           title="H"
         >
           H
@@ -617,7 +633,7 @@ exports[`renders components/qr-code/demo/status.tsx extend context correctly 1`]
         QR code expired
       </p>
       <button
-        class="ant-btn ant-btn-link"
+        class="ant-btn ant-btn-primary ant-btn-link"
         type="button"
       >
         <span
