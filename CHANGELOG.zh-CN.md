@@ -23,7 +23,7 @@ tag: vVERSION
   <img width="520" alt="Splitter" src="https://github.com/user-attachments/assets/25fc4e3c-1aa5-41bb-8f39-f34f7149e0f6">
 - Button
   - 🔥 Button 支持 `variant` 变体和 `color` 颜色属性，以支持更多组合样式。[#50051](https://github.com/ant-design/ant-design/pull/50051) [@coding-ice](https://github.com/coding-ice)
-  <img width="420" alt="Button" src="https://github.com/user-attachments/assets/cd5cb7fb-25e8-445f-b217-7fdd4ae0f9b4">
+    <img width="420" alt="Button" src="https://github.com/user-attachments/assets/cd5cb7fb-25e8-445f-b217-7fdd4ae0f9b4">
   - 💄 Button 添加 `textColor`、`textHoverColor` 和 `textActiveColor` 三个 token。[#47870](https://github.com/ant-design/ant-design/pull/47870) [@madocto](https://github.com/madocto)
 - FloatButton
   - 🆕 FloatButton 组件支持 `placement` 属性，支持从四个方向弹出菜单。（实现方式改为 `position: absolute` + flex 布局，可能会对你现有的布局造成 breaking change，请注意兼容）[#50407](https://github.com/ant-design/ant-design/pull/50407) [@li-jia-nan](https://github.com/li-jia-nan)
