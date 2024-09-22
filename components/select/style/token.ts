@@ -124,10 +124,10 @@ export interface ComponentToken extends MultipleSelectorToken {
    */
   activeBorderColor: string;
   /**
-   * @desc 激活态阴影色
-   * @descEN Shadow color when active
+   * @desc 激活态 outline 颜色
+   * @descEN Active outline color
    */
-  activeShadowColor: string;
+  activeOutlineColor: string;
 }
 
 export interface SelectorToken {
@@ -217,6 +217,6 @@ export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
     showArrowPaddingInlineEnd: Math.ceil(token.fontSize * 1.25),
     hoverBorderColor: colorPrimaryHover,
     activeBorderColor: colorPrimary,
-    activeShadowColor: controlOutline,
+    activeOutlineColor: controlOutline,
   };
 };

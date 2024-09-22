@@ -22,7 +22,7 @@ const App: React.FC = () => (
             optionSelectedColor: '#1677ff',
             hoverBorderColor: 'red',
             activeBorderColor: 'green',
-            activeShadowColor: 'cyan',
+            activeOutlineColor: 'pink',
           },
         },
       }}
