@@ -368,7 +368,7 @@ const genPrimaryButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
 
   ...genTextLinkButtonStyle(
     token,
-    token.colorPrimary,
+    token.colorLink,
     'text',
     {
       color: token.colorPrimaryTextHover,
@@ -382,14 +382,14 @@ const genPrimaryButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
 
   ...genTextLinkButtonStyle(
     token,
-    token.colorPrimary,
+    token.colorLink,
     'link',
     {
-      color: token.colorPrimaryTextHover,
+      color: token.colorLinkHover,
       background: token.linkHoverBg,
     },
     {
-      color: token.colorPrimaryTextActive,
+      color: token.colorLinkActive,
     },
   ),
 
