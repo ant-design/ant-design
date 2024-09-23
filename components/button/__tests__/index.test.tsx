@@ -451,7 +451,7 @@ describe('Button', () => {
 
   it('should support solidTextColor when theme changes', () => {
     const { container: defaultContainer } = render(
-      <ConfigProvider theme={{ algorithm: [theme.defaultAlgorithm] }}>
+      <ConfigProvider theme={{ algorithm: [theme.defaultAlgorithm], cssVar: true }}>
         <Button color="default" variant="solid">
           btn1
         </Button>
@@ -459,11 +459,11 @@ describe('Button', () => {
     );
 
     expect(defaultContainer.firstChild).toHaveStyle({
-      color: 'rgb(255, 255, 255)',
+      '--ant-button-solid-text-color': '#fff',
     });
 
     const { container: darkContainer } = render(
-      <ConfigProvider theme={{ algorithm: [theme.darkAlgorithm] }}>
+      <ConfigProvider theme={{ algorithm: [theme.darkAlgorithm], cssVar: true }}>
         <Button color="default" variant="solid">
           btn2
         </Button>
@@ -471,7 +471,7 @@ describe('Button', () => {
     );
 
     expect(darkContainer.firstChild).toHaveStyle({
-      color: 'rgb(0, 0, 0)',
+      '--ant-button-solid-text-color': '#000',
     });
   });
 });
