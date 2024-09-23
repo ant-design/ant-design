@@ -179,7 +179,7 @@ const genSolidButtonStyle = (
   hoverStyle: CSSObject,
   activeStyle: CSSObject,
 ): CSSObject => ({
-  [`&${token.componentCls}-solid`]: {
+  [`&${token.componentCls}-variant-solid`]: {
     color: textColor,
     background,
 
@@ -194,7 +194,7 @@ const genOutlinedDashedButtonStyle = (
   hoverStyle: CSSObject,
   activeStyle: CSSObject,
 ) => ({
-  [`&${token.componentCls}-outlined, &${token.componentCls}-dashed`]: {
+  [`&${token.componentCls}-variant-outlined, &${token.componentCls}-variant-dashed`]: {
     borderColor,
     background,
 
@@ -203,7 +203,7 @@ const genOutlinedDashedButtonStyle = (
 });
 
 const genDashedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
-  [`&${token.componentCls}-dashed`]: {
+  [`&${token.componentCls}-variant-dashed`]: {
     borderStyle: 'dashed',
   },
 });
@@ -214,7 +214,7 @@ const genFilledButtonStyle = (
   hoverStyle: CSSObject,
   activeStyle: CSSObject,
 ) => ({
-  [`&${token.componentCls}-filled`]: {
+  [`&${token.componentCls}-variant-filled`]: {
     boxShadow: 'none',
     background,
 
@@ -229,7 +229,7 @@ const genTextLinkButtonStyle = (
   hoverStyle: CSSObject,
   activeStyle: CSSObject,
 ) => ({
-  [`&${token.componentCls}-${variant}`]: {
+  [`&${token.componentCls}-variant-${variant}`]: {
     color: textColor,
     boxShadow: 'none',
 
@@ -502,9 +502,9 @@ const genColorButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   const { componentCls } = token;
 
   return {
-    [`${componentCls}-default`]: genDefaultButtonStyle(token),
-    [`${componentCls}-primary`]: genPrimaryButtonStyle(token),
-    [`${componentCls}-dangerous`]: genDangerousStyle(token),
+    [`${componentCls}-color-default`]: genDefaultButtonStyle(token),
+    [`${componentCls}-color-primary`]: genPrimaryButtonStyle(token),
+    [`${componentCls}-color-dangerous`]: genDangerousStyle(token),
   };
 };
 

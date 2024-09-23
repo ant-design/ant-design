@@ -782,7 +782,7 @@ exports[`renders components/timeline/demo/pending.tsx extend context correctly 1
     </li>
   </ul>
   <button
-    class="ant-btn ant-btn-primary ant-btn-solid"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     style="margin-top: 16px;"
     type="button"
   >

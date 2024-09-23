@@ -249,8 +249,10 @@ const InternalCompoundedButton = React.forwardRef<
     cssVarCls,
     {
       [`${prefixCls}-${shape}`]: shape !== 'default' && shape,
-      [`${prefixCls}-${mergedColorText}`]: mergedColorText,
-      [`${prefixCls}-${mergedVariant}`]: mergedVariant,
+      // Compatible with versions earlier than 5.21.0
+      [`${prefixCls}-${mergedType}`]: mergedType,
+      [`${prefixCls}-color-${mergedColorText}`]: mergedColorText,
+      [`${prefixCls}-variant-${mergedVariant}`]: mergedVariant,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
       [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonVariant(mergedVariant),
