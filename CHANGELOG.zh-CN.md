@@ -63,7 +63,7 @@ tag: vVERSION
 - Select
   - 💄 Select 组件新增一些 token 以支持自定义 hover 和 focus 样式。[#50951](https://github.com/ant-design/ant-design/pull/50951) [@kiner-tang](https://github.com/kiner-tang)
   - 🐞 修复 Select 搜索模式下搜索词内容覆盖右侧图标的问题。[#50917](https://github.com/ant-design/ant-design/pull/50917) [@yezhonghu0503](https://github.com/yezhonghu0503)
-  - 🐞 修复 Select 同时启用 `allowClear` 和 `variant="filled"` 时清除图标多余的白色背景的问题。[#50916](https://github.com/ant-design/ant-design/pull/50916)  [@thinkasany](https://github.com/thinkasany)
+  - 🐞 修复 Select 同时启用 `allowClear` 和 `variant="filled"` 时清除图标多余的白色背景的问题。[#50916](https://github.com/ant-design/ant-design/pull/50916) [@thinkasany](https://github.com/thinkasany)
 - 🆕 Segmented 新增 `vertical` 属性以支持垂直模式，并优化了可访问性。[#50708](https://github.com/ant-design/ant-design/pull/50708) [@liangchaofei](https://github.com/liangchaofei)
   <img width="72" alt="Segmented vertical demo" src="https://github.com/user-attachments/assets/c1b0f971-9966-48d4-b641-4fd476c59513">
 - 🆕 Radio.Group 支持 `block` 属性以撑满一行。[#50828](https://github.com/ant-design/ant-design/pull/50828) [@yuanliu147](https://github.com/yuanliu147)
