@@ -1,6 +1,6 @@
 ---
 title: Why is it so hard to disable the date?
-date: 2024-09-20
+date: 2024-09-23
 author: zombieJ
 ---
 
@@ -66,7 +66,7 @@ const disabledTime = () => ({
 
 #### Date and time range
 
-In DatePicker, there are `minDate` and `maxDate` to limit the date selection range. Now, suppose we have a scenario that requires a date range selection with time, such as `2024-01-01 09:00:00` ~ `2024-01-02 17:00:00`, then we can do this:
+In DatePicker, there are `minDate` and `maxDate` to limit the date selection range. But they only limit to date range. Now, suppose we have a scenario that requires a date range selection with time, such as `2024-01-01 09:00:00` ~ `2024-01-02 17:00:00`, then we can do this:
 
 ```tsx
 const disabledDate = (date, info) => {
