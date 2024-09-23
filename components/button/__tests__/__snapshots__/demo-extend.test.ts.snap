@@ -1059,6 +1059,29 @@ Array [
 
 exports[`renders components/button/demo/debug-icon.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/button/demo/debug-type-link.tsx extend context correctly 1`] = `
+Array [
+  <button
+    class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link"
+    type="button"
+  >
+    <span>
+      Link Button
+    </span>
+  </button>,
+  <button
+    class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link"
+    type="button"
+  >
+    <span>
+      Link Button
+    </span>
+  </button>,
+]
+`;
+
+exports[`renders components/button/demo/debug-type-link.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/button/demo/disabled.tsx extend context correctly 1`] = `
 <div
   class="ant-flex ant-flex-align-flex-start ant-flex-gap-small ant-flex-vertical"
