@@ -474,15 +474,4 @@ describe('Button', () => {
       color: 'rgb(0, 0, 0)',
     });
   });
-
-  it('when type is link, colorPrimary should not take effect', () => {
-    const { container } = render(
-      <ConfigProvider theme={{ token: { colorPrimary: 'red' } }}>
-        <Button type="link">Link Button</Button>
-      </ConfigProvider>,
-    );
-    expect(container.firstChild).not.toHaveStyle({
-      color: '#ff0000',
-    });
-  });
 });

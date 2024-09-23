@@ -646,11 +646,11 @@ export default genStyleHooks(
       // Block
       genBlockButtonStyle(buttonToken),
 
-      // Color
-      genColorButtonStyle(buttonToken),
-
       // https://github.com/ant-design/ant-design/issues/50969
       genCompatibleButtonStyle(buttonToken),
+
+      // Color
+      genColorButtonStyle(buttonToken),
 
       // Button Group
       genGroupStyle(buttonToken),
