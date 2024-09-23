@@ -57,6 +57,7 @@ const genTransferCustomizeStyle: GenerateStyle<TransferToken> = (
         width: 'auto',
         height: 'auto',
         minHeight: listHeight,
+        minWidth: 0,
       },
 
       // =================== Hook Components ===================
