@@ -482,7 +482,7 @@ exports[`renders components/button/demo/danger.tsx extend context correctly 1`] 
   class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
 >
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-dangerous ant-btn-variant-solid"
+    class="ant-btn ant-btn-primary ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -490,7 +490,7 @@ exports[`renders components/button/demo/danger.tsx extend context correctly 1`] 
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-color-dangerous ant-btn-variant-outlined"
+    class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
     type="button"
   >
     <span>
@@ -498,7 +498,7 @@ exports[`renders components/button/demo/danger.tsx extend context correctly 1`] 
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-dashed ant-btn-color-dangerous ant-btn-variant-dashed"
+    class="ant-btn ant-btn-dashed ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-dashed"
     type="button"
   >
     <span>
@@ -506,7 +506,7 @@ exports[`renders components/button/demo/danger.tsx extend context correctly 1`] 
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-text ant-btn-color-dangerous ant-btn-variant-text"
+    class="ant-btn ant-btn-text ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-text"
     type="button"
   >
     <span>
@@ -514,7 +514,7 @@ exports[`renders components/button/demo/danger.tsx extend context correctly 1`] 
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-link ant-btn-color-dangerous ant-btn-variant-link"
+    class="ant-btn ant-btn-link ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-link"
     type="button"
   >
     <span>
@@ -1216,7 +1216,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
     class="ant-flex ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-dangerous ant-btn-variant-outlined"
+      class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -1224,7 +1224,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-color-dangerous ant-btn-variant-outlined"
+      class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
       disabled=""
       type="button"
     >
@@ -1237,7 +1237,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
     class="ant-flex ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-text ant-btn-color-dangerous ant-btn-variant-text"
+      class="ant-btn ant-btn-text ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-text"
       type="button"
     >
       <span>
@@ -1245,7 +1245,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-text ant-btn-color-dangerous ant-btn-variant-text"
+      class="ant-btn ant-btn-text ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-text"
       disabled=""
       type="button"
     >
@@ -1258,7 +1258,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
     class="ant-flex ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-link ant-btn-color-dangerous ant-btn-variant-link"
+      class="ant-btn ant-btn-link ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-link"
       type="button"
     >
       <span>
@@ -1266,7 +1266,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-link ant-btn-color-dangerous ant-btn-variant-link"
+      class="ant-btn ant-btn-link ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-link"
       disabled=""
       type="button"
     >
@@ -1330,7 +1330,7 @@ exports[`renders components/button/demo/ghost.tsx extend context correctly 1`] =
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-dangerous ant-btn-variant-solid ant-btn-background-ghost"
+    class="ant-btn ant-btn-primary ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-solid ant-btn-background-ghost"
     type="button"
   >
     <span>

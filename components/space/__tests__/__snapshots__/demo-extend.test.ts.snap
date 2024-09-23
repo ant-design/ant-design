@@ -10342,7 +10342,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default ant-btn-color-dangerous ant-btn-variant-outlined ant-btn-compact-item"
+        class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined ant-btn-compact-item"
         type="button"
       >
         <span>

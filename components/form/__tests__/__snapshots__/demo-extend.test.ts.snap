@@ -23818,7 +23818,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-default ant-btn-color-dangerous ant-btn-variant-outlined"
+                class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
                 type="button"
               >
                 <span>

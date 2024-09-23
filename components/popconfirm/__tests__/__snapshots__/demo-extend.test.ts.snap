@@ -105,7 +105,7 @@ exports[`renders components/popconfirm/demo/async.tsx extend context correctly 2
 exports[`renders components/popconfirm/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-default ant-btn-color-dangerous ant-btn-variant-outlined"
+    class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
     type="button"
   >
     <span>
@@ -207,7 +207,7 @@ exports[`renders components/popconfirm/demo/basic.tsx extend context correctly 2
 exports[`renders components/popconfirm/demo/dynamic-trigger.tsx extend context correctly 1`] = `
 <div>
   <button
-    class="ant-btn ant-btn-default ant-btn-color-dangerous ant-btn-variant-outlined"
+    class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
     type="button"
   >
     <span>
@@ -332,7 +332,7 @@ exports[`renders components/popconfirm/demo/dynamic-trigger.tsx extend context c
 exports[`renders components/popconfirm/demo/icon.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-default ant-btn-color-dangerous ant-btn-variant-outlined"
+    class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
     type="button"
   >
     <span>
@@ -438,7 +438,7 @@ exports[`renders components/popconfirm/demo/icon.tsx extend context correctly 2`
 exports[`renders components/popconfirm/demo/locale.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-default ant-btn-color-dangerous ant-btn-variant-outlined"
+    class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
     type="button"
   >
     <span>

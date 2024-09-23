@@ -1133,7 +1133,7 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
                   class="ant-space-item"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-color-dangerous ant-btn-variant-solid"
+                    class="ant-btn ant-btn-primary ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-solid"
                     type="button"
                   >
                     <span>
