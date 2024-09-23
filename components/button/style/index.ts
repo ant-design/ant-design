@@ -255,22 +255,6 @@ const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
     },
   ),
 
-  ...genOutlinedDashedButtonStyle(
-    token,
-    token.defaultBorderColor,
-    token.defaultBg,
-    {
-      color: token.defaultHoverColor,
-      borderColor: token.defaultHoverBorderColor,
-      background: token.defaultHoverBg,
-    },
-    {
-      color: token.defaultActiveColor,
-      borderColor: token.defaultActiveBorderColor,
-      background: token.defaultActiveBg,
-    },
-  ),
-
   ...genDashedButtonStyle(token),
 
   ...genFilledButtonStyle(
@@ -284,19 +268,6 @@ const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
     },
   ),
 
-  ...genTextLinkButtonStyle(
-    token,
-    token.textTextColor,
-    'text',
-    {
-      color: token.textTextHoverColor,
-      background: token.textHoverBg,
-    },
-    {
-      color: token.textTextActiveColor,
-      background: token.colorBgTextActive,
-    },
-  ),
   ...genTextLinkButtonStyle(
     token,
     token.textTextColor,
@@ -324,18 +295,6 @@ const genPrimaryButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
   color: token.colorPrimary,
 
   boxShadow: token.primaryShadow,
-
-  ...genSolidButtonStyle(
-    token,
-    token.primaryColor,
-    token.colorPrimary,
-    {
-      background: token.colorPrimaryHover,
-    },
-    {
-      background: token.colorPrimaryActive,
-    },
-  ),
 
   ...genOutlinedDashedButtonStyle(
     token,
@@ -377,19 +336,6 @@ const genPrimaryButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
     {
       color: token.colorPrimaryTextActive,
       background: token.colorPrimaryBorder,
-    },
-  ),
-
-  ...genTextLinkButtonStyle(
-    token,
-    token.colorLink,
-    'link',
-    {
-      color: token.colorLinkHover,
-      background: token.linkHoverBg,
-    },
-    {
-      color: token.colorLinkActive,
     },
   ),
 
@@ -507,6 +453,68 @@ const genColorButtonStyle: GenerateStyle<ButtonToken> = (token) => {
     [`${componentCls}-color-dangerous`]: genDangerousStyle(token),
   };
 };
+
+// =========== Compatible with versions earlier than 5.21.0 ===========
+const genCompatibleButtonStyle: GenerateStyle<ButtonToken> = (token) => ({
+  // default + outlined
+  ...genOutlinedDashedButtonStyle(
+    token,
+    token.defaultBorderColor,
+    token.defaultBg,
+    {
+      color: token.defaultHoverColor,
+      borderColor: token.defaultHoverBorderColor,
+      background: token.defaultHoverBg,
+    },
+    {
+      color: token.defaultActiveColor,
+      borderColor: token.defaultActiveBorderColor,
+      background: token.defaultActiveBg,
+    },
+  ),
+
+  // default + text
+  ...genTextLinkButtonStyle(
+    token,
+    token.textTextColor,
+    'text',
+    {
+      color: token.textTextHoverColor,
+      background: token.textHoverBg,
+    },
+    {
+      color: token.textTextActiveColor,
+      background: token.colorBgTextActive,
+    },
+  ),
+
+  // primary + solid
+  ...genSolidButtonStyle(
+    token,
+    token.primaryColor,
+    token.colorPrimary,
+    {
+      background: token.colorPrimaryHover,
+    },
+    {
+      background: token.colorPrimaryActive,
+    },
+  ),
+
+  // primary + link
+  ...genTextLinkButtonStyle(
+    token,
+    token.colorLink,
+    'link',
+    {
+      color: token.colorLinkHover,
+      background: token.linkHoverBg,
+    },
+    {
+      color: token.colorLinkActive,
+    },
+  ),
+});
 
 // =============================== Size ===============================
 const genButtonStyle = (token: ButtonToken, prefixCls = ''): CSSInterpolation => {
@@ -640,6 +648,9 @@ export default genStyleHooks(
 
       // Color
       genColorButtonStyle(buttonToken),
+
+      // https://github.com/ant-design/ant-design/issues/50969
+      genCompatibleButtonStyle(buttonToken),
 
       // Button Group
       genGroupStyle(buttonToken),
