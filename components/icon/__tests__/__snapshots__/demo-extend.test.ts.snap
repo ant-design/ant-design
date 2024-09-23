@@ -238,6 +238,7 @@ exports[`renders components/icon/demo/custom.tsx extend context correctly 1`] = 
         aria-hidden="true"
         aria-label="home"
         class="anticon anticon-home"
+        fill="currentColor"
         focusable="false"
         height="1em"
         role="img"
@@ -301,6 +302,7 @@ exports[`renders components/icon/demo/iconfont.tsx extend context correctly 1`] 
       <svg
         aria-hidden="true"
         class=""
+        fill="currentColor"
         focusable="false"
         height="1em"
         width="1em"
@@ -322,6 +324,7 @@ exports[`renders components/icon/demo/iconfont.tsx extend context correctly 1`] 
       <svg
         aria-hidden="true"
         class=""
+        fill="currentColor"
         focusable="false"
         height="1em"
         width="1em"
@@ -342,6 +345,7 @@ exports[`renders components/icon/demo/iconfont.tsx extend context correctly 1`] 
       <svg
         aria-hidden="true"
         class=""
+        fill="currentColor"
         focusable="false"
         height="1em"
         width="1em"
@@ -371,6 +375,7 @@ exports[`renders components/icon/demo/scriptUrl.tsx extend context correctly 1`]
       <svg
         aria-hidden="true"
         class=""
+        fill="currentColor"
         focusable="false"
         height="1em"
         width="1em"
@@ -391,6 +396,7 @@ exports[`renders components/icon/demo/scriptUrl.tsx extend context correctly 1`]
       <svg
         aria-hidden="true"
         class=""
+        fill="currentColor"
         focusable="false"
         height="1em"
         width="1em"
@@ -411,6 +417,7 @@ exports[`renders components/icon/demo/scriptUrl.tsx extend context correctly 1`]
       <svg
         aria-hidden="true"
         class=""
+        fill="currentColor"
         focusable="false"
         height="1em"
         width="1em"
@@ -431,6 +438,7 @@ exports[`renders components/icon/demo/scriptUrl.tsx extend context correctly 1`]
       <svg
         aria-hidden="true"
         class=""
+        fill="currentColor"
         focusable="false"
         height="1em"
         width="1em"
