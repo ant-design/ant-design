@@ -959,9 +959,11 @@ describe('Table.rowSelection', () => {
           container.querySelectorAll('.ant-dropdown-menu-item .ant-checkbox-wrapper')[index],
         );
       });
-      // wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid').simulate('click');
+      // wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid').simulate('click');
       fireEvent.click(
-        container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid')!,
+        container.querySelector(
+          '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
+        )!,
       );
     }
 
