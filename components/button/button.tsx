@@ -249,7 +249,7 @@ const InternalCompoundedButton = React.forwardRef<
     cssVarCls,
     {
       [`${prefixCls}-${shape}`]: shape !== 'default' && shape,
-      // Compatible with versions earlier than 5.21.0
+      // line(253 - 254): Compatible with versions earlier than 5.21.0
       [`${prefixCls}-${mergedType}`]: mergedType,
       [`${prefixCls}-dangerous`]: danger,
       [`${prefixCls}-color-${mergedColorText}`]: mergedColorText,
