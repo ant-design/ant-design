@@ -35,9 +35,9 @@ And 4 other properties additionally.
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Syntactic sugar</code>
 <code src="./demo/color-variant.tsx" version="5.21.0">Color & Variant</code>
+<code src="./demo/debug-color-variant" debug>Debug Color & Variant</code>
 <code src="./demo/icon.tsx">Icon</code>
 <code src="./demo/icon-position.tsx" version="5.17.0">Icon Position</code>
-<code src="./demo/debug-type-link.tsx" debug>Debug Type Link</code>
 <code src="./demo/debug-icon.tsx" debug>Debug Icon</code>
 <code src="./demo/debug-block.tsx" debug>Debug Block</code>
 <code src="./demo/size.tsx">Size</code>

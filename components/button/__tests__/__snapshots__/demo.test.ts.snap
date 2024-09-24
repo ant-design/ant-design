@@ -575,6 +575,121 @@ exports[`renders components/button/demo/debug-block.tsx correctly 1`] = `
 </form>
 `;
 
+exports[`renders components/button/demo/debug-color-variant.tsx correctly 1`] = `
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="ant-flex ant-flex-gap-small"
+  >
+    <button
+      class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link"
+      type="button"
+    >
+      <span>
+        Link Button
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link"
+      type="button"
+    >
+      <span>
+        Link Button
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+  >
+    <button
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid acss-1ncngmd"
+      type="button"
+    >
+      <span>
+        Primary Button
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined acss-1ndra3x"
+      type="button"
+    >
+      <span>
+        Default Button
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed acss-1ndra3x"
+      type="button"
+    >
+      <span>
+        Dashed Button
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text acss-v6wxmk"
+      type="button"
+    >
+      <span>
+        Text Button
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link acss-1r0846s"
+      type="button"
+    >
+      <span>
+        Link Button
+      </span>
+    </button>
+  </div>
+  <div
+    class="acss-1cu8o9m ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+  >
+    <button
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span>
+        Primary Button
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Default Button
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
+      type="button"
+    >
+      <span>
+        Dashed Button
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text"
+      type="button"
+    >
+      <span>
+        Text Button
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link"
+      type="button"
+    >
+      <span>
+        Link Button
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`renders components/button/demo/debug-icon.tsx correctly 1`] = `
 Array [
   <div
@@ -961,27 +1076,6 @@ Array [
       </button>
     </div>
   </div>,
-]
-`;
-
-exports[`renders components/button/demo/debug-type-link.tsx correctly 1`] = `
-Array [
-  <button
-    class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link"
-    type="button"
-  >
-    <span>
-      Link Button
-    </span>
-  </button>,
-  <button
-    class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link"
-    type="button"
-  >
-    <span>
-      Link Button
-    </span>
-  </button>,
 ]
 `;
 
