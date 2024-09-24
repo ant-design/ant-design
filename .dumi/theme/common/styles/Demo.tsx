@@ -336,6 +336,7 @@ const GlobalDemoStyles: React.FC = () => {
 
           &-debug {
             border-color: ${token.purple3};
+            display: none;
           }
 
           &-debug &-title a {
@@ -345,6 +346,10 @@ const GlobalDemoStyles: React.FC = () => {
 
         .demo-wrapper {
           position: relative;
+
+          &-show-debug .code-box-debug {
+            display: block;
+          }
         }
 
         .all-code-box-controls {
