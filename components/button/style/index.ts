@@ -495,9 +495,11 @@ const genCompatibleButtonStyle: GenerateStyle<ButtonToken> = (token) => ({
     token.colorPrimary,
     {
       background: token.colorPrimaryHover,
+      color: token.primaryColor,
     },
     {
       background: token.colorPrimaryActive,
+      color: token.primaryColor,
     },
   ),
 
