@@ -650,7 +650,7 @@ Array [
     </span>
   </span>,
   <button
-    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
+    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
     style="margin: 0px 16px; vertical-align: middle;"
     type="button"
   >
@@ -659,7 +659,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
+    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
     style="vertical-align: middle;"
     type="button"
   >
@@ -1298,7 +1298,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -1310,7 +1310,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -1322,7 +1322,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>

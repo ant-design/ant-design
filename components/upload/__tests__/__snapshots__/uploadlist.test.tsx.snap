@@ -66,7 +66,7 @@ exports[`Upload List handle error 1`] = `
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -227,7 +227,7 @@ exports[`Upload List should be uploading when upload a file 1`] = `
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -339,7 +339,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           class="ant-upload-list-item-actions picture"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -402,7 +402,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           class="ant-upload-list-item-actions picture"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -484,7 +484,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           class="ant-upload-list-item-actions picture"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -566,7 +566,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           class="ant-upload-list-item-actions picture"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -629,7 +629,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           class="ant-upload-list-item-actions picture"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -692,7 +692,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           class="ant-upload-list-item-actions picture"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -755,7 +755,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           class="ant-upload-list-item-actions picture"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -818,7 +818,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           class="ant-upload-list-item-actions picture"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -881,7 +881,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           class="ant-upload-list-item-actions picture"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -944,7 +944,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           class="ant-upload-list-item-actions picture"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -1048,7 +1048,7 @@ exports[`Upload List should support removeIcon and downloadIcon 1`] = `
           class="ant-upload-list-item-actions picture"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -1094,7 +1094,7 @@ exports[`Upload List should support removeIcon and downloadIcon 1`] = `
           class="ant-upload-list-item-actions picture"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Download file"
             type="button"
           >
@@ -1107,7 +1107,7 @@ exports[`Upload List should support removeIcon and downloadIcon 1`] = `
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -1194,7 +1194,7 @@ exports[`Upload List should support removeIcon and downloadIcon 2`] = `
           class="ant-upload-list-item-actions picture"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -1240,7 +1240,7 @@ exports[`Upload List should support removeIcon and downloadIcon 2`] = `
           class="ant-upload-list-item-actions picture"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Download file"
             type="button"
           >
@@ -1253,7 +1253,7 @@ exports[`Upload List should support removeIcon and downloadIcon 2`] = `
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -1445,7 +1445,7 @@ exports[`Upload List should support showXxxIcon functions 1`] = `
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -1545,7 +1545,7 @@ exports[`Upload List should support showXxxIcon functions 1`] = `
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Download file"
             type="button"
           >
@@ -1558,7 +1558,7 @@ exports[`Upload List should support showXxxIcon functions 1`] = `
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >

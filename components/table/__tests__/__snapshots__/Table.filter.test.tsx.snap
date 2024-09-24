@@ -679,7 +679,7 @@ exports[`Table.filter renders menu correctly 1`] = `
     class="ant-table-filter-dropdown-btns"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-link ant-btn-sm"
+      class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
       disabled=""
       type="button"
     >
@@ -688,7 +688,7 @@ exports[`Table.filter renders menu correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
       type="button"
     >
       <span>
@@ -819,7 +819,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
     class="ant-table-filter-dropdown-btns"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-link ant-btn-sm"
+      class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
       disabled=""
       type="button"
     >
@@ -828,7 +828,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
       type="button"
     >
       <span>

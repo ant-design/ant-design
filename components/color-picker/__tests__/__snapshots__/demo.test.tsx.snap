@@ -637,7 +637,7 @@ exports[`renders components/color-picker/demo/text-render.tsx correctly 1`] = `
 
 exports[`renders components/color-picker/demo/trigger.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary ant-btn-solid"
+  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   style="background-color:#1677ff"
   type="button"
 >
