@@ -36,7 +36,7 @@ const DecimalStep: React.FC = () => {
   const [inputValue, setInputValue] = useState(0);
 
   const onChange: InputNumberProps['onChange'] = (value) => {
-    if (isNaN(value as number)) {
+    if (Number.isNaN(value)) {
       return;
     }
     setInputValue(value as number);

@@ -141,12 +141,12 @@
 
     const title = document.createElement('div');
     title.className = 'mirror-modal-title';
-    title.innerText = '提示';
+    title.textContent = '提示';
     dialog.append(title);
 
     const content = document.createElement('div');
     content.className = 'mirror-modal-content';
-    content.innerText = '🚀 国内用户推荐访问国内镜像以获得极速体验～';
+    content.textContent = '🚀 国内用户推荐访问国内镜像以获得极速体验～';
     dialog.append(content);
 
     const btnWrapper = document.createElement('div');
@@ -155,7 +155,7 @@
 
     const cancelBtn = document.createElement('a');
     cancelBtn.className = 'mirror-modal-cancel-btn mirror-modal-btn';
-    cancelBtn.innerText = '7 天内不再显示';
+    cancelBtn.textContent = '7 天内不再显示';
     btnWrapper.append(cancelBtn);
     cancelBtn.addEventListener('click', () => {
       window.localStorage.setItem(ANTD_DOT_NOT_SHOW_MIRROR_MODAL, new Date().toISOString());
@@ -167,7 +167,7 @@
     const confirmBtn = document.createElement('a');
     confirmBtn.className = 'mirror-modal-confirm-btn mirror-modal-btn';
     confirmBtn.href = window.location.href.replace(window.location.host, 'ant-design.antgroup.com');
-    confirmBtn.innerText = '🚀 立刻前往';
+    confirmBtn.textContent = '🚀 立刻前往';
     btnWrapper.append(confirmBtn);
 
     document.body.append(modal);

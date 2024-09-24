@@ -903,7 +903,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           type="button"
         >
           <span>
@@ -1052,7 +1052,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           type="button"
         >
           <span>
@@ -1201,7 +1201,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           type="button"
         >
           <span>
@@ -1350,7 +1350,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           type="button"
         >
           <span>
@@ -1803,7 +1803,7 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx extend context corr
     style="margin-bottom: 16px;"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -1994,7 +1994,9 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx extend context corr
 exports[`renders components/tabs/demo/custom-indicator.tsx extend context correctly 1`] = `
 Array [
   <div
+    aria-label="segmented control"
     class="ant-segmented"
+    role="listbox"
     style="margin-bottom: 8px;"
   >
     <div
@@ -2008,7 +2010,9 @@ Array [
           type="radio"
         />
         <div
+          aria-selected="false"
           class="ant-segmented-item-label"
+          role="option"
           title="start"
         >
           start
@@ -2023,7 +2027,9 @@ Array [
           type="radio"
         />
         <div
+          aria-selected="true"
           class="ant-segmented-item-label"
+          role="option"
           title="center"
         >
           center
@@ -2037,7 +2043,9 @@ Array [
           type="radio"
         />
         <div
+          aria-selected="false"
           class="ant-segmented-item-label"
+          role="option"
           title="end"
         >
           end
@@ -3022,7 +3030,7 @@ Array [
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           type="button"
         >
           <span>
@@ -3117,7 +3125,7 @@ Array [
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn ant-btn-default tabs-extra-demo-button"
+          class="ant-btn ant-btn-default ant-btn-outlined tabs-extra-demo-button"
           type="button"
         >
           <span>
@@ -3238,7 +3246,7 @@ Array [
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-outlined"
           type="button"
         >
           <span>

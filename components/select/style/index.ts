@@ -180,6 +180,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
       [`&:hover ${componentCls}-clear`]: {
         opacity: 1,
         background: token.colorBgBase,
+        borderRadius: '50%',
       },
     },
 

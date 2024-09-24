@@ -8,6 +8,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import theme from '../../theme';
 import type { BaseButtonProps } from '../button';
 
 describe('Button', () => {
@@ -231,7 +232,6 @@ describe('Button', () => {
   it('should merge text if children using variable', () => {
     const wrapper = render(
       <Button>
-        {/* eslint-disable-next-line react/jsx-curly-brace-presence */}
         This {'is'} a test {1}
       </Button>,
     );
@@ -329,7 +329,6 @@ describe('Button', () => {
   it('should handle fragment as children', () => {
     const wrapper = render(
       <Button>
-        {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
         <>text</>
       </Button>,
     );
@@ -448,5 +447,31 @@ describe('Button', () => {
     const text = '确定';
     const { container } = render(<Button autoInsertSpace={false}>{text}</Button>);
     expect(container.querySelector<HTMLButtonElement>('button')?.textContent).toBe(text);
+  });
+
+  it('should support solidTextColor when theme changes', () => {
+    const { container: defaultContainer } = render(
+      <ConfigProvider theme={{ algorithm: [theme.defaultAlgorithm] }}>
+        <Button color="default" variant="solid">
+          btn1
+        </Button>
+      </ConfigProvider>,
+    );
+
+    expect(defaultContainer.firstChild).toHaveStyle({
+      color: 'rgb(255, 255, 255)',
+    });
+
+    const { container: darkContainer } = render(
+      <ConfigProvider theme={{ algorithm: [theme.darkAlgorithm] }}>
+        <Button color="default" variant="solid">
+          btn2
+        </Button>
+      </ConfigProvider>,
+    );
+
+    expect(darkContainer.firstChild).toHaveStyle({
+      color: 'rgb(0, 0, 0)',
+    });
   });
 });

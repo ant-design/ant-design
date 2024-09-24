@@ -84,11 +84,12 @@ const columns = [
 <code src="./demo/colspan-rowspan.tsx">表格行/列合并</code>
 <code src="./demo/tree-data.tsx">树形数据展示</code>
 <code src="./demo/tree-table-ellipsis.tsx" debug>树形数据省略情况测试</code>
+<code src="./demo/tree-table-preserveSelectedRowKeys.tsx" debug>树形数据保留key测试</code>
 <code src="./demo/fixed-header.tsx">固定表头</code>
 <code src="./demo/fixed-columns.tsx">固定列</code>
 <code src="./demo/fixed-gapped-columns.tsx" version="5.14.0">堆叠固定列</code>
 <code src="./demo/fixed-columns-header.tsx">固定头和列</code>
-<code src="./demo/hidden-columns.tsx">隐藏列</code>
+<code src="./demo/hidden-columns.tsx" version="5.13.0">隐藏列</code>
 <code src="./demo/grouping-columns.tsx">表头分组</code>
 <code src="./demo/edit-cell.tsx">可编辑单元格</code>
 <code src="./demo/edit-row.tsx">可编辑行</code>
@@ -101,7 +102,7 @@ const columns = [
 <code src="./demo/ellipsis-custom-tooltip.tsx">自定义单元格省略提示</code>
 <code src="./demo/custom-empty.tsx">自定义空状态</code>
 <code src="./demo/summary.tsx">总结栏</code>
-<code src="./demo/virtual-list.tsx" version=">= 5.9.0">虚拟列表</code>
+<code src="./demo/virtual-list.tsx" version="5.9.0">虚拟列表</code>
 <code src="./demo/responsive.tsx">响应式</code>
 <code src="./demo/nest-table-border-debug.tsx" debug>嵌套带边框的表格 Debug</code>
 <code src="./demo/pagination.tsx">分页设置</code>
@@ -215,6 +216,7 @@ const columns = [
 | sortIcon | 自定义 sort 图标 | (props: { sortOrder }) => ReactNode | - | 5.6.0 |
 | title | 列头显示文字（函数用法 `3.10.0` 后支持） | ReactNode \| ({ sortOrder, sortColumn, filters }) => ReactNode | - |  |
 | width | 列宽度（[指定了也不生效？](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)） | string \| number | - |  |
+| minWidth | 最小列宽度，只在 `tableLayout="auto"` 时有效 | number | - | 5.21.0 |
 | hidden | 隐藏列 | boolean | false | 5.13.0 |
 | onCell | 设置单元格属性 | function(record, rowIndex) | - |  |
 | onFilter | 本地模式下，确定筛选的运行函数 | function | - |  |

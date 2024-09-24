@@ -7,7 +7,7 @@ Array [
       class=""
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-solid"
         type="button"
       >
         <span>
@@ -22,7 +22,7 @@ Array [
       class=""
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-solid"
         type="button"
       >
         <span>
@@ -51,7 +51,7 @@ exports[`renders components/affix/demo/debug.tsx extend context correctly 1`] = 
         style="background: red;"
       >
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-solid"
           type="button"
         >
           <span>
@@ -75,7 +75,7 @@ exports[`renders components/affix/demo/on-change.tsx extend context correctly 1`
     class=""
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-outlined"
       type="button"
     >
       <span>
@@ -100,7 +100,7 @@ exports[`renders components/affix/demo/target.tsx extend context correctly 1`] =
         class=""
       >
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-solid"
           type="button"
         >
           <span>

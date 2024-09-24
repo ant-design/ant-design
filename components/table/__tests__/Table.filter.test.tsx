@@ -1,5 +1,3 @@
-/* eslint-disable no-unsafe-optional-chaining */
-/* eslint-disable react/no-multi-comp */
 import React, { useEffect, useState } from 'react';
 
 import type { ColumnGroupType, ColumnType, TableProps } from '..';
@@ -340,7 +338,7 @@ describe('Table.filter', () => {
     fireEvent.click(
       container
         ?.querySelector('.ant-table-filter-dropdown')
-        ?.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!,
+        ?.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid')!,
     );
 
     expect(container.querySelectorAll('tbody tr')).toHaveLength(2);
@@ -625,7 +623,9 @@ describe('Table.filter', () => {
     const { container } = render(createTable({ onChange: handleChange }));
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[0]);
-    fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
+    fireEvent.click(
+      container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid')!,
+    );
     expect(handleChange).toHaveBeenCalledWith(
       {},
       { name: ['boy'] },
@@ -642,7 +642,9 @@ describe('Table.filter', () => {
     const { container } = render(createTable({ pagination: { onChange: onPaginationChange } }));
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[0]);
-    fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
+    fireEvent.click(
+      container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid')!,
+    );
     await waitFor(() => expect(onPaginationChange).toHaveBeenCalledWith(1, 10));
   });
 
@@ -651,7 +653,9 @@ describe('Table.filter', () => {
     const { container } = render(createTable({ onChange: handleChange }));
 
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
-    fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
+    fireEvent.click(
+      container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid')!,
+    );
     await waitFor(() => expect(handleChange).not.toHaveBeenCalled());
   });
 
@@ -669,7 +673,9 @@ describe('Table.filter', () => {
       }),
     );
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
-    fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
+    fireEvent.click(
+      container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid')!,
+    );
     await waitFor(() => expect(handleChange).not.toHaveBeenCalled());
   });
 
@@ -723,7 +729,9 @@ describe('Table.filter', () => {
     const items = getFilterMenu()?.querySelectorAll('li.ant-dropdown-menu-item');
     fireEvent.click(items?.[items.length - 1]!);
     fireEvent.click(
-      getFilterMenu()?.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!,
+      getFilterMenu()?.querySelector(
+        '.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid',
+      )!,
     );
     refreshTimer();
 
@@ -772,7 +780,9 @@ describe('Table.filter', () => {
 
         // This test can be remove if refactor
         fireEvent.click(
-          container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!,
+          container.querySelector(
+            '.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid',
+          )!,
         );
 
         await waitFor(() =>
@@ -836,7 +846,9 @@ describe('Table.filter', () => {
     expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
 
     fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[0]);
-    fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
+    fireEvent.click(
+      container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid')!,
+    );
     expect(renderedNames(container)).toEqual(['Jack']);
     expect(container.querySelector('.ant-dropdown-open')).toBeFalsy();
 
@@ -846,7 +858,9 @@ describe('Table.filter', () => {
     expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
     expect(renderedNames(container)).toEqual(['Jack']);
 
-    fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
+    fireEvent.click(
+      container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid')!,
+    );
     expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
     expect(container.querySelector('.ant-dropdown-open')).toBeFalsy();
   });
@@ -997,7 +1011,6 @@ describe('Table.filter', () => {
             dataIndex: 'name',
             key: 'name',
             filteredValue: name,
-            // eslint-disable-next-line react/no-unstable-nested-components
             filterDropdown: ({ setSelectedKeys, selectedKeys, confirm }) => (
               <div>
                 <Input
@@ -1209,7 +1222,9 @@ describe('Table.filter', () => {
     // Warning: An update to Item ran an effect, but was not wrapped in act(...).
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
-    fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
+    fireEvent.click(
+      container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid')!,
+    );
     expect(onChange).toHaveBeenCalled();
     onChange.mockReset();
     expect(onChange).not.toHaveBeenCalled();
@@ -1226,7 +1241,9 @@ describe('Table.filter', () => {
 
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
-    fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
+    fireEvent.click(
+      container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid')!,
+    );
     expect(onChange).toHaveBeenCalled();
   });
 
@@ -1325,7 +1342,9 @@ describe('Table.filter', () => {
     // Warning: An update to Item ran an effect, but was not wrapped in act(...).
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
-    fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
+    fireEvent.click(
+      container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid')!,
+    );
 
     expect(handleChange).toHaveBeenCalledWith(
       {
@@ -1358,7 +1377,9 @@ describe('Table.filter', () => {
     // Warning: An update to Item ran an effect, but was not wrapped in act(...).
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
-    fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
+    fireEvent.click(
+      container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid')!,
+    );
 
     expect(handleChange).toHaveBeenCalledWith(
       {
@@ -1435,7 +1456,9 @@ describe('Table.filter', () => {
     // Warning: An update to Item ran an effect, but was not wrapped in act(...).
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!, nativeEvent);
     fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
-    fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
+    fireEvent.click(
+      container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid')!,
+    );
 
     expect(onChange).toHaveBeenCalledWith(
       expect.anything(),
@@ -1472,7 +1495,8 @@ describe('Table.filter', () => {
     );
 
     expect(
-      container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')?.textContent,
+      container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid')
+        ?.textContent,
     ).toEqual('Bamboo');
     expect(
       container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-link')?.textContent,
@@ -1604,7 +1628,9 @@ describe('Table.filter', () => {
     const { container } = render(createTable({ columns: [filterControlledColumn] }));
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
-    fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!); // close dropdown
+    fireEvent.click(
+      container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid')!,
+    ); // close dropdown
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!); // reopen
     const checkbox = container
       ?.querySelector('.ant-dropdown-menu-item')
@@ -1624,7 +1650,9 @@ describe('Table.filter', () => {
     );
     const { container, unmount } = render(<Test filters={[]} />);
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
-    fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
+    fireEvent.click(
+      container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid')!,
+    );
     expect(onChange).not.toHaveBeenCalled();
     onChange.mockReset();
     unmount();
@@ -1731,13 +1759,17 @@ describe('Table.filter', () => {
     );
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
-    fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
+    fireEvent.click(
+      container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid')!,
+    );
 
     expect(onChange.mock.calls[0][0].current).toBe(1);
 
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[1]!);
-    fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
+    fireEvent.click(
+      container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid')!,
+    );
     expect(onChange.mock.calls[1][0].current).toBe(1);
   });
 
@@ -1855,7 +1887,7 @@ describe('Table.filter', () => {
     );
     fireEvent.click(container.querySelector('.ant-dropdown-trigger.ant-table-filter-trigger')!);
     fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
-    fireEvent.click(container.querySelector('.ant-btn.ant-btn-primary.ant-btn-sm')!);
+    fireEvent.click(container.querySelector('.ant-btn.ant-btn-primary.ant-btn-solid.ant-btn-sm')!);
     expect(container.querySelector('.ant-table-tbody .ant-table-cell')?.textContent).toEqual(
       `${66}`,
     );
@@ -2024,7 +2056,9 @@ describe('Table.filter', () => {
     const items = getFilterMenu()?.querySelectorAll('li.ant-dropdown-menu-item');
     fireEvent.click(items?.[0]!);
     fireEvent.click(
-      getFilterMenu()?.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!,
+      getFilterMenu()?.querySelector(
+        '.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid',
+      )!,
     );
     refreshTimer();
 
@@ -2459,7 +2493,9 @@ describe('Table.filter', () => {
         .className.includes('ant-tree-checkbox-checked'),
     ).toBe(true);
 
-    fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
+    fireEvent.click(
+      container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid')!,
+    );
     expect(renderedNames(container)).toEqual(['Jack']);
 
     fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
@@ -2468,7 +2504,9 @@ describe('Table.filter', () => {
     });
 
     fireEvent.click(container.querySelectorAll('.ant-tree-checkbox-inner')[2]);
-    fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
+    fireEvent.click(
+      container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid')!,
+    );
     expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
 
     fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
@@ -2477,7 +2515,9 @@ describe('Table.filter', () => {
     });
 
     fireEvent.click(container.querySelectorAll('.ant-tree-node-content-wrapper')[2]);
-    fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
+    fireEvent.click(
+      container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid')!,
+    );
     expect(renderedNames(container)).toEqual(['Jack']);
   });
 
@@ -2861,7 +2901,9 @@ describe('Table.filter', () => {
 
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[0]);
-    fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
+    fireEvent.click(
+      container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary.ant-btn-solid')!,
+    );
 
     expect(renderedNames(container)).toEqual(['Jack']);
   });

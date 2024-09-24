@@ -98,7 +98,6 @@ const Divider: React.FC<DividerProps> = (props) => {
       className={classString}
       style={{ ...divider?.style, ...style }}
       {...restProps}
-      // biome-ignore lint/a11y/useAriaPropsForRole: divider do not need aria-value
       role="separator"
     >
       {children && type !== 'vertical' && (

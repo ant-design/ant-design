@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-console
 const originError = console.error;
 
 export function isSafeWarning(message: boolean, all = false) {

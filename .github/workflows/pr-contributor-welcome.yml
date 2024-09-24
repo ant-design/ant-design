@@ -39,4 +39,4 @@ jobs:
             <img src="https://github.com/user-attachments/assets/cfee105e-8731-481f-a336-92b79a84d35a" height="200" />
 
             <!-- WELCOME_CONTRIBUTION -->
-          body-include: '<!-- WELCOME_CONTRIBUTION -->'
+          body-include: <!-- WELCOME_CONTRIBUTION -->

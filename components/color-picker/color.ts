@@ -1,10 +1,9 @@
-/* eslint-disable class-methods-use-this */
 import { Color as RcColor } from '@rc-component/color-picker';
 
 import type { ColorGenInput, Colors } from './interface';
 
 export const toHexFormat = (value?: string, alpha?: boolean) =>
-  value?.replace(/[^\w/]/gi, '').slice(0, alpha ? 8 : 6) || '';
+  value?.replace(/[^\w/]/g, '').slice(0, alpha ? 8 : 6) || '';
 
 export const getHex = (value?: string, alpha?: boolean) => (value ? toHexFormat(value, alpha) : '');
 

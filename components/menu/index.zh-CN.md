@@ -74,14 +74,15 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAA
 
 #### MenuItemType
 
-| 参数     | 说明                     | 类型      | 默认值 | 版本 |
-| -------- | ------------------------ | --------- | ------ | ---- |
-| danger   | 展示错误状态样式         | boolean   | false  |      |
-| disabled | 是否禁用                 | boolean   | false  |      |
-| icon     | 菜单图标                 | ReactNode | -      |      |
-| key      | item 的唯一标志          | string    | -      |      |
-| label    | 菜单项标题               | ReactNode | -      |      |
-| title    | 设置收缩时展示的悬浮标题 | string    | -      |      |
+| 参数     | 说明                     | 类型      | 默认值 | 版本   |
+| -------- | ------------------------ | --------- | ------ | ------ |
+| danger   | 展示错误状态样式         | boolean   | false  |        |
+| disabled | 是否禁用                 | boolean   | false  |        |
+| extra    | 额外节点                 | ReactNode | -      | 5.21.0 |
+| icon     | 菜单图标                 | ReactNode | -      |        |
+| key      | item 的唯一标志          | string    | -      |        |
+| label    | 菜单项标题               | ReactNode | -      |        |
+| title    | 设置收缩时展示的悬浮标题 | string    | -      |        |
 
 #### SubMenuType
 

@@ -34,6 +34,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     name,
     defaultValue,
     value: customizedValue,
+    block = false,
     onChange,
     onMouseEnter,
     onMouseLeave,
@@ -111,6 +112,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     {
       [`${groupPrefixCls}-${mergedSize}`]: mergedSize,
       [`${groupPrefixCls}-rtl`]: direction === 'rtl',
+      [`${groupPrefixCls}-block`]: block,
     },
     className,
     rootClassName,
@@ -120,8 +122,8 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
   );
 
   const memoizedValue = React.useMemo<RadioGroupContextProps>(
-    () => ({ onChange: onRadioChange, value, disabled, name, optionType }),
-    [onRadioChange, value, disabled, name, optionType],
+    () => ({ onChange: onRadioChange, value, disabled, name, optionType, block }),
+    [onRadioChange, value, disabled, name, optionType, block],
   );
 
   return wrapCSSVar(

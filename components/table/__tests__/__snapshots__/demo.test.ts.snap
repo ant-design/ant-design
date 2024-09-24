@@ -2087,6 +2087,108 @@ Array [
                 >
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="0"
+                  >
+                    <td
+                      class="ant-table-cell ant-table-row-expand-icon-cell"
+                    >
+                      <button
+                        aria-expanded="false"
+                        aria-label="Expand row"
+                        class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                        type="button"
+                      />
+                    </td>
+                    <td
+                      class="ant-table-cell ant-table-selection-column"
+                    >
+                      <label
+                        class="ant-checkbox-wrapper"
+                      >
+                        <span
+                          class="ant-checkbox ant-wave-target"
+                        >
+                          <input
+                            class="ant-checkbox-input"
+                            type="checkbox"
+                          />
+                          <span
+                            class="ant-checkbox-inner"
+                          />
+                        </span>
+                      </label>
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      John Brown
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      2
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York No. 0 Lake Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
+                      >
+                        <div
+                          class="ant-space-item"
+                        >
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
+                        >
+                          <a>
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                            >
+                              <div
+                                class="ant-space-item"
+                              >
+                                More actions
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="1"
                   >
                     <td
@@ -3003,108 +3105,6 @@ Array [
                       </div>
                     </td>
                   </tr>
-                  <tr
-                    class="ant-table-row ant-table-row-level-0"
-                    data-row-key="10"
-                  >
-                    <td
-                      class="ant-table-cell ant-table-row-expand-icon-cell"
-                    >
-                      <button
-                        aria-expanded="false"
-                        aria-label="Expand row"
-                        class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
-                        type="button"
-                      />
-                    </td>
-                    <td
-                      class="ant-table-cell ant-table-selection-column"
-                    >
-                      <label
-                        class="ant-checkbox-wrapper"
-                      >
-                        <span
-                          class="ant-checkbox ant-wave-target"
-                        >
-                          <input
-                            class="ant-checkbox-input"
-                            type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
-                        </span>
-                      </label>
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      John Brown
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      102
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      New York No. 10 Lake Park
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
-                      >
-                        <div
-                          class="ant-space-item"
-                        >
-                          <a>
-                            Delete
-                          </a>
-                        </div>
-                        <div
-                          class="ant-space-item"
-                        >
-                          <a>
-                            <div
-                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
-                            >
-                              <div
-                                class="ant-space-item"
-                              >
-                                More actions
-                              </div>
-                              <div
-                                class="ant-space-item"
-                              >
-                                <span
-                                  aria-label="down"
-                                  class="anticon anticon-down"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="down"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                            </div>
-                          </a>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
                 </tbody>
               </table>
             </div>
@@ -3203,7 +3203,7 @@ Array [
 exports[`renders components/table/demo/custom-empty.tsx correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-solid"
     type="button"
   >
     <span>
@@ -4482,7 +4482,7 @@ exports[`renders components/table/demo/drag-sorting-handler.tsx correctly 1`] = 
                     style="text-align:center"
                   >
                     <button
-                      class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
+                      class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only"
                       style="cursor:move"
                       type="button"
                     >
@@ -4541,7 +4541,7 @@ exports[`renders components/table/demo/drag-sorting-handler.tsx correctly 1`] = 
                     style="text-align:center"
                   >
                     <button
-                      class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
+                      class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only"
                       style="cursor:move"
                       type="button"
                     >
@@ -4600,7 +4600,7 @@ exports[`renders components/table/demo/drag-sorting-handler.tsx correctly 1`] = 
                     style="text-align:center"
                   >
                     <button
-                      class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
+                      class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only"
                       style="cursor:move"
                       type="button"
                     >
@@ -5957,6 +5957,108 @@ Array [
                 >
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="0"
+                  >
+                    <td
+                      class="ant-table-cell ant-table-row-expand-icon-cell"
+                    >
+                      <button
+                        aria-expanded="false"
+                        aria-label="Expand row"
+                        class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                        type="button"
+                      />
+                    </td>
+                    <td
+                      class="ant-table-cell ant-table-selection-column"
+                    >
+                      <label
+                        class="ant-checkbox-wrapper"
+                      >
+                        <span
+                          class="ant-checkbox ant-wave-target"
+                        >
+                          <input
+                            class="ant-checkbox-input"
+                            type="checkbox"
+                          />
+                          <span
+                            class="ant-checkbox-inner"
+                          />
+                        </span>
+                      </label>
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      John Brown
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      2
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York No. 0 Lake Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
+                      >
+                        <div
+                          class="ant-space-item"
+                        >
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
+                        >
+                          <a>
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                            >
+                              <div
+                                class="ant-space-item"
+                              >
+                                More actions
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="1"
                   >
                     <td
@@ -6873,108 +6975,6 @@ Array [
                       </div>
                     </td>
                   </tr>
-                  <tr
-                    class="ant-table-row ant-table-row-level-0"
-                    data-row-key="10"
-                  >
-                    <td
-                      class="ant-table-cell ant-table-row-expand-icon-cell"
-                    >
-                      <button
-                        aria-expanded="false"
-                        aria-label="Expand row"
-                        class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
-                        type="button"
-                      />
-                    </td>
-                    <td
-                      class="ant-table-cell ant-table-selection-column"
-                    >
-                      <label
-                        class="ant-checkbox-wrapper"
-                      >
-                        <span
-                          class="ant-checkbox ant-wave-target"
-                        >
-                          <input
-                            class="ant-checkbox-input"
-                            type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
-                        </span>
-                      </label>
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      John Brown
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      102
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      New York No. 10 Lake Park
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
-                      >
-                        <div
-                          class="ant-space-item"
-                        >
-                          <a>
-                            Delete
-                          </a>
-                        </div>
-                        <div
-                          class="ant-space-item"
-                        >
-                          <a>
-                            <div
-                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
-                            >
-                              <div
-                                class="ant-space-item"
-                              >
-                                More actions
-                              </div>
-                              <div
-                                class="ant-space-item"
-                              >
-                                <span
-                                  aria-label="down"
-                                  class="anticon anticon-down"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="down"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                            </div>
-                          </a>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
                 </tbody>
               </table>
             </div>
@@ -7073,7 +7073,7 @@ Array [
 exports[`renders components/table/demo/edit-cell.tsx correctly 1`] = `
 <div>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-solid"
     style="margin-bottom:16px"
     type="button"
   >
@@ -9490,7 +9490,7 @@ exports[`renders components/table/demo/filter-search.tsx correctly 1`] = `
 
 exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="ant-table-wrapper acss-6kbv1r"
 >
   <div
     class="ant-spin-nested-loading"
@@ -9509,7 +9509,7 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
             style="overflow-x:auto;overflow-y:hidden"
           >
             <table
-              style="width:1300px;min-width:100%;table-layout:fixed"
+              style="width:max-content;min-width:100%;table-layout:auto"
             >
               <colgroup>
                 <col
@@ -9518,6 +9518,18 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
                 <col
                   style="width:100px"
                 />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
                 <col />
                 <col />
                 <col />
@@ -9654,6 +9666,78 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
                     Column 8
                   </th>
                   <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 9
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 10
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 11
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 12
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 13
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 14
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 15
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 16
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 17
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 18
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 19
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 20
+                  </th>
+                  <th
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
                     scope="col"
                     style="position:sticky;right:0"
@@ -9758,6 +9842,102 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
                     >
                     </div>
                   </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
@@ -9767,13 +9947,73 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    John Brown
+                    Olivia
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
                     style="position:sticky;left:0"
                   >
                     32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
                   </td>
                   <td
                     class="ant-table-cell"
@@ -9832,13 +10072,73 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Jim Green
+                    Ethan
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
                     style="position:sticky;left:0"
                   >
                     40
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
                   </td>
                   <td
                     class="ant-table-cell"
@@ -9894,85 +10194,6 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
           </div>
         </div>
       </div>
-      <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
-      >
-        <li
-          aria-disabled="true"
-          class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
-        >
-          <button
-            class="ant-pagination-item-link"
-            disabled=""
-            tabindex="-1"
-            type="button"
-          >
-            <span
-              aria-label="left"
-              class="anticon anticon-left"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="left"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-                />
-              </svg>
-            </span>
-          </button>
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
-          title="1"
-        >
-          <a
-            rel="nofollow"
-          >
-            1
-          </a>
-        </li>
-        <li
-          aria-disabled="true"
-          class="ant-pagination-next ant-pagination-disabled"
-          title="Next Page"
-        >
-          <button
-            class="ant-pagination-item-link"
-            disabled=""
-            tabindex="-1"
-            type="button"
-          >
-            <span
-              aria-label="right"
-              class="anticon anticon-right"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="right"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                />
-              </svg>
-            </span>
-          </button>
-        </li>
-      </ul>
     </div>
   </div>
 </div>
@@ -9980,7 +10201,7 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
 
 exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="ant-table-wrapper acss-6kbv1r"
 >
   <div
     class="ant-spin-nested-loading"
@@ -10069,6 +10290,78 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                     Column 8
                   </th>
                   <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 9
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 10
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 11
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 12
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 13
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 14
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 15
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 16
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 17
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 18
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 19
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 20
+                  </th>
+                  <th
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
                     scope="col"
                     style="position:sticky;right:0"
@@ -10081,10 +10374,10 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
           </div>
           <div
             class="ant-table-body"
-            style="overflow-x:auto;overflow-y:scroll;max-height:300px"
+            style="overflow-x:auto;overflow-y:scroll;max-height:275px"
           >
             <table
-              style="width:1500px;min-width:100%;table-layout:fixed"
+              style="width:max-content;min-width:100%;table-layout:auto"
             >
               <colgroup>
                 <col
@@ -10114,6 +10407,18 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                 <col
                   style="width:150px"
                 />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
                 <col />
                 <col
                   style="width:100px"
@@ -10215,6 +10520,102 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                     >
                     </div>
                   </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
@@ -10224,7 +10625,7 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edward 0
+                    Edward King 0
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -10235,42 +10636,102 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 0
+                    London, Park Lane no. 0
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 0
+                    London, Park Lane no. 0
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 0
+                    London, Park Lane no. 0
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 0
+                    London, Park Lane no. 0
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 0
+                    London, Park Lane no. 0
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 0
+                    London, Park Lane no. 0
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 0
+                    London, Park Lane no. 0
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 0
+                    London, Park Lane no. 0
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 0
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 0
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 0
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 0
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 0
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 0
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 0
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 0
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 0
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 0
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 0
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 0
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
@@ -10289,7 +10750,7 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edward 1
+                    Edward King 1
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -10300,42 +10761,102 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 1
+                    London, Park Lane no. 1
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 1
+                    London, Park Lane no. 1
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 1
+                    London, Park Lane no. 1
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 1
+                    London, Park Lane no. 1
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 1
+                    London, Park Lane no. 1
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 1
+                    London, Park Lane no. 1
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 1
+                    London, Park Lane no. 1
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 1
+                    London, Park Lane no. 1
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 1
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 1
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 1
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 1
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 1
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 1
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 1
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 1
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 1
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 1
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 1
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 1
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
@@ -10354,7 +10875,7 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edward 2
+                    Edward King 2
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -10365,42 +10886,102 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 2
+                    London, Park Lane no. 2
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 2
+                    London, Park Lane no. 2
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 2
+                    London, Park Lane no. 2
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 2
+                    London, Park Lane no. 2
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 2
+                    London, Park Lane no. 2
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 2
+                    London, Park Lane no. 2
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 2
+                    London, Park Lane no. 2
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 2
+                    London, Park Lane no. 2
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 2
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 2
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 2
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 2
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 2
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 2
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 2
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 2
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 2
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 2
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 2
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 2
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
@@ -10419,7 +11000,7 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edward 3
+                    Edward King 3
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -10430,42 +11011,102 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 3
+                    London, Park Lane no. 3
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 3
+                    London, Park Lane no. 3
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 3
+                    London, Park Lane no. 3
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 3
+                    London, Park Lane no. 3
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 3
+                    London, Park Lane no. 3
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 3
+                    London, Park Lane no. 3
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 3
+                    London, Park Lane no. 3
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 3
+                    London, Park Lane no. 3
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 3
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 3
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 3
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 3
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 3
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 3
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 3
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 3
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 3
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 3
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 3
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 3
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
@@ -10484,7 +11125,7 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edward 4
+                    Edward King 4
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -10495,42 +11136,102 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 4
+                    London, Park Lane no. 4
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 4
+                    London, Park Lane no. 4
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 4
+                    London, Park Lane no. 4
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 4
+                    London, Park Lane no. 4
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 4
+                    London, Park Lane no. 4
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 4
+                    London, Park Lane no. 4
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 4
+                    London, Park Lane no. 4
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 4
+                    London, Park Lane no. 4
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 4
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 4
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 4
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 4
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 4
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 4
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 4
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 4
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 4
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 4
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 4
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 4
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
@@ -10549,7 +11250,7 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edward 5
+                    Edward King 5
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -10560,42 +11261,102 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 5
+                    London, Park Lane no. 5
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 5
+                    London, Park Lane no. 5
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 5
+                    London, Park Lane no. 5
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 5
+                    London, Park Lane no. 5
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 5
+                    London, Park Lane no. 5
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 5
+                    London, Park Lane no. 5
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 5
+                    London, Park Lane no. 5
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 5
+                    London, Park Lane no. 5
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 5
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 5
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 5
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 5
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 5
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 5
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 5
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 5
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 5
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 5
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 5
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 5
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
@@ -10614,7 +11375,7 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edward 6
+                    Edward King 6
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -10625,42 +11386,102 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 6
+                    London, Park Lane no. 6
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 6
+                    London, Park Lane no. 6
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 6
+                    London, Park Lane no. 6
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 6
+                    London, Park Lane no. 6
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 6
+                    London, Park Lane no. 6
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 6
+                    London, Park Lane no. 6
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 6
+                    London, Park Lane no. 6
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 6
+                    London, Park Lane no. 6
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 6
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 6
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 6
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 6
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 6
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 6
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 6
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 6
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 6
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 6
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 6
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 6
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
@@ -10679,7 +11500,7 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edward 7
+                    Edward King 7
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -10690,42 +11511,102 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 7
+                    London, Park Lane no. 7
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 7
+                    London, Park Lane no. 7
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 7
+                    London, Park Lane no. 7
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 7
+                    London, Park Lane no. 7
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 7
+                    London, Park Lane no. 7
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 7
+                    London, Park Lane no. 7
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 7
+                    London, Park Lane no. 7
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 7
+                    London, Park Lane no. 7
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 7
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 7
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 7
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 7
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 7
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 7
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 7
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 7
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 7
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 7
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 7
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 7
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
@@ -10744,7 +11625,7 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edward 8
+                    Edward King 8
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -10755,42 +11636,102 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 8
+                    London, Park Lane no. 8
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 8
+                    London, Park Lane no. 8
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 8
+                    London, Park Lane no. 8
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 8
+                    London, Park Lane no. 8
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 8
+                    London, Park Lane no. 8
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 8
+                    London, Park Lane no. 8
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 8
+                    London, Park Lane no. 8
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 8
+                    London, Park Lane no. 8
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 8
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 8
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 8
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 8
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 8
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 8
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 8
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 8
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 8
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 8
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 8
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 8
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
@@ -10809,7 +11750,7 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edward 9
+                    Edward King 9
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -10820,42 +11761,102 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 9
+                    London, Park Lane no. 9
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 9
+                    London, Park Lane no. 9
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 9
+                    London, Park Lane no. 9
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 9
+                    London, Park Lane no. 9
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 9
+                    London, Park Lane no. 9
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 9
+                    London, Park Lane no. 9
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 9
+                    London, Park Lane no. 9
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    London Park no. 9
+                    London, Park Lane no. 9
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 9
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 9
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 9
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 9
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 9
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 9
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 9
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 9
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 9
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 9
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 9
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 9
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
@@ -11112,7 +12113,7 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
 
 exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="ant-table-wrapper acss-6kbv1r"
 >
   <div
     class="ant-spin-nested-loading"
@@ -11131,7 +12132,7 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
             style="overflow-x:auto;overflow-y:hidden"
           >
             <table
-              style="width:1300px;min-width:100%;table-layout:fixed"
+              style="width:max-content;min-width:100%;table-layout:auto"
             >
               <colgroup>
                 <col
@@ -11140,6 +12141,18 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
                 <col
                   style="width:100px"
                 />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
                 <col />
                 <col />
                 <col />
@@ -11223,6 +12236,78 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
                     scope="col"
                   >
                     Column 8
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 9
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 10
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 11
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 12
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 13
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 14
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 15
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 16
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 17
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 18
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 19
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 20
                   </th>
                   <th
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
@@ -11358,6 +12443,102 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
                     >
                     </div>
                   </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
@@ -11367,7 +12548,7 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
                     style="position:sticky;left:0"
                   >
-                    John Brown
+                    Olivia
                   </td>
                   <td
                     class="ant-table-cell"
@@ -11416,6 +12597,206 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
                     New York Park
                   </td>
                   <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    style="position:sticky;right:0"
+                  >
+                    <a>
+                      action
+                    </a>
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    <a>
+                      action
+                    </a>
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    style="position:sticky;right:0"
+                  >
+                    <a>
+                      action
+                    </a>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                >
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    style="position:sticky;left:0"
+                  >
+                    Ethan
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    40
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    style="position:sticky;left:0"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park
+                  </td>
+                  <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
                     style="position:sticky;right:0"
                   >
@@ -11451,7 +12832,7 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
 
 exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="ant-table-wrapper acss-6kbv1r"
 >
   <div
     class="ant-spin-nested-loading"
@@ -11501,7 +12882,7 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
           </div>
           <div
             class="ant-table-body"
-            style="overflow-y:scroll;max-height:240px"
+            style="overflow-y:scroll;max-height:275px"
           >
             <table
               style="table-layout:fixed"
@@ -12711,7 +14092,7 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
 
 exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="ant-table-wrapper acss-6kbv1r"
 >
   <div
     class="ant-spin-nested-loading"
@@ -12923,7 +14304,7 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
           </div>
           <div
             class="ant-table-body"
-            style="overflow-x:auto;overflow-y:scroll;max-height:240px"
+            style="overflow-x:auto;overflow-y:scroll;max-height:235px"
           >
             <table
               style="width:calc(700px + 50%);min-width:100%;table-layout:fixed"
@@ -19258,7 +20639,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         type="button"
       >
         <span>
@@ -19270,7 +20651,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         type="button"
       >
         <span>
@@ -19282,7 +20663,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-outlined"
         type="button"
       >
         <span>
@@ -20624,7 +22005,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
     class="ant-flex ant-flex-align-center ant-flex-gap-middle"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-solid"
       disabled=""
       type="button"
     >
@@ -26464,9 +27845,11 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
 `;
 
 exports[`renders components/table/demo/summary.tsx correctly 1`] = `
-Array [
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+>
   <div
-    class="ant-table-wrapper"
+    class="ant-table-wrapper acss-6kbv1r"
   >
     <div
       class="ant-spin-nested-loading"
@@ -26647,10 +28030,9 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-  <br />,
+  </div>
   <div
-    class="ant-table-wrapper"
+    class="ant-table-wrapper acss-6kbv1r"
   >
     <div
       class="ant-spin-nested-loading"
@@ -27084,8 +28466,8 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders components/table/demo/tree-data.tsx correctly 1`] = `
@@ -28088,6 +29470,517 @@ Array [
             <button
               class="ant-pagination-item-link"
               disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/table/demo/tree-table-preserveSelectedRowKeys.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    style="margin-bottom:16px"
+  >
+    <div
+      class="ant-space-item"
+    >
+      CheckStrictly: 
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        aria-checked="false"
+        class="ant-switch"
+        role="switch"
+        type="button"
+      >
+        <div
+          class="ant-switch-handle"
+        />
+        <span
+          class="ant-switch-inner"
+        >
+          <span
+            class="ant-switch-inner-checked"
+          />
+          <span
+            class="ant-switch-inner-unchecked"
+          />
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      preserveSelectedRowKeys:
+    </div>
+    <div
+      class="ant-space-item"
+    >
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        aria-checked="true"
+        class="ant-switch ant-switch-checked"
+        role="switch"
+        type="button"
+      >
+        <div
+          class="ant-switch-handle"
+        />
+        <span
+          class="ant-switch-inner"
+        >
+          <span
+            class="ant-switch-inner-checked"
+          />
+          <span
+            class="ant-switch-inner-unchecked"
+          />
+        </span>
+      </button>
+    </div>
+  </div>,
+  <div
+    class="ant-table-wrapper"
+  >
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-table"
+        >
+          <div
+            class="ant-table-container"
+          >
+            <div
+              class="ant-table-content"
+            >
+              <table
+                style="table-layout:auto"
+              >
+                <colgroup>
+                  <col
+                    class="ant-table-selection-col"
+                  />
+                  <col />
+                  <col
+                    style="width:12%"
+                  />
+                  <col
+                    style="width:30%"
+                  />
+                </colgroup>
+                <thead
+                  class="ant-table-thead"
+                >
+                  <tr>
+                    <th
+                      class="ant-table-cell ant-table-selection-column"
+                      scope="col"
+                    >
+                      <div
+                        class="ant-table-selection"
+                      >
+                        <label
+                          class="ant-checkbox-wrapper"
+                        >
+                          <span
+                            class="ant-checkbox ant-wave-target"
+                          >
+                            <input
+                              aria-label="Select all"
+                              class="ant-checkbox-input"
+                              type="checkbox"
+                            />
+                            <span
+                              class="ant-checkbox-inner"
+                            />
+                          </span>
+                        </label>
+                      </div>
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Name
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Age
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Address
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  class="ant-table-tbody"
+                >
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="key0"
+                  >
+                    <td
+                      class="ant-table-cell ant-table-selection-column"
+                    >
+                      <label
+                        class="ant-checkbox-wrapper"
+                      >
+                        <span
+                          class="ant-checkbox ant-wave-target"
+                        >
+                          <input
+                            class="ant-checkbox-input"
+                            type="checkbox"
+                          />
+                          <span
+                            class="ant-checkbox-inner"
+                          />
+                        </span>
+                      </label>
+                    </td>
+                    <td
+                      class="ant-table-cell ant-table-cell-with-append"
+                    >
+                      <span
+                        class="ant-table-row-indent indent-level-0"
+                        style="padding-left:0px"
+                      />
+                      <button
+                        aria-expanded="false"
+                        aria-label="Expand row"
+                        class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                        type="button"
+                      />
+                      Edward 0
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      32
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London Park no. 0
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="key1"
+                  >
+                    <td
+                      class="ant-table-cell ant-table-selection-column"
+                    >
+                      <label
+                        class="ant-checkbox-wrapper"
+                      >
+                        <span
+                          class="ant-checkbox ant-wave-target"
+                        >
+                          <input
+                            class="ant-checkbox-input"
+                            type="checkbox"
+                          />
+                          <span
+                            class="ant-checkbox-inner"
+                          />
+                        </span>
+                      </label>
+                    </td>
+                    <td
+                      class="ant-table-cell ant-table-cell-with-append"
+                    >
+                      <span
+                        class="ant-table-row-indent indent-level-0"
+                        style="padding-left:0px"
+                      />
+                      <button
+                        aria-expanded="false"
+                        aria-label="Expand row"
+                        class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                        type="button"
+                      />
+                      Edward 1
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      32
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London Park no. 1
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="key2"
+                  >
+                    <td
+                      class="ant-table-cell ant-table-selection-column"
+                    >
+                      <label
+                        class="ant-checkbox-wrapper"
+                      >
+                        <span
+                          class="ant-checkbox ant-wave-target"
+                        >
+                          <input
+                            class="ant-checkbox-input"
+                            type="checkbox"
+                          />
+                          <span
+                            class="ant-checkbox-inner"
+                          />
+                        </span>
+                      </label>
+                    </td>
+                    <td
+                      class="ant-table-cell ant-table-cell-with-append"
+                    >
+                      <span
+                        class="ant-table-row-indent indent-level-0"
+                        style="padding-left:0px"
+                      />
+                      <button
+                        aria-expanded="false"
+                        aria-label="Expand row"
+                        class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                        type="button"
+                      />
+                      Edward 2
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      32
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London Park no. 2
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="key3"
+                  >
+                    <td
+                      class="ant-table-cell ant-table-selection-column"
+                    >
+                      <label
+                        class="ant-checkbox-wrapper"
+                      >
+                        <span
+                          class="ant-checkbox ant-wave-target"
+                        >
+                          <input
+                            class="ant-checkbox-input"
+                            type="checkbox"
+                          />
+                          <span
+                            class="ant-checkbox-inner"
+                          />
+                        </span>
+                      </label>
+                    </td>
+                    <td
+                      class="ant-table-cell ant-table-cell-with-append"
+                    >
+                      <span
+                        class="ant-table-row-indent indent-level-0"
+                        style="padding-left:0px"
+                      />
+                      <button
+                        aria-expanded="false"
+                        aria-label="Expand row"
+                        class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                        type="button"
+                      />
+                      Edward 3
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      32
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London Park no. 3
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="key4"
+                  >
+                    <td
+                      class="ant-table-cell ant-table-selection-column"
+                    >
+                      <label
+                        class="ant-checkbox-wrapper"
+                      >
+                        <span
+                          class="ant-checkbox ant-wave-target"
+                        >
+                          <input
+                            class="ant-checkbox-input"
+                            type="checkbox"
+                          />
+                          <span
+                            class="ant-checkbox-inner"
+                          />
+                        </span>
+                      </label>
+                    </td>
+                    <td
+                      class="ant-table-cell ant-table-cell-with-append"
+                    >
+                      <span
+                        class="ant-table-row-indent indent-level-0"
+                        style="padding-left:0px"
+                      />
+                      <button
+                        aria-expanded="false"
+                        aria-label="Expand row"
+                        class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                        type="button"
+                      />
+                      Edward 4
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      32
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London Park no. 4
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <ul
+          class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        >
+          <li
+            aria-disabled="true"
+            class="ant-pagination-prev ant-pagination-disabled"
+            title="Previous Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="left"
+                class="anticon anticon-left"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="left"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            tabindex="0"
+            title="1"
+          >
+            <a
+              rel="nofollow"
+            >
+              1
+            </a>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-2"
+            tabindex="0"
+            title="2"
+          >
+            <a
+              rel="nofollow"
+            >
+              2
+            </a>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-3"
+            tabindex="0"
+            title="3"
+          >
+            <a
+              rel="nofollow"
+            >
+              3
+            </a>
+          </li>
+          <li
+            aria-disabled="false"
+            class="ant-pagination-next"
+            tabindex="0"
+            title="Next Page"
+          >
+            <button
+              class="ant-pagination-item-link"
               tabindex="-1"
               type="button"
             >

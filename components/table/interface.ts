@@ -64,10 +64,8 @@ export type SorterTooltipProps = TooltipProps & {
   target?: SorterTooltipTarget;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const TableActions = ['paginate', 'sort', 'filter'] as const;
-
-export type TableAction = (typeof TableActions)[number];
+const _TableActions = ['paginate', 'sort', 'filter'] as const;
+export type TableAction = (typeof _TableActions)[number];
 
 export type CompareFn<T = AnyObject> = (a: T, b: T, sortOrder?: SortOrder) => number;
 

@@ -39,7 +39,7 @@ Array [
       class="ant-alert-action"
     >
       <button
-        class="ant-btn ant-btn-text ant-btn-sm"
+        class="ant-btn ant-btn-default ant-btn-text ant-btn-sm"
         type="button"
       >
         <span>
@@ -118,7 +118,7 @@ Array [
       class="ant-alert-action"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-sm ant-btn-dangerous"
+        class="ant-btn ant-btn-dangerous ant-btn-outlined ant-btn-sm"
         type="button"
       >
         <span>
@@ -152,7 +152,7 @@ Array [
           class="ant-space-item"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm"
+            class="ant-btn ant-btn-default ant-btn-text ant-btn-sm"
             type="button"
           >
             <span>
@@ -219,7 +219,7 @@ Array [
           class="ant-space-item"
         >
           <button
-            class="ant-btn ant-btn-primary ant-btn-sm"
+            class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
             type="button"
           >
             <span>
@@ -231,7 +231,7 @@ Array [
           class="ant-space-item"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-sm ant-btn-background-ghost ant-btn-dangerous"
+            class="ant-btn ant-btn-dangerous ant-btn-outlined ant-btn-sm ant-btn-background-ghost"
             type="button"
           >
             <span>
@@ -271,11 +271,7 @@ Array [
 ]
 `;
 
-exports[`renders components/alert/demo/action.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Button] \`link\` or \`text\` button can't be a \`ghost\` button.",
-]
-`;
+exports[`renders components/alert/demo/action.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/alert/demo/banner.tsx extend context correctly 1`] = `
 Array [
@@ -1008,7 +1004,7 @@ exports[`renders components/alert/demo/description.tsx extend context correctly 
 
 exports[`renders components/alert/demo/error-boundary.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-default ant-btn-dangerous"
+  class="ant-btn ant-btn-dangerous ant-btn-outlined"
   type="button"
 >
   <span>
