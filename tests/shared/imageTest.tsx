@@ -1,7 +1,7 @@
 import path from 'path';
 import React from 'react';
 // Reference: https://github.com/ant-design/ant-design/pull/24003#discussion_r427267386
-import { createCache, extractStyle, StyleProvider as CssinjsProvider } from '@ant-design/cssinjs';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import { extractStaticStyle } from 'antd-style';
 import dayjs from 'dayjs';
 import fse from 'fs-extra';
@@ -135,9 +135,9 @@ export default function imageTest(
       const emptyStyleHolder = doc.createElement('div');
 
       let element = (
-        <CssinjsProvider cache={cache} container={emptyStyleHolder}>
+        <StyleProvider cache={cache} container={emptyStyleHolder}>
           <App>{themedComponent}</App>
-        </CssinjsProvider>
+        </StyleProvider>
       );
 
       // Do inject open trigger
