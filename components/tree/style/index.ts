@@ -109,7 +109,6 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
     nodeHoverBg,
   } = token;
   const treeCheckBoxMarginHorizontal = token.paddingXS;
-  console.log('indentWidth', indentWidth);
 
   return {
     [treeCls]: {
