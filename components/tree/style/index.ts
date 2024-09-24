@@ -12,7 +12,12 @@ export interface TreeSharedToken {
    * @desc 节点标题高度
    * @descEN Node title height
    */
-  titleHeight: number;
+  titleHeight: string | number;
+  /**
+   * @desc 缩进宽度
+   * @descEN Indent width of tree
+   */
+  indentWidth?: string | number;
   /**
    * @desc 节点悬浮态背景色
    * @descEN Background color of hovered node
@@ -94,8 +99,17 @@ type TreeToken = FullToken<'Tree'> & {
 };
 
 export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => {
-  const { treeCls, treeNodeCls, treeNodePadding, titleHeight, nodeSelectedBg, nodeHoverBg } = token;
+  const {
+    treeCls,
+    treeNodeCls,
+    treeNodePadding,
+    titleHeight,
+    indentWidth,
+    nodeSelectedBg,
+    nodeHoverBg,
+  } = token;
   const treeCheckBoxMarginHorizontal = token.paddingXS;
+  console.log('indentWidth', indentWidth);
 
   return {
     [treeCls]: {
@@ -223,7 +237,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         userSelect: 'none',
         '&-unit': {
           display: 'inline-block',
-          width: titleHeight,
+          width: indentWidth ?? titleHeight,
         },
       },
 
@@ -534,20 +548,20 @@ export const genTreeStyle = (
 };
 
 export const initComponentToken = (token: AliasToken): TreeSharedToken => {
-  const { controlHeightSM } = token;
+  const { controlHeightSM, controlItemBgHover, controlItemBgActive } = token;
 
   return {
     titleHeight: controlHeightSM,
-    nodeHoverBg: token.controlItemBgHover,
-    nodeSelectedBg: token.controlItemBgActive,
+    nodeHoverBg: controlItemBgHover,
+    nodeSelectedBg: controlItemBgActive,
   };
 };
 
 export const prepareComponentToken: GetDefaultToken<'Tree'> = (token) => {
-  const { colorTextLightSolid, colorPrimary } = token;
-
+  const { colorTextLightSolid, colorPrimary, indentWidth, titleHeight } = token;
   return {
     ...initComponentToken(token),
+    indentWidth: indentWidth ?? titleHeight,
     directoryNodeSelectedColor: colorTextLightSolid,
     directoryNodeSelectedBg: colorPrimary,
   };
