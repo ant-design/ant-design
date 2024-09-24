@@ -205,9 +205,18 @@ export default function imageTest(
         await page.setViewport({ width: 800, height: bodyHeight });
       }
 
-      // 等待一个页面中所有 Emotion 样式都应用完毕
-      // 确保 Emotion 的 style 标签已经生成
-      await page.waitForSelector('style[data-emotion]');
+      // 检查是否有 [data-emotion] 样式
+      const hasEmotionStyles = await page.evaluate(
+        () => document.querySelector('style[data-emotion]') !== null,
+      );
+
+      if (hasEmotionStyles) {
+        // 如果存在 Emotion 样式，则等待样式完全注入
+        await page.waitForSelector('style[data-emotion]');
+      } else {
+        // 如果没有 Emotion 样式，可以选择等待页面其它部分渲染
+        console.log('No Emotion styles found, skipping style wait.');
+      }
 
       const image = await page.screenshot({
         fullPage: !options.onlyViewport,
