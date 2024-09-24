@@ -2,6 +2,8 @@ import path from 'path';
 import React from 'react';
 // Reference: https://github.com/ant-design/ant-design/pull/24003#discussion_r427267386
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+import { CacheProvider } from '@emotion/react';
+import createEmotionCache from '@emotion/cache';
 import dayjs from 'dayjs';
 import fse from 'fs-extra';
 import { globSync } from 'glob';
@@ -129,14 +131,20 @@ export default function imageTest(
       await page.addStyleTag({ path: `${process.cwd()}/components/style/reset.css` });
       await page.addStyleTag({ content: '*{animation: none!important;}' });
 
+      const emotionCache = createEmotionCache({
+        key: 'emotion-cache-no-speedy',
+        speedy: false,
+      });
       const cache = createCache();
 
       const emptyStyleHolder = doc.createElement('div');
 
       let element = (
-        <StyleProvider cache={cache} container={emptyStyleHolder}>
-          <App>{themedComponent}</App>
-        </StyleProvider>
+        <CacheProvider value={emotionCache}>
+          <StyleProvider cache={cache} container={emptyStyleHolder}>
+            <App>{themedComponent}</App>
+          </StyleProvider>
+        </CacheProvider>
       );
 
       // Do inject open trigger
@@ -203,19 +211,6 @@ export default function imageTest(
         // Get scroll height of the rendered page and set viewport
         const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
         await page.setViewport({ width: 800, height: bodyHeight });
-      }
-
-      // 检查是否有 [data-emotion] 样式
-      const hasEmotionStyles = await page.evaluate(
-        () => document.querySelector('style[data-emotion]') !== null,
-      );
-
-      if (hasEmotionStyles) {
-        // 如果存在 Emotion 样式，则等待样式完全注入
-        await page.waitForSelector('style[data-emotion]');
-      } else {
-        // 如果没有 Emotion 样式，可以选择等待页面其它部分渲染
-        console.log('No Emotion styles found, skipping style wait.');
       }
 
       const image = await page.screenshot({
