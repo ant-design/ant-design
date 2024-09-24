@@ -236,7 +236,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         userSelect: 'none',
         '&-unit': {
           display: 'inline-block',
-          width: indentWidth ?? titleHeight,
+          width: indentWidth,
         },
       },
 
@@ -548,19 +548,21 @@ export const genTreeStyle = (
 
 export const initComponentToken = (token: AliasToken): TreeSharedToken => {
   const { controlHeightSM, controlItemBgHover, controlItemBgActive } = token;
+  const titleHeight = controlHeightSM;
 
   return {
-    titleHeight: controlHeightSM,
+    titleHeight,
+    indentWidth: titleHeight,
     nodeHoverBg: controlItemBgHover,
     nodeSelectedBg: controlItemBgActive,
   };
 };
 
 export const prepareComponentToken: GetDefaultToken<'Tree'> = (token) => {
-  const { colorTextLightSolid, colorPrimary, indentWidth, titleHeight } = token;
+  const { colorTextLightSolid, colorPrimary } = token;
+
   return {
     ...initComponentToken(token),
-    indentWidth: indentWidth ?? titleHeight,
     directoryNodeSelectedColor: colorTextLightSolid,
     directoryNodeSelectedBg: colorPrimary,
   };
