@@ -63,8 +63,8 @@ tag: vVERSION
   - 💄 Remove Pagination default font family. [#50808](https://github.com/ant-design/ant-design/pull/50808) [@afc163](https://github.com/afc163)
 - Select
   - 💄 Add more tokens for Select to customize hover/focus style. [#50951](https://github.com/ant-design/ant-design/pull/50951) [@kiner-tang](https://github.com/kiner-tang)
-  - 🐞 Fix Select search text overlap with arrow icon. [#50917](https://github.com/ant-design/ant-design/pull/50917) [@thinkasany](https://github.com/thinkasany)
-  - 🐞 Fix Select extra background of clear icon when enable `allowClear` and `variant="filled"`. [#50916](https://github.com/ant-design/ant-design/pull/50916) [@yezhonghu0503](https://github.com/yezhonghu0503)
+  - 🐞 Fix Select search text overlap with arrow icon. [#50917](https://github.com/ant-design/ant-design/pull/50917) [@yezhonghu0503](https://github.com/yezhonghu0503)
+  - 🐞 Fix Select extra background of clear icon when enable `allowClear` and `variant="filled"`. [#50916](https://github.com/ant-design/ant-design/pull/50916) [@thinkasany](https://github.com/thinkasany)
 - 🆕 Segmented adds `vertical` property and improves accessibility. [#50708](https://github.com/ant-design/ant-design/pull/50708) [@liangchaofei](https://github.com/liangchaofei)
   <img width="72" alt="Segmented vertical demo" src="https://github.com/user-attachments/assets/c1b0f971-9966-48d4-b641-4fd476c59513">
 - 🆕 Radio.Group supports `block` prop now. [#50828](https://github.com/ant-design/ant-design/pull/50828) [@yuanliu147](https://github.com/yuanliu147)
