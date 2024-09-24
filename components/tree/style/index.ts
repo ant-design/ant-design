@@ -12,12 +12,12 @@ export interface TreeSharedToken {
    * @desc 节点标题高度
    * @descEN Node title height
    */
-  titleHeight: string | number;
+  titleHeight: number;
   /**
    * @desc 缩进宽度
    * @descEN Indent width of tree
    */
-  indentWidth?: string | number;
+  indentWidth?: number;
   /**
    * @desc 节点悬浮态背景色
    * @descEN Background color of hovered node
