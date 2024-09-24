@@ -1,9 +1,8 @@
 import path from 'path';
 import React from 'react';
 // Reference: https://github.com/ant-design/ant-design/pull/24003#discussion_r427267386
-import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
-import { CacheProvider } from '@emotion/react';
-import createEmotionCache from '@emotion/cache';
+import { createCache, extractStyle, StyleProvider as CssinjsProvider } from '@ant-design/cssinjs';
+import { extractStaticStyle } from 'antd-style';
 import dayjs from 'dayjs';
 import fse from 'fs-extra';
 import { globSync } from 'glob';
@@ -131,20 +130,14 @@ export default function imageTest(
       await page.addStyleTag({ path: `${process.cwd()}/components/style/reset.css` });
       await page.addStyleTag({ content: '*{animation: none!important;}' });
 
-      const emotionCache = createEmotionCache({
-        key: 'emotion-cache-no-speedy',
-        speedy: false,
-      });
       const cache = createCache();
 
       const emptyStyleHolder = doc.createElement('div');
 
       let element = (
-        <CacheProvider value={emotionCache}>
-          <StyleProvider cache={cache} container={emptyStyleHolder}>
-            <App>{themedComponent}</App>
-          </StyleProvider>
-        </CacheProvider>
+        <CssinjsProvider cache={cache} container={emptyStyleHolder}>
+          <App>{themedComponent}</App>
+        </CssinjsProvider>
       );
 
       // Do inject open trigger
@@ -161,14 +154,13 @@ export default function imageTest(
 
       if (options.ssr) {
         html = ReactDOMServer.renderToString(element);
-        styleStr = extractStyle(cache);
+        styleStr = extractStyle(cache) + extractStaticStyle(html).map((item) => item.tag);
       } else {
         const { unmount } = render(element, {
           container,
         });
         html = container.innerHTML;
-        styleStr = extractStyle(cache);
-
+        styleStr = extractStyle(cache) + extractStaticStyle(html).map((item) => item.tag);
         // We should extract style before unmount
         unmount();
       }
