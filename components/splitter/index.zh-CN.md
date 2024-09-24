@@ -3,7 +3,7 @@ category: Components
 group: 布局
 title: Splitter
 subtitle: 分隔面板
-description: 分割面板用于隔离区域，展示多个内容。
+description: 自由切分指定区域
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*f0SISaETY0wAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*y92yRYhObU8AAAAAAAAAAAAADrJ8AQ/original
 demo:
@@ -13,9 +13,9 @@ tag: 5.21.0
 
 ## 何时使用
 
-需要展示多个内容，并且希望用户可以自由调整每个内容的大小。
-
-- Splitter 组件需要通过子元素计算面板大小，因而其子元素仅支持 `Splitter.Panel`。
+- 可以水平或垂直地分隔区域。
+- 当需要自由拖拽调整各区域大小。
+- 当需要指定区域的最大最小宽高时。
 
 ## 代码演示
 
@@ -31,6 +31,8 @@ tag: 5.21.0
 ## API
 
 通用属性参考：[通用属性](/docs/react/common-props)
+
+> Splitter 组件需要通过子元素计算面板大小，因而其子元素仅支持 `Splitter.Panel`。
 
 ### Splitter
 
