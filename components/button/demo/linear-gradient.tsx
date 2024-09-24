@@ -40,7 +40,7 @@ const App: React.FC = () => {
     >
       <Space>
         <Button type="primary" size="large" icon={<AntDesignOutlined />}>
-          Gradient Button
+          Gradient Button 1
         </Button>
         <Button size="large">Button</Button>
       </Space>
