@@ -205,6 +205,10 @@ export default function imageTest(
         await page.setViewport({ width: 800, height: bodyHeight });
       }
 
+      // 等待一个页面中所有 Emotion 样式都应用完毕
+      // 确保 Emotion 的 style 标签已经生成
+      await page.waitForSelector('style[data-emotion]');
+
       const image = await page.screenshot({
         fullPage: !options.onlyViewport,
       });
