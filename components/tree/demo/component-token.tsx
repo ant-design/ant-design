@@ -48,7 +48,7 @@ const App: React.FC = () => {
           Tree: {
             nodeHoverBg: '#fff2f0',
             nodeSelectedBg: '#ffa39e',
-            indentWidth: 80,
+            indent: 80,
           },
         },
       }}
