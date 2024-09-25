@@ -2150,7 +2150,7 @@ Array [
                               class="ant-table-filter-dropdown-btns"
                             >
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-link ant-btn-sm"
+                                class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
                                 disabled=""
                                 type="button"
                               >
@@ -2159,7 +2159,7 @@ Array [
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                                 type="button"
                               >
                                 <span>
@@ -3378,7 +3378,7 @@ exports[`renders components/table/demo/component-token.tsx extend context correc
 exports[`renders components/table/demo/custom-empty.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary ant-btn-solid"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -3571,7 +3571,7 @@ Array [
                               class="ant-table-filter-dropdown-btns"
                             >
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-link ant-btn-sm"
+                                class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
                                 disabled=""
                                 type="button"
                               >
@@ -3580,7 +3580,7 @@ Array [
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                                 type="button"
                               >
                                 <span>
@@ -3890,7 +3890,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                                 class="ant-space-item"
                               >
                                 <button
-                                  class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+                                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                                   style="width: 90px;"
                                   type="button"
                                 >
@@ -3926,7 +3926,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                                 class="ant-space-item"
                               >
                                 <button
-                                  class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
+                                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                                   style="width: 90px;"
                                   type="button"
                                 >
@@ -3939,7 +3939,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                                 class="ant-space-item"
                               >
                                 <button
-                                  class="ant-btn ant-btn-primary ant-btn-link ant-btn-sm"
+                                  class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
                                   type="button"
                                 >
                                   <span>
@@ -3951,7 +3951,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                                 class="ant-space-item"
                               >
                                 <button
-                                  class="ant-btn ant-btn-primary ant-btn-link ant-btn-sm"
+                                  class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
                                   type="button"
                                 >
                                   <span>
@@ -4026,7 +4026,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                                 class="ant-space-item"
                               >
                                 <button
-                                  class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+                                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                                   style="width: 90px;"
                                   type="button"
                                 >
@@ -4062,7 +4062,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                                 class="ant-space-item"
                               >
                                 <button
-                                  class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
+                                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                                   style="width: 90px;"
                                   type="button"
                                 >
@@ -4075,7 +4075,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                                 class="ant-space-item"
                               >
                                 <button
-                                  class="ant-btn ant-btn-primary ant-btn-link ant-btn-sm"
+                                  class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
                                   type="button"
                                 >
                                   <span>
@@ -4087,7 +4087,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                                 class="ant-space-item"
                               >
                                 <button
-                                  class="ant-btn ant-btn-primary ant-btn-link ant-btn-sm"
+                                  class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
                                   type="button"
                                 >
                                   <span>
@@ -4238,7 +4238,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                                 class="ant-space-item"
                               >
                                 <button
-                                  class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+                                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                                   style="width: 90px;"
                                   type="button"
                                 >
@@ -4274,7 +4274,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                                 class="ant-space-item"
                               >
                                 <button
-                                  class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
+                                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                                   style="width: 90px;"
                                   type="button"
                                 >
@@ -4287,7 +4287,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                                 class="ant-space-item"
                               >
                                 <button
-                                  class="ant-btn ant-btn-primary ant-btn-link ant-btn-sm"
+                                  class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
                                   type="button"
                                 >
                                   <span>
@@ -4299,7 +4299,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                                 class="ant-space-item"
                               >
                                 <button
-                                  class="ant-btn ant-btn-primary ant-btn-link ant-btn-sm"
+                                  class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
                                   type="button"
                                 >
                                   <span>
@@ -5143,7 +5143,7 @@ Array [
                       style="text-align: center;"
                     >
                       <button
-                        class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only"
+                        class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
                         style="cursor: move;"
                         type="button"
                       >
@@ -5202,7 +5202,7 @@ Array [
                       style="text-align: center;"
                     >
                       <button
-                        class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only"
+                        class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
                         style="cursor: move;"
                         type="button"
                       >
@@ -5261,7 +5261,7 @@ Array [
                       style="text-align: center;"
                     >
                       <button
-                        class="ant-btn ant-btn-default ant-btn-text ant-btn-sm ant-btn-icon-only"
+                        class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
                         style="cursor: move;"
                         type="button"
                       >
@@ -6699,7 +6699,7 @@ Array [
                               class="ant-table-filter-dropdown-btns"
                             >
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-link ant-btn-sm"
+                                class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
                                 disabled=""
                                 type="button"
                               >
@@ -6708,7 +6708,7 @@ Array [
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                                 type="button"
                               >
                                 <span>
@@ -7927,7 +7927,7 @@ exports[`renders components/table/demo/dynamic-settings.tsx extend context corre
 exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`] = `
 <div>
   <button
-    class="ant-btn ant-btn-primary ant-btn-solid"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     style="margin-bottom: 16px;"
     type="button"
   >
@@ -8085,7 +8085,7 @@ exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`
                                   class="ant-popconfirm-buttons"
                                 >
                                   <button
-                                    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
+                                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                                     type="button"
                                   >
                                     <span>
@@ -8093,7 +8093,7 @@ exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`
                                     </span>
                                   </button>
                                   <button
-                                    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+                                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                                     type="button"
                                   >
                                     <span>
@@ -8199,7 +8199,7 @@ exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`
                                   class="ant-popconfirm-buttons"
                                 >
                                   <button
-                                    class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
+                                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
                                     type="button"
                                   >
                                     <span>
@@ -8207,7 +8207,7 @@ exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`
                                     </span>
                                   </button>
                                   <button
-                                    class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+                                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                                     type="button"
                                   >
                                     <span>
@@ -10598,7 +10598,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                             class="ant-table-filter-dropdown-btns"
                           >
                             <button
-                              class="ant-btn ant-btn-primary ant-btn-link ant-btn-sm"
+                              class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
                               disabled=""
                               type="button"
                             >
@@ -10607,7 +10607,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                               </span>
                             </button>
                             <button
-                              class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+                              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                               type="button"
                             >
                               <span>
@@ -10890,7 +10890,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                             class="ant-table-filter-dropdown-btns"
                           >
                             <button
-                              class="ant-btn ant-btn-primary ant-btn-link ant-btn-sm"
+                              class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
                               disabled=""
                               type="button"
                             >
@@ -10899,7 +10899,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                               </span>
                             </button>
                             <button
-                              class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+                              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                               type="button"
                             >
                               <span>
@@ -11362,7 +11362,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                             class="ant-table-filter-dropdown-btns"
                           >
                             <button
-                              class="ant-btn ant-btn-primary ant-btn-link ant-btn-sm"
+                              class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
                               disabled=""
                               type="button"
                             >
@@ -11371,7 +11371,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                               </span>
                             </button>
                             <button
-                              class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+                              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                               type="button"
                             >
                               <span>
@@ -11654,7 +11654,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                             class="ant-table-filter-dropdown-btns"
                           >
                             <button
-                              class="ant-btn ant-btn-primary ant-btn-link ant-btn-sm"
+                              class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
                               disabled=""
                               type="button"
                             >
@@ -11663,7 +11663,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                               </span>
                             </button>
                             <button
-                              class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+                              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                               type="button"
                             >
                               <span>
@@ -13397,7 +13397,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                             class="ant-table-filter-dropdown-btns"
                           >
                             <button
-                              class="ant-btn ant-btn-primary ant-btn-link ant-btn-sm"
+                              class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
                               disabled=""
                               type="button"
                             >
@@ -13406,7 +13406,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                               </span>
                             </button>
                             <button
-                              class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+                              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                               type="button"
                             >
                               <span>
@@ -14885,7 +14885,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                             class="ant-table-filter-dropdown-btns"
                           >
                             <button
-                              class="ant-btn ant-btn-primary ant-btn-link ant-btn-sm"
+                              class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
                               disabled=""
                               type="button"
                             >
@@ -14894,7 +14894,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                               </span>
                             </button>
                             <button
-                              class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+                              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                               type="button"
                             >
                               <span>
@@ -15139,7 +15139,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                             class="ant-table-filter-dropdown-btns"
                           >
                             <button
-                              class="ant-btn ant-btn-primary ant-btn-link ant-btn-sm"
+                              class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
                               disabled=""
                               type="button"
                             >
@@ -15148,7 +15148,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                               </span>
                             </button>
                             <button
-                              class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+                              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                               type="button"
                             >
                               <span>
@@ -21305,7 +21305,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -21317,7 +21317,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -21329,7 +21329,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -21592,7 +21592,7 @@ Array [
                               class="ant-table-filter-dropdown-btns"
                             >
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-link ant-btn-sm"
+                                class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
                                 disabled=""
                                 type="button"
                               >
@@ -21601,7 +21601,7 @@ Array [
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                                 type="button"
                               >
                                 <span>
@@ -21924,7 +21924,7 @@ Array [
                               class="ant-table-filter-dropdown-btns"
                             >
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-link ant-btn-sm"
+                                class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
                                 disabled=""
                                 type="button"
                               >
@@ -21933,7 +21933,7 @@ Array [
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                                 type="button"
                               >
                                 <span>
@@ -23021,7 +23021,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
     class="ant-flex ant-flex-align-center ant-flex-gap-middle"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       disabled=""
       type="button"
     >

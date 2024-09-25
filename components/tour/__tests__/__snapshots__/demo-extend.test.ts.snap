@@ -3,7 +3,7 @@
 exports[`renders components/tour/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary ant-btn-solid"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -21,7 +21,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -33,7 +33,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -45,7 +45,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
         type="button"
       >
         <span
@@ -155,7 +155,7 @@ Array [
             class="ant-tour-buttons"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-tour-next-btn"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
               type="button"
             >
               <span>
@@ -175,7 +175,7 @@ exports[`renders components/tour/demo/basic.tsx extend context correctly 2`] = `
 exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
 <div>
   <button
-    class="ant-btn ant-btn-primary ant-btn-solid"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -515,7 +515,7 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
             class="ant-tour-buttons"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-tour-next-btn"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
               type="button"
             >
               <span>
@@ -535,7 +535,7 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 2`] = `[]
 exports[`renders components/tour/demo/indicator.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary ant-btn-solid"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -553,7 +553,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -565,7 +565,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -577,7 +577,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
         type="button"
       >
         <span
@@ -673,7 +673,7 @@ Array [
             class="ant-tour-buttons"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-tour-next-btn"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
               type="button"
             >
               <span>
@@ -693,7 +693,7 @@ exports[`renders components/tour/demo/indicator.tsx extend context correctly 2`]
 exports[`renders components/tour/demo/mask.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary ant-btn-solid"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -711,7 +711,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -723,7 +723,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -735,7 +735,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
         type="button"
       >
         <span
@@ -845,7 +845,7 @@ Array [
             class="ant-tour-buttons"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-tour-next-btn"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
               type="button"
             >
               <span>
@@ -865,7 +865,7 @@ exports[`renders components/tour/demo/mask.tsx extend context correctly 2`] = `[
 exports[`renders components/tour/demo/non-modal.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary ant-btn-solid"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -883,7 +883,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -895,7 +895,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -907,7 +907,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
         type="button"
       >
         <span
@@ -1017,7 +1017,7 @@ Array [
             class="ant-tour-buttons"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm ant-tour-next-btn"
+              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-tour-next-btn"
               type="button"
             >
               <span>
@@ -1037,7 +1037,7 @@ exports[`renders components/tour/demo/non-modal.tsx extend context correctly 2`]
 exports[`renders components/tour/demo/placement.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary ant-btn-solid"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -1113,7 +1113,7 @@ Array [
             class="ant-tour-buttons"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-tour-next-btn"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-tour-next-btn"
               type="button"
             >
               <span>

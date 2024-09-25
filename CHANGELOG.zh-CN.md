@@ -15,6 +15,15 @@ tag: vVERSION
 
 ---
 
+## 5.21.1
+
+`2024-09-25`
+
+- 🐞 修复 Button `type="link"` 错误使用 `colorPrimary` 的问题。[#50962](https://github.com/ant-design/ant-design/pull/50962) [@coding-ice](https://github.com/coding-ice)
+- 🐞 修复 Button 样式类名权重问题导致的自定义渐变样式覆盖失效的问题。[#50962](https://github.com/ant-design/ant-design/pull/50962) [@coding-ice](https://github.com/coding-ice)
+- 💄 修复 Transfer 在自定义为 TableTransfer 时，宽度不正确的问题。[#50974](https://github.com/ant-design/ant-design/pull/50974) [@zombieJ](https://github.com/zombieJ)
+- 🇹🇷 补充 Table 组件 `filterCheckall` 的土耳其语文案。[#51000](https://github.com/ant-design/ant-design/pull/51000) [@ytahirkose](https://github.com/ytahirkose)
+
 ## 5.21.0 🔥
 
 `2024-09-22`
