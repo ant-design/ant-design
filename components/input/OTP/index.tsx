@@ -48,7 +48,7 @@ export interface OTPProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'on
   mask?: boolean | string;
 
   type?:'alphanumeric'|'numeric';
-  allowedSymbols?:string;
+  allowedSymbols?:RegExp;
 }
 
 function strToArr(str: string) {

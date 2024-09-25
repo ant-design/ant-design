@@ -9,7 +9,7 @@ export interface OTPInputProps extends Omit<InputProps, 'onChange'> {
   onChange: (index: number, value: string) => void;
   /** Tell parent to do active offset */
   onActiveChange: (nextIndex: number) => void;
-  allowedSymbols?: string;
+  allowedSymbols?: RegExp;
   type?: 'alphanumeric' | 'numeric';
   mask?: boolean | string;
 }
@@ -32,9 +32,8 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
         default:
           result = true;
       };
-    } else if (allowedSymbols) {
-      const regString = allowedSymbols.replace(/^\/(.*)\/[gimuy]*$/, '\$1');
-      result = new RegExp(regString).test(e.target.value);
+    } else if (allowedSymbols && allowedSymbols instanceof RegExp) {
+      result = allowedSymbols.test(e.target.value);
     }
     onChange(index, result ? e.target.value : '');
   };
