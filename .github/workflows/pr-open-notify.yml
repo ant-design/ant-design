@@ -1,4 +1,4 @@
-name: PR Open Check
+name: PR Open Notify
 
 on:
   pull_request_target:
