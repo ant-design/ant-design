@@ -466,7 +466,7 @@ Array [
   </label>,
   <br />,
   <button
-    class="ant-btn ant-btn-primary ant-btn-solid"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     style="margin-top:16px"
     type="button"
   >

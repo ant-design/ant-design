@@ -143,7 +143,8 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
           },
           [`${componentCls}-header`]: {
             padding: `${unit(padding)} ${unit(padding)} ${unit(paddingXS)}`,
-
+            width: `calc(100% - ${unit(closeBtnSize)})`,
+            wordBreak: 'break-word',
             [`${componentCls}-title`]: {
               fontWeight: fontWeightStrong,
             },

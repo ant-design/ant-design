@@ -1,11 +1,10 @@
 import React, { Suspense } from 'react';
 import { Alert, Skeleton } from 'antd';
 import { createStyles } from 'antd-style';
+import Previewer from './Previewer';
 import type { IPreviewerProps } from 'dumi';
 
 const { ErrorBoundary } = Alert;
-
-const Previewer = React.lazy(() => import('./Previewer'));
 
 const useStyle = createStyles(({ token, css }) => ({
   skeletonWrapper: css`
