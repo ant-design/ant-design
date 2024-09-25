@@ -32,7 +32,7 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
         default:
           result = true;
       };
-    } else if (allowedSymbols && allowedSymbols instanceof RegExp) {
+    } else if (allowedSymbols instanceof RegExp) {
       result = allowedSymbols.test(e.target.value);
     }
     onChange(index, result ? e.target.value : '');
