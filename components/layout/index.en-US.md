@@ -7,7 +7,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*4i58ToAcxaYAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-## Specification
+## Specification7oiihoiuhio
 
 ### Size
 
@@ -85,15 +85,7 @@ Style of a navigation should conform to its level.
 ```
 
 ### Layout
-
-Common props ref：[Common props](/docs/react/common-props)
-
-The wrapper.
-
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| className | Container className | string | - |
-| hasSider | Whether contain Sider in children, don't have to assign it normally. Useful in ssr avoid style flickering | boolean | - |
+rghr 478989fhufhjsnfnv
 | style | To customize the styles | CSSProperties | - |
 
 ### Layout.Sider
