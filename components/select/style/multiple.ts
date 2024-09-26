@@ -247,6 +247,8 @@ const genSelectionStyle = (
       // https://github.com/ant-design/ant-design/issues/44754
       [`${selectOverflowPrefixCls}-item-suffix`]: {
         height: '100%',
+        // https://github.com/ant-design/ant-design/issues/51037
+        flexGrow: 1,
       },
 
       [`${componentCls}-selection-search`]: {
@@ -254,6 +256,7 @@ const genSelectionStyle = (
         position: 'relative',
         maxWidth: '100%',
         marginInlineStart: token.calc(token.inputPaddingHorizontalBase).sub(selectItemDist).equal(),
+        flexGrow: 1,
 
         [`
           &-input,
