@@ -22,7 +22,7 @@ const Audio: React.FC<React.PropsWithChildren<{ domId: string }>> = ({ domId, ch
   return (
     <a onClick={() => document.querySelector<HTMLAudioElement>(`#${domId}`)?.play()}>
       {children}
-      <Icon style={{ height: '2em', verticalAlign: 'bottom', color: 'black' }} />
+      <Icon style={{ height: 24, verticalAlign: 'middle', color: 'black' }} />
     </a>
   );
 };
