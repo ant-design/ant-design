@@ -2,16 +2,7 @@ import React from 'react';
 
 const Audio: React.FC<React.PropsWithChildren<{ domId: string }>> = ({ domId, children }) => {
   return (
-    <a
-      onClick={() => {
-        const audioElement = document.getElementById(domId) as HTMLAudioElement;
-        if (audioElement) {
-          audioElement.play();
-        }
-      }}
-    >
-      {children}
-    </a>
+    <a onClick={() => document.querySelector<HTMLAudioElement>(`#${domId}`)?.play()}>{children}</a>
   );
 };
 
