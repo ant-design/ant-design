@@ -16,6 +16,15 @@ tag: vVERSION
 
 ---
 
+## 5.21.1
+
+`2024-09-25`
+
+- 🐞 Fix Button issue where `type="link"` incorrectly used `colorPrimary`. [#50962](https://github.com/ant-design/ant-design/pull/50962) [@coding-ice](https://github.com/coding-ice)
+- 🐞 Fix Button style class name weight issue that caused custom gradient styles to be overridden. [#50962](https://github.com/ant-design/ant-design/pull/50962) [@coding-ice](https://github.com/coding-ice)
+- 🐞 Fix Transfer width issue when customized as TableTransfer. [#50974](https://github.com/ant-design/ant-design/pull/50974) [@zombieJ](https://github.com/zombieJ)
+- 🇹🇷 Add Turkish text for `filterCheckall` in Table component. [#51000](https://github.com/ant-design/ant-design/pull/51000) [@ytahirkose](https://github.com/ytahirkose)
+
 ## 5.21.0 🔥
 
 `2024-09-22`

@@ -903,7 +903,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-outlined"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -1052,7 +1052,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-outlined"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -1201,7 +1201,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-outlined"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -1350,7 +1350,7 @@ exports[`renders components/tabs/demo/component-token.tsx extend context correct
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-outlined"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -1803,7 +1803,7 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx extend context corr
     style="margin-bottom: 16px;"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-outlined"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -3030,7 +3030,7 @@ Array [
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-outlined"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -3125,7 +3125,7 @@ Array [
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-outlined tabs-extra-demo-button"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined tabs-extra-demo-button"
           type="button"
         >
           <span>
@@ -3246,7 +3246,7 @@ Array [
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-outlined"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>

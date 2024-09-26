@@ -61,8 +61,6 @@ demo:
 | value | 分段项的值 | string \| number | - | |
 | icon | 分段项的显示图标  | ReactNode | - | |
 | disabled | 分段项的禁用状态 | boolean | false | |
-| icon | 分段项的显示图标 | ReactNode | - | |
-| disabled | 分段项的禁用状态 | boolean | false | |
 | className | 自定义类名 | string | - | |
 
 ## 主题变量（Design Token）
