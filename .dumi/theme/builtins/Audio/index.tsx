@@ -7,7 +7,6 @@ const Icon: React.FC<{ style: React.CSSProperties }> = ({ style }) => (
     xmlnsXlink="http://www.w3.org/1999/xlink"
     aria-hidden="true"
     role="img"
-    className="iconify iconify--mdi"
     id="voice"
     preserveAspectRatio="xMidYMid meet"
     viewBox="0 0 24 24"
