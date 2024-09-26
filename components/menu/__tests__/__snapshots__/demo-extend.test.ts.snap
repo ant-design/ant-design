@@ -3045,7 +3045,7 @@ exports[`renders components/menu/demo/inline-collapsed.tsx extend context correc
   style="width: 256px;"
 >
   <button
-    class="ant-btn ant-btn-primary ant-btn-solid"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     style="margin-bottom: 16px;"
     type="button"
   >

@@ -305,7 +305,7 @@ exports[`renders components/result/demo/403.tsx extend context correctly 1`] = `
     class="ant-result-extra"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -641,7 +641,7 @@ exports[`renders components/result/demo/404.tsx extend context correctly 1`] = `
     class="ant-result-extra"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -1024,7 +1024,7 @@ exports[`renders components/result/demo/500.tsx extend context correctly 1`] = `
     class="ant-result-extra"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -1078,7 +1078,7 @@ exports[`renders components/result/demo/component-token.tsx extend context corre
     class="ant-result-extra"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -1086,7 +1086,7 @@ exports[`renders components/result/demo/component-token.tsx extend context corre
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-outlined"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -1135,7 +1135,7 @@ exports[`renders components/result/demo/customIcon.tsx extend context correctly 
     class="ant-result-extra"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -1190,7 +1190,7 @@ exports[`renders components/result/demo/error.tsx extend context correctly 1`] =
     class="ant-result-extra"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -1198,7 +1198,7 @@ exports[`renders components/result/demo/error.tsx extend context correctly 1`] =
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-outlined"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -1323,7 +1323,7 @@ exports[`renders components/result/demo/info.tsx extend context correctly 1`] = 
     class="ant-result-extra"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -1377,7 +1377,7 @@ exports[`renders components/result/demo/success.tsx extend context correctly 1`]
     class="ant-result-extra"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -1385,7 +1385,7 @@ exports[`renders components/result/demo/success.tsx extend context correctly 1`]
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-outlined"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -1434,7 +1434,7 @@ exports[`renders components/result/demo/warning.tsx extend context correctly 1`]
     class="ant-result-extra"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>

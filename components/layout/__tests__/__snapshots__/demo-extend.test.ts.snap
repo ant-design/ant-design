@@ -1087,7 +1087,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx extend context correc
       style="padding: 0px; background: rgb(255, 255, 255);"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-text ant-btn-icon-only"
+        class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-icon-only"
         style="font-size: 16px; width: 64px; height: 64px;"
         type="button"
       >

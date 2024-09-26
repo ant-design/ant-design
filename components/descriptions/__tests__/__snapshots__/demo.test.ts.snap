@@ -599,7 +599,7 @@ exports[`renders components/descriptions/demo/component-token.tsx correctly 1`] 
         class="ant-descriptions-extra"
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-solid"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -1453,7 +1453,7 @@ exports[`renders components/descriptions/demo/size.tsx correctly 1`] = `
         class="ant-descriptions-extra"
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-solid"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -1623,7 +1623,7 @@ exports[`renders components/descriptions/demo/size.tsx correctly 1`] = `
         class="ant-descriptions-extra"
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-solid"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>

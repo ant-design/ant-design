@@ -15,7 +15,7 @@ exports[`renders components/dropdown/demo/arrow.tsx extend context correctly 1`]
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-outlined ant-dropdown-trigger"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
           type="button"
         >
           <span>
@@ -151,7 +151,7 @@ exports[`renders components/dropdown/demo/arrow.tsx extend context correctly 1`]
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-outlined ant-dropdown-trigger"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
           type="button"
         >
           <span>
@@ -287,7 +287,7 @@ exports[`renders components/dropdown/demo/arrow.tsx extend context correctly 1`]
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-outlined ant-dropdown-trigger"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
           type="button"
         >
           <span>
@@ -432,7 +432,7 @@ exports[`renders components/dropdown/demo/arrow.tsx extend context correctly 1`]
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-outlined ant-dropdown-trigger"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
           type="button"
         >
           <span>
@@ -568,7 +568,7 @@ exports[`renders components/dropdown/demo/arrow.tsx extend context correctly 1`]
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-outlined ant-dropdown-trigger"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
           type="button"
         >
           <span>
@@ -704,7 +704,7 @@ exports[`renders components/dropdown/demo/arrow.tsx extend context correctly 1`]
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-outlined ant-dropdown-trigger"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
           type="button"
         >
           <span>
@@ -858,7 +858,7 @@ exports[`renders components/dropdown/demo/arrow-center.tsx extend context correc
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-outlined ant-dropdown-trigger"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
           type="button"
         >
           <span>
@@ -994,7 +994,7 @@ exports[`renders components/dropdown/demo/arrow-center.tsx extend context correc
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-outlined ant-dropdown-trigger"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
           type="button"
         >
           <span>
@@ -1130,7 +1130,7 @@ exports[`renders components/dropdown/demo/arrow-center.tsx extend context correc
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-outlined ant-dropdown-trigger"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
           type="button"
         >
           <span>
@@ -1275,7 +1275,7 @@ exports[`renders components/dropdown/demo/arrow-center.tsx extend context correc
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-outlined ant-dropdown-trigger"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
           type="button"
         >
           <span>
@@ -1411,7 +1411,7 @@ exports[`renders components/dropdown/demo/arrow-center.tsx extend context correc
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-outlined ant-dropdown-trigger"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
           type="button"
         >
           <span>
@@ -1547,7 +1547,7 @@ exports[`renders components/dropdown/demo/arrow-center.tsx extend context correc
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-outlined ant-dropdown-trigger"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
           type="button"
         >
           <span>
@@ -2191,7 +2191,7 @@ Array [
           class="ant-space-item"
         >
           <button
-            class="ant-btn ant-btn-primary ant-btn-solid"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
             type="button"
           >
             <span>
@@ -2219,7 +2219,7 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
       class="ant-space-compact ant-space-compact-block ant-dropdown-button"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-compact-item ant-btn-compact-first-item"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
         type="button"
       >
         <span>
@@ -2227,7 +2227,7 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
         type="button"
       >
         <span
@@ -2471,7 +2471,7 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
       class="ant-space-compact ant-space-compact-block ant-dropdown-button"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-compact-item ant-btn-compact-first-item"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
         type="button"
       >
         <span>
@@ -2479,7 +2479,7 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
         type="button"
       >
         <span
@@ -2723,7 +2723,7 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
       class="ant-space-compact ant-space-compact-block ant-dropdown-button"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-compact-item ant-btn-compact-first-item"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
         disabled=""
         type="button"
       >
@@ -2732,7 +2732,7 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
         disabled=""
         type="button"
       >
@@ -2977,7 +2977,7 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
       class="ant-space-compact ant-space-compact-block ant-dropdown-button"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-compact-item ant-btn-compact-first-item"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
         type="button"
       >
         <span>
@@ -3004,7 +3004,7 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-btn-loading ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-loading ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
         type="button"
       >
         <span
@@ -3245,7 +3245,7 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-outlined ant-dropdown-trigger"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
       type="button"
     >
       <div
@@ -3497,7 +3497,7 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
       class="ant-space-compact ant-space-compact-block ant-dropdown-button"
     >
       <button
-        class="ant-btn ant-btn-dangerous ant-btn-outlined ant-btn-compact-item ant-btn-compact-first-item"
+        class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
         type="button"
       >
         <span>
@@ -3505,7 +3505,7 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-dangerous ant-btn-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
         type="button"
       >
         <span
@@ -4117,7 +4117,7 @@ exports[`renders components/dropdown/demo/icon-debug.tsx extend context correctl
       class="ant-space-compact ant-space-compact-block ant-dropdown-button"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-compact-item ant-btn-compact-first-item"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
         type="button"
       >
         <span>
@@ -4125,7 +4125,7 @@ exports[`renders components/dropdown/demo/icon-debug.tsx extend context correctl
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
         type="button"
       >
         <span
@@ -4347,7 +4347,7 @@ exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1
       class="ant-space-compact ant-space-compact-block ant-dropdown-button"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-loading ant-btn-compact-item ant-btn-compact-first-item"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-loading ant-btn-compact-item ant-btn-compact-first-item"
         type="button"
       >
         <span
@@ -4379,7 +4379,7 @@ exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
         type="button"
       >
         <span
@@ -4460,7 +4460,7 @@ exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1
       class="ant-space-compact ant-space-compact-block ant-dropdown-button"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-loading ant-btn-compact-item ant-btn-compact-first-item"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-loading ant-btn-compact-item ant-btn-compact-first-item"
         type="button"
       >
         <span
@@ -4492,7 +4492,7 @@ exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
         type="button"
       >
         <span
@@ -4573,7 +4573,7 @@ exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1
       class="ant-space-compact ant-space-compact-block ant-dropdown-button"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-compact-item ant-btn-compact-first-item"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-first-item"
         type="button"
       >
         <span>
@@ -4581,7 +4581,7 @@ exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
         type="button"
       >
         <span
@@ -4662,7 +4662,7 @@ exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1
       class="ant-space-compact ant-space-compact-block ant-dropdown-button"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-compact-item ant-btn-compact-first-item"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
         type="button"
       >
         <span>
@@ -4670,7 +4670,7 @@ exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
         type="button"
       >
         <span
@@ -5703,7 +5703,7 @@ exports[`renders components/dropdown/demo/placement.tsx extend context correctly
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-outlined ant-dropdown-trigger"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
           type="button"
         >
           <span>
@@ -5836,7 +5836,7 @@ exports[`renders components/dropdown/demo/placement.tsx extend context correctly
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-outlined ant-dropdown-trigger"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
           type="button"
         >
           <span>
@@ -5969,7 +5969,7 @@ exports[`renders components/dropdown/demo/placement.tsx extend context correctly
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-outlined ant-dropdown-trigger"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
           type="button"
         >
           <span>
@@ -6111,7 +6111,7 @@ exports[`renders components/dropdown/demo/placement.tsx extend context correctly
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-outlined ant-dropdown-trigger"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
           type="button"
         >
           <span>
@@ -6244,7 +6244,7 @@ exports[`renders components/dropdown/demo/placement.tsx extend context correctly
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-outlined ant-dropdown-trigger"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
           type="button"
         >
           <span>
@@ -6377,7 +6377,7 @@ exports[`renders components/dropdown/demo/placement.tsx extend context correctly
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-outlined ant-dropdown-trigger"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
           type="button"
         >
           <span>
