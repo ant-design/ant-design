@@ -146,7 +146,7 @@ const genFilledStyle = (token: SelectToken): CSSObject => ({
     ...genBaseFilledStyle(token, {
       bg: token.colorFillTertiary,
       hoverBg: token.colorFillSecondary,
-      activeBorderColor: token.colorPrimary,
+      activeBorderColor: token.activeBorderColor,
       color: token.colorText,
     }),
 
