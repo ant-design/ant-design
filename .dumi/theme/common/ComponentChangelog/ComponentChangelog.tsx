@@ -15,6 +15,12 @@ interface MatchDeprecatedResult {
   reason: string[];
 }
 
+interface ChangelogInfo {
+  version: string;
+  changelog: string;
+  refs: string[];
+}
+
 function matchDeprecated(v: string): MatchDeprecatedResult {
   const match = Object.keys(deprecatedVersions).find((depreciated) =>
     semver.satisfies(v, depreciated),
@@ -89,8 +95,8 @@ const locales = {
   },
 };
 
-const ParseChangelog: React.FC<{ changelog: string; refs: string[]; styles: any }> = (props) => {
-  const { changelog = '', refs = [], styles } = props;
+const ParseChangelog: React.FC<{ changelog: string }> = (props) => {
+  const { changelog = '' } = props;
 
   const parsedChangelog = React.useMemo(() => {
     const nodes: React.ReactNode[] = [];
@@ -124,21 +130,48 @@ const ParseChangelog: React.FC<{ changelog: string; refs: string[]; styles: any 
     <>
       {/* Changelog */}
       <span>{parsedChangelog}</span>
-      {/* Refs */}
-      {refs?.map((ref) => (
-        <a className={styles.linkRef} key={ref} href={ref} target="_blank" rel="noreferrer">
-          #{ref.match(/^.*\/(\d+)$/)?.[1]}
-        </a>
-      ))}
     </>
   );
 };
 
-interface ChangelogInfo {
-  version: string;
-  changelog: string;
-  refs: string[];
-}
+const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[]; styles: any }> = ({
+  changelogList,
+  styles,
+}) => {
+  const elements = [];
+  for (let i = 0; i < changelogList.length; i += 1) {
+    const { refs, changelog } = changelogList[i];
+    // Check if the next line is an image link and append it to the current line
+    if (i + 1 < changelogList.length && changelogList[i + 1].changelog.trim().startsWith('<img')) {
+      const imgDom = new DOMParser().parseFromString(changelogList[i + 1].changelog, 'text/html');
+      const imgElement = imgDom.querySelector('img');
+      elements.push(
+        <li key={i}>
+          <ParseChangelog changelog={changelog} />
+          {refs?.map((ref) => (
+            <a className={styles.linkRef} key={ref} href={ref} target="_blank" rel="noreferrer">
+              #{ref.match(/^.*\/(\d+)$/)?.[1]}
+            </a>
+          ))}
+          <br />
+          <img
+            src={imgElement?.getAttribute('src') || ''}
+            alt={imgElement?.getAttribute('alt') || ''}
+            width={imgElement?.getAttribute('width') || ''}
+          />
+        </li>,
+      );
+      i += 1; // Skip the next line
+    } else {
+      elements.push(
+        <li key={i}>
+          <ParseChangelog changelog={changelog} />
+        </li>,
+      );
+    }
+  }
+  return <ul>{elements}</ul>;
+};
 
 const useChangelog = (componentPath: string, lang: 'cn' | 'en'): ChangelogInfo[] => {
   const logFileName = `components-changelog-${lang}.json`;
@@ -210,13 +243,7 @@ const ComponentChangelog: React.FC<ComponentChangelogProps> = (props) => {
                 </Popover>
               )}
             </Typography.Title>
-            <ul>
-              {changelogList.map<React.ReactNode>((info, index) => (
-                <li key={index}>
-                  <ParseChangelog {...info} styles={styles} />
-                </li>
-              ))}
-            </ul>
+            <RenderChangelogList changelogList={changelogList} styles={styles} />
           </Typography>
         ),
       };
