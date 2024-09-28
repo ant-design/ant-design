@@ -18,6 +18,7 @@ const App: React.FC = () => {
       <Header style={{ display: 'flex', alignItems: 'center' }}>
         <div className="demo-logo" />
         <Menu
+          id="test"
           theme="dark"
           mode="horizontal"
           defaultSelectedKeys={['2']}
