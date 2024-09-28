@@ -13,8 +13,27 @@ const App: React.FC = () => {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
-  return (
-    <Layout>
+   return (
+    <div>
+      <style>
+        {`
+          #custom-drawer .ant-drawer-body {
+            padding: 0;
+            width: 100%;
+          }
+
+          #test .ant-menu-item-selected {
+            background-color: transparent;
+          }
+
+          #test .ant-menu-item-selected > span {
+            background-color: #1677ff !important;
+            height: 30px;
+            padding: 0 10px;
+            border-radius: 4px;
+          }
+        `}
+      </style>
       <Header style={{ display: 'flex', alignItems: 'center' }}>
         <div className="demo-logo" />
         <Menu
@@ -45,7 +64,7 @@ const App: React.FC = () => {
       <Footer style={{ textAlign: 'center' }}>
         Ant Design ©{new Date().getFullYear()} Created by Ant UED
       </Footer>
-    </Layout>
+    </div>
   );
 };
 
