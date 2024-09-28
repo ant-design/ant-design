@@ -251,15 +251,9 @@ mark {
   padding: 0.2em;
   background-color: #feffe6;
 }
-#custom-drawer .ant-drawer-body{
-  padding: 0;
-  width: 100%;
-}
-
 #test .ant-menu-item-selected{
    background-color: transparent;
 }
-
 #test .ant-menu-item-selected > span {
   background-color:#1677ff !important;
   height:30px;
