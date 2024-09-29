@@ -17,7 +17,7 @@ export interface TreeSharedToken {
    * @desc 缩进宽度
    * @descEN Indent width of tree
    */
-  indent?: number;
+  indentSize?: number;
   /**
    * @desc 节点悬浮态背景色
    * @descEN Background color of hovered node
@@ -104,7 +104,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
     treeNodeCls,
     treeNodePadding,
     titleHeight,
-    indent,
+    indentSize,
     nodeSelectedBg,
     nodeHoverBg,
   } = token;
@@ -236,7 +236,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         userSelect: 'none',
         '&-unit': {
           display: 'inline-block',
-          width: indent,
+          width: indentSize,
         },
       },
 
@@ -552,7 +552,7 @@ export const initComponentToken = (token: AliasToken): TreeSharedToken => {
 
   return {
     titleHeight,
-    indent: titleHeight,
+    indentSize: titleHeight,
     nodeHoverBg: controlItemBgHover,
     nodeSelectedBg: controlItemBgActive,
   };
