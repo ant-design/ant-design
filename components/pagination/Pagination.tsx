@@ -11,6 +11,7 @@ import enUS from 'rc-pagination/lib/locale/en_US';
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
+import type { SelectProps } from '../select';
 import { useLocale } from '../locale';
 import { useToken } from '../theme/internal';
 import { MiddleSelect, MiniSelect } from './Select';
@@ -24,6 +25,7 @@ export interface PaginationProps extends RcPaginationProps {
   role?: string;
   totalBoundaryShowSizeChanger?: number;
   rootClassName?: string;
+  showSizeChanger?: boolean | SelectProps;
 }
 
 export type PaginationPosition = 'top' | 'bottom' | 'both';

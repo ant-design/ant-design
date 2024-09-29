@@ -2,6 +2,7 @@ import path from 'path';
 import React from 'react';
 // Reference: https://github.com/ant-design/ant-design/pull/24003#discussion_r427267386
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+import { extractStaticStyle } from 'antd-style';
 import dayjs from 'dayjs';
 import fse from 'fs-extra';
 import { globSync } from 'glob';
@@ -153,14 +154,13 @@ export default function imageTest(
 
       if (options.ssr) {
         html = ReactDOMServer.renderToString(element);
-        styleStr = extractStyle(cache);
+        styleStr = extractStyle(cache) + extractStaticStyle(html).map((item) => item.tag);
       } else {
         const { unmount } = render(element, {
           container,
         });
         html = container.innerHTML;
-        styleStr = extractStyle(cache);
-
+        styleStr = extractStyle(cache) + extractStaticStyle(html).map((item) => item.tag);
         // We should extract style before unmount
         unmount();
       }

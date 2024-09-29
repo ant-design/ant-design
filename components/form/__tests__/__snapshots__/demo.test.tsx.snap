@@ -5147,7 +5147,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
       class="ant-row ant-form-item-row"
     >
       <div
-        class="ant-col ant-col-4 ant-form-item-label"
+        class="ant-col ant-form-item-label"
       >
         <label
           class=""
@@ -5158,7 +5158,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
         </label>
       </div>
       <div
-        class="ant-col ant-col-14 ant-form-item-control"
+        class="ant-col ant-form-item-control"
       >
         <div
           class="ant-form-item-control-input"
@@ -5241,7 +5241,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
       class="ant-row ant-form-item-row"
     >
       <div
-        class="ant-col ant-col-4 ant-form-item-label"
+        class="ant-col ant-form-item-label"
       >
         <label
           class=""
@@ -5251,7 +5251,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
         </label>
       </div>
       <div
-        class="ant-col ant-col-14 ant-form-item-control"
+        class="ant-col ant-form-item-control"
       >
         <div
           class="ant-form-item-control-input"
@@ -5277,7 +5277,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
       class="ant-row ant-form-item-row"
     >
       <div
-        class="ant-col ant-col-4 ant-form-item-label"
+        class="ant-col ant-form-item-label"
       >
         <label
           class=""
@@ -5287,7 +5287,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
         </label>
       </div>
       <div
-        class="ant-col ant-col-14 ant-form-item-control"
+        class="ant-col ant-form-item-control"
       >
         <div
           class="ant-form-item-control-input"
@@ -5313,7 +5313,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
       class="ant-row ant-form-item-row"
     >
       <div
-        class="ant-col ant-col-14 ant-col-offset-4 ant-form-item-control"
+        class="ant-col ant-form-item-control"
       >
         <div
           class="ant-form-item-control-input"
