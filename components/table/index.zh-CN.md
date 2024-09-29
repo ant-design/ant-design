@@ -250,7 +250,7 @@ const columns = [
 | columnWidth | 自定义展开列宽度 | string \| number | - |  |
 | defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |  |
 | defaultExpandedRowKeys | 默认展开的行 | string\[] | - |  |
-| expandedRowClassName | 展开行的 className | function(record, index, indent): string | - |  |
+| expandedRowClassName | 展开行的 className | string \| (record, index, indent) => string | - | string: 5.22.0 |
 | expandedRowKeys | 展开的行，控制属性 | string\[] | - |  |
 | expandedRowRender | 额外的展开行 | function(record, index, indent, expanded): ReactNode | - |  |
 | expandIcon | 自定义展开图标，参考[示例](https://codesandbox.io/s/fervent-bird-nuzpr) | function(props): ReactNode | - |  |
