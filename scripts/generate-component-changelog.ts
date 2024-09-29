@@ -92,6 +92,7 @@ const miscKeys = [
 
     // let lastGroup = '';
     let lastVersion = '';
+    let lastReleaseDate = '';
 
     // Split with lines
     const lines = content.split(/[\n\r]+/).filter((line) => line.trim());
@@ -99,7 +100,7 @@ const miscKeys = [
     // Changelog map
     const componentChangelog: Record<
       string,
-      { version: string; changelog: string; refs: string[] }[]
+      { version: string; changelog: string; refs: string[]; releaseDate: string }[]
     > = {};
     Object.keys(componentNameMap).forEach((name) => {
       componentChangelog[name] = [];
@@ -117,6 +118,10 @@ const miscKeys = [
       if (line.startsWith('## ')) {
         lastVersion = line.replace('## ', '');
         continue;
+      }
+
+      if (line.match(/\d{4}-\d{2}-\d{2}/)) {
+        lastReleaseDate = line.replaceAll('`', '');
       }
 
       // Start when get version
@@ -175,6 +180,7 @@ const miscKeys = [
             version: lastVersion,
             changelog: changelogLine,
             refs,
+            releaseDate: lastReleaseDate,
           });
           matched = true;
         }
