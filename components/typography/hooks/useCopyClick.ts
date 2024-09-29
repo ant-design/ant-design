@@ -32,7 +32,7 @@ const useCopyClick = ({
   React.useEffect(() => cleanCopyId, []);
 
   // Keep copy action up to date
-  const onClick = useEvent(async (e?: React.MouseEvent<HTMLDivElement>) => {
+  const onClick = useEvent(async (e?: React.MouseEvent<HTMLButtonElement>) => {
     e?.preventDefault();
     e?.stopPropagation();
     setCopyLoading(true);

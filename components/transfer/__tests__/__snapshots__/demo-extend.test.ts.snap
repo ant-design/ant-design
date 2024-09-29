@@ -8278,12 +8278,10 @@ Array [
             >
               content3
             </span>
-            <div
+            <button
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
-              role="button"
-              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-              tabindex="0"
+              type="button"
             >
               <span
                 aria-label="delete"
@@ -8304,7 +8302,7 @@ Array [
                   />
                 </svg>
               </span>
-            </div>
+            </button>
           </li>
           <li
             class="ant-transfer-list-content-item"
@@ -8315,12 +8313,10 @@ Array [
             >
               content6
             </span>
-            <div
+            <button
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
-              role="button"
-              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-              tabindex="0"
+              type="button"
             >
               <span
                 aria-label="delete"
@@ -8341,7 +8337,7 @@ Array [
                   />
                 </svg>
               </span>
-            </div>
+            </button>
           </li>
           <li
             class="ant-transfer-list-content-item"
@@ -8352,12 +8348,10 @@ Array [
             >
               content9
             </span>
-            <div
+            <button
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
-              role="button"
-              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-              tabindex="0"
+              type="button"
             >
               <span
                 aria-label="delete"
@@ -8378,7 +8372,7 @@ Array [
                   />
                 </svg>
               </span>
-            </div>
+            </button>
           </li>
           <li
             class="ant-transfer-list-content-item"
@@ -8389,12 +8383,10 @@ Array [
             >
               content12
             </span>
-            <div
+            <button
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
-              role="button"
-              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-              tabindex="0"
+              type="button"
             >
               <span
                 aria-label="delete"
@@ -8415,7 +8407,7 @@ Array [
                   />
                 </svg>
               </span>
-            </div>
+            </button>
           </li>
           <li
             class="ant-transfer-list-content-item"
@@ -8426,12 +8418,10 @@ Array [
             >
               content15
             </span>
-            <div
+            <button
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
-              role="button"
-              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-              tabindex="0"
+              type="button"
             >
               <span
                 aria-label="delete"
@@ -8452,7 +8442,7 @@ Array [
                   />
                 </svg>
               </span>
-            </div>
+            </button>
           </li>
           <li
             class="ant-transfer-list-content-item"
@@ -8463,12 +8453,10 @@ Array [
             >
               content18
             </span>
-            <div
+            <button
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
-              role="button"
-              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-              tabindex="0"
+              type="button"
             >
               <span
                 aria-label="delete"
@@ -8489,7 +8477,7 @@ Array [
                   />
                 </svg>
               </span>
-            </div>
+            </button>
           </li>
         </ul>
       </div>
