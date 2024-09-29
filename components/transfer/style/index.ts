@@ -122,6 +122,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     itemPaddingBlock,
     controlItemBgActive,
     colorTextDisabled,
+    colorTextSecondary,
     listHeight,
     listWidth,
     listWidthLG,
@@ -244,18 +245,13 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
         '&-remove': {
           position: 'relative',
           color: colorBorder,
-
+          background: 'none',
+          border: 0,
           cursor: 'pointer',
           transition: `all ${motionDurationSlow}`,
 
           '&:hover': {
-            color: token.colorLinkHover,
-          },
-
-          '&::after': {
-            position: 'absolute',
-            inset: `-${unit(itemPaddingBlock)} -50%`,
-            content: '""',
+            color: colorTextSecondary,
           },
         },
 
