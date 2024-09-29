@@ -121,9 +121,9 @@ const miscKeys = [
       }
 
       // Get release date
-      const match = line.match(/`(\d{4}-\d{2}-\d{2})`/);
-      if (match) {
-        lastReleaseDate = match[1];
+      const matchReleaseDate = line.match(/`(\d{4}-\d{2}-\d{2})`/);
+      if (matchReleaseDate) {
+        lastReleaseDate = matchReleaseDate[1];
       }
 
       // Start when get version
