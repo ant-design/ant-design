@@ -240,7 +240,7 @@ export const getEllipsisStyles = (): CSSObject => ({
   a&-ellipsis,
   span&-ellipsis
   `]: {
-    display: 'inline-flex',
+    display: 'inline-block',
     maxWidth: '100%',
   },
 
@@ -248,6 +248,11 @@ export const getEllipsisStyles = (): CSSObject => ({
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
+
+    // https://blog.csdn.net/iefreer/article/details/50421025
+    'a&, span&': {
+      verticalAlign: 'bottom',
+    },
 
     '> code': {
       paddingBlock: 0,

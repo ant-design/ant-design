@@ -442,7 +442,7 @@ Array [
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
       tabindex="0"
     >
       <span
@@ -474,7 +474,7 @@ Array [
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
       tabindex="0"
     >
       <span
@@ -506,7 +506,7 @@ Array [
       aria-label="click here"
       class="ant-typography-copy"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
       tabindex="0"
     >
       <span
@@ -538,7 +538,7 @@ Array [
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
       tabindex="0"
     >
       <span
@@ -570,7 +570,7 @@ Array [
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
       tabindex="0"
     >
       <span
@@ -601,7 +601,7 @@ Array [
       aria-label="Copy"
       class="ant-typography-copy ant-typography-copy-icon-only"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
       tabindex="0"
     >
       <span
@@ -638,7 +638,7 @@ Array [
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
       tabindex="0"
     >
       <span
@@ -672,7 +672,7 @@ Array [
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
       tabindex="0"
     >
       <span
@@ -704,7 +704,7 @@ Array [
       aria-label="click to edit text"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
       tabindex="0"
     >
       <span
@@ -801,7 +801,7 @@ Array [
       aria-label="click to edit text"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
       tabindex="0"
     >
       <span
@@ -833,7 +833,7 @@ Array [
       aria-label="click to edit text"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
       tabindex="0"
     >
       <span
@@ -865,7 +865,7 @@ Array [
       aria-label="click to edit text"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
       tabindex="0"
     >
       <span
@@ -897,7 +897,7 @@ Array [
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
       tabindex="0"
     >
       <span
@@ -929,7 +929,7 @@ Array [
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
       tabindex="0"
     >
       <span
@@ -962,7 +962,7 @@ Array [
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
       tabindex="0"
     >
       <span
@@ -995,7 +995,7 @@ Array [
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
       tabindex="0"
     >
       <span
@@ -1028,7 +1028,7 @@ Array [
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
       tabindex="0"
     >
       <span
@@ -1061,7 +1061,7 @@ Array [
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
       tabindex="0"
     >
       <span
@@ -1094,7 +1094,7 @@ Array [
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
       tabindex="0"
     >
       <span
@@ -1237,7 +1237,7 @@ exports[`renders components/typography/demo/ellipsis-controlled.tsx correctly 1`
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
       tabindex="0"
     >
       <span
@@ -1401,7 +1401,7 @@ Array [
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
       tabindex="0"
     >
       <span
@@ -1435,7 +1435,7 @@ Array [
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
       tabindex="0"
     >
       <span
@@ -1469,7 +1469,7 @@ Array [
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
       tabindex="0"
     >
       <span
@@ -1503,7 +1503,7 @@ Array [
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
       tabindex="0"
     >
       <span
@@ -1581,7 +1581,7 @@ Array [
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-flex"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
       tabindex="0"
     >
       <span
