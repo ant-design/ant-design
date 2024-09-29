@@ -30,7 +30,7 @@ export type BaseType = 'secondary' | 'success' | 'warning' | 'danger';
 
 export interface CopyConfig {
   text?: string | (() => string | Promise<string>);
-  onCopy?: (event?: React.MouseEvent<HTMLDivElement>) => void;
+  onCopy?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
   icon?: React.ReactNode;
   tooltips?: React.ReactNode;
   format?: 'text/plain' | 'text/html';
