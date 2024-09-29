@@ -1,7 +1,7 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import { resetComponent, resetIcon, textEllipsis } from '../../style';
+import { resetComponent, resetIcon, textEllipsis, operationUnit } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
@@ -243,14 +243,10 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
         },
 
         '&-remove': {
-          position: 'relative',
+          ...operationUnit(token),
           color: colorBorder,
-          background: 'none',
-          border: 0,
-          cursor: 'pointer',
-          transition: `all ${motionDurationSlow}`,
 
-          '&:hover': {
+          '&:hover, &:focus': {
             color: colorTextSecondary,
           },
         },

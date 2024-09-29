@@ -153,6 +153,7 @@ export const operationUnit = (token: AliasToken): CSSObject => ({
   cursor: 'pointer',
   transition: `all ${token.motionDurationSlow}`,
   border: 0,
+  padding: 0,
   background: 'none',
   userSelect: 'none',
 

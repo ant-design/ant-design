@@ -57,7 +57,6 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         float: 'left',
         width: expandIconSize,
         height: expandIconSize,
-        padding: 0,
         color: 'inherit',
         lineHeight: unit(expandIconSize),
         background: tableExpandIconBg,
