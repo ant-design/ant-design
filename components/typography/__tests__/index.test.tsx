@@ -3,6 +3,7 @@ import { CheckOutlined, HighlightOutlined, LikeOutlined, SmileOutlined } from '@
 import copy from 'copy-to-clipboard';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { resetWarned } from 'rc-util/lib/warning';
+import userEvent from '@testing-library/user-event';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -476,33 +477,24 @@ describe('Typography', () => {
     expect(ref.current instanceof HTMLSpanElement).toBe(true);
   });
 
-  it('Callback on enter key is triggered', () => {
-    const onEditStart = jest.fn();
+  it('should trigger callback when press {enter}', async () => {
     const onCopy = jest.fn();
-
+    const onEditStart = jest.fn();
     const { container: wrapper } = render(
-      <Paragraph
-        copyable={{
-          onCopy,
-        }}
-        editable={{
-          onStart: onEditStart,
-        }}
-      >
+      <Paragraph copyable={{ onCopy }} editable={{ onStart: onEditStart }}>
         test
       </Paragraph>,
     );
-    const timer: any = 9527;
-    jest.spyOn(window, 'setTimeout').mockReturnValue(timer);
-    jest.spyOn(window, 'clearTimeout');
-    // must copy first, because editing button will hide copy button
-    fireEvent.keyUp(wrapper.querySelectorAll('.ant-typography-copy')[0], {
-      keyCode: KeyCode.ENTER,
-    });
-    fireEvent.keyUp(wrapper.querySelectorAll('.anticon-edit')[0], { keyCode: KeyCode.ENTER });
-
-    expect(onEditStart.mock.calls.length).toBe(1);
-    expect(onCopy.mock.calls.length).toBe(1);
-    jest.restoreAllMocks();
+    const copyButton = wrapper.querySelector('.ant-typography-copy') as HTMLButtonElement;
+    expect(copyButton).toBeTruthy();
+    // https://github.com/testing-library/user-event/issues/179#issuecomment-1125146667
+    copyButton.focus();
+    userEvent.keyboard('{enter}');
+    await waitFor(() => expect(onCopy).toHaveBeenCalledTimes(1));
+    const editButton = wrapper.querySelector('.ant-typography-edit') as HTMLButtonElement;
+    expect(editButton).toBeTruthy();
+    editButton.focus();
+    userEvent.keyboard('{enter}');
+    await waitFor(() => expect(onEditStart).toHaveBeenCalledTimes(1));
   });
 });
