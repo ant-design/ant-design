@@ -23,7 +23,7 @@ tag: vVERSION
 - 🐞 修复 Tabs 在浏览器缩放时无限闪烁的问题。[#51072](https://github.com/ant-design/ant-design/pull/51072) [@afc163](https://github.com/afc163)
 - 🐞 修复了 Search 组件中在不同缩放级别下输入框和按钮的对齐问题。[#50926](https://github.com/ant-design/ant-design/pull/50926) [@nathanlao](https://github.com/nathanlao)
 - 🐞 修复 Splitter 在触屏设备上拖拽异常的问题。[#51060](https://github.com/ant-design/ant-design/pull/51060) [@sakuraee](https://github.com/sakuraee)
-- 🐞 当变体为填充时，不正确的 activeBorderColor token。[#51054](https://github.com/ant-design/ant-design/pull/51054) [@coding-ice](https://github.com/coding-ice)
+- 🐞 Select 当变体为填充时，不正确的 `activeBorderColor` token。[#51054](https://github.com/ant-design/ant-design/pull/51054) [@coding-ice](https://github.com/coding-ice)
 - 💄 MISC: 调整 focus 时的 outline 边框宽度，从 `4px` 调整到 `3px`。[#51069](https://github.com/ant-design/ant-design/pull/51069) [@afc163](https://github.com/afc163)
 - 💄 修复 Splitter.Panel 样式无效问题。[#51032](https://github.com/ant-design/ant-design/pull/51032) [@wanpan11](https://github.com/wanpan11)
 - ⚡️ 移除 Table/Transfer/Typography 内的 TransButton 实现以降低打包体积。[#51068](https://github.com/ant-design/ant-design/pull/51068) [@afc163](https://github.com/afc163)
