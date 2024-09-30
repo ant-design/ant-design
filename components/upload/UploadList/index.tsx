@@ -60,14 +60,6 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
     if (!listType.startsWith('picture')) {
       return;
     }
-    if (
-      typeof document === 'undefined' ||
-      typeof window === 'undefined' ||
-      !(window as any).FileReader ||
-      !(window as any).File
-    ) {
-      return;
-    }
     (items || []).forEach((file) => {
       if (
         !(file.originFileObj instanceof File || (file.originFileObj as any) instanceof Blob) ||
