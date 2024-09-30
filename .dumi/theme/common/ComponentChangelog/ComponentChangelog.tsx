@@ -19,6 +19,7 @@ interface ChangelogInfo {
   version: string;
   changelog: string;
   refs: string[];
+  releaseDate: string;
 }
 
 function matchDeprecated(v: string): MatchDeprecatedResult {
@@ -243,6 +244,7 @@ const ComponentChangelog: React.FC<ComponentChangelogProps> = (props) => {
                 </Popover>
               )}
             </Typography.Title>
+            {changelogList[0].releaseDate}
             <RenderChangelogList changelogList={changelogList} styles={styles} />
           </Typography>
         ),
