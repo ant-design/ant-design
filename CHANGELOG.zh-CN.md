@@ -17,7 +17,7 @@ tag: vVERSION
 
 ## 5.21.2
 
-`2024-09-30`
+`2024-10-01`
 
 - 🐞 回滚 [#49221](https://github.com/ant-design/ant-design/pull/49221) 以修复 Typography `copyable` 图标位置偏上的问题。[#51066](https://github.com/ant-design/ant-design/pull/51066) [@afc163](https://github.com/afc163)
 - 🐞 修复 Tabs 在浏览器缩放时无限闪烁的问题。[#51072](https://github.com/ant-design/ant-design/pull/51072) [@afc163](https://github.com/afc163)

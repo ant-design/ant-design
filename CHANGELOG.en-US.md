@@ -18,7 +18,7 @@ tag: vVERSION
 
 ## 5.21.2
 
-`2024-09-30`
+`2024-10-01`
 
 - 🐞 Revert [#49221](https://github.com/ant-design/ant-design/pull/49221) to fix Typography `copyable` icon align issue. [#51066](https://github.com/ant-design/ant-design/pull/51066) [@afc163](https://github.com/afc163)
 - 🐞 Fix Tabs flicker when browser zoom is enabled. [#51072](https://github.com/ant-design/ant-design/pull/51072) [@afc163](https://github.com/afc163)
