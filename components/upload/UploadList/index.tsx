@@ -176,21 +176,16 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
 
   const listClassNames = classNames(`${prefixCls}-list`, `${prefixCls}-list-${listType}`);
 
-  // >>> Motion config
-  const motionKeyList = [...items.map((file) => ({ key: file.uid, file }))];
-
-  const animationDirection = isPictureCardOrCirle ? 'animate-inline' : 'animate';
-
   const listItemMotion = React.useMemo(
     () => omit(initCollapseMotion(rootPrefixCls), ['onAppearEnd', 'onEnterEnd', 'onLeaveEnd']),
     [rootPrefixCls],
   );
   const motionConfig: Omit<CSSMotionListProps, 'onVisibleChanged'> = {
-    motionDeadline: 2000,
-    motionName: `${prefixCls}-${animationDirection}`,
-    keys: motionKeyList,
-    motionAppear,
     ...(isPictureCardOrCirle ? {} : listItemMotion),
+    motionDeadline: 2000,
+    motionName: `${prefixCls}-${isPictureCardOrCirle ? 'animate-inline' : 'animate'}`,
+    keys: [...items.map((file) => ({ key: file.uid, file }))],
+    motionAppear,
   };
 
   return (
