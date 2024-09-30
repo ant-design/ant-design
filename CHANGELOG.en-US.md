@@ -16,6 +16,19 @@ tag: vVERSION
 
 ---
 
+## 5.21.2
+
+`2024-09-30`
+
+- 🐞 Revert [#49221](#https://github.com/ant-design/ant-design/pull/49221) to fix Typography `copyable` icon align issue. [#51066](https://github.com/ant-design/ant-design/pull/51066) [@afc163](https://github.com/afc163)
+- 🐞 Fix Tabs flicker when browser zoom is enabled. [#51072](https://github.com/ant-design/ant-design/pull/51072) [@afc163](https://github.com/afc163)
+- 🐞 Incorrect activeBorderColor token when variant is filled. [#51054](https://github.com/ant-design/ant-design/pull/51054) [@coding-ice](https://github.com/coding-ice)
+- 🐞 Fixed alignment issue between the input field and search button in the Search component at different zoom levels. [#50926](https://github.com/ant-design/ant-design/pull/50926) [@nathanlao](https://github.com/nathanlao)
+- 🐞 Fixed the issue with Splitter dragging abnormally on touch screen devices. [#51060](https://github.com/ant-design/ant-design/pull/51060) [@sakuraee](https://github.com/sakuraee)
+- 💄 MISC: Tweak outline width of focus style from `4px` to `3px`. [#51069](https://github.com/ant-design/ant-design/pull/51069) [@afc163](https://github.com/afc163)
+- 💄 Fixed Splitter.Panel style is invalid error. [#51032](https://github.com/ant-design/ant-design/pull/51032) [@wanpan11](https://github.com/wanpan11)
+- ⚡️ Remove TransButton in Table/Transfer/Typography. [#51068](https://github.com/ant-design/ant-design/pull/51068) [@afc163](https://github.com/afc163)
+
 ## 5.21.1
 
 `2024-09-25`
