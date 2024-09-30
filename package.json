@@ -321,6 +321,10 @@
     "webpack-bundle-analyzer": "^4.10.2",
     "xhr-mock": "^2.5.1"
   },
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
