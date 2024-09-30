@@ -19,7 +19,7 @@ tag: vVERSION
 
 `2024-09-30`
 
-- 🐞 回滚 [#49221](#https://github.com/ant-design/ant-design/pull/49221) 以修复 Typography `copyable` 图标位置偏上的问题。[#51066](https://github.com/ant-design/ant-design/pull/51066) [@afc163](https://github.com/afc163)
+- 🐞 回滚 [#49221](https://github.com/ant-design/ant-design/pull/49221) 以修复 Typography `copyable` 图标位置偏上的问题。[#51066](https://github.com/ant-design/ant-design/pull/51066) [@afc163](https://github.com/afc163)
 - 🐞 修复 Tabs 在浏览器缩放时无限闪烁的问题。[#51072](https://github.com/ant-design/ant-design/pull/51072) [@afc163](https://github.com/afc163)
 - 🐞 修复了 Search 组件中在不同缩放级别下输入框和按钮的对齐问题。[#50926](https://github.com/ant-design/ant-design/pull/50926) [@nathanlao](https://github.com/nathanlao)
 - 🐞 修复 Splitter 在触屏设备上拖拽异常的问题。[#51060](https://github.com/ant-design/ant-design/pull/51060) [@sakuraee](https://github.com/sakuraee)
