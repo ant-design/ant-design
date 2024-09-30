@@ -156,7 +156,7 @@
     "@ant-design/happy-work-theme": "^1.0.0",
     "@ant-design/tools": "^18.0.2",
     "@antfu/eslint-config": "^3.0.0",
-    "@antv/g6": "^4.8.24",
+    "@antv/g6": "^5.0.25",
     "@biomejs/biome": "^1.9.1",
     "@codecov/webpack-plugin": "^1.0.1",
     "@codesandbox/sandpack-react": "^2.19.8",
