@@ -103,22 +103,30 @@ const ParseChangelog: React.FC<{ changelog: string }> = (props) => {
     const nodes: React.ReactNode[] = [];
 
     let isQuota = false;
+    let isBold = false;
     let lastStr = '';
 
     for (let i = 0; i < changelog.length; i += 1) {
       const char = changelog[i];
 
-      if (char !== '`') {
+      if (char !== '`' && char !== '*') {
         lastStr += char;
       } else {
         let node: React.ReactNode = lastStr;
         if (isQuota) {
           node = <code>{node}</code>;
+        } else if (isBold) {
+          node = <strong>{node}</strong>;
         }
 
         nodes.push(node);
         lastStr = '';
-        isQuota = !isQuota;
+        if (char === '`') {
+          isQuota = !isQuota;
+        } else if (char === '*' && changelog[i + 1] === '*') {
+          isBold = !isBold;
+          i += 1; // Skip the next '*'
+        }
       }
     }
 
