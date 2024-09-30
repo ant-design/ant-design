@@ -1,6 +1,6 @@
-import React from 'react';
-import { BugOutlined, HistoryOutlined } from '@ant-design/icons';
-import { Button, Drawer, Grid, Popover, Timeline, Typography } from 'antd';
+import React, { cloneElement, isValidElement } from 'react';
+import { BugOutlined } from '@ant-design/icons';
+import { Drawer, Grid, Popover, Timeline, Typography } from 'antd';
 import type { TimelineItemProps } from 'antd';
 import { createStyles } from 'antd-style';
 import semver from 'semver';
@@ -8,6 +8,7 @@ import semver from 'semver';
 import deprecatedVersions from '../../../../BUG_VERSIONS.json';
 import useFetch from '../../../hooks/useFetch';
 import useLocale from '../../../hooks/useLocale';
+import useLocation from '../../../hooks/useLocation';
 import Link from '../Link';
 
 interface MatchDeprecatedResult {
@@ -76,7 +77,7 @@ const useStyle = createStyles(({ token, css }) => ({
 }));
 
 export interface ComponentChangelogProps {
-  pathname: string;
+  children?: React.ReactNode;
 }
 
 const locales = {
@@ -199,9 +200,10 @@ const useChangelog = (componentPath: string, lang: 'cn' | 'en'): ChangelogInfo[]
 };
 
 const ComponentChangelog: React.FC<ComponentChangelogProps> = (props) => {
-  const { pathname = '' } = props;
+  const { children } = props;
   const [locale, lang] = useLocale(locales);
   const [show, setShow] = React.useState(false);
+  const { pathname } = useLocation();
 
   const { styles } = useStyle();
 
@@ -263,15 +265,16 @@ const ComponentChangelog: React.FC<ComponentChangelogProps> = (props) => {
   const screens = Grid.useBreakpoint();
   const width = screens.md ? '48vw' : '90vw';
 
-  if (!list || !list.length) {
+  if (!pathname.startsWith('/components/') || !list || !list.length) {
     return null;
   }
 
   return (
     <>
-      <Button icon={<HistoryOutlined />} onClick={() => setShow(true)}>
-        {locale.changelog}
-      </Button>
+      {isValidElement(children) &&
+        cloneElement(children as React.ReactElement, {
+          onClick: () => setShow(true),
+        })}
       <Drawer
         destroyOnClose
         className={styles.drawerContent}
