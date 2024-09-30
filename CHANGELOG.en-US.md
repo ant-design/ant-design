@@ -23,7 +23,7 @@ tag: vVERSION
 - 🐞 Revert [#49221](https://github.com/ant-design/ant-design/pull/49221) to fix Typography `copyable` icon align issue. [#51066](https://github.com/ant-design/ant-design/pull/51066) [@afc163](https://github.com/afc163)
 - 🐞 Fix Tabs flicker when browser zoom is enabled. [#51072](https://github.com/ant-design/ant-design/pull/51072) [@afc163](https://github.com/afc163)
 - 🐞 Fix Select incorrect `activeBorderColor` token when variant is filled. [#51054](https://github.com/ant-design/ant-design/pull/51054) [@coding-ice](https://github.com/coding-ice)
-- 🐞 Fixed alignment issue between the input field and search button in the Input.Search component at different zoom levels. [#50926](https://github.com/ant-design/ant-design/pull/50926) [@nathanlao](https://github.com/nathanlao)
+- 🐞 Fixed Input.Search alignment issue between the input field and search button at different zoom levels. [#50926](https://github.com/ant-design/ant-design/pull/50926) [@nathanlao](https://github.com/nathanlao)
 - 💄 MISC: Tweak outline width of focus style from `4px` to `3px`. [#51069](https://github.com/ant-design/ant-design/pull/51069) [@afc163](https://github.com/afc163)
 - Splitter
   - 🐞 Fixed the issue with Splitter dragging abnormally on touch screen devices. [#51060](https://github.com/ant-design/ant-design/pull/51060) [@sakuraee](https://github.com/sakuraee)
