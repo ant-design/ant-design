@@ -27,7 +27,7 @@ tag: vVERSION
 - 💄 MISC: 调整 focus 时的 outline 边框宽度，从 `4px` 调整到 `3px`。[#51069](https://github.com/ant-design/ant-design/pull/51069) [@afc163](https://github.com/afc163)
 - Splitter
   - 🐞 修复 Splitter 在触屏设备上拖拽异常的问题。[#51060](https://github.com/ant-design/ant-design/pull/51060) [@sakuraee](https://github.com/sakuraee)
-  - 💄 修复 Splitter.Panel 样式无效问题。[#51032](https://github.com/ant-design/ant-design/pull/51032) [@wanpan11](https://github.com/wanpan11)
+  - 💄 修复 Splitter.Panel 无法隐藏的问题。[#51032](https://github.com/ant-design/ant-design/pull/51032) [@wanpan11](https://github.com/wanpan11)
 - 📦 移除 Table/Transfer/Typography 内的 TransButton 实现以降低打包体积。[#51068](https://github.com/ant-design/ant-design/pull/51068) [@afc163](https://github.com/afc163)
 
 ## 5.21.1
