@@ -1,6 +1,6 @@
-import React from 'react';
-import { BugOutlined, HistoryOutlined } from '@ant-design/icons';
-import { Button, Drawer, Grid, Popover, Timeline, Typography } from 'antd';
+import React, { cloneElement, isValidElement } from 'react';
+import { BugOutlined } from '@ant-design/icons';
+import { Drawer, Flex, Grid, Popover, Tag, Timeline, Typography } from 'antd';
 import type { TimelineItemProps } from 'antd';
 import { createStyles } from 'antd-style';
 import semver from 'semver';
@@ -8,6 +8,7 @@ import semver from 'semver';
 import deprecatedVersions from '../../../../BUG_VERSIONS.json';
 import useFetch from '../../../hooks/useFetch';
 import useLocale from '../../../hooks/useLocale';
+import useLocation from '../../../hooks/useLocation';
 import Link from '../Link';
 
 interface MatchDeprecatedResult {
@@ -19,6 +20,7 @@ interface ChangelogInfo {
   version: string;
   changelog: string;
   refs: string[];
+  releaseDate: string;
 }
 
 function matchDeprecated(v: string): MatchDeprecatedResult {
@@ -33,6 +35,11 @@ function matchDeprecated(v: string): MatchDeprecatedResult {
 }
 
 const useStyle = createStyles(({ token, css }) => ({
+  listWrap: css`
+    > li {
+      line-height: 2;
+    }
+  `,
   linkRef: css`
     margin-inline-start: ${token.marginXS}px;
   `,
@@ -72,11 +79,22 @@ const useStyle = createStyles(({ token, css }) => ({
       scrollbarColor: 'unset',
     },
   },
+  versionWrap: css`
+    margin-bottom: 1em;
+  `,
+  versionTitle: css`
+    margin: 0 !important;
+  `,
+  versionTag: css`
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    &:last-child {
+      margin-inline-end: 0;
+    }
+  `,
 }));
-
-export interface ComponentChangelogProps {
-  pathname: string;
-}
 
 const locales = {
   cn: {
@@ -102,22 +120,30 @@ const ParseChangelog: React.FC<{ changelog: string }> = (props) => {
     const nodes: React.ReactNode[] = [];
 
     let isQuota = false;
+    let isBold = false;
     let lastStr = '';
 
     for (let i = 0; i < changelog.length; i += 1) {
       const char = changelog[i];
 
-      if (char !== '`') {
+      if (char !== '`' && char !== '*') {
         lastStr += char;
       } else {
         let node: React.ReactNode = lastStr;
         if (isQuota) {
           node = <code>{node}</code>;
+        } else if (isBold) {
+          node = <strong>{node}</strong>;
         }
 
         nodes.push(node);
         lastStr = '';
-        isQuota = !isQuota;
+        if (char === '`') {
+          isQuota = !isQuota;
+        } else if (char === '*' && changelog[i + 1] === '*') {
+          isBold = !isBold;
+          i += 1; // Skip the next '*'
+        }
       }
     }
 
@@ -126,19 +152,12 @@ const ParseChangelog: React.FC<{ changelog: string }> = (props) => {
     return nodes;
   }, [changelog]);
 
-  return (
-    <>
-      {/* Changelog */}
-      <span>{parsedChangelog}</span>
-    </>
-  );
+  return <span>{parsedChangelog}</span>;
 };
 
-const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[]; styles: any }> = ({
-  changelogList,
-  styles,
-}) => {
-  const elements = [];
+const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[] }> = ({ changelogList }) => {
+  const elements: React.ReactNode[] = [];
+  const { styles } = useStyle();
   for (let i = 0; i < changelogList.length; i += 1) {
     const { refs, changelog } = changelogList[i];
     // Check if the next line is an image link and append it to the current line
@@ -170,7 +189,7 @@ const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[]; styles: an
       );
     }
   }
-  return <ul>{elements}</ul>;
+  return <ul className={styles.listWrap}>{elements}</ul>;
 };
 
 const useChangelog = (componentPath: string, lang: 'cn' | 'en'): ChangelogInfo[] => {
@@ -189,10 +208,11 @@ const useChangelog = (componentPath: string, lang: 'cn' | 'en'): ChangelogInfo[]
   }, [data, componentPath]);
 };
 
-const ComponentChangelog: React.FC<ComponentChangelogProps> = (props) => {
-  const { pathname = '' } = props;
+const ComponentChangelog: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
+  const { children } = props;
   const [locale, lang] = useLocale(locales);
   const [show, setShow] = React.useState(false);
+  const { pathname } = useLocation();
 
   const { styles } = useStyle();
 
@@ -214,36 +234,41 @@ const ComponentChangelog: React.FC<ComponentChangelogProps> = (props) => {
       return {
         children: (
           <Typography>
-            <Typography.Title level={4}>
-              {version}
-              {bugVersionInfo.match && (
-                <Popover
-                  destroyTooltipOnHide
-                  placement="right"
-                  title={<span className={styles.bugReasonTitle}>{locale.bugList}</span>}
-                  content={
-                    <ul className={styles.bugReasonList}>
-                      {bugVersionInfo.reason.map<React.ReactNode>((reason, index) => (
-                        <li key={`reason-${index}`}>
-                          <a type="link" target="_blank" rel="noreferrer" href={reason}>
-                            <BugOutlined />
-                            {reason
-                              ?.replace(/#.*$/, '')
-                              ?.replace(
-                                /^https:\/\/github\.com\/ant-design\/ant-design\/(issues|pull)\//,
-                                '#',
-                              )}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  }
-                >
-                  <BugOutlined className={styles.bug} />
-                </Popover>
-              )}
-            </Typography.Title>
-            <RenderChangelogList changelogList={changelogList} styles={styles} />
+            <Flex className={styles.versionWrap} justify="flex-start" align="center" gap="middle">
+              <Typography.Title className={styles.versionTitle} level={4}>
+                {version}
+                {bugVersionInfo.match && (
+                  <Popover
+                    destroyTooltipOnHide
+                    placement="right"
+                    title={<span className={styles.bugReasonTitle}>{locale.bugList}</span>}
+                    content={
+                      <ul className={styles.bugReasonList}>
+                        {bugVersionInfo.reason.map<React.ReactNode>((reason, index) => (
+                          <li key={`reason-${index}`}>
+                            <a type="link" target="_blank" rel="noreferrer" href={reason}>
+                              <BugOutlined />
+                              {reason
+                                ?.replace(/#.*$/, '')
+                                ?.replace(
+                                  /^https:\/\/github\.com\/ant-design\/ant-design\/(issues|pull)\//,
+                                  '#',
+                                )}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    }
+                  >
+                    <BugOutlined className={styles.bug} />
+                  </Popover>
+                )}
+              </Typography.Title>
+              <Tag className={styles.versionTag} bordered={false} color="blue">
+                {changelogList[0]?.releaseDate}
+              </Tag>
+            </Flex>
+            <RenderChangelogList changelogList={changelogList} />
           </Typography>
         ),
       };
@@ -253,15 +278,16 @@ const ComponentChangelog: React.FC<ComponentChangelogProps> = (props) => {
   const screens = Grid.useBreakpoint();
   const width = screens.md ? '48vw' : '90vw';
 
-  if (!list || !list.length) {
+  if (!pathname.startsWith('/components/') || !list || !list.length) {
     return null;
   }
 
   return (
     <>
-      <Button icon={<HistoryOutlined />} onClick={() => setShow(true)}>
-        {locale.changelog}
-      </Button>
+      {isValidElement(children) &&
+        cloneElement(children as React.ReactElement, {
+          onClick: () => setShow(true),
+        })}
       <Drawer
         destroyOnClose
         className={styles.drawerContent}

@@ -440,12 +440,10 @@ Array [
     class="ant-typography"
   >
     This is a copyable text.
-    <div
+    <button
       aria-label="Copy"
       class="ant-typography-copy"
-      role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-      tabindex="0"
+      type="button"
     >
       <span
         aria-label="copy"
@@ -466,7 +464,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -491,12 +489,10 @@ Array [
     class="ant-typography"
   >
     Replace copy text.
-    <div
+    <button
       aria-label="Copy"
       class="ant-typography-copy"
-      role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-      tabindex="0"
+      type="button"
     >
       <span
         aria-label="copy"
@@ -517,7 +513,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -542,12 +538,10 @@ Array [
     class="ant-typography"
   >
     Custom Copy icon and replace tooltips text.
-    <div
+    <button
       aria-label="click here"
       class="ant-typography-copy"
-      role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-      tabindex="0"
+      type="button"
     >
       <span
         aria-label="smile"
@@ -568,7 +562,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -593,12 +587,10 @@ Array [
     class="ant-typography"
   >
     Hide Copy tooltips.
-    <div
+    <button
       aria-label="Copy"
       class="ant-typography-copy"
-      role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-      tabindex="0"
+      type="button"
     >
       <span
         aria-label="copy"
@@ -619,7 +611,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -642,12 +634,10 @@ Array [
     class="ant-typography"
   >
     Request copy text.
-    <div
+    <button
       aria-label="Copy"
       class="ant-typography-copy"
-      role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-      tabindex="0"
+      type="button"
     >
       <span
         aria-label="copy"
@@ -668,7 +658,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -692,12 +682,10 @@ Array [
   <span
     class="ant-typography"
   >
-    <div
+    <button
       aria-label="Copy"
       class="ant-typography-copy ant-typography-copy-icon-only"
-      role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-      tabindex="0"
+      type="button"
     >
       <span
         aria-label="copy"
@@ -718,7 +706,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -750,12 +738,10 @@ Array [
     class="ant-typography"
   >
     This is an editable text.
-    <div
+    <button
       aria-label="Edit"
       class="ant-typography-edit"
-      role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-      tabindex="0"
+      type="button"
     >
       <span
         aria-label="edit"
@@ -776,7 +762,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -802,12 +788,10 @@ Array [
     class="ant-typography ant-typography-ellipsis"
   >
     This is a loooooooooooooooooooooooooooooooong editable text with suffix.
-    <div
+    <button
       aria-label="Edit"
       class="ant-typography-edit"
-      role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-      tabindex="0"
+      type="button"
     >
       <span
         aria-label="edit"
@@ -828,7 +812,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -853,12 +837,10 @@ Array [
     class="ant-typography"
   >
     Custom Edit icon and replace tooltip text.
-    <div
+    <button
       aria-label="click to edit text"
       class="ant-typography-edit"
-      role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-      tabindex="0"
+      type="button"
     >
       <span
         aria-label="highlight"
@@ -879,7 +861,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -967,12 +949,10 @@ Array [
     class="ant-typography"
   >
     Text or icon as trigger - click to start editing.
-    <div
+    <button
       aria-label="click to edit text"
       class="ant-typography-edit"
-      role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-      tabindex="0"
+      type="button"
     >
       <span
         aria-label="edit"
@@ -993,7 +973,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -1018,12 +998,10 @@ Array [
     class="ant-typography"
   >
     Editable text with a custom enter icon in edit field.
-    <div
+    <button
       aria-label="click to edit text"
       class="ant-typography-edit"
-      role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-      tabindex="0"
+      type="button"
     >
       <span
         aria-label="highlight"
@@ -1044,7 +1022,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -1069,12 +1047,10 @@ Array [
     class="ant-typography"
   >
     Editable text with no enter icon in edit field.
-    <div
+    <button
       aria-label="click to edit text"
       class="ant-typography-edit"
-      role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-      tabindex="0"
+      type="button"
     >
       <span
         aria-label="highlight"
@@ -1095,7 +1071,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -1120,12 +1096,10 @@ Array [
     class="ant-typography"
   >
     Hide Edit tooltip.
-    <div
+    <button
       aria-label="Edit"
       class="ant-typography-edit"
-      role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-      tabindex="0"
+      type="button"
     >
       <span
         aria-label="edit"
@@ -1146,7 +1120,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -1169,12 +1143,10 @@ Array [
     class="ant-typography"
   >
     This is an editable text with limited length.
-    <div
+    <button
       aria-label="Edit"
       class="ant-typography-edit"
-      role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-      tabindex="0"
+      type="button"
     >
       <span
         aria-label="edit"
@@ -1195,7 +1167,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -1221,12 +1193,10 @@ Array [
     style="margin: 0px;"
   >
     h1. Ant Design
-    <div
+    <button
       aria-label="Edit"
       class="ant-typography-edit"
-      role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-      tabindex="0"
+      type="button"
     >
       <span
         aria-label="edit"
@@ -1247,7 +1217,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -1273,12 +1243,10 @@ Array [
     style="margin: 0px;"
   >
     h2. Ant Design
-    <div
+    <button
       aria-label="Edit"
       class="ant-typography-edit"
-      role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-      tabindex="0"
+      type="button"
     >
       <span
         aria-label="edit"
@@ -1299,7 +1267,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -1325,12 +1293,10 @@ Array [
     style="margin: 0px;"
   >
     h3. Ant Design
-    <div
+    <button
       aria-label="Edit"
       class="ant-typography-edit"
-      role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-      tabindex="0"
+      type="button"
     >
       <span
         aria-label="edit"
@@ -1351,7 +1317,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -1377,12 +1343,10 @@ Array [
     style="margin: 0px;"
   >
     h4. Ant Design
-    <div
+    <button
       aria-label="Edit"
       class="ant-typography-edit"
-      role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-      tabindex="0"
+      type="button"
     >
       <span
         aria-label="edit"
@@ -1403,7 +1367,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -1429,12 +1393,10 @@ Array [
     style="margin: 0px;"
   >
     h5. Ant Design
-    <div
+    <button
       aria-label="Edit"
       class="ant-typography-edit"
-      role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-      tabindex="0"
+      type="button"
     >
       <span
         aria-label="edit"
@@ -1455,7 +1417,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -1652,12 +1614,10 @@ exports[`renders components/typography/demo/ellipsis-controlled.tsx extend conte
     class="ant-typography ant-typography-ellipsis"
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.
-    <div
+    <button
       aria-label="Copy"
       class="ant-typography-copy"
-      role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-      tabindex="0"
+      type="button"
     >
       <span
         aria-label="copy"
@@ -1678,7 +1638,7 @@ exports[`renders components/typography/demo/ellipsis-controlled.tsx extend conte
           />
         </svg>
       </span>
-    </div>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -1855,12 +1815,10 @@ Array [
     style="max-width: 400px; font-size: 24px;"
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
-    <div
+    <button
       aria-label="Copy"
       class="ant-typography-copy"
-      role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-      tabindex="0"
+      type="button"
     >
       <span
         aria-label="copy"
@@ -1881,7 +1839,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -1909,12 +1867,10 @@ Array [
     style="max-width: 400px; font-size: 12px;"
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
-    <div
+    <button
       aria-label="Copy"
       class="ant-typography-copy"
-      role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-      tabindex="0"
+      type="button"
     >
       <span
         aria-label="copy"
@@ -1935,7 +1891,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -1963,12 +1919,10 @@ Array [
     style="width: 400px; font-size: 24px;"
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
-    <div
+    <button
       aria-label="Copy"
       class="ant-typography-copy"
-      role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-      tabindex="0"
+      type="button"
     >
       <span
         aria-label="copy"
@@ -1989,7 +1943,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -2017,12 +1971,10 @@ Array [
     style="width: 100px;"
   >
     Ant Design is a design language for background applications, is refined by Ant UED Team.
-    <div
+    <button
       aria-label="Copy"
       class="ant-typography-copy"
-      role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-      tabindex="0"
+      type="button"
     >
       <span
         aria-label="copy"
@@ -2043,7 +1995,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -2139,12 +2091,10 @@ Array [
     style="width: 100px; white-space: nowrap;"
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
-    <div
+    <button
       aria-label="Copy"
       class="ant-typography-copy"
-      role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-      tabindex="0"
+      type="button"
     >
       <span
         aria-label="copy"
@@ -2165,7 +2115,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
