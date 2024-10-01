@@ -100,6 +100,10 @@
   "browserslist": [
     "defaults"
   ],
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
   "dependencies": {
     "@ant-design/colors": "^7.1.0",
     "@ant-design/cssinjs": "^1.21.1",
@@ -150,10 +154,6 @@
     "rc-util": "^5.43.0",
     "scroll-into-view-if-needed": "^3.1.0",
     "throttle-debounce": "^5.0.2"
-  },
-  "peerDependencies": {
-    "react": ">=16.9.0",
-    "react-dom": ">=16.9.0"
   },
   "devDependencies": {
     "@ant-design/compatible": "^5.1.3",
