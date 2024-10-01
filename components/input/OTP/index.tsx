@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { useEvent } from 'rc-util';
+import useEvent from 'rc-util/lib/hooks/useEvent';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import { getMergedStatus } from '../../_util/statusUtils';
