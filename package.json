@@ -100,6 +100,10 @@
   "browserslist": [
     "defaults"
   ],
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
   "dependencies": {
     "@ant-design/colors": "^7.1.0",
     "@ant-design/cssinjs": "^1.21.1",
