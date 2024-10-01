@@ -35,6 +35,11 @@ function matchDeprecated(v: string): MatchDeprecatedResult {
 }
 
 const useStyle = createStyles(({ token, css }) => ({
+  listWrap: css`
+    > li {
+      line-height: 2;
+    }
+  `,
   linkRef: css`
     margin-inline-start: ${token.marginXS}px;
   `,
@@ -150,11 +155,9 @@ const ParseChangelog: React.FC<{ changelog: string }> = (props) => {
   return <span>{parsedChangelog}</span>;
 };
 
-const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[]; styles: any }> = ({
-  changelogList,
-  styles,
-}) => {
-  const elements = [];
+const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[] }> = ({ changelogList }) => {
+  const elements: React.ReactNode[] = [];
+  const { styles } = useStyle();
   for (let i = 0; i < changelogList.length; i += 1) {
     const { refs, changelog } = changelogList[i];
     // Check if the next line is an image link and append it to the current line
@@ -186,7 +189,7 @@ const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[]; styles: an
       );
     }
   }
-  return <ul>{elements}</ul>;
+  return <ul className={styles.listWrap}>{elements}</ul>;
 };
 
 const useChangelog = (componentPath: string, lang: 'cn' | 'en'): ChangelogInfo[] => {
@@ -265,7 +268,7 @@ const ComponentChangelog: React.FC<Readonly<React.PropsWithChildren>> = (props) 
                 {changelogList[0]?.releaseDate}
               </Tag>
             </Flex>
-            <RenderChangelogList changelogList={changelogList} styles={styles} />
+            <RenderChangelogList changelogList={changelogList} />
           </Typography>
         ),
       };
