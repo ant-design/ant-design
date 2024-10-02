@@ -52,6 +52,14 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     }
   };
 
+  const onTouchStart: React.TouchEventHandler<HTMLDivElement> = (e) => {
+    if (resizable && e.touches.length === 1) {
+      const touch = e.touches[0];
+      setStartPos([touch.pageX, touch.pageY]);
+      onOffsetStart(index);
+    }
+  };
+
   React.useEffect(() => {
     if (startPos) {
       const onMouseMove = (e: MouseEvent) => {
@@ -67,12 +75,31 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         onOffsetEnd();
       };
 
+      const handleTouchMove = (e: TouchEvent) => {
+        if (e.touches.length === 1) {
+          const touch = e.touches[0];
+          const offsetX = touch.pageX - startPos[0];
+          const offsetY = touch.pageY - startPos[1];
+
+          onOffsetUpdate(index, offsetX, offsetY);
+        }
+      };
+
+      const handleTouchEnd = () => {
+        setStartPos(null);
+        onOffsetEnd();
+      };
+
+      window.addEventListener('touchmove', handleTouchMove);
+      window.addEventListener('touchend', handleTouchEnd);
       window.addEventListener('mousemove', onMouseMove);
       window.addEventListener('mouseup', onMouseUp);
 
       return () => {
         window.removeEventListener('mousemove', onMouseMove);
         window.removeEventListener('mouseup', onMouseUp);
+        window.removeEventListener('touchmove', handleTouchMove);
+        window.removeEventListener('touchend', handleTouchEnd);
       };
     }
   }, [startPos]);
@@ -95,6 +122,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
           [`${splitBarPrefixCls}-dragger-active`]: active,
         })}
         onMouseDown={onMouseDown}
+        onTouchStart={onTouchStart}
       />
 
       {/* Start Collapsible */}

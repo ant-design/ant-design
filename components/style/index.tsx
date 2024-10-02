@@ -3,8 +3,6 @@ import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { AliasToken } from '../theme/internal';
 
-export { operationUnit } from './operationUnit';
-
 export const textEllipsis: CSSObject = {
   overflow: 'hidden',
   whiteSpace: 'nowrap',
@@ -143,5 +141,29 @@ export const genFocusOutline = (token: AliasToken): CSSObject => ({
 export const genFocusStyle = (token: AliasToken): CSSObject => ({
   '&:focus-visible': {
     ...genFocusOutline(token),
+  },
+});
+
+export const operationUnit = (token: AliasToken): CSSObject => ({
+  // FIXME: This use link but is a operation unit. Seems should be a colorPrimary.
+  // And Typography use this to generate link style which should not do this.
+  color: token.colorLink,
+  textDecoration: token.linkDecoration,
+  outline: 'none',
+  cursor: 'pointer',
+  transition: `all ${token.motionDurationSlow}`,
+  border: 0,
+  padding: 0,
+  background: 'none',
+  userSelect: 'none',
+
+  ...genFocusStyle(token),
+
+  '&:focus, &:hover': {
+    color: token.colorLinkHover,
+  },
+
+  '&:active': {
+    color: token.colorLinkActive,
   },
 });

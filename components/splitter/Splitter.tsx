@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
-import { useEvent } from 'rc-util';
+import useEvent from 'rc-util/lib/hooks/useEvent';
 
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';

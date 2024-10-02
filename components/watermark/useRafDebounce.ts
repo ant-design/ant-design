@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEvent } from 'rc-util';
+import useEvent from 'rc-util/lib/hooks/useEvent';
 import raf from 'rc-util/lib/raf';
 
 /**
