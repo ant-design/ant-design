@@ -60,11 +60,6 @@ export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = (token) 
   return {
     'a&, a': {
       ...operationUnit(token),
-      textDecoration: token.linkDecoration,
-
-      '&:active, &:hover': {
-        textDecoration: token.linkHoverDecoration,
-      },
 
       [`&[disabled], &${componentCls}-disabled`]: {
         color: token.colorTextDisabled,

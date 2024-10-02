@@ -2,7 +2,7 @@ import * as React from 'react';
 import type { BaseSliderProps } from '@rc-component/color-picker';
 import classNames from 'classnames';
 import { UnstableContext } from 'rc-slider';
-import { useEvent } from 'rc-util';
+import useEvent from 'rc-util/lib/hooks/useEvent';
 
 import type { GetContextProp, GetProp } from '../../_util/type';
 import Slider from '../../slider';

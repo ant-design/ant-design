@@ -1,5 +1,5 @@
 # Used to merge master/feature branches with each other
-name: PR Check CI
+name: PR Auto Merge Bot
 
 on:
   schedule:

@@ -4,7 +4,7 @@ exports[`Tooltip rtl render component should be rendered correctly in RTL direct
 
 exports[`Tooltip should hide when mouse leave antd disabled component Button 1`] = `
 <button
-  class="ant-btn ant-btn-default ant-btn-outlined"
+  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
   disabled=""
   type="button"
 />

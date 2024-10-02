@@ -3,7 +3,11 @@ order: 0
 title: Ant Design of React
 ---
 
-`antd`（<a href="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*ChCdRJ0w8SUAAAAAAAAAAAAADgCCAQ" target="_blank">🔊 如何发音？</a>）是基于 Ant Design 设计体系的 React UI 组件库，适合企业级中后台产品与前台桌面网站。
+<audio id="antd-audio">
+  <source src="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*ChCdRJ0w8SUAAAAAAAAAAAAADgCCAQ" type="audio/mpeg">
+</audio>
+
+`antd`（<Audio domId="antd-audio">如何发音？</Audio>）是基于 Ant Design 设计体系的 React UI 组件库，适合企业级中后台产品与前台桌面网站。
 
 <div class="pic-plus">
   <img width="150" draggable="false" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"/>

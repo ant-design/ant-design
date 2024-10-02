@@ -1,10 +1,11 @@
 import React from 'react';
 
-import type { ComponentChangelogProps } from './ComponentChangelog';
 import ComponentChangelog from './ComponentChangelog';
 
-export default (props: ComponentChangelogProps) => (
+const ChangeLog: React.FC<Readonly<React.PropsWithChildren>> = ({ children }) => (
   <React.Suspense fallback={null}>
-    <ComponentChangelog {...props} />
+    <ComponentChangelog>{children}</ComponentChangelog>
   </React.Suspense>
 );
+
+export default ChangeLog;

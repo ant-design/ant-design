@@ -457,7 +457,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
       class="ant-transfer-list-footer"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
         style="display: flex; margin: 8px; margin-inline-end: auto;"
         type="button"
       >
@@ -471,7 +471,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
     class="ant-transfer-operation"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
       disabled=""
       type="button"
     >
@@ -503,7 +503,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
       disabled=""
       type="button"
     >
@@ -988,7 +988,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
       class="ant-transfer-list-footer"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-outlined ant-btn-sm"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
         style="display: flex; margin: 8px; margin-inline-start: auto;"
         type="button"
       >
@@ -1420,7 +1420,7 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
     class="ant-transfer-operation"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -1449,7 +1449,7 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -2263,7 +2263,7 @@ Array [
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -2292,7 +2292,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -2871,7 +2871,7 @@ Array [
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -2900,7 +2900,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -3366,7 +3366,7 @@ Array [
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -3395,7 +3395,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -4421,7 +4421,7 @@ Array [
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -4450,7 +4450,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -5525,7 +5525,7 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
     class="ant-transfer-operation"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -5554,7 +5554,7 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -6326,7 +6326,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
     class="ant-transfer-operation"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -6355,7 +6355,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -7084,7 +7084,7 @@ Array [
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -7113,7 +7113,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -8153,7 +8153,7 @@ Array [
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -8278,12 +8278,10 @@ Array [
             >
               content3
             </span>
-            <div
+            <button
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
-              role="button"
-              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-              tabindex="0"
+              type="button"
             >
               <span
                 aria-label="delete"
@@ -8304,7 +8302,7 @@ Array [
                   />
                 </svg>
               </span>
-            </div>
+            </button>
           </li>
           <li
             class="ant-transfer-list-content-item"
@@ -8315,12 +8313,10 @@ Array [
             >
               content6
             </span>
-            <div
+            <button
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
-              role="button"
-              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-              tabindex="0"
+              type="button"
             >
               <span
                 aria-label="delete"
@@ -8341,7 +8337,7 @@ Array [
                   />
                 </svg>
               </span>
-            </div>
+            </button>
           </li>
           <li
             class="ant-transfer-list-content-item"
@@ -8352,12 +8348,10 @@ Array [
             >
               content9
             </span>
-            <div
+            <button
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
-              role="button"
-              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-              tabindex="0"
+              type="button"
             >
               <span
                 aria-label="delete"
@@ -8378,7 +8372,7 @@ Array [
                   />
                 </svg>
               </span>
-            </div>
+            </button>
           </li>
           <li
             class="ant-transfer-list-content-item"
@@ -8389,12 +8383,10 @@ Array [
             >
               content12
             </span>
-            <div
+            <button
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
-              role="button"
-              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-              tabindex="0"
+              type="button"
             >
               <span
                 aria-label="delete"
@@ -8415,7 +8407,7 @@ Array [
                   />
                 </svg>
               </span>
-            </div>
+            </button>
           </li>
           <li
             class="ant-transfer-list-content-item"
@@ -8426,12 +8418,10 @@ Array [
             >
               content15
             </span>
-            <div
+            <button
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
-              role="button"
-              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-              tabindex="0"
+              type="button"
             >
               <span
                 aria-label="delete"
@@ -8452,7 +8442,7 @@ Array [
                   />
                 </svg>
               </span>
-            </div>
+            </button>
           </li>
           <li
             class="ant-transfer-list-content-item"
@@ -8463,12 +8453,10 @@ Array [
             >
               content18
             </span>
-            <div
+            <button
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
-              role="button"
-              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-              tabindex="0"
+              type="button"
             >
               <span
                 aria-label="delete"
@@ -8489,7 +8477,7 @@ Array [
                   />
                 </svg>
               </span>
-            </div>
+            </button>
           </li>
         </ul>
       </div>
@@ -8981,7 +8969,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
     class="ant-transfer-operation"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -9010,7 +8998,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -9685,7 +9673,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -9714,7 +9702,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -10180,7 +10168,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -10209,7 +10197,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -11341,7 +11329,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -11370,7 +11358,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
@@ -12110,7 +12098,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
     class="ant-transfer-operation"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -12139,7 +12127,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
