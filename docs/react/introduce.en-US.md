@@ -7,7 +7,7 @@ title: Ant Design of React
   <source src="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*ChCdRJ0w8SUAAAAAAAAAAAAADgCCAQ" type="audio/mpeg">
 </audio>
 
-Following the Ant Design specification, we developed a React UI library `antd` (<Audio domId="antd-audio">Pronunciation </Audio>) that contains a set of high quality components and demos for building rich, interactive user interfaces.
+Following the Ant Design specification, we developed a React UI library `antd` (<Audio id="antd-audio">Pronunciation</Audio>) that contains a set of high quality components and demos for building rich, interactive user interfaces.
 
 <div class="pic-plus">
   <img width="150" draggable="false" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />

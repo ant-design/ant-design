@@ -1,6 +1,6 @@
 import React, { cloneElement, isValidElement } from 'react';
 import { BugOutlined } from '@ant-design/icons';
-import { Drawer, Grid, Popover, Timeline, Typography } from 'antd';
+import { Drawer, Flex, Grid, Popover, Tag, Timeline, Typography } from 'antd';
 import type { TimelineItemProps } from 'antd';
 import { createStyles } from 'antd-style';
 import semver from 'semver';
@@ -35,6 +35,11 @@ function matchDeprecated(v: string): MatchDeprecatedResult {
 }
 
 const useStyle = createStyles(({ token, css }) => ({
+  listWrap: css`
+    > li {
+      line-height: 2;
+    }
+  `,
   linkRef: css`
     margin-inline-start: ${token.marginXS}px;
   `,
@@ -74,11 +79,22 @@ const useStyle = createStyles(({ token, css }) => ({
       scrollbarColor: 'unset',
     },
   },
+  versionWrap: css`
+    margin-bottom: 1em;
+  `,
+  versionTitle: css`
+    margin: 0 !important;
+  `,
+  versionTag: css`
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    &:last-child {
+      margin-inline-end: 0;
+    }
+  `,
 }));
-
-export interface ComponentChangelogProps {
-  children?: React.ReactNode;
-}
 
 const locales = {
   cn: {
@@ -136,19 +152,12 @@ const ParseChangelog: React.FC<{ changelog: string }> = (props) => {
     return nodes;
   }, [changelog]);
 
-  return (
-    <>
-      {/* Changelog */}
-      <span>{parsedChangelog}</span>
-    </>
-  );
+  return <span>{parsedChangelog}</span>;
 };
 
-const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[]; styles: any }> = ({
-  changelogList,
-  styles,
-}) => {
-  const elements = [];
+const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[] }> = ({ changelogList }) => {
+  const elements: React.ReactNode[] = [];
+  const { styles } = useStyle();
   for (let i = 0; i < changelogList.length; i += 1) {
     const { refs, changelog } = changelogList[i];
     // Check if the next line is an image link and append it to the current line
@@ -180,7 +189,7 @@ const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[]; styles: an
       );
     }
   }
-  return <ul>{elements}</ul>;
+  return <ul className={styles.listWrap}>{elements}</ul>;
 };
 
 const useChangelog = (componentPath: string, lang: 'cn' | 'en'): ChangelogInfo[] => {
@@ -199,7 +208,7 @@ const useChangelog = (componentPath: string, lang: 'cn' | 'en'): ChangelogInfo[]
   }, [data, componentPath]);
 };
 
-const ComponentChangelog: React.FC<ComponentChangelogProps> = (props) => {
+const ComponentChangelog: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
   const { children } = props;
   const [locale, lang] = useLocale(locales);
   const [show, setShow] = React.useState(false);
@@ -225,37 +234,41 @@ const ComponentChangelog: React.FC<ComponentChangelogProps> = (props) => {
       return {
         children: (
           <Typography>
-            <Typography.Title level={4}>
-              {version}
-              {bugVersionInfo.match && (
-                <Popover
-                  destroyTooltipOnHide
-                  placement="right"
-                  title={<span className={styles.bugReasonTitle}>{locale.bugList}</span>}
-                  content={
-                    <ul className={styles.bugReasonList}>
-                      {bugVersionInfo.reason.map<React.ReactNode>((reason, index) => (
-                        <li key={`reason-${index}`}>
-                          <a type="link" target="_blank" rel="noreferrer" href={reason}>
-                            <BugOutlined />
-                            {reason
-                              ?.replace(/#.*$/, '')
-                              ?.replace(
-                                /^https:\/\/github\.com\/ant-design\/ant-design\/(issues|pull)\//,
-                                '#',
-                              )}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  }
-                >
-                  <BugOutlined className={styles.bug} />
-                </Popover>
-              )}
-            </Typography.Title>
-            {changelogList[0].releaseDate}
-            <RenderChangelogList changelogList={changelogList} styles={styles} />
+            <Flex className={styles.versionWrap} justify="flex-start" align="center" gap="middle">
+              <Typography.Title className={styles.versionTitle} level={4}>
+                {version}
+                {bugVersionInfo.match && (
+                  <Popover
+                    destroyTooltipOnHide
+                    placement="right"
+                    title={<span className={styles.bugReasonTitle}>{locale.bugList}</span>}
+                    content={
+                      <ul className={styles.bugReasonList}>
+                        {bugVersionInfo.reason.map<React.ReactNode>((reason, index) => (
+                          <li key={`reason-${index}`}>
+                            <a type="link" target="_blank" rel="noreferrer" href={reason}>
+                              <BugOutlined />
+                              {reason
+                                ?.replace(/#.*$/, '')
+                                ?.replace(
+                                  /^https:\/\/github\.com\/ant-design\/ant-design\/(issues|pull)\//,
+                                  '#',
+                                )}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    }
+                  >
+                    <BugOutlined className={styles.bug} />
+                  </Popover>
+                )}
+              </Typography.Title>
+              <Tag className={styles.versionTag} bordered={false} color="blue">
+                {changelogList[0]?.releaseDate}
+              </Tag>
+            </Flex>
+            <RenderChangelogList changelogList={changelogList} />
           </Typography>
         ),
       };

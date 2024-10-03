@@ -1,7 +1,7 @@
 import React from 'react';
 import { EditOutlined, GithubOutlined, HistoryOutlined } from '@ant-design/icons';
 import type { GetProp } from 'antd';
-import { Descriptions, theme, Tooltip, Typography, Space } from 'antd';
+import { Descriptions, Flex, theme, Tooltip, Typography } from 'antd';
 import { createStyles, css } from 'antd-style';
 import kebabCase from 'lodash/kebabCase';
 import CopyToClipboard from 'react-copy-to-clipboard';
@@ -46,7 +46,7 @@ const useStyle = createStyles(({ token }) => ({
     align-items: center;
     column-gap: ${token.paddingXXS}px;
     border-radius: ${token.borderRadiusSM}px;
-    padding-inline: ${token.paddingXXS}px;
+    padding-inline: ${token.paddingXXS}px !important;
     transition: all ${token.motionDurationSlow} !important;
     font-family: ${token.codeFamily};
     color: ${token.colorTextSecondary} !important;
@@ -72,6 +72,9 @@ const useStyle = createStyles(({ token }) => ({
   `,
   semicolon: css`
     color: ${token.colorText};
+  `,
+  icon: css`
+    margin-inline-end: ${token.marginXXS}px;
   `,
 }));
 
@@ -174,7 +177,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
             label: locale.source,
             children: (
               <Typography.Link className={styles.code} href={filledSource} target="_blank">
-                <GithubOutlined style={{ marginInlineEnd: 4 }} />
+                <GithubOutlined className={styles.icon} />
                 <span>{abbrSource}</span>
               </Typography.Link>
             ),
@@ -182,22 +185,22 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
           filename && {
             label: locale.docs,
             children: (
-              <Space size="middle">
+              <Flex justify="flex-start" align="center" gap="middle">
                 <Typography.Link
                   className={styles.code}
                   href={`${branchUrl}${filename}`}
                   target="_blank"
                 >
-                  <EditOutlined style={{ marginInlineEnd: 4 }} />
+                  <EditOutlined className={styles.icon} />
                   <span>{locale.edit}</span>
                 </Typography.Link>
                 <ComponentChangelog>
                   <Typography.Link className={styles.code}>
-                    <HistoryOutlined style={{ marginInlineEnd: 4 }} />
+                    <HistoryOutlined className={styles.icon} />
                     <span>{locale.changelog}</span>
                   </Typography.Link>
                 </ComponentChangelog>
-              </Space>
+              </Flex>
             ),
           },
           isVersionNumber(version) && {
