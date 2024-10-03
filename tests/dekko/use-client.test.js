@@ -25,5 +25,4 @@ $('{es,lib}/typography/Base/*.js')
   .filter((filename) => !filename.endsWith('/util.js'))
   .assert('contain use client', (filename) => includeUseClient(filename));
 
-// eslint-disable-next-line no-console
 console.log(chalk.green('✨ use client passed!'));

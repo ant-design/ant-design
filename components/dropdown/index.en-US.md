@@ -17,6 +17,7 @@ When there are more than a few options to choose from, you can wrap them in a `D
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/extra.tsx" version="5.21.0">Extra node</code>
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/arrow.tsx">Arrow</code>
 <code src="./demo/item.tsx">Other elements</code>

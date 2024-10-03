@@ -219,7 +219,6 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
   const mergedAriaProps = React.useMemo<React.AriaAttributes>(() => {
     const merged = closable ?? alert?.closable;
     if (typeof merged === 'object') {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { closeIcon: _, ...ariaProps } = merged;
       return ariaProps;
     }

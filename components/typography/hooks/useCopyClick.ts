@@ -1,6 +1,6 @@
 import * as React from 'react';
 import copy from 'copy-to-clipboard';
-import { useEvent } from 'rc-util';
+import useEvent from 'rc-util/lib/hooks/useEvent';
 
 import toList from '../../_util/toList';
 import type { CopyConfig } from '../Base';
@@ -32,7 +32,7 @@ const useCopyClick = ({
   React.useEffect(() => cleanCopyId, []);
 
   // Keep copy action up to date
-  const onClick = useEvent(async (e?: React.MouseEvent<HTMLDivElement>) => {
+  const onClick = useEvent(async (e?: React.MouseEvent<HTMLButtonElement>) => {
     e?.preventDefault();
     e?.stopPropagation();
     setCopyLoading(true);

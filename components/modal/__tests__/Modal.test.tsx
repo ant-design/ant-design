@@ -41,6 +41,11 @@ describe('Modal', () => {
     expect(baseElement.querySelector('.ant-modal-close')).toBeFalsy();
   });
 
+  it('support disable close button when setting disable to true', () => {
+    const { baseElement } = render(<Modal open closable={{ disabled: true }} />);
+    expect(baseElement.querySelector('.ant-modal-close')).toHaveAttribute('disabled');
+  });
+
   it('render correctly', () => {
     const { asFragment } = render(<ModalTester />);
     expect(asFragment().firstChild).toMatchSnapshot();

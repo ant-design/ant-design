@@ -102,7 +102,6 @@ const ThemeColorPicker: React.FC<ThemeColorPickerProps> = ({ value, onChange, id
       <Flex gap="middle">
         {matchColors.map<React.ReactNode>(({ color, active, picker }) => {
           const colorNode = (
-            // eslint-disable-next-line jsx-a11y/label-has-associated-control
             <label
               key={color}
               className={classNames(styles.color, { [styles.colorActive]: active })}

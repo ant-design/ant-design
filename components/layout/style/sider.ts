@@ -27,7 +27,7 @@ const genSiderStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
   } = token;
 
   return {
-    [`${componentCls}`]: {
+    [componentCls]: {
       position: 'relative',
 
       // fix firefox can't set width smaller than content on flex item

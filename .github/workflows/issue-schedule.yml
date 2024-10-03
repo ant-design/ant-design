@@ -11,8 +11,8 @@ jobs:
       - name: Send Unconfirmed Issues to DingTalk
         uses: actions/github-script@v7
         env:
-            DINGDING_BOT_TOKEN: ${{ secrets.DINGDING_BOT_TOKEN }}
-            actionTitle: '近 7 天未确认的 issue'
+            DINGDING_BOT_TOKEN: ${{ secrets.DINGDING_BOT_COLLABORATOR_TOKEN }}
+            actionTitle: 近 7 天未确认的 issue
         with:
           script: |
             const dingdingTokenKey = process.env.DINGDING_BOT_TOKEN;

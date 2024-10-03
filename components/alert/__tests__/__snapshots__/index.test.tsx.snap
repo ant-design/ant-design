@@ -38,7 +38,7 @@ exports[`Alert custom action 1`] = `
     class="ant-alert-action"
   >
     <button
-      class="ant-btn ant-btn-text ant-btn-sm"
+      class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm"
       type="button"
     >
       <span>

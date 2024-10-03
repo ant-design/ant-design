@@ -28,6 +28,8 @@ export interface AbstractCheckboxProps<T> {
   onMouseLeave?: React.MouseEventHandler<HTMLElement>;
   onKeyPress?: React.KeyboardEventHandler<HTMLElement>;
   onKeyDown?: React.KeyboardEventHandler<HTMLElement>;
+  onFocus?: React.FocusEventHandler<HTMLInputElement>;
+  onBlur?: React.FocusEventHandler<HTMLInputElement>;
   value?: any;
   tabIndex?: number;
   name?: string;
@@ -145,7 +147,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
   const ariaChecked = indeterminate ? 'mixed' : undefined;
   return wrapCSSVar(
     <Wave component="Checkbox" disabled={mergedDisabled}>
-      {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+      {}
       <label
         className={classString}
         style={{ ...checkbox?.style, ...style }}
