@@ -123,7 +123,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
   }, [component, source]);
 
   const transformComponentName = (componentName: string) => {
-    if (componentName === 'Notifiction' || componentName === 'Message') {
+    if (componentName === 'Notification' || componentName === 'Message') {
       return componentName.toLowerCase();
     }
     return componentName;
