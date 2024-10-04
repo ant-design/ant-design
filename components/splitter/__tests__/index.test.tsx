@@ -283,7 +283,7 @@ describe('Splitter', () => {
         await waitFakeTimer();
       });
 
-      // expect(errSpy).not.toHaveBeenCalled();
+      expect(errSpy).not.toHaveBeenCalled();
       expect(container.querySelector('[aria-valuemin]')?.getAttribute('aria-valuemin')).not.toBe(
         'NaN',
       );
