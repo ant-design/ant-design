@@ -71,7 +71,14 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const [containerSize, setContainerSize] = useState<number>(100);
 
   const onContainerResize: GetProp<typeof ResizeObserver, 'onResize'> = (size) => {
-    setContainerSize(isVertical ? size.offsetHeight : size.offsetWidth);
+    const { offsetWidth, offsetHeight } = size;
+    const containerSize = isVertical ? offsetHeight : offsetWidth;
+    // Skip when container has no size, Such as nested in a hidden tab panel
+    // to fix: https://github.com/ant-design/ant-design/issues/51106
+    if (containerSize === 0) {
+      return;
+    }
+    setContainerSize(containerSize);
   };
 
   // ========================= Size =========================
