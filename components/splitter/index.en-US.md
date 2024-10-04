@@ -23,6 +23,7 @@ Can be used to separate areas horizontally or vertically. When you need to freel
 <code src="./demo/collapsible.tsx">Collapsible</code>
 <code src="./demo/multiple.tsx">Multiple panels</code>
 <code src="./demo/group.tsx">Complex combination</code>
+<code src="./demo/nested-in-tabs.tsx" debug>Nested in tabs</code>
 <code src="./demo/debug.tsx" debug>Debug</code>
 
 ## API

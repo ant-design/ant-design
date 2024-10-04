@@ -26,6 +26,7 @@ tag: 5.21.0
 <code src="./demo/collapsible.tsx">可折叠</code>
 <code src="./demo/multiple.tsx">多面板</code>
 <code src="./demo/group.tsx">复杂组合</code>
+<code src="./demo/nested-in-tabs.tsx" debug>标签页中嵌套</code>
 <code src="./demo/debug.tsx" debug>调试</code>
 
 ## API
