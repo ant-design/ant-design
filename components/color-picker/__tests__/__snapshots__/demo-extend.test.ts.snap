@@ -5279,7 +5279,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                         class="ant-color-picker-presets"
                       >
                         <div
-                          class="ant-collapse ant-collapse-icon-position-start ant-collapse-ghost"
+                          class="ant-collapse ant-collapse-icon-position-start ant-collapse-icon-vertical-position-start ant-collapse-ghost"
                         >
                           <div
                             class="ant-collapse-item ant-collapse-item-active"
@@ -6578,7 +6578,7 @@ Array [
                 class="ant-color-picker-presets"
               >
                 <div
-                  class="ant-collapse ant-collapse-icon-position-start ant-collapse-ghost"
+                  class="ant-collapse ant-collapse-icon-position-start ant-collapse-icon-vertical-position-start ant-collapse-ghost"
                 >
                   <div
                     class="ant-collapse-item ant-collapse-item-active"

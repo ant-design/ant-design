@@ -12216,7 +12216,7 @@ exports[`ConfigProvider components Checkbox prefixCls 1`] = `
 
 exports[`ConfigProvider components Collapse configProvider 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-start"
+  class="config-collapse config-collapse-icon-position-start config-collapse-icon-vertical-position-start"
 >
   <div
     class="config-collapse-item"
@@ -12263,7 +12263,7 @@ exports[`ConfigProvider components Collapse configProvider 1`] = `
 
 exports[`ConfigProvider components Collapse configProvider componentDisabled 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-start"
+  class="config-collapse config-collapse-icon-position-start config-collapse-icon-vertical-position-start"
 >
   <div
     class="config-collapse-item"
@@ -12310,7 +12310,7 @@ exports[`ConfigProvider components Collapse configProvider componentDisabled 1`]
 
 exports[`ConfigProvider components Collapse configProvider componentSize large 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-start config-collapse-large"
+  class="config-collapse config-collapse-icon-position-start config-collapse-icon-vertical-position-start config-collapse-large"
 >
   <div
     class="config-collapse-item"
@@ -12357,7 +12357,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize large 1
 
 exports[`ConfigProvider components Collapse configProvider componentSize middle 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-start"
+  class="config-collapse config-collapse-icon-position-start config-collapse-icon-vertical-position-start"
 >
   <div
     class="config-collapse-item"
@@ -12404,7 +12404,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize middle 
 
 exports[`ConfigProvider components Collapse configProvider componentSize small 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-start config-collapse-small"
+  class="config-collapse config-collapse-icon-position-start config-collapse-icon-vertical-position-start config-collapse-small"
 >
   <div
     class="config-collapse-item"
@@ -12451,7 +12451,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize small 1
 
 exports[`ConfigProvider components Collapse normal 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-start"
+  class="ant-collapse ant-collapse-icon-position-start ant-collapse-icon-vertical-position-start"
 >
   <div
     class="ant-collapse-item"
@@ -12498,7 +12498,7 @@ exports[`ConfigProvider components Collapse normal 1`] = `
 
 exports[`ConfigProvider components Collapse prefixCls 1`] = `
 <div
-  class="prefix-Collapse prefix-Collapse-icon-position-start"
+  class="prefix-Collapse prefix-Collapse-icon-position-start prefix-Collapse-icon-vertical-position-start"
 >
   <div
     class="prefix-Collapse-item"
