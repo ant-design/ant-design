@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Flex, Splitter, Switch, Tabs, Typography } from 'antd';
+import { Flex, Splitter, Tabs, Typography } from 'antd';
 
 const Desc: React.FC<Readonly<{ text?: string | number }>> = (props) => (
   <Flex justify="center" align="center" style={{ height: '100%' }}>
@@ -10,31 +10,27 @@ const Desc: React.FC<Readonly<{ text?: string | number }>> = (props) => (
 );
 
 const App: React.FC = () => {
-  const [sizes, setSizes] = React.useState<(number | string)[]>(['50%', '50%']);
-  const [enabled, setEnabled] = React.useState(true);
   const SplitterContent = (
-    <Flex vertical gap="middle">
-      <Splitter
-        onResize={setSizes}
-        style={{ height: 200, boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}
+    <Splitter
+      style={{
+        height: 200,
+        boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+      }}
+    >
+      <Splitter.Panel collapsible>
+        <Desc text={1} />
+      </Splitter.Panel>
+      <Splitter.Panel
+        collapsible={{
+          start: true,
+        }}
       >
-        <Splitter.Panel size={sizes[0]} resizable={enabled}>
-          <Desc text="First" />
-        </Splitter.Panel>
-        <Splitter.Panel size={sizes[1]}>
-          <Desc text="Second" />
-        </Splitter.Panel>
-      </Splitter>
-      <Flex gap="middle" justify="space-between">
-        <Switch
-          value={enabled}
-          onChange={() => setEnabled(!enabled)}
-          checkedChildren="Enabled"
-          unCheckedChildren="Disabled"
-        />
-        <Button onClick={() => setSizes(['50%', '50%'])}>Reset</Button>
-      </Flex>
-    </Flex>
+        <Desc text={2} />
+      </Splitter.Panel>
+      <Splitter.Panel>
+        <Desc text={3} />
+      </Splitter.Panel>
+    </Splitter>
   );
   return (
     <Tabs
