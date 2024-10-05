@@ -158,16 +158,17 @@ const ParseChangelog: React.FC<{ changelog: string }> = (props) => {
 const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[] }> = ({ changelogList }) => {
   const elements: React.ReactNode[] = [];
   const { styles } = useStyle();
-  for (let i = 0; i < changelogList.length; i += 1) {
+  const len = changelogList.length;
+  for (let i = 0; i < len; i += 1) {
     const { refs, changelog } = changelogList[i];
     // Check if the next line is an image link and append it to the current line
-    if (i + 1 < changelogList.length && changelogList[i + 1].changelog.trim().startsWith('<img')) {
+    if (i + 1 < len && changelogList[i + 1].changelog.trim().startsWith('<img')) {
       const imgDom = new DOMParser().parseFromString(changelogList[i + 1].changelog, 'text/html');
-      const imgElement = imgDom.querySelector('img');
+      const imgElement = imgDom.querySelector<HTMLImageElement>('img');
       elements.push(
         <li key={i}>
           <ParseChangelog changelog={changelog} />
-          {refs?.map((ref) => (
+          {refs?.map<React.ReactNode>((ref) => (
             <a className={styles.linkRef} key={ref} href={ref} target="_blank" rel="noreferrer">
               #{ref.match(/^.*\/(\d+)$/)?.[1]}
             </a>
