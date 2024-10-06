@@ -248,7 +248,7 @@ Properties for expandable.
 | columnWidth | Set the width of the expand column | string \| number | - |  |
 | defaultExpandAllRows | Expand all rows initially | boolean | false |  |
 | defaultExpandedRowKeys | Initial expanded row keys | string\[] | - |  |
-| expandedRowClassName | Expanded row's className | string \| (record, index, indent) => string | - | string: 5.22.0 |
+| expandedRowClassName | Expanded row's className | function(record, index, indent): string | - |  |
 | expandedRowKeys | Current expanded row keys | string\[] | - |  |
 | expandedRowRender | Expanded container render for each row | function(record, index, indent, expanded): ReactNode | - |  |
 | expandIcon | Customize row expand Icon. Ref [example](https://codesandbox.io/s/fervent-bird-nuzpr) | function(props): ReactNode | - |  |

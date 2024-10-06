@@ -43,48 +43,48 @@ describe('Table.rowSelection', () => {
     const namesList: Node['textContent'][] = [];
     container
       ?.querySelector('.ant-table-tbody')
-      ?.querySelectorAll<HTMLTableRowElement>('tr')
+      ?.querySelectorAll('tr')
       ?.forEach((tr) => {
-        namesList.push(tr?.querySelectorAll<HTMLTableCellElement>('td')?.[1]?.textContent);
+        namesList.push(tr?.querySelectorAll('td')?.[1]?.textContent);
       });
     return namesList;
   }
 
-  const getSelections = (container: HTMLElement) => {
+  function getSelections(container: ReturnType<typeof render>['container']) {
     const keys: React.Key[] = [];
-    container.querySelectorAll<HTMLTableRowElement>('.ant-table-tbody tr').forEach((row) => {
+    container.querySelectorAll('.ant-table-tbody tr').forEach((row) => {
       const key = row.getAttribute('data-row-key');
-      if (key && row.querySelector<HTMLInputElement>('input')?.checked) {
-        if (Number.isNaN(Number(key))) {
+      if (row.querySelector('input')?.checked) {
+        if (isNaN(Number(key))) {
           // rowKey
-          keys.push(key);
+          keys.push(key!);
         } else {
           keys.push(Number(key));
         }
       }
     });
     return keys;
-  };
+  }
 
-  const getIndeterminateSelection = (container: HTMLElement) => {
+  function getIndeterminateSelection(container: ReturnType<typeof render>['container']) {
     const keys: React.Key[] = [];
-    container.querySelectorAll<HTMLTableRowElement>('.ant-table-tbody tr').forEach((row) => {
+    container.querySelectorAll('.ant-table-tbody tr').forEach((row) => {
       const key = row.getAttribute('data-row-key');
-      if (key && row.querySelector<HTMLElement>('.ant-checkbox-indeterminate')) {
-        if (Number.isNaN(Number(key))) {
+      if (row.querySelector('.ant-checkbox-indeterminate')) {
+        if (isNaN(Number(key))) {
           // rowKey
-          keys.push(key);
+          keys.push(key!);
         } else {
           keys.push(Number(key));
         }
       }
     });
     return keys;
-  };
+  }
 
   it('select default row', () => {
     const { container } = render(createTable({ rowSelection: { defaultSelectedRowKeys: [0] } }));
-    const checkboxes = container.querySelectorAll<HTMLInputElement>('input[type="checkbox"]');
+    const checkboxes = container.querySelectorAll('input[type="checkbox"]');
     expect(getSelections(container)).toEqual([0]);
 
     fireEvent.click(checkboxes[1]);
