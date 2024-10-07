@@ -270,6 +270,27 @@ describe('Splitter', () => {
       expect(onResize).toHaveBeenCalledWith([50, 0, 50]);
       expect(onResizeEnd).toHaveBeenCalledWith([50, 0, 50]);
     });
+
+    it("aria-valuemin/aria-valuemax should not set NaN When container's width be setting zero", async () => {
+      containerSize = 0;
+      const App: React.FC = () => {
+        return <SplitterDemo items={[{}, {}, {}]} />;
+      };
+      const { container } = render(<App />);
+      mockDrag(container.querySelectorAll<HTMLDivElement>('.ant-splitter-bar-dragger')[1], -100);
+      triggerResize(container.querySelector('.ant-splitter')!);
+      await act(async () => {
+        await waitFakeTimer();
+      });
+
+      expect(errSpy).not.toHaveBeenCalled();
+      expect(container.querySelector('[aria-valuemin]')?.getAttribute('aria-valuemin')).not.toBe(
+        'NaN',
+      );
+      expect(container.querySelector('[aria-valuemax]')?.getAttribute('aria-valuemax')).not.toBe(
+        'NaN',
+      );
+    });
   });
 
   // ============================= Collapsible =============================
