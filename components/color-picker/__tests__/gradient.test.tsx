@@ -307,6 +307,8 @@ describe('ColorPicker.gradient', () => {
     expect(container.querySelector('.ant-color-picker-gradient-slider')).toBeTruthy();
   });
 
+  // This test case may easily break by jsdom update
+  // https://github.com/ant-design/ant-design/issues/51159
   it('change color 2 should not be color 1', () => {
     const { container } = render(
       <ColorPicker
