@@ -22005,6 +22005,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
           >
             <div
               class="ant-slider ant-slider-horizontal ant-slider-with-marks"
+              id="validate_other_slider"
             >
               <div
                 class="ant-slider-rail"
