@@ -267,7 +267,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
       const nodeProps = node.props;
 
       function proxyEvent(
-        eventName: string,
+        eventName: keyof React.DOMAttributes<HTMLElement>,
         event: React.SyntheticEvent,
         triggerRestPropsEvent?: boolean,
       ) {
