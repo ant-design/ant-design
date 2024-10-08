@@ -155,6 +155,19 @@ const ParseChangelog: React.FC<{ changelog: string }> = (props) => {
   return <span>{parsedChangelog}</span>;
 };
 
+const RefLinks: React.FC<{ refs: string[] }> = ({ refs }) => {
+  const { styles } = useStyle();
+  return (
+    <>
+      {refs?.map((ref) => (
+        <a className={styles.linkRef} key={ref} href={ref} target="_blank" rel="noreferrer">
+          #{ref.match(/^.*\/(\d+)$/)?.[1]}
+        </a>
+      ))}
+    </>
+  );
+};
+
 const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[] }> = ({ changelogList }) => {
   const elements: React.ReactNode[] = [];
   const { styles } = useStyle();
@@ -167,11 +180,7 @@ const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[] }> = ({ cha
       elements.push(
         <li key={i}>
           <ParseChangelog changelog={changelog} />
-          {refs?.map((ref) => (
-            <a className={styles.linkRef} key={ref} href={ref} target="_blank" rel="noreferrer">
-              #{ref.match(/^.*\/(\d+)$/)?.[1]}
-            </a>
-          ))}
+          <RefLinks refs={refs} />
           <br />
           <img
             src={imgElement?.getAttribute('src') || ''}
@@ -185,6 +194,7 @@ const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[] }> = ({ cha
       elements.push(
         <li key={i}>
           <ParseChangelog changelog={changelog} />
+          <RefLinks refs={refs} />
         </li>,
       );
     }
