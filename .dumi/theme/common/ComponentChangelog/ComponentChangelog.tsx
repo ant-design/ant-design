@@ -185,6 +185,11 @@ const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[] }> = ({ cha
       elements.push(
         <li key={i}>
           <ParseChangelog changelog={changelog} />
+          {refs?.map((ref) => (
+            <a className={styles.linkRef} key={ref} href={ref} target="_blank" rel="noreferrer">
+              #{ref.match(/^.*\/(\d+)$/)?.[1]}
+            </a>
+          ))}
         </li>,
       );
     }
