@@ -24,7 +24,7 @@ tag: vVERSION
 - 🐞 Fix Table `onChange` function receiving incorrect sorter value. [#51114](https://github.com/ant-design/ant-design/pull/51114) [@nathanlao](https://github.com/nathanlao)
 - 🐞 Fix the issue about throw a warning when Splitter nested in a hidden tab panel. [#51109](https://github.com/ant-design/ant-design/pull/51109) [@kiner-tang](https://github.com/kiner-tang)
 - 🐞 Fix the issue about Splitter had unexpected gaps in Flex. [#51096](https://github.com/ant-design/ant-design/pull/51096) [@kiner-tang](https://github.com/kiner-tang)
-- 🐞 MISC: Add react and react-dom peerDependencies. [#51079](https://github.com/ant-design/ant-design/pull/51079) [@chentsulin](https://github.com/chentsulin)
+- 🐞 MISC: Restore `react` and `react-dom` peerDependencies. [#51079](https://github.com/ant-design/ant-design/pull/51079) [@chentsulin](https://github.com/chentsulin)
 
 ## 5.21.2
 
