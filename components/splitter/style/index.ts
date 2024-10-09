@@ -309,9 +309,15 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         padding: '0 1px',
         scrollbarWidth: 'thin',
         boxSizing: 'border-box',
-      },
-      [`${splitPanelCls}-hidden`]: {
-        padding: 0,
+
+        '&-hidden': {
+          padding: 0,
+          overflow: 'hidden',
+        },
+
+        [`&:has(${componentCls}:only-child)`]: {
+          overflow: 'hidden',
+        },
       },
 
       ...genRtlStyle(token),
