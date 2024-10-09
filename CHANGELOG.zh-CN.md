@@ -24,6 +24,8 @@ tag: vVERSION
 - 🐞 修复 Splitter 嵌套在一个隐藏的 Tabs 面板中时抛出警告的问题。[#51109](https://github.com/ant-design/ant-design/pull/51109) [@kiner-tang](https://github.com/kiner-tang)
 - 🐞 修复 Splitter 组件在 Flex 组件下时出现异常间距的问题。[#51096](https://github.com/ant-design/ant-design/pull/51096) [@kiner-tang](https://github.com/kiner-tang)
 - 🐞 杂项：将 react 和 react-dom 添加进 peerDependencies。[#51079](https://github.com/ant-design/ant-design/pull/51079) [@chentsulin](https://github.com/chentsulin)
+- TypeScript
+  - 🤖 优化 Slider `eventName` 类型。[#51156](https://github.com/ant-design/ant-design/pull/51156) [@thinkasany](https://github.com/thinkasany)
 
 ## 5.21.2
 
