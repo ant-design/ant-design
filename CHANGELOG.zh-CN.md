@@ -15,6 +15,23 @@ tag: vVERSION
 
 ---
 
+## 5.21.3
+
+`2024-10-09`
+
+- 💄 优化 Dropdown 列表较长时的滚动条样式。[#51112](https://github.com/ant-design/ant-design/pull/51112) [@Cameron-Asdf](https://github.com/Cameron-Asdf)
+- Slider [#51150](https://github.com/ant-design/ant-design/pull/51150) [@yoyo837](https://github.com/yoyo837)
+  - 🐞 修复 Slider 不支持 `id` 属性的问题。
+  - 🐞 修复 Slider 导致 `extractStyle` 时抛出 `useLayoutEffect does nothing on the server` 警告信息的问题。
+- 🐞 修复 ColorPicker 渐变色时，部分节点颜色拖拽会被强制重置为第一个节点颜色的问题。[#51161](https://github.com/ant-design/ant-design/pull/51161) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 Table 组件在切换页面时 `onChange` 函数接收到错误的 sorter 值的问题。[#51114](https://github.com/ant-design/ant-design/pull/51114) [@nathanlao](https://github.com/nathanlao)
+- Splitter
+  - 🐞 修复 Splitter 嵌套在一个隐藏的 Tabs 面板中时抛出警告的问题。[#51109](https://github.com/ant-design/ant-design/pull/51109) [@kiner-tang](https://github.com/kiner-tang)
+  - 🐞 修复 Splitter 组件在 Flex 组件下时出现异常间距的问题。[#51096](https://github.com/ant-design/ant-design/pull/51096) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 杂项：重新将 `react` 和 `react-dom` 添加进 peerDependencies。[#51079](https://github.com/ant-design/ant-design/pull/51079) [@chentsulin](https://github.com/chentsulin)
+- TypeScript
+  - 🤖 优化 Slider `eventName` 类型。[#51156](https://github.com/ant-design/ant-design/pull/51156) [@thinkasany](https://github.com/thinkasany)
+
 ## 5.21.2
 
 `2024-10-01`
