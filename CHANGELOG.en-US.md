@@ -1,7 +1,6 @@
 ---
 order: 6
 title: Changelog
-toc: false
 timeline: true
 tag: vVERSION
 ---
