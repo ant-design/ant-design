@@ -1,6 +1,6 @@
 import React, { cloneElement, isValidElement } from 'react';
 import { BugOutlined } from '@ant-design/icons';
-import { Drawer, Flex, Grid, Popover, Tag, Timeline, Typography } from 'antd';
+import { Drawer, Flex, Grid, Popover, Tag, Timeline, Typography, Button } from 'antd';
 import type { TimelineItemProps } from 'antd';
 import { createStyles } from 'antd-style';
 import semver from 'semver';
@@ -83,6 +83,10 @@ const useStyle = createStyles(({ token, css }) => ({
     margin-bottom: 1em;
   `,
   versionTitle: css`
+    height: 28px;
+    line-height: 28px;
+    font-weight: 600;
+    font-size: 20px;
     margin: 0 !important;
   `,
   versionTag: css`
@@ -245,7 +249,12 @@ const ComponentChangelog: React.FC<Readonly<React.PropsWithChildren>> = (props) 
         children: (
           <Typography>
             <Flex className={styles.versionWrap} justify="flex-start" align="center" gap="middle">
-              <Typography.Title className={styles.versionTitle} level={4}>
+              <Button
+                color="default"
+                className={styles.versionTitle}
+                variant="link"
+                href={`/changelog${lang === 'cn' ? '-cn' : ''}/#${version.replace(/\./g, '').replace(/\s.*/g, '-')}`}
+              >
                 {version}
                 {bugVersionInfo.match && (
                   <Popover
@@ -273,7 +282,7 @@ const ComponentChangelog: React.FC<Readonly<React.PropsWithChildren>> = (props) 
                     <BugOutlined className={styles.bug} />
                   </Popover>
                 )}
-              </Typography.Title>
+              </Button>
               <Tag className={styles.versionTag} bordered={false} color="blue">
                 {changelogList[0]?.releaseDate}
               </Tag>
