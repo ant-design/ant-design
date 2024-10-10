@@ -245,6 +245,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         cursor: 'pointer',
         userSelect: 'none',
         transition: `all ${token.motionDurationSlow}`,
+        marginInlineEnd: token.calc(token.paddingXS).div(2).equal(),
 
         '&-noop': {
           cursor: 'unset',
