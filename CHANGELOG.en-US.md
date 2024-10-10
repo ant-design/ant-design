@@ -16,6 +16,23 @@ tag: vVERSION
 
 ---
 
+## 5.21.3
+
+`2024-10-09`
+
+- 💄 Added a scroll bar to Dropdown when having many items. [#51112](https://github.com/ant-design/ant-design/pull/51112) [@Cameron-Asdf](https://github.com/Cameron-Asdf)
+- Slider [#51150](https://github.com/ant-design/ant-design/pull/51150) [@yoyo837](https://github.com/yoyo837)
+  - 🐞 Fix Slider issue where the `id` prop is not supported.
+  - 🐞 Fix Slider to address the issue causing `useLayoutEffect does nothing on the server` warning when `extractStyle` is invoked.
+- 🐞 Fix ColorPicker with gradient mode, sometimes handle color will be force sync back to first handle color issue. [#51161](https://github.com/ant-design/ant-design/pull/51161) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Table `onChange` function receiving incorrect sorter value. [#51114](https://github.com/ant-design/ant-design/pull/51114) [@nathanlao](https://github.com/nathanlao)
+- Splitter
+  - 🐞 Fix the issue about throw a warning when Splitter nested in a hidden tab panel. [#51109](https://github.com/ant-design/ant-design/pull/51109) [@kiner-tang](https://github.com/kiner-tang)
+  - 🐞 Fix the issue about Splitter had unexpected gaps in Flex. [#51096](https://github.com/ant-design/ant-design/pull/51096) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 MISC: Restore `react` and `react-dom` peerDependencies. [#51079](https://github.com/ant-design/ant-design/pull/51079) [@chentsulin](https://github.com/chentsulin)
+- TypeScript
+  - 🤖 Improve type of Slider `eventName`. [#51156](https://github.com/ant-design/ant-design/pull/51156) [@thinkasany](https://github.com/thinkasany)
+
 ## 5.21.2
 
 `2024-10-01`
