@@ -78,16 +78,22 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
     }
   });
 
+  let timeoutId: NodeJS.Timeout;
+
   // ===================== Trigger: Hover =====================
   const onMouseEnter: React.MouseEventHandler<HTMLDivElement> = () => {
     if (hoverTrigger) {
+      clearTimeout(timeoutId);
       triggerOpen(true);
     }
   };
 
   const onMouseLeave: React.MouseEventHandler<HTMLDivElement> = () => {
     if (hoverTrigger) {
-      triggerOpen(false);
+      // 由于菜单使用了绝对定位，鼠标离开时，需要延迟关闭，否则会立即消失
+      timeoutId = setTimeout(() => {
+        triggerOpen(false);
+      }, 100);
     }
   };
 
