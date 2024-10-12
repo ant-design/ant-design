@@ -134,6 +134,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
             '&:after': {
               position: 'absolute',
               inset: 0,
+              bottom: treeNodePadding,
               border: `1px solid ${token.colorPrimary}`,
               opacity: 0,
               animation: `${token.motionDurationSlow} forwards running`,
@@ -150,7 +151,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
       [treeNodeCls]: {
         display: 'flex',
         alignItems: 'flex-start',
-        margin: `0 0 ${unit(treeNodePadding)} 0`,
+        padding: `0 0 ${unit(treeNodePadding)} 0`,
 
         '&-rtl': {
           direction: 'rtl',
@@ -302,11 +303,9 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
       // >>> Title
       // add `${treeCls}-checkbox + span` to cover checkbox `${checkboxCls} + span`
       [`${treeCls}-node-content-wrapper`]: {
+        position: 'relative',
         minHeight: titleHeight,
-        margin: 0,
         padding: `0 ${token.paddingXS}`,
-        color: 'inherit',
-        lineHeight: unit(titleHeight),
         background: 'transparent',
         borderRadius: token.borderRadius,
         cursor: 'pointer',
