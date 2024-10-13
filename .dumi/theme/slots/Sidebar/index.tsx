@@ -91,18 +91,18 @@ const useStyle = createStyles(({ token, css }) => {
     `,
     mainMenu: css`
       z-index: 1;
-        position: sticky;
-        top: ${token.headerHeight + token.contentMarginTop}px;
-        width: 100%;
-        height: 100%;
-        max-height: calc(100vh - ${token.headerHeight + token.contentMarginTop}px);
-        overflow: hidden;
-        scrollbar-width: thin;
-        scrollbar-color: unset;
-
-        .ant-menu {
-          padding: 0 4px;
-        }
+      position: sticky;
+      top: ${token.headerHeight + token.contentMarginTop}px;
+      width: 100%;
+      height: 100%;
+      max-height: calc(100vh - ${token.headerHeight + token.contentMarginTop}px);
+      overflow: hidden;
+      scrollbar-width: thin;
+      scrollbar-color: #eaeaea transparent;
+      scrollbar-gutter: stable;
+      .ant-menu {
+        padding: 0 4px;
+      }
 
       &:hover {
         overflow-y: auto;

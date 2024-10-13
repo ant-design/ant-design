@@ -15,7 +15,8 @@ const useStyle = createStyles(({ token, css }) => {
           background: ${colorBgContainer};
           &-scroll-container {
             scrollbar-width: thin;
-            scrollbar-color: unset;
+            scrollbar-color: #eaeaea transparent;
+            scrollbar-gutter: stable;
           }
         }
         .dumi-default-source-code > pre,

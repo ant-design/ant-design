@@ -99,7 +99,8 @@ const useStyle = createStyles(({ token, css }) => {
           }
           & > section {
             scrollbar-width: thin;
-            scrollbar-color: unset;
+            scrollbar-color: #eaeaea transparent;
+            scrollbar-gutter: stable;
           }
         }
       }
@@ -142,7 +143,8 @@ const useStyle = createStyles(({ token, css }) => {
       .rc-virtual-list {
         .rc-virtual-list-holder {
           scrollbar-width: thin;
-          scrollbar-color: unset;
+          scrollbar-color: #eaeaea transparent;
+          scrollbar-gutter: stable;
         }
       }
     `,
