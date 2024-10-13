@@ -131,7 +131,7 @@ export default App;
 - [开发者说明](https://github.com/ant-design/ant-design/wiki/Development)
 - [版本发布规则](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
 - [常见问题](https://ant.design/docs/react/faq-cn)
-- [Stackblitz 在线演示](https://u.ant.design/reproduce)，用于报告 bug
+- [在线演示](https://u.ant.design/reproduce)，用于报告 bug
 - [定制主题](https://ant.design/docs/react/customize-theme-cn)
 - [国际化](https://ant.design/docs/react/i18n-cn)
 - [成为社区协作成员](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
