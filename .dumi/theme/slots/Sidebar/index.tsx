@@ -98,7 +98,6 @@ const useStyle = createStyles(({ token, css }) => {
       max-height: calc(100vh - ${token.headerHeight + token.contentMarginTop}px);
       overflow: hidden;
       scrollbar-width: thin;
-      scrollbar-color: #eaeaea transparent;
       scrollbar-gutter: stable;
       .ant-menu {
         padding: 0 4px;

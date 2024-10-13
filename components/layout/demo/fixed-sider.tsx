@@ -22,7 +22,6 @@ const siderStyle: React.CSSProperties = {
   top: 0,
   bottom: 0,
   scrollbarWidth: 'thin',
-  scrollbarColor: '#eaeaea transparent',
   scrollbarGutter: 'stable',
 };
 

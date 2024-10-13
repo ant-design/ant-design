@@ -76,7 +76,6 @@ const useStyle = createStyles(({ token, css }) => ({
     position: 'relative',
     [`> ${token.antCls}-drawer-body`]: {
       scrollbarWidth: 'thin',
-      scrollbarColor: '#eaeaea transparent',
       scrollbarGutter: 'stable',
     },
   },

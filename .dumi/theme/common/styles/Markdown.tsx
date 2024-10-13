@@ -169,7 +169,6 @@ const GlobalStyle: React.FC = () => {
           border-radius: ${token.borderRadius}px;
           > pre.prism-code {
             scrollbar-width: thin;
-            scrollbar-color: #eaeaea transparent;
             scrollbar-gutter: stable;
             padding: ${token.paddingSM}px ${token.paddingMD}px;
             font-size: ${token.fontSize}px;
@@ -273,7 +272,6 @@ const GlobalStyle: React.FC = () => {
         .markdown .dumi-default-table {
           &-content {
             scrollbar-width: thin;
-            scrollbar-color: #eaeaea transparent;
             scrollbar-gutter: stable;
           }
           table {

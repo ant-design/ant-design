@@ -15,7 +15,6 @@ const useStyle = createStyles(({ token, css }) => {
           background: ${colorBgContainer};
           &-scroll-container {
             scrollbar-width: thin;
-            scrollbar-color: #eaeaea transparent;
             scrollbar-gutter: stable;
           }
         }
