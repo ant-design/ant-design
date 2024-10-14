@@ -142,7 +142,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
         zIndex: 1,
         width: '100%',
         height: margin,
-        bottom: { _skip_check_: true, value: calc(margin).mul(-1).equal() },
+        bottom: calc(margin).mul(-1).equal(),
       },
     },
     [`${groupPrefixCls}-bottom > ${groupPrefixCls}-wrap`]: {
@@ -155,7 +155,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
         zIndex: 1,
         width: '100%',
         height: margin,
-        top: { _skip_check_: true, value: calc(margin).mul(-1).equal() },
+        top: calc(margin).mul(-1).equal(),
       },
     },
     [`${groupPrefixCls}-right > ${groupPrefixCls}-wrap`]: {
