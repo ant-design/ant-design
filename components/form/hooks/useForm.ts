@@ -72,7 +72,7 @@ export default function useForm<Values = any>(form?: FormInstance<Values>): [For
           const node = getFieldDOMNode(name, wrapForm);
 
           if (node) {
-            node.focus();
+            node.focus?.();
           }
         },
         getFieldInstance: (name: NamePath) => {
