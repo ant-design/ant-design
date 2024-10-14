@@ -86,6 +86,12 @@ export type FloatButtonToken = FullToken<'FloatButton'> & {
   floatButtonInsetInlineEnd: number;
 };
 
+const commonBufferStyle: CSSObject = {
+  content: '""',
+  position: 'absolute',
+  zIndex: 1,
+};
+
 // ============================== Group ==============================
 const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
   const {
@@ -101,11 +107,6 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
     calc,
   } = token;
   const groupPrefixCls = `${componentCls}-group`;
-  const commonBufferStyle: CSSObject = {
-    content: '""',
-    position: 'absolute',
-    zIndex: 1,
-  };
   return {
     [groupPrefixCls]: {
       ...resetComponent(token),
