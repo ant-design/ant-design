@@ -136,21 +136,53 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
       flexDirection: 'column',
       top: 'auto',
       bottom: calc(floatButtonSize).add(margin).equal(),
+      '&::after': {
+        content: '""',
+        position: 'absolute',
+        zIndex: 1,
+        width: '100%',
+        height: margin,
+        bottom: calc(margin).mul(-1).equal(),
+      },
     },
     [`${groupPrefixCls}-bottom > ${groupPrefixCls}-wrap`]: {
       flexDirection: 'column',
       top: calc(floatButtonSize).add(margin).equal(),
       bottom: 'auto',
+      '&::after': {
+        content: '""',
+        position: 'absolute',
+        zIndex: 1,
+        width: '100%',
+        height: margin,
+        top: calc(margin).mul(-1).equal(),
+      },
     },
     [`${groupPrefixCls}-right > ${groupPrefixCls}-wrap`]: {
       flexDirection: 'row',
       left: { _skip_check_: true, value: calc(floatButtonSize).add(margin).equal() },
       right: { _skip_check_: true, value: 'auto' },
+      '&::after': {
+        content: '""',
+        position: 'absolute',
+        zIndex: 1,
+        width: margin,
+        height: '100%',
+        left: calc(margin).mul(-1).equal(),
+      },
     },
     [`${groupPrefixCls}-left > ${groupPrefixCls}-wrap`]: {
       flexDirection: 'row',
       left: { _skip_check_: true, value: 'auto' },
       right: { _skip_check_: true, value: calc(floatButtonSize).add(margin).equal() },
+      '&::after': {
+        content: '""',
+        position: 'absolute',
+        zIndex: 1,
+        width: margin,
+        height: '100%',
+        right: calc(margin).mul(-1).equal(),
+      },
     },
     [`${groupPrefixCls}-circle`]: {
       gap: margin,
@@ -245,37 +277,6 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
           borderRadius: borderRadiusSM,
         },
       },
-    },
-    [`${groupPrefixCls}-buffer`]: {
-      '&::after': {
-        content: '""',
-        position: 'absolute',
-        zIndex: 1,
-      },
-    },
-    [`${groupPrefixCls}-top > ${groupPrefixCls}-buffer::after`]: {
-      left: '-20px',
-      right: '-20px',
-      height: '20px',
-      bottom: '-20px',
-    },
-    [`${groupPrefixCls}-bottom > ${groupPrefixCls}-buffer::after`]: {
-      left: '-20px',
-      right: '-20px',
-      height: '20px',
-      top: '-20px',
-    },
-    [`${groupPrefixCls}-left > ${groupPrefixCls}-buffer::after`]: {
-      top: '-20px',
-      bottom: '-20px',
-      width: '20px',
-      right: '-20px',
-    },
-    [`${groupPrefixCls}-right > ${groupPrefixCls}-buffer::after`]: {
-      top: '-20px',
-      bottom: '-20px',
-      width: '20px',
-      left: '-20px',
     },
   };
 };

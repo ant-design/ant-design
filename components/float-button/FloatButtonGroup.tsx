@@ -139,11 +139,7 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
           <>
             <CSSMotion visible={open} motionName={`${groupPrefixCls}-wrap`}>
               {({ className: motionClassName }) => (
-                <div
-                  className={classNames(motionClassName, wrapperCls, `${groupPrefixCls}-buffer`)}
-                >
-                  {children}
-                </div>
+                <div className={classNames(motionClassName, wrapperCls)}>{children}</div>
               )}
             </CSSMotion>
             <FloatButton
