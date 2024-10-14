@@ -6,12 +6,12 @@ import { genStyleHooks } from '../../theme/internal';
 
 export interface ComponentToken {
   /**
-   * @desc 可改变大小标识 元素大小
-   * @descEN Height of content area
-   */
-  resizeSpinnerSize: number;
-  /**
    * @desc 拖拽标识元素大小
+   * @descEN Drag and drop the identity element size
+   */
+  dragIdentitySize: number;
+  /**
+   * @desc 拖拽元素大小
    * @descEN Drag the element size
    */
   splitBarSize: number;
@@ -71,7 +71,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
   const {
     componentCls,
     colorFill,
-    resizeSpinnerSize,
+    dragIdentitySize,
     splitBarSize,
     splitTriggerSize,
     controlItemBgHover,
@@ -223,7 +223,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
             },
 
             '&:after': {
-              height: resizeSpinnerSize,
+              height: dragIdentitySize,
               width: splitBarSize,
             },
           },
@@ -278,7 +278,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
             },
 
             '&:after': {
-              width: resizeSpinnerSize,
+              width: dragIdentitySize,
               height: splitBarSize,
             },
           },
@@ -329,12 +329,12 @@ export const prepareComponentToken: GetDefaultToken<'Splitter'> = (token) => {
   const splitBarSize = token.splitBarSize || 2;
   const splitTriggerSize = token.splitTriggerSize || 6;
 
-  const resizeSpinnerSize = token.resizeSpinnerSize || 20;
+  const dragIdentitySize = token.dragIdentitySize || 20;
 
   return {
     splitBarSize,
     splitTriggerSize,
-    resizeSpinnerSize,
+    dragIdentitySize,
   };
 };
 
