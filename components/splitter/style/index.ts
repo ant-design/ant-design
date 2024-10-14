@@ -8,7 +8,7 @@ export interface ComponentToken {
   /**
    * @desc 拖拽标识元素大小
    * @descEN Drag and drop the identity element size
-   * @deprecated
+   * @deprecated Please use `splitBarDraggableSize` instead.
    */
   resizeSpinnerSize: number;
   /**
