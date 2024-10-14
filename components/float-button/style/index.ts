@@ -142,7 +142,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
         zIndex: 1,
         width: '100%',
         height: margin,
-        bottom: calc(margin).mul(-1).equal(),
+        bottom: { _skip_check_: true, value: calc(margin).mul(-1).equal() },
       },
     },
     [`${groupPrefixCls}-bottom > ${groupPrefixCls}-wrap`]: {
@@ -155,7 +155,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
         zIndex: 1,
         width: '100%',
         height: margin,
-        top: calc(margin).mul(-1).equal(),
+        top: { _skip_check_: true, value: calc(margin).mul(-1).equal() },
       },
     },
     [`${groupPrefixCls}-right > ${groupPrefixCls}-wrap`]: {
@@ -168,7 +168,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
         zIndex: 1,
         width: margin,
         height: '100%',
-        left: calc(margin).mul(-1).equal(),
+        left: { _skip_check_: true, value: calc(margin).mul(-1).equal() },
       },
     },
     [`${groupPrefixCls}-left > ${groupPrefixCls}-wrap`]: {
@@ -181,7 +181,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
         zIndex: 1,
         width: margin,
         height: '100%',
-        right: calc(margin).mul(-1).equal(),
+        right: { _skip_check_: true, value: calc(margin).mul(-1).equal() },
       },
     },
     [`${groupPrefixCls}-circle`]: {
