@@ -78,22 +78,16 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
     }
   });
 
-  let timeoutId: NodeJS.Timeout;
-
   // ===================== Trigger: Hover =====================
   const onMouseEnter: React.MouseEventHandler<HTMLDivElement> = () => {
     if (hoverTrigger) {
-      clearTimeout(timeoutId);
       triggerOpen(true);
     }
   };
 
   const onMouseLeave: React.MouseEventHandler<HTMLDivElement> = () => {
     if (hoverTrigger) {
-      // 由于菜单使用了绝对定位，鼠标离开时，需要延迟关闭，否则会立即消失
-      timeoutId = setTimeout(() => {
-        triggerOpen(false);
-      }, 100);
+      triggerOpen(false);
     }
   };
 
@@ -131,6 +125,25 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
   }
 
   // ========================= Render =========================
+  const bufferStyle: React.CSSProperties = {
+    position: 'absolute',
+    content: '',
+    // 根据 placement 调整缓冲区的位置和大小
+    ...(placement === 'top' || placement === 'bottom'
+      ? {
+          left: '-20px',
+          right: '-20px',
+          height: '20px',
+          [placement]: '100%',
+        }
+      : {
+          top: '-20px',
+          bottom: '-20px',
+          width: '20px',
+          [placement]: '100%',
+        }),
+  };
+
   return wrapCSSVar(
     <FloatButtonGroupProvider value={shape}>
       <div
@@ -145,7 +158,11 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
           <>
             <CSSMotion visible={open} motionName={`${groupPrefixCls}-wrap`}>
               {({ className: motionClassName }) => (
-                <div className={classNames(motionClassName, wrapperCls)}>{children}</div>
+                <div className={classNames(motionClassName, wrapperCls)}>
+                  {children}
+                  {/* buffer area */}
+                  <div style={bufferStyle} />
+                </div>
               )}
             </CSSMotion>
             <FloatButton
