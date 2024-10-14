@@ -3,7 +3,7 @@
 exports[`renders components/qr-code/demo/Popover.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary ant-btn-solid"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -125,7 +125,7 @@ Array [
     style="margin-bottom: 16px;"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-outlined"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span
@@ -156,7 +156,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-outlined"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span
@@ -301,7 +301,7 @@ exports[`renders components/qr-code/demo/customStatusRender.tsx extend context c
          QR code expired
         <p>
           <button
-            class="ant-btn ant-btn-primary ant-btn-link"
+            class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link"
             type="button"
           >
             <span
@@ -450,7 +450,7 @@ exports[`renders components/qr-code/demo/download.tsx extend context correctly 1
         />
       </div>
       <button
-        class="ant-btn ant-btn-primary ant-btn-solid"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -633,7 +633,7 @@ exports[`renders components/qr-code/demo/status.tsx extend context correctly 1`]
         QR code expired
       </p>
       <button
-        class="ant-btn ant-btn-primary ant-btn-link"
+        class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link"
         type="button"
       >
         <span

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
-import { useEvent } from 'rc-util';
+import useEvent from 'rc-util/lib/hooks/useEvent';
 
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -71,7 +71,14 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const [containerSize, setContainerSize] = useState<number>(100);
 
   const onContainerResize: GetProp<typeof ResizeObserver, 'onResize'> = (size) => {
-    setContainerSize(isVertical ? size.offsetHeight : size.offsetWidth);
+    const { offsetWidth, offsetHeight } = size;
+    const containerSize = isVertical ? offsetHeight : offsetWidth;
+    // Skip when container has no size, Such as nested in a hidden tab panel
+    // to fix: https://github.com/ant-design/ant-design/issues/51106
+    if (containerSize === 0) {
+      return;
+    }
+    setContainerSize(containerSize);
   };
 
   // ========================= Size =========================
@@ -146,65 +153,62 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const mergedStyle: React.CSSProperties = { ...splitter?.style, ...style };
 
   return wrapCSSVar(
-    <>
-      <ResizeObserver onResize={onContainerResize}>
-        <div style={mergedStyle} className={containerClassName}>
-          {items.map((item, idx) => {
-            // Panel
-            const panel = <InternalPanel {...item} prefixCls={prefixCls} size={itemPxSizes[idx]} />;
+    <ResizeObserver onResize={onContainerResize}>
+      <div style={mergedStyle} className={containerClassName}>
+        {items.map((item, idx) => {
+          // Panel
+          const panel = <InternalPanel {...item} prefixCls={prefixCls} size={itemPxSizes[idx]} />;
 
-            // Split Bar
-            let splitBar: React.ReactElement | null = null;
+          // Split Bar
+          let splitBar: React.ReactElement | null = null;
 
-            const resizableInfo = resizableInfos[idx];
-            if (resizableInfo) {
-              const ariaMinStart = (stackSizes[idx - 1] || 0) + itemPtgMinSizes[idx];
-              const ariaMinEnd = (stackSizes[idx + 1] || 100) - itemPtgMaxSizes[idx + 1];
+          const resizableInfo = resizableInfos[idx];
+          if (resizableInfo) {
+            const ariaMinStart = (stackSizes[idx - 1] || 0) + itemPtgMinSizes[idx];
+            const ariaMinEnd = (stackSizes[idx + 1] || 100) - itemPtgMaxSizes[idx + 1];
 
-              const ariaMaxStart = (stackSizes[idx - 1] || 0) + itemPtgMaxSizes[idx];
-              const ariaMaxEnd = (stackSizes[idx + 1] || 100) - itemPtgMinSizes[idx + 1];
+            const ariaMaxStart = (stackSizes[idx - 1] || 0) + itemPtgMaxSizes[idx];
+            const ariaMaxEnd = (stackSizes[idx + 1] || 100) - itemPtgMinSizes[idx + 1];
 
-              splitBar = (
-                <SplitBar
-                  index={idx}
-                  active={movingIndex === idx}
-                  prefixCls={prefixCls}
-                  vertical={isVertical}
-                  resizable={resizableInfo.resizable}
-                  ariaNow={stackSizes[idx] * 100}
-                  ariaMin={Math.max(ariaMinStart, ariaMinEnd) * 100}
-                  ariaMax={Math.min(ariaMaxStart, ariaMaxEnd) * 100}
-                  startCollapsible={resizableInfo.startCollapsible}
-                  endCollapsible={resizableInfo.endCollapsible}
-                  onOffsetStart={onInternalResizeStart}
-                  onOffsetUpdate={(index, offsetX, offsetY) => {
-                    let offset = isVertical ? offsetY : offsetX;
-                    if (reverse) {
-                      offset = -offset;
-                    }
-                    onInternalResizeUpdate(index, offset);
-                  }}
-                  onOffsetEnd={onInternalResizeEnd}
-                  onCollapse={onInternalCollapse}
-                />
-              );
-            }
-
-            return (
-              <React.Fragment key={`split-panel-${idx}`}>
-                {panel}
-                {splitBar}
-              </React.Fragment>
+            splitBar = (
+              <SplitBar
+                index={idx}
+                active={movingIndex === idx}
+                prefixCls={prefixCls}
+                vertical={isVertical}
+                resizable={resizableInfo.resizable}
+                ariaNow={stackSizes[idx] * 100}
+                ariaMin={Math.max(ariaMinStart, ariaMinEnd) * 100}
+                ariaMax={Math.min(ariaMaxStart, ariaMaxEnd) * 100}
+                startCollapsible={resizableInfo.startCollapsible}
+                endCollapsible={resizableInfo.endCollapsible}
+                onOffsetStart={onInternalResizeStart}
+                onOffsetUpdate={(index, offsetX, offsetY) => {
+                  let offset = isVertical ? offsetY : offsetX;
+                  if (reverse) {
+                    offset = -offset;
+                  }
+                  onInternalResizeUpdate(index, offset);
+                }}
+                onOffsetEnd={onInternalResizeEnd}
+                onCollapse={onInternalCollapse}
+              />
             );
-          })}
-        </div>
-      </ResizeObserver>
+          }
 
-      {/* Fake mask for cursor */}
-      {typeof movingIndex === 'number' && (
-        <div aria-hidden className={classNames(maskCls, `${maskCls}-${layout}`)} />
-      )}
-    </>,
+          return (
+            <React.Fragment key={`split-panel-${idx}`}>
+              {panel}
+              {splitBar}
+            </React.Fragment>
+          );
+        })}
+        {/* Fake mask for cursor */}
+        {typeof movingIndex === 'number' && (
+          <div aria-hidden className={classNames(maskCls, `${maskCls}-${layout}`)} />
+        )}
+      </div>
+    </ResizeObserver>,
   );
 };
 

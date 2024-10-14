@@ -156,7 +156,7 @@ exports[`renders components/badge/demo/change.tsx extend context correctly 1`] =
           class="ant-btn-group"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
             type="button"
           >
             <span
@@ -184,7 +184,7 @@ exports[`renders components/badge/demo/change.tsx extend context correctly 1`] =
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
             type="button"
           >
             <span
@@ -215,7 +215,7 @@ exports[`renders components/badge/demo/change.tsx extend context correctly 1`] =
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-default ant-btn-outlined ant-btn-icon-only"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
             type="button"
           >
             <span

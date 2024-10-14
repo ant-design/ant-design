@@ -55,18 +55,14 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         ...operationUnit(token),
         position: 'relative',
         float: 'left',
-        boxSizing: 'border-box',
         width: expandIconSize,
         height: expandIconSize,
-        padding: 0,
         color: 'inherit',
         lineHeight: unit(expandIconSize),
         background: tableExpandIconBg,
         border: tableBorder,
         borderRadius,
         transform: `scale(${expandIconScale})`,
-        transition: `all ${motionDurationSlow}`,
-        userSelect: 'none',
 
         '&:focus, &:hover, &:active': {
           borderColor: 'currentcolor',

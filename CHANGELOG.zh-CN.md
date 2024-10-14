@@ -15,6 +15,46 @@ tag: vVERSION
 
 ---
 
+## 5.21.3
+
+`2024-10-09`
+
+- 💄 优化 Dropdown 列表较长时的滚动条样式。[#51112](https://github.com/ant-design/ant-design/pull/51112) [@Cameron-Asdf](https://github.com/Cameron-Asdf)
+- Slider [#51150](https://github.com/ant-design/ant-design/pull/51150) [@yoyo837](https://github.com/yoyo837)
+  - 🐞 修复 Slider 不支持 `id` 属性的问题。
+  - 🐞 修复 Slider 导致 `extractStyle` 时抛出 `useLayoutEffect does nothing on the server` 警告信息的问题。
+- 🐞 修复 ColorPicker 渐变色时，部分节点颜色拖拽会被强制重置为第一个节点颜色的问题。[#51161](https://github.com/ant-design/ant-design/pull/51161) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 Table 组件在切换页面时 `onChange` 函数接收到错误的 sorter 值的问题。[#51114](https://github.com/ant-design/ant-design/pull/51114) [@nathanlao](https://github.com/nathanlao)
+- Splitter
+  - 🐞 修复 Splitter 嵌套在一个隐藏的 Tabs 面板中时抛出警告的问题。[#51109](https://github.com/ant-design/ant-design/pull/51109) [@kiner-tang](https://github.com/kiner-tang)
+  - 🐞 修复 Splitter 组件在 Flex 组件下时出现异常间距的问题。[#51096](https://github.com/ant-design/ant-design/pull/51096) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 杂项：重新将 `react` 和 `react-dom` 添加进 peerDependencies。[#51079](https://github.com/ant-design/ant-design/pull/51079) [@chentsulin](https://github.com/chentsulin)
+- TypeScript
+  - 🤖 优化 Slider `eventName` 类型。[#51156](https://github.com/ant-design/ant-design/pull/51156) [@thinkasany](https://github.com/thinkasany)
+
+## 5.21.2
+
+`2024-10-01`
+
+- 🐞 回滚 [#49221](https://github.com/ant-design/ant-design/pull/49221) 以修复 Typography `copyable` 图标位置偏上的问题。[#51066](https://github.com/ant-design/ant-design/pull/51066) [@afc163](https://github.com/afc163)
+- 🐞 修复 Tabs 在浏览器缩放时无限闪烁的问题。[#51072](https://github.com/ant-design/ant-design/pull/51072) [@afc163](https://github.com/afc163)
+- 🐞 修复了 Input.Search 组件中在不同缩放级别下输入框和按钮的对齐问题。[#50926](https://github.com/ant-design/ant-design/pull/50926) [@nathanlao](https://github.com/nathanlao)
+- 🐞 修复 Select `variant="filled"` 时 `activeBorderColor` token 失效的问题。[#51054](https://github.com/ant-design/ant-design/pull/51054) [@coding-ice](https://github.com/coding-ice)
+- 💄 MISC: 调整 focus 时的 outline 边框宽度，从 `4px` 调整到 `3px`。[#51069](https://github.com/ant-design/ant-design/pull/51069) [@afc163](https://github.com/afc163)
+- Splitter
+  - 🐞 修复 Splitter 在触屏设备上拖拽异常的问题。[#51060](https://github.com/ant-design/ant-design/pull/51060) [@sakuraee](https://github.com/sakuraee)
+  - 💄 修复 Splitter.Panel 无法隐藏的问题。[#51032](https://github.com/ant-design/ant-design/pull/51032) [@wanpan11](https://github.com/wanpan11)
+- 📦 移除 Table/Transfer/Typography 内的 TransButton 实现以降低打包体积。[#51068](https://github.com/ant-design/ant-design/pull/51068) [@afc163](https://github.com/afc163)
+
+## 5.21.1
+
+`2024-09-25`
+
+- 🐞 修复 Button `type="link"` 错误使用 `colorPrimary` 的问题。[#50962](https://github.com/ant-design/ant-design/pull/50962) [@coding-ice](https://github.com/coding-ice)
+- 🐞 修复 Button 样式类名权重问题导致的自定义渐变样式覆盖失效的问题。[#50962](https://github.com/ant-design/ant-design/pull/50962) [@coding-ice](https://github.com/coding-ice)
+- 💄 修复 Transfer 在自定义为 TableTransfer 时，宽度不正确的问题。[#50974](https://github.com/ant-design/ant-design/pull/50974) [@zombieJ](https://github.com/zombieJ)
+- 🇹🇷 补充 Table 组件 `filterCheckall` 的土耳其语文案。[#51000](https://github.com/ant-design/ant-design/pull/51000) [@ytahirkose](https://github.com/ytahirkose)
+
 ## 5.21.0 🔥
 
 `2024-09-22`

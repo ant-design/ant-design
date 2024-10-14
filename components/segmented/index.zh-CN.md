@@ -55,15 +55,13 @@ demo:
 
 ### SegmentedItemType
 
-| 属性      | 描述             | 类型             | 默认值 | 版本 |
-| --------- | ---------------- | ---------------- | ------ | ---- |
-| label     | 分段项的显示文本 | ReactNode        | -      |      |
-| value     | 分段项的值       | string \| number | -      |      |
-| icon      | 分段项的显示图标 | ReactNode        | -      |      |
-| disabled  | 分段项的禁用状态 | boolean          | false  |      |
-| icon      | 分段项的显示图标 | ReactNode        | -      |      |
-| disabled  | 分段项的禁用状态 | boolean          | false  |      |
-| className | 自定义类名       | string           | -      |      |
+| 属性 | 描述 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| label | 分段项的显示文本 | ReactNode | - | |
+| value | 分段项的值 | string \| number | - | |
+| icon | 分段项的显示图标  | ReactNode | - | |
+| disabled | 分段项的禁用状态 | boolean | false | |
+| className | 自定义类名 | string | - | |
 
 ## 主题变量（Design Token）
 

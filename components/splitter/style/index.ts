@@ -80,6 +80,8 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
   } = token;
 
   const splitBarCls = `${componentCls}-bar`;
+  const splitMaskCls = `${componentCls}-mask`;
+  const splitPanelCls = `${componentCls}-panel`;
 
   const halfTriggerSize = token.calc(splitTriggerSize).div(2).equal();
 
@@ -186,7 +188,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
       // =========================== Mask =========================
       // Util dom for handle cursor
-      '&-mask': {
+      [splitMaskCls]: {
         position: 'fixed',
         zIndex: token.zIndexPopupBase,
         inset: 0,
@@ -302,14 +304,20 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
       },
 
       // ========================= Panels =========================
-      '&-panel': {
+      [splitPanelCls]: {
         overflow: 'auto',
         padding: '0 1px',
         scrollbarWidth: 'thin',
         boxSizing: 'border-box',
-      },
-      '&-panel-hidden': {
-        padding: 0,
+
+        '&-hidden': {
+          padding: 0,
+          overflow: 'hidden',
+        },
+
+        [`&:has(${componentCls}:only-child)`]: {
+          overflow: 'hidden',
+        },
       },
 
       ...genRtlStyle(token),

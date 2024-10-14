@@ -979,7 +979,7 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-outlined"
+              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
               disabled=""
               type="button"
             >

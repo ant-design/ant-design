@@ -534,6 +534,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
             >
               <div
                 class="ant-slider ant-slider-horizontal"
+                id="fontSize"
               >
                 <div
                   class="ant-slider-rail"
@@ -609,6 +610,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
             >
               <div
                 class="ant-slider ant-slider-horizontal"
+                id="zIndex"
               >
                 <div
                   class="ant-slider-rail"
@@ -684,6 +686,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
             >
               <div
                 class="ant-slider ant-slider-horizontal"
+                id="rotate"
               >
                 <div
                   class="ant-slider-rail"
@@ -1228,7 +1231,7 @@ Array [
     class="ant-flex ant-flex-gap-middle"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -1236,7 +1239,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -1244,7 +1247,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-solid"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>

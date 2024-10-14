@@ -1,7 +1,6 @@
 ---
 order: 6
 title: Changelog
-toc: false
 timeline: true
 tag: vVERSION
 ---
@@ -15,6 +14,46 @@ tag: vVERSION
 - Major version release is not included in this schedule for breaking change and new features.
 
 ---
+
+## 5.21.3
+
+`2024-10-09`
+
+- 💄 Added a scroll bar to Dropdown when having many items. [#51112](https://github.com/ant-design/ant-design/pull/51112) [@Cameron-Asdf](https://github.com/Cameron-Asdf)
+- Slider [#51150](https://github.com/ant-design/ant-design/pull/51150) [@yoyo837](https://github.com/yoyo837)
+  - 🐞 Fix Slider issue where the `id` prop is not supported.
+  - 🐞 Fix Slider to address the issue causing `useLayoutEffect does nothing on the server` warning when `extractStyle` is invoked.
+- 🐞 Fix ColorPicker with gradient mode, sometimes handle color will be force sync back to first handle color issue. [#51161](https://github.com/ant-design/ant-design/pull/51161) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Table `onChange` function receiving incorrect sorter value. [#51114](https://github.com/ant-design/ant-design/pull/51114) [@nathanlao](https://github.com/nathanlao)
+- Splitter
+  - 🐞 Fix the issue about throw a warning when Splitter nested in a hidden tab panel. [#51109](https://github.com/ant-design/ant-design/pull/51109) [@kiner-tang](https://github.com/kiner-tang)
+  - 🐞 Fix the issue about Splitter had unexpected gaps in Flex. [#51096](https://github.com/ant-design/ant-design/pull/51096) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 MISC: Restore `react` and `react-dom` peerDependencies. [#51079](https://github.com/ant-design/ant-design/pull/51079) [@chentsulin](https://github.com/chentsulin)
+- TypeScript
+  - 🤖 Improve type of Slider `eventName`. [#51156](https://github.com/ant-design/ant-design/pull/51156) [@thinkasany](https://github.com/thinkasany)
+
+## 5.21.2
+
+`2024-10-01`
+
+- 🐞 Revert [#49221](https://github.com/ant-design/ant-design/pull/49221) to fix Typography `copyable` icon align issue. [#51066](https://github.com/ant-design/ant-design/pull/51066) [@afc163](https://github.com/afc163)
+- 🐞 Fix Tabs flicker when browser zoom is enabled. [#51072](https://github.com/ant-design/ant-design/pull/51072) [@afc163](https://github.com/afc163)
+- 🐞 Fix Select incorrect `activeBorderColor` token when variant is filled. [#51054](https://github.com/ant-design/ant-design/pull/51054) [@coding-ice](https://github.com/coding-ice)
+- 🐞 Fixed Input.Search alignment issue between the input field and search button at different zoom levels. [#50926](https://github.com/ant-design/ant-design/pull/50926) [@nathanlao](https://github.com/nathanlao)
+- 💄 MISC: Tweak outline width of focus style from `4px` to `3px`. [#51069](https://github.com/ant-design/ant-design/pull/51069) [@afc163](https://github.com/afc163)
+- Splitter
+  - 🐞 Fixed the issue with Splitter dragging abnormally on touch screen devices. [#51060](https://github.com/ant-design/ant-design/pull/51060) [@sakuraee](https://github.com/sakuraee)
+  - 💄 Fixed Splitter.Panel style is invalid error. [#51032](https://github.com/ant-design/ant-design/pull/51032) [@wanpan11](https://github.com/wanpan11)
+- ⚡️ Remove TransButton in Table/Transfer/Typography. [#51068](https://github.com/ant-design/ant-design/pull/51068) [@afc163](https://github.com/afc163)
+
+## 5.21.1
+
+`2024-09-25`
+
+- 🐞 Fix Button issue where `type="link"` incorrectly used `colorPrimary`. [#50962](https://github.com/ant-design/ant-design/pull/50962) [@coding-ice](https://github.com/coding-ice)
+- 🐞 Fix Button style class name weight issue that caused custom gradient styles to be overridden. [#50962](https://github.com/ant-design/ant-design/pull/50962) [@coding-ice](https://github.com/coding-ice)
+- 🐞 Fix Transfer width issue when customized as TableTransfer. [#50974](https://github.com/ant-design/ant-design/pull/50974) [@zombieJ](https://github.com/zombieJ)
+- 🇹🇷 Add Turkish text for `filterCheckall` in Table component. [#51000](https://github.com/ant-design/ant-design/pull/51000) [@ytahirkose](https://github.com/ytahirkose)
 
 ## 5.21.0 🔥
 
