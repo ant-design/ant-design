@@ -246,6 +246,37 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
         },
       },
     },
+    [`${groupPrefixCls}-buffer`]: {
+      '&::after': {
+        content: '""',
+        position: 'absolute',
+        zIndex: 1,
+      },
+    },
+    [`${groupPrefixCls}-top > ${groupPrefixCls}-buffer::after`]: {
+      left: '-20px',
+      right: '-20px',
+      height: '20px',
+      bottom: '-20px',
+    },
+    [`${groupPrefixCls}-bottom > ${groupPrefixCls}-buffer::after`]: {
+      left: '-20px',
+      right: '-20px',
+      height: '20px',
+      top: '-20px',
+    },
+    [`${groupPrefixCls}-left > ${groupPrefixCls}-buffer::after`]: {
+      top: '-20px',
+      bottom: '-20px',
+      width: '20px',
+      right: '-20px',
+    },
+    [`${groupPrefixCls}-right > ${groupPrefixCls}-buffer::after`]: {
+      top: '-20px',
+      bottom: '-20px',
+      width: '20px',
+      left: '-20px',
+    },
   };
 };
 
