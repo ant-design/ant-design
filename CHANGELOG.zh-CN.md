@@ -22,7 +22,7 @@ tag: vVERSION
 - 🐞 修复 Input.Search 无法使用 Input Token `hoverBorderColor/activeBorderColor` 修改边框颜色的问题。[#51226](https://github.com/ant-design/ant-design/pull/51226) [@iqingting](https://github.com/iqingting)
 - 🐞 修复 Tree 的图标不对齐的问题。[#51181](https://github.com/ant-design/ant-design/pull/51181) [@Meowu](https://github.com/Meowu)
 - 🐞 修复 Splitter 在嵌套组合时，偶尔会出现多余滚动条的问题。[#51169](https://github.com/ant-design/ant-design/pull/51169) [@zombieJ](https://github.com/zombieJ)
-- 💄 修改 DesignToken 的 `textHoverBg` 悬浮状态下的背景色为 `colorFillTertiary`。[#51187](https://github.com/ant-design/ant-design/pull/51187) [@coding-ice](https://github.com/coding-ice)
+- 💄 修改 Design Token 的 `textHoverBg` 悬浮状态下的背景色为 `colorFillTertiary`。[#51187](https://github.com/ant-design/ant-design/pull/51187) [@coding-ice](https://github.com/coding-ice)
 
 ## 5.21.3
 
