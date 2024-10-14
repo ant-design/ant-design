@@ -15,7 +15,7 @@ export interface ComponentToken {
    * @desc 拖拽标识元素大小
    * @descEN Drag and drop the identity element size
    */
-  draggerIdentitySize: number;
+  splitBarDraggableSize: number;
   /**
    * @desc 拖拽元素大小
    * @descEN Drag the element size
@@ -77,7 +77,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
   const {
     componentCls,
     colorFill,
-    draggerIdentitySize,
+    splitBarDraggableSize,
     splitBarSize,
     splitTriggerSize,
     controlItemBgHover,
@@ -229,7 +229,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
             },
 
             '&:after': {
-              height: draggerIdentitySize,
+              height: splitBarDraggableSize,
               width: splitBarSize,
             },
           },
@@ -284,7 +284,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
             },
 
             '&:after': {
-              width: draggerIdentitySize,
+              width: splitBarDraggableSize,
               height: splitBarSize,
             },
           },
@@ -337,13 +337,13 @@ export const prepareComponentToken: GetDefaultToken<'Splitter'> = (token) => {
 
   // https://github.com/ant-design/ant-design/pull/51223
   const resizeSpinnerSize = token.resizeSpinnerSize || 20;
-  const draggerIdentitySize = token.draggerIdentitySize || resizeSpinnerSize;
+  const splitBarDraggableSize = token.splitBarDraggableSize || resizeSpinnerSize;
 
   return {
     splitBarSize,
     splitTriggerSize,
+    splitBarDraggableSize,
     resizeSpinnerSize,
-    draggerIdentitySize,
   };
 };
 
