@@ -56,7 +56,7 @@ tag: 5.1.0
 | fontWeight | 字体粗细 | `normal` \| `light` \| `weight` \| number | normal |  |
 | fontFamily | 字体类型 | string | sans-serif |  |
 | fontStyle | 字体样式 | `none` \| `normal` \| `italic` \| `oblique` | normal |  |
-| textAlign | 指定文本对齐方向  | [CanvasTextAlign](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/textAlign) | 5.10.0 |
+| textAlign | 指定文本对齐方向  | [CanvasTextAlign](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/textAlign) | `center` | 5.10.0 |
 
 ## 主题变量（Design Token）
 
