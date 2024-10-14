@@ -14,6 +14,11 @@ export interface TreeSharedToken {
    */
   titleHeight: number;
   /**
+   * @desc 缩进宽度
+   * @descEN Indent width of tree
+   */
+  indentSize?: number;
+  /**
    * @desc 节点悬浮态背景色
    * @descEN Background color of hovered node
    */
@@ -94,7 +99,15 @@ type TreeToken = FullToken<'Tree'> & {
 };
 
 export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => {
-  const { treeCls, treeNodeCls, treeNodePadding, titleHeight, nodeSelectedBg, nodeHoverBg } = token;
+  const {
+    treeCls,
+    treeNodeCls,
+    treeNodePadding,
+    titleHeight,
+    indentSize,
+    nodeSelectedBg,
+    nodeHoverBg,
+  } = token;
   const treeCheckBoxMarginHorizontal = token.paddingXS;
 
   return {
@@ -223,7 +236,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         userSelect: 'none',
         '&-unit': {
           display: 'inline-block',
-          width: titleHeight,
+          width: indentSize,
         },
       },
 
@@ -538,12 +551,14 @@ export const genTreeStyle = (
 };
 
 export const initComponentToken = (token: AliasToken): TreeSharedToken => {
-  const { controlHeightSM } = token;
+  const { controlHeightSM, controlItemBgHover, controlItemBgActive } = token;
+  const titleHeight = controlHeightSM;
 
   return {
-    titleHeight: controlHeightSM,
-    nodeHoverBg: token.controlItemBgHover,
-    nodeSelectedBg: token.controlItemBgActive,
+    titleHeight,
+    indentSize: titleHeight,
+    nodeHoverBg: controlItemBgHover,
+    nodeSelectedBg: controlItemBgActive,
   };
 };
 
