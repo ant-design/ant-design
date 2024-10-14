@@ -23,7 +23,8 @@ tag: vVERSION
 - 🐞 Fix Tree icon align issue. [#51181](https://github.com/ant-design/ant-design/pull/51181) [@Meowu](https://github.com/Meowu)
 - 🐞 Fix Splitter occasionally shows unnecessary scrollbars in nested combinations. [#51169](https://github.com/ant-design/ant-design/pull/51169) [@zombieJ](https://github.com/zombieJ)
 - 💄 Modify Design Token `textHoverBg` hover background to `colorFillTertiary`. [#51187](https://github.com/ant-design/ant-design/pull/51187) [@coding-ice](https://github.com/coding-ice)
-
+- TypeScript
+  - 🤖 Improve type of Switch `eventHandler`. [#51165](https://github.com/ant-design/ant-design/pull/51165) [@thinkasany](https://github.com/thinkasany)
 ## 5.21.3
 
 `2024-10-09`
