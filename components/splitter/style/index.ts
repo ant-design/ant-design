@@ -6,12 +6,18 @@ import { genStyleHooks } from '../../theme/internal';
 
 export interface ComponentToken {
   /**
-   * @desc 可改变大小标识 元素大小
-   * @descEN Height of content area
+   * @desc 拖拽标识元素大小
+   * @descEN Drag and drop the identity element size
+   * @deprecated Please use `splitBarDraggableSize` instead.
    */
   resizeSpinnerSize: number;
   /**
    * @desc 拖拽标识元素大小
+   * @descEN Drag and drop the identity element size
+   */
+  splitBarDraggableSize: number;
+  /**
+   * @desc 拖拽元素大小
    * @descEN Drag the element size
    */
   splitBarSize: number;
@@ -71,7 +77,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
   const {
     componentCls,
     colorFill,
-    resizeSpinnerSize,
+    splitBarDraggableSize,
     splitBarSize,
     splitTriggerSize,
     controlItemBgHover,
@@ -223,7 +229,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
             },
 
             '&:after': {
-              height: resizeSpinnerSize,
+              height: splitBarDraggableSize,
               width: splitBarSize,
             },
           },
@@ -278,7 +284,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
             },
 
             '&:after': {
-              width: resizeSpinnerSize,
+              width: splitBarDraggableSize,
               height: splitBarSize,
             },
           },
@@ -329,11 +335,14 @@ export const prepareComponentToken: GetDefaultToken<'Splitter'> = (token) => {
   const splitBarSize = token.splitBarSize || 2;
   const splitTriggerSize = token.splitTriggerSize || 6;
 
+  // https://github.com/ant-design/ant-design/pull/51223
   const resizeSpinnerSize = token.resizeSpinnerSize || 20;
+  const splitBarDraggableSize = token.splitBarDraggableSize ?? resizeSpinnerSize;
 
   return {
     splitBarSize,
     splitTriggerSize,
+    splitBarDraggableSize,
     resizeSpinnerSize,
   };
 };
