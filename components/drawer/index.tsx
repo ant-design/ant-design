@@ -146,6 +146,13 @@ const Drawer: React.FC<DrawerProps> & {
     motionEnter: true,
     motionLeave: true,
     motionDeadline: 500,
+    onAppearEnd: (e) => {
+      // Due to the inclusion of transformations in elements, canvas elements in child elements cannot be updated and rendered in a timely manner, mainly due to issues caused by transformations in CSS. Therefore, it needs to be deleted
+      e.style.transition = 'none';
+    },
+    onLeavePrepare: (e) => {
+      e.style.transition = 'all 0.3s';
+    },
   });
 
   // ============================ Refs ============================
