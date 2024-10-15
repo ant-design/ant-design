@@ -89,7 +89,6 @@ export type FloatButtonToken = FullToken<'FloatButton'> & {
 const sharedBufferStyle: CSSObject = {
   content: '""',
   position: 'absolute',
-  zIndex: 1,
 };
 
 // ============================== Group ==============================
