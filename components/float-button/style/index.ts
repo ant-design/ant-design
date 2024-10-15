@@ -86,11 +86,6 @@ export type FloatButtonToken = FullToken<'FloatButton'> & {
   floatButtonInsetInlineEnd: number;
 };
 
-const sharedBufferStyle: React.CSSProperties = {
-  content: '""',
-  position: 'absolute',
-};
-
 // ============================== Group ==============================
 const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
   const {
@@ -142,7 +137,8 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
       top: 'auto',
       bottom: calc(floatButtonSize).add(margin).equal(),
       '&::after': {
-        ...sharedBufferStyle,
+        content: '""',
+        position: 'absolute',
         width: '100%',
         height: margin,
         bottom: calc(margin).mul(-1).equal(),
@@ -153,7 +149,8 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
       top: calc(floatButtonSize).add(margin).equal(),
       bottom: 'auto',
       '&::after': {
-        ...sharedBufferStyle,
+        content: '""',
+        position: 'absolute',
         width: '100%',
         height: margin,
         top: calc(margin).mul(-1).equal(),
@@ -164,7 +161,8 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
       left: { _skip_check_: true, value: calc(floatButtonSize).add(margin).equal() },
       right: { _skip_check_: true, value: 'auto' },
       '&::after': {
-        ...sharedBufferStyle,
+        content: '""',
+        position: 'absolute',
         width: margin,
         height: '100%',
         left: { _skip_check_: true, value: calc(margin).mul(-1).equal() },
@@ -175,7 +173,8 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
       left: { _skip_check_: true, value: 'auto' },
       right: { _skip_check_: true, value: calc(floatButtonSize).add(margin).equal() },
       '&::after': {
-        ...sharedBufferStyle,
+        content: '""',
+        position: 'absolute',
         width: margin,
         height: '100%',
         right: { _skip_check_: true, value: calc(margin).mul(-1).equal() },
