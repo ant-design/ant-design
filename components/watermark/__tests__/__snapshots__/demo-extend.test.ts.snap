@@ -534,6 +534,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
             >
               <div
                 class="ant-slider ant-slider-horizontal"
+                id="fontSize"
               >
                 <div
                   class="ant-slider-rail"
@@ -609,6 +610,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
             >
               <div
                 class="ant-slider ant-slider-horizontal"
+                id="zIndex"
               >
                 <div
                   class="ant-slider-rail"
@@ -684,6 +686,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
             >
               <div
                 class="ant-slider ant-slider-horizontal"
+                id="rotate"
               >
                 <div
                   class="ant-slider-rail"

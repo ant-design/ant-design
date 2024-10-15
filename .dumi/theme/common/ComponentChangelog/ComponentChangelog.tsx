@@ -1,6 +1,6 @@
 import React, { cloneElement, isValidElement } from 'react';
 import { BugOutlined } from '@ant-design/icons';
-import { Drawer, Flex, Grid, Popover, Tag, Timeline, Typography } from 'antd';
+import { Drawer, Flex, Grid, Popover, Tag, Timeline, Typography, Button } from 'antd';
 import type { TimelineItemProps } from 'antd';
 import { createStyles } from 'antd-style';
 import semver from 'semver';
@@ -83,6 +83,10 @@ const useStyle = createStyles(({ token, css }) => ({
     margin-bottom: 1em;
   `,
   versionTitle: css`
+    height: 28px;
+    line-height: 28px;
+    font-weight: 600;
+    font-size: 20px;
     margin: 0 !important;
   `,
   versionTag: css`
@@ -155,6 +159,19 @@ const ParseChangelog: React.FC<{ changelog: string }> = (props) => {
   return <span>{parsedChangelog}</span>;
 };
 
+const RefLinks: React.FC<{ refs: string[] }> = ({ refs }) => {
+  const { styles } = useStyle();
+  return (
+    <>
+      {refs?.map((ref) => (
+        <a className={styles.linkRef} key={ref} href={ref} target="_blank" rel="noreferrer">
+          #{ref.match(/^.*\/(\d+)$/)?.[1]}
+        </a>
+      ))}
+    </>
+  );
+};
+
 const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[] }> = ({ changelogList }) => {
   const elements: React.ReactNode[] = [];
   const { styles } = useStyle();
@@ -168,11 +185,7 @@ const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[] }> = ({ cha
       elements.push(
         <li key={i}>
           <ParseChangelog changelog={changelog} />
-          {refs?.map<React.ReactNode>((ref) => (
-            <a className={styles.linkRef} key={ref} href={ref} target="_blank" rel="noreferrer">
-              #{ref.match(/^.*\/(\d+)$/)?.[1]}
-            </a>
-          ))}
+          <RefLinks refs={refs} />
           <br />
           <img
             src={imgElement?.getAttribute('src') || ''}
@@ -186,6 +199,7 @@ const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[] }> = ({ cha
       elements.push(
         <li key={i}>
           <ParseChangelog changelog={changelog} />
+          <RefLinks refs={refs} />
         </li>,
       );
     }
@@ -236,7 +250,12 @@ const ComponentChangelog: React.FC<Readonly<React.PropsWithChildren>> = (props) 
         children: (
           <Typography>
             <Flex className={styles.versionWrap} justify="flex-start" align="center" gap="middle">
-              <Typography.Title className={styles.versionTitle} level={4}>
+              <Button
+                color="default"
+                className={styles.versionTitle}
+                variant="link"
+                href={`/changelog${lang === 'cn' ? '-cn' : ''}/#${version.replace(/\./g, '').replace(/\s.*/g, '-')}`}
+              >
                 {version}
                 {bugVersionInfo.match && (
                   <Popover
@@ -264,7 +283,7 @@ const ComponentChangelog: React.FC<Readonly<React.PropsWithChildren>> = (props) 
                     <BugOutlined className={styles.bug} />
                   </Popover>
                 )}
-              </Typography.Title>
+              </Button>
               <Tag className={styles.versionTag} bordered={false} color="blue">
                 {changelogList[0]?.releaseDate}
               </Tag>

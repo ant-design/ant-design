@@ -36,6 +36,7 @@ const useStyle = createStyles(({ token, css, cx }) => {
     cardItem: css`
       &:hover {
         box-shadow: ${token.boxShadowCard};
+        border-color: transparent;
       }
     `,
     sliderItem: css`

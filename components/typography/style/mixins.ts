@@ -60,6 +60,7 @@ export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = (token) 
   return {
     'a&, a': {
       ...operationUnit(token),
+      userSelect: 'text',
 
       [`&[disabled], &${componentCls}-disabled`]: {
         color: token.colorTextDisabled,
