@@ -2,7 +2,7 @@
 category: Components
 group: Layout
 title: Splitter
-description: Split panels are used to isolate areas and display multiple contents.
+description: Split panels to isolate
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*f0SISaETY0wAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*y92yRYhObU8AAAAAAAAAAAAADrJ8AQ/original
 demo:
@@ -12,9 +12,7 @@ tag: 5.21.0
 
 ## When To Use
 
-You need to display multiple contents, and you want users to be able to adjust the size of each content freely.
-
-- The Splitter component needs to calculate the panel size through its child elements, so its child elements only support `Splitter.Panel`。
+Can be used to separate areas horizontally or vertically. When you need to freely drag and adjust the size of each area. When you need to specify the maximum and minimum width and height of an area.
 
 ## Examples
 
@@ -25,11 +23,14 @@ You need to display multiple contents, and you want users to be able to adjust t
 <code src="./demo/collapsible.tsx">Collapsible</code>
 <code src="./demo/multiple.tsx">Multiple panels</code>
 <code src="./demo/group.tsx">Complex combination</code>
+<code src="./demo/nested-in-tabs.tsx" debug>Nested in tabs</code>
 <code src="./demo/debug.tsx" debug>Debug</code>
 
 ## API
 
 Common props ref：[Common props](/docs/react/common-props)
+
+> The Splitter component needs to calculate the panel size through its child elements, so its child elements only support `Splitter.Panel`.
 
 ### Splitter
 

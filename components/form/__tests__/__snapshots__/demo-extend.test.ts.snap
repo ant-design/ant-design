@@ -554,7 +554,7 @@ Array [
           class="ant-space-item"
         >
           <button
-            class="ant-btn ant-btn-primary ant-btn-solid"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
             type="submit"
           >
             <span>
@@ -566,7 +566,7 @@ Array [
           class="ant-space-item"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-outlined"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
             type="button"
           >
             <span>
@@ -785,7 +785,7 @@ exports[`renders components/form/demo/basic.tsx extend context correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-solid"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
               type="submit"
             >
               <span>
@@ -1186,7 +1186,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <button
-                class="ant-btn ant-btn-primary ant-btn-solid"
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                 type="submit"
               >
                 <span>
@@ -1327,7 +1327,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <button
-                class="ant-btn ant-btn-primary ant-btn-solid"
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                 type="submit"
               >
                 <span>
@@ -1898,7 +1898,7 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-solid"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                   type="submit"
                 >
                   <span>
@@ -1910,7 +1910,7 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-default ant-btn-outlined"
+                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                   type="button"
                 >
                   <span>
@@ -1922,7 +1922,7 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-link"
+                  class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link"
                   type="button"
                 >
                   <span>
@@ -2091,7 +2091,7 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx extend context c
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-outlined"
+              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
               type="submit"
             >
               <span>
@@ -2311,7 +2311,7 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-solid"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
               type="submit"
             >
               <span>
@@ -5153,7 +5153,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <button
-                class="ant-btn ant-btn-default ant-btn-outlined"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                 disabled=""
                 type="button"
               >
@@ -6677,7 +6677,7 @@ exports[`renders components/form/demo/dynamic-form-item.tsx extend context corre
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-dashed"
+              class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
               style="width: 60%;"
               type="button"
             >
@@ -6712,7 +6712,7 @@ exports[`renders components/form/demo/dynamic-form-item.tsx extend context corre
               </span>
             </button>
             <button
-              class="ant-btn ant-btn-default ant-btn-dashed"
+              class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
               style="width: 60%; margin-top: 20px;"
               type="button"
             >
@@ -6767,7 +6767,7 @@ exports[`renders components/form/demo/dynamic-form-item.tsx extend context corre
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-solid"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
               type="submit"
             >
               <span>
@@ -6807,7 +6807,7 @@ exports[`renders components/form/demo/dynamic-form-items.tsx extend context corr
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-dashed ant-btn-block"
+              class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block"
               type="button"
             >
               <span
@@ -6861,7 +6861,7 @@ exports[`renders components/form/demo/dynamic-form-items.tsx extend context corr
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-solid"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
               type="submit"
             >
               <span>
@@ -6998,7 +6998,7 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx extend cont
                     style="display: flex; flex-direction: column; row-gap: 16px;"
                   >
                     <button
-                      class="ant-btn ant-btn-default ant-btn-dashed ant-btn-block"
+                      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block"
                       type="button"
                     >
                       <span>
@@ -7014,7 +7014,7 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx extend cont
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-default ant-btn-dashed ant-btn-block"
+      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block"
       type="button"
     >
       <span>
@@ -7086,7 +7086,7 @@ exports[`renders components/form/demo/dynamic-form-items-no-style.tsx extend con
                       class="ant-form-item-control-input-content"
                     >
                       <button
-                        class="ant-btn ant-btn-default ant-btn-dashed ant-btn-block"
+                        class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block"
                         type="button"
                       >
                         <span
@@ -7145,7 +7145,7 @@ exports[`renders components/form/demo/dynamic-form-items-no-style.tsx extend con
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-solid"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
               type="submit"
             >
               <span>
@@ -7299,7 +7299,7 @@ exports[`renders components/form/demo/dynamic-rule.tsx extend context correctly 
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-solid"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
               type="button"
             >
               <span>
@@ -7431,7 +7431,7 @@ exports[`renders components/form/demo/form-context.tsx extend context correctly 
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-solid"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
               type="submit"
             >
               <span>
@@ -7439,7 +7439,7 @@ exports[`renders components/form/demo/form-context.tsx extend context correctly 
               </span>
             </button>
             <button
-              class="ant-btn ant-btn-default ant-btn-outlined"
+              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
               style="margin: 0px 8px;"
               type="button"
             >
@@ -7596,7 +7596,7 @@ exports[`renders components/form/demo/form-dependencies.tsx extend context corre
 exports[`renders components/form/demo/form-in-modal.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary ant-btn-solid"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -7726,7 +7726,7 @@ exports[`renders components/form/demo/form-item-path.tsx extend context correctl
     </div>
   </div>
   <button
-    class="ant-btn ant-btn-primary ant-btn-solid"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="submit"
   >
     <span>
@@ -8432,7 +8432,7 @@ exports[`renders components/form/demo/getValueProps-normalize.tsx extend context
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-solid"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
               type="submit"
             >
               <span>
@@ -8645,7 +8645,7 @@ exports[`renders components/form/demo/inline-login.tsx extend context correctly 
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-solid"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
               disabled=""
               type="submit"
             >
@@ -8799,7 +8799,7 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
       class="ant-row ant-form-item-row"
     >
       <div
-        class="ant-col ant-col-4 ant-form-item-label"
+        class="ant-col ant-form-item-label"
       >
         <label
           class=""
@@ -8810,7 +8810,7 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
         </label>
       </div>
       <div
-        class="ant-col ant-col-14 ant-form-item-control"
+        class="ant-col ant-form-item-control"
       >
         <div
           class="ant-form-item-control-input"
@@ -8893,7 +8893,7 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
       class="ant-row ant-form-item-row"
     >
       <div
-        class="ant-col ant-col-4 ant-form-item-label"
+        class="ant-col ant-form-item-label"
       >
         <label
           class=""
@@ -8903,7 +8903,7 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
         </label>
       </div>
       <div
-        class="ant-col ant-col-14 ant-form-item-control"
+        class="ant-col ant-form-item-control"
       >
         <div
           class="ant-form-item-control-input"
@@ -8929,7 +8929,7 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
       class="ant-row ant-form-item-row"
     >
       <div
-        class="ant-col ant-col-4 ant-form-item-label"
+        class="ant-col ant-form-item-label"
       >
         <label
           class=""
@@ -8939,7 +8939,7 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
         </label>
       </div>
       <div
-        class="ant-col ant-col-14 ant-form-item-control"
+        class="ant-col ant-form-item-control"
       >
         <div
           class="ant-form-item-control-input"
@@ -8965,7 +8965,7 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
       class="ant-row ant-form-item-row"
     >
       <div
-        class="ant-col ant-col-14 ant-col-offset-4 ant-form-item-control"
+        class="ant-col ant-form-item-control"
       >
         <div
           class="ant-form-item-control-input"
@@ -8974,7 +8974,7 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-solid"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
               type="button"
             >
               <span>
@@ -9104,7 +9104,7 @@ exports[`renders components/form/demo/layout-can-wrap.tsx extend context correct
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-solid"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
               type="submit"
             >
               <span>
@@ -9472,7 +9472,7 @@ exports[`renders components/form/demo/login.tsx extend context correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-solid ant-btn-block"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-block"
               type="submit"
             >
               <span>
@@ -9769,7 +9769,7 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-solid"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
               type="submit"
             >
               <span>
@@ -9855,7 +9855,7 @@ exports[`renders components/form/demo/ref-item.tsx extend context correctly 1`] 
     </div>
   </div>
   <button
-    class="ant-btn ant-btn-default ant-btn-outlined"
+    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
     type="button"
   >
     <span>
@@ -9863,7 +9863,7 @@ exports[`renders components/form/demo/ref-item.tsx extend context correctly 1`] 
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-outlined"
+    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
     type="button"
   >
     <span>
@@ -11155,7 +11155,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                 style="padding-left: 4px; padding-right: 4px;"
               >
                 <button
-                  class="ant-btn ant-btn-default ant-btn-outlined"
+                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                   type="button"
                 >
                   <span>
@@ -11238,7 +11238,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-solid"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
               type="submit"
             >
               <span>
@@ -11556,7 +11556,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-solid"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
               type="button"
             >
               <span>
@@ -12992,7 +12992,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-outlined"
+              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
               type="button"
             >
               <span>
@@ -15775,7 +15775,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                           class="ant-picker-ok"
                         >
                           <button
-                            class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+                            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                             disabled=""
                             type="button"
                           >
@@ -19453,7 +19453,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                             class="ant-picker-ok"
                           >
                             <button
-                              class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+                              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                               disabled=""
                               type="button"
                             >
@@ -21044,7 +21044,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                           class="ant-picker-ok"
                         >
                           <button
-                            class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+                            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                             disabled=""
                             type="button"
                           >
@@ -21080,7 +21080,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-solid"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
               type="submit"
             >
               <span>
@@ -21365,7 +21365,7 @@ exports[`renders components/form/demo/validate-only.tsx extend context correctly
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-solid"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                   disabled=""
                   type="submit"
                 >
@@ -21378,7 +21378,7 @@ exports[`renders components/form/demo/validate-only.tsx extend context correctly
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-default ant-btn-outlined"
+                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                   type="reset"
                 >
                   <span>
@@ -21989,6 +21989,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
           >
             <div
               class="ant-slider ant-slider-horizontal ant-slider-with-marks"
+              id="validate_other_slider"
             >
               <div
                 class="ant-slider-rail"
@@ -22847,7 +22848,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                     type="file"
                   />
                   <button
-                    class="ant-btn ant-btn-default ant-btn-outlined"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     type="button"
                   >
                     <span
@@ -23419,7 +23420,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-solid"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                   type="submit"
                 >
                   <span>
@@ -23431,7 +23432,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-default ant-btn-outlined"
+                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                   type="reset"
                 >
                   <span>
@@ -23471,7 +23472,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-outlined"
+              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
               type="button"
             >
               <span>
@@ -23798,7 +23799,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
               class="ant-flex ant-flex-gap-small"
             >
               <button
-                class="ant-btn ant-btn-primary ant-btn-solid"
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                 type="submit"
               >
                 <span>
@@ -23806,7 +23807,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-dangerous ant-btn-outlined"
+                class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
                 type="button"
               >
                 <span>
@@ -26521,7 +26522,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                           class="ant-picker-ok"
                         >
                           <button
-                            class="ant-btn ant-btn-primary ant-btn-solid ant-btn-sm"
+                            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                             disabled=""
                             type="button"
                           >
@@ -33374,7 +33375,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-primary ant-btn-solid"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
               type="submit"
             >
               <span>
@@ -33457,7 +33458,7 @@ exports[`renders components/form/demo/warning-only.tsx extend context correctly 
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-solid"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                   type="submit"
                 >
                   <span>
@@ -33469,7 +33470,7 @@ exports[`renders components/form/demo/warning-only.tsx extend context correctly 
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-default ant-btn-outlined"
+                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                   type="button"
                 >
                   <span>

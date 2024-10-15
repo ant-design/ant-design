@@ -113,6 +113,27 @@ describe('Splitter', () => {
       fireEvent.mouseUp(draggerEle);
     }
 
+    function mockTouchDrag(draggerEle: HTMLElement, offset: number) {
+      // Down
+      const touchStart = createEvent.touchStart(draggerEle, {
+        touches: [{}],
+      });
+      (touchStart as any).touches[0].pageX = 0;
+      (touchStart as any).touches[0].pageY = 0;
+      fireEvent(draggerEle, touchStart);
+
+      // Move
+      const touchMove = createEvent.touchMove(draggerEle, {
+        touches: [{}],
+      });
+      (touchMove as any).touches[0].pageX = offset;
+      (touchMove as any).touches[0].pageY = offset;
+      fireEvent(draggerEle, touchMove);
+
+      // Up
+      fireEvent.touchEnd(draggerEle);
+    }
+
     it('The mousemove should work fine', async () => {
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
@@ -128,6 +149,25 @@ describe('Splitter', () => {
 
       // Left
       mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, -200);
+      expect(onResize).toHaveBeenCalledWith([0, 100]);
+      expect(onResizeEnd).toHaveBeenCalledWith([0, 100]);
+    });
+
+    it('The touchMove should work fine', async () => {
+      const onResize = jest.fn();
+      const onResizeEnd = jest.fn();
+
+      const { container } = render(
+        <SplitterDemo items={[{}, {}]} onResize={onResize} onResizeEnd={onResizeEnd} />,
+      );
+
+      // Right
+      mockTouchDrag(container.querySelector('.ant-splitter-bar-dragger')!, 40);
+      expect(onResize).toHaveBeenCalledWith([90, 10]);
+      expect(onResizeEnd).toHaveBeenCalledWith([90, 10]);
+
+      // Left
+      mockTouchDrag(container.querySelector('.ant-splitter-bar-dragger')!, -200);
       expect(onResize).toHaveBeenCalledWith([0, 100]);
       expect(onResizeEnd).toHaveBeenCalledWith([0, 100]);
     });
@@ -229,6 +269,27 @@ describe('Splitter', () => {
       mockDrag(container.querySelectorAll<HTMLDivElement>('.ant-splitter-bar-dragger')[1], -100);
       expect(onResize).toHaveBeenCalledWith([50, 0, 50]);
       expect(onResizeEnd).toHaveBeenCalledWith([50, 0, 50]);
+    });
+
+    it("aria-valuemin/aria-valuemax should not set NaN When container's width be setting zero", async () => {
+      containerSize = 0;
+      const App: React.FC = () => {
+        return <SplitterDemo items={[{}, {}, {}]} />;
+      };
+      const { container } = render(<App />);
+      mockDrag(container.querySelectorAll<HTMLDivElement>('.ant-splitter-bar-dragger')[1], -100);
+      triggerResize(container.querySelector('.ant-splitter')!);
+      await act(async () => {
+        await waitFakeTimer();
+      });
+
+      expect(errSpy).not.toHaveBeenCalled();
+      expect(container.querySelector('[aria-valuemin]')?.getAttribute('aria-valuemin')).not.toBe(
+        'NaN',
+      );
+      expect(container.querySelector('[aria-valuemax]')?.getAttribute('aria-valuemax')).not.toBe(
+        'NaN',
+      );
     });
   });
 

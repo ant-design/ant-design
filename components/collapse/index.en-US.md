@@ -81,7 +81,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | accordion | If true, Collapse renders as Accordion | boolean | false |  |
 | activeKey | Key of the active panel | string\[] \| string <br/> number\[] \| number | No default value. In [accordion mode](#collapse-demo-accordion), it's the key of the first panel |  |
 | bordered | Toggles rendering of the border around the collapse block | boolean | true |  |
-| collapsible | Specify whether the panels of children be collapsible or the trigger area of collapsible | `header` \| `icon` \| `disabled` | - | 4.9.0 |
+| collapsible | Specify how to trigger Collapse. Either by clicking icon or by clicking any area in header or disable collapse functionality itself | `header` \| `icon` \| `disabled` | - | 4.9.0 |
 | defaultActiveKey | Key of the initial active panel | string\[] \| string <br/> number\[] \| number | - |  |
 | destroyInactivePanel | Destroy Inactive Panel | boolean | false |  |
 | expandIcon | Allow to customize collapse icon | (panelProps) => ReactNode | - |  |

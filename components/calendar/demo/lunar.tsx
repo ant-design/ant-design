@@ -12,6 +12,12 @@ const useStyle = createStyles(({ token, css, cx }) => {
     color: ${token.colorTextTertiary};
     font-size: ${token.fontSizeSM}px;
   `;
+  const weekend = css`
+    color: ${token.colorError};
+    &.gray {
+      opacity: 0.4;
+    }
+  `;
   return {
     wrapper: css`
       width: 450px;
@@ -64,6 +70,9 @@ const useStyle = createStyles(({ token, css, cx }) => {
         color: ${token.colorTextLightSolid};
         opacity: 0.9;
       }
+      .${cx(weekend)} {
+        color: ${token.colorTextLightSolid};
+      }
     `,
     monthCell: css`
       width: 120px;
@@ -82,12 +91,7 @@ const useStyle = createStyles(({ token, css, cx }) => {
         opacity: 0.8;
       }
     `,
-    weekend: css`
-      color: ${token.colorError};
-      &.gray {
-        opacity: 0.4;
-      }
-    `,
+    weekend,
   };
 });
 

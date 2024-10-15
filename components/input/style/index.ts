@@ -650,8 +650,6 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
     [searchPrefixCls]: {
       [componentCls]: {
         '&:hover, &:focus': {
-          borderColor: token.colorPrimaryHover,
-
           [`+ ${componentCls}-group-addon ${searchPrefixCls}-button:not(${antCls}-btn-primary)`]: {
             borderInlineStartColor: token.colorPrimaryHover,
           },
@@ -659,6 +657,7 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       },
 
       [`${componentCls}-affix-wrapper`]: {
+        height: token.controlHeight,
         borderRadius: 0,
       },
 
@@ -713,12 +712,16 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         },
       },
 
-      [`&-large ${searchPrefixCls}-button`]: {
-        height: token.controlHeightLG,
+      '&-large': {
+        [`${componentCls}-affix-wrapper, ${searchPrefixCls}-button`]: {
+          height: token.controlHeightLG,
+        },
       },
 
-      [`&-small ${searchPrefixCls}-button`]: {
-        height: token.controlHeightSM,
+      '&-small': {
+        [`${componentCls}-affix-wrapper, ${searchPrefixCls}-button`]: {
+          height: token.controlHeightSM,
+        },
       },
 
       '&-rtl': {
