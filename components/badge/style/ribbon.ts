@@ -34,7 +34,7 @@ const genRibbonStyle: GenerateStyle<BadgeToken> = (token) => {
       backgroundColor: token.colorPrimary,
       borderRadius: token.borderRadiusSM,
       [`${ribbonPrefixCls}-text`]: {
-        color: token.colorTextLightSolid,
+        color: token.badgeTextColor,
       },
       [`${ribbonPrefixCls}-corner`]: {
         position: 'absolute',

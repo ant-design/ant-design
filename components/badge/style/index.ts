@@ -377,7 +377,7 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Badge'>>[0]) => BadgeT
 
   const badgeFontHeight = fontHeight;
   const badgeShadowSize = lineWidth;
-  const badgeTextColor = token.colorBgContainer;
+  const badgeTextColor = token.colorTextLightSolid;
   const badgeColor = token.colorError;
   const badgeColorHover = token.colorErrorHover;
 
