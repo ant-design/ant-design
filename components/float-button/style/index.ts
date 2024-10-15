@@ -86,7 +86,7 @@ export type FloatButtonToken = FullToken<'FloatButton'> & {
   floatButtonInsetInlineEnd: number;
 };
 
-const sharedBufferStyle: CSSObject = {
+const sharedBufferStyle: React.CSSProperties = {
   content: '""',
   position: 'absolute',
 };
