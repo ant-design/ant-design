@@ -283,7 +283,7 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
     textTextColor: token.colorText,
     textTextHoverColor: token.colorText,
     textTextActiveColor: token.colorText,
-    textHoverBg: token.colorBgTextHover,
+    textHoverBg: token.colorFillTertiary,
     defaultColor: token.colorText,
     defaultBg: token.colorBgContainer,
     defaultBorderColor: token.colorBorder,
