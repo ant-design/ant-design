@@ -11758,25 +11758,29 @@ exports[`ConfigProvider components Cascader configProvider 1`] = `
     class="config-select-selector"
   >
     <span
-      class="config-select-selection-search"
+      class="config-select-selection-wrap"
     >
-      <input
-        aria-autocomplete="list"
-        aria-controls="rc_select_TEST_OR_SSR_list"
-        aria-expanded="false"
-        aria-haspopup="listbox"
-        aria-owns="rc_select_TEST_OR_SSR_list"
-        autocomplete="off"
-        class="config-select-selection-search-input"
-        id="rc_select_TEST_OR_SSR"
-        role="combobox"
-        type="search"
-        value=""
+      <span
+        class="config-select-selection-search"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="rc_select_TEST_OR_SSR_list"
+          autocomplete="off"
+          class="config-select-selection-search-input"
+          id="rc_select_TEST_OR_SSR"
+          role="combobox"
+          type="search"
+          value=""
+        />
+      </span>
+      <span
+        class="config-select-selection-placeholder"
       />
     </span>
-    <span
-      class="config-select-selection-placeholder"
-    />
   </div>
   <span
     aria-hidden="true"
@@ -11815,26 +11819,30 @@ exports[`ConfigProvider components Cascader configProvider componentDisabled 1`]
     class="config-select-selector"
   >
     <span
-      class="config-select-selection-search"
+      class="config-select-selection-wrap"
     >
-      <input
-        aria-autocomplete="list"
-        aria-controls="rc_select_TEST_OR_SSR_list"
-        aria-expanded="false"
-        aria-haspopup="listbox"
-        aria-owns="rc_select_TEST_OR_SSR_list"
-        autocomplete="off"
-        class="config-select-selection-search-input"
-        disabled=""
-        id="rc_select_TEST_OR_SSR"
-        role="combobox"
-        type="search"
-        value=""
+      <span
+        class="config-select-selection-search"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="rc_select_TEST_OR_SSR_list"
+          autocomplete="off"
+          class="config-select-selection-search-input"
+          disabled=""
+          id="rc_select_TEST_OR_SSR"
+          role="combobox"
+          type="search"
+          value=""
+        />
+      </span>
+      <span
+        class="config-select-selection-placeholder"
       />
     </span>
-    <span
-      class="config-select-selection-placeholder"
-    />
   </div>
   <span
     aria-hidden="true"
@@ -11873,25 +11881,29 @@ exports[`ConfigProvider components Cascader configProvider componentSize large 1
     class="config-select-selector"
   >
     <span
-      class="config-select-selection-search"
+      class="config-select-selection-wrap"
     >
-      <input
-        aria-autocomplete="list"
-        aria-controls="rc_select_TEST_OR_SSR_list"
-        aria-expanded="false"
-        aria-haspopup="listbox"
-        aria-owns="rc_select_TEST_OR_SSR_list"
-        autocomplete="off"
-        class="config-select-selection-search-input"
-        id="rc_select_TEST_OR_SSR"
-        role="combobox"
-        type="search"
-        value=""
+      <span
+        class="config-select-selection-search"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="rc_select_TEST_OR_SSR_list"
+          autocomplete="off"
+          class="config-select-selection-search-input"
+          id="rc_select_TEST_OR_SSR"
+          role="combobox"
+          type="search"
+          value=""
+        />
+      </span>
+      <span
+        class="config-select-selection-placeholder"
       />
     </span>
-    <span
-      class="config-select-selection-placeholder"
-    />
   </div>
   <span
     aria-hidden="true"
@@ -11930,25 +11942,29 @@ exports[`ConfigProvider components Cascader configProvider componentSize middle 
     class="config-select-selector"
   >
     <span
-      class="config-select-selection-search"
+      class="config-select-selection-wrap"
     >
-      <input
-        aria-autocomplete="list"
-        aria-controls="rc_select_TEST_OR_SSR_list"
-        aria-expanded="false"
-        aria-haspopup="listbox"
-        aria-owns="rc_select_TEST_OR_SSR_list"
-        autocomplete="off"
-        class="config-select-selection-search-input"
-        id="rc_select_TEST_OR_SSR"
-        role="combobox"
-        type="search"
-        value=""
+      <span
+        class="config-select-selection-search"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="rc_select_TEST_OR_SSR_list"
+          autocomplete="off"
+          class="config-select-selection-search-input"
+          id="rc_select_TEST_OR_SSR"
+          role="combobox"
+          type="search"
+          value=""
+        />
+      </span>
+      <span
+        class="config-select-selection-placeholder"
       />
     </span>
-    <span
-      class="config-select-selection-placeholder"
-    />
   </div>
   <span
     aria-hidden="true"
@@ -11987,25 +12003,29 @@ exports[`ConfigProvider components Cascader configProvider componentSize small 1
     class="config-select-selector"
   >
     <span
-      class="config-select-selection-search"
+      class="config-select-selection-wrap"
     >
-      <input
-        aria-autocomplete="list"
-        aria-controls="rc_select_TEST_OR_SSR_list"
-        aria-expanded="false"
-        aria-haspopup="listbox"
-        aria-owns="rc_select_TEST_OR_SSR_list"
-        autocomplete="off"
-        class="config-select-selection-search-input"
-        id="rc_select_TEST_OR_SSR"
-        role="combobox"
-        type="search"
-        value=""
+      <span
+        class="config-select-selection-search"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="rc_select_TEST_OR_SSR_list"
+          autocomplete="off"
+          class="config-select-selection-search-input"
+          id="rc_select_TEST_OR_SSR"
+          role="combobox"
+          type="search"
+          value=""
+        />
+      </span>
+      <span
+        class="config-select-selection-placeholder"
       />
     </span>
-    <span
-      class="config-select-selection-placeholder"
-    />
   </div>
   <span
     aria-hidden="true"
@@ -12044,25 +12064,29 @@ exports[`ConfigProvider components Cascader normal 1`] = `
     class="ant-select-selector"
   >
     <span
-      class="ant-select-selection-search"
+      class="ant-select-selection-wrap"
     >
-      <input
-        aria-autocomplete="list"
-        aria-controls="rc_select_TEST_OR_SSR_list"
-        aria-expanded="false"
-        aria-haspopup="listbox"
-        aria-owns="rc_select_TEST_OR_SSR_list"
-        autocomplete="off"
-        class="ant-select-selection-search-input"
-        id="rc_select_TEST_OR_SSR"
-        role="combobox"
-        type="search"
-        value=""
+      <span
+        class="ant-select-selection-search"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="rc_select_TEST_OR_SSR_list"
+          autocomplete="off"
+          class="ant-select-selection-search-input"
+          id="rc_select_TEST_OR_SSR"
+          role="combobox"
+          type="search"
+          value=""
+        />
+      </span>
+      <span
+        class="ant-select-selection-placeholder"
       />
     </span>
-    <span
-      class="ant-select-selection-placeholder"
-    />
   </div>
   <span
     aria-hidden="true"
@@ -12101,25 +12125,29 @@ exports[`ConfigProvider components Cascader prefixCls 1`] = `
     class="prefix-Cascader-selector"
   >
     <span
-      class="prefix-Cascader-selection-search"
+      class="prefix-Cascader-selection-wrap"
     >
-      <input
-        aria-autocomplete="list"
-        aria-controls="rc_select_TEST_OR_SSR_list"
-        aria-expanded="false"
-        aria-haspopup="listbox"
-        aria-owns="rc_select_TEST_OR_SSR_list"
-        autocomplete="off"
-        class="prefix-Cascader-selection-search-input"
-        id="rc_select_TEST_OR_SSR"
-        role="combobox"
-        type="search"
-        value=""
+      <span
+        class="prefix-Cascader-selection-search"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="rc_select_TEST_OR_SSR_list"
+          autocomplete="off"
+          class="prefix-Cascader-selection-search-input"
+          id="rc_select_TEST_OR_SSR"
+          role="combobox"
+          type="search"
+          value=""
+        />
+      </span>
+      <span
+        class="prefix-Cascader-selection-placeholder"
       />
     </span>
-    <span
-      class="prefix-Cascader-selection-placeholder"
-    />
   </div>
   <span
     aria-hidden="true"
@@ -42530,28 +42558,32 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
     class="config-select-selector"
   >
     <span
-      class="config-select-selection-search"
+      class="config-select-selection-wrap"
     >
-      <input
-        aria-autocomplete="list"
-        aria-controls="rc_select_TEST_OR_SSR_list"
-        aria-expanded="true"
-        aria-haspopup="listbox"
-        aria-owns="rc_select_TEST_OR_SSR_list"
-        autocomplete="off"
-        class="config-select-selection-search-input"
-        id="rc_select_TEST_OR_SSR"
-        readonly=""
-        role="combobox"
-        style="opacity: 0;"
-        type="search"
-        unselectable="on"
-        value=""
+      <span
+        class="config-select-selection-search"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-expanded="true"
+          aria-haspopup="listbox"
+          aria-owns="rc_select_TEST_OR_SSR_list"
+          autocomplete="off"
+          class="config-select-selection-search-input"
+          id="rc_select_TEST_OR_SSR"
+          readonly=""
+          role="combobox"
+          style="opacity: 0;"
+          type="search"
+          unselectable="on"
+          value=""
+        />
+      </span>
+      <span
+        class="config-select-selection-placeholder"
       />
     </span>
-    <span
-      class="config-select-selection-placeholder"
-    />
   </div>
   <div
     class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-tree-select-dropdown config-select-dropdown-placement-bottomLeft"
@@ -42665,29 +42697,33 @@ exports[`ConfigProvider components TreeSelect configProvider componentDisabled 1
     class="config-select-selector"
   >
     <span
-      class="config-select-selection-search"
+      class="config-select-selection-wrap"
     >
-      <input
-        aria-autocomplete="list"
-        aria-controls="rc_select_TEST_OR_SSR_list"
-        aria-expanded="false"
-        aria-haspopup="listbox"
-        aria-owns="rc_select_TEST_OR_SSR_list"
-        autocomplete="off"
-        class="config-select-selection-search-input"
-        disabled=""
-        id="rc_select_TEST_OR_SSR"
-        readonly=""
-        role="combobox"
-        style="opacity: 0;"
-        type="search"
-        unselectable="on"
-        value=""
+      <span
+        class="config-select-selection-search"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="rc_select_TEST_OR_SSR_list"
+          autocomplete="off"
+          class="config-select-selection-search-input"
+          disabled=""
+          id="rc_select_TEST_OR_SSR"
+          readonly=""
+          role="combobox"
+          style="opacity: 0;"
+          type="search"
+          unselectable="on"
+          value=""
+        />
+      </span>
+      <span
+        class="config-select-selection-placeholder"
       />
     </span>
-    <span
-      class="config-select-selection-placeholder"
-    />
   </div>
   <span
     aria-hidden="true"
@@ -42726,28 +42762,32 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
     class="config-select-selector"
   >
     <span
-      class="config-select-selection-search"
+      class="config-select-selection-wrap"
     >
-      <input
-        aria-autocomplete="list"
-        aria-controls="rc_select_TEST_OR_SSR_list"
-        aria-expanded="true"
-        aria-haspopup="listbox"
-        aria-owns="rc_select_TEST_OR_SSR_list"
-        autocomplete="off"
-        class="config-select-selection-search-input"
-        id="rc_select_TEST_OR_SSR"
-        readonly=""
-        role="combobox"
-        style="opacity: 0;"
-        type="search"
-        unselectable="on"
-        value=""
+      <span
+        class="config-select-selection-search"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-expanded="true"
+          aria-haspopup="listbox"
+          aria-owns="rc_select_TEST_OR_SSR_list"
+          autocomplete="off"
+          class="config-select-selection-search-input"
+          id="rc_select_TEST_OR_SSR"
+          readonly=""
+          role="combobox"
+          style="opacity: 0;"
+          type="search"
+          unselectable="on"
+          value=""
+        />
+      </span>
+      <span
+        class="config-select-selection-placeholder"
       />
     </span>
-    <span
-      class="config-select-selection-placeholder"
-    />
   </div>
   <div
     class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-tree-select-dropdown config-select-dropdown-placement-bottomLeft"
@@ -42861,28 +42901,32 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
     class="config-select-selector"
   >
     <span
-      class="config-select-selection-search"
+      class="config-select-selection-wrap"
     >
-      <input
-        aria-autocomplete="list"
-        aria-controls="rc_select_TEST_OR_SSR_list"
-        aria-expanded="true"
-        aria-haspopup="listbox"
-        aria-owns="rc_select_TEST_OR_SSR_list"
-        autocomplete="off"
-        class="config-select-selection-search-input"
-        id="rc_select_TEST_OR_SSR"
-        readonly=""
-        role="combobox"
-        style="opacity: 0;"
-        type="search"
-        unselectable="on"
-        value=""
+      <span
+        class="config-select-selection-search"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-expanded="true"
+          aria-haspopup="listbox"
+          aria-owns="rc_select_TEST_OR_SSR_list"
+          autocomplete="off"
+          class="config-select-selection-search-input"
+          id="rc_select_TEST_OR_SSR"
+          readonly=""
+          role="combobox"
+          style="opacity: 0;"
+          type="search"
+          unselectable="on"
+          value=""
+        />
+      </span>
+      <span
+        class="config-select-selection-placeholder"
       />
     </span>
-    <span
-      class="config-select-selection-placeholder"
-    />
   </div>
   <div
     class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-tree-select-dropdown config-select-dropdown-placement-bottomLeft"
@@ -42996,28 +43040,32 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize small
     class="config-select-selector"
   >
     <span
-      class="config-select-selection-search"
+      class="config-select-selection-wrap"
     >
-      <input
-        aria-autocomplete="list"
-        aria-controls="rc_select_TEST_OR_SSR_list"
-        aria-expanded="true"
-        aria-haspopup="listbox"
-        aria-owns="rc_select_TEST_OR_SSR_list"
-        autocomplete="off"
-        class="config-select-selection-search-input"
-        id="rc_select_TEST_OR_SSR"
-        readonly=""
-        role="combobox"
-        style="opacity: 0;"
-        type="search"
-        unselectable="on"
-        value=""
+      <span
+        class="config-select-selection-search"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-expanded="true"
+          aria-haspopup="listbox"
+          aria-owns="rc_select_TEST_OR_SSR_list"
+          autocomplete="off"
+          class="config-select-selection-search-input"
+          id="rc_select_TEST_OR_SSR"
+          readonly=""
+          role="combobox"
+          style="opacity: 0;"
+          type="search"
+          unselectable="on"
+          value=""
+        />
+      </span>
+      <span
+        class="config-select-selection-placeholder"
       />
     </span>
-    <span
-      class="config-select-selection-placeholder"
-    />
   </div>
   <div
     class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-tree-select-dropdown config-select-dropdown-placement-bottomLeft"
@@ -43131,28 +43179,32 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
     class="ant-select-selector"
   >
     <span
-      class="ant-select-selection-search"
+      class="ant-select-selection-wrap"
     >
-      <input
-        aria-autocomplete="list"
-        aria-controls="rc_select_TEST_OR_SSR_list"
-        aria-expanded="true"
-        aria-haspopup="listbox"
-        aria-owns="rc_select_TEST_OR_SSR_list"
-        autocomplete="off"
-        class="ant-select-selection-search-input"
-        id="rc_select_TEST_OR_SSR"
-        readonly=""
-        role="combobox"
-        style="opacity: 0;"
-        type="search"
-        unselectable="on"
-        value=""
+      <span
+        class="ant-select-selection-search"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-expanded="true"
+          aria-haspopup="listbox"
+          aria-owns="rc_select_TEST_OR_SSR_list"
+          autocomplete="off"
+          class="ant-select-selection-search-input"
+          id="rc_select_TEST_OR_SSR"
+          readonly=""
+          role="combobox"
+          style="opacity: 0;"
+          type="search"
+          unselectable="on"
+          value=""
+        />
+      </span>
+      <span
+        class="ant-select-selection-placeholder"
       />
     </span>
-    <span
-      class="ant-select-selection-placeholder"
-    />
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
@@ -43266,28 +43318,32 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
     class="prefix-TreeSelect-selector"
   >
     <span
-      class="prefix-TreeSelect-selection-search"
+      class="prefix-TreeSelect-selection-wrap"
     >
-      <input
-        aria-autocomplete="list"
-        aria-controls="rc_select_TEST_OR_SSR_list"
-        aria-expanded="true"
-        aria-haspopup="listbox"
-        aria-owns="rc_select_TEST_OR_SSR_list"
-        autocomplete="off"
-        class="prefix-TreeSelect-selection-search-input"
-        id="rc_select_TEST_OR_SSR"
-        readonly=""
-        role="combobox"
-        style="opacity: 0;"
-        type="search"
-        unselectable="on"
-        value=""
+      <span
+        class="prefix-TreeSelect-selection-search"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-expanded="true"
+          aria-haspopup="listbox"
+          aria-owns="rc_select_TEST_OR_SSR_list"
+          autocomplete="off"
+          class="prefix-TreeSelect-selection-search-input"
+          id="rc_select_TEST_OR_SSR"
+          readonly=""
+          role="combobox"
+          style="opacity: 0;"
+          type="search"
+          unselectable="on"
+          value=""
+        />
+      </span>
+      <span
+        class="prefix-TreeSelect-selection-placeholder"
       />
     </span>
-    <span
-      class="prefix-TreeSelect-selection-placeholder"
-    />
   </div>
   <div
     class="prefix-TreeSelect-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up prefix-TreeSelect-dropdown prefix-TreeSelect-dropdown-placement-bottomLeft"
