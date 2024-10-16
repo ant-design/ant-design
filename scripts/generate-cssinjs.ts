@@ -25,7 +25,7 @@ export const generateCssinjs = ({ key, beforeRender, render }: GenCssinjsOptions
   Promise.all(
     styleFiles.map(async (file) => {
       const absPath = url.pathToFileURL(file).href;
-      const pathArr = file.split('/');
+      const pathArr = file.split(path.sep);
       const styleIndex = pathArr.lastIndexOf('style');
       const componentName = pathArr[styleIndex - 1];
       let useStyle: StyleFn = () => {};
