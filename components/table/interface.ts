@@ -11,6 +11,7 @@ import { ExpandableConfig, GetRowKey } from 'rc-table/lib/interface';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import type { AnyObject } from '../_util/type';
 import type { CheckboxProps } from '../checkbox';
+import type { DropdownProps } from '../dropdown';
 import type { PaginationProps } from '../pagination';
 import type { TooltipProps } from '../tooltip';
 import type { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
@@ -114,6 +115,18 @@ export interface FilterDropdownProps {
   visible: boolean;
 }
 
+// 非必要请勿导出
+type CoverableDropdownProps = Omit<
+  DropdownProps,
+  // === deprecated ===
+  | 'overlay'
+  | 'visible'
+  | 'onVisibleChange'
+  // === May lead to unexpected situations (caution required) ===
+  | 'open'
+  | 'onOpenChange'
+>;
+
 export interface ColumnType<RecordType = AnyObject>
   extends Omit<RcColumnType<RecordType>, 'title'> {
   title?: ColumnTitle<RecordType>;
@@ -135,7 +148,13 @@ export interface ColumnType<RecordType = AnyObject>
   // Filter
   filtered?: boolean;
   filters?: ColumnFilterItem[];
-  filterDropdown?: React.ReactNode | ((props: FilterDropdownProps) => React.ReactNode);
+  filterDropdown?:
+    | React.ReactNode
+    | ((
+        props: FilterDropdownProps,
+        /** @since 5.22.0 */
+        injectDropdownProps: (props: CoverableDropdownProps) => void,
+      ) => React.ReactNode);
   filterOnClose?: boolean;
   filterMultiple?: boolean;
   filteredValue?: FilterValue | null;
