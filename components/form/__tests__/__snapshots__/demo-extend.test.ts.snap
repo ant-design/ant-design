@@ -7798,6 +7798,7 @@ exports[`renders components/form/demo/getValueProps-normalize.tsx extend context
                 class="ant-picker-input"
               >
                 <input
+                  aria-describedby="getValueProps_date_extra"
                   aria-invalid="false"
                   aria-required="true"
                   autocomplete="off"
@@ -8432,6 +8433,12 @@ exports[`renders components/form/demo/getValueProps-normalize.tsx extend context
               </div>
             </div>
           </div>
+        </div>
+        <div
+          class="ant-form-item-extra"
+          id="getValueProps_date_extra"
+        >
+          date: 1704038400000
         </div>
       </div>
     </div>
