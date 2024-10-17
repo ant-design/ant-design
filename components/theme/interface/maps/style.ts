@@ -40,4 +40,14 @@ export interface StyleMapToken {
    * @descEN Outer border radius
    */
   borderRadiusOuter: number;
+
+  // hover
+  /**
+   * @nameZH 布局（悬浮）
+   * @nameEN display (hover)
+   * @desc 布局（悬浮），用于组件鼠标悬浮后样式变换
+   * @descEN display (hover)， Used for style transformation after hovering the mouse over components
+   * @default 'block''
+   */
+  hoverDisplay: string;
 }
