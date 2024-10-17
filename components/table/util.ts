@@ -45,19 +45,3 @@ export const safeColumnTitle = <RecordType extends AnyObject = AnyObject>(
   }
   return res;
 };
-
-export function mergeProps<A, B = A>(a: A, b: B): B & A;
-export function mergeProps<A, B = A, C = B>(a: A, b: B, c: C): C & B & A;
-export function mergeProps(...items: any[]) {
-  const ret: any = {};
-  items.forEach((item) => {
-    if (item) {
-      Object.keys(item).forEach((key) => {
-        if (item[key] !== undefined) {
-          ret[key] = item[key];
-        }
-      });
-    }
-  });
-  return ret;
-}
