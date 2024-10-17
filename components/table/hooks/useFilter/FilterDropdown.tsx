@@ -190,11 +190,17 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
     const warning = devUseWarning('Table');
 
     [
-      ['filterDropdownVisible', 'filterDropdownOpen', filterDropdownVisible],
+      ['filterDropdownVisible', 'filterDropdownProps.open', filterDropdownVisible],
       [
         'onFilterDropdownVisibleChange',
-        'onFilterDropdownOpenChange',
+        'filterDropdownProps.onOpenChange',
         onFilterDropdownVisibleChange,
+      ],
+      ['filterDropdownOpen', 'filterDropdownProps.open', filterDropdownOpen],
+      [
+        'onFilterDropdownOpenChange',
+        'filterDropdownProps.onOpenChange',
+        onFilterDropdownOpenChange,
       ],
     ].forEach(([deprecatedName, newName, prop]) => {
       warning.deprecated(
