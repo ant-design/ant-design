@@ -47,6 +47,7 @@ const App: React.FC = () => {
   return (
     <TreeSelect
       showSearch
+      prefix="Prefix"
       suffixIcon={icon}
       style={{ width: '100%' }}
       value={value}
