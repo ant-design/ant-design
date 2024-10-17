@@ -172,4 +172,23 @@ describe('Input.OTP', () => {
     const { container } = render(<OTP type="number" />);
     expect(container.querySelector('input')).toHaveAttribute('type', 'number');
   });
+
+  it('should call onInput with a string value when input changes', () => {
+    const handleInput = jest.fn();
+    const { getAllByRole } = render(<OTP length={4} onInput={handleInput} />);
+
+    const inputs = getAllByRole('textbox');
+
+    fireEvent.change(inputs[0], { target: { value: '1' } });
+    expect(handleInput).toHaveBeenCalledWith('1');
+
+    fireEvent.change(inputs[1], { target: { value: '2' } });
+    expect(handleInput).toHaveBeenCalledWith('12');
+
+    fireEvent.change(inputs[2], { target: { value: '3' } });
+    expect(handleInput).toHaveBeenCalledWith('123');
+
+    fireEvent.change(inputs[3], { target: { value: '4' } });
+    expect(handleInput).toHaveBeenCalledWith('1234');
+  });
 });
