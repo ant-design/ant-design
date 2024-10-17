@@ -141,6 +141,7 @@ Added in `5.16.0`.
 | variant | Variants of Input | `outlined` \| `borderless` \| `filled` | `outlined` |  |
 | value | The input content value | string | - |  |
 | onChange | Trigger when all the fields are filled | function(value: string) | - |  |
+| onInput | Trigger when the input value changes | function(value: string) | - |  |
 
 #### VisibilityToggle
 
