@@ -148,13 +148,7 @@ export interface ColumnType<RecordType = AnyObject>
   // Filter
   filtered?: boolean;
   filters?: ColumnFilterItem[];
-  filterDropdown?:
-    | React.ReactNode
-    | ((
-        props: FilterDropdownProps,
-        /** @since 5.22.0 */
-        injectDropdownProps: (props: CoverableDropdownProps) => void,
-      ) => React.ReactNode);
+  filterDropdown?: React.ReactNode | ((props: FilterDropdownProps) => React.ReactNode);
   filterOnClose?: boolean;
   filterMultiple?: boolean;
   filteredValue?: FilterValue | null;
@@ -163,17 +157,21 @@ export interface ColumnType<RecordType = AnyObject>
   filterMode?: 'menu' | 'tree';
   filterSearch?: FilterSearchType<ColumnFilterItem>;
   onFilter?: (value: React.Key | boolean, record: RecordType) => boolean;
-  filterDropdownOpen?: boolean;
-  onFilterDropdownOpenChange?: (visible: boolean) => void;
+  /** @since 5.22.0 */
+  filterDropdownProps?: CoverableDropdownProps;
   filterResetToDefaultFilteredValue?: boolean;
 
   // Responsive
   responsive?: Breakpoint[];
 
   // Deprecated
-  /** @deprecated Please use `filterDropdownOpen` instead */
+  /** @deprecated Please use `filterDropdownProps.open` instead. */
+  filterDropdownOpen?: boolean;
+  /** @deprecated Please use `filterDropdownProps.onOpenChange` instead */
+  onFilterDropdownOpenChange?: (visible: boolean) => void;
+  /** @deprecated Please use `filterDropdownProps.open` instead */
   filterDropdownVisible?: boolean;
-  /** @deprecated Please use `onFilterDropdownOpenChange` instead */
+  /** @deprecated Please use `filterDropdownProps.onOpenChange` instead */
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
 }
 
