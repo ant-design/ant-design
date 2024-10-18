@@ -165,14 +165,14 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
   } = props;
 
   const {
-    filterDropdownOpen,
-    onFilterDropdownOpenChange,
     filterResetToDefaultFilteredValue,
     defaultFilteredValue,
-
+    filterDropdownProps = {},
     // Deprecated
+    filterDropdownOpen,
     filterDropdownVisible,
     onFilterDropdownVisibleChange,
+    onFilterDropdownOpenChange,
   } = column;
   const [visible, setVisible] = React.useState(false);
 
@@ -182,6 +182,8 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
   );
   const triggerVisible = (newVisible: boolean) => {
     setVisible(newVisible);
+    filterDropdownProps.onOpenChange?.(newVisible);
+    // deprecated
     onFilterDropdownOpenChange?.(newVisible);
     onFilterDropdownVisibleChange?.(newVisible);
   };
@@ -189,20 +191,15 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Table');
 
-    [
-      ['filterDropdownVisible', 'filterDropdownProps.open', filterDropdownVisible],
-      [
-        'onFilterDropdownVisibleChange',
-        'filterDropdownProps.onOpenChange',
-        onFilterDropdownVisibleChange,
-      ],
-      ['filterDropdownOpen', 'filterDropdownProps.open', filterDropdownOpen],
-      [
-        'onFilterDropdownOpenChange',
-        'filterDropdownProps.onOpenChange',
-        onFilterDropdownOpenChange,
-      ],
-    ].forEach(([deprecatedName, newName, prop]) => {
+    const deprecatedList: [keyof typeof column, string][] = [
+      ['filterDropdownOpen', 'filterDropdownProps.open'],
+      ['filterDropdownVisible', 'filterDropdownProps.open'],
+      ['onFilterDropdownOpenChange', 'filterDropdownProps.onOpenChange'],
+      ['onFilterDropdownVisibleChange', 'filterDropdownProps.onOpenChange'],
+    ];
+
+    deprecatedList.forEach(([deprecatedName, newName]) => {
+      const prop = column[deprecatedName];
       warning.deprecated(
         prop === undefined || prop === null,
         deprecatedName as string,
@@ -211,7 +208,11 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
     });
   }
 
-  const mergedVisible = filterDropdownOpen ?? filterDropdownVisible ?? visible;
+  const mergedVisible =
+    filterDropdownProps.open ??
+    filterDropdownOpen ?? // deprecated
+    filterDropdownVisible ?? // deprecated
+    visible; // inner state
 
   // ===================== Select Keys =====================
   const propFilteredKeys = filterState?.filteredKeys;
