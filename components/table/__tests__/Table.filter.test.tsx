@@ -3099,4 +3099,53 @@ describe('Table.filter', () => {
       expect(container.querySelector('.ant-table-filter-dropdown')!.childNodes).toHaveLength(1);
     });
   });
+
+  // https://github.com/ant-design/ant-design/issues/51151#issuecomment-2419116749
+  describe('should support filterDropdownProps', () => {
+    it('dropdownRender', () => {
+      const dropdownRender = jest.fn((node) => (
+        <>
+          {node}
+          <span>Foo</span>
+        </>
+      ));
+
+      const { container, getByText } = render(
+        createTable({
+          columns: [
+            {
+              ...column,
+              filterDropdownProps: {
+                dropdownRender,
+              },
+            },
+          ],
+        }),
+      );
+
+      fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
+      expect(dropdownRender).toHaveBeenCalled();
+      expect(dropdownRender.mock.calls[0][0]).toMatchSnapshot();
+      expect(getByText('Foo')).toBeTruthy();
+    });
+
+    // https://github.com/ant-design/ant-design/issues/51151
+    it('placement', () => {
+      const { container } = render(
+        createTable({
+          columns: [
+            {
+              ...column,
+              filterDropdownProps: {
+                placement: 'topLeft',
+              },
+            },
+          ],
+        }),
+      );
+
+      fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
+      expect(container.querySelector('.ant-dropdown-placement-topLeft')).toBeTruthy();
+    });
+  });
 });
