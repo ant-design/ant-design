@@ -24,7 +24,7 @@ const localeValues: Locale = {
     selectAll: 'Pilih Semua',
     selectInvert: 'Terbalikkan',
     filterEmptyText: 'Tiada Saringan',
-    filterCheckall: 'Semak Semua',
+    filterCheckAll: 'Semak Semua',
     filterSearchPlaceholder: 'Cari',
     selectNone: 'Kosong Semua',
     selectionAll: 'Semua Data',
