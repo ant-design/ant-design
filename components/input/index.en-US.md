@@ -140,7 +140,7 @@ Added in `5.16.0`.
 | size | The size of the input box | `small` \| `middle` \| `large` | `middle` |  |
 | variant | Variants of Input | `outlined` \| `borderless` \| `filled` | `outlined` |  |
 | value | The input content value | string | - |  |
-| onChange | Trigger when all the fields are filled | function(value: string) | - | `5.22.0` |
+| onChange | Trigger when all the fields are filled | function(value: string) | - |  |
 | onInput | Trigger when the input value changes | function(value: string) | - | `5.22.0` |
 
 #### VisibilityToggle
