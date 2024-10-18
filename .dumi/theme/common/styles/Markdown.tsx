@@ -379,10 +379,12 @@ const GlobalStyle: React.FC = () => {
             */
             /* tr:has(td:first-child:has(del)) not work: https://stackoverflow.com/a/75213445/11302760 */
             tr:has(td:first-child > del) {
+              color: ${token.colorWarning} !important;
               background-color: ${token.colorWarningBg} !important;
 
-              &, td:first-child > del {
-                color: ${token.colorWarning} !important;
+              td:first-child > del {
+                color: ${token.colorWarning};
+                border-bottom: 1px dashed ${token.colorWarningActive};
               }
             }
           }
