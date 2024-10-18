@@ -23,6 +23,7 @@ export default defineConfig({
   hash: true,
   mfsu: false,
   mako: ['Darwin', 'Linux'].includes(os.type()) ? {} : false,
+  publicPath: 'runtime',
   crossorigin: {},
   runtimePublicPath: {},
   outputPath: '_site',
