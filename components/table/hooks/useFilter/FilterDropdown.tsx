@@ -189,6 +189,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
     onFilterDropdownVisibleChange?.(newVisible);
   };
 
+  // =================Warning===================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Table');
 
@@ -200,12 +201,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
     ];
 
     deprecatedList.forEach(([deprecatedName, newName]) => {
-      const prop = column[deprecatedName];
-      warning.deprecated(
-        prop === undefined || prop === null,
-        deprecatedName as string,
-        newName as string,
-      );
+      warning.deprecated(!(deprecatedName in column), deprecatedName, newName);
     });
   }
 

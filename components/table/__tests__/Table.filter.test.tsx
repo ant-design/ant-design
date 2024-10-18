@@ -360,11 +360,15 @@ describe('Table.filter', () => {
 
     const onFilterDropdownOpenChange = jest.fn();
     const onFilterDropdownVisibleChange = jest.fn();
+    const onOpenChange = jest.fn();
     const { container } = render(
       createTable({
         columns: [
           {
             ...column,
+            filterDropdownProps: {
+              onOpenChange,
+            },
             onFilterDropdownOpenChange,
             onFilterDropdownVisibleChange,
           },
@@ -372,11 +376,12 @@ describe('Table.filter', () => {
       }),
     );
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
+    expect(onOpenChange).toHaveBeenCalledWith(true);
     expect(onFilterDropdownOpenChange).toHaveBeenCalledWith(true);
     expect(onFilterDropdownVisibleChange).toHaveBeenCalledWith(true);
 
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Table] `onFilterDropdownVisibleChange` is deprecated. Please use `onFilterDropdownOpenChange` instead.',
+      'Warning: [antd: Table] `onFilterDropdownVisibleChange` is deprecated. Please use `filterDropdownProps.onOpenChange` instead.',
     );
 
     errSpy.mockRestore();
