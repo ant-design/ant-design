@@ -33,6 +33,7 @@ import type {
 } from '../../interface';
 import FilterSearch from './FilterSearch';
 import FilterDropdownMenuWrapper from './FilterWrapper';
+import { mergeProps } from '../../util';
 
 type FilterTreeDataNode = FieldDataNode<{ title: React.ReactNode; key: string }>;
 
@@ -521,46 +522,63 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
     dropdownContent = <OverrideProvider selectable={undefined}>{dropdownContent}</OverrideProvider>;
   }
 
-  const menu = () => (
+  dropdownContent = (
     <FilterDropdownMenuWrapper className={`${prefixCls}-dropdown`}>
       {dropdownContent}
     </FilterDropdownMenuWrapper>
   );
 
-  let filterIcon: React.ReactNode;
-  if (typeof column.filterIcon === 'function') {
-    filterIcon = column.filterIcon(filtered);
-  } else if (column.filterIcon) {
-    filterIcon = column.filterIcon;
-  } else {
-    filterIcon = <FilterFilled />;
-  }
+  const getDropdownTrigger = () => {
+    let filterIcon: React.ReactNode;
+    if (typeof column.filterIcon === 'function') {
+      filterIcon = column.filterIcon(filtered);
+    } else if (column.filterIcon) {
+      filterIcon = column.filterIcon;
+    } else {
+      filterIcon = <FilterFilled />;
+    }
+
+    return (
+      <span
+        role="button"
+        tabIndex={-1}
+        className={classNames(`${prefixCls}-trigger`, {
+          active: filtered,
+        })}
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
+        {filterIcon}
+      </span>
+    );
+  };
+
+  const mergedDropdownProps = mergeProps<DropdownProps>(
+    {
+      trigger: ['click'],
+      placement: direction === 'rtl' ? 'bottomLeft' : 'bottomRight',
+      children: getDropdownTrigger(),
+      getPopupContainer,
+    },
+    filterDropdownProps,
+    {
+      rootClassName: classNames(rootClassName, filterDropdownProps.rootClassName),
+      open: mergedVisible,
+      onOpenChange: onVisibleChange,
+      dropdownRender: () => {
+        if (typeof filterDropdownProps?.dropdownRender === 'function') {
+          return filterDropdownProps.dropdownRender(dropdownContent);
+        }
+        return dropdownContent;
+      },
+    },
+  );
 
   return (
     <div className={`${prefixCls}-column`}>
       <span className={`${tablePrefixCls}-column-title`}>{children}</span>
-      <Dropdown
-        dropdownRender={menu}
-        trigger={['click']}
-        open={mergedVisible}
-        onOpenChange={onVisibleChange}
-        getPopupContainer={getPopupContainer}
-        placement={direction === 'rtl' ? 'bottomLeft' : 'bottomRight'}
-        rootClassName={rootClassName}
-      >
-        <span
-          role="button"
-          tabIndex={-1}
-          className={classNames(`${prefixCls}-trigger`, {
-            active: filtered,
-          })}
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
-        >
-          {filterIcon}
-        </span>
-      </Dropdown>
+      <Dropdown {...mergedDropdownProps} />
     </div>
   );
 };
