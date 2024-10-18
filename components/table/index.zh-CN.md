@@ -194,7 +194,7 @@ const columns = [
 | defaultSortOrder | 默认排序顺序 | `ascend` \| `descend` | - |  |
 | ellipsis | 超过宽度将自动省略，暂不支持和排序筛选一起使用。<br />设置为 `true` 或 `{ showTitle?: boolean }` 时，表格布局将变成 `tableLayout="fixed"`。 | boolean \| { showTitle?: boolean } | false | showTitle: 4.3.0 |
 | filterDropdown | 可以自定义筛选菜单，此函数只负责渲染图层，需要自行编写各种交互 | ReactNode \| (props: [FilterDropdownProps](https://github.com/ant-design/ant-design/blob/ecc54dda839619e921c0ace530408871f0281c2a/components/table/interface.tsx#L79)) => ReactNode | - |  |
-| filterDropdownOpen | 用于控制自定义筛选菜单是否可见 | boolean | - |  |
+| filterDropdownOpen | 用于控制自定义筛选菜单是否可见 | boolean | - | 4.23.0 |
 | filtered | 标识数据是否经过过滤，筛选图标会高亮 | boolean | false |  |
 | filteredValue | 筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组 | string\[] | - |  |
 | filterIcon | 自定义 filter 图标。 | ReactNode \| (filtered: boolean) => ReactNode | false |  |
@@ -220,7 +220,7 @@ const columns = [
 | hidden | 隐藏列 | boolean | false | 5.13.0 |
 | onCell | 设置单元格属性 | function(record, rowIndex) | - |  |
 | onFilter | 本地模式下，确定筛选的运行函数 | function | - |  |
-| onFilterDropdownOpenChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |  |
+| onFilterDropdownOpenChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - | 4.23.0 |
 | onHeaderCell | 设置头部单元格属性 | function(column) | - |  |
 
 ### ColumnGroup

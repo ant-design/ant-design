@@ -169,11 +169,17 @@ export interface ColumnType<RecordType = AnyObject>
   responsive?: Breakpoint[];
 
   // Deprecated
-  /** @deprecated Please use `filterDropdownProps.open` instead. */
+  /**
+   * @deprecated Please use `filterDropdownProps.open` instead.
+   * @since 4.23.0
+   */
   filterDropdownOpen?: boolean;
-  /** @deprecated Please use `filterDropdownProps.onOpenChange` instead */
+  /**
+   * @deprecated Please use `filterDropdownProps.onOpenChange` instead.
+   * @since 4.23.0
+   */
   onFilterDropdownOpenChange?: (visible: boolean) => void;
-  /** @deprecated Please use `filterDropdownProps.open` instead */
+  /** @deprecated Please use `filterDropdownProps.open` instead. */
   filterDropdownVisible?: boolean;
   /** @deprecated Please use `filterDropdownProps.onOpenChange` instead */
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
