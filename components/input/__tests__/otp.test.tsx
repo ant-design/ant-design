@@ -174,21 +174,21 @@ describe('Input.OTP', () => {
   });
 
   it('should call onInput with a string value when input changes', () => {
-    const handleInput = jest.fn();
-    const { getAllByRole } = render(<OTP length={4} onInput={handleInput} />);
+    const onInput = jest.fn();
+    const { container } = render(<OTP length={4} onInput={onInput} />);
 
-    const inputs = getAllByRole('textbox');
+    const inputs = Array.from(container.querySelectorAll('input'));
 
-    fireEvent.change(inputs[0], { target: { value: '1' } });
-    expect(handleInput).toHaveBeenCalledWith('1');
+    fireEvent.input(inputs[0], { target: { value: '1' } });
+    expect(onInput).toHaveBeenCalledWith('1');
 
-    fireEvent.change(inputs[1], { target: { value: '2' } });
-    expect(handleInput).toHaveBeenCalledWith('12');
+    fireEvent.input(inputs[1], { target: { value: '2' } });
+    expect(onInput).toHaveBeenCalledWith('12');
 
-    fireEvent.change(inputs[2], { target: { value: '3' } });
-    expect(handleInput).toHaveBeenCalledWith('123');
+    fireEvent.input(inputs[2], { target: { value: '3' } });
+    expect(onInput).toHaveBeenCalledWith('123');
 
-    fireEvent.change(inputs[3], { target: { value: '4' } });
-    expect(handleInput).toHaveBeenCalledWith('1234');
+    fireEvent.input(inputs[3], { target: { value: '4' } });
+    expect(onInput).toHaveBeenCalledWith('1234');
   });
 });
