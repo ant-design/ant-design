@@ -9,17 +9,33 @@ export interface OTPInputProps extends Omit<InputProps, 'onChange'> {
   onChange: (index: number, value: string) => void;
   /** Tell parent to do active offset */
   onActiveChange: (nextIndex: number) => void;
-
+  allowedSymbols?: RegExp;
+  type?: 'alphanumeric' | 'numeric';
   mask?: boolean | string;
 }
-
+const types = ['alphanumeric', 'numeric']
 const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
-  const { value, onChange, onActiveChange, index, mask, ...restProps } = props;
+  const { value, onChange, onActiveChange, index, mask, type, allowedSymbols, ...restProps } = props;
 
   const internalValue = value && typeof mask === 'string' ? mask : value;
 
   const onInternalChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    onChange(index, e.target.value);
+    let result = true;
+    if (type && types.includes(type)) {
+      switch (type) {
+        case "alphanumeric":
+          result = /^[0-9a-zA-Z]+$/g.test(e.target.value);
+          break;
+        case "numeric":
+          result = /^\d+$/g.test(e.target.value)
+          break;
+        default:
+          result = true;
+      };
+    } else if (allowedSymbols instanceof RegExp) {
+      result = allowedSymbols.test(e.target.value);
+    }
+    onChange(index, result ? e.target.value : '');
   };
 
   // ========================== Ref ===========================
