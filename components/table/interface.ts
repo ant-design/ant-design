@@ -116,16 +116,17 @@ export interface FilterDropdownProps {
 }
 
 // 非必要请勿导出
-type CoverableDropdownProps = Omit<
-  DropdownProps,
-  // === deprecated ===
-  | 'overlay'
-  | 'visible'
-  | 'onVisibleChange'
-  // === May lead to unexpected situations (caution required) ===
-  | 'open'
-  | 'onOpenChange'
->;
+interface CoverableDropdownProps
+  extends Omit<
+    DropdownProps,
+    | 'onOpenChange'
+    // === deprecated ===
+    | 'overlay'
+    | 'visible'
+    | 'onVisibleChange'
+  > {
+  onOpenChange?: (open: boolean) => void;
+}
 
 export interface ColumnType<RecordType = AnyObject>
   extends Omit<RcColumnType<RecordType>, 'title'> {
@@ -157,7 +158,10 @@ export interface ColumnType<RecordType = AnyObject>
   filterMode?: 'menu' | 'tree';
   filterSearch?: FilterSearchType<ColumnFilterItem>;
   onFilter?: (value: React.Key | boolean, record: RecordType) => boolean;
-  /** @since 5.22.0 */
+  /**
+   * Can cover `<Dropdown>` props
+   * @since 5.22.0
+   */
   filterDropdownProps?: CoverableDropdownProps;
   filterResetToDefaultFilteredValue?: boolean;
 
