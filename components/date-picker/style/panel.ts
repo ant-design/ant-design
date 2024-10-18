@@ -124,7 +124,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
     // >>> Disabled
     '&-disabled': {
       color: colorTextDisabled,
-      cursor: 'default',
+      cursor: 'not-allowed',
 
       [pickerCellInnerCls]: {
         background: 'transparent',
