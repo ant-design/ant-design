@@ -48,8 +48,8 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
     },
 
     // >>> Hover
-    [`&:hover:not(${pickerCellCls}-in-view),
-    &:hover:not(${pickerCellCls}-selected):not(${pickerCellCls}-range-start):not(${pickerCellCls}-range-end)`]:
+    [`&:hover:not(${pickerCellCls}-in-view):not(${pickerCellCls}-disabled),
+    &:hover:not(${pickerCellCls}-selected):not(${pickerCellCls}-range-start):not(${pickerCellCls}-range-end):not(${pickerCellCls}-disabled)`]:
       {
         [pickerCellInnerCls]: {
           background: cellHoverBg,
@@ -124,7 +124,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
     // >>> Disabled
     '&-disabled': {
       color: colorTextDisabled,
-      pointerEvents: 'none',
+      cursor: 'not-allowed',
 
       [pickerCellInnerCls]: {
         background: 'transparent',
