@@ -237,7 +237,7 @@
     "eslint-plugin-compat": "^6.0.0",
     "eslint-plugin-jest": "^28.8.2",
     "eslint-plugin-jsx-a11y": "^6.10.0",
-    "eslint-plugin-react-hooks": "^5.1.0-beta-26f2496093-20240514",
+    "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.11",
     "fast-glob": "^3.3.2",
     "fetch-jsonp": "^1.3.0",
