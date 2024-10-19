@@ -73,7 +73,7 @@ demo:
 | onChange | 输入框内容变化时的回调 | function(e) | - |  |
 | onPressEnter | 按下回车的回调 | function(e) | - |  |
 | onClear | 按下清除按钮的回调 | () => void | - | 5.20.0 |
-| onInput | 输入值变化时触发的回调 | (value: string) => void | - |  |
+| onInput | 输入值变化时触发的回调 | (value: string) => void | - | 5.22.0 |
 
 > 如果 `Input` 在 `Form.Item` 内，并且 `Form.Item` 设置了 `id` 属性，则 `value` `defaultValue` 和 `id` 属性会被自动设置。
 
