@@ -1,13 +1,12 @@
 ---
 category: Components
-subtitle: 空状态
 group: 数据展示
 title: Empty
+subtitle: 空状态
+description: 空状态时的展示占位图。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ZdiZSLzEV0wAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*obM7S5lIxeMAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-空状态时的展示占位图。
 
 ## 何时使用
 
@@ -24,6 +23,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*obM7S5lIxeMAAA
 <code src="./demo/description.tsx">无描述</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 ```jsx
 <Empty>
@@ -64,6 +65,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*obM7S5lIxeMAAA
   }
 </style>
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Empty"></ComponentTokenTable>

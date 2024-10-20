@@ -1,9 +1,9 @@
-import { css, Global } from '@emotion/react';
 import React from 'react';
-import useSiteToken from '../../../hooks/useSiteToken';
+import { css, Global } from '@emotion/react';
+import { useTheme } from 'antd-style';
 
 const GlobalDemoStyles: React.FC = () => {
-  const { token } = useSiteToken();
+  const token = useTheme();
 
   const { antCls, iconCls } = token;
 
@@ -22,12 +22,22 @@ const GlobalDemoStyles: React.FC = () => {
         .code-box {
           position: relative;
           display: inline-block;
-          width: 100%;
-          margin: 0 0 16px;
+          width: calc(100% - ${token.lineWidth * 2}px);
+          margin: 0 0 ${token.margin}px;
           background-color: ${token.colorBgContainer};
           border: 1px solid ${token.colorSplit};
-          border-radius: ${token.borderRadius}px;
-          transition: all 0.2s;
+          border-radius: ${token.borderRadiusLG}px;
+          transition: all ${token.motionDurationMid};
+
+          &.code-box-simplify {
+            border-radius: 0;
+            margin-bottom: 0;
+
+            .code-box-demo {
+              padding: 0;
+              border-bottom: 0;
+            }
+          }
 
           .code-box-title {
             &,
@@ -39,7 +49,10 @@ const GlobalDemoStyles: React.FC = () => {
 
           .code-box-demo {
             background-color: ${token.colorBgContainer};
-            border-radius: ${token.borderRadius}px ${token.borderRadius}px 0 0;
+            border-radius: ${token.borderRadiusLG}px ${token.borderRadiusLG}px 0 0;
+            > .demo {
+              overflow: auto;
+            }
           }
 
           .markdown {
@@ -58,40 +71,15 @@ const GlobalDemoStyles: React.FC = () => {
             border: 1px solid ${token.colorPrimary};
           }
 
-          &-expand-trigger {
-            position: relative;
-            margin-left: 12px;
-            color: #3b4357;
-            font-size: 20px;
-            cursor: pointer;
-            opacity: 0.75;
-            transition: all 0.3s;
-
-            &:hover {
-              opacity: 1;
-            }
-
-            ${antCls}-row-rtl & {
-              margin-right: 8px;
-              margin-left: 0;
-            }
-          }
-
           &-title {
             position: absolute;
             top: -14px;
-            margin-left: 16px;
             padding: 1px 8px;
             color: #777;
             background: ${token.colorBgContainer};
             border-radius: ${token.borderRadius}px ${token.borderRadius}px 0 0;
             transition: background-color 0.4s;
-
-            ${antCls}-row-rtl & {
-              margin-right: 16px;
-              margin-left: 0;
-              border-radius: ${token.borderRadius}px 0 0 ${token.borderRadius}px;
-            }
+            margin-inline-start: ${token.margin}px;
 
             a,
             a:hover {
@@ -108,16 +96,16 @@ const GlobalDemoStyles: React.FC = () => {
           a.edit-button {
             position: absolute;
             top: 7px;
-            right: -16px;
-            padding-right: 6px;
-            font-size: 12px;
+            inset-inline-end: -16px;
+            font-size: ${token.fontSizeSM}px;
             text-decoration: none;
             background: inherit;
             transform: scale(0.9);
+            padding-inline-end: ${token.paddingXXS}px;
 
             ${iconCls} {
               color: ${token.colorTextSecondary};
-              transition: all 0.3s;
+              transition: all ${token.motionDurationSlow};
 
               &:hover {
                 color: ${token.colorText};
@@ -125,11 +113,8 @@ const GlobalDemoStyles: React.FC = () => {
             }
 
             ${antCls}-row${antCls}-row-rtl & {
-              right: auto;
-              left: -22px;
-              margin-right: 0;
-              padding-right: 8px;
-              padding-left: 6px;
+              inset-inline-end: auto;
+              inset-inline-start: -22px;
             }
           }
 
@@ -165,14 +150,9 @@ const GlobalDemoStyles: React.FC = () => {
             > p {
               width: 100%;
               margin: 0.5em 0;
-              padding-right: 25px;
-              font-size: 12px;
+              font-size: ${token.fontSizeSM}px;
               word-break: break-word;
-
-              ${antCls}-row-rtl & {
-                padding-right: 0;
-                padding-left: 25px;
-              }
+              padding-inline-end: 25px;
             }
           }
 
@@ -192,7 +172,7 @@ const GlobalDemoStyles: React.FC = () => {
           .code-expand-icon-hide {
             position: absolute;
             top: 0;
-            left: 0;
+            inset-inline-start: 0;
             width: 100%;
             max-width: 100%;
             margin: 0;
@@ -201,8 +181,8 @@ const GlobalDemoStyles: React.FC = () => {
             user-select: none;
 
             ${antCls}-row-rtl & {
-              right: 0;
-              left: auto;
+              inset-inline-end: 0;
+              inset-inline-start: auto;
             }
           }
 
@@ -226,7 +206,6 @@ const GlobalDemoStyles: React.FC = () => {
 
           .highlight-wrapper {
             display: none;
-            overflow: auto;
             border-radius: 0 0 ${token.borderRadius}px ${token.borderRadius}px;
 
             &-expand {
@@ -251,10 +230,10 @@ const GlobalDemoStyles: React.FC = () => {
           &-actions {
             display: flex;
             justify-content: center;
-            padding: 12px 0;
+            padding: ${token.paddingSM}px 0;
             border-top: 1px dashed ${token.colorSplit};
             opacity: 0.7;
-            transition: opacity 0.3s;
+            transition: opacity ${token.motionDurationSlow};
 
             &:hover {
               opacity: 1;
@@ -283,7 +262,7 @@ const GlobalDemoStyles: React.FC = () => {
           &-code-copy {
             width: 14px;
             height: 14px;
-            font-size: 14px;
+            font-size: ${token.fontSize}px;
             text-align: center;
             background: ${token.colorBgContainer};
             cursor: pointer;
@@ -338,11 +317,14 @@ const GlobalDemoStyles: React.FC = () => {
               background: ${token.colorBgContainer};
               border: none;
               box-shadow: unset;
+              padding: ${token.paddingSM}px ${token.padding}px;
+              font-size: ${token.fontSize}px;
             }
           }
 
           &-debug {
             border-color: ${token.purple3};
+            display: none;
           }
 
           &-debug &-title a {
@@ -352,18 +334,36 @@ const GlobalDemoStyles: React.FC = () => {
 
         .demo-wrapper {
           position: relative;
+
+          &-show-debug .code-box-debug {
+            display: block;
+          }
         }
 
         .all-code-box-controls {
           position: absolute;
           top: -32px;
           inset-inline-end: 0;
+          display: flex;
+          align-items: center;
+          column-gap: ${token.marginXS}px;
+
+          ${antCls}-btn {
+            opacity: 0.6;
+            &.icon-enabled {
+             background: ${token.colorFillSecondary};
+             opacity: 1;
+            ${iconCls} {
+              color: ${token.colorTextBase};
+              font-weight: bold;
+            }
+          }
         }
 
         ${antCls}-row-rtl {
-          #components-tooltip-demo-placement,
-          #components-popover-demo-placement,
-          #components-popconfirm-demo-placement {
+          #tooltip-demo-placement,
+          #popover-demo-placement,
+          #popconfirm-demo-placement {
             .code-box-demo {
               direction: ltr;
             }

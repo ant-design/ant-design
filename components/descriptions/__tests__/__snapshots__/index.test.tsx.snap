@@ -249,6 +249,92 @@ exports[`Descriptions number 0 should render correct 1`] = `
 </div>
 `;
 
+exports[`Descriptions should items work 1`] = `
+<div>
+  <div
+    class="ant-descriptions"
+  >
+    <div
+      class="ant-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  UserName
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  Zhou Maomao
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  Telephone
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  1810000000
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  Live
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  Hangzhou, Zhejiang
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Descriptions should work with React Fragment 1`] = `
 <div
   class="ant-descriptions"

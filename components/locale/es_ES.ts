@@ -1,8 +1,8 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/es_ES';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/es_ES';
 import DatePicker from '../date-picker/locale/es_ES';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/es_ES';
 
 const typeTemplate = '${label} no es un ${type} válido';
@@ -35,6 +35,11 @@ const localeValues: Locale = {
     triggerAsc: 'Click para ordenar en orden ascendente',
     cancelSort: 'Click para cancelar ordenamiento',
   },
+  Tour: {
+    Next: 'Siguiente',
+    Previous: 'Anterior',
+    Finish: 'Finalizar',
+  },
   Modal: {
     okText: 'Aceptar',
     cancelText: 'Cancelar',
@@ -51,7 +56,7 @@ const localeValues: Locale = {
     itemsUnit: 'elementos',
     remove: 'Eliminar',
     selectCurrent: 'Seleccionar página actual',
-    removeCurrent: 'Remover página actual',
+    removeCurrent: 'Eliminar página actual',
     selectAll: 'Seleccionar todos los datos',
     removeAll: 'Eliminar todos los datos',
     selectInvert: 'Invertir página actual',
@@ -75,14 +80,11 @@ const localeValues: Locale = {
     copied: 'Copiado',
     expand: 'Expandir',
   },
-  PageHeader: {
-    back: 'Volver',
-  },
   Form: {
     optional: '(opcional)',
     defaultValidateMessages: {
       default: 'Error de validación del campo ${label}',
-      required: 'Por favor ingresar ${label}',
+      required: 'Por favor, rellena ${label}',
       enum: '${label} debe ser uno de [${enum}]',
       whitespace: '${label} no puede ser un carácter en blanco',
       date: {
@@ -115,13 +117,13 @@ const localeValues: Locale = {
         len: '${label} debe ser igual a ${len}',
         min: '${label} valor mínimo es ${min}',
         max: '${label} valor máximo es ${max}',
-        range: '${label} debe estar entre ${min}-${max}',
+        range: '${label} debe ser entre ${min}-${max}',
       },
       array: {
         len: 'Debe ser ${len} ${label}',
         min: 'Al menos ${min} ${label}',
-        max: 'A lo mucho ${max} ${label}',
-        range: 'El monto de ${label} debe estar entre ${min}-${max}',
+        max: 'Como máximo ${max} ${label}',
+        range: 'El valor de ${label} debe estar entre ${min}-${max}',
       },
       pattern: {
         mismatch: '${label} no coincide con el patrón ${pattern}',

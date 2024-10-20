@@ -1,8 +1,8 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/ga_IE';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/ga_IE';
 import DatePicker from '../date-picker/locale/ga_IE';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/ga_IE';
 
 const typeTemplate = '${label} is not a valid ${type}';
@@ -69,9 +69,6 @@ const localeValues: Locale = {
     copy: 'Copy',
     copied: 'Copied',
     expand: 'Expand',
-  },
-  PageHeader: {
-    back: 'Back',
   },
   Form: {
     defaultValidateMessages: {

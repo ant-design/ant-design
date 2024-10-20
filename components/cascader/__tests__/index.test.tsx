@@ -1,14 +1,15 @@
 import React from 'react';
 import type { SingleValueType } from 'rc-cascader/lib/Cascader';
-import type { BaseOptionType, DefaultOptionType } from '..';
+
+import type { DefaultOptionType } from '..';
 import Cascader from '..';
+import { resetWarned } from '../../_util/warning';
 import excludeAllWarning from '../../../tests/shared/excludeWarning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import ConfigProvider from '../../config-provider';
 import { fireEvent, render } from '../../../tests/utils';
-import { resetWarned } from '../../_util/warning';
+import ConfigProvider from '../../config-provider';
 
 const { SHOW_CHILD, SHOW_PARENT } = Cascader;
 
@@ -70,11 +71,13 @@ const options = [
   },
 ];
 
-function filter<OptionType extends BaseOptionType = DefaultOptionType>(
+function filter<OptionType extends DefaultOptionType = DefaultOptionType>(
   inputValue: string,
   path: OptionType[],
 ): boolean {
-  return path.some((option) => option.label.toLowerCase().includes(inputValue.toLowerCase()));
+  return path.some((option) =>
+    option.label?.toString().toLowerCase().includes(inputValue.toLowerCase()),
+  );
 }
 
 describe('Cascader', () => {
@@ -182,7 +185,7 @@ describe('Cascader', () => {
         ],
       },
     ];
-    function customFilter<OptionType extends BaseOptionType = DefaultOptionType>(
+    function customFilter<OptionType extends DefaultOptionType = DefaultOptionType>(
       inputValue: string,
       path: OptionType[],
     ): boolean {
@@ -373,7 +376,7 @@ describe('Cascader', () => {
           {
             value: 'hangzhou',
             label: 'Hangzhou',
-            children: null,
+            children: null as any,
           },
         ],
       },
@@ -515,7 +518,7 @@ describe('Cascader', () => {
 
   it('onChange works correctly when the label of fieldNames is the same as value', () => {
     const onChange = jest.fn();
-    const sameNames = { label: 'label', value: 'label' };
+    const sameNames = { label: 'label', value: 'label' } as const;
     const { container } = render(
       <Cascader options={options} onChange={onChange} showSearch fieldNames={sameNames} />,
     );
@@ -680,5 +683,52 @@ describe('Cascader', () => {
       expect(selectedValue!.length).toBe(1);
       expect(selectedValue!.join(',')).toBe('zhejiang');
     });
+  });
+
+  it('should be correct expression with disableCheckbox', () => {
+    const { container } = render(
+      <Cascader
+        multiple
+        options={[
+          {
+            label: '台湾',
+            value: 'tw',
+            children: [
+              {
+                label: '福建',
+                value: 'fj',
+                disableCheckbox: true,
+              },
+              {
+                label: '兰州',
+                value: 'lz',
+              },
+              { label: '北京', value: 'bj' },
+            ],
+          },
+        ]}
+      />,
+    );
+    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+    // disabled className
+    fireEvent.click(container.querySelector('.ant-cascader-menu-item')!);
+    expect(container.querySelectorAll('.ant-cascader-checkbox-disabled')).toHaveLength(1);
+    // Check all children except disableCheckbox When the parent checkbox is checked
+    expect(container.querySelectorAll('.ant-cascader-checkbox')).toHaveLength(4);
+    fireEvent.click(container.querySelector('.ant-cascader-checkbox')!);
+    expect(container.querySelectorAll('.ant-cascader-checkbox-checked')).toHaveLength(3);
+  });
+
+  it('deprecate showArrow', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(<Cascader showArrow />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Cascader] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+    );
+    expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
+
+    errSpy.mockRestore();
   });
 });

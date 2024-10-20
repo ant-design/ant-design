@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import { Rate } from 'antd';
+import { Flex, Rate } from 'antd';
 
 const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 
 const App: React.FC = () => {
   const [value, setValue] = useState(3);
-
   return (
-    <span>
+    <Flex gap="middle" vertical>
       <Rate tooltips={desc} onChange={setValue} value={value} />
-      {value ? <span className="ant-rate-text">{desc[value - 1]}</span> : ''}
-    </span>
+      {value ? <span>{desc[value - 1]}</span> : null}
+    </Flex>
   );
 };
 

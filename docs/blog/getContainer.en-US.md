@@ -2,15 +2,17 @@
 title: Some change on getContainer
 date: 2022-12-08
 author: zombieJ
+zhihu_url: https://zhuanlan.zhihu.com/p/606878571
+yuque_url: https://www.yuque.com/ant-design/ant-design/eegn0tn5fy94uwk8
 ---
 
 We often encounter the need for pop-up elements when developing, such as the Select drop-down box, or the Modal component. When it is directly rendered under the current node, it may be clipped by the `overflow: hidden` of the parent node:
 
-![Overflow](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Noh-TYJ0BdcAAAAAAAAAAAAADrJ8AQ/original)
+<img alt="Overflow" height="200" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Noh-TYJ0BdcAAAAAAAAAAAAADrJ8AQ/original" />
 
 Therefore we render it under `body` by default in Ant Design, but this will bring new problems. Since they are not under the same container, when the user scrolls the screen, they will find that the popup layer does not follow the scrolling:
 
-![Scroll](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*d44KQqkTX90AAAAAAAAAAAAADrJ8AQ/original)
+<img alt="Scroll" height="370" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*d44KQqkTX90AAAAAAAAAAAAADrJ8AQ/original" />
 
 To solve this problem, we provide the `getContainer` property, which allows users to customize the rendered container. The `getContainer` method will be called when the component is mounted, returning a container node, and the component will be rendered under this node through `createPortal`.
 
@@ -110,4 +112,4 @@ After putting `getContainer` into effect management, we can manage nodes in a wa
 
 ## Finally
 
-Due to the fix that `getContainer` does not support dynamic changes, it also introduces a potential breaking change at the same time. If the developer customizes `getContainer` to create a new dom node every time, it will cause an infinite loop because of the continuous execution of the effect, resulting in the continuous creation of nodes. If you use this method and encounter problems, you need to pay attention to check.
+Due to the fix that `getContainer` does not support dynamic changes, it also introduces a potential breaking change at the same time. If the developer customizes `getContainer` to create a new DOM node every time, it will cause an infinite loop because of the continuous execution of the effect, resulting in the continuous creation of nodes. If you use this method and encounter problems, you need to pay attention to check.

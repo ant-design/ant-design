@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import useForceUpdate from './useForceUpdate';
 
 type UseSyncStateProps<T> = readonly [() => T, (newValue: T) => void];

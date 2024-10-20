@@ -4,7 +4,7 @@ import type { UploadProps } from 'antd';
 import { Button, Upload } from 'antd';
 
 const props: UploadProps = {
-  action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+  action: 'https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload',
   listType: 'picture',
   beforeUpload(file) {
     return new Promise((resolve) => {
@@ -23,7 +23,7 @@ const props: UploadProps = {
           ctx.textBaseline = 'middle';
           ctx.font = '33px Arial';
           ctx.fillText('Ant Design', 20, 20);
-          canvas.toBlob((result) => resolve(result as any));
+          canvas.toBlob((result) => resolve(result as Blob));
         };
       };
     });

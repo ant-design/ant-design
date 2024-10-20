@@ -1,8 +1,8 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/ur_PK';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/ur_PK';
 import DatePicker from '../date-picker/locale/ur_PK';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/ur_PK';
 
 const typeTemplate = '${label} درست نہیں ہے ${type}';
@@ -72,9 +72,6 @@ const localeValues: Locale = {
     copy: 'کاپی',
     copied: 'کاپی ہوگیا',
     expand: 'پھیلائیں',
-  },
-  PageHeader: {
-    back: 'پیچھے',
   },
   Form: {
     optional: '(اختیاری)',

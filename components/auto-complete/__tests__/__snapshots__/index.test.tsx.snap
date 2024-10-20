@@ -2,7 +2,7 @@
 
 exports[`AutoComplete rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-select ant-select-rtl ant-select-auto-complete ant-select-single ant-select-show-search"
+  class="ant-select ant-select-rtl ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
 >
   <div
     class="ant-select-selector"
@@ -11,7 +11,6 @@ exports[`AutoComplete rtl render component should be rendered correctly in RTL d
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table } from 'antd';
-import type { ColumnsType, TableProps } from 'antd/es/table';
+import type { TableColumnsType, TableProps } from 'antd';
 
 interface DataType {
   key: React.Key;
@@ -10,7 +10,7 @@ interface DataType {
   english: number;
 }
 
-const columns: ColumnsType<DataType> = [
+const columns: TableColumnsType<DataType> = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -76,6 +76,8 @@ const onChange: TableProps<DataType>['onChange'] = (pagination, filters, sorter,
   console.log('params', pagination, filters, sorter, extra);
 };
 
-const App: React.FC = () => <Table columns={columns} dataSource={data} onChange={onChange} />;
+const App: React.FC = () => (
+  <Table<DataType> columns={columns} dataSource={data} onChange={onChange} />
+);
 
 export default App;

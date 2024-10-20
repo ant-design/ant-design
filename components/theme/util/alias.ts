@@ -1,7 +1,8 @@
 import { TinyColor } from '@ctrl/tinycolor';
+
 import type { AliasToken, MapToken, OverrideToken, SeedToken } from '../interface';
-import getAlphaColor from './getAlphaColor';
 import seedToken from '../themes/seed';
+import getAlphaColor from './getAlphaColor';
 
 /** Raw merge of `@ant-design/cssinjs` token. Which need additional process */
 type RawMergedToken = MapToken & OverrideToken & { override: Partial<AliasToken> };
@@ -31,13 +32,17 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
   const screenXL = 1200;
   const screenXXL = 1600;
 
+  // Motion
+  if (mergedToken.motion === false) {
+    const fastDuration = '0s';
+    mergedToken.motionDurationFast = fastDuration;
+    mergedToken.motionDurationMid = fastDuration;
+    mergedToken.motionDurationSlow = fastDuration;
+  }
+
   // Generate alias token
   const aliasToken: AliasToken = {
     ...mergedToken,
-
-    colorLink: mergedToken.colorInfoText,
-    colorLinkHover: mergedToken.colorInfoHover,
-    colorLinkActive: mergedToken.colorInfoActive,
 
     // ============== Background ============== //
     colorFillContent: mergedToken.colorFillSecondary,
@@ -70,7 +75,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     fontSizeIcon: mergedToken.fontSizeSM,
 
     // Line
-    lineWidthFocus: mergedToken.lineWidth * 4,
+    lineWidthFocus: mergedToken.lineWidth * 3,
 
     // Control
     lineWidth: mergedToken.lineWidth,

@@ -1,8 +1,8 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/ca_ES';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/ca_ES';
 import DatePicker from '../date-picker/locale/ca_ES';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/ca_ES';
 
 const typeTemplate = '${label} no és un ${type} vàlid';
@@ -70,9 +70,6 @@ const localeValues: Locale = {
     copy: 'Copiar',
     copied: 'Copiat',
     expand: 'Ampliar',
-  },
-  PageHeader: {
-    back: 'Enrere',
   },
   Form: {
     optional: '(opcional)',

@@ -1,17 +1,30 @@
-import { defineConfig } from 'dumi';
 import path from 'path';
+import { defineConfig } from 'dumi';
+import * as fs from 'fs-extra';
+import os from 'node:os';
+
 import rehypeAntd from './.dumi/rehypeAntd';
 import remarkAntd from './.dumi/remarkAntd';
 import { version } from './package.json';
 
 export default defineConfig({
+  plugins: ['dumi-plugin-color-chunk'],
+  manifest: {},
   conventionRoutes: {
     // to avoid generate routes for .dumi/pages/index/components/xx
-    exclude: [new RegExp('index/components/')],
+    exclude: [/index\/components\//],
   },
-  ssr: process.env.NODE_ENV === 'production' ? {} : false,
+  ssr:
+    process.env.NODE_ENV === 'production'
+      ? {
+          builder: 'mako',
+        }
+      : false,
   hash: true,
+  mfsu: false,
+  mako: ['Darwin', 'Linux'].includes(os.type()) ? {} : false,
   crossorigin: {},
+  runtimePublicPath: {},
   outputPath: '_site',
   favicons: ['https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png'],
   resolve: {
@@ -30,17 +43,85 @@ export default defineConfig({
     'antd/lib': path.join(__dirname, 'components'),
     'antd/es': path.join(__dirname, 'components'),
     'antd/locale': path.join(__dirname, 'components/locale'),
-    // Change antd from `index.js` to `.dumi/theme/antd.js` to remove deps of root style
-    antd: require.resolve('./.dumi/theme/antd.js'),
+    antd: path.join(__dirname, 'components'),
+    // https://github.com/ant-design/ant-design/issues/46628
+    '@ant-design/icons$': '@ant-design/icons/lib',
   },
   extraRehypePlugins: [rehypeAntd],
   extraRemarkPlugins: [remarkAntd],
-  extraBabelPresets: ['@emotion/babel-preset-css-prop'],
-  mfsu: false,
-  metas: [{ name: 'theme-color', content: '#1677ff' }],
+  metas: [
+    { name: 'theme-color', content: '#1677ff' },
+    { name: 'build-time', content: Date.now().toString() },
+    // https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables
+    { name: 'build-hash', content: process.env.GITHUB_SHA ?? 'unknown' },
+  ],
   analytics: {
     ga_v2: 'UA-72788897-1',
   },
+  analyze:
+    process.env.NODE_ENV === 'production'
+      ? false
+      : {
+          analyzerPort: 'auto',
+        },
+  links: [
+    {
+      rel: 'prefetch',
+      as: 'font',
+      href: '//at.alicdn.com/t/webfont_6e11e43nfj.woff2',
+      type: 'font/woff2',
+      crossorigin: 'anonymous',
+    },
+    {
+      rel: 'prefetch',
+      as: 'font',
+      href: '//at.alicdn.com/t/webfont_6e11e43nfj.woff',
+      type: 'font/woff',
+      crossorigin: 'anonymous',
+    },
+    {
+      rel: 'prefetch',
+      as: 'font',
+      href: '//at.alicdn.com/t/webfont_6e11e43nfj.ttf',
+      type: 'font/ttf',
+      crossorigin: 'anonymous',
+    },
+    {
+      rel: 'prefetch',
+      as: 'font',
+      href: '//at.alicdn.com/t/webfont_exesdog9toj.woff2',
+      type: 'font/woff2',
+      crossorigin: 'anonymous',
+    },
+    {
+      rel: 'prefetch',
+      as: 'font',
+      href: '//at.alicdn.com/t/webfont_exesdog9toj.woff',
+      type: 'font/woff',
+      crossorigin: 'anonymous',
+    },
+    {
+      rel: 'prefetch',
+      as: 'font',
+      href: '//at.alicdn.com/t/webfont_exesdog9toj.ttf',
+      type: 'font/ttf',
+      crossorigin: 'anonymous',
+    },
+    {
+      rel: 'preload',
+      as: 'font',
+      href: '//at.alicdn.com/wf/webfont/exMpJIukiCms/Gsw2PSKrftc1yNWMNlXgw.woff2',
+      type: 'font/woff2',
+      crossorigin: 'anonymous',
+    },
+    {
+      rel: 'preload',
+      as: 'font',
+      href: '//at.alicdn.com/wf/webfont/exMpJIukiCms/vtu73by4O2gEBcvBuLgeu.woff',
+      type: 'font/woff2',
+      crossorigin: 'anonymous',
+    },
+  ],
   headScripts: [
     `
     (function () {
@@ -98,5 +179,17 @@ export default defineConfig({
       document.documentElement.className += isZhCN(pathname) ? 'zh-cn' : 'en-us';
     })();
     `,
+  ],
+  scripts: [
+    {
+      async: true,
+      content: fs
+        .readFileSync(path.join(__dirname, '.dumi', 'scripts', 'mirror-modal.js'))
+        .toString(),
+    },
+    {
+      async: true,
+      content: fs.readFileSync(path.join(__dirname, '.dumi', 'scripts', 'clarity.js')).toString(),
+    },
   ],
 });

@@ -49,7 +49,7 @@ title: 按钮
 
 常规按钮类型呈现出不同的**强调程度**，使用者可以据此变化出合适的按钮类型：
 
-### Do&Don't
+### Do & Don't
 
 <ImagePreview>
 <img class="preview-img no-padding bad" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*di8jS5EWYSIAAAAAAAAAAABkARQnAQ" alt="错误示范" description="不要在一个按钮区放置超过一个主按钮。">
@@ -201,7 +201,7 @@ title: 按钮
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*x7YsTafH5osAAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-**按主次折叠部分按钮**
+**按主次折叠部分按钮**：
 
 <br />
 

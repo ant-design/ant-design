@@ -18,7 +18,7 @@ const App: React.FC = () => {
     token: { colorBgContainer },
   } = theme.useToken();
   const renderTabBar: TabsProps['renderTabBar'] = (props, DefaultTabBar) => (
-    <StickyBox offsetTop={0} offsetBottom={20} style={{ zIndex: 1 }}>
+    <StickyBox offsetTop={64} offsetBottom={20} style={{ zIndex: 1 }}>
       <DefaultTabBar {...props} style={{ background: colorBgContainer }} />
     </StickyBox>
   );

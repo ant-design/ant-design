@@ -1,18 +1,22 @@
+import * as React from 'react';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import Dialog from 'rc-dialog';
-import * as React from 'react';
-import type { ButtonProps, LegacyButtonType } from '../button/button';
-import type { DirectionType } from '../config-provider';
-import { ConfigContext } from '../config-provider';
-import { NoFormStyle } from '../form/context';
-import { NoCompactStyle } from '../space/Compact';
+
+import ContextIsolator from '../_util/ContextIsolator';
+import useClosable, { pickClosable } from '../_util/hooks/useClosable';
+import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import { canUseDocElement } from '../_util/styleChecker';
-import warning from '../_util/warning';
-import { Footer, renderCloseIcon } from './PurePanel';
+import { devUseWarning } from '../_util/warning';
+import zIndexContext from '../_util/zindexContext';
+import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import Skeleton from '../skeleton';
+import { usePanelRef } from '../watermark/context';
+import type { ModalProps, MousePosition } from './interface';
+import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
-
-type MousePosition = { x: number; y: number } | null;
 
 let mousePosition: MousePosition;
 
@@ -35,122 +39,12 @@ if (canUseDocElement()) {
   document.documentElement.addEventListener('click', getClickPosition, true);
 }
 
-export interface ModalProps {
-  /** Whether the modal dialog is visible or not */
-  open?: boolean;
-  /** Whether to apply loading visual effect for OK button or not */
-  confirmLoading?: boolean;
-  /** The modal dialog's title */
-  title?: React.ReactNode;
-  /** Whether a close (x) button is visible on top right of the modal dialog or not */
-  closable?: boolean;
-  /** Specify a function that will be called when a user clicks the OK button */
-  onOk?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  /** Specify a function that will be called when a user clicks mask, close button on top right or Cancel button */
-  onCancel?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  afterClose?: () => void;
-  /** Callback when the animation ends when Modal is turned on and off */
-  afterOpenChange?: (open: boolean) => void;
-  /** Centered Modal */
-  centered?: boolean;
-  /** Width of the modal dialog */
-  width?: string | number;
-  /** Footer content */
-  footer?: React.ReactNode;
-  /** Text of the OK button */
-  okText?: React.ReactNode;
-  /** Button `type` of the OK button */
-  okType?: LegacyButtonType;
-  /** Text of the Cancel button */
-  cancelText?: React.ReactNode;
-  /** Whether to close the modal dialog when the mask (area outside the modal) is clicked */
-  maskClosable?: boolean;
-  /** Force render Modal */
-  forceRender?: boolean;
-  okButtonProps?: ButtonProps;
-  cancelButtonProps?: ButtonProps;
-  destroyOnClose?: boolean;
-  style?: React.CSSProperties;
-  wrapClassName?: string;
-  maskTransitionName?: string;
-  transitionName?: string;
-  className?: string;
-  rootClassName?: string;
-  getContainer?: string | HTMLElement | getContainerFunc | false;
-  zIndex?: number;
-  bodyStyle?: React.CSSProperties;
-  maskStyle?: React.CSSProperties;
-  mask?: boolean;
-  keyboard?: boolean;
-  wrapProps?: any;
-  prefixCls?: string;
-  closeIcon?: React.ReactNode;
-  modalRender?: (node: React.ReactNode) => React.ReactNode;
-  focusTriggerAfterClose?: boolean;
-  children?: React.ReactNode;
-  mousePosition?: MousePosition;
-
-  // Legacy
-  /** @deprecated Please use `open` instead. */
-  visible?: boolean;
-}
-
-type getContainerFunc = () => HTMLElement;
-
-export interface ModalFuncProps {
-  prefixCls?: string;
-  className?: string;
-  rootClassName?: string;
-  open?: boolean;
-  /** @deprecated Please use `open` instead. */
-  visible?: boolean;
-  title?: React.ReactNode;
-  closable?: boolean;
-  content?: React.ReactNode;
-  // TODO: find out exact types
-  onOk?: (...args: any[]) => any;
-  onCancel?: (...args: any[]) => any;
-  afterClose?: () => void;
-  okButtonProps?: ButtonProps;
-  cancelButtonProps?: ButtonProps;
-  centered?: boolean;
-  width?: string | number;
-  okText?: React.ReactNode;
-  okType?: LegacyButtonType;
-  cancelText?: React.ReactNode;
-  icon?: React.ReactNode;
-  mask?: boolean;
-  maskClosable?: boolean;
-  zIndex?: number;
-  okCancel?: boolean;
-  style?: React.CSSProperties;
-  wrapClassName?: string;
-  maskStyle?: React.CSSProperties;
-  type?: 'info' | 'success' | 'error' | 'warn' | 'warning' | 'confirm';
-  keyboard?: boolean;
-  getContainer?: string | HTMLElement | getContainerFunc | false;
-  autoFocusButton?: null | 'ok' | 'cancel';
-  transitionName?: string;
-  maskTransitionName?: string;
-  direction?: DirectionType;
-  bodyStyle?: React.CSSProperties;
-  closeIcon?: React.ReactNode;
-  footer?: React.ReactNode;
-  modalRender?: (node: React.ReactNode) => React.ReactNode;
-  focusTriggerAfterClose?: boolean;
-}
-
-export interface ModalLocale {
-  okText: string;
-  cancelText: string;
-  justOkText: string;
-}
-
 const Modal: React.FC<ModalProps> = (props) => {
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     direction,
+    modal: modalContext,
   } = React.useContext(ConfigContext);
 
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -163,11 +57,17 @@ const Modal: React.FC<ModalProps> = (props) => {
     onOk?.(e);
   };
 
-  warning(
-    !('visible' in props),
-    'Modal',
-    `\`visible\` will be removed in next major version, please use \`open\` instead.`,
-  );
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Modal');
+
+    [
+      ['visible', 'open'],
+      ['bodyStyle', 'styles.body'],
+      ['maskStyle', 'styles.mask'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    });
+  }
 
   const {
     prefixCls: customizePrefixCls,
@@ -177,56 +77,100 @@ const Modal: React.FC<ModalProps> = (props) => {
     wrapClassName,
     centered,
     getContainer,
-    closeIcon,
     focusTriggerAfterClose = true,
-
+    style,
     // Deprecated
     visible,
 
     width = 520,
     footer,
+    classNames: modalClassNames,
+    styles: modalStyles,
+    children,
+    loading,
     ...restProps
   } = props;
 
   const prefixCls = getPrefixCls('modal', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const wrapClassNameExtended = classNames(wrapClassName, {
     [`${prefixCls}-centered`]: !!centered,
     [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
   });
 
-  if (process.env.NODE_ENV !== 'production') {
-    warning(!('visible' in props), 'Modal', '`visible` is deprecated, please use `open` instead.');
-  }
-
   const dialogFooter =
-    footer === undefined ? <Footer {...props} onOk={handleOk} onCancel={handleCancel} /> : footer;
+    footer !== null && !loading ? (
+      <Footer {...props} onOk={handleOk} onCancel={handleCancel} />
+    ) : null;
 
-  return wrapSSR(
-    <NoCompactStyle>
-      <NoFormStyle status override>
+  const [mergedClosable, mergedCloseIcon, closeBtnIsDisabled] = useClosable(
+    pickClosable(props),
+    pickClosable(modalContext),
+    {
+      closable: true,
+      closeIcon: <CloseOutlined className={`${prefixCls}-close-icon`} />,
+      closeIconRender: (icon) => renderCloseIcon(prefixCls, icon),
+    },
+  );
+
+  // ============================ Refs ============================
+  // Select `ant-modal-content` by `panelRef`
+  const panelRef = usePanelRef(`.${prefixCls}-content`);
+
+  // ============================ zIndex ============================
+  const [zIndex, contextZIndex] = useZIndex('Modal', restProps.zIndex);
+
+  // =========================== Render ===========================
+  return wrapCSSVar(
+    <ContextIsolator form space>
+      <zIndexContext.Provider value={contextZIndex}>
         <Dialog
           width={width}
           {...restProps}
+          zIndex={zIndex}
           getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
           prefixCls={prefixCls}
-          rootClassName={classNames(hashId, rootClassName)}
-          wrapClassName={wrapClassNameExtended}
+          rootClassName={classNames(hashId, rootClassName, cssVarCls, rootCls)}
           footer={dialogFooter}
           visible={open ?? visible}
           mousePosition={restProps.mousePosition ?? mousePosition}
-          onClose={handleCancel}
-          closeIcon={renderCloseIcon(prefixCls, closeIcon)}
+          onClose={handleCancel as any}
+          closable={
+            mergedClosable
+              ? { disabled: closeBtnIsDisabled, closeIcon: mergedCloseIcon }
+              : mergedClosable
+          }
+          closeIcon={mergedCloseIcon}
           focusTriggerAfterClose={focusTriggerAfterClose}
           transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
           maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
-          className={classNames(hashId, className)}
-        />
-      </NoFormStyle>
-    </NoCompactStyle>,
+          className={classNames(hashId, className, modalContext?.className)}
+          style={{ ...modalContext?.style, ...style }}
+          classNames={{
+            ...modalContext?.classNames,
+            ...modalClassNames,
+            wrapper: classNames(wrapClassNameExtended, modalClassNames?.wrapper),
+          }}
+          styles={{ ...modalContext?.styles, ...modalStyles }}
+          panelRef={panelRef}
+        >
+          {loading ? (
+            <Skeleton
+              active
+              title={false}
+              paragraph={{ rows: 4 }}
+              className={`${prefixCls}-body-skeleton`}
+            />
+          ) : (
+            children
+          )}
+        </Dialog>
+      </zIndexContext.Provider>
+    </ContextIsolator>,
   );
 };
 

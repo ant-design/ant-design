@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Switch, Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import type { TableColumnsType } from 'antd';
 
 interface DataType {
   key: React.Key;
@@ -9,7 +9,7 @@ interface DataType {
   address: string;
 }
 
-const columns: ColumnsType<DataType> = [
+const columns: TableColumnsType<DataType> = [
   {
     title: 'Full Name',
     width: 100,
@@ -76,23 +76,19 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-const data: DataType[] = [];
-for (let i = 0; i < 100; i++) {
-  data.push({
-    key: i,
-    name: `Edward ${i}`,
-    age: 32,
-    address: `London Park no. ${i}`,
-  });
-}
+const dataSource = Array.from({ length: 100 }).map<DataType>((_, i) => ({
+  key: i,
+  name: `Edward ${i}`,
+  age: 32,
+  address: `London Park no. ${i}`,
+}));
 
 const App: React.FC = () => {
   const [fixedTop, setFixedTop] = useState(false);
-
   return (
-    <Table
+    <Table<DataType>
       columns={columns}
-      dataSource={data}
+      dataSource={dataSource}
       scroll={{ x: 1500 }}
       summary={() => (
         <Table.Summary fixed={fixedTop ? 'top' : 'bottom'}>
@@ -114,7 +110,8 @@ const App: React.FC = () => {
           </Table.Summary.Row>
         </Table.Summary>
       )}
-      sticky
+      // antd site header height
+      sticky={{ offsetHeader: 64 }}
     />
   );
 };

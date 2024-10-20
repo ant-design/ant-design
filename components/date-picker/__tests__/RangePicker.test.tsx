@@ -1,16 +1,20 @@
+import React, { useState } from 'react';
+import { CloseCircleFilled } from '@ant-design/icons';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import React, { useState } from 'react';
-import type { RangeValue } from 'rc-picker/lib/interface';
-import { resetWarned } from '../../_util/warning';
+
 import DatePicker from '..';
+import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import { render, resetMockDate, setMockDate } from '../../../tests/utils';
 import enUS from '../locale/en_US';
-
-import { closePicker, openPicker, selectCell } from './utils';
+import { closePicker, getClearButton, openPicker, selectCell } from './utils';
 
 dayjs.extend(customParseFormat);
+
+type RangeValue<DateType extends object> =
+  | [DateType | undefined | null, DateType | undefined | null]
+  | null;
 
 const { RangePicker } = DatePicker;
 
@@ -55,12 +59,41 @@ describe('RangePicker', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
+  it('the left selection is before the right selection', () => {
+    let rangePickerValue: dayjs.Dayjs[] = [];
+    const Test: React.FC = () => {
+      const [value, setValue] = useState<RangeValue<dayjs.Dayjs>>(null);
+      return (
+        <RangePicker
+          value={value}
+          mode={['month', 'month']}
+          onPanelChange={(v) => {
+            setValue(v);
+            rangePickerValue = v as dayjs.Dayjs[];
+          }}
+        />
+      );
+    };
+
+    const wrapper = render(<Test />);
+
+    openPicker(wrapper);
+    selectCell(wrapper, 'Feb');
+    openPicker(wrapper, 1);
+    selectCell(wrapper, 'May');
+    closePicker(wrapper, 1);
+
+    const [start, end] = rangePickerValue;
+
+    expect(start.isBefore(end, 'date')).toBeTruthy();
+  });
+
   // https://github.com/ant-design/ant-design/issues/13302
   describe('in "month" mode, when the left and right panels select the same month', () => {
     it('the cell status is correct', () => {
       let rangePickerValue: dayjs.Dayjs[] = [];
       const Test: React.FC = () => {
-        const [value, setValue] = useState<RangeValue<dayjs.Dayjs>>(null);
+        const [value, setValue] = useState<RangeValue<dayjs.Dayjs>>(null!);
         return (
           <RangePicker
             value={value}
@@ -126,5 +159,38 @@ describe('RangePicker', () => {
     expect(container.querySelector('.legacy')).toBeTruthy();
 
     errSpy.mockRestore();
+  });
+
+  it('allows or prohibits clearing as applicable', async () => {
+    const somePoint = dayjs('2023-08-01');
+    const { rerender, container } = render(
+      <RangePicker locale={enUS} value={[somePoint, somePoint]} />,
+    );
+    expect(getClearButton()).toBeTruthy();
+
+    rerender(<RangePicker locale={enUS} value={[somePoint, somePoint]} allowClear={false} />);
+    expect(getClearButton()).toBeFalsy();
+
+    rerender(
+      <RangePicker
+        locale={enUS}
+        value={[somePoint, somePoint]}
+        allowClear={{ clearIcon: <CloseCircleFilled /> }}
+      />,
+    );
+    expect(getClearButton()).toBeTruthy();
+
+    rerender(
+      <RangePicker
+        locale={enUS}
+        value={[somePoint, somePoint]}
+        allowClear={{ clearIcon: <div data-testid="custom-clear" /> }}
+      />,
+    );
+    expect(getClearButton()).toBeTruthy();
+    expect(container.querySelector('[data-testid="custom-clear"]')).toBeTruthy();
+
+    rerender(<RangePicker locale={enUS} value={[somePoint, somePoint]} allowClear={{}} />);
+    expect(getClearButton()).toBeTruthy();
   });
 });

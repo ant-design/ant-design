@@ -1,5 +1,7 @@
 ---
-order: 7.5
+group:
+  title: Advanced
+order: 4
 title: Use custom date library
 ---
 
@@ -11,7 +13,7 @@ You might want to use another date library (**Ant design currently supports [mom
 
 The first way is to use `generatePicker` (or `generateCalendar`) to help create Picker components.
 
-First, we initialize an antd demo with `create-react-app`. You can refer to [Use in TypeScript](/docs/react/use-in-typescript), or you can start directly here [init antd](https://github.com/xiaohuoni/antd4-generate-picker/commit/47fec964e36d48bd15760f8f5abcb9655c259aa6)
+First, we initialize an antd demo with `create-react-app`. You can refer to [Usage with create-react-app](/docs/react/use-with-create-react-app), or you can start directly here [init antd](https://github.com/xiaohuoni/antd4-generate-picker/commit/47fec964e36d48bd15760f8f5abcb9655c259aa6)
 
 ### DatePicker.tsx
 
@@ -20,13 +22,13 @@ Create `src/components/DatePicker.tsx`.
 For example:
 
 ```tsx
-import generatePicker from 'antd/es/date-picker/generatePicker';
+import { DatePicker } from 'antd';
 import type { Moment } from 'moment';
 import momentGenerateConfig from 'rc-picker/lib/generate/moment';
 
-const DatePicker = generatePicker<Moment>(momentGenerateConfig);
+const MyDatePicker = DatePicker.generatePicker<Moment>(momentGenerateConfig);
 
-export default DatePicker;
+export default MyDatePicker;
 ```
 
 ### TimePicker.tsx
@@ -36,10 +38,11 @@ Create `src/components/TimePicker.tsx`.
 For example:
 
 ```tsx
-import { DatePicker } from 'antd';
+import * as React from 'react';
 import type { PickerTimeProps } from 'antd/es/date-picker/generatePicker';
 import type { Moment } from 'moment';
-import * as React from 'react';
+
+import DatePicker from './DatePicker';
 
 export interface TimePickerProps extends Omit<PickerTimeProps<Moment>, 'picker'> {}
 
@@ -59,13 +62,13 @@ Create `src/components/Calendar.tsx`.
 For example:
 
 ```tsx
-import generateCalendar from 'antd/es/calendar/generateCalendar';
+import { Calendar } from 'antd';
 import type { Moment } from 'moment';
-import momentGenerateConfig from 'rc-picker/lib/generate/moment';
+import momentGenerateConfig from 'rc-picker/es/generate/moment';
 
-const Calendar = generateCalendar<Moment>(momentGenerateConfig);
+const MyCalendar = Calendar.generateCalendar<Moment>(momentGenerateConfig);
 
-export default Calendar;
+export default MyCalendar;
 ```
 
 ### Export Custom component
@@ -119,12 +122,12 @@ Create `src/components/DatePicker.tsx`.
 Code as follows:
 
 ```tsx
-import generatePicker from 'antd/es/date-picker/generatePicker';
+import { DatePicker } from 'antd';
 import dateFnsGenerateConfig from 'rc-picker/lib/generate/dateFns';
 
-const DatePicker = generatePicker<Date>(dateFnsGenerateConfig);
+const MyDatePicker = DatePicker.generatePicker<Date>(dateFnsGenerateConfig);
 
-export default DatePicker;
+export default MyDatePicker;
 ```
 
 ## Use luxon
@@ -136,13 +139,13 @@ Since `antd 5.4.0`, [luxon](https://moment.github.io/luxon/) can be used instead
 Create a `src/components/DatePicker.tsx` file, and implement the luxon based picker as follows:
 
 ```tsx
-import generatePicker from 'antd/es/date-picker/generatePicker';
+import { DatePicker } from 'antd';
 import type { DateTime } from 'luxon';
 import luxonGenerateConfig from 'rc-picker/lib/generate/luxon';
 
-const DatePicker = generatePicker<DateTime>(luxonGenerateConfig);
+const MyDatePicker = DatePicker.generatePicker<DateTime>(luxonGenerateConfig);
 
-export default DatePicker;
+export default MyDatePicker;
 ```
 
 ### Notable differences with dayjs
@@ -159,7 +162,7 @@ This introduces some formatting differences with the other date libraries. As of
 It is possible to customize these default luxon behaviors by adjusting the luxon config:
 
 ```tsx
-import generatePicker from 'antd/es/date-picker/generatePicker';
+import { DatePicker } from 'antd';
 import type { DateTime } from 'luxon';
 import luxonGenerateConfig from 'rc-picker/lib/generate/luxon';
 
@@ -170,9 +173,9 @@ const customLuxonConfig = {
   },
 };
 
-const DatePicker = generatePicker<DateTime>(customLuxonConfig);
+const MyDatePicker = DatePicker.generatePicker<DateTime>(customLuxonConfig);
 
-export default DatePicker;
+export default MyDatePicker;
 ```
 
 Note that by doing such customization, the resulting DatePicker behavior might be altered in unexpected ways, so make sure you are testing for edge cases.

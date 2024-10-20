@@ -1,4 +1,5 @@
 import React from 'react';
+
 import type { FormListFieldData, FormListOperation } from '..';
 import Form from '..';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
@@ -136,8 +137,7 @@ describe('Form.List', () => {
           {(fields, { add, remove }) => (
             <>
               {fields.map((field) => (
-                // key is in a field
-                // eslint-disable-next-line react/jsx-key
+                /* biome-ignore lint/correctness/useJsxKeyInIterable: key is in a field */ /* eslint-disable-next-line react/no-missing-key */
                 <Form.Item {...field}>
                   <Input />
                 </Form.Item>
@@ -259,6 +259,72 @@ describe('Form.List', () => {
     await waitFakeTimer();
 
     expect(errorSpy).not.toHaveBeenCalled();
+
+    errorSpy.mockRestore();
+  });
+
+  it('no warning when name is 0', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    render(
+      <Form>
+        <Form.List name={0}>
+          {(fields) =>
+            fields.map((field) => (
+              <Form.Item {...field} key={field.key}>
+                <Input />
+              </Form.Item>
+            ))
+          }
+        </Form.List>
+      </Form>,
+    );
+
+    expect(errorSpy).not.toHaveBeenCalled();
+
+    errorSpy.mockRestore();
+  });
+
+  it('warning when name is empty array', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    render(
+      <Form>
+        <Form.List name={[]}>
+          {(fields) =>
+            fields.map((field) => (
+              <Form.Item {...field} key={field.key}>
+                <Input />
+              </Form.Item>
+            ))
+          }
+        </Form.List>
+      </Form>,
+    );
+
+    expect(errorSpy).toHaveBeenCalled();
+
+    errorSpy.mockRestore();
+  });
+
+  it('warning when name is null', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    render(
+      <Form>
+        <Form.List name={null!}>
+          {(fields) =>
+            fields.map((field) => (
+              <Form.Item {...field} key={field.key}>
+                <Input />
+              </Form.Item>
+            ))
+          }
+        </Form.List>
+      </Form>,
+    );
+
+    expect(errorSpy).toHaveBeenCalled();
 
     errorSpy.mockRestore();
   });

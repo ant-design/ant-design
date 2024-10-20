@@ -102,7 +102,7 @@ Used in the dark or colored background.
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*32zdRqTjDhYAAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-Usually appeared alone and intend to used as a command. For example, it is used in the landing page or welcome banner. It could be as wide as its parent container. It is recommend to have just 1 "Call to Action" button in 1 screen.
+Usually appeared alone and intend to used as a command. For example, it is used in the landing page or welcome banner. It could be as wide as its parent container. It is recommended to have just 1 "Call to Action" button in 1 screen.
 
 ## Placement
 

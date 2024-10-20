@@ -1,6 +1,6 @@
+import React from 'react';
 import { UserOutlined } from '@ant-design/icons';
 import { Avatar, Badge, Space } from 'antd';
-import React from 'react';
 
 const App: React.FC = () => (
   <Space size={24}>

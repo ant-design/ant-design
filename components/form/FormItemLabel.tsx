@@ -1,10 +1,11 @@
+import * as React from 'react';
 import QuestionCircleOutlined from '@ant-design/icons/QuestionCircleOutlined';
 import classNames from 'classnames';
-import * as React from 'react';
+
 import type { ColProps } from '../grid/col';
 import Col from '../grid/col';
-import defaultLocale from '../locale/en_US';
 import { useLocale } from '../locale';
+import defaultLocale from '../locale/en_US';
 import type { TooltipProps } from '../tooltip';
 import Tooltip from '../tooltip';
 import type { FormContextProps } from './context';
@@ -43,6 +44,7 @@ export interface FormItemLabelProps {
    */
   requiredMark?: RequiredMark;
   tooltip?: LabelTooltipType;
+  vertical?: boolean;
 }
 
 const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixCls: string }> = ({
@@ -55,11 +57,11 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
   required,
   requiredMark,
   tooltip,
+  vertical,
 }) => {
   const [formLocale] = useLocale('Form');
 
   const {
-    vertical,
     labelAlign: contextLabelAlign,
     labelCol: contextLabelCol,
     labelWrap,
@@ -84,15 +86,15 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
     },
   );
 
-  let labelChildren = label;
+  let labelChildren: React.ReactNode = label;
 
   // Keep label is original where there should have no colon
   const computedColon = colon === true || (contextColon !== false && colon !== false);
   const haveColon = computedColon && !vertical;
 
   // Remove duplicated user input colon
-  if (haveColon && typeof label === 'string' && (label as string).trim() !== '') {
-    labelChildren = (label as string).replace(/[:|：]\s*$/, '');
+  if (haveColon && typeof label === 'string' && label.trim()) {
+    labelChildren = label.replace(/[:|：]\s*$/, '');
   }
 
   // Tooltip
@@ -100,9 +102,18 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
 
   if (tooltipProps) {
     const { icon = <QuestionCircleOutlined />, ...restTooltipProps } = tooltipProps;
-    const tooltipNode = (
+    const tooltipNode: React.ReactNode = (
       <Tooltip {...restTooltipProps}>
-        {React.cloneElement(icon, { className: `${prefixCls}-item-tooltip`, title: '' })}
+        {React.cloneElement(icon, {
+          className: `${prefixCls}-item-tooltip`,
+          title: '',
+          onClick: (e: React.MouseEvent) => {
+            // Prevent label behavior in tooltip icon
+            // https://github.com/ant-design/ant-design/issues/46154
+            e.preventDefault();
+          },
+          tabIndex: null,
+        })}
       </Tooltip>
     );
 
@@ -114,7 +125,13 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
     );
   }
 
-  if (requiredMark === 'optional' && !required) {
+  // Required Mark
+  const isOptionalMark = requiredMark === 'optional';
+  const isRenderMark = typeof requiredMark === 'function';
+
+  if (isRenderMark) {
+    labelChildren = requiredMark(labelChildren, { required: !!required });
+  } else if (isOptionalMark && !required) {
     labelChildren = (
       <>
         {labelChildren}
@@ -127,7 +144,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
 
   const labelClassName = classNames({
     [`${prefixCls}-item-required`]: required,
-    [`${prefixCls}-item-required-mark-optional`]: requiredMark === 'optional',
+    [`${prefixCls}-item-required-mark-optional`]: isOptionalMark || isRenderMark,
     [`${prefixCls}-item-no-colon`]: !computedColon,
   });
 

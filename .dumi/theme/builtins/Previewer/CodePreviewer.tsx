@@ -1,57 +1,29 @@
-import {
-  CheckOutlined,
-  LinkOutlined,
-  SnippetsOutlined,
-  ThunderboltOutlined,
-} from '@ant-design/icons';
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import { LinkOutlined, ThunderboltOutlined, UpOutlined } from '@ant-design/icons';
 import type { Project } from '@stackblitz/sdk';
 import stackblitzSdk from '@stackblitz/sdk';
-import { Alert, Badge, Space, Tooltip } from 'antd';
+import { Alert, Badge, Flex, Tooltip } from 'antd';
+import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
-import { FormattedMessage, useSiteData } from 'dumi';
-import toReactElement from 'jsonml-to-react-element';
-import JsonML from 'jsonml.js/lib/utils';
+import { FormattedMessage, useLiveDemo, useSiteData } from 'dumi';
 import LZString from 'lz-string';
-import Prism from 'prismjs';
-import React, { useContext, useEffect, useRef, useState } from 'react';
-import CopyToClipboard from 'react-copy-to-clipboard';
+
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
 import ClientOnly from '../../common/ClientOnly';
-import CodePenIcon from '../../common/CodePenIcon';
 import CodePreview from '../../common/CodePreview';
-import CodeSandboxIcon from '../../common/CodeSandboxIcon';
 import EditButton from '../../common/EditButton';
-import ExternalLinkIcon from '../../common/ExternalLinkIcon';
-import RiddleIcon from '../../common/RiddleIcon';
+import CodePenIcon from '../../icons/CodePenIcon';
+import CodeSandboxIcon from '../../icons/CodeSandboxIcon';
+import ExternalLinkIcon from '../../icons/ExternalLinkIcon';
+import RiddleIcon from '../../icons/RiddleIcon';
+import DemoContext from '../../slots/DemoContext';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
 import { ping } from '../../utils';
-import type { AntdPreviewerProps } from '.';
+import type { AntdPreviewerProps } from './Previewer';
 
 const { ErrorBoundary } = Alert;
-
-function toReactComponent(jsonML: any) {
-  return toReactElement(jsonML, [
-    [
-      (node: any) => JsonML.isElement(node) && JsonML.getTagName(node) === 'pre',
-      (node: any, index: any) => {
-        // ref: https://github.com/benjycui/bisheng/blob/master/packages/bisheng/src/bisheng-plugin-highlight/lib/browser.js#L7
-        const attr = JsonML.getAttributes(node);
-        return React.createElement(
-          'pre',
-          {
-            key: index,
-            className: `language-${attr.lang}`,
-          },
-          React.createElement('code', {
-            dangerouslySetInnerHTML: { __html: attr.highlighted },
-          }),
-        );
-      },
-    ],
-  ]);
-}
 
 function compress(string: string): string {
   return LZString.compressToBase64(string)
@@ -88,6 +60,34 @@ function useShowRiddleButton() {
   return showRiddleButton;
 }
 
+const useStyle = createStyles(({ token }) => {
+  const { borderRadius } = token;
+  return {
+    codeHideBtn: css`
+      position: sticky;
+      bottom: 0;
+      z-index: 1;
+      width: 100%;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0 0 ${borderRadius}px ${borderRadius}px;
+      border-top: 1px solid ${token.colorSplit};
+      color: ${token.colorTextSecondary};
+      transition: all ${token.motionDurationMid} ease-in-out;
+      background-color: ${token.colorBgElevated};
+      cursor: pointer;
+      &:hover {
+        color: ${token.colorPrimary};
+      }
+      span {
+        margin-inline-end: ${token.marginXXS}px;
+      }
+    `,
+  };
+});
+
 const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const {
     asset,
@@ -104,37 +104,42 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     background,
     filename,
     version,
+    simplify,
     clientOnly,
+    pkgDependencyList,
   } = props;
+  const { codeType } = useContext(DemoContext);
 
   const { pkg } = useSiteData();
   const location = useLocation();
 
-  const entryCode = asset.dependencies['index.tsx'].value;
+  const { styles } = useStyle();
+
+  const entryName = 'index.tsx';
+  const entryCode = asset.dependencies[entryName].value;
   const showRiddleButton = useShowRiddleButton();
 
-  const liveDemo = useRef<React.ReactNode>(null);
+  const previewDemo = useRef<React.ReactNode>(null);
+  const demoContainer = useRef<HTMLElement>(null);
+  const {
+    node: liveDemoNode,
+    error: liveDemoError,
+    setSource: setLiveDemoSource,
+  } = useLiveDemo(asset.id, {
+    iframe: Boolean(iframe),
+    containerRef: demoContainer,
+  });
   const anchorRef = useRef<HTMLAnchorElement>(null);
   const codeSandboxIconRef = useRef<HTMLFormElement>(null);
   const riddleIconRef = useRef<HTMLFormElement>(null);
   const codepenIconRef = useRef<HTMLFormElement>(null);
   const [codeExpand, setCodeExpand] = useState<boolean>(false);
-  const [copyTooltipOpen, setCopyTooltipOpen] = useState<boolean>(false);
-  const [copied, setCopied] = useState<boolean>(false);
-  const [codeType, setCodeType] = useState<string>('tsx');
   const { theme } = useContext<SiteContextProps>(SiteContext);
 
   const { hash, pathname, search } = location;
   const docsOnlineUrl = `https://ant.design${pathname}${search}#${asset.id}`;
 
   const [showOnlineUrl, setShowOnlineUrl] = useState<boolean>(false);
-
-  const highlightedCodes = {
-    jsx: Prism.highlight(jsx, Prism.languages.javascript, 'jsx'),
-    tsx: Prism.highlight(entryCode, Prism.languages.javascript, 'jsx'),
-  };
-
-  const highlightedStyle = style ? Prism.highlight(style, Prism.languages.css, 'css') : '';
 
   useEffect(() => {
     const regexp = /preview-(\d+)-ant-design/; // matching PR preview addresses
@@ -146,18 +151,6 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const handleCodeExpand = (demo: string) => {
     setCodeExpand((prev) => !prev);
     track({ type: 'expand', demo });
-  };
-
-  const handleCodeCopied = (demo: string) => {
-    setCopied(true);
-    track({ type: 'copy', demo });
-  };
-
-  const onCopyTooltipOpenChange = (open: boolean) => {
-    setCopyTooltipOpen(open);
-    if (open) {
-      setCopied(false);
-    }
   };
 
   useEffect(() => {
@@ -172,8 +165,8 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
 
   const mergedChildren = !iframe && clientOnly ? <ClientOnly>{children}</ClientOnly> : children;
 
-  if (!liveDemo.current) {
-    liveDemo.current = iframe ? (
+  if (!previewDemo.current) {
+    previewDemo.current = iframe ? (
       <BrowserFrame>
         <iframe
           src={demoUrl}
@@ -190,10 +183,10 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const codeBoxClass = classNames('code-box', {
     expand: codeExpand,
     'code-box-debug': originDebug,
+    'code-box-simplify': simplify,
   });
 
   const localizedTitle = title;
-  const introChildren = <div dangerouslySetInnerHTML={{ __html: description }} />;
   const highlightClass = classNames('highlight-wrapper', {
     'highlight-wrapper-expand': codeExpand,
   });
@@ -203,7 +196,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
       <html lang="en">
         <head>
           <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+          <meta name="viewport" content="width=device-width">
           <meta name="theme-color" content="#000000">
         </head>
         <body>
@@ -227,15 +220,13 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
 
   const suffix = codeType === 'tsx' ? 'tsx' : 'js';
 
-  const dependencies: Record<PropertyKey, string> = jsx.split('\n').reduce(
+  const dependencies = (jsx as string).split('\n').reduce<Record<PropertyKey, string>>(
     (acc, line) => {
       const matches = line.match(/import .+? from '(.+)';$/);
-      if (matches && matches[1] && !line.includes('antd')) {
+      if (matches?.[1]) {
         const paths = matches[1].split('/');
-        if (paths.length) {
-          const dep = paths[0].startsWith('@') ? `${paths[0]}/${paths[1]}` : paths[0];
-          acc[dep] = 'latest';
-        }
+        const dep = paths[0].startsWith('@') ? `${paths[0]}/${paths[1]}` : paths[0];
+        acc[dep] ??= pkgDependencyList[dep] ?? 'latest';
       }
       return acc;
     },
@@ -277,7 +268,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
       'react@18/umd/react.development.js',
       'react-dom@18/umd/react-dom.development.js',
       'dayjs@1/dayjs.min.js',
-      `antd@${pkg.version}/dist/antd-with-locales.js`,
+      `antd@${pkg.version}/dist/antd-with-locales.min.js`,
       `@ant-design/icons/dist/index.umd.js`,
       'react-router-dom/dist/umd/react-router-dom.production.min.js',
       'react-router/dist/umd/react-router.production.min.js',
@@ -317,7 +308,9 @@ ${parsedSourceCode}
     .trim()
     .replace(new RegExp(`#${asset.id}\\s*`, 'g'), '')
     .replace('</style>', '')
-    .replace('<style>', '');
+    .replace('<style>', '')
+    .replace('```css', '')
+    .replace('```', '');
 
   const indexJsContent = `import React from 'react';
 import { createRoot } from 'react-dom/client';
@@ -331,6 +324,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
     main: 'index.js',
     dependencies: {
       ...dependencies,
+      'rc-util': pkgDependencyList['rc-util'],
       react: '^18.0.0',
       'react-dom': '^18.0.0',
       'react-scripts': '^5.0.0',
@@ -386,169 +380,204 @@ createRoot(document.getElementById('container')).render(<Demo />);
 
   const codeBox: React.ReactNode = (
     <section className={codeBoxClass} id={asset.id}>
-      <section className="code-box-demo" style={codeBoxDemoStyle}>
-        <ErrorBoundary>
-          <React.StrictMode>{liveDemo.current}</React.StrictMode>
-        </ErrorBoundary>
-        {style ? <style dangerouslySetInnerHTML={{ __html: style }} /> : null}
+      <section className="code-box-demo" style={codeBoxDemoStyle} ref={demoContainer}>
+        {liveDemoNode || (
+          <ErrorBoundary>
+            <React.StrictMode>{previewDemo.current}</React.StrictMode>
+          </ErrorBoundary>
+        )}
       </section>
-      <section className="code-box-meta markdown">
-        <div className="code-box-title">
-          <Tooltip title={originDebug ? <FormattedMessage id="app.demo.debug" /> : ''}>
-            <a href={`#${asset.id}`} ref={anchorRef}>
-              {localizedTitle}
-            </a>
-          </Tooltip>
-          <EditButton title={<FormattedMessage id="app.content.edit-demo" />} filename={filename} />
-        </div>
-        <div className="code-box-description">{introChildren}</div>
-        <Space wrap size="middle" className="code-box-actions">
-          {showOnlineUrl && (
-            <Tooltip title={<FormattedMessage id="app.demo.online" />}>
-              <a
-                className="code-box-code-action"
-                target="_blank"
-                rel="noreferrer"
-                href={docsOnlineUrl}
-              >
-                <LinkOutlined className="code-box-online" />
+      {!simplify && (
+        <section className="code-box-meta markdown">
+          <div className="code-box-title">
+            <Tooltip title={originDebug ? <FormattedMessage id="app.demo.debug" /> : ''}>
+              <a href={`#${asset.id}`} ref={anchorRef}>
+                {localizedTitle}
               </a>
             </Tooltip>
+            <EditButton
+              title={<FormattedMessage id="app.content.edit-demo" />}
+              filename={filename}
+            />
+          </div>
+          {description && (
+            <div
+              className="code-box-description"
+              // biome-ignore lint/security/noDangerouslySetInnerHtml: it's for markdown
+              dangerouslySetInnerHTML={{ __html: description }}
+            />
           )}
-          {showRiddleButton ? (
+          <Flex wrap gap="middle" className="code-box-actions">
+            {showOnlineUrl && (
+              <Tooltip title={<FormattedMessage id="app.demo.online" />}>
+                <a
+                  className="code-box-code-action"
+                  target="_blank"
+                  rel="noreferrer"
+                  href={docsOnlineUrl}
+                >
+                  <LinkOutlined aria-label="open in new tab" className="code-box-online" />
+                </a>
+              </Tooltip>
+            )}
             <form
               className="code-box-code-action"
-              action="//riddle.alibaba-inc.com/riddles/define"
+              action="https://codesandbox.io/api/v1/sandboxes/define"
               method="POST"
               target="_blank"
-              ref={riddleIconRef}
+              ref={codeSandboxIconRef}
               onClick={() => {
-                track({ type: 'riddle', demo: asset.id });
-                riddleIconRef.current?.submit();
+                track({ type: 'codesandbox', demo: asset.id });
+                codeSandboxIconRef.current?.submit();
               }}
             >
-              <input type="hidden" name="data" value={JSON.stringify(riddlePrefillConfig)} />
-              <Tooltip title={<FormattedMessage id="app.demo.riddle" />}>
-                <RiddleIcon className="code-box-riddle" />
+              <input
+                type="hidden"
+                name="parameters"
+                value={compress(JSON.stringify(codesanboxPrefillConfig))}
+              />
+              <Tooltip title={<FormattedMessage id="app.demo.codesandbox" />}>
+                <CodeSandboxIcon className="code-box-codesandbox" />
               </Tooltip>
             </form>
-          ) : null}
-          <form
-            className="code-box-code-action"
-            action="https://codesandbox.io/api/v1/sandboxes/define"
-            method="POST"
-            target="_blank"
-            ref={codeSandboxIconRef}
-            onClick={() => {
-              track({ type: 'codesandbox', demo: asset.id });
-              codeSandboxIconRef.current?.submit();
-            }}
-          >
-            <input
-              type="hidden"
-              name="parameters"
-              value={compress(JSON.stringify(codesanboxPrefillConfig))}
-            />
-            <Tooltip title={<FormattedMessage id="app.demo.codesandbox" />}>
-              <CodeSandboxIcon className="code-box-codesandbox" />
+            {showRiddleButton ? (
+              <form
+                className="code-box-code-action"
+                action="//riddle.alibaba-inc.com/riddles/define"
+                method="POST"
+                target="_blank"
+                ref={riddleIconRef}
+                onClick={() => {
+                  track({ type: 'riddle', demo: asset.id });
+                  riddleIconRef.current?.submit();
+                }}
+              >
+                <input type="hidden" name="data" value={JSON.stringify(riddlePrefillConfig)} />
+                <Tooltip title={<FormattedMessage id="app.demo.riddle" />}>
+                  <RiddleIcon className="code-box-riddle" />
+                </Tooltip>
+              </form>
+            ) : null}
+            <Tooltip title={<FormattedMessage id="app.demo.stackblitz" />}>
+              <span
+                className="code-box-code-action"
+                onClick={() => {
+                  track({ type: 'stackblitz', demo: asset.id });
+                  stackblitzSdk.openProject(stackblitzPrefillConfig, {
+                    openFile: [`demo.${suffix}`],
+                  });
+                }}
+              >
+                <ThunderboltOutlined
+                  className="code-box-stackblitz"
+                  style={{ transform: 'scale(1.2)' }}
+                />
+              </span>
             </Tooltip>
-          </form>
-          <form
-            className="code-box-code-action"
-            action="https://codepen.io/pen/define"
-            method="POST"
-            target="_blank"
-            ref={codepenIconRef}
-            onClick={() => {
-              track({ type: 'codepen', demo: asset.id });
-              codepenIconRef.current?.submit();
-            }}
-          >
-            <ClientOnly>
-              <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
-            </ClientOnly>
-            <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
-              <CodePenIcon className="code-box-codepen" />
-            </Tooltip>
-          </form>
-          <Tooltip title={<FormattedMessage id="app.demo.stackblitz" />}>
-            <span
+            <form
               className="code-box-code-action"
+              action="https://codepen.io/pen/define"
+              method="POST"
+              target="_blank"
+              ref={codepenIconRef}
               onClick={() => {
-                track({ type: 'stackblitz', demo: asset.id });
-                stackblitzSdk.openProject(stackblitzPrefillConfig, {
-                  openFile: [`demo.${suffix}`],
-                });
+                track({ type: 'codepen', demo: asset.id });
+                codepenIconRef.current?.submit();
               }}
             >
-              <ThunderboltOutlined className="code-box-stackblitz" />
-            </span>
-          </Tooltip>
-          <CopyToClipboard text={entryCode} onCopy={() => handleCodeCopied(asset.id)}>
-            <Tooltip
-              open={copyTooltipOpen as boolean}
-              onOpenChange={onCopyTooltipOpenChange}
-              title={<FormattedMessage id={`app.demo.${copied ? 'copied' : 'copy'}`} />}
-            >
-              {React.createElement(copied && copyTooltipOpen ? CheckOutlined : SnippetsOutlined, {
-                className: 'code-box-code-copy code-box-code-action',
-              })}
+              <ClientOnly>
+                <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
+              </ClientOnly>
+              <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
+                <CodePenIcon className="code-box-codepen" />
+              </Tooltip>
+            </form>
+            <Tooltip title={<FormattedMessage id="app.demo.separate" />}>
+              <a
+                className="code-box-code-action"
+                aria-label="open in new tab"
+                target="_blank"
+                rel="noreferrer"
+                href={demoUrl}
+              >
+                <ExternalLinkIcon className="code-box-separate" />
+              </a>
             </Tooltip>
-          </CopyToClipboard>
-          <Tooltip title={<FormattedMessage id="app.demo.separate" />}>
-            <a className="code-box-code-action" target="_blank" rel="noreferrer" href={demoUrl}>
-              <ExternalLinkIcon className="code-box-separate" />
-            </a>
-          </Tooltip>
-
-          <Tooltip
-            title={<FormattedMessage id={`app.demo.code.${codeExpand ? 'hide' : 'show'}`} />}
+            <Tooltip
+              title={<FormattedMessage id={`app.demo.code.${codeExpand ? 'hide' : 'show'}`} />}
+            >
+              <div className="code-expand-icon code-box-code-action">
+                <img
+                  alt="expand code"
+                  src={
+                    theme?.includes('dark')
+                      ? 'https://gw.alipayobjects.com/zos/antfincdn/btT3qDZn1U/wSAkBuJFbdxsosKKpqyq.svg'
+                      : 'https://gw.alipayobjects.com/zos/antfincdn/Z5c7kzvi30/expand.svg'
+                  }
+                  className={codeExpand ? 'code-expand-icon-hide' : 'code-expand-icon-show'}
+                  onClick={() => handleCodeExpand(asset.id)}
+                />
+                <img
+                  alt="expand code"
+                  src={
+                    theme?.includes('dark')
+                      ? 'https://gw.alipayobjects.com/zos/antfincdn/CjZPwcKUG3/OpROPHYqWmrMDBFMZtKF.svg'
+                      : 'https://gw.alipayobjects.com/zos/antfincdn/4zAaozCvUH/unexpand.svg'
+                  }
+                  className={codeExpand ? 'code-expand-icon-show' : 'code-expand-icon-hide'}
+                  onClick={() => handleCodeExpand(asset.id)}
+                />
+              </div>
+            </Tooltip>
+          </Flex>
+        </section>
+      )}
+      {codeExpand && (
+        <section className={highlightClass} key="code">
+          <CodePreview
+            sourceCode={entryCode}
+            jsxCode={jsx}
+            styleCode={style}
+            error={liveDemoError}
+            entryName={entryName}
+            onSourceChange={setLiveDemoSource}
+          />
+          <div
+            tabIndex={0}
+            role="button"
+            className={styles.codeHideBtn}
+            onClick={() => setCodeExpand(false)}
           >
-            <div className="code-expand-icon code-box-code-action">
-              <img
-                alt="expand code"
-                src={
-                  theme?.includes('dark')
-                    ? 'https://gw.alipayobjects.com/zos/antfincdn/btT3qDZn1U/wSAkBuJFbdxsosKKpqyq.svg'
-                    : 'https://gw.alipayobjects.com/zos/antfincdn/Z5c7kzvi30/expand.svg'
-                }
-                className={codeExpand ? 'code-expand-icon-hide' : 'code-expand-icon-show'}
-                onClick={() => handleCodeExpand(asset.id)}
-              />
-              <img
-                alt="expand code"
-                src={
-                  theme?.includes('dark')
-                    ? 'https://gw.alipayobjects.com/zos/antfincdn/CjZPwcKUG3/OpROPHYqWmrMDBFMZtKF.svg'
-                    : 'https://gw.alipayobjects.com/zos/antfincdn/4zAaozCvUH/unexpand.svg'
-                }
-                className={codeExpand ? 'code-expand-icon-show' : 'code-expand-icon-hide'}
-                onClick={() => handleCodeExpand(asset.id)}
-              />
-            </div>
-          </Tooltip>
-        </Space>
-      </section>
-      <section className={highlightClass} key="code">
-        <CodePreview
-          codes={highlightedCodes}
-          toReactComponent={toReactComponent}
-          onCodeTypeChange={(type) => setCodeType(type)}
-        />
-        {highlightedStyle ? (
-          <div key="style" className="highlight">
-            <pre>
-              <code className="css" dangerouslySetInnerHTML={{ __html: highlightedStyle }} />
-            </pre>
+            <UpOutlined />
+            <FormattedMessage id="app.demo.code.hide.simplify" />
           </div>
-        ) : null}
-      </section>
+        </section>
+      )}
     </section>
   );
 
+  useEffect(() => {
+    // In Safari, if style tag be inserted into non-head tag,
+    // it will affect the rendering ability of the browser,
+    // resulting in some response delays like following issue:
+    // https://github.com/ant-design/ant-design/issues/39995
+    // So we insert style tag into head tag.
+    if (!style) {
+      return;
+    }
+    const styleTag = document.createElement('style') as HTMLStyleElement;
+    styleTag.type = 'text/css';
+    styleTag.innerHTML = style;
+    (styleTag as any)['data-demo-url'] = demoUrl;
+    document.head.appendChild(styleTag);
+    return () => {
+      document.head.removeChild(styleTag);
+    };
+  }, [style, demoUrl]);
+
   if (version) {
     return (
-      <Badge.Ribbon text={version} color={version.includes('<') ? 'red' : null}>
+      <Badge.Ribbon text={version} color={version.includes('<') ? 'red' : undefined}>
         {codeBox}
       </Badge.Ribbon>
     );

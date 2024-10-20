@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import type { TableProps } from 'antd';
 
 interface DataType {
   key: string;
@@ -13,7 +13,7 @@ interface DataType {
 
 // In the fifth row, other columns are merged into first column
 // by setting it's colSpan to be 0
-const sharedOnCell = (_: DataType, index: number) => {
+const sharedOnCell = (_: DataType, index?: number) => {
   if (index === 1) {
     return { colSpan: 0 };
   }
@@ -21,7 +21,7 @@ const sharedOnCell = (_: DataType, index: number) => {
   return {};
 };
 
-const columns: ColumnsType<DataType> = [
+const columns: TableProps<DataType>['columns'] = [
   {
     title: 'RowHead',
     dataIndex: 'key',
@@ -115,6 +115,6 @@ const data: DataType[] = [
   },
 ];
 
-const App: React.FC = () => <Table columns={columns} dataSource={data} bordered />;
+const App: React.FC = () => <Table<DataType> columns={columns} dataSource={data} bordered />;
 
 export default App;

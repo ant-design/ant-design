@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import type { GetProp, TableProps } from 'antd';
 import { Table } from 'antd';
-import type { ColumnsType, TablePaginationConfig } from 'antd/es/table';
-import type { FilterValue, SorterResult } from 'antd/es/table/interface';
+import type { SorterResult } from 'antd/es/table/interface';
 import qs from 'qs';
+
+type ColumnsType<T extends object = object> = TableProps<T>['columns'];
+type TablePaginationConfig = Exclude<GetProp<TableProps, 'pagination'>, boolean>;
 
 interface DataType {
   name: {
@@ -18,9 +21,9 @@ interface DataType {
 
 interface TableParams {
   pagination?: TablePaginationConfig;
-  sortField?: string;
-  sortOrder?: string;
-  filters?: Record<string, FilterValue>;
+  sortField?: SorterResult<any>['field'];
+  sortOrder?: SorterResult<any>['order'];
+  filters?: Parameters<GetProp<TableProps, 'onChange'>>[1];
 }
 
 const columns: ColumnsType<DataType> = [
@@ -81,19 +84,20 @@ const App: React.FC = () => {
       });
   };
 
-  useEffect(() => {
-    fetchData();
-  }, [JSON.stringify(tableParams)]);
+  useEffect(fetchData, [
+    tableParams.pagination?.current,
+    tableParams.pagination?.pageSize,
+    tableParams?.sortOrder,
+    tableParams?.sortField,
+    JSON.stringify(tableParams.filters),
+  ]);
 
-  const handleTableChange = (
-    pagination: TablePaginationConfig,
-    filters: Record<string, FilterValue>,
-    sorter: SorterResult<DataType>,
-  ) => {
+  const handleTableChange: TableProps<DataType>['onChange'] = (pagination, filters, sorter) => {
     setTableParams({
       pagination,
       filters,
-      ...sorter,
+      sortOrder: Array.isArray(sorter) ? undefined : sorter.order,
+      sortField: Array.isArray(sorter) ? undefined : sorter.field,
     });
 
     // `dataSource` is useless since `pageSize` changed
@@ -103,7 +107,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Table
+    <Table<DataType>
       columns={columns}
       rowKey={(record) => record.login.uuid}
       dataSource={data}

@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { css } from '@emotion/react';
-import { Typography, Carousel } from 'antd';
-import { useCarouselStyle } from '../util';
-import useSiteToken from '../../../../hooks/useSiteToken';
+import { Carousel, Typography } from 'antd';
+import { createStyles, css, useTheme } from 'antd-style';
 
-const useStyle = () => {
-  const { carousel } = useCarouselStyle();
+import { getCarouselStyle } from '../util';
+
+const useStyle = createStyles(() => {
+  const { carousel } = getCarouselStyle();
   return {
     carousel,
     container: css`
@@ -19,8 +19,11 @@ const useStyle = () => {
       width: 100%;
       text-align: center;
     `,
+    img: css`
+      width: 100%;
+    `,
   };
-};
+});
 
 const mobileImageConfigList = [
   {
@@ -76,15 +79,15 @@ export interface MobileCarouselProps {
   description?: React.ReactNode;
 }
 
-export default function MobileCarousel(props: MobileCarouselProps) {
-  const styles = useStyle();
+const MobileCarousel: React.FC<MobileCarouselProps> = (props) => {
+  const { styles } = useStyle();
   const { id, title, description } = props;
-  const { token } = useSiteToken();
+  const token = useTheme();
   const [currentSlider, setCurrentSlider] = useState<number>(0);
 
   return (
-    <div css={styles.container}>
-      <div css={styles.title}>
+    <div className={styles.container}>
+      <div className={styles.title}>
         <Typography.Title
           id={id}
           level={1}
@@ -107,13 +110,15 @@ export default function MobileCarousel(props: MobileCarouselProps) {
           {description}
         </Typography.Paragraph>
       </div>
-      <Carousel css={styles.carousel} afterChange={setCurrentSlider}>
+      <Carousel className={styles.carousel} afterChange={setCurrentSlider}>
         {mobileImageConfigList.map((item, index) => (
           <div key={index}>
-            <img src={item.imageSrc} alt="" style={{ width: '100%' }} />
+            <img draggable={false} src={item.imageSrc} className={styles.img} alt="carousel" />
           </div>
         ))}
       </Carousel>
     </div>
   );
-}
+};
+
+export default MobileCarousel;

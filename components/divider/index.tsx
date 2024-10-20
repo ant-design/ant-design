@@ -1,8 +1,8 @@
-import classNames from 'classnames';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import warning from '../_util/warning';
+import classNames from 'classnames';
 
+import { devUseWarning } from '../_util/warning';
+import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 
 export interface DividerProps {
@@ -14,12 +14,17 @@ export interface DividerProps {
   rootClassName?: string;
   children?: React.ReactNode;
   dashed?: boolean;
+  /**
+   * @since 5.20.0
+   * @default solid
+   */
+  variant?: 'dashed' | 'dotted' | 'solid';
   style?: React.CSSProperties;
   plain?: boolean;
 }
 
 const Divider: React.FC<DividerProps> = (props) => {
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, divider } = React.useContext(ConfigContext);
 
   const {
     prefixCls: customizePrefixCls,
@@ -30,24 +35,29 @@ const Divider: React.FC<DividerProps> = (props) => {
     rootClassName,
     children,
     dashed,
+    variant = 'solid',
     plain,
+    style,
     ...restProps
   } = props;
   const prefixCls = getPrefixCls('divider', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const orientationPrefix = orientation.length > 0 ? `-${orientation}` : orientation;
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+
   const hasChildren = !!children;
   const hasCustomMarginLeft = orientation === 'left' && orientationMargin != null;
   const hasCustomMarginRight = orientation === 'right' && orientationMargin != null;
   const classString = classNames(
     prefixCls,
+    divider?.className,
     hashId,
+    cssVarCls,
     `${prefixCls}-${type}`,
     {
       [`${prefixCls}-with-text`]: hasChildren,
-      [`${prefixCls}-with-text${orientationPrefix}`]: hasChildren,
+      [`${prefixCls}-with-text-${orientation}`]: hasChildren,
       [`${prefixCls}-dashed`]: !!dashed,
+      [`${prefixCls}-${variant}`]: variant !== 'solid',
       [`${prefixCls}-plain`]: !!plain,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-no-default-orientation-margin-left`]: hasCustomMarginLeft,
@@ -57,22 +67,39 @@ const Divider: React.FC<DividerProps> = (props) => {
     rootClassName,
   );
 
+  const memoizedOrientationMargin = React.useMemo<string | number>(() => {
+    if (typeof orientationMargin === 'number') {
+      return orientationMargin;
+    }
+    if (/^\d+$/.test(orientationMargin!)) {
+      return Number(orientationMargin);
+    }
+    return orientationMargin!;
+  }, [orientationMargin]);
+
   const innerStyle: React.CSSProperties = {
-    ...(hasCustomMarginLeft && { marginLeft: orientationMargin }),
-    ...(hasCustomMarginRight && { marginRight: orientationMargin }),
+    ...(hasCustomMarginLeft && { marginLeft: memoizedOrientationMargin }),
+    ...(hasCustomMarginRight && { marginRight: memoizedOrientationMargin }),
   };
 
   // Warning children not work in vertical mode
   if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Divider');
+
     warning(
       !children || type !== 'vertical',
-      'Divider',
+      'usage',
       '`children` not working in `vertical` mode.',
     );
   }
 
-  return wrapSSR(
-    <div className={classString} {...restProps} role="separator">
+  return wrapCSSVar(
+    <div
+      className={classString}
+      style={{ ...divider?.style, ...style }}
+      {...restProps}
+      role="separator"
+    >
       {children && type !== 'vertical' && (
         <span className={`${prefixCls}-inner-text`} style={innerStyle}>
           {children}

@@ -1,9 +1,10 @@
 import React from 'react';
+
+import { resetWarned } from '../../_util/warning';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
-import { resetWarned } from '../../_util/warning';
 import type { ItemType } from '../Breadcrumb';
 import Breadcrumb from '../index';
 
@@ -361,5 +362,42 @@ describe('Breadcrumb', () => {
 
   it('Breadcrumb.Item menu type', () => {
     expect(<Breadcrumb.Item menu={{ selectable: true }} />).toBeTruthy();
+  });
+
+  it('dropdownProps in items should be worked', () => {
+    render(
+      <Breadcrumb
+        items={[
+          {
+            title: 'test',
+            menu: {
+              items: [
+                {
+                  key: '1',
+                  label: 'label',
+                },
+              ],
+            },
+            dropdownProps: { open: true },
+          },
+        ]}
+      />,
+    );
+    expect(document.querySelector('.ant-dropdown')).toBeTruthy();
+  });
+
+  it('Breadcrumb params type test', () => {
+    interface Params {
+      key1?: number;
+      key2?: string;
+    }
+    expect(
+      <Breadcrumb<Params>
+        params={{
+          key1: 1,
+          key2: 'test',
+        }}
+      />,
+    ).toBeTruthy();
   });
 });

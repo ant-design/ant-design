@@ -43,10 +43,7 @@ const App: React.FC = () => {
       <Modal
         title={
           <div
-            style={{
-              width: '100%',
-              cursor: 'move',
-            }}
+            style={{ width: '100%', cursor: 'move' }}
             onMouseOver={() => {
               if (disabled) {
                 setDisabled(false);
@@ -71,6 +68,7 @@ const App: React.FC = () => {
           <Draggable
             disabled={disabled}
             bounds={bounds}
+            nodeRef={draggleRef}
             onStart={(event, uiData) => onStart(event, uiData)}
           >
             <div ref={draggleRef}>{modal}</div>

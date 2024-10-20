@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import type { TableColumnsType } from 'antd';
 import type { ResizeCallbackData } from 'react-resizable';
 import { Resizable } from 'react-resizable';
 
@@ -12,12 +12,12 @@ interface DataType {
   note: string;
 }
 
-const ResizableTitle = (
-  props: React.HTMLAttributes<any> & {
-    onResize: (e: React.SyntheticEvent<Element>, data: ResizeCallbackData) => void;
-    width: number;
-  },
-) => {
+interface TitlePropsType {
+  width: number;
+  onResize: (e: React.SyntheticEvent<Element>, data: ResizeCallbackData) => void;
+}
+
+const ResizableTitle: React.FC<Readonly<React.HTMLAttributes<any> & TitlePropsType>> = (props) => {
   const { onResize, width, ...restProps } = props;
 
   if (!width) {
@@ -28,14 +28,7 @@ const ResizableTitle = (
     <Resizable
       width={width}
       height={0}
-      handle={
-        <span
-          className="react-resizable-handle"
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
-        />
-      }
+      handle={<span className="react-resizable-handle" onClick={(e) => e.stopPropagation()} />}
       onResize={onResize}
       draggableOpts={{ enableUserSelectHack: false }}
     >
@@ -44,8 +37,32 @@ const ResizableTitle = (
   );
 };
 
+const data: DataType[] = [
+  {
+    key: 0,
+    date: '2018-02-11',
+    amount: 120,
+    type: 'income',
+    note: 'transfer',
+  },
+  {
+    key: 1,
+    date: '2018-03-11',
+    amount: 243,
+    type: 'income',
+    note: 'transfer',
+  },
+  {
+    key: 2,
+    date: '2018-04-11',
+    amount: 98,
+    type: 'income',
+    note: 'transfer',
+  },
+];
+
 const App: React.FC = () => {
-  const [columns, setColumns] = useState<ColumnsType<DataType>>([
+  const [columns, setColumns] = useState<TableColumnsType<DataType>>([
     {
       title: 'Date',
       dataIndex: 'date',
@@ -73,32 +90,10 @@ const App: React.FC = () => {
       render: () => <a>Delete</a>,
     },
   ]);
-  const data: DataType[] = [
-    {
-      key: 0,
-      date: '2018-02-11',
-      amount: 120,
-      type: 'income',
-      note: 'transfer',
-    },
-    {
-      key: 1,
-      date: '2018-03-11',
-      amount: 243,
-      type: 'income',
-      note: 'transfer',
-    },
-    {
-      key: 2,
-      date: '2018-04-11',
-      amount: 98,
-      type: 'income',
-      note: 'transfer',
-    },
-  ];
 
-  const handleResize: Function =
-    (index: number) => (_: React.SyntheticEvent<Element>, { size }: ResizeCallbackData) => {
+  const handleResize =
+    (index: number) =>
+    (_: React.SyntheticEvent<Element>, { size }: ResizeCallbackData) => {
       const newColumns = [...columns];
       newColumns[index] = {
         ...newColumns[index],
@@ -107,23 +102,19 @@ const App: React.FC = () => {
       setColumns(newColumns);
     };
 
-  const mergeColumns: ColumnsType<DataType> = columns.map((col, index) => ({
+  const mergedColumns = columns.map<TableColumnsType<DataType>[number]>((col, index) => ({
     ...col,
-    onHeaderCell: (column: ColumnsType<DataType>[number]) => ({
+    onHeaderCell: (column: TableColumnsType<DataType>[number]) => ({
       width: column.width,
       onResize: handleResize(index) as React.ReactEventHandler<any>,
     }),
   }));
 
   return (
-    <Table
+    <Table<DataType>
       bordered
-      components={{
-        header: {
-          cell: ResizableTitle,
-        },
-      }}
-      columns={mergeColumns}
+      components={{ header: { cell: ResizableTitle } }}
+      columns={mergedColumns}
       dataSource={data}
     />
   );

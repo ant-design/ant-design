@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
+
 import type { ModalProps } from '..';
 import Modal from '..';
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
-import { resetWarned } from '../../_util/warning';
+import { createEvent, fireEvent, render } from '../../../tests/utils';
 
 jest.mock('rc-util/lib/Portal');
 
@@ -31,6 +32,18 @@ describe('Modal', () => {
   it('support closeIcon', () => {
     render(<Modal closeIcon={<a>closeIcon</a>} open />);
     expect(document.body.querySelectorAll('.ant-modal-root')[0]).toMatchSnapshot();
+  });
+
+  it('support hide close button when setting closeIcon to null or false', () => {
+    const { baseElement, rerender } = render(<Modal closeIcon={null} open />);
+    expect(baseElement.querySelector('.ant-modal-close')).toBeFalsy();
+    rerender(<Modal closeIcon={false} open />);
+    expect(baseElement.querySelector('.ant-modal-close')).toBeFalsy();
+  });
+
+  it('support disable close button when setting disable to true', () => {
+    const { baseElement } = render(<Modal open closable={{ disabled: true }} />);
+    expect(baseElement.querySelector('.ant-modal-close')).toHaveAttribute('disabled');
   });
 
   it('render correctly', () => {
@@ -78,7 +91,12 @@ describe('Modal', () => {
       );
     };
     const { container } = render(<Demo />);
-    fireEvent.click(container.querySelectorAll('#trigger')[0]);
+    const triggerEle = container.querySelectorAll('#trigger')[0];
+    const clickEvent = createEvent.click(triggerEle) as any;
+    clickEvent.pageX = 100;
+    clickEvent.pageY = 100;
+    fireEvent(triggerEle, clickEvent);
+
     expect(
       (container.querySelectorAll('.ant-modal')[0] as HTMLDivElement).style.transformOrigin,
     ).toBeTruthy();
@@ -109,7 +127,7 @@ describe('Modal', () => {
 
     render(<Modal visible />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Modal] `visible` is deprecated, please use `open` instead.',
+      'Warning: [antd: Modal] `visible` is deprecated. Please use `open` instead.',
     );
 
     expect(document.querySelector('.ant-modal')).toBeTruthy();
@@ -125,5 +143,53 @@ describe('Modal', () => {
   it('should render custom footer', () => {
     render(<Modal open footer={<div className="custom-footer">footer</div>} />);
     expect(document.querySelector('.custom-footer')).toBeTruthy();
+  });
+
+  it('Should custom footer function second param work', () => {
+    const footerFn = jest.fn();
+    render(<Modal open footer={footerFn} />);
+
+    expect(footerFn).toHaveBeenCalled();
+    expect(footerFn.mock.calls[0][0]).toBeTruthy();
+    expect(footerFn.mock.calls[0][1]).toEqual({
+      OkBtn: expect.any(Function),
+      CancelBtn: expect.any(Function),
+    });
+  });
+
+  it('Should custom footer function work', () => {
+    render(
+      <Modal
+        open
+        footer={(_, { OkBtn, CancelBtn }) => (
+          <>
+            <OkBtn />
+            <CancelBtn />
+            <div className="custom-footer-ele">footer-ele</div>
+          </>
+        )}
+      />,
+    );
+    expect(document.querySelector('.custom-footer-ele')).toBeTruthy();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/
+  it('Both ways should be rendered normally on the page', () => {
+    render(
+      <Modal
+        open
+        footer={(origin, { OkBtn, CancelBtn }) => (
+          <>
+            <div className="first-origin">{origin}</div>
+            <div className="second-props-origin">
+              <OkBtn />
+              <CancelBtn />
+            </div>
+          </>
+        )}
+      />,
+    );
+    expect(document.querySelector('.first-origin')).toMatchSnapshot();
+    expect(document.querySelector('.second-props-origin')).toMatchSnapshot();
   });
 });

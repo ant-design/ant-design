@@ -2,13 +2,12 @@
 category: Components
 group: Data Display
 title: Tree
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Ag9_Q6ArswEAAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*1GeUQJPTGUYAAAAAAAAAAAAADrJ8AQ/original
+description: Multiple-level structure list.
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*zYIWT52S4UMAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*_9MMRpWoOcYAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-A hierarchical list structure component.
 
 ## When To Use
 
@@ -30,8 +29,12 @@ Almost anything can be represented in a tree structure. Examples include directo
 <code src="./demo/drag-debug.tsx" debug>Drag Debug</code>
 <code src="./demo/big-data.tsx" debug>Big data</code>
 <code src="./demo/block-node.tsx">Block Node</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
+<code src="./demo/multiple-line.tsx" debug>Multiple lines</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ### Tree props
 
@@ -54,31 +57,31 @@ Almost anything can be represented in a tree structure. Examples include directo
 | fieldNames | Customize node title, key, children field name | object | { title: `title`, key: `key`, children: `children` } | 4.17.0 |
 | filterTreeNode | Defines a function to filter (highlight) treeNodes. When the function returns `true`, the corresponding treeNode will be highlighted | function(node) | - |  |
 | height | Config virtual scroll height. Will not support horizontal scroll when enable this | number | - |  |
-| icon | Customize treeNode icon | ReactNode \| (props) => ReactNode | - |  |
+| icon | Insert a custom icon before the title. Need to set `showIcon` to true | ReactNode \| (props) => ReactNode | - |  |
 | loadData | Load data asynchronously | function(node) | - |  |
 | loadedKeys | (Controlled) Set loaded tree nodes. Need work with `loadData` | string\[] | \[] |  |
 | multiple | Allows selecting multiple treeNodes | boolean | false |  |
-| rootClassName | ClassName on the root element | string | - | 4.20.0 |
 | rootStyle | Style on the root element | CSSProperties | - | 4.20.0 |
 | selectable | Whether can be selected | boolean | true |  |
-| selectedKeys | (Controlled) Specifies the keys of the selected treeNodes | string\[] | - |  |
-| showIcon | Shows the icon before a TreeNode's title. There is no default style; you must set a custom style for it if set to true | boolean | false |  |
-| showLine | Shows a connecting line | boolean \| {showLeafIcon: boolean \| ReactNode \| ((props: AntTreeNodeProps) => ReactNode)} | false |  |
-| switcherIcon | Customize collapse/expand icon of tree node | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 |
+| selectedKeys | (Controlled) Specifies the keys of the selected treeNodes, multiple selection needs to set `multiple` to true | string\[] | - |  |
+| showIcon | Controls whether to display the `icon` node, no default style | boolean | false |  |
+| showLine | Shows a connecting line | boolean \| {showLeafIcon: ReactNode \| ((props: AntTreeNodeProps) => ReactNode)} | false |  |
+| switcherIcon | Customize expand/collapse icons for tree nodes (With default rotate angular style) | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 |
+| switcherLoadingIcon | Customize loading icons for tree nodes | ReactNode | - | 5.20.0 |
 | titleRender | Customize tree node title render | (nodeData) => ReactNode | - | 4.5.0 |
 | treeData | The treeNodes data Array, if set it then you need not to construct children TreeNode. (key should be unique across the whole array) | array&lt;{ key, title, children, \[disabled, selectable] }> | - |  |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
-| onCheck | Callback function for when the onCheck event occurs | function(checkedKeys, e:{checked: bool, checkedNodes, node, event, halfCheckedKeys}) | - |  |
+| onCheck | Callback function for when the onCheck event occurs | function(checkedKeys, e:{checked: boolean, checkedNodes, node, event, halfCheckedKeys}) | - |  |
 | onDragEnd | Callback function for when the onDragEnd event occurs | function({event, node}) | - |  |
 | onDragEnter | Callback function for when the onDragEnter event occurs | function({event, node, expandedKeys}) | - |  |
 | onDragLeave | Callback function for when the onDragLeave event occurs | function({event, node}) | - |  |
 | onDragOver | Callback function for when the onDragOver event occurs | function({event, node}) | - |  |
 | onDragStart | Callback function for when the onDragStart event occurs | function({event, node}) | - |  |
 | onDrop | Callback function for when the onDrop event occurs | function({event, node, dragNode, dragNodesKeys}) | - |  |
-| onExpand | Callback function for when a treeNode is expanded or collapsed | function(expandedKeys, {expanded: bool, node}) | - |  |
+| onExpand | Callback function for when a treeNode is expanded or collapsed | function(expandedKeys, {expanded: boolean, node}) | - |  |
 | onLoad | Callback function for when a treeNode is loaded | function(loadedKeys, {event, node}) | - |  |
 | onRightClick | Callback function for when the user right clicks a treeNode | function({event, node}) | - |  |
-| onSelect | Callback function for when the user clicks a treeNode | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - |  |
+| onSelect | Callback function for when the user clicks a treeNode | function(selectedKeys, e:{selected: boolean, selectedNodes, node, event}) | - |  |
 
 ### TreeNode props
 
@@ -125,13 +128,9 @@ Before `3.4.0`: The number of treeNodes can be very large, but when `checkable=t
 
 ## Design Token
 
-<ComponentTokenTable component="Transfer"></ComponentTokenTable>
+<ComponentTokenTable component="Tree"></ComponentTokenTable>
 
 ## FAQ
-
-### How to hide file icon when use showLine?
-
-File icon realize by using switcherIcon. You can overwrite the style to hide it: <https://codesandbox.io/s/883vo47xp8>
 
 ### Why defaultExpandAll not working on ajax data?
 

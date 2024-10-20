@@ -13,6 +13,9 @@ exports[`renders components/empty/demo/basic.tsx extend context correctly 1`] = 
       width="184"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        empty image
+      </title>
       <g
         fill="none"
         fill-rule="evenodd"
@@ -75,6 +78,8 @@ exports[`renders components/empty/demo/basic.tsx extend context correctly 1`] = 
 </div>
 `;
 
+exports[`renders components/empty/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/empty/demo/config-provider.tsx extend context correctly 1`] = `
 Array [
   <button
@@ -106,12 +111,11 @@ Array [
     role="separator"
   />,
   <div
-    class="ant-space ant-space-vertical"
+    class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
     style="width: 100%;"
   >
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
     >
       <h4>
         Select
@@ -119,10 +123,9 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
     >
       <div
-        class="ant-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
         style="width: 200px;"
       >
         <div
@@ -132,7 +135,6 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -155,7 +157,7 @@ Array [
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-          style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
             <div
@@ -223,7 +225,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
     >
       <h4>
         TreeSelect
@@ -231,10 +232,9 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
     >
       <div
-        class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
         style="width: 200px;"
       >
         <div
@@ -266,7 +266,7 @@ Array [
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-          style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
             <div
@@ -333,7 +333,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
     >
       <h4>
         Cascader
@@ -341,10 +340,9 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
     >
       <div
-        class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
         style="width: 200px;"
       >
         <div
@@ -373,7 +371,7 @@ Array [
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-          style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
             <div
@@ -455,7 +453,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
     >
       <h4>
         Transfer
@@ -463,7 +460,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
     >
       <div
         class="ant-transfer"
@@ -478,7 +474,7 @@ Array [
               class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
             >
               <span
-                class="ant-checkbox ant-checkbox-disabled"
+                class="ant-checkbox ant-wave-target ant-checkbox-disabled"
               >
                 <input
                   class="ant-checkbox-input"
@@ -509,116 +505,79 @@ Array [
                 />
               </svg>
             </span>
-            <div>
-              <div
-                class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-                style="opacity: 0;"
+            <div
+              class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <ul
+                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                data-menu-list="true"
+                role="menu"
+                tabindex="0"
               >
-                <ul
-                  class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-                  data-menu-list="true"
-                  role="menu"
-                  tabindex="0"
+                <li
+                  class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-selectAll"
+                  role="menuitem"
+                  tabindex="-1"
                 >
-                  <li
-                    class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-test-selectAll"
-                    role="menuitem"
-                    tabindex="-1"
+                  <span
+                    class="ant-dropdown-menu-title-content"
                   >
-                    <span
-                      class="ant-dropdown-menu-title-content"
-                    >
-                      Select all data
-                    </span>
-                  </li>
-                  <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    />
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
-                  </div>
-                  <li
-                    class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-test-selectInvert"
-                    role="menuitem"
-                    tabindex="-1"
-                  >
-                    <span
-                      class="ant-dropdown-menu-title-content"
-                    >
-                      Invert current page
-                    </span>
-                  </li>
-                  <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    />
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
-                  </div>
-                </ul>
+                    Select all data
+                  </span>
+                </li>
                 <div
-                  aria-hidden="true"
-                  style="display: none;"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    />
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
-                  </div>
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                    class="ant-tooltip-content"
                   >
                     <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
+                      class="ant-tooltip-inner"
+                      role="tooltip"
                     />
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
                   </div>
                 </div>
-              </div>
+                <li
+                  class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-selectInvert"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-dropdown-menu-title-content"
+                  >
+                    Invert current page
+                  </span>
+                </li>
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
+              </ul>
+              <div
+                aria-hidden="true"
+                style="display: none;"
+              />
             </div>
             <span
               class="ant-transfer-list-header-selected"
@@ -669,53 +628,61 @@ Array [
           class="ant-transfer-operation"
         >
           <button
-            class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
             disabled=""
             type="button"
           >
             <span
-              aria-label="right"
-              class="anticon anticon-right"
-              role="img"
+              class="ant-btn-icon"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="right"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
               >
-                <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
             disabled=""
             type="button"
           >
             <span
-              aria-label="left"
-              class="anticon anticon-left"
-              role="img"
+              class="ant-btn-icon"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="left"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="left"
+                class="anticon anticon-left"
+                role="img"
               >
-                <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="left"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  />
+                </svg>
+              </span>
             </span>
           </button>
         </div>
@@ -729,7 +696,7 @@ Array [
               class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
             >
               <span
-                class="ant-checkbox ant-checkbox-disabled"
+                class="ant-checkbox ant-wave-target ant-checkbox-disabled"
               >
                 <input
                   class="ant-checkbox-input"
@@ -760,116 +727,79 @@ Array [
                 />
               </svg>
             </span>
-            <div>
-              <div
-                class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-                style="opacity: 0;"
+            <div
+              class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <ul
+                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                data-menu-list="true"
+                role="menu"
+                tabindex="0"
               >
-                <ul
-                  class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-                  data-menu-list="true"
-                  role="menu"
-                  tabindex="0"
+                <li
+                  class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-selectAll"
+                  role="menuitem"
+                  tabindex="-1"
                 >
-                  <li
-                    class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-test-selectAll"
-                    role="menuitem"
-                    tabindex="-1"
+                  <span
+                    class="ant-dropdown-menu-title-content"
                   >
-                    <span
-                      class="ant-dropdown-menu-title-content"
-                    >
-                      Select all data
-                    </span>
-                  </li>
-                  <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    />
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
-                  </div>
-                  <li
-                    class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                    data-menu-id="rc-menu-uuid-test-selectInvert"
-                    role="menuitem"
-                    tabindex="-1"
-                  >
-                    <span
-                      class="ant-dropdown-menu-title-content"
-                    >
-                      Invert current page
-                    </span>
-                  </li>
-                  <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    />
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
-                  </div>
-                </ul>
+                    Select all data
+                  </span>
+                </li>
                 <div
-                  aria-hidden="true"
-                  style="display: none;"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
-                    />
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
-                  </div>
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
                   <div
-                    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                    class="ant-tooltip-content"
                   >
                     <div
-                      class="ant-tooltip-arrow"
-                      style="position: absolute; top: 0px; left: 0px;"
+                      class="ant-tooltip-inner"
+                      role="tooltip"
                     />
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
                   </div>
                 </div>
-              </div>
+                <li
+                  class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-selectInvert"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-dropdown-menu-title-content"
+                  >
+                    Invert current page
+                  </span>
+                </li>
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
+              </ul>
+              <div
+                aria-hidden="true"
+                style="display: none;"
+              />
             </div>
             <span
               class="ant-transfer-list-header-selected"
@@ -920,7 +850,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
     >
       <h4>
         Table
@@ -928,7 +857,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
     >
       <div
         class="ant-table-wrapper"
@@ -1021,7 +949,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
     >
       <h4>
         List
@@ -1078,6 +1005,8 @@ Array [
 ]
 `;
 
+exports[`renders components/empty/demo/config-provider.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/empty/demo/customize.tsx extend context correctly 1`] = `
 <div
   class="ant-empty"
@@ -1094,8 +1023,10 @@ exports[`renders components/empty/demo/customize.tsx extend context correctly 1`
   <div
     class="ant-empty-description"
   >
-    <span>
-      Customize
+    <span
+      class="ant-typography"
+    >
+      Customize 
       <a
         href="#API"
       >
@@ -1107,7 +1038,7 @@ exports[`renders components/empty/demo/customize.tsx extend context correctly 1`
     class="ant-empty-footer"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -1117,6 +1048,8 @@ exports[`renders components/empty/demo/customize.tsx extend context correctly 1`
   </div>
 </div>
 `;
+
+exports[`renders components/empty/demo/customize.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/empty/demo/description.tsx extend context correctly 1`] = `
 <div
@@ -1131,6 +1064,9 @@ exports[`renders components/empty/demo/description.tsx extend context correctly 
       width="184"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        empty image
+      </title>
       <g
         fill="none"
         fill-rule="evenodd"
@@ -1188,6 +1124,8 @@ exports[`renders components/empty/demo/description.tsx extend context correctly 
 </div>
 `;
 
+exports[`renders components/empty/demo/description.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/empty/demo/simple.tsx extend context correctly 1`] = `
 <div
   class="ant-empty ant-empty-normal"
@@ -1201,6 +1139,9 @@ exports[`renders components/empty/demo/simple.tsx extend context correctly 1`] =
       width="64"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>
+        Simple Empty
+      </title>
       <g
         fill="none"
         fill-rule="evenodd"
@@ -1235,3 +1176,5 @@ exports[`renders components/empty/demo/simple.tsx extend context correctly 1`] =
   </div>
 </div>
 `;
+
+exports[`renders components/empty/demo/simple.tsx extend context correctly 2`] = `[]`;

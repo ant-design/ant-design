@@ -1,76 +1,45 @@
-import React, { useMemo, useState } from 'react';
-import { Watermark, Popover, Typography, Form, Input, Slider, Space, InputNumber } from 'antd';
-import { SketchPicker } from 'react-color';
-import type { RGBColor } from 'react-color';
+import React, { useState } from 'react';
+import { ColorPicker, Flex, Form, Input, InputNumber, Slider, Typography, Watermark } from 'antd';
+import type { ColorPickerProps, GetProp, WatermarkProps } from 'antd';
+
+type Color = Extract<GetProp<ColorPickerProps, 'value'>, string | { cleared: any }>;
 
 const { Paragraph } = Typography;
 
-interface ColorPickerProps {
-  value?: RGBColor;
-  onChange?: (value: RGBColor) => void;
+interface WatermarkConfig {
+  content: string;
+  color: string | Color;
+  fontSize: number;
+  zIndex: number;
+  rotate: number;
+  gap: [number, number];
+  offset?: [number, number];
 }
-
-const ColorPicker: React.FC<ColorPickerProps> = ({ value, onChange }) => {
-  const switchStyle = {
-    padding: 4,
-    background: '#fff',
-    borderRadius: 2,
-    border: '1px solid #dedede',
-    display: 'inline-block',
-    cursor: 'pointer',
-  };
-
-  const colorStyle = {
-    width: 36,
-    height: 14,
-    borderRadius: 2,
-    background: `rgba(${value?.r}, ${value?.g}, ${value?.b}, ${value?.a})`,
-  };
-
-  return (
-    <Popover
-      trigger="click"
-      placement="bottomLeft"
-      overlayInnerStyle={{ padding: 0 }}
-      content={<SketchPicker color={value} onChange={(color) => onChange?.(color.rgb)} />}
-    >
-      <div style={switchStyle}>
-        <div style={colorStyle} />
-      </div>
-    </Popover>
-  );
-};
 
 const App: React.FC = () => {
   const [form] = Form.useForm();
-  const [config, setConfig] = useState({
+  const [config, setConfig] = useState<WatermarkConfig>({
     content: 'Ant Design',
-    color: { r: 0, g: 0, b: 0, a: 0.15 },
+    color: 'rgba(0, 0, 0, 0.15)',
     fontSize: 16,
     zIndex: 11,
     rotate: -22,
-    gap: [100, 100] as [number, number],
+    gap: [100, 100],
     offset: undefined,
   });
   const { content, color, fontSize, zIndex, rotate, gap, offset } = config;
 
-  const watermarkProps = useMemo(
-    () => ({
-      content,
-      font: {
-        color: `rgba(${color.r},${color.g},${color.b},${color.a})`,
-        fontSize,
-      },
-      zIndex,
-      rotate,
-      gap,
-      offset,
-    }),
-    [config],
-  );
+  const watermarkProps: WatermarkProps = {
+    content,
+    zIndex,
+    rotate,
+    gap,
+    offset,
+    font: { color: typeof color === 'string' ? color : color.toRgbString(), fontSize },
+  };
 
   return (
-    <div style={{ display: 'flex' }}>
+    <Flex gap="middle">
       <Watermark {...watermarkProps}>
         <Typography>
           <Paragraph>
@@ -98,24 +67,13 @@ const App: React.FC = () => {
           </Paragraph>
         </Typography>
         <img
-          style={{
-            zIndex: 10,
-            width: '100%',
-            maxWidth: 800,
-            position: 'relative',
-          }}
+          style={{ zIndex: 10, width: '100%', maxWidth: 800, position: 'relative' }}
           src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zx7LTI_ECSAAAAAAAAAAAABkARQnAQ"
-          alt="示例图片"
+          alt="img"
         />
       </Watermark>
       <Form
-        style={{
-          width: 280,
-          flexShrink: 0,
-          borderLeft: '1px solid #eee',
-          paddingLeft: 20,
-          marginLeft: 20,
-        }}
+        style={{ width: 280, flexShrink: 0, borderLeft: '1px solid #eee', paddingInlineStart: 16 }}
         form={form}
         layout="vertical"
         initialValues={config}
@@ -130,7 +88,7 @@ const App: React.FC = () => {
           <ColorPicker />
         </Form.Item>
         <Form.Item name="fontSize" label="FontSize">
-          <Slider step={1} min={0} max={100} />
+          <Slider step={1} min={1} max={100} />
         </Form.Item>
         <Form.Item name="zIndex" label="zIndex">
           <Slider step={1} min={0} max={100} />
@@ -139,27 +97,27 @@ const App: React.FC = () => {
           <Slider step={1} min={-180} max={180} />
         </Form.Item>
         <Form.Item label="Gap" style={{ marginBottom: 0 }}>
-          <Space style={{ display: 'flex' }} align="baseline">
+          <Flex gap="small">
             <Form.Item name={['gap', 0]}>
               <InputNumber placeholder="gapX" style={{ width: '100%' }} />
             </Form.Item>
             <Form.Item name={['gap', 1]}>
               <InputNumber placeholder="gapY" style={{ width: '100%' }} />
             </Form.Item>
-          </Space>
+          </Flex>
         </Form.Item>
         <Form.Item label="Offset" style={{ marginBottom: 0 }}>
-          <Space style={{ display: 'flex' }} align="baseline">
+          <Flex gap="small">
             <Form.Item name={['offset', 0]}>
               <InputNumber placeholder="offsetLeft" style={{ width: '100%' }} />
             </Form.Item>
             <Form.Item name={['offset', 1]}>
               <InputNumber placeholder="offsetTop" style={{ width: '100%' }} />
             </Form.Item>
-          </Space>
+          </Flex>
         </Form.Item>
       </Form>
-    </div>
+    </Flex>
   );
 };
 

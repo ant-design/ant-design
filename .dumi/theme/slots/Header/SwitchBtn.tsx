@@ -1,7 +1,7 @@
-import { css } from '@emotion/react';
-import { Tooltip } from 'antd';
 import React from 'react';
-import useSiteToken from '../../../hooks/useSiteToken';
+import { Tooltip } from 'antd';
+import { createStyles } from 'antd-style';
+import classNames from 'classnames';
 
 export interface LangBtnProps {
   label1: React.ReactNode;
@@ -11,13 +11,12 @@ export interface LangBtnProps {
   value: 1 | 2;
   pure?: boolean;
   onClick?: React.MouseEventHandler;
+  'aria-label'?: string;
 }
 
 const BASE_SIZE = '1.2em';
 
-const useStyle = () => {
-  const { token } = useSiteToken();
-
+const useStyle = createStyles(({ token, css }) => {
   const {
     colorText,
     colorBorder,
@@ -70,7 +69,7 @@ const useStyle = () => {
       color: ${colorText};
     `,
     label1Style: css`
-      left: -5%;
+      inset-inline-start: -5%;
       top: 0;
       z-index: 1;
       background-color: ${colorText};
@@ -79,28 +78,40 @@ const useStyle = () => {
       transform-origin: 0 0;
     `,
     label2Style: css`
-      right: -5%;
+      inset-inline-end: -5%;
       bottom: 0;
       z-index: 0;
       transform: scale(0.5);
       transform-origin: 100% 100%;
     `,
   };
-};
+});
 
 const LangBtn: React.FC<LangBtnProps> = (props) => {
   const { label1, label2, tooltip1, tooltip2, value, pure, onClick } = props;
 
-  const { btn, innerDiv, labelStyle, label1Style, label2Style } = useStyle();
+  const {
+    styles: { btn, innerDiv, labelStyle, label1Style, label2Style },
+  } = useStyle();
 
   const node = (
-    <button onClick={onClick} css={btn} key="lang-button">
+    <button
+      type="button"
+      onClick={onClick}
+      className={btn}
+      key="lang-button"
+      aria-label={props['aria-label']}
+    >
       <div className="btn-inner">
         {pure && (value === 1 ? label1 : label2)}
         {!pure && (
-          <div css={innerDiv}>
-            <span css={[labelStyle, value === 1 ? label1Style : label2Style]}>{label1}</span>
-            <span css={[labelStyle, value === 1 ? label2Style : label1Style]}>{label2}</span>
+          <div className={innerDiv}>
+            <span className={classNames(labelStyle, value === 1 ? label1Style : label2Style)}>
+              {label1}
+            </span>
+            <span className={classNames(labelStyle, value === 1 ? label2Style : label1Style)}>
+              {label2}
+            </span>
           </div>
         )}
       </div>

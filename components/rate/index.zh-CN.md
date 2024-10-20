@@ -1,15 +1,14 @@
 ---
 category: Components
-subtitle: 评分
 group: 数据录入
 title: Rate
+subtitle: 评分
+description: 用于对事物进行评分操作。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*oyOcTrB12_YAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*M7_ER7GJr6wAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-评分组件。
 
 ## 何时使用
 
@@ -26,8 +25,11 @@ demo:
 <code src="./demo/clear.tsx">清除</code>
 <code src="./demo/character.tsx">其他字符</code>
 <code src="./demo/character-function.tsx">自定义字符</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -39,6 +41,7 @@ demo:
 | count | star 总数 | number | 5 |  |
 | defaultValue | 默认值 | number | 0 |  |
 | disabled | 只读，无法进行交互 | boolean | false |  |
+| keyboard | 支持使用键盘操作 | boolean | true | 5.18.0 |
 | style | 自定义样式对象 | CSSProperties | - |  |
 | tooltips | 自定义每项的提示信息 | string\[] | - |  |
 | value | 当前数，受控值 | number | - |  |
@@ -55,6 +58,6 @@ demo:
 | blur()  | 移除焦点 |
 | focus() | 获取焦点 |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Rate"></ComponentTokenTable>

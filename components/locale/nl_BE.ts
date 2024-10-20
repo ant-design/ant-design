@@ -1,8 +1,8 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/nl_BE';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/nl_BE';
 import DatePicker from '../date-picker/locale/nl_BE';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/nl_BE';
 
 const typeTemplate = '${label} is geen geldige ${type}';
@@ -32,6 +32,11 @@ const localeValues: Locale = {
     sortTitle: 'Sorteren',
     triggerAsc: 'Klik om oplopend te sorteren',
     triggerDesc: 'Klik om aflopend te sorteren',
+  },
+  Tour: {
+    Next: 'Volgende',
+    Previous: 'Vorige',
+    Finish: 'Voltooien',
   },
   Modal: {
     okText: 'OK',
@@ -72,9 +77,6 @@ const localeValues: Locale = {
     copy: 'kopiëren',
     copied: 'Gekopieerd',
     expand: 'Uitklappen',
-  },
-  PageHeader: {
-    back: 'Terug',
   },
   Form: {
     optional: '(optioneel)',

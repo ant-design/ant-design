@@ -1,10 +1,12 @@
 import React from 'react';
+import type { CascaderProps } from 'antd';
 import { Cascader } from 'antd';
 
 interface Option {
   value: string | number;
   label: string;
   children?: Option[];
+  disableCheckbox?: boolean;
 }
 
 const options: Option[] = [
@@ -26,6 +28,7 @@ const options: Option[] = [
           {
             label: 'Toy Fish',
             value: 'fish',
+            disableCheckbox: true,
           },
           {
             label: 'Toy Cards',
@@ -41,7 +44,7 @@ const options: Option[] = [
   },
 ];
 
-const onChange = (value: string[][]) => {
+const onChange: CascaderProps<Option, 'value', true>['onChange'] = (value) => {
   console.log(value);
 };
 

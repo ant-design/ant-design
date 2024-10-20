@@ -1,9 +1,11 @@
 import React from 'react';
+
 import Steps from '..';
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, screen } from '../../../tests/utils';
-import { resetWarned } from '../../_util/warning';
+import ConfigProvider from '../../config-provider';
 
 describe('Steps', () => {
   mountTest(Steps);
@@ -55,7 +57,6 @@ describe('Steps', () => {
         <Steps
           current={current}
           onChange={(val: number) => {
-            // eslint-disable-next-line no-console
             console.log('Change:', val);
             setCurrent(val);
           }}
@@ -67,7 +68,7 @@ describe('Steps', () => {
     expect(
       container.querySelectorAll('.ant-steps-item')[1].classList.contains('ant-steps-item-process'),
     ).toBe(false);
-    fireEvent.click(screen.getByText(/进行中/i));
+    fireEvent.click(screen.getByText(/进行中/));
     expect(
       container.querySelectorAll('.ant-steps-item')[1].classList.contains('ant-steps-item-process'),
     ).toBe(true);
@@ -102,8 +103,17 @@ describe('Steps', () => {
     expect(container.querySelectorAll('.ant-steps-item')).toHaveLength(1);
 
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Steps] Step is deprecated. Please use `items` directly.',
+      'Warning: [antd: Menu] `Step` is deprecated. Please use `items` instead.',
     );
     errorSpy.mockRestore();
+  });
+
+  it('Steps should inherit the size from ConfigProvider if the componentSize is set ', () => {
+    const { container } = render(
+      <ConfigProvider componentSize="small">
+        <Steps items={[{ title: 'In Progress' }, { title: 'Finished' }]} />
+      </ConfigProvider>,
+    );
+    expect(container.querySelectorAll('.ant-steps-small')).toHaveLength(1);
   });
 });

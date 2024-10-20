@@ -1,11 +1,6 @@
-/* eslint-disable class-methods-use-this */
-import KeyCode from 'rc-util/lib/KeyCode';
-import React from 'react';
-import { waitFakeTimer, render, fireEvent } from '../../../tests/utils';
-import getDataOrAriaProps from '../getDataOrAriaProps';
+import { waitFakeTimer } from '../../../tests/utils';
 import { isStyleSupport } from '../styleChecker';
 import throttleByAnimationFrame from '../throttleByAnimationFrame';
-import TransButton from '../transButton';
 
 describe('Test utils function', () => {
   describe('throttle', () => {
@@ -43,80 +38,6 @@ describe('Test utils function', () => {
       await waitFakeTimer();
 
       expect(callback).not.toHaveBeenCalled();
-    });
-  });
-
-  describe('getDataOrAriaProps', () => {
-    it('returns all data-* properties from an object', () => {
-      const props = {
-        onClick: () => {},
-        isOpen: true,
-        'data-test': 'test-id',
-        'data-id': 1234,
-      };
-      const results = getDataOrAriaProps(props);
-      expect(results).toEqual({
-        'data-test': 'test-id',
-        'data-id': 1234,
-      });
-    });
-
-    it('does not return data-__ properties from an object', () => {
-      const props = {
-        onClick: () => {},
-        isOpen: true,
-        'data-__test': 'test-id',
-        'data-__id': 1234,
-      };
-      const results = getDataOrAriaProps(props);
-      expect(results).toEqual({});
-    });
-
-    it('returns all aria-* properties from an object', () => {
-      const props = {
-        onClick: () => {},
-        isOpen: true,
-        'aria-labelledby': 'label-id',
-        'aria-label': 'some-label',
-      };
-      const results = getDataOrAriaProps(props);
-      expect(results).toEqual({
-        'aria-labelledby': 'label-id',
-        'aria-label': 'some-label',
-      });
-    });
-
-    it('returns role property from an object', () => {
-      const props = {
-        onClick: () => {},
-        isOpen: true,
-        role: 'search',
-      };
-      const results = getDataOrAriaProps(props);
-      expect(results).toEqual({ role: 'search' });
-    });
-  });
-
-  describe('TransButton', () => {
-    it('can be focus/blur', () => {
-      const ref = React.createRef<HTMLDivElement>();
-      render(<TransButton ref={ref}>TransButton</TransButton>);
-      expect(typeof ref.current?.focus).toBe('function');
-      expect(typeof ref.current?.blur).toBe('function');
-    });
-
-    it('should trigger onClick when press enter', () => {
-      const onClick = jest.fn();
-
-      const { container } = render(<TransButton onClick={onClick}>TransButton</TransButton>);
-
-      // callback should trigger
-      fireEvent.keyUp(container.querySelector('div')!, { keyCode: KeyCode.ENTER });
-      expect(onClick).toHaveBeenCalledTimes(1);
-
-      // callback should not trigger
-      fireEvent.keyDown(container.querySelector('div')!, { keyCode: KeyCode.ENTER });
-      expect(onClick).toHaveBeenCalledTimes(1);
     });
   });
 

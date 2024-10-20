@@ -1,14 +1,14 @@
+import React from 'react';
 import { createCache, StyleProvider } from '@ant-design/cssinjs';
 import { SmileOutlined } from '@ant-design/icons';
 import IconContext from '@ant-design/icons/lib/components/Context';
-import React from 'react';
+
 import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
 import Button from '../../button';
 
 describe('ConfigProvider.Icon', () => {
   beforeEach(() => {
-    // eslint-disable-next-line jest/no-standalone-expect
     expect(document.querySelectorAll('style')).toHaveLength(0);
   });
 
@@ -79,6 +79,20 @@ describe('ConfigProvider.Icon', () => {
     expect(styleList.length).toBeTruthy();
     styleList.forEach((style) => {
       expect(style.nonce).toEqual('bamboo');
+    });
+  });
+
+  it('nonce applies to all style tags', () => {
+    render(
+      <ConfigProvider csp={{ nonce: 'bamboo' }} theme={{ token: { borderRadius: 2 } }}>
+        <Button />
+      </ConfigProvider>,
+    );
+
+    const styleNodes = document.querySelectorAll('style');
+
+    styleNodes.forEach((node) => {
+      expect(node?.nonce).toEqual('bamboo');
     });
   });
 });

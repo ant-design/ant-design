@@ -1,80 +1,59 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import { debounce } from 'throttle-debounce';
-import omit from 'rc-util/lib/omit';
-import * as React from 'react';
-import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
-import { cloneElement, isValidElement } from '../_util/reactNode';
-import useStyle from './style/index';
 
-const SpinSizes = ['small', 'default', 'large'] as const;
-export type SpinSize = typeof SpinSizes[number];
+import { devUseWarning } from '../_util/warning';
+import { ConfigContext } from '../config-provider';
+import Indicator from './Indicator';
+import useStyle from './style/index';
+import usePercent from './usePercent';
+
+const _SpinSizes = ['small', 'default', 'large'] as const;
+export type SpinSize = (typeof _SpinSizes)[number];
 export type SpinIndicator = React.ReactElement<HTMLElement>;
 
 export interface SpinProps {
+  /** Customize prefix class name */
   prefixCls?: string;
+  /** Additional class name of Spin */
   className?: string;
+  /** Additional root class name of Spin */
   rootClassName?: string;
+  /** Whether Spin is spinning */
   spinning?: boolean;
+  /** Style of Spin */
   style?: React.CSSProperties;
+  /** Size of Spin, options: `small`, `default` and `large` */
   size?: SpinSize;
+  /** Customize description content when Spin has children */
   tip?: React.ReactNode;
+  /** Specifies a delay in milliseconds for loading state (prevent flush) */
   delay?: number;
+  /** The className of wrapper when Spin has children */
   wrapperClassName?: string;
+  /** React node of the spinning indicator */
   indicator?: SpinIndicator;
+  /** Children of Spin */
   children?: React.ReactNode;
+  /** Display a backdrop with the `Spin` component */
+  fullscreen?: boolean;
+  percent?: number | 'auto';
 }
 
-export interface SpinClassProps extends SpinProps {
-  hashId: string;
-  spinPrefixCls: string;
-}
-
-export type SpinFCType = React.FC<SpinProps> & {
+export type SpinType = React.FC<SpinProps> & {
   setDefaultIndicator: (indicator: React.ReactNode) => void;
 };
 
 // Render indicator
-let defaultIndicator: React.ReactNode = null;
-
-function renderIndicator(prefixCls: string, props: SpinClassProps): React.ReactNode {
-  const { indicator } = props;
-  const dotClassName = `${prefixCls}-dot`;
-
-  // should not be render default indicator when indicator value is null
-  if (indicator === null) {
-    return null;
-  }
-
-  if (isValidElement(indicator)) {
-    return cloneElement(indicator, {
-      className: classNames(indicator.props.className, dotClassName),
-    });
-  }
-
-  if (isValidElement(defaultIndicator)) {
-    return cloneElement(defaultIndicator, {
-      className: classNames(defaultIndicator.props.className, dotClassName),
-    });
-  }
-
-  return (
-    <span className={classNames(dotClassName, `${prefixCls}-dot-spin`)}>
-      <i className={`${prefixCls}-dot-item`} />
-      <i className={`${prefixCls}-dot-item`} />
-      <i className={`${prefixCls}-dot-item`} />
-      <i className={`${prefixCls}-dot-item`} />
-    </span>
-  );
-}
+let defaultIndicator: React.ReactNode | undefined;
 
 function shouldDelay(spinning?: boolean, delay?: number): boolean {
   return !!spinning && !!delay && !isNaN(Number(delay));
 }
 
-const Spin: React.FC<SpinClassProps> = (props) => {
+const Spin: SpinType = (props) => {
   const {
-    spinPrefixCls: prefixCls,
+    prefixCls: customizePrefixCls,
     spinning: customSpinning = true,
     delay = 0,
     className,
@@ -84,13 +63,23 @@ const Spin: React.FC<SpinClassProps> = (props) => {
     wrapperClassName,
     style,
     children,
-    hashId,
+    fullscreen = false,
+    indicator,
+    percent,
     ...restProps
   } = props;
+
+  const { getPrefixCls, direction, spin } = React.useContext(ConfigContext);
+
+  const prefixCls = getPrefixCls('spin', customizePrefixCls);
+
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const [spinning, setSpinning] = React.useState<boolean>(
     () => customSpinning && !shouldDelay(customSpinning, delay),
   );
+
+  const mergedPercent = usePercent(spinning, percent);
 
   React.useEffect(() => {
     if (customSpinning) {
@@ -106,12 +95,24 @@ const Spin: React.FC<SpinClassProps> = (props) => {
     setSpinning(false);
   }, [delay, customSpinning]);
 
-  const isNestedPattern = React.useMemo<boolean>(() => typeof children !== 'undefined', [children]);
+  const isNestedPattern = React.useMemo<boolean>(
+    () => typeof children !== 'undefined' && !fullscreen,
+    [children, fullscreen],
+  );
 
-  const { direction } = React.useContext<ConfigConsumerProps>(ConfigContext);
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Spin');
+
+    warning(
+      !tip || isNestedPattern || fullscreen,
+      'usage',
+      '`tip` only work in nest or fullscreen pattern.',
+    );
+  }
 
   const spinClassName = classNames(
     prefixCls,
+    spin?.className,
     {
       [`${prefixCls}-sm`]: size === 'small',
       [`${prefixCls}-lg`]: size === 'large',
@@ -120,68 +121,75 @@ const Spin: React.FC<SpinClassProps> = (props) => {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
-    rootClassName,
+    !fullscreen && rootClassName,
     hashId,
+    cssVarCls,
   );
 
   const containerClassName = classNames(`${prefixCls}-container`, {
     [`${prefixCls}-blur`]: spinning,
   });
 
-  // fix https://fb.me/react-unknown-prop
-  const divProps = omit(restProps, ['indicator', 'prefixCls']);
+  const mergedIndicator = indicator ?? spin?.indicator ?? defaultIndicator;
+
+  const mergedStyle: React.CSSProperties = { ...spin?.style, ...style };
 
   const spinElement: React.ReactNode = (
     <div
-      {...divProps}
-      style={style}
+      {...restProps}
+      style={mergedStyle}
       className={spinClassName}
       aria-live="polite"
       aria-busy={spinning}
     >
-      {renderIndicator(prefixCls, props)}
-      {tip ? <div className={`${prefixCls}-text`}>{tip}</div> : null}
+      <Indicator prefixCls={prefixCls} indicator={mergedIndicator} percent={mergedPercent} />
+      {tip && (isNestedPattern || fullscreen) ? (
+        <div className={`${prefixCls}-text`}>{tip}</div>
+      ) : null}
     </div>
   );
 
   if (isNestedPattern) {
-    return (
+    return wrapCSSVar(
       <div
-        {...divProps}
-        className={classNames(`${prefixCls}-nested-loading`, wrapperClassName, hashId)}
+        {...restProps}
+        className={classNames(`${prefixCls}-nested-loading`, wrapperClassName, hashId, cssVarCls)}
       >
         {spinning && <div key="loading">{spinElement}</div>}
         <div className={containerClassName} key="container">
           {children}
         </div>
-      </div>
+      </div>,
     );
   }
-  return spinElement;
+
+  if (fullscreen) {
+    return wrapCSSVar(
+      <div
+        className={classNames(
+          `${prefixCls}-fullscreen`,
+          {
+            [`${prefixCls}-fullscreen-show`]: spinning,
+          },
+          rootClassName,
+          hashId,
+          cssVarCls,
+        )}
+      >
+        {spinElement}
+      </div>,
+    );
+  }
+
+  return wrapCSSVar(spinElement);
 };
 
-const SpinFC: SpinFCType = (props) => {
-  const { prefixCls: customizePrefixCls } = props;
-  const { getPrefixCls } = React.useContext(ConfigContext);
-
-  const spinPrefixCls = getPrefixCls('spin', customizePrefixCls);
-
-  const [wrapSSR, hashId] = useStyle(spinPrefixCls);
-
-  const spinClassProps: SpinClassProps = {
-    ...props,
-    spinPrefixCls,
-    hashId,
-  };
-  return wrapSSR(<Spin {...spinClassProps} />);
-};
-
-SpinFC.setDefaultIndicator = (indicator: React.ReactNode) => {
+Spin.setDefaultIndicator = (indicator: React.ReactNode) => {
   defaultIndicator = indicator;
 };
 
 if (process.env.NODE_ENV !== 'production') {
-  SpinFC.displayName = 'Spin';
+  Spin.displayName = 'Spin';
 }
 
-export default SpinFC;
+export default Spin;

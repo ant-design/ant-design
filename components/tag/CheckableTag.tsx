@@ -1,5 +1,6 @@
-import classNames from 'classnames';
 import * as React from 'react';
+import classNames from 'classnames';
+
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 
@@ -18,16 +19,17 @@ export interface CheckableTagProps {
   onClick?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
 }
 
-const CheckableTag: React.FC<CheckableTagProps> = (props) => {
+const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
+    style,
     className,
     checked,
     onChange,
     onClick,
     ...restProps
   } = props;
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls, tag } = React.useContext(ConfigContext);
 
   const handleClick = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
     onChange?.(!checked);
@@ -36,19 +38,29 @@ const CheckableTag: React.FC<CheckableTagProps> = (props) => {
 
   const prefixCls = getPrefixCls('tag', customizePrefixCls);
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const cls = classNames(
     prefixCls,
+    `${prefixCls}-checkable`,
     {
-      [`${prefixCls}-checkable`]: true,
       [`${prefixCls}-checkable-checked`]: checked,
     },
+    tag?.className,
     className,
     hashId,
+    cssVarCls,
   );
 
-  return wrapSSR(<span {...restProps} className={cls} onClick={handleClick} />);
-};
+  return wrapCSSVar(
+    <span
+      {...restProps}
+      ref={ref}
+      style={{ ...style, ...tag?.style }}
+      className={cls}
+      onClick={handleClick}
+    />,
+  );
+});
 
 export default CheckableTag;

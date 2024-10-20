@@ -21,6 +21,11 @@ const App: React.FC = () => (
       defaultValue={[dayjs('2019-09-03', dateFormat), dayjs('2019-11-22', dateFormat)]}
       disabled={[false, true]}
     />
+    <DatePicker
+      defaultValue={dayjs('2019-09-03', dateFormat)}
+      minDate={dayjs('2019-06-01', dateFormat)}
+      maxDate={dayjs('2020-06-30', dateFormat)}
+    />
   </Space>
 );
 

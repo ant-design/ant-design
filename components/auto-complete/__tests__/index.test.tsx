@@ -1,11 +1,12 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
+
 import AutoComplete from '..';
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, screen } from '../../../tests/utils';
 import Input from '../../input';
-import { resetWarned } from '../../_util/warning';
 
 describe('AutoComplete', () => {
   mountTest(AutoComplete);
@@ -77,8 +78,8 @@ describe('AutoComplete', () => {
     );
     expect(screen.getByRole('combobox')).toBeInTheDocument();
     await userEvent.type(screen.getByRole('combobox'), '1');
-    expect(screen.getByTitle(/111/i)).toBeInTheDocument();
-    expect(screen.getByTitle(/222/i)).toBeInTheDocument();
+    expect(screen.getByTitle(/111/)).toBeInTheDocument();
+    expect(screen.getByTitle(/222/)).toBeInTheDocument();
   });
 
   it('should not warning when getInputElement is null', () => {
@@ -110,7 +111,7 @@ describe('AutoComplete', () => {
       />,
     );
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: AutoComplete] `dropdownClassName` is deprecated, please use `popupClassName` instead.',
+      'Warning: [antd: AutoComplete] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
     );
     expect(container.querySelector('.legacy')).toBeTruthy();
 

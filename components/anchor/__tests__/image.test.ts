@@ -1,5 +1,5 @@
 import { imageDemoTest } from '../../../tests/shared/imageTest';
 
 describe('Anchor image', () => {
-  imageDemoTest('anchor');
+  imageDemoTest('anchor', { onlyViewport: true });
 });

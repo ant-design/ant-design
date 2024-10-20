@@ -229,6 +229,7 @@ exports[`Menu all types must be available in the "items" syntax 1`] = `
     </li>
     <li
       class="ant-menu-item-divider"
+      role="separator"
     />
     <li
       class="ant-menu-item-group"
@@ -260,6 +261,7 @@ exports[`Menu all types must be available in the "items" syntax 1`] = `
         </li>
         <li
           class="ant-menu-item-divider"
+          role="separator"
         />
         <li
           class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"

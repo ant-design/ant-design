@@ -1,13 +1,12 @@
 ---
 category: Components
-subtitle: 步骤条
 group: 导航
 title: Steps
+subtitle: 步骤条
+description: 引导用户按照流程完成任务的导航条。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*677sTqCpE3wAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-引导用户按照流程完成任务的导航条。
 
 ## 何时使用
 
@@ -34,8 +33,11 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAA
 <code src="./demo/steps-in-steps.tsx" debug>Steps 嵌套 Steps</code>
 <code src="./demo/inline.tsx">内联步骤</code>
 <code src="./demo/wireframe.tsx" debug>线框风格</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 ### Steps
 
@@ -81,6 +83,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAA
 | subTitle | 子标题 | ReactNode | - |  |
 | title | 标题 | ReactNode | - |  |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Steps"></ComponentTokenTable>

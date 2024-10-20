@@ -48,7 +48,7 @@ const genRadius = (
   }
 
   return {
-    borderRadius: radiusBase > 16 ? 16 : radiusBase,
+    borderRadius: radiusBase,
     borderRadiusXS: radiusXS,
     borderRadiusSM: radiusSM,
     borderRadiusLG: radiusLG,

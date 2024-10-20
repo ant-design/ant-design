@@ -1,5 +1,6 @@
-import userEvent from '@testing-library/user-event';
 import React from 'react';
+import userEvent from '@testing-library/user-event';
+
 import Button from '..';
 import { act, fireEvent, render } from '../../../tests/utils';
 
@@ -23,6 +24,12 @@ describe('click wave effect', () => {
     const element = container.firstChild;
     // https://github.com/testing-library/user-event/issues/833
     await userEvent.setup({ advanceTimers: jest.advanceTimersByTime }).click(element as Element);
+
+    act(() => {
+      jest.advanceTimersByTime(100);
+    });
+
+    // Second time will render wave element
     act(() => {
       jest.advanceTimersByTime(100);
     });

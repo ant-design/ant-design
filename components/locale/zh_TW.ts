@@ -1,8 +1,8 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/zh_TW';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/zh_TW';
 import DatePicker from '../date-picker/locale/zh_TW';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/zh_TW';
 
 const typeTemplate = '${label}不是一個有效的${type}';
@@ -21,6 +21,9 @@ const localeValues: Locale = {
     filterConfirm: '確定',
     filterReset: '重置',
     filterEmptyText: '無篩選項',
+    filterCheckall: '全選',
+    filterSearchPlaceholder: '在篩選項中搜尋',
+    emptyText: '暫無數據',
     selectAll: '全部選取',
     selectInvert: '反向選取',
     selectNone: '清空所有',
@@ -77,9 +80,6 @@ const localeValues: Locale = {
     copied: '複製成功',
     expand: '展開',
   },
-  PageHeader: {
-    back: '返回',
-  },
   Form: {
     optional: '（可選）',
     defaultValidateMessages: {
@@ -132,6 +132,11 @@ const localeValues: Locale = {
   },
   Image: {
     preview: '預覽',
+  },
+  QRCode: {
+    expired: '二維碼過期',
+    refresh: '點擊刷新',
+    scanned: '已掃描',
   },
 };
 

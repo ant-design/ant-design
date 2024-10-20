@@ -1,9 +1,14 @@
 import type React from 'react';
+
 import type { BadgeProps } from '../badge';
+import type { ButtonHTMLType } from '../button';
 import type { TooltipProps } from '../tooltip';
-import type BackTop from './BackTop';
-import type Group from './FloatButtonGroup';
-import type PurePanel from './PurePanel';
+
+export type FloatButtonElement = HTMLAnchorElement & HTMLButtonElement;
+
+export interface FloatButtonRef {
+  nativeElement: FloatButtonElement | null;
+}
 
 export type FloatButtonType = 'default' | 'primary';
 
@@ -13,7 +18,7 @@ export type FloatButtonGroupTrigger = 'click' | 'hover';
 
 export type FloatButtonBadgeProps = Omit<BadgeProps, 'status' | 'text' | 'title' | 'children'>;
 
-export interface FloatButtonProps {
+export interface FloatButtonProps extends React.DOMAttributes<FloatButtonElement> {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
@@ -26,7 +31,12 @@ export interface FloatButtonProps {
   href?: string;
   target?: React.HTMLAttributeAnchorTarget;
   badge?: FloatButtonBadgeProps;
-  onClick?: React.MouseEventHandler<HTMLElement>;
+  /**
+   * @since 5.21.0
+   * @default button
+   */
+  htmlType?: ButtonHTMLType;
+  'aria-label'?: React.HtmlHTMLAttributes<HTMLElement>['aria-label'];
 }
 
 export interface FloatButtonContentProps extends React.DOMAttributes<HTMLDivElement> {
@@ -45,13 +55,15 @@ export interface FloatButtonGroupProps extends FloatButtonProps {
   open?: boolean;
   // 关闭按钮自定义图标
   closeIcon?: React.ReactNode;
+  // 菜单弹出方向
+  placement?: 'top' | 'left' | 'right' | 'bottom';
   // 展开收起的回调
   onOpenChange?: (open: boolean) => void;
 }
 
 export interface BackTopProps extends Omit<FloatButtonProps, 'target'> {
   visibilityHeight?: number;
-  onClick?: React.MouseEventHandler<HTMLDivElement>;
+  onClick?: React.MouseEventHandler<FloatButtonElement>;
   target?: () => HTMLElement | Window | Document;
   prefixCls?: string;
   children?: React.ReactNode;
@@ -60,11 +72,3 @@ export interface BackTopProps extends Omit<FloatButtonProps, 'target'> {
   style?: React.CSSProperties;
   duration?: number;
 }
-
-export type CompoundedComponent = React.ForwardRefExoticComponent<
-  FloatButtonProps & React.RefAttributes<HTMLAnchorElement | HTMLButtonElement>
-> & {
-  Group: typeof Group;
-  BackTop: typeof BackTop;
-  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
-};

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Checkbox } from 'antd';
-import type { CheckboxChangeEvent } from 'antd/es/checkbox';
+import type { CheckboxProps } from 'antd';
 
 const App: React.FC = () => {
   const [checked, setChecked] = useState(true);
@@ -14,7 +14,7 @@ const App: React.FC = () => {
     setDisabled(!disabled);
   };
 
-  const onChange = (e: CheckboxChangeEvent) => {
+  const onChange: CheckboxProps['onChange'] = (e) => {
     console.log('checked = ', e.target.checked);
     setChecked(e.target.checked);
   };

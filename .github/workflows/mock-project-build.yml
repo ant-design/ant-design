@@ -18,13 +18,11 @@ jobs:
     name: Build Project
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
+      - uses: oven-sh/setup-bun@v2
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: ~tmpProj/yarn.lock
           key: primes-${{ runner.os }}-${{ github.run_id }}
@@ -42,7 +40,7 @@ jobs:
 
       - name: Download success lock file as `success.lock`
         if: ${{ failure() }}
-        uses: actions/cache/restore@v3
+        uses: actions/cache/restore@v4
         with:
           path: ~tmpProj/yarn.lock
           key: primes-${{ runner.os }}-${{ github.run_id }}
@@ -54,11 +52,15 @@ jobs:
 
       - name: 🎨 Diff Report
         if: ${{ failure() }}
-        run: npx diff-yarn-lock --source=~tmpProj/yarn.lock --target=~tmpProj/yarn.lock.failed
+        run: bunx diff-yarn-lock --source=~tmpProj/yarn.lock --target=~tmpProj/yarn.lock.failed
 
       - uses: actions-cool/ci-notice@v1
         if: ${{ failure() }}
         with:
-          notice-types: 'dingding'
+          notice-types: dingding
+          # Exit directly with non-zero to trigger the failure logic of ci-notice.
+          ci: |
+            echo "❌ CI Mock Project Build Failed"
+            exit 1
           dingding-token: ${{ secrets.DINGDING_BOT_COLLABORATOR_TOKEN }}
-          notice-title: 'CI Mock Project Build Failed'
+          notice-title: CI Mock Project Build Failed

@@ -9,7 +9,7 @@ const AdvancedSearchForm = () => {
   const [form] = Form.useForm();
   const [expand, setExpand] = useState(false);
 
-  const formStyle = {
+  const formStyle: React.CSSProperties = {
     maxWidth: 'none',
     background: token.colorFillAlter,
     borderRadius: token.borderRadiusLG,

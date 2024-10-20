@@ -2,6 +2,8 @@
 title: 静态方法之痛
 date: 2023-04-26
 author: zombieJ
+zhihu_url: https://zhuanlan.zhihu.com/p/633333904
+yuque_url: https://www.yuque.com/ant-design/ant-design/gkkyx81eihftzzq7
 ---
 
 > `message.success` 用的好好的为什么要 warning 我去用 hooks？antd 越做越垃圾，走好不送！
@@ -103,7 +105,7 @@ const Demo = () => {
 
 #### App
 
-因而在 v5 版本中，我们提供了 App 组件。这个组件本身带有 Dom 结构，会为自节点添加一些重置样式（比如在过去版本被人诟病的全局样式污染，现在只会作用到 App 之下）。同时也为 Modal、message、notification 添加了 ContextHolder。这样开发者在应用最外层添加 App 后，代码中就可以简单的使用它们了：
+因而在 v5 版本中，我们提供了 App 组件。这个组件本身带有 DOM 结构，会为自节点添加一些重置样式（比如在过去版本被人诟病的全局样式污染，现在只会作用到 App 之下）。同时也为 Modal、message、notification 添加了 ContextHolder。这样开发者在应用最外层添加 App 后，代码中就可以简单的使用它们了：
 
 ```tsx
 const Demo = () => {

@@ -1,14 +1,15 @@
-import classNames from 'classnames';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
+import classNames from 'classnames';
+
 import type { Breakpoint, ScreenMap } from '../_util/responsiveObserver';
 import useResponsiveObserver, { responsiveArray } from '../_util/responsiveObserver';
+import { ConfigContext } from '../config-provider';
 import RowContext from './RowContext';
+import type { RowContextState } from './RowContext';
 import { useRowStyle } from './style';
 
-const RowAligns = ['top', 'middle', 'bottom', 'stretch'] as const;
-const RowJustify = [
+const _RowAligns = ['top', 'middle', 'bottom', 'stretch'] as const;
+const _RowJustify = [
   'start',
   'end',
   'center',
@@ -25,20 +26,23 @@ type ResponsiveLike<T> = {
 type Gap = number | undefined;
 export type Gutter = number | undefined | Partial<Record<Breakpoint, number>>;
 
-type ResponsiveAligns = ResponsiveLike<typeof RowAligns[number]>;
-type ResponsiveJustify = ResponsiveLike<typeof RowJustify[number]>;
+type ResponsiveAligns = ResponsiveLike<(typeof _RowAligns)[number]>;
+type ResponsiveJustify = ResponsiveLike<(typeof _RowJustify)[number]>;
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   gutter?: Gutter | [Gutter, Gutter];
-  align?: typeof RowAligns[number] | ResponsiveAligns;
-  justify?: typeof RowJustify[number] | ResponsiveJustify;
+  align?: (typeof _RowAligns)[number] | ResponsiveAligns;
+  justify?: (typeof _RowJustify)[number] | ResponsiveJustify;
   prefixCls?: string;
   wrap?: boolean;
 }
 
-function useMergePropByScreen(oriProp: RowProps['align'] | RowProps['justify'], screen: ScreenMap) {
+function useMergedPropByScreen(
+  oriProp: RowProps['align'] | RowProps['justify'],
+  screen: ScreenMap,
+) {
   const [prop, setProp] = React.useState(typeof oriProp === 'string' ? oriProp : '');
 
-  const calcMergeAlignOrJustify = () => {
+  const calcMergedAlignOrJustify = () => {
     if (typeof oriProp === 'string') {
       setProp(oriProp);
     }
@@ -48,7 +52,9 @@ function useMergePropByScreen(oriProp: RowProps['align'] | RowProps['justify'], 
     for (let i = 0; i < responsiveArray.length; i++) {
       const breakpoint: Breakpoint = responsiveArray[i];
       // if do not match, do nothing
-      if (!screen[breakpoint]) continue;
+      if (!screen[breakpoint]) {
+        continue;
+      }
       const curVal = oriProp[breakpoint];
       if (curVal !== undefined) {
         setProp(curVal);
@@ -58,7 +64,7 @@ function useMergePropByScreen(oriProp: RowProps['align'] | RowProps['justify'], 
   };
 
   React.useEffect(() => {
-    calcMergeAlignOrJustify();
+    calcMergedAlignOrJustify();
   }, [JSON.stringify(oriProp), screen]);
 
   return prop;
@@ -98,11 +104,9 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   });
 
   // ================================== calc responsive data ==================================
-  const mergeAlign = useMergePropByScreen(align, curScreens);
+  const mergedAlign = useMergedPropByScreen(align, curScreens);
 
-  const mergeJustify = useMergePropByScreen(justify, curScreens);
-
-  const supportFlexGap = useFlexGapSupport();
+  const mergedJustify = useMergedPropByScreen(justify, curScreens);
 
   const gutterRef = React.useRef<Gutter | [Gutter, Gutter]>(gutter);
 
@@ -145,47 +149,44 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   };
 
   const prefixCls = getPrefixCls('row', customizePrefixCls);
-  const [wrapSSR, hashId] = useRowStyle(prefixCls);
+
+  const [wrapCSSVar, hashId, cssVarCls] = useRowStyle(prefixCls);
+
   const gutters = getGutter();
   const classes = classNames(
     prefixCls,
     {
       [`${prefixCls}-no-wrap`]: wrap === false,
-      [`${prefixCls}-${mergeJustify}`]: mergeJustify,
-      [`${prefixCls}-${mergeAlign}`]: mergeAlign,
+      [`${prefixCls}-${mergedJustify}`]: mergedJustify,
+      [`${prefixCls}-${mergedAlign}`]: mergedAlign,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
     hashId,
+    cssVarCls,
   );
 
   // Add gutter related style
   const rowStyle: React.CSSProperties = {};
   const horizontalGutter = gutters[0] != null && gutters[0] > 0 ? gutters[0] / -2 : undefined;
-  const verticalGutter = gutters[1] != null && gutters[1] > 0 ? gutters[1] / -2 : undefined;
 
   if (horizontalGutter) {
     rowStyle.marginLeft = horizontalGutter;
     rowStyle.marginRight = horizontalGutter;
   }
 
-  if (supportFlexGap) {
-    // Set gap direct if flex gap support
-    [, rowStyle.rowGap] = gutters;
-  } else if (verticalGutter) {
-    rowStyle.marginTop = verticalGutter;
-    rowStyle.marginBottom = verticalGutter;
-  }
-
   // "gutters" is a new array in each rendering phase, it'll make 'React.useMemo' effectless.
   // So we deconstruct "gutters" variable here.
   const [gutterH, gutterV] = gutters;
-  const rowContext = React.useMemo(
-    () => ({ gutter: [gutterH, gutterV] as [number, number], wrap, supportFlexGap }),
-    [gutterH, gutterV, wrap, supportFlexGap],
+
+  rowStyle.rowGap = gutterV;
+
+  const rowContext = React.useMemo<RowContextState>(
+    () => ({ gutter: [gutterH, gutterV] as [number, number], wrap }),
+    [gutterH, gutterV, wrap],
   );
 
-  return wrapSSR(
+  return wrapCSSVar(
     <RowContext.Provider value={rowContext}>
       <div {...others} className={classes} style={{ ...rowStyle, ...style }} ref={ref}>
         {children}

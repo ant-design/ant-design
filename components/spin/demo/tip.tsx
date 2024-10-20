@@ -1,20 +1,25 @@
 import React from 'react';
-import { Alert, Space, Spin } from 'antd';
+import { Alert, Flex, Spin } from 'antd';
+
+const contentStyle: React.CSSProperties = {
+  padding: 50,
+  background: 'rgba(0, 0, 0, 0.05)',
+  borderRadius: 4,
+};
+
+const content = <div style={contentStyle} />;
 
 const App: React.FC = () => (
-  <Space direction="vertical" style={{ width: '100%' }}>
-    <Space>
+  <Flex gap="middle" vertical>
+    <Flex gap="middle">
       <Spin tip="Loading" size="small">
-        <div className="content" />
+        {content}
       </Spin>
-      <Spin tip="Loading">
-        <div className="content" />
-      </Spin>
+      <Spin tip="Loading">{content}</Spin>
       <Spin tip="Loading" size="large">
-        <div className="content" />
+        {content}
       </Spin>
-    </Space>
-
+    </Flex>
     <Spin tip="Loading...">
       <Alert
         message="Alert message title"
@@ -22,7 +27,7 @@ const App: React.FC = () => (
         type="info"
       />
     </Spin>
-  </Space>
+  </Flex>
 );
 
 export default App;

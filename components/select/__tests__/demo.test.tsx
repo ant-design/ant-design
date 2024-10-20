@@ -1,8 +1,9 @@
 import * as React from 'react';
+
 import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 
 demoTest('select', {
-  skip: ['render-panel.tsx'],
+  skip: ['render-panel.tsx', 'component-token.tsx'],
   testRootProps: false,
 });
 

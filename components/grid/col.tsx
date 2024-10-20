@@ -1,9 +1,10 @@
-import classNames from 'classnames';
 import * as React from 'react';
+import classNames from 'classnames';
+
+import type { LiteralUnion } from '../_util/type';
 import { ConfigContext } from '../config-provider';
 import RowContext from './RowContext';
 import { useColStyle } from './style';
-import type { LiteralUnion } from '../_util/type';
 
 // https://github.com/ant-design/ant-design/issues/14324
 type ColSpanType = number | string;
@@ -49,7 +50,7 @@ function parseFlex(flex: FlexType): string {
 const sizes = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
 const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const { gutter, wrap, supportFlexGap } = React.useContext(RowContext);
+  const { gutter, wrap } = React.useContext(RowContext);
 
   const {
     prefixCls: customizePrefixCls,
@@ -66,9 +67,13 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   } = props;
 
   const prefixCls = getPrefixCls('col', customizePrefixCls);
-  const [wrapSSR, hashId] = useColStyle(prefixCls);
 
-  let sizeClassObj = {};
+  const [wrapCSSVar, hashId, cssVarCls] = useColStyle(prefixCls);
+
+  // ===================== Size ======================
+  const sizeStyle: Record<string, string> = {};
+
+  let sizeClassObj: Record<string, boolean | ColSpanType> = {};
   sizes.forEach((size) => {
     let sizeProps: ColSize = {};
     const propSize = props[size];
@@ -88,11 +93,17 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
         sizeProps.offset || sizeProps.offset === 0,
       [`${prefixCls}-${size}-push-${sizeProps.push}`]: sizeProps.push || sizeProps.push === 0,
       [`${prefixCls}-${size}-pull-${sizeProps.pull}`]: sizeProps.pull || sizeProps.pull === 0,
-      [`${prefixCls}-${size}-flex-${sizeProps.flex}`]: sizeProps.flex || sizeProps.flex === 'auto',
       [`${prefixCls}-rtl`]: direction === 'rtl',
     };
+
+    // Responsive flex layout
+    if (sizeProps.flex) {
+      sizeClassObj[`${prefixCls}-${size}-flex`] = true;
+      sizeStyle[`--${prefixCls}-${size}-flex`] = parseFlex(sizeProps.flex);
+    }
   });
 
+  // ==================== Normal =====================
   const classes = classNames(
     prefixCls,
     {
@@ -105,6 +116,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
     className,
     sizeClassObj,
     hashId,
+    cssVarCls,
   );
 
   const mergedStyle: React.CSSProperties = {};
@@ -113,13 +125,6 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
     const horizontalGutter = gutter[0] / 2;
     mergedStyle.paddingLeft = horizontalGutter;
     mergedStyle.paddingRight = horizontalGutter;
-  }
-
-  // Vertical gutter use padding when gap not support
-  if (gutter && gutter[1] > 0 && !supportFlexGap) {
-    const verticalGutter = gutter[1] / 2;
-    mergedStyle.paddingTop = verticalGutter;
-    mergedStyle.paddingBottom = verticalGutter;
   }
 
   if (flex) {
@@ -132,8 +137,14 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
     }
   }
 
-  return wrapSSR(
-    <div {...others} style={{ ...mergedStyle, ...style }} className={classes} ref={ref}>
+  // ==================== Render =====================
+  return wrapCSSVar(
+    <div
+      {...others}
+      style={{ ...mergedStyle, ...style, ...sizeStyle }}
+      className={classes}
+      ref={ref}
+    >
       {children}
     </div>,
   );

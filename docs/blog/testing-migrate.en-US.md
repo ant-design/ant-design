@@ -2,6 +2,9 @@
 title: about antd test library migration
 date: 2022-12-20
 author: li-jia-nan,zombieJ
+zhihu_url: https://zhuanlan.zhihu.com/p/639249930
+yuque_url: https://www.yuque.com/ant-design/ant-design/bunxvp7nz4y7bbhi
+juejin_url: https://juejin.cn/post/7179115861176188983
 ---
 
 Hello, I am **[@li-jia-nan](https://github.com/li-jia-nan)**. It is also a new Collaborator who joined antd in the past few months. Fortunately, as one of the Collaborators, I developed the **[FloatButton component](/components/float-button)** and **[QRCode component](/components/qrcode)**, as well as some other maintenance work. Let me share the migration of the antd test library son~
@@ -102,7 +105,7 @@ While the major version is being upgraded, some components are discarded, but th
 ++        const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 ++        render(<BackTop />);
 ++        expect(errSpy).toHaveBeenCalledWith(
-++          'Warning: [antd: BackTop] `BackTop` is deprecated, please use `FloatButton.BackTop` instead.',
+++          'Warning: [antd: BackTop] `BackTop` is deprecated. Please use `FloatButton.BackTop` instead.',
 ++        );
 ++      errSpy.mockRestore();
 ++    });

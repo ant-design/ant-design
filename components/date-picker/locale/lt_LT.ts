@@ -1,4 +1,5 @@
 import CalendarLocale from 'rc-picker/lib/locale/lt_LT';
+
 import TimePickerLocale from '../../time-picker/locale/lt_LT';
 import type { PickerLocale } from '../generatePicker';
 
@@ -12,6 +13,7 @@ const locale: PickerLocale = {
     weekPlaceholder: 'Pasirinkite savaitę',
     rangePlaceholder: ['Pradžios data', 'Pabaigos data'],
     rangeYearPlaceholder: ['Pradžios metai', 'Pabaigos metai'],
+    rangeQuarterPlaceholder: ['Pradžios ketvirtis', 'Pabaigos ketvirtis'],
     rangeMonthPlaceholder: ['Pradžios mėnesis', 'Pabaigos mėnesis'],
     rangeWeekPlaceholder: ['Pradžios savaitė', 'Pabaigos savaitė'],
     ...CalendarLocale,

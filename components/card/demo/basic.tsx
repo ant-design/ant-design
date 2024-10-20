@@ -1,5 +1,5 @@
-import { Card, Space } from 'antd';
 import React from 'react';
+import { Card, Space } from 'antd';
 
 const App: React.FC = () => (
   <Space direction="vertical" size={16}>

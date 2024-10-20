@@ -1,10 +1,28 @@
-import type { Dayjs } from 'dayjs';
 import * as React from 'react';
-import DatePicker from '../date-picker';
-import type { PickerTimeProps, RangePickerTimeProps } from '../date-picker/generatePicker';
+import type { Dayjs } from 'dayjs';
+import type { PickerRef } from 'rc-picker';
+
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
-import warning from '../_util/warning';
+import type { AnyObject } from '../_util/type';
+import { devUseWarning } from '../_util/warning';
+import DatePicker from '../date-picker';
+import type {
+  GenericTimePickerProps,
+  PickerPropsWithMultiple,
+  RangePickerProps,
+} from '../date-picker/generatePicker/interface';
+import useVariant from '../form/hooks/useVariants';
+
+export type PickerTimeProps<DateType extends AnyObject> = PickerPropsWithMultiple<
+  DateType,
+  GenericTimePickerProps<DateType>
+>;
+
+export type RangePickerTimeProps<DateType extends AnyObject> = Omit<
+  RangePickerProps<DateType>,
+  'showTime' | 'picker'
+>;
 
 const { TimePicker: InternalTimePicker, RangePicker: InternalRangePicker } = DatePicker;
 
@@ -17,7 +35,7 @@ export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<Dayjs>, 
   popupClassName?: string;
 }
 
-const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => (
+const RangePicker = React.forwardRef<PickerRef, TimeRangePickerProps>((props, ref) => (
   <InternalRangePicker {...props} picker="time" mode={undefined} ref={ref} />
 ));
 
@@ -25,21 +43,25 @@ export interface TimePickerProps extends Omit<PickerTimeProps<Dayjs>, 'picker'> 
   addon?: () => React.ReactNode;
   status?: InputStatus;
   popupClassName?: string;
+  rootClassName?: string;
 }
 
-const TimePicker = React.forwardRef<any, TimePickerProps>(
-  ({ addon, renderExtraFooter, ...restProps }, ref) => {
-    const internalRenderExtraFooter = React.useMemo(() => {
+const TimePicker = React.forwardRef<PickerRef, TimePickerProps>(
+  ({ addon, renderExtraFooter, variant, bordered, ...restProps }, ref) => {
+    if (process.env.NODE_ENV !== 'production') {
+      const warning = devUseWarning('TimePicker');
+
+      warning.deprecated(!addon, 'addon', 'renderExtraFooter');
+    }
+
+    const [mergedVariant] = useVariant('timePicker', variant, bordered);
+
+    const internalRenderExtraFooter = React.useMemo<TimePickerProps['renderExtraFooter']>(() => {
       if (renderExtraFooter) {
         return renderExtraFooter;
       }
 
       if (addon) {
-        warning(
-          false,
-          'TimePicker',
-          '`addon` is deprecated. Please use `renderExtraFooter` instead.',
-        );
         return addon;
       }
       return undefined;
@@ -51,6 +73,7 @@ const TimePicker = React.forwardRef<any, TimePickerProps>(
         mode={undefined}
         ref={ref}
         renderExtraFooter={internalRenderExtraFooter}
+        variant={mergedVariant}
       />
     );
   },

@@ -1,10 +1,10 @@
-import MockDate from 'mockdate';
 import type { ReactElement } from 'react';
-import React, { StrictMode } from 'react';
+import React, { createRef, StrictMode } from 'react';
 import type { RenderOptions } from '@testing-library/react';
-import { render, act } from '@testing-library/react';
-import { _rs as onLibResize } from 'rc-resize-observer/lib/utils/observerUtil';
+import { act, render } from '@testing-library/react';
+import MockDate from 'mockdate';
 import { _rs as onEsResize } from 'rc-resize-observer/es/utils/observerUtil';
+import { _rs as onLibResize } from 'rc-resize-observer/lib/utils/observerUtil';
 
 export function assertsExist<T>(item?: T): asserts item is T {
   expect(item).not.toBeUndefined();
@@ -33,7 +33,7 @@ const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>
   render(ui, { wrapper: StrictMode, ...options });
 
 export function renderHook<T>(func: () => T): { result: React.RefObject<T> } {
-  const result = React.createRef<T>();
+  const result = createRef<T>();
 
   const Demo: React.FC = () => {
     (result as any).current = func();
@@ -53,7 +53,7 @@ export function renderHook<T>(func: () => T): { result: React.RefObject<T> } {
  */
 const pureRender = render;
 
-export { customRender as render, pureRender };
+export { pureRender, customRender as render };
 
 export const triggerResize = (target: Element) => {
   const originGetBoundingClientRect = target.getBoundingClientRect;
@@ -76,7 +76,6 @@ export const triggerResize = (target: Element) => {
  */
 export async function waitFakeTimer(advanceTime = 1000, times = 20) {
   for (let i = 0; i < times; i += 1) {
-    // eslint-disable-next-line no-await-in-loop
     await act(async () => {
       await Promise.resolve();
 

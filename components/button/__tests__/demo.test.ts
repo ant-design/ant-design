@@ -1,3 +1,5 @@
 import demoTest from '../../../tests/shared/demoTest';
 
-demoTest('button');
+demoTest('button', {
+  skip: ['component-token.tsx'],
+});

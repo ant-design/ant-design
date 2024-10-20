@@ -1,8 +1,7 @@
 import React from 'react';
-import { Tooltip } from 'antd';
 import { EditOutlined } from '@ant-design/icons';
-import { css } from '@emotion/react';
-import useSiteToken from '../../hooks/useSiteToken';
+import { Tooltip } from 'antd';
+import { createStyles } from 'antd-style';
 
 const branchUrl = 'https://github.com/ant-design/ant-design/edit/master/';
 
@@ -11,9 +10,7 @@ export interface EditButtonProps {
   filename?: string;
 }
 
-const useStyle = () => {
-  const { token } = useSiteToken();
-
+const useStyle = createStyles(({ token, css }) => {
   const { colorIcon, colorText, iconCls } = token;
 
   return {
@@ -24,14 +21,12 @@ const useStyle = () => {
         display: inline-block;
         text-decoration: none;
         vertical-align: middle;
-        margin-inline-start: 6px;
-
+        margin-inline-start: ${token.marginXS}px;
         ${iconCls} {
           display: block;
           color: ${colorIcon};
-          font-size: 16px;
-          transition: all 0.3s;
-
+          font-size: ${token.fontSizeLG}px;
+          transition: all ${token.motionDurationSlow};
           &:hover {
             color: ${colorText};
           }
@@ -39,15 +34,14 @@ const useStyle = () => {
       }
     `,
   };
-};
+});
 
-export default function EditButton({ title, filename }: EditButtonProps) {
-  const styles = useStyle();
-
+const EditButton: React.FC<EditButtonProps> = ({ title, filename }) => {
+  const { styles } = useStyle();
   return (
     <Tooltip title={title}>
       <a
-        css={styles.editButton}
+        className={styles.editButton}
         href={`${branchUrl}${filename}`}
         target="_blank"
         rel="noopener noreferrer"
@@ -56,4 +50,6 @@ export default function EditButton({ title, filename }: EditButtonProps) {
       </a>
     </Tooltip>
   );
-}
+};
+
+export default EditButton;

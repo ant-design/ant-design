@@ -54,19 +54,18 @@ Ant Design 的色板还具备进一步拓展的能力。经过设计师和程序
 
 我们为程序员提供了色板的 JavaScript 的使用方式。
 
-- **JavaScript**
+```
+npm install @ant-design/colors
+```
 
-  ```
-  npm install @ant-design/colors
-  ```
+```js
+import { blue } from '@ant-design/colors';
 
-  ```js
-  import { blue } from '@ant-design/colors';
-  console.log(blue); // ['#E6F7FF', '#BAE7FF', '#91D5FF', '#69C0FF', '#40A9FF', '#1890FF', '#096DD9', '#0050B3', '#003A8C', '#002766']
-  console.log(blue.primary); // '#1890FF'
-  ```
+console.log(blue); // ['#E6F4FF', '#BAE0FF', '#91CAFF', '#69B1FF', '#4096FF', '#1677FF', '#0958D9', '#003EB3', '#002C8C', '#001D66']
+console.log(blue.primary); // '#1677FF'
+```
 
-  更多使用方式：[@ant-design/colors](https://www.npmjs.com/package/@ant-design/colors)
+更多使用方式：[@ant-design/colors](https://www.npmjs.com/package/@ant-design/colors)
 
 ---
 
@@ -78,7 +77,7 @@ Ant Design 的色板还具备进一步拓展的能力。经过设计师和程序
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*1c74TKxuEW4AAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-品牌色是体现产品特性和传播理念最直观的视觉元素之一。在色彩选取时，需要先明确品牌色在界面中的使用场景及范围。在基础色板中选择主色，我们建议选择色板从浅至深的第六个颜色作为主色。 Ant Design 的品牌色取自基础色板的蓝色，Hex 值为 <ColorChunk color="#1890ff" /></ColorChunk>，应用场景包括：关键行动点，操作状态、重要信息高亮，图形化等场景。
+品牌色是体现产品特性和传播理念最直观的视觉元素之一。在色彩选取时，需要先明确品牌色在界面中的使用场景及范围。在基础色板中选择主色，我们建议选择色板从浅至深的第六个颜色作为主色。 Ant Design 的品牌色取自基础色板的蓝色，Hex 值为 `#1677ff`，应用场景包括：关键行动点，操作状态、重要信息高亮，图形化等场景。
 
 ### 功能色
 
@@ -91,7 +90,7 @@ Ant Design 的色板还具备进一步拓展的能力。经过设计师和程序
 ### 中性色
 
 <ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/antfincdn/8yMmB1lcD%24/colors.jpg">
+  <TokenCompare tokenNames="colorTextHeading|colorText|colorTextSecondary|colorTextDisabled|colorBorder|colorSplit|colorBgLayout"></TokenCompare>
 </ImagePreview>
 
 Ant Design 的中性色主要被大量的应用在界面的文字部分，此外背景、边框、分割线等场景中也非常常见。产品中性色的定义需要考虑深色背景以及浅色背景的差异，同时结合 WCAG 2.0 标准。Ant Design 的中性色在落地的时候是按照透明度的方式实现的，具体色板如右图：

@@ -1,8 +1,8 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/ja_JP';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/ja_JP';
 import DatePicker from '../date-picker/locale/ja_JP';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/ja_JP';
 
 const typeTemplate = '${label}は有効な${type}ではありません';
@@ -13,13 +13,20 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    placeholder: '選んでください',
+  },
   Table: {
     filterTitle: 'フィルター',
     filterConfirm: 'OK',
     filterReset: 'リセット',
     filterEmptyText: 'フィルターなし',
+    filterCheckall: 'すべてを選択',
+    filterSearchPlaceholder: 'フィルターで検索',
+    emptyText: 'データなし',
     selectAll: 'ページ単位で選択',
     selectInvert: 'ページ単位で反転',
+    selectNone: 'クリア',
     selectionAll: 'すべてを選択',
     sortTitle: 'ソート',
     expand: '展開する',
@@ -27,6 +34,11 @@ const localeValues: Locale = {
     triggerDesc: 'クリックで降順にソート',
     triggerAsc: 'クリックで昇順にソート',
     cancelSort: 'ソートをキャンセル',
+  },
+  Tour: {
+    Next: '次',
+    Previous: '前の',
+    Finish: '仕上げる',
   },
   Modal: {
     okText: 'OK',
@@ -42,6 +54,13 @@ const localeValues: Locale = {
     searchPlaceholder: 'ここを検索',
     itemUnit: 'アイテム',
     itemsUnit: 'アイテム',
+    remove: '削除',
+    selectCurrent: '現在のページを選択',
+    removeCurrent: '現在のページを削除',
+    selectAll: 'ページ単位で選択',
+    deselectAll: 'すべてのデータの選択を解除する',
+    removeAll: 'ページ単位で削除',
+    selectInvert: 'ページ単位で反転',
   },
   Upload: {
     uploading: 'アップロード中...',
@@ -53,7 +72,18 @@ const localeValues: Locale = {
   Empty: {
     description: 'データがありません',
   },
+  Icon: {
+    icon: 'アイコン',
+  },
+  Text: {
+    edit: '編集',
+    copy: 'コピー',
+    copied: 'コピーされました',
+    expand: '拡大する',
+    collapse: '崩壊',
+  },
   Form: {
+    optional: '(オプション)',
     defaultValidateMessages: {
       default: '${label}のフィールド検証エラー',
       required: '${label}を入力してください',
@@ -101,6 +131,20 @@ const localeValues: Locale = {
         mismatch: '${label}はパターン${pattern}と一致しません',
       },
     },
+  },
+  Image: {
+    preview: 'プレビュー',
+  },
+  QRCode: {
+    expired: 'QRコードの有効期限が切れました',
+    refresh: 'リフレッシュ',
+    scanned: 'スキャン済み',
+  },
+  ColorPicker: {
+    presetEmpty: '空の',
+    transparent: '透明',
+    singleColor: '単色',
+    gradientColor: 'グラデーション',
   },
 };
 

@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
+
 import ConfigProvider from '..';
+import { render } from '../../../tests/utils';
 import Button from '../../button';
 import Divider from '../../divider';
-import { render } from '../../../tests/utils';
 
 describe('ConfigProvider.DynamicTheme', () => {
   beforeEach(() => {
@@ -30,9 +31,7 @@ describe('ConfigProvider.DynamicTheme', () => {
     expect(
       dynamicStyles.some((style) => {
         const { innerHTML } = style;
-        return (
-          innerHTML.includes('.ant-btn-primary') && innerHTML.includes('background-color:#f00000')
-        );
+        return innerHTML.includes('.ant-btn-primary') && innerHTML.includes('background:#f00000');
       }),
     ).toBeTruthy();
   });

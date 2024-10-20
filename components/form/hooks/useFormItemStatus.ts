@@ -1,7 +1,8 @@
 import { useContext } from 'react';
 import type { ValidateStatus } from 'antd/es/form/FormItem';
+
+import { devUseWarning } from '../../_util/warning';
 import { FormItemInputContext } from '../context';
-import warning from '../../_util/warning';
 
 type UseFormItemStatus = () => {
   status?: ValidateStatus;
@@ -12,11 +13,15 @@ type UseFormItemStatus = () => {
 const useFormItemStatus: UseFormItemStatus = () => {
   const { status, errors = [], warnings = [] } = useContext(FormItemInputContext);
 
-  warning(
-    status !== undefined,
-    'Form.Item',
-    'Form.Item.useStatus should be used under Form.Item component. For more information: https://u.ant.design/form-item-usestatus',
-  );
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Form.Item');
+
+    warning(
+      status !== undefined,
+      'usage',
+      'Form.Item.useStatus should be used under Form.Item component. For more information: https://u.ant.design/form-item-usestatus',
+    );
+  }
 
   return { status, errors, warnings };
 };

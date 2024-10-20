@@ -79,6 +79,23 @@ export interface FontMapToken {
    */
   lineHeightSM: number;
 
+  // TextHeight
+  /**
+   * Round of fontSize * lineHeight
+   * @internal
+   */
+  fontHeight: number;
+  /**
+   * Round of fontSizeSM * lineHeightSM
+   * @internal
+   */
+  fontHeightSM: number;
+  /**
+   * Round of fontSizeLG * lineHeightLG
+   * @internal
+   */
+  fontHeightLG: number;
+
   /**
    * @nameZH 一级标题行高
    * @nameEN Line height of heading level 1

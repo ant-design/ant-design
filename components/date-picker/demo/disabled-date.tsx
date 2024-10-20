@@ -1,8 +1,10 @@
 import React from 'react';
 import { DatePicker, Space } from 'antd';
-import type { RangePickerProps } from 'antd/es/date-picker';
+import type { GetProps } from 'antd';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
+
+type RangePickerProps = GetProps<typeof DatePicker.RangePicker>;
 
 dayjs.extend(customParseFormat);
 
@@ -16,7 +18,6 @@ const range = (start: number, end: number) => {
   return result;
 };
 
-// eslint-disable-next-line arrow-body-style
 const disabledDate: RangePickerProps['disabledDate'] = (current) => {
   // Can not select days before today and today
   return current && current < dayjs().endOf('day');

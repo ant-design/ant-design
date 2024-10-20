@@ -1,14 +1,15 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import type { MenuItemProps as RcMenuItemProps } from 'rc-menu';
 import { Item } from 'rc-menu';
 import toArray from 'rc-util/lib/Children/toArray';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
+
+import { cloneElement } from '../_util/reactNode';
 import type { SiderContextProps } from '../layout/Sider';
 import { SiderContext } from '../layout/Sider';
 import type { TooltipProps } from '../tooltip';
 import Tooltip from '../tooltip';
-import { cloneElement, isValidElement } from '../_util/reactNode';
 import type { MenuContextProps } from './MenuContext';
 import MenuContext from './MenuContext';
 
@@ -18,7 +19,23 @@ export interface MenuItemProps extends Omit<RcMenuItemProps, 'title'> {
   title?: React.ReactNode;
 }
 
-const MenuItem: React.FC<MenuItemProps> = (props) => {
+type MenuItemComponent = React.FC<MenuItemProps>;
+
+type RestArgs<T> = T extends (arg: any, ...args: infer P) => any ? P : never;
+
+type GenericProps<T = unknown> = T extends infer U extends MenuItemProps
+  ? unknown extends U
+    ? MenuItemProps
+    : U
+  : MenuItemProps;
+
+type GenericComponent = Omit<MenuItemComponent, ''> &
+  (<T extends MenuItemProps>(
+    props: GenericProps<T>,
+    ...args: RestArgs<MenuItemComponent>
+  ) => ReturnType<MenuItemComponent>);
+
+const MenuItem: GenericComponent = (props) => {
   const { className, children, icon, title, danger } = props;
   const {
     prefixCls,
@@ -28,12 +45,14 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
     inlineCollapsed: isInlineCollapsed,
   } = React.useContext<MenuContextProps>(MenuContext);
   const renderItemChildren = (inlineCollapsed: boolean) => {
+    const label = (children as React.ReactNode[])?.[0];
+
     const wrapNode = <span className={`${prefixCls}-title-content`}>{children}</span>;
     // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
     // ref: https://github.com/ant-design/ant-design/pull/23456
-    if (!icon || (isValidElement(children) && children.type === 'span')) {
-      if (children && inlineCollapsed && firstLevel && typeof children === 'string') {
-        return <div className={`${prefixCls}-inline-collapsed-noicon`}>{children.charAt(0)}</div>;
+    if (!icon || (React.isValidElement(children) && children.type === 'span')) {
+      if (children && inlineCollapsed && firstLevel && typeof label === 'string') {
+        return <div className={`${prefixCls}-inline-collapsed-noicon`}>{label.charAt(0)}</div>;
       }
     }
     return wrapNode;
@@ -74,7 +93,7 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
     >
       {cloneElement(icon, {
         className: classNames(
-          isValidElement(icon) ? icon.props?.className : '',
+          React.isValidElement(icon) ? icon.props?.className : '',
           `${prefixCls}-item-icon`,
         ),
       })}

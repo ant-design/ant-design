@@ -1,8 +1,9 @@
 import * as React from 'react';
+
 import Modal from '..';
+import { resetWarned } from '../../_util/warning';
 import { render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import { resetWarned } from '../../_util/warning';
 
 describe('Modal.confirm warning', () => {
   beforeEach(() => {

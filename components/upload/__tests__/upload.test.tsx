@@ -1,13 +1,14 @@
-import { produce } from 'immer';
-import { cloneDeep } from 'lodash';
-import type { UploadRequestOption } from 'rc-upload/lib/interface';
 import React, { useEffect, useRef } from 'react';
+import { produce } from 'immer';
+import cloneDeep from 'lodash/cloneDeep';
+import type { UploadRequestOption } from 'rc-upload/lib/interface';
+
 import type { RcFile, UploadFile, UploadProps } from '..';
 import Upload from '..';
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
-import { resetWarned } from '../../_util/warning';
 import Form from '../../form';
 import { getFileItem, isImageUrl, removeFileItem } from '../utils';
 import { setup, teardown } from './mock';
@@ -459,7 +460,7 @@ describe('Upload', () => {
       url: 'http://www.baidu.com/xxx.png',
     };
 
-    let removePromise: (value: boolean | Promise<void | boolean>) => void;
+    let removePromise: (value: boolean | Promise<undefined | boolean>) => void;
 
     const onRemove: UploadProps['onRemove'] = () =>
       new Promise((resolve) => {
@@ -480,7 +481,7 @@ describe('Upload', () => {
     // Delay return true for remove
     await waitFakeTimer();
     await act(async () => {
-      await removePromise(true);
+      removePromise(true);
     });
 
     expect(onChange).toHaveBeenCalled();
@@ -629,7 +630,7 @@ describe('Upload', () => {
 
     const customRequest = jest.fn(async (options) => {
       // stop here to make sure new fileList has been set and passed to Upload
-      // eslint-disable-next-line no-promise-executor-return
+
       await new Promise((resolve) => setTimeout(resolve, 0));
       options.onProgress({ percent: 0 });
       const url = Promise.resolve('https://ant.design');
@@ -771,6 +772,95 @@ describe('Upload', () => {
           name: 'foo.png',
         }),
       ]);
+
+      // Only trigger for file in `maxCount`
+      onChange.mock.calls.forEach((args) => {
+        expect(args[0].file.name).toBe('foo.png');
+      });
+    });
+
+    // https://github.com/ant-design/ant-design/issues/43190
+    it('should trigger onChange when remove', async () => {
+      const onChange = jest.fn();
+
+      const { container } = render(
+        <Upload
+          onChange={onChange}
+          maxCount={2}
+          defaultFileList={[
+            {
+              uid: 'bamboo',
+              name: 'bamboo.png',
+            },
+            {
+              uid: 'little',
+              name: 'little.png',
+            },
+          ]}
+          showUploadList
+        >
+          <button type="button">upload</button>
+        </Upload>,
+      );
+
+      // Click delete
+      fireEvent.click(container.querySelector('.ant-upload-list-item-action')!);
+
+      await waitFakeTimer();
+
+      expect(onChange).toHaveBeenCalledWith(
+        expect.objectContaining({
+          // Have 1 file
+          fileList: [expect.anything()],
+        }),
+      );
+    });
+
+    it('should trigger onChange when defaultFileList.length is longer than maxCount ', async () => {
+      const onChange = jest.fn();
+
+      const { container } = render(
+        <Upload
+          onChange={onChange}
+          maxCount={3}
+          defaultFileList={[
+            {
+              uid: 'bamboo',
+              name: 'bamboo.png',
+            },
+            {
+              uid: 'little',
+              name: 'little.png',
+            },
+            {
+              uid: 'foo',
+              name: 'foo.png',
+            },
+            {
+              uid: 'bar',
+              name: 'bar.png',
+            },
+            {
+              uid: 'bar1',
+              name: 'bar1.png',
+            },
+          ]}
+          showUploadList
+        >
+          <button type="button">upload</button>
+        </Upload>,
+      );
+
+      fireEvent.click(container.querySelector('.ant-upload-list-item-action')!);
+      await waitFakeTimer();
+      // Click delete
+
+      expect(onChange).toHaveBeenCalledWith(
+        expect.objectContaining({
+          // Have 3 file
+          fileList: [expect.anything(), expect.anything(), expect.anything()],
+        }),
+      );
     });
   });
 
@@ -952,7 +1042,7 @@ describe('Upload', () => {
 
     const customRequest = jest.fn(async (options) => {
       // stop here to make sure new fileList has been set and passed to Upload
-      // eslint-disable-next-line no-promise-executor-return
+
       await new Promise((resolve) => setTimeout(resolve, 0));
       options.onProgress({ percent: 0 });
       const url = Promise.resolve<string>('https://ant.design');
@@ -991,5 +1081,12 @@ describe('Upload', () => {
     fileListOut.forEach((file) => {
       expect(file.status).toBe('done');
     });
+  });
+
+  it('container ref', () => {
+    const ref = React.createRef<any>();
+    render(<Upload ref={ref} />);
+    expect(ref.current?.nativeElement).toBeTruthy();
+    expect(ref.current?.nativeElement instanceof HTMLElement).toBeTruthy();
   });
 });

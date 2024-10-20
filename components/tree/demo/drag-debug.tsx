@@ -1,16 +1,14 @@
-/* eslint-disable @typescript-eslint/no-shadow */
 import React from 'react';
-import type { TreeProps } from 'antd';
-import { Tree, Switch } from 'antd';
 import { CarryOutOutlined } from '@ant-design/icons';
-import type { DataNode } from 'rc-tree/lib/interface';
+import type { TreeDataNode, TreeProps } from 'antd';
+import { Switch, Tree } from 'antd';
 
 const x = 3;
 const y = 2;
 const z = 1;
-const data: DataNode[] = [];
+const data: TreeDataNode[] = [];
 
-const generateData = (_level: number, preKey = '0', tns = data): DataNode[] | void => {
+const generateData = (_level: number, preKey = '0', tns = data): TreeDataNode[] | undefined => {
   const children: string[] = [];
   for (let i = 0; i < x; i++) {
     const key = `${preKey}-${i}`;
@@ -32,7 +30,7 @@ const generateData = (_level: number, preKey = '0', tns = data): DataNode[] | vo
 generateData(z);
 
 const App: React.FC = () => {
-  const [gData, setGData] = React.useState<DataNode[]>(data);
+  const [gData, setGData] = React.useState<TreeDataNode[]>(data);
   const [showLine, setShowLine] = React.useState<any>(true);
   const [showIcon, setShowIcon] = React.useState<boolean>(true);
   const [showLeafIcon, setShowLeafIcon] = React.useState<boolean>(true);
@@ -40,7 +38,7 @@ const App: React.FC = () => {
 
   const onDragEnter: TreeProps['onDragEnter'] = (info) => {
     console.log(info);
-    // expandedKeys 需要受控时设置
+    // expandedKeys, set it when controlled is needed
     setExpandedKeys(info.expandedKeys);
   };
 
@@ -52,9 +50,9 @@ const App: React.FC = () => {
     const dropPosition = info.dropPosition - Number(dropPos[dropPos.length - 1]);
 
     const loop = (
-      data: DataNode[],
+      data: TreeDataNode[],
       key: number,
-      callback: (item: DataNode, index: number, err: DataNode[]) => void,
+      callback: (item: TreeDataNode, index: number, err: TreeDataNode[]) => void,
     ): void => {
       for (let i = 0; i < data.length; i++) {
         if (data[i].key === key) {
@@ -69,7 +67,7 @@ const App: React.FC = () => {
     const data = [...gData];
 
     // Find dragObject
-    let dragObj: DataNode;
+    let dragObj: TreeDataNode;
     loop(data, dragKey, (item, index, arr) => {
       arr.splice(index, 1);
       dragObj = item;
@@ -79,7 +77,7 @@ const App: React.FC = () => {
       // Drop on the content
       loop(data, dropKey, (item) => {
         item.children = item.children || [];
-        // where to insert 示例添加到尾部，可以是随意位置
+        // where to insert. New item was inserted to the end of the array in this example, but can be anywhere
         item.children.push(dragObj);
       });
     } else if (
@@ -89,11 +87,11 @@ const App: React.FC = () => {
     ) {
       loop(data, dropKey, (item) => {
         item.children = item.children || [];
-        // where to insert 示例添加到头部，可以是随意位置
+        // where to insert. New item was inserted to the start of the array in this example, but can be anywhere
         item.children.unshift(dragObj);
       });
     } else {
-      let ar: DataNode[];
+      let ar: TreeDataNode[];
       let i: number;
       loop(data, dropKey, (_, index, arr) => {
         ar = arr;

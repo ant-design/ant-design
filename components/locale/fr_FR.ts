@@ -1,5 +1,5 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/fr_FR';
+
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/fr_FR';
 import DatePicker from '../date-picker/locale/fr_FR';
@@ -32,15 +32,15 @@ const localeValues: Locale = {
     triggerAsc: 'Trier par ordre croissant',
     cancelSort: 'Annuler le tri',
   },
-  Modal: {
-    okText: 'OK',
-    cancelText: 'Annuler',
-    justOkText: 'OK',
-  },
   Tour: {
     Next: 'Étape suivante',
     Previous: 'Étape précédente',
     Finish: 'Fin de la visite guidée',
+  },
+  Modal: {
+    okText: 'OK',
+    cancelText: 'Annuler',
+    justOkText: 'OK',
   },
   Popconfirm: {
     okText: 'OK',
@@ -76,9 +76,6 @@ const localeValues: Locale = {
     copy: 'Copier',
     copied: 'Copie effectuée',
     expand: 'Développer',
-  },
-  PageHeader: {
-    back: 'Retour',
   },
   Form: {
     optional: '(optionnel)',

@@ -1,18 +1,19 @@
 import * as React from 'react';
-import type { DescriptionsContextProps } from '.';
-import { DescriptionsContext } from '.';
+
+import type { InternalDescriptionsItemType } from '.';
 import Cell from './Cell';
-import type { DescriptionsItemProps } from './Item';
+import type { DescriptionsContextProps } from './DescriptionsContext';
+import DescriptionsContext from './DescriptionsContext';
 
 interface CellConfig {
   component: string | [string, string];
-  type: string;
+  type: 'label' | 'content' | 'item';
   showLabel?: boolean;
   showContent?: boolean;
 }
 
 function renderCells(
-  items: React.ReactElement<DescriptionsItemProps>[],
+  items: InternalDescriptionsItemType[],
   { colon, prefixCls, bordered }: RowProps,
   {
     component,
@@ -26,16 +27,14 @@ function renderCells(
   return items.map(
     (
       {
-        props: {
-          label,
-          children,
-          prefixCls: itemPrefixCls = prefixCls,
-          className,
-          style,
-          labelStyle,
-          contentStyle,
-          span = 1,
-        },
+        label,
+        children,
+        prefixCls: itemPrefixCls = prefixCls,
+        className,
+        style,
+        labelStyle,
+        contentStyle,
+        span = 1,
         key,
       },
       index,
@@ -55,6 +54,7 @@ function renderCells(
             bordered={bordered}
             label={showLabel ? label : null}
             content={showContent ? children : null}
+            type={type}
           />
         );
       }
@@ -70,6 +70,7 @@ function renderCells(
           itemPrefixCls={itemPrefixCls}
           bordered={bordered}
           label={label}
+          type="label"
         />,
         <Cell
           key={`content-${key || index}`}
@@ -80,6 +81,7 @@ function renderCells(
           itemPrefixCls={itemPrefixCls}
           bordered={bordered}
           content={children}
+          type="content"
         />,
       ];
     },
@@ -89,7 +91,7 @@ function renderCells(
 export interface RowProps {
   prefixCls: string;
   vertical: boolean;
-  row: React.ReactElement<DescriptionsItemProps>[];
+  row: InternalDescriptionsItemType[];
   bordered?: boolean;
   colon: boolean;
   index: number;

@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import type { CascaderProps } from 'antd';
 import {
   AutoComplete,
@@ -11,7 +12,6 @@ import {
   Row,
   Select,
 } from 'antd';
-import React, { useState } from 'react';
 
 const { Option } = Select;
 
@@ -176,7 +176,7 @@ const App: React.FC = () => {
               if (!value || getFieldValue('password') === value) {
                 return Promise.resolve();
               }
-              return Promise.reject(new Error('The two passwords that you entered do not match!'));
+              return Promise.reject(new Error('The new password that you entered do not match!'));
             },
           }),
         ]}

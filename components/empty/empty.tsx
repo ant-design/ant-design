@@ -1,19 +1,15 @@
-import { TinyColor } from '@ctrl/tinycolor';
 import * as React from 'react';
+import { TinyColor } from '@ctrl/tinycolor';
+
 import { useToken } from '../theme/internal';
 
 const Empty: React.FC = () => {
   const [, token] = useToken();
 
   const bgColor = new TinyColor(token.colorBgBase);
-  let themeStyle: React.CSSProperties = {};
 
   // Dark Theme need more dark of this
-  if (bgColor.toHsl().l < 0.5) {
-    themeStyle = {
-      opacity: 0.65,
-    };
-  }
+  const themeStyle: React.CSSProperties = bgColor.toHsl().l < 0.5 ? { opacity: 0.65 } : {};
 
   return (
     <svg
@@ -23,6 +19,7 @@ const Empty: React.FC = () => {
       viewBox="0 0 184 152"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>empty image</title>
       <g fill="none" fillRule="evenodd">
         <g transform="translate(24 31.67)">
           <ellipse

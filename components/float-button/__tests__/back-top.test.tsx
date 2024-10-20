@@ -1,11 +1,15 @@
 import React from 'react';
+
 import FloatButton from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 
 const { BackTop } = FloatButton;
+
 describe('BackTop', () => {
+  const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
   beforeEach(() => {
     jest.useFakeTimers();
   });
@@ -50,5 +54,11 @@ describe('BackTop', () => {
   it('pass style to float button', () => {
     const { container } = render(<BackTop style={{ color: 'red' }} visibilityHeight={0} />);
     expect(container.querySelector<HTMLButtonElement>('.ant-float-btn')?.style.color).toBe('red');
+  });
+
+  it('no error when BackTop work', () => {
+    render(<BackTop visibilityHeight={0} />);
+    expect(errSpy).not.toHaveBeenCalled();
+    errSpy.mockRestore();
   });
 });

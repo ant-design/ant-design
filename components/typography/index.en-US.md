@@ -2,15 +2,14 @@
 category: Components
 group: General
 title: Typography
+description: Basic text writing, including headings, body text, lists, and more.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*MLt3R6m9huoAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-Basic text writing, including headings, body text, lists, and more.
-
 ## When To Use
 
-- When need to display a title or paragraph contents in Articles/Blogs/Notes.
+- When you need to display a title or paragraph contents in Articles/Blogs/Notes.
 - When you need copyable/editable/ellipsis texts.
 
 ## Examples
@@ -20,13 +19,18 @@ Basic text writing, including headings, body text, lists, and more.
 <code src="./demo/title.tsx">Title Component</code>
 <code src="./demo/paragraph-debug.tsx" debug>Title and Paragraph</code>
 <code src="./demo/text.tsx">Text and Link Component</code>
-<code src="./demo/interactive.tsx">Interactive</code>
+<code src="./demo/editable.tsx">Editable</code>
+<code src="./demo/copyable.tsx">Copyable</code>
 <code src="./demo/ellipsis.tsx">Ellipsis</code>
+<code src="./demo/ellipsis-controlled.tsx" version="5.16.0">Controlled ellipsis expand/collapse</code>
 <code src="./demo/ellipsis-middle.tsx">Ellipsis from middle</code>
 <code src="./demo/ellipsis-debug.tsx" debug>Ellipsis Debug</code>
 <code src="./demo/suffix.tsx">suffix</code>
+<code src="./demo/componentToken-debug.tsx" debug>Component Token</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ### Typography.Text
 
@@ -37,7 +41,7 @@ Basic text writing, including headings, body text, lists, and more.
 | delete | Deleted line style | boolean | false |  |
 | disabled | Disabled content | boolean | false |  |
 | editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false | [editable](#editable) |
-| ellipsis | Display ellipsis when text overflows，can't configure expandable、rows and onExpand by using object. Diff with Typography.Paragraph, Text do not have 100% width style which means it will fix width on the first ellipsis. If you want to have responsive ellipsis, please set width manually | boolean \| [Omit<ellipsis, 'expandable' \| 'rows' \| 'onExpand'>](#ellipsis) | false | [ellipsis](#ellipsis) |
+| ellipsis | Display ellipsis when text overflows, can't configure expandable、rows and onExpand by using object. Diff with Typography.Paragraph, Text do not have 100% width style which means it will fix width on the first ellipsis. If you want to have responsive ellipsis, please set width manually | boolean \| [Omit<ellipsis, 'expandable' \| 'rows' \| 'onExpand'>](#ellipsis) | false | [ellipsis](#ellipsis) |
 | keyboard | Keyboard style | boolean | false | 4.3.0 |
 | mark | Marked style | boolean | false |  |
 | onClick | Set the handler to handle click event | (event) => void | - |  |
@@ -83,11 +87,12 @@ Basic text writing, including headings, body text, lists, and more.
 ### copyable
 
     {
-      text: string,
+      text: string | (() => string | Promise<string>),
       onCopy: function(event),
       icon: ReactNode,
       tooltips: false | [ReactNode, ReactNode],
       format: 'text/plain' | 'text/html',
+      tabIndex: number,
     }
 
 | Property | Description | Type | Default | Version |
@@ -97,12 +102,13 @@ Basic text writing, including headings, body text, lists, and more.
 | text | The text to copy | string | - |  |
 | tooltips | Custom tooltip text, hide when it is false | \[ReactNode, ReactNode] | \[`Copy`, `Copied`] | 4.4.0 |
 | onCopy | Called when copied text | function | - |  |
+| tabIndex | Set tabIndex of the copy button | number | 0 | 5.17.0 |
 
 ### editable
 
     {
       icon: ReactNode,
-      tooltip: boolean | ReactNode,
+      tooltip: ReactNode,
       editing: boolean,
       maxLength: number,
       autoSize: boolean | { minRows: number, maxRows: number },
@@ -113,6 +119,7 @@ Basic text writing, including headings, body text, lists, and more.
       onEnd: function,
       triggerType: ('icon' | 'text')[],
       enterIcon: ReactNode,
+      tabIndex: number,
     }
 
 | Property | Description | Type | Default | Version |
@@ -121,7 +128,7 @@ Basic text writing, including headings, body text, lists, and more.
 | editing | Whether to be editable | boolean | false |  |
 | icon | Custom editable icon | ReactNode | &lt;EditOutlined /> | 4.6.0 |
 | maxLength | `maxLength` attribute of textarea | number | - | 4.4.0 |
-| tooltip | Custom tooltip text, hide when it is false | boolean \| ReactNode | `Edit` | 4.6.0 |
+| tooltip | Custom tooltip text, hide when it is false | ReactNode | `Edit` | 4.6.0 |
 | text | Edit text, specify the editing content instead of using the children implicitly | string | - | 4.24.0 |
 | onChange | Called when input at textarea | function(value: string) | - |  |
 | onCancel | Called when type ESC to exit editable state | function | - |  |
@@ -129,28 +136,40 @@ Basic text writing, including headings, body text, lists, and more.
 | onEnd | Called when type ENTER to exit editable state | function | - | 4.14.0 |
 | triggerType | Edit mode trigger - icon, text or both (not specifying icon as trigger hides it) | Array&lt;`icon`\|`text`> | \[`icon`] |  |
 | enterIcon | Custom "enter" icon in the edit field (passing `null` removes the icon) | ReactNode | `<EnterOutlined />` | 4.17.0 |
+| tabIndex | Set tabIndex of the edit button | number | 0 | 5.17.0 |
 
 ### ellipsis
 
-    {
-      rows: number,
-      expandable: boolean,
-      suffix: string,
-      symbol: ReactNode,
-      tooltip: boolean | ReactNode | TooltipProps,
-      onExpand: function(event),
-      onEllipsis: function(ellipsis),
-    }
+```tsx
+interface EllipsisConfig {
+  rows: number;
+  /** `collapsible` added in `5.16.0` */
+  expandable: boolean | 'collapsible';
+  suffix: string;
+  /** render function added in `5.16.0` */
+  symbol: ReactNode | ((expanded: boolean) => ReactNode);
+  tooltip: ReactNode | TooltipProps;
+  /** added in `5.16.0` */
+  defaultExpanded: boolean;
+  /** added in `5.16.0` */
+  expanded: boolean;
+  /** `info` added in `5.16.0` */
+  onExpand: (event: MouseEvent, info: { expanded: boolean }) => void;
+  onEllipsis: (ellipsis: boolean) => void;
+}
+```
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| expandable | Whether to be expandable | boolean | - |  |
+| expandable | Whether to be expandable | boolean \| 'collapsible' | - | `collapsible`: 5.16.0 |
 | rows | Max rows of content | number | - |  |
 | suffix | Suffix of ellipsis content | string | - |  |
-| symbol | Custom description of ellipsis | ReactNode | `Expand` |  |
-| tooltip | Show tooltip when ellipsis | boolean \| ReactNode \| [TooltipProps](/components/tooltip/#api) | - | 4.11.0 |
+| symbol | Custom description of ellipsis | ReactNode \| ((expanded: boolean) => ReactNode) | `Expand` `Collapse` |  |
+| tooltip | Show tooltip when ellipsis | ReactNode \| [TooltipProps](/components/tooltip/#api) | - | 4.11.0 |
+| defaultExpanded | Default expand or collapse | boolean |  | 5.16.0 |
+| expanded | Expand or Collapse | boolean |  | 5.16.0 |
 | onEllipsis | Called when enter or leave ellipsis state | function(ellipsis) | - | 4.2.0 |
-| onExpand | Called when expand content | function(event) | - |  |
+| onExpand | Called when expand content | function(event, { expanded: boolean }) | - | `info`: 5.16.0 |
 
 ## Design Token
 

@@ -28,6 +28,21 @@ const App: React.FC = () => (
       addonBefore={<Cascader placeholder="cascader" style={{ width: 150 }} />}
       defaultValue={100}
     />
+    <InputNumber
+      addonBefore="+"
+      addonAfter={<SettingOutlined />}
+      defaultValue={100}
+      disabled
+      controls
+    />
+    <InputNumber
+      prefix="¥"
+      addonBefore="+"
+      addonAfter={<SettingOutlined />}
+      defaultValue={100}
+      disabled
+      controls
+    />
   </Space>
 );
 

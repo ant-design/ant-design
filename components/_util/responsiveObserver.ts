@@ -1,5 +1,6 @@
 import React from 'react';
-import type { GlobalToken } from '../theme/interface';
+
+import type { GlobalToken } from '../theme/internal';
 import { useToken } from '../theme/internal';
 
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
@@ -66,7 +67,7 @@ export default function useResponsiveObserver() {
 
   // To avoid repeat create instance, we add `useMemo` here.
   return React.useMemo(() => {
-    const subscribers = new Map<Number, SubscribeFunc>();
+    const subscribers = new Map<number, SubscribeFunc>();
     let subUid = -1;
     let screens = {};
 
@@ -94,16 +95,16 @@ export default function useResponsiveObserver() {
         if (!subscribers.size) this.unregister();
       },
       unregister() {
-        Object.keys(responsiveMap).forEach((screen: Breakpoint) => {
-          const matchMediaQuery = responsiveMap[screen];
+        Object.keys(responsiveMap).forEach((screen) => {
+          const matchMediaQuery = responsiveMap[screen as Breakpoint];
           const handler = this.matchHandlers[matchMediaQuery];
           handler?.mql.removeListener(handler?.listener);
         });
         subscribers.clear();
       },
       register() {
-        Object.keys(responsiveMap).forEach((screen: Breakpoint) => {
-          const matchMediaQuery = responsiveMap[screen];
+        Object.keys(responsiveMap).forEach((screen) => {
+          const matchMediaQuery = responsiveMap[screen as Breakpoint];
           const listener = ({ matches }: { matches: boolean }) => {
             this.dispatch({
               ...screens,
@@ -124,3 +125,14 @@ export default function useResponsiveObserver() {
     };
   }, [token]);
 }
+
+export const matchScreen = (screens: ScreenMap, screenSizes?: ScreenSizeMap) => {
+  if (screenSizes && typeof screenSizes === 'object') {
+    for (let i = 0; i < responsiveArray.length; i++) {
+      const breakpoint: Breakpoint = responsiveArray[i];
+      if (screens[breakpoint] && screenSizes[breakpoint] !== undefined) {
+        return screenSizes[breakpoint];
+      }
+    }
+  }
+};

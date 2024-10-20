@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { CarryOutOutlined, CheckOutlined, FormOutlined } from '@ant-design/icons';
 import { Select, Switch, Tree } from 'antd';
-import type { DataNode } from 'antd/es/tree';
+import type { TreeDataNode } from 'antd';
 
-const treeData: DataNode[] = [
+const treeData: TreeDataNode[] = [
   {
     title: 'parent 1',
     key: '0-0',
@@ -71,7 +71,7 @@ const treeData: DataNode[] = [
 const App: React.FC = () => {
   const [showLine, setShowLine] = useState<boolean>(true);
   const [showIcon, setShowIcon] = useState<boolean>(false);
-  const [showLeafIcon, setShowLeafIcon] = useState<boolean | React.ReactNode>(true);
+  const [showLeafIcon, setShowLeafIcon] = useState<React.ReactNode>(true);
 
   const onSelect = (selectedKeys: React.Key[], info: any) => {
     console.log('selected', selectedKeys, info);

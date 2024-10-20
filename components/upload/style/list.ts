@@ -1,13 +1,15 @@
+import { unit } from '@ant-design/cssinjs';
+
 import type { UploadToken } from '.';
-import type { GenerateStyle } from '../../theme/internal';
 import { clearFix, textEllipsis } from '../../style';
+import type { GenerateStyle } from '../../theme/internal';
 
 const genListStyle: GenerateStyle<UploadToken> = (token) => {
-  const { componentCls, antCls, iconCls, fontSize, lineHeight } = token;
+  const { componentCls, antCls, iconCls, fontSize, lineHeight, calc } = token;
   const itemCls = `${componentCls}-list-item`;
   const actionsCls = `${itemCls}-actions`;
   const actionCls = `${itemCls}-action`;
-  const listItemHeightSM = Math.round(fontSize * lineHeight);
+  const listItemHeightSM = token.fontHeightSM;
 
   return {
     [`${componentCls}-wrapper`]: {
@@ -17,7 +19,7 @@ const genListStyle: GenerateStyle<UploadToken> = (token) => {
 
         [itemCls]: {
           position: 'relative',
-          height: token.lineHeight * fontSize,
+          height: calc(token.lineHeight).mul(fontSize).equal(),
           marginTop: token.marginXS,
           fontSize,
           display: 'flex',
@@ -30,41 +32,35 @@ const genListStyle: GenerateStyle<UploadToken> = (token) => {
 
           [`${itemCls}-name`]: {
             ...textEllipsis,
-            padding: `0 ${token.paddingXS}px`,
+            padding: `0 ${unit(token.paddingXS)}`,
             lineHeight,
             flex: 'auto',
             transition: `all ${token.motionDurationSlow}`,
           },
 
           [actionsCls]: {
+            whiteSpace: 'nowrap',
+
             [actionCls]: {
               opacity: 0,
             },
 
-            [`${actionCls}${antCls}-btn-sm`]: {
-              height: listItemHeightSM,
-              border: 0,
-              lineHeight: 1,
-              // FIXME: should not override small button
-              '> span': {
-                transform: 'scale(1)',
-              },
+            [iconCls]: {
+              color: token.actionsColor,
+              transition: `all ${token.motionDurationSlow}`,
             },
 
             [`
-              ${actionCls}:focus,
+              ${actionCls}:focus-visible,
               &.picture ${actionCls}
             `]: {
               opacity: 1,
             },
 
-            [iconCls]: {
-              color: token.colorTextDescription,
-              transition: `all ${token.motionDurationSlow}`,
-            },
-
-            [`&:hover ${iconCls}`]: {
-              color: token.colorText,
+            [`${actionCls}${antCls}-btn`]: {
+              height: listItemHeightSM,
+              border: 0,
+              lineHeight: 1,
             },
           },
 
@@ -75,9 +71,9 @@ const genListStyle: GenerateStyle<UploadToken> = (token) => {
 
           [`${itemCls}-progress`]: {
             position: 'absolute',
-            bottom: -token.uploadProgressOffset,
+            bottom: token.calc(token.uploadProgressOffset).mul(-1).equal(),
             width: '100%',
-            paddingInlineStart: fontSize + token.paddingXS,
+            paddingInlineStart: calc(fontSize).add(token.paddingXS).equal(),
             fontSize,
             lineHeight: 0,
             pointerEvents: 'none',
@@ -90,7 +86,6 @@ const genListStyle: GenerateStyle<UploadToken> = (token) => {
 
         [`${itemCls}:hover ${actionCls}`]: {
           opacity: 1,
-          color: token.colorText,
         },
 
         [`${itemCls}-error`]: {

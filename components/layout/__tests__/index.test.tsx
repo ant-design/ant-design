@@ -1,10 +1,11 @@
-import { UserOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
-import { act } from 'react-dom/test-utils';
+import { UserOutlined } from '@ant-design/icons';
+import { renderToString } from 'react-dom/server';
+
 import Layout from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 import Menu from '../../menu';
 
 const { Sider, Content, Footer, Header } = Layout;
@@ -331,5 +332,17 @@ describe('Sider', () => {
       );
       expect(ref.current instanceof HTMLElement).toBe(true);
     });
+  });
+
+  it('auto check hasSider', () => {
+    const htmlContent = renderToString(
+      <Layout>
+        <div />
+        <Sider />
+        <div />
+      </Layout>,
+    );
+
+    expect(htmlContent).toContain('ant-layout-has-sider');
   });
 });

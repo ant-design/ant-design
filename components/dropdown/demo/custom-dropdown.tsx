@@ -1,6 +1,6 @@
 import React from 'react';
 import { DownOutlined } from '@ant-design/icons';
-import { Dropdown, Space, Divider, Button, theme } from 'antd';
+import { Button, Divider, Dropdown, Space, theme } from 'antd';
 import type { MenuProps } from 'antd';
 
 const { useToken } = theme;
@@ -37,13 +37,13 @@ const items: MenuProps['items'] = [
 const App: React.FC = () => {
   const { token } = useToken();
 
-  const contentStyle = {
+  const contentStyle: React.CSSProperties = {
     backgroundColor: token.colorBgElevated,
     borderRadius: token.borderRadiusLG,
     boxShadow: token.boxShadowSecondary,
   };
 
-  const menuStyle = {
+  const menuStyle: React.CSSProperties = {
     boxShadow: 'none',
   };
 

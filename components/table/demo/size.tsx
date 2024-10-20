@@ -1,6 +1,6 @@
 import React from 'react';
-import { Table, Divider } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import { Divider, Table } from 'antd';
+import type { TableColumnsType } from 'antd';
 
 interface DataType {
   key: React.Key;
@@ -9,7 +9,7 @@ interface DataType {
   address: string;
 }
 
-const columns: ColumnsType<DataType> = [
+const columns: TableColumnsType<DataType> = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -48,9 +48,9 @@ const data: DataType[] = [
 const App: React.FC = () => (
   <>
     <Divider>Middle size table</Divider>
-    <Table columns={columns} dataSource={data} size="middle" />
+    <Table<DataType> columns={columns} dataSource={data} size="middle" />
     <Divider>Small size table</Divider>
-    <Table columns={columns} dataSource={data} size="small" />
+    <Table<DataType> columns={columns} dataSource={data} size="small" />
   </>
 );
 

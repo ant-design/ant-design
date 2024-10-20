@@ -1,0 +1,22 @@
+name: 🐦 Release to Tweet
+
+on:
+  create
+
+permissions:
+  contents: read
+
+jobs:
+  tweet:
+    if: ${{ github.event.ref_type == 'tag' && !contains(github.event.ref, 'alpha') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Tweet
+        uses: nearform-actions/github-action-notify-twitter@v1
+        with:
+          message: |
+            🤖 Ant Design just released antd@${{ github.event.ref }} ✨🎊✨ Check out the full release note: https://github.com/ant-design/ant-design/releases/tag/${{ github.event.ref }}
+          twitter-app-key: ${{ secrets.TWITTER_API_KEY }}
+          twitter-app-secret: ${{ secrets.TWITTER_API_SECRET_KEY }}
+          twitter-access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          twitter-access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}

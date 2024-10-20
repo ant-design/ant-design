@@ -2,11 +2,13 @@
 title: Pain of static methods
 date: 2023-04-26
 author: zombieJ
+zhihu_url: https://zhuanlan.zhihu.com/p/633333904
+yuque_url: https://www.yuque.com/ant-design/ant-design/gkkyx81eihftzzq7
 ---
 
 > `message.success` is working well, why do you warn me to use hooks? antd is getting worse and worse, goodbye!
 
-We've heard some complain about hooks replacement of static methods. We know it's painful, but after years of consideration, we still decide to do a cut in v5 (yes, this discussion is even older than hooks, but there was no simple way to implement it before hooks, so we just put it aside).
+We've heard some complaints about hooks replacement of static methods. We know it's painful, but after years of consideration, we still decide to do a cut in v5 (yes, this discussion is even older than hooks, but there was no simple way to implement it before hooks, so we just put it aside).
 
 ## Static methods
 
@@ -14,7 +16,7 @@ For the early JS, there already exists a simple and easy-to-use API `alert`. You
 
 <img width="300" alt="Fetch Failed" src="https://user-images.githubusercontent.com/5378891/234574678-44b12d00-9318-4ff9-b234-08129c82fc78.png" />
 
-But from the perspective of data flow, this actually couples UI and data layer. It's just look like it doesn't directly depend on the UI context when it's called, so it looks harmless. And for the perspective of testing, this kind of coupling also makes the test complicated.
+But from the perspective of data flow, this actually couples UI and data layer. It just looks like it doesn't directly depend on the UI context when it's called, so it looks harmless. And for the perspective of testing, this kind of coupling also makes the test complicated.
 
 ### Pain of context lost
 

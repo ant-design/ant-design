@@ -1,22 +1,86 @@
-import { Button, Popover, Space } from 'antd';
 import React from 'react';
+import { createStyles } from 'antd-style';
+import { Flex, Popover } from 'antd';
+import type { GetProp } from 'antd';
 
-const content = (
-  <>
-    <p>Content</p>
-    <p>Content</p>
-  </>
-);
+const useStyle = createStyles(() => ({
+  item: {
+    width: '280px',
+    height: '280px',
+    display: 'inline-flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    border: '1px dashed purple',
+  },
 
-const App: React.FC = () => (
-  <Space wrap>
-    <Popover placement="topLeft" title="Title" content={content}>
-      <Button>Align edge / 边缘对齐</Button>
-    </Popover>
-    <Popover placement="topLeft" title="Title" content={content} arrowPointAtCenter>
-      <Button>Arrow points to center / 箭头指向中心</Button>
-    </Popover>
-  </Space>
-);
+  box: {
+    width: '40px',
+    height: '40px',
+    backgroundColor: 'deepskyblue',
+  },
+
+  cross: {
+    position: 'relative',
+
+    '&::before, &::after': {
+      content: '""',
+      position: 'absolute',
+      inset: 0,
+    },
+    '&::before': {
+      top: '50%',
+      height: '1px',
+      backgroundColor: 'red',
+    },
+    '&::after': {
+      left: '50%',
+      width: '1px',
+      backgroundColor: 'blue',
+    },
+  },
+}));
+
+type Placement = GetProp<typeof Popover, 'placement'>;
+
+const placements: Placement[] = [
+  'topLeft',
+  'top',
+  'topRight',
+  'leftTop',
+  'left',
+  'leftBottom',
+  'rightTop',
+  'right',
+  'rightBottom',
+  'bottomLeft',
+  'bottom',
+  'bottomRight',
+];
+
+const App = () => {
+  const { styles, cx } = useStyle();
+  return (
+    <Flex gap={16} wrap>
+      {placements.map((placement) => (
+        <div key={placement} className={styles.item}>
+          <Popover
+            placement={placement}
+            content={
+              <Flex align="center" justify="center">
+                {placement}
+              </Flex>
+            }
+            autoAdjustOverflow={false}
+            arrow={{ pointAtCenter: true }}
+            forceRender
+            open
+          >
+            <div className={cx(styles.box, styles.cross)} />
+          </Popover>
+        </div>
+      ))}
+    </Flex>
+  );
+};
 
 export default App;

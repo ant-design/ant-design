@@ -1,6 +1,6 @@
+import React from 'react';
 import { UserOutlined } from '@ant-design/icons';
 import { Avatar, Space } from 'antd';
-import React from 'react';
 
 const url = 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg';
 

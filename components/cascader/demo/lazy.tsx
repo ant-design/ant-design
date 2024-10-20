@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import type { CascaderProps } from 'antd';
 import { Cascader } from 'antd';
 
 interface Option {
@@ -6,7 +7,6 @@ interface Option {
   label: React.ReactNode;
   children?: Option[];
   isLeaf?: boolean;
-  loading?: boolean;
 }
 
 const optionLists: Option[] = [
@@ -25,17 +25,15 @@ const optionLists: Option[] = [
 const App: React.FC = () => {
   const [options, setOptions] = useState<Option[]>(optionLists);
 
-  const onChange = (value: (string | number)[], selectedOptions: Option[]) => {
+  const onChange: CascaderProps<Option>['onChange'] = (value, selectedOptions) => {
     console.log(value, selectedOptions);
   };
 
   const loadData = (selectedOptions: Option[]) => {
     const targetOption = selectedOptions[selectedOptions.length - 1];
-    targetOption.loading = true;
 
     // load options lazily
     setTimeout(() => {
-      targetOption.loading = false;
       targetOption.children = [
         {
           label: `${targetOption.label} Dynamic 1`,

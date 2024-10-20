@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
-import type { TableProps } from 'antd';
+import type { TableColumnsType, TableProps } from 'antd';
 import { Button, Space, Table } from 'antd';
-import type { ColumnsType, FilterValue, SorterResult } from 'antd/es/table/interface';
+
+type OnChange = NonNullable<TableProps<DataType>['onChange']>;
+type Filters = Parameters<OnChange>[1];
+
+type GetSingle<T> = T extends (infer U)[] ? U : never;
+type Sorts = GetSingle<Parameters<OnChange>[2]>;
 
 interface DataType {
   key: string;
@@ -38,13 +43,13 @@ const data: DataType[] = [
 ];
 
 const App: React.FC = () => {
-  const [filteredInfo, setFilteredInfo] = useState<Record<string, FilterValue | null>>({});
-  const [sortedInfo, setSortedInfo] = useState<SorterResult<DataType>>({});
+  const [filteredInfo, setFilteredInfo] = useState<Filters>({});
+  const [sortedInfo, setSortedInfo] = useState<Sorts>({});
 
-  const handleChange: TableProps<DataType>['onChange'] = (pagination, filters, sorter) => {
+  const handleChange: OnChange = (pagination, filters, sorter) => {
     console.log('Various parameters', pagination, filters, sorter);
     setFilteredInfo(filters);
-    setSortedInfo(sorter as SorterResult<DataType>);
+    setSortedInfo(sorter as Sorts);
   };
 
   const clearFilters = () => {
@@ -63,7 +68,7 @@ const App: React.FC = () => {
     });
   };
 
-  const columns: ColumnsType<DataType> = [
+  const columns: TableColumnsType<DataType> = [
     {
       title: 'Name',
       dataIndex: 'name',
@@ -73,7 +78,7 @@ const App: React.FC = () => {
         { text: 'Jim', value: 'Jim' },
       ],
       filteredValue: filteredInfo.name || null,
-      onFilter: (value: string, record) => record.name.includes(value),
+      onFilter: (value, record) => record.name.includes(value as string),
       sorter: (a, b) => a.name.length - b.name.length,
       sortOrder: sortedInfo.columnKey === 'name' ? sortedInfo.order : null,
       ellipsis: true,
@@ -95,7 +100,7 @@ const App: React.FC = () => {
         { text: 'New York', value: 'New York' },
       ],
       filteredValue: filteredInfo.address || null,
-      onFilter: (value: string, record) => record.address.includes(value),
+      onFilter: (value, record) => record.address.includes(value as string),
       sorter: (a, b) => a.address.length - b.address.length,
       sortOrder: sortedInfo.columnKey === 'address' ? sortedInfo.order : null,
       ellipsis: true,
@@ -109,7 +114,7 @@ const App: React.FC = () => {
         <Button onClick={clearFilters}>Clear filters</Button>
         <Button onClick={clearAll}>Clear filters and sorters</Button>
       </Space>
-      <Table columns={columns} dataSource={data} onChange={handleChange} />
+      <Table<DataType> columns={columns} dataSource={data} onChange={handleChange} />
     </>
   );
 };

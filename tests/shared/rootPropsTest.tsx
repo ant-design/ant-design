@@ -1,5 +1,6 @@
-/* eslint-disable global-require, import/no-dynamic-require, jest/no-export */
+/* eslint-disable jest/no-export */
 import React from 'react';
+
 import ConfigProvider from '../../components/config-provider';
 import { render, waitFakeTimer } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
@@ -20,14 +21,17 @@ function isSingleNode(node: any): node is Element {
 }
 
 export default function rootPropsTest(
-  component: string,
+  component: string | string[],
   customizeRender?: (
     component: React.ComponentType<any> & Record<string, any>,
     props: any,
   ) => React.ReactNode,
   options?: Options,
 ) {
-  const Component = require(`../../components/${component}`).default as any;
+  const componentNames = Array.isArray(component) ? component : [component];
+  const [componentName, subComponentName] = componentNames;
+
+  const Component = require(`../../components/${componentName}`).default;
   const name = options?.name ? `(${options.name})` : '';
 
   describe(`RootProps${name}`, () => {
@@ -36,17 +40,17 @@ export default function rootPropsTest(
     beforeEach(() => {
       passed = false;
       jest.useFakeTimers();
+      document.body.innerHTML = '';
     });
 
     afterEach(() => {
       if (!passed || process.env.DEBUG === 'true') {
-        // eslint-disable-next-line no-console
         console.log(document.body.innerHTML);
       }
       jest.useRealTimers();
     });
 
-    it('rootClassName', async () => {
+    it(['rootClassName', subComponentName].filter((v) => v).join(' '), async () => {
       const rootClassName = 'TEST_ROOT_CLS';
 
       if (options?.beforeRender) {
@@ -104,7 +108,7 @@ export default function rootPropsTest(
 
       expect(childList.length).toBeGreaterThan(0);
       if (options?.expectCount) {
-        expect(childList.length).toBe(options.expectCount);
+        expect(childList).toHaveLength(options.expectCount);
       }
 
       childList.forEach((ele) => {

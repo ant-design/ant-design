@@ -1,5 +1,5 @@
-/* eslint-disable no-console */
 import React, { useState } from 'react';
+
 import Space from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -37,6 +37,20 @@ describe('Space', () => {
     expect(container.children).toMatchSnapshot();
   });
 
+  it('should render width ConfigProvider support 0', () => {
+    const { container } = render(
+      <ConfigProvider space={{ size: 0 }}>
+        <Space>
+          <span>1</span>
+          <span>2</span>
+        </Space>
+      </ConfigProvider>,
+    );
+
+    const item = container.querySelector('.ant-space-gap-row-small.ant-space-gap-col-small');
+    expect(item).toBe(null);
+  });
+
   it('should render width rtl', () => {
     const { container } = render(
       <ConfigProvider direction="rtl">
@@ -66,25 +80,9 @@ describe('Space', () => {
       </Space>,
     );
 
-    expect(container.querySelector<HTMLDivElement>('div.ant-space-item')?.style.marginRight).toBe(
-      '10px',
-    );
-    expect(
-      container.querySelectorAll<HTMLDivElement>('div.ant-space-item')[1]?.style.marginRight,
-    ).toBe('');
-  });
-
-  it('should render width size 0', () => {
-    const { container } = render(
-      <Space size={NaN}>
-        <span>1</span>
-        <span>2</span>
-      </Space>,
-    );
-
-    expect(container.querySelector<HTMLDivElement>('div.ant-space-item')?.style.marginRight).toBe(
-      '0px',
-    );
+    const items = container.querySelectorAll<HTMLDivElement>('div.ant-space-item');
+    expect(items[0]?.style.marginRight).toBe('');
+    expect(items[1]?.style.marginRight).toBe('');
   });
 
   it('should render vertical space width customize size', () => {
@@ -95,19 +93,15 @@ describe('Space', () => {
       </Space>,
     );
 
-    expect(container.querySelector<HTMLDivElement>('div.ant-space-item')?.style.marginBottom).toBe(
-      '10px',
-    );
-    expect(
-      container.querySelectorAll<HTMLDivElement>('div.ant-space-item')[1]?.style.marginBottom,
-    ).toBe('');
+    const items = container.querySelectorAll<HTMLDivElement>('div.ant-space-item');
+    expect(items[0]?.style.marginBottom).toBe('');
+    expect(items[1]?.style.marginBottom).toBe('');
   });
 
   it('should render correct with children', () => {
     const { container } = render(
       <Space>
         text1<span>text1</span>
-        {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
         <>text3</>
       </Space>,
     );
@@ -171,7 +165,6 @@ describe('Space', () => {
     const { container } = render(
       <Space split="-">
         text1<span>text1</span>
-        {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
         <>text3</>
       </Space>,
     );
@@ -199,15 +192,49 @@ describe('Space', () => {
   });
 
   it('should render the hidden empty item wrapper', () => {
-    const Null = () => null;
+    const Null: React.FC = () => null;
     const { container } = render(
       <Space>
         <Null />
       </Space>,
     );
-    const item = container.querySelector('div.ant-space-item') as HTMLElement;
+    const element = container.querySelector<HTMLDivElement>('div.ant-space-item')!;
+    expect(element).toBeEmptyDOMElement();
+    expect(getComputedStyle(element).display).toBe('none');
+  });
 
-    expect(item).toBeEmptyDOMElement();
-    expect(getComputedStyle(item).display).toBe('none');
+  it('should ref work', () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(
+      <Space ref={ref}>
+        <span>Text1</span>
+        <span>Text2</span>
+      </Space>,
+    );
+
+    expect(ref.current).toBe(container.firstChild);
+  });
+
+  it('should classNames work', () => {
+    const { container } = render(
+      <Space classNames={{ item: 'test-classNames' }}>
+        <span>Text1</span>
+        <span>Text2</span>
+      </Space>,
+    );
+
+    expect(container.querySelector<HTMLDivElement>('.ant-space-item.test-classNames')).toBeTruthy();
+  });
+
+  it('should styles work', () => {
+    const { container } = render(
+      <Space styles={{ item: { color: 'red' } }}>
+        <span>Text1</span>
+        <span>Text2</span>
+      </Space>,
+    );
+    expect(
+      container.querySelector<HTMLDivElement>('.ant-space-item')?.getAttribute('style'),
+    ).toEqual('color: red;');
   });
 });

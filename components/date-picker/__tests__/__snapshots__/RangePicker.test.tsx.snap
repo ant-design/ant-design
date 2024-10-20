@@ -2,15 +2,16 @@
 
 exports[`RangePicker customize separator 1`] = `
 <div
-  class="ant-picker ant-picker-range"
+  class="ant-picker ant-picker-range ant-picker-outlined"
 >
   <div
-    class="ant-picker-input ant-picker-input-active"
+    class="ant-picker-input"
   >
     <input
+      aria-invalid="false"
       autocomplete="off"
+      date-range="start"
       placeholder="Start date"
-      readonly=""
       size="12"
       value=""
     />
@@ -24,16 +25,17 @@ exports[`RangePicker customize separator 1`] = `
     class="ant-picker-input"
   >
     <input
+      aria-invalid="false"
       autocomplete="off"
+      date-range="end"
       placeholder="End date"
-      readonly=""
       size="12"
       value=""
     />
   </div>
   <div
     class="ant-picker-active-bar"
-    style="left: 0px; width: 0px; position: absolute;"
+    style="position: absolute; width: 0px;"
   />
   <span
     class="ant-picker-suffix"
@@ -64,15 +66,16 @@ exports[`RangePicker customize separator 1`] = `
 exports[`RangePicker ranges RangePicker support preset ranges with Tags 1`] = `
 Array [
   <div
-    class="ant-picker ant-picker-range"
+    class="ant-picker ant-picker-range ant-picker-outlined"
   >
     <div
       class="ant-picker-input ant-picker-input-active"
     >
       <input
+        aria-invalid="false"
         autocomplete="off"
+        date-range="start"
         placeholder="Start date"
-        readonly=""
         size="12"
         value=""
       />
@@ -109,16 +112,17 @@ Array [
       class="ant-picker-input"
     >
       <input
+        aria-invalid="false"
         autocomplete="off"
+        date-range="end"
         placeholder="End date"
-        readonly=""
         size="12"
         value=""
       />
     </div>
     <div
       class="ant-picker-active-bar"
-      style="left: 0px; width: 0px; position: absolute;"
+      style="position: absolute; width: 0px; inset-inline-start: 0;"
     />
     <span
       class="ant-picker-suffix"
@@ -146,19 +150,19 @@ Array [
   </div>,
   <div
     class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
-      style="min-width: 0;"
     >
       <div
         class="ant-picker-range-arrow"
-        style="left: 0px;"
+        style="inset-inline-start: 0;"
       />
       <div
-        class="ant-picker-panel-container"
-        style="margin-left: 0px;"
+        class="ant-picker-panel-container ant-picker-date-panel-container"
+        style="margin-left: 0px; margin-right: auto;"
+        tabindex="-1"
       >
         <div
           class="ant-picker-panel-layout"
@@ -180,8 +184,8 @@ Array [
               class="ant-picker-panels"
             >
               <div
-                class="ant-picker-panel ant-picker-panel-focused"
-                tabindex="-1"
+                class="ant-picker-panel"
+                tabindex="0"
               >
                 <div
                   class="ant-picker-date-panel"
@@ -190,6 +194,7 @@ Array [
                     class="ant-picker-header"
                   >
                     <button
+                      aria-label="super-prev-year"
                       class="ant-picker-header-super-prev-btn"
                       tabindex="-1"
                       type="button"
@@ -199,6 +204,7 @@ Array [
                       />
                     </button>
                     <button
+                      aria-label="prev-year"
                       class="ant-picker-header-prev-btn"
                       tabindex="-1"
                       type="button"
@@ -211,6 +217,7 @@ Array [
                       class="ant-picker-header-view"
                     >
                       <button
+                        aria-label="month panel"
                         class="ant-picker-month-btn"
                         tabindex="-1"
                         type="button"
@@ -218,6 +225,7 @@ Array [
                         Sep
                       </button>
                       <button
+                        aria-label="year panel"
                         class="ant-picker-year-btn"
                         tabindex="-1"
                         type="button"
@@ -226,6 +234,7 @@ Array [
                       </button>
                     </div>
                     <button
+                      aria-label="next-year"
                       class="ant-picker-header-next-btn"
                       style="visibility: hidden;"
                       tabindex="-1"
@@ -236,6 +245,7 @@ Array [
                       />
                     </button>
                     <button
+                      aria-label="super-next-year"
                       class="ant-picker-header-super-next-btn"
                       style="visibility: hidden;"
                       tabindex="-1"
@@ -320,7 +330,7 @@ Array [
                             </div>
                           </td>
                           <td
-                            class="ant-picker-cell ant-picker-cell-end"
+                            class="ant-picker-cell"
                             title="2017-08-31"
                           >
                             <div
@@ -330,7 +340,7 @@ Array [
                             </div>
                           </td>
                           <td
-                            class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
+                            class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-09-01"
                           >
                             <div
@@ -628,7 +638,7 @@ Array [
                             </div>
                           </td>
                           <td
-                            class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
+                            class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-09-30"
                           >
                             <div
@@ -640,7 +650,7 @@ Array [
                         </tr>
                         <tr>
                           <td
-                            class="ant-picker-cell ant-picker-cell-start"
+                            class="ant-picker-cell"
                             title="2017-10-01"
                           >
                             <div
@@ -716,8 +726,8 @@ Array [
                 </div>
               </div>
               <div
-                class="ant-picker-panel ant-picker-panel-focused"
-                tabindex="-1"
+                class="ant-picker-panel"
+                tabindex="0"
               >
                 <div
                   class="ant-picker-date-panel"
@@ -726,6 +736,7 @@ Array [
                     class="ant-picker-header"
                   >
                     <button
+                      aria-label="super-prev-year"
                       class="ant-picker-header-super-prev-btn"
                       style="visibility: hidden;"
                       tabindex="-1"
@@ -736,6 +747,7 @@ Array [
                       />
                     </button>
                     <button
+                      aria-label="prev-year"
                       class="ant-picker-header-prev-btn"
                       style="visibility: hidden;"
                       tabindex="-1"
@@ -749,6 +761,7 @@ Array [
                       class="ant-picker-header-view"
                     >
                       <button
+                        aria-label="month panel"
                         class="ant-picker-month-btn"
                         tabindex="-1"
                         type="button"
@@ -756,6 +769,7 @@ Array [
                         Oct
                       </button>
                       <button
+                        aria-label="year panel"
                         class="ant-picker-year-btn"
                         tabindex="-1"
                         type="button"
@@ -764,6 +778,7 @@ Array [
                       </button>
                     </div>
                     <button
+                      aria-label="next-year"
                       class="ant-picker-header-next-btn"
                       tabindex="-1"
                       type="button"
@@ -773,6 +788,7 @@ Array [
                       />
                     </button>
                     <button
+                      aria-label="super-next-year"
                       class="ant-picker-header-super-next-btn"
                       tabindex="-1"
                       type="button"
@@ -816,7 +832,7 @@ Array [
                       <tbody>
                         <tr>
                           <td
-                            class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
+                            class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-01"
                           >
                             <div
@@ -1124,7 +1140,7 @@ Array [
                             </div>
                           </td>
                           <td
-                            class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
+                            class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-31"
                           >
                             <div
@@ -1134,7 +1150,7 @@ Array [
                             </div>
                           </td>
                           <td
-                            class="ant-picker-cell ant-picker-cell-start"
+                            class="ant-picker-cell"
                             title="2017-11-01"
                           >
                             <div

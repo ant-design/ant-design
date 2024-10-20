@@ -1,5 +1,6 @@
-import { render as testLibRender } from '@testing-library/react';
 import React from 'react';
+import { render as testLibRender } from '@testing-library/react';
+
 import { fireEvent, render } from '../../../tests/utils';
 import Transfer from '../index';
 import Search from '../search';
@@ -8,21 +9,9 @@ describe('Transfer.Search', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   const dataSource = [
-    {
-      key: 'a',
-      title: 'a',
-      description: 'a',
-    },
-    {
-      key: 'b',
-      title: 'b',
-      description: 'b',
-    },
-    {
-      key: 'c',
-      title: 'c',
-      description: 'c',
-    },
+    { key: 'a', title: 'a', description: 'a' },
+    { key: 'b', title: 'b', description: 'b' },
+    { key: 'c', title: 'c', description: 'c' },
   ];
 
   afterEach(() => {
@@ -84,5 +73,50 @@ describe('Transfer.Search', () => {
     fireEvent.change(container.querySelector('.ant-input')!, { target: { value: ' ' } });
 
     expect(filterOption).toHaveBeenCalledTimes(dataSource.length);
+  });
+
+  it('The filterOption parameter is correct when use input in search box', () => {
+    const filterOption = jest.fn();
+
+    const { container } = testLibRender(
+      <Transfer
+        filterOption={filterOption}
+        dataSource={dataSource}
+        targetKeys={['b']}
+        showSearch
+      />,
+    );
+
+    fireEvent.change(
+      container
+        ?.querySelectorAll('.ant-transfer-list')
+        ?.item(0)
+        ?.querySelector('input[type="text"]')!,
+      { target: { value: 'a' } },
+    );
+    expect(filterOption).toHaveBeenNthCalledWith(
+      1,
+      'a',
+      { key: 'a', title: 'a', description: 'a' },
+      'left',
+    );
+    expect(filterOption).toHaveBeenLastCalledWith(
+      'a',
+      { key: 'c', title: 'c', description: 'c' },
+      'left',
+    );
+    filterOption.mockReset();
+    fireEvent.change(
+      container
+        ?.querySelectorAll('.ant-transfer-list')
+        ?.item(1)
+        ?.querySelector('input[type="text"]')!,
+      { target: { value: 'b' } },
+    );
+    expect(filterOption).toHaveBeenCalledWith(
+      'b',
+      { key: 'b', title: 'b', description: 'b' },
+      'right',
+    );
   });
 });

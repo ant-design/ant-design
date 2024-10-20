@@ -1,10 +1,21 @@
+import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
-interface GridRowToken extends FullToken<'Grid'> {}
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
+
+// biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
+export interface ComponentToken {}
+
+interface GridRowToken extends FullToken<'Grid'> {
+  //
+}
 
 interface GridColToken extends FullToken<'Grid'> {
+  /**
+   * @desc 网格列数
+   * @descEN Number of grid columns
+   */
   gridColumns: number;
 }
 
@@ -87,7 +98,7 @@ const genGridColStyle: GenerateStyle<GridColToken> = (token): CSSObject => {
 };
 
 const genLoopGridColumnsStyle = (token: GridColToken, sizeCls: string): CSSObject => {
-  const { componentCls, gridColumns } = token;
+  const { prefixCls, componentCls, gridColumns } = token;
 
   const gridColumnsStyle: CSSObject = {};
   for (let i = gridColumns; i >= 0; i--) {
@@ -114,11 +125,21 @@ const genLoopGridColumnsStyle = (token: GridColToken, sizeCls: string): CSSObjec
         order: 0,
       };
     } else {
-      gridColumnsStyle[`${componentCls}${sizeCls}-${i}`] = {
-        display: 'block',
-        flex: `0 0 ${(i / gridColumns) * 100}%`,
-        maxWidth: `${(i / gridColumns) * 100}%`,
-      };
+      gridColumnsStyle[`${componentCls}${sizeCls}-${i}`] = [
+        // https://github.com/ant-design/ant-design/issues/44456
+        // Form set `display: flex` on Col which will override `display: block`.
+        // Let's get it from css variable to support override.
+        {
+          ['--ant-display' as any]: 'block',
+          // Fallback to display if variable not support
+          display: 'block',
+        },
+        {
+          display: 'var(--ant-display)',
+          flex: `0 0 ${(i / gridColumns) * 100}%`,
+          maxWidth: `${(i / gridColumns) * 100}%`,
+        },
+      ];
       gridColumnsStyle[`${componentCls}${sizeCls}-push-${i}`] = {
         insetInlineStart: `${(i / gridColumns) * 100}%`,
       };
@@ -134,6 +155,11 @@ const genLoopGridColumnsStyle = (token: GridColToken, sizeCls: string): CSSObjec
     }
   }
 
+  // Flex CSS Var
+  gridColumnsStyle[`${componentCls}${sizeCls}-flex`] = {
+    flex: `var(--${prefixCls}${sizeCls}-flex)`,
+  };
+
   return gridColumnsStyle;
 };
 
@@ -145,35 +171,40 @@ const genGridMediaStyle = (
   screenSize: number,
   sizeCls: string,
 ): CSSObject => ({
-  [`@media (min-width: ${screenSize}px)`]: {
+  [`@media (min-width: ${unit(screenSize)})`]: {
     ...genGridStyle(token, sizeCls),
   },
 });
 
+export const prepareRowComponentToken: GetDefaultToken<'Grid'> = () => ({});
+
+export const prepareColComponentToken: GetDefaultToken<'Grid'> = () => ({});
+
 // ============================== Export ==============================
-export const useRowStyle = genComponentStyleHook('Grid', (token) => [genGridRowStyle(token)]);
+export const useRowStyle = genStyleHooks('Grid', genGridRowStyle, prepareRowComponentToken);
 
-export const useColStyle = genComponentStyleHook('Grid', (token) => {
-  const gridToken: GridColToken = mergeToken<GridColToken>(token, {
-    gridColumns: 24, // Row is divided into 24 parts in Grid
-  });
-
-  const gridMediaSizesMap = {
-    '-sm': gridToken.screenSMMin,
-    '-md': gridToken.screenMDMin,
-    '-lg': gridToken.screenLGMin,
-    '-xl': gridToken.screenXLMin,
-    '-xxl': gridToken.screenXXLMin,
-  };
-
-  return [
-    genGridColStyle(gridToken),
-    genGridStyle(gridToken, ''),
-    genGridStyle(gridToken, '-xs'),
-    Object.keys(gridMediaSizesMap)
-      .map((key: keyof typeof gridMediaSizesMap) =>
-        genGridMediaStyle(gridToken, gridMediaSizesMap[key], key),
-      )
-      .reduce((pre, cur) => ({ ...pre, ...cur }), {}),
-  ];
-});
+export const useColStyle = genStyleHooks(
+  'Grid',
+  (token) => {
+    const gridToken: GridColToken = mergeToken<GridColToken>(token, {
+      gridColumns: 24, // Row is divided into 24 parts in Grid
+    });
+    const gridMediaSizesMap = {
+      '-sm': gridToken.screenSMMin,
+      '-md': gridToken.screenMDMin,
+      '-lg': gridToken.screenLGMin,
+      '-xl': gridToken.screenXLMin,
+      '-xxl': gridToken.screenXXLMin,
+    } as const;
+    type GridMediaSize = keyof typeof gridMediaSizesMap;
+    return [
+      genGridColStyle(gridToken),
+      genGridStyle(gridToken, ''),
+      genGridStyle(gridToken, '-xs'),
+      Object.keys(gridMediaSizesMap)
+        .map((key) => genGridMediaStyle(gridToken, gridMediaSizesMap[key as GridMediaSize], key))
+        .reduce((pre, cur) => ({ ...pre, ...cur }), {}),
+    ];
+  },
+  prepareColComponentToken,
+);

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { act } from 'react-dom/test-utils';
+
 import { Col, Row } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -96,10 +96,10 @@ describe('Grid', () => {
     );
     expect(asFragment().firstChild).toMatchSnapshot();
 
-    expect(container.querySelector('div')!.style.marginLeft).toEqual('-20px');
-    expect(container.querySelector('div')!.style.marginRight).toEqual('-20px');
-    expect(container.querySelector('div')!.style.marginTop).toEqual('-200px');
-    expect(container.querySelector('div')!.style.marginBottom).toEqual('-200px');
+    expect(container.querySelector('div')?.style.marginLeft).toBe('-20px');
+    expect(container.querySelector('div')?.style.marginRight).toBe('-20px');
+    expect(container.querySelector('div')?.style.marginTop).toBe('');
+    expect(container.querySelector('div')?.style.marginBottom).toBe('');
   });
 
   it('renders wrapped Col correctly', () => {
@@ -132,10 +132,10 @@ describe('Grid', () => {
 
   it('should work current when gutter is array', () => {
     const { container } = render(<Row gutter={[16, 20]} />);
-    expect(container.querySelector('div')!.style.marginLeft).toEqual('-8px');
-    expect(container.querySelector('div')!.style.marginRight).toEqual('-8px');
-    expect(container.querySelector('div')!.style.marginTop).toEqual('-10px');
-    expect(container.querySelector('div')!.style.marginBottom).toEqual('-10px');
+    expect(container.querySelector('div')?.style.marginLeft).toBe('-8px');
+    expect(container.querySelector('div')?.style.marginRight).toBe('-8px');
+    expect(container.querySelector('div')?.style.marginTop).toBe('');
+    expect(container.querySelector('div')?.style.marginBottom).toBe('');
   });
 
   // By jsdom mock, actual jsdom not implemented matchMedia
@@ -153,7 +153,7 @@ describe('Grid', () => {
         }) as any,
     );
 
-    let screensVar;
+    let screensVar: any = null;
     function Demo() {
       const screens = useBreakpoint();
       screensVar = screens;
@@ -227,9 +227,7 @@ describe('Grid', () => {
     };
     const { container } = render(<ReactiveTest />);
     expect(container.innerHTML).toContain('ant-row-start');
-    act(() => {
-      fireEvent.click(container.querySelector('span')!);
-    });
+    fireEvent.click(container.querySelector('span')!);
     expect(container.innerHTML).toContain('ant-row-end');
   });
 

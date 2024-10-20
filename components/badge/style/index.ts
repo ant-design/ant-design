@@ -1,27 +1,108 @@
-import type { CSSObject } from '@ant-design/cssinjs';
-import { Keyframes } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken, genPresetColor } from '../../theme/internal';
-import { resetComponent } from '../../style';
+import { Keyframes, unit } from '@ant-design/cssinjs';
 
-interface BadgeToken extends FullToken<'Badge'> {
+import { resetComponent } from '../../style';
+import type { FullToken, GenerateStyle, GenStyleFn, GetDefaultToken } from '../../theme/internal';
+import { genPresetColor, genStyleHooks, mergeToken } from '../../theme/internal';
+
+/** Component only token. Which will handle additional calculation of alias token */
+export interface ComponentToken {
+  // Component token here
+  /**
+   * @desc 徽标 z-index
+   * @descEN z-index of badge
+   */
+  indicatorZIndex: number | string;
+  /**
+   * @desc 徽标高度
+   * @descEN Height of badge
+   */
+  indicatorHeight: number | string;
+  /**
+   * @desc 小号徽标高度
+   * @descEN Height of small badge
+   */
+  indicatorHeightSM: number | string;
+  /**
+   * @desc 点状徽标尺寸
+   * @descEN Size of dot badge
+   */
+  dotSize: number;
+  /**
+   * @desc 徽标文本尺寸
+   * @descEN Font size of badge text
+   */
+  textFontSize: number;
+  /**
+   * @desc 小号徽标文本尺寸
+   * @descEN Font size of small badge text
+   */
+  textFontSizeSM: number;
+  /**
+   * @desc 徽标文本粗细
+   * @descEN Font weight of badge text
+   */
+  textFontWeight: number | string;
+  /**
+   * @desc 状态徽标尺寸
+   * @descEN Size of status badge
+   */
+  statusSize: number;
+}
+
+/**
+ * @desc Badge 组件的 Token
+ * @descEN Token for Badge component
+ */
+export interface BadgeToken extends FullToken<'Badge'> {
+  /**
+   * @desc 徽标字体高度
+   * @descEN Font height of badge
+   */
   badgeFontHeight: number;
-  badgeZIndex: number | string;
-  badgeHeight: number;
-  badgeHeightSm: number;
+  /**
+   * @desc 徽标文本颜色
+   * @descEN Text color of badge
+   */
   badgeTextColor: string;
-  badgeFontWeight: string;
-  badgeFontSize: number;
+  /**
+   * @desc 徽标颜色
+   * @descEN Color of badge
+   */
   badgeColor: string;
+  /**
+   * @desc 徽标悬停颜色
+   * @descEN Hover color of badge
+   */
   badgeColorHover: string;
-  badgeDotSize: number;
-  badgeFontSizeSm: number;
-  badgeStatusSize: number;
+  /**
+   * @desc 徽标阴影尺寸
+   * @descEN Shadow size of badge
+   */
   badgeShadowSize: number;
+  /**
+   * @desc 徽标阴影颜色
+   * @descEN Shadow color of badge
+   */
   badgeShadowColor: string;
+  /**
+   * @desc 徽标处理持续时间
+   * @descEN Processing duration of badge
+   */
   badgeProcessingDuration: string;
+  /**
+   * @desc 徽标丝带偏移量
+   * @descEN Ribbon offset of badge
+   */
   badgeRibbonOffset: number;
+  /**
+   * @desc 徽标丝带角变换
+   * @descEN Ribbon corner transform of badge
+   */
   badgeRibbonCornerTransform: string;
+  /**
+   * @desc 徽标丝带角滤镜
+   * @descEN Ribbon corner filter of badge
+   */
   badgeRibbonCornerFilter: string;
 }
 
@@ -44,10 +125,12 @@ const antNoWrapperZoomBadgeIn = new Keyframes('antNoWrapperZoomBadgeIn', {
   '0%': { transform: 'scale(0)', opacity: 0 },
   '100%': { transform: 'scale(1)' },
 });
+
 const antNoWrapperZoomBadgeOut = new Keyframes('antNoWrapperZoomBadgeOut', {
   '0%': { transform: 'scale(1)' },
   '100%': { transform: 'scale(0)', opacity: 0 },
 });
+
 const antBadgeLoadingCircle = new Keyframes('antBadgeLoadingCircle', {
   '0%': { transformOrigin: '50%' },
   '100%': {
@@ -56,33 +139,33 @@ const antBadgeLoadingCircle = new Keyframes('antBadgeLoadingCircle', {
   },
 });
 
-const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSObject => {
+const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token) => {
   const {
     componentCls,
     iconCls,
     antCls,
-    badgeFontHeight,
     badgeShadowSize,
-    badgeHeightSm,
-    motionDurationSlow,
-    badgeStatusSize,
+    textFontSize,
+    textFontSizeSM,
+    statusSize,
+    dotSize,
+    textFontWeight,
+    indicatorHeight,
+    indicatorHeightSM,
     marginXS,
-    badgeRibbonOffset,
+    calc,
   } = token;
   const numberPrefixCls = `${antCls}-scroll-number`;
-  const ribbonPrefixCls = `${antCls}-ribbon`;
-  const ribbonWrapperPrefixCls = `${antCls}-ribbon-wrapper`;
 
   const colorPreset = genPresetColor(token, (colorKey, { darkColor }) => ({
-    [`${componentCls}-color-${colorKey}`]: {
+    [`&${componentCls} ${componentCls}-color-${colorKey}`]: {
       background: darkColor,
-    },
-  }));
-
-  const statusRibbonPreset = genPresetColor(token, (colorKey, { darkColor }) => ({
-    [`&${ribbonPrefixCls}-color-${colorKey}`]: {
-      background: darkColor,
-      color: darkColor,
+      [`&:not(${componentCls}-count)`]: {
+        color: darkColor,
+      },
+      'a:hover &': {
+        background: darkColor,
+      },
     },
   }));
 
@@ -95,18 +178,20 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
       lineHeight: 1,
 
       [`${componentCls}-count`]: {
-        zIndex: token.badgeZIndex,
-        minWidth: token.badgeHeight,
-        height: token.badgeHeight,
+        display: 'inline-flex',
+        justifyContent: 'center',
+        zIndex: token.indicatorZIndex,
+        minWidth: indicatorHeight,
+        height: indicatorHeight,
         color: token.badgeTextColor,
-        fontWeight: token.badgeFontWeight,
-        fontSize: token.badgeFontSize,
-        lineHeight: `${token.badgeHeight}px`,
+        fontWeight: textFontWeight,
+        fontSize: textFontSize,
+        lineHeight: unit(indicatorHeight),
         whiteSpace: 'nowrap',
         textAlign: 'center',
         background: token.badgeColor,
-        borderRadius: token.badgeHeight / 2,
-        boxShadow: `0 0 0 ${badgeShadowSize}px ${token.badgeShadowColor}`,
+        borderRadius: calc(indicatorHeight).div(2).equal(),
+        boxShadow: `0 0 0 ${unit(badgeShadowSize)} ${token.badgeShadowColor}`,
         transition: `background ${token.motionDurationMid}`,
 
         a: {
@@ -121,28 +206,29 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         },
       },
       [`${componentCls}-count-sm`]: {
-        minWidth: badgeHeightSm,
-        height: badgeHeightSm,
-        fontSize: token.badgeFontSizeSm,
-        lineHeight: `${badgeHeightSm}px`,
-        borderRadius: badgeHeightSm / 2,
+        minWidth: indicatorHeightSM,
+        height: indicatorHeightSM,
+        fontSize: textFontSizeSM,
+        lineHeight: unit(indicatorHeightSM),
+        borderRadius: calc(indicatorHeightSM).div(2).equal(),
       },
 
       [`${componentCls}-multiple-words`]: {
-        padding: `0 ${token.paddingXS}px`,
+        padding: `0 ${unit(token.paddingXS)}`,
+
+        bdi: {
+          unicodeBidi: 'plaintext',
+        },
       },
 
       [`${componentCls}-dot`]: {
-        zIndex: token.badgeZIndex,
-        width: token.badgeDotSize,
-        minWidth: token.badgeDotSize,
-        height: token.badgeDotSize,
+        zIndex: token.indicatorZIndex,
+        width: dotSize,
+        minWidth: dotSize,
+        height: dotSize,
         background: token.badgeColor,
         borderRadius: '100%',
-        boxShadow: `0 0 0 ${badgeShadowSize}px ${token.badgeShadowColor}`,
-      },
-      [`${componentCls}-dot${numberPrefixCls}`]: {
-        transition: `background ${motionDurationSlow}`,
+        boxShadow: `0 0 0 ${unit(badgeShadowSize)} ${token.badgeShadowColor}`,
       },
       [`${componentCls}-count, ${componentCls}-dot, ${numberPrefixCls}-custom-component`]: {
         position: 'absolute',
@@ -150,9 +236,9 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         insetInlineEnd: 0,
         transform: 'translate(50%, -50%)',
         transformOrigin: '100% 0%',
-        [`${iconCls}-spin`]: {
+        [`&${iconCls}-spin`]: {
           animationName: antBadgeLoadingCircle,
-          animationDuration: token.motionDurationMid,
+          animationDuration: '1s',
           animationIterationCount: 'infinite',
           animationTimingFunction: 'linear',
         },
@@ -165,8 +251,8 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
           position: 'relative',
           top: -1, // Magic number, but seems better experience
           display: 'inline-block',
-          width: badgeStatusSize,
-          height: badgeStatusSize,
+          width: statusSize,
+          height: statusSize,
           verticalAlign: 'middle',
           borderRadius: '50%',
         },
@@ -175,9 +261,10 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
           backgroundColor: token.colorSuccess,
         },
         [`${componentCls}-status-processing`]: {
-          position: 'relative',
-          color: token.colorPrimary,
-          backgroundColor: token.colorPrimary,
+          overflow: 'visible',
+          color: token.colorInfo,
+          backgroundColor: token.colorInfo,
+          borderColor: 'currentcolor',
 
           '&::after': {
             position: 'absolute',
@@ -251,118 +338,56 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
           transformOrigin: '50% 50%',
         },
       },
-      [`${numberPrefixCls}`]: {
+      [numberPrefixCls]: {
         overflow: 'hidden',
+        transition: `all ${token.motionDurationMid} ${token.motionEaseOutBack}`,
         [`${numberPrefixCls}-only`]: {
           position: 'relative',
           display: 'inline-block',
-          height: token.badgeHeight,
+          height: indicatorHeight,
           transition: `all ${token.motionDurationSlow} ${token.motionEaseOutBack}`,
           WebkitTransformStyle: 'preserve-3d',
           WebkitBackfaceVisibility: 'hidden',
           [`> p${numberPrefixCls}-only-unit`]: {
-            height: token.badgeHeight,
+            height: indicatorHeight,
             margin: 0,
             WebkitTransformStyle: 'preserve-3d',
             WebkitBackfaceVisibility: 'hidden',
           },
         },
-        [`${numberPrefixCls}-symbol`]: { verticalAlign: 'top' },
+        [`${numberPrefixCls}-symbol`]: {
+          verticalAlign: 'top',
+        },
       },
 
       // ====================== RTL =======================
       '&-rtl': {
         direction: 'rtl',
-
         [`${componentCls}-count, ${componentCls}-dot, ${numberPrefixCls}-custom-component`]: {
           transform: 'translate(-50%, -50%)',
         },
-      },
-    },
-    [`${ribbonWrapperPrefixCls}`]: { position: 'relative' },
-    [`${ribbonPrefixCls}`]: {
-      ...resetComponent(token),
-      position: 'absolute',
-      top: marginXS,
-      padding: `0 ${token.paddingXS}px`,
-      color: token.colorPrimary,
-      lineHeight: `${badgeFontHeight}px`,
-      whiteSpace: 'nowrap',
-      backgroundColor: token.colorPrimary,
-      borderRadius: token.borderRadiusSM,
-      [`${ribbonPrefixCls}-text`]: { color: token.colorTextLightSolid },
-      [`${ribbonPrefixCls}-corner`]: {
-        position: 'absolute',
-        top: '100%',
-        width: badgeRibbonOffset,
-        height: badgeRibbonOffset,
-        color: 'currentcolor',
-        border: `${badgeRibbonOffset / 2}px solid`,
-        transform: token.badgeRibbonCornerTransform,
-        transformOrigin: 'top',
-        filter: token.badgeRibbonCornerFilter,
-      },
-      ...statusRibbonPreset,
-      [`&${ribbonPrefixCls}-placement-end`]: {
-        insetInlineEnd: -badgeRibbonOffset,
-        borderEndEndRadius: 0,
-        [`${ribbonPrefixCls}-corner`]: {
-          insetInlineEnd: 0,
-          borderInlineEndColor: 'transparent',
-          borderBlockEndColor: 'transparent',
-        },
-      },
-      [`&${ribbonPrefixCls}-placement-start`]: {
-        insetInlineStart: -badgeRibbonOffset,
-        borderEndStartRadius: 0,
-        [`${ribbonPrefixCls}-corner`]: {
-          insetInlineStart: 0,
-          borderBlockEndColor: 'transparent',
-          borderInlineStartColor: 'transparent',
-        },
-      },
-
-      // ====================== RTL =======================
-      '&-rtl': {
-        direction: 'rtl',
       },
     },
   };
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Badge', (token) => {
-  const { fontSize, lineHeight, fontSizeSM, lineWidth, marginXS, colorBorderBg } = token;
+export const prepareToken: (token: Parameters<GenStyleFn<'Badge'>>[0]) => BadgeToken = (token) => {
+  const { fontHeight, lineWidth, marginXS, colorBorderBg } = token;
 
-  const badgeFontHeight = Math.round(fontSize * lineHeight);
+  const badgeFontHeight = fontHeight;
   const badgeShadowSize = lineWidth;
-  const badgeZIndex = 'auto';
-  const badgeHeight = badgeFontHeight - 2 * badgeShadowSize;
-  const badgeTextColor = token.colorBgContainer;
-  const badgeFontWeight = 'normal';
-  const badgeFontSize = fontSizeSM;
+  const badgeTextColor = token.colorTextLightSolid;
   const badgeColor = token.colorError;
   const badgeColorHover = token.colorErrorHover;
-  const badgeHeightSm = fontSize;
-  const badgeDotSize = fontSizeSM / 2;
-  const badgeFontSizeSm = fontSizeSM;
-  const badgeStatusSize = fontSizeSM / 2;
 
   const badgeToken = mergeToken<BadgeToken>(token, {
     badgeFontHeight,
     badgeShadowSize,
-    badgeZIndex,
-    badgeHeight,
     badgeTextColor,
-    badgeFontWeight,
-    badgeFontSize,
     badgeColor,
     badgeColorHover,
     badgeShadowColor: colorBorderBg,
-    badgeHeightSm,
-    badgeDotSize,
-    badgeFontSizeSm,
-    badgeStatusSize,
     badgeProcessingDuration: '1.2s',
     badgeRibbonOffset: marginXS,
 
@@ -371,5 +396,28 @@ export default genComponentStyleHook('Badge', (token) => {
     badgeRibbonCornerFilter: `brightness(75%)`,
   });
 
-  return [genSharedBadgeStyle(badgeToken)];
-});
+  return badgeToken;
+};
+
+export const prepareComponentToken: GetDefaultToken<'Badge'> = (token) => {
+  const { fontSize, lineHeight, fontSizeSM, lineWidth } = token;
+  return {
+    indicatorZIndex: 'auto',
+    indicatorHeight: Math.round(fontSize * lineHeight) - 2 * lineWidth,
+    indicatorHeightSM: fontSize,
+    dotSize: fontSizeSM / 2,
+    textFontSize: fontSizeSM,
+    textFontSizeSM: fontSizeSM,
+    textFontWeight: 'normal',
+    statusSize: fontSizeSM / 2,
+  };
+};
+
+export default genStyleHooks(
+  'Badge',
+  (token) => {
+    const badgeToken = prepareToken(token);
+    return genSharedBadgeStyle(badgeToken);
+  },
+  prepareComponentToken,
+);

@@ -1,11 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import type { InputRef } from 'antd';
-import { Space, Input, Tag, Tooltip, theme } from 'antd';
+import { Flex, Input, Tag, theme, Tooltip } from 'antd';
+
+const tagInputStyle: React.CSSProperties = {
+  width: 64,
+  height: 22,
+  marginInlineEnd: 8,
+  verticalAlign: 'top',
+};
 
 const App: React.FC = () => {
   const { token } = theme.useToken();
-  const [tags, setTags] = useState(['Unremovable', 'Tag 2', 'Tag 3']);
+  const [tags, setTags] = useState<string[]>(['Unremovable', 'Tag 2', 'Tag 3']);
   const [inputVisible, setInputVisible] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [editInputIndex, setEditInputIndex] = useState(-1);
@@ -21,7 +28,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     editInputRef.current?.focus();
-  }, [inputValue]);
+  }, [editInputValue]);
 
   const handleClose = (removedTag: string) => {
     const newTags = tags.filter((tag) => tag !== removedTag);
@@ -38,7 +45,7 @@ const App: React.FC = () => {
   };
 
   const handleInputConfirm = () => {
-    if (inputValue && tags.indexOf(inputValue) === -1) {
+    if (inputValue && !tags.includes(inputValue)) {
       setTags([...tags, inputValue]);
     }
     setInputVisible(false);
@@ -54,67 +61,61 @@ const App: React.FC = () => {
     newTags[editInputIndex] = editInputValue;
     setTags(newTags);
     setEditInputIndex(-1);
-    setInputValue('');
-  };
-
-  const tagInputStyle: React.CSSProperties = {
-    width: 78,
-    verticalAlign: 'top',
+    setEditInputValue('');
   };
 
   const tagPlusStyle: React.CSSProperties = {
+    height: 22,
     background: token.colorBgContainer,
     borderStyle: 'dashed',
   };
 
   return (
-    <Space size={[0, 8]} wrap>
-      <Space size={[0, 8]} wrap>
-        {tags.map((tag, index) => {
-          if (editInputIndex === index) {
-            return (
-              <Input
-                ref={editInputRef}
-                key={tag}
-                size="small"
-                style={tagInputStyle}
-                value={editInputValue}
-                onChange={handleEditInputChange}
-                onBlur={handleEditInputConfirm}
-                onPressEnter={handleEditInputConfirm}
-              />
-            );
-          }
-          const isLongTag = tag.length > 20;
-          const tagElem = (
-            <Tag
+    <Flex gap="4px 0" wrap>
+      {tags.map<React.ReactNode>((tag, index) => {
+        if (editInputIndex === index) {
+          return (
+            <Input
+              ref={editInputRef}
               key={tag}
-              closable={index !== 0}
-              style={{ userSelect: 'none' }}
-              onClose={() => handleClose(tag)}
+              size="small"
+              style={tagInputStyle}
+              value={editInputValue}
+              onChange={handleEditInputChange}
+              onBlur={handleEditInputConfirm}
+              onPressEnter={handleEditInputConfirm}
+            />
+          );
+        }
+        const isLongTag = tag.length > 20;
+        const tagElem = (
+          <Tag
+            key={tag}
+            closable={index !== 0}
+            style={{ userSelect: 'none' }}
+            onClose={() => handleClose(tag)}
+          >
+            <span
+              onDoubleClick={(e) => {
+                if (index !== 0) {
+                  setEditInputIndex(index);
+                  setEditInputValue(tag);
+                  e.preventDefault();
+                }
+              }}
             >
-              <span
-                onDoubleClick={(e) => {
-                  if (index !== 0) {
-                    setEditInputIndex(index);
-                    setEditInputValue(tag);
-                    e.preventDefault();
-                  }
-                }}
-              >
-                {isLongTag ? `${tag.slice(0, 20)}...` : tag}
-              </span>
-            </Tag>
-          );
-          return isLongTag ? (
-            <Tooltip title={tag} key={tag}>
-              {tagElem}
-            </Tooltip>
-          ) : (
-            tagElem
-          );
-        })}
-      </Space>
+              {isLongTag ? `${tag.slice(0, 20)}...` : tag}
+            </span>
+          </Tag>
+        );
+        return isLongTag ? (
+          <Tooltip title={tag} key={tag}>
+            {tagElem}
+          </Tooltip>
+        ) : (
+          tagElem
+        );
+      })}
       {inputVisible ? (
         <Input
           ref={inputRef}
@@ -127,11 +128,11 @@ const App: React.FC = () => {
           onPressEnter={handleInputConfirm}
         />
       ) : (
-        <Tag style={tagPlusStyle} onClick={showInput}>
-          <PlusOutlined /> New Tag
+        <Tag style={tagPlusStyle} icon={<PlusOutlined />} onClick={showInput}>
+          New Tag
         </Tag>
       )}
-    </Space>
+    </Flex>
   );
 };
 

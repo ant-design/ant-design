@@ -1,8 +1,8 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/ar_EG';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/ar_EG';
 import DatePicker from '../date-picker/locale/ar_EG';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/ar_EG';
 
 const typeTemplate = 'ليس ${label} من نوع ${type} صالحًا';
@@ -64,9 +64,6 @@ const localeValues: Locale = {
     copied: 'نقل',
     expand: 'وسع',
   },
-  PageHeader: {
-    back: 'عودة',
-  },
   Form: {
     defaultValidateMessages: {
       default: 'خطأ في حقل الإدخال ${label}',
@@ -115,6 +112,20 @@ const localeValues: Locale = {
         mismatch: 'لا يتطابق ${label} مع ${pattern}',
       },
     },
+  },
+  Image: {
+    preview: 'معاينة',
+  },
+  QRCode: {
+    expired: 'انتهت صلاحية رمز الاستجابة السريعة',
+    refresh: 'انقر للتحديث',
+    scanned: 'تم المسح',
+  },
+  ColorPicker: {
+    presetEmpty: 'لا يوجد',
+    transparent: 'شفاف',
+    singleColor: 'لون واحد',
+    gradientColor: 'تدرج لوني',
   },
 };
 

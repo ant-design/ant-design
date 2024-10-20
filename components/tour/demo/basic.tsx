@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
+import { EllipsisOutlined } from '@ant-design/icons';
 import { Button, Divider, Space, Tour } from 'antd';
 import type { TourProps } from 'antd';
-import { EllipsisOutlined } from '@ant-design/icons';
 
 const App: React.FC = () => {
   const ref1 = useRef(null);
@@ -33,15 +33,12 @@ const App: React.FC = () => {
       target: () => ref3.current,
     },
   ];
-
   return (
     <>
       <Button type="primary" onClick={() => setOpen(true)}>
         Begin Tour
       </Button>
-
       <Divider />
-
       <Space>
         <Button ref={ref1}> Upload</Button>
         <Button ref={ref2} type="primary">
@@ -49,7 +46,6 @@ const App: React.FC = () => {
         </Button>
         <Button ref={ref3} icon={<EllipsisOutlined />} />
       </Space>
-
       <Tour open={open} onClose={() => setOpen(false)} steps={steps} />
     </>
   );

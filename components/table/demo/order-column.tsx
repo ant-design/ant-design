@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import type { TableColumnsType } from 'antd';
 
 interface DataType {
   key: React.Key;
@@ -10,7 +10,7 @@ interface DataType {
   description: string;
 }
 
-const columns: ColumnsType<DataType> = [
+const columns: TableColumnsType<DataType> = [
   { title: 'Name', dataIndex: 'name', key: 'name' },
   Table.EXPAND_COLUMN,
   { title: 'Age', dataIndex: 'age', key: 'age' },
@@ -50,7 +50,7 @@ const data: DataType[] = [
 ];
 
 const App: React.FC = () => (
-  <Table
+  <Table<DataType>
     columns={columns}
     rowSelection={{}}
     expandable={{

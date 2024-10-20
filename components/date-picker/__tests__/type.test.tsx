@@ -1,7 +1,6 @@
-import type { Dayjs } from 'dayjs';
 import * as React from 'react';
+
 import DatePicker from '..';
-import type { DatePickRef, RangePickerRef } from '../generatePicker/interface';
 
 describe('DatePicker.typescript', () => {
   it('DatePicker ref methods', () => {
@@ -18,11 +17,8 @@ describe('DatePicker.typescript', () => {
 
   // https://github.com/ant-design/ant-design/issues/33417
   it('DatePicker ref methods with forwardRef', () => {
-    const MyDatePicker = React.forwardRef((props, ref: DatePickRef<Dayjs>) => (
-      <DatePicker {...props} ref={ref} />
-    ));
     const datePicker = (
-      <MyDatePicker
+      <DatePicker
         ref={(picker) => {
           picker?.focus();
           picker?.blur();
@@ -45,11 +41,8 @@ describe('DatePicker.typescript', () => {
   });
 
   it('RangePicker ref methods with forwardRef', () => {
-    const MyRangePicker = React.forwardRef((props, ref: RangePickerRef<Dayjs>) => (
-      <DatePicker.RangePicker {...props} ref={ref} />
-    ));
     const datePicker = (
-      <MyRangePicker
+      <DatePicker.RangePicker
         ref={(picker) => {
           picker?.focus();
           picker?.blur();

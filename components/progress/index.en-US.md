@@ -2,13 +2,12 @@
 category: Components
 group: Feedback
 title: Progress
+description: Display the current progress of the operation.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*gK_4S6fDRfgAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HJH8Tb1lcYAAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-Display the current progress of an operation flow.
 
 ## When To Use
 
@@ -25,7 +24,6 @@ If it will take a long time to complete an operation, you can use `Progress` to 
 <code src="./demo/line-mini.tsx">Mini size progress bar</code>
 <code src="./demo/circle-micro.tsx">Responsive circular progress bar</code>
 <code src="./demo/circle-mini.tsx">Mini size circular progress bar</code>
-<code src="./demo/circle-dynamic.tsx">Dynamic circular progress bar</code>
 <code src="./demo/dynamic.tsx">Dynamic</code>
 <code src="./demo/format.tsx">Custom text format</code>
 <code src="./demo/dashboard.tsx">Dashboard</code>
@@ -33,9 +31,13 @@ If it will take a long time to complete an operation, you can use `Progress` to 
 <code src="./demo/linecap.tsx">Stroke Linecap</code>
 <code src="./demo/gradient-line.tsx">Custom line gradient</code>
 <code src="./demo/steps.tsx">Progress bar with steps</code>
+<code src="./demo/circle-steps.tsx" version="5.16.0">Circular progress bar with steps</code>
 <code src="./demo/size.tsx">Progress size</code>
+<code src="./demo/info-position.tsx" version="5.18.0">Change progress value position</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 Properties that shared by all types.
 
@@ -50,7 +52,7 @@ Properties that shared by all types.
 | success | Configs of successfully progress bar | { percent: number, strokeColor: string } | - | - |
 | trailColor | The color of unfilled part | string | - | - |
 | type | To set the type, options: `line` `circle` `dashboard` | string | `line` |
-| size | Progress size | number \| \[number, number] \| "small" \| "default" | "default" | v5.3.0 |
+| size | Progress size | number \| \[number \| string, number] \| { width: number, height: number } \| "small" \| "default" | "default" | 5.3.0, Object: 5.18.0 |
 
 ### `type="line"`
 
@@ -58,18 +60,21 @@ Properties that shared by all types.
 | --- | --- | --- | --- | --- |
 | steps | The total step count | number | - | - |
 | strokeColor | The color of progress bar, render `linear-gradient` when passing an object, could accept `string[]` when has `steps`. | string \| string[] \| { from: string; to: string; direction: string } | - | 4.21.0: `string[]` |
+| percentPosition | Progress value position, passed in object, `align` indicates the horizontal position of the value, `type` indicates whether the value is inside or outside the progress bar | { align: string; type: string } | { align: \"end\", type: \"outer\" } | 5.18.0 |
 
 ### `type="circle"`
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| strokeColor | The color of circular progress, render `linear-gradient` when passing an object | string \| object | - | - |
+| steps | The total step count.When passing an object, `count` refers to the number of steps, and `gap` refers to the distance between them.When passing number, the default value for `gap` is 2. | number \| { count: number, gap: number } | - | 5.16.0 |
+| strokeColor | The color of circular progress, render gradient when passing an object | string \| { number%: string } | - | - |
 | strokeWidth | To set the width of the circular progress, unit: percentage of the canvas width | number | 6 | - |
 
 ### `type="dashboard"`
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| steps | The total step count.When passing an object, `count` refers to the number of steps, and `gap` refers to the distance between them.When passing number, the default value for `gap` is 2. | number \| { count: number, gap: number } | - | 5.16.0 |
 | gapDegree | The gap degree of half circle, 0 ~ 295 | number | 75 |
 | gapPosition | The gap position, options: `top` `bottom` `left` `right` | string | `bottom` |
 | strokeWidth | To set the width of the dashboard progress, unit: percentage of the canvas width | number | 6 |

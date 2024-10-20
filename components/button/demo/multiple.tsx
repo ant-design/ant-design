@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MenuProps } from 'antd';
-import { Button, Dropdown, Space } from 'antd';
+import { Button, Dropdown, Flex } from 'antd';
 
 const onMenuClick: MenuProps['onClick'] = (e) => {
   console.log('click', e);
@@ -22,11 +22,11 @@ const items = [
 ];
 
 const App: React.FC = () => (
-  <Space direction="vertical">
+  <Flex align="flex-start" gap="small" vertical>
     <Button type="primary">primary</Button>
     <Button>secondary</Button>
     <Dropdown.Button menu={{ items, onClick: onMenuClick }}>Actions</Dropdown.Button>
-  </Space>
+  </Flex>
 );
 
 export default App;

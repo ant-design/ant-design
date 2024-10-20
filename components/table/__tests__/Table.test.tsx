@@ -1,6 +1,7 @@
-import { ConfigProvider } from 'antd';
 import React, { useRef } from 'react';
-import type { TableProps } from '..';
+import { ConfigProvider } from 'antd';
+
+import type { TableProps, TableRef } from '..';
 import Table from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -41,7 +42,6 @@ describe('Table', () => {
           <Column title="Last Name" dataIndex="lastName" key="lastName" />
         </ColumnGroup>
         <Column title="Age" dataIndex="age" key="age" />
-        {/* eslint-disable-next-line react/jsx-curly-brace-presence */}
         {'invalid child'}
       </Table>,
     );
@@ -137,7 +137,7 @@ describe('Table', () => {
 
   it('should not crash when column children is empty', () => {
     render(
-      <Table
+      <Table<{ name?: string }>
         columns={[
           {
             dataIndex: 'name',
@@ -152,11 +152,7 @@ describe('Table', () => {
   it('should not crash when dataSource is array with none-object items', () => {
     render(
       <Table
-        columns={[
-          {
-            title: 'name',
-          },
-        ]}
+        columns={[{ title: 'name' }]}
         dataSource={['1', 2, undefined, {}, null, true, false, 0] as TableProps<any>['dataSource']}
       />,
     );
@@ -166,7 +162,7 @@ describe('Table', () => {
     // prevent touch event, 原来的用例感觉是少了 touchmove 调用判断
     const touchmove = jest.fn();
     const { container } = render(
-      <Table
+      <Table<{ name?: string }>
         columns={[
           {
             dataIndex: 'name',
@@ -244,28 +240,28 @@ describe('Table', () => {
 
   it('warn about rowKey when using index parameter', () => {
     warnSpy.mockReset();
-    const columns = [
+    const columns: TableProps<any>['columns'] = [
       {
         title: 'Name',
         key: 'name',
         dataIndex: 'name',
       },
     ];
-    render(<Table columns={columns} rowKey={(record, index) => record + index} />);
+    render(<Table columns={columns} rowKey={(record, index) => `${record.key}${index}`} />);
     expect(warnSpy).toHaveBeenCalledWith(
       'Warning: [antd: Table] `index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
     );
   });
   it('not warn about rowKey', () => {
     warnSpy.mockReset();
-    const columns = [
+    const columns: TableProps<any>['columns'] = [
       {
         title: 'Name',
         key: 'name',
         dataIndex: 'name',
       },
     ];
-    render(<Table columns={columns} rowKey={(record) => record.key} />);
+    render(<Table columns={columns} rowKey={(record) => record.key as string} />);
     expect(warnSpy).not.toHaveBeenCalled();
   });
 
@@ -279,7 +275,7 @@ describe('Table', () => {
       },
     ];
     const Wrapper: React.FC = () => {
-      const ref = React.useRef<HTMLDivElement>(null);
+      const ref = React.useRef<any>(null);
       return <Table ref={ref} columns={columns} />;
     };
     render(<Wrapper />);
@@ -335,7 +331,7 @@ describe('Table', () => {
 
   it('title should support ReactNode', () => {
     const { container } = render(
-      <Table
+      <Table<{ name?: string }>
         columns={[
           {
             title: (
@@ -400,5 +396,104 @@ describe('Table', () => {
     fireEvent.click(container.querySelector('.ant-table-filter-trigger')!);
     await waitFakeTimer();
     expect(container.querySelector('.ant-dropdown')).toBeTruthy();
+  });
+
+  it('support reference', () => {
+    const tblRef = React.createRef<TableRef>();
+    const { container } = render(<Table ref={tblRef} />);
+
+    const wrapDom = container.querySelector('.ant-table-wrapper')!;
+
+    expect(tblRef.current).toHaveClass('ant-table-wrapper');
+    expect(tblRef.current?.nativeElement).toBe(wrapDom);
+    expect(tblRef.current?.scrollTo instanceof Function).toBeTruthy();
+  });
+
+  it('support hidden columns', () => {
+    const columns = [
+      {
+        key: 1,
+        title: 'title1',
+      },
+      {
+        key: 2,
+        title: 'title2',
+        hidden: true,
+      },
+      {
+        key: 3,
+        title: 'title3',
+      },
+    ];
+    const { container } = render(<Table columns={columns} />);
+
+    expect(container.querySelectorAll('.ant-table-thead th')[1].innerHTML).toEqual('title3');
+    expect(container.querySelectorAll('.ant-table-thead th')).toHaveLength(2);
+  });
+
+  it('support hidden columns in Group table head', () => {
+    const columns = [
+      {
+        key: '1',
+        title: 'title1',
+      },
+      {
+        key: '2',
+        title: 'title2',
+        hidden: true,
+        children: [
+          { key: '2-1', title: 'title2-1' },
+          { key: '2-2', title: 'title2-2' },
+          { key: '2-3', title: 'title2-3' },
+        ],
+      },
+      {
+        key: '3',
+        title: 'title3',
+        children: [
+          { key: '3-1', title: 'title3-1', hidden: true },
+          { key: '3-2', title: 'title3-2' },
+          { key: '3-3', title: 'title3-3', hidden: true },
+        ],
+      },
+    ];
+    const { container } = render(<Table columns={columns} />);
+
+    expect(
+      container.querySelectorAll('.ant-table-thead tr')[0].querySelectorAll('th')[1].innerHTML,
+    ).toEqual('title3');
+    expect(
+      container.querySelectorAll('.ant-table-thead tr')[0].querySelectorAll('th'),
+    ).toHaveLength(2);
+    expect(
+      container.querySelectorAll('.ant-table-thead tr')[1].querySelectorAll('th')[0].innerHTML,
+    ).toEqual('title3-2');
+    expect(
+      container.querySelectorAll('.ant-table-thead tr')[1].querySelectorAll('th'),
+    ).toHaveLength(1);
+  });
+
+  it('support disable row hover', () => {
+    const { container } = render(
+      <Table
+        columns={[
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+          },
+        ]}
+        dataSource={[
+          {
+            name: 'name1',
+          },
+        ]}
+        rowHoverable={false}
+      />,
+    );
+    const cell = container.querySelector('.ant-table-row .ant-table-cell')!;
+
+    fireEvent.mouseEnter(cell);
+    expect(container.querySelectorAll('.ant-table-cell-row-hover')).toHaveLength(0);
   });
 });

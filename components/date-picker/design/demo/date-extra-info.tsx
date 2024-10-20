@@ -1,9 +1,9 @@
 import type { FC } from 'react';
 import React from 'react';
 import { DatePicker } from 'antd';
-import type { Dayjs } from 'dayjs';
 import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
+import type { Dayjs } from 'dayjs';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: PureDatePicker } = DatePicker;
 
@@ -48,9 +48,9 @@ const useStyle = createStyles(({ token }) => ({
     }
   `,
   minus: css`
-    color: #52C41A80;
+    color: #52c41a80;
     .ant-picker-cell-in-view & {
-      color: #52C41A;
+      color: #52c41a;
     }
     .ant-picker-cell-selected & {
       color: #fff;
@@ -58,9 +58,7 @@ const useStyle = createStyles(({ token }) => ({
   `,
 }));
 
-const seeds = Array(30)
-  .fill(1)
-  .map(() => Math.random());
+const seeds = new Array(30).fill(1).map(() => Math.random());
 
 const getSales = (date: Dayjs) => Math.floor(seeds[date.date() % 30] * 10000);
 

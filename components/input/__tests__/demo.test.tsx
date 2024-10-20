@@ -1,7 +1,10 @@
 import * as React from 'react';
+
 import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 
-demoTest('input');
+demoTest('input', {
+  skip: ['component-token.tsx'],
+});
 
 rootPropsTest(
   'input',
@@ -13,4 +16,8 @@ rootPropsTest(
 
 rootPropsTest('input', (Input, props) => <Input.Password {...props} />, {
   name: 'password',
+});
+
+rootPropsTest('input', (Input, props) => <Input.TextArea {...props} />, {
+  name: 'textarea',
 });

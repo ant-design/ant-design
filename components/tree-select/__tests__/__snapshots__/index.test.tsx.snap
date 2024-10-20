@@ -2,7 +2,7 @@
 
 exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
 <div
-  class="ant-select ant-tree-select ant-select-single ant-select-show-arrow ant-select-open"
+  class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-open"
 >
   <div
     class="ant-select-selector"
@@ -33,7 +33,7 @@ exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div>
       <div>
@@ -144,7 +144,7 @@ exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
 
 exports[`TreeSelect TreeSelect Custom Icons should support customized icons 1`] = `
 <div
-  class="ant-select ant-tree-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-tree-select ant-select-outlined ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
 >
   <div
     class="ant-select-selector"
@@ -276,7 +276,7 @@ exports[`TreeSelect TreeSelect Custom Icons should support customized icons 1`] 
 
 exports[`TreeSelect rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-select ant-tree-select ant-select-rtl ant-select-single ant-select-show-arrow"
+  class="ant-select ant-tree-select ant-select-rtl ant-select-outlined ant-select-single ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"

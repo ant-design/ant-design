@@ -1,10 +1,10 @@
-import classNames from 'classnames';
 import * as React from 'react';
+import classNames from 'classnames';
+
 import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import DefaultEmptyImg from './empty';
 import SimpleEmptyImg from './simple';
-
 import useStyle from './style';
 
 const defaultEmptyImg = <DefaultEmptyImg />;
@@ -39,12 +39,13 @@ const Empty: CompoundedComponent = ({
   description,
   children,
   imageStyle,
+  style,
   ...restProps
 }) => {
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, empty } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('empty', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const [locale] = useLocale('Empty');
 
@@ -59,11 +60,13 @@ const Empty: CompoundedComponent = ({
     imageNode = image;
   }
 
-  return wrapSSR(
+  return wrapCSSVar(
     <div
       className={classNames(
         hashId,
+        cssVarCls,
         prefixCls,
+        empty?.className,
         {
           [`${prefixCls}-normal`]: image === simpleEmptyImg,
           [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -71,6 +74,7 @@ const Empty: CompoundedComponent = ({
         className,
         rootClassName,
       )}
+      style={{ ...empty?.style, ...style }}
       {...restProps}
     >
       <div className={`${prefixCls}-image`} style={imageStyle}>

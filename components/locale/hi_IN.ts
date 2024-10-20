@@ -1,8 +1,8 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/hi_IN';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/hi_IN';
 import DatePicker from '../date-picker/locale/hi_IN';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/hi_IN';
 
 const typeTemplate = '${label} मान्य ${type} नहीं है';
@@ -72,9 +72,6 @@ const localeValues: Locale = {
     copy: 'प्रतिलिपि',
     copied: 'कॉपी किया गया',
     expand: 'विस्तार',
-  },
-  PageHeader: {
-    back: 'वापस',
   },
   Form: {
     optional: '(ऐच्छिक)',

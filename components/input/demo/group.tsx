@@ -102,7 +102,7 @@ const App: React.FC = () => (
         <Option value="Option2">Option2</Option>
       </Select>
       <Input style={{ width: '50%' }} defaultValue="input content" />
-      <InputNumber />
+      <InputNumber prefix="@" />
     </Input.Group>
     <br />
     <Input.Group compact>

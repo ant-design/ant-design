@@ -1,9 +1,11 @@
 import React from 'react';
-import { render, fireEvent } from '../../../tests/utils';
+import type { FormRef } from 'rc-field-form/lib/interface';
+
 import Form from '..';
-import Input from '../../input';
+import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
 import type { InputRef } from '../../input';
+import Input from '../../input';
 
 interface TestProps {
   show?: boolean;
@@ -84,5 +86,12 @@ describe('Form.Ref', () => {
     rerender(<Test onRef={onRef} show={false} />);
     fireEvent.click(container.querySelector('.ref-remove')!);
     expect(onRef).toHaveBeenCalledWith(undefined, null);
+  });
+
+  it('should have nativeForm', () => {
+    const formRef = React.createRef<FormRef>();
+    const { container } = render(<Form ref={formRef} />);
+
+    expect(container.querySelector('.ant-form')).toBe(formRef.current?.nativeElement);
   });
 });

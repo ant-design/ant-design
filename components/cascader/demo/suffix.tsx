@@ -1,5 +1,6 @@
 import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
+import type { CascaderProps } from 'antd';
 import { Cascader } from 'antd';
 
 interface Option {
@@ -43,7 +44,7 @@ const options: Option[] = [
   },
 ];
 
-const onChange = (value: string[]) => {
+const onChange: CascaderProps<Option>['onChange'] = (value) => {
   console.log(value);
 };
 

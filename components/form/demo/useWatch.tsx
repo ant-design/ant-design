@@ -4,6 +4,8 @@ import { Form, Input, InputNumber, Typography } from 'antd';
 const Demo: React.FC = () => {
   const [form] = Form.useForm<{ name: string; age: number }>();
   const nameValue = Form.useWatch('name', form);
+  // The selector is static and does not support closures.
+  const customValue = Form.useWatch((values) => `name: ${values.name || ''}`, form);
 
   return (
     <>
@@ -18,6 +20,7 @@ const Demo: React.FC = () => {
 
       <Typography>
         <pre>Name Value: {nameValue}</pre>
+        <pre>Custom Value: {customValue}</pre>
       </Typography>
     </>
   );

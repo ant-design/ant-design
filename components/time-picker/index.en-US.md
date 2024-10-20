@@ -2,13 +2,12 @@
 category: Components
 group: Data Entry
 title: TimePicker
+description: To select/input a time.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*kGmGSLk_1fwAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*1hDmQJIDFJQAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-To select/input a time.
 
 ## When To Use
 
@@ -20,14 +19,16 @@ By clicking the input box, you can select a time from a popup panel.
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/value.tsx">Under Control</code>
 <code src="./demo/size.tsx">Three Sizes</code>
+<code src="./demo/need-confirm.tsx" version="5.14.0">Need Confirm</code>
 <code src="./demo/disabled.tsx">disabled</code>
 <code src="./demo/hide-column.tsx">Hour and minute</code>
 <code src="./demo/interval-options.tsx">interval option</code>
 <code src="./demo/addon.tsx">Addon</code>
 <code src="./demo/12hours.tsx">12 hours</code>
+<code src="./demo/change-on-scroll.tsx" version="5.14.0">Change on scroll</code>
 <code src="./demo/colored-popup.tsx" debug>Colored Popup</code>
 <code src="./demo/range-picker.tsx">Time Range Picker</code>
-<code src="./demo/bordered.tsx">Bordered-less</code>
+<code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/suffix.tsx" debug>Suffix</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
@@ -35,6 +36,8 @@ By clicking the input box, you can select a time from a popup panel.
 ## API
 
 ---
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ```jsx
 import dayjs from 'dayjs';
@@ -47,12 +50,11 @@ dayjs.extend(customParseFormat)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| allowClear | Whether allow clearing text | boolean | true |  |
+| allowClear | Customize clear icon | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: Support object type |
 | autoFocus | If get focus when component mounted | boolean | false |  |
-| bordered | Whether has border style | boolean | true |  |
+| cellRender | Custom rendering function for picker cells | (current: number, info: { originNode: React.ReactElement, today: dayjs, range?: 'start' \| 'end', subType: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
+| changeOnScroll | Trigger selection when scroll the column | boolean | false | 5.14.0 |
 | className | The className of picker | string | - |  |
-| clearIcon | The custom clear icon | ReactNode | - |  |
-| clearText | The clear tooltip of icon | string | clear |  |
 | defaultValue | To set default time | [dayjs](http://day.js.org/) | - |  |
 | disabled | Determine whether the TimePicker is disabled | boolean | false |  |
 | disabledTime | To specify the time that cannot be selected | [DisabledTime](#disabledtime) | - | 4.19.0 |
@@ -62,6 +64,7 @@ dayjs.extend(customParseFormat)
 | hourStep | Interval between hours in picker | number | 1 |  |
 | inputReadOnly | Set the `readonly` attribute of the input tag (avoids virtual keyboard on touch devices) | boolean | false |  |
 | minuteStep | Interval between minutes in picker | number | 1 |  |
+| needConfirm | Need click confirm button to trigger value change | boolean | - | 5.14.0 |
 | open | Whether to popup panel | boolean | false |  |
 | placeholder | Display when there's no value | string \| \[string, string] | `Select a time` |  |
 | placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
@@ -75,9 +78,10 @@ dayjs.extend(customParseFormat)
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | use12Hours | Display as 12 hours format, with default format `h:mm:ss a` | boolean | false |  |
 | value | To set time | [dayjs](http://day.js.org/) | - |  |
+| variant | Variants of picker | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| onCalendarChange | Callback function, can be executed when the start time or the end time of the range is changing. `info` argument is added in 4.4.0 | function(dates: \[dayjs, dayjs], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  |
 | onChange | A callback function, can be executed when the selected time is changing | function(time: dayjs, timeString: string): void | - |  |
 | onOpenChange | A callback function which will be called while panel opening/closing | (open: boolean) => void | - |  |
-| onSelect | A callback function, executes when a value is selected | function(time: dayjs): void | - |  |
 
 #### DisabledTime
 
@@ -86,8 +90,15 @@ type DisabledTime = (now: Dayjs) => {
   disabledHours?: () => number[];
   disabledMinutes?: (selectedHour: number) => number[];
   disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[];
+  disabledMilliseconds?: (
+    selectedHour: number,
+    selectedMinute: number,
+    selectedSecond: number,
+  ) => number[];
 };
 ```
+
+Note: `disabledMilliseconds` is added in `5.14.0`.
 
 ## Methods
 

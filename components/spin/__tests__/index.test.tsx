@@ -1,11 +1,21 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import { waitFakeTimer } from '../../../tests/utils';
+
 import Spin from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { act, render, waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('Spin', () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.clearAllTimers();
+    jest.useRealTimers();
+  });
+
   mountTest(Spin);
   rtlTest(Spin);
 
@@ -17,6 +27,15 @@ describe('Spin', () => {
     );
     expect(container.querySelector<HTMLElement>('.ant-spin-nested-loading')?.style.length).toBe(0);
     expect(container.querySelector<HTMLElement>('.ant-spin')?.style.background).toBe('red');
+  });
+
+  it('should not apply nested styles when full screen', () => {
+    const { container } = render(
+      <Spin fullscreen>
+        <div>content</div>
+      </Spin>,
+    );
+    expect(container.querySelector<HTMLElement>('ant-spin-nested-loading')).toBeNull();
   });
 
   it("should render custom indicator when it's set", () => {
@@ -51,5 +70,68 @@ describe('Spin', () => {
   it('should render 0', () => {
     const { container } = render(<Spin>{0}</Spin>);
     expect(container.querySelector('.ant-spin-container')?.textContent).toBe('0');
+  });
+
+  it('warning tip without nest', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const { container } = render(<Spin tip="Not Show" />);
+    expect(container.querySelector('.ant-spin-text')).toBeFalsy();
+
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Spin] `tip` only work in nest or fullscreen pattern.',
+    );
+
+    errSpy.mockRestore();
+  });
+
+  it('should not warn tip with fullscreen', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const { container } = render(<Spin fullscreen tip="Fullscreen" />);
+    expect(container.querySelector('.ant-spin-fullscreen')).toBeTruthy();
+
+    expect(errSpy).not.toHaveBeenCalled();
+
+    errSpy.mockRestore();
+  });
+
+  it('right style when fullscreen', () => {
+    const { container } = render(<Spin fullscreen spinning />);
+    const element = container.querySelector<HTMLDivElement>('.ant-spin-fullscreen');
+    expect(element).not.toHaveStyle({ pointerEvents: 'none' });
+  });
+
+  it('should support ConfigProvider indicator', () => {
+    const { container } = render(
+      <ConfigProvider spin={{ indicator: <div className="custom-indicator" /> }}>
+        <Spin />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.custom-indicator')).toBeTruthy();
+  });
+
+  describe('percent', () => {
+    it('percent support auto', () => {
+      const { container } = render(<Spin percent="auto" />);
+
+      act(() => {
+        jest.advanceTimersByTime(100000);
+      });
+
+      const nowPTG = Number(
+        container.querySelector('[role="progressbar"]')?.getAttribute('aria-valuenow'),
+      );
+
+      expect(nowPTG).toBeGreaterThanOrEqual(1);
+    });
+
+    it('custom indicator has percent', () => {
+      const MyIndicator = ({ percent }: { percent?: number }) => (
+        <div className="custom-indicator">{percent}</div>
+      );
+      const { container } = render(<Spin indicator={<MyIndicator />} percent={23} />);
+      expect(container.querySelector('.custom-indicator')?.textContent).toBe('23');
+    });
   });
 });

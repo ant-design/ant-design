@@ -1,21 +1,23 @@
 import React from 'react';
 import dayjs from 'dayjs';
+
 import 'dayjs/locale/zh-cn';
+
+import { Calendar, Col, Radio, Row, Select, theme, Typography } from 'antd';
+import type { CalendarProps } from 'antd';
 import type { Dayjs } from 'dayjs';
 import dayLocaleData from 'dayjs/plugin/localeData';
-import { Calendar, Col, Radio, Row, Select, Typography, theme } from 'antd';
-import type { CalendarMode } from 'antd/es/calendar/generateCalendar';
 
 dayjs.extend(dayLocaleData);
 
 const App: React.FC = () => {
   const { token } = theme.useToken();
 
-  const onPanelChange = (value: Dayjs, mode: CalendarMode) => {
+  const onPanelChange = (value: Dayjs, mode: CalendarProps<Dayjs>['mode']) => {
     console.log(value.format('YYYY-MM-DD'), mode);
   };
 
-  const wrapperStyle = {
+  const wrapperStyle: React.CSSProperties = {
     width: 300,
     border: `1px solid ${token.colorBorderSecondary}`,
     borderRadius: token.borderRadiusLG,
@@ -73,7 +75,7 @@ const App: React.FC = () => {
                 <Col>
                   <Select
                     size="small"
-                    dropdownMatchSelectWidth={false}
+                    popupMatchSelectWidth={false}
                     className="my-year-select"
                     value={year}
                     onChange={(newYear) => {
@@ -87,7 +89,7 @@ const App: React.FC = () => {
                 <Col>
                   <Select
                     size="small"
-                    dropdownMatchSelectWidth={false}
+                    popupMatchSelectWidth={false}
                     value={month}
                     onChange={(newMonth) => {
                       const now = value.clone().month(newMonth);

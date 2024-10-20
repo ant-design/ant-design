@@ -1,96 +1,83 @@
 import React from 'react';
-import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
-import { Button, Form, Input, Select, Space } from 'antd';
-
-const { Option } = Select;
-
-const areas = [
-  { label: 'Beijing', value: 'Beijing' },
-  { label: 'Shanghai', value: 'Shanghai' },
-];
-
-const sights = {
-  Beijing: ['Tiananmen', 'Great Wall'],
-  Shanghai: ['Oriental Pearl', 'The Bund'],
-};
-
-type SightsKeys = keyof typeof sights;
+import { CloseOutlined } from '@ant-design/icons';
+import { Button, Card, Form, Input, Space, Typography } from 'antd';
 
 const App: React.FC = () => {
   const [form] = Form.useForm();
 
-  const onFinish = (values: any) => {
-    console.log('Received values of form:', values);
-  };
-
-  const handleChange = () => {
-    form.setFieldsValue({ sights: [] });
-  };
-
   return (
     <Form
+      labelCol={{ span: 6 }}
+      wrapperCol={{ span: 18 }}
       form={form}
       name="dynamic_form_complex"
-      onFinish={onFinish}
       style={{ maxWidth: 600 }}
       autoComplete="off"
+      initialValues={{ items: [{}] }}
     >
-      <Form.Item name="area" label="Area" rules={[{ required: true, message: 'Missing area' }]}>
-        <Select options={areas} onChange={handleChange} />
-      </Form.Item>
-      <Form.List name="sights">
+      <Form.List name="items">
         {(fields, { add, remove }) => (
-          <>
+          <div style={{ display: 'flex', rowGap: 16, flexDirection: 'column' }}>
             {fields.map((field) => (
-              <Space key={field.key} align="baseline">
-                <Form.Item
-                  noStyle
-                  shouldUpdate={(prevValues, curValues) =>
-                    prevValues.area !== curValues.area || prevValues.sights !== curValues.sights
-                  }
-                >
-                  {() => (
-                    <Form.Item
-                      {...field}
-                      label="Sight"
-                      name={[field.name, 'sight']}
-                      rules={[{ required: true, message: 'Missing sight' }]}
-                    >
-                      <Select disabled={!form.getFieldValue('area')} style={{ width: 130 }}>
-                        {(sights[form.getFieldValue('area') as SightsKeys] || []).map((item) => (
-                          <Option key={item} value={item}>
-                            {item}
-                          </Option>
-                        ))}
-                      </Select>
-                    </Form.Item>
-                  )}
-                </Form.Item>
-                <Form.Item
-                  {...field}
-                  label="Price"
-                  name={[field.name, 'price']}
-                  rules={[{ required: true, message: 'Missing price' }]}
-                >
+              <Card
+                size="small"
+                title={`Item ${field.name + 1}`}
+                key={field.key}
+                extra={
+                  <CloseOutlined
+                    onClick={() => {
+                      remove(field.name);
+                    }}
+                  />
+                }
+              >
+                <Form.Item label="Name" name={[field.name, 'name']}>
                   <Input />
                 </Form.Item>
 
-                <MinusCircleOutlined onClick={() => remove(field.name)} />
-              </Space>
+                {/* Nest Form.List */}
+                <Form.Item label="List">
+                  <Form.List name={[field.name, 'list']}>
+                    {(subFields, subOpt) => (
+                      <div style={{ display: 'flex', flexDirection: 'column', rowGap: 16 }}>
+                        {subFields.map((subField) => (
+                          <Space key={subField.key}>
+                            <Form.Item noStyle name={[subField.name, 'first']}>
+                              <Input placeholder="first" />
+                            </Form.Item>
+                            <Form.Item noStyle name={[subField.name, 'second']}>
+                              <Input placeholder="second" />
+                            </Form.Item>
+                            <CloseOutlined
+                              onClick={() => {
+                                subOpt.remove(subField.name);
+                              }}
+                            />
+                          </Space>
+                        ))}
+                        <Button type="dashed" onClick={() => subOpt.add()} block>
+                          + Add Sub Item
+                        </Button>
+                      </div>
+                    )}
+                  </Form.List>
+                </Form.Item>
+              </Card>
             ))}
 
-            <Form.Item>
-              <Button type="dashed" onClick={() => add()} block icon={<PlusOutlined />}>
-                Add sights
-              </Button>
-            </Form.Item>
-          </>
+            <Button type="dashed" onClick={() => add()} block>
+              + Add Item
+            </Button>
+          </div>
         )}
       </Form.List>
-      <Form.Item>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
+
+      <Form.Item noStyle shouldUpdate>
+        {() => (
+          <Typography>
+            <pre>{JSON.stringify(form.getFieldsValue(), null, 2)}</pre>
+          </Typography>
+        )}
       </Form.Item>
     </Form>
   );

@@ -1,11 +1,11 @@
 import React from 'react';
+
 import Radio, { Button, Group } from '..';
-import Form from '../../form';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-
-import { render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
+import Form from '../../form';
 
 describe('Radio', () => {
   focusTest(Radio, { refFocus: true });
@@ -53,5 +53,9 @@ describe('Radio', () => {
       </Form>,
     );
     expect(getByRole('radio')).not.toBeDisabled();
+  });
+
+  it('have static property for type detecting', () => {
+    expect(Radio.__ANT_RADIO).toBeTruthy();
   });
 });

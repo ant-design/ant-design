@@ -10,11 +10,10 @@ exports[`Upload rtl render component should be rendered correctly in RTL directi
   >
     <span
       class="ant-upload"
-      role="button"
-      tabindex="0"
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
+
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import Collapse from '../../collapse';
 import Input from '../../input';
 import Table from '../../table';
-import Checkbox from '../index';
-import type { CheckboxValueType } from '../Group';
 import type { CheckboxGroupProps } from '../index';
+import Checkbox from '../index';
 
 describe('CheckboxGroup', () => {
   mountTest(Checkbox.Group);
@@ -88,7 +88,7 @@ describe('CheckboxGroup', () => {
     const renderCheckbox = (props: CheckboxGroupProps) => <Checkbox.Group {...props} />;
     const { container, rerender } = render(renderCheckbox({ options }));
     expect(container.querySelectorAll('.ant-checkbox-checked').length).toBe(0);
-    rerender(renderCheckbox({ options, value: 'Apple' as unknown as CheckboxValueType[] }));
+    rerender(renderCheckbox({ options, value: 'Apple' as any }));
     expect(container.querySelectorAll('.ant-checkbox-checked').length).toBe(1);
   });
 
@@ -167,13 +167,20 @@ describe('CheckboxGroup', () => {
   it('should work when checkbox is wrapped by other components', () => {
     const { container } = render(
       <Checkbox.Group>
-        <Collapse bordered={false}>
-          <Collapse.Panel key="test panel" header="test panel">
-            <div>
-              <Checkbox value="1">item</Checkbox>
-            </div>
-          </Collapse.Panel>
-        </Collapse>
+        <Collapse
+          items={[
+            {
+              key: 'test panel',
+              label: 'test panel',
+              children: (
+                <div>
+                  <Checkbox value="1">item</Checkbox>
+                </div>
+              ),
+            },
+          ]}
+          bordered={false}
+        />
       </Checkbox.Group>,
     );
 
@@ -260,5 +267,12 @@ describe('CheckboxGroup', () => {
     fireEvent.change(container.querySelector('.ant-input')!, { target: { value: '' } });
     fireEvent.click(container.querySelector('.ant-checkbox-input')!);
     expect(onChange).toHaveBeenCalledWith(['A']);
+  });
+
+  it('options support id', () => {
+    const { container } = render(
+      <Checkbox.Group options={[{ label: 'bamboo', id: 'bamboo', value: 'bamboo' }]} />,
+    );
+    expect(container.querySelector('#bamboo')).toBeTruthy();
   });
 });

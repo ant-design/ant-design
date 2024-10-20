@@ -6,7 +6,7 @@ const { confirm } = Modal;
 
 const showConfirm = () => {
   confirm({
-    title: 'Do you Want to delete these items?',
+    title: 'Do you want to delete these items?',
     icon: <ExclamationCircleFilled />,
     content: 'Some descriptions',
     onOk() {

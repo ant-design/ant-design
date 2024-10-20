@@ -1,42 +1,50 @@
+import React, { useState } from 'react';
 import { EllipsisOutlined } from '@ant-design/icons';
-import type { RadioChangeEvent, TourProps, UploadFile } from 'antd';
+import type {
+  ConfigProviderProps,
+  RadioChangeEvent,
+  TableProps,
+  TourProps,
+  UploadFile,
+} from 'antd';
 import {
-  Upload,
-  Tour,
-  Input,
-  Form,
-  QRCode,
   Button,
   Calendar,
   ConfigProvider,
   DatePicker,
+  Divider,
+  Form,
+  Image,
+  Input,
+  InputNumber,
   Modal,
   Pagination,
   Popconfirm,
+  QRCode,
   Radio,
   Select,
   Space,
   Table,
   theme,
   TimePicker,
+  Tour,
   Transfer,
-  Image,
-  InputNumber,
-  Divider,
+  Upload,
 } from 'antd';
-import type { Locale } from 'antd/es/locale';
 import enUS from 'antd/locale/en_US';
 import zhCN from 'antd/locale/zh_CN';
 import dayjs from 'dayjs';
+
 import 'dayjs/locale/zh-cn';
-import React, { useState } from 'react';
+
+type Locale = ConfigProviderProps['locale'];
 
 dayjs.locale('en');
 
 const { Option } = Select;
 const { RangePicker } = DatePicker;
 
-const columns = [
+const columns: TableProps['columns'] = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -215,7 +223,7 @@ const App: React.FC = () => {
   return (
     <>
       <div style={{ marginBottom: 16 }}>
-        <span style={{ marginRight: 16 }}>Change locale of components:</span>
+        <span style={{ marginInlineEnd: 16 }}>Change locale of components:</span>
         <Radio.Group value={locale} onChange={changeLocale}>
           <Radio.Button key="en" value={enUS}>
             English

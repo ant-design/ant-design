@@ -1,8 +1,8 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/nb_NO';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/nb_NO';
 import DatePicker from '../date-picker/locale/nb_NO';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/nb_NO';
 
 const typeTemplate = '${label} er ikke et gyldig ${type}';
@@ -70,9 +70,6 @@ const localeValues: Locale = {
     copy: 'Kopier',
     copied: 'Kopiert',
     expand: 'Utvid',
-  },
-  PageHeader: {
-    back: 'Tilbake',
   },
   Form: {
     defaultValidateMessages: {

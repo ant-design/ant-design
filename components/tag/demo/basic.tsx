@@ -1,9 +1,6 @@
-import { Space, Tag } from 'antd';
 import React from 'react';
-
-const log = (e: React.MouseEvent<HTMLElement>) => {
-  console.log(e);
-};
+import { CloseCircleOutlined } from '@ant-design/icons';
+import { Tag } from 'antd';
 
 const preventDefault = (e: React.MouseEvent<HTMLElement>) => {
   e.preventDefault();
@@ -11,18 +8,18 @@ const preventDefault = (e: React.MouseEvent<HTMLElement>) => {
 };
 
 const App: React.FC = () => (
-  <Space size={[0, 8]} wrap>
+  <>
     <Tag>Tag 1</Tag>
     <Tag>
       <a href="https://github.com/ant-design/ant-design/issues/1862">Link</a>
     </Tag>
-    <Tag closable onClose={log}>
-      Tag 2
-    </Tag>
-    <Tag closable onClose={preventDefault}>
+    <Tag closeIcon onClose={preventDefault}>
       Prevent Default
     </Tag>
-  </Space>
+    <Tag closeIcon={<CloseCircleOutlined />} onClose={console.log}>
+      Tag 2
+    </Tag>
+  </>
 );
 
 export default App;

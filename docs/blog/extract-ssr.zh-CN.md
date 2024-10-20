@@ -2,6 +2,9 @@
 title: SSR 静态样式导出
 date: 2023-04-25
 author: zombieJ
+zhihu_url: https://zhuanlan.zhihu.com/p/639266657
+yuque_url: https://www.yuque.com/ant-design/ant-design/gyacdbtixle9bbm4
+juejin_url: https://juejin.cn/post/7322352551088603163
 ---
 
 传统的 js + css 网站，SSR 一般只需要处理好首次渲染的注水问题。而当 CSS-in-JS 技术的引入，开发者则需要额外关注如何将样式导出到 HTML 中，以保证首次渲染的正确性。我们提供了非常多的实现方式，也正好在此聊聊其中的思路。如果你需要完整的文档或者示例欢迎查阅[《定制主题》](/docs/react/customize-theme-cn)。
@@ -50,7 +53,7 @@ author: zombieJ
 </div>
 ```
 
-而当大部分组件都转成 CSS-in-JS 后，内联样式会变得十分巨大。所以我们在后期移除了自动内联的功能，转成了需要手工收取的形式：
+而当大部分组件都转成 CSS-in-JS 后，内联样式会变得十分巨大。所以我们在后期移除了自动内联的功能，转成了需要手动收取的形式：
 
 ```tsx
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
@@ -139,7 +142,7 @@ if (!fs.existsSync(cssFileName)) {
 然后在 HTML 模板侧添加对应的 CSS 文件：
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <link rel="stylesheet" href="${hashCssFileUrl}" />
@@ -150,7 +153,7 @@ if (!fs.existsSync(cssFileName)) {
 </html>
 ```
 
-完整实现点击[此处](https://github.com/ant-design/create-next-app-antd/tree/generate-css-on-demand)查阅。
+完整实现点击[此处](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-generate-css-on-demand)查阅。
 
 访问不同的页面时会生成对应的 CSS，每个 CSS 都会有其对应的 Hash 值。当 Hash 命中时，则说明该 CSS 文件已经被落盘，可以直接使用。继而对于客户端而言就是一次正常的 CSS 文件访问，同样享受缓存能力。
 

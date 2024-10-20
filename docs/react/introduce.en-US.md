@@ -3,25 +3,17 @@ order: 0
 title: Ant Design of React
 ---
 
-Following the Ant Design specification, we developed a React UI library `antd` that contains a set of high quality components and demos for building rich, interactive user interfaces.
+<audio id="antd-audio">
+  <source src="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*ChCdRJ0w8SUAAAAAAAAAAAAADgCCAQ" type="audio/mpeg">
+</audio>
+
+Following the Ant Design specification, we developed a React UI library `antd` (<Audio id="antd-audio">Pronunciation</Audio>) that contains a set of high quality components and demos for building rich, interactive user interfaces.
 
 <div class="pic-plus">
-  <img width="150" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
+  <img width="150" draggable="false" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
   <span>+</span>
- <img width="160" src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg" />
+  <img width="160" draggable="false" src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg" />
 </div>
-
-<style>
-.pic-plus > * {
-  display: inline-block !important;
-  vertical-align: middle;
-}
-.pic-plus span {
-  margin: 0 20px;
-  color: #aaa;
-  font-size: 30px;
-}
-</style>
 
 ---
 
@@ -56,17 +48,11 @@ You can subscribe to this feed for new version notifications: https://github.com
 
 ## Installation
 
-### Using npm or yarn
+### Using npm or yarn or pnpm or bun
 
-**We recommend using npm or yarn to install**, it not only makes development easier, but also allow you to take advantage of the rich ecosystem of Javascript packages and tooling.
+**We recommend using [npm](https://www.npmjs.com/) or [yarn](https://github.com/yarnpkg/yarn/) or [pnpm](https://pnpm.io/) or [bun](https://bun.sh/) to install**, it not only makes development easier, but also allow you to take advantage of the rich ecosystem of Javascript packages and tooling.
 
-```bash
-$ npm install antd
-```
-
-```bash
-$ yarn add antd
-```
+<InstallDependencies npm='$ npm install antd --save' yarn='$ yarn add antd' pnpm='$ pnpm install antd --save' bun='$ bun add antd'></InstallDependencies>
 
 If you are in a bad network environment, you can try other registries and tools like [cnpm](https://github.com/cnpm/cnpm).
 
@@ -126,18 +112,13 @@ export default App;
 - [Customize Theme](/docs/react/customize-theme)
 - [How to Apply for Being A Collaborator](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
 
+## Non-React Implementations
+
+React is used to encapsulate a library of components which embody our design language. We welcome the community to implement our design system [in other front-end frameworks](/docs/spec/introduce#front-end-implementation) of their choice.
+
 ## Companies using antd
 
-- [Ant Group](https://www.antgroup.com/index.htm?locale=en_US)
-- [Alibaba](https://www.alibaba.com/)
-- [Tencent](https://www.tencent.com)
-- [Baidu](https://www.baidu.com)
-- [Koubei](https://www.koubei.com/)
-- [Meituan](https://www.meituan.com)
-- [Didi](https://www.xiaojukeji.com/)
-- [Eleme](https://www.ele.me/)
-
-> If your company or product uses Ant Design, let us know [here](https://github.com/ant-design/ant-design/issues/477)!
+Ant Design is widely used for building enterprise-level websites both domestically and internationally. You can refer to wappalyzer for reference data. If your company or product uses Ant Design, let us know [here](https://github.com/ant-design/ant-design/issues/477)!
 
 ## Contributing
 

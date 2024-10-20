@@ -1,7 +1,7 @@
-type RecordType = Record<string, any>;
+import type { AnyObject } from './type';
 
-function extendsObject<T extends RecordType>(...list: T[]) {
-  const result: RecordType = { ...list[0] };
+const extendsObject = <T extends AnyObject = AnyObject>(...list: T[]) => {
+  const result: AnyObject = { ...list[0] };
 
   for (let i = 1; i < list.length; i++) {
     const obj = list[i];
@@ -16,6 +16,6 @@ function extendsObject<T extends RecordType>(...list: T[]) {
   }
 
   return result;
-}
+};
 
 export default extendsObject;

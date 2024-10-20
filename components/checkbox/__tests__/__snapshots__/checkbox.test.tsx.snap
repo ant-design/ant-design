@@ -5,7 +5,7 @@ exports[`Checkbox rtl render component should be rendered correctly in RTL direc
   class="ant-checkbox-wrapper ant-checkbox-rtl"
 >
   <span
-    class="ant-checkbox"
+    class="ant-checkbox ant-wave-target"
   >
     <input
       class="ant-checkbox-input"

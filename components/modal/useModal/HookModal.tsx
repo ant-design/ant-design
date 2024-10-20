@@ -1,13 +1,19 @@
 import * as React from 'react';
+
 import { ConfigContext } from '../../config-provider';
 import defaultLocale from '../../locale/en_US';
 import useLocale from '../../locale/useLocale';
 import ConfirmDialog from '../ConfirmDialog';
-import type { ModalFuncProps } from '../Modal';
+import type { ModalFuncProps } from '../interface';
 
 export interface HookModalProps {
   afterClose: () => void;
   config: ModalFuncProps;
+  onConfirm?: (confirmed: boolean) => void;
+  /**
+   * Do not throw if is await mode
+   */
+  isSilent?: () => boolean;
 }
 
 export interface HookModalRef {
@@ -16,7 +22,7 @@ export interface HookModalRef {
 }
 
 const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = (
-  { afterClose: hookAfterClose, config },
+  { afterClose: hookAfterClose, config, ...restProps },
   ref,
 ) => {
   const [open, setOpen] = React.useState(true);
@@ -33,9 +39,9 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
 
   const close = (...args: any[]) => {
     setOpen(false);
-    const triggerCancel = args.some((param) => param && param.triggerCancel);
-    if (innerConfig.onCancel && triggerCancel) {
-      innerConfig.onCancel(() => {}, ...args.slice(1));
+    const triggerCancel = args.some((param) => param?.triggerCancel);
+    if (triggerCancel) {
+      innerConfig.onCancel?.(() => {}, ...args.slice(1));
     }
   };
 
@@ -66,6 +72,7 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
       }
       direction={innerConfig.direction || direction}
       cancelText={innerConfig.cancelText || contextLocale?.cancelText}
+      {...restProps}
     />
   );
 };

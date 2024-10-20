@@ -1,8 +1,8 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/ka_GE';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/ka_GE';
 import DatePicker from '../date-picker/locale/ka_GE';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/ka_GE';
 
 const typeTemplate = '${label} არ არის სწორი ${type}';
@@ -72,9 +72,6 @@ const localeValues: Locale = {
     copy: 'ასლი',
     copied: 'ასლი აღებულია',
     expand: 'გაშლა',
-  },
-  PageHeader: {
-    back: 'უკან',
   },
   Form: {
     optional: '(არასავალდებულო)',

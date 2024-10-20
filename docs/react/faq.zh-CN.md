@@ -1,5 +1,7 @@
 ---
-order: 11
+group:
+  title: 其他
+order: 2
 title: FAQ
 ---
 
@@ -9,7 +11,7 @@ title: FAQ
 
 ## `undefined` 和 `null` 在 `antd` 的受控组件中有区别吗？
 
-**有。antd 约定：`undefined` 是非受控的标志，`null` 作为显式的受控空值。**
+**有区别。antd 约定：`undefined` 是非受控的标志，`null` 作为显式的受控空值。**
 
 在输入元素中，React 认为 `undefined` 和 `null` 都属于非受控的标志。当 `value` 由非空值转化为 `undefined` 或 `null` 时，组件不再受控，这通常是一些意外情况发生的原因。
 
@@ -43,7 +45,7 @@ title: FAQ
 
 ## 如何修改 Ant Design 的默认主题？
 
-可以参考[定制主题](/docs/react/customize-theme)。
+可以参考[定制主题](/docs/react/customize-theme-cn)。
 
 ## 如何修改 Ant Design 组件的默认样式？
 
@@ -63,7 +65,7 @@ antd 在 minor 和 patch 版本迭代中会避免引入破坏性变更，遵从�
 
 ## 如何使用其他时间日期库如 Moment.js？
 
-可以参考[使用自定义日期库](/docs/react/use-custom-date-library)。
+可以参考[使用自定义日期库](/docs/react/use-custom-date-library-cn)。
 
 ## 当我动态改变 `defaultValue` 的时候它并没有生效。
 
@@ -83,7 +85,7 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 ## antd 覆盖了我的全局样式！
 
-是的，antd 在设计的时候就是用来开发一个完整的应用的，为了方便，我们覆盖了一些全局样式，现在还不能移除，想要了解更多请追踪 [这个 issue](https://github.com/ant-design/ant-design/issues/4331)，或者参考这个教程 [How to avoid modifying global styles?](/docs/react/customize-theme#how-to-avoid-modifying-global-styles)
+是的，antd 在设计的时候就是用来开发一个完整的应用的，为了方便，我们覆盖了一些全局样式，现在还不能移除，想要了解更多请追踪 [这个 issue](https://github.com/ant-design/ant-design/issues/4331)，或者参考这个教程 [How to avoid modifying global styles?](/docs/react/customize-theme-cn#how-to-avoid-modifying-global-styles)
 
 ## 我没法安装 `antd` 和 `antd` 的依赖，顺便提一句，我在中国大陆。
 
@@ -103,14 +105,16 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 ## `antd` 是否有国内镜像？
 
-有的，你可以访问 https://ant-design.antgroup.com/index-cn 或 https://ant-design.gitee.io/index-cn 。
+有的，你可以访问 https://ant-design.antgroup.com/index-cn 。
 
-历史版本:
-
-- 4.x: https://4x-ant-design.antgroup.com
-- 3.x: https://ant-design-3x.gitee.io/
-- 2.x: https://ant-design-2x.gitee.io/
-- 1.x: https://ant-design-1x.gitee.io/
+| 产品/版本         | 地址                                      |
+| ----------------- | ----------------------------------------- |
+| Ant Design 5.x    | https://ant-design.antgroup.com           |
+| Ant Design 4.x    | https://4x-ant-design.antgroup.com        |
+| Ant Design Mobile | https://ant-design-mobile.antgroup.com/zh |
+| Ant Design Mini   | https://ant-design-mini.antgroup.com      |
+| Ant Design Charts | https://ant-design-charts.antgroup.com    |
+| AntV              | https://antv.antgroup.com                 |
 
 ## `antd` 可以像 `React` 那样使用单文件引入吗？
 
@@ -126,22 +130,28 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 如果你需要一些 antd 没有包含的功能，你可以尝试通过 [HOC](https://gist.github.com/sebmarkbage/ef0bf1f338a7182b6775) 拓展 antd 的组件。 [更多](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.eeu8q01s1)
 
+antd 对新增组件需求会进行严格的讨论，以防止 API 腐败而变为[历史债务](/docs/blog/historical-debt)。antd 侧对于 API 也更倾向于提供原子化的能力使开发者可以更灵活的定制自己所需要的功能。
+
 ## 如何获取未导出的属性定义？
 
-antd 会透出组件定义，但是随着重构可能导致内部一些定义命名或者属性变化。因而更推荐直接使用 Typescript 原生能力获取：
+antd 会透出基本组件定义。对于未透出属性，你可以通过 antd 提供的工具类型来获取。例如：
 
 ```tsx
-import { Table } from 'antd';
+import type { Checkbox, CheckboxProps, GetProp, GetProps, GetRef, Input } from 'antd';
 
-type Props<T extends (...args: any) => any> = Parameters<T>[0];
+// Get Props
+type CheckboxGroupProps = GetProps<typeof Checkbox.Group>;
 
-type TableProps = Props<typeof Table<{ key: string; name: string; age: number }>>;
-type DataSource = TableProps['dataSource'];
+// Get Prop
+type CheckboxValue = GetProp<CheckboxProps, 'value'>;
+
+// Get Ref
+type InputRef = GetRef<typeof Input>;
 ```
 
 ## 我的组件默认语言是英文的？如何切回中文的。
 
-请尝试使用 [ConfigProvider](/components/config-provider-cn#components-config-provider-demo-locale) 组件来包裹你的应用。
+请尝试使用 [ConfigProvider](/components/config-provider-cn#config-provider-demo-locale) 组件来包裹你的应用。
 
 如果日期组件的国际化仍未生效，请配置 `dayjs.locale('zh-cn')` 并**检查你本地的 `dayjs` 版本和 `antd` 依赖的 `dayjs` 版本是否一致**。
 
@@ -150,6 +160,8 @@ type DataSource = TableProps['dataSource'];
 请检查是否正确设置了 dayjs 语言包。
 
 ```js
+import dayjs from 'dayjs';
+
 import 'dayjs/locale/zh-cn';
 
 dayjs.locale('zh-cn');
@@ -178,25 +190,17 @@ npm ls dayjs
 
 同样的，`disabledDate` 对于任何 `<DatePicker />` 也只会针对**日面板**生效，[并不会对 `<DatePicker mode="year/month" />` 上的年/月面板生效](https://github.com/ant-design/ant-design/issues/9008#issuecomment-358554118)。
 
-### 解决办法
+:::success{title=解决办法} 你可以参照 [这篇文章](https://juejin.im/post/5cf65c366fb9a07eca6968f9) 或者 [这篇文章](https://www.cnblogs.com/zyl-Tara/p/10197177.html) 里的做法，利用 `mode` 和 `onPanelChange` 等方法去封装一个 `YearPicker` 等组件。
 
-你可以参照 [这篇文章](https://juejin.im/post/5cf65c366fb9a07eca6968f9) 或者 [这篇文章](https://www.cnblogs.com/zyl-Tara/p/10197177.html) 里的做法，利用 `mode` 和 `onPanelChange` 等方法去封装一个 `YearPicker` 等组件。
-
-另外我们已经在在 [antd@4.0](https://github.com/ant-design/ant-design/issues/16911) 中直接[添加了更多相关日期组件](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884)来支持这些需求，现在不再需要使用 `mode="year|month"`，而是直接可以用 `YearPicker` `MonthPicker`，并且 `disabledDate` 也可以正确作用于这些 Picker。
+另外我们已经在 [antd@4.0](https://github.com/ant-design/ant-design/issues/16911) 中直接[添加了更多相关日期组件](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884)来支持这些需求，现在不再需要使用 `mode="year|month"`，而是直接可以用 `YearPicker` `MonthPicker`，并且 `disabledDate` 也可以正确作用于这些 Picker。:::
 
 ## ConfigProvider 设置 `prefixCls` 后，message/notification/Modal.confirm 生成的节点样式丢失了？
 
 message/notification/Modal.confirm 等静态方法不同于 `<Button />` 的渲染方式，是单独渲染在 `ReactDOM.render` 生成的 DOM 树节点上，无法共享 ConfigProvider 提供的 context 信息。你有两种解决方式：
 
-1. 使用官方提供的 [message.useMessage](/components/message-cn/#components-message-demo-hooks)、[notification.useNotification](/components/notification-cn#%E4%B8%BA%E4%BB%80%E4%B9%88-notification-%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux-%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C-ConfigProvider-%E7%9A%84-locale/prefixCls-%E9%85%8D%E7%BD%AE%EF%BC%9F) 和 [Modal.useModal](/components/modal-cn/#%E4%B8%BA%E4%BB%80%E4%B9%88-Modal-%E6%96%B9%E6%B3%95%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux%E3%80%81%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C-ConfigProvider-locale/prefixCls-%E9%85%8D%E7%BD%AE%EF%BC%9F) 来调用这些方法。
+1. 使用官方提供的 [message.useMessage](/components/message-cn/#message-demo-hooks)、[notification.useNotification](/components/notification-cn#%E4%B8%BA%E4%BB%80%E4%B9%88-notification-%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux-%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C-ConfigProvider-%E7%9A%84-locale/prefixCls-%E9%85%8D%E7%BD%AE%EF%BC%9F) 和 [Modal.useModal](/components/modal-cn/#%E4%B8%BA%E4%BB%80%E4%B9%88-Modal-%E6%96%B9%E6%B3%95%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux%E3%80%81%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C-ConfigProvider-locale/prefixCls-%E9%85%8D%E7%BD%AE%EF%BC%9F) 来调用这些方法。
 
-2. 使用 `ConfigProvider.config` 方法全局设置 `prefixCls`。
-
-```js
-ConfigProvider.config({
-  prefixCls: 'ant',
-});
-```
+2. 使用 [App.useApp](/components/app-cn#%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95) 直接调用 message、notification、modal 实例方法。
 
 ## 为什么我不应该通过 ref 访问组件内部的 props 和 state？
 
@@ -210,7 +214,7 @@ ConfigProvider.config({
 
 ## 动态样式有 `:where` 导致旧版浏览器不支持怎么办？
 
-请参考动态主题文档 [兼容性调整](/docs/react/customize-theme-cn#兼容性调整) 部分内容。
+请参考动态主题文档 [兼容旧版浏览器](/docs/react/compatible-style-cn) 部分内容。
 
 ## CSS-in-JS 与 tailwindcss 优先级冲突？
 
@@ -218,17 +222,35 @@ ConfigProvider.config({
 
 ## CSS-in-JS 如何与 Shadow DOM 一同使用？
 
-请参考文档 [Shadow Dom 场景](/docs/react/customize-theme-cn#shadow-dom-场景) 内容。
+请参考文档 [Shadow DOM 场景](/docs/react/compatible-style-cn#shadow-dom-场景) 内容。
+
+## 如何关闭组件动画
+
+通过 SeedToken 可以很方便的实现：
+
+```jsx
+import { ConfigProvider } from 'antd';
+
+<ConfigProvider theme={{ token: { motion: false } }}>
+  <App />
+</ConfigProvider>;
+```
 
 ## 如何支持 SSR？
 
-请参考动态主题文档 [服务端渲染](/docs/react/customize-theme-cn#服务端渲染) 部分内容。
+请参考动态主题文档 [服务端渲染](/docs/react/server-side-rendering-cn) 部分内容。
+
+## V5 中 colorPrimary 和 colorInfo 及 colorLink 之间是什么关系？
+
+在 Ant Design Token 系统中 `colorPrimary` 和 `colorInfo` 同属于 [基础变量（Seed Token）](../react/customize-theme.zh-CN.md#基础变量seed-token)，所以两者是互相独立的。`colorLink` 则属于 [别名变量（Alias Token）](../react/customize-theme.zh-CN.md#别名变量alias-token), 默认继承 `colorInfo` 且和 `colorPrimary` 无关。
 
 ## 如何正确的拼写 Ant Design？
 
-- ✅ **Ant Design**：用空格分隔的首字母大写单词，指代设计语言。
-- ✅ **antd**：全小写，指代 React UI 组件库。
-- ✅ **ant.design**：特指 ant.design 网站网址。
+| 拼写 | 用法 | 发音 |
+| --- | --- | --- |
+| ✅ **Ant Design** | 用空格分隔的首字母大写单词，指代设计语言 | - |
+| ✅ **antd** | 全小写，指代 React UI 组件库 | <audio controls src="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*ChCdRJ0w8SUAAAAAAAAAAAAADgCCAQ"></audio> |
+| ✅ **ant.design** | 指 ant.design 网站 | - |
 
 下面是一些典型的错误例子：
 
@@ -244,3 +266,92 @@ ConfigProvider.config({
 ## 你们有接受捐助的渠道吗，比如支付宝或者微信支付？
 
 [https://opencollective.com/ant-design](https://opencollective.com/ant-design)
+
+## 使用表单组件的 `setFieldsValue` 方法如果对象类型中含有 `null` 时 TS 类型报错
+
+当我们尝试使用表单组件的表单实例当中的 `setFieldsValue` 方法设置表单值时，如果在传入的对象中包含有 `null` 类型，如：
+
+```tsx
+// This is not real world code, just for explain
+import { Form } from 'antd';
+
+type Test = {
+  value: string[] | null;
+};
+
+export default () => {
+  const [form] = Form.useForm<Test>();
+
+  form.setFieldsValue({
+    value: null, // Error: 不能将类型“null”分配给类型“string[] | undefined”。
+  });
+};
+```
+
+如果你遇到上述报错，请检查当前项目的 `tsconfig.json` 中是否包含如下配置：
+
+```json
+{
+  "strictNullChecks": true
+}
+```
+
+如果 `strictNullChecks` 的值被设置为 `true` 就会出现上述问题，如果你确定项目中可以不需要这个检测配置（查看[strictNullChecks](https://www.typescriptlang.org/zh/tsconfig#strictNullChecks)判断是否需要该配置），可以尝试改为 `false` 关闭控制严格检查功能。但如果你确实需要开启这个功能，那么，你可以在设计类型时，使用其他类型替代 `null` 以避免出现这种情况。
+
+## 使用 Next.js 的 App Router 时 antd 组件报错
+
+如果你在使用 Next.js 的 App Router，当你使用 antd 中某些组件提供的子组件，如：`Select.Option`、`Form.Item`、`Typography.Title` 等，可能会出现如下报错：
+
+```bash
+Error: Cannot access .Option on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.
+```
+
+目前这个问题需要[等待 Next.js 官方给出解决方案](https://github.com/vercel/next.js/issues/51593)，在此之前，如果你需要在使用 App router 的页面中使用子组件，目前有两种变通方法：
+
+- 创建一个包裹组件，提取所需的子组件并重新导出。以 `Typography` 组件为例，代码大概像这样：
+
+```tsx
+'use client';
+
+import React from 'react';
+import { Typography as OriginTypography } from 'antd';
+import type { LinkProps } from 'antd/es/typography/Link';
+import type { ParagraphProps } from 'antd/es/typography/Paragraph';
+import type { TextProps } from 'antd/es/typography/Text';
+import type { TitleProps } from 'antd/es/typography/Title';
+
+const Title = React.forwardRef<HTMLElement, TitleProps & React.RefAttributes<HTMLElement>>(
+  (props, ref) => <OriginTypography.Title ref={ref} {...props} />,
+);
+
+const Paragraph = React.forwardRef<HTMLElement, ParagraphProps & React.RefAttributes<HTMLElement>>(
+  (props, ref) => <OriginTypography.Paragraph ref={ref} {...props} />,
+);
+
+const Link = React.forwardRef<HTMLElement, LinkProps & React.RefAttributes<HTMLElement>>(
+  (props, ref) => <OriginTypography.Link ref={ref} {...props} />,
+);
+
+const Text = React.forwardRef<HTMLElement, TextProps & React.RefAttributes<HTMLElement>>(
+  (props, ref) => <OriginTypography.Text ref={ref} {...props} />,
+);
+
+export { Title, Link, Text, Paragraph };
+```
+
+- 你也可以在组件的开头添加 "use client" 指令，使页面完全由客户端渲染：
+
+```tsx
+'use client';
+
+// 非真实代码，仅做逻辑说明
+export default () => (
+  <div className="App">
+    <Form>
+      <Form.Item>
+        <Button type="primary">Button</Button>
+      </Form.Item>
+    </Form>
+  </div>
+);
+```

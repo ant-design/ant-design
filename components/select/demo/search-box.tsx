@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Select } from 'antd';
+import type { SelectProps } from 'antd';
 import jsonp from 'fetch-jsonp';
 import qs from 'qs';
-import type { SelectProps } from 'antd';
 
 let timeout: ReturnType<typeof setTimeout> | null;
 let currentValue: string;
 
-const fetch = (value: string, callback: Function) => {
+const fetch = (value: string, callback: (data: { value: string; text: string }[]) => void) => {
   if (timeout) {
     clearTimeout(timeout);
     timeout = null;
@@ -58,7 +58,7 @@ const SearchInput: React.FC<{ placeholder: string; style: React.CSSProperties }>
       placeholder={props.placeholder}
       style={props.style}
       defaultActiveFirstOption={false}
-      showArrow={false}
+      suffixIcon={null}
       filterOption={false}
       onSearch={handleSearch}
       onChange={handleChange}

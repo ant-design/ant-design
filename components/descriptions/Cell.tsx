@@ -1,5 +1,5 @@
-import classNames from 'classnames';
 import * as React from 'react';
+import classNames from 'classnames';
 
 function notEmpty(val: any) {
   return val !== undefined && val !== null;
@@ -17,30 +17,34 @@ export interface CellProps {
   label?: React.ReactNode;
   content?: React.ReactNode;
   colon?: boolean;
+  type?: 'label' | 'content' | 'item';
 }
 
-const Cell: React.FC<CellProps> = ({
-  itemPrefixCls,
-  component,
-  span,
-  className,
-  style,
-  labelStyle,
-  contentStyle,
-  bordered,
-  label,
-  content,
-  colon,
-}) => {
-  const Component = component as any;
+const Cell: React.FC<CellProps> = (props) => {
+  const {
+    itemPrefixCls,
+    component,
+    span,
+    className,
+    style,
+    labelStyle,
+    contentStyle,
+    bordered,
+    label,
+    content,
+    colon,
+    type,
+  } = props;
+
+  const Component = component as keyof JSX.IntrinsicElements;
 
   if (bordered) {
     return (
       <Component
         className={classNames(
           {
-            [`${itemPrefixCls}-item-label`]: notEmpty(label),
-            [`${itemPrefixCls}-item-content`]: notEmpty(content),
+            [`${itemPrefixCls}-item-label`]: type === 'label',
+            [`${itemPrefixCls}-item-content`]: type === 'content',
           },
           className,
         )}

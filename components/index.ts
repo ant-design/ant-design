@@ -1,6 +1,7 @@
 export type { Breakpoint } from './_util/responsiveObserver';
+export type { GetProps, GetRef, GetProp } from './_util/type';
 export { default as Affix } from './affix';
-export type { AffixProps } from './affix';
+export type { AffixProps, AffixRef } from './affix';
 export { default as Alert } from './alert';
 export type { AlertProps } from './alert';
 export { default as Anchor } from './anchor';
@@ -26,15 +27,18 @@ export type { CardProps } from './card';
 export { default as Carousel } from './carousel';
 export type { CarouselProps } from './carousel';
 export { default as Cascader } from './cascader';
-export type { CascaderProps } from './cascader';
+export type { CascaderProps, CascaderAutoProps } from './cascader';
+export type { CascaderPanelProps, CascaderPanelAutoProps } from './cascader/Panel';
 export { default as Checkbox } from './checkbox';
 export type { CheckboxOptionType, CheckboxProps, CheckboxRef } from './checkbox';
 export { default as Col } from './col';
 export type { ColProps } from './col';
 export { default as Collapse } from './collapse';
 export type { CollapsePanelProps, CollapseProps } from './collapse';
+export { default as ColorPicker } from './color-picker';
+export type { ColorPickerProps } from './color-picker';
 export { default as ConfigProvider } from './config-provider';
-export type { ThemeConfig } from './config-provider';
+export type { ConfigProviderProps, ThemeConfig } from './config-provider';
 export { default as DatePicker } from './date-picker';
 export type { DatePickerProps } from './date-picker';
 export { default as Descriptions } from './descriptions';
@@ -52,8 +56,14 @@ export type {
 } from './dropdown';
 export { default as Empty } from './empty';
 export type { EmptyProps } from './empty';
+export { default as Flex } from './flex';
+export type { FlexProps } from './flex/interface';
 export { default as FloatButton } from './float-button';
-export type { FloatButtonGroupProps, FloatButtonProps } from './float-button/interface';
+export type {
+  FloatButtonGroupProps,
+  FloatButtonProps,
+  FloatButtonRef,
+} from './float-button/interface';
 export { default as Form } from './form';
 export type {
   FormInstance,
@@ -75,7 +85,7 @@ export type { LayoutProps, SiderProps } from './layout';
 export { default as List } from './list';
 export type { ListProps } from './list';
 export { default as Mentions } from './mentions';
-export type { MentionProps } from './mentions';
+export type { MentionProps, MentionsProps } from './mentions';
 export { default as Menu } from './menu';
 export type { MenuItemProps, MenuProps, MenuRef, MenuTheme, SubMenuProps } from './menu';
 export { default as message } from './message';
@@ -83,6 +93,7 @@ export type { ArgsProps as MessageArgsProps } from './message';
 export { default as Modal } from './modal';
 export type { ModalFuncProps, ModalProps } from './modal';
 export { default as notification } from './notification';
+export type { ArgsProps as NotificationArgsProps } from './notification';
 export { default as Pagination } from './pagination';
 export type { PaginationProps } from './pagination';
 export { default as Popconfirm } from './popconfirm';
@@ -91,8 +102,8 @@ export { default as Popover } from './popover';
 export type { PopoverProps } from './popover';
 export { default as Progress } from './progress';
 export type { ProgressProps } from './progress';
-export { default as QRCode } from './qrcode';
-export type { QRCodeProps, QRPropsCanvas } from './qrcode/interface';
+export { default as QRCode } from './qr-code';
+export type { QRCodeProps, QRPropsCanvas, QRPropsSvg } from './qr-code/interface';
 export { default as Radio } from './radio';
 export type { RadioChangeEvent, RadioGroupProps, RadioProps } from './radio';
 export { default as Rate } from './rate';
@@ -133,7 +144,7 @@ export type { TabPaneProps, TabsProps } from './tabs';
 export { default as Tag } from './tag';
 export type { TagProps, TagType } from './tag';
 export { default as theme } from './theme';
-export type { GlobalToken } from './theme';
+export type { GlobalToken, MappingAlgorithm } from './theme';
 export { default as TimePicker } from './time-picker';
 export type { TimePickerProps, TimeRangePickerProps } from './time-picker';
 export { default as Timeline } from './timeline';
@@ -159,3 +170,5 @@ export type { UploadFile, UploadProps } from './upload';
 export { default as version } from './version';
 export { default as Watermark } from './watermark';
 export type { WatermarkProps } from './watermark';
+export { default as Splitter } from './splitter';
+export type { SplitterProps } from './splitter';

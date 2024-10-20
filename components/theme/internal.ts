@@ -1,92 +1,58 @@
-import type { CSSInterpolation, Theme } from '@ant-design/cssinjs';
-import { createTheme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
-import React from 'react';
-import version from '../version';
+import { useStyleRegister } from '@ant-design/cssinjs';
+import { genCalc as calc, mergeToken, statisticToken, statistic } from '@ant-design/cssinjs-utils';
+
 import type {
   AliasToken,
-  GlobalToken,
-  MapToken,
-  OverrideToken,
-  PresetColorType,
+  GenerateStyle,
   PresetColorKey,
+  PresetColorType,
   SeedToken,
+  GlobalToken,
+  UseComponentStyleResult,
+  FullToken,
+  GetDefaultToken,
+  OverrideComponent,
+  GenStyleFn,
 } from './interface';
 import { PresetColors } from './interface';
-import defaultDerivative from './themes/default';
-import defaultSeedToken from './themes/seed';
-import formatToken from './util/alias';
-import type { FullToken } from './util/genComponentStyleHook';
-import genComponentStyleHook from './util/genComponentStyleHook';
-import statisticToken, { merge as mergeToken, statistic } from './util/statistic';
+import { getLineHeight } from './themes/shared/genFontSizes';
+import useToken from './useToken';
+import { genComponentStyleHook, genStyleHooks, genSubStyleComponent } from './util/genStyleUtils';
 import genPresetColor from './util/genPresetColor';
+import useResetIconStyle from './util/useResetIconStyle';
 
-const defaultTheme = createTheme(defaultDerivative);
+export type { CSSUtil, TokenWithCommonCls } from '@ant-design/cssinjs-utils';
 
+export { DesignTokenContext, defaultConfig } from './context';
 export {
-  // colors
-  PresetColors,
-  // Statistic
-  statistic,
-  statisticToken,
-  mergeToken,
-  // hooks
-  useStyleRegister,
+  // generators
   genComponentStyleHook,
+  genSubStyleComponent,
   genPresetColor,
+  genStyleHooks,
+  // utils
+  mergeToken,
+  statisticToken,
+  calc,
+  getLineHeight,
+  // hooks
+  useResetIconStyle,
+  useStyleRegister,
+  useToken,
+  // constant
+  PresetColors,
+  statistic,
 };
 export type {
-  SeedToken,
   AliasToken,
-  PresetColorType,
-  PresetColorKey,
-  // FIXME: Remove this type
-  AliasToken as DerivativeToken,
   FullToken,
+  OverrideComponent,
+  GenerateStyle,
+  PresetColorKey,
+  PresetColorType,
+  SeedToken,
+  UseComponentStyleResult,
+  GetDefaultToken,
+  GlobalToken,
+  GenStyleFn,
 };
-
-// ================================ Context =================================
-// To ensure snapshot stable. We disable hashed in test env.
-export const defaultConfig = {
-  token: defaultSeedToken,
-  hashed: true,
-};
-
-export const DesignTokenContext = React.createContext<{
-  token: Partial<AliasToken>;
-  theme?: Theme<SeedToken, MapToken>;
-  components?: OverrideToken;
-  hashed?: string | boolean;
-}>(defaultConfig);
-
-// ================================== Hook ==================================
-export function useToken(): [Theme<SeedToken, MapToken>, GlobalToken, string] {
-  const {
-    token: rootDesignToken,
-    hashed,
-    theme,
-    components,
-  } = React.useContext(DesignTokenContext);
-
-  const salt = `${version}-${hashed || ''}`;
-
-  const mergedTheme = theme || defaultTheme;
-
-  const [token, hashId] = useCacheToken<GlobalToken, SeedToken>(
-    mergedTheme,
-    [defaultSeedToken, rootDesignToken],
-    {
-      salt,
-      override: { override: rootDesignToken, ...components },
-      formatToken,
-    },
-  );
-
-  return [mergedTheme, token, hashed ? hashId : ''];
-}
-
-export type UseComponentStyleResult = [(node: React.ReactNode) => React.ReactElement, string];
-
-export type GenerateStyle<
-  ComponentToken extends object = AliasToken,
-  ReturnType = CSSInterpolation,
-> = (token: ComponentToken) => ReturnType;

@@ -1,6 +1,8 @@
 import type { CSSMotionProps, MotionEndEventHandler, MotionEventHandler } from 'rc-motion';
 import type { MotionEvent } from 'rc-motion/lib/interface';
 
+import { defaultPrefixCls } from '../config-provider';
+
 // ================== Collapse Motion ==================
 const getCollapsedHeight: MotionEventHandler = () => ({ height: 0, opacity: 0 });
 const getRealHeight: MotionEventHandler = (node) => {
@@ -11,7 +13,7 @@ const getCurrentHeight: MotionEventHandler = (node) => ({ height: node ? node.of
 const skipOpacityTransition: MotionEndEventHandler = (_, event: MotionEvent) =>
   event?.deadline === true || (event as TransitionEvent).propertyName === 'height';
 
-const initCollapseMotion = (rootCls: string = 'ant'): CSSMotionProps => ({
+const initCollapseMotion = (rootCls = defaultPrefixCls): CSSMotionProps => ({
   motionName: `${rootCls}-motion-collapse`,
   onAppearStart: getCollapsedHeight,
   onEnterStart: getCollapsedHeight,
@@ -25,16 +27,9 @@ const initCollapseMotion = (rootCls: string = 'ant'): CSSMotionProps => ({
   motionDeadline: 500,
 });
 
-const SelectPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight'] as const;
+const _SelectPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight'] as const;
 
-export type SelectCommonPlacement = typeof SelectPlacements[number];
-
-const getTransitionDirection = (placement?: SelectCommonPlacement) => {
-  if (placement !== undefined && (placement === 'topLeft' || placement === 'topRight')) {
-    return `slide-down`;
-  }
-  return `slide-up`;
-};
+export type SelectCommonPlacement = (typeof _SelectPlacements)[number];
 
 const getTransitionName = (rootPrefixCls: string, motion: string, transitionName?: string) => {
   if (transitionName !== undefined) {
@@ -43,5 +38,5 @@ const getTransitionName = (rootPrefixCls: string, motion: string, transitionName
   return `${rootPrefixCls}-${motion}`;
 };
 
-export { getTransitionName, getTransitionDirection };
+export { getTransitionName };
 export default initCollapseMotion;

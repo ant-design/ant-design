@@ -1,12 +1,16 @@
+import React from 'react';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import { FloatButton } from 'antd';
-import React from 'react';
 
 const App: React.FC = () => (
   <>
-    <FloatButton shape="circle" badge={{ dot: true }} style={{ right: 24 + 70 + 70 }} />
-    <FloatButton.Group shape="circle" style={{ right: 24 + 70 }}>
-      <FloatButton tooltip={<div>custom badge color</div>} badge={{ count: 5, color: 'blue' }} />
+    <FloatButton shape="circle" style={{ insetInlineEnd: 24 + 70 + 70 }} badge={{ dot: true }} />
+    <FloatButton.Group shape="circle" style={{ insetInlineEnd: 24 + 70 }}>
+      <FloatButton
+        href="https://ant.design/index-cn"
+        tooltip={<div>custom badge color</div>}
+        badge={{ count: 5, color: 'blue' }}
+      />
       <FloatButton badge={{ count: 5 }} />
     </FloatButton.Group>
     <FloatButton.Group shape="circle">

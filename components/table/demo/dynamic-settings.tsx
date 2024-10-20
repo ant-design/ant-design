@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { DownOutlined } from '@ant-design/icons';
-import type { RadioChangeEvent } from 'antd';
+import type { GetProp, RadioChangeEvent, TableProps } from 'antd';
 import { Form, Radio, Space, Switch, Table } from 'antd';
-import type { SizeType } from 'antd/es/config-provider/SizeContext';
-import type { ColumnsType, TableProps } from 'antd/es/table';
-import type { ExpandableConfig, TableRowSelection } from 'antd/es/table/interface';
+
+type SizeType = TableProps['size'];
+type ColumnsType<T extends object> = GetProp<TableProps<T>, 'columns'>;
+type TablePagination<T extends object> = NonNullable<Exclude<TableProps<T>['pagination'], boolean>>;
+type TablePaginationPosition = NonNullable<TablePagination<any>['position']>[number];
+type ExpandableConfig<T extends object> = TableProps<T>['expandable'];
+type TableRowSelection<T extends object> = TableProps<T>['rowSelection'];
 
 interface DataType {
   key: number;
@@ -13,14 +17,6 @@ interface DataType {
   address: string;
   description: string;
 }
-
-type TablePaginationPosition =
-  | 'topLeft'
-  | 'topCenter'
-  | 'topRight'
-  | 'bottomLeft'
-  | 'bottomCenter'
-  | 'bottomRight';
 
 const columns: ColumnsType<DataType> = [
   {
@@ -65,18 +61,18 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-const data: DataType[] = [];
-for (let i = 1; i <= 10; i++) {
-  data.push({
-    key: i,
-    name: 'John Brown',
-    age: Number(`${i}2`),
-    address: `New York No. ${i} Lake Park`,
-    description: `My name is John Brown, I am ${i}2 years old, living in New York No. ${i} Lake Park.`,
-  });
-}
+const data = Array.from({ length: 10 }).map<DataType>((_, i) => ({
+  key: i,
+  name: 'John Brown',
+  age: Number(`${i}2`),
+  address: `New York No. ${i} Lake Park`,
+  description: `My name is John Brown, I am ${i}2 years old, living in New York No. ${i} Lake Park.`,
+}));
 
-const defaultExpandable = { expandedRowRender: (record: DataType) => <p>{record.description}</p> };
+const defaultExpandable: ExpandableConfig<DataType> = {
+  expandedRowRender: (record: DataType) => <p>{record.description}</p>,
+};
+
 const defaultTitle = () => 'Here is title';
 const defaultFooter = () => 'Here is footer';
 
@@ -84,16 +80,14 @@ const App: React.FC = () => {
   const [bordered, setBordered] = useState(false);
   const [loading, setLoading] = useState(false);
   const [size, setSize] = useState<SizeType>('large');
-  const [expandable, setExpandable] = useState<ExpandableConfig<DataType> | undefined>(
-    defaultExpandable,
-  );
+  const [expandable, setExpandable] = useState<ExpandableConfig<DataType>>(defaultExpandable);
   const [showTitle, setShowTitle] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
-  const [showfooter, setShowFooter] = useState(true);
+  const [showFooter, setShowFooter] = useState(true);
   const [rowSelection, setRowSelection] = useState<TableRowSelection<DataType> | undefined>({});
   const [hasData, setHasData] = useState(true);
   const [tableLayout, setTableLayout] = useState();
-  const [top, setTop] = useState<TablePaginationPosition | 'none'>('none');
+  const [top, setTop] = useState<TablePaginationPosition>('none');
   const [bottom, setBottom] = useState<TablePaginationPosition>('bottomRight');
   const [ellipsis, setEllipsis] = useState(false);
   const [yScroll, setYScroll] = useState(false);
@@ -172,7 +166,7 @@ const App: React.FC = () => {
     expandable,
     title: showTitle ? defaultTitle : undefined,
     showHeader,
-    footer: showfooter ? defaultFooter : undefined,
+    footer: showFooter ? defaultFooter : undefined,
     rowSelection,
     scroll,
     tableLayout,
@@ -180,11 +174,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Form
-        layout="inline"
-        className="components-table-demo-control-bar"
-        style={{ marginBottom: 16 }}
-      >
+      <Form layout="inline" className="table-demo-control-bar" style={{ marginBottom: 16 }}>
         <Form.Item label="Bordered">
           <Switch checked={bordered} onChange={handleBorderChange} />
         </Form.Item>
@@ -198,7 +188,7 @@ const App: React.FC = () => {
           <Switch checked={showHeader} onChange={handleHeaderChange} />
         </Form.Item>
         <Form.Item label="Footer">
-          <Switch checked={showfooter} onChange={handleFooterChange} />
+          <Switch checked={showFooter} onChange={handleFooterChange} />
         </Form.Item>
         <Form.Item label="Expandable">
           <Switch checked={!!expandable} onChange={handleExpandChange} />
@@ -236,12 +226,7 @@ const App: React.FC = () => {
           </Radio.Group>
         </Form.Item>
         <Form.Item label="Pagination Top">
-          <Radio.Group
-            value={top}
-            onChange={(e) => {
-              setTop(e.target.value);
-            }}
-          >
+          <Radio.Group value={top} onChange={(e) => setTop(e.target.value)}>
             <Radio.Button value="topLeft">TopLeft</Radio.Button>
             <Radio.Button value="topCenter">TopCenter</Radio.Button>
             <Radio.Button value="topRight">TopRight</Radio.Button>
@@ -249,12 +234,7 @@ const App: React.FC = () => {
           </Radio.Group>
         </Form.Item>
         <Form.Item label="Pagination Bottom">
-          <Radio.Group
-            value={bottom}
-            onChange={(e) => {
-              setBottom(e.target.value);
-            }}
-          >
+          <Radio.Group value={bottom} onChange={(e) => setBottom(e.target.value)}>
             <Radio.Button value="bottomLeft">BottomLeft</Radio.Button>
             <Radio.Button value="bottomCenter">BottomCenter</Radio.Button>
             <Radio.Button value="bottomRight">BottomRight</Radio.Button>
@@ -262,9 +242,9 @@ const App: React.FC = () => {
           </Radio.Group>
         </Form.Item>
       </Form>
-      <Table
+      <Table<DataType>
         {...tableProps}
-        pagination={{ position: [top as TablePaginationPosition, bottom] }}
+        pagination={{ position: [top, bottom] }}
         columns={tableColumns}
         dataSource={hasData ? data : []}
         scroll={scroll}

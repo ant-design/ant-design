@@ -36,7 +36,7 @@ const text = [
   {
     title: '自然',
     img: 'https://gw.alipayobjects.com/zos/rmsportal/LyTPSGknLUlxiVdwMWyu.gif',
-    content: '自然运动规律，保证视觉连惯，让用户感知到动作是成立的',
+    content: '自然运动规律，保证视觉连贯，让用户感知到动作是成立的',
   },
   {
     title: '高效',
@@ -46,12 +46,12 @@ const text = [
   {
     title: '克制',
     img: 'https://gw.alipayobjects.com/zos/rmsportal/OkIXkscKxywYLSrilPIf.gif',
-    content: '做有意义的动效，不去做太多的修饰和干扰用户',
+    content: '做有意义的动效，不去做太多的修饰而干扰用户',
   },
 ];
 
 function Principle() {
-  const childrenToRender = text.map(item => (
+  const childrenToRender = text.map((item) => (
     <Col key={item.title} sm={24} md={8}>
       <div className="principle">
         <div>
@@ -76,7 +76,7 @@ export default Principle;
 
 ### 自然
 
-自然的动效背后体现的是自然运动规律。这就要求动效在转换时保证视觉上的连惯性，让用户感知到这个动作是成立的，是能够引起共鸣的。
+自然的动效背后体现的是自然运动规律。这就要求动效在转换时保证视觉上的连贯性，让用户感知到这个动作是成立的，是能够引起共鸣的。
 
 <video class="motion-video-min" src="https://gw.alipayobjects.com/os/rmsportal/NTMlQdLIkPjOACXsdRrq.mp4" loop="true"></video>
 

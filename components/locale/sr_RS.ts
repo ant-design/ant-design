@@ -1,8 +1,8 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/sr_RS';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/sr_RS';
 import DatePicker from '../date-picker/locale/sr_RS';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/sr_RS';
 
 const typeTemplate = '${label} nije važeći ${type}';
@@ -72,9 +72,6 @@ const localeValues: Locale = {
     copy: 'Kopiraj',
     copied: 'Kopirano',
     expand: 'Proširi',
-  },
-  PageHeader: {
-    back: 'Nazad',
   },
   Form: {
     optional: '(opcionalno)',

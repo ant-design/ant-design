@@ -24,6 +24,8 @@ exports[`renders components/skeleton/demo/active.tsx extend context correctly 1`
 </div>
 `;
 
+exports[`renders components/skeleton/demo/active.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/skeleton/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-skeleton"
@@ -48,14 +50,15 @@ exports[`renders components/skeleton/demo/basic.tsx extend context correctly 1`]
 </div>
 `;
 
+exports[`renders components/skeleton/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/skeleton/demo/children.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
-  style="width: 100%;"
+  style="column-gap: 16px; row-gap: 16px; width: 100%;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 16px;"
   >
     <h4
       style="margin-bottom: 16px;"
@@ -70,7 +73,7 @@ exports[`renders components/skeleton/demo/children.tsx extend context correctly 
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -80,6 +83,8 @@ exports[`renders components/skeleton/demo/children.tsx extend context correctly 
   </div>
 </div>
 `;
+
+exports[`renders components/skeleton/demo/children.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/skeleton/demo/complex.tsx extend context correctly 1`] = `
 <div
@@ -111,14 +116,43 @@ exports[`renders components/skeleton/demo/complex.tsx extend context correctly 1
 </div>
 `;
 
-exports[`renders components/skeleton/demo/element.tsx extend context correctly 1`] = `
-Array [
+exports[`renders components/skeleton/demo/complex.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/skeleton/demo/componentToken.tsx extend context correctly 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-active"
+>
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-skeleton-content"
+  >
+    <h3
+      class="ant-skeleton-title"
+      style="width: 38%;"
+    />
+    <ul
+      class="ant-skeleton-paragraph"
+    >
+      <li />
+      <li />
+      <li
+        style="width: 61%;"
+      />
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`renders components/skeleton/demo/componentToken.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/skeleton/demo/element.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <div
         class="ant-skeleton ant-skeleton-element"
@@ -130,7 +164,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <div
         class="ant-skeleton ant-skeleton-element"
@@ -151,33 +184,26 @@ Array [
         />
       </div>
     </div>
-  </div>,
-  <br />,
-  <br />,
+  </div>
   <div
     class="ant-skeleton ant-skeleton-element"
   >
     <span
       class="ant-skeleton-button"
     />
-  </div>,
-  <br />,
-  <br />,
+  </div>
   <div
     class="ant-skeleton ant-skeleton-element"
   >
     <span
       class="ant-skeleton-input"
     />
-  </div>,
-  <br />,
-  <br />,
+  </div>
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <div
         class="ant-skeleton ant-skeleton-element"
@@ -190,12 +216,27 @@ Array [
             viewBox="0 0 1098 1024"
             xmlns="http://www.w3.org/2000/svg"
           >
+            <title>
+              Image placeholder
+            </title>
             <path
               class="ant-skeleton-image-path"
               d="M365.714286 329.142857q0 45.714286-32.036571 77.677714t-77.677714 32.036571-77.677714-32.036571-32.036571-77.677714 32.036571-77.677714 77.677714-32.036571 77.677714 32.036571 32.036571 77.677714zM950.857143 548.571429l0 256-804.571429 0 0-109.714286 182.857143-182.857143 91.428571 91.428571 292.571429-292.571429zM1005.714286 146.285714l-914.285714 0q-7.460571 0-12.873143 5.412571t-5.412571 12.873143l0 694.857143q0 7.460571 5.412571 12.873143t12.873143 5.412571l914.285714 0q7.460571 0 12.873143-5.412571t5.412571-12.873143l0-694.857143q0-7.460571-5.412571-12.873143t-12.873143-5.412571zM1097.142857 164.571429l0 694.857143q0 37.741714-26.843429 64.585143t-64.585143 26.843429l-914.285714 0q-37.741714 0-64.585143-26.843429t-26.843429-64.585143l0-694.857143q0-37.741714 26.843429-64.585143t64.585143-26.843429l914.285714 0q37.741714 0 64.585143 26.843429t26.843429 64.585143z"
             />
           </svg>
         </div>
+      </div>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-skeleton ant-skeleton-element"
+      >
+        <div
+          class="ant-skeleton-image"
+          style="width: 160px;"
+        />
       </div>
     </div>
     <div
@@ -230,22 +271,21 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     class="ant-divider ant-divider-horizontal"
     role="separator"
-  />,
+  />
   <form
     class="ant-form ant-form-inline"
     style="margin: 16px 0px;"
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -16px;"
+      style="flex-wrap: wrap; column-gap: 16px; row-gap: 16px;"
     >
       <div
         class="ant-space-item"
-        style="margin-right: 16px; padding-bottom: 16px;"
       >
         <div
           class="ant-form-item"
@@ -300,7 +340,6 @@ Array [
       </div>
       <div
         class="ant-space-item"
-        style="margin-right: 16px; padding-bottom: 16px;"
       >
         <div
           class="ant-form-item"
@@ -355,7 +394,6 @@ Array [
       </div>
       <div
         class="ant-space-item"
-        style="margin-right: 16px; padding-bottom: 16px;"
       >
         <div
           class="ant-form-item"
@@ -452,7 +490,6 @@ Array [
       </div>
       <div
         class="ant-space-item"
-        style="margin-right: 16px; padding-bottom: 16px;"
       >
         <div
           class="ant-form-item"
@@ -568,7 +605,6 @@ Array [
       </div>
       <div
         class="ant-space-item"
-        style="padding-bottom: 16px;"
       >
         <div
           class="ant-form-item"
@@ -645,9 +681,11 @@ Array [
         </div>
       </div>
     </div>
-  </form>,
-]
+  </form>
+</div>
 `;
+
+exports[`renders components/skeleton/demo/element.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/skeleton/demo/list.tsx extend context correctly 1`] = `
 Array [
@@ -777,3 +815,5 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/skeleton/demo/list.tsx extend context correctly 2`] = `[]`;

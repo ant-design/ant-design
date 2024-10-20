@@ -178,7 +178,7 @@ title: 导航
 > 此处的数据库是一种信息架构形式，各页面内容独立，但都遵循一致的形式/格式。
 
 <ImagePreview>
-<img class="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*jYG0T7S-SjsAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*jYG0T7S-SjsAAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
 #### 沉浸式导航
@@ -201,7 +201,7 @@ title: 导航
 
 ### 页内导航
 
-信息架构中较低层级的内容导航可以使用页内导航，如果页面需要分享给他人，需在在 url 添加定位标记。
+信息架构中较低层级的内容导航可以使用页内导航，如果页面需要分享给他人，需在 url 添加定位标记。
 
 #### 页头
 

@@ -2,11 +2,10 @@
 category: Components
 group: Navigation
 title: Menu
+description: A versatile menu for navigation.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*KeyQQL5iKkkAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-A versatile menu for navigation.
 
 ## When To Use
 
@@ -33,8 +32,11 @@ More layouts with navigation: [Layout](/components/layout).
 <code src="./demo/switch-mode.tsx">Switch the menu type</code>
 <code src="./demo/style-debug.tsx" debug>Style debug</code>
 <code src="./demo/menu-v4.tsx" debug>Menu v4</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ### Menu
 
@@ -67,7 +69,7 @@ More layouts with navigation: [Layout](/components/layout).
 
 ### ItemType
 
-> type ItemType = [MenuItemType](#MenuItemType) | [SubMenuType](#SubMenuType) | [MenuItemGroupType](#MenuItemGroupType) | [MenuDividerType](#MenuDividerType);
+> type ItemType = [MenuItemType](#menuitemtype) | [SubMenuType](#submenutype) | [MenuItemGroupType](#menuitemgrouptype) | [MenuDividerType](#menudividertype);
 
 #### MenuItemType
 
@@ -75,6 +77,7 @@ More layouts with navigation: [Layout](/components/layout).
 | -------- | ------------------------------------ | --------- | ------------- | ------- |
 | danger   | Display the danger style             | boolean   | false         |         |
 | disabled | Whether menu item is disabled        | boolean   | false         |         |
+| extra    | The extra of the menu item           | ReactNode | -             | 5.21.0  |
 | icon     | The icon of the menu item            | ReactNode | -             |         |
 | key      | Unique ID of the menu item           | string    | -             |         |
 | label    | Menu label                           | ReactNode | -             |         |

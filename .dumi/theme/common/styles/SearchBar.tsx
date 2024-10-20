@@ -1,11 +1,11 @@
 import React from 'react';
 import { css, Global } from '@emotion/react';
-import useSiteToken from '../../../hooks/useSiteToken';
+import { useTheme } from 'antd-style';
 
 const THEME_PREFIX = 'dumi-default-';
 
 export default () => {
-  const { token } = useSiteToken();
+  const token = useTheme();
 
   return (
     <Global

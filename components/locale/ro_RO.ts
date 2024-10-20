@@ -1,8 +1,8 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/ro_RO';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/ro_RO';
 import DatePicker from '../date-picker/locale/ro_RO';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/ro_RO';
 
 const typeTemplate = '${label} nu conține tipul corect (${type})';
@@ -72,9 +72,6 @@ const localeValues: Locale = {
     copy: 'copiază',
     copied: 'copiat',
     expand: 'extinde',
-  },
-  PageHeader: {
-    back: 'înapoi',
   },
   Form: {
     optional: '(opțional)',

@@ -1,11 +1,11 @@
+import * as React from 'react';
 import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
 import classNames from 'classnames';
-import * as React from 'react';
+
 import type { KeyWiseTransferItem } from '.';
 import Checkbox from '../checkbox';
-import defaultLocale from '../locale/en_US';
 import { useLocale } from '../locale';
-import TransButton from '../_util/transButton';
+import defaultLocale from '../locale/en_US';
 
 type ListItemProps<RecordType> = {
   renderedText?: string | number;
@@ -13,7 +13,7 @@ type ListItemProps<RecordType> = {
   disabled?: boolean;
   checked?: boolean;
   prefixCls: string;
-  onClick: (item: RecordType) => void;
+  onClick: (item: RecordType, e: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
   onRemove?: (item: RecordType) => void;
   item: RecordType;
   showRemove?: boolean;
@@ -32,8 +32,7 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
     showRemove,
   } = props;
 
-  const className = classNames({
-    [`${prefixCls}-content-item`]: true,
+  const className = classNames(`${prefixCls}-content-item`, {
     [`${prefixCls}-content-item-disabled`]: disabled || item.disabled,
     [`${prefixCls}-content-item-checked`]: checked,
   });
@@ -53,22 +52,21 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
     return (
       <li {...liProps}>
         {labelNode}
-        <TransButton
+        <button
+          type="button"
           disabled={disabled || item.disabled}
           className={`${prefixCls}-content-item-remove`}
           aria-label={contextLocale?.remove}
-          onClick={() => {
-            onRemove?.(item);
-          }}
+          onClick={() => onRemove?.(item)}
         >
           <DeleteOutlined />
-        </TransButton>
+        </button>
       </li>
     );
   }
 
   // Default click to select
-  liProps.onClick = disabled || item.disabled ? undefined : () => onClick(item);
+  liProps.onClick = disabled || item.disabled ? undefined : (event) => onClick(item, event);
 
   return (
     <li {...liProps}>

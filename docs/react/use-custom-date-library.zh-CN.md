@@ -1,5 +1,7 @@
 ---
-order: 7.5
+group:
+  title: 进阶使用
+order: 4
 title: 使用自定义日期库
 ---
 
@@ -9,7 +11,7 @@ Ant Design 默认使用 [Day.js](https://day.js.org) 来处理时间日期问题
 
 第一种方法是使用 `generatePicker`（或 `generateCalendar`）辅助创建 Picker 组件。
 
-我们先初始化一个 `create-react-app` 的 antd demo，你可以参考 [在 TypeScript 中使用](/docs/react/use-in-typescript) 进行构建，也可以直接从这里开始[init antd](https://github.com/xiaohuoni/antd4-generate-picker/commit/47fec964e36d48bd15760f8f5abcb9655c259aa6)
+我们先初始化一个 `create-react-app` 的 antd demo，你可以参考 [在 create-react-app 中使用](/docs/react/use-with-create-react-app-cn) 进行构建，也可以直接从这里开始[init antd](https://github.com/xiaohuoni/antd4-generate-picker/commit/47fec964e36d48bd15760f8f5abcb9655c259aa6)
 
 ### DatePicker.tsx
 
@@ -18,13 +20,13 @@ Ant Design 默认使用 [Day.js](https://day.js.org) 来处理时间日期问题
 编写如下代码:
 
 ```tsx
-import generatePicker from 'antd/es/date-picker/generatePicker';
+import { DatePicker } from 'antd';
 import type { Moment } from 'moment';
-import momentGenerateConfig from 'rc-picker/es/generate/moment';
+import momentGenerateConfig from 'rc-picker/lib/generate/moment';
 
-const DatePicker = generatePicker<Moment>(momentGenerateConfig);
+const MyDatePicker = DatePicker.generatePicker<Moment>(momentGenerateConfig);
 
-export default DatePicker;
+export default MyDatePicker;
 ```
 
 ### TimePicker.tsx
@@ -34,10 +36,11 @@ export default DatePicker;
 编写如下代码:
 
 ```tsx
-import { DatePicker } from 'antd';
+import * as React from 'react';
 import type { PickerTimeProps } from 'antd/es/date-picker/generatePicker';
 import type { Moment } from 'moment';
-import * as React from 'react';
+
+import DatePicker from './DatePicker';
 
 export interface TimePickerProps extends Omit<PickerTimeProps<Moment>, 'picker'> {}
 
@@ -57,13 +60,13 @@ export default TimePicker;
 编写如下代码:
 
 ```tsx
-import generateCalendar from 'antd/es/calendar/generateCalendar';
+import { Calendar } from 'antd';
 import type { Moment } from 'moment';
 import momentGenerateConfig from 'rc-picker/es/generate/moment';
 
-const Calendar = generateCalendar<Moment>(momentGenerateConfig);
+const MyCalendar = Calendar.generateCalendar<Moment>(momentGenerateConfig);
 
-export default Calendar;
+export default MyCalendar;
 ```
 
 #### 导出自定义组件
@@ -117,12 +120,12 @@ module.exports = {
 编写如下代码:
 
 ```tsx
-import generatePicker from 'antd/es/date-picker/generatePicker';
+import { DatePicker } from 'antd';
 import dateFnsGenerateConfig from 'rc-picker/es/generate/dateFns';
 
-const DatePicker = generatePicker<Date>(dateFnsGenerateConfig);
+const MyDatePicker = DatePicker.generatePicker<Date>(dateFnsGenerateConfig);
 
-export default DatePicker;
+export default MyDatePicker;
 ```
 
 ## 使用 luxon
@@ -134,13 +137,13 @@ export default DatePicker;
 创建一个 `DatePicker.tsx` 文件，并定义一个基于 luxon 的 DatePicker 组件：
 
 ```tsx
-import generatePicker from 'antd/es/date-picker/generatePicker';
+import { DatePicker } from 'antd';
 import type { DateTime } from 'luxon';
 import luxonGenerateConfig from 'rc-picker/lib/generate/luxon';
 
-const DatePicker = generatePicker<DateTime>(luxonGenerateConfig);
+const MyDatePicker = DatePicker.generatePicker<DateTime>(luxonGenerateConfig);
 
-export default DatePicker;
+export default MyDatePicker;
 ```
 
 ### 与 dayjs 的差异
@@ -157,7 +160,7 @@ luxon 用户应该悉知，它本身没有 local 的实现。相反，它依赖�
 可以通过调整 luxon 配置来自定义这些默认的 luxon 行为：
 
 ```tsx
-import generatePicker from 'antd/es/date-picker/generatePicker';
+import { DatePicker } from 'antd';
 import type { DateTime } from 'luxon';
 import luxonGenerateConfig from 'rc-picker/lib/generate/luxon';
 
@@ -168,9 +171,9 @@ const customLuxonConfig = {
   },
 };
 
-const DatePicker = generatePicker<DateTime>(customLuxonConfig);
+const MyDatePicker = DatePicker.generatePicker<DateTime>(customLuxonConfig);
 
-export default DatePicker;
+export default MyDatePicker;
 ```
 
 请注意，通过进行此类自定义，生成的 DatePicker 行为可能会以意想不到的方式发生变化，因此请确保你测试过一些边界情况。

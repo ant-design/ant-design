@@ -117,7 +117,9 @@ skip: true
 
 ### 顶部全局提示反馈（Message）
 
+<ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/pqJMJfJGLkYTDbLyJwIg.png" description="当用户不必等待较长时间的加载时使用。">
+</ImagePreview>
 
 通过一个操作引发的反馈浮层位于顶部居中显示并自动消失，是一种不打断用户操作的轻量级提示方式。
 

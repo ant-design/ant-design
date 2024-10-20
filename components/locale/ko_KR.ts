@@ -1,8 +1,8 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/ko_KR';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/ko_KR';
 import DatePicker from '../date-picker/locale/ko_KR';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/ko_KR';
 
 const typeTemplate = '${label} 유효하지 않은 ${type}';
@@ -13,6 +13,9 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    placeholder: '선택하세요',
+  },
   Table: {
     filterTitle: '필터 메뉴',
     filterConfirm: '확인',
@@ -77,14 +80,11 @@ const localeValues: Locale = {
     copied: '복사 됨',
     expand: '확장',
   },
-  PageHeader: {
-    back: '뒤로',
-  },
   Form: {
     optional: '(선택사항)',
     defaultValidateMessages: {
       default: '필드 유효성 검사 오류 ${label}',
-      required: '${label} 입력해 주세요',
+      required: '${label} 값을 입력해 주세요',
       enum: '${label} [${enum}] 중에 하나여야 합니다',
       whitespace: '${label} 비워둘 수 없습니다',
       date: {
@@ -120,7 +120,7 @@ const localeValues: Locale = {
         range: '${label} 값은 ${min}-${max} 사이어야 합니다',
       },
       array: {
-        len: '${len}이어야 합니다 ${label} ',
+        len: '${len}이어야 합니다 ${label}',
         min: '최소 ${min}이어야 합니다 ${label}',
         max: '최대 ${max}이어야 합니다 ${label}',
         range: '${label} ${min}-${max} 사이어야 합니다',
@@ -136,6 +136,12 @@ const localeValues: Locale = {
   QRCode: {
     expired: '만료된 QR 코드',
     refresh: '새로고침',
+  },
+  ColorPicker: {
+    presetEmpty: '미정',
+    transparent: '투명',
+    singleColor: '단색',
+    gradientColor: '그라데이션',
   },
 };
 

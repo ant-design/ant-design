@@ -1,15 +1,37 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 /** Component only token. Which will handle additional calculation of alias token */
+// biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
 export interface ComponentToken {}
 
+/**
+ * @desc Empty 组件的 Token
+ * @descEN Token for Empty component
+ */
 interface EmptyToken extends FullToken<'Empty'> {
+  /**
+   * @desc 空状态图片类名
+   * @descEN Class name for empty state image
+   */
   emptyImgCls: string;
-  emptyImgHeight: number;
-  emptyImgHeightSM: number;
-  emptyImgHeightMD: number;
+  /**
+   * @desc 空状态图片高度
+   * @descEN Height of empty state image
+   */
+  emptyImgHeight: number | string;
+  /**
+   * @desc 小号空状态图片高度
+   * @descEN Height of small empty state image
+   */
+  emptyImgHeightSM: number | string;
+  /**
+   * @desc 中号空状态图片高度
+   * @descEN Height of medium empty state image
+   */
+  emptyImgHeightMD: number | string;
 }
 
 // ============================== Shared ==============================
@@ -23,7 +45,7 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
       lineHeight,
       textAlign: 'center',
 
-      // 原来 &-image 没有父子结构，现在为了外层承担我们的hashId，改成父子结果
+      // 原来 &-image 没有父子结构，现在为了外层承担我们的 hashId，改成父子结构
       [`${componentCls}-image`]: {
         height: token.emptyImgHeight,
         marginBottom: marginXS,
@@ -41,20 +63,20 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
       },
 
       [`${componentCls}-description`]: {
-        color: token.colorText,
+        color: token.colorTextDescription,
       },
 
-      // 原来 &-footer 没有父子结构，现在为了外层承担我们的hashId，改成父子结果
+      // 原来 &-footer 没有父子结构，现在为了外层承担我们的 hashId，改成父子结构
       [`${componentCls}-footer`]: {
         marginTop: margin,
       },
 
       '&-normal': {
         marginBlock: marginXL,
-        color: token.colorTextDisabled,
+        color: token.colorTextDescription,
 
         [`${componentCls}-description`]: {
-          color: token.colorTextDisabled,
+          color: token.colorTextDescription,
         },
 
         [`${componentCls}-image`]: {
@@ -64,7 +86,7 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
 
       '&-small': {
         marginBlock: marginXS,
-        color: token.colorTextDisabled,
+        color: token.colorTextDescription,
 
         [`${componentCls}-image`]: {
           height: token.emptyImgHeightSM,
@@ -75,14 +97,14 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Empty', (token) => {
-  const { componentCls, controlHeightLG } = token;
+export default genStyleHooks('Empty', (token) => {
+  const { componentCls, controlHeightLG, calc } = token;
 
   const emptyToken: EmptyToken = mergeToken<EmptyToken>(token, {
     emptyImgCls: `${componentCls}-img`,
-    emptyImgHeight: controlHeightLG * 2.5,
+    emptyImgHeight: calc(controlHeightLG).mul(2.5).equal(),
     emptyImgHeightMD: controlHeightLG,
-    emptyImgHeightSM: controlHeightLG * 0.875,
+    emptyImgHeightSM: calc(controlHeightLG).mul(0.875).equal(),
   });
 
   return [genSharedEmptyStyle(emptyToken)];

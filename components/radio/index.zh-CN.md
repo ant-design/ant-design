@@ -1,15 +1,14 @@
 ---
 category: Components
-subtitle: 单选框
 group: 数据录入
 title: Radio
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*M-YKTJnWM2kAAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a9roS6DHFIcAAAAAAAAAAAAADrJ8AQ/original
+subtitle: 单选框
+description: 用于在多个备选项中选中单个状态。
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*mrPVRope68wAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xPfTSphsiA0AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-单选框。
 
 ## 何时使用
 
@@ -23,6 +22,7 @@ demo:
 <code src="./demo/disabled.tsx">不可用</code>
 <code src="./demo/radiogroup.tsx">单选组合</code>
 <code src="./demo/radiogroup-more.tsx">Radio.Group 垂直</code>
+<code src="./demo/radiogroup-block.tsx" version="5.21.0">Block 单选组合</code>
 <code src="./demo/radiogroup-options.tsx">Radio.Group 组合 - 配置方式</code>
 <code src="./demo/radiobutton.tsx">按钮样式</code>
 <code src="./demo/radiogroup-with-name.tsx">单选组合 - 配合 name 使用</code>
@@ -30,9 +30,12 @@ demo:
 <code src="./demo/radiobutton-solid.tsx">填底的按钮样式</code>
 <code src="./demo/badge.tsx" debug>测试 Badge 的样式</code>
 <code src="./demo/wireframe.tsx" debug>线框风格</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 <!-- prettier-ignore-end -->
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 ### Radio/Radio.Button
 
@@ -56,11 +59,25 @@ demo:
 | defaultValue | 默认选中的值 | any | - |  |  |
 | disabled | 禁选所有子单选器 | boolean | false |  |  |
 | name | RadioGroup 下所有 `input[type="radio"]` 的 `name` 属性 | string | - |  |  |
-| options | 以配置形式设置子元素 | string\[] \| number\[] \| Array&lt;{ label: ReactNode; value: string; disabled?: boolean; }> | - |  |  |
+| options | 以配置形式设置子元素 | string\[] \| number\[] \| Array&lt;[CheckboxOptionType](#checkboxoptiontype)> | - |  |  |
 | optionType | 用于设置 Radio `options` 类型 | `default` \| `button` | `default` | 4.4.0 |  |
 | size | 大小，只对按钮样式生效 | `large` \| `middle` \| `small` | - |  |  |
 | value | 用于设置当前选中的值 | any | - |  |  |
+| block | 将 RadioGroup 宽度调整为其父宽度的选项 | boolean | false | 5.21.0 |  |
 | onChange | 选项变化时的回调函数 | function(e:Event) | - |  |  |
+
+### CheckboxOptionType
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| label | 用于作为 Radio 选项展示的文本 | `string` | - | 4.4.0 |
+| value | 关联 Radio 选项的值 | `string` \| `number` \| `boolean` | - | 4.4.0 |
+| style | 应用到 Radio 选项的 style | `React.CSSProperties` | - | 4.4.0 |
+| disabled | 指定 Radio 选项是否要禁用 | `boolean` | `false` | 4.4.0 |
+| title | 添加 Title 属性值 | `string` | - | 4.4.0 |
+| id | 添加 Radio Id 属性值 | `string` | - | 4.4.0 |
+| onChange | 当 Radio Group 的值发送改变时触发 | `(e: CheckboxChangeEvent) => void;` | - | 4.4.0 |
+| required | 指定 Radio 选项是否必填 | `boolean` | `false` | 4.4.0 |
 
 ## 方法
 
@@ -71,6 +88,6 @@ demo:
 | blur()  | 移除焦点 |
 | focus() | 获取焦点 |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Radio"></ComponentTokenTable>

@@ -1,6 +1,7 @@
-import { globSync } from 'glob';
 import * as React from 'react';
+import { globSync } from 'glob';
 import { renderToString } from 'react-dom/server';
+
 import type { Options } from '../../tests/shared/demoTest';
 
 (global as any).testConfig = {};
@@ -28,10 +29,12 @@ describe('node', () => {
 
     // Test for ssr
     describe(componentName, () => {
-      const demoList = globSync(`./components/${componentName}/demo/*.tsx`);
+      const demoList = globSync(`./components/${componentName}/demo/*.tsx`).filter(
+        (file) => !file.includes('_semantic'),
+      );
 
       // Use mock to get config
-      require(`../../${componentTestFile}`); // eslint-disable-line global-require, import/no-dynamic-require
+      require(`../../${componentTestFile}`);
       const option = (global as any).testConfig?.[componentName];
 
       demoList.forEach((demoFile) => {
@@ -39,7 +42,7 @@ describe('node', () => {
         const test = skip.some((skipMarkdown) => demoFile.includes(skipMarkdown)) ? it.skip : it;
 
         test(demoFile, () => {
-          const Demo = require(`../../${demoFile}`).default; // eslint-disable-line global-require, import/no-dynamic-require
+          const Demo = require(`../../${demoFile}`).default;
           expect(() => {
             renderToString(<Demo />);
           }).not.toThrow();

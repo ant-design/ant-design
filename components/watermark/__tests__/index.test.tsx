@@ -1,8 +1,11 @@
 import React from 'react';
+
 import Watermark from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, waitFor, waitFakeTimer } from '../../../tests/utils';
+import { render, waitFakeTimer } from '../../../tests/utils';
+import Drawer from '../../drawer';
+import Modal from '../../modal';
 
 describe('Watermark', () => {
   mountTest(Watermark);
@@ -12,12 +15,21 @@ describe('Watermark', () => {
 
   beforeAll(() => {
     mockSrcSet.mockImplementation(function fn() {
+      // @ts-ignore
       this.onload?.();
     });
   });
 
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
   afterAll(() => {
     mockSrcSet.mockRestore();
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
   });
 
   it('The watermark should render successfully', () => {
@@ -53,7 +65,7 @@ describe('Watermark', () => {
       />,
     );
     const target = container.querySelector<HTMLDivElement>('.watermark div');
-    expect(target?.style.backgroundSize).toBe('600px');
+    expect(target?.style.backgroundSize).toBe('720px');
     expect(container).toMatchSnapshot();
   });
 
@@ -66,6 +78,7 @@ describe('Watermark', () => {
 
   it('Invalid image watermark', () => {
     mockSrcSet.mockImplementation(function fn() {
+      // @ts-ignore
       this.onerror?.();
     });
     const { container } = render(
@@ -80,18 +93,87 @@ describe('Watermark', () => {
     const target = container.querySelector<HTMLDivElement>('.watermark div');
     await waitFakeTimer();
     target?.remove();
-    await waitFor(() => expect(target).toBeTruthy());
+    await waitFakeTimer();
     expect(container).toMatchSnapshot();
   });
 
-  it('Observe the modification of style', async () => {
-    const { container } = render(
-      <Watermark offset={[-200, -200]} className="watermark" content="MutationObserver" />,
+  describe('Observe the modification of style', () => {
+    it('watermark', async () => {
+      const { container } = render(
+        <Watermark offset={[-200, -200]} className="watermark" content="MutationObserver" />,
+      );
+      const target = container.querySelector<HTMLDivElement>('.watermark div');
+      await waitFakeTimer();
+      target?.setAttribute('style', '');
+      await waitFakeTimer();
+      expect(container).toMatchSnapshot();
+    });
+
+    it('container', async () => {
+      const { container } = render(
+        <Watermark offset={[-200, -200]} className="watermark" content="MutationObserver" />,
+      );
+
+      const target = container.querySelector<HTMLDivElement>('.watermark');
+      await waitFakeTimer();
+      target?.setAttribute('style', '');
+      await waitFakeTimer();
+
+      expect(target).toHaveStyle({
+        overflow: 'hidden',
+      });
+    });
+  });
+
+  describe('nest component', () => {
+    function test(name: string, children: React.ReactNode, getWatermarkElement: () => Node) {
+      it(name, async () => {
+        const { rerender } = render(<Watermark className="test">{children}</Watermark>);
+        await waitFakeTimer();
+
+        const watermark = getWatermarkElement();
+
+        expect(watermark).toHaveStyle({ zIndex: '9' });
+
+        // Not crash when children removed
+        rerender(<Watermark className="test" />);
+      });
+    }
+
+    test(
+      'Modal',
+      <Modal open />,
+      () => document.body.querySelector('.ant-modal-content')!.lastChild!,
     );
-    const target = container.querySelector<HTMLDivElement>('.watermark div');
+
+    test(
+      'Drawer',
+      <Drawer open />,
+      () => document.body.querySelector('.ant-drawer-content')!.lastChild!,
+    );
+
+    it('inherit = false', async () => {
+      render(
+        <Watermark inherit={false}>
+          <Drawer open />
+        </Watermark>,
+      );
+      await waitFakeTimer();
+
+      expect(document.body.querySelector('.ant-drawer-content')!.lastChild).toHaveClass(
+        'ant-drawer-body',
+      );
+    });
+  });
+
+  it('should not crash if content is empty string', async () => {
+    const spy = jest.spyOn(CanvasRenderingContext2D.prototype, 'drawImage');
+    render(<Watermark content="" className="watermark" />);
     await waitFakeTimer();
-    target?.setAttribute('style', '');
-    await waitFor(() => expect(target).toBeTruthy());
-    expect(container).toMatchSnapshot();
+    expect(spy).not.toHaveBeenCalledWith(expect.anything(), 0, 0);
+    expect(spy).not.toHaveBeenCalledWith(expect.anything(), -0, 0);
+    expect(spy).not.toHaveBeenCalledWith(expect.anything(), -0, -0);
+    expect(spy).not.toHaveBeenCalledWith(expect.anything(), 0, -0);
+    spy.mockRestore();
   });
 });

@@ -1,14 +1,15 @@
-import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import * as React from 'react';
-import warning from '../_util/warning';
+import type { ValidateMessages } from 'rc-field-form/lib/interface';
+
+import { devUseWarning } from '../_util/warning';
 import type { PickerLocale as DatePickerLocale } from '../date-picker/generatePicker';
 import type { TransferLocale as TransferLocaleForEmpty } from '../empty';
 import type { ModalLocale } from '../modal/locale';
-import type { TourLocale } from '../tour/interface';
 import { changeConfirmLocale } from '../modal/locale';
 import type { PaginationLocale } from '../pagination/Pagination';
 import type { PopconfirmLocale } from '../popconfirm/PurePanel';
 import type { TableLocale } from '../table/interface';
+import type { TourLocale } from '../tour/interface';
 import type { TransferLocale } from '../transfer';
 import type { UploadLocale } from '../upload/interface';
 import type { LocaleContextProps } from './context';
@@ -33,13 +34,13 @@ export interface Locale {
   Upload?: UploadLocale;
   Empty?: TransferLocaleForEmpty;
   global?: Record<string, any>;
-  PageHeader?: { back: string };
   Icon?: Record<string, any>;
   Text?: {
     edit?: any;
     copy?: any;
     copied?: any;
     expand?: any;
+    collapse?: any;
   };
   Form?: {
     optional?: string;
@@ -49,8 +50,15 @@ export interface Locale {
     preview: string;
   };
   QRCode?: {
-    expired: string;
-    refresh: string;
+    expired?: string;
+    refresh?: string;
+    scanned?: string;
+  };
+  ColorPicker?: {
+    presetEmpty: string;
+    transparent: string;
+    singleColor: string;
+    gradientColor: string;
   };
 }
 
@@ -65,18 +73,18 @@ const LocaleProvider: React.FC<LocaleProviderProps> = (props) => {
   const { locale = {} as Locale, children, _ANT_MARK__ } = props;
 
   if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('LocaleProvider');
+
     warning(
       _ANT_MARK__ === ANT_MARK,
-      'LocaleProvider',
+      'deprecated',
       '`LocaleProvider` is deprecated. Please use `locale` with `ConfigProvider` instead: http://u.ant.design/locale',
     );
   }
 
   React.useEffect(() => {
-    changeConfirmLocale(locale && locale.Modal);
-    return () => {
-      changeConfirmLocale();
-    };
+    const clearLocale = changeConfirmLocale(locale?.Modal);
+    return clearLocale;
   }, [locale]);
 
   const getMemoizedContextValue = React.useMemo<LocaleContextProps>(

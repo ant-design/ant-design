@@ -1,8 +1,8 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/sv_SE';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/sv_SE';
 import DatePicker from '../date-picker/locale/sv_SE';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/sv_SE';
 
 const typeTemplate = '${label} är inte en giltig ${type}';
@@ -79,9 +79,6 @@ const localeValues: Locale = {
     copy: 'Kopiera',
     copied: 'Kopierad',
     expand: 'Expandera',
-  },
-  PageHeader: {
-    back: 'Tillbaka',
   },
   Form: {
     optional: '(valfritt)',

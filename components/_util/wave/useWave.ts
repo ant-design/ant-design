@@ -1,14 +1,48 @@
+import * as React from 'react';
+import useEvent from 'rc-util/lib/hooks/useEvent';
+import raf from 'rc-util/lib/raf';
+
+import { ConfigContext } from '../../config-provider';
+import useToken from '../../theme/useToken';
+import { TARGET_CLS } from './interface';
+import type { ShowWave, WaveComponent } from './interface';
 import showWaveEffect from './WaveEffect';
 
-export default function useWave(
+const useWave = (
   nodeRef: React.RefObject<HTMLElement>,
   className: string,
-): VoidFunction {
-  function showWave() {
+  component?: WaveComponent,
+) => {
+  const { wave } = React.useContext(ConfigContext);
+  const [, token, hashId] = useToken();
+
+  const showWave = useEvent<ShowWave>((event) => {
     const node = nodeRef.current!;
 
-    showWaveEffect(node, className);
-  }
+    if (wave?.disabled || !node) {
+      return;
+    }
 
-  return showWave;
-}
+    const targetNode = node.querySelector<HTMLElement>(`.${TARGET_CLS}`) || node;
+
+    const { showEffect } = wave || {};
+
+    // Customize wave effect
+    (showEffect || showWaveEffect)(targetNode, { className, token, component, event, hashId });
+  });
+
+  const rafId = React.useRef<number>();
+
+  // Merge trigger event into one for each frame
+  const showDebounceWave: ShowWave = (event) => {
+    raf.cancel(rafId.current!);
+
+    rafId.current = raf(() => {
+      showWave(event);
+    });
+  };
+
+  return showDebounceWave;
+};
+
+export default useWave;

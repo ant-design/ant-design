@@ -1,5 +1,6 @@
-import * as React from 'react';
-import { css } from '@emotion/react';
+import { useEffect, useState } from 'react';
+import { css } from 'antd-style';
+import fetch from 'cross-fetch';
 
 export interface Author {
   avatar: string;
@@ -80,26 +81,21 @@ export function preLoad(list: string[]) {
   }
 }
 
-export function useSiteData(): [Partial<SiteData>, boolean] {
-  const [data, setData] = React.useState<Partial<SiteData>>({});
-  const [loading, setLoading] = React.useState<boolean>(false);
+export function useSiteData(): Partial<SiteData> | undefined {
+  const [data, setData] = useState<SiteData | undefined>(undefined);
 
-  React.useEffect(() => {
-    if (Object.keys(data ?? {}).length === 0 && typeof fetch !== 'undefined') {
-      setLoading(true);
-      fetch(`https://render.alipay.com/p/h5data/antd4-config_website-h5data.json`)
-        .then((res) => res.json())
-        .then((result) => {
-          setData(result);
-          setLoading(false);
-        });
-    }
+  useEffect(() => {
+    fetch('https://render.alipay.com/p/h5data/antd4-config_website-h5data.json').then(
+      async (res) => {
+        setData(await res.json());
+      },
+    );
   }, []);
 
-  return [data, loading];
+  return data;
 }
 
-export const useCarouselStyle = () => ({
+export const getCarouselStyle = () => ({
   carousel: css`
     .slick-dots.slick-dots-bottom {
       bottom: -22px;

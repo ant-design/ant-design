@@ -1,5 +1,7 @@
+import React, { useState } from 'react';
 import type { DragEndEvent } from '@dnd-kit/core';
-import { DndContext } from '@dnd-kit/core';
+import { DndContext, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
+import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 import {
   arrayMove,
   SortableContext,
@@ -8,8 +10,7 @@ import {
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
-import React, { useState } from 'react';
+import type { TableColumnsType } from 'antd';
 
 interface DataType {
   key: string;
@@ -18,7 +19,7 @@ interface DataType {
   address: string;
 }
 
-const columns: ColumnsType<DataType> = [
+const columns: TableColumnsType<DataType> = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -37,14 +38,14 @@ interface RowProps extends React.HTMLAttributes<HTMLTableRowElement> {
   'data-row-key': string;
 }
 
-const Row = (props: RowProps) => {
+const Row: React.FC<Readonly<RowProps>> = (props) => {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: props['data-row-key'],
   });
 
   const style: React.CSSProperties = {
     ...props.style,
-    transform: CSS.Transform.toString(transform && { ...transform, scaleY: 1 }),
+    transform: CSS.Translate.toString(transform),
     transition,
     cursor: 'move',
     ...(isDragging ? { position: 'relative', zIndex: 9999 } : {}),
@@ -76,6 +77,15 @@ const App: React.FC = () => {
     },
   ]);
 
+  const sensors = useSensors(
+    useSensor(PointerSensor, {
+      activationConstraint: {
+        // https://docs.dndkit.com/api-documentation/sensors/pointer#activation-constraints
+        distance: 1,
+      },
+    }),
+  );
+
   const onDragEnd = ({ active, over }: DragEndEvent) => {
     if (active.id !== over?.id) {
       setDataSource((prev) => {
@@ -87,17 +97,15 @@ const App: React.FC = () => {
   };
 
   return (
-    <DndContext onDragEnd={onDragEnd}>
+    <DndContext sensors={sensors} modifiers={[restrictToVerticalAxis]} onDragEnd={onDragEnd}>
       <SortableContext
         // rowKey array
         items={dataSource.map((i) => i.key)}
         strategy={verticalListSortingStrategy}
       >
-        <Table
+        <Table<DataType>
           components={{
-            body: {
-              row: Row,
-            },
+            body: { row: Row },
           }}
           rowKey="key"
           columns={columns}

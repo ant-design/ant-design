@@ -1,11 +1,10 @@
 import React from 'react';
-import type { BadgeProps } from 'antd';
+import type { BadgeProps, CalendarProps } from 'antd';
 import { Badge, Calendar } from 'antd';
 import type { Dayjs } from 'dayjs';
-import type { CellRenderInfo } from 'rc-picker/lib/interface';
 
 const getListData = (value: Dayjs) => {
-  let listData;
+  let listData: { type: string; content: string }[] = []; // Specify the type of listData
   switch (value.date()) {
     case 8:
       listData = [
@@ -23,7 +22,7 @@ const getListData = (value: Dayjs) => {
     case 15:
       listData = [
         { type: 'warning', content: 'This is warning event' },
-        { type: 'success', content: 'This is very long usual event。。....' },
+        { type: 'success', content: 'This is very long usual event......' },
         { type: 'error', content: 'This is error event 1.' },
         { type: 'error', content: 'This is error event 2.' },
         { type: 'error', content: 'This is error event 3.' },
@@ -65,7 +64,7 @@ const App: React.FC = () => {
     );
   };
 
-  const cellRender = (current: Dayjs, info: CellRenderInfo<Dayjs>) => {
+  const cellRender: CalendarProps<Dayjs>['cellRender'] = (current, info) => {
     if (info.type === 'date') return dateCellRender(current);
     if (info.type === 'month') return monthCellRender(current);
     return info.originNode;

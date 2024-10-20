@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "antd": ["es"],
+      "antd/es/*": ["es/*"],
+      "antd/lib/*": ["lib/*"],
+      "antd/locale/*": ["locale/*"]
+    }
+  },
+  "include": ["components/*/demo/*.tsx"],
+  "exclude": ["components/*/demo/_semantic*"]
+}

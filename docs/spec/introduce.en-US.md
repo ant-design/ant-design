@@ -36,7 +36,7 @@ We provide comprehensive design guidelines, best practices, resources, and tools
 - [NG-ZORRO - Ant Design of Angular](http://ng.ant.design)
 - [NG-ZORRO-MOBILE - Ant Design Mobile of Angular](http://ng.mobile.ant.design)
 - [Ant Design of Vue](http://antdv.com)
-- [Ant Design Blazor](https://ant-design-blazor.github.io/)
+- [Ant Design Blazor](https://antblazor.com/)
 - [San UI Toolkit for Ant Design](https://ecomfe.github.io/santd)
 - [antizer (ClojureScript)](https://github.com/priornix/antizer)
 
@@ -60,7 +60,6 @@ We provide comprehensive design guidelines, best practices, resources, and tools
 - Alligator: [Crafting Beautiful UIs in React Using Ant Design](https://alligator.io/react/beautiful-uis-ant-design/)
 - [Introduction to Ant Design](https://blog.logrocket.com/introduction-to-ant-design/)
 - [Build a React App with Ant Design Principles](https://developer.okta.com/blog/2020/09/16/ant-design-react-app)
-- [Meet Antd, an enterprise React UI library](https://medium.com/javascript-in-plain-english/antd-library-what-why-useful-or-not-5fec225b639d)
 
 ## How to Contribute
 

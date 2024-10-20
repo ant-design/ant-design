@@ -1,9 +1,8 @@
-/* eslint-disable no-template-curly-in-string */
-
 import Pagination from 'rc-pagination/lib/locale/kk_KZ';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/kk_KZ';
 import DatePicker from '../date-picker/locale/kk_KZ';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/kk_KZ';
 
 const typeTemplate: string = '${label} ${type} типі емес';
@@ -72,9 +71,6 @@ const localeValues: Locale = {
     copy: 'Көшіру',
     copied: 'Көшірілді',
     expand: 'Жазу',
-  },
-  PageHeader: {
-    back: 'Артқа',
   },
   Form: {
     defaultValidateMessages: {

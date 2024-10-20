@@ -1,97 +1,141 @@
-import React, { useRef, memo, useContext, useEffect, useCallback, useMemo } from 'react';
+import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
+import useEvent from 'rc-util/lib/hooks/useEvent';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import FloatButton, { floatButtonPrefixCls } from './FloatButton';
+
+import { useZIndex } from '../_util/hooks/useZIndex';
+import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { FloatButtonGroupProvider } from './context';
+import FloatButton, { floatButtonPrefixCls } from './FloatButton';
 import type { FloatButtonGroupProps } from './interface';
 import useStyle from './style';
 
-const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
+const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
     style,
     shape = 'circle',
     type = 'default',
+    placement = 'top',
     icon = <FileTextOutlined />,
-    closeIcon = <CloseOutlined />,
+    closeIcon,
     description,
     trigger,
     children,
     onOpenChange,
+    open: customOpen,
+    onClick: onTriggerButtonClick,
+    ...floatButtonProps
   } = props;
 
-  const { direction, getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
+  const { direction, getPrefixCls, floatButtonGroup } =
+    React.useContext<ConfigConsumerProps>(ConfigContext);
+
+  const mergedCloseIcon = closeIcon ?? floatButtonGroup?.closeIcon ?? <CloseOutlined />;
+
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+
   const groupPrefixCls = `${prefixCls}-group`;
 
-  const groupCls = classNames(groupPrefixCls, hashId, className, {
+  const isMenuMode = trigger && ['click', 'hover'].includes(trigger);
+  const isValidPlacement = placement && ['top', 'left', 'right', 'bottom'].includes(placement);
+
+  const groupCls = classNames(groupPrefixCls, hashId, cssVarCls, rootCls, className, {
     [`${groupPrefixCls}-rtl`]: direction === 'rtl',
     [`${groupPrefixCls}-${shape}`]: shape,
-    [`${groupPrefixCls}-${shape}-shadow`]: !trigger,
+    [`${groupPrefixCls}-${shape}-shadow`]: !isMenuMode,
+    [`${groupPrefixCls}-${placement}`]: isMenuMode && isValidPlacement, // 只有菜单模式才支持弹出方向
   });
+
+  // ============================ zIndex ============================
+  const [zIndex] = useZIndex('FloatButton', style?.zIndex as number);
+
+  const mergedStyle: React.CSSProperties = { ...style, zIndex };
 
   const wrapperCls = classNames(hashId, `${groupPrefixCls}-wrap`);
 
-  const [open, setOpen] = useMergedState(false, { value: props.open });
+  const [open, setOpen] = useMergedState(false, { value: customOpen });
 
-  const floatButtonGroupRef = useRef<HTMLDivElement>(null);
-  const floatButtonRef = useRef<HTMLButtonElement | HTMLAnchorElement>(null);
+  const floatButtonGroupRef = React.useRef<HTMLDivElement>(null);
 
-  const hoverAction = useMemo<React.DOMAttributes<HTMLDivElement>>(() => {
-    const hoverTypeAction = {
-      onMouseEnter() {
-        setOpen(true);
-        onOpenChange?.(true);
-      },
-      onMouseLeave() {
-        setOpen(false);
-        onOpenChange?.(false);
-      },
-    };
-    return trigger === 'hover' ? hoverTypeAction : {};
-  }, [trigger]);
+  // ========================== Open ==========================
+  const hoverTrigger = trigger === 'hover';
+  const clickTrigger = trigger === 'click';
 
-  const handleOpenChange = () => {
-    setOpen((prevState) => {
-      onOpenChange?.(!prevState);
-      return !prevState;
-    });
+  const triggerOpen = useEvent((nextOpen: boolean) => {
+    if (open !== nextOpen) {
+      setOpen(nextOpen);
+      onOpenChange?.(nextOpen);
+    }
+  });
+
+  // ===================== Trigger: Hover =====================
+  const onMouseEnter: React.MouseEventHandler<HTMLDivElement> = () => {
+    if (hoverTrigger) {
+      triggerOpen(true);
+    }
   };
 
-  const onClick = useCallback(
-    (e: MouseEvent) => {
-      if (floatButtonGroupRef.current?.contains(e.target as Node)) {
-        if (floatButtonRef.current?.contains(e.target as Node)) {
-          handleOpenChange();
-        }
-        return;
-      }
-      setOpen(false);
-      onOpenChange?.(false);
-    },
-    [trigger],
-  );
-
-  useEffect(() => {
-    if (trigger === 'click') {
-      document.addEventListener('click', onClick);
-      return () => {
-        document.removeEventListener('click', onClick);
-      };
+  const onMouseLeave: React.MouseEventHandler<HTMLDivElement> = () => {
+    if (hoverTrigger) {
+      triggerOpen(false);
     }
-  }, [trigger]);
+  };
 
-  return wrapSSR(
+  // ===================== Trigger: Click =====================
+  const onInternalTriggerButtonClick: FloatButtonGroupProps['onClick'] = (e) => {
+    if (clickTrigger) {
+      triggerOpen(!open);
+    }
+    onTriggerButtonClick?.(e);
+  };
+
+  React.useEffect(() => {
+    if (clickTrigger) {
+      const onDocClick = (e: MouseEvent) => {
+        // Skip if click on the group
+        if (floatButtonGroupRef.current?.contains(e.target as Node)) {
+          return;
+        }
+        triggerOpen(false);
+      };
+      document.addEventListener('click', onDocClick, { capture: true });
+      return () => document.removeEventListener('click', onDocClick, { capture: true });
+    }
+  }, [clickTrigger]);
+
+  // ======================== Warning =========================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('FloatButton.Group');
+
+    warning(
+      !('open' in props) || !!trigger,
+      'usage',
+      '`open` need to be used together with `trigger`',
+    );
+  }
+
+  // ========================= Render =========================
+  return wrapCSSVar(
     <FloatButtonGroupProvider value={shape}>
-      <div ref={floatButtonGroupRef} className={groupCls} style={style} {...hoverAction}>
-        {trigger && ['click', 'hover'].includes(trigger) ? (
+      <div
+        ref={floatButtonGroupRef}
+        className={groupCls}
+        style={mergedStyle}
+        // Hover trigger
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      >
+        {isMenuMode ? (
           <>
             <CSSMotion visible={open} motionName={`${groupPrefixCls}-wrap`}>
               {({ className: motionClassName }) => (
@@ -99,11 +143,13 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
               )}
             </CSSMotion>
             <FloatButton
-              ref={floatButtonRef}
               type={type}
-              shape={shape}
-              icon={open ? closeIcon : icon}
+              icon={open ? mergedCloseIcon : icon}
               description={description}
+              aria-label={props['aria-label']}
+              className={`${groupPrefixCls}-trigger`}
+              onClick={onInternalTriggerButtonClick}
+              {...floatButtonProps}
             />
           </>
         ) : (
@@ -114,4 +160,4 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
   );
 };
 
-export default memo(FloatButtonGroup);
+export default FloatButtonGroup;

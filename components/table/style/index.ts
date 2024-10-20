@@ -1,8 +1,10 @@
+import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
+
 import { clearFix, resetComponent } from '../../style';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genBorderedStyle from './bordered';
 import genEllipsisStyle from './ellipsis';
 import genEmptyStyle from './empty';
@@ -17,8 +19,178 @@ import genSizeStyle from './size';
 import genSorterStyle from './sorter';
 import genStickyStyle from './sticky';
 import genSummaryStyle from './summary';
+import genVirtualStyle from './virtual';
 
-export interface ComponentToken {}
+export interface ComponentToken {
+  /**
+   * @desc 表头背景
+   * @descEN Background of table header
+   */
+  headerBg: string;
+  /**
+   * @desc 表头文字颜色
+   * @descEN Color of table header text
+   */
+  headerColor: string;
+  /**
+   * @desc 表头排序激活态背景色
+   * @descEN Background color of table header when sorted
+   */
+  headerSortActiveBg: string;
+  /**
+   * @desc 表头排序激活态悬浮背景色
+   * @descEN Background color of table header when sorted and hovered
+   */
+  headerSortHoverBg: string;
+  /**
+   * @desc 表格排序列背景色
+   * @descEN Background color of table sorted column
+   */
+  bodySortBg: string;
+  /**
+   * @desc 表格行悬浮背景色
+   * @descEN Background color of table hovered row
+   */
+  rowHoverBg: string;
+  /**
+   * @desc 表格行选中背景色
+   * @descEN Background color of table selected row
+   */
+  rowSelectedBg: string;
+  /**
+   * @desc 表格行选中悬浮背景色
+   * @descEN Background color of table selected row when hovered
+   */
+  rowSelectedHoverBg: string;
+  /**
+   * @desc 表格行展开背景色
+   * @descEN Background color of table expanded row
+   */
+  rowExpandedBg: string;
+  /**
+   * @desc 单元格纵向内间距
+   * @descEN Vertical padding of table cell
+   */
+  cellPaddingBlock: number;
+  /**
+   * @desc 单元格横向内间距（默认大尺寸）
+   * @descEN Horizontal padding of table cell (large size by default)
+   */
+  cellPaddingInline: number;
+  /**
+   * @desc 单元格纵向内间距（中等尺寸）
+   * @descEN Vertical padding of table cell (middle size)
+   */
+  cellPaddingBlockMD: number;
+  /**
+   * @desc 单元格横向内间距（中等尺寸）
+   * @descEN Horizontal padding of table cell (middle size)
+   */
+  cellPaddingInlineMD: number;
+  /**
+   * @desc 单元格纵向内间距（小尺寸）
+   * @descEN Vertical padding of table cell (small size)
+   */
+  cellPaddingBlockSM: number;
+  /**
+   * @desc 单元格横向内间距（小尺寸）
+   * @descEN Horizontal padding of table cell (small size)
+   */
+  cellPaddingInlineSM: number;
+  /**
+   * @desc 表格边框/分割线颜色
+   * @descEN Border color of table
+   */
+  borderColor: string;
+  /**
+   * @desc 表头圆角
+   * @descEN Border radius of table header
+   */
+  headerBorderRadius: number;
+  /**
+   * @desc 表格底部背景色
+   * @descEN Background of footer
+   */
+  footerBg: string;
+  /**
+   * @desc 表格底部文字颜色
+   * @descEN Color of footer text
+   */
+  footerColor: string;
+  /**
+   * @desc 单元格文字大小（默认大尺寸）
+   * @descEN Font size of table cell (large size by default)
+   */
+  cellFontSize: number;
+  /**
+   * @desc 单元格文字大小（中等尺寸）
+   * @descEN Font size of table cell (middle size)
+   */
+  cellFontSizeMD: number;
+  /**
+   * @desc 单元格文字大小（小尺寸）
+   * @descEN Font size of table cell (small size)
+   */
+  cellFontSizeSM: number;
+  /**
+   * @desc 表头分割线颜色
+   * @descEN Split border color of table header
+   */
+  headerSplitColor: string;
+  /**
+   * @desc 固定表头排序激活态背景色
+   * @descEN Background color of fixed table header when sorted
+   */
+  fixedHeaderSortActiveBg: string;
+  /**
+   * @desc 表头过滤按钮悬浮背景色
+   * @descEN Background color of table header filter button when hovered
+   */
+  headerFilterHoverBg: string;
+  /**
+   * @desc 过滤下拉菜单选项背景
+   * @descEN Background of filter dropdown menu item
+   */
+  filterDropdownMenuBg: string;
+  /**
+   * @desc 过滤下拉菜单颜色
+   * @descEN Color of filter dropdown
+   */
+  filterDropdownBg: string;
+  /**
+   * @desc 展开按钮背景色
+   * @descEN Background of expand button
+   */
+  expandIconBg: string;
+  /**
+   * @desc 选择列宽度
+   * @descEN Width of selection column
+   */
+  selectionColumnWidth: number | string;
+  /**
+   * @desc Sticky 模式下滚动条背景色
+   * @descEN Background of sticky scrollbar
+   */
+  stickyScrollBarBg: string;
+  /**
+   * @desc Sticky 模式下滚动条圆角
+   * @descEN Border radius of sticky scrollbar
+   */
+  stickyScrollBarBorderRadius: number;
+
+  /** @internal */
+  expandIconMarginTop: number;
+  /** @internal */
+  expandIconHalfInner: number;
+  /** @internal */
+  expandIconSize: number;
+  /** @internal */
+  expandIconScale: number;
+  /** @internal */
+  headerIconColor: string;
+  /** @internal */
+  headerIconHoverColor: string;
+}
 
 export interface TableToken extends FullToken<'Table'> {
   tableFontSize: number;
@@ -38,29 +210,27 @@ export interface TableToken extends FullToken<'Table'> {
   tableHeaderCellSplitColor: string;
   tableHeaderSortBg: string;
   tableHeaderSortHoverBg: string;
-  tableHeaderIconColor: string;
-  tableHeaderIconColorHover: string;
   tableBodySortBg: string;
   tableFixedHeaderSortActiveBg: string;
   tableHeaderFilterActiveBg: string;
   tableFilterDropdownBg: string;
-  tableFilterDropdownHeight: number;
+  tableFilterDropdownHeight: number | string;
   tableRowHoverBg: string;
   tableSelectedRowBg: string;
   tableSelectedRowHoverBg: string;
 
   tableFontSizeMiddle: number;
   tableFontSizeSmall: number;
-  tableSelectionColumnWidth: number;
+  tableSelectionColumnWidth: number | string;
   tableExpandIconBg: string;
-  tableExpandColumnWidth: number;
+  tableExpandColumnWidth: number | string;
   tableExpandedRowBg: string;
   tableFilterDropdownWidth: number;
   tableFilterDropdownSearchWidth: number;
 
   // Z-Index
   zIndexTableFixed: number;
-  zIndexTableSticky: number;
+  zIndexTableSticky: number | string;
 
   // Virtual Scroll Bar
   tableScrollThumbSize: number;
@@ -75,6 +245,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     fontWeightStrong,
     tablePaddingVertical,
     tablePaddingHorizontal,
+    tableExpandColumnWidth,
     lineWidth,
     lineType,
     tableBorderColor,
@@ -85,14 +256,11 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     motionDurationMid,
     tableHeaderBg,
     tableHeaderCellSplitColor,
-    tableRowHoverBg,
-    tableSelectedRowBg,
-    tableSelectedRowHoverBg,
     tableFooterTextColor,
     tableFooterBg,
-    paddingContentVerticalLG,
+    calc,
   } = token;
-  const tableBorder = `${lineWidth}px ${lineType} ${tableBorderColor}`;
+  const tableBorder = `${unit(lineWidth)} ${lineType} ${tableBorderColor}`;
   return {
     [`${componentCls}-wrapper`]: {
       clear: 'both',
@@ -103,19 +271,22 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         ...resetComponent(token),
         fontSize: tableFontSize,
         background: tableBg,
-        borderRadius: `${tableRadius}px ${tableRadius}px 0 0`,
+        borderRadius: `${unit(tableRadius)} ${unit(tableRadius)} 0 0`,
+        // https://github.com/ant-design/ant-design/issues/47486
+        scrollbarColor: `${token.tableScrollThumbBg} ${token.tableScrollBg}`,
       },
       // https://github.com/ant-design/ant-design/issues/17611
       table: {
         width: '100%',
         textAlign: 'start',
-        borderRadius: `${tableRadius}px ${tableRadius}px 0 0`,
+        borderRadius: `${unit(tableRadius)} ${unit(tableRadius)} 0 0`,
         borderCollapse: 'separate',
         borderSpacing: 0,
       },
 
-      // ============================= Cell =============================
+      // ============================= Cell ==============================
       [`
+          ${componentCls}-cell,
           ${componentCls}-thead > tr > th,
           ${componentCls}-tbody > tr > th,
           ${componentCls}-tbody > tr > td,
@@ -123,13 +294,13 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           tfoot > tr > td
         `]: {
         position: 'relative',
-        padding: `${paddingContentVerticalLG}px ${tablePaddingHorizontal}px`,
+        padding: `${unit(tablePaddingVertical)} ${unit(tablePaddingHorizontal)}`,
         overflowWrap: 'break-word',
       },
 
       // ============================ Title =============================
       [`${componentCls}-title`]: {
-        padding: `${tablePaddingVertical}px ${tablePaddingHorizontal}px`,
+        padding: `${unit(tablePaddingVertical)} ${unit(tablePaddingHorizontal)}`,
       },
 
       // ============================ Header ============================
@@ -172,7 +343,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       // ============================ Body ============================
       [`${componentCls}-tbody`]: {
         '> tr': {
-          [`> th, > td`]: {
+          '> th, > td': {
             transition: `background ${motionDurationMid}, border-color ${motionDurationMid}`,
             borderBottom: tableBorder,
 
@@ -182,10 +353,11 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
               > ${componentCls}-expanded-row-fixed > ${componentCls}-wrapper:only-child
             `]: {
               [componentCls]: {
-                marginBlock: `-${tablePaddingVertical}px`,
-                marginInline: `${
-                  token.tableExpandColumnWidth - tablePaddingHorizontal
-                }px -${tablePaddingHorizontal}px`,
+                marginBlock: unit(calc(tablePaddingVertical).mul(-1).equal()),
+                marginInline: `${unit(
+                  calc(tableExpandColumnWidth).sub(tablePaddingHorizontal).equal(),
+                )}
+                ${unit(calc(tablePaddingHorizontal).mul(-1).equal())}`,
                 [`${componentCls}-tbody > tr:last-child > td`]: {
                   borderBottom: 0,
                   '&:first-child, &:last-child': {
@@ -205,31 +377,12 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
             borderBottom: tableBorder,
             transition: `background ${motionDurationMid} ease`,
           },
-
-          [`
-            &${componentCls}-row:hover > th,
-            &${componentCls}-row:hover > td,
-            > th${componentCls}-cell-row-hover
-            > td${componentCls}-cell-row-hover
-          `]: {
-            background: tableRowHoverBg,
-          },
-
-          [`&${componentCls}-row-selected`]: {
-            [`> th, > td`]: {
-              background: tableSelectedRowBg,
-            },
-
-            [`&:hover > th, &:hover > td`]: {
-              background: tableSelectedRowHoverBg,
-            },
-          },
         },
       },
 
       // ============================ Footer ============================
       [`${componentCls}-footer`]: {
-        padding: `${tablePaddingVertical}px ${tablePaddingHorizontal}px`,
+        padding: `${unit(tablePaddingVertical)} ${unit(tablePaddingHorizontal)}`,
         color: tableFooterTextColor,
         background: tableFooterBg,
       },
@@ -237,36 +390,31 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
   };
 };
 
-// ============================== Export ==============================
-export default genComponentStyleHook('Table', (token) => {
+export const prepareComponentToken: GetDefaultToken<'Table'> = (token) => {
   const {
+    colorFillAlter,
+    colorBgContainer,
+    colorTextHeading,
+    colorFillSecondary,
+    colorFillContent,
     controlItemBgActive,
     controlItemBgActiveHover,
-    colorTextPlaceholder,
-    colorTextHeading,
-    colorSplit,
-    colorBorderSecondary,
-    fontSize,
     padding,
-    paddingXS,
     paddingSM,
+    paddingXS,
+    colorBorderSecondary,
+    borderRadiusLG,
     controlHeight,
-    colorFillAlter,
+    colorTextPlaceholder,
+    fontSize,
+    fontSizeSM,
+    lineHeight,
+    lineWidth,
     colorIcon,
     colorIconHover,
     opacityLoading,
-    colorBgContainer,
-    borderRadiusLG,
-    colorFillContent,
-    colorFillSecondary,
-    controlInteractiveSize: checkboxSize,
+    controlInteractiveSize,
   } = token;
-
-  const baseColorAction = new TinyColor(colorIcon);
-  const baseColorActionHover = new TinyColor(colorIconHover);
-
-  const tableSelectedRowBg = controlItemBgActive;
-  const zIndexTableFixed: number = 2;
 
   const colorFillSecondarySolid = new TinyColor(colorFillSecondary)
     .onBackground(colorBgContainer)
@@ -274,82 +422,179 @@ export default genComponentStyleHook('Table', (token) => {
   const colorFillContentSolid = new TinyColor(colorFillContent)
     .onBackground(colorBgContainer)
     .toHexShortString();
-
   const colorFillAlterSolid = new TinyColor(colorFillAlter)
     .onBackground(colorBgContainer)
     .toHexShortString();
 
-  const tableToken = mergeToken<TableToken>(token, {
-    tableFontSize: fontSize,
-    tableBg: colorBgContainer,
-    tableRadius: borderRadiusLG,
+  const baseColorAction = new TinyColor(colorIcon);
+  const baseColorActionHover = new TinyColor(colorIconHover);
 
-    tablePaddingVertical: padding,
-    tablePaddingHorizontal: padding,
-    tablePaddingVerticalMiddle: paddingSM,
-    tablePaddingHorizontalMiddle: paddingXS,
-    tablePaddingVerticalSmall: paddingXS,
-    tablePaddingHorizontalSmall: paddingXS,
-    tableBorderColor: colorBorderSecondary,
-    tableHeaderTextColor: colorTextHeading,
-    tableHeaderBg: colorFillAlterSolid,
-    tableFooterTextColor: colorTextHeading,
-    tableFooterBg: colorFillAlterSolid,
-    tableHeaderCellSplitColor: colorBorderSecondary,
-    tableHeaderSortBg: colorFillSecondarySolid,
-    tableHeaderSortHoverBg: colorFillContentSolid,
-    tableHeaderIconColor: baseColorAction
+  const expandIconHalfInner = controlInteractiveSize / 2 - lineWidth;
+  const expandIconSize = expandIconHalfInner * 2 + lineWidth * 3;
+
+  return {
+    headerBg: colorFillAlterSolid,
+    headerColor: colorTextHeading,
+    headerSortActiveBg: colorFillSecondarySolid,
+    headerSortHoverBg: colorFillContentSolid,
+    bodySortBg: colorFillAlterSolid,
+    rowHoverBg: colorFillAlterSolid,
+    rowSelectedBg: controlItemBgActive,
+    rowSelectedHoverBg: controlItemBgActiveHover,
+    rowExpandedBg: colorFillAlter,
+    cellPaddingBlock: padding,
+    cellPaddingInline: padding,
+    cellPaddingBlockMD: paddingSM,
+    cellPaddingInlineMD: paddingXS,
+    cellPaddingBlockSM: paddingXS,
+    cellPaddingInlineSM: paddingXS,
+    borderColor: colorBorderSecondary,
+    headerBorderRadius: borderRadiusLG,
+    footerBg: colorFillAlterSolid,
+    footerColor: colorTextHeading,
+    cellFontSize: fontSize,
+    cellFontSizeMD: fontSize,
+    cellFontSizeSM: fontSize,
+    headerSplitColor: colorBorderSecondary,
+    fixedHeaderSortActiveBg: colorFillSecondarySolid,
+    headerFilterHoverBg: colorFillContent,
+    filterDropdownMenuBg: colorBgContainer,
+    filterDropdownBg: colorBgContainer,
+    expandIconBg: colorBgContainer,
+    selectionColumnWidth: controlHeight,
+    stickyScrollBarBg: colorTextPlaceholder,
+    stickyScrollBarBorderRadius: 100,
+    expandIconMarginTop:
+      (fontSize * lineHeight - lineWidth * 3) / 2 -
+      Math.ceil((fontSizeSM * 1.4 - lineWidth * 3) / 2),
+    headerIconColor: baseColorAction
       .clone()
       .setAlpha(baseColorAction.getAlpha() * opacityLoading)
       .toRgbString(),
-    tableHeaderIconColorHover: baseColorActionHover
+    headerIconHoverColor: baseColorActionHover
       .clone()
       .setAlpha(baseColorActionHover.getAlpha() * opacityLoading)
       .toRgbString(),
-    tableBodySortBg: colorFillAlterSolid,
-    tableFixedHeaderSortActiveBg: colorFillSecondarySolid,
-    tableHeaderFilterActiveBg: colorFillContent,
-    tableFilterDropdownBg: colorBgContainer,
-    tableRowHoverBg: colorFillAlterSolid,
-    tableSelectedRowBg,
-    tableSelectedRowHoverBg: controlItemBgActiveHover,
-    zIndexTableFixed,
-    zIndexTableSticky: zIndexTableFixed + 1,
-    tableFontSizeMiddle: fontSize,
-    tableFontSizeSmall: fontSize,
-    tableSelectionColumnWidth: controlHeight,
-    tableExpandIconBg: colorBgContainer,
-    tableExpandColumnWidth: checkboxSize + 2 * token.padding,
-    tableExpandedRowBg: colorFillAlter,
+    expandIconHalfInner,
+    expandIconSize,
+    expandIconScale: controlInteractiveSize / expandIconSize,
+  };
+};
 
-    // Dropdown
-    tableFilterDropdownWidth: 120,
-    tableFilterDropdownHeight: 264,
-    tableFilterDropdownSearchWidth: 140,
+const zIndexTableFixed = 2;
 
-    // Virtual Scroll Bar
-    tableScrollThumbSize: 8, // Mac scroll bar size
-    tableScrollThumbBg: colorTextPlaceholder,
-    tableScrollThumbBgHover: colorTextHeading,
-    tableScrollBg: colorSplit,
-  });
+// ============================== Export ==============================
+export default genStyleHooks(
+  'Table',
+  (token) => {
+    const {
+      colorTextHeading,
+      colorSplit,
+      colorBgContainer,
+      controlInteractiveSize: checkboxSize,
+      headerBg,
+      headerColor,
+      headerSortActiveBg,
+      headerSortHoverBg,
+      bodySortBg,
+      rowHoverBg,
+      rowSelectedBg,
+      rowSelectedHoverBg,
+      rowExpandedBg,
+      cellPaddingBlock,
+      cellPaddingInline,
+      cellPaddingBlockMD,
+      cellPaddingInlineMD,
+      cellPaddingBlockSM,
+      cellPaddingInlineSM,
+      borderColor,
+      footerBg,
+      footerColor,
+      headerBorderRadius,
+      cellFontSize,
+      cellFontSizeMD,
+      cellFontSizeSM,
+      headerSplitColor,
+      fixedHeaderSortActiveBg,
+      headerFilterHoverBg,
+      filterDropdownBg,
+      expandIconBg,
+      selectionColumnWidth,
+      stickyScrollBarBg,
+      calc,
+    } = token;
 
-  return [
-    genTableStyle(tableToken),
-    genPaginationStyle(tableToken),
-    genSummaryStyle(tableToken),
-    genSorterStyle(tableToken),
-    genFilterStyle(tableToken),
-    genBorderedStyle(tableToken),
-    genRadiusStyle(tableToken),
-    genExpandStyle(tableToken),
-    genSummaryStyle(tableToken),
-    genEmptyStyle(tableToken),
-    genSelectionStyle(tableToken),
-    genFixedStyle(tableToken),
-    genStickyStyle(tableToken),
-    genEllipsisStyle(tableToken),
-    genSizeStyle(tableToken),
-    genRtlStyle(tableToken),
-  ];
-});
+    const tableToken = mergeToken<TableToken>(token, {
+      tableFontSize: cellFontSize,
+      tableBg: colorBgContainer,
+      tableRadius: headerBorderRadius,
+
+      tablePaddingVertical: cellPaddingBlock,
+      tablePaddingHorizontal: cellPaddingInline,
+      tablePaddingVerticalMiddle: cellPaddingBlockMD,
+      tablePaddingHorizontalMiddle: cellPaddingInlineMD,
+      tablePaddingVerticalSmall: cellPaddingBlockSM,
+      tablePaddingHorizontalSmall: cellPaddingInlineSM,
+      tableBorderColor: borderColor,
+      tableHeaderTextColor: headerColor,
+      tableHeaderBg: headerBg,
+      tableFooterTextColor: footerColor,
+      tableFooterBg: footerBg,
+      tableHeaderCellSplitColor: headerSplitColor,
+      tableHeaderSortBg: headerSortActiveBg,
+      tableHeaderSortHoverBg: headerSortHoverBg,
+      tableBodySortBg: bodySortBg,
+      tableFixedHeaderSortActiveBg: fixedHeaderSortActiveBg,
+      tableHeaderFilterActiveBg: headerFilterHoverBg,
+      tableFilterDropdownBg: filterDropdownBg,
+      tableRowHoverBg: rowHoverBg,
+      tableSelectedRowBg: rowSelectedBg,
+      tableSelectedRowHoverBg: rowSelectedHoverBg,
+      zIndexTableFixed,
+      zIndexTableSticky: calc(zIndexTableFixed).add(1).equal({ unit: false }),
+      tableFontSizeMiddle: cellFontSizeMD,
+      tableFontSizeSmall: cellFontSizeSM,
+      tableSelectionColumnWidth: selectionColumnWidth,
+      tableExpandIconBg: expandIconBg,
+      tableExpandColumnWidth: calc(checkboxSize).add(calc(token.padding).mul(2)).equal(),
+      tableExpandedRowBg: rowExpandedBg,
+
+      // Dropdown
+      tableFilterDropdownWidth: 120,
+      tableFilterDropdownHeight: 264,
+      tableFilterDropdownSearchWidth: 140,
+
+      // Virtual Scroll Bar
+      tableScrollThumbSize: 8, // Mac scroll bar size
+      tableScrollThumbBg: stickyScrollBarBg,
+      tableScrollThumbBgHover: colorTextHeading,
+      tableScrollBg: colorSplit,
+    });
+
+    return [
+      genTableStyle(tableToken),
+      genPaginationStyle(tableToken),
+      genSummaryStyle(tableToken),
+      genSorterStyle(tableToken),
+      genFilterStyle(tableToken),
+      genBorderedStyle(tableToken),
+      genRadiusStyle(tableToken),
+      genExpandStyle(tableToken),
+      genSummaryStyle(tableToken),
+      genEmptyStyle(tableToken),
+      genSelectionStyle(tableToken),
+      genFixedStyle(tableToken),
+      genStickyStyle(tableToken),
+      genEllipsisStyle(tableToken),
+      genSizeStyle(tableToken),
+      genRtlStyle(tableToken),
+      genVirtualStyle(tableToken),
+    ];
+  },
+  prepareComponentToken,
+  {
+    unitless: {
+      expandIconScale: true,
+    },
+  },
+);

@@ -7,9 +7,7 @@ const App: React.FC = () => (
     Space
     <Button type="primary">Button</Button>
     <Upload>
-      <Button>
-        <UploadOutlined /> Click to Upload
-      </Button>
+      <Button icon={<UploadOutlined />}>Click to Upload</Button>
     </Upload>
     <Popconfirm title="Are you sure delete this task?" okText="Yes" cancelText="No">
       <Button>Confirm</Button>

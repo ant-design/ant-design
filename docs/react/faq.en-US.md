@@ -1,9 +1,11 @@
 ---
-order: 11
+group:
+  title: Other
+order: 2
 title: FAQ
 ---
 
-Here are the frequently asked questions about Ant Design and antd that you should look up before you ask in the community or create a new issue. We also maintain a [FAQ issues label](http://u.ant.design/faq) for common github issues.
+Here are the frequently asked questions about Ant Design and antd that you should look up before you ask in the community or create a new issue. We also maintain a [FAQ issues label](http://u.ant.design/faq) for common GitHub issues.
 
 ---
 
@@ -43,7 +45,7 @@ Related issue: [#3487](https://github.com/ant-design/ant-design/issues/3487) [#3
 
 ## How do I modify the default theme of Ant Design?
 
-See: https://ant.design/docs/react/customize-theme .
+See: [customize-theme](/docs/react/customize-theme).
 
 ## How do I modify `Menu`/`Button`(etc.)'s style?
 
@@ -51,12 +53,12 @@ While you can override a component's style, we don't recommend doing so. antd is
 
 ## How to avoid breaking change when update version?
 
-antd will avoid breaking change in minor & patch version. You can safe do follow things:
+antd will avoid breaking change in minor & patch version. You can safely do the following things:
 
 - Official demo usage
 - FAQ suggestion. Including codesandbox sample, marked as FAQ issue
 
-And which you should avoid to do:
+And which you should avoid doing:
 
 - Bug as feature. It will break in any other case (e.g. Use div as Tabs children)
 - Use magic code to realize requirement but which can be realized with normal API
@@ -111,17 +113,23 @@ Yes, you can [import `antd` with script tag](https://ant.design/docs/react/intro
 
 If you need some features which should not be included in antd, try to extend antd's component with [HOC](https://gist.github.com/sebmarkbage/ef0bf1f338a7182b6775). [more](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.eeu8q01s1)
 
+antd will have a strict discussion on the demand for new components to prevent API corruption and become [historical debt](/docs/blog/historical-debt). And it is also more inclined to provide atomic capabilities for APIs so that developers can customize the features they need more flexibly.
+
 ## How to get the definition which is not export?
 
-antd 会透出组件定义，但是随着重构可能导致内部一些定义命名或者属性变化。因而更推荐直接使用 Typescript 原生能力获取： antd will export mainly definitions, but not export internal definitions which may be rename or changed. So we recommend you to use Typescript's native ability to get the definition if needed:
+antd expose the basic component definitions. For the unexposed props, you can get them via the utility types provided by antd. For example:
 
 ```tsx
-import { Table } from 'antd';
+import type { Checkbox, CheckboxProps, GetProp, GetProps, GetRef, Input } from 'antd';
 
-type Props<T extends (...args: any) => any> = Parameters<T>[0];
+// Get Props
+type CheckboxGroupProps = GetProps<typeof Checkbox.Group>;
 
-type TableProps = Props<typeof Table<{ key: string; name: string; age: number }>>;
-type DataSource = TableProps['dataSource'];
+// Get Prop
+type CheckboxValue = GetProp<CheckboxProps, 'value'>;
+
+// Get Ref
+type InputRef = GetRef<typeof Input>;
 ```
 
 ## Date-related components locale is not working?
@@ -129,6 +137,8 @@ type DataSource = TableProps['dataSource'];
 Please check whether you have imported dayjs locale correctly.
 
 ```jsx
+import dayjs from 'dayjs';
+
 import 'dayjs/locale/zh-cn';
 
 dayjs.locale('zh-cn');
@@ -155,27 +165,19 @@ In a real world development, you may need a `YearPicker`, `MonthRangePicker` or 
 
 Like [the explanation](https://github.com/ant-design/ant-design/issues/11586#issuecomment-429189877) explains, this is because `<DatePicker mode="year" />` does not equal the `YearPicker`, nor is `<RangePicker mode="month" />` equal to `MonthRangePicker`. The `mode` property was added to support [showing time picker panel in DatePicker](https://github.com/ant-design/ant-design/issues/5190) in antd 3.0, which simply controls the displayed panel, and won't change the original date picking behavior of `DatePicker`/`RangePicker` (for instance you will still need to click date cell to finish selection in a `DatePicker`, whatever the `mode` is).
 
-Likewise，`disabledDate` [cannot work on year/month panels](https://github.com/ant-design/ant-design/issues/9008#issuecomment-358554118) of `<DatePicker mode="year/month" />`, but only on cells of date panel.
+Likewise, `disabledDate` [cannot work on year/month panels](https://github.com/ant-design/ant-design/issues/9008#issuecomment-358554118) of `<DatePicker mode="year/month" />`, but only on cells of date panel.
 
-### Workaround
+:::success{title=Workaround} You can refer to [this article](https://juejin.im/post/5cf65c366fb9a07eca6968f9) or [this article](https://www.cnblogs.com/zyl-Tara/p/10197177.html), using `mode` and `onPanelChange` to encapsulate a `YearPicker` or `MonthRangePicker` for your needs.
 
-You can refer to [this article](https://juejin.im/post/5cf65c366fb9a07eca6968f9) or [this article](https://www.cnblogs.com/zyl-Tara/p/10197177.html), using `mode` and `onPanelChange` to encapsulate a `YearPicker` or `MonthRangePicker` for your needs.
-
-Or you can simply upgrade to [antd@4.0](https://github.com/ant-design/ant-design/issues/16911), in which we [added more XxxPickers](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884) to meet those requirements, and `disabledDate` could be effect on those pickers too.
+Or you can simply upgrade to [antd@4.0](https://github.com/ant-design/ant-design/issues/16911), in which we [added more XxxPickers](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884) to meet those requirements, and `disabledDate` could be effect on those pickers too. :::
 
 ## message/notification/Modal.confirm lost styles when set `prefixCls` on ConfigProvider?
 
 Static methods like message/notification/Modal.confirm are not using the same render tree as `<Button />`, but rendered to independent DOM node created by `ReactDOM.render`, which cannot access React context from ConfigProvider. Consider two solutions here:
 
-1. Replace original usages with [message.useMessage](/components/message/#components-message-demo-hooks), [notification.useNotification](/components/notification/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-notification) and [Modal.useModal](/components/modal/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-modalxxx).
+1. Replace original usages with [message.useMessage](/components/message/#message-demo-hooks), [notification.useNotification](/components/notification/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-notification) and [Modal.useModal](/components/modal/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-modalxxx).
 
-2. Use `ConfigProvider.config` to config `prefixCls` globally.
-
-```js
-ConfigProvider.config({
-  prefixCls: 'ant',
-});
-```
+2. Use [App.useApp](/components/app-cn#%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95) to get message/notification/modal instance.
 
 ## Why shouldn't I use component internal props or state with ref?
 
@@ -189,7 +191,7 @@ For historical reasons, the display names of the pop components are not uniform,
 
 ## Dynamic style using `:where` selector which not support old browser.
 
-Please ref dynamic theme document [Compatible Adjustment](/docs/react/customize-theme#compatible-adjustment) part.
+Please ref dynamic theme document [Legacy Browser Compatible](/docs/react/compatible-style) part.
 
 ## CSS-in-JS css priority conflict with tailwindcss?
 
@@ -197,17 +199,35 @@ Same as above. You can adjust antd css priority to override. Related issue: [#38
 
 ## How to let CSS-in-JS work with shadow DOM?
 
-Please ref document [Shadow Dom Usage](/docs/react/customize-theme#shadow-dom-usage).
+Please ref document [Shadow Dom Usage](/docs/react/compatible-style#shadow-dom-usage).
+
+## How to disable motion?
+
+Config with SeedToken:
+
+```jsx
+import { ConfigProvider } from 'antd';
+
+<ConfigProvider theme={{ token: { motion: false } }}>
+  <App />
+</ConfigProvider>;
+```
 
 ## How to support SSR？
 
-Please ref dynamic theme document [SSR](/docs/react/customize-theme#server-side-render-ssr) part.
+Please ref dynamic theme document [SSR](/docs/react/server-side-rendering) part.
+
+## What is the relationship between colorPrimary and colorInfo and colorLink in V5?
+
+In the Ant Design Token system, `colorPrimary` and `colorInfo` are both [Seed Token](../react/customize-theme.en-US.md#seed-token), so they are independent of each other. `colorLink` is an [Alias Token](../react/customize-theme.en-US.md#alias-token), inherits `colorInfo` by default, and is independent of `colorPrimary`.
 
 ## How to spell Ant Design correctly?
 
-- ✅ **Ant Design**: Capitalized with space, for the design language.
-- ✅ **antd**: all lowercase, for the React UI library.
-- ✅ **ant.design**：For ant.design website url.
+| Spelt | Usage | Pronunciation |
+| --- | --- | --- |
+| ✅ **Ant Design** | Capitalized with space, for the design language | - |
+| ✅ **antd** | All lowercase, for the React UI library | <audio controls src="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*ChCdRJ0w8SUAAAAAAAAAAAAADgCCAQ"></audio> |
+| ✅ **ant.design** | For ant.design website url | - |
 
 Here are some typical wrong examples:
 
@@ -222,3 +242,94 @@ Here are some typical wrong examples:
 ## Do you guys have any channel or website for submitting monetary donations, like through PayPal or Alipay?
 
 [https://opencollective.com/ant-design](https://opencollective.com/ant-design)
+
+## Use Form's `setFieldsValue` method to report an error if the object type contains `null`
+
+When we try to set the form value using the `setFieldsValue` method in the form instance of the form component, if the passed object contains the type null, such as:
+
+```tsx
+// This is not real world code, just for explain
+import { Form } from 'antd';
+
+type Test = {
+  value: string[] | null;
+};
+
+export default () => {
+  const [form] = Form.useForm<Test>();
+
+  form.setFieldsValue({
+    value: null, // Error: Type "null" cannot be assigned to type "string[] | undefined".
+  });
+};
+```
+
+If you encounter the above error, please check the current project `tsconfig.json` contains the following configuration:
+
+```json
+{
+  "strictNullChecks": true
+}
+```
+
+The above problem occurs if `strictNullChecks` is set to `true`, If you can determine the project don't need this configuration (see [strictNullChecks](https://www.typescriptlang.org/zh/tsconfig#strictNullChecks) to judge whether need the configuration). You can try changing to `false` to turn off the control strict check. However, if you do need to enable this feature, you can avoid this situation by using other types instead of `null` when defining types
+
+## The antd component reported an error when using the App Router of Next.js
+
+If you are using the App Router of Next.js, when you use the sub-components provided by some antd components, such as `Select.Option `, `Form.Item`, `Typography.Title`, etc., you may get the following error:
+
+```bash
+Error: Cannot access .Option on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.
+```
+
+Currently, this problem is [waiting for Next.js to give an official solution](https://github.com/vercel/next.js/issues/51593). There are two workarounds as of now if you need to use sub-components in your page with the App Router:
+
+- Create a wrapper component that extracts the sub-components that you need, and re-exports them. Take the `Typography` component as an example. A wrapper component would look something like this:
+
+```tsx
+'use client';
+
+import React from 'react';
+import { Typography as OriginTypography } from 'antd';
+import type { LinkProps } from 'antd/es/typography/Link';
+import type { ParagraphProps } from 'antd/es/typography/Paragraph';
+import type { TextProps } from 'antd/es/typography/Text';
+import type { TitleProps } from 'antd/es/typography/Title';
+
+const Title = React.forwardRef<HTMLElement, TitleProps & React.RefAttributes<HTMLElement>>(
+  (props, ref) => <OriginTypography.Title ref={ref} {...props} />,
+);
+
+const Paragraph = React.forwardRef<HTMLElement, ParagraphProps & React.RefAttributes<HTMLElement>>(
+  (props, ref) => <OriginTypography.Paragraph ref={ref} {...props} />,
+);
+
+const Link = React.forwardRef<HTMLElement, LinkProps & React.RefAttributes<HTMLElement>>(
+  (props, ref) => <OriginTypography.Link ref={ref} {...props} />,
+);
+
+const Text = React.forwardRef<HTMLElement, TextProps & React.RefAttributes<HTMLElement>>(
+  (props, ref) => <OriginTypography.Text ref={ref} {...props} />,
+);
+
+export { Title, Link, Text, Paragraph };
+```
+
+- You can also make the page fully client-rendered by adding `use client` tag at the beginning of your page's source:
+
+```tsx
+'use client';
+
+// This is not real world code, just for explain
+export default () => {
+  return (
+    <div className="App">
+      <Form>
+        <Form.Item>
+          <Button type="primary">Button</Button>
+        </Form.Item>
+      </Form>
+    </div>
+  );
+};
+```

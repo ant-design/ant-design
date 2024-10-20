@@ -1,59 +1,66 @@
-import RCTour from '@rc-component/tour';
-import classNames from 'classnames';
 import React, { useContext } from 'react';
+import RCTour from '@rc-component/tour';
+import type { TourProps as RcTourProps } from '@rc-component/tour';
+import classNames from 'classnames';
+
+import { useZIndex } from '../_util/hooks/useZIndex';
 import getPlacements from '../_util/placements';
+import zIndexContext from '../_util/zindexContext';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import theme from '../theme';
-import PurePanel from './PurePanel';
-import type { TourProps, TourStepProps } from './interface';
+import { useToken } from '../theme/internal';
+import type { TourProps } from './interface';
 import TourPanel from './panelRender';
+import PurePanel from './PurePanel';
 import useStyle from './style';
-import useMergedType from './useMergedType';
 
 const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel } = (
   props,
 ) => {
   const {
     prefixCls: customizePrefixCls,
-    current,
-    defaultCurrent,
     type,
     rootClassName,
     indicatorsRender,
     steps,
+    closeIcon,
     ...restProps
   } = props;
-  const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
+  const { getPrefixCls, direction, tour } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('tour', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
-  const { token } = theme.useToken();
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [, token] = useToken();
 
-  const { currentMergedType, updateInnerCurrent } = useMergedType({
-    defaultType: type,
-    steps,
-    current,
-    defaultCurrent,
-  });
+  const mergedSteps = React.useMemo<TourProps['steps']>(
+    () =>
+      steps?.map((step) => ({
+        ...step,
+        className: classNames(step.className, {
+          [`${prefixCls}-primary`]: (step.type ?? type) === 'primary',
+        }),
+      })),
+    [steps, type],
+  );
 
-  const builtinPlacements = getPlacements({
-    arrowPointAtCenter: true,
-    autoAdjustOverflow: true,
-    offset: token.marginXXS,
-    arrowWidth: token.sizePopupArrow,
-    borderRadius: token.borderRadius,
-  });
+  const builtinPlacements: TourProps['builtinPlacements'] = (config) =>
+    getPlacements({
+      arrowPointAtCenter: config?.arrowPointAtCenter ?? true,
+      autoAdjustOverflow: true,
+      offset: token.marginXXS,
+      arrowWidth: token.sizePopupArrow,
+      borderRadius: token.borderRadius,
+    });
 
   const customClassName = classNames(
     {
-      [`${prefixCls}-primary`]: currentMergedType === 'primary',
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     hashId,
+    cssVarCls,
     rootClassName,
   );
 
-  const mergedRenderPanel = (stepProps: TourStepProps, stepCurrent: number): React.ReactNode => (
+  const mergedRenderPanel: RcTourProps['renderPanel'] = (stepProps, stepCurrent) => (
     <TourPanel
       type={type}
       stepProps={stepProps}
@@ -62,24 +69,23 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     />
   );
 
-  const onStepChange = (stepCurrent: number) => {
-    updateInnerCurrent(stepCurrent);
-    props.onChange?.(stepCurrent);
-  };
+  // ============================ zIndex ============================
+  const [zIndex, contextZIndex] = useZIndex('Tour', restProps.zIndex);
 
-  return wrapSSR(
-    <RCTour
-      {...restProps}
-      rootClassName={customClassName}
-      prefixCls={prefixCls}
-      current={current}
-      defaultCurrent={defaultCurrent}
-      animated
-      renderPanel={mergedRenderPanel}
-      builtinPlacements={builtinPlacements}
-      onChange={onStepChange}
-      steps={steps}
-    />,
+  return wrapCSSVar(
+    <zIndexContext.Provider value={contextZIndex}>
+      <RCTour
+        {...restProps}
+        closeIcon={closeIcon ?? tour?.closeIcon}
+        zIndex={zIndex}
+        rootClassName={customClassName}
+        prefixCls={prefixCls}
+        animated
+        renderPanel={mergedRenderPanel}
+        builtinPlacements={builtinPlacements}
+        steps={mergedSteps}
+      />
+    </zIndexContext.Provider>,
   );
 };
 

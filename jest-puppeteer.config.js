@@ -1,6 +1,7 @@
 // jest-puppeteer.config.js
 module.exports = {
   launch: {
+    ignoreDefaultArgs: ['--disable-extensions'],
     args: [
       // Required for Docker version of Puppeteer
       '--no-sandbox',

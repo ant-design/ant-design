@@ -1,8 +1,8 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/ml_IN';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/ml_IN';
 import DatePicker from '../date-picker/locale/ml_IN';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/ml_IN';
 
 const typeTemplate = '${label} അസാധുവായ ${type} ആണ്';
@@ -72,9 +72,6 @@ const localeValues: Locale = {
     copy: 'കോപ്പി ചെയ്യുക',
     copied: 'കോപ്പി ചെയ്തു',
     expand: 'വികസിപ്പിക്കുക',
-  },
-  PageHeader: {
-    back: 'തിരികെ',
   },
   Form: {
     optional: '(optional)',

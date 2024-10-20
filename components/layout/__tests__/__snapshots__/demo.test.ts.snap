@@ -2,127 +2,47 @@
 
 exports[`renders components/layout/demo/basic.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
-  style="width:100%"
+  class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
 >
   <div
-    class="ant-space-item"
-    style="margin-bottom:0"
+    class="ant-layout"
+    style="border-radius:8px;overflow:hidden;width:calc(50% - 8px);max-width:calc(50% - 8px)"
   >
-    <section
-      class="ant-layout"
+    <header
+      class="ant-layout-header"
+      style="text-align:center;color:#fff;height:64px;padding-inline:48px;line-height:64px;background-color:#4096ff"
     >
-      <header
-        class="ant-layout-header"
-        style="text-align:center;color:#fff;height:64px;padding-inline:50px;line-height:64px;background-color:#7dbcea"
-      >
-        Header
-      </header>
-      <main
-        class="ant-layout-content"
-        style="text-align:center;min-height:120px;line-height:120px;color:#fff;background-color:#108ee9"
-      >
-        Content
-      </main>
-      <footer
-        class="ant-layout-footer"
-        style="text-align:center;color:#fff;background-color:#7dbcea"
-      >
-        Footer
-      </footer>
-    </section>
+      Header
+    </header>
+    <main
+      class="ant-layout-content"
+      style="text-align:center;min-height:120px;line-height:120px;color:#fff;background-color:#0958d9"
+    >
+      Content
+    </main>
+    <footer
+      class="ant-layout-footer"
+      style="text-align:center;color:#fff;background-color:#4096ff"
+    >
+      Footer
+    </footer>
   </div>
   <div
-    class="ant-space-item"
-    style="margin-bottom:0"
+    class="ant-layout"
+    style="border-radius:8px;overflow:hidden;width:calc(50% - 8px);max-width:calc(50% - 8px)"
   >
-    <section
-      class="ant-layout"
+    <header
+      class="ant-layout-header"
+      style="text-align:center;color:#fff;height:64px;padding-inline:48px;line-height:64px;background-color:#4096ff"
     >
-      <header
-        class="ant-layout-header"
-        style="text-align:center;color:#fff;height:64px;padding-inline:50px;line-height:64px;background-color:#7dbcea"
-      >
-        Header
-      </header>
-      <section
-        class="ant-layout"
-      >
-        <aside
-          class="ant-layout-sider ant-layout-sider-dark"
-          style="text-align:center;line-height:120px;color:#fff;background-color:#3ba0e9;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
-        >
-          <div
-            class="ant-layout-sider-children"
-          >
-            Sider
-          </div>
-        </aside>
-        <main
-          class="ant-layout-content"
-          style="text-align:center;min-height:120px;line-height:120px;color:#fff;background-color:#108ee9"
-        >
-          Content
-        </main>
-      </section>
-      <footer
-        class="ant-layout-footer"
-        style="text-align:center;color:#fff;background-color:#7dbcea"
-      >
-        Footer
-      </footer>
-    </section>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-bottom:0"
-  >
-    <section
-      class="ant-layout"
-    >
-      <header
-        class="ant-layout-header"
-        style="text-align:center;color:#fff;height:64px;padding-inline:50px;line-height:64px;background-color:#7dbcea"
-      >
-        Header
-      </header>
-      <section
-        class="ant-layout"
-      >
-        <main
-          class="ant-layout-content"
-          style="text-align:center;min-height:120px;line-height:120px;color:#fff;background-color:#108ee9"
-        >
-          Content
-        </main>
-        <aside
-          class="ant-layout-sider ant-layout-sider-dark"
-          style="text-align:center;line-height:120px;color:#fff;background-color:#3ba0e9;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
-        >
-          <div
-            class="ant-layout-sider-children"
-          >
-            Sider
-          </div>
-        </aside>
-      </section>
-      <footer
-        class="ant-layout-footer"
-        style="text-align:center;color:#fff;background-color:#7dbcea"
-      >
-        Footer
-      </footer>
-    </section>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <section
-      class="ant-layout"
+      Header
+    </header>
+    <div
+      class="ant-layout ant-layout-has-sider"
     >
       <aside
         class="ant-layout-sider ant-layout-sider-dark"
-        style="text-align:center;line-height:120px;color:#fff;background-color:#3ba0e9;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
+        style="text-align:center;line-height:120px;color:#fff;background-color:#1677ff;flex:0 0 25%;max-width:25%;min-width:25%;width:25%"
       >
         <div
           class="ant-layout-sider-children"
@@ -130,36 +50,381 @@ exports[`renders components/layout/demo/basic.tsx correctly 1`] = `
           Sider
         </div>
       </aside>
-      <section
-        class="ant-layout"
+      <main
+        class="ant-layout-content"
+        style="text-align:center;min-height:120px;line-height:120px;color:#fff;background-color:#0958d9"
       >
-        <header
-          class="ant-layout-header"
-          style="text-align:center;color:#fff;height:64px;padding-inline:50px;line-height:64px;background-color:#7dbcea"
+        Content
+      </main>
+    </div>
+    <footer
+      class="ant-layout-footer"
+      style="text-align:center;color:#fff;background-color:#4096ff"
+    >
+      Footer
+    </footer>
+  </div>
+  <div
+    class="ant-layout"
+    style="border-radius:8px;overflow:hidden;width:calc(50% - 8px);max-width:calc(50% - 8px)"
+  >
+    <header
+      class="ant-layout-header"
+      style="text-align:center;color:#fff;height:64px;padding-inline:48px;line-height:64px;background-color:#4096ff"
+    >
+      Header
+    </header>
+    <div
+      class="ant-layout ant-layout-has-sider"
+    >
+      <main
+        class="ant-layout-content"
+        style="text-align:center;min-height:120px;line-height:120px;color:#fff;background-color:#0958d9"
+      >
+        Content
+      </main>
+      <aside
+        class="ant-layout-sider ant-layout-sider-dark"
+        style="text-align:center;line-height:120px;color:#fff;background-color:#1677ff;flex:0 0 25%;max-width:25%;min-width:25%;width:25%"
+      >
+        <div
+          class="ant-layout-sider-children"
         >
-          Header
-        </header>
-        <main
-          class="ant-layout-content"
-          style="text-align:center;min-height:120px;line-height:120px;color:#fff;background-color:#108ee9"
+          Sider
+        </div>
+      </aside>
+    </div>
+    <footer
+      class="ant-layout-footer"
+      style="text-align:center;color:#fff;background-color:#4096ff"
+    >
+      Footer
+    </footer>
+  </div>
+  <div
+    class="ant-layout ant-layout-has-sider"
+    style="border-radius:8px;overflow:hidden;width:calc(50% - 8px);max-width:calc(50% - 8px)"
+  >
+    <aside
+      class="ant-layout-sider ant-layout-sider-dark"
+      style="text-align:center;line-height:120px;color:#fff;background-color:#1677ff;flex:0 0 25%;max-width:25%;min-width:25%;width:25%"
+    >
+      <div
+        class="ant-layout-sider-children"
+      >
+        Sider
+      </div>
+    </aside>
+    <div
+      class="ant-layout"
+    >
+      <header
+        class="ant-layout-header"
+        style="text-align:center;color:#fff;height:64px;padding-inline:48px;line-height:64px;background-color:#4096ff"
+      >
+        Header
+      </header>
+      <main
+        class="ant-layout-content"
+        style="text-align:center;min-height:120px;line-height:120px;color:#fff;background-color:#0958d9"
+      >
+        Content
+      </main>
+      <footer
+        class="ant-layout-footer"
+        style="text-align:center;color:#fff;background-color:#4096ff"
+      >
+        Footer
+      </footer>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
+<div
+  class="ant-layout"
+>
+  <header
+    class="ant-layout-header"
+    style="display:flex;align-items:center"
+  >
+    <div
+      class="demo-logo"
+    />
+    <div
+      style="margin-inline-start:24px;font-size:24px"
+    >
+      Ant Design
+    </div>
+  </header>
+  <div
+    class="ant-layout ant-layout-has-sider"
+  >
+    <aside
+      class="ant-layout-sider ant-layout-sider-dark"
+      style="flex:0 0 32px;max-width:32px;min-width:32px;width:32px"
+    >
+      <div
+        class="ant-layout-sider-children"
+      />
+    </aside>
+    <aside
+      class="ant-layout-sider ant-layout-sider-dark"
+      style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
+    >
+      <div
+        class="ant-layout-sider-children"
+      >
+        <ul
+          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+          data-menu-list="true"
+          role="menu"
+          style="border-right:0"
+          tabindex="0"
         >
-          Content
-        </main>
-        <footer
-          class="ant-layout-footer"
-          style="text-align:center;color:#fff;background-color:#7dbcea"
-        >
-          Footer
-        </footer>
-      </section>
-    </section>
+          <li
+            class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+            role="none"
+          >
+            <div
+              aria-expanded="true"
+              aria-haspopup="true"
+              class="ant-menu-submenu-title"
+              role="menuitem"
+              style="padding-left:24px"
+              tabindex="-1"
+            >
+              <span
+                aria-label="user"
+                class="anticon anticon-user ant-menu-item-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="user"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="ant-menu-title-content"
+              >
+                subnav 1
+              </span>
+              <i
+                class="ant-menu-submenu-arrow"
+              />
+            </div>
+            <ul
+              class="ant-menu ant-menu-sub ant-menu-inline"
+              data-menu-list="true"
+              role="menu"
+            >
+              <li
+                class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                role="menuitem"
+                style="padding-left:48px"
+                tabindex="-1"
+              >
+                <span
+                  class="ant-menu-title-content"
+                >
+                  option1
+                </span>
+              </li>
+              <li
+                class="ant-menu-item ant-menu-item-only-child"
+                role="menuitem"
+                style="padding-left:48px"
+                tabindex="-1"
+              >
+                <span
+                  class="ant-menu-title-content"
+                >
+                  option2
+                </span>
+              </li>
+              <li
+                class="ant-menu-item ant-menu-item-only-child"
+                role="menuitem"
+                style="padding-left:48px"
+                tabindex="-1"
+              >
+                <span
+                  class="ant-menu-title-content"
+                >
+                  option3
+                </span>
+              </li>
+              <li
+                class="ant-menu-item ant-menu-item-only-child"
+                role="menuitem"
+                style="padding-left:48px"
+                tabindex="-1"
+              >
+                <span
+                  class="ant-menu-title-content"
+                >
+                  option4
+                </span>
+              </li>
+            </ul>
+          </li>
+          <li
+            class="ant-menu-submenu ant-menu-submenu-inline"
+            role="none"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="ant-menu-submenu-title"
+              role="menuitem"
+              style="padding-left:24px"
+              tabindex="-1"
+            >
+              <span
+                aria-label="laptop"
+                class="anticon anticon-laptop ant-menu-item-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="laptop"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M956.9 845.1L896.4 632V168c0-17.7-14.3-32-32-32h-704c-17.7 0-32 14.3-32 32v464L67.9 845.1C60.4 866 75.8 888 98 888h828.8c22.2 0 37.6-22 30.1-42.9zM200.4 208h624v395h-624V208zm228.3 608l8.1-37h150.3l8.1 37H428.7zm224 0l-19.1-86.7c-.8-3.7-4.1-6.3-7.8-6.3H398.2c-3.8 0-7 2.6-7.8 6.3L371.3 816H151l42.3-149h638.2l42.3 149H652.7z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="ant-menu-title-content"
+              >
+                subnav 2
+              </span>
+              <i
+                class="ant-menu-submenu-arrow"
+              />
+            </div>
+          </li>
+          <li
+            class="ant-menu-submenu ant-menu-submenu-inline"
+            role="none"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="ant-menu-submenu-title"
+              role="menuitem"
+              style="padding-left:24px"
+              tabindex="-1"
+            >
+              <span
+                aria-label="notification"
+                class="anticon anticon-notification ant-menu-item-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="notification"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M880 112c-3.8 0-7.7.7-11.6 2.3L292 345.9H128c-8.8 0-16 7.4-16 16.6v299c0 9.2 7.2 16.6 16 16.6h101.7c-3.7 11.6-5.7 23.9-5.7 36.4 0 65.9 53.8 119.5 120 119.5 55.4 0 102.1-37.6 115.9-88.4l408.6 164.2c3.9 1.5 7.8 2.3 11.6 2.3 16.9 0 32-14.2 32-33.2V145.2C912 126.2 897 112 880 112zM344 762.3c-26.5 0-48-21.4-48-47.8 0-11.2 3.9-21.9 11-30.4l84.9 34.1c-2 24.6-22.7 44.1-47.9 44.1zm496 58.4L318.8 611.3l-12.9-5.2H184V417.9h121.9l12.9-5.2L840 203.3v617.4z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="ant-menu-title-content"
+              >
+                subnav 3
+              </span>
+              <i
+                class="ant-menu-submenu-arrow"
+              />
+            </div>
+          </li>
+        </ul>
+        <div
+          aria-hidden="true"
+          style="display:none"
+        />
+      </div>
+    </aside>
+    <div
+      class="ant-layout"
+      style="padding:0 24px 24px"
+    >
+      <nav
+        class="ant-breadcrumb"
+        style="margin:16px 0"
+      >
+        <ol>
+          <li>
+            <span
+              class="ant-breadcrumb-link"
+            >
+              Home
+            </span>
+          </li>
+          <li
+            aria-hidden="true"
+            class="ant-breadcrumb-separator"
+          >
+            /
+          </li>
+          <li>
+            <span
+              class="ant-breadcrumb-link"
+            >
+              List
+            </span>
+          </li>
+          <li
+            aria-hidden="true"
+            class="ant-breadcrumb-separator"
+          >
+            /
+          </li>
+          <li>
+            <span
+              class="ant-breadcrumb-link"
+            >
+              App
+            </span>
+          </li>
+        </ol>
+      </nav>
+      <main
+        class="ant-layout-content"
+        style="padding:24px;margin:0;min-height:280px;background:#f5f5f5;border-radius:8px"
+      >
+        Content
+      </main>
+    </div>
   </div>
 </div>
 `;
 
 exports[`renders components/layout/demo/custom-trigger.tsx correctly 1`] = `
-<section
-  class="ant-layout"
+<div
+  class="ant-layout ant-layout-has-sider"
 >
   <aside
     class="ant-layout-sider ant-layout-sider-dark"
@@ -169,7 +434,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx correctly 1`] = `
       class="ant-layout-sider-children"
     >
       <div
-        class="logo"
+        class="demo-logo-vertical"
       />
       <ul
         class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
@@ -277,7 +542,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx correctly 1`] = `
       />
     </div>
   </aside>
-  <section
+  <div
     class="ant-layout"
   >
     <header
@@ -285,56 +550,61 @@ exports[`renders components/layout/demo/custom-trigger.tsx correctly 1`] = `
       style="padding:0;background:#ffffff"
     >
       <button
-        class="ant-btn ant-btn-text ant-btn-icon-only"
+        class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-icon-only"
         style="font-size:16px;width:64px;height:64px"
         type="button"
       >
         <span
-          aria-label="menu-fold"
-          class="anticon anticon-menu-fold"
-          role="img"
+          class="ant-btn-icon"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="menu-fold"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="menu-fold"
+            class="anticon anticon-menu-fold"
+            role="img"
           >
-            <path
-              d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              data-icon="menu-fold"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
+              />
+            </svg>
+          </span>
         </span>
       </button>
     </header>
     <main
       class="ant-layout-content"
-      style="margin:24px 16px;padding:24px;min-height:280px;background:#ffffff"
+      style="margin:24px 16px;padding:24px;min-height:280px;background:#ffffff;border-radius:8px"
     >
       Content
     </main>
-  </section>
-</section>
+  </div>
+</div>
 `;
 
 exports[`renders components/layout/demo/fixed.tsx correctly 1`] = `
-<section
+<div
   class="ant-layout"
 >
   <header
     class="ant-layout-header"
-    style="position:sticky;top:0;z-index:1;width:100%"
+    style="position:sticky;top:0;z-index:1;width:100%;display:flex;align-items:center"
   >
     <div
-      style="float:left;width:120px;height:31px;margin:16px 24px 16px 0;background:rgba(255, 255, 255, 0.2)"
+      class="demo-logo"
     />
     <ul
       class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
       data-menu-list="true"
       role="menu"
+      style="flex:1;min-width:0"
       tabindex="0"
     >
       <li
@@ -417,8 +687,8 @@ exports[`renders components/layout/demo/fixed.tsx correctly 1`] = `
     />
   </header>
   <main
-    class="ant-layout-content site-layout"
-    style="padding:0 50px"
+    class="ant-layout-content"
+    style="padding:0 48px"
   >
     <nav
       class="ant-breadcrumb"
@@ -461,7 +731,7 @@ exports[`renders components/layout/demo/fixed.tsx correctly 1`] = `
       </ol>
     </nav>
     <div
-      style="padding:24px;min-height:380px;background:#ffffff"
+      style="padding:24px;min-height:380px;background:#ffffff;border-radius:8px"
     >
       Content
     </div>
@@ -470,24 +740,28 @@ exports[`renders components/layout/demo/fixed.tsx correctly 1`] = `
     class="ant-layout-footer"
     style="text-align:center"
   >
-    Ant Design ©2023 Created by Ant UED
+    Ant Design ©
+    <!-- -->
+    2016
+    <!-- -->
+     Created by Ant UED
   </footer>
-</section>
+</div>
 `;
 
 exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
-<section
+<div
   class="ant-layout ant-layout-has-sider"
 >
   <aside
     class="ant-layout-sider ant-layout-sider-dark"
-    style="overflow:auto;height:100vh;position:fixed;left:0;top:0;bottom:0;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
+    style="overflow:auto;height:100vh;position:fixed;inset-inline-start:0;top:0;bottom:0;scrollbar-width:thin;scrollbar-gutter:stable;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
   >
     <div
       class="ant-layout-sider-children"
     >
       <div
-        style="height:32px;margin:16px;background:rgba(255, 255, 255, 0.2)"
+        class="demo-logo-vertical"
       />
       <ul
         class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
@@ -750,9 +1024,9 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
       />
     </div>
   </aside>
-  <section
-    class="ant-layout site-layout"
-    style="margin-left:200px"
+  <div
+    class="ant-layout"
+    style="margin-inline-start:200px"
   >
     <header
       class="ant-layout-header"
@@ -763,7 +1037,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
       style="margin:24px 16px 0;overflow:initial"
     >
       <div
-        style="padding:24px;text-align:center;background:#ffffff"
+        style="padding:24px;text-align:center;background:#ffffff;border-radius:8px"
       >
         <p>
           long content
@@ -974,15 +1248,19 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
       class="ant-layout-footer"
       style="text-align:center"
     >
-      Ant Design ©2023 Created by Ant UED
+      Ant Design ©
+      <!-- -->
+      2016
+      <!-- -->
+       Created by Ant UED
     </footer>
-  </section>
-</section>
+  </div>
+</div>
 `;
 
 exports[`renders components/layout/demo/responsive.tsx correctly 1`] = `
-<section
-  class="ant-layout"
+<div
+  class="ant-layout ant-layout-has-sider"
 >
   <aside
     class="ant-layout-sider ant-layout-sider-dark"
@@ -992,7 +1270,7 @@ exports[`renders components/layout/demo/responsive.tsx correctly 1`] = `
       class="ant-layout-sider-children"
     >
       <div
-        class="logo"
+        class="demo-logo-vertical"
       />
       <ul
         class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
@@ -1131,7 +1409,7 @@ exports[`renders components/layout/demo/responsive.tsx correctly 1`] = `
       />
     </div>
   </aside>
-  <section
+  <div
     class="ant-layout"
   >
     <header
@@ -1143,7 +1421,7 @@ exports[`renders components/layout/demo/responsive.tsx correctly 1`] = `
       style="margin:24px 16px 0"
     >
       <div
-        style="padding:24px;min-height:360px;background:#ffffff"
+        style="padding:24px;min-height:360px;background:#ffffff;border-radius:8px"
       >
         content
       </div>
@@ -1152,15 +1430,19 @@ exports[`renders components/layout/demo/responsive.tsx correctly 1`] = `
       class="ant-layout-footer"
       style="text-align:center"
     >
-      Ant Design ©2023 Created by Ant UED
+      Ant Design ©
+      <!-- -->
+      2016
+      <!-- -->
+       Created by Ant UED
     </footer>
-  </section>
-</section>
+  </div>
+</div>
 `;
 
 exports[`renders components/layout/demo/side.tsx correctly 1`] = `
-<section
-  class="ant-layout"
+<div
+  class="ant-layout ant-layout-has-sider"
   style="min-height:100vh"
 >
   <aside
@@ -1171,7 +1453,7 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
       class="ant-layout-sider-children"
     >
       <div
-        style="height:32px;margin:16px;background:rgba(255, 255, 255, 0.2)"
+        class="demo-logo-vertical"
       />
       <ul
         class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
@@ -1385,8 +1667,8 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
       </span>
     </div>
   </aside>
-  <section
-    class="ant-layout site-layout"
+  <div
+    class="ant-layout"
   >
     <header
       class="ant-layout-header"
@@ -1424,7 +1706,7 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
         </ol>
       </nav>
       <div
-        style="padding:24px;min-height:360px;background:#ffffff"
+        style="padding:24px;min-height:360px;background:#ffffff;border-radius:8px"
       >
         Bill is a cat.
       </div>
@@ -1433,26 +1715,32 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
       class="ant-layout-footer"
       style="text-align:center"
     >
-      Ant Design ©2023 Created by Ant UED
+      Ant Design ©
+      <!-- -->
+      2016
+      <!-- -->
+       Created by Ant UED
     </footer>
-  </section>
-</section>
+  </div>
+</div>
 `;
 
 exports[`renders components/layout/demo/top.tsx correctly 1`] = `
-<section
-  class="ant-layout layout"
+<div
+  class="ant-layout"
 >
   <header
     class="ant-layout-header"
+    style="display:flex;align-items:center"
   >
     <div
-      class="logo"
+      class="demo-logo"
     />
     <ul
       class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
       data-menu-list="true"
       role="menu"
+      style="flex:1;min-width:0"
       tabindex="0"
     >
       <li
@@ -1680,7 +1968,7 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
   </header>
   <main
     class="ant-layout-content"
-    style="padding:0 50px"
+    style="padding:0 48px"
   >
     <nav
       class="ant-breadcrumb"
@@ -1723,8 +2011,7 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
       </ol>
     </nav>
     <div
-      class="site-layout-content"
-      style="background:#ffffff"
+      style="background:#ffffff;min-height:280px;padding:24px;border-radius:8px"
     >
       Content
     </div>
@@ -1733,25 +2020,31 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
     class="ant-layout-footer"
     style="text-align:center"
   >
-    Ant Design ©2023 Created by Ant UED
+    Ant Design ©
+    <!-- -->
+    2016
+    <!-- -->
+     Created by Ant UED
   </footer>
-</section>
+</div>
 `;
 
 exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
-<section
+<div
   class="ant-layout"
 >
   <header
-    class="ant-layout-header header"
+    class="ant-layout-header"
+    style="display:flex;align-items:center"
   >
     <div
-      class="logo"
+      class="demo-logo"
     />
     <ul
       class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
       data-menu-list="true"
       role="menu"
+      style="flex:1;min-width:0"
       tabindex="0"
     >
       <li
@@ -1835,7 +2128,7 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
   </header>
   <main
     class="ant-layout-content"
-    style="padding:0 50px"
+    style="padding:0 48px"
   >
     <nav
       class="ant-breadcrumb"
@@ -1877,9 +2170,9 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
         </li>
       </ol>
     </nav>
-    <section
-      class="ant-layout"
-      style="padding:24px 0;background:#ffffff"
+    <div
+      class="ant-layout ant-layout-has-sider"
+      style="padding:24px 0;background:#ffffff;border-radius:8px"
     >
       <aside
         class="ant-layout-sider ant-layout-sider-dark"
@@ -2085,31 +2378,37 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
       >
         Content
       </main>
-    </section>
+    </div>
   </main>
   <footer
     class="ant-layout-footer"
     style="text-align:center"
   >
-    Ant Design ©2023 Created by Ant UED
+    Ant Design ©
+    <!-- -->
+    2016
+    <!-- -->
+     Created by Ant UED
   </footer>
-</section>
+</div>
 `;
 
 exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
-<section
+<div
   class="ant-layout"
 >
   <header
-    class="ant-layout-header header"
+    class="ant-layout-header"
+    style="display:flex;align-items:center"
   >
     <div
-      class="logo"
+      class="demo-logo"
     />
     <ul
       class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
       data-menu-list="true"
       role="menu"
+      style="flex:1;min-width:0"
       tabindex="0"
     >
       <li
@@ -2191,8 +2490,8 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
       style="display:none"
     />
   </header>
-  <section
-    class="ant-layout"
+  <div
+    class="ant-layout ant-layout-has-sider"
   >
     <aside
       class="ant-layout-sider ant-layout-sider-dark"
@@ -2392,7 +2691,7 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
         />
       </div>
     </aside>
-    <section
+    <div
       class="ant-layout"
       style="padding:0 24px 24px"
     >
@@ -2438,11 +2737,11 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
       </nav>
       <main
         class="ant-layout-content"
-        style="padding:24px;margin:0;min-height:280px;background:#ffffff"
+        style="padding:24px;margin:0;min-height:280px;background:#ffffff;border-radius:8px"
       >
         Content
       </main>
-    </section>
-  </section>
-</section>
+    </div>
+  </div>
+</div>
 `;

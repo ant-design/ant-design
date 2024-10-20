@@ -9,9 +9,15 @@ Array [
   <strong
     class="site-back-top-basic"
   >
-     gray
+     gray 
   </strong>,
   button.,
+]
+`;
+
+exports[`renders components/back-top/demo/basic.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: BackTop] \`BackTop\` is deprecated. Please use \`FloatButton.BackTop\` instead.",
 ]
 `;
 
@@ -44,4 +50,10 @@ exports[`renders components/back-top/demo/custom.tsx extend context correctly 1`
     class="ant-back-top"
   />
 </div>
+`;
+
+exports[`renders components/back-top/demo/custom.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: BackTop] \`BackTop\` is deprecated. Please use \`FloatButton.BackTop\` instead.",
+]
 `;

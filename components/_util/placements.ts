@@ -1,6 +1,6 @@
-/* eslint-disable default-case */
 import type { AlignType, BuildInPlacements } from '@rc-component/trigger';
-import { getArrowOffset } from '../style/placementArrow';
+
+import { getArrowOffsetToken } from '../style/placementArrow';
 
 export interface AdjustOverflow {
   adjustX?: 0 | 1;
@@ -13,11 +13,12 @@ export interface PlacementsConfig {
   autoAdjustOverflow?: boolean | AdjustOverflow;
   offset: number;
   borderRadius: number;
+  visibleFirst?: boolean;
 }
 
 export function getOverflowOptions(
   placement: string,
-  arrowOffset: ReturnType<typeof getArrowOffset>,
+  arrowOffset: ReturnType<typeof getArrowOffsetToken>,
   arrowWidth: number,
   autoAdjustOverflow?: boolean | AdjustOverflow,
 ) {
@@ -36,12 +37,16 @@ export function getOverflowOptions(
   switch (placement) {
     case 'top':
     case 'bottom':
-      baseOverflow.shiftX = arrowOffset.dropdownArrowOffset * 2 + arrowWidth;
+      baseOverflow.shiftX = arrowOffset.arrowOffsetHorizontal * 2 + arrowWidth;
+      baseOverflow.shiftY = true;
+      baseOverflow.adjustY = true;
       break;
 
     case 'left':
     case 'right':
-      baseOverflow.shiftY = arrowOffset.dropdownArrowOffsetVertical * 2 + arrowWidth;
+      baseOverflow.shiftY = arrowOffset.arrowOffsetVertical * 2 + arrowWidth;
+      baseOverflow.shiftX = true;
+      baseOverflow.adjustX = true;
       break;
   }
 
@@ -141,7 +146,8 @@ const DisableAutoArrowList: Set<keyof BuildInPlacements> = new Set([
 ]);
 
 export default function getPlacements(config: PlacementsConfig) {
-  const { arrowWidth, autoAdjustOverflow, arrowPointAtCenter, offset, borderRadius } = config;
+  const { arrowWidth, autoAdjustOverflow, arrowPointAtCenter, offset, borderRadius, visibleFirst } =
+    config;
   const halfArrowWidth = arrowWidth / 2;
 
   const placementMap: BuildInPlacements = {};
@@ -153,6 +159,7 @@ export default function getPlacements(config: PlacementsConfig) {
     const placementInfo = {
       ...template,
       offset: [0, 0],
+      dynamicInset: true,
     };
     placementMap[key] = placementInfo;
 
@@ -189,7 +196,7 @@ export default function getPlacements(config: PlacementsConfig) {
     }
 
     // Dynamic offset
-    const arrowOffset = getArrowOffset({
+    const arrowOffset = getArrowOffsetToken({
       contentRadius: borderRadius,
       limitVerticalRadius: true,
     });
@@ -198,28 +205,33 @@ export default function getPlacements(config: PlacementsConfig) {
       switch (key) {
         case 'topLeft':
         case 'bottomLeft':
-          placementInfo.offset[0] = -arrowOffset.dropdownArrowOffset - halfArrowWidth;
+          placementInfo.offset[0] = -arrowOffset.arrowOffsetHorizontal - halfArrowWidth;
           break;
 
         case 'topRight':
         case 'bottomRight':
-          placementInfo.offset[0] = arrowOffset.dropdownArrowOffset + halfArrowWidth;
+          placementInfo.offset[0] = arrowOffset.arrowOffsetHorizontal + halfArrowWidth;
           break;
 
         case 'leftTop':
         case 'rightTop':
-          placementInfo.offset[1] = -arrowOffset.dropdownArrowOffset - halfArrowWidth;
+          placementInfo.offset[1] = -arrowOffset.arrowOffsetHorizontal * 2 + halfArrowWidth;
           break;
 
         case 'leftBottom':
         case 'rightBottom':
-          placementInfo.offset[1] = arrowOffset.dropdownArrowOffset + halfArrowWidth;
+          placementInfo.offset[1] = arrowOffset.arrowOffsetHorizontal * 2 - halfArrowWidth;
           break;
       }
     }
 
     // Overflow
     placementInfo.overflow = getOverflowOptions(key, arrowOffset, arrowWidth, autoAdjustOverflow);
+
+    // VisibleFirst
+    if (visibleFirst) {
+      placementInfo.htmlRegion = 'visibleFirst';
+    }
   });
 
   return placementMap;

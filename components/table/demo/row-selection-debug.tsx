@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Table, InputNumber } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
-import type { TableRowSelection } from 'antd/es/table/interface';
+import { InputNumber, Table } from 'antd';
+import type { TableColumnsType, TableProps } from 'antd';
 
-const RenderTimes = () => {
+type TableRowSelection<T extends object = object> = TableProps<T>['rowSelection'];
+
+const RenderTimes: React.FC = () => {
   const timesRef = React.useRef(0);
   timesRef.current += 1;
-
   return <span>{timesRef.current}</span>;
 };
 
@@ -17,9 +17,9 @@ interface DataType {
   address: string;
 }
 
-const shouldCellUpdate = (record: any, prevRecord: any) => record !== prevRecord;
+const shouldCellUpdate = (record: DataType, prevRecord: DataType) => record !== prevRecord;
 
-const columns: ColumnsType<DataType> = [
+const columns: TableColumnsType<DataType> = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -43,23 +43,17 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-function genData(count: number) {
-  const data: DataType[] = [];
-
-  for (let i = 0; i < count; i++) {
-    data.push({
-      key: i,
-      name: `Edward King ${i}`,
-      age: 32,
-      address: `London, Park Lane no. ${i}`,
-    });
-  }
-
-  return data;
+function genData(length: number) {
+  return Array.from({ length }).map<DataType>((_, i) => ({
+    key: i,
+    name: `Edward King ${i}`,
+    age: 32,
+    address: `London, Park Lane no. ${i}`,
+  }));
 }
 
 const App: React.FC = () => {
-  const [data, setData] = useState(genData(50));
+  const [data, setData] = useState<DataType[]>(genData(50));
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
 
   const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
@@ -80,7 +74,12 @@ const App: React.FC = () => {
           setData(genData(cnt || 0));
         }}
       />
-      <Table rowSelection={rowSelection} columns={columns} dataSource={data} pagination={false} />
+      <Table<DataType>
+        rowSelection={rowSelection}
+        columns={columns}
+        dataSource={data}
+        pagination={false}
+      />
     </>
   );
 };

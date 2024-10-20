@@ -39,7 +39,7 @@ const genFormValidateMotionStyle: GenerateStyle<FormToken> = (token) => {
           transform: `translateY(-5px)`,
           opacity: 0,
 
-          [`&-active`]: {
+          '&-active': {
             transform: 'translateY(0)',
             opacity: 1,
           },

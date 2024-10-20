@@ -1,20 +1,23 @@
-import classNames from 'classnames';
-import { composeRef, supportRef } from 'rc-util/lib/ref';
-import isVisible from 'rc-util/lib/Dom/isVisible';
 import React, { useContext, useRef } from 'react';
+import classNames from 'classnames';
+import isVisible from 'rc-util/lib/Dom/isVisible';
+import { composeRef, supportRef } from 'rc-util/lib/ref';
+
 import type { ConfigConsumerProps } from '../../config-provider';
 import { ConfigContext } from '../../config-provider';
 import { cloneElement } from '../reactNode';
+import type { WaveComponent } from './interface';
 import useStyle from './style';
 import useWave from './useWave';
 
 export interface WaveProps {
   disabled?: boolean;
   children?: React.ReactNode;
+  component?: WaveComponent;
 }
 
 const Wave: React.FC<WaveProps> = (props) => {
-  const { children, disabled } = props;
+  const { children, disabled, component } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const containerRef = useRef<HTMLElement>(null);
 
@@ -23,7 +26,7 @@ const Wave: React.FC<WaveProps> = (props) => {
   const [, hashId] = useStyle(prefixCls);
 
   // =============================== Wave ===============================
-  const showWave = useWave(containerRef, classNames(prefixCls, hashId));
+  const showWave = useWave(containerRef, classNames(prefixCls, hashId), component);
 
   // ============================== Effect ==============================
   React.useEffect(() => {
@@ -36,7 +39,6 @@ const Wave: React.FC<WaveProps> = (props) => {
     const onClick = (e: MouseEvent) => {
       // Fix radio button click twice
       if (
-        (e.target as HTMLElement).tagName === 'INPUT' ||
         !isVisible(e.target as HTMLElement) ||
         // No need wave
         !node.getAttribute ||
@@ -47,8 +49,7 @@ const Wave: React.FC<WaveProps> = (props) => {
       ) {
         return;
       }
-
-      showWave();
+      showWave(e);
     };
 
     // Bind events
@@ -60,7 +61,7 @@ const Wave: React.FC<WaveProps> = (props) => {
 
   // ============================== Render ==============================
   if (!React.isValidElement(children)) {
-    return (children ?? null) as unknown as React.ReactElement;
+    return children ?? null;
   }
 
   const ref = supportRef(children) ? composeRef((children as any).ref, containerRef) : containerRef;

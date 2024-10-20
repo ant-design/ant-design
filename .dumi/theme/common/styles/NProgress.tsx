@@ -1,9 +1,9 @@
-import { css, Global } from '@emotion/react';
 import React from 'react';
-import useSiteToken from '../../../hooks/useSiteToken';
+import { css, Global } from '@emotion/react';
+import { useTheme } from 'antd-style';
 
 export default () => {
-  const { token } = useSiteToken();
+  const token = useTheme();
   return (
     <Global
       styles={css`
@@ -13,7 +13,9 @@ export default () => {
           }
 
           .peg {
-            box-shadow: 0 0 10px ${token.colorPrimary}, 0 0 5px ${token.colorPrimary};
+            box-shadow:
+              0 0 10px ${token.colorPrimary},
+              0 0 5px ${token.colorPrimary};
           }
 
           .spinner-icon {

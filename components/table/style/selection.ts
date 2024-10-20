@@ -1,4 +1,6 @@
+import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { GenerateStyle } from '../../theme/internal';
 import type { TableToken } from './index';
 
@@ -10,9 +12,14 @@ const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     fontSizeIcon,
     padding,
     paddingXS,
-    tableHeaderIconColor,
-    tableHeaderIconColorHover,
+    headerIconColor,
+    headerIconHoverColor,
     tableSelectionColumnWidth,
+    tableSelectedRowBg,
+    tableSelectedRowHoverBg,
+    tableRowHoverBg,
+    tablePaddingHorizontal,
+    calc,
   } = token;
 
   return {
@@ -21,20 +28,28 @@ const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       [`${componentCls}-selection-col`]: {
         width: tableSelectionColumnWidth,
         [`&${componentCls}-selection-col-with-dropdown`]: {
-          width: tableSelectionColumnWidth + fontSizeIcon + padding / 4,
+          width: calc(tableSelectionColumnWidth)
+            .add(fontSizeIcon)
+            .add(calc(padding).div(4))
+            .equal(),
         },
       },
 
       [`${componentCls}-bordered ${componentCls}-selection-col`]: {
-        width: tableSelectionColumnWidth + paddingXS * 2,
+        width: calc(tableSelectionColumnWidth).add(calc(paddingXS).mul(2)).equal(),
         [`&${componentCls}-selection-col-with-dropdown`]: {
-          width: tableSelectionColumnWidth + fontSizeIcon + padding / 4 + paddingXS * 2,
+          width: calc(tableSelectionColumnWidth)
+            .add(fontSizeIcon)
+            .add(calc(padding).div(4))
+            .add(calc(paddingXS).mul(2))
+            .equal(),
         },
       },
 
       [`
         table tr th${componentCls}-selection-column,
-        table tr td${componentCls}-selection-column
+        table tr td${componentCls}-selection-column,
+        ${componentCls}-selection-column
       `]: {
         paddingInlineEnd: token.paddingXS,
         paddingInlineStart: token.paddingXS,
@@ -46,7 +61,7 @@ const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       },
 
       [`table tr th${componentCls}-selection-column${componentCls}-cell-fix-left`]: {
-        zIndex: token.zIndexTableFixed + 1,
+        zIndex: calc(token.zIndexTableFixed).add(1).equal({ unit: false }),
       },
 
       [`table tr th${componentCls}-selection-column::after`]: {
@@ -66,15 +81,34 @@ const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         cursor: 'pointer',
         transition: `all ${token.motionDurationSlow}`,
         marginInlineStart: '100%',
-        paddingInlineStart: `${token.tablePaddingHorizontal / 4}px`,
+        paddingInlineStart: unit(calc(tablePaddingHorizontal).div(4).equal()),
 
         [iconCls]: {
-          color: tableHeaderIconColor,
+          color: headerIconColor,
           fontSize: fontSizeIcon,
           verticalAlign: 'baseline',
 
           '&:hover': {
-            color: tableHeaderIconColorHover,
+            color: headerIconHoverColor,
+          },
+        },
+      },
+
+      // ============================= Rows =============================
+      [`${componentCls}-tbody`]: {
+        [`${componentCls}-row`]: {
+          [`&${componentCls}-row-selected`]: {
+            [`> ${componentCls}-cell`]: {
+              background: tableSelectedRowBg,
+
+              '&-row-hover': {
+                background: tableSelectedRowHoverBg,
+              },
+            },
+          },
+
+          [`> ${componentCls}-cell-row-hover`]: {
+            background: tableRowHoverBg,
           },
         },
       },

@@ -1,12 +1,11 @@
 import React from 'react';
-import { Simulate } from 'react-dom/test-utils';
+import { CheckCircleOutlined } from '@ant-design/icons';
 
 import Tag from '..';
 import { resetWarned } from '../../_util/warning';
-
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, render, fireEvent } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 
 (global as any).isVisible = true;
 
@@ -23,9 +22,9 @@ function waitRaf() {
 
 describe('Tag', () => {
   mountTest(Tag);
-  mountTest(Tag.CheckableTag);
+  mountTest(() => <Tag.CheckableTag checked={false} />);
   rtlTest(Tag);
-  rtlTest(Tag.CheckableTag);
+  rtlTest(() => <Tag.CheckableTag checked={false} />);
 
   beforeAll(() => {
     jest.useFakeTimers();
@@ -62,40 +61,47 @@ describe('Tag', () => {
     expect(container.querySelectorAll('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
   });
 
-  it('should trigger onClick', () => {
-    const onClick = jest.fn();
-    const { container } = render(<Tag onClick={onClick} />);
-    const target = container.querySelectorAll('.ant-tag')[0];
-    Simulate.click(target);
-    expect(onClick).toHaveBeenCalledWith(
-      expect.objectContaining({
-        type: 'click',
-        target,
-        preventDefault: expect.any(Function),
-        nativeEvent: {
-          type: 'click',
-          target,
-        },
-      }),
+  it('show close button by closeIcon', () => {
+    const { container } = render(
+      <>
+        <Tag className="tag1" closable closeIcon="close" />
+        <Tag className="tag2" closable closeIcon />
+        <Tag className="tag3" closable closeIcon={false} />
+        <Tag className="tag4" closable closeIcon={null} />
+        <Tag className="tag5" closable={false} closeIcon="close" />
+        <Tag className="tag6" closable={false} closeIcon />
+        <Tag className="tag7" closable={false} closeIcon={false} />
+        <Tag className="tag8" closable={false} closeIcon={null} />
+        <Tag className="tag9" closeIcon="close" />
+        <Tag className="tag10" closeIcon />
+        <Tag className="tag11" closeIcon={false} />
+        <Tag className="tag12" closeIcon={null} />
+      </>,
     );
+
+    expect(container.querySelectorAll('.ant-tag-close-icon').length).toBe(6);
+    ['tag1', 'tag2', 'tag3', 'tag4', 'tag9', 'tag10'].forEach((tag) => {
+      expect(container.querySelector(`.${tag} .ant-tag-close-icon`)).toBeTruthy();
+    });
+    ['tag5', 'tag6', 'tag7', 'tag8', 'tag11', 'tag12'].forEach((tag) => {
+      expect(container.querySelector(`.${tag} .ant-tag-close-icon`)).toBeFalsy();
+    });
   });
 
-  it('should trigger onClick on CheckableTag', () => {
+  it('should trigger onClick on Tag', () => {
+    const onClick = jest.fn();
+    const { container } = render(<Tag onClick={onClick} />);
+    const tagElement = container.querySelector<HTMLSpanElement>('.ant-tag')!;
+    fireEvent.click(tagElement);
+    expect(onClick).toHaveBeenCalled();
+  });
+
+  it('should trigger onClick on Tag.CheckableTag', () => {
     const onClick = jest.fn();
     const { container } = render(<Tag.CheckableTag checked={false} onClick={onClick} />);
-    const target = container.querySelectorAll('.ant-tag')[0];
-    Simulate.click(target);
-    expect(onClick).toHaveBeenCalledWith(
-      expect.objectContaining({
-        type: 'click',
-        target,
-        preventDefault: expect.any(Function),
-        nativeEvent: {
-          type: 'click',
-          target,
-        },
-      }),
-    );
+    const tagElement = container.querySelector<HTMLSpanElement>('.ant-tag')!;
+    fireEvent.click(tagElement);
+    expect(onClick).toHaveBeenCalled();
   });
 
   // https://github.com/ant-design/ant-design/issues/20344
@@ -108,13 +114,18 @@ describe('Tag', () => {
     expect(onClick).not.toHaveBeenCalled();
   });
 
+  it('should only render icon when no children', () => {
+    const { container } = render(<Tag icon={<CheckCircleOutlined />} />);
+    expect(container.querySelector('.ant-tag ')?.childElementCount).toBe(1);
+  });
+
   it('deprecated warning', () => {
     resetWarned();
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const { container } = render(<Tag visible={false} />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tag] `visible` is deprecated, please use `visible && <Tag />` instead.',
+      'Warning: [antd: Tag] `visible` is deprecated. Please use `visible && <Tag />` instead.',
     );
     expect(container.querySelector('.ant-tag-hidden')).toBeTruthy();
 
@@ -164,11 +175,33 @@ describe('Tag', () => {
       fireEvent.click(container.querySelectorAll('.ant-tag')[0]);
       expect(onChange).toHaveBeenCalledWith(true);
     });
+
+    it('should support ref', () => {
+      const ref = React.createRef<HTMLSpanElement>();
+      const { container } = render(
+        <Tag.CheckableTag checked={false} ref={ref}>
+          Tag Text
+        </Tag.CheckableTag>,
+      );
+      const refElement = ref.current;
+      const queryTarget = container.querySelector('.ant-tag');
+      expect(refElement instanceof HTMLSpanElement).toBe(true);
+      expect(refElement?.textContent).toBe('Tag Text');
+      expect(queryTarget?.textContent).toBe('Tag Text');
+      expect(refElement).toBe(queryTarget);
+    });
   });
   it('should onClick is undefined', async () => {
     const { container } = render(<Tag onClick={undefined} />);
     fireEvent.click(container.querySelectorAll('.ant-tag')[0]);
     waitRaf();
     expect(document.querySelector('.ant-wave')).toBeFalsy();
+  });
+  it('should support aria-* in closable', () => {
+    const { container } = render(<Tag closable={{ closeIcon: 'X', 'aria-label': 'CloseBtn' }} />);
+    expect(container.querySelector('.ant-tag-close-icon')?.getAttribute('aria-label')).toEqual(
+      'CloseBtn',
+    );
+    expect(container.querySelector('.ant-tag-close-icon')?.textContent).toEqual('X');
   });
 });

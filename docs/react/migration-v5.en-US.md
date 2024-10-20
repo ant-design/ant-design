@@ -1,5 +1,8 @@
 ---
-order: 8
+group:
+  title: Migration
+  order: 2
+order: 0
 title: V4 to V5
 ---
 
@@ -14,7 +17,7 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
 ### Design specification
 
 - Basic rounded corner adjustment, changed from `2px` to four layers of radius, which are `2px` `4px` `6px` and `8px`. For example, radius of default Button is modified from `2px` to `6px`.
-- Primary color adjustment, changed from <ColorChunk color="#1890ff" /></ColorChunk> to <ColorChunk color="#1677ff" /></ColorChunk>.
+- Primary color adjustment, changed from `#1890ff` to `#1677ff`.
 - Global shadow optimization, adjusted from three layers of shadows to two layers, which are used in common components (Card .e.g) and popup components (Dropdown .e.g).
 - Overall reduction in wireframe usage.
 
@@ -22,7 +25,7 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
 
 - Remove less, adopt CSS-in-JS, for better support of dynamic themes. The bottom layer uses [@ant-design/cssinjs](https://github.com/ant-design/cssinjs) as a solution.
   - All less files are removed, and less variables are no longer exported.
-  - Css files are no longer included in package. Since CSS-in-JS supports importing on demand, the original `antd/dist/antd.css` has also been abandoned. If you need to reset some basic styles, please import `antd/dist/reset.css`.
+  - CSS files are no longer included in package. Since CSS-in-JS supports importing on demand, the original `antd/dist/antd.css` has also been abandoned. If you need to reset some basic styles, please import `antd/dist/reset.css`.
   - If you need to reset the style of the component, but you don't want to introduce `antd/dist/reset.css` to pollute the global style, You can try using the [App](/components/app) in the outermost layer to solve the problem that native elements do not have antd specification style.
 - Remove css variables and dynamic theme built on top of them.
 - LocaleProvider has been deprecated in 4.x (use `<ConfigProvider locale />` instead), we removed the related folder `antd/es/locale-provider` and `antd/lib/locale-provider` in 5.x.
@@ -129,7 +132,7 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
   ```diff
   - import { PageHeader, Comment } from 'antd';
   + import { Comment } from '@ant-design/compatible';
-  + import { PageHeader } from '@ant-design/pro-layout';
+  + import { PageHeader } from '@ant-design/pro-components';
 
     const App: React.FC = () => (
       <>
@@ -165,11 +168,11 @@ Use git to save your code and install latest version:
 npm install --save antd@5.x
 ```
 
-If you want to use v4 deprecated component like `Comment` or `PageHeader`. You can install `@ant-design/compatible` and `@ant-design/pro-layout` for compatible:
+If you want to use v4 deprecated component like `Comment` or `PageHeader`. You can install `@ant-design/compatible` and `@ant-design/pro-components` for compatible:
 
 ```bash
 npm install --save @ant-design/compatible@v5-compatible-v4
-npm install --save @ant-design/pro-layout
+npm install --save @ant-design/pro-components
 ```
 
 You can manually check the code one by one against the above list for modification. In addition, we also provide a codemod cli tool [@ant-design/codemod-v5](https://github.com/ant-design/codemod-v5) To help you quickly upgrade to v5.
@@ -197,12 +200,14 @@ If you using antd less variables, you can use compatible package to covert it in
 
 ```js
 const { theme } = require('antd/lib');
-const { convertLegacyToken } = require('@ant-design/compatible/lib');
+const { convertLegacyToken, defaultTheme } = require('@ant-design/compatible/lib');
 
 const { defaultAlgorithm, defaultSeed } = theme;
 
-const mapToken = defaultAlgorithm(defaultSeed);
-const v4Token = convertLegacyToken(mapToken);
+const mapV5Token = defaultAlgorithm(defaultSeed);
+const v5Vars = convertLegacyToken(mapV5Token);
+const mapV4Token = theme.getDesignToken(defaultTheme);
+const v4Vars = convertLegacyToken(mapV4Token);
 
 // Webpack Config
 module.exports = {
@@ -210,13 +215,13 @@ module.exports = {
   loader: 'less-loader',
   options: {
     lessOptions: {
-      modifyVars: v4Token,
+      modifyVars: v5Vars, // or v4Vars
     },
   },
 };
 ```
 
-Ant then remove antd less reference in your less file:
+And then remove antd less reference in your less file:
 
 ```diff
 // Your less file
@@ -261,6 +266,8 @@ Replace moment.js locale with day.js locale:
 +   dayjs.locale('zh-cn');
 ```
 
+🚨 You need to pay attention to the day.js plugin system. If you find that the function originally in moment.js cannot be used in day.js, please refer to the [day.js plugin document](https://day.js.org/docs/en/plugin/plugin).
+
 If you do not want to replace with day.js, you can use `@ant-design/moment-webpack-plugin` to keep moment.js:
 
 ```bash
@@ -277,9 +284,94 @@ module.exports = {
 };
 ```
 
+### Switch to theme of v4
+
+If you don't want the style to change after upgrade, we have provided a v4 theme in `@ant-design/compatible` that can restore v4 style.
+
+````diff
+
+```sandpack
+const sandpackConfig = {
+  dependencies: {
+    '@ant-design/compatible': 'v5-compatible-v4',
+  },
+};
+
+import {
+  defaultTheme,   // Default theme
+  darkTheme,      // Dark theme
+} from '@ant-design/compatible';
+import { ConfigProvider, Button, Radio, Space } from 'antd';
+
+export default () => (
+  <ConfigProvider theme={defaultTheme}>
+    <Space direction="vertical">
+      <Button type="primary">Button</Button>
+      <Radio.Group>
+        <Radio value={1}>A</Radio>
+        <Radio value={2}>B</Radio>
+        <Radio value={3}>C</Radio>
+        <Radio value={4}>D</Radio>
+      </Radio.Group>
+    </Space>
+  </ConfigProvider>
+);
+````
+
 ### Legacy browser support
 
 Ant Design v5 using `:where` css selector to reduce CSS-in-JS hash priority. You can use `@ant-design/cssinjs` `StyleProvider` to cancel this function. Please ref [Compatible adjustment](/docs/react/customize-theme#compatible-adjustment).
+
+## Multiple versions coexist
+
+We do not recommend multiple versions coexist, it will make the application more complex (such as style override, ConfigProvider not reused, etc.). It's better to use micro-applications such as [qiankun](https://qiankun.umijs.org/) for page level development.
+
+### Install v5 through alias
+
+```bash
+$ npm install --save antd-v5@npm:antd@5
+# or
+$ yarn add antd-v5@npm:antd@5
+# or
+$ pnpm add antd-v5@npm:antd@5
+```
+
+The package.json will be:
+
+```json
+{
+  "antd": "4.x",
+  "antd-v5": "npm:antd@5"
+}
+```
+
+Now, antd in your project is still v4, and antd-v5 is v5.
+
+```tsx
+import React from 'react';
+import { Button as Button4 } from 'antd'; // v4
+import { Button as Button5 } from 'antd-v5'; // v5
+
+export default () => (
+  <>
+    <Button4 />
+    <Button5 />
+  </>
+);
+```
+
+Then config `prefixCls` of ConfigProvider to avoid style conflict:
+
+```tsx
+import React from 'react';
+import { ConfigProvider as ConfigProvider5 } from 'antd-v5';
+
+export default () => (
+  <ConfigProvider5 prefixCls="ant5">
+    <MyApp />
+  </ConfigProvider5>
+);
+```
 
 ## Encounter problems
 

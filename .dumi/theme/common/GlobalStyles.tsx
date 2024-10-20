@@ -1,13 +1,11 @@
 import React from 'react';
+
 import ColorStyle from './Color/ColorStyle';
 import {
-  BrowserMockup,
   Common,
   Demo,
   HeadingAnchor,
   Highlight,
-  Icon,
-  IconPickSearcher,
   Markdown,
   NProgress,
   PreviewImage,
@@ -15,20 +13,19 @@ import {
   Responsive,
   SearchBar,
 } from './styles';
+import InlineCard from './styles/InlineCard';
 
-const GlobalStyles = () => (
+const GlobalStyles: React.FC = () => (
   <>
     <Reset />
     <Common />
     <Markdown />
     <Highlight />
     <Demo />
-    <Icon />
-    <IconPickSearcher />
-    <BrowserMockup />
     <Responsive />
     <NProgress />
     <PreviewImage />
+    <InlineCard />
     <ColorStyle />
     <HeadingAnchor />
     <SearchBar />

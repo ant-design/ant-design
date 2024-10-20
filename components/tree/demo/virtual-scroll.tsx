@@ -1,12 +1,12 @@
 import React from 'react';
-import { Tree } from 'antd';
-import type { DataNode } from 'antd/es/tree';
+import { Tooltip, Tree } from 'antd';
+import type { TreeDataNode } from 'antd';
 
 const dig = (path = '0', level = 3) => {
   const list = [];
   for (let i = 0; i < 10; i += 1) {
     const key = `${path}-${i}`;
-    const treeNode: DataNode = {
+    const treeNode: TreeDataNode = {
       title: key,
       key,
     };
@@ -22,6 +22,18 @@ const dig = (path = '0', level = 3) => {
 
 const treeData = dig();
 
-const App: React.FC = () => <Tree treeData={treeData} height={233} defaultExpandAll />;
+const MemoTooltip = Tooltip || React.memo(Tooltip);
+
+const App: React.FC = () => (
+  <Tree
+    treeData={treeData}
+    height={233}
+    defaultExpandAll
+    titleRender={(item) => {
+      const title = item.title as React.ReactNode;
+      return <MemoTooltip title={title}>{title}</MemoTooltip>;
+    }}
+  />
+);
 
 export default App;

@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { SearchOutlined } from '@ant-design/icons';
-import { Button, Tooltip, ConfigProvider, Radio, Divider, Space } from 'antd';
-import type { SizeType } from 'antd/es/config-provider/SizeContext';
+import { Button, ConfigProvider, Divider, Flex, Radio, Tooltip } from 'antd';
+import type { ConfigProviderProps } from 'antd';
+
+type SizeType = ConfigProviderProps['componentSize'];
 
 const App: React.FC = () => {
-  const [size, setSize] = useState<SizeType>('large');
-
+  const [size, setSize] = React.useState<SizeType>('large');
   return (
     <>
       <Radio.Group value={size} onChange={(e) => setSize(e.target.value)}>
@@ -17,8 +18,8 @@ const App: React.FC = () => {
         Preview
       </Divider>
       <ConfigProvider componentSize={size}>
-        <Space direction="vertical">
-          <Space wrap>
+        <Flex gap="small" vertical>
+          <Flex gap="small" wrap>
             <Tooltip title="search">
               <Button type="primary" shape="circle" icon={<SearchOutlined />} />
             </Tooltip>
@@ -32,8 +33,8 @@ const App: React.FC = () => {
               <Button shape="circle" icon={<SearchOutlined />} />
             </Tooltip>
             <Button icon={<SearchOutlined />}>Search</Button>
-          </Space>
-          <Space wrap>
+          </Flex>
+          <Flex gap="small" wrap>
             <Tooltip title="search">
               <Button shape="circle" icon={<SearchOutlined />} />
             </Tooltip>
@@ -45,8 +46,12 @@ const App: React.FC = () => {
               Search
             </Button>
             <Button icon={<SearchOutlined />} href="https://www.google.com" />
-          </Space>
-        </Space>
+            <Button>
+              <SearchOutlined />
+              Search
+            </Button>
+          </Flex>
+        </Flex>
       </ConfigProvider>
     </>
   );

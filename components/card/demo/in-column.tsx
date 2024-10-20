@@ -1,5 +1,5 @@
-import { Card, Col, Row } from 'antd';
 import React from 'react';
+import { Card, Col, Row } from 'antd';
 
 const App: React.FC = () => (
   <Row gutter={16}>

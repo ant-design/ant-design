@@ -1,15 +1,14 @@
 ---
 category: Components
-subtitle: 下拉菜单
 group: 导航
 title: Dropdown
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*mBBcQ6goljkAAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5qm4S4Zgh2QAAAAAAAAAAAAADrJ8AQ/original
+subtitle: 下拉菜单
+description: 向下弹出的列表。
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*gTBySYX11WcAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*k619RJ_7bKEAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-向下弹出的列表。
 
 ## 何时使用
 
@@ -22,6 +21,7 @@ demo:
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
+<code src="./demo/extra.tsx" version="5.21.0">额外节点</code>
 <code src="./demo/placement.tsx">弹出位置</code>
 <code src="./demo/arrow.tsx">箭头</code>
 <code src="./demo/item.tsx">其他元素</code>
@@ -31,16 +31,20 @@ demo:
 <code src="./demo/dropdown-button.tsx">带下拉框的按钮</code>
 <code src="./demo/custom-dropdown.tsx">扩展菜单</code>
 <code src="./demo/sub-menu.tsx">多级菜单</code>
+<code src="./demo/sub-menu-debug.tsx" debug>多级菜单</code>
 <code src="./demo/overlay-open.tsx">菜单隐藏方式</code>
 <code src="./demo/context-menu.tsx">右键菜单</code>
 <code src="./demo/loading.tsx">加载中状态</code>
 <code src="./demo/selectable.tsx">菜单可选选择</code>
 <code src="./demo/menu-full.tsx" debug>Menu 完整样式</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/icon-debug.tsx" debug>Icon debug</code>
 
 ## API
 
-属性如下
+通用属性参考：[通用属性](/docs/react/common-props)
+
+### Dropdown
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -55,9 +59,9 @@ demo:
 | overlayClassName | 下拉根元素的类名称 | string | - |  |
 | overlayStyle | 下拉根元素的样式 | CSSProperties | - |  |
 | placement | 菜单弹出位置：`bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | string | `bottomLeft` |  |
-| trigger | 触发下拉的行为, 移动端不支持 hover | Array&lt;`click`\|`hover`\|`contextMenu`> | \[`hover`] |  |
+| trigger | 触发下拉的行为，移动端不支持 hover | Array&lt;`click`\|`hover`\|`contextMenu`> | \[`hover`] |  |
 | open | 菜单是否显示，小于 4.23.0 使用 `visible`（[为什么?](/docs/react/faq#弹层类组件为什么要统一至-open-属性)） | boolean | - | 4.23.0 |
-| onOpenChange | 菜单显示状态改变时调用，点击菜单按钮导致的消失不会触发。小于 4.23.0 使用 `onVisibleChange`（[为什么?](/docs/react/faq#弹层类组件为什么要统一至-open-属性)） | (open: boolean) => void | - | 4.23.0 |
+| onOpenChange | 菜单显示状态改变时调用，点击菜单按钮导致的消失不会触发。小于 4.23.0 使用 `onVisibleChange`（[为什么?](/docs/react/faq#弹层类组件为什么要统一至-open-属性)） | (open: boolean, info: { source: 'trigger' \| 'menu' }) => void | - | `info.source`: 5.11.0 |
 
 ### Dropdown.Button
 
@@ -77,6 +81,12 @@ demo:
 
 请确保 `Dropdown` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onFocus`、`onClick` 事件。
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Dropdown"></ComponentTokenTable>
+
+## FAQ
+
+### Dropdown 在水平方向超出屏幕时会被挤压该怎么办？
+
+你可以通过 `width: max-content` 来解决这个问题，参考 [#43025](https://github.com/ant-design/ant-design/issues/43025#issuecomment-1594394135)。

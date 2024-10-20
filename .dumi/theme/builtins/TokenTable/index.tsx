@@ -1,13 +1,12 @@
 import type { FC } from 'react';
 import * as React from 'react';
-/* eslint import/no-unresolved: 0 */
-import { css } from '@emotion/react';
 import type { TableProps } from 'antd';
 import { Table } from 'antd';
+import { createStyles } from 'antd-style';
 import { getDesignToken } from 'antd-token-previewer';
 import tokenMeta from 'antd/es/version/token-meta.json';
+
 import useLocale from '../../../hooks/useLocale';
-import useSiteToken from '../../../hooks/useSiteToken';
 import ColorChunk from '../ColorChunk';
 
 type TokenTableProps = {
@@ -15,7 +14,7 @@ type TokenTableProps = {
   lang: 'zh' | 'en';
 };
 
-type TokenData = {
+export type TokenData = {
   name: string;
   desc: string;
   type: string;
@@ -39,25 +38,21 @@ const locales = {
   },
 };
 
-const useStyle = () => {
-  const { token } = useSiteToken();
-
-  return {
-    codeSpan: css`
-      margin: 0 1px;
-      padding: 0.2em 0.4em;
-      font-size: 0.9em;
-      background: ${token.siteMarkdownCodeBg};
-      border: 1px solid ${token.colorSplit};
-      border-radius: 3px;
-      font-family: monospace;
-    `,
-  };
-};
+const useStyle = createStyles(({ token, css }) => ({
+  codeSpan: css`
+    margin: 0 1px;
+    padding: 0.2em 0.4em;
+    font-size: 0.9em;
+    background: ${token.siteMarkdownCodeBg};
+    border: 1px solid ${token.colorSplit};
+    border-radius: ${token.borderRadiusSM}px;
+    font-family: monospace;
+  `,
+}));
 
 export function useColumns(): Exclude<TableProps<TokenData>['columns'], undefined> {
   const [locale] = useLocale(locales);
-  const styles = useStyle();
+  const { styles } = useStyle();
 
   return [
     {
@@ -74,7 +69,7 @@ export function useColumns(): Exclude<TableProps<TokenData>['columns'], undefine
       title: locale.type,
       key: 'type',
       dataIndex: 'type',
-      render: (_, record) => <span css={styles.codeSpan}>{record.type}</span>,
+      render: (_, record) => <span className={styles.codeSpan}>{record.type}</span>,
     },
     {
       title: locale.value,
@@ -84,7 +79,7 @@ export function useColumns(): Exclude<TableProps<TokenData>['columns'], undefine
           typeof record.value === 'string' &&
           (record.value.startsWith('#') || record.value.startsWith('rgb'));
         if (isColor) {
-          return <ColorChunk color={record.value}>{record.value}</ColorChunk>;
+          return <ColorChunk value={record.value}>{record.value}</ColorChunk>;
         }
         return typeof record.value !== 'string' ? JSON.stringify(record.value) : record.value;
       },
@@ -98,7 +93,7 @@ const TokenTable: FC<TokenTableProps> = ({ type }) => {
 
   const data = React.useMemo<TokenData[]>(
     () =>
-      Object.entries(tokenMeta)
+      Object.entries(tokenMeta.global)
         .filter(([, meta]) => meta.source === type)
         .map(([token, meta]) => ({
           name: token,

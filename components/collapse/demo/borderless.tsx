@@ -1,27 +1,32 @@
 import React from 'react';
+import type { CollapseProps } from 'antd';
 import { Collapse } from 'antd';
 
-const { Panel } = Collapse;
-
 const text = (
-  <p style={{ paddingLeft: 24 }}>
+  <p style={{ paddingInlineStart: 24 }}>
     A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found
     as a welcome guest in many households across the world.
   </p>
 );
 
-const App: React.FC = () => (
-  <Collapse bordered={false} defaultActiveKey={['1']}>
-    <Panel header="This is panel header 1" key="1">
-      {text}
-    </Panel>
-    <Panel header="This is panel header 2" key="2">
-      {text}
-    </Panel>
-    <Panel header="This is panel header 3" key="3">
-      {text}
-    </Panel>
-  </Collapse>
-);
+const items: CollapseProps['items'] = [
+  {
+    key: '1',
+    label: 'This is panel header 1',
+    children: text,
+  },
+  {
+    key: '2',
+    label: 'This is panel header 2',
+    children: text,
+  },
+  {
+    key: '3',
+    label: 'This is panel header 3',
+    children: text,
+  },
+];
+
+const App: React.FC = () => <Collapse items={items} bordered={false} defaultActiveKey={['1']} />;
 
 export default App;

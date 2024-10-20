@@ -1,11 +1,11 @@
 import React from 'react';
 import { Tree } from 'antd';
-import type { DataNode } from 'antd/es/tree';
+import type { TreeDataNode } from 'antd';
 
-const treeData: DataNode[] = [];
+const treeData: TreeDataNode[] = [];
 
 for (let i = 0; i < 100; i += 1) {
-  const children: DataNode[] = [];
+  const children: TreeDataNode[] = [];
 
   for (let j = 0; j < 100; j += 1) {
     children.push({

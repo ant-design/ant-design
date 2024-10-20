@@ -1,10 +1,9 @@
 import React from 'react';
-import { act } from 'react-dom/test-utils';
-import { waitFakeTimer, render, fireEvent } from '../../../tests/utils';
+
 import { resetWarned } from '../../_util/warning';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 
 describe('Collapse', () => {
-  // eslint-disable-next-line global-require
   const Collapse = require('..').default;
 
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -124,13 +123,41 @@ describe('Collapse', () => {
     expect(container.querySelectorAll('.ant-collapse-item-active').length).toBe(0);
   });
 
+  it('should not trigger warning when using items instead of children', () => {
+    render(
+      <Collapse
+        items={[
+          {
+            key: '1',
+            label: 'This is panel header 1',
+            children: <p>aaa</p>,
+          },
+          {
+            key: '2',
+            label: 'This is panel header 2',
+            children: <p>bbb</p>,
+          },
+          {
+            key: '3',
+            label: 'This is panel header 3',
+            children: <p>ccc</p>,
+          },
+        ]}
+      />,
+    );
+
+    expect(errorSpy).not.toHaveBeenCalledWith(
+      'Warning: `children` will be removed in next major version. Please use `items` instead.',
+    );
+  });
+
   it('should end motion when set activeKey while hiding', async () => {
     jest.useFakeTimers();
     const spiedRAF = jest
       .spyOn(window, 'requestAnimationFrame')
-      .mockImplementation((cb) => setTimeout(cb, 16.66));
+      .mockImplementation((cb) => setTimeout(cb, 1000 / 60));
 
-    let setActiveKeyOuter: React.Dispatch<React.SetStateAction<React.Key>>;
+    let setActiveKeyOuter: React.Dispatch<React.SetStateAction<React.Key | undefined>>;
     const Test: React.FC = () => {
       const [activeKey, setActiveKey] = React.useState<React.Key>();
       setActiveKeyOuter = setActiveKey;
@@ -208,5 +235,65 @@ describe('Collapse', () => {
         expect(container.querySelector('.ant-collapse-icon-position-end')).toBeTruthy();
       });
     });
+  });
+
+  it('Collapse.Panel usage', () => {
+    const { container } = render(
+      <Collapse bordered={false}>
+        <Collapse.Panel key="test panel1" header="test panel1">
+          test1
+        </Collapse.Panel>
+        <Collapse.Panel key="test panel2" header="test panel2">
+          test2
+        </Collapse.Panel>
+      </Collapse>,
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('Check expandIcon aria-label value', () => {
+    const { container, rerender } = render(
+      <Collapse activeKey="1">
+        <Collapse.Panel header="header" key="1" />
+      </Collapse>,
+    );
+
+    expect(container.querySelector('.ant-collapse-arrow')).toHaveAttribute(
+      'aria-label',
+      'expanded',
+    );
+
+    rerender(
+      <Collapse>
+        <Collapse.Panel header="header" key="1" />
+      </Collapse>,
+    );
+
+    expect(container.querySelector('.ant-collapse-arrow')).toHaveAttribute(
+      'aria-label',
+      'collapsed',
+    );
+  });
+
+  it('should support styles and classNames', () => {
+    const { container } = render(
+      <Collapse
+        activeKey={['1']}
+        items={[
+          {
+            key: '1',
+            label: 'title',
+            styles: { header: { color: 'red' }, body: { color: 'blue' } },
+            classNames: { header: 'header-class', body: 'body-class' },
+          },
+        ]}
+      />,
+    );
+
+    expect(container.querySelector('.ant-collapse-header')).toHaveClass('header-class');
+    expect(container.querySelector('.ant-collapse-content-box')).toHaveClass('body-class');
+
+    expect(container.querySelector('.ant-collapse-header')).toHaveStyle({ color: 'red' });
+    expect(container.querySelector('.ant-collapse-content-box')).toHaveStyle({ color: 'blue' });
   });
 });
