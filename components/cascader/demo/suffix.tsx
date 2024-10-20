@@ -70,6 +70,14 @@ const App: React.FC = () => (
     <br />
     <br />
     <Cascader expandIcon="ab" options={options} onChange={onChange} placeholder="Please select" />
+    <br />
+    <br />
+    <Cascader
+      prefix={<SmileOutlined />}
+      options={options}
+      onChange={onChange}
+      placeholder="Please select"
+    />
   </>
 );
 
