@@ -11,8 +11,13 @@ const App: React.FC = () => {
     console.log('onChange:', text);
   };
 
+  const onInput: OTPProps['onInput'] = (value) => {
+    console.log('onInput:', value);
+  };
+
   const sharedProps: OTPProps = {
     onChange,
+    onInput,
   };
 
   return (
