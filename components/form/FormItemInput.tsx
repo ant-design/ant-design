@@ -71,22 +71,20 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
     </div>
   );
   const formItemContext = React.useMemo(() => ({ prefixCls, status }), [prefixCls, status]);
+  const hasHelp = help !== undefined && help !== null;
   const errorListDom: React.ReactNode =
-    marginBottom !== null || errors.length || warnings.length ? (
-      <div style={{ display: 'flex', flexWrap: 'nowrap' }}>
-        <FormItemPrefixContext.Provider value={formItemContext}>
-          <ErrorList
-            fieldId={fieldId}
-            errors={errors}
-            warnings={warnings}
-            help={help}
-            helpStatus={status}
-            className={`${baseClassName}-explain-connected`}
-            onVisibleChanged={onErrorVisibleChanged}
-          />
-        </FormItemPrefixContext.Provider>
-        {!!marginBottom && <div style={{ width: 0, height: marginBottom }} />}
-      </div>
+    errors.length > 0 || warnings.length > 0 || hasHelp ? (
+      <FormItemPrefixContext.Provider value={formItemContext}>
+        <ErrorList
+          fieldId={fieldId}
+          errors={errors}
+          warnings={warnings}
+          help={help}
+          helpStatus={status}
+          className={`${baseClassName}-explain-connected`}
+          onVisibleChanged={onErrorVisibleChanged}
+        />
+      </FormItemPrefixContext.Provider>
     ) : null;
 
   const extraProps: { id?: string } = {};
@@ -103,14 +101,24 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
     </div>
   ) : null;
 
+  const additionalDom: React.ReactNode =
+    errorListDom || extraDom ? (
+      <div
+        className={`${baseClassName}-additional`}
+        style={marginBottom ? { minHeight: marginBottom } : {}}
+      >
+        {errorListDom}
+        {extraDom}
+      </div>
+    ) : null;
+
   const dom: React.ReactNode =
     formItemRender && formItemRender.mark === 'pro_table_render' && formItemRender.render ? (
       formItemRender.render(props, { input: inputDom, errorList: errorListDom, extra: extraDom })
     ) : (
       <>
         {inputDom}
-        {errorListDom}
-        {extraDom}
+        {additionalDom}
       </>
     );
   return (

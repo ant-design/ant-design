@@ -73,12 +73,6 @@ export default function ItemHolder(props: ItemHolderProps) {
     }
   }, [hasError, isOnScreen]);
 
-  const onErrorVisibleChanged = (nextVisible: boolean) => {
-    if (!nextVisible) {
-      setMarginBottom(null);
-    }
-  };
-
   // ======================== Status ========================
 
   const getValidateState = (isDebounce = false) => {
@@ -162,7 +156,6 @@ export default function ItemHolder(props: ItemHolderProps) {
           status={mergedValidateStatus}
           help={help}
           marginBottom={marginBottom}
-          onErrorVisibleChanged={onErrorVisibleChanged}
         >
           <NoStyleItemContext.Provider value={onSubItemMetaChange}>
             <StatusProvider
