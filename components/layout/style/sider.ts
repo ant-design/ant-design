@@ -74,7 +74,7 @@ const genSiderStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
           overflow: 'hidden',
         },
 
-        [`${componentCls}-trigger`]: {
+        '&-trigger': {
           position: 'absolute',
           top: headerHeight,
           insetInlineEnd: token.calc(zeroTriggerWidth).mul(-1).equal(),
