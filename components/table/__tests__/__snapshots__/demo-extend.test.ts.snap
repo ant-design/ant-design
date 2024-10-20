@@ -11857,7 +11857,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
 
 exports[`renders components/table/demo/fixed-header.tsx extend context correctly 1`] = `
 <div
-  class="ant-table-wrapper acss-6kbv1r"
+  class="ant-table-wrapper acss-10ugdpo"
 >
   <div
     class="ant-spin-nested-loading"
@@ -13226,7 +13226,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
 
 exports[`renders components/table/demo/grouping-columns.tsx extend context correctly 1`] = `
 <div
-  class="ant-table-wrapper acss-6kbv1r"
+  class="ant-table-wrapper acss-10ugdpo"
 >
   <div
     class="ant-spin-nested-loading"
