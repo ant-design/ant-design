@@ -125,6 +125,8 @@ return (
 | value | 指定当前选中的条目，多选时为一个数组。（value 数组引用未变化时，Select 不会更新） | string \| string\[] \| <br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 |
+| onBlurRemoveSpace | 标签形式下，失去焦点时是否移除空格，仅在 `mode="tags"` 时生效 | boolean | true |  |
+| onBlurAddValue | 标签形式下，失去焦点时是否将输入框的值添加到选中项中，仅在 `mode="tags"` 时生效 | boolean | true |  |
 | onBlur | 失去焦点时回调 | function | - |  |
 | onChange | 选中 option，或 input 的 value 变化时，调用此函数 | function(value, option:Option \| Array&lt;Option>) | - |  |
 | onClear | 清除内容时回调 | function | - | 4.6.0 |

@@ -124,6 +124,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | value | Current selected option (considered as a immutable array) | string \| string\[] \| <br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
 | variant | Variants of selector | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
+| onBlurRemoveSpace | Whether to remove space when losing focus, only applies when `mode` is `tags` | boolean | true |  |
+| onBlurAddValue | Whether to add the input value to the selected item when losing focus, only applies when `mode` is `tags` | boolean | true |  |
 | onBlur | Called when blur | function | - |  |
 | onChange | Called when select an option or input value change | function(value, option:Option \| Array&lt;Option>) | - |  |
 | onClear | Called when clear | function | - | 4.6.0 |
