@@ -22,7 +22,7 @@ const siderStyle: React.CSSProperties = {
   top: 0,
   bottom: 0,
   scrollbarWidth: 'thin',
-  scrollbarColor: 'unset',
+  scrollbarGutter: 'stable',
 };
 
 const items: MenuProps['items'] = [

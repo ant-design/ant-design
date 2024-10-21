@@ -9494,7 +9494,7 @@ exports[`renders components/table/demo/filter-search.tsx correctly 1`] = `
 
 exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
 <div
-  class="ant-table-wrapper acss-6kbv1r"
+  class="ant-table-wrapper acss-10ugdpo"
 >
   <div
     class="ant-spin-nested-loading"
@@ -10205,7 +10205,7 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
 
 exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = `
 <div
-  class="ant-table-wrapper acss-6kbv1r"
+  class="ant-table-wrapper acss-10ugdpo"
 >
   <div
     class="ant-spin-nested-loading"
@@ -12121,7 +12121,7 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
 
 exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = `
 <div
-  class="ant-table-wrapper acss-6kbv1r"
+  class="ant-table-wrapper acss-10ugdpo"
 >
   <div
     class="ant-spin-nested-loading"
@@ -12840,7 +12840,7 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
 
 exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
 <div
-  class="ant-table-wrapper acss-6kbv1r"
+  class="ant-table-wrapper acss-10ugdpo"
 >
   <div
     class="ant-spin-nested-loading"
@@ -14104,7 +14104,7 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
 
 exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
 <div
-  class="ant-table-wrapper acss-6kbv1r"
+  class="ant-table-wrapper acss-10ugdpo"
 >
   <div
     class="ant-spin-nested-loading"
@@ -27873,7 +27873,7 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
   class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
 >
   <div
-    class="ant-table-wrapper acss-6kbv1r"
+    class="ant-table-wrapper acss-10ugdpo"
   >
     <div
       class="ant-spin-nested-loading"
@@ -28056,7 +28056,7 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-table-wrapper acss-6kbv1r"
+    class="ant-table-wrapper acss-10ugdpo"
   >
     <div
       class="ant-spin-nested-loading"
