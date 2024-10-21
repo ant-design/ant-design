@@ -18,6 +18,7 @@ import { createStyles } from 'antd-style';
 import getAlphaColor from 'antd/es/theme/util/getAlphaColor';
 import { FormattedMessage, Link } from 'dumi';
 import RcFooter from 'rc-footer';
+import 'rc-footer/assets/index.css';
 import type { FooterColumn } from 'rc-footer/lib/column';
 
 import useLocale from '../../../hooks/useLocale';
