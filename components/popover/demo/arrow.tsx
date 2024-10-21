@@ -34,7 +34,7 @@ const App: React.FC = () => {
     <ConfigProvider button={{ style: { width: buttonWidth, margin: 4 } }}>
       <Segmented
         options={['Show', 'Hide', 'Center']}
-        onChange={(val: 'Show' | 'Hide' | 'Center') => setArrow(val)}
+        onChange={setArrow}
         style={{ marginBottom: 24 }}
       />
       <Flex vertical justify="center" align="center" className="demo">

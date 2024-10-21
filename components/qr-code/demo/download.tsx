@@ -32,10 +32,7 @@ const App: React.FC = () => {
   const [renderType, setRenderType] = React.useState<QRCodeProps['type']>('canvas');
   return (
     <Space id="myqrcode" direction="vertical">
-      <Segmented
-        options={['canvas', 'svg']}
-        onChange={(val) => setRenderType(val as QRCodeProps['type'])}
-      />
+      <Segmented options={['canvas', 'svg']} value={renderType} onChange={setRenderType} />
       <div>
         <QRCode
           type={renderType}
