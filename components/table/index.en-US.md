@@ -192,7 +192,6 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | defaultSortOrder | Default order of sorted values | `ascend` \| `descend` | - |  |
 | ellipsis | The ellipsis cell content, not working with sorter and filters for now.<br />tableLayout would be `fixed` when `ellipsis` is `true` or `{ showTitle?: boolean }` | boolean \| {showTitle?: boolean } | false | showTitle: 4.3.0 |
 | filterDropdown | Customized filter overlay | ReactNode \| (props: [FilterDropdownProps](https://github.com/ant-design/ant-design/blob/ecc54dda839619e921c0ace530408871f0281c2a/components/table/interface.tsx#L79)) => ReactNode | - |  |
-| ~~filterDropdownOpen~~ | Whether `filterDropdown` is visible, Please use `filterDropdownProps.open` instead. | boolean | - | 4.23.0 |
 | filtered | Whether the `dataSource` is filtered | boolean | false |  |
 | filteredValue | Controlled filtered value, filter icon will highlight | string\[] | - |  |
 | filterIcon | Customized filter icon | ReactNode \| (filtered: boolean) => ReactNode | - |  |
@@ -219,7 +218,6 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | hidden | Hidden this column | boolean | false | 5.13.0 |
 | onCell | Set props on per cell | function(record, rowIndex) | - |  |
 | onFilter | Function that determines if the row is displayed when filtered | function(value, record) => boolean | - |  |
-| ~~onFilterDropdownOpenChange~~ | Callback executed when `filterDropdownOpen` is changed, Please use `filterDropdownProps.onOpenChange` instead. | function(visible) {} | - | 4.23.0 |
 | onHeaderCell | Set props on per header cell | function(column) | - |  |
 
 ### ColumnGroup
