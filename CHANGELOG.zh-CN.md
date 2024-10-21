@@ -15,6 +15,19 @@ tag: vVERSION
 
 ---
 
+## 5.21.5
+
+`2024-10-21`
+
+- 🐞 修复 Cascader `limit` 属性设置 `false` 不生效的问题。[#51263](https://github.com/ant-design/ant-design/pull/51263) [@thinkasany](https://github.com/thinkasany)
+- 🐞 修复 FloatButton 悬浮菜单难以点击的问题。[#51208](https://github.com/ant-design/ant-design/pull/51208) [@aojunhao123](https://github.com/aojunhao123)
+- 🐞 修复 QRCode `onRefresh` 属性不生效的问题。[#51315](https://github.com/ant-design/ant-design/pull/51315) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 修复 Typography 中的超链接无法被用户选中的问题。[#51243](https://github.com/ant-design/ant-design/pull/51243) [@thinkasany](https://github.com/thinkasany)
+- 💄 修复 Badge 文本样式 token 不正确的问题。[#51252](https://github.com/ant-design/ant-design/pull/51252) [@Wxh16144](https://github.com/Wxh16144)
+- 💄 修复 Layout 折叠按钮样式缺失的问题。[#51313](https://github.com/ant-design/ant-design/pull/51313) [@aojunhao123](https://github.com/aojunhao123)
+- 🛠 优化 Button 事件处理器实现。[#42037](https://github.com/ant-design/ant-design/pull/42037) [@SohaibRaza](https://github.com/SohaibRaza)
+- 🛠 优化 Splitter 样式 token 的命名语义。[#51223](https://github.com/ant-design/ant-design/pull/51223) [@wanpan11](https://github.com/wanpan11)
+
 ## 5.21.4
 
 `2024-10-14`
