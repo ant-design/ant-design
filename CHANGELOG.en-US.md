@@ -20,6 +20,7 @@ tag: vVERSION
 `2024-10-21`
 
 - 🐞 Fix Cascader `limit` property not working bug when set to `false`. [#51263](https://github.com/ant-design/ant-design/pull/51263) [@dongbanban](https://github.com/dongbanban)
+- 🐞 Fix DatePicker disabled items cannot response mouse events bug. [#51294](https://github.com/ant-design/ant-design/pull/51294) [@ajenkins-mparticle](https://github.com/ajenkins-mparticle)
 - 🐞 Fix FloatButton menu problem what is difficult to click. [#51208](https://github.com/ant-design/ant-design/pull/51208) [@aojunhao123](https://github.com/aojunhao123)
 - 🐞 Fix QRCode `onRefresh` property not working properly. [#51315](https://github.com/ant-design/ant-design/pull/51315) [@kiner-tang](https://github.com/kiner-tang)
 - 🐞 Fix Typography links cannot be selected by user. [#51243](https://github.com/ant-design/ant-design/pull/51243) [@thinkasany](https://github.com/thinkasany)
