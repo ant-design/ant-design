@@ -33,7 +33,6 @@ import type {
 } from '../../interface';
 import FilterSearch from './FilterSearch';
 import FilterDropdownMenuWrapper from './FilterWrapper';
-import { mergeProps } from '../../util';
 
 type FilterTreeDataNode = FieldDataNode<{ title: React.ReactNode; key: string }>;
 
@@ -550,26 +549,22 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
     );
   };
 
-  const mergedDropdownProps = mergeProps<DropdownProps>(
-    {
-      trigger: ['click'],
-      placement: direction === 'rtl' ? 'bottomLeft' : 'bottomRight',
-      children: getDropdownTrigger(),
-      getPopupContainer,
+  const mergedDropdownProps: DropdownProps = {
+    trigger: ['click'],
+    placement: direction === 'rtl' ? 'bottomLeft' : 'bottomRight',
+    children: getDropdownTrigger(),
+    getPopupContainer,
+    ...filterDropdownProps,
+    rootClassName: classNames(rootClassName, filterDropdownProps.rootClassName),
+    open: mergedVisible,
+    onOpenChange: onVisibleChange,
+    dropdownRender: () => {
+      if (typeof filterDropdownProps?.dropdownRender === 'function') {
+        return filterDropdownProps.dropdownRender(dropdownContent);
+      }
+      return dropdownContent;
     },
-    filterDropdownProps,
-    {
-      rootClassName: classNames(rootClassName, filterDropdownProps.rootClassName),
-      open: mergedVisible,
-      onOpenChange: onVisibleChange,
-      dropdownRender: () => {
-        if (typeof filterDropdownProps?.dropdownRender === 'function') {
-          return filterDropdownProps.dropdownRender(dropdownContent);
-        }
-        return dropdownContent;
-      },
-    },
-  );
+  };
 
   return (
     <div className={`${prefixCls}-column`}>
