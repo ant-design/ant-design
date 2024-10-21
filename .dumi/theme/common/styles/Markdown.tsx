@@ -372,21 +372,6 @@ const GlobalStyle: React.FC = () => {
                 width: 70%;
               }
             }
-
-            /*
-              Api 表中某些属性用 del 标记，表示已废弃（但仍期望给开发者一个过渡期)用 css 标记出来。仅此而已。
-              效果图: https://github.com/user-attachments/assets/ca1fa215-b7a4-45b4-b66c-fc1e747abafc
-            */
-            /* tr:has(td:first-child:has(del)) not work: https://stackoverflow.com/a/75213445/11302760 */
-            tr:has(td:first-child > del) {
-              color: ${token.colorWarning} !important;
-              background-color: ${token.colorWarningBg} !important;
-
-              td:first-child > del {
-                color: ${token.colorWarning};
-                border-bottom: 1px dashed ${token.colorWarningActive};
-              }
-            }
           }
         }
 
