@@ -41,7 +41,7 @@ export interface TableLocale {
   filterConfirm?: React.ReactNode;
   filterReset?: React.ReactNode;
   filterEmptyText?: React.ReactNode;
-  filterCheckall?: React.ReactNode;
+  filterCheckAll?: React.ReactNode;
   filterSearchPlaceholder?: string;
   emptyText?: React.ReactNode | (() => React.ReactNode);
   selectAll?: React.ReactNode;

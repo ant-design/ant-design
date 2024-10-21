@@ -21,7 +21,7 @@ const localeValues: Locale = {
     filterConfirm: 'Aceptar',
     filterReset: 'Reiniciar',
     filterEmptyText: 'Sin filtros',
-    filterCheckall: 'Seleccionar todo',
+    filterCheckAll: 'Seleccionar todo',
     filterSearchPlaceholder: 'Buscar en filtros',
     emptyText: 'Sin datos',
     selectAll: 'Seleccionar todo',
