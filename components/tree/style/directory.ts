@@ -16,6 +16,8 @@ export const genDirectoryStyle = ({
 
     // >>> Title
     [`${treeCls}-node-content-wrapper`]: {
+      position: 'static',
+
       [`> *:not(${treeCls}-drop-indicator)`]: {
         position: 'relative',
       },

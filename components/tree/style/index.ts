@@ -134,7 +134,6 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
             '&:after': {
               position: 'absolute',
               inset: 0,
-              bottom: treeNodePadding,
               border: `1px solid ${token.colorPrimary}`,
               opacity: 0,
               animation: `${token.motionDurationSlow} forwards running`,
@@ -151,7 +150,19 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
       [treeNodeCls]: {
         display: 'flex',
         alignItems: 'flex-start',
-        padding: `0 0 ${unit(treeNodePadding)} 0`,
+        margin: `0 0 ${unit(treeNodePadding)} 0`,
+        position: 'relative',
+
+        // 非常重要，避免 drop-indicator 在拖拽过程中闪烁
+        '&:before': {
+          content: '""',
+          position: 'absolute',
+          zIndex: 1,
+          left: 0,
+          width: '100%',
+          top: '100%',
+          height: treeNodePadding,
+        },
 
         '&-rtl': {
           direction: 'rtl',
