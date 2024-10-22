@@ -120,7 +120,7 @@
     "classnames": "^2.5.1",
     "copy-to-clipboard": "^3.3.3",
     "dayjs": "^1.11.11",
-    "rc-cascader": "~3.28.2",
+    "rc-cascader": "~3.29.1",
     "rc-checkbox": "~3.3.0",
     "rc-collapse": "~3.8.0",
     "rc-dialog": "~9.6.0",
