@@ -158,8 +158,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
       [treeNodeCls]: {
         display: 'flex',
         alignItems: 'flex-start',
-        margin: `0 0 ${unit(treeNodePadding)} 0`,
-        position: 'relative',
+        marginBottom: treeNodePadding,
         lineHeight: unit(titleHeight),
 
         // 非常重要，避免 drop-indicator 在拖拽过程中闪烁
@@ -167,7 +166,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
           content: '""',
           position: 'absolute',
           zIndex: 1,
-          left: 0,
+          insetInlineStart: 0,
           width: '100%',
           top: '100%',
           height: treeNodePadding,
@@ -359,23 +358,21 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
       // ==================== Show Line =====================
       '&-show-line': {
         // ================ Indent lines ================
-        [`${treeCls}-indent`]: {
-          '&-unit': {
-            position: 'relative',
-            height: '100%',
+        [`${treeCls}-indent-unit`]: {
+          position: 'relative',
+          height: '100%',
 
-            '&:before': {
-              position: 'absolute',
-              top: 0,
-              insetInlineEnd: token.calc(titleHeight).div(2).equal(),
-              bottom: token.calc(treeNodePadding).mul(-1).equal(),
-              borderInlineEnd: `1px solid ${token.colorBorder}`,
-              content: '""',
-            },
+          '&:before': {
+            position: 'absolute',
+            top: 0,
+            insetInlineEnd: token.calc(titleHeight).div(2).equal(),
+            bottom: token.calc(treeNodePadding).mul(-1).equal(),
+            borderInlineEnd: `1px solid ${token.colorBorder}`,
+            content: '""',
+          },
 
-            '&-end:before': {
-              display: 'none',
-            },
+          '&-end:before': {
+            display: 'none',
           },
         },
 
