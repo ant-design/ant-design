@@ -21,6 +21,7 @@ const App: React.FC = () => (
     <RangePicker suffixIcon="ab" onChange={onChange} />
     <DatePicker suffixIcon="ab" onChange={onChange} picker="week" />
     <DatePicker prefix={smileIcon} onChange={onChange} picker="week" />
+    <RangePicker prefix={smileIcon} onChange={onChange} picker="week" />
   </Space>
 );
 
