@@ -10,7 +10,7 @@ export const useStyle = createStyles(({ token, css }) => {
   return {
     anchorToc: css`
       scrollbar-width: thin;
-      scrollbar-color: unset;
+      scrollbar-gutter: stable;
       ${antCls}-anchor {
         ${antCls}-anchor-link-title {
           font-size: ${token.fontSizeSM}px;
