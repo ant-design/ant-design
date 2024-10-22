@@ -12,8 +12,6 @@ export const genDirectoryStyle = ({
   controlItemBgHover,
 }: TreeToken): CSSObject => ({
   [`${treeCls}${treeCls}-directory ${treeNodeCls}`]: {
-    position: 'relative',
-
     // >>> Title
     [`${treeCls}-node-content-wrapper`]: {
       position: 'static',

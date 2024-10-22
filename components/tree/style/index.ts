@@ -113,6 +113,10 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
       borderRadius: token.borderRadius,
       transition: `background-color ${token.motionDurationSlow}`,
 
+      '&-rtl': {
+        direction: 'rtl',
+      },
+
       [`&${treeCls}-rtl ${treeCls}-switcher_close ${treeCls}-switcher-icon svg`]: {
         transform: 'rotate(90deg)',
       },
@@ -136,20 +140,18 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
           },
 
           // >>> Drag
-          [`${treeNodeCls}.dragging`]: {
-            position: 'relative',
-
-            '&:after': {
-              position: 'absolute',
-              inset: 0,
-              border: `1px solid ${token.colorPrimary}`,
-              opacity: 0,
-              animation: `${token.motionDurationSlow} forwards running`,
-              animationName: treeNodeFX,
-              content: '""',
-              pointerEvents: 'none',
-              borderRadius: token.borderRadius,
-            },
+          [`${treeNodeCls}.dragging:after`]: {
+            position: 'absolute',
+            inset: 0,
+            border: `1px solid ${token.colorPrimary}`,
+            opacity: 0,
+            animationName: treeNodeFX,
+            animationDuration: token.motionDurationSlow,
+            animationPlayState: 'running',
+            animationFillMode: 'forwards',
+            content: '""',
+            pointerEvents: 'none',
+            borderRadius: token.borderRadius,
           },
         },
       },
@@ -160,6 +162,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         alignItems: 'flex-start',
         marginBottom: treeNodePadding,
         lineHeight: unit(titleHeight),
+        position: 'relative',
 
         // 非常重要，避免 drop-indicator 在拖拽过程中闪烁
         '&:before': {
@@ -170,10 +173,6 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
           width: '100%',
           top: '100%',
           height: treeNodePadding,
-        },
-
-        '&-rtl': {
-          direction: 'rtl',
         },
 
         // Disabled
