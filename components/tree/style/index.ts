@@ -95,7 +95,15 @@ export type TreeToken = FullToken<'Tree'> & {
 };
 
 export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => {
-  const { treeCls, treeNodeCls, treeNodePadding, titleHeight, nodeSelectedBg, nodeHoverBg } = token;
+  const {
+    treeCls,
+    treeNodeCls,
+    treeNodePadding,
+    titleHeight,
+    nodeSelectedBg,
+    nodeHoverBg,
+    colorTextQuaternary,
+  } = token;
   const treeCheckBoxMarginHorizontal = token.marginXXS;
 
   return {
@@ -152,6 +160,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         alignItems: 'flex-start',
         margin: `0 0 ${unit(treeNodePadding)} 0`,
         position: 'relative',
+        lineHeight: unit(titleHeight),
 
         // 非常重要，避免 drop-indicator 在拖拽过程中闪烁
         '&:before': {
@@ -193,15 +202,9 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
             // https://github.com/ant-design/ant-design/issues/41915
             flexShrink: 0,
             width: titleHeight,
-            lineHeight: unit(titleHeight),
             textAlign: 'center',
             visibility: 'visible',
-            opacity: 0.2,
-            transition: `opacity ${token.motionDurationSlow}`,
-
-            [`${treeNodeCls}:hover &`]: {
-              opacity: 0.45,
-            },
+            color: colorTextQuaternary,
           },
 
           [`&${treeNodeCls}-disabled ${treeCls}-draggable-icon`]: {
@@ -234,7 +237,6 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         alignSelf: 'stretch',
         width: titleHeight,
         margin: 0,
-        lineHeight: unit(titleHeight),
         textAlign: 'center',
         cursor: 'pointer',
         userSelect: 'none',
@@ -336,7 +338,6 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
           display: 'inline-block',
           width: titleHeight,
           height: titleHeight,
-          lineHeight: unit(titleHeight),
           textAlign: 'center',
           verticalAlign: 'top',
 

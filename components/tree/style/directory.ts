@@ -46,8 +46,7 @@ export const genDirectoryStyle = ({
 
     // ============= Selected =============
     '&-selected': {
-      // >>> Switcher
-      [`${treeCls}-switcher`]: {
+      [`${treeCls}-switcher, ${treeCls}-draggable-icon`]: {
         color: directoryNodeSelectedColor,
         zIndex: 1,
       },
