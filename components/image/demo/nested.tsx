@@ -61,6 +61,7 @@ const App: React.FC = () => {
             <Image
               width={200}
               src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+              alt="nested image1"
             />
             <Divider />
             <Image.PreviewGroup
@@ -72,10 +73,12 @@ const App: React.FC = () => {
               <Image
                 width={200}
                 src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+                alt="nested image2"
               />
               <Image
                 width={200}
                 src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
+                alt="nested image3"
               />
             </Image.PreviewGroup>
           </Modal>

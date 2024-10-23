@@ -6,6 +6,7 @@ const App: React.FC = () => (
   <Image
     width={96}
     src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+    alt="preview mask image"
     preview={{
       maskClassName: 'customize-mask',
       mask: (

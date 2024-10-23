@@ -81,7 +81,7 @@ const App: React.FC = () => {
       }}
     >
       {imageList.map((item) => (
-        <Image key={item} src={item} width={200} />
+        <Image key={item} src={item} alt="image" width={200} />
       ))}
     </Image.PreviewGroup>
   );

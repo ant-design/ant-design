@@ -17,6 +17,7 @@ const App: React.FC = () => (
       toolbarRender: () => null,
     }}
     src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+    alt="image render image"
   />
 );
 

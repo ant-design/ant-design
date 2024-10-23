@@ -15,6 +15,7 @@ const App: React.FC = () => {
           defaultValue={0.5}
           step={0.1}
           onChange={(val) => setScaleStep(val!)}
+          aria-label="scale step"
         />
       </div>
       <br />
@@ -25,6 +26,7 @@ const App: React.FC = () => {
         width={200}
         style={{ display: 'none' }}
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?x-oss-process=image/blur,r_50,s_50/quality,q_1/resize,m_mfit,h_200,w_200"
+        alt="controlled preview image"
         preview={{
           visible,
           scaleStep,
