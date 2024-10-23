@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import type { CheckboxRef } from 'rc-checkbox';
 import RcCheckbox from 'rc-checkbox';
+import { composeRef } from 'rc-util/lib/ref';
 
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -80,6 +81,8 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
   const mergedDisabled = (checkboxGroup?.disabled || disabled) ?? contextDisabled;
 
   const prevValue = React.useRef(restProps.value);
+  const checkboxRef = React.useRef<CheckboxRef>(null);
+  const mergedRef = composeRef(ref, checkboxRef);
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Checkbox');
@@ -106,6 +109,12 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     }
     return () => checkboxGroup?.cancelValue(restProps.value);
   }, [restProps.value]);
+
+  React.useEffect(() => {
+    if (checkboxRef.current?.input) {
+      checkboxRef.current.input.indeterminate = indeterminate;
+    }
+  }, [indeterminate]);
 
   const prefixCls = getPrefixCls('checkbox', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
@@ -144,7 +153,6 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     TARGET_CLS,
     hashId,
   );
-  const ariaChecked = indeterminate ? 'mixed' : undefined;
   return wrapCSSVar(
     <Wave component="Checkbox" disabled={mergedDisabled}>
       {}
@@ -156,12 +164,11 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
       >
         {/* @ts-ignore */}
         <RcCheckbox
-          aria-checked={ariaChecked}
           {...checkboxProps}
           prefixCls={prefixCls}
           className={checkboxClass}
           disabled={mergedDisabled}
-          ref={ref}
+          ref={mergedRef}
         />
         {children !== undefined && <span>{children}</span>}
       </label>

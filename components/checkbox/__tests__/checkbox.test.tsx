@@ -52,4 +52,15 @@ describe('Checkbox', () => {
     expect(onFocus).toHaveBeenCalledTimes(1);
     expect(onBlur).toHaveBeenCalledTimes(1);
   });
+
+  it('should reflect indeterminate state correctly', () => {
+    const { rerender, container } = render(<Checkbox indeterminate />);
+
+    const checkboxInput = container.querySelector('input')!;
+    expect(checkboxInput.indeterminate).toBe(true);
+
+    rerender(<Checkbox indeterminate={false} />);
+
+    expect(checkboxInput.indeterminate).toBe(false);
+  });
 });
