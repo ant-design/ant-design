@@ -277,6 +277,7 @@ exports[`renders components/badge/demo/change.tsx extend context correctly 1`] =
       >
         <button
           aria-checked="true"
+          aria-label="badge switch"
           class="ant-switch ant-switch-checked"
           role="switch"
           type="button"
@@ -1976,6 +1977,7 @@ exports[`renders components/badge/demo/no-wrapper.tsx extend context correctly 1
   >
     <button
       aria-checked="true"
+      aria-label="badge switch"
       class="ant-switch ant-switch-checked"
       role="switch"
       type="button"
