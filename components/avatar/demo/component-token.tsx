@@ -35,21 +35,19 @@ const App: React.FC = () => (
         }}
       >
         <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=2" alt="avatar" />
-        <Avatar style={{ backgroundColor: '#f56a00' }} alt="avatar">
-          K
-        </Avatar>
+        <Avatar style={{ backgroundColor: '#f56a00' }}>K</Avatar>
         <Tooltip title="Ant User" placement="top">
-          <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} alt="avatar" />
+          <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />
         </Tooltip>
-        <Avatar style={{ backgroundColor: '#1890ff' }} icon={<AntDesignOutlined />} alt="avatar" />
+        <Avatar style={{ backgroundColor: '#1890ff' }} icon={<AntDesignOutlined />} />
       </Avatar.Group>
     </Space>
     <Space>
       <Badge count={1}>
-        <Avatar shape="square" icon={<UserOutlined />} alt="avatar" />
+        <Avatar shape="square" icon={<UserOutlined />} />
       </Badge>
       <Badge dot>
-        <Avatar shape="square" icon={<UserOutlined />} alt="avatar" />
+        <Avatar shape="square" icon={<UserOutlined />} />
       </Badge>
     </Space>
   </ConfigProvider>

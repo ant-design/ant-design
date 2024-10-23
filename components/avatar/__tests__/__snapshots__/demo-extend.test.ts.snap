@@ -1458,7 +1458,7 @@ exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = 
       class="ant-avatar ant-avatar-circle ant-avatar-image"
     >
       <img
-        alt="User avatar"
+        alt="avatar"
         src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
       />
     </span>
