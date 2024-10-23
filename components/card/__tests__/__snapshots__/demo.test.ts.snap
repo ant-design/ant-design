@@ -671,6 +671,7 @@ exports[`renders components/card/demo/loading.tsx correctly 1`] = `
 >
   <button
     aria-checked="false"
+    aria-label="card loading switch"
     class="ant-switch"
     role="switch"
     type="button"
@@ -930,6 +931,7 @@ exports[`renders components/card/demo/meta.tsx correctly 1`] = `
           class="ant-avatar ant-avatar-circle ant-avatar-image"
         >
           <img
+            alt="card avatar"
             src="https://api.dicebear.com/7.x/miniavs/svg?seed=8"
           />
         </span>
