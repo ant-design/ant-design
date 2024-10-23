@@ -408,6 +408,7 @@ Array [
         class="ant-avatar ant-avatar-circle ant-avatar-image"
       >
         <img
+          alt="avatar"
           src="http://abc.com/not-exist.jpg"
         />
       </span>
@@ -426,6 +427,7 @@ Array [
           class="ant-avatar ant-avatar-circle ant-avatar-image"
         >
           <img
+            alt="avatar"
             src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
           />
         </span>
@@ -683,6 +685,7 @@ exports[`renders components/avatar/demo/fallback.tsx extend context correctly 1`
       class="ant-avatar ant-avatar-circle ant-avatar-image"
     >
       <img
+        alt="circle avatar with fallback"
         src="http://abc.com/not-exist.jpg"
       />
     </span>
@@ -694,6 +697,7 @@ exports[`renders components/avatar/demo/fallback.tsx extend context correctly 1`
       class="ant-avatar ant-avatar-circle ant-avatar-image"
     >
       <img
+        alt="circle avatar with fallback"
         src="http://abc.com/not-exist.jpg"
       />
     </span>
@@ -712,6 +716,7 @@ Array [
       class="ant-avatar ant-avatar-circle ant-avatar-image"
     >
       <img
+        alt="group avatar"
         src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
       />
     </span>
@@ -809,6 +814,7 @@ Array [
       class="ant-avatar ant-avatar-circle ant-avatar-image"
     >
       <img
+        alt="group avatar"
         src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
       />
     </span>
@@ -935,6 +941,7 @@ Array [
       class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
     >
       <img
+        alt="group avatar"
         src="https://api.dicebear.com/7.x/miniavs/svg?seed=3"
       />
     </span>
@@ -1061,6 +1068,7 @@ Array [
       class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
     >
       <img
+        alt="group avatar"
         src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
       />
     </span>
@@ -1450,6 +1458,7 @@ exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = 
       class="ant-avatar ant-avatar-circle ant-avatar-image"
     >
       <img
+        alt="User avatar"
         src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
       />
     </span>

@@ -23,7 +23,7 @@ const App: React.FC = () => (
     }}
   >
     <Space>
-      <Avatar shape="circle" src="http://abc.com/not-exist.jpg">
+      <Avatar shape="circle" src="http://abc.com/not-exist.jpg" alt="avatar">
         A
       </Avatar>
     </Space>
@@ -34,20 +34,22 @@ const App: React.FC = () => (
           style: { color: '#f56a00', backgroundColor: '#fde3cf' },
         }}
       >
-        <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=2" />
-        <Avatar style={{ backgroundColor: '#f56a00' }}>K</Avatar>
+        <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=2" alt="avatar" />
+        <Avatar style={{ backgroundColor: '#f56a00' }} alt="avatar">
+          K
+        </Avatar>
         <Tooltip title="Ant User" placement="top">
-          <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />
+          <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} alt="avatar" />
         </Tooltip>
-        <Avatar style={{ backgroundColor: '#1890ff' }} icon={<AntDesignOutlined />} />
+        <Avatar style={{ backgroundColor: '#1890ff' }} icon={<AntDesignOutlined />} alt="avatar" />
       </Avatar.Group>
     </Space>
     <Space>
       <Badge count={1}>
-        <Avatar shape="square" icon={<UserOutlined />} />
+        <Avatar shape="square" icon={<UserOutlined />} alt="avatar" />
       </Badge>
       <Badge dot>
-        <Avatar shape="square" icon={<UserOutlined />} />
+        <Avatar shape="square" icon={<UserOutlined />} alt="avatar" />
       </Badge>
     </Space>
   </ConfigProvider>
