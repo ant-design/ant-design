@@ -29,13 +29,11 @@ jobs:
           NODE_OPTIONS: --max_old_space_size=4096
       - name: run e2e test
         run: bun run test:site
-      - run: |
-          zip -r site.zip _site
       - name: upload site artifact
         uses: actions/upload-artifact@v4
         with:
           name: site
-          path: site.zip
+          path: _site/
           retention-days: 5
       # Upload PR id for next workflow use
       - name: Save PR number
