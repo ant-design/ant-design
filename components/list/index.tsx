@@ -123,6 +123,8 @@ function InternalList<T>(
 
   const warning = devUseWarning('List');
 
+  const dateSourceLen = React.useRef(dataSource.length);
+
   const renderInnerItem = (item: T, index: number) => {
     if (!renderItem) return null;
 
@@ -137,8 +139,9 @@ function InternalList<T>(
     }
 
     if (!key) {
+      // https://github.com/ant-design/ant-design/issues/51354
       warning(
-        true,
+        dateSourceLen.current === dataSource.length /** dynamic source */,
         'usage',
         'Each record in list should have a unique `key` prop, or set `rowKey` to an unique primary key.',
       );
