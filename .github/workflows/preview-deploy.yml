@@ -86,7 +86,8 @@ jobs:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
           name: site
-
+      - run: |
+          unzip site.zip
       - name: upload surge service
         id: deploy
         continue-on-error: true
