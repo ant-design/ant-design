@@ -16,7 +16,7 @@ export default function accessibilityTest(Component: React.ComponentType) {
 }
 
 type Options = {
-  skip?: boolean | string[]; // 跳过特定测试
+  skip?: boolean | string[];
 };
 
 // eslint-disable-next-line jest/no-export
