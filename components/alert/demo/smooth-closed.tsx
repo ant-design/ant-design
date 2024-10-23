@@ -14,7 +14,12 @@ const App: React.FC = () => {
         <Alert message="Alert Message Text" type="success" closable afterClose={handleClose} />
       )}
       <p>click the close button to see the effect</p>
-      <Switch onChange={setVisible} checked={visible} disabled={visible} />
+      <Switch
+        onChange={setVisible}
+        checked={visible}
+        disabled={visible}
+        aria-label="Toggle alert visibility"
+      />
     </>
   );
 };
