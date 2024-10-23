@@ -34,6 +34,7 @@ export interface CheckboxGroupProps<T = any> extends AbstractCheckboxGroupProps<
   name?: string;
   defaultValue?: T[];
   value?: T[];
+  groupControl?: boolean;
   onChange?: (checkedValue: T[]) => void;
   children?: React.ReactNode;
 }
@@ -54,6 +55,7 @@ const CheckboxGroup = React.forwardRef(
       rootClassName,
       style,
       onChange,
+      groupControl,
       ...restProps
     } = props;
     const { getPrefixCls, direction } = React.useContext(ConfigContext);
@@ -144,6 +146,7 @@ const CheckboxGroup = React.forwardRef(
       // https://github.com/ant-design/ant-design/issues/16376
       registerValue,
       cancelValue,
+      groupControl,
     };
     const classString = classNames(
       groupPrefixCls,

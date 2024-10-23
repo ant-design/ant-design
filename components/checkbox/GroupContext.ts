@@ -9,6 +9,7 @@ export interface CheckboxGroupContext<T = any> {
   disabled?: boolean;
   registerValue: (val: T) => void;
   cancelValue: (val: T) => void;
+  groupControl?: boolean;
 }
 
 const GroupContext = React.createContext<CheckboxGroupContext | null>(null);
