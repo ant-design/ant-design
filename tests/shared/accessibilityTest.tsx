@@ -21,23 +21,27 @@ type Options = {
 
 // eslint-disable-next-line jest/no-export
 export function accessibilityDemoTest(component: string, options: Options = {}) {
-  let describeMethod = options.skip === true ? describe.skip : describe;
+  // If skip is true, return immediately without executing any tests
+  if (options.skip === true) {
+    describe.skip(`${component} demo a11y`, () => {
+      it('skipped', () => {});
+    });
+    return;
+  }
 
-  const files = globSync(`./components/${component}/demo/*.tsx`).filter(
-    (file) => !file.includes('_semantic'),
-  );
+  describe(`${component} demo a11y`, () => {
+    const files = globSync(`./components/${component}/demo/*.tsx`).filter(
+      (file) => !file.includes('_semantic'),
+    );
 
-  files.forEach((file) => {
-    if (Array.isArray(options.skip) && options.skip.some((c) => file.endsWith(c))) {
-      describeMethod = describe.skip;
-    } else {
-      describeMethod = describe;
-    }
+    files.forEach((file) => {
+      const shouldSkip = Array.isArray(options.skip) && options.skip.some((c) => file.endsWith(c));
+      const testMethod = shouldSkip ? describe.skip : describe;
 
-    describeMethod(`Test ${file} accessibility`, () => {
-      const Demo = require(`../../${file}`).default;
-
-      accessibilityTest(Demo);
+      testMethod(`Test ${file} accessibility`, () => {
+        const Demo = require(`../../${file}`).default;
+        accessibilityTest(Demo);
+      });
     });
   });
 }
