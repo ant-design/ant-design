@@ -1423,6 +1423,7 @@ Array [
   </p>,
   <button
     aria-checked="true"
+    aria-label="Toggle alert visibility"
     class="ant-switch ant-switch-checked ant-switch-disabled"
     disabled=""
     role="switch"
