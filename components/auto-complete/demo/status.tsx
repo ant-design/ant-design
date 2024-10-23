@@ -20,12 +20,14 @@ const App: React.FC = () => {
         onSearch={(text) => setOptions(getPanelValue(text))}
         status="error"
         style={{ width: 200 }}
+        aria-label="Error autocomplete input"
       />
       <AutoComplete
         options={anotherOptions}
         onSearch={(text) => setAnotherOptions(getPanelValue(text))}
         status="warning"
         style={{ width: 200 }}
+        aria-label="Warning autocomplete input"
       />
     </Space>
   );

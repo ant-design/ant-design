@@ -21,6 +21,7 @@ const App: React.FC = () => {
       onSearch={handleSearch}
       placeholder="input here"
       options={options}
+      aria-label="Autocomplete input"
     />
   );
 };

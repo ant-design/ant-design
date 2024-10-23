@@ -20,6 +20,7 @@ const App: React.FC = () => {
         placeholder="Outlined"
         onSearch={(text) => setOptions(getPanelValue(text))}
         onSelect={globalThis.console.log}
+        aria-label="Outlined autocomplete input"
       />
       <AutoComplete
         options={options}
@@ -28,6 +29,7 @@ const App: React.FC = () => {
         onSearch={(text) => setOptions(getPanelValue(text))}
         onSelect={globalThis.console.log}
         variant="filled"
+        aria-label="Filled autocomplete input"
       />
       <AutoComplete
         options={options}
@@ -36,6 +38,7 @@ const App: React.FC = () => {
         onSearch={(text) => setOptions(getPanelValue(text))}
         onSelect={globalThis.console.log}
         variant="borderless"
+        aria-label="Borderless autocomplete input"
       />
     </Flex>
   );

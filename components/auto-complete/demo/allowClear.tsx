@@ -21,6 +21,7 @@ const App: React.FC = () => {
         onSearch={(text) => setOptions(getPanelValue(text))}
         placeholder="UnClearable"
         allowClear={false}
+        aria-label="UnClearable autocomplete input"
       />
       <br />
       <br />
@@ -30,6 +31,7 @@ const App: React.FC = () => {
         onSearch={(text) => setOptions(getPanelValue(text))}
         placeholder="Customized clear icon"
         allowClear={{ clearIcon: <CloseSquareFilled /> }}
+        aria-label="Customized clear icon autocomplete input"
       />
     </>
   );

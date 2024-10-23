@@ -3,6 +3,7 @@
 exports[`renders components/auto-complete/demo/allowClear.tsx extend context correctly 1`] = `
 Array [
   <div
+    aria-label="UnClearable autocomplete input"
     class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
     style="width: 200px;"
   >
@@ -17,6 +18,7 @@ Array [
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
+          aria-label="UnClearable autocomplete input"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -48,6 +50,7 @@ Array [
   <br />,
   <br />,
   <div
+    aria-label="Customized clear icon autocomplete input"
     class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-allow-clear ant-select-show-search"
     style="width: 200px;"
   >
@@ -62,6 +65,7 @@ Array [
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
+          aria-label="Customized clear icon autocomplete input"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -98,6 +102,7 @@ exports[`renders components/auto-complete/demo/allowClear.tsx extend context cor
 exports[`renders components/auto-complete/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <div
+    aria-label="Basic autocomplete input"
     class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
     style="width: 200px;"
   >
@@ -112,6 +117,7 @@ Array [
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
+          aria-label="Basic autocomplete input"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -143,6 +149,7 @@ Array [
   <br />,
   <br />,
   <div
+    aria-label="Control mode autocomplete input"
     class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
     style="width: 200px;"
   >
@@ -157,6 +164,7 @@ Array [
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
+          aria-label="Control mode autocomplete input"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -640,6 +648,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="Autocomplete input"
               class="ant-select ant-select-outlined ant-select-in-form-item ant-select-auto-complete ant-select-single ant-select-show-search"
             >
               <div
@@ -653,6 +662,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Autocomplete input"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -710,6 +720,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="Tree select input"
               class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow"
             >
               <div
@@ -723,6 +734,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Tree select input"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -860,6 +872,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
               class="ant-input-group ant-input-group-compact"
             >
               <div
+                aria-label="Tree select in group"
                 class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
                 style="width: 30%;"
               >
@@ -874,6 +887,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Tree select in group"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -978,6 +992,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 </span>
               </div>
               <div
+                aria-label="Autocomplete input"
                 class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
               >
                 <div
@@ -991,6 +1006,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Autocomplete input"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -1065,6 +1081,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Search input with icon"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-input"
@@ -1149,6 +1166,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
               class="ant-input-group ant-input-group-compact"
             >
               <div
+                aria-label="Tree select with icon"
                 class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
                 style="width: 30%;"
               >
@@ -1163,6 +1181,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Tree select with icon"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -1283,6 +1302,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                         aria-controls="rc_select_TEST_OR_SSR_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="Search input with icon in group"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-input"
@@ -1368,6 +1388,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
               class="ant-input-group ant-input-group-compact"
             >
               <div
+                aria-label="Tree select with search"
                 class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
                 style="width: 30%;"
               >
@@ -1382,6 +1403,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Tree select with search"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -1505,6 +1527,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                           aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="Search input in group"
                           aria-owns="rc_select_TEST_OR_SSR_list"
                           autocomplete="off"
                           class="ant-input ant-input-outlined"
@@ -1600,6 +1623,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
               class="ant-input-group ant-input-group-compact"
             >
               <div
+                aria-label="Tree select with button"
                 class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
                 style="width: 20%;"
               >
@@ -1614,6 +1638,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Tree select with button"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -1737,6 +1762,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                           aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="Search input with button"
                           aria-owns="rc_select_TEST_OR_SSR_list"
                           autocomplete="off"
                           class="ant-input ant-input-outlined"
@@ -1845,6 +1871,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
 
 exports[`renders components/auto-complete/demo/non-case-sensitive.tsx extend context correctly 1`] = `
 <div
+  aria-label="Non-case-sensitive autocomplete input"
   class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
   style="width: 200px;"
 >
@@ -1859,6 +1886,7 @@ exports[`renders components/auto-complete/demo/non-case-sensitive.tsx extend con
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
+        aria-label="Non-case-sensitive autocomplete input"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -1969,6 +1997,7 @@ exports[`renders components/auto-complete/demo/non-case-sensitive.tsx extend con
 
 exports[`renders components/auto-complete/demo/options.tsx extend context correctly 1`] = `
 <div
+  aria-label="Autocomplete input"
   class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
   style="width: 200px;"
 >
@@ -1983,6 +2012,7 @@ exports[`renders components/auto-complete/demo/options.tsx extend context correc
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
+        aria-label="Autocomplete input"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -2025,6 +2055,7 @@ exports[`renders components/auto-complete/demo/render-panel.tsx extend context c
   >
     <button
       aria-checked="false"
+      aria-label="Toggle autocomplete visibility"
       class="ant-switch"
       role="switch"
       type="button"
@@ -2051,6 +2082,7 @@ exports[`renders components/auto-complete/demo/render-panel.tsx extend context c
       style="padding-bottom: 0px; position: relative; min-width: 0;"
     >
       <div
+        aria-label="Autocomplete input"
         class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
         style="width: 120px; margin: 0px;"
       >
@@ -2065,6 +2097,7 @@ exports[`renders components/auto-complete/demo/render-panel.tsx extend context c
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Autocomplete input"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -2206,6 +2239,7 @@ exports[`renders components/auto-complete/demo/status.tsx extend context correct
     class="ant-space-item"
   >
     <div
+      aria-label="Error autocomplete input"
       class="ant-select ant-select-outlined ant-select-status-error ant-select-auto-complete ant-select-single ant-select-show-search"
       style="width: 200px;"
     >
@@ -2220,6 +2254,7 @@ exports[`renders components/auto-complete/demo/status.tsx extend context correct
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Error autocomplete input"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -2251,6 +2286,7 @@ exports[`renders components/auto-complete/demo/status.tsx extend context correct
     class="ant-space-item"
   >
     <div
+      aria-label="Warning autocomplete input"
       class="ant-select ant-select-outlined ant-select-status-warning ant-select-auto-complete ant-select-single ant-select-show-search"
       style="width: 200px;"
     >
@@ -2265,6 +2301,7 @@ exports[`renders components/auto-complete/demo/status.tsx extend context correct
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Warning autocomplete input"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -2394,6 +2431,7 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
   style="gap: 12px;"
 >
   <div
+    aria-label="Outlined autocomplete input"
     class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
     style="width: 200px;"
   >
@@ -2408,6 +2446,7 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
+          aria-label="Outlined autocomplete input"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -2437,6 +2476,7 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
     </div>
   </div>
   <div
+    aria-label="Filled autocomplete input"
     class="ant-select ant-select-filled ant-select-auto-complete ant-select-single ant-select-show-search"
     style="width: 200px;"
   >
@@ -2451,6 +2491,7 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
+          aria-label="Filled autocomplete input"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -2480,6 +2521,7 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
     </div>
   </div>
   <div
+    aria-label="Borderless autocomplete input"
     class="ant-select ant-select-borderless ant-select-auto-complete ant-select-single ant-select-show-search"
     style="width: 200px;"
   >
@@ -2494,6 +2536,7 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
+          aria-label="Borderless autocomplete input"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"

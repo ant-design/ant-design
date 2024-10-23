@@ -8,7 +8,11 @@ const App: React.FC = () => {
 
   return (
     <Space direction="vertical" style={{ display: 'flex' }}>
-      <Switch checked={open} onChange={() => setOpen(!open)} />
+      <Switch
+        checked={open}
+        onChange={() => setOpen(!open)}
+        aria-label="Toggle autocomplete visibility"
+      />
       <InternalAutoComplete
         defaultValue="lucy"
         style={{ width: 120 }}
@@ -19,6 +23,7 @@ const App: React.FC = () => {
           { label: 'Disabled', value: 'disabled' },
           { label: 'Bamboo', value: 'bamboo' },
         ]}
+        aria-label="Autocomplete input"
       />
     </Space>
   );
