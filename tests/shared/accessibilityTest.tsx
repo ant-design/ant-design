@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
+import { globSync } from 'glob';
 import { axe } from 'jest-axe';
 
 // eslint-disable-next-line jest/no-export
@@ -10,6 +11,33 @@ export default function accessibilityTest(Component: React.ComponentType) {
       const { container } = render(<Component />);
       const results = await axe(container);
       expect(results).toHaveNoViolations();
+    });
+  });
+}
+
+type Options = {
+  skip?: boolean | string[]; // 跳过特定测试
+};
+
+// eslint-disable-next-line jest/no-export
+export function accessibilityDemoTest(component: string, options: Options = {}) {
+  let describeMethod = options.skip === true ? describe.skip : describe;
+
+  const files = globSync(`./components/${component}/demo/*.tsx`).filter(
+    (file) => !file.includes('_semantic'),
+  );
+
+  files.forEach((file) => {
+    if (Array.isArray(options.skip) && options.skip.some((c) => file.endsWith(c))) {
+      describeMethod = describe.skip;
+    } else {
+      describeMethod = describe;
+    }
+
+    describeMethod(`Test ${file} accessibility`, () => {
+      const Demo = require(`../../${file}`).default;
+
+      accessibilityTest(Demo);
     });
   });
 }
