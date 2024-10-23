@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import extendsObject from '../_util/extendsObject';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import useSize from '../config-provider/hooks/useSize';
@@ -120,6 +121,8 @@ function InternalList<T>(
 
   const onPaginationShowSizeChange = triggerPaginationEvent('onShowSizeChange');
 
+  const warning = devUseWarning('List');
+
   const renderInnerItem = (item: T, index: number) => {
     if (!renderItem) return null;
 
@@ -134,6 +137,11 @@ function InternalList<T>(
     }
 
     if (!key) {
+      warning(
+        true,
+        'usage',
+        'Each record in list should have a unique `key` prop, or set `rowKey` to an unique primary key.',
+      );
       key = `list-item-${index}`;
     }
 
