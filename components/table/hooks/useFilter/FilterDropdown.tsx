@@ -6,6 +6,7 @@ import type { FieldDataNode } from 'rc-tree';
 import isEqual from 'rc-util/lib/isEqual';
 
 import type { FilterState } from '.';
+import extendsObject from '../../../_util/extendsObject';
 import useSyncState from '../../../_util/hooks/useSyncState';
 import { devUseWarning } from '../../../_util/warning';
 import Button from '../../../button';
@@ -549,22 +550,26 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
     );
   };
 
-  const mergedDropdownProps: DropdownProps = {
-    trigger: ['click'],
-    placement: direction === 'rtl' ? 'bottomLeft' : 'bottomRight',
-    children: getDropdownTrigger(),
-    getPopupContainer,
-    ...filterDropdownProps,
-    rootClassName: classNames(rootClassName, filterDropdownProps.rootClassName),
-    open: mergedVisible,
-    onOpenChange: onVisibleChange,
-    dropdownRender: () => {
-      if (typeof filterDropdownProps?.dropdownRender === 'function') {
-        return filterDropdownProps.dropdownRender(dropdownContent);
-      }
-      return dropdownContent;
+  const mergedDropdownProps = extendsObject<DropdownProps>(
+    {
+      trigger: ['click'],
+      placement: direction === 'rtl' ? 'bottomLeft' : 'bottomRight',
+      children: getDropdownTrigger(),
+      getPopupContainer,
     },
-  };
+    {
+      ...filterDropdownProps,
+      rootClassName: classNames(rootClassName, filterDropdownProps.rootClassName),
+      open: mergedVisible,
+      onOpenChange: onVisibleChange,
+      dropdownRender: () => {
+        if (typeof filterDropdownProps?.dropdownRender === 'function') {
+          return filterDropdownProps.dropdownRender(dropdownContent);
+        }
+        return dropdownContent;
+      },
+    },
+  );
 
   return (
     <div className={`${prefixCls}-column`}>
