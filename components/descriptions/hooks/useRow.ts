@@ -3,77 +3,66 @@ import { useMemo } from 'react';
 import type { InternalDescriptionsItemType } from '..';
 import { devUseWarning } from '../../_util/warning';
 
-function getFilledItem(
-  rowItem: InternalDescriptionsItemType,
-  rowRestCol: number,
-  span?: number,
-): [item: InternalDescriptionsItemType, exceed: boolean] {
-  let clone = rowItem;
+const splitArrayByMarker = (
+  array: InternalDescriptionsItemType[],
+  column: number,
+): [InternalDescriptionsItemType[][], boolean] => {
+  const result: InternalDescriptionsItemType[][] = [];
+  let tempArray: InternalDescriptionsItemType[] = [];
+  let count = 0;
   let exceed = false;
 
-  if (span === undefined || span > rowRestCol) {
-    clone = {
-      ...rowItem,
-      span: rowRestCol,
-    };
-
-    exceed = span !== undefined;
-  }
-  return [clone, exceed];
-}
-
-// Calculate the sum of span in a row
-function getCalcRows(
-  rowItems: InternalDescriptionsItemType[],
-  mergedColumn: number,
-): [rows: InternalDescriptionsItemType[][], exceed: boolean] {
-  const rows: InternalDescriptionsItemType[][] = [];
-  let tmpRow: InternalDescriptionsItemType[] = [];
-  let rowRestCol = mergedColumn;
-  let exceed = false;
-
-  rowItems
-    .filter((n) => n)
-    .forEach((rowItem, index) => {
-      const span = rowItem?.span;
-      const mergedSpan = span || 1;
-
-      // Additional handle last one
-      if (index === rowItems.length - 1) {
-        const [item, itemExceed] = getFilledItem(rowItem, rowRestCol, span);
-        exceed = exceed || itemExceed;
-
-        tmpRow.push(item);
-        rows.push(tmpRow);
-        return;
+  array.forEach((item) => {
+    count += item.span || 1;
+    if (count >= column || item.fullLine) {
+      if (count > column) {
+        exceed = true;
       }
-
-      if (mergedSpan < rowRestCol) {
-        rowRestCol -= mergedSpan;
-        tmpRow.push(rowItem);
+      if (item.fullLine) {
+        if (tempArray.length > 0) {
+          result.push(tempArray);
+        }
+        result.push([item]);
       } else {
-        const [item, itemExceed] = getFilledItem(rowItem, rowRestCol, mergedSpan);
-        exceed = exceed || itemExceed;
-
-        tmpRow.push(item);
-        rows.push(tmpRow);
-        rowRestCol = mergedColumn;
-        tmpRow = [];
+        tempArray.push(item);
+        result.push(tempArray);
       }
-    });
+      // reset
+      tempArray = [];
+      count = 0;
+    } else {
+      tempArray.push(item);
+    }
+  });
 
+  if (tempArray.length > 0) {
+    result.push(tempArray);
+  }
+
+  const rows = result.map((rows) => {
+    const count = rows.reduce((acc, item) => acc + (item.span || 1), 0);
+    if (count < column) {
+      const before = rows.slice(0, -1);
+      const last = rows[rows.length - 1];
+      // If the span of the last element in the current row is less than the column, then add its span to the remaining columns
+      return [...before, { ...last, span: column - count + 1 }];
+    }
+    return rows;
+  });
   return [rows, exceed];
-}
+};
 
 const useRow = (mergedColumn: number, items: InternalDescriptionsItemType[]) => {
-  const [rows, exceed] = useMemo(() => getCalcRows(items, mergedColumn), [items, mergedColumn]);
+  const [rows, exceed] = useMemo(
+    () => splitArrayByMarker(items, mergedColumn),
+    [items, mergedColumn],
+  );
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Descriptions');
 
     warning(!exceed, 'usage', 'Sum of column `span` in a line not match `column` of Descriptions.');
   }
-
   return rows;
 };
 
