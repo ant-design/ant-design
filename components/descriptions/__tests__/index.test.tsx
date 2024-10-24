@@ -87,9 +87,10 @@ describe('Descriptions', () => {
           { label: 'Billing', children: 'Prepaid', span: 1 },
           { label: 'Time', children: '18:00:00' },
           { label: 'Product', children: 'Cloud Database', span: 'block' },
-          { label: 'Billing', children: 'Prepaid', span: 'block' },
-          { label: 'Time', children: '18:00:00' },
+          { label: 'Billing', children: 'Prepaid', span: 1 },
+          { label: 'Time', children: '18:00:00', span: 'block' },
           { label: 'Product', children: 'Cloud Database' },
+          { label: 'Billing', children: 'Prepaid' },
         ]}
       />,
     );
@@ -97,9 +98,10 @@ describe('Descriptions', () => {
     expect(container.querySelectorAll('.ant-descriptions-item')[1]).toHaveAttribute('colSpan', '1');
     expect(container.querySelectorAll('.ant-descriptions-item')[2]).toHaveAttribute('colSpan', '3');
     expect(container.querySelectorAll('.ant-descriptions-item')[3]).toHaveAttribute('colSpan', '3');
-    expect(container.querySelectorAll('.ant-descriptions-item')[4]).toHaveAttribute('colSpan', '3');
-    expect(container.querySelectorAll('.ant-descriptions-item')[5]).toHaveAttribute('colSpan', '1');
-    expect(container.querySelectorAll('.ant-descriptions-item')[6]).toHaveAttribute('colSpan', '2');
+    expect(container.querySelectorAll('.ant-descriptions-item')[4]).toHaveAttribute('colSpan', '1');
+    expect(container.querySelectorAll('.ant-descriptions-item')[5]).toHaveAttribute('colSpan', '3');
+    expect(container.querySelectorAll('.ant-descriptions-item')[6]).toHaveAttribute('colSpan', '1');
+    expect(container.querySelectorAll('.ant-descriptions-item')[7]).toHaveAttribute('colSpan', '2');
   });
 
   it('column is number', () => {
