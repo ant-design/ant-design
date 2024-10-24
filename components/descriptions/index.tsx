@@ -22,10 +22,11 @@ interface CompoundedComponent {
 
 export interface InternalDescriptionsItemType extends DescriptionsItemProps {
   key?: React.Key;
+  block?: boolean;
 }
 
-export interface DescriptionsItemType extends Omit<InternalDescriptionsItemType, 'span'> {
-  span?: number | { [key in Breakpoint]?: number };
+export interface DescriptionsItemType extends Omit<InternalDescriptionsItemType, 'span' | 'block'> {
+  span?: number | 'block' | { [key in Breakpoint]?: number };
 }
 
 export interface DescriptionsProps {

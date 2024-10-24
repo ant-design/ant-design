@@ -141,6 +141,132 @@ exports[`renders components/descriptions/demo/basic.tsx extend context correctly
 
 exports[`renders components/descriptions/demo/basic.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/descriptions/demo/block.tsx extend context correctly 1`] = `
+<div
+  class="ant-descriptions ant-descriptions-bordered"
+>
+  <div
+    class="ant-descriptions-header"
+  >
+    <div
+      class="ant-descriptions-title"
+    >
+      User Info
+    </div>
+  </div>
+  <div
+    class="ant-descriptions-view"
+  >
+    <table>
+      <tbody>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              UserName
+            </span>
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <span>
+              Zhou Maomao
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Telephone
+            </span>
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <span>
+              1810000000
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Live
+            </span>
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <span>
+              Hangzhou, Zhejiang
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Remark
+            </span>
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <span>
+              empty
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Address
+            </span>
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <span>
+              No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`renders components/descriptions/demo/block.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/descriptions/demo/border.tsx extend context correctly 1`] = `
 <div
   class="ant-descriptions ant-descriptions-bordered"
@@ -272,7 +398,7 @@ exports[`renders components/descriptions/demo/border.tsx extend context correctl
           </th>
           <td
             class="ant-descriptions-item-content"
-            colspan="1"
+            colspan="3"
           >
             <span>
               <span
@@ -2302,7 +2428,7 @@ exports[`renders components/descriptions/demo/text.tsx extend context correctly 
         >
           <td
             class="ant-descriptions-item"
-            colspan="2"
+            colspan="1"
           >
             <div
               class="ant-descriptions-item-container"
@@ -2929,7 +3055,7 @@ exports[`renders components/descriptions/demo/vertical-border.tsx extend context
         >
           <th
             class="ant-descriptions-item-label"
-            colspan="1"
+            colspan="2"
           >
             <span>
               Status
@@ -2941,7 +3067,7 @@ exports[`renders components/descriptions/demo/vertical-border.tsx extend context
         >
           <td
             class="ant-descriptions-item-content"
-            colspan="1"
+            colspan="2"
           >
             <span>
               <span
