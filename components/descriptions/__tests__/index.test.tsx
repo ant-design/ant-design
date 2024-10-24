@@ -78,7 +78,7 @@ describe('Descriptions', () => {
     expect(container.querySelectorAll('.ant-descriptions-item')[2]).toHaveAttribute('colSpan', '1');
   });
 
-  it('span = row', () => {
+  it('span = block', () => {
     const { container } = render(
       <Descriptions
         column={3}
