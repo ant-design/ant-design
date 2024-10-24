@@ -47,7 +47,9 @@ function getCalcRows(
     if (count < mergedColumn) {
       // If the span of the last element in the current row is less than the column, then add its span to the remaining columns
       const last = rows[rows.length - 1];
-      last.span = mergedColumn - count + 1;
+      if (last.span === undefined) {
+        last.span = mergedColumn - count + 1;
+      }
       return rows;
     }
     return rows;
