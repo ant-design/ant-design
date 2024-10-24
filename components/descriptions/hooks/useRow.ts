@@ -42,10 +42,10 @@ const splitArrayByMarker = (
   const rows = result.map((rows) => {
     const count = rows.reduce((acc, item) => acc + (item.span || 1), 0);
     if (count < column) {
-      const before = rows.slice(0, -1);
-      const last = rows[rows.length - 1];
       // If the span of the last element in the current row is less than the column, then add its span to the remaining columns
-      return [...before, { ...last, span: column - count + 1 }];
+      const last = rows[rows.length - 1];
+      last.span = column - count + 1;
+      return rows;
     }
     return rows;
   });
