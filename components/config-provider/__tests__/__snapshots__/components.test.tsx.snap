@@ -15000,7 +15000,7 @@ exports[`ConfigProvider components Empty configProvider 1`] = `
       xmlns="http://www.w3.org/2000/svg"
     >
       <title>
-        empty image
+        No data
       </title>
       <g
         fill="none"
@@ -15078,7 +15078,7 @@ exports[`ConfigProvider components Empty configProvider componentDisabled 1`] = 
       xmlns="http://www.w3.org/2000/svg"
     >
       <title>
-        empty image
+        No data
       </title>
       <g
         fill="none"
@@ -15156,7 +15156,7 @@ exports[`ConfigProvider components Empty configProvider componentSize large 1`] 
       xmlns="http://www.w3.org/2000/svg"
     >
       <title>
-        empty image
+        No data
       </title>
       <g
         fill="none"
@@ -15234,7 +15234,7 @@ exports[`ConfigProvider components Empty configProvider componentSize middle 1`]
       xmlns="http://www.w3.org/2000/svg"
     >
       <title>
-        empty image
+        No data
       </title>
       <g
         fill="none"
@@ -15312,7 +15312,7 @@ exports[`ConfigProvider components Empty configProvider componentSize small 1`] 
       xmlns="http://www.w3.org/2000/svg"
     >
       <title>
-        empty image
+        No data
       </title>
       <g
         fill="none"
@@ -15390,7 +15390,7 @@ exports[`ConfigProvider components Empty normal 1`] = `
       xmlns="http://www.w3.org/2000/svg"
     >
       <title>
-        empty image
+        No data
       </title>
       <g
         fill="none"
@@ -15468,7 +15468,7 @@ exports[`ConfigProvider components Empty prefixCls 1`] = `
       xmlns="http://www.w3.org/2000/svg"
     >
       <title>
-        empty image
+        No data
       </title>
       <g
         fill="none"
@@ -26829,7 +26829,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <title>
-                            Simple Empty
+                            No data
                           </title>
                           <g
                             fill="none"
@@ -27138,7 +27138,7 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <title>
-                            Simple Empty
+                            No data
                           </title>
                           <g
                             fill="none"
@@ -27445,7 +27445,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <title>
-                            Simple Empty
+                            No data
                           </title>
                           <g
                             fill="none"
@@ -27752,7 +27752,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <title>
-                            Simple Empty
+                            No data
                           </title>
                           <g
                             fill="none"
@@ -28059,7 +28059,7 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <title>
-                            Simple Empty
+                            No data
                           </title>
                           <g
                             fill="none"
@@ -28366,7 +28366,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <title>
-                            Simple Empty
+                            No data
                           </title>
                           <g
                             fill="none"
@@ -28673,7 +28673,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <title>
-                            Simple Empty
+                            No data
                           </title>
                           <g
                             fill="none"
@@ -39299,7 +39299,7 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>
-                Simple Empty
+                No data
               </title>
               <g
                 fill="none"
@@ -39469,7 +39469,7 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>
-                Simple Empty
+                No data
               </title>
               <g
                 fill="none"
@@ -39584,7 +39584,7 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>
-                Simple Empty
+                No data
               </title>
               <g
                 fill="none"
@@ -39754,7 +39754,7 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>
-                Simple Empty
+                No data
               </title>
               <g
                 fill="none"
@@ -39869,7 +39869,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>
-                Simple Empty
+                No data
               </title>
               <g
                 fill="none"
@@ -40039,7 +40039,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>
-                Simple Empty
+                No data
               </title>
               <g
                 fill="none"
@@ -40154,7 +40154,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>
-                Simple Empty
+                No data
               </title>
               <g
                 fill="none"
@@ -40324,7 +40324,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>
-                Simple Empty
+                No data
               </title>
               <g
                 fill="none"
@@ -40439,7 +40439,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize small 1
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>
-                Simple Empty
+                No data
               </title>
               <g
                 fill="none"
@@ -40609,7 +40609,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize small 1
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>
-                Simple Empty
+                No data
               </title>
               <g
                 fill="none"
@@ -40724,7 +40724,7 @@ exports[`ConfigProvider components Transfer normal 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>
-                Simple Empty
+                No data
               </title>
               <g
                 fill="none"
@@ -40894,7 +40894,7 @@ exports[`ConfigProvider components Transfer normal 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>
-                Simple Empty
+                No data
               </title>
               <g
                 fill="none"
@@ -41009,7 +41009,7 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>
-                Simple Empty
+                No data
               </title>
               <g
                 fill="none"
@@ -41179,7 +41179,7 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>
-                Simple Empty
+                No data
               </title>
               <g
                 fill="none"
