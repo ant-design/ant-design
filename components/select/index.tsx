@@ -15,13 +15,13 @@ import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import type { Variant } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
-import type { Variant } from '../config-provider';
 import useVariants from '../form/hooks/useVariants';
 import { useCompactItemContext } from '../space/Compact';
 import { useToken } from '../theme/internal';
@@ -82,6 +82,16 @@ export interface SelectProps<
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
+  /**
+   * @description Whether to remove spaces on blur
+   * @default true
+   */
+  onBlurRemoveSpace?: boolean;
+  /**
+   * @description Whether to add value on blur
+   * @default true
+   */
+  onBlurAddValue?: boolean;
 }
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
@@ -120,6 +130,8 @@ const InternalSelect = <
     tagRender,
     maxCount,
     prefix,
+    onBlurRemoveSpace = true,
+    onBlurAddValue = true,
     ...rest
   } = props;
 
@@ -307,6 +319,8 @@ const InternalSelect = <
       dropdownStyle={{ ...dropdownStyle, zIndex }}
       maxCount={isMultiple ? maxCount : undefined}
       tagRender={isMultiple ? tagRender : undefined}
+      onBlurRemoveSpace={onBlurRemoveSpace}
+      onBlurAddValue={onBlurAddValue}
     />,
   );
 };
