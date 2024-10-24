@@ -83,14 +83,14 @@ describe('Descriptions', () => {
       <Descriptions
         column={3}
         items={[
-          { label: 'Product', children: 'Cloud Database', span: 2 },
-          { label: 'Billing', children: 'Prepaid', span: 1 },
-          { label: 'Time', children: '18:00:00' },
-          { label: 'Product', children: 'Cloud Database', span: 'block' },
-          { label: 'Billing', children: 'Prepaid', span: 1 },
-          { label: 'Time', children: '18:00:00', span: 'block' },
-          { label: 'Product', children: 'Cloud Database' },
-          { label: 'Billing', children: 'Prepaid' },
+          { label: '0', children: '', span: 2 },
+          { label: '1', children: '', span: 1 },
+          { label: '2', children: '' },
+          { label: '3', children: '', span: 'block' },
+          { label: '4', children: '', span: 1 },
+          { label: '5', children: '', span: 'block' },
+          { label: '6', children: '' },
+          { label: '7', children: '' },
         ]}
       />,
     );
