@@ -86,8 +86,8 @@ describe('Descriptions', () => {
           { label: 'Product', children: 'Cloud Database', span: 2 },
           { label: 'Billing', children: 'Prepaid', span: 1 },
           { label: 'Time', children: '18:00:00' },
-          { label: 'Product', children: 'Cloud Database', fullLine: true },
-          { label: 'Billing', children: 'Prepaid', fullLine: true },
+          { label: 'Product', children: 'Cloud Database', span: 'block' },
+          { label: 'Billing', children: 'Prepaid', span: 'block' },
           { label: 'Time', children: '18:00:00' },
           { label: 'Product', children: 'Cloud Database' },
         ]}

@@ -25,7 +25,7 @@ export default function useItems(
     () =>
       mergedItems.map(({ span, ...restItem }) => {
         if (span === 'block') {
-          return { ...restItem, fullLine: true };
+          return { ...restItem, block: true };
         }
         return {
           ...restItem,

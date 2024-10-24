@@ -17,8 +17,8 @@ function getCalcRows(
     .filter((n) => n)
     .forEach((rowItem) => {
       count += rowItem.span || 1;
-      if (count >= mergedColumn || rowItem.fullLine) {
-        if (rowItem.fullLine) {
+      if (count >= mergedColumn || rowItem.block) {
+        if (rowItem.block) {
           if (tmpRow.length > 0) {
             rows.push(tmpRow);
           }
