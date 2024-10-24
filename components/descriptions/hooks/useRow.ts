@@ -8,7 +8,7 @@ function getCalcRows(
   rowItems: InternalDescriptionsItemType[],
   mergedColumn: number,
 ): [rows: InternalDescriptionsItemType[][], exceed: boolean] {
-  const rows: InternalDescriptionsItemType[][] = [];
+  let rows: InternalDescriptionsItemType[][] = [];
   let tmpRow: InternalDescriptionsItemType[] = [];
   let exceed = false;
   let count = 0;
@@ -42,7 +42,7 @@ function getCalcRows(
     rows.push(tmpRow);
   }
 
-  const _rows = rows.map((rows) => {
+  rows = rows.map((rows) => {
     const count = rows.reduce((acc, item) => acc + (item.span || 1), 0);
     if (count < mergedColumn) {
       // If the span of the last element in the current row is less than the column, then add its span to the remaining columns
@@ -52,7 +52,7 @@ function getCalcRows(
     }
     return rows;
   });
-  return [_rows, exceed];
+  return [rows, exceed];
 }
 
 const useRow = (mergedColumn: number, items: InternalDescriptionsItemType[]) => {
@@ -63,6 +63,7 @@ const useRow = (mergedColumn: number, items: InternalDescriptionsItemType[]) => 
 
     warning(!exceed, 'usage', 'Sum of column `span` in a line not match `column` of Descriptions.');
   }
+
   return rows;
 };
 
