@@ -78,6 +78,16 @@ describe('Descriptions', () => {
     expect(container.querySelectorAll('.ant-descriptions-item')[2]).toHaveAttribute('colSpan', '1');
   });
 
+  it('span = row', () => {
+    const { container } = render(
+      <Descriptions
+        column={3}
+        items={[{ label: 'Product', children: 'Cloud Database', span: 'row' }]}
+      />,
+    );
+    expect(container.querySelectorAll('.ant-descriptions-item')[0]).toHaveAttribute('colSpan', '3');
+  });
+
   it('column is number', () => {
     const wrapper = render(
       <Descriptions column={3}>
