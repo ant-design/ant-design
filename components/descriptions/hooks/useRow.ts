@@ -3,60 +3,60 @@ import { useMemo } from 'react';
 import type { InternalDescriptionsItemType } from '..';
 import { devUseWarning } from '../../_util/warning';
 
-const splitArrayByMarker = (
-  array: InternalDescriptionsItemType[],
-  column: number,
-): [InternalDescriptionsItemType[][], boolean] => {
-  const result: InternalDescriptionsItemType[][] = [];
-  let tempArray: InternalDescriptionsItemType[] = [];
-  let count = 0;
+// Calculate the sum of span in a row
+function getCalcRows(
+  rowItems: InternalDescriptionsItemType[],
+  mergedColumn: number,
+): [rows: InternalDescriptionsItemType[][], exceed: boolean] {
+  const rows: InternalDescriptionsItemType[][] = [];
+  let tmpRow: InternalDescriptionsItemType[] = [];
   let exceed = false;
+  let count = 0;
 
-  array.forEach((item) => {
-    count += item.span || 1;
-    if (count >= column || item.fullLine) {
-      if (count > column) {
-        exceed = true;
-      }
-      if (item.fullLine) {
-        if (tempArray.length > 0) {
-          result.push(tempArray);
+  rowItems
+    .filter((n) => n)
+    .forEach((rowItem) => {
+      count += rowItem.span || 1;
+      if (count >= mergedColumn || rowItem.fullLine) {
+        if (count > mergedColumn) {
+          exceed = true;
         }
-        result.push([item]);
+        if (rowItem.fullLine) {
+          if (tmpRow.length > 0) {
+            rows.push(tmpRow);
+          }
+          rows.push([rowItem]);
+        } else {
+          tmpRow.push(rowItem);
+          rows.push(tmpRow);
+        }
+        // reset
+        tmpRow = [];
+        count = 0;
       } else {
-        tempArray.push(item);
-        result.push(tempArray);
+        tmpRow.push(rowItem);
       }
-      // reset
-      tempArray = [];
-      count = 0;
-    } else {
-      tempArray.push(item);
-    }
-  });
+    });
 
-  if (tempArray.length > 0) {
-    result.push(tempArray);
+  if (tmpRow.length > 0) {
+    rows.push(tmpRow);
   }
 
-  const rows = result.map((rows) => {
+  const _rows = rows.map((rows) => {
     const count = rows.reduce((acc, item) => acc + (item.span || 1), 0);
-    if (count < column) {
+    if (count < mergedColumn) {
       // If the span of the last element in the current row is less than the column, then add its span to the remaining columns
       const last = rows[rows.length - 1];
-      last.span = column - count + 1;
+      last.span = mergedColumn - count + 1;
       return rows;
     }
     return rows;
   });
-  return [rows, exceed];
-};
+  return [_rows, exceed];
+}
 
 const useRow = (mergedColumn: number, items: InternalDescriptionsItemType[]) => {
-  const [rows, exceed] = useMemo(
-    () => splitArrayByMarker(items, mergedColumn),
-    [items, mergedColumn],
-  );
+  const [rows, exceed] = useMemo(() => getCalcRows(items, mergedColumn), [items, mergedColumn]);
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Descriptions');
