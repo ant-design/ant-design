@@ -6,6 +6,7 @@ import type { PickType } from 'rc-cascader/lib/Panel';
 
 import type { CascaderProps, DefaultOptionType } from '.';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useBase from './hooks/useBase';
 import useCheckable from './hooks/useCheckable';
@@ -40,7 +41,12 @@ function CascaderPanel<
     notFoundContent,
     direction,
     expandIcon,
+    // @ts-expect-error
+    disabled: customDisabled,
   } = props;
+
+  const disabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled ?? disabled;
 
   const [prefixCls, cascaderPrefixCls, mergedDirection, renderEmpty] = useBase(
     customizePrefixCls,
@@ -76,6 +82,8 @@ function CascaderPanel<
       direction={mergedDirection}
       expandIcon={mergedExpandIcon}
       loadingIcon={loadingIcon}
+      // @ts-expect-error
+      disabled={mergedDisabled}
     />,
   );
 }
