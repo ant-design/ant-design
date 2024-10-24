@@ -18,16 +18,18 @@ function getCalcRows(
     .forEach((rowItem) => {
       count += rowItem.span || 1;
       if (count >= mergedColumn || rowItem.fullLine) {
-        if (count > mergedColumn) {
-          exceed = true;
-        }
         if (rowItem.fullLine) {
           if (tmpRow.length > 0) {
             rows.push(tmpRow);
           }
           rows.push([rowItem]);
         } else {
-          tmpRow.push(rowItem);
+          if (count > mergedColumn) {
+            exceed = true;
+            tmpRow.push({ ...rowItem, span: count - mergedColumn });
+          } else {
+            tmpRow.push(rowItem);
+          }
           rows.push(tmpRow);
         }
         // reset
