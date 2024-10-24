@@ -471,8 +471,8 @@ describe('Splitter', () => {
       onResize.mockReset();
       onResizeEnd.mockReset();
       fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-end')!);
-      expect(onResize).toHaveBeenCalledWith([5, 95]);
-      expect(onResizeEnd).toHaveBeenCalledWith([5, 95]);
+      expect(onResize).toHaveBeenCalledWith([20, 80]);
+      expect(onResizeEnd).toHaveBeenCalledWith([20, 80]);
       expect(container.querySelector('.ant-splitter-bar-dragger-disabled')).toBeFalsy();
 
       // Collapse right

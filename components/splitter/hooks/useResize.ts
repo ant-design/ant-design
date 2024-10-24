@@ -25,7 +25,8 @@ export default function useResize(
 
   // Real px sizes
   const [cacheSizes, setCacheSizes] = React.useState<number[]>([]);
-
+  // cache collapsed size
+  const [collapsedSizes, setCollapsedSizes] = React.useState<number[]>([]);
   /**
    * When start drag, check the direct is `start` or `end`.
    * This will handle when 2 splitter bar are in the same position.
@@ -81,7 +82,6 @@ export default function useResize(
     const endMinSize = getLimitSize(limitSizes[nextIndex][0], 0);
     const startMaxSize = getLimitSize(limitSizes[mergedIndex][1], containerSize);
     const endMaxSize = getLimitSize(limitSizes[nextIndex][1], containerSize);
-
     let mergedOffset = offset;
 
     // Align with the boundary
@@ -97,7 +97,6 @@ export default function useResize(
     if (numSizes[nextIndex] - mergedOffset > endMaxSize) {
       mergedOffset = numSizes[nextIndex] - endMaxSize;
     }
-
     // Do offset
     numSizes[mergedIndex] += mergedOffset;
     numSizes[nextIndex] -= mergedOffset;
@@ -120,23 +119,74 @@ export default function useResize(
 
     const currentSize = currentSizes[currentIndex];
     const targetSize = currentSizes[targetIndex];
-
+    // get the min and max value of the current and target
+    const currentSizeMin = getLimitSize(limitSizes[currentIndex][0], 0);
+    const currentSizeMax = getLimitSize(limitSizes[currentIndex][1], containerSize);
+    const targetSizeMin = getLimitSize(limitSizes[targetIndex][0], 0);
+    const targetSizeMax = getLimitSize(limitSizes[targetIndex][1], containerSize);
+    const totalSize = currentSize + targetSize;
     if (currentSize !== 0 && targetSize !== 0) {
       // Collapse directly
       currentSizes[currentIndex] = 0;
       currentSizes[targetIndex] += currentSize;
+      const tmpSizes = [];
+      /**
+       *
+       * Record the size information before folding for subsequent recovery
+       *
+       */
+      /**
+       * if currentSize is between currentSizeMin and currentSizeMax, and
+       * targetSize is between targetSizeMin and targetSizeMax, then set tmpSizes[currentIndex]
+       *  and tmpSizes[targetIndex] to currentSize and targetSize respectively
+       */
+      if (
+        currentSize >= currentSizeMin &&
+        currentSize <= currentSizeMax &&
+        targetSize >= targetSizeMin &&
+        targetSize <= targetSizeMax
+      ) {
+        tmpSizes[currentIndex] = currentSize;
+        tmpSizes[targetIndex] = targetSize;
+      } else if (currentSize < currentSizeMin) {
+        /**
+         * if currentSize is less than currentSizeMin, then set tmpSizes[currentIndex] to currentSizeMin, and the remaining space is allocated to tmpSizes[targetIndex]
+         */
+        tmpSizes[currentIndex] = currentSizeMin;
+        tmpSizes[targetIndex] = totalSize - currentSizeMin;
+      } else if (currentSize > currentSizeMax) {
+        /**
+         * if currentSize is greater than currentSizeMax, then set tmpSizes[currentIndex] to currentSizeMax, and the remaining space is allocated to tmpSizes[targetIndex]
+         */
+        tmpSizes[currentIndex] = currentSizeMax;
+        tmpSizes[targetIndex] = totalSize - currentSizeMax;
+      } else if (targetSize < targetSizeMin) {
+        /**
+         * if targetSize is less than targetSizeMin, then set tmpSizes[targetIndex] to targetSizeMin, and the remaining space is allocated to tmpSizes[currentIndex]
+         */
+        tmpSizes[targetIndex] = targetSizeMin;
+        tmpSizes[currentIndex] = totalSize - targetSizeMin;
+      } else {
+        /**
+         * if targetSize is greater than targetSizeMax, then set tmpSizes[targetIndex] to targetSizeMax, and the remaining space is allocated to tmpSizes[currentIndex]
+         */
+        tmpSizes[targetIndex] = targetSizeMax;
+        tmpSizes[currentIndex] = totalSize - targetSizeMax;
+      }
+      setCollapsedSizes(tmpSizes);
+    } else if (collapsedSizes[currentIndex] !== void 0 && collapsedSizes[targetIndex] !== void 0) {
+      /**
+       * if the size information before folding is recorded,
+       * then the size information before folding is restored
+       */
+      currentSizes[currentIndex] = collapsedSizes[currentIndex];
+      currentSizes[targetIndex] = collapsedSizes[targetIndex];
+      // reset the size information
+      setCollapsedSizes([]);
     } else {
-      const totalSize = currentSize + targetSize;
-
-      const currentSizeMin = getLimitSize(limitSizes[currentIndex][0], 0);
-      const currentSizeMax = getLimitSize(limitSizes[currentIndex][1], containerSize);
-      const targetSizeMin = getLimitSize(limitSizes[targetIndex][0], 0);
-      const targetSizeMax = getLimitSize(limitSizes[targetIndex][1], containerSize);
-
       const limitStart = Math.max(currentSizeMin, totalSize - targetSizeMax);
       const limitEnd = Math.min(currentSizeMax, totalSize - targetSizeMin);
       const halfOffset = (limitEnd - limitStart) / 2;
-
       currentSizes[currentIndex] -= halfOffset;
       currentSizes[targetIndex] += halfOffset;
     }
