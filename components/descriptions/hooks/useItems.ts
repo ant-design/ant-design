@@ -24,7 +24,7 @@ export default function useItems(
   const responsiveItems = React.useMemo<InternalDescriptionsItemType[]>(
     () =>
       mergedItems.map(({ span, ...restItem }) => {
-        if (span === 'row') {
+        if (span === 'block') {
           return { ...restItem, fullLine: true };
         }
         return {

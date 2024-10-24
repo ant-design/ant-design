@@ -71,7 +71,7 @@ const items: DescriptionsProps['items'] = [
 <code src="./demo/style.tsx" debug>Customize label & wrapper style</code>
 <code src="./demo/jsx.tsx" debug>JSX demo</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
-<code src="./demo/row.tsx">row</code>
+<code src="./demo/block.tsx">row</code>
 
 ## API
 
@@ -99,7 +99,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | contentStyle | Customize content style | CSSProperties | - | 4.9.0 |
 | label | The description of the content | ReactNode | - |  |
 | labelStyle | Customize label style | CSSProperties | - | 4.9.0 |
-| span | The number of columns included | number \| `row` \| [Screens](/components/grid#col) | 1 | `screens: 5.9.0` |
+| span | The number of columns included | number \| `block` \| [Screens](/components/grid#col) | 1 | `screens: 5.9.0` |
 
 > The number of span Description.Item. Span={2} takes up the width of two DescriptionItems. When both `style` and `labelStyle`(or `contentStyle`) configured, both of them will work. And next one will overwrite first when conflict.
 

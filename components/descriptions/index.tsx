@@ -26,7 +26,7 @@ export interface InternalDescriptionsItemType extends DescriptionsItemProps {
 }
 
 export interface DescriptionsItemType extends Omit<InternalDescriptionsItemType, 'span'> {
-  span?: number | 'row' | { [key in Breakpoint]?: number };
+  span?: number | 'block' | { [key in Breakpoint]?: number };
 }
 
 export interface DescriptionsProps {
