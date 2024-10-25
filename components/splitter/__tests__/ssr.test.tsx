@@ -18,7 +18,7 @@ describe('Splitter.SSR', () => {
   it('px value', () => {
     const str = renderToString(
       <Splitter>
-        <Splitter.Panel key="1" size={24} />
+        <Splitter.Panel key="1" size={23} />
         <Splitter.Panel key="2" />
       </Splitter>,
     );
@@ -27,6 +27,35 @@ describe('Splitter.SSR', () => {
     div.innerHTML = str;
     document.body.appendChild(div);
 
-    console.log('???', document.body.innerHTML);
+    expect(div.querySelectorAll('.ant-splitter-panel')[0]).toHaveStyle({
+      flexBasis: '23px',
+      flexGrow: '0',
+    });
+    expect(div.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle({
+      flexBasis: 'auto',
+      flexGrow: '1',
+    });
+  });
+
+  it('ptg value', () => {
+    const str = renderToString(
+      <Splitter>
+        <Splitter.Panel key="1" size="33%" />
+        <Splitter.Panel key="2" />
+      </Splitter>,
+    );
+
+    const div = document.createElement('div');
+    div.innerHTML = str;
+    document.body.appendChild(div);
+
+    expect(div.querySelectorAll('.ant-splitter-panel')[0]).toHaveStyle({
+      flexBasis: '33%',
+      flexGrow: '0',
+    });
+    expect(div.querySelectorAll('.ant-splitter-panel')[1]).toHaveStyle({
+      flexBasis: 'auto',
+      flexGrow: '1',
+    });
   });
 });
