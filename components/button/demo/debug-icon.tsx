@@ -6,9 +6,9 @@ import type { ConfigProviderProps } from 'antd';
 type SizeType = ConfigProviderProps['componentSize'];
 
 /**12px 图标 */
-const Icon12Size = () => <div style={{ background: 'red', width: 12, height: 12 }} />; // 模拟 12px 图标
+const Icon12Size = () => <div style={{ background: 'red', width: 12, height: 12 }} />;
 /**16px 图标 */
-const Icon16Size = () => <div style={{ background: 'green', width: 16, height: 16 }} />; // 模拟 12px 图标
+const Icon16Size = () => <div style={{ background: 'green', width: 16, height: 16 }} />;
 /**不规则宽高  */
 const IconIrregularSize = () => <div style={{ background: 'blue', width: 14, height: 16 }} />;
 
