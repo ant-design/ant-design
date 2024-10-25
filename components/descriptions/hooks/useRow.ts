@@ -21,7 +21,7 @@ function getCalcRows(
       if (count >= mergedColumn || filled) {
         if (count > mergedColumn) {
           exceed = true;
-          tmpRow.push({ ...restItem, span: count - mergedColumn });
+          tmpRow.push({ ...restItem, span: count - mergedColumn - 1 || 1 });
         } else {
           tmpRow.push(restItem);
         }

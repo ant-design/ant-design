@@ -19,7 +19,7 @@ const items: DescriptionsProps['items'] = [
   },
   {
     label: 'Address',
-    span: 1, // span = 3
+    span: 1, // span will be 3 and warning for span is not align to the end
     children: 'No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China',
   },
 ];
