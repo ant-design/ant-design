@@ -137,11 +137,13 @@ function InternalList<T>(
     }
 
     if (!key) {
-      warning(
-        true,
-        'usage',
-        'Each record in list should have a unique `key` prop, or set `rowKey` to an unique primary key.',
-      );
+      if (process.env.NODE_ENV !== 'production') {
+        warning(
+          false,
+          'usage',
+          'Each record in list should have a unique `key` prop, or set `rowKey` to an unique primary key.',
+        );
+      }
       key = `list-item-${index}`;
     }
 
