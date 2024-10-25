@@ -68,7 +68,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   }
 
   // ====================== Container =======================
-  const [containerSize, setContainerSize] = useState<number>(100);
+  const [containerSize, setContainerSize] = useState<number | undefined>();
 
   const onContainerResize: GetProp<typeof ResizeObserver, 'onResize'> = (size) => {
     const { offsetWidth, offsetHeight } = size;
@@ -82,10 +82,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   };
 
   // ========================= Size =========================
-  const [itemPxSizes, itemPtgSizes, itemPtgMinSizes, itemPtgMaxSizes, updateSizes] = useSizes(
-    items,
-    containerSize,
-  );
+  const [panelSizes, itemPxSizes, itemPtgSizes, itemPtgMinSizes, itemPtgMaxSizes, updateSizes] =
+    useSizes(items, containerSize);
 
   // ====================== Resizable =======================
   const resizableInfos = useResizable(items, itemPxSizes);
@@ -157,7 +155,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
       <div style={mergedStyle} className={containerClassName}>
         {items.map((item, idx) => {
           // Panel
-          const panel = <InternalPanel {...item} prefixCls={prefixCls} size={itemPxSizes[idx]} />;
+          const panel = <InternalPanel {...item} prefixCls={prefixCls} size={panelSizes[idx]} />;
 
           // Split Bar
           let splitBar: React.ReactElement | null = null;
