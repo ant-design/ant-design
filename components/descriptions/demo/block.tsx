@@ -4,29 +4,22 @@ import type { DescriptionsProps } from 'antd';
 
 const items: DescriptionsProps['items'] = [
   {
-    key: '1',
     label: 'UserName',
     children: 'Zhou Maomao',
   },
   {
-    key: '2',
-    label: 'Telephone',
-    children: '1810000000',
-  },
-  {
-    key: '3',
     label: 'Live',
+    span: 'filled', // span = 2
     children: 'Hangzhou, Zhejiang',
   },
   {
-    key: '4',
     label: 'Remark',
-    span: 'filled',
+    span: 'filled', // span = 3
     children: 'empty',
   },
   {
-    key: '5',
     label: 'Address',
+    span: 1, // span = 3
     children: 'No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China',
   },
 ];
