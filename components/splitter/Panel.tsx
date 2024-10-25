@@ -11,13 +11,24 @@ export const InternalPanel = forwardRef<
   const panelClassName = classNames(
     `${prefixCls}-panel`,
     {
-      [`${prefixCls}-panel-hidden`]: !size,
+      [`${prefixCls}-panel-hidden`]: size === 0,
     },
     className,
   );
 
+  const hasSize = size !== undefined;
+
   return (
-    <div ref={ref} className={panelClassName} style={{ ...style, flexBasis: size }}>
+    <div
+      ref={ref}
+      className={panelClassName}
+      style={{
+        ...style,
+        // Use auto when start from ssr
+        flexBasis: hasSize ? size : 'auto',
+        flexGrow: hasSize ? 0 : 1,
+      }}
+    >
       {children}
     </div>
   );
