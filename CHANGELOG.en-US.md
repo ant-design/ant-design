@@ -15,6 +15,14 @@ tag: vVERSION
 
 ---
 
+## 5.21.6
+
+`2024-10-25`
+
+- 🐞 Fix Tree.DirectoryTree interactive area not being a whole row. [#51210](https://github.com/ant-design/ant-design/pull/51210)
+- 💄 Improve Checkbox `indeterminate` to enhance accessibility experience. [#51350](https://github.com/ant-design/ant-design/pull/51350) [@SpaNb4](https://github.com/SpaNb4)
+- 💄 Improve the `title` of the Empty preset svg image to improve accessibility experience. [#51368](https://github.com/ant-design/ant-design/pull/51368)
+
 ## 5.21.5
 
 `2024-10-21`
