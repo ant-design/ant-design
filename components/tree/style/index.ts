@@ -204,6 +204,16 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
           },
         },
 
+        // not disable
+        [`&:not(${treeNodeCls}-disabled)`]: {
+          // >>> Title
+          [`${treeCls}-node-content-wrapper`]: {
+            '&:hover': {
+              color: token.nodeHoverColor,
+            },
+          },
+        },
+
         [`&-active ${treeCls}-node-content-wrapper`]: {
           background: token.controlItemBgHover,
         },
@@ -360,7 +370,6 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         transition: `all ${token.motionDurationMid}, border 0s, line-height 0s, box-shadow 0s`,
 
         '&:hover': {
-          color: token.nodeHoverColor,
           backgroundColor: nodeHoverBg,
         },
 
