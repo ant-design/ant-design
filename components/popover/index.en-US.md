@@ -36,6 +36,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Param   | Description         | Type                         | Default value | Version |
 | ------- | ------------------- | ---------------------------- | ------------- | ------- |
+| open | Popover is visible | boolean  | true             |         |
 | content | Content of the card | ReactNode \| () => ReactNode | -             |         |
 | title   | Title of the card   | ReactNode \| () => ReactNode | -             |         |
 
