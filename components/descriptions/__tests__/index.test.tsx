@@ -78,7 +78,7 @@ describe('Descriptions', () => {
     expect(container.querySelectorAll('.ant-descriptions-item')[2]).toHaveAttribute('colSpan', '1');
   });
 
-  it('span = block', () => {
+  it('span = filled', () => {
     const { container } = render(
       <Descriptions
         column={3}
@@ -86,9 +86,9 @@ describe('Descriptions', () => {
           { label: '0', children: '', span: 2 },
           { label: '1', children: '', span: 1 },
           { label: '2', children: '' },
-          { label: '3', children: '', span: 'block' },
+          { label: '3', children: '', span: 'filled' },
           { label: '4', children: '', span: 1 },
-          { label: '5', children: '', span: 'block' },
+          { label: '5', children: '', span: 'filled' },
           { label: '6', children: '' },
           { label: '7', children: '' },
         ]}

@@ -16,10 +16,10 @@ function getCalcRows(
   rowItems
     .filter((n) => n)
     .forEach((rowItem) => {
-      const { block, ...restItem } = rowItem;
+      const { filled, ...restItem } = rowItem;
       count += rowItem.span || 1;
-      if (count >= mergedColumn || block) {
-        if (block) {
+      if (count >= mergedColumn || filled) {
+        if (filled) {
           if (tmpRow.length > 0) {
             rows.push(tmpRow);
           }

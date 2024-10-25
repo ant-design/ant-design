@@ -21,7 +21,7 @@ const items: DescriptionsProps['items'] = [
   {
     key: '4',
     label: 'Remark',
-    span: 'block',
+    span: 'filled',
     children: 'empty',
   },
   {
