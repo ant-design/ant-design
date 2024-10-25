@@ -35,6 +35,7 @@ const App: React.FC = () => (
         <b>ant design</b> footer part
       </div>
     }
+    rowKey="title"
     renderItem={(item) => (
       <List.Item
         key={item.title}

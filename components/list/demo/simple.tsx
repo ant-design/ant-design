@@ -18,7 +18,7 @@ const App: React.FC = () => (
       bordered
       dataSource={data}
       renderItem={(item) => (
-        <List.Item>
+        <List.Item key={item}>
           <Typography.Text mark>[ITEM]</Typography.Text> {item}
         </List.Item>
       )}
@@ -30,7 +30,7 @@ const App: React.FC = () => (
       footer={<div>Footer</div>}
       bordered
       dataSource={data}
-      renderItem={(item) => <List.Item>{item}</List.Item>}
+      renderItem={(item) => <List.Item key={item}>{item}</List.Item>}
     />
     <Divider orientation="left">Large Size</Divider>
     <List
@@ -39,7 +39,7 @@ const App: React.FC = () => (
       footer={<div>Footer</div>}
       bordered
       dataSource={data}
-      renderItem={(item) => <List.Item>{item}</List.Item>}
+      renderItem={(item) => <List.Item key={item}>{item}</List.Item>}
     />
   </>
 );
