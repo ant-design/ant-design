@@ -16,19 +16,20 @@ function getCalcRows(
   rowItems
     .filter((n) => n)
     .forEach((rowItem) => {
+      const { block, ...restItem } = rowItem;
       count += rowItem.span || 1;
-      if (count >= mergedColumn || rowItem.block) {
-        if (rowItem.block) {
+      if (count >= mergedColumn || block) {
+        if (block) {
           if (tmpRow.length > 0) {
             rows.push(tmpRow);
           }
-          rows.push([rowItem]);
+          rows.push([restItem]);
         } else {
           if (count > mergedColumn) {
             exceed = true;
-            tmpRow.push({ ...rowItem, span: count - mergedColumn });
+            tmpRow.push({ ...restItem, span: count - mergedColumn });
           } else {
-            tmpRow.push(rowItem);
+            tmpRow.push(restItem);
           }
           rows.push(tmpRow);
         }
@@ -36,7 +37,7 @@ function getCalcRows(
         tmpRow = [];
         count = 0;
       } else {
-        tmpRow.push(rowItem);
+        tmpRow.push(restItem);
       }
     });
 
