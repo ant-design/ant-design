@@ -133,8 +133,11 @@ function InternalList<T>(
     } else if (rowKey) {
       key = item[rowKey];
     } else {
-      key = (item as any).key;
+      key = (item as any)?.key;
     }
+
+    const node = renderItem(item, index);
+    key ??= React.isValidElement(node) ? node.key : undefined;
 
     if (!key) {
       if (process.env.NODE_ENV !== 'production') {
@@ -147,7 +150,7 @@ function InternalList<T>(
       key = `list-item-${index}`;
     }
 
-    return <React.Fragment key={key}>{renderItem(item, index)}</React.Fragment>;
+    return <React.Fragment key={key}>{node}</React.Fragment>;
   };
 
   const isSomethingAfterLastItem = () => !!(loadMore || pagination || footer);
