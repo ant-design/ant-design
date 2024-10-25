@@ -50,7 +50,7 @@ export interface OTPProps
 
   type?: React.HTMLInputTypeAttribute;
 
-  onInput?: (value: string) => void;
+  onInput?: (value: string[]) => void;
 }
 
 function strToArr(str: string) {
@@ -151,7 +151,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     setValueCells(nextValueCells);
 
     if (onInput) {
-      onInput(nextValueCells.join(''));
+      onInput(nextValueCells);
     }
 
     // Trigger if all cells are filled
