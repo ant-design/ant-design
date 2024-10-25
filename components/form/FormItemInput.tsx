@@ -71,9 +71,8 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
     </div>
   );
   const formItemContext = React.useMemo(() => ({ prefixCls, status }), [prefixCls, status]);
-  const hasHelp = help !== undefined && help !== null;
   const errorListDom: React.ReactNode =
-    errors.length > 0 || warnings.length > 0 || hasHelp ? (
+    marginBottom !== null || errors.length || warnings.length ? (
       <FormItemPrefixContext.Provider value={formItemContext}>
         <ErrorList
           fieldId={fieldId}
