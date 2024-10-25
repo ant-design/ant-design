@@ -37,6 +37,7 @@ demo:
 
 | 参数    | 说明     | 类型                         | 默认值 | 版本 |
 | ------- | -------- | ---------------------------- | ------ | ---- |
+| open   | Popover是否可见 | boolean  | true     |      |
 | content | 卡片内容 | ReactNode \| () => ReactNode | -      |      |
 | title   | 卡片标题 | ReactNode \| () => ReactNode | -      |      |
 
