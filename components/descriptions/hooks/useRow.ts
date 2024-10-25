@@ -26,13 +26,12 @@ function getCalcRows(
         count = 0;
         return;
       }
-
+      const restSpan = mergedColumn - count;
       count += rowItem.span || 1;
       if (count >= mergedColumn) {
         if (count > mergedColumn) {
           exceed = true;
-          const count = tmpRow.reduce((acc, item) => acc + (item.span || 1), 0);
-          tmpRow.push({ ...restItem, span: mergedColumn - count });
+          tmpRow.push({ ...restItem, span: restSpan });
         } else {
           tmpRow.push(restItem);
         }
