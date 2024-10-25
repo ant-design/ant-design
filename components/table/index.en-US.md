@@ -192,7 +192,6 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | defaultSortOrder | Default order of sorted values | `ascend` \| `descend` | - |  |
 | ellipsis | The ellipsis cell content, not working with sorter and filters for now.<br />tableLayout would be `fixed` when `ellipsis` is `true` or `{ showTitle?: boolean }` | boolean \| {showTitle?: boolean } | false | showTitle: 4.3.0 |
 | filterDropdown | Customized filter overlay | ReactNode \| (props: [FilterDropdownProps](https://github.com/ant-design/ant-design/blob/ecc54dda839619e921c0ace530408871f0281c2a/components/table/interface.tsx#L79)) => ReactNode | - |  |
-| filterDropdownOpen | Whether `filterDropdown` is visible | boolean | - |  |
 | filtered | Whether the `dataSource` is filtered | boolean | false |  |
 | filteredValue | Controlled filtered value, filter icon will highlight | string\[] | - |  |
 | filterIcon | Customized filter icon | ReactNode \| (filtered: boolean) => ReactNode | - |  |
@@ -201,6 +200,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | filterMode | To specify the filter interface | 'menu' \| 'tree' | 'menu' | 4.17.0 |
 | filterSearch | Whether to be searchable for filter menu | boolean \| function(input, record):boolean | false | boolean:4.17.0 function:4.19.0 |
 | filters | Filter menu config | object\[] | - |  |
+| filterDropdownProps | Customized dropdown props, `filterDropdownOpen` and `onFilterDropdownOpenChange` were available before `<5.22.0` | [DropdownProps](/components/dropdown#api) | - | 5.22.0 |
 | fixed | (IE not support) Set column to be fixed: `true`(same as left) `'left'` `'right'` | boolean \| string | false |  |
 | key | Unique key of this column, you can ignore this prop if you've set a unique `dataIndex` | string | - |  |
 | render | Renderer of the table cell. The return value should be a ReactNode | function(text, record, index) {} | - |  |
@@ -218,7 +218,6 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | hidden | Hidden this column | boolean | false | 5.13.0 |
 | onCell | Set props on per cell | function(record, rowIndex) | - |  |
 | onFilter | Function that determines if the row is displayed when filtered | function(value, record) => boolean | - |  |
-| onFilterDropdownOpenChange | Callback executed when `filterDropdownOpen` is changed | function(visible) {} | - |  |
 | onHeaderCell | Set props on per header cell | function(column) | - |  |
 
 ### ColumnGroup
@@ -248,7 +247,7 @@ Properties for expandable.
 | columnWidth | Set the width of the expand column | string \| number | - |  |
 | defaultExpandAllRows | Expand all rows initially | boolean | false |  |
 | defaultExpandedRowKeys | Initial expanded row keys | string\[] | - |  |
-| expandedRowClassName | Expanded row's className | function(record, index, indent): string | - |  |
+| expandedRowClassName | Expanded row's className | string \| (record, index, indent) => string | - | string: 5.22.0 |
 | expandedRowKeys | Current expanded row keys | string\[] | - |  |
 | expandedRowRender | Expanded container render for each row | function(record, index, indent, expanded): ReactNode | - |  |
 | expandIcon | Customize row expand Icon. Ref [example](https://codesandbox.io/s/fervent-bird-nuzpr) | function(props): ReactNode | - |  |

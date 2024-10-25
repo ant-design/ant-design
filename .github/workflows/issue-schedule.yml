@@ -69,7 +69,7 @@ jobs:
 
             const actionTitle = process.env.actionTitle + `(${issueList.length})`;
 
-            const markdownList = `<h2>${actionTitle}</h2>\n\n`
+            const markdownList = `## ${actionTitle}\n\n`
             + issueList.map(issue => `- [${issue.title}](${issue.html_url}) ${fromNow(issue.created_at)}`).join('\n')
             + `\n\n > 🫵🏻 快去帮忙处理吧，社区需要你的帮助！`;
 
