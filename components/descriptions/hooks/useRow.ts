@@ -17,11 +17,22 @@ function getCalcRows(
     .filter((n) => n)
     .forEach((rowItem) => {
       const { filled, ...restItem } = rowItem;
+
+      if (filled) {
+        tmpRow.push(restItem);
+        rows.push(tmpRow);
+        // reset
+        tmpRow = [];
+        count = 0;
+        return;
+      }
+
       count += rowItem.span || 1;
-      if (count >= mergedColumn || filled) {
+      if (count >= mergedColumn) {
         if (count > mergedColumn) {
           exceed = true;
-          tmpRow.push({ ...restItem, span: count - mergedColumn - 1 || 1 });
+          const count = tmpRow.reduce((acc, item) => acc + (item.span || 1), 0);
+          tmpRow.push({ ...restItem, span: mergedColumn - count });
         } else {
           tmpRow.push(restItem);
         }
