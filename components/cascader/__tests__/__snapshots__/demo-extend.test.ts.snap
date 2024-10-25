@@ -1923,7 +1923,7 @@ exports[`renders components/cascader/demo/panel.tsx extend context correctly 1`]
           xmlns="http://www.w3.org/2000/svg"
         >
           <title>
-            Simple Empty
+            No data
           </title>
           <g
             fill="none"
@@ -3475,7 +3475,7 @@ exports[`renders components/cascader/demo/status.tsx extend context correctly 1`
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <title>
-                          Simple Empty
+                          No data
                         </title>
                         <g
                           fill="none"
@@ -3628,7 +3628,7 @@ exports[`renders components/cascader/demo/status.tsx extend context correctly 1`
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <title>
-                          Simple Empty
+                          No data
                         </title>
                         <g
                           fill="none"

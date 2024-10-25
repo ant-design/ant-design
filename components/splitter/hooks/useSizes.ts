@@ -14,12 +14,13 @@ function isPtg(itemSize: string | number | undefined): itemSize is string {
  * Save the size state.
  * Align the size into flex percentage base.
  */
-export default function useSizes(items: PanelProps[], containerSize: number) {
+export default function useSizes(items: PanelProps[], containerSize?: number) {
   const propSizes = items.map((item) => item.size);
 
   const itemsCount = items.length;
 
-  const ptg2px = (ptg: number) => ptg * containerSize;
+  const mergedContainerSize = containerSize || 0;
+  const ptg2px = (ptg: number) => ptg * mergedContainerSize;
 
   // We do not need care the size state match the `items` length in `useState`.
   // It will calculate later.
@@ -53,7 +54,7 @@ export default function useSizes(items: PanelProps[], containerSize: number) {
       } else if (itemSize || itemSize === 0) {
         const num = Number(itemSize);
         if (!Number.isNaN(num)) {
-          ptgList[i] = num / containerSize;
+          ptgList[i] = num / mergedContainerSize;
         }
       } else {
         emptyCount += 1;
@@ -74,11 +75,11 @@ export default function useSizes(items: PanelProps[], containerSize: number) {
     }
 
     return ptgList as number[];
-  }, [sizes, containerSize]);
+  }, [sizes, mergedContainerSize]);
 
   const postPxSizes = React.useMemo(
     () => postPercentSizes.map(ptg2px),
-    [postPercentSizes, containerSize],
+    [postPercentSizes, mergedContainerSize],
   );
 
   const postPercentMinSizes = React.useMemo(
@@ -87,9 +88,9 @@ export default function useSizes(items: PanelProps[], containerSize: number) {
         if (isPtg(item.min)) {
           return getPtg(item.min);
         }
-        return (item.min || 0) / containerSize;
+        return (item.min || 0) / mergedContainerSize;
       }),
-    [items, containerSize],
+    [items, mergedContainerSize],
   );
 
   const postPercentMaxSizes = React.useMemo(
@@ -98,12 +99,19 @@ export default function useSizes(items: PanelProps[], containerSize: number) {
         if (isPtg(item.max)) {
           return getPtg(item.max);
         }
-        return (item.max || containerSize) / containerSize;
+        return (item.max || mergedContainerSize) / mergedContainerSize;
       }),
-    [items, containerSize],
+    [items, mergedContainerSize],
+  );
+
+  // If ssr, we will use the size from developer config first.
+  const panelSizes = React.useMemo(
+    () => (containerSize ? postPxSizes : sizes),
+    [postPxSizes, containerSize],
   );
 
   return [
+    panelSizes,
     postPxSizes,
     postPercentSizes,
     postPercentMinSizes,

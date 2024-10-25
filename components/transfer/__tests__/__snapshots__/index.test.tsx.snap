@@ -74,7 +74,7 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>
-                Simple Empty
+                No data
               </title>
               <g
                 fill="none"
@@ -244,7 +244,7 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>
-                Simple Empty
+                No data
               </title>
               <g
                 fill="none"
@@ -1022,7 +1022,7 @@ exports[`Transfer should support render value and label in item 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>
-                Simple Empty
+                No data
               </title>
               <g
                 fill="none"
@@ -1280,7 +1280,7 @@ exports[`immutable data dataSource is frozen 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>
-                Simple Empty
+                No data
               </title>
               <g
                 fill="none"
