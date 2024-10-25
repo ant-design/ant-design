@@ -99,7 +99,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | contentStyle | Customize content style | CSSProperties | - | 4.9.0 |
 | label | The description of the content | ReactNode | - |  |
 | labelStyle | Customize label style | CSSProperties | - | 4.9.0 |
-| span | The number of columns included(`filled` Spread the entire row) | number \| `filled` \| [Screens](/components/grid#col) | 1 | `screens: 5.9.0`, `filled: 5.22.0` |
+| span | The number of columns included(`filled` Fill the remaining part of the current row) | number \| `filled` \| [Screens](/components/grid#col) | 1 | `screens: 5.9.0`, `filled: 5.22.0` |
 
 > The number of span Description.Item. Span={2} takes up the width of two DescriptionItems. When both `style` and `labelStyle`(or `contentStyle`) configured, both of them will work. And next one will overwrite first when conflict.
 
