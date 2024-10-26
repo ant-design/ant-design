@@ -1,17 +1,13 @@
 import { unit } from '@ant-design/cssinjs';
 
-import {
-  genBasicInputStyle,
-  genPlaceholderStyle,
-  initComponentToken,
-  initInputToken,
-} from '../../input/style';
+import { genBasicInputStyle, genPlaceholderStyle, initComponentToken, initInputToken } from '../../input/style';
 import type { SharedComponentToken, SharedInputToken } from '../../input/style/token';
 import {
   genBorderlessStyle,
   genDisabledStyle,
   genFilledStyle,
   genOutlinedStyle,
+  genUnderlinedStyle,
 } from '../../input/style/variants';
 import { resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
@@ -92,6 +88,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
       ...genOutlinedStyle(token),
       ...genFilledStyle(token),
       ...genBorderlessStyle(token),
+      ...genUnderlinedStyle(token),
 
       '&-affix-wrapper': {
         ...genBasicInputStyle(token),

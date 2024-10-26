@@ -1,17 +1,13 @@
 import { unit } from '@ant-design/cssinjs';
 
-import {
-  genBasicInputStyle,
-  genInputGroupStyle,
-  genPlaceholderStyle,
-  initInputToken,
-} from '../../input/style';
+import { genBasicInputStyle, genInputGroupStyle, genPlaceholderStyle, initInputToken } from '../../input/style';
 import {
   genBorderlessStyle,
   genFilledGroupStyle,
   genFilledStyle,
   genOutlinedGroupStyle,
   genOutlinedStyle,
+  genUnderlinedStyle,
 } from '../../input/style/variants';
 import { resetComponent, resetIcon } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
@@ -108,6 +104,14 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           '&:focus-within': {
             [`${componentCls}-handler-wrap`]: {
               background: handleBg,
+            },
+          },
+        }),
+          ...genUnderlinedStyle(token, {
+          [`${componentCls}-handler-wrap`]: {
+            background: handleBg,
+            [`${componentCls}-handler-down`]: {
+              borderBlockStart: `${unit(lineWidth)} ${lineType} ${handleBorderColor}`,
             },
           },
         }),

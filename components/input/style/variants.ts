@@ -357,3 +357,107 @@ export const genFilledGroupStyle = (token: InputToken): CSSObject => ({
     },
   },
 });
+
+/* ============== Underlined ============== */
+// https://github.com/ant-design/ant-design/issues/51379
+export const genBaseUnderlinedStyle = (
+  token: InputToken,
+  options: {
+    borderColor: string;
+    hoverBorderColor: string;
+    activeBorderColor: string;
+    activeShadow: string;
+  },
+): CSSObject => ({
+  background: token.colorBgContainer,
+  borderWidth: token.lineWidth,
+  borderStyle: token.lineType,
+  borderTop: 'none',
+  borderLeft: 'none',
+  borderRight: 'none',
+  borderBottom: `1px solid ${options.borderColor}`,
+  borderColor: options.borderColor,
+
+  borderRadius: '0 !important',
+
+  '&:hover': {
+    borderColor: options.hoverBorderColor,
+    backgroundColor: token.hoverBg,
+  },
+
+  '&:focus, &:focus-within': {
+    borderColor: options.activeBorderColor,
+    // 阴影可以去除
+    // boxShadow: '0 2px 0 rgba(5, 145, 255, 0.1)',
+    outline: 0,
+    backgroundColor: token.activeBg,
+  },
+});
+
+const genUnderlinedStatusStyle = (
+  token: InputToken,
+  options: {
+    status: string;
+    borderColor: string;
+    hoverBorderColor: string;
+    activeBorderColor: string;
+    activeShadow: string;
+    affixColor: string;
+  },
+): CSSObject => ({
+  [`&${token.componentCls}-status-${options.status}:not(${token.componentCls}-disabled)`]: {
+    ...genBaseUnderlinedStyle(token, options),
+
+    [`${token.componentCls}-prefix, ${token.componentCls}-suffix`]: {
+      color: options.affixColor,
+    },
+  },
+  [`&${token.componentCls}-status-${options.status}${token.componentCls}-disabled`]: {
+    borderColor: options.borderColor,
+  },
+});
+
+export const genUnderlinedStyle = (token: InputToken, extraStyles?: CSSObject): CSSObject => ({
+  '&-underlined': {
+    ...genBaseUnderlinedStyle(token, {
+      borderColor: token.colorBorder,
+      hoverBorderColor: token.hoverBorderColor,
+      activeBorderColor: token.activeBorderColor,
+      activeShadow: token.activeShadow,
+    }),
+
+    // >>>>> Disabled
+    [`&${token.componentCls}-disabled, &[disabled]`]: {
+      color: token.colorTextDisabled,
+      boxShadow: 'none',
+      cursor: 'not-allowed',
+      '&:hover': {
+        borderColor: token.colorBorder,
+      },
+    },
+
+    'input[disabled], textarea[disabled]': {
+      cursor: 'not-allowed',
+    },
+
+    ...genUnderlinedStatusStyle(token, {
+      status: 'error',
+      borderColor: token.colorError,
+      hoverBorderColor: token.colorErrorBorderHover,
+      activeBorderColor: token.colorError,
+      activeShadow: token.errorActiveShadow,
+      affixColor: token.colorError,
+    }),
+
+    ...genUnderlinedStatusStyle(token, {
+      status: 'warning',
+      borderColor: token.colorWarning,
+      hoverBorderColor: token.colorWarningBorderHover,
+      activeBorderColor: token.colorWarning,
+      activeShadow: token.warningActiveShadow,
+      affixColor: token.colorWarning,
+    }),
+
+    ...extraStyles,
+  },
+});
