@@ -136,13 +136,13 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
             `${splitBarPrefixCls}-collapse-bar`,
             `${splitBarPrefixCls}-collapse-bar-start`,
           )}
+          onClick={() => onCollapse(index, 'start')}
         >
           <StartIcon
             className={classNames(
               `${splitBarPrefixCls}-collapse-icon`,
               `${splitBarPrefixCls}-collapse-start`,
             )}
-            onClick={() => onCollapse(index, 'start')}
           />
         </div>
       )}
@@ -154,13 +154,13 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
             `${splitBarPrefixCls}-collapse-bar`,
             `${splitBarPrefixCls}-collapse-bar-end`,
           )}
+          onClick={() => onCollapse(index, 'end')}
         >
           <EndIcon
             className={classNames(
               `${splitBarPrefixCls}-collapse-icon`,
               `${splitBarPrefixCls}-collapse-end`,
             )}
-            onClick={() => onCollapse(index, 'end')}
           />
         </div>
       )}
