@@ -173,22 +173,22 @@ describe('Input.OTP', () => {
     expect(container.querySelector('input')).toHaveAttribute('type', 'number');
   });
 
-  it('should call onInput with a string value when input changes', () => {
+  it('should call onInput with a string array when input changes', () => {
     const onInput = jest.fn();
     const { container } = render(<OTP length={4} onInput={onInput} />);
 
     const inputs = Array.from(container.querySelectorAll('input'));
 
     fireEvent.input(inputs[0], { target: { value: '1' } });
-    expect(onInput).toHaveBeenCalledWith('1');
-
-    fireEvent.input(inputs[1], { target: { value: '2' } });
-    expect(onInput).toHaveBeenCalledWith('12');
+    expect(onInput).toHaveBeenCalledWith(['1']);
 
     fireEvent.input(inputs[2], { target: { value: '3' } });
-    expect(onInput).toHaveBeenCalledWith('123');
+    expect(onInput).toHaveBeenCalledWith(['1', '', '3']);
+
+    fireEvent.input(inputs[1], { target: { value: '2' } });
+    expect(onInput).toHaveBeenCalledWith(['1', '2', '3']);
 
     fireEvent.input(inputs[3], { target: { value: '4' } });
-    expect(onInput).toHaveBeenCalledWith('1234');
+    expect(onInput).toHaveBeenCalledWith(['1', '2', '3', '4']);
   });
 });
