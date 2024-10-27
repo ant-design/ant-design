@@ -127,7 +127,7 @@ dayjs.locale('zh-cn');
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
 | superNextIcon | 自定义 `>>` 切换图标 | ReactNode | - | 4.17.0 |
 | superPrevIcon | 自定义 `<<` 切换图标 | ReactNode | - | 4.17.0 |
-| variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \|  `underlined` | `outlined` | 5.13.0 |
 | onOpenChange | 弹出日历和关闭日历的回调 | function(open) | - |  |
 | onPanelChange | 日历面板切换的回调 | function(value, mode) | - |  |
 

@@ -39,6 +39,7 @@ demo:
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/focus.tsx">聚焦</code>
 <code src="./demo/borderless-debug.tsx" debug>Style Debug</code>
+<code src="./demo/underlined-debug.tsx" debug>Underlined Debug</code>
 <code src="./demo/align.tsx" debug>文本对齐</code>
 <code src="./demo/textarea-resize.tsx" debug>文本域</code>
 <code src="./demo/debug-addon.tsx" debug>debug 前置/后置标签</code>
@@ -69,7 +70,7 @@ demo:
 | suffix | 带有后缀图标的 input | ReactNode | - |  |
 | type | 声明 input 类型，同原生 input 标签的 type 属性，见：[MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#属性)(请直接使用 `Input.TextArea` 代替 `type="textarea"`) | string | `text` |  |
 | value | 输入框内容 | string | - |  |
-| variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 |
 | onChange | 输入框内容变化时的回调 | function(e) | - |  |
 | onPressEnter | 按下回车的回调 | function(e) | - |  |
 | onClear | 按下清除按钮的回调 | () => void | - | 5.20.0 |
@@ -139,7 +140,7 @@ interface CountConfig {
 | length | 输入元素数量 | number | 6 |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - |  |
 | size | 输入框大小 | `small` \| `middle` \| `large` | `middle` |  |
-| variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` |  |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` |  |
 | value | 输入框内容 | string | - |  |
 | onChange | 当输入框内容全部填充时触发回调 | function(value: string) | - |  |
 

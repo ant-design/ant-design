@@ -38,6 +38,7 @@ demo:
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/focus.tsx">Focus</code>
 <code src="./demo/borderless-debug.tsx" debug>Style Debug</code>
+<code src="./demo/underlined-debug.tsx" debug>Underlined Debug</code>
 <code src="./demo/align.tsx" debug>Text Align</code>
 <code src="./demo/textarea-resize.tsx" debug>TextArea</code>
 <code src="./demo/debug-addon.tsx" debug>debug Pre / Post tab</code>
@@ -68,7 +69,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | suffix | The suffix icon for the Input | ReactNode | - |  |
 | type | The type of input, see: [MDN](https://developer.mozilla.org/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types)( use `Input.TextArea` instead of `type="textarea"`) | string | `text` |  |
 | value | The input content value | string | - |  |
-| variant | Variants of Input | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 |
 | onChange | Callback when user input | function(e) | - |  |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - |  |
 | onClear | Callback when click the clear button | () => void | - | 5.20.0 |
