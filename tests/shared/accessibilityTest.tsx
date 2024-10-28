@@ -43,21 +43,35 @@ const runAxe = async (...args: Parameters<typeof axe>): Promise<ReturnType<typeo
   });
 };
 
+type Rules = {
+  [key: string]: {
+    enabled: boolean;
+  };
+};
+
+const convertRulesToAxeFormat = (rules: string[]): Rules => {
+  return rules.reduce(
+    (acc, rule) => ({
+      ...acc,
+      [rule]: { enabled: false },
+    }),
+    {},
+  );
+};
+
 // eslint-disable-next-line jest/no-export
-export default function accessibilityTest(Component: React.ComponentType) {
+export default function accessibilityTest(
+  Component: React.ComponentType,
+  disabledRules?: string[],
+) {
   describe(`accessibility`, () => {
     it(`component does not have any violations`, async () => {
       jest.useRealTimers();
       const { container } = render(<Component />);
-      const results = await runAxe(container, {
-        rules: {
-          'image-alt': { enabled: false },
-          label: { enabled: false },
-          'button-name': { enabled: false },
-          'role-img-alt': { enabled: false },
-          'link-name': { enabled: false },
-        },
-      });
+
+      const rules = convertRulesToAxeFormat(disabledRules || []);
+
+      const results = await runAxe(container, { rules });
       expect(results).toHaveNoViolations();
     }, 30000);
   });
@@ -65,6 +79,7 @@ export default function accessibilityTest(Component: React.ComponentType) {
 
 type Options = {
   skip?: boolean | string[];
+  disabledRules?: string[];
 };
 
 // eslint-disable-next-line jest/no-export
@@ -88,7 +103,7 @@ export function accessibilityDemoTest(component: string, options: Options = {}) 
 
       testMethod(`Test ${file} accessibility`, () => {
         const Demo = require(`../../${file}`).default;
-        accessibilityTest(Demo);
+        accessibilityTest(Demo, options.disabledRules);
       });
     });
   });
