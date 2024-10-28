@@ -122,7 +122,7 @@
     "dayjs": "^1.11.11",
     "rc-cascader": "~3.28.2",
     "rc-checkbox": "~3.3.0",
-    "rc-collapse": "~3.8.0",
+    "rc-collapse": "~3.9.0",
     "rc-dialog": "~9.6.0",
     "rc-drawer": "~7.2.0",
     "rc-dropdown": "~4.2.0",
