@@ -59,12 +59,3 @@ if (typeof window !== 'undefined') {
 
 global.requestAnimationFrame = global.requestAnimationFrame || global.setTimeout;
 global.cancelAnimationFrame = global.cancelAnimationFrame || global.clearTimeout;
-
-// Mock ResizeObserver
-class ResizeObserverMock {
-  observe() {}
-  unobserve() {}
-  disconnect() {}
-}
-
-global.ResizeObserver = ResizeObserverMock;
