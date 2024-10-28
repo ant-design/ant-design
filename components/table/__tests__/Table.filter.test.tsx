@@ -360,11 +360,15 @@ describe('Table.filter', () => {
 
     const onFilterDropdownOpenChange = jest.fn();
     const onFilterDropdownVisibleChange = jest.fn();
+    const onOpenChange = jest.fn();
     const { container } = render(
       createTable({
         columns: [
           {
             ...column,
+            filterDropdownProps: {
+              onOpenChange,
+            },
             onFilterDropdownOpenChange,
             onFilterDropdownVisibleChange,
           },
@@ -372,11 +376,12 @@ describe('Table.filter', () => {
       }),
     );
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
+    expect(onOpenChange).toHaveBeenCalledWith(true);
     expect(onFilterDropdownOpenChange).toHaveBeenCalledWith(true);
     expect(onFilterDropdownVisibleChange).toHaveBeenCalledWith(true);
 
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Table] `onFilterDropdownVisibleChange` is deprecated. Please use `onFilterDropdownOpenChange` instead.',
+      'Warning: [antd: Table] `onFilterDropdownVisibleChange` is deprecated. Please use `filterDropdownProps.onOpenChange` instead.',
     );
 
     errSpy.mockRestore();
@@ -3092,6 +3097,55 @@ describe('Table.filter', () => {
 
       expect(container.querySelector('.ant-table-filter-dropdown .ant-empty')).toBeNull();
       expect(container.querySelector('.ant-table-filter-dropdown')!.childNodes).toHaveLength(1);
+    });
+  });
+
+  // https://github.com/ant-design/ant-design/issues/51151#issuecomment-2419116749
+  describe('should support filterDropdownProps', () => {
+    it('dropdownRender', () => {
+      const dropdownRender = jest.fn((node) => (
+        <>
+          {node}
+          <span>Foo</span>
+        </>
+      ));
+
+      const { container, getByText } = render(
+        createTable({
+          columns: [
+            {
+              ...column,
+              filterDropdownProps: {
+                dropdownRender,
+              },
+            },
+          ],
+        }),
+      );
+
+      fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
+      expect(dropdownRender).toHaveBeenCalled();
+      expect(dropdownRender.mock.calls[0][0]).toMatchSnapshot();
+      expect(getByText('Foo')).toBeTruthy();
+    });
+
+    // https://github.com/ant-design/ant-design/issues/51151
+    it('placement', () => {
+      const { container } = render(
+        createTable({
+          columns: [
+            {
+              ...column,
+              filterDropdownProps: {
+                placement: 'topLeft',
+              },
+            },
+          ],
+        }),
+      );
+
+      fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
+      expect(container.querySelector('.ant-dropdown-placement-topLeft')).toBeTruthy();
     });
   });
 });

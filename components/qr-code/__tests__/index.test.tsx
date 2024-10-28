@@ -99,10 +99,18 @@ describe('QRCode test', () => {
     );
   });
   it('custom status render', () => {
+    const refreshCb = jest.fn();
     const customStatusRender: QRCodeProps['statusRender'] = (info) => {
       switch (info.status) {
         case 'expired':
-          return <div className="custom-expired">{info.locale?.expired}</div>;
+          return (
+            <div className="custom-expired">
+              <span>{info.locale?.expired}</span>
+              <button id="refresh" onClick={info.onRefresh} type="button">
+                refresh
+              </button>
+            </div>
+          );
         case 'loading':
           return <div className="custom-loading">Loading</div>;
         case 'scanned':
@@ -118,6 +126,7 @@ describe('QRCode test', () => {
           value="test"
           status="expired"
           statusRender={customStatusRender}
+          onRefresh={refreshCb}
         />
         <QRCode
           className="qrcode-loading"
@@ -134,8 +143,10 @@ describe('QRCode test', () => {
       </>,
     );
     expect(
-      container.querySelector<HTMLDivElement>('.qrcode-expired .custom-expired')?.textContent,
+      container.querySelector<HTMLDivElement>('.qrcode-expired .custom-expired>span')?.textContent,
     ).toBe('QR code expired');
+    fireEvent.click(container?.querySelector<HTMLButtonElement>('#refresh')!);
+    expect(refreshCb).toHaveBeenCalled();
     expect(
       container.querySelector<HTMLDivElement>('.qrcode-loading .custom-loading')?.textContent,
     ).toBe('Loading');

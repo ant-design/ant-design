@@ -15,6 +15,20 @@ tag: vVERSION
 
 ---
 
+## 5.21.5
+
+`2024-10-21`
+
+- 🐞 Fix Cascader filter limitation not working when `limit` set to `false`. [#51263](https://github.com/ant-design/ant-design/pull/51263) [@dongbanban](https://github.com/dongbanban)
+- 🐞 Fix DatePicker disabled items cannot response mouse events bug. [#51294](https://github.com/ant-design/ant-design/pull/51294) [@ajenkins-mparticle](https://github.com/ajenkins-mparticle)
+- 🐞 Fix FloatButton menu problem what is difficult to click. [#51208](https://github.com/ant-design/ant-design/pull/51208) [@aojunhao123](https://github.com/aojunhao123)
+- 🐞 Fix QRCode `onRefresh` property not working properly. [#51315](https://github.com/ant-design/ant-design/pull/51315) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 Fix Typography links cannot be selected by user. [#51243](https://github.com/ant-design/ant-design/pull/51243) [@thinkasany](https://github.com/thinkasany)
+- 💄 Fix Badge incorrect token of texts. [#51252](https://github.com/ant-design/ant-design/pull/51252) [@Wxh16144](https://github.com/Wxh16144)
+- 💄 Fix Layout lost styles of collapse button. [#51313](https://github.com/ant-design/ant-design/pull/51313) [@aojunhao123](https://github.com/aojunhao123)
+- 🛠 Improve Button event handler declaration. [#42037](https://github.com/ant-design/ant-design/pull/42037) [@SohaibRaza](https://github.com/SohaibRaza)
+- 🛠 Improve Splitter style token semantic name. [#51223](https://github.com/ant-design/ant-design/pull/51223) [@wanpan11](https://github.com/wanpan11)
+
 ## 5.21.4
 
 `2024-10-14`

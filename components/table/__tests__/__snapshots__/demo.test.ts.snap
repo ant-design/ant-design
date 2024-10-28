@@ -7837,27 +7837,31 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
               class="ant-select-selector"
             >
               <span
-                class="ant-select-selection-search"
+                class="ant-select-selection-wrap"
               >
-                <input
-                  aria-autocomplete="list"
-                  aria-controls="undefined_list"
-                  aria-expanded="false"
-                  aria-haspopup="listbox"
-                  aria-label="Page Size"
-                  aria-owns="undefined_list"
-                  autocomplete="off"
-                  class="ant-select-selection-search-input"
-                  role="combobox"
-                  type="search"
-                  value=""
-                />
-              </span>
-              <span
-                class="ant-select-selection-item"
-                title="10 / page"
-              >
-                10 / page
+                <span
+                  class="ant-select-selection-search"
+                >
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="undefined_list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-label="Page Size"
+                    aria-owns="undefined_list"
+                    autocomplete="off"
+                    class="ant-select-selection-search-input"
+                    role="combobox"
+                    type="search"
+                    value=""
+                  />
+                </span>
+                <span
+                  class="ant-select-selection-item"
+                  title="10 / page"
+                >
+                  10 / page
+                </span>
               </span>
             </div>
             <span
@@ -9490,7 +9494,7 @@ exports[`renders components/table/demo/filter-search.tsx correctly 1`] = `
 
 exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
 <div
-  class="ant-table-wrapper acss-6kbv1r"
+  class="ant-table-wrapper acss-10ugdpo"
 >
   <div
     class="ant-spin-nested-loading"
@@ -10201,7 +10205,7 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
 
 exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = `
 <div
-  class="ant-table-wrapper acss-6kbv1r"
+  class="ant-table-wrapper acss-10ugdpo"
 >
   <div
     class="ant-spin-nested-loading"
@@ -12054,27 +12058,31 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
               class="ant-select-selector"
             >
               <span
-                class="ant-select-selection-search"
+                class="ant-select-selection-wrap"
               >
-                <input
-                  aria-autocomplete="list"
-                  aria-controls="undefined_list"
-                  aria-expanded="false"
-                  aria-haspopup="listbox"
-                  aria-label="Page Size"
-                  aria-owns="undefined_list"
-                  autocomplete="off"
-                  class="ant-select-selection-search-input"
-                  role="combobox"
-                  type="search"
-                  value=""
-                />
-              </span>
-              <span
-                class="ant-select-selection-item"
-                title="10 / page"
-              >
-                10 / page
+                <span
+                  class="ant-select-selection-search"
+                >
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="undefined_list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-label="Page Size"
+                    aria-owns="undefined_list"
+                    autocomplete="off"
+                    class="ant-select-selection-search-input"
+                    role="combobox"
+                    type="search"
+                    value=""
+                  />
+                </span>
+                <span
+                  class="ant-select-selection-item"
+                  title="10 / page"
+                >
+                  10 / page
+                </span>
               </span>
             </div>
             <span
@@ -12113,7 +12121,7 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
 
 exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = `
 <div
-  class="ant-table-wrapper acss-6kbv1r"
+  class="ant-table-wrapper acss-10ugdpo"
 >
   <div
     class="ant-spin-nested-loading"
@@ -12832,7 +12840,7 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
 
 exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
 <div
-  class="ant-table-wrapper acss-6kbv1r"
+  class="ant-table-wrapper acss-10ugdpo"
 >
   <div
     class="ant-spin-nested-loading"
@@ -14033,27 +14041,31 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
               class="ant-select-selector"
             >
               <span
-                class="ant-select-selection-search"
+                class="ant-select-selection-wrap"
               >
-                <input
-                  aria-autocomplete="list"
-                  aria-controls="undefined_list"
-                  aria-expanded="false"
-                  aria-haspopup="listbox"
-                  aria-label="Page Size"
-                  aria-owns="undefined_list"
-                  autocomplete="off"
-                  class="ant-select-selection-search-input"
-                  role="combobox"
-                  type="search"
-                  value=""
-                />
-              </span>
-              <span
-                class="ant-select-selection-item"
-                title="50 / page"
-              >
-                50 / page
+                <span
+                  class="ant-select-selection-search"
+                >
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="undefined_list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-label="Page Size"
+                    aria-owns="undefined_list"
+                    autocomplete="off"
+                    class="ant-select-selection-search-input"
+                    role="combobox"
+                    type="search"
+                    value=""
+                  />
+                </span>
+                <span
+                  class="ant-select-selection-item"
+                  title="50 / page"
+                >
+                  50 / page
+                </span>
               </span>
             </div>
             <span
@@ -14092,7 +14104,7 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
 
 exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
 <div
-  class="ant-table-wrapper acss-6kbv1r"
+  class="ant-table-wrapper acss-10ugdpo"
 >
   <div
     class="ant-spin-nested-loading"
@@ -15063,27 +15075,31 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
               class="ant-select-selector"
             >
               <span
-                class="ant-select-selection-search"
+                class="ant-select-selection-wrap"
               >
-                <input
-                  aria-autocomplete="list"
-                  aria-controls="undefined_list"
-                  aria-expanded="false"
-                  aria-haspopup="listbox"
-                  aria-label="Page Size"
-                  aria-owns="undefined_list"
-                  autocomplete="off"
-                  class="ant-select-selection-search-input"
-                  role="combobox"
-                  type="search"
-                  value=""
-                />
-              </span>
-              <span
-                class="ant-select-selection-item"
-                title="10 / page"
-              >
-                10 / page
+                <span
+                  class="ant-select-selection-search"
+                >
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="undefined_list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-label="Page Size"
+                    aria-owns="undefined_list"
+                    autocomplete="off"
+                    class="ant-select-selection-search-input"
+                    role="combobox"
+                    type="search"
+                    value=""
+                  />
+                </span>
+                <span
+                  class="ant-select-selection-item"
+                  title="10 / page"
+                >
+                  10 / page
+                </span>
               </span>
             </div>
             <span
@@ -17195,27 +17211,31 @@ exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
                 class="ant-select-selector"
               >
                 <span
-                  class="ant-select-selection-search"
+                  class="ant-select-selection-wrap"
                 >
-                  <input
-                    aria-autocomplete="list"
-                    aria-controls="undefined_list"
-                    aria-expanded="false"
-                    aria-haspopup="listbox"
-                    aria-label="Page Size"
-                    aria-owns="undefined_list"
-                    autocomplete="off"
-                    class="ant-select-selection-search-input"
-                    role="combobox"
-                    type="search"
-                    value=""
-                  />
-                </span>
-                <span
-                  class="ant-select-selection-item"
-                  title="10 / page"
-                >
-                  10 / page
+                  <span
+                    class="ant-select-selection-search"
+                  >
+                    <input
+                      aria-autocomplete="list"
+                      aria-controls="undefined_list"
+                      aria-expanded="false"
+                      aria-haspopup="listbox"
+                      aria-label="Page Size"
+                      aria-owns="undefined_list"
+                      autocomplete="off"
+                      class="ant-select-selection-search-input"
+                      role="combobox"
+                      type="search"
+                      value=""
+                    />
+                  </span>
+                  <span
+                    class="ant-select-selection-item"
+                    title="10 / page"
+                  >
+                    10 / page
+                  </span>
                 </span>
               </div>
               <span
@@ -27787,27 +27807,31 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
               class="ant-select-selector"
             >
               <span
-                class="ant-select-selection-search"
+                class="ant-select-selection-wrap"
               >
-                <input
-                  aria-autocomplete="list"
-                  aria-controls="undefined_list"
-                  aria-expanded="false"
-                  aria-haspopup="listbox"
-                  aria-label="Page Size"
-                  aria-owns="undefined_list"
-                  autocomplete="off"
-                  class="ant-select-selection-search-input"
-                  role="combobox"
-                  type="search"
-                  value=""
-                />
-              </span>
-              <span
-                class="ant-select-selection-item"
-                title="10 / page"
-              >
-                10 / page
+                <span
+                  class="ant-select-selection-search"
+                >
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="undefined_list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-label="Page Size"
+                    aria-owns="undefined_list"
+                    autocomplete="off"
+                    class="ant-select-selection-search-input"
+                    role="combobox"
+                    type="search"
+                    value=""
+                  />
+                </span>
+                <span
+                  class="ant-select-selection-item"
+                  title="10 / page"
+                >
+                  10 / page
+                </span>
               </span>
             </div>
             <span
@@ -27849,7 +27873,7 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
   class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
 >
   <div
-    class="ant-table-wrapper acss-6kbv1r"
+    class="ant-table-wrapper acss-10ugdpo"
   >
     <div
       class="ant-spin-nested-loading"
@@ -28032,7 +28056,7 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-table-wrapper acss-6kbv1r"
+    class="ant-table-wrapper acss-10ugdpo"
   >
     <div
       class="ant-spin-nested-loading"

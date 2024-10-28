@@ -1,6 +1,6 @@
 import React, { cloneElement, isValidElement } from 'react';
 import { BugOutlined } from '@ant-design/icons';
-import { Drawer, Flex, Grid, Popover, Tag, Timeline, Typography, Button } from 'antd';
+import { Button, Drawer, Flex, Grid, Popover, Tag, Timeline, Typography } from 'antd';
 import type { TimelineItemProps } from 'antd';
 import { createStyles } from 'antd-style';
 import semver from 'semver';
@@ -76,7 +76,7 @@ const useStyle = createStyles(({ token, css }) => ({
     position: 'relative',
     [`> ${token.antCls}-drawer-body`]: {
       scrollbarWidth: 'thin',
-      scrollbarColor: 'unset',
+      scrollbarGutter: 'stable',
     },
   },
   versionWrap: css`

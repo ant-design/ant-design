@@ -24,10 +24,20 @@ export interface TreeSharedToken {
    */
   nodeHoverBg: string;
   /**
+   * @desc 节点悬浮态态文字颜色
+   * @descEN Text color of hovered node
+   */
+  nodeHoverColor: string;
+  /**
    * @desc 节点选中态背景色
    * @descEN Background color of selected node
    */
   nodeSelectedBg: string;
+  /**
+   * @desc 节点选中态文字颜色
+   * @descEN Text color of selected node
+   */
+  nodeSelectedColor: string;
 }
 
 export interface ComponentToken extends TreeSharedToken {
@@ -194,6 +204,16 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
           },
         },
 
+        // not disable
+        [`&:not(${treeNodeCls}-disabled)`]: {
+          // >>> Title
+          [`${treeCls}-node-content-wrapper`]: {
+            '&:hover': {
+              color: token.nodeHoverColor,
+            },
+          },
+        },
+
         [`&-active ${treeCls}-node-content-wrapper`]: {
           background: token.controlItemBgHover,
         },
@@ -354,6 +374,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         },
 
         [`&${treeCls}-node-selected`]: {
+          color: token.nodeSelectedColor,
           backgroundColor: nodeSelectedBg,
         },
 
@@ -558,7 +579,9 @@ export const initComponentToken = (token: AliasToken): TreeSharedToken => {
     titleHeight,
     indentSize: titleHeight,
     nodeHoverBg: controlItemBgHover,
+    nodeHoverColor: token.colorText,
     nodeSelectedBg: controlItemBgActive,
+    nodeSelectedColor: token.colorText,
   };
 };
 

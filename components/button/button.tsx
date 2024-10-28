@@ -205,15 +205,17 @@ const InternalCompoundedButton = React.forwardRef<
     }
   }, [buttonRef]);
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
-    const { onClick } = props;
-    // FIXME: https://github.com/ant-design/ant-design/issues/30207
-    if (innerLoading || mergedDisabled) {
-      e.preventDefault();
-      return;
-    }
-    (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)?.(e);
-  };
+  const handleClick = React.useCallback(
+    (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
+      // FIXME: https://github.com/ant-design/ant-design/issues/30207
+      if (innerLoading || mergedDisabled) {
+        e.preventDefault();
+        return;
+      }
+      (props.onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)?.(e);
+    },
+    [props.onClick, innerLoading, mergedDisabled],
+  );
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Button');
@@ -237,7 +239,7 @@ const InternalCompoundedButton = React.forwardRef<
 
   const sizeFullName = useSize((ctxSize) => customizeSize ?? compactSize ?? groupSize ?? ctxSize);
 
-  const sizeCls = sizeFullName ? sizeClassNameMap[sizeFullName] || '' : '';
+  const sizeCls = sizeFullName ? sizeClassNameMap[sizeFullName] ?? '' : '';
 
   const iconType = innerLoading ? 'loading' : icon;
 
