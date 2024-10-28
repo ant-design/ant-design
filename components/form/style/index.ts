@@ -333,16 +333,17 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
             maxWidth: '100%',
           },
         },
-        '&-additional': {
-          display: 'flex',
-          flexDirection: 'column',
-        },
       },
 
       // ==============================================================
       // =                           Explain                          =
       // ==============================================================
       [formItemCls]: {
+        '&-additional': {
+          display: 'flex',
+          flexDirection: 'column',
+        },
+
         '&-explain, &-extra': {
           clear: 'both',
           color: token.colorTextDescription,
