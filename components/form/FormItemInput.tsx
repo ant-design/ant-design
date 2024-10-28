@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
 import type { ColProps } from '../grid/col';
 import Col from '../grid/col';
@@ -65,6 +66,17 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
   delete subFormContext.labelCol;
   delete subFormContext.wrapperCol;
 
+  const extraRef = React.useRef<HTMLDivElement>(null);
+  const [extraHeight, setExtraHeight] = React.useState<number>(0);
+  useLayoutEffect(() => {
+    if (extra && extraRef.current) {
+      const extraStyle = getComputedStyle(extraRef.current);
+      setExtraHeight(parseInt(extraStyle.height, 10));
+    } else {
+      setExtraHeight(0);
+    }
+  }, [extra]);
+
   const inputDom: React.ReactNode = (
     <div className={`${baseClassName}-control-input`}>
       <div className={`${baseClassName}-control-input-content`}>{children}</div>
@@ -95,7 +107,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
   // If extra = 0, && will goes wrong
   // 0&&error -> 0
   const extraDom: React.ReactNode = extra ? (
-    <div {...extraProps} className={`${baseClassName}-extra`}>
+    <div {...extraProps} className={`${baseClassName}-extra`} ref={extraRef}>
       {extra}
     </div>
   ) : null;
@@ -104,7 +116,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
     errorListDom || extraDom ? (
       <div
         className={`${baseClassName}-additional`}
-        style={marginBottom ? { minHeight: marginBottom } : {}}
+        style={marginBottom ? { minHeight: marginBottom + extraHeight } : {}}
       >
         {errorListDom}
         {extraDom}
