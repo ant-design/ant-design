@@ -141,7 +141,7 @@ Added in `5.16.0`.
 | variant | Variants of Input | `outlined` \| `borderless` \| `filled` | `outlined` |  |
 | value | The input content value | string | - |  |
 | onChange | Trigger when all the fields are filled | (value: string) => void | - |  |
-| onInput | Trigger when the input value changes | (value: string[]) => void | - |  |
+| onInput | Trigger when the input value changes | (value: string[]) => void | - | `5.22.0` |
 
 #### VisibilityToggle
 
