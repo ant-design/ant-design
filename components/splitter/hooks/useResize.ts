@@ -3,7 +3,9 @@ import * as React from 'react';
 import type { ItemType } from './useItems';
 import type { ResizableInfo } from './useResizable';
 import { getPtg } from './useSizes';
-
+type CollapsedSizesType = {
+  [key: number]: number;
+};
 export default function useResize(
   items: ItemType[],
   resizableInfos: ResizableInfo[],
@@ -26,7 +28,7 @@ export default function useResize(
   // Real px sizes
   const [cacheSizes, setCacheSizes] = React.useState<number[]>([]);
   // cache collapsed size
-  const [collapsedSizes, setCollapsedSizes] = React.useState<number[]>([]);
+  const [collapsedSizes, setCollapsedSizes] = React.useState<CollapsedSizesType>({});
   /**
    * When start drag, check the direct is `start` or `end`.
    * This will handle when 2 splitter bar are in the same position.
@@ -113,7 +115,6 @@ export default function useResize(
   // ======================= Collapse =======================
   const onCollapse = (index: number, type: 'start' | 'end') => {
     const currentSizes = getPxSizes();
-
     const currentIndex = type === 'start' ? index : index + 1;
     const targetIndex = type === 'start' ? index + 1 : index;
 
@@ -129,7 +130,7 @@ export default function useResize(
       // Collapse directly
       currentSizes[currentIndex] = 0;
       currentSizes[targetIndex] += currentSize;
-      const tmpSizes = [];
+      const tmpSizes: CollapsedSizesType = {};
       /**
        *
        * Record the size information before folding for subsequent recovery
@@ -182,15 +183,8 @@ export default function useResize(
       currentSizes[currentIndex] = collapsedSizes[currentIndex];
       currentSizes[targetIndex] = collapsedSizes[targetIndex];
       // reset the size information
-      setCollapsedSizes([]);
-    } else {
-      const limitStart = Math.max(currentSizeMin, totalSize - targetSizeMax);
-      const limitEnd = Math.min(currentSizeMax, totalSize - targetSizeMin);
-      const halfOffset = (limitEnd - limitStart) / 2;
-      currentSizes[currentIndex] -= halfOffset;
-      currentSizes[targetIndex] += halfOffset;
+      setCollapsedSizes({});
     }
-
     updateSizes(currentSizes);
 
     return currentSizes;

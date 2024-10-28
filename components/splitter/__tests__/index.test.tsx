@@ -483,6 +483,75 @@ describe('Splitter', () => {
       expect(onResizeEnd).toHaveBeenCalledWith([100, 0]);
       expect(container.querySelector('.ant-splitter-bar-dragger-disabled')).toBeTruthy();
     });
+    it('collapsible with min and defaultSize where the default size is smaller than the minimum size', () => {
+      const onResize = jest.fn();
+      const onResizeEnd = jest.fn();
+
+      const { container } = render(
+        <SplitterDemo
+          items={[
+            {
+              defaultSize: 10,
+              collapsible: true,
+              min: 20,
+            },
+            {
+              collapsible: true,
+            },
+          ]}
+          onResize={onResize}
+          onResizeEnd={onResizeEnd}
+        />,
+      );
+
+      // Collapse left
+      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
+      expect(onResize).toHaveBeenCalledWith([0, 100]);
+      expect(onResizeEnd).toHaveBeenCalledWith([0, 100]);
+      expect(container.querySelector('.ant-splitter-bar-dragger-disabled')).toBeTruthy();
+
+      // Collapse back
+      onResize.mockReset();
+      onResizeEnd.mockReset();
+      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-end')!);
+      expect(onResize).toHaveBeenCalledWith([20, 80]);
+      expect(onResizeEnd).toHaveBeenCalledWith([20, 80]);
+      expect(container.querySelector('.ant-splitter-bar-dragger-disabled')).toBeFalsy();
+    });
+
+    it('collapsible with max and defaultSize where the default size is larger than the minimum size', () => {
+      const onResize = jest.fn();
+      const onResizeEnd = jest.fn();
+
+      const { container } = render(
+        <SplitterDemo
+          items={[
+            {
+              defaultSize: 30,
+              collapsible: true,
+              max: 20,
+            },
+            {
+              collapsible: true,
+            },
+          ]}
+          onResize={onResize}
+          onResizeEnd={onResizeEnd}
+        />,
+      );
+
+      // Collapse left
+      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
+      expect(onResize).toHaveBeenCalledWith([0, 100]);
+      expect(onResizeEnd).toHaveBeenCalledWith([0, 100]);
+
+      // Collapse back
+      onResize.mockReset();
+      onResizeEnd.mockReset();
+      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-end')!);
+      expect(onResize).toHaveBeenCalledWith([20, 80]);
+      expect(onResizeEnd).toHaveBeenCalledWith([20, 80]);
+    });
   });
 
   it('auto resize', async () => {
