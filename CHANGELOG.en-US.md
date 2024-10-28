@@ -24,7 +24,7 @@ tag: vVERSION
 - 🐞 Fix the pointer style not set to `not-allowed` in the `disabled` state when `variant` of the Input was set to `borderless`. [#51387](https://github.com/ant-design/ant-design/pull/51387) [@ustcfury](https://github.com/ustcfury)
 - Splitter
   - 💄 Improve the pre-rendered style of Splitter under SSR. [#51378](https://github.com/ant-design/ant-design/pull/51378)
-  - 💄 Increased the click area of ​​the Spliter collapse button to improve usability. [#51383](https://github.com/ant-design/ant-design/pull/51383) [@aojunhao123](https://github.com/aojunhao123)
+  - 💄 Increased the click area of ​​the Splitter collapse button to improve usability. [#51383](https://github.com/ant-design/ant-design/pull/51383) [@aojunhao123](https://github.com/aojunhao123)
 - 💄 Improve Checkbox `indeterminate` to enhance accessibility experience. [#51350](https://github.com/ant-design/ant-design/pull/51350) [@SpaNb4](https://github.com/SpaNb4)
 - 💄 Improve the `title` of the Empty preset svg image to improve accessibility experience. [#51368](https://github.com/ant-design/ant-design/pull/51368)
 
