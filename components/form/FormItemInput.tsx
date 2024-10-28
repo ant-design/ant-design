@@ -70,8 +70,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
   const [extraHeight, setExtraHeight] = React.useState<number>(0);
   useLayoutEffect(() => {
     if (extra && extraRef.current) {
-      const extraStyle = getComputedStyle(extraRef.current);
-      setExtraHeight(parseInt(extraStyle.height, 10));
+      setExtraHeight(extraRef.current.clientHeight);
     } else {
       setExtraHeight(0);
     }
