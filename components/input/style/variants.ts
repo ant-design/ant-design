@@ -186,6 +186,7 @@ export const genBorderlessStyle = (token: InputToken, extraStyles?: CSSObject): 
       // >>>>> Disabled
       [`&${componentCls}-disabled, &[disabled]`]: {
         color: token.colorTextDisabled,
+        cursor: 'not-allowed',
       },
 
       // >>>>> Status
