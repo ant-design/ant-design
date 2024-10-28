@@ -143,7 +143,7 @@ interface CountConfig {
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` |  |
 | value | 输入框内容 | string | - |  |
 | onChange | 当输入框内容全部填充时触发回调 | (value: string) => void | - |  |
-| onInput | 输入值变化时触发的回调 | (value: string) => void | - | `5.22.0` |
+| onInput | 输入值变化时触发的回调 | (value: string[]) => void | - |  |
 
 #### VisibilityToggle
 
