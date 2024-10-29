@@ -382,6 +382,8 @@ export const genBaseUnderlinedStyle = (
 
   '&:focus, &:focus-within': {
     borderColor: options.activeBorderColor,
+    // 阴影可以去除
+    // boxShadow: '0 2px 0 rgba(5, 145, 255, 0.1)',
     outline: 0,
     backgroundColor: token.activeBg,
   },
