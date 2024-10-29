@@ -64,6 +64,43 @@ export default function accessibilityTest(
   Component: React.ComponentType,
   disabledRules?: string[],
 ) {
+  beforeAll(() => {
+    // Fake ResizeObserver
+    global.ResizeObserver = jest.fn(() => {
+      return {
+        observe() {},
+        unobserve() {},
+        disconnect() {},
+      };
+    }) as jest.Mock;
+
+    // fake fetch
+    global.fetch = jest.fn(() => {
+      return {
+        then() {
+          return this;
+        },
+        catch() {
+          return this;
+        },
+        finally() {
+          return this;
+        },
+      };
+    }) as jest.Mock;
+  });
+
+  beforeEach(() => {
+    // Reset all mocks
+    if (global.fetch) {
+      (global.fetch as jest.Mock).mockClear();
+    }
+  });
+
+  afterEach(() => {
+    // Clear all mocks
+    jest.clearAllMocks();
+  });
   describe(`accessibility`, () => {
     it(`component does not have any violations`, async () => {
       jest.useRealTimers();
