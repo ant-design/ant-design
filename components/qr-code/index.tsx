@@ -2,14 +2,15 @@ import React, { useContext } from 'react';
 import { QRCodeCanvas, QRCodeSVG } from '@rc-component/qrcode';
 import classNames from 'classnames';
 
+import { pickA11yProps } from '../_util/a11y';
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import { useToken } from '../theme/internal';
 import type { QRCodeProps, QRProps } from './interface';
-import useStyle from './style/index';
 import QRcodeStatus from './QrcodeStatus';
+import useStyle from './style/index';
 
 const QRCode: React.FC<QRCodeProps> = (props) => {
   const [, token] = useToken();
@@ -41,11 +42,13 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     src: icon,
     x: undefined,
     y: undefined,
-    height: typeof iconSize === 'number' ? iconSize : iconSize?.height ?? 40,
-    width: typeof iconSize === 'number' ? iconSize : iconSize?.width ?? 40,
+    height: typeof iconSize === 'number' ? iconSize : (iconSize?.height ?? 40),
+    width: typeof iconSize === 'number' ? iconSize : (iconSize?.width ?? 40),
     excavate: true,
     crossOrigin: 'anonymous',
   };
+
+  const a11yProps = pickA11yProps(rest);
 
   const qrCodeProps = {
     value,
@@ -55,6 +58,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     fgColor: color,
     style: { width: style?.width, height: style?.height },
     imageSettings: icon ? imageSettings : undefined,
+    ...a11yProps,
   };
 
   const [locale] = useLocale('QRCode');
