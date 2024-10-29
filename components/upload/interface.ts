@@ -77,7 +77,7 @@ export type ItemRender<T = any> = (
   fileList: Array<UploadFile<T>>,
   actions: {
     download: () => void;
-    preview: () => void;
+    preview: (e?: React.SyntheticEvent<HTMLElement>) => void;
     remove: () => void;
   },
 ) => React.ReactNode;
