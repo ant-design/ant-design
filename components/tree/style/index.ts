@@ -160,7 +160,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
       [treeNodeCls]: {
         display: 'flex',
         alignItems: 'flex-start',
-        marginBottom: treeNodePadding,
+        paddingBottom: treeNodePadding,
         lineHeight: unit(titleHeight),
         position: 'relative',
 
