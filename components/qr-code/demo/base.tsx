@@ -6,7 +6,7 @@ const App: React.FC = () => {
 
   return (
     <Space direction="vertical" align="center">
-      <QRCode value={text || '-'} />
+      <QRCode value={text || '-'} aria-label="qrcode" />
       <Input
         placeholder="-"
         maxLength={60}
