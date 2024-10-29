@@ -41,7 +41,6 @@ function CascaderPanel<
     notFoundContent,
     direction,
     expandIcon,
-    // @ts-expect-error
     disabled: customDisabled,
   } = props;
 
@@ -82,7 +81,6 @@ function CascaderPanel<
       direction={mergedDirection}
       expandIcon={mergedExpandIcon}
       loadingIcon={loadingIcon}
-      // @ts-expect-error
       disabled={mergedDisabled}
     />,
   );
