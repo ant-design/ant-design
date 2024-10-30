@@ -2011,7 +2011,7 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <title>
-                    Simple Empty
+                    No data
                   </title>
                   <g
                     fill="none"
@@ -2150,7 +2150,7 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <title>
-                    Simple Empty
+                    No data
                   </title>
                   <g
                     fill="none"
