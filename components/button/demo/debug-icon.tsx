@@ -1,9 +1,16 @@
 import React from 'react';
-import { SearchOutlined } from '@ant-design/icons';
+import { SearchOutlined, MinusSquareOutlined } from '@ant-design/icons';
 import { Button, ConfigProvider, Divider, Flex, Radio, Tooltip } from 'antd';
 import type { ConfigProviderProps } from 'antd';
 
 type SizeType = ConfigProviderProps['componentSize'];
+
+/**12px 图标 */
+const Icon12Size = () => <div style={{ background: 'red', width: 12, height: 12 }} />;
+/**16px 图标 */
+const Icon16Size = () => <div style={{ background: 'green', width: 16, height: 16 }} />;
+/**不规则宽高  */
+const IconIrregularSize = () => <div style={{ background: 'blue', width: 14, height: 16 }} />;
 
 const App: React.FC = () => {
   const [size, setSize] = React.useState<SizeType>('large');
@@ -50,6 +57,19 @@ const App: React.FC = () => {
               <SearchOutlined />
               Search
             </Button>
+          </Flex>
+          <Flex
+            gap="small"
+            style={{
+              // https://github.com/ant-design/ant-design/issues/51380 // 视觉回归测试
+              transform: 'scale(3)',
+              transformOrigin: 'left top',
+            }}
+          >
+            <Button icon={<MinusSquareOutlined />} />
+            <Button icon={<Icon12Size />} />
+            <Button icon={<Icon16Size />} />
+            <Button icon={<IconIrregularSize />} />
           </Flex>
         </Flex>
       </ConfigProvider>

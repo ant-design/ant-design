@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.21.5",
+  "version": "5.21.6",
   "description": "An enterprise-class UI design language and React components implementation",
   "license": "MIT",
   "funding": {
@@ -319,7 +319,7 @@
     "tsx": "4.11.2",
     "typedoc": "^0.26.7",
     "typescript": "~5.6.2",
-    "vanilla-jsoneditor": "^1.0.0",
+    "vanilla-jsoneditor": "^2.0.0",
     "vanilla-tilt": "^1.8.1",
     "webpack": "^5.94.0",
     "webpack-bundle-analyzer": "^4.10.2",
