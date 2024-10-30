@@ -107,7 +107,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
             },
           },
         }),
-          ...genUnderlinedStyle(token, {
+        ...genUnderlinedStyle(token, {
           [`${componentCls}-handler-wrap`]: {
             background: handleBg,
             [`${componentCls}-handler-down`]: {

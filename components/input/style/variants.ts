@@ -373,8 +373,7 @@ export const genBaseUnderlinedStyle = (
   borderWidth: `0 0 ${token.lineWidth} 0`,
   borderStyle: `none none ${token.lineType} none`,
   borderColor: options.borderColor,
-  borderRadius: '0 !important',
-
+  borderRadius: 0,
   '&:hover': {
     borderColor: options.hoverBorderColor,
     backgroundColor: token.hoverBg,

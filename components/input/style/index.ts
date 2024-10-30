@@ -549,6 +549,12 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         },
       },
     },
+
+    // 覆盖 affix-wrapper borderRadius！
+    [`${componentCls}-underlined`]: {
+      borderRadius: 0,
+    },
+
     [affixClsDisabled]: {
       // password disabled
       [`${iconCls}${componentCls}-password-icon`]: {

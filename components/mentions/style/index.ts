@@ -88,7 +88,6 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
       ...genOutlinedStyle(token),
       ...genFilledStyle(token),
       ...genBorderlessStyle(token),
-      ...genUnderlinedStyle(token),
 
       '&-affix-wrapper': {
         ...genBasicInputStyle(token),
@@ -144,6 +143,9 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
           },
         },
       },
+
+      // 覆盖 affix-wrapper borderRadius！
+      ...genUnderlinedStyle(token),
 
       '&-disabled': {
         '> textarea': {
