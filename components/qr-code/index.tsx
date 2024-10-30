@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { QRCodeCanvas, QRCodeSVG } from '@rc-component/qrcode';
 import classNames from 'classnames';
+import pickAttrs from 'rc-util/lib/pickAttrs';
 
-import { pickA11yProps } from '../_util/a11y';
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
@@ -48,7 +48,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     crossOrigin: 'anonymous',
   };
 
-  const a11yProps = pickA11yProps(rest);
+  const a11yProps = pickAttrs(rest, { aria: true, data: true });
 
   const qrCodeProps = {
     value,
