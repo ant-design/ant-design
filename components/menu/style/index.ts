@@ -635,12 +635,11 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
         },
 
         [`${componentCls}-title-content`]: {
-          display: 'inline-flex',
-          alignItems: 'center',
           transition: `color ${motionDurationSlow}`,
 
-          '> a:first-child': {
-            flexGrow: 1,
+          '&-extra': {
+            display: 'inline-flex',
+            alignItems: 'center',
           },
 
           // https://github.com/ant-design/ant-design/issues/41143
