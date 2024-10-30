@@ -309,6 +309,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         marginInlineEnd: treeCheckBoxMarginHorizontal,
         alignSelf: 'flex-start',
         marginTop: token.marginXXS,
+        zIndex: 1,
       },
 
       // >>> Title
