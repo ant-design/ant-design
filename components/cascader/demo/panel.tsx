@@ -56,9 +56,13 @@ const App: React.FC = () => {
 
   return (
     <Flex vertical gap="small" align="flex-start">
-      <Flex gap="small" align="center">
-        Disabled: <Switch checked={disabled} onChange={setDisabled} aria-label="disabled switch" />
-      </Flex>
+      <Switch
+        checked={disabled}
+        checkedChildren="Enabled"
+        unCheckedChildren="Disabled"
+        onChange={setDisabled}
+        aria-label="disabled switch"
+      />
       <Cascader.Panel options={options} onChange={onChange} disabled={disabled} />
       <Cascader.Panel multiple options={options} onChange={onMultipleChange} disabled={disabled} />
       <Cascader.Panel />

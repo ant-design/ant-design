@@ -1763,32 +1763,31 @@ exports[`renders components/cascader/demo/panel.tsx extend context correctly 1`]
 <div
   class="ant-flex ant-flex-align-flex-start ant-flex-gap-small ant-flex-vertical"
 >
-  <div
-    class="ant-flex ant-flex-align-center ant-flex-gap-small"
+  <button
+    aria-checked="false"
+    aria-label="disabled switch"
+    class="ant-switch"
+    role="switch"
+    type="button"
   >
-    Disabled: 
-    <button
-      aria-checked="false"
-      aria-label="disabled switch"
-      class="ant-switch"
-      role="switch"
-      type="button"
+    <div
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
     >
-      <div
-        class="ant-switch-handle"
-      />
       <span
-        class="ant-switch-inner"
+        class="ant-switch-inner-checked"
       >
-        <span
-          class="ant-switch-inner-checked"
-        />
-        <span
-          class="ant-switch-inner-unchecked"
-        />
+        Enabled
       </span>
-    </button>
-  </div>
+      <span
+        class="ant-switch-inner-unchecked"
+      >
+        Disabled
+      </span>
+    </span>
+  </button>
   <div
     class="ant-cascader-panel"
   >
