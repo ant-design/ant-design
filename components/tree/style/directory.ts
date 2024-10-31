@@ -38,7 +38,11 @@ export const genDirectoryStyle = ({
       },
     },
 
-    [`${treeCls}-switcher`]: {
+    [`${treeCls}-switcher, ${treeCls}-checkbox, ${treeCls}-draggable-icon`]: {
+      zIndex: 1,
+    },
+
+    [`&:not(:has(${treeCls}-checkbox)) ${treeCls}-switcher`]: {
       marginInlineEnd: 0,
     },
 
@@ -46,7 +50,6 @@ export const genDirectoryStyle = ({
     '&-selected': {
       [`${treeCls}-switcher, ${treeCls}-draggable-icon`]: {
         color: directoryNodeSelectedColor,
-        zIndex: 1,
       },
 
       // >>> Title
