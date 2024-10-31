@@ -60,10 +60,7 @@ const convertRulesToAxeFormat = (rules: string[]): Rules => {
 };
 
 // eslint-disable-next-line jest/no-export
-export default function accessibilityTest(
-  Component: React.ComponentType,
-  disabledRules?: string[],
-) {
+export function accessibilityTest(Component: React.ComponentType, disabledRules?: string[]) {
   beforeAll(() => {
     // Fake ResizeObserver
     global.ResizeObserver = jest.fn(() => {
@@ -120,7 +117,7 @@ type Options = {
 };
 
 // eslint-disable-next-line jest/no-export
-export function accessibilityDemoTest(component: string, options: Options = {}) {
+export default function accessibilityDemoTest(component: string, options: Options = {}) {
   // If skip is true, return immediately without executing any tests
   if (options.skip === true) {
     describe.skip(`${component} demo a11y`, () => {
