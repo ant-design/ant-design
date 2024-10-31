@@ -1,4 +1,4 @@
-import { accessibilityDemoTest } from '../../../tests/shared/accessibilityTest';
+import accessibilityDemoTest from '../../../tests/shared/accessibilityTest';
 
 describe('auto-complete demo a11y', () => {
   // wait for fix

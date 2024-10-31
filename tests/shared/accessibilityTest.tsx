@@ -44,7 +44,7 @@ const runAxe = async (...args: Parameters<typeof axe>): Promise<ReturnType<typeo
 };
 
 // eslint-disable-next-line jest/no-export
-export default function accessibilityTest(Component: React.ComponentType) {
+export function accessibilityTest(Component: React.ComponentType) {
   beforeAll(() => {
     // Fake ResizeObserver
     global.ResizeObserver = jest.fn(() => {
@@ -106,7 +106,7 @@ type Options = {
 };
 
 // eslint-disable-next-line jest/no-export
-export function accessibilityDemoTest(component: string, options: Options = {}) {
+export default function accessibilityDemoTest(component: string, options: Options = {}) {
   // If skip is true, return immediately without executing any tests
   if (options.skip === true) {
     describe.skip(`${component} demo a11y`, () => {
