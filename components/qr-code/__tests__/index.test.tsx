@@ -157,19 +157,9 @@ describe('QRCode test', () => {
   });
 
   it('should pass aria and data props to qrcode element', () => {
-    const { container } = render(
-      <QRCode
-        value="test"
-        aria-label="Test QR Code"
-        data-testid="test-qr"
-        data-custom="custom-data"
-      />,
-    );
-
+    const { container } = render(<QRCode value="test" aria-label="Test QR Code" />);
     const qrcodeElement = container.querySelector('.ant-qrcode canvas');
     expect(qrcodeElement).toHaveAttribute('aria-label', 'Test QR Code');
-    expect(qrcodeElement).toHaveAttribute('data-testid', 'test-qr');
-    expect(qrcodeElement).toHaveAttribute('data-custom', 'custom-data');
   });
 
   it('should not pass other props to qrcode element', () => {
@@ -177,35 +167,26 @@ describe('QRCode test', () => {
       <QRCode
         value="test"
         aria-label="Test QR Code"
-        data-testid="test-qr"
         title="qr-title" // This prop should not be passed to canvas
       />,
     );
 
     const qrcodeElement = container.querySelector('.ant-qrcode canvas');
     expect(qrcodeElement).toHaveAttribute('aria-label', 'Test QR Code');
-    expect(qrcodeElement).toHaveAttribute('data-testid', 'test-qr');
     expect(qrcodeElement).not.toHaveAttribute('title', 'qr-title');
   });
 
   it('should work with both canvas and svg type', () => {
     const ariaLabel = 'Test QR Code';
-    const dataTestid = 'test-qr';
-
     // test canvas type
     const { container: canvasContainer } = render(
-      <QRCode value="test" type="canvas" aria-label={ariaLabel} data-testid={dataTestid} />,
+      <QRCode value="test" type="canvas" aria-label={ariaLabel} />,
     );
-
     expect(canvasContainer.querySelector('canvas')).toHaveAttribute('aria-label', ariaLabel);
-    expect(canvasContainer.querySelector('canvas')).toHaveAttribute('data-testid', dataTestid);
-
     // test svg type
     const { container: svgContainer } = render(
-      <QRCode value="test" type="svg" aria-label={ariaLabel} data-testid={dataTestid} />,
+      <QRCode value="test" type="svg" aria-label={ariaLabel} />,
     );
-
     expect(svgContainer.querySelector('svg')).toHaveAttribute('aria-label', ariaLabel);
-    expect(svgContainer.querySelector('svg')).toHaveAttribute('data-testid', dataTestid);
   });
 });

@@ -48,7 +48,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     crossOrigin: 'anonymous',
   };
 
-  const a11yProps = pickAttrs(rest, { aria: true, data: true });
+  const a11yProps = pickAttrs(rest, { aria: true });
 
   const qrCodeProps = {
     value,
