@@ -29,6 +29,7 @@ import {
   TimePicker,
   Tour,
   Transfer,
+  Typography,
   Upload,
 } from 'antd';
 import enUS from 'antd/locale/en_US';
@@ -61,6 +62,7 @@ const Page: React.FC = () => {
 
   const [open, setOpen] = useState(false);
   const [tourOpen, setTourOpen] = useState(false);
+  const [expanded, setExpanded] = useState(false);
   const tourRefs = React.useRef<HTMLElement[]>([]);
 
   const showModal = () => {
@@ -203,6 +205,19 @@ const Page: React.FC = () => {
         />
       </Space>
       <Tour open={tourOpen} steps={steps} onClose={() => setTourOpen(false)} />
+      <Typography.Paragraph
+        ellipsis={{
+          rows: 1,
+          expandable: 'collapsible',
+          expanded,
+          onExpand: (_, info) => setExpanded(info.expanded),
+        }}
+        copyable
+      >
+        {'Ant Design, a design language for background applications, is refined by Ant UED Team.'.repeat(
+          20,
+        )}
+      </Typography.Paragraph>
     </Space>
   );
 };
