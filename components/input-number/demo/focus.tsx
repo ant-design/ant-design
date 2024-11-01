@@ -45,7 +45,6 @@ const App: React.FC = () => {
           Focus prevent scroll
         </Button>
       </Space>
-      <br />
       <InputNumber style={{ width: '100%' }} defaultValue={999} ref={inputRef} />
     </Space>
   );
