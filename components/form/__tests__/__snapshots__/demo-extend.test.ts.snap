@@ -2950,7 +2950,7 @@ Array [
                       >
                         <li
                           aria-checked="false"
-                          class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+                          class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-disabled"
                           data-path-key="zhejiang"
                           role="menuitemcheckbox"
                           title="Zhejiang"
