@@ -2900,11 +2900,6 @@ exports[`renders components/input-number/demo/focus.tsx extend context correctly
   <div
     class="ant-space-item"
   >
-    <br />
-  </div>
-  <div
-    class="ant-space-item"
-  >
     <div
       class="ant-input-number ant-input-number-outlined"
       style="width: 100%;"
