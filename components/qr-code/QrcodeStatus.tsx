@@ -49,5 +49,6 @@ export default function QRcodeStatus({
   return mergedStatusRender({
     status,
     locale,
+    onRefresh,
   });
 }

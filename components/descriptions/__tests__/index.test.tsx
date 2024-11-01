@@ -78,6 +78,30 @@ describe('Descriptions', () => {
     expect(container.querySelectorAll('.ant-descriptions-item')[2]).toHaveAttribute('colSpan', '1');
   });
 
+  it('span = filled', () => {
+    const { container } = render(
+      <Descriptions
+        column={3}
+        items={[
+          { label: '0', children: '', span: 2 },
+          { label: '1', children: '' },
+          { label: '2', children: '' },
+          { label: '3', children: '', span: 'filled' },
+          { label: '4', children: '', span: 'filled' },
+          { label: '5', children: '' },
+          { label: '6', children: '', span: 1 },
+        ]}
+      />,
+    );
+    expect(container.querySelectorAll('.ant-descriptions-item')[0]).toHaveAttribute('colSpan', '2');
+    expect(container.querySelectorAll('.ant-descriptions-item')[1]).toHaveAttribute('colSpan', '1');
+    expect(container.querySelectorAll('.ant-descriptions-item')[2]).toHaveAttribute('colSpan', '1');
+    expect(container.querySelectorAll('.ant-descriptions-item')[3]).toHaveAttribute('colSpan', '2');
+    expect(container.querySelectorAll('.ant-descriptions-item')[4]).toHaveAttribute('colSpan', '3');
+    expect(container.querySelectorAll('.ant-descriptions-item')[5]).toHaveAttribute('colSpan', '1');
+    expect(container.querySelectorAll('.ant-descriptions-item')[6]).toHaveAttribute('colSpan', '2');
+  });
+
   it('column is number', () => {
     const wrapper = render(
       <Descriptions column={3}>
