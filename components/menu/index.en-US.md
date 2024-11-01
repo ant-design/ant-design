@@ -33,6 +33,7 @@ More layouts with navigation: [Layout](/components/layout).
 <code src="./demo/style-debug.tsx" debug>Style debug</code>
 <code src="./demo/menu-v4.tsx" debug>Menu v4</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
+<code src="./demo/extra-style-debug.tsx" debug>Extra Style debug</code>
 
 ## API
 
