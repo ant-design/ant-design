@@ -29,6 +29,7 @@ When a numeric value needs to be provided.
 <code src="./demo/out-of-range.tsx">Out of range</code>
 <code src="./demo/presuffix.tsx">Prefix / Suffix</code>
 <code src="./demo/status.tsx">Status</code>
+<code src="./demo/focus.tsx">Focus</code>
 <code src="./demo/controls.tsx" debug>Icon</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/debug-token.tsx" debug>Override Component Style</code>
@@ -70,11 +71,11 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ## Ref
 
-| Name          | Description            | Version |
-| ------------- | ---------------------- | ------- |
-| blur()        | Remove focus           |         |
-| focus()       | Get focus              |         |
-| nativeElement | The native DOM element | 5.17.3  |
+| Name | Description | Type | Version |
+| --- | --- | --- | --- |
+| blur() | Remove focus | - |  |
+| focus() | Get focus | (option?: { preventScroll?: boolean, cursor?: 'start' \| 'end' \| 'all' }) | cursor - 5.23.0 |
+| nativeElement | The native DOM element | - | 5.17.3 |
 
 ## Design Token
 
