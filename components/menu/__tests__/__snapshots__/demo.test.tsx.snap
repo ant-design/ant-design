@@ -780,7 +780,7 @@ exports[`renders components/menu/demo/component-token.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/menu/demo/extra-style-debug.tsx correctly 1`] = `
+exports[`renders components/menu/demo/extra-style.tsx correctly 1`] = `
 Array [
   <ul
     class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"

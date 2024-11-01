@@ -1700,7 +1700,7 @@ exports[`renders components/menu/demo/component-token.tsx extend context correct
 
 exports[`renders components/menu/demo/component-token.tsx extend context correctly 2`] = `[]`;
 
-exports[`renders components/menu/demo/extra-style-debug.tsx extend context correctly 1`] = `
+exports[`renders components/menu/demo/extra-style.tsx extend context correctly 1`] = `
 Array [
   <ul
     class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
@@ -1959,7 +1959,7 @@ Array [
 ]
 `;
 
-exports[`renders components/menu/demo/extra-style-debug.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/menu/demo/extra-style.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/menu/demo/horizontal.tsx extend context correctly 1`] = `
 Array [
