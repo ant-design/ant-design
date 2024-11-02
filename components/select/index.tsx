@@ -86,7 +86,7 @@ export interface SelectProps<
    * @description Whether to remove spaces on blur
    * @default true
    */
-  onBlurRemoveSpace?: boolean;
+  onBlurRemoveSpaces?: boolean;
   /**
    * @description Whether to add value on blur
    * @default true
@@ -130,7 +130,7 @@ const InternalSelect = <
     tagRender,
     maxCount,
     prefix,
-    onBlurRemoveSpace = true,
+    onBlurRemoveSpaces = true,
     onBlurAddValue = true,
     ...rest
   } = props;
@@ -319,7 +319,7 @@ const InternalSelect = <
       dropdownStyle={{ ...dropdownStyle, zIndex }}
       maxCount={isMultiple ? maxCount : undefined}
       tagRender={isMultiple ? tagRender : undefined}
-      onBlurRemoveSpace={onBlurRemoveSpace}
+      onBlurRemoveSpaces={onBlurRemoveSpaces}
       onBlurAddValue={onBlurAddValue}
     />,
   );
