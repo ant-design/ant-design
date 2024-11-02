@@ -1,6 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useContext, type AriaAttributes } from 'react';
 import { QRCodeCanvas, QRCodeSVG } from '@rc-component/qrcode';
 import classNames from 'classnames';
+import omit from 'rc-util/lib/omit';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import { devUseWarning } from '../_util/warning';
@@ -48,7 +49,11 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     crossOrigin: 'anonymous',
   };
 
-  const a11yProps = pickAttrs(rest, { aria: true });
+  const a11yProps = pickAttrs(rest, true);
+  const restProps = omit<React.HTMLAttributes<HTMLDivElement>, keyof AriaAttributes>(
+    rest,
+    Object.keys(a11yProps) as Array<keyof AriaAttributes>,
+  );
 
   const qrCodeProps = {
     value,
@@ -91,7 +96,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   };
 
   return wrapCSSVar(
-    <div {...rest} className={mergedCls} style={mergedStyle}>
+    <div {...restProps} className={mergedCls} style={mergedStyle}>
       {status !== 'active' && (
         <div className={`${prefixCls}-mask`}>
           <QRcodeStatus
