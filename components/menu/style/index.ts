@@ -640,6 +640,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
           '&-extra': {
             display: 'inline-flex',
             alignItems: 'center',
+            width: '100%',
           },
 
           // https://github.com/ant-design/ant-design/issues/41143

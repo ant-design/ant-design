@@ -5,7 +5,7 @@ import { Flex, Menu } from 'antd';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
-const items: MenuItem[] = [
+const items1: MenuItem[] = [
   {
     key: 'sub1',
     icon: <MailOutlined />,
@@ -29,14 +29,22 @@ const items: MenuItem[] = [
   },
 ];
 
+const items2: MenuItem[] = [
+  { key: '1', label: 'Users', extra: '⌘U' },
+  { key: '2', label: 'Profile', extra: '⌘P' },
+];
+
 const App: React.FC = () => (
-  <Menu
-    mode="inline"
-    defaultOpenKeys={['sub1']}
-    defaultSelectedKeys={['1']}
-    style={{ width: 256 }}
-    items={items}
-  />
+  <>
+    <Menu
+      mode="inline"
+      defaultOpenKeys={['sub1']}
+      defaultSelectedKeys={['1']}
+      style={{ width: 256 }}
+      items={items1}
+    />
+    <Menu style={{ width: 256 }} items={items2} />
+  </>
 );
 
 export default App;

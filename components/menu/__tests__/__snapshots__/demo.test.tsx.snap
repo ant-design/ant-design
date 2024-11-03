@@ -895,6 +895,50 @@ Array [
     aria-hidden="true"
     style="display:none"
   />,
+  <ul
+    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light"
+    data-menu-list="true"
+    role="menu"
+    style="width:256px"
+    tabindex="0"
+  >
+    <li
+      class="ant-menu-item"
+      role="menuitem"
+      tabindex="-1"
+    >
+      <span
+        class="ant-menu-title-content ant-menu-title-content-extra"
+      >
+        Users
+        <span
+          class="ant-menu-item-extra"
+        >
+          ⌘U
+        </span>
+      </span>
+    </li>
+    <li
+      class="ant-menu-item"
+      role="menuitem"
+      tabindex="-1"
+    >
+      <span
+        class="ant-menu-title-content ant-menu-title-content-extra"
+      >
+        Profile
+        <span
+          class="ant-menu-item-extra"
+        >
+          ⌘P
+        </span>
+      </span>
+    </li>
+  </ul>,
+  <div
+    aria-hidden="true"
+    style="display:none"
+  />,
 ]
 `;
 

@@ -247,6 +247,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
             '&-extra': {
               display: 'inline-flex',
               alignItems: 'center',
+              width: '100%',
             },
 
             '> a': {
