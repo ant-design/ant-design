@@ -1956,6 +1956,86 @@ Array [
     aria-hidden="true"
     style="display: none;"
   />,
+  <ul
+    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light"
+    data-menu-list="true"
+    role="menu"
+    style="width: 256px;"
+    tabindex="0"
+  >
+    <li
+      class="ant-menu-item"
+      data-menu-id="rc-menu-uuid-test-1"
+      role="menuitem"
+      tabindex="-1"
+    >
+      <span
+        class="ant-menu-title-content ant-menu-title-content-extra"
+      >
+        Users
+        <span
+          class="ant-menu-item-extra"
+        >
+          ⌘U
+        </span>
+      </span>
+    </li>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position: absolute; top: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        />
+      </div>
+    </div>
+    <li
+      class="ant-menu-item"
+      data-menu-id="rc-menu-uuid-test-2"
+      role="menuitem"
+      tabindex="-1"
+    >
+      <span
+        class="ant-menu-title-content ant-menu-title-content-extra"
+      >
+        Profile
+        <span
+          class="ant-menu-item-extra"
+        >
+          ⌘P
+        </span>
+      </span>
+    </li>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position: absolute; top: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        />
+      </div>
+    </div>
+  </ul>,
+  <div
+    aria-hidden="true"
+    style="display: none;"
+  />,
 ]
 `;
 
