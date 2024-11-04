@@ -31,14 +31,14 @@ export type DatePickerType = typeof DatePicker & {
 };
 
 function postPureProps(props: DatePickerProps) {
-  const dropdownAlign = transPlacement2DropdownAlign(props.direction, props.placement);
+  const popupAlign = transPlacement2DropdownAlign(props.direction, props.placement);
 
-  dropdownAlign.overflow!.adjustY = false;
-  dropdownAlign.overflow!.adjustX = false;
+  popupAlign.overflow!.adjustY = false;
+  popupAlign.overflow!.adjustX = false;
 
   return {
     ...props,
-    dropdownAlign,
+    popupAlign,
   };
 }
 
