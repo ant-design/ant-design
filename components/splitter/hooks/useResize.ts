@@ -6,16 +6,18 @@ import { getPtg } from './useSizes';
 type CollapsedSizesType = {
   [key: number]: number;
 };
+
 export default function useResize(
   items: ItemType[],
   resizableInfos: ResizableInfo[],
   percentSizes: number[],
-  containerSize: number,
+  containerSize: number | undefined,
   updateSizes: (sizes: number[]) => void,
 ) {
   const limitSizes = items.map((item) => [item.min, item.max]);
 
-  const ptg2px = (ptg: number) => ptg * containerSize;
+  const mergedContainerSize = containerSize || 0;
+  const ptg2px = (ptg: number) => ptg * mergedContainerSize;
 
   // ======================== Resize ========================
   function getLimitSize(str: string | number | undefined, defaultLimit: number) {
@@ -82,8 +84,8 @@ export default function useResize(
     // Get boundary
     const startMinSize = getLimitSize(limitSizes[mergedIndex][0], 0);
     const endMinSize = getLimitSize(limitSizes[nextIndex][0], 0);
-    const startMaxSize = getLimitSize(limitSizes[mergedIndex][1], containerSize);
-    const endMaxSize = getLimitSize(limitSizes[nextIndex][1], containerSize);
+    const startMaxSize = getLimitSize(limitSizes[mergedIndex][1], mergedContainerSize);
+    const endMaxSize = getLimitSize(limitSizes[nextIndex][1], mergedContainerSize);
     let mergedOffset = offset;
 
     // Align with the boundary

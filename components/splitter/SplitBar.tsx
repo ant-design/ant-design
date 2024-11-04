@@ -22,6 +22,10 @@ export interface SplitBarProps {
   ariaMax: number;
 }
 
+function getValidNumber(num: number | undefined): number {
+  return typeof num === 'number' && !Number.isNaN(num) ? Math.round(num) : 0;
+}
+
 const SplitBar: React.FC<SplitBarProps> = (props) => {
   const {
     prefixCls,
@@ -112,9 +116,9 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     <div
       className={splitBarPrefixCls}
       role="separator"
-      aria-valuenow={Math.round(ariaNow)}
-      aria-valuemin={Math.round(ariaMin)}
-      aria-valuemax={Math.round(ariaMax)}
+      aria-valuenow={getValidNumber(ariaNow)}
+      aria-valuemin={getValidNumber(ariaMin)}
+      aria-valuemax={getValidNumber(ariaMax)}
     >
       <div
         className={classNames(`${splitBarPrefixCls}-dragger`, {
@@ -132,13 +136,13 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
             `${splitBarPrefixCls}-collapse-bar`,
             `${splitBarPrefixCls}-collapse-bar-start`,
           )}
+          onClick={() => onCollapse(index, 'start')}
         >
           <StartIcon
             className={classNames(
               `${splitBarPrefixCls}-collapse-icon`,
               `${splitBarPrefixCls}-collapse-start`,
             )}
-            onClick={() => onCollapse(index, 'start')}
           />
         </div>
       )}
@@ -150,13 +154,13 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
             `${splitBarPrefixCls}-collapse-bar`,
             `${splitBarPrefixCls}-collapse-bar-end`,
           )}
+          onClick={() => onCollapse(index, 'end')}
         >
           <EndIcon
             className={classNames(
               `${splitBarPrefixCls}-collapse-icon`,
               `${splitBarPrefixCls}-collapse-end`,
             )}
-            onClick={() => onCollapse(index, 'end')}
           />
         </div>
       )}

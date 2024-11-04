@@ -570,7 +570,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 
           '&::after': {
             display: 'block',
-            height: token.calc('100%').sub(timeCellHeight).equal(),
+            height: `calc(100% - ${unit(timeCellHeight)})`,
             content: '""',
           },
 
