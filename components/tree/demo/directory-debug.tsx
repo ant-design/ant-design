@@ -2,8 +2,6 @@ import React from 'react';
 import { Flex, Tree } from 'antd';
 import type { GetProps, TreeDataNode } from 'antd';
 
-type DirectoryTreeProps = GetProps<typeof Tree.DirectoryTree>;
-
 const { DirectoryTree } = Tree;
 
 const treeData: TreeDataNode[] = [
@@ -25,43 +23,26 @@ const treeData: TreeDataNode[] = [
   },
 ];
 
-const DemoOne = () => (
-  <DirectoryTree draggable defaultExpandAll defaultSelectedKeys={['0-0-0']} treeData={treeData} />
-);
+const sharedProps: GetProps<typeof DirectoryTree> = {
+  treeData,
+  defaultExpandAll: true,
+  onSelect: (keys, info) => {
+    console.log('Trigger Select', keys, info);
+  },
+  onExpand: (keys, info) => {
+    console.log('Trigger Expand', keys, info);
+  },
+};
 
-const DemoTwo = () => (
-  <DirectoryTree checkable defaultExpandAll defaultSelectedKeys={['0-1-0']} treeData={treeData} />
-);
+const DemoOne = () => <DirectoryTree draggable defaultSelectedKeys={['0-0-0']} />;
+
+const DemoTwo = () => <DirectoryTree {...sharedProps} checkable defaultSelectedKeys={['0-1-0']} />;
 
 const DemoThree = () => (
-  <DirectoryTree
-    draggable
-    checkable
-    defaultSelectedKeys={['0-1']}
-    defaultExpandAll
-    treeData={treeData}
-  />
+  <DirectoryTree {...sharedProps} draggable checkable defaultSelectedKeys={['0-1']} />
 );
 
-const BasicDemo: React.FC = () => {
-  const onSelect: DirectoryTreeProps['onSelect'] = (keys, info) => {
-    console.log('Trigger Select', keys, info);
-  };
-
-  const onExpand: DirectoryTreeProps['onExpand'] = (keys, info) => {
-    console.log('Trigger Expand', keys, info);
-  };
-
-  return (
-    <DirectoryTree
-      multiple
-      defaultExpandAll
-      onSelect={onSelect}
-      onExpand={onExpand}
-      treeData={treeData}
-    />
-  );
-};
+const BasicDemo = () => <DirectoryTree {...sharedProps} multiple treeData={treeData} />;
 
 const App = () => (
   <div style={{ height: 500 }}>
