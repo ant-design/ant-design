@@ -42,8 +42,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | indeterminate | The indeterminate checked state of checkbox | boolean | false |  |
 | onChange | The callback function that is triggered when the state changes | (e: CheckboxChangeEvent) => void | - |  |
 | onClick | The callback function that is triggered when the mouse is clicked | (e: MouseEvent) => void | - |  |
-| onBlur | Called when leaving the component | function(e:BlurEvent) => void | - |  |
-| onFocus | Called when entering the component | function(e:FocusEvent) => void | - |  |
+| onBlur | Called when leaving the component | function(e: BlurEvent) => void | - |  |
+| onFocus | Called when entering the component | function(e: FocusEvent) => void | - |  |
 
 #### Checkbox Group
 

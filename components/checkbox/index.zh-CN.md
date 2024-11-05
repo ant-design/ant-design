@@ -42,9 +42,9 @@ demo:
 | disabled | 失效状态 | boolean | false |  |
 | indeterminate | 设置 indeterminate 状态，只负责样式控制 | boolean | false |  |
 | onChange | 变化时的回调函数 | (e: CheckboxChangeEvent) => void | - |  |
-| onClick | 鼠标点击时的回调函数 | (e: MouseEvent) => void | - |  |
-| onBlur | 失去焦点时的回调 | function(e:BlurEvent) => void | - |  |
-| onFocus | 获得焦点时的回调 | function(e:FocusEvent) => void | - |  |
+| onClick | 鼠标点击时的回调函数 | (e:MouseEvent) => void | - |  |
+| onBlur | 失去焦点时的回调 | function(e: BlurEvent) => void | - |  |
+| onFocus | 获得焦点时的回调 | function(e: FocusEvent) => void | - |  |
 
 #### Checkbox Group
 
