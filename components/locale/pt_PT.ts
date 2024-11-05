@@ -34,7 +34,7 @@ const localeValues: Locale = {
     triggerDesc: 'Clique para ordenar decrescente',
     triggerAsc: 'Clique para ordenar crescente',
     cancelSort: 'Clique para cancelar ordenação',
-  },,
+  },
   Tour: {
     Next: 'Próximo',
     Previous: 'Anterior',
