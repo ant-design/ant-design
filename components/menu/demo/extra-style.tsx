@@ -1,7 +1,7 @@
 import React from 'react';
 import { DownOutlined, MailOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { Flex, Menu } from 'antd';
+import { Flex, Menu, Space } from 'antd';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -35,7 +35,7 @@ const items2: MenuItem[] = [
 ];
 
 const App: React.FC = () => (
-  <>
+  <Space direction="vertical">
     <Menu
       mode="inline"
       defaultOpenKeys={['sub1']}
@@ -43,8 +43,8 @@ const App: React.FC = () => (
       style={{ width: 256 }}
       items={items1}
     />
-    <Menu style={{ width: 256 }} items={items2} />
-  </>
+    <Menu theme="dark" style={{ width: 256 }} items={items2} />
+  </Space>
 );
 
 export default App;

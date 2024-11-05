@@ -653,7 +653,6 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
             marginInlineStart: 'auto',
             paddingInlineStart: token.padding,
             fontSize: token.fontSizeSM,
-            color: token.colorTextDescription,
           },
         },
 
