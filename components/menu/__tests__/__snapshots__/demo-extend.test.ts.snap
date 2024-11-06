@@ -1829,7 +1829,7 @@ exports[`renders components/menu/demo/extra-style.tsx extend context correctly 1
               tabindex="-1"
             >
               <span
-                class="ant-menu-title-content ant-menu-title-content-extra"
+                class="ant-menu-title-content ant-menu-title-content-with-extra"
               >
                 Option 2
                 <span
@@ -1927,7 +1927,7 @@ exports[`renders components/menu/demo/extra-style.tsx extend context correctly 1
             tabindex="-1"
           >
             <span
-              class="ant-menu-title-content ant-menu-title-content-extra"
+              class="ant-menu-title-content ant-menu-title-content-with-extra"
             >
               Option 2
               <span
@@ -1979,7 +1979,7 @@ exports[`renders components/menu/demo/extra-style.tsx extend context correctly 1
         tabindex="-1"
       >
         <span
-          class="ant-menu-title-content ant-menu-title-content-extra"
+          class="ant-menu-title-content ant-menu-title-content-with-extra"
         >
           Users
           <span
@@ -2013,7 +2013,7 @@ exports[`renders components/menu/demo/extra-style.tsx extend context correctly 1
         tabindex="-1"
       >
         <span
-          class="ant-menu-title-content ant-menu-title-content-extra"
+          class="ant-menu-title-content ant-menu-title-content-with-extra"
         >
           Profile
           <span

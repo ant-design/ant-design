@@ -637,7 +637,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
         [`${componentCls}-title-content`]: {
           transition: `color ${motionDurationSlow}`,
 
-          '&-extra': {
+          '&-with-extra': {
             display: 'inline-flex',
             alignItems: 'center',
             width: '100%',

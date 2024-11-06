@@ -50,7 +50,7 @@ const MenuItem: GenericComponent = (props) => {
     const wrapNode = (
       <span
         className={classNames(`${prefixCls}-title-content`, {
-          [`${prefixCls}-title-content-extra`]: !!extra || extra === 0,
+          [`${prefixCls}-title-content-with-extra`]: !!extra || extra === 0,
         })}
       >
         {children}
