@@ -14,6 +14,7 @@ const justifyOptions = [
   'center',
   'flex-end',
   'space-between',
+  'align-items',
   'space-around',
   'space-evenly',
 ];
