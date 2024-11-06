@@ -1,10 +1,6 @@
 import React from 'react';
 import { Button, message } from 'antd';
 
-message.config({
-  top: '20%',
-})
-
 const info = () => {
   message.info('This is a normal message');
 };
