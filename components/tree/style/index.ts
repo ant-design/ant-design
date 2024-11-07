@@ -15,15 +15,30 @@ export interface TreeSharedToken {
    */
   titleHeight: number;
   /**
+   * @desc 缩进宽度
+   * @descEN Indent width of tree
+   */
+  indentSize?: number;
+  /**
    * @desc 节点悬浮态背景色
    * @descEN Background color of hovered node
    */
   nodeHoverBg: string;
   /**
+   * @desc 节点悬浮态态文字颜色
+   * @descEN Text color of hovered node
+   */
+  nodeHoverColor: string;
+  /**
    * @desc 节点选中态背景色
    * @descEN Background color of selected node
    */
   nodeSelectedBg: string;
+  /**
+   * @desc 节点选中态文字颜色
+   * @descEN Text color of selected node
+   */
+  nodeSelectedColor: string;
 }
 
 export interface ComponentToken extends TreeSharedToken {
@@ -100,11 +115,11 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
     treeNodeCls,
     treeNodePadding,
     titleHeight,
+    indentSize,
     nodeSelectedBg,
     nodeHoverBg,
-    colorTextQuaternary,
   } = token;
-  const treeCheckBoxMarginHorizontal = token.marginXXS;
+  const treeCheckBoxMarginHorizontal = token.paddingXS;
 
   return {
     [treeCls]: {
@@ -176,11 +191,24 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         },
 
         // Disabled
-        [`&-disabled ${treeCls}-node-content-wrapper`]: {
-          color: token.colorTextDisabled,
-          cursor: 'not-allowed',
-          '&:hover': {
-            background: 'transparent',
+        '&-disabled': {
+          // >>> Title
+          [`${treeCls}-node-content-wrapper`]: {
+            color: token.colorTextDisabled,
+            cursor: 'not-allowed',
+            '&:hover': {
+              background: 'transparent',
+            },
+          },
+        },
+
+        // not disable
+        [`&:not(${treeNodeCls}-disabled)`]: {
+          // >>> Title
+          [`${treeCls}-node-content-wrapper`]: {
+            '&:hover': {
+              color: token.nodeHoverColor,
+            },
           },
         },
 
@@ -218,7 +246,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         userSelect: 'none',
         '&-unit': {
           display: 'inline-block',
-          width: titleHeight,
+          width: indentSize,
         },
       },
 
@@ -329,6 +357,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         },
 
         [`&${treeCls}-node-selected`]: {
+          color: token.nodeSelectedColor,
           backgroundColor: nodeSelectedBg,
         },
 
@@ -421,12 +450,16 @@ export const genTreeStyle = (
 };
 
 export const initComponentToken = (token: AliasToken): TreeSharedToken => {
-  const { controlHeightSM } = token;
+  const { controlHeightSM, controlItemBgHover, controlItemBgActive } = token;
+  const titleHeight = controlHeightSM;
 
   return {
-    titleHeight: controlHeightSM,
-    nodeHoverBg: token.controlItemBgHover,
-    nodeSelectedBg: token.controlItemBgActive,
+    titleHeight,
+    indentSize: titleHeight,
+    nodeHoverBg: controlItemBgHover,
+    nodeHoverColor: token.colorText,
+    nodeSelectedBg: controlItemBgActive,
+    nodeSelectedColor: token.colorText,
   };
 };
 

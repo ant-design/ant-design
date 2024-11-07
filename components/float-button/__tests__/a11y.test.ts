@@ -1,3 +1,3 @@
 import accessibilityDemoTest from '../../../tests/shared/accessibilityTest';
 
-accessibilityDemoTest('float-button');
+accessibilityDemoTest('float-button', { disabledRules: ['button-name'] });

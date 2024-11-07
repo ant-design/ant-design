@@ -111,6 +111,10 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
         borderRadius,
         transition: `border ${motionDurationMid}, box-shadow ${motionDurationMid}, background ${motionDurationMid}`,
 
+        [`${componentCls}-prefix`]: {
+          marginInlineEnd: token.inputAffixPadding,
+        },
+
         // ======================== Input =========================
         [`${componentCls}-input`]: {
           position: 'relative',

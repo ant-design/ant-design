@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import type { BaseSelectRef } from 'rc-select';
 import type { Placement } from 'rc-select/lib/BaseSelect';
 import type { TreeSelectProps as RcTreeSelectProps } from 'rc-tree-select';
+import type { DataNode } from 'rc-tree-select/lib/interface';
 import RcTreeSelect, { SHOW_ALL, SHOW_CHILD, SHOW_PARENT, TreeNode } from 'rc-tree-select';
-import type { BaseOptionType, DefaultOptionType } from 'rc-tree-select/lib/TreeSelect';
 import omit from 'rc-util/lib/omit';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
@@ -43,10 +43,8 @@ export interface LabeledValue {
 
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
 
-export interface TreeSelectProps<
-  ValueType = any,
-  OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
-> extends Omit<
+export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = DataNode>
+  extends Omit<
     RcTreeSelectProps<ValueType, OptionType>,
     | 'showTreeIcon'
     | 'treeMotion'
@@ -85,10 +83,7 @@ export interface TreeSelectProps<
   variant?: Variant;
 }
 
-const InternalTreeSelect = <
-  ValueType = any,
-  OptionType extends BaseOptionType | DefaultOptionType = BaseOptionType,
->(
+const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataNode>(
   props: TreeSelectProps<ValueType, OptionType>,
   ref: React.Ref<BaseSelectRef>,
 ) => {
@@ -317,7 +312,7 @@ const InternalTreeSelect = <
 
 const TreeSelectRef = React.forwardRef(InternalTreeSelect) as <
   ValueType = any,
-  OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
+  OptionType extends DataNode = DataNode,
 >(
   props: React.PropsWithChildren<TreeSelectProps<ValueType, OptionType>> &
     React.RefAttributes<BaseSelectRef>,

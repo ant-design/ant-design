@@ -31,6 +31,10 @@ export type RequiredMark =
 export type FormLayout = 'horizontal' | 'inline' | 'vertical';
 export type FormItemLayout = 'horizontal' | 'vertical';
 
+export type ScrollFocusOptions = Options & {
+  focus?: boolean;
+};
+
 export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form'> {
   prefixCls?: string;
   colon?: boolean;
@@ -44,7 +48,7 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   feedbackIcons?: FeedbackIcons;
   size?: SizeType;
   disabled?: boolean;
-  scrollToFirstError?: Options | boolean;
+  scrollToFirstError?: ScrollFocusOptions | boolean;
   requiredMark?: RequiredMark;
   /** @deprecated Will warning in future branch. Pls use `requiredMark` instead. */
   hideRequiredMark?: boolean;
@@ -166,13 +170,16 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     nativeElement: nativeElementRef.current?.nativeElement,
   }));
 
-  const scrollToField = (options: boolean | Options, fieldName: InternalNamePath) => {
+  const scrollToField = (options: ScrollFocusOptions | boolean, fieldName: InternalNamePath) => {
     if (options) {
-      let defaultScrollToFirstError: Options = { block: 'nearest' };
+      let defaultScrollToFirstError: ScrollFocusOptions = { block: 'nearest' };
       if (typeof options === 'object') {
-        defaultScrollToFirstError = options;
+        defaultScrollToFirstError = { ...defaultScrollToFirstError, ...options };
       }
       wrapForm.scrollToField(fieldName, defaultScrollToFirstError);
+      if (defaultScrollToFirstError.focus) {
+        wrapForm.focusField(fieldName);
+      }
     }
   };
 

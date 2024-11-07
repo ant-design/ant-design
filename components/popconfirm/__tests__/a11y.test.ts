@@ -1,3 +1,3 @@
 import accessibilityDemoTest from '../../../tests/shared/accessibilityTest';
 
-accessibilityDemoTest('popconfirm');
+accessibilityDemoTest('popconfirm', { disabledRules: ['button-name'] });

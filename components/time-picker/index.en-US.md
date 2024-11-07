@@ -30,7 +30,7 @@ By clicking the input box, you can select a time from a popup panel.
 <code src="./demo/range-picker.tsx">Time Range Picker</code>
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/status.tsx">Status</code>
-<code src="./demo/suffix.tsx" debug>Suffix</code>
+<code src="./demo/suffix.tsx">Prefix and Suffix</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
@@ -70,6 +70,7 @@ dayjs.extend(customParseFormat)
 | placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | popupClassName | The className of panel | string | - |  |
 | popupStyle | The style of panel | CSSProperties | - |  |
+| prefix | The custom prefix | ReactNode | - | 5.22.0 |
 | renderExtraFooter | Called from time picker panel to render some addon to its bottom | () => ReactNode | - |  |
 | secondStep | Interval between seconds in picker | number | 1 |  |
 | showNow | Whether to show `Now` button on panel | boolean | - | 4.4.0 |

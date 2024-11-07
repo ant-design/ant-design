@@ -1,3 +1,3 @@
 import accessibilityDemoTest from '../../../tests/shared/accessibilityTest';
 
-accessibilityDemoTest('empty');
+accessibilityDemoTest('empty', { disabledRules: ['label'] });

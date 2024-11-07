@@ -8,25 +8,29 @@ exports[`AutoComplete rtl render component should be rendered correctly in RTL d
     class="ant-select-selector"
   >
     <span
-      class="ant-select-selection-search"
+      class="ant-select-selection-wrap"
     >
-      <input
-        aria-autocomplete="list"
-        aria-controls="rc_select_TEST_OR_SSR_list"
-        aria-expanded="false"
-        aria-haspopup="listbox"
-        aria-owns="rc_select_TEST_OR_SSR_list"
-        autocomplete="off"
-        class="ant-select-selection-search-input"
-        id="rc_select_TEST_OR_SSR"
-        role="combobox"
-        type="search"
-        value=""
+      <span
+        class="ant-select-selection-search"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="rc_select_TEST_OR_SSR_list"
+          autocomplete="off"
+          class="ant-select-selection-search-input"
+          id="rc_select_TEST_OR_SSR"
+          role="combobox"
+          type="search"
+          value=""
+        />
+      </span>
+      <span
+        class="ant-select-selection-placeholder"
       />
     </span>
-    <span
-      class="ant-select-selection-placeholder"
-    />
   </div>
 </div>
 `;

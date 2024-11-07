@@ -131,6 +131,7 @@ export interface ComponentToken extends MultipleSelectorToken {
 }
 
 export interface SelectorToken {
+  selectAffixPadding: number | string;
   inputPaddingHorizontalBase: number | string;
   multipleSelectItemHeight: number;
   selectHeight: number;
@@ -218,5 +219,6 @@ export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
     hoverBorderColor: colorPrimaryHover,
     activeBorderColor: colorPrimary,
     activeOutlineColor: controlOutline,
+    selectAffixPadding: paddingXXS,
   };
 };

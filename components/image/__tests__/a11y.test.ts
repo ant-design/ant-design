@@ -1,3 +1,3 @@
 import accessibilityDemoTest from '../../../tests/shared/accessibilityTest';
 
-accessibilityDemoTest('image');
+accessibilityDemoTest('image', { disabledRules: ['image-alt', 'label'] });

@@ -1,7 +1,7 @@
 ## zh-CN
 
-最简单的用法，在浮层中可以选择或者输入日期。
+自定义前缀 `prefix` 和后缀图标 `suffixIcon`。
 
 ## en-US
 
-Basic use case. Users can select or input a date in panel.
+Custom `prefix` and `suffixIcon`.

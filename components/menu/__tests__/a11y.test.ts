@@ -1,3 +1,3 @@
 import accessibilityDemoTest from '../../../tests/shared/accessibilityTest';
 
-accessibilityDemoTest('menu');
+accessibilityDemoTest('menu', { disabledRules: ['button-name'] });

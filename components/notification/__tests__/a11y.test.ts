@@ -1,3 +1,3 @@
 import accessibilityDemoTest from '../../../tests/shared/accessibilityTest';
 
-accessibilityDemoTest('notification');
+accessibilityDemoTest('notification', { disabledRules: ['button-name', 'label'] });

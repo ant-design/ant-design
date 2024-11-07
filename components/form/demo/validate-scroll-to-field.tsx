@@ -7,7 +7,7 @@ const App = () => {
   return (
     <Form
       form={form}
-      scrollToFirstError
+      scrollToFirstError={{ behavior: 'instant', block: 'end', focus: true }}
       style={{ paddingBlock: 32 }}
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 14 }}

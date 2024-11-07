@@ -2,6 +2,7 @@ import React, { forwardRef, useContext, useEffect, useRef } from 'react';
 import classNames from 'classnames';
 import type { InputRef, InputProps as RcInputProps } from 'rc-input';
 import RcInput from 'rc-input';
+import { InputFocusOptions, triggerFocus } from 'rc-input/lib/utils/commonUtils';
 import { composeRef } from 'rc-util/lib/ref';
 
 import ContextIsolator from '../_util/ContextIsolator';
@@ -10,51 +11,21 @@ import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import type { Variant } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
-import type { Variant } from '../config-provider';
 import useVariant from '../form/hooks/useVariants';
 import { useCompactItemContext } from '../space/Compact';
 import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
 import useStyle from './style';
 import { hasPrefixSuffix } from './utils';
 
-export interface InputFocusOptions extends FocusOptions {
-  cursor?: 'start' | 'end' | 'all';
-}
-
+export type { InputFocusOptions };
 export type { InputRef };
-
-export function triggerFocus(
-  element?: HTMLInputElement | HTMLTextAreaElement,
-  option?: InputFocusOptions,
-) {
-  if (!element) {
-    return;
-  }
-
-  element.focus(option);
-
-  // Selection content
-  const { cursor } = option || {};
-  if (cursor) {
-    const len = element.value.length;
-
-    switch (cursor) {
-      case 'start':
-        element.setSelectionRange(0, 0);
-        break;
-      case 'end':
-        element.setSelectionRange(len, len);
-        break;
-      default:
-        element.setSelectionRange(0, len);
-    }
-  }
-}
+export { triggerFocus };
 
 export interface InputProps
   extends Omit<

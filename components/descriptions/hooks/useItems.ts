@@ -23,10 +23,15 @@ export default function useItems(
 
   const responsiveItems = React.useMemo<InternalDescriptionsItemType[]>(
     () =>
-      mergedItems.map(({ span, ...restItem }) => ({
-        ...restItem,
-        span: typeof span === 'number' ? span : matchScreen(screens, span),
-      })),
+      mergedItems.map(({ span, ...restItem }) => {
+        if (span === 'filled') {
+          return { ...restItem, filled: true };
+        }
+        return {
+          ...restItem,
+          span: typeof span === 'number' ? span : matchScreen(screens, span),
+        };
+      }),
     [mergedItems, screens],
   );
 
