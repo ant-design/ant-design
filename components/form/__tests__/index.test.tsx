@@ -1367,6 +1367,21 @@ describe('Form', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
+  it('form.item should support label = null', () => {
+    const App: React.FC = () => (
+      <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }}>
+        <Form.Item label="name" name="name">
+          <Input />
+        </Form.Item>
+        <Form.Item label={null}>
+          <Button>Submit</Button>
+        </Form.Item>
+      </Form>
+    );
+    const { container } = render(<App />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
   it('_internalItemRender api test', () => {
     const { container } = render(
       <Form>
