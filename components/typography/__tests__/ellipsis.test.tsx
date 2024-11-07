@@ -11,7 +11,10 @@ import {
 } from '../../../tests/utils';
 import type { EllipsisConfig } from '../Base';
 import Base from '../Base';
-
+import ConfigProvider from '../../config-provider';
+import type { ConfigProviderProps } from '../../config-provider';
+import zhCN from '../../locale/zh_CN';
+type Locale = ConfigProviderProps['locale'];
 jest.mock('copy-to-clipboard');
 
 jest.mock('../../_util/styleChecker', () => ({
@@ -643,5 +646,50 @@ describe('Typography.Ellipsis', () => {
         {fullStr}
       </Base>,
     );
+  });
+
+  it('Switch locale', async () => {
+    const ref = React.createRef<HTMLElement>();
+    const App = () => {
+      const [locale, setLocal] = React.useState<Locale>();
+
+      return (
+        <ConfigProvider locale={locale}>
+          <div>
+            <button type="button" onClick={() => setLocal(zhCN)}>
+              zhcn
+            </button>
+            <Base
+              ellipsis={{
+                rows: 1,
+                expandable: 'collapsible',
+                expanded: false,
+              }}
+              ref={ref}
+            >
+              {'Ant Design, a design language for background applications, is refined by Ant UED Team.'.repeat(
+                20,
+              )}
+            </Base>
+          </div>
+        </ConfigProvider>
+      );
+    };
+    const { container } = render(<App />);
+
+    triggerResize(ref.current!);
+    await waitFakeTimer();
+    const expandButton = container.querySelector('.ant-typography-expand');
+    expect(expandButton).toHaveTextContent('Expand');
+    const button = container.querySelector('button')!;
+
+    fireEvent.click(button);
+
+    triggerResize(ref.current!);
+    await waitFakeTimer();
+
+    const expandButtonCN = container.querySelector('.ant-typography-expand');
+    expect(expandButtonCN).toHaveTextContent('展开');
+    expect(expandButtonCN).toBeInTheDocument();
   });
 });

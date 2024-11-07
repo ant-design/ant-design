@@ -36,6 +36,19 @@ describe('message.config', () => {
     });
   });
 
+  it('should be able to config top with string value', async () => {
+    message.config({
+      top: '10vh',
+    });
+
+    message.info('test message');
+    await awaitPromise();
+
+    expect(document.querySelector('.ant-message')).toHaveStyle({
+      top: '10vh',
+    });
+  });
+
   it('should be able to config rtl', async () => {
     message.config({
       rtl: true,

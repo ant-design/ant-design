@@ -39,6 +39,7 @@ function postPureProps(props: DatePickerProps) {
   return {
     ...props,
     dropdownAlign,
+    popupAlign: dropdownAlign,
   };
 }
 

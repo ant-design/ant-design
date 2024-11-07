@@ -155,7 +155,6 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
   );
   return wrapCSSVar(
     <Wave component="Checkbox" disabled={mergedDisabled}>
-      {}
       <label
         className={classString}
         style={{ ...checkbox?.style, ...style }}

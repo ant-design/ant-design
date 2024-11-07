@@ -84,7 +84,6 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
 
   return wrapCSSVar(
     <Wave component="Radio" disabled={radioProps.disabled}>
-      {}
       <label
         className={wrapperClassString}
         style={{ ...radio?.style, ...style }}

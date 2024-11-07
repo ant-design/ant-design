@@ -41,6 +41,10 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
   copyTip: css`
     color: ${token.colorTextTertiary};
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
   `,
   copiedTip: css`
     .anticon {

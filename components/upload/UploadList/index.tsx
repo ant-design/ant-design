@@ -85,7 +85,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
     if (!onPreview) {
       return;
     }
-    e.preventDefault();
+    e?.preventDefault();
     return onPreview(file);
   };
 
