@@ -1,7 +1,7 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import { resetComponent, resetIcon, textEllipsis } from '../../style';
+import { resetComponent, resetIcon, textEllipsis, operationUnit } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
@@ -57,6 +57,7 @@ const genTransferCustomizeStyle: GenerateStyle<TransferToken> = (
         width: 'auto',
         height: 'auto',
         minHeight: listHeight,
+        minWidth: 0,
       },
 
       // =================== Hook Components ===================
@@ -121,6 +122,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     itemPaddingBlock,
     controlItemBgActive,
     colorTextDisabled,
+    colorTextSecondary,
     listHeight,
     listWidth,
     listWidthLG,
@@ -241,20 +243,11 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
         },
 
         '&-remove': {
-          position: 'relative',
+          ...operationUnit(token),
           color: colorBorder,
 
-          cursor: 'pointer',
-          transition: `all ${motionDurationSlow}`,
-
-          '&:hover': {
-            color: token.colorLinkHover,
-          },
-
-          '&::after': {
-            position: 'absolute',
-            inset: `-${unit(itemPaddingBlock)} -50%`,
-            content: '""',
+          '&:hover, &:focus': {
+            color: colorTextSecondary,
           },
         },
 

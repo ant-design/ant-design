@@ -13,6 +13,7 @@ exports[`Upload rtl render component should be rendered correctly in RTL directi
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />

@@ -76,7 +76,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
     [componentCls]: {
       ...resetComponent(token),
       position: 'relative',
-      display: 'inline-block',
+      display: 'inline-flex',
       cursor: 'pointer',
 
       [`&:not(${componentCls}-customize-input) ${componentCls}-selector`]: {
@@ -180,6 +180,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
       [`&:hover ${componentCls}-clear`]: {
         opacity: 1,
         background: token.colorBgBase,
+        borderRadius: '50%',
       },
     },
 

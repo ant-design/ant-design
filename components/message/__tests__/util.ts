@@ -2,7 +2,6 @@ import { act, fireEvent } from '../../../tests/utils';
 
 export async function awaitPromise() {
   for (let i = 0; i < 10; i += 1) {
-    // eslint-disable-next-line no-await-in-loop
     await Promise.resolve();
   }
 }

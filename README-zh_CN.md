@@ -14,7 +14,9 @@
 
 [更新日志](./CHANGELOG.zh-CN.md) · [报告问题][github-issues-url] · [特性需求][github-issues-url] · [English](./README.md) · 中文
 
-![](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+## ❤️ 赞助者 ![](https://opencollective.com/ant-design/tiers/backers/badge.svg?label=Backers&color=brightgreen) ![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)
+
+[![](https://opencollective.com/ant-design/tiers/sponsors.svg?avatarHeight=72)](https://opencollective.com/ant-design/contribute/sponsors-218/checkout) [![](https://opencollective.com/ant-design/tiers/backers.svg?avatarHeight=72)](https://opencollective.com/ant-design/contribute/backers-217/checkout)
 
 [npm-image]: http://img.shields.io/npm/v/antd.svg?style=flat-square
 [npm-url]: http://npmjs.org/package/antd
@@ -129,18 +131,14 @@ export default App;
 - [开发者说明](https://github.com/ant-design/ant-design/wiki/Development)
 - [版本发布规则](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
 - [常见问题](https://ant.design/docs/react/faq-cn)
-- [Stackblitz 在线演示](https://u.ant.design/reproduce)，用于报告 bug
+- [在线演示](https://u.ant.design/reproduce)，用于报告 bug
 - [定制主题](https://ant.design/docs/react/customize-theme-cn)
 - [国际化](https://ant.design/docs/react/i18n-cn)
 - [成为社区协作成员](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
 
 ## ⌨️ 本地开发
 
-你可以使用 Gitpod 进行在线开发：
-
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/ant-design/ant-design)
-
-或者使用 opensumi.run 进行在线开发：
+推荐使用 [opensumi.run](https://opensumi.run) 进行在线开发：
 
 [![opensumi.run](https://custom-icon-badges.demolab.com/badge/opensumi-run-blue.svg?logo=opensumi)](https://opensumi.run/ide/ant-design/ant-design)
 
@@ -206,8 +204,10 @@ $ npm start
 2. [Stack Overflow](http://stackoverflow.com/questions/tagged/antd)（英文）
 3. [Segment Fault](https://segmentfault.com/t/antd)（中文）
 
-## ❤️ 赞助者 ![](https://opencollective.com/ant-design/tiers/backers/badge.svg?label=Backers&color=brightgreen) ![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)
+## Issue 赞助
 
-[![](https://opencollective.com/ant-design/tiers/backers.svg?avatarHeight=36)](https://opencollective.com/ant-design#support)
+我们使用 [Polar.sh](https://polar.sh/ant-design) 和 [Issuehunt](https://issuehunt.io/repos/3452688) 来推动您希望看到的针对 antd 的修复和改进，请查看我们的赞助列表：
 
-[![](https://opencollective.com/ant-design/tiers/sponsors.svg?avatarHeight=36)](https://opencollective.com/ant-design#support)
+<a href="https://polar.sh/ant-design"><img src="https://polar.sh/embed/fund-our-backlog.svg?org=ant-design" /></a>
+
+[![Let's fund issues in this repository](https://raw.githubusercontent.com/BoostIO/issuehunt-materials/master/v1/issuehunt-button-v1.svg)](https://issuehunt.io/repos/34526884)

@@ -34,7 +34,8 @@ const GlobalStyle: React.FC = () => {
           margin: 0 auto;
         }
 
-        .markdown p > img {
+        .markdown p > img,
+        .markdown li > img {
           margin: 34px auto;
           box-shadow: 0 8px 20px rgba(143, 168, 191, 0.35);
           display: block;
@@ -168,7 +169,7 @@ const GlobalStyle: React.FC = () => {
           border-radius: ${token.borderRadius}px;
           > pre.prism-code {
             scrollbar-width: thin;
-            scrollbar-color: unset;
+            scrollbar-gutter: stable;
             padding: ${token.paddingSM}px ${token.paddingMD}px;
             font-size: ${token.fontSize}px;
             line-height: 2;
@@ -271,7 +272,7 @@ const GlobalStyle: React.FC = () => {
         .markdown .dumi-default-table {
           &-content {
             scrollbar-width: thin;
-            scrollbar-color: unset;
+            scrollbar-gutter: stable;
           }
           table {
             margin: 0;

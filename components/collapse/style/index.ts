@@ -149,7 +149,15 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
           },
         },
 
-        [`${componentCls}-icon-collapsible-only`]: {
+        [`${componentCls}-collapsible-header`]: {
+          cursor: 'default',
+          [`${componentCls}-header-text`]: {
+            flex: 'none',
+            cursor: 'pointer',
+          },
+        },
+
+        [`${componentCls}-collapsible-icon`]: {
           cursor: 'unset',
 
           [`${componentCls}-expand-icon`]: {

@@ -1,7 +1,7 @@
 ## zh-CN
 
-最简单的用法。
+自定义前缀 `prefix` 和后缀图标 `suffixIcon`。
 
 ## en-US
 
-The most basic usage.
+Custom `prefix` and `suffixIcon`.

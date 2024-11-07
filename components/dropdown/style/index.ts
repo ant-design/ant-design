@@ -96,6 +96,12 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
           content: '""',
         },
 
+        // Makes vertical dropdowns have a scrollbar once they become taller than the viewport.
+        '&-menu-vertical': {
+          maxHeight: '100vh',
+          overflowY: 'auto',
+        },
+
         [`&-trigger${antCls}-btn`]: {
           [`& > ${iconCls}-down, & > ${antCls}-btn-icon > ${iconCls}-down`]: {
             fontSize: fontSizeIcon,
@@ -236,6 +242,8 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
           },
 
           [`${menuCls}-title-content`]: {
+            display: 'flex',
+            alignItems: 'center',
             flex: 'auto',
 
             '> a': {
@@ -251,6 +259,13 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
                 inset: 0,
                 content: '""',
               },
+            },
+
+            [`${menuCls}-item-extra`]: {
+              paddingInlineStart: token.padding,
+              marginInlineStart: 'auto',
+              fontSize: token.fontSizeSM,
+              color: token.colorTextDescription,
             },
           },
 

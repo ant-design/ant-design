@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 
-// eslint-disable-next-line import/no-unresolved
 import type { InputProps, InputRef } from '..';
 import Input from '..';
 import { resetWarned } from '../../_util/warning';

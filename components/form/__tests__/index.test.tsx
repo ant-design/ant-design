@@ -534,6 +534,38 @@ describe('Form', () => {
       expect(scrollIntoView).toHaveBeenCalledTimes(3);
     });
 
+    it('should scrollToFirstError work with focus', async () => {
+      const onFinishFailed = jest.fn();
+      const focusSpy = jest.spyOn(HTMLElement.prototype, 'focus');
+
+      const { container } = render(
+        <Form scrollToFirstError={{ block: 'center', focus: true }} onFinishFailed={onFinishFailed}>
+          <Form.Item name="test" rules={[{ required: true }]}>
+            <input />
+          </Form.Item>
+          <Form.Item>
+            <Button htmlType="submit">Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(scrollIntoView).not.toHaveBeenCalled();
+      expect(focusSpy).not.toHaveBeenCalled();
+
+      fireEvent.submit(container.querySelector('form')!);
+      await waitFakeTimer();
+
+      const inputNode = document.getElementById('test');
+      expect(focusSpy).toHaveBeenCalledWith();
+      expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
+        block: 'center',
+        focus: true,
+        scrollMode: 'if-needed',
+      });
+
+      focusSpy.mockRestore();
+    });
+
     // https://github.com/ant-design/ant-design/issues/28869
     it('should work with Upload', async () => {
       const uploadRef = React.createRef<any>();
@@ -710,7 +742,6 @@ describe('Form', () => {
       </Form>,
     );
 
-    /* eslint-disable no-await-in-loop */
     for (let i = 0; i < 3; i += 1) {
       await changeValue(0, 'bamboo');
       await changeValue(0, '');
@@ -721,7 +752,6 @@ describe('Form', () => {
       await changeValue(0, 'p');
       expect(container.querySelector('.ant-form-item-explain')?.textContent).toEqual('not a p');
     }
-    /* eslint-enable */
   });
 
   // https://github.com/ant-design/ant-design/issues/20813
@@ -1025,7 +1055,6 @@ describe('Form', () => {
   it('validation message should has alert role', async () => {
     // https://github.com/ant-design/ant-design/issues/25711
     const { container } = render(
-      // eslint-disable-next-line no-template-curly-in-string
       <Form validateMessages={{ required: 'name is good!' }}>
         <Form.Item name="test" rules={[{ required: true }]}>
           <input />
@@ -1067,7 +1096,7 @@ describe('Form', () => {
 
     for (let i = 0; i < 5; i += 1) {
       fireEvent.click(container.querySelector('button')!);
-      // eslint-disable-next-line no-await-in-loop
+
       await waitFakeTimer();
     }
 

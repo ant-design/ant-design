@@ -31,3 +31,4 @@ components/*/*.jsx
 .history
 **/*.yml
 *.html
+CHANGELOG.*.md

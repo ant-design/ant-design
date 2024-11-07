@@ -319,6 +319,7 @@ exports[`renders components/icon/demo/iconfont.tsx extend context correctly 1`] 
     <span
       class="anticon"
       role="img"
+      style="color: rgb(24, 119, 242);"
     >
       <svg
         aria-hidden="true"

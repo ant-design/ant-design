@@ -31,9 +31,8 @@ interface FieldError {
   warnings: string[];
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const ValidateStatuses = ['success', 'warning', 'error', 'validating', ''] as const;
-export type ValidateStatus = (typeof ValidateStatuses)[number];
+const _ValidateStatuses = ['success', 'warning', 'error', 'validating', ''] as const;
+export type ValidateStatus = (typeof _ValidateStatuses)[number];
 
 type RenderChildren<Values = any> = (form: FormInstance<Values>) => React.ReactNode;
 type RcFieldProps<Values = any> = Omit<FieldProps<Values>, 'children'>;

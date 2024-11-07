@@ -56,7 +56,7 @@ exports[`renders components/switch/demo/disabled.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>

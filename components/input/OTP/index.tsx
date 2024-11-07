@@ -1,18 +1,18 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { useEvent } from 'rc-util';
+import useEvent from 'rc-util/lib/hooks/useEvent';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import { getMergedStatus } from '../../_util/statusUtils';
 import type { InputStatus } from '../../_util/statusUtils';
 import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
+import type { Variant } from '../../config-provider';
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 import useSize from '../../config-provider/hooks/useSize';
 import type { SizeType } from '../../config-provider/SizeContext';
 import { FormItemInputContext } from '../../form/context';
 import type { FormItemStatusContextProps } from '../../form/context';
-import type { Variant } from '../../config-provider';
 import type { InputRef } from '../Input';
 import useStyle from '../style/otp';
 import OTPInput from './OTPInput';
@@ -24,7 +24,8 @@ export interface OTPRef {
   nativeElement: HTMLDivElement;
 }
 
-export interface OTPProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
+export interface OTPProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'onInput'> {
   prefixCls?: string;
   length?: number;
 
@@ -46,6 +47,10 @@ export interface OTPProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'on
   status?: InputStatus;
 
   mask?: boolean | string;
+
+  type?: React.HTMLInputTypeAttribute;
+
+  onInput?: (value: string[]) => void;
 }
 
 function strToArr(str: string) {
@@ -66,6 +71,8 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     status: customStatus,
     autoFocus,
     mask,
+    type,
+    onInput,
     ...restProps
   } = props;
 
@@ -143,6 +150,10 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   const triggerValueCellsChange = useEvent((nextValueCells: string[]) => {
     setValueCells(nextValueCells);
 
+    if (onInput) {
+      onInput(nextValueCells);
+    }
+
     // Trigger if all cells are filled
     if (
       onChange &&
@@ -213,6 +224,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     disabled,
     status: mergedStatus as InputStatus,
     mask,
+    type,
   };
 
   return wrapCSSVar(

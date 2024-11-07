@@ -72,6 +72,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
       [`${prefixCls}-wrapper-disabled`]: radioProps.disabled,
       [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',
       [`${prefixCls}-wrapper-in-form-item`]: isFormItemInput,
+      [`${prefixCls}-wrapper-block`]: !!groupContext?.block,
     },
     radio?.className,
     className,
@@ -83,7 +84,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
 
   return wrapCSSVar(
     <Wave component="Radio" disabled={radioProps.disabled}>
-      {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+      {}
       <label
         className={wrapperClassString}
         style={{ ...radio?.style, ...style }}
