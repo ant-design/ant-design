@@ -48,8 +48,10 @@ export default function useSelection<T extends { key: TransferKey }>(
 
   // Reset when data changed
   React.useEffect(() => {
-    setSourceSelectedKeys(filterKeys(sourceSelectedKeys, leftKeys));
-    setTargetSelectedKeys(filterKeys(targetSelectedKeys, rightKeys));
+    const sourceKeysToSelect = selectedKeys.length > 0 ? selectedKeys : sourceSelectedKeys;
+    setSourceSelectedKeys(filterKeys(sourceKeysToSelect, leftKeys));
+    const targetKeysToSelect = selectedKeys.length > 0 ? selectedKeys : targetSelectedKeys;
+    setTargetSelectedKeys(filterKeys(targetKeysToSelect, rightKeys));
   }, [flattenKeys(leftKeys), flattenKeys(rightKeys)]);
 
   return [
