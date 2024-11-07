@@ -63,6 +63,24 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
     if (label === null && !wrapperCol && formContext.labelCol) {
       if ('span' in formContext.labelCol) {
         mergedWrapperCol.offset = formContext.labelCol.span;
+      } else if (typeof formContext.labelCol.xs === 'object' && 'span' in formContext.labelCol.xs) {
+        mergedWrapperCol.xs = { offset: formContext.labelCol.xs.span, ...formContext.labelCol.xs };
+      } else if (typeof formContext.labelCol.sm === 'object' && 'span' in formContext.labelCol.sm) {
+        mergedWrapperCol.sm = { offset: formContext.labelCol.sm.span, ...formContext.labelCol.sm };
+      } else if (typeof formContext.labelCol.md === 'object' && 'span' in formContext.labelCol.md) {
+        mergedWrapperCol.md = { offset: formContext.labelCol.md.span, ...formContext.labelCol.md };
+      } else if (typeof formContext.labelCol.lg === 'object' && 'span' in formContext.labelCol.lg) {
+        mergedWrapperCol.lg = { offset: formContext.labelCol.lg.span, ...formContext.labelCol.lg };
+      } else if (typeof formContext.labelCol.xl === 'object' && 'span' in formContext.labelCol.xl) {
+        mergedWrapperCol.xl = { offset: formContext.labelCol.xl.span, ...formContext.labelCol.xl };
+      } else if (
+        typeof formContext.labelCol.xxl === 'object' &&
+        'span' in formContext.labelCol.xxl
+      ) {
+        mergedWrapperCol.xxl = {
+          offset: formContext.labelCol.xxl.span,
+          ...formContext.labelCol.xxl,
+        };
       }
     }
     return mergedWrapperCol;
