@@ -648,7 +648,7 @@ exports[`renders components/form/demo/basic.tsx extend context correctly 1`] = `
         </label>
       </div>
       <div
-        class="ant-col ant-col-16 ant-col-offset-8 ant-form-item-control"
+        class="ant-col ant-col-16 ant-form-item-control"
       >
         <div
           class="ant-form-item-control-input"
@@ -686,7 +686,7 @@ exports[`renders components/form/demo/basic.tsx extend context correctly 1`] = `
         </label>
       </div>
       <div
-        class="ant-col ant-col-16 ant-col-offset-8 ant-form-item-control"
+        class="ant-col ant-col-16 ant-form-item-control"
       >
         <div
           class="ant-form-item-control-input"

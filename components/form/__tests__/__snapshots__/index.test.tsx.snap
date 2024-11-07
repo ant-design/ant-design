@@ -1120,7 +1120,7 @@ exports[`Form form.item should support label = null 1`] = `
         </label>
       </div>
       <div
-        class="ant-col ant-col-14 ant-col-offset-4 ant-form-item-control"
+        class="ant-col ant-col-14 ant-form-item-control"
       >
         <div
           class="ant-form-item-control-input"
