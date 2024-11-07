@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { set } from 'rc-util';
 
 import type { ColProps } from '../grid/col';
 import Col from '../grid/col';
@@ -64,23 +65,20 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
       if ('span' in formContext.labelCol) {
         mergedWrapperCol.offset = formContext.labelCol.span;
       } else if (typeof formContext.labelCol.xs === 'object' && 'span' in formContext.labelCol.xs) {
-        mergedWrapperCol.xs = { offset: formContext.labelCol.xs.span, ...formContext.labelCol.xs };
+        set(mergedWrapperCol, ['sx', 'offset'], formContext.labelCol.xs.span);
       } else if (typeof formContext.labelCol.sm === 'object' && 'span' in formContext.labelCol.sm) {
-        mergedWrapperCol.sm = { offset: formContext.labelCol.sm.span, ...formContext.labelCol.sm };
+        set(mergedWrapperCol, ['sm', 'offset'], formContext.labelCol.sm.span);
       } else if (typeof formContext.labelCol.md === 'object' && 'span' in formContext.labelCol.md) {
-        mergedWrapperCol.md = { offset: formContext.labelCol.md.span, ...formContext.labelCol.md };
+        set(mergedWrapperCol, ['md', 'offset'], formContext.labelCol.md.span);
       } else if (typeof formContext.labelCol.lg === 'object' && 'span' in formContext.labelCol.lg) {
-        mergedWrapperCol.lg = { offset: formContext.labelCol.lg.span, ...formContext.labelCol.lg };
+        set(mergedWrapperCol, ['lg', 'offset'], formContext.labelCol.lg.span);
       } else if (typeof formContext.labelCol.xl === 'object' && 'span' in formContext.labelCol.xl) {
-        mergedWrapperCol.xl = { offset: formContext.labelCol.xl.span, ...formContext.labelCol.xl };
+        set(mergedWrapperCol, ['xl', 'offset'], formContext.labelCol.xl.span);
       } else if (
         typeof formContext.labelCol.xxl === 'object' &&
         'span' in formContext.labelCol.xxl
       ) {
-        mergedWrapperCol.xxl = {
-          offset: formContext.labelCol.xxl.span,
-          ...formContext.labelCol.xxl,
-        };
+        set(mergedWrapperCol, ['xxl', 'offset'], formContext.labelCol.xxl.span);
       }
     }
     return mergedWrapperCol;
