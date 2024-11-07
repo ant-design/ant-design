@@ -35,6 +35,7 @@ export interface FormItemInputProps {
   status?: ValidateStatus;
   help?: React.ReactNode;
   fieldId?: string;
+  label?: React.ReactNode;
 }
 
 const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (props) => {
@@ -51,12 +52,16 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
     fieldId,
     marginBottom,
     onErrorVisibleChanged,
+    label,
   } = props;
   const baseClassName = `${prefixCls}-item`;
 
   const formContext = React.useContext(FormContext);
 
   const mergedWrapperCol: ColProps = wrapperCol || formContext.wrapperCol || {};
+  if (label === null && formContext.wrapperCol && formContext.labelCol) {
+    mergedWrapperCol.offset = formContext.labelCol.span ?? wrapperCol?.offset;
+  }
 
   const className = classNames(`${baseClassName}-control`, mergedWrapperCol.className);
 
