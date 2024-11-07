@@ -2829,7 +2829,7 @@ Array [
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  Simple Empty
+                  No data
                 </title>
                 <g
                   fill="none"
@@ -3072,7 +3072,7 @@ Array [
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  Simple Empty
+                  No data
                 </title>
                 <g
                   fill="none"
@@ -3324,7 +3324,7 @@ Array [
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  Simple Empty
+                  No data
                 </title>
                 <g
                   fill="none"
@@ -3634,7 +3634,7 @@ Array [
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  Simple Empty
+                  No data
                 </title>
                 <g
                   fill="none"
@@ -9631,7 +9631,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  Simple Empty
+                  No data
                 </title>
                 <g
                   fill="none"
@@ -9874,7 +9874,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  Simple Empty
+                  No data
                 </title>
                 <g
                   fill="none"
@@ -10126,7 +10126,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  Simple Empty
+                  No data
                 </title>
                 <g
                   fill="none"
@@ -10436,7 +10436,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  Simple Empty
+                  No data
                 </title>
                 <g
                   fill="none"
@@ -11704,7 +11704,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
                                     <title>
-                                      Simple Empty
+                                      No data
                                     </title>
                                     <g
                                       fill="none"
@@ -12190,7 +12190,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>
-                Simple Empty
+                No data
               </title>
               <g
                 fill="none"

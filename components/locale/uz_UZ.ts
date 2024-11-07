@@ -24,7 +24,7 @@ const localeValues: Locale = {
   Table: {
     filterTitle: 'Filtr',
     filterConfirm: 'OK',
-    filterReset: 'Tshlash',
+    filterReset: 'Bekor qilish',
     filterEmptyText: 'Filtrlarsiz',
     filterCheckall: 'Barcha elementlarni tanlash',
     filterSearchPlaceholder: 'Filtrlarda qidiruv',
@@ -32,7 +32,7 @@ const localeValues: Locale = {
     selectAll: 'Barchasini tanlash',
     selectInvert: 'Tanlovni aylantirish',
     selectNone: "Barcha ma'lumotlarni tozalang",
-    selectionAll: "Barcha ma'lumotlarni tanlash",
+    selectionAll: "Barchasini tanlash",
     sortTitle: 'Tartiblash',
     expand: 'Satirni yozish',
     collapse: "Satirni yig'ish",
@@ -47,7 +47,7 @@ const localeValues: Locale = {
   },
   Modal: {
     okText: 'OK',
-    cancelText: "O'chirish",
+    cancelText: "Yopish",
     justOkText: 'OK',
   },
   Popconfirm: {
@@ -57,8 +57,8 @@ const localeValues: Locale = {
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Qidiruv',
-    itemUnit: 'элем.',
-    itemsUnit: 'элем.',
+    itemUnit: 'elem.',
+    itemsUnit: 'elem.',
     remove: 'Oʻchirish',
     selectAll: "Barch ma'lumotlarni tanlash",
     selectCurrent: 'Joriy sahifani tanlash',
@@ -67,7 +67,7 @@ const localeValues: Locale = {
     removeCurrent: "Joriy sahifani o'chirish",
   },
   Upload: {
-    uploading: 'Yuklanish...',
+    uploading: 'Yuklanmoqda...',
     removeFile: "Faylni o'chirish",
     uploadError: 'Yuklashda xatolik yuz berdi',
     previewFile: "Faylni oldindan ko'rish",
