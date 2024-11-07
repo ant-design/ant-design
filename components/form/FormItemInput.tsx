@@ -61,7 +61,9 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
   const mergedWrapperCol = React.useMemo(() => {
     const mergedWrapperCol: ColProps = { ...(wrapperCol || formContext.wrapperCol || {}) };
     if (label === null && formContext.wrapperCol && formContext.labelCol) {
-      mergedWrapperCol.offset = formContext.labelCol.span ?? wrapperCol?.offset;
+      if ('span' in formContext.labelCol) {
+        mergedWrapperCol.offset = formContext.labelCol.span;
+      }
     }
     return mergedWrapperCol;
   }, []);
