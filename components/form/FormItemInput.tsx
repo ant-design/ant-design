@@ -58,10 +58,13 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
 
   const formContext = React.useContext(FormContext);
 
-  const mergedWrapperCol: ColProps = { ...(wrapperCol || formContext.wrapperCol || {}) };
-  if (label === null && formContext.wrapperCol && formContext.labelCol) {
-    mergedWrapperCol.offset = formContext.labelCol.span ?? wrapperCol?.offset;
-  }
+  const mergedWrapperCol = React.useMemo(() => {
+    const mergedWrapperCol: ColProps = { ...(wrapperCol || formContext.wrapperCol || {}) };
+    if (label === null && formContext.wrapperCol && formContext.labelCol) {
+      mergedWrapperCol.offset = formContext.labelCol.span ?? wrapperCol?.offset;
+    }
+    return mergedWrapperCol;
+  }, []);
 
   const className = classNames(`${baseClassName}-control`, mergedWrapperCol.className);
 
