@@ -534,6 +534,38 @@ describe('Form', () => {
       expect(scrollIntoView).toHaveBeenCalledTimes(3);
     });
 
+    it('should scrollToFirstError work with focus', async () => {
+      const onFinishFailed = jest.fn();
+      const focusSpy = jest.spyOn(HTMLElement.prototype, 'focus');
+
+      const { container } = render(
+        <Form scrollToFirstError={{ block: 'center', focus: true }} onFinishFailed={onFinishFailed}>
+          <Form.Item name="test" rules={[{ required: true }]}>
+            <input />
+          </Form.Item>
+          <Form.Item>
+            <Button htmlType="submit">Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(scrollIntoView).not.toHaveBeenCalled();
+      expect(focusSpy).not.toHaveBeenCalled();
+
+      fireEvent.submit(container.querySelector('form')!);
+      await waitFakeTimer();
+
+      const inputNode = document.getElementById('test');
+      expect(focusSpy).toHaveBeenCalledWith();
+      expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
+        block: 'center',
+        focus: true,
+        scrollMode: 'if-needed',
+      });
+
+      focusSpy.mockRestore();
+    });
+
     // https://github.com/ant-design/ant-design/issues/28869
     it('should work with Upload', async () => {
       const uploadRef = React.createRef<any>();
