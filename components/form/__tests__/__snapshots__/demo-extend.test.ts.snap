@@ -2010,7 +2010,8 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx extend context c
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -2022,9 +2023,6 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx extend context c
               style="height: 0px; opacity: 0;"
             />
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -2076,7 +2074,8 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx extend context c
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -2088,9 +2087,6 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx extend context c
               style="height: 0px; opacity: 0;"
             />
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -6102,7 +6098,8 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -6115,9 +6112,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
               Buggy!
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -6161,7 +6155,8 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -6174,9 +6169,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
               Buggy!
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -6255,7 +6247,8 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -6268,9 +6261,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
               Buggy!
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -6314,7 +6304,8 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -6327,9 +6318,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
               Buggy!
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -6434,7 +6422,8 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -6447,9 +6436,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
               Buggy!
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -6506,7 +6492,8 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -6519,9 +6506,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
               Buggy!
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -6618,7 +6602,8 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -6631,9 +6616,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
               Buggy!
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -6686,7 +6668,8 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -6699,9 +6682,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
               Buggy!
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -11247,9 +11227,13 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
           </div>
         </div>
         <div
-          class="ant-form-item-extra"
+          class="ant-form-item-additional"
         >
-          We must make sure that your are a human.
+          <div
+            class="ant-form-item-extra"
+          >
+            We must make sure that your are a human.
+          </div>
         </div>
       </div>
     </div>
@@ -22983,10 +22967,14 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
           </div>
         </div>
         <div
-          class="ant-form-item-extra"
-          id="validate_other_upload_extra"
+          class="ant-form-item-additional"
         >
-          longgggggggggggggggggggggggggggggggggg
+          <div
+            class="ant-form-item-extra"
+            id="validate_other_upload_extra"
+          >
+            longgggggggggggggggggggggggggggggggggg
+          </div>
         </div>
       </div>
     </div>
@@ -23965,7 +23953,8 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -23978,9 +23967,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               Should be combination of numbers & alphabets
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -24119,7 +24105,8 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -24132,9 +24119,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               The information is being validated...
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -24346,7 +24330,8 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -24359,9 +24344,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               Should be combination of numbers & alphabets
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -28257,7 +28239,8 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -28270,9 +28253,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               Something breaks the rule.
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -28470,7 +28450,8 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -28483,9 +28464,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               Need to be checked
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -29152,7 +29130,8 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                     </div>
                   </div>
                   <div
-                    style="display: flex; flex-wrap: nowrap;"
+                    class="ant-form-item-additional"
+                    style="min-height: 24px;"
                   >
                     <div
                       class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -29165,9 +29144,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                         Please select right date
                       </div>
                     </div>
-                    <div
-                      style="width: 0px; height: 24px;"
-                    />
                   </div>
                 </div>
               </div>
@@ -30634,7 +30610,8 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -30647,9 +30624,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               Should have something
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>
@@ -33736,7 +33710,8 @@ exports[`renders components/form/demo/without-form-create.tsx extend context cor
           </div>
         </div>
         <div
-          style="display: flex; flex-wrap: nowrap;"
+          class="ant-form-item-additional"
+          style="min-height: 24px;"
         >
           <div
             class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
@@ -33749,9 +33724,6 @@ exports[`renders components/form/demo/without-form-create.tsx extend context cor
               A prime is a natural number greater than 1 that has no positive divisors other than 1 and itself.
             </div>
           </div>
-          <div
-            style="width: 0px; height: 24px;"
-          />
         </div>
       </div>
     </div>

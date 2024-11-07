@@ -118,8 +118,9 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
     indentSize,
     nodeSelectedBg,
     nodeHoverBg,
+    colorTextQuaternary,
   } = token;
-  const treeCheckBoxMarginHorizontal = token.paddingXS;
+  const treeCheckBoxMarginHorizontal = token.marginXXS;
 
   return {
     [treeCls]: {
