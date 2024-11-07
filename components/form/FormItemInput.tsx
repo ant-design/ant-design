@@ -69,9 +69,10 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
   const className = classNames(`${baseClassName}-control`, mergedWrapperCol.className);
 
   // Pass to sub FormItem should not with col info
-  const subFormContext = React.useMemo(() => ({ ...formContext }), [formContext]);
-  delete subFormContext.labelCol;
-  delete subFormContext.wrapperCol;
+  const subFormContext = React.useMemo(() => {
+    const { labelCol, wrapperCol, ...rest } = formContext;
+    return rest;
+  }, [formContext]);
 
   const inputDom: React.ReactNode = (
     <div className={`${baseClassName}-control-input`}>
