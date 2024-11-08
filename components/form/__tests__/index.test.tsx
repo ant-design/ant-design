@@ -1368,6 +1368,7 @@ describe('Form', () => {
   });
 
   it('form.item should support label = null', () => {
+    // base size
     const App: React.FC = () => (
       <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }}>
         <Form.Item label="name" name="name">
@@ -1380,6 +1381,19 @@ describe('Form', () => {
     );
     const { container } = render(<App />);
     expect(container.firstChild).toMatchSnapshot();
+
+    // more sze
+    const list = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
+    list.forEach((size) => {
+      const { container } = render(
+        <Form labelCol={{ [size]: { span: 4 } }} wrapperCol={{ span: 14 }}>
+          <Form.Item label={null}>
+            <Button>Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
+      expect(container.firstChild).toMatchSnapshot();
+    });
   });
 
   it('_internalItemRender api test', () => {
