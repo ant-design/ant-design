@@ -1413,6 +1413,50 @@ describe('Form', () => {
     });
   });
 
+  it('form.item should support label = null and labelCol.span = 24', () => {
+    // base size
+    const App: React.FC = () => (
+      <Form labelCol={{ span: 24 }} wrapperCol={{ span: 24 }}>
+        <Form.Item label="name" name="name">
+          <Input />
+        </Form.Item>
+        <Form.Item label={null}>
+          <Button>Submit</Button>
+        </Form.Item>
+      </Form>
+    );
+    const { container } = render(<App />);
+
+    const items = container.querySelectorAll('.ant-form-item');
+    const oneItems = items[0].querySelector('.ant-row')?.querySelectorAll('.ant-col');
+    expect(oneItems?.[0].className).toBe('ant-col ant-col-24 ant-form-item-label');
+    expect(oneItems?.[1].className).toBe('ant-col ant-col-24 ant-form-item-control');
+    const twoItem = items[1].querySelector('.ant-row')?.querySelector('.ant-col');
+    expect(twoItem?.className).toBe('ant-col ant-col-24 ant-form-item-control');
+
+    // more sze
+    const list = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
+    list.forEach((size) => {
+      const { container } = render(
+        <Form labelCol={{ [size]: { span: 24 } }} wrapperCol={{ span: 24 }}>
+          <Form.Item label="name" name="name">
+            <Input />
+          </Form.Item>
+          <Form.Item label={null}>
+            <Button>Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
+
+      const items = container.querySelectorAll('.ant-form-item');
+      const oneItems = items[0].querySelector('.ant-row')?.querySelectorAll('.ant-col');
+      expect(oneItems?.[0].className).toBe(`ant-col ant-form-item-label ant-col-${size}-24`);
+      expect(oneItems?.[1].className).toBe('ant-col ant-col-24 ant-form-item-control');
+      const twoItem = items[1].querySelector('.ant-row')?.querySelector('.ant-col');
+      expect(twoItem?.className).toBe(`ant-col ant-col-24 ant-form-item-control`);
+    });
+  });
+
   it('_internalItemRender api test', () => {
     const { container } = render(
       <Form>

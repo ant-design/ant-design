@@ -65,14 +65,16 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
     let mergedWrapperCol: ColProps = { ...(wrapperCol || formContext.wrapperCol || {}) };
     if (label === null && !wrapperCol && formLabelCol) {
       // base size
-      if ('span' in formLabelCol) {
+      if ('span' in formLabelCol && formLabelCol.span !== 24) {
         mergedWrapperCol.offset = formLabelCol.span;
       }
       // more size
       const list = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
       list.forEach((size) => {
         if (typeof formLabelCol[size] === 'object' && 'span' in formLabelCol[size]) {
-          mergedWrapperCol = set(mergedWrapperCol, [size, 'offset'], formLabelCol[size].span);
+          if (formLabelCol[size].span !== 24) {
+            mergedWrapperCol = set(mergedWrapperCol, [size, 'offset'], formLabelCol[size].span);
+          }
         }
       });
     }
