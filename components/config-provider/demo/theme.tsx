@@ -94,7 +94,7 @@ export default () => {
             <ColorPicker />
           </Form.Item>
         </Form.Item>
-        <Form.Item name="submit" label={null}>
+        <Form.Item name="submit" wrapperCol={{ offset: 4, span: 20 }}>
           <Button type="primary">Submit</Button>
         </Form.Item>
       </Form>

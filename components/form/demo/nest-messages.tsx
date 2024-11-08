@@ -44,7 +44,7 @@ const App: React.FC = () => (
     <Form.Item name={['user', 'introduction']} label="Introduction">
       <Input.TextArea />
     </Form.Item>
-    <Form.Item label={null}>
+    <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
       <Button type="primary" htmlType="submit">
         Submit
       </Button>

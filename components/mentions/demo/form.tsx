@@ -80,7 +80,7 @@ const App: React.FC = () => {
           ]}
         />
       </Form.Item>
-      <Form.Item label={null}>
+      <Form.Item wrapperCol={{ span: 14, offset: 6 }}>
         <Space wrap>
           <Button htmlType="submit" type="primary">
             Submit

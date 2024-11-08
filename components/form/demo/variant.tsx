@@ -7,9 +7,9 @@ import {
   Input,
   InputNumber,
   Mentions,
-  Segmented,
   Select,
   TreeSelect,
+  Segmented,
 } from 'antd';
 import type { FormProps } from 'antd';
 
@@ -112,7 +112,7 @@ const App: React.FC = () => {
         <RangePicker />
       </Form.Item>
 
-      <Form.Item label={null}>
+      <Form.Item wrapperCol={{ offset: 6, span: 16 }}>
         <Button type="primary" htmlType="submit">
           Submit
         </Button>

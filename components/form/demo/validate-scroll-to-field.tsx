@@ -12,7 +12,7 @@ const App = () => {
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 14 }}
     >
-      <Form.Item label={null}>
+      <Form.Item wrapperCol={{ offset: 6 }}>
         <Button onClick={() => form.scrollToField('bio')}>Scroll to Bio</Button>
       </Form.Item>
 
@@ -38,7 +38,7 @@ const App = () => {
         <Input.TextArea rows={6} />
       </Form.Item>
 
-      <Form.Item label={null}>
+      <Form.Item wrapperCol={{ offset: 6 }}>
         <Flex gap="small">
           <Button type="primary" htmlType="submit">
             Submit
