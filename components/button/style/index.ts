@@ -1,8 +1,25 @@
+import {
+  blue,
+  cyan,
+  geekblue,
+  gold,
+  green,
+  lime,
+  magenta,
+  orange,
+  purple,
+  red,
+  volcano,
+  yellow,
+} from '@ant-design/colors';
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
+import { GenerateStyleWithPresetColors } from 'antd/es/theme/interface';
 
+import { AggregationColor } from '../../color-picker/color';
+import { isBright } from '../../color-picker/components/ColorPresets';
 import { genFocusStyle } from '../../style';
-import type { GenerateStyle } from '../../theme/internal';
+import type { GenerateStyle, PresetColorKey } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import type { ButtonVariantType } from '../buttonHelpers';
 import genGroupStyle from './group';
@@ -65,6 +82,21 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       },
     },
   };
+};
+
+const presetColors = {
+  blue,
+  purple,
+  cyan,
+  green,
+  magenta,
+  red,
+  orange,
+  yellow,
+  volcano,
+  geekblue,
+  lime,
+  gold,
 };
 
 const genHoverActiveButtonStyle = (
@@ -440,6 +472,96 @@ const genDangerousStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   ),
 });
 
+const genPresetColorStyle: GenerateStyleWithPresetColors<ButtonToken, CSSObject> = (
+  token,
+  color,
+) => ({
+  color: presetColors[color][5],
+  boxShadow: `0 ${token.controlOutlineWidth} 0 ${presetColors[color][0]}`,
+
+  ...genSolidButtonStyle(
+    token,
+    isBright(new AggregationColor(presetColors[color][5]), '#fff') ? '#000' : '#fff',
+    presetColors[color][5],
+    {
+      background: presetColors[color][4],
+    },
+    {
+      background: presetColors[color][6],
+    },
+  ),
+
+  ...genOutlinedDashedButtonStyle(
+    token,
+    presetColors[color][5],
+    token.colorBgContainer,
+    {
+      color: presetColors[color][4],
+      borderColor: presetColors[color][4],
+    },
+    {
+      color: presetColors[color][6],
+      borderColor: presetColors[color][6],
+    },
+  ),
+
+  ...genDashedButtonStyle(token),
+
+  ...genFilledButtonStyle(
+    token,
+    presetColors[color][1],
+    {
+      background: presetColors[color][2],
+    },
+    {
+      background: presetColors[color][3],
+    },
+  ),
+
+  ...genTextLinkButtonStyle(
+    token,
+    presetColors[color][5],
+    'link',
+    {
+      color: presetColors[color][4],
+    },
+    {
+      color: presetColors[color][6],
+    },
+  ),
+
+  ...genTextLinkButtonStyle(
+    token,
+    presetColors[color][5],
+    'text',
+    {
+      color: presetColors[color][4],
+      background: presetColors[color][1],
+    },
+    {
+      color: presetColors[color][4],
+      background: presetColors[color][2],
+    },
+  ),
+
+  ...genGhostButtonStyle(
+    token.componentCls,
+    token.ghostBg,
+    presetColors[color][5],
+    presetColors[color][5],
+    token.colorTextDisabled,
+    presetColors[color][5],
+    {
+      color: presetColors[color][4],
+      borderColor: presetColors[color][4],
+    },
+    {
+      color: presetColors[color][6],
+      borderColor: presetColors[color][6],
+    },
+  ),
+});
+
 const genColorButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   const { componentCls } = token;
 
@@ -447,6 +569,14 @@ const genColorButtonStyle: GenerateStyle<ButtonToken> = (token) => {
     [`${componentCls}-color-default`]: genDefaultButtonStyle(token),
     [`${componentCls}-color-primary`]: genPrimaryButtonStyle(token),
     [`${componentCls}-color-dangerous`]: genDangerousStyle(token),
+
+    ...Object.keys(presetColors).reduce<Record<string, CSSObject>>((pre, key) => {
+      pre[`${componentCls}-color-${key}`] = genPresetColorStyle(
+        token,
+        key as Exclude<PresetColorKey, 'pink'>,
+      );
+      return pre;
+    }, {}),
   };
 };
 

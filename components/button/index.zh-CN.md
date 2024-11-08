@@ -38,6 +38,7 @@ group:
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">语法糖</code>
 <code src="./demo/color-variant.tsx" version="5.21.0">颜色与变体</code>
+<code src="./demo/color-preset.tsx" version="5.21.0">使用预设颜色</code>
 <code src="./demo/debug-color-variant" debug>调试颜色与变体</code>
 <code src="./demo/icon.tsx">按钮图标</code>
 <code src="./demo/icon-position.tsx" version="5.17.0">按钮图标位置</code>

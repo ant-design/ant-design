@@ -301,6 +301,57 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx correctly 1`] 
 </div>
 `;
 
+exports[`renders components/button/demo/color-preset.tsx correctly 1`] = `
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
+  >
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-blue ant-btn-variant-solid ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Blue
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-purple ant-btn-variant-solid ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Purple
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-cyan ant-btn-variant-solid ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Cyan
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-green ant-btn-variant-solid ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Green
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-color-magenta ant-btn-variant-solid ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Magenta
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`renders components/button/demo/color-variant.tsx correctly 1`] = `
 <div
   class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"

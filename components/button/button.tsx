@@ -10,6 +10,7 @@ import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { useCompactItemContext } from '../space/Compact';
+import { PresetColorKey } from '../theme/interface/presetColors';
 import Group, { GroupSizeContext } from './button-group';
 import type {
   ButtonColorType,
@@ -28,7 +29,7 @@ export type LegacyButtonType = ButtonType | 'danger';
 
 export interface BaseButtonProps {
   type?: ButtonType;
-  color?: ButtonColorType;
+  color?: ButtonColorType | Exclude<PresetColorKey, 'pink'>;
   variant?: ButtonVariantType;
   icon?: React.ReactNode;
   iconPosition?: 'start' | 'end';
@@ -82,7 +83,10 @@ function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigTyp
   };
 }
 
-type ColorVariantPairType = [color?: ButtonColorType, variant?: ButtonVariantType];
+type ColorVariantPairType = [
+  color?: ButtonColorType | Exclude<PresetColorKey, 'pink'>,
+  variant?: ButtonVariantType,
+];
 
 const ButtonTypeMap: Partial<Record<ButtonType, ColorVariantPairType>> = {
   default: ['default', 'outlined'],
