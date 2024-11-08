@@ -32,6 +32,7 @@ interface FormItemInputMiscProps {
 }
 
 export interface FormItemInputProps {
+  labelCol?: ColProps;
   wrapperCol?: ColProps;
   extra?: React.ReactNode;
   status?: ValidateStatus;
@@ -45,6 +46,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
   const {
     prefixCls,
     status,
+    labelCol,
     wrapperCol,
     children,
     errors,
@@ -64,7 +66,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
   const mergedWrapperCol = React.useMemo(() => {
     const formLabelCol = formContext.labelCol;
     let col: ColProps = { ...(wrapperCol || formContext.wrapperCol || {}) };
-    if (label === null && !wrapperCol && formLabelCol) {
+    if (label === null && !labelCol && !wrapperCol && formLabelCol) {
       const list = [undefined, 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
 
       list.forEach((size) => {
@@ -77,7 +79,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
         const mergedObj = typeof mergedData === 'object' ? mergedData : {};
 
         if ('span' in formObj && !('offset' in mergedObj) && formObj.span < GRID_MAX) {
-          col = set(col, size ? [size, 'offset'] : ['offset'], formObj.span);
+          col = set(col, [..._size, 'offset'], formObj.span);
         }
       });
     }
