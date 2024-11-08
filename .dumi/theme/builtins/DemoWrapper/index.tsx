@@ -3,6 +3,7 @@ import { BugOutlined, CodeOutlined, ExperimentOutlined } from '@ant-design/icons
 import { ConfigProvider, Tooltip, Button } from 'antd';
 import classNames from 'classnames';
 import { DumiDemoGrid, FormattedMessage } from 'dumi';
+import { css, Global } from '@emotion/react';
 
 import useLayoutState from '../../../hooks/useLayoutState';
 import useLocale from '../../../hooks/useLocale';
@@ -67,6 +68,13 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
         'demo-wrapper-show-debug': showDebug,
       })}
     >
+      <Global
+        styles={css`
+          :root {
+            --antd-site-api-deprecated-display: ${showDebug ? 'table-row' : 'none'};
+          }
+        `}
+      />
       <span className="all-code-box-controls">
         <Tooltip
           title={

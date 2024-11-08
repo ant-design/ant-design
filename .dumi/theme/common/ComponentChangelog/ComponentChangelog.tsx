@@ -129,8 +129,9 @@ const ParseChangelog: React.FC<{ changelog: string }> = (props) => {
 
     for (let i = 0; i < changelog.length; i += 1) {
       const char = changelog[i];
+      const isDoubleAsterisk = char === '*' && changelog[i + 1] === '*';
 
-      if (char !== '`' && char !== '*') {
+      if (char !== '`' && !isDoubleAsterisk) {
         lastStr += char;
       } else {
         let node: React.ReactNode = lastStr;
@@ -144,7 +145,7 @@ const ParseChangelog: React.FC<{ changelog: string }> = (props) => {
         lastStr = '';
         if (char === '`') {
           isQuota = !isQuota;
-        } else if (char === '*' && changelog[i + 1] === '*') {
+        } else if (isDoubleAsterisk) {
           isBold = !isBold;
           i += 1; // Skip the next '*'
         }

@@ -1,10 +1,12 @@
 import * as React from 'react';
 import { TinyColor } from '@ctrl/tinycolor';
 
+import { useLocale } from '../locale';
 import { useToken } from '../theme/internal';
 
 const Empty: React.FC = () => {
   const [, token] = useToken();
+  const [locale] = useLocale('Empty');
 
   const bgColor = new TinyColor(token.colorBgBase);
 
@@ -19,7 +21,7 @@ const Empty: React.FC = () => {
       viewBox="0 0 184 152"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <title>empty image</title>
+      <title>{locale?.description || 'Empty'}</title>
       <g fill="none" fillRule="evenodd">
         <g transform="translate(24 31.67)">
           <ellipse
