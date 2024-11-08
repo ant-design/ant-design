@@ -61,8 +61,10 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
       },
 
       // ======================== Item ========================
-      [`${componentCls}-item-group-title`]: {
-        color: groupTitleColor,
+      [`${componentCls}-item`]: {
+        '&-group-title, &-extra': {
+          color: groupTitleColor,
+        },
       },
 
       [`${componentCls}-submenu-selected`]: {
